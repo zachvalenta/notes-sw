@@ -928,6 +928,9 @@ edit
 
 🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
 
+THINGS I'M NOTICING ABOUT VSC
+* autocomplete works for any word in the workspace
+
 WORKSPACES 📜 https://code.visualstudio.com/docs/editor/multi-root-workspaces 
 * _workspace_: dir(s) in scope for search https://stackoverflow.com/a/50185038
 * create: file > 'save workspace as'

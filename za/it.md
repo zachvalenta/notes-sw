@@ -6,8 +6,6 @@
 
 ## now
 
-* set up mini23
-
 ## next
 
 ## done
@@ -267,6 +265,8 @@ INVENTORY 🗄 `/Applications`
 * menu bar: iTerm, VS Code, Brave
 * dev: iTerm, VS Code, GitUp
 * audio: cmus, Sound Source
+> have to enable keyboard volume through the app itself
+> new install instructions https://rogueamoeba.com/support/knowledgebase/?showArticle=ACE-StepByStep&product=SoundSource
 * video: VLC, Handbrake, Quicktime
 * macOS: Preview, Pages, Photos
 * music: Ableton, Spitfire Audio
@@ -471,6 +471,7 @@ DOCK
 * pins (terminal, editor, browser)
 
 KEYBOARD
+* key repeat repeat https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x
 * rampping to CMD key in Vim https://github.com/bugb/dotfiles/blob/main/.config/nvim/core/options.lua https://stackoverflow.com/questions/40990454/how-to-map-mac-command-key-in-vim https://github.com/neovim/neovim/issues/22748 http://vimcasts.org/episodes/neovim-terminal-mappings/
 * remap escape to caps locks: keyboard > modifier keys https://news.ycombinator.com/item?id=24287951 https://vim.fandom.com/wiki/Avoid_the_escape_key
 * remap escape to `jk`
@@ -554,9 +555,10 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 
 TODO https://www.dropbox.com/home/media/music
 * digits
-* photos: 22/tara/whatsapp.txt, 20/21 Di, Estefania, 16-19, 12-14, 23 (esp. camp)
+* photos: 22/tara/whatsapp.txt, 20/21 Di, Estefania, 16-19, 12-14, 23 (esp. camp), 23/12/tara
 * footwork for exfat: rm Jlin from planet mu comp, casing for traxman
 * music: louis bock, pawnshop roses, rhcp, rickie lee jones, nerd to pop singles, electronic (trip hop), blues singles, drone 📍 ethiopia
+> just do the full whack at this point
 * dev: Kettler, Ramalho, Neil
 * skate
 * WD1: photos, ML, digits, documentation/real-estate/renting

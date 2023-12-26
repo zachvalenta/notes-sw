@@ -13,10 +13,7 @@
 
 ---
 
-UTILS
-* delta
-* Neogit
-* https://news.ycombinator.com/item?id=34301543
+* lazygit
 
 DONE
 * _21_: prepopulate commit msg
@@ -63,6 +60,7 @@ sections https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
 ## design
 
+* future https://blog.waleedkhan.name/git-ui-features/
 * monorepo perf https://www.git-tower.com/blog/git-performance/ https://monadical.com/posts/from-chaos-to-cohesion.html
 * distributed: less network latency than centralized https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 * full version of repo history https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
@@ -804,10 +802,10 @@ PORCELAIN
 * _bit_: autcomplete https://github.com/chriswalz/bit
 * _forgit_: good UI, clunky install https://github.com/wfxr/forgit#-features
 * _gitsigns_: ✅ Neovim, similiar to vim-fugitive, catppuccin integration https://github.com/lewis6991/gitsigns.nvim
-* _lazygit_: popular, good UI https://github.com/jesseduffield/lazygit
+* _lazygit_: popular, good UI https://github.com/jesseduffield/lazygit https://github.com/catppuccin/lazygit
 * _magit_: great but Emacs-only https://github.com/magit/magit https://github.com/dandavison/delta/issues/194#issuecomment-636001812 https://emacsair.me/2017/09/01/magit-walk-through/
-* _Neogit_: magit port https://github.com/NeogitOrg/neogit
-* _vim-fugitive_: https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI
+* _Neogit_: ✅ magit port https://github.com/NeogitOrg/neogit
+* _vim-fugitive_: ✅ https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI
 * _vimagit_: https://github.com/jreybert/vimagit
 
 REPO BROWSER

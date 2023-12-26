@@ -71,27 +71,6 @@ firms
 * _government_: https://twitter.com/patio11/status/1284644858582335488 https://federalnewsnetwork.com/tom-temin-commentary/2020/01/irs-programming-mystery-continues/?mc_cid=aba7fea3bb&mc_eid=85dafbe485 GSA https://news.ycombinator.com/item?id=24789070 https://marginalrevolution.com/marginalrevolution/2020/10/should-government-improve-the-quality-of-its-software.html
 * _academia_: https://chadaustin.me/2017/05/writing-a-really-really-fast-json-parser/ https://swtch.com/~rsc/ http://terri.zone12.com/me/resume/ https://news.ycombinator.com/item?id=23891838 https://lwn.net/Articles/827180/ 'ecosystem literacy' https://missing.csail.mit.edu/about/
 
-## profile
-
-* air22: keymap opts fmt
-* clean up bp
-* put zsh files into own directory
-* notes
-* EOW: notes, logs
-* get UM email out of air22 gitconfig
-
-get algos project working and align Python versions btw pyenv python and pipx python
-* use pip to install poetry
-* or use pip to install pipx
-* read up https://stackoverflow.com/questions/68735503/how-does-pipx-know-which-python-version-to-use
-
----
-
-* site
-* dataclerk
-* bin / music-prompt
-* Ramalho
-
 ## leads
 
 🗄

@@ -1952,7 +1952,7 @@ EXPLORATORY PROGRAMMING
 ---
 
 https://bernsteinbear.com/blog/simple-python-repl/
-* https://github.com/Textualize/rich https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/
+* https://github.com/Textualize/rich https://github.com/catppuccin/python https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/
 * https://docs.python.org/3/tutorial/interpreter.html
 * https://docs.python.org/3/tutorial/interactive.html
 * https://docs.python.org/3/tutorial/appendix.html#interactive-mode
@@ -4360,6 +4360,12 @@ VERSION INHERITANCE
 * pipx: installed by Homebrew but can/will have different Python version as dependency
 * Poetry: inherits from pipx
 * project: inherits from Poetry (e.g. qing/send2track)
+```txt
+get algos project working and align Python versions btw pyenv python and pipx python
+* use pip to install poetry
+* or use pip to install pipx
+* read up https://stackoverflow.com/questions/68735503/how-does-pipx-know-which-python-version-to-use
+```
 
 ANACONDA
 * it's just some random company https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/

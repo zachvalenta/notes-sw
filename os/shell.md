@@ -685,7 +685,7 @@ $ color p<TAB><TAB>
 
 ZELLIJ 📜 https://zellij.dev/documentation/
 > quick resize of panes = Zellij might be better than using Vim splits
-* plugins: Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45
+* plugins: Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45 Catpppuccin https://github.com/catppuccin/zellij
 * workaround for keybinding conflicts w/ Vim https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:45
 * scrollback https://zellij.dev/screencasts/
 * _normal mode_: workaround for not having to constantly switch back to this https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:00
@@ -865,6 +865,7 @@ PROMPT
 ITERM 📜 https://iterm2.com/documentation.html
 https://news.ycombinator.com/item?id=35126280
 * conf: `$HOME/.config/iterm2/AppSupport -> /Users/zach/Library/Application Support/iTerm2`
+* allow file access: security > full disk access
 * getting help https://gitlab.com/gnachman/iterm2/-/issues/7517
 * fullscreen: `CMD ENTER`
 * fullscreen pane: `SHIFT CMD ENTER` https://stackoverflow.com/questions/13243933/iterm2-how-to-expand-split-pane-temporarily
