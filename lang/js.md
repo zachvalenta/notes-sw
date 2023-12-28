@@ -2,6 +2,8 @@
 
 ## 参考
 
+📙 Eloquent Javascript
+
 ## now
 
 ## next
@@ -26,7 +28,7 @@ taxonomy
 * _CRUD-and-forms_: Django https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/ 
 * _vanilla_: https://github.com/bradtraversy/vanillawebprojects https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies
 * _HTML-only_: htmx
-* _jQuery-esque_: https://arp242.net/jquery.html Alpine https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/#building-interactive-interfaces-in-your-django-pages-with-alpinejs https://news.ycombinator.com/item?id=36697366
+* _jQuery-esque_: https://arp242.net/jquery.html Alpine https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/#building-interactive-interfaces-in-your-django-pages-with-alpinejs https://news.ycombinator.com/item?id=36697366 https://news.ycombinator.com/item?id=39580843
 * _React-esque_: Vue, Angular
 * _React-lite_: Mithril https://mithril.js.org https://news.ycombinator.com/item?id=24368689 Svelte https://svelte.dev/ https://news.ycombinator.com/item?id=24363261
 * _full-stack_: Next, Redwood, sock-puppet https://macwright.com/2020/10/28/if-not-spas.html
@@ -37,6 +39,7 @@ taxonomy
 * PETAL, Alpine, LiveView, Hotwire, htmx https://news.ycombinator.com/item?id=30325030 https://www.thoughtworks.com/radar/techniques?blipid=202203006
 
 SPA tradeoffs
+* no one cares about page reloads https://news.ycombinator.com/item?id=39471221
 * JS framework vendor lock-in https://news.ycombinator.com/item?id=34613039
 * history https://www.pzuraq.com/blog/four-eras-of-javascript-frameworks
 * initial pageload, SEO, browser history management, analytics https://www.thoughtworks.com/radar/techniques?blipid=202203006
@@ -68,6 +71,9 @@ SPA tradeoffs
 
 > For my rewrite of the client, I’m going to skip the drama and just use htmx. Render Django templates server-side, include a single JS script, thrown in some HTML attributes, distinguish between full page requests vs. requests for a partial with updated data, and call it a day. No TypeScript, no Webpack, none of that nonsense. If I need special interactivity I can throw in some hyperscript. https://news.ycombinator.com/item?id=38517099
 
+* internals https://www.youtube.com/watch?v=javGxN-h9VQ
+* https://leanrada.com/htmz/
+* https://news.ycombinator.com/item?id=38952214
 https://testdriven.io/courses/django-htmx/
 https://github.com/bitswired/rustgpt
 content negotiation https://news.ycombinator.com/item?id=38338033

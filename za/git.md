@@ -14,6 +14,7 @@
 ---
 
 * lazygit
+* https://jvns.ca/blog/2024/02/16/popular-git-config-options/
 
 DONE
 * _21_: prepopulate commit msg
@@ -32,6 +33,7 @@ DONE
 
 ---
 
+* https://jvns.ca/blog/2024/01/26/inside-git/
 * https://jvns.ca/blog/2023/11/23/branches-intuition-reality/
 * internals https://www.leshenko.net/p/ugit/ https://jvns.ca/blog/2023/09/14/in-a-git-repository--where-do-your-files-live-/
 * https://jvns.ca/blog/2023/11/01/confusing-git-terminology/
@@ -224,6 +226,7 @@ tags
 
 * all commits that touched LOC: `log -Lstart,end:path/to/file` https://stackoverflow.com/a/27108677
 * overview of commits: `shortlog -sne`
+* color fmt https://stackoverflow.com/questions/5889878/color-in-git-log https://git-scm.com/docs/git-config#Documentation/git-config.txt-color https://github.com/zachvalenta/bin-mini23/commit/5fba7f8e3d24a449e18287ba884619571340bea0
 
 ---
 
@@ -792,8 +795,7 @@ GUI
 PAGER / DIFFVIEW
 * set to use external tool via `git difftool -help` 📙 Chacon [2.54]
 * _diff-so-fancy_: ✅ https://github.com/so-fancy/diff-so-fancy
-* _delta_: diffs/filenames were too dark https://github.com/dandavison/delta
-* node version https://github.com/banga/git-split-diffs https://news.ycombinator.com/item?id=27007844
+* _delta_: diffs/filenames were too dark https://github.com/dandavison/delta node version https://news.ycombinator.com/item?id=27007844
 * _difftastic_: 🎯 https://github.com/Wilfred/difftastic
 * _diffview_: 🎯 neovim https://github.com/sindrets/diffview.nvim https://www.youtube.com/watch?v=aJikrPnTOtI
 * _dunk_: https://github.com/darrenburns/dunk

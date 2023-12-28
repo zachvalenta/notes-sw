@@ -142,6 +142,7 @@ FQDN
 📜 https://httpwg.org/specs/
 🔍 dummy endpoints https://example.org/ https://http.cat/ https://httpstat.us https://httpbin.org/ https://dogapi.dog/
 📚
+* Eloquent Javascript
 * Evans http
 * Gourley http
 * Hafner where wizards stay up late
@@ -362,6 +363,7 @@ security https://securityheaders.com/
 🗄 `shell.md` userland
 
 https://github.com/qustavo/httplab
+https://github.com/usebruno/bruno
 
 HTTPIE 📜 https://httpie.org/doc
 * no ability to yet config base URL https://github.com/httpie/httpie/pull/1377
@@ -385,7 +387,8 @@ echo '{ "user": { "name": "john", "age": 10 } }' | http httpbin.org/post
 ```
 
 CURL
-* guide https://catonmat.net/cookbooks/curl
+* https://github.com/rs/curlie
+* guide https://catonmat.net/cookbooks/curl https://everything.curl.dev/
 ```sh
 # basic
 curl -X <method> <URL>
@@ -559,6 +562,8 @@ ssh -NL local-port:env-host.domain.io:remove-port env-jumpbox.domain.io
 ```
 
 za
+* https://github.com/quantumsheep/sshs
+* https://www.youtube.com/watch?v=5JvLV2-ngCI
 * https://news.ycombinator.com/item?id=37240187
 * https://tech.marksblogg.com/hardening-ssh.html
 * use another shell on remote https://github.com/xxh/xxh

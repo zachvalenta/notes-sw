@@ -8,8 +8,14 @@
 
 ## next
 
+---
+
+* sync `yin` to phone
+* replace previous (huge) email export with personal only https://www.google.com/search?hl=en&q=gmail%20export%20only%20subset https://webapps.stackexchange.com/a/67379
+
 ## done
 
+* _24_: port media/admin from Dropbox to mini23 and backup mini23
 * _23_: mbp14 battery starts dying, buy mini23, port to mini23
 * _22_: port from `linux.md`, buy air22
 
@@ -52,15 +58,35 @@ LINUX https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=3418050
 
 ## peripherals
 
+🗄️ `aesthetics.md` home design
+
+ZA
+* mouse: magic mouse, keychron m3 https://www.keychron.com/products/keychron-m3-wireless-mouse https://www.nytimes.com/wirecutter/reviews/best-wireless-mouse/
 * cooling pad for mbp2014 https://www.amazon.com/gp/product/B00NNMB3KS
 * keep Teams active :) https://news.ycombinator.com/item?id=34273107
 
+KEYBOARDS https://shifthappens.site/#story-of-a-photo
+* keychron https://archive.vn/pjhjh
+* tray https://www.amazon.com/VIVO-Computer-Keyboard-Platform-MOUNT-KB05E/dp/B07HFDJCSL
+* mechanical https://www.youtube.com/results?search_query=mechanical+keyboard+for+macos https://www.reddit.com/r/MechanicalKeyboards/comments/89fbk4/whats_all_the_hype_about_mechanical_keyboards_im/?rdt=56069
+* mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 try this one https://nuphy.com/products/halo75?variant=40300388941933 https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/
+* layers https://news.ycombinator.com/item?id=34069927
+* wrist rest https://news.ycombinator.com/item?id=34276226
+* moonlander https://news.ycombinator.com/item?id=34070425
+* Linux vs. Macos https://www.youtube.com/watch?v=GKoz7mm2tNI
+* chicklet https://www.youtube.com/watch?v=8jM1brvJhzg 5:20 butterfly started with 2015 12' Macbook https://www.theverge.com/2020/5/4/21246223/macbook-keyboard-butterfly-magic-pro-apple-design https://support.apple.com/keyboard-service-program-for-mac-notebooks returned to normal scissor keyboard (aka 'magic') with 2020 16' Macbook Pro https://www.wsj.com/articles/apple-updates-ipad-macbook-air-with-new-keyboard-11584538891
+* remapping https://missing.csail.mit.edu/2019/os-customization/
+* _stenography_: = transcription https://www.openstenoproject.org/plover/
+* _dead key_: for umlats and tildes
+
 MONITOR https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
 * config on macOS https://news.ycombinator.com/item?id=34487066
+* webcam https://www.nytimes.com/wirecutter/reviews/the-best-webcams/
+* https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/ https://www.nytimes.com/wirecutter/reviews/best-monitors/
 * 1080p vs. 4k for readability https://news.ycombinator.com/item?id=23551983 
 * https://www.apple.com/mac-mini/specs/
-* _Dell S2318HN_: $175, 23", 1080p
-* _Dell U3223QE_: $725, 27", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding
+* _Dell S2318HN_: ✅ $175, 23", 1080p
+* _Dell U3223QE_: $725, 32", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding
 * _Dell S2722QC_: $225, 27", 4k https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding
 * _OLED_: most accurate, best for viewing from non-direct angle https://www.tomsguide.com/us/what-is-oled,news-25120.html
 
@@ -90,22 +116,11 @@ USB https://en.wikipedia.org/wiki/USB
 * _Thunderbolt_: https://www.pcmag.com/news/thunderbolt-3-vs-usb-c-whats-the-difference
 * works w/ USB-C https://www.youtube.com/watch?v=H4Z67HfHkN4 6:00
 
-KEYBOARDS https://shifthappens.site/#story-of-a-photo
-* mechanical https://www.youtube.com/results?search_query=mechanical+keyboard+for+macos https://www.reddit.com/r/MechanicalKeyboards/comments/89fbk4/whats_all_the_hype_about_mechanical_keyboards_im/?rdt=56069 https://www.amazon.com/gp/product/B09KG6MSVH
-* layers https://news.ycombinator.com/item?id=34069927
-* wrist rest https://news.ycombinator.com/item?id=34276226
-* moonlander https://news.ycombinator.com/item?id=34070425
-* Linux vs. Macos https://www.youtube.com/watch?v=GKoz7mm2tNI
-* https://www.youtube.com/watch?v=ktMe7azlhic
-* chicklet https://www.youtube.com/watch?v=8jM1brvJhzg 5:20 butterfly started with 2015 12' Macbook https://www.theverge.com/2020/5/4/21246223/macbook-keyboard-butterfly-magic-pro-apple-design https://support.apple.com/keyboard-service-program-for-mac-notebooks returned to normal scissor keyboard (aka 'magic') with 2020 16' Macbook Pro https://www.wsj.com/articles/apple-updates-ipad-macbook-air-with-new-keyboard-11584538891
-* mechanical keyboard cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191
-* remapping https://missing.csail.mit.edu/2019/os-customization/
-* _stenography_: = transcription https://www.openstenoproject.org/plover/
-* _dead key_: for umlats and tildes
-
 ## phone
 
-Android
+🗄️ `km.md` music
+
+ANDROID
 * main: keep, files by google, chrome, calls
 * social: whatsapp, messages, gmail, slack, zoom, wechat, contacts, signal
 > music mgmt via Android File Transfer on macOS
@@ -114,9 +129,11 @@ Android
 * language: word reference, easy voice, vlc, libby, overdrive, translate, pleco
 * chess/golf: drive, camera, video frame player, chess clock, chess, lichess
 * util: clock, interval timer, youtube, play tube, latch, monzo, labcoat, google home, google authenticate
+* file manager https://github.com/zhanghai/MaterialFiles
 
 ---
 
+* iPhone keyboard https://www.clicks.tech/
 * dumb https://news.ycombinator.com/item?id=34415704
 * Pine64, Librem, Power, RISC-V ISA https://news.ycombinator.com/item?id=26396582 https://news.ycombinator.com/item?id=30760883
 * on not having a phone https://www.alvarez.io/posts/living-like-its99/
@@ -355,8 +372,9 @@ VLC 📜 https://wiki.videolan.org/Mac_OS_X/ https://www.maketecheasier.com/mast
 
 ## dev
 
-processor
+PROCESSOR
 * _Rosetta_: gets Intel apps to work on M1 https://news.ycombinator.com/item?id=30799686 https://news.ycombinator.com/item?id=31696447
+* installed on mini23 for Android File Transfer
 * iTerm/Terminal > get info > open using Rosetta
 ```sh
 # print architecture
@@ -537,32 +555,25 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 
 🗄 `db.md` data eng, Postgres, SQLite
 
-|  item           | location | date  | contents                         | to            |
-|-----------------|----------|-------|----------------------------------|---------------|
-| digits          | `zvmac`  | 19.07 | pw                               | safe, lockbox |
-| phone           | -        | 22.03 | pictures, msgs                   | `zvmac`       |
-| calendar        | -        | 22.10 |                                  | `zvmac`       |
-| email           | -        | 22.01 |                                  | `ExFatMain`   |
-| `zvmac`         | mac      | 22.10 | `jay` `sw` `za`                  | `ExFatMain`   |
-|                 |          | 22.10 |                                  | Dropbox       |
-| `music-usb`     | mac      | 23.03 | music                            | `ExFatMain`   |
-|                 |          | 23.03 |                                  | Dropbox       |
-|                 |          | 23.01 |                                  | `MUSIC-USB-2` |
-| `Exfat-Main`    | flat     | 22.04 | `zvmac` + docs, exported, media  | `WD1`         |
-|                 |          | 22.10 |                                  | Dropbox       |
-| `WD1`           | safe     | 19.08 | `Exfat-Main`                     | `WD2`         |
-| `WD2`           | lockbox  | 20.06 | `WD1`                            |               |
+|  ITEM         | LOCATION | DATE  | CONTENTS   | TO            |
+|---------------|----------|-------|------------|---------------|
+| digits        | mini23   | 19.07 | pw         | safe, lockbox |
+| calendar      | google   | 24.02 |            | mini23        |
+| email         | google   | 22.02 |            | mini23        |
+| mini23        | -        |       | fs         |               |
+| air22         | -        | ----- | mini23     |               |
+| `ExFatMain`   | desk     | 24.02 | mini23     |               |
+| `WD1`         | safe     | 24.02 | mini23     |               |
+| `WD2`         | lockbox  | 20.06 | mini23     |               |
+| `music-usb`   | desk     | ----- | `yin`      |               |
+| `music-usb-2` | desk     | 24.02 | `yin`      |               |
 
-TODO https://www.dropbox.com/home/media/music
+TODO
+* yin: far (cleanup = all) rnb (80s) rap (nyc) za (gospel) + singles, cut copy to pop, girl talk, lcd soundsystem, laurel halo, larry young, julee cruise, jim croce, pointer sisters, jackie wilson, bobby bland, rotary connection, sza, genesis, fugazi, allmans, waylon, jerry jeff walker
 * digits
-* photos: 22/tara/whatsapp.txt, 20/21 Di, Estefania, 16-19, 12-14, 23 (esp. camp), 23/12/tara
-* footwork for exfat: rm Jlin from planet mu comp, casing for traxman
-* music: louis bock, pawnshop roses, rhcp, rickie lee jones, nerd to pop singles, electronic (trip hop), blues singles, drone 📍 ethiopia
-> just do the full whack at this point
-* dev: Kettler, Ramalho, Neil
-* skate
-* WD1: photos, ML, digits, documentation/real-estate/renting
-* piano: Cardim brazilian, Harrison rnb, Harrison pop 01 theory, Harrison blues
+* golf: swings
+* music: Hilton basics
+* mat: Kernighan golang Connoly database Luksa kubernetes
 
 SEMANTICS
 * _transfer_: mv data from A to B
@@ -646,6 +657,32 @@ Time Machine
 * list: `tmutil listlocalsnapshotdates` https://forums.macrumors.com/threads/how-to-delete-time-machine-local-backups-on-high-sierra.2073998/
 * filepath: on my machine stored in `Volums/.com.apple.TimeMachine.localsnapshots` https://robservatory.com/disable-local-time-machine-backups-on-laptops/
 * can always disable TM backups from System Preferences, which will start clearing out local backups
+
+## PDF
+
+---
+
+* grep https://github.com/darrenldl/docfd
+* Sioyek https://news.ycombinator.com/item?id=34069804
+* https://docs.racket-lang.org/quad/
+* Markdown https://docs.racket-lang.org/quad/
+* https://rtpg.co/2016/09/17/make-an-ebook.html
+* _design_: https://news.ycombinator.com/item?id=24108950 https://gds.blog.gov.uk/2018/07/16/why-gov-uk-content-should-be-published-in-html-and-not-pdf/
+* _annotation_: PDF Expert, Flexcil, https://news.ycombinator.com/item?id=23230218 https://github.com/xournalpp/xournalpp
+* _archival_: https://github.com/danburzo/percollate https://github.com/pirate/ArchiveBox
+* _readers - macOS_: PDF Expert (freemium version won't let you save) PDF Element ($90/year) Preview (search doesn't seem to work for most documents https://duckduckgo.com/?q=macos+preview+search+doesn%27t+work&atb=v161-1&ia=web text in sidebar doesn't correspond to hightlight, some hightlights produce no text in sidebar, can't enter emoji into notes, limited keyboard shortcuts) Nitro PDF
+* _to plain text_: https://github.com/axa-group/Parsr https://github.com/jsvine/pdfplumber
+* _from plain text_: http://richardmavis.info/using-web-technologies-to-print-a-book https://coreyburmeister.com/continuous-integration-and-deployment-for-my-resume/
+* _from HTML_: https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.princexml.com/
+* _split_: select subset and drag into Finder
+https://github.com/jorisschellekens/borb
+https://news.ycombinator.com/item?id=26691626
+* _ereader_ https://johnfactotum.github.io/foliate/
+[PDF is bad]()
+* PDF reader w/ Vim bindings: Zathura http://jhshi.me/2016/03/09/zathura-pdf-viewer-for-vim-lovers/index.html#.Xg4gThdKh-U not available on macOS https://www.reddit.com/r/vim/comments/3prfd0/pdf_reader_with_vim_keybindings_for_mac_osx/
+* https://github.com/burtonator/polar-bookshelf https://pwmt.org/projects/zathura/ https://goodreader.com/
+* mobile: [Joplin](https://github.com/laurent22/joplin), IAWriter
+* https://www.pdfa.org/a-technical-and-cultural-assessment-of-the-mueller-report-pdf/
 
 ## reimage
 

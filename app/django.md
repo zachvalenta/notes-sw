@@ -12,6 +12,8 @@
 
 ---
 
+htmx
+
 COURSES 🗄 `system.md`
 * 📙 Vincent beginners
 * 📙 Vincent api
@@ -20,6 +22,8 @@ COURSES 🗄 `system.md`
 * 📹 https://www.youtube.com/channel/UCRM1gWNTDx0SHIqUJygD-kQ/videos https://cur.at/bVI7ivw?m=email&sid=mK7DmLE
 
 CLEAN UP
+* https://www.youtube.com/@DjangoConUS/videos
+* https://blog.pecar.me/django-sqlite-benchmark
 * framework design https://lukeplant.me.uk/blog/posts/mvc-is-not-a-helpful-analogy-for-django/
 * https://spookylukey.github.io/django-views-the-right-way/
 * https://lukeplant.me.uk/blog/posts/mvc-is-not-a-helpful-analogy-for-django/
@@ -410,6 +414,7 @@ Book.objects.filter(author__age=27)
 
 ## admin
 
+* https://roman.pt/posts/django-admin-and-service-layer/
 * https://testdriven.io/blog/customize-django-admin/
 * https://github.com/koleror/django-admin-views
 * https://www.youtube.com/watch?v=CgJziscOafw
@@ -503,6 +508,7 @@ class Post(models.Model):
 clean up
 * select related, prefetch related https://www.youtube.com/watch?v=TzgZBg7oXNA
 * use count instead of len() https://docs.djangoproject.com/en/3.2/ref/models/querysets/#django.db.models.query.QuerySet.count
+* https://github.com/PaulGilmartin/django-queryhunter
 * https://dev.to/amitness/django-orm-if-you-already-know-sql-k80
 * https://davit.tech/django-queryset-examples/#section-comparsion
 * prefetch https://www.laac.dev/blog/five-common-django-mistakes
@@ -573,6 +579,7 @@ migrate <app> <num>  # rollback
 migrate <app>        # reapply
 ```
 clean up
+* https://django-migration-zero.readthedocs.io/en/latest/
 * https://docs.djangoproject.com/en/3.0/howto/initial-data/
 * https://github.com/Brobin/django-seed https://eli.thegreenplace.net/2014/02/15/programmatically-populating-a-django-database
 * https://eli.thegreenplace.net/2014/02/20/clearing-the-database-with-django-commands
@@ -629,6 +636,7 @@ misc
 
 # ZA
 
+* core dev https://marijkeluttekes.dev/blog/articles/2024/01/25/a-simple-approach-to-running-django-core-locally/
 * pre-commit https://learndjango.com/tutorials/pre-commit-django
 * internationalization https://testdriven.io/blog/multiple-languages-in-django/
 * profiling, startup https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/

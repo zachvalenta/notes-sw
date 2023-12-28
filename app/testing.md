@@ -32,6 +32,7 @@ rf
 
 # INTEGRATION
 
+* use actual deps instead of mocks https://testcontainers.com/ https://news.ycombinator.com/item?id=39531536
 * testing object store (S3) https://www.sanjaysiddhanti.com/2020/04/08/s3testing/ https://www.youtube.com/watch?v=NBICMF0i4Ok
 > Google runs Disaster Recovery Training annually (DiRT) where security teams are tasked with simulating these “black swan” events. Seems like this practice needs to expand to more industries. https://news.ycombinator.com/item?id=34149340
 
@@ -59,6 +60,7 @@ https://www.semicolonandsons.com/
 * lots of test data https://gogognome.nl/how-to-write-tests-that-need-a-lot-of-data.html https://sqlfordevs.com/fill-table-test-data
 
 approaches
+* seed https://tla.wtf/posts/django-seed-db/
 * get subset of data for testing https://github.com/Wisser/Jailer
 * clone https://github.com/postgres-ai/database-lab-engine
 * db as normal and eat the speed costs https://changelog.com/podcast/145 https://corecursive.com/045-david-heinemeier-hansson-software-contrarian/ 48:00
@@ -333,3 +335,4 @@ class HelloWorldUser(HttpUser):
 
 https://github.com/wg/wrk https://github.com/giltene/wrk2
 https://news.ycombinator.com/item?id=35781728
+https://github.com/grafana/k6

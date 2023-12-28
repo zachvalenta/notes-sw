@@ -10,17 +10,13 @@
 
 ## next
 
----
-
-* Datadog for CRD
-
 ## DONE
 
 * _20_: Heroku (simple Django app)
 * _18_: Cloud Foundry (Dark Canary)
 * _17_: try out Terraform and AWS for Comcast interview
 
-# AWS
+# 📦 AWS
 
 ⛩ https://console.aws.amazon.com/console/home
 🔍 https://www.expeditedssl.com/aws-in-plain-english
@@ -73,7 +69,6 @@ za
 * _Glue_: run ETL using Spark https://aws.amazon.com/blogs/aws/aws-glue-version-2-0-featuring-10x-faster-job-start-times-and-1-minute-minimum-billing-duration/
 * _KMS_: password vault
 * _SES_: email https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/
-* _CloudFormation_: deployment
 * _CloudWatch_: monitoring if->then
 * e.g. if Lambda throws error then raise alarm https://www.youtube.com/watch?v=lHWrAAzoxJA
 * e.g. if ECS Kafka consumer writes log then forward to Datadog
@@ -216,7 +211,7 @@ FILE
 * _S3_: obj storage
 * file client https://news.ycombinator.com/item?id=35155944
 * Backblaze as alternative https://news.ycombinator.com/item?id=26427333
-* scale https://news.ycombinator.com/item?id=36894932
+* scale https://news.ycombinator.com/item?id=36894932 https://www.allthingsdistributed.com/2023/07/building-and-operating-a-pretty-big-storage-system.html
 * _bucket_: holds obj https://www.youtube.com/watch?v=Ia-UEYYR44s 15:50
 * don't have to work about file systems or disk space https://www.youtube.com/watch?v=Ia-UEYYR44s 14:50
 * can take 0.5 million RPS https://www.dataengineeringpodcast.com/upsolver-data-lake-database-administrator-episode-135/ 13:30
@@ -248,18 +243,21 @@ tighten perms for S3 buckets
 }
 ```
 
-# CONFIG MGMT
+# 🧮 CONFIG MGMT
 
 🗄
 * `security.md` secrets mgmt
 * `shell.md` profiles
+* `system.md` deployment
 
-config mgmt in general
-* _config mgmt_: provision server remotely
 * SQL https://news.ycombinator.com/item?id=28554089
-* _other tools_: Ansible-like (Puppet, Chef, Salt) https://github.com/Fizzadar/pyinfra https://www.pythonpodcast.com/pyinfra-configuration-management-episode-270/ http://scriptedconfiguration.org/ https://github.com/comtrya/comtrya https://www.youtube.com/watch?v=TNlDSG1iDW8
+* Ansible-like (Puppet, Chef, Salt)
+* https://github.com/Fizzadar/pyinfra https://www.pythonpodcast.com/pyinfra-configuration-management-episode-270/
+* http://scriptedconfiguration.org/ https://github.com/comtrya/comtrya https://www.youtube.com/watch?v=TNlDSG1iDW8
+* _CloudFormation_: deployment
+* _config mgmt_: provision server remotely
 
-remote execution
+REMOTE EXECUTION
 * subprocess, sultan
 * _Paramiko_: https://github.com/paramiko/paramiko
 * _Fabric_: execute script on server; apparently not meant for fully-fledged config mgmt https://stackoverflow.com/questions/39370364/when-to-use-fabric-or-ansible but can/could be used with Ansible (article doesn't explain why not just use Ansible and is undated)
@@ -344,7 +342,130 @@ localhost | SUCCESS => {
 }
 ```
 
+## secrets
+
+🗄
+* `infra.md` config mgmt
+* `shell.md` profiles
+
+* _secret_: sensitive auth creds (db user/pass, AWS IAM roles) https://testdriven.io/blog/managing-secrets-with-vault-and-consul/#what-is-vault
+* anything you can't version control
+* don't use env var?! https://news.ycombinator.com/item?id=34055914
+* scan Github https://github.com/eth0izzle/shhgit https://github.com/kootenpv/gittyleaks https://github.com/zricethezav/gitleaks
+* _secrets mgmt_: instead of passing around over email, use a tool for SSoT / audit trail / encryption https://testdriven.io/blog/managing-secrets-with-vault-and-consul/#what-is-vault
+* https://news.ycombinator.com/item?id=34083366
+
+sops 📜 https://github.com/mozilla/sops
+* = create encrypted secrets file for version control https://www.youtube.com/watch?v=AAUJjwdCx4I
+* only values are encrypted
+* workflow
+```yaml
+# config: `.sops.yaml` [1:50]
+creation_rules:
+    - path_regex: path/to/files # path to files that sops will encrypt
+      kms/age: <public_key>     # public key to use
+```
+```sh
+# open secrets file as human-readable to edit
+sops my-secrets.yaml
+# file encrypted viewed otherwise
+bat my-secrets.yaml
+```
+
+---
+
+https://github.com/Infisical/infisical
+* https://github.com/tellerops/teller
+> Teller is an open-source universal secret manager for developers that ensures the correct environment variables are set when starting an application. However, it's not a vault itself — it's a CLI tool that connects to a variety of sources, ranging from cloud secrets providers to third-party solutions like HashiCorp Vault to local environment files. Teller has additional functionality to scan for vault-kept secrets in your code, to redact secrets from logs, to detect drift between secrets providers and to sync between them. Given the sensitivity of accessing secrets, we can't emphasize enough the need to secure the supply chain for open-source dependencies, but we appreciate how easy the CLI is to use in local development environments, CI/CD pipelines and deployment automation.
+* _KMS_: AWS service for storing encryption keys https://www.youtube.com/watch?v=eIvbUU8VH30
+
+local dev and keeping secrets out of app/dotfiles
+* app env: app uses `.env` + alias that when you nav to app dir cp `.env` from outside dotfiles
+* shell env: source `.env.profile` from outside dotfiles
+```sh
+.env
+.env.profile
+├── dotfiles
+│   └── .bash_profile
+│   └── .zprofile
+```
+
+envs 🗄 `shell.md` env var
+* don't use prod data outside of prod https://www.thoughtworks.com/radar/techniques/production-data-in-test-environments
+* you don't need staging https://news.ycombinator.com/item?id=30899362
+* _parity_: aka isomorphism 🗄 `testing.md` db
+* db: not a silver bullet (Postgres in your Docker container will have some differences to db server you're connecting to in prod)
+* codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://github.com/features/codespaces alternative https://www.daytona.io/
+
+config in general
+* _config_: everything that varies between deployment envs https://12factor.net/config 
+* not to be confused with 'configuration mgmt' i.e. setting up consistent infra, although sometimes terms are mixed https://rednafi.github.io/digressions/python/2020/06/03/python-configs.html 🗄 `infra.md` Ansible
+* can always just push your dev env to the cloud https://softwareengineeringdaily.com/2020/10/14/gitpod-cloud-development-environments-with-johannes-landgraf-and-sven-efftinge/
+* _config class_: https://lincolnloop.com/blog/goodconf-python-configuration-library https://testdriven.io/blog/dynamic-secret-generation-with-vault-and-flask/ https://rednafi.github.io/digressions/python/2020/06/03/python-configs.html https://whalesalad.com/blog/doing-python-configuration-right [Grinberg chapter 7]
+* _FTP on steroids_: spin up entire environment remotely then file watch/sync to mv local changes to remote https://slack.engineering/development-environments-at-slack/
+* https://www.youtube.com/watch?v=omhJrT90lXU&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=39
+* CLI https://smallstep.com/blog/command-line-secrets/
+* store enums w/ versions https://martinfowler.com/articles/patterns-of-distributed-systems/versioned-value.html
+* remote dev env https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15
+
+my current approach
+* Makefile rule to sym link canonical env file into place from either `.env.dev` or `env.prod` [Osborn 14.106] export secrets from shell and document in README https://12factor.net/config downside is duplication btw files, this config class inheritance would pay off
+```makefile
+env-list:
+	ls -al | grep '>'
+
+env-dev:
+	ln -sf .env.dev .env
+
+env-prod:
+	ln -sf .env.prod .env
+```
+* dummy approach to toggling database (in order to maintain test suite db setup)
+* this emerged bc adding Postgres connection broke db setup for integration tests
+* what you should probably do is overwrite the db connection in the test module itself
+```python
+if os.getenv("FLASK_ENV") == "production":
+    db_uri = "postgresql://postgres:postgres@db:5432/postgres"
+else
+    db_path = os.path.join(basedir, os.getenv("DATABASE"))
+    db_uri = "sqlite:///" + db_path
+```
+
+env file syntax
+* _JSON_: work team, https://www.arp242.net/json-config.html generation and jsonnet https://leebriggs.co.uk/blog/2019/02/07/why-are-we-templating-yaml.html
+* _YAML_: https://yaml.org/ file has to start with `---` (doesn't seem like people follow) linters https://github.com/adrienverge/yamllint processor https://github.com/mikefarah/yq generation https://github.com/jazzband/tablib
+* _INI_: still used in Ansible https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-formats-hosts-and-groups python's `ConfigParser` uses but maybe people don't like INI? 艘 gmail for 'Dmitrii' https://www.youtube.com/watch?v=HH9L9WFMfnE seems like people don't use .ini as extension https://github.com/rorymckinley/commcare-sandbox/tree/40cd03619641fd1ee94d5d544b03e0d1167e2b9f/ansible/inventories
+* _altnernatives_: actual programming language (JS for Webpack, Python for setuptools) https://beepb00p.xyz/configs-suck.html#who_else
+* _format problems_: reuse, templating languages = learning a new worse DSL https://beepb00p.xyz/configs-suck.html#cons https://www.arp242.net/yaml-config.html https://github.com/wincent/wincent/blob/master/fig/README.md https://leebriggs.co.uk/blog/2019/02/07/why-are-we-templating-yaml.html
+
+* env var are strings
+```python
+# settings.py
+TOGGLE = os.getenv("toggle", False)
+# elsewhere
+if settings.TOGGLE:
+    pass
+```
+```conf
+# eval to True
+toggle=True
+toggle=False
+
+# eval to False
+toggle=
+```
+
 ## Terraform
+
+SEMANTICS
+> generates a dependency graph of resources, runs against provider, walks resource graph and ensures that resources are configured
+* _provider_: AWS, Azure, et al.
+* _resource_: provider's infra
+* _variable_: your data
+* _data_: provider data
+* _output_: attributes provider gives back
+
+---
 
 * `tf -plan`
 * CLI to query https://github.com/mazen160/tfquery
@@ -354,18 +475,12 @@ localhost | SUCCESS => {
 * use languages other than HCL https://www.terraform.io/cdktf https://www.thoughtworks.com/radar/tools?blipid=202203047
 * test config https://github.com/open-policy-agent/conftest https://www.thoughtworks.com/radar/tools?blipid=202110014
 
----
-
 * Terraform https://github.com/tfutils/tfenv https://github.com/warrensbox/terraform-switcher
 * alternatives https://news.ycombinator.com/item?id=3405132
 📜 [ur-list](https://github.com/shuaibiyy/awesome-terraform)
 
 * _sink_: https://grahamlyons.com/article/a-zero-fricton-terraform-primer
 * _install_: spring 2019 tried to use Homebrew but no luck (`tf-brew.log`), then seemed like I downloaded binary into project folder (`/Users/zach/Desktop/home/kaifa/SDLC/6_IaC/terraform`), then created symlink in `usb/bin` (using `sudo`!?!), which I presume is no longer there as a result of upgrading to Mojave (`installs/terraform/tf-path.log`), I still had the binary lying around inside `assets-digital/installs/terraform` but deleted it -> official docs and [some tutorials](https://grahamlyons.com/article/a-zero-fricton-terraform-primer) say to install binary, [others to use Homebrew](https://developers.cloudflare.com/terraform/getting-started/installing/) and Bellavance does mention using Chocolatey, I tried Homebrew
-
-what TF does
-> generates a dependency graph of the resources and, when run against one or more providers, walks that graph and ensures that the resources exist and are configured as defined
-* dependency graph https://medium.com/doctrine/scaling-our-dependency-graph-7ab42b640286
 
 how to use IRL
 > We have a strict policy where everything (creating, updating or deleting) should be done through Terraform and the AWS console should be used as a read-only dashboard...We have alerting setup for any action that is performed in our AWS accounts that was done through the console...we're looking to move to an automated environment such as Atlantis or Terraform Enterprise later this year. + how to keep everything in sync https://news.ycombinator.com/item?id=19360031
@@ -396,14 +511,7 @@ config
 * _resource_: EC2, S3, et al. + _provisioner_ (code block to do something to resource)
 * _output_: pipe elsewhere
 
-terms
-* _provider_: AWS, Azure, et al.
-* _resource_: provider's infra
-* _variable_: your data
-* _data_: provider data
-* _output_: attributes provider gives back
-
-# QUEUES
+# 🏁 QUEUES
 
 🗄
 * `db.md` data eng/ETL
@@ -437,9 +545,10 @@ PUB/SUB 📙 Narkhede ch. 1
 * https://bloomberg.github.io/blazingmq/
 
 WORKFLOW ENGINES
+* _AWS Step Functions_: 
 * _Airflow_: https://news.ycombinator.com/item?id=23349507 https://tech.marksblogg.com/install-and-configure-apache-airflow.html
 * aaS https://www.astronomer.io/managed-airflow-service/
-* _Dagster_: https://github.com/dagster-io/dagster https://www.pythonpodcast.com/dagster-data-orchestration-episode-279/ https://www.dagster.io/blog/dagster-airflow
+* _Dagster_: https://github.com/dagster-io/dagster https://www.pythonpodcast.com/dagster-data-orchestration-episode-279/ https://www.dagster.io/blog/dagster-airflow https://news.ycombinator.com/item?id=39217728
 * _Luigi_: https://github.com/spotify/luigi
 * _Mage_: https://github.com/mage-ai/mage-ai
 * _n8n_: hosted, WSIYWG https://news.ycombinator.com/item?id=37274052
@@ -524,6 +633,7 @@ semantics
 
 🗄 `shell.md` jobs
 🛠 https://taskqueues.com/ aka worker https://news.ycombinator.com/item?id=34940920
+* BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
 
 Celery
 * https://steve.dignam.xyz/2023/05/20/many-problems-with-celery/
@@ -548,7 +658,7 @@ alternatives
 * _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey
 * Postgres https://github.com/procrastinate-org/procrastinate
 
-# SERVERS
+# 🤖 SERVERS
 
 * benchmark: https://httpd.apache.org/docs/2.4/programs/ab.html https://github.com/wg/wrk https://github.com/giltene/wrk2 https://github.com/rakyll/hey https://github.com/encode/starlette#performance https://falconframework.org/#sectionBenchmarks https://www.webpagetest.org/ https://www.golang.dk/articles/benchmarking-sqlite-performance-in-go
 * BYO https://github.com/codecrafters-io/build-your-own-x#build-your-own-web-server
@@ -756,7 +866,7 @@ if __name__ == "__main__":
     application.run()
 ```
 
-# TELEMETRY
+# 📊 TELEMETRY
 
 OPENTELEMETRY https://opentelemetry.io/ 
 * https://github.blog/2021-05-26-why-and-how-github-is-adopting-opentelemetry/
@@ -946,6 +1056,9 @@ LOG STORES
 
 ---
 
+* https://github.com/bensadeh/tailspin
+* https://terminaltrove.com/logss/
+* https://github.com/Textualize/toolong
 * GoAccess: https://news.ycombinator.com/item?id=26848827 https://github.com/allinurl/goaccess https://benhoyt.com/writings/replacing-google-analytics/
 * request ID https://jvns.ca/blog/2022/12/07/tips-for-analyzing-logs/
 * BYO https://news.ycombinator.com/item?id=37600019 https://github.com/Dicklesworthstone/automatic_log_collector_and_analyzer

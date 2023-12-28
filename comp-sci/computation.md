@@ -294,7 +294,7 @@ scheduling 🗄 `linux.md` processes
 * _core_: main component that reads from memory, maintains execution order and state, and uses ALU to perform operations https://stackoverflow.com/a/19314303 https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
 * _core types_: physical (what it sounds like) logical (abstraction to facilitate hyperthreading) https://stackoverflow.com/q/1715580 https://forums.tomshardware.com/threads/what-is-the-difference-between-physical-core-and-logical-core.1534416/
 * _hyperthreading_: single core that can execute n instructions simultaneously
-* _GPU_: https://news.ycombinator.com/item?id=23986925 https://lwn.net/Articles/827596/ https://codeconfessions.substack.com/p/gpu-computing
+* _GPU_: https://news.ycombinator.com/item?id=23986925 https://lwn.net/Articles/827596/ https://codeconfessions.substack.com/p/gpu-computing https://codeconfessions.substack.com/p/gpu-computing
 > GPUs are much less complex than CPUs; that means they can execute instructions much more quickly, but those instructions have to be much simpler. At the same time, you can run a lot of them at the same time to achieve outsized results. Graphics is, unsurprisingly, the most obvious example: every "shader" - the primary processing component of a GPU - calculates what will be displayed on a single portion of the screen; the size of the portion is a function of how many shaders you have available. If you have 1,024 shaders, each shader draws 1/1,024 of the screen. Ergo, if you have 2,048 shaders, you can draw the screen twice as fast. Graphics performance is "embarrassingly parallel", which is to say it scales with the number of processors you apply to the problem. https://stratechery.com/2023/china-chips-and-moores-law/
 * _Apple silicon_: processor that uses ARM64
 
@@ -545,7 +545,7 @@ decimal in binary
 * _unsigned_: positive
 * _signed_: positive and negative; can reserve leftmost bit for sign https://www.interviewcake.com/article/python3/data-structures-coding-interview#binary-numbers
 * _fixed width_: has specific size e.g. 32 or 64 bits https://www.interviewcake.com/article/python3/data-structures-coding-interview#fixed-width-nums
-* _floating point_: 1,230,000 as 1.23 (significand) * 10^6 (exponent) w/ significand as always greater than 1 but less than 2 [manga 42-3]; faster for CPU computation; makes getting a high-level language to behave like your desktop calculator more difficult than you'd expect https://stefanoborini.com/why-01-plus-02-is-not-03-in-python/ https://docs.python.org/3/tutorial/floatingpoint.html https://stackoverflow.com/a/46700365/6813490 https://stackoverflow.com/a/50340297/6813490 https://0.30000000000000004.com/ fractions also get weird, too https://orbifold.xyz/numbers.html 📜 Van Rossum ch. 8 https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/ https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/
+* _floating point_: 1,230,000 as 1.23 (significand) * 10^6 (exponent) w/ significand as always greater than 1 but less than 2 [manga 42-3]; faster for CPU computation; makes getting a high-level language to behave like your desktop calculator more difficult than you'd expect https://stefanoborini.com/why-01-plus-02-is-not-03-in-python/ https://docs.python.org/3/tutorial/floatingpoint.html https://stackoverflow.com/a/46700365/6813490 https://stackoverflow.com/a/50340297/6813490 https://0.30000000000000004.com/ fractions also get weird, too https://orbifold.xyz/numbers.html 📜 Van Rossum ch. 8 https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/ https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/ https://wizardzines.com/zines/integers-floats/
 > 10000 is 100%. We're using integers so that we're not using floats. Floats and money are a bad combination. https://jvns.ca/blog/2023/02/08/why-does-0-1-plus-0-2-equal-0-30000000000000004/
 > https://ciechanow.ski/exposing-floating-point/
 ```python
@@ -653,6 +653,7 @@ cat more-subs.json | jq '.[]|select(.num_receipts>0)|select(.is_migrated == true
 * convert: rq https://github.com/dflemstr/rq
 
 CSV 🗄 `db.md` munge 🛠 https://csvkit.readthedocs.io/en/latest/
+* query https://news.ycombinator.com/item?id=38889820 https://github.com/jqnatividad/qsv
 * better for streaming bc each line of file is valid CSV (unlike JSON) https://jfhr.me/consider-using-csv/
 * editor https://www.moderncsv.com/
 * diff https://github.com/aswinkarthik/csvdiff

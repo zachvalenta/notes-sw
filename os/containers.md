@@ -566,8 +566,7 @@ VMWARE
 * course https://testdriven.io/blog/running-flask-on-kubernetes/
 
 BASICS
-* _Kubernetes_: declaratively run multiple containers
-* does load balancing 📙 Wahlin 9.2
+* _Kubernetes_: declaratively run multiple containers and load balance btw
 * _container_: app runtime/deps https://www.mattlayman.com/blog/2019/web-development-environments
 * _pod_: define CPU, mem https://www.mattlayman.com/blog/2019/web-development-environments
 * smallest obj in K8s obj model https://cloud.google.com/kubernetes-engine/kubernetes-comic

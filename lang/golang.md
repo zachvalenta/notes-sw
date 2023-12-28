@@ -2,13 +2,23 @@
 
 ## 参考
 
-📜 https://golang.org/doc/effective_go.html
+📚
+* Butcher in practice
+* Chang web
+* Kennedy in action
+* Kernighan go programming language
 
 ## now
 
 ## next
 
 ---
+
+📙 Ball
+
+BASICS
+* https://go.dev/tour/list
+* https://gist.github.com/prologic/5f6afe9c1b98016ca278f4d507e65510
 
 WEB
 * start here https://www.youtube.com/watch?v=F9H6vYelYyU
@@ -26,17 +36,20 @@ WEB
 
 # LANG
 
-🔗 https://gist.github.com/prologic/5f6afe9c1b98016ca278f4d507e65510
-📜 The Go Programming Language
+📜
+* https://github.com/uber-go/guide/blob/master/style.md
+* https://golang.org/doc/effective_go.html
+> Effective Go continues to be useful, but the reader should understand it is far from a complete guide.
 
 ---
 
+* enums https://www.zarl.dev/articles/enums
 * loops https://go.dev/blog/loopvar-preview
 * inheritance, interfaces https://www.dolthub.com/blog/2023-02-22-golangs-fake-inheritance/ https://preslav.me/2023/02/22/partially-implemented-interfaces-in-golang/ https://medium.com/@jankammerath/how-go-fixed-everything-that-was-wrong-with-programming-1b599a1055a8
 * lodash https://github.com/samber/lo
 * dates https://www.digitalocean.com/community/tutorials/how-to-use-dates-and-times-in-go
 * _case_: uppercase (available on import) lower (unavailable on import)
-* _error handling_: https://benhoyt.com/writings/go-intro/ https://dev.to/web3coach/how-to-handle-errors-in-go-5-rules-2bgf https://rauljordan.com/2020/07/06/why-go-error-handling-is-awesome.html https://github.com/kisielk/errcheck https://medium.com/@jankammerath/how-go-fixed-everything-that-was-wrong-with-programming-1b599a1055a8
+* _error handling_: https://benhoyt.com/writings/go-intro/ https://dev.to/web3coach/how-to-handle-errors-in-go-5-rules-2bgf https://rauljordan.com/2020/07/06/why-go-error-handling-is-awesome.html https://github.com/kisielk/errcheck https://medium.com/@jankammerath/how-go-fixed-everything-that-was-wrong-with-programming-1b599a1055a8 https://github.com/kisielk/errcheck
 * _types_: bool string int (+ specific types) no type hierarchy [Go in Action 1.1.3]
 
 alias import
@@ -244,33 +257,31 @@ func JoinFiles(files []string) (string, error) {
 
 ## variables
 
-📝 in Go docs, 'declaration' either means 'declaration' or 'initialization' 😞
-
-* default https://news.ycombinator.com/item?id=38436999
-* _long initialization_: `var myVar int = ` https://tour.golang.org/basics/8
-* _short declaration_: `myVar := 42`; declaration + assignment; only at function scope https://tour.golang.org/basics/10
-
-* _assignment_ https://tour.golang.org/basics/7
+* declare: `var x int` https://go.dev/tour/basics/8
+* assign: `=` https://gist.github.com/prologic/5f6afe9c1b98016ca278f4d507e65510
+* initialize: `var x int = 42` https://go.dev/tour/basics/9
+* duck type: `x := 42`; only available within functions https://go.dev/tour/basics/10
 ```golang
-func multi(num int) (x, y int) {
-    x = num + 2  // ❓ not short declaration bc x,y are params i.e. already declared
-    y = num * 2
-    return
+func split(sum int) (x, y int) {
+    // no duck typing syntax bc x/y are params and therefore already declared?
+	x = sum * 4 / 9
+	y = sum - x
+	return
 }
 ```
-
-* _zero values_: aka default assignment; lead to bugs https://news.ycombinator.com/item?id=20266747
+* _zero values_: aka default assignment, defaults; lead to bugs https://news.ycombinator.com/item?id=20266747 https://news.ycombinator.com/item?id=38436999
 ```golang
 var myBool // false
 var myString // ""
 var myInt // 0
 ```
-
 # STDLIB
 
 🔍
 * https://threedots.tech/post/list-of-recommended-libraries/
 * https://github.com/avelino/awesome-go
+
+> https://matthewsanabria.dev/posts/start-with-the-go-standard-library/
 
 * used in Python https://last9.io/blog/using-golang-package-in-python-using-gopy/
 * datetime https://github.com/golang-module/carbon
@@ -310,6 +321,8 @@ var myInt // 0
 * styling https://github.com/charmbracelet/lipgloss https://github.com/pterm/pterm/
 
 ---
+
+* dataclerk, fz/tz https://github.com/charmbracelet/lipgloss https://github.com/charmbracelet/bubbles?tab=readme-ov-file#viewport https://github.com/charmbracelet/harmonica https://github.com/charmbracelet/mods https://github.com/charmbracelet/gum https://github.com/charmbracelet/glow
 
 * https://clig.dev/ https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46 https://www.youtube.com/watch?v=eMz0vni6PAw https://eryb.space/2020/05/27/diving-into-go-by-building-a-cli-application.html https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ email author -> 艘 'Golang article typo'
 ```sh
@@ -355,6 +368,7 @@ func main() {
 }
 ```
 * https://github.com/carlmjohnson/requests
+* https://news.ycombinator.com/item?id=39318867
 * https://www.allhandsontech.com/programming/golang/web-app-sqlite-go/
 * app config https://github.com/spf13/viper
 * https://github.com/go-chi/chi
@@ -388,6 +402,7 @@ CMDS
 * toolchain https://go.dev/doc/toolchain
 
 DESIGN
+* https://commandcenter.blogspot.com/2024/01/what-we-got-right-what-we-got-wrong.html
 * governance: controlled by Google https://news.ycombinator.com/item?id=27610108 https://drewdevault.com/2022/05/25/Google-has-been-DDoSing-sourcehut.html * https://sourcehut.org/blog/2023-01-09-gomodulemirror/
 > If you must read the rest of this document to understand the behavior of your program, you are being too clever. https://go.dev/ref/mem
 * is not easy https://www.arp242.net/go-easy.html
@@ -429,6 +444,7 @@ DESIGN
 🔗 https://encore.dev/guide/go.mod
 
 start here
+* https://www.bytesizego.com/blog/history-of-dependency-management-go
 * https://eli.thegreenplace.net/2020/you-dont-need-virtualenv-in-go/
 > reinstall go to clean out previous pkgs?
 * https://sourcehut.org/blog/2023-01-09-gomodulemirror/

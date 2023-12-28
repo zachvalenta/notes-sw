@@ -4,15 +4,16 @@
 
 ## now
 
----
+## next
 
-DONE
+## done
+
 * _19-present_: Python, SQL
 * _18_: Python, Spring Boot, Django/DRM
 * _17_: PHP, SQL
 * _16_: JavaScript, Java
 
-# DESIGN
+# 📐 DESIGN
 
 🔗 https://news.ycombinator.com/item?id=35813496
 🗄
@@ -174,9 +175,10 @@ class Player:
 > types add value and they add cost https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
 
 SEMANTICS
-* _duck typing_: obj of type (to function for it is arg) if it has properties/methods of that type (vs. nominative) https://docs.python.org/3/glossary.html#term-duck-typing
 * _nominative typing_: obj type explicitly declared https://en.wikipedia.org/wiki/Nominal_type_system
+* _duck typing_: obj is type if it has properties/methods of that type (vs. nominative) https://docs.python.org/3/glossary.html#term-duck-typing
 * _type inference_: figure out type based on context https://calpaterson.com/mypy-hints.html
+> aka implicit? https://go.dev/tour/basics/10
 
 ---
 
@@ -219,7 +221,7 @@ https://www.destroyallsoftware.com/compendium/types?share_key=baf6b67369843fa2
 
 __opinions__
 
-* implicit https://news.ycombinator.com/item?id=26671136
+* implicit https://news.ycombinator.com/item?id=26671136 https://go.dev/tour/basics/10
 https://news.ycombinator.com/item?id=24839697
 
 > Type checking catches bugs that unit testing does not, often much faster and with less code overhead than unit testing requires. It has surprised me how much of my unit tests were de facto implementing a type system halfheartedly as opposed to testing behavior of those types. - https://threadreaderapp.com/thread/1141836825838800896.html more on typing as a analog to unit tests https://www.jorgemanrubia.com/2019/06/22/on-ruby-and-type-checkers/
@@ -230,11 +232,10 @@ turns into metadata addiction
 
 > And Haskell, OCaml and their ilk are part of a 45-year-old static-typing movement within academia to try to force people to model everything. Programmers hate that. These languages will never, ever enjoy any substantial commercial success, for the exact same reason the Semantic Web is a failure. You can't force people to provide metadata for everything they do. They'll hate you. The type system is 'wrong' whenever it cannot match the intended computational model. Every time want to use multiple inheritance or mixins in Java's type system, Java is 'wrong', because it can't do what you want. You have to take the most natural design and corrupt it to fit Java's view of the world. I think the general answer to this is: when in doubt, don't model it. Just get the code written, make forward progress. Don't let yourself get bogged down with the details of modeling a helper class that you're creating for documentation purposes. http://steve-yegge.blogspot.com/2008/02/portrait-of-n00b.html
 
-# LANGUAGES
+# 📚 LANGUAGES
 
 > [a programming language is] an algorithm management system - Ford what is code?
 > We can see that Brooks' 1986 claim that we've basically captured all the productivity gains high-level languages can provide isn't too different from an assembly language programmer saying the same thing in 1955, thinking that assembly is as good as any language can be. https://danluu.com/essential-complexity/#summary
-> But the choice of a main programming language is the most important signaling behavior that a technology company can engage in. Tell me that you program in Java, and I believe you to be either serious or boring. In Ruby, and you are interested in building things quickly. In Clojure, and I think you are smart but wonder if you ship. In Python, and I trust you implicitly. In PHP, and we sigh together. In C++ or C, and I nod humbly. In C#, and I smile and assume we have nothing in common. In Fortran, and I ask to see your security clearance. These languages contain entire civilizations. - Ford what is code?
 
 ELIXIR
 * good at distributed https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023
@@ -300,7 +301,7 @@ ZA
 * _Elixir_ the main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 &utm_term=comment
 * with Alpine https://news.ycombinator.com/item?id=34365515
 * _Haskell_: https://haskellbook.com/
-* _Pascal_: https://news.ycombinator.com/item?id=34939231
+* _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
 * _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter
 
@@ -493,6 +494,8 @@ https://news.ycombinator.com/item?id=33600941
 
 ---
 
+https://www.fosskers.ca/en/blog/rounds-of-lisp
+
 📙 SICP https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/  https://news.ycombinator.com/item?id=30016323
 
 > At one point, I decided I should learn Lisp or Haskell, probably because of something Paul Graham wrote. I couldn't find a Lisp textbook in the library, but I found a Haskell textbook. After I worked through the exercises, I had no idea how to accomplish anything practical. But I did learn about list comprehensions and got in the habit of using higher-order functions. https://danluu.com/learning-to-program/
@@ -515,7 +518,7 @@ misc
 * _written in Lisp_: ITA, Emacs
 * _sink_: https://twobithistory.org/2018/10/14/lisp.html https://beautifulracket.com/appendix/why-racket-why-lisp.html http://jakob.space/blog/thoughts-on-lisps.html http://www.paulgraham.com/rootsoflisp.html https://treenotation.org/ https://www.youtube.com/watch?v=1r5GkhoN-Zc https://github.com/syncsynchalt/axiomatic-lisp
 
-# MEMORY
+# 📥 MEMORY
 
 🔍 https://softwareengineering.stackexchange.com/questions/tagged/memory
 🗄
@@ -647,7 +650,7 @@ def out_of_place(qd):
 # ZA
 
 HISTORY https://increment.com/programming-languages/language-history/
-* _1957_: Fortran (IBM); still the best for math https://news.ycombinator.com/item?id=14498904 Python better? https://cerfacs.fr/coop/fortran-vs-python
+* _1957_: Fortran (IBM); still the best for math https://news.ycombinator.com/item?id=14498904 Python better? https://cerfacs.fr/coop/fortran-vs-python role in Python https://labs.quansight.org/blog/building-scipy-with-flang
 * _1958_: Lisp (MIT)
 * _1959_: Cobol; process transactions
 * _1972_: C (Bell Labs) Smalltalk (Xerox Parc) 
@@ -662,12 +665,29 @@ OVERLOADING
 > Function overloading is a common programming pattern which seems to be reserved to statically-typed, compiled languages. https://martinheinz.dev/blog/50
 * can do in Python via multiple dispath / multimethods https://martinheinz.dev/blog/50
 * can do in Python via `__call__`, virtual namespace, decorators https://arpitbhayani.me/blogs/function-overloading
-* _operator overloading_: operator works differently based on args https://en.wikipedia.org/wiki/Operator_overloading https://monadical.com/posts/operator-overloading-in-python.html
-> Like in C++, most built-in operators with special syntax (arithmetic operators, subscripting etc.) can be redefined for class instances. https://docs.python.org/dev/tutorial/classes.html
+* _operator overloading_: operator works differently based on args https://en.wikipedia.org/wiki/Operator_overloading
+* handled by language data model
 ```python
 print(1 + 2)
 print("hey " + "there)
 print("hey " * 3)
+```
+* handled by classes
+> operators with special syntax (arithmetic operators, etc.) can be redefined for class instances https://docs.python.org/dev/tutorial/classes.html
+```python
+# https://monadical.com/posts/operator-overloading-in-python.html
+class Clock:
+   def __init__(self, time: str):
+       self.hour, self.min = [int(i) for i in time.split(':')]
+
+   def __repr__(self) -> str:
+       min = '0' + str(self.min)
+       return str(self.hour) + ':' + min[-2:]
+
+   def __add__(self, other: Clock) -> Clock:
+       hour, min = divmod(self.min + other.min, 60)
+       hour = (hour + self.hour + other.hour) % 24
+       return self.__class__(str(hour) + ':' + str(min))
 ```
 
 za
@@ -712,6 +732,7 @@ when you really love your favorite language 💜
 📚
 * Ball interpreter https://vgel.me/posts/c500/
 * Nystrom crafting https://craftinginterpreters.com
+* Eloquent Javascript
 
 SEMANTICS
 * _transpile_: convert from one HLA to another http://coconut-lang.org/
@@ -725,8 +746,10 @@ SEMANTICS
 
 ---
 
+BNF https://realpython.com/python-bnf-notation/
 BYO JSON parser https://news.ycombinator.com/item?id=38150833
 
+* JIT https://tonybaloney.github.io/posts/python-gets-a-jit.html
 * Bryant (5)
 * Nisan nand2tetris (4, 6-11)
 
@@ -828,6 +851,7 @@ implementations https://github.com/marcpaq/b1fipl
 * _SQL_: http://aosabook.org/en/sqlalchemy.html
 
 clean up
+* mojo https://www.fast.ai/posts/2023-05-03-mojo-launch.html
 * _compiled_: src type checked, then run
 * _reference implementation_: primary implementation of language (CPython) as compared to other alternate implementations (PyPy, Jython)
 * need to have same errors

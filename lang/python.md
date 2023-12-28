@@ -13,19 +13,19 @@
 
 ## now
 
+## next
+
 ---
 
-* install Rich globally and use with bpython https://realpython.com/python-rich-package/
-* 📙 Ramalho @ 2.20 -> hashable -> hash tables 🗄 `algos.md` hash tables re: maps, ADTs
-
-ENUMS
-* https://realpython.com/python-enum/
-* https://florian-dahlitz.de/blog/why-you-should-use-more-enums-in-python
+* 📙 Ramalho @ 2.20 -> hashable -> hash tables 🗄 `algos.md` hash tables re: maps, ADTs https://realpython.com/solid-principles-python/ https://github.com/dabeaz-course/python-mastery https://mkaz.blog/working-with-python/
 
 CLEAN UP
+* install Rich globally and use with bpython https://realpython.com/python-rich-package/
 * initialize vs. construct, __init__, __new__ https://www.fluentpython.com/lingo/#initializer https://www.fluentpython.com/lingo/#constructor
 attributes
+* https://realpython.com/python-array/
 * _property_: you can control `__get__`/`__set__`/`__delete` (whereas you cannot on attributes) https://stackoverflow.com/q/7374748
+> name, reference count https://www.thepythoncodingstack.com/p/whats-in-a-name-python-namespace-objects-names
 * kinds of attr: value, type, refcount (reference counting https://codeconfessions.substack.com/p/cpython-reference-counting-internals https://docs.python.org/3/glossary.html#term-reference-count https://signalsandthreads.com/memory-management/) https://realpython.com/pointers-in-python/#objects-in-python https://pythonspeed.com/articles/python-object-memory/ https://realpython.com/python-pass-by-reference/#passing-arguments-in-python https://realpython.com/python-pass-by-reference/#understanding-assignment-in-python
 * _borrowed reference_: https://docs.python.org/3/glossary.html#term-borrowed-reference
 * check if attr present with try/catch, don't use hasattr() https://hynek.me/articles/hasattr/
@@ -38,6 +38,7 @@ attributes
 {**bar, **bar}
 ```
 * stack trace https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
+* https://rednafi.com/python/dataclasses_and_methods/
 * BYO diff tool https://florian-dahlitz.de/articles/create-your-own-diff-tool-using-python
 * library design https://benhoyt.com/writings/python-api-design/
 * dataclasses, typing https://kobzol.github.io/rust/python/2023/05/20/writing-python-like-its-rust.html
@@ -47,12 +48,10 @@ attributes
 * https://cjolowicz.github.io/posts/hypermodern-python-01-setup/ https://talkpython.fm/episodes/show/362/hypermodern-python-projects https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/ https://www.b-list.org/weblog/2022/dec/19/boring-python-code-quality/ https://talkpython.fm/episodes/show/327/little-automation-tools-in-python
 * dictview, lru_cache https://death.andgravity.com/caching-methods namedtuple, frozen dataclasses, fractions over floats https://www.textualize.io/blog/posts/7-things-about-terminals multiset https://www.youtube.com/watch?v=b-K1ujf8u_k&pp=ygUQcHl0aG9uIGZyb3plbnNldA%3D%3D
 * https://snarky.ca/tag/syntactic-sugar/ https://realpython.com/python-del-statement/ https://www.wrighters.io/intro-to-python-match-statement/
+* enums https://realpython.com/python-enum/ https://florian-dahlitz.de/blog/why-you-should-use-more-enums-in-python
 
-PYTHON FROM THE GUTS: ADVANCED PYTHON FOR BEGINNERS 🗄 `software.md` https://github.com/dabeaz-course/python-mastery
-> As you're probably beginning to guess, I lean more toward the second camp than the first. I'm not going to lie to you. Grammar is extremely important. But gosh darn it, a language is such a huge, fun, incredible, scary, cool thing, that if people are going to learn one, they need to have fun doing it. They need lessons from someone who speaks their language, someone who teaches in real, warm, human terms. And I believe that I'm your guy. - Human Japanese
-> This feature, which we call Ingredients™, is available on every single example sentence you will encounter.
+## done
 
-DONE
 * _23_: hashable
 * _22_: iteration (iterators, generators), big rf
 * _21_: rf pdb, doctest basics
@@ -101,6 +100,19 @@ DATACLASS
 * convert dict to dataclass https://github.com/konradhalas/dacite
 
 ## attributes
+
+---
+
+```python
+# https://monadical.com/posts/operator-overloading-in-python.html
+class Clock:
+   def __init__(self, time: str):
+       self.hour, self.min = [int(i) for i in time.split(':')]
+
+   def __repr__(self) -> str:
+       min = '0' + str(self.min)
+       return str(self.hour) + ':' + min[-2:]
+```
 
 SEMANTICS
 * _attributes_: value tied to obj and accessed via dot notation https://docs.python.org/3/glossary.html#term-attribute
@@ -334,6 +346,118 @@ c = Candace()
 c.run()
 c.walk()
 c.crawl()
+```
+
+## metaprogramming
+
+📜 https://docs.python.org/3/library/language.html
+🗄 `language.md` design / metaprogramming
+📚
+* Beazley ch. 9
+* Ramalho ch. 22-24
+
+---
+
+* https://dev.to/karishmashukla/a-practical-guide-to-metaprogramming-in-python-691
+* Flask debugger, typing, metaprogramming vs monkey patching https://news.ycombinator.com/item?id=34611969
+* _metaprogramming_: functions that manipulate existing code e.g. decorators, inspection 📙 Beazley 329
+* also synonym for process (build tools, dep mgmt) https://missing.csail.mit.edu/2020/metaprogramming/
+* in Ruby (Perrotta) https://news.ycombinator.com/item?id=24935242 
+
+* _meta programming_: function that takes some other code, wraps it, and returns https://medium.com/@saurabhkukade_96600/meta-programming-in-python-7fb94c8c7152
+* view source https://stackoverflow.com/a/1562795
+```python
+from inspect import getsource
+print(getsource(ur_func))
+```
+
+AST
+* inspect https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
+* https://www.mattlayman.com/blog/2018/decipher-python-ast/
+* https://talkpython.fm/episodes/show/152/understanding-and-using-python-s-ast
+* get data structure from string `ast.literal_eval(ds_as_str)` https://stackoverflow.com/a/17768535
+
+DECORATORS
+* _decorator_: factory + functionality https://www.fluentpython.com/lingo/#decorator
+* https://www.fluentpython.com/lingo/#decorator https://docs.python.org/3/glossary.html#term-decorator https://www.bitecode.dev/p/xmas-decorations-part-3
+* use cases
+```python
+# logging
+
+# caching
+
+# sanitization
+
+# app config https://bytepawn.com/python-decorators-for-data-scientists.html
+
+# execeptions https://dev.to/fcurella/refining-exceptions-with-context-decorators-31i5
+
+# login https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples
+
+# pagination https://stackoverflow.com/questions/53638221/unable-to-handle-two-links-having-different-pagination-using-decorator
+```
+* https://bas.codes/posts/python-decorators
+* https://blog.luisrei.com/articles/flaskrest.html
+* https://stackoverflow.com/questions/308999/what-does-functools-wraps-do
+* https://samireland.com/writing/decorators/ https://rednafi.github.io/digressions/python/2020/05/13/python-decorators.html
+* _decorator_: factory that takes func and adds functionality via inner function; introduced in 2.4 via PEP 318
+* _basics_: https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples https://www.youtube.com/watch?v=MjHpMCIvwsY
+* _factory_: https://joeriksson.io/blog/Decorator-with-arguments/ https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://stackoverflow.com/a/28695034/6813490 https://www.learnpython.org/en/Decorators https://stackoverflow.com/questions/10957409/python-naming-conventions-in-decorators https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://zenhack.net/2016/12/25/why-python-is-not-my-favorite-language.html
+
+* pre-2.4
+```python
+def my_decorator(func):
+    def wrapper():
+        print(f"my_decorator is wrapping {func}")
+        func()
+    return wrapper
+
+def use_decorator():
+    print("calling use_decorator")
+
+use_decorator = my_decorator(use_decorator)
+```
+
+* syntactic sugar https://realpython.com/primer-on-python-decorators/#simple-decorators
+```python
+def my_decorator(func):
+    def wrapper():
+        print(f"my_decorator is wrapping {func}")
+        func()
+    return wrapper
+
+@my_decorator
+def use_decorator():
+    print("calling use_decorator")
+```
+
+* decorator that can handle the decorated functions args
+```python
+def my_decorator(func):
+    def wrapper(*args, **kwargs):  # wrapper takes function args just like my_decorator takes function itself
+        print(f"my_decorator is wrapping {func}")
+        func(*args, **kwargs)
+    return wrapper
+
+@my_decorator
+def use_decorator(name):
+    print(f"calling use_decorator with args {name}")
+```
+
+* decorator w/ introspection
+```python
+import functools
+
+def my_decorator(func):
+    @functools.wraps(func)
+    def wrapper():
+        print(f"my_decorator is wrapping {func}")
+        func()
+    return wrapper
+
+@my_decorator
+def use_decorator():
+    print("calling use_decorator")
 ```
 
 # 🧮 COLLECTIONS
@@ -978,7 +1102,7 @@ list("this test string")        # split by char
 from distutils.version import StrictVersion
 StrictVersion("1.11") > StrictVersion("1.12.6")
 ```
-formatting 📙 Van Rossum ch. 7
+formatting 📙 Van Rossum ch. 7 https://realpython.com/python-format-mini-language/
 * _f-string_: only works on 3.6 and up https://old.reddit.com/r/learnpython/comments/hjegkc/why_do_people_use_format_method_when_f_string/ there's also Template strings, apparently safer that f-strings https://realpython.com/python-string-formatting/ convert to f-string https://github.com/ikamensh/flynt
 ```python
 # HISTORY https://pyformat.info/
@@ -1009,7 +1133,7 @@ my_var = (
 ```
 * parsing quotes https://pymotw.com/2/shlex/
 * char values: `import string; string.string.ascii_letters` https://realpython.com/python-coding-interview-tips/#access-common-string-groups-with-string-constants
-* _raw string_: treats backslash as literal, which is why they're seen in Django URLs, `re` https://docs.python.org/3/reference/lexical_analysis.html?highlight=string%20literal#string-and-bytes-literals
+* _raw string_: treats backslash as literal, which is why they're seen in Django URLs, `re` https://docs.python.org/3/reference/lexical_analysis.html?highlight=string%20literal#string-and-bytes-literals https://realpython.com/python-raw-strings/
 * _StringIO_: access string as if it were a file (for modules that are used to working with files) https://stackoverflow.com/a/7996541
 encoding 🗄 `math.md` encoding https://docs.python.org/3/glossary.html#term-list
 * _impl_: `PyBytesObject` (Python 3) `PyStringOjbect` (Python 2) https://www.laurentluce.com/posts/python-string-objects-implementation/ https://docs.python.org/3/whatsnew/2.6.html?highlight=pystringobject#pep-3112-byte-literals https://github.com/python/cpython/blob/45876a90e2663f12b90c2090ec3e48bd97841aae/Objects/bytesobject.c
@@ -1196,7 +1320,7 @@ list(map(lambda x:x.upper(), colors))
 ```python
 """
 MAX
--> https://www.youtube.com/watch?v=EnSu9hHGq5o&__s=kznp9q3qiibqzd9qjf12 @ 12:15
+-> https://www.youtube.com/watch?v=EnSu9hHGq5o&__s=kznp9q3qiibqzd9qjf12 @ 12:15 https://mathspp.com/blog/max-is-broken
 """
 tall_buildings = {'Empire State': 381, 'Sears Towers': 442, 'Burj Khalifa': 828}
 max(tall_buildings.keys())  # 'Sears Towers'
@@ -1573,10 +1697,17 @@ SEMANTICS
 
 ---
 
+
+* _uv_: early days, took over Rye https://astral.sh/blog/uv https://news.ycombinator.com/item?id=39387641 https://lucumr.pocoo.org/2024/2/4/rye-a-vision/
+https://chriswarrick.com/blog/2024/01/15/python-packaging-one-year-later/
+https://iahmed.me/post/python-air-gapped/
 https://talkpython.fm/episodes/show/436/an-unbiased-evaluation-of-environment-and-packaging-tools https://drivendata.co/blog/python-packaging-2023
 https://news.ycombinator.com/item?id=38196412
+https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/
 
 📜 https://docs.python.org/3/installing/index.html
+
+https://upcycled-code.com/blog/the-broken-version-breakdown/
 
 pain points
 * _transitive - resolution_: i.e. "is there (will there be if I bump this pkg) a transitive dep conflict?" https://docs.python-guide.org/starting/install3/osx/#pipenv-virtual-environments 
@@ -1603,7 +1734,7 @@ https://pythonspeed.com/articles/distributing-software/ https://pgjones.dev/blog
 
 📜 https://peps.python.org/pep-0711/ https://news.ycombinator.com/item?id=35687895 https://github.com/mitsuhiko/rye/discussions/6
 
-PyInstaller https://github.com/pyinstaller/pyinstaller https://realpython.com/pyinstaller-python/
+PYINSTALLER https://github.com/pyinstaller/pyinstaller https://realpython.com/pyinstaller-python/
 * tldr: tars up src/interpreter, then upacks on user's computer and runs
 * gets pkgs from your env
 * i.e. pyinstaller needs to be installed into same env as the pkgs you want it to bundle
@@ -1624,18 +1755,16 @@ PyInstaller https://github.com/pyinstaller/pyinstaller https://realpython.com/py
 * playing nice with pyenv
 ```sh
 $ pyinstaller main.py
-
 OSError: Python library not found: Python, .Python, libpython3.8.dylib, libpython3.8m.dylib, Python3
 * On Debian/Ubuntu, you need to install Python development packages:
 * apt-get install python3-dev
 * apt-get install python-dev
 * If you are building Python by yourself, rebuild with `--enable-shared` (or, `--enable-framework` on macOS).
-
 # https://stackoverflow.com/a/70795604 https://github.com/pyenv/pyenv/wiki#how-to-build-cpython-with-framework-support-on-os-x
 $ env PYTHON_CONFIGURE_OPTS="--enable-framework" pyenv install 3.5.0
 ```
 
-PyOxidizer
+PYOXIDIZER
 * can now install Python as single executable as use that to run script!?! https://twitter.com/indygreg/status/1524041572173508608 https://gregoryszorc.com/blog/2022/05/10/announcing-the-pyoxy-python-runner/
 * https://github.com/indygreg/PyOxidizer https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications
 * 🚧 blocker w/ importing 3rd party packages https://github.com/indygreg/PyOxidizer/issues/69 https://tryexceptpass.org/article/package-python-as-executable/
@@ -1644,7 +1773,7 @@ PyOxidizer
 * can produce binaries for all operating systems https://pythonbytes.fm/episodes/show/138/will-pyoxidizer-weld-shut-one-of-python-s-major-gaps
 * https://www.pythonpodcast.com/pyoxidizer-python-package-creation-episode-282/
 
-alternatives
+ALTERNATIVES
 * https://github.com/cole-wilson/sailboat
 * Beeware https://github.com/beeware/ https://www.youtube.com/watch?v=WjMDXDHBn1I
 * _auto-py-to-exe_: https://pythonbytes.fm/episodes/show/160/your-json-shall-be-streamed
@@ -1674,7 +1803,7 @@ history
 * https://pradyunsg.me/blog/2023/01/21/thoughts-on-python-packaging https://news.ycombinator.com/item?id=34467952
 
 PAST
-* `setuptools`: uses `setup.py` to create distribution https://manikos.github.io/a-tour-on-python-packaging#mod_setuptools https://testandcode.com/52 @ 29:00 commonly thought of as distro tool but CLI (`easy_install`) was used for dep mtmt before `pip` https://dubroy.com/blog/so-you-want-to-install-a-python-package/ https://stackoverflow.com/questions/24727709/do-python-projects-need-a-manifest-in-and-what-should-be-in-it#24727824
+* `setuptools`: uses `setup.py` to create distribution https://manikos.github.io/a-tour-on-python-packaging#mod_setuptools https://testandcode.com/52 @ 29:00 commonly thought of as distro tool but CLI (`easy_install`) was used for dep mtmt before `pip` https://dubroy.com/blog/so-you-want-to-install-a-python-package/ https://stackoverflow.com/questions/24727709/do-python-projects-need-a-manifest-in-and-what-should-be-in-it#24727824 for libraries https://github.com/pdm-project/pdm
 * `setup.py`: specify what parts of library to expose to consumers for `distutils` https://www.pythoncheatsheet.org/#setup.py https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/
 * `setup.cfg`: hairer version of `setup.py` https://docs.python.org/3/distutils/configfile.html also used for app config https://github.com/pallets/flask/blob/master/setup.cfg
 
@@ -1718,6 +1847,35 @@ ZA
 
 ## pkg mgmt
 
+OVERVIEW
+* too many tools https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/#tooling-proliferation-and-the-python-package-authority
+* _hatch_: https://github.com/pypa/hatch
+* single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
+* good: no need for tox, separates deps by dev/test/link https://andrich.me/2023/08/switching-to-hatch/
+* bad: no envs in project dir, no lockfile, no support for C extension modules, single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
+* _pdm_: smart people like https://github.com/pdm-project/pdm
+* _pipenv_: Reitz problem https://github.com/pypa/pipenv/commit/9ba23242
+* _piptools_ https://www.pythonpodcast.com/devops-in-python-episode-244/
+
+PIPX 📜 https://github.com/pypa/pipx
+* config file: `~/Library/Application Support/pipx`
+* venvs: `~/Library/Application Support/pipx/venvs`
+
+POETRY 📜 https://python-poetry.org/docs/
+* config file: `~/Library/Application Support/pypoetry/config.toml`
+* venvs: local (`$PROJ/.venv`) global (`~/Library/Caches/pypoetry/virtualenvs`)
+* commands
+```sh
+init -n        # create pyproject.toml
+install        # install deps
+add -D         # add deps to dev
+show --no-dev  # show prod deps
+env info       # show Poetry env and where Poetry is installed (pipx)
+remove -D      # remove dev dep
+```
+
+---
+
 PIP 📜 https://pip.pypa.io/en/stable/
 * https://www.ianwootten.co.uk/2023/02/17/one-does-not-simply-pip-install/
 * https://www.b-list.org/weblog/2023/dec/07/pip-install-safely/
@@ -1760,6 +1918,8 @@ pipx inject visidata psycopg2
 * trickery: `bin` symlinks to + script w/ shebang line scoped to local venv https://stackoverflow.com/a/30541898/6813490 https://pythonbytes.fm/episodes/show/123/time-to-right-the-py-wrongs
 
 POETRY 📜 https://python-poetry.org/docs/
+> shell https://www.reddit.com/r/Python/comments/rjwr2d/moving_from_pipenv_to_poetry_or_pdm/
+> using with pyenv https://jacobian.org/2019/nov/11/python-environment-2020/
 | operation | dev        | prod          |
 |-----------|----------- |---------------|
 | init      | init -n    |               |
@@ -1771,6 +1931,7 @@ POETRY 📜 https://python-poetry.org/docs/
 | run dep   |            | run <dep>     |
 
 https://github.com/python-poetry/poetry/pull/7415
+using inside docker https://ashishb.net/all/using-python-poetry-inside-docker/
 * debug: `<cmd> -vvv`
 * gotcha: project directory can't have same name as a dependency used by project https://github.com/python-poetry/poetry/issues/3438
 * VS Code support https://github.com/microsoft/vscode-python/wiki/Support-poetry-virtual-environments
@@ -1790,11 +1951,9 @@ poetry run flask
 
 ---
 
-https://andrich.me/2023/08/switching-to-hatch/
-
 PIP RF
 * pinning w/ pip-tools https://lincolnloop.com/blog/python-dependency-locking-pip-tools
-* pip-compile, pdm https://www.reddit.com/r/Python/comments/rjwr2d/moving_from_pipenv_to_poetry_or_pdm/
+* pip-compile
 * local PyPI https://testdriven.io/blog/private-pypi/
 ```sh
 # https://github.com/pywharf/pywharf https://stefan.sofa-rockers.org/2019/04/18/python-packaging-gitlab-conda/ https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you https://pydist.com https://github.com/devpi/devpi
@@ -1837,7 +1996,9 @@ venv https://stackoverflow.com/a/49967371/6813490
 * _virtual environment_: Python installation + pkgs [tutorial 12.1, Grinberg 4]
 * _Docker_: shouldn't just use whole container as env https://hynek.me/articles/python-app-deps-2018/
 * _history_: `venv` and `virtualenv` are not the same  ️https://docs.python.org/3/installing/index.html https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/#tools-and-management
-* _PEP 582_: https://medium.com/@grassfedcode/goodbye-virtual-environments-b9f8115bc2b6 https://pythonbytes.fm/episodes/show/117/is-this-the-end-of-python-virtual-environments
+* _PEP 517_: build backend https://github.com/pdm-project/pdm
+* _PEP 582_: https://medium.com/@grassfedcode/goodbye-virtual-environments-b9f8115bc2b6 https://pythonbytes.fm/episodes/show/117/is-this-the-end-of-python-virtual-environments https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
+* _PEP 621_: how metadata should be represented in `pyproject.toml` https://github.com/pdm-project/pdm
 * _location_: per project or all in `~`
 * _sink_: using a Makefile https://github.com/sio/Makefile.venv https://realpython.com/python-virtual-environments-a-primer/
 
@@ -1892,7 +2053,6 @@ POETRY RF
 > logic behind specifying version is that your project could support n versions, don't want to blanket rm all
 > if no env associated w/ project dir output of `env info` will have `path` as `NA`
 * activate env: `shell`
-* _alternatives_: pipenv https://github.com/pypa/pipenv/commit/9ba23242 https://hynek.me/articles/python-app-deps-2018/ https://jacobian.org/2019/nov/11/python-environment-2020/ piptools https://www.pythonpodcast.com/devops-in-python-episode-244/
 * _environment_: can put in project https://github.com/python-poetry/poetry/issues/1884
 * _dependency resolution_: looks at `[tool.poetry.dependencies]` (which is just Python version) and finds dep version that works; presume for every pkg after the first has to do some voodoo to avoid transitive dep conflict
 * _design_: distribution (`new <proj>` creates dir structure `init` asks for package name) inspired by Rust's Cargo https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 12:10
@@ -1924,11 +2084,11 @@ format
 * `sql.md` munge
 * `theory.md` notation
 
-| REPL          | pkg    | features                           |
-| --------------|--------|------------------------------------|
-| python        | stdlib | readline, history substitution     |
-| iPython       | PyPI   | color, ipdb, magic func            |
-| bpython       | PyPI   | object explorer                    |
+| REPL          | pkg    | features                               |
+| --------------|--------|----------------------------------------|
+| python        | stdlib | readline, history substitution         |
+| iPython       | PyPI   | color, ipdb, magic func                |
+| bpython       | PyPI   | object explorer                        |
 | ptpython      | PyPI   | https://realpython.com/ptpython-shell/ |
 
 BPYTHON
@@ -1951,6 +2111,7 @@ EXPLORATORY PROGRAMMING
 
 ---
 
+everything is written in rust now? https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/
 https://bernsteinbear.com/blog/simple-python-repl/
 * https://github.com/Textualize/rich https://github.com/catppuccin/python https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/
 * https://docs.python.org/3/tutorial/interpreter.html
@@ -1974,8 +2135,12 @@ INIT
 
 ## iPython
 
-🗄 pdb
 📜 https://ipython.readthedocs.io/en/stable/index.html
+
+* catpuccin for stdout https://github.com/catppuccin/python/issues/22
+
+---
+
 🔗 https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html https://realpython.com/ipython-interactive-python-shell/
 
 * command
@@ -2009,26 +2174,26 @@ cmd to check out https://jakevdp.github.io/PythonDataScienceHandbook/01.03-magic
 
 📜 https://jupyter.readthedocs.io/en/latest/index.html
 
-history
+HISTORY
 * _iPython_: REPL + syntax highlighting, access to Bash cmd
 * _IPython Notebook_: IPython + persistence, web browser, visualizations (chart, Markdown)
 * _Jupyter_: IPython Notebook + kernels for other languages (R, F#, Java)
 * _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304
 * https://github.com/jtpio/jupyterlite
 
-install
+INSTALL
 * Conda recommended https://jupyter.readthedocs.io/en/latest/install.html#id3
 * pip works fine https://jupyter.readthedocs.io/en/latest/install.html#alternative-for-experienced-python-users-installing-jupyter-with-pip
 * poetry worked as well http://jupyterlab.io/install.html
 
-za
+ZA
 * `.ipynb_checkpoints`: most recent state of `<file>.ipynb` https://stackoverflow.com/a/46422176/6813490 ignore in version control https://stackoverflow.com/a/39997938/6813490
 * _kernel_: interpreter
 * alternatives: https://github.com/Bycelium/PyFlow in Vim https://www.maxwellrules.com/misc/nvim_jupyter.html https://livebook.dev/
 * notebooks as articles https://news.ycombinator.com/item?id=27367948 as books https://executablebooks.org/en/latest/ https://jupyterbook.org/en/stable/intro.html
 * reproducibility https://jvns.ca/blog/2017/11/12/binder--an-awesome-tool-for-hosting-jupyter-notebooks/ https://news.ycombinator.com/item?id=24943962
 * to Markdown https://github.com/mwouts/jupytext
-* alternatives https://github.com/twosigma/beakerx https://zeppelin.apache.org/ https://www.datacamp.com/community/blog/jupyter-notebook-r https://github.com/ottomatica/docable-notebooks https://datacrayon.com/shop/product/data-analysis-with-rust-notebooks/
+* alternatives https://github.com/twosigma/beakerx https://zeppelin.apache.org/ https://www.datacamp.com/community/blog/jupyter-notebook-r https://github.com/ottomatica/docable-notebooks https://datacrayon.com/shop/product/data-analysis-with-rust-notebooks/ https://marimo.io/
 * design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/
 
 ## pdb
@@ -3020,6 +3185,9 @@ with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
 
 ---
 
+https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html
+https://www.freecodecamp.org/news/python-debugging-handbook/
+https://madebyme.today/blog/python-dict-vs-curly-brackets/
 https://superfastpython.com/benchmark-execution-time/
 https://stackabuse.com/why-does-python-code-run-faster-in-a-function/
 https://realpython.com/python-profiling/
@@ -3442,13 +3610,16 @@ DESIGN https://docs.python.org/3/faq/design.html
 * used for: teaching, web dev, sys admin, ML, security, scraping, microcontrollers, industrial automation https://www.pythonpodcast.com/episode-114-industrial-automation-with-jonas-neubert/ finance https://www.openbb.co/ architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * used at: Instagram, Dropbox, Reddit, Pinterest
 * pain points: binaries, import system, version management, packaging, browser, native (mobile, desktop), speed (not built for multi-core https://twitter.com/mitsuhiko/status/1091802711908106240)
+* soft keywords https://mathspp.com/blog/til/pythons-soft-keywords
 
 DOCUMENTATION
 * _user-defined_: as opposed to CPython devs https://www.fluentpython.com/lingo/
 * mixs usage of "parameter" and "argument" https://www.fluentpython.com/lingo/#parameter
 
 GOVERNANCE
-* Steering Council https://mail.python.org/pipermail/python-committers/2019-February/006520.html quasi-official (PyPA, PyCQA)
+* quasi-official (PyPA, PyCQA)
+* Donald Stuft (PyPA) Raymond Hettinger (core) Tim Peters (Zen of Python `import this`, Timsort) Armin Ronacher (Flask) Brett Cannon (core) Nick Coghlan (core) Eli Bendersky (Google, buddies w/ Coghlan) https://mail.python.org/pipermail/python-committers/2019-February/006520.html
+* _Steering Council_: https://mail.python.org/pipermail/python-committers/2019-February/006520.html
 * _PEP_: RFCs for Python
 * 0 (establish what a PEP is) 8 (style guide) 20 (Zen of Python) https://talkpython.fm/episodes/show/153/how-python-evolves https://peps.python.org/
 * how libs get into the stdlib https://github.com/hukkin/tomli/issues/141#issuecomment-997999824
@@ -3472,7 +3643,6 @@ UNDERSCORES https://dbader.org/blog/meaning-of-underscores-in-python
 * 2to3 https://news.ycombinator.com/item?id=24461157
 * _callable_: any obj that impl `__call__` e.g function, method, classes e.g. `MyClass()` https://eli.thegreenplace.net/2012/03/23/python-internals-how-callables-work https://www.fluentpython.com/lingo/#callable_object https://www.pythonmorsels.com/class-function-and-callable/ https://docs.python.org/3/glossary.html#term-callable
 * _key function_: for callables https://docs.python.org/3/glossary.html#term-key-function
-* _community_: Ken Reitz (requests) Donald Stuft (PyPA) Raymond Hettinger (core) Ned Batchelder (coverage), Tim Peters (Zen of Python `import this`, Timsort) Al Sweigart (author) Trey Hunner (blogger) Armin Ronacher (Flask) Brett Cannon (core) Nick Coghlan (core) Eli Bendersky (Google, buddies w/ Coghlan)
 * _destructuors_: https://eli.thegreenplace.net/2009/06/12/safely-using-destructors-in-python
 * `eval()`: take string and evaluate as if expression from language
 * _line continuation_: "join consecutive lines if the last character of the line is a backslash" [HG 3.2.5 pg. 56] can use parens https://stackoverflow.com/a/53180/6813490
@@ -3507,6 +3677,10 @@ SEMANTICS https://python.hamel.dev/concurrency/
 
 ---
 
+* https://pythonspeed.com/articles/cpu-thread-pool-size
+* https://www.photondesigner.com/articles/instant-messenger
+* https://pythonspeed.com/articles/gpu-vs-cpu/
+* https://charlesleifer.com/blog/asyncio/
 * https://tonybaloney.github.io/posts/sub-interpreter-web-workers.html
 * thead pools https://pythonspeed.com/articles/two-thread-pools/
 * https://pythonspeed.com/articles/optimizing-dithering/
@@ -3623,7 +3797,7 @@ return True if x else False
 var = foo if condition else bar
 ```
 
-EXCEPTIONS 📚 Beazley ch. 14, Van Rossum ch. 8 https://docs.python.org/3/tutorial/errors.html
+EXCEPTIONS 📚 Beazley ch. 14, Van Rossum ch. 8 https://docs.python.org/3/tutorial/errors.html https://www.b-list.org/weblog/2023/dec/11/python-exceptions/
 * _handler_: `try` block
 * _unhandled_: no handler found
 * `Attribute`: attr doesn't exist or cannot be set
@@ -3715,6 +3889,7 @@ NAMING
 
 ----
 
+https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
 * https://news.ycombinator.com/item?id=34727287
 * _import_: https://docs.python.org/3/glossary.html#term-importing
 * _import path_: https://docs.python.org/3/glossary.html#term-import-path
@@ -3949,6 +4124,7 @@ C exentions 📙 Beazley ch. 15
 
 ---
 
+* Rust https://rustpython.github.io/
 * actually compiled https://realpython.com/build-a-blog-from-scratch-django/
 * foreign functions https://arturdryomov.dev/posts/python-foreign-functions-and-steam/
 * production build won't run asserts https://docs.python.org/3/using/configure.html#python-debug-build
@@ -4168,118 +4344,6 @@ float("-inf")
 8 ** (1/3)
 ```
 
-## metaprogramming
-
-📜 https://docs.python.org/3/library/language.html
-🗄 `language.md` design / metaprogramming
-📚
-* Beazley ch. 9
-* Ramalho ch. 22-24
-
----
-
-* https://dev.to/karishmashukla/a-practical-guide-to-metaprogramming-in-python-691
-* Flask debugger, typing, metaprogramming vs monkey patching https://news.ycombinator.com/item?id=34611969
-* _metaprogramming_: functions that manipulate existing code e.g. decorators, inspection 📙 Beazley 329
-* also synonym for process (build tools, dep mgmt) https://missing.csail.mit.edu/2020/metaprogramming/
-* in Ruby (Perrotta) https://news.ycombinator.com/item?id=24935242 
-
-* _meta programming_: function that takes some other code, wraps it, and returns https://medium.com/@saurabhkukade_96600/meta-programming-in-python-7fb94c8c7152
-* view source https://stackoverflow.com/a/1562795
-```python
-from inspect import getsource
-print(getsource(ur_func))
-```
-
-AST
-* inspect https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
-* https://www.mattlayman.com/blog/2018/decipher-python-ast/
-* https://talkpython.fm/episodes/show/152/understanding-and-using-python-s-ast
-* get data structure from string `ast.literal_eval(ds_as_str)` https://stackoverflow.com/a/17768535
-
-DECORATORS
-* _decorator_: factory + functionality https://www.fluentpython.com/lingo/#decorator
-* https://www.fluentpython.com/lingo/#decorator https://docs.python.org/3/glossary.html#term-decorator
-* use cases
-```python
-# logging
-
-# caching
-
-# sanitization
-
-# app config https://bytepawn.com/python-decorators-for-data-scientists.html
-
-# execeptions https://dev.to/fcurella/refining-exceptions-with-context-decorators-31i5
-
-# login https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples
-
-# pagination https://stackoverflow.com/questions/53638221/unable-to-handle-two-links-having-different-pagination-using-decorator
-```
-* https://bas.codes/posts/python-decorators
-* https://blog.luisrei.com/articles/flaskrest.html
-* https://stackoverflow.com/questions/308999/what-does-functools-wraps-do
-* https://samireland.com/writing/decorators/ https://rednafi.github.io/digressions/python/2020/05/13/python-decorators.html
-* _decorator_: factory that takes func and adds functionality via inner function; introduced in 2.4 via PEP 318
-* _basics_: https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples https://www.youtube.com/watch?v=MjHpMCIvwsY
-* _factory_: https://joeriksson.io/blog/Decorator-with-arguments/ https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://stackoverflow.com/a/28695034/6813490 https://www.learnpython.org/en/Decorators https://stackoverflow.com/questions/10957409/python-naming-conventions-in-decorators https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://zenhack.net/2016/12/25/why-python-is-not-my-favorite-language.html
-
-* pre-2.4
-```python
-def my_decorator(func):
-    def wrapper():
-        print(f"my_decorator is wrapping {func}")
-        func()
-    return wrapper
-
-def use_decorator():
-    print("calling use_decorator")
-
-use_decorator = my_decorator(use_decorator)
-```
-
-* syntactic sugar https://realpython.com/primer-on-python-decorators/#simple-decorators
-```python
-def my_decorator(func):
-    def wrapper():
-        print(f"my_decorator is wrapping {func}")
-        func()
-    return wrapper
-
-@my_decorator
-def use_decorator():
-    print("calling use_decorator")
-```
-
-* decorator that can handle the decorated functions args
-```python
-def my_decorator(func):
-    def wrapper(*args, **kwargs):  # wrapper takes function args just like my_decorator takes function itself
-        print(f"my_decorator is wrapping {func}")
-        func(*args, **kwargs)
-    return wrapper
-
-@my_decorator
-def use_decorator(name):
-    print(f"calling use_decorator with args {name}")
-```
-
-* decorator w/ introspection
-```python
-import functools
-
-def my_decorator(func):
-    @functools.wraps(func)
-    def wrapper():
-        print(f"my_decorator is wrapping {func}")
-        func()
-    return wrapper
-
-@my_decorator
-def use_decorator():
-    print("calling use_decorator")
-```
-
 ## version mgmt
 
 🗄 it / mpb 2014
@@ -4368,7 +4432,8 @@ get algos project working and align Python versions btw pyenv python and pipx py
 ```
 
 ANACONDA
-* it's just some random company https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/
+* just some random company https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/
+* big in corporate envs bc built their own userland that handles python version + packaging https://news.ycombinator.com/item?id=39390246
 * _conda_: pkg manager + Python version (400 MB)
 * install via `miniconda`
 * can install databases, non-Python pkg

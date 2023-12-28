@@ -3,6 +3,7 @@
 ## 参考
 
 🗄 `system.md` distributed
+🧠 https://www.hytradboi.com/
 🔍 
 * https://dba.stackexchange.com
 * https://roadmap.sh/postgresql-dba
@@ -10,7 +11,6 @@
 * Connolly database systems
 * Kleppmann data intensive applications
 * Takahashi manga databases
-* Winand sql perf https://use-the-index-luke.com/
 
 ## now
 
@@ -18,21 +18,26 @@
 
 ---
 
+* db: Conery + query sandbox
+https://tedconbeer.com/ https://github.com/ankane/blazer
+
+* diff: compare queries across dbms https://github.com/rickbergfalk/sqlpad compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
 * https://tontinton.com/posts/database-fundementals/
 * https://jepsen.io/analyses/mysql-8.0.34
-* Datagrip, GoBang
 * query everything https://www.hytradboi.com/2022/how-to-query-almost-everything
-* https://www.hytradboi.com/
 * Carnegie Mellon, Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf
 * _vector_: for recommendation systems, NLP https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/
 * https://www.thenile.dev/blog/things-dbs-dont-do
 
 ## done
 
-* _21_: data eng
+* _24_: try harlequin
+* _22_: basic xsv/miller/Pandas
+* _21_: put together basic data eng notes
 * _20_: 📙 Kleppmann section 1
+* _18_: find visidata
 
-# DATA ENG
+# 🏗️ DATA ENG
 
 🗄
 * `algos.md` ML / data science
@@ -65,6 +70,7 @@ BACKUPS 🗄 `it.md` backups `system.md` data
 * version control data: DVC https://github.com/iterative/dvc https://realpython.com/python-data-version-control/ Dolt https://github.com/dolthub/dolt
 > people don't really care about this https://news.ycombinator.com/item?id=22731928
 * diff https://github.com/datafold/data-diff
+* https://news.ycombinator.com/item?id=38961463
 * _snapshot_: backup whole table
 * _date-based_: backup portion of table i.e. acts as an immutable log
 * _cold storage_: infrequent reads/writes https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
@@ -76,6 +82,7 @@ BACKUPS 🗄 `it.md` backups `system.md` data
 
 ---
 
+* https://news.ycombinator.com/item?id=39338626
 * data eng https://news.ycombinator.com/item?id=37222191
 * https://news.ycombinator.com/item?id=35478240
 * 📻 Macey https://softwareengineeringdaily.com/2019/07/23/data-engineering-with-tobias-macey/ https://www.dataengineeringpodcast.com/six-year-retrospective-episode-361
@@ -99,8 +106,24 @@ industry
 
 📙 Kleppmann ch. 10
 
-tools
-* _Hadoop_: n computers coordinate processing for petabytes of data 🗄 `infra.md` EMR
+just use CLIs https://news.ycombinator.com/item?id=39136472
+
+FACTORS
+* size: can't fit into normal dbms
+* velocity: challenges processor to keep up
+* variety: polyglot https://www.youtube.com/watch?v=KRcecxdGxvQ 📙 Kleppmann 18
+
+SIZE
+* MB = Excel, nGB-1TB = Postgres, >5TB = Hadoop https://www.chrisstucchio.com/blog/2013/hadoop_hatred.html
+* typical dbms has ~20 record table size limit https://news.ycombinator.com/item?id=36038321
+* _small data_: can fit on a phone (so, half a terabyte) https://simonwillison.net/2021/Jul/22/small-data/
+* complete works of Shakespeare only 5.5 MB 📙 Conery 345
+* ways of thinking about data sizes: 1MB vs. 1M seconds (12 days) 1GB vs. 1B seconds (31 years) 1TB vs. 1T seconds (317 centuries) 📙 Conery 345
+> the term Big Data is so over-used and under-defined that it is not useful in a serious engineering discussion. 📙 Kleppmann 1.9
+> There are diminishing returns to the amount of information you can extract from data. The tenth gigabyte is worth much less than the second gigabyte. https://www.evanmiller.org/small-data.html
+
+TOOLS
+* _Hadoop_: parallelization for large data 🗄 `infra.md` EMR
 * no one uses anymore? https://news.ycombinator.com/item?id=30595026 https://tech.marksblogg.com/architecting-modern-data-platforms-book-review.html https://tech.marksblogg.com/is-hadoop-dead.html
 > Whereas Hadoop and big data targeted analytics applications, often in the data warehousing space, the low latency nature of Kafka makes it applicable for the kind of core applications that directly power a business 📙 Narkhede kafka 
 * setup https://tech.marksblogg.com/hadoop-up-and-running.html
@@ -119,33 +142,20 @@ tools
 * kinda part of Hadoop, kinda not https://tech.marksblogg.com/is-hadoop-dead.html
 > At some point, the Spark community tried to distance itself from the Hadoop ecosystem. They didn't want to be seen as built on legacy software nor as some sort of "add-on" for Hadoop. Given the level of integration, Spark has with the rest of the Hadoop ecosystem and given the 100s of libraries from other Hadoop projects being used by Spark I don't subscribe to the belief that Spark is its own thing.
 
-factors
-* size: can't fit into normal dbms
-* velocity: challenges processor to keep up
-* variety: polyglot https://www.youtube.com/watch?v=KRcecxdGxvQ 📙 Kleppmann 18
-
-size
-* MB = Excel, nGB-1TB = Postgres, >5TB = Hadoop https://www.chrisstucchio.com/blog/2013/hadoop_hatred.html
-* typical dbms has ~20 record table size limit https://news.ycombinator.com/item?id=36038321
-* _small data_: can fit on a phone (so, half a terabyte) https://simonwillison.net/2021/Jul/22/small-data/
-* complete works of Shakespeare only 5.5 MB 📙 Conery 345
-* ways of thinking about data sizes: 1MB vs. 1M seconds (12 days) 1GB vs. 1B seconds (31 years) 1TB vs. 1T seconds (317 centuries) 📙 Conery 345
-> the term Big Data is so over-used and under-defined that it is not useful in a serious engineering discussion. 📙 Kleppmann 1.9
-> There are diminishing returns to the amount of information you can extract from data. The tenth gigabyte is worth much less than the second gigabyte. https://www.evanmiller.org/small-data.html
-
-## business intelligence
+## BI
 
 🗄
 * `algos.md` data science
 * `education.md` design / information design
 * `sql.md` munge
 
+* Blazer https://github.com/ankane/blazer
 * reporting https://github.com/evidence-dev/evidence
 * _business intelligence (BI)_: exploration (for non-devs), reports
 * ChartIO https://news.ycombinator.com/item?id=22548217
 * Looker: more legacy? https://www.youtube.com/watch?v=M8oi7nSaWps 0:30 OSS version https://github.com/lightdash/lightdash
 * Lux https://softwareengineeringdaily.com/2021/05/27/data-exploration-with-a-new-python-library-with-doris-lee/ https://github.com/lux-org/lux
-* Tableau: via Pandas https://github.com/Kanaries/pygwalker Markdown https://github.com/evidence-dev/evidence
+* Tableau: via Pandas https://github.com/Kanaries/pygwalker Markdown https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=39519145
 * Superset, Datalens also popular here https://news.ycombinator.com/item?id=37657772
 * https://news.ycombinator.com/item?id=30323131
 * OSS: Redash https://github.com/getredash/redash Poli https://github.com/shzlw/poli
@@ -185,13 +195,14 @@ WAREHOUSE DBMS
 > I hear people arguing "a dataset can fit in memory". RAM capacity, even on the Cloud, has grown a lot recently. There are EC2 instances with 2 TB of RAM. RAM can typically be used at 12-25 GB/s depending on the architecture of your setup. Using RAM alone won't provide any failure recovery if the machine suffers a power failure. To add to this, the cost per GB will is tremendous compared to using disks. https://tech.marksblogg.com/is-hadoop-dead.html
 * can always use Postgres https://brandur.org/warehouse https://tech.marksblogg.com/billion-nyc-taxi-rides-postgresql.html https://news.ycombinator.com/item?id=27109960
 > I've also heard arguments that row-oriented systems like MySQL and PostgreSQL can fit the needs of analytical workloads as well as their traditional transactional workloads. Both of these offerings can do analytics and if you're looking at less than 20 GB of data it's probably not worth the effort of having multiple pieces of software running your data platform. https://tech.marksblogg.com/is-hadoop-dead.html
-* _DuckDB_: embedded https://duckdb.org/ https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/ https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf https://kadekillary.work/note/duckdb/ https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html
+* _DuckDB_: embedded https://duckdb.org/ https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/ https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf https://kadekillary.work/note/duckdb/ https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html https://news.ycombinator.com/item?id=39141652&utm_term=comment
 * _Clickhouse_: https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html
 * _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
 * beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
 * _BigQuery_: really fast https://tech.marksblogg.com/billion-nyc-taxi-rides-bigquery.html https://dataschool.com/sql-optimization/bigquery-optimization
 * _Hydra_: use Postgres https://github.com/hydradatabase/hydra
 * _Orc_: https://tech.marksblogg.com/faster-csv-to-orc-conversions.html
+* _Postgres_: https://news.ycombinator.com/item?id=39263760
 * _Snowflake_: users/investors like them https://news.ycombinator.com/item?id=24265041 https://dataschool.com/sql-optimization/snowflake/ https://www.youtube.com/watch?v=xojAXXRo_S0 OSS https://news.ycombinator.com/item?id=38038239
 * apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
 * can build dashboards off queries
@@ -202,13 +213,25 @@ WAREHOUSE DBMS
 
 🗄 logging
 
-* _ETL_: mv fact tables to dimensionsal 📙 Conery 323
-* _ELT_: cp facts tables, then mv to dimensionsal https://www.youtube.com/watch?v=voC0ewDeltA 4:00
-* howto https://docs.meltano.com/getting-started/meltano-at-a-glance
-* allows analysts to do the transformations they need vs. having to figure it out up front https://www.youtube.com/watch?v=qqlbYDfqeI4 7:00
+SCHEMAS
+* _star schema_: fact table at center
+* _snowflake schema_: like star schema but more normalized
+* less popular bc harder to query 📙 Kleppmann 95
+* _fact table_: transactions 📙 Kleppmann 93
+* w/ many FK to other dimensions 📙 Kleppmann 95
+* _dimension_: non-transactional tables 📙 Kleppmann 94 https://tech.marksblogg.com/data-fluent-for-postgresql.html
+
+PIPELINES
+* clean up https://news.ycombinator.com/item?id=34578324 https://en.wikipedia.org/wiki/Instruction_pipelining https://joblib.readthedocs.io/en/latest/index.html https://news.ycombinator.com/item?id=34578324 https://arpit.substack.com/p/how-grab-stores-and-processes-millions https://news.ycombinator.com/item?id=34483402 visidata https://www.visidata.org/blog/2020/ten/
+* mv/copy from one db to another https://news.ycombinator.com/item?id=39525071 https://github.com/bruin-data/ingestr
 * _transform_: 名 step that remodels data to dimensionsal https://www.youtube.com/watch?v=M8oi7nSaWps 3:30 https://news.ycombinator.com/item?id=34578324
 * e.g. head/tail, add/rm col, type conversion, join https://www.youtube.com/watch?v=llRLh8cM7QI 15:50
 * testing: validate integrity https://github.com/great-expectations/great_expectations https://softwareengineeringdaily.com/2020/02/17/great-expectations-data-pipeline-testing-with-abe-gong/ https://github.com/socialpoint-labs/sqlbucket
+* _ETL_: mv fact tables to dimensionsal 📙 Conery 323
+* howto https://www.youtube.com/watch?v=v65n9yQWfVs
+* _ELT_: cp facts tables, then mv to dimensionsal https://www.youtube.com/watch?v=voC0ewDeltA 4:00
+* howto https://docs.meltano.com/getting-started/meltano-at-a-glance
+* allows analysts to do the transformations they need vs. having to figure it out up front https://www.youtube.com/watch?v=qqlbYDfqeI4 7:00
 
 TOOLS
 * _Airbyte_: pull from data source https://www.youtube.com/watch?v=l48zwwRSGeA
@@ -229,27 +252,9 @@ TOOLS
 * if petl can only handle thousands of records, why not just use Pandas? https://www.youtube.com/watch?v=llRLh8cM7QI 9:30 25:00 https://petl.readthedocs.io/en/stable/
 * _Zingg_: entity resolution i.e. fix data integrity problems https://github.com/zinggAI/zingg
 
-pipelining
-* https://en.wikipedia.org/wiki/Instruction_pipelining
-* https://joblib.readthedocs.io/en/latest/index.html
+# 🗺️ NON-RELATIONAL
 
-* pipelines https://news.ycombinator.com/item?id=34578324
-https://arpit.substack.com/p/how-grab-stores-and-processes-millions
-https://news.ycombinator.com/item?id=34483402
-* visidata https://www.visidata.org/blog/2020/ten/
-* pipelines https://news.ycombinator.com/item?id=34578324
-
-schemas
-* _star schema_: fact table at center
-* _snowflake schema_: like star schema but more normalized
-* less popular bc harder to query 📙 Kleppmann 95
-* _fact table_: transactions 📙 Kleppmann 93
-* w/ many FK to other dimensions 📙 Kleppmann 95
-* _dimension_: non-transactional tables 📙 Kleppmann 94 https://tech.marksblogg.com/data-fluent-for-postgresql.html
-
-# NON-RELATIONAL
-
-> There are data stores that are also used as message queues (Redis), and there are message queues with database-like durability guarantees (Kafka), so the boundaries between the categories are becoming blurred 📙 Kleppmann 12
+> There are data stores that are also used as message queues (Redis), and there are message queues with database-like durability guarantees (Kafka), so the boundaries between the categories are becoming blurred 📙 Kleppmann [12]
 
 * modeling from different angles https://www.openmymind.net/2011/7/5/Rethink-your-Data-Model/
 
@@ -272,6 +277,7 @@ schemas
 🗄 `computation.md` encoding/CSV, Parquet
 
 * _column store_: not row-oriented (like OLTP)
+* can do in Sqlite? https://news.ycombinator.com/item?id=39207570&utm_term=comment
 * 不明觉厉 https://news.ycombinator.com/item?id=36571110
 * e.g. instead of looking for all `price` values by iterating over every sale record, just grab `price` column 📙 Kleppmann 96
 * ❓ stores data differently on disk https://nchammas.com/writing/database-access-patterns
@@ -418,10 +424,12 @@ dbms
 * _tstorage_: embedded https://github.com/nakabonne/tstorage BYO https://nakabonne.dev/posts/write-tsdb-from-scratch/ https://news.ycombinator.com/item?id=27730854
 * _Whisper_: embedded db for Graphite https://github.com/graphite-project/whisper
 
-# PLUMBING
+# 🔬️ PLUMBING
 
 📹 CMU https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi https://www.youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O
-📙 https://www.interdb.jp/pg/
+📚
+* Suzuki postgres internals https://www.interdb.jp/pg/
+* Winand sql perf https://use-the-index-luke.com/
 
 * _correlation_: correlation btw storage on disk and order of rows https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
 * locks https://news.ycombinator.com/item?id=35981238&utm_term=comment
@@ -624,7 +632,7 @@ types
 * individual entries known as frames https://news.ycombinator.com/item?id=26583558
 * turn off if you're just doing a transformation https://hakibenita.com/sql-tricks-application-dba#use-unlogged-tables-for-intermediate-data
 
-# TOOLING
+# 🛠️ TOOLING
 
 🗄 `shell.md` munge
 
@@ -667,6 +675,7 @@ LINTING
 * https://sqlfum.pt/
 
 SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data
+* munge https://realpython.com/python-for-data-analysis/
 * _validation_: compare against rules
 * Pydantic https://www.pythonpodcast.com/pydantic-data-validation-episode-263/ https://github.com/shopnilsazal/validus https://blog.couchbase.com/validate-json-documents-in-python-using-pydantic/
 * Cerberus https://github.com/pyeve/cerberus https://hector.dev/2020/12/29/validating-data-in-python-with-cerberus.html
@@ -705,39 +714,18 @@ NAMED QUERIES
 * use w/ param: `\f <name> "arg"`
 * rm: `\fd <name>` https://litecli.com/favorites/
 
-## GUI / TUI
+## harlequin
 
-TUI
-* _dadbod_: Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
-* _GoBang_: TUI https://github.com/TaKO8Ki/gobang
+📜 https://harlequin.sh
 
-GUI
-* NoSQL: Table Plus https://news.ycombinator.com/item?id=22908224 DbGate https://github.com/dbgate/dbgate
-* SQLite: DB4S https://github.com/sqlitebrowser/sqlitebrowser
-* Postgres: pgAdmin, PGweb https://github.com/centerofci/mathesar
-* _Beekeeper_: closed source https://www.beekeeperstudio.io/
-* _Datagrip_: ERD, closed source
-* _DBeaver_: ERD https://stackoverflow.com/a/48397209
-* _Ultorg_: ✅ queryless joins, closed source https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
-
-FEATURES
-* interface: GUI, TUI
-* model: relational, NoSQL
-* governance: un/paid, OSS
-* data entry: https://github.com/centerofci/mathesar 🗄 dataclerk
-* diff: compare queries across dbms https://github.com/rickbergfalk/sqlpad compare data across tables https://github.com/datafold/data-diff
-* ERD: https://databasediagram.com/
-* follow FKs: https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
-* query editor: https://github.com/centerofci/mathesar
-* queryless joins: https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
+* have to import CSV files after opening harlequin? import via data catalog? via `conn_str = ["local.db"]`? https://github.com/tconbeer/harlequin/discussions/314
+* profiles: sqlite, duckdb, postgres
 
 ## miller
 
-📜
-* https://miller.readthedocs.io/en/latest/glossary
-* verbs https://miller.readthedocs.io/en/latest/reference-verbs/
+📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
 
-* basics
+BASICS
 ```sh
 # select *
 cat <csv>
@@ -755,7 +743,7 @@ cut -x -f "col1","col2" <csv>
 head -n 20 then cut -o -f "id","artist" then sort -f "artist" <csv>
 ```
 
-* predicates, grouping
+PREDICATES, GROUPING
 ```sh
 # uniq for header
 uniq -g <header> <csv> | wc -l
@@ -777,7 +765,7 @@ most-frequent -f col -n 1000 example.csv | mlr --opprint sort -f col
 --c2p cut -o -f "21.08","21.09" then put '${total} = ${21.08} + ${21.09}' <csv>
 ```
 
-* IO
+IO
 ```sh
 --icsv    # input csv
 --opprint # output pprint
@@ -785,7 +773,7 @@ most-frequent -f col -n 1000 example.csv | mlr --opprint sort -f col
 --csv     # IO csv
 ```
 
-config https://miller.readthedocs.io/en/latest/customization/
+CONFIG https://miller.readthedocs.io/en/latest/customization/
 * view colors: `--list-color-names` https://miller.readthedocs.io/en/latest/output-colorization/
 * `.mlrrc`
 ```sh
@@ -794,6 +782,8 @@ allow-ragged-csv-input  # if data line fields > header line, insert empty val in
 ```
 
 ## Pandas
+
+---
 
 📜 https://pandas.pydata.org/docs/
 📹 https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS https://talkpython.fm/episodes/show/358/understanding-pandas-visually-with-pandastutor
@@ -884,7 +874,7 @@ verified.to_csv(os.path.join(os.getcwd(), out_file))
 za
 * DataFrame protocol https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/
 * `inplace` https://sourcery.ai/blog/pandas-inplace/
-* _Polars_: https://news.ycombinator.com/item?id=35423569 https://github.com/pola-rs/polars https://pythonspeed.com/articles/polars-memory-pandas/ https://www.confessionsofadataguy.com/replacing-pandas-with-polars-a-practical-guide/ https://realpython.com/polars-python/ https://pythonspeed.com/articles/polars-pandas-interopability/
+* _Polars_: https://news.ycombinator.com/item?id=35423569 https://github.com/pola-rs/polars https://pythonspeed.com/articles/polars-memory-pandas/ https://www.confessionsofadataguy.com/replacing-pandas-with-polars-a-practical-guide/ https://realpython.com/polars-python/ https://pythonspeed.com/articles/polars-pandas-interopability/ https://pola.rs/posts/polars_birds_eye_view/
 * method chaining https://github.com/pyjanitor-devs/pyjanitor
 * validation https://github.com/pandera-dev/pandera
 * perf https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance https://pythonspeed.com/memory
@@ -895,30 +885,22 @@ za
 
 🗄 `python.md` REPL
 
-strengths
-* REPL for single table https://www.ultorg.com/
-
-WEAKNESSES
-* n tables https://www.ultorg.com/
-* UX for non-devs, hence Airtable https://luttig.substack.com/p/dont-forget-microsoft Airtable is bad? https://news.ycombinator.com/item?id=26448985 Airtable let's you attach images, documents https://github.com/nocodb/nocodb https://news.ycombinator.com/item?id=34127804 https://gitlab.com/baserow/baserow
-* collaboration, hence Google Sheets https://luttig.substack.com/p/dont-forget-microsoft
+PRO / CON
+* good REPL for single table https://www.ultorg.com/
+* bad at n tables
+> Whether in finance, engineering, operations, or the life sciences, you are likely working with tables of data in spreadsheets, CSV files, or an external database. Spreadsheets are excellent tools for managing a single table of data. They are a poor fit for database tasks, however, where data must be combined and queried in many different ways. https://www.ultorg.com/
+* bad at UX, hence Airtable https://luttig.substack.com/p/dont-forget-microsoft Airtable is bad? https://news.ycombinator.com/item?id=26448985 Airtable let's you attach images, documents https://github.com/nocodb/nocodb https://news.ycombinator.com/item?id=34127804 https://gitlab.com/baserow/baserow more Airtable https://teable.io/
+* bad at collaboration, hence Google Sheets https://luttig.substack.com/p/dont-forget-microsoft
 * criticism https://betonit.substack.com/p/spreadsheets-letters-from-a-quant https://www.natemeyvis.com/writing/on-bryan-caplans-spreadsheets/
 
-OPTIONS
-* https://github.com/andmarti1424/sc-im
-* _equals_: https://equals.app/
-* _visicalc_: predecessor to Lotus123, Excel http://www.paulgraham.com/mac.html
-* _rows_: https://rows.com/
-* _Grist_: https://github.com/gristlabs/grist-core
-* _UltOrg_: spreadsheet on top of dbms https://news.ycombinator.com/item?id=30868696 🔍 `Ultorg beta`
-* https://news.ycombinator.com/item?id=30868696
+📊 EXCEL
+* alternatives: visicalc (predecessor to Lotus123, Excel http://www.paulgraham.com/mac.html) UltOrg (spreadsheet on top of dbms) https://news.ycombinator.com/item?id=30868696 🔍 `Ultorg beta` https://github.com/andmarti1424/sc-im https://rowzero.io/ https://equals.app/ https://rows.com/ https://github.com/gristlabs/grist-core https://news.ycombinator.com/item?id=30868696
 * ubiquity https://news.ycombinator.com/item?id=26386419 https://www.wsj.com/articles/stop-using-excel-finance-chiefs-tell-staffs-1511346601 https://news.ycombinator.com/item?id=28595155 https://dataingovernment.blog.gov.uk/2019/06/10/improving-how-we-manage-spreadsheet-data/ https://medium.com/backchannel/a-spreadsheet-way-of-knowledge-8de60af7146e
+* with SQL https://sheetsql.io/
 * praise https://www.reifyworks.com/writing/2017-01-25-i-was-wrong-about-spreadsheets-and-im-sorry
 > Excel in my opinion is the most successful software application in history. https://subset.so/blog/excel-2-0 https://news.ycombinator.com/item?id=30868696
 > Slightly overrated by users and wildly underrated by anyone who spends most of their time using more powerful tools https://diff.substack.com/p/inside-the-house-report-on-big-tech-6a6
 > It blew my mind how many business critical processes were managed with excel spreadsheets being shared via email chains. It is incredible how flexible and effective Excel is for such a wide variety of use-cases. https://benadam.me/thoughts/my-experience-at-amazon/
-
-EXCEL
 * write to google sheets https://jacobian.org/til/gspread-dictwriter/
 * from Excel to Python https://talkpython.fm/episodes/show/288/10-tips-to-move-from-excel-to-python https://talkpython.fm/episodes/show/200/escaping-excel-hell-with-python-and-pandas
 * _workbook_: entire document
@@ -1070,3 +1052,28 @@ xsv sample 50 full.csv > sample.csv
 # get line of data and display as two columns
 xsv slice -i 0 csv | xsv flatten
 ```
+
+## UI
+
+TUI
+* _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
+* _harlequin_: ✅ query editor https://harlequin.sh
+* _GoBang_: perpetual alpha https://github.com/TaKO8Ki/gobang
+* _visidata_: ✅ data exploration
+
+GUI
+* NoSQL: Table Plus https://news.ycombinator.com/item?id=22908224 DbGate https://github.com/dbgate/dbgate
+* SQLite: DB4S https://github.com/sqlitebrowser/sqlitebrowser https://github.com/coleifer/sqlite-web
+* Postgres: pgAdmin, PGweb https://github.com/centerofci/mathesar
+* _Beekeeper_: $7/month https://www.beekeeperstudio.io/
+* _Datagrip_: $25/month, ERD
+* _DBeaver_: OSS, ERD https://stackoverflow.com/a/48397209
+* _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
+
+FEATURES
+* data entry: https://github.com/centerofci/mathesar 🗄 dataclerk
+* follow FKs: https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
+* _data catalog_: dbs, tables https://harlequin.sh
+* _ERD_: https://databasediagram.com/
+* _query editor_: save, autocomplete
+* _results viewer_: result set

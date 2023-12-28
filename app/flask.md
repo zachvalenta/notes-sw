@@ -12,6 +12,8 @@
 
 ---
 
+* https://testdriven.io/blog/how-are-requests-processed-in-flask/
+* https://testdriven.io/blog/what-is-werkzeug/
 * https://testdriven.io/guides/flask-deep-dive/
 * https://pgjones.dev/blog/modern-flask-2023/
 

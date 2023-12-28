@@ -17,6 +17,7 @@
 
 ---
 
+* do with books https://www.fast.ai/
 * regex 🗄 vimrc, regex-test.md https://chat.openai.com/share/c31be3fc-ad04-4bea-bf65-1401d3d91f09 https://learnbyexample.gitbooks.io/vim-reference/content/Regular_Expressions.html https://neovim.io/doc/user/usr_03.html
 * https://mathspp.com/blog/5-ways-to-flatten-a-list-of-lists
 * hash tables re: maps, ADTs https://stackabuse.com/hash-tables-in-python/
@@ -122,7 +123,7 @@ print(get_config_value(configs, "prod"))
 * _17_: start Bhargava, Castro and Roberto get everyone to buy the O'Reilly ML book
 * _16_: Hacker Rank for Zip Code
 
-# ALGORITHMS
+# 🛣️ ALGORITHMS
 
 🔍
 * https://github.com/TheAlgorithms/Python
@@ -197,6 +198,7 @@ ZA
 
 ---
 
+* https://www.alexmolas.com/2024/02/05/a-search-engine-in-80-lines.html
 * _A*_: https://www.redblobgames.com/pathfinding/a-star/introduction.html 
 * _Bellman-Ford_: Dijkstra for negative-weighted [7.130]
 * _dfs_: https://medium.com/basecs/deep-dive-through-a-graph-dfs-traversal-8177df5d0f13 
@@ -259,7 +261,7 @@ yet to use personally
 * _greedy_: recursively choose local optimum e.g. counting change, lightest edge in MST; might not lead to global optimum but that can be ok w/ NP [Bhargava 8.144-5] https://www.interviewcake.com/concept/python3/greedy
 * _linear programming_: maximize target given constraints 📙 Bhargava 11.218
 
-# COMPLEXITY
+# 🧮 COMPLEXITY
 
 🔗 https://en.wikipedia.org/wiki/Computational_complexity https://en.wikipedia.org/wiki/Computational_complexity_theory
 
@@ -323,8 +325,8 @@ def linear_and_quadratic():  # O(n + n^2) = O(n^2)
 
 ## NP
 
-📙 MacCormick computed
 🗄 `computation.md`
+📙 MacCormick computed
 
 * _NP_: non-deterministic polynomial time i.e. might get different solution each time (unlike most algos) and solutions will be in polynomial time
 * used for decision problems
@@ -336,6 +338,7 @@ def linear_and_quadratic():  # O(n + n^2) = O(n^2)
 
 ## runtimes
 
+🗄️ `math.md` logarithms
 🔗 https://stackoverflow.com/a/11611770
 
 ```yaml
@@ -444,7 +447,7 @@ def set_covering(states_needed, stations):
 
 ```
 
-# DATA STRUCTURES
+# 🏺 DATA STRUCTURES
 
 🔗 https://www.interviewcake.com/data-structures-reference
 📙 Conery ch. 7
@@ -511,7 +514,7 @@ za
 
 ## graph
 
-🛠 https://github.com/networkx/networkx https://github.com/dominikbraun/graph/
+🛠 https://github.com/networkx/networkx https://github.com/dominikbraun/graph/ https://news.ycombinator.com/item?id=38834780
 📙 Kun ch. 6 https://en.wikipedia.org/wiki/Graph_theory
 🔍 examples https://www.python-graph-gallery.com/
 
@@ -679,7 +682,7 @@ queue.append('alice')  # push aka queue
 queue.popleft()  # shift aka enque
 ```
 
-# ML
+# 🤖 ML
 
 🔍 https://ai.stackexchange.com/
 🗄
@@ -689,6 +692,52 @@ queue.popleft()  # shift aka enque
 * Ferguson game of go
 * Perrota programming ML https://www.amazon.com/Programming-Machine-Learning-Zero-Deep/dp/1680506609/ref=sr_1_1
 * Trask grok deep learning https://github.com/iamtrask/Grokking-Deep-Learning
+
+---
+
+TYPES
+* _supervised_: labeled data during training, unlabeled during predication [Trask 2.11]
+* _unsupervised_: unlabeled data during training and prediction [Trask 13]
+* _reinforcement_: no labels but algo can tell if it's getting hotter or colder http://aiplaybook.a16z.com/docs/guides/dl-learning#user-content-reinforcementlearning
+* _parametric_: modeler derives parameters [Trask 2.14, 2.18]
+* _nonparametric_: model derives parameters [Trask 2.14, 2.18]
+
+MONTE CARLO 🗄 `math.md` Markov chain
+* _Monte Carlo tree search (MCTS)_: domain independent https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 12:00
+* tree: roots = next moves, branches = n order paths
+* search: takes weights from neural net, traverse branches, report back
+* _Monte Carlo_: 📙 Christian chapter 9 https://pbpython.com/monte-carlo.html https://news.ycombinator.com/item?id=27379310
+* determine weights for MCTS
+* weights = secret sauce https://github.com/leela-zero/leela-zero
+* https://easylang.dev/apps/tutorial_mcarlo.html
+* aka simulation 📙 Konnikova bluff Zuckerman simons
+* https://sirupsen.com/napkin/problem-16-simulation 
+* https://www.erichgrunewald.com/posts/simulations-of-diversity-hiring/
+* https://conversationswithtyler.com/episodes/annie-duke/
+* _minimax_: predecessor to MCTS https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 1:15 used in chess 4:30 https://marginalrevolution.com/marginalrevolution/2021/05/maradona-plays-minimax.html
+
+KNN 🗄 `math.md` regression
+* _k-nearest neighbors_: taxonomize based on proximate elements i.e. those that have similar attributes
+* form of supervised learning
+* used for recommendation system, regression, OCR 📙 Bhargava [186,195,196]
+* recommendation systems https://github.com/gorse-io/gorse
+* https://philippmuens.com/k-nearest-neighbors-from-scratch/
+* https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
+* https://realpython.com/courses/knn-python/
+* https://news.ycombinator.com/item?id=26328958
+* https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
+* 📙 MacCormick chapter 6
+
+REGRESSION
+* _linear regression_: use set of numerical X values (e.g. study time, price of crude oil) to predict numerical Y values (e.g. test score, price of gasoline)
+* BYO https://www.youtube.com/watch?v=VmbA0pi2cRQ https://www.youtube.com/watch?v=KsVBBJRb9TE
+* in Pandas, SQL https://hakibenita.com/sql-for-data-analysis#linear-regression
+* uses k-NN 📙 Bhargava 10.196 🗄 `algos.md`
+* 名 relationship
+> the common narrative that it's a fairly simple regression with size, where small startups are fast and large companies are slow, I don't think that's necessarily the case at all, where Facebook is a good example of a company that's remarkable at executing quickly from a technology point of view https://www.stitcher.com/podcast/mathew-passy/invest-like-the-best/e/71161348 25:00
+* 动 plot relationship btw
+> People have regressed spending by countries, states, and districts on outcome metrics for a long time, and they pretty much universally show that there is no relationship between spending and success as defined in traditional terms. https://freddiedeboer.substack.com/p/is-the-conventional-wisdom-on-educational
+* _logistic regression_: use set of numerical X values (e.g. email attr) to predict categorical Y value (e.g. spam or no?) https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
 
 rf
 * https://tigyog.app/d/C-I1weB9CpTH/r/everyday-data-science
@@ -741,10 +790,28 @@ OPERATIONALIZING
 
 🗄 `science.md` IQ
 
+BYO https://explainextended.com/2023/12/31/happy-new-year-15/
+
+COPILOT ET AL.
+* https://news.ycombinator.com/item?id=37940572
+* Cody https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
+* https://www.youtube.com/watch?v=MzFr7iXsESs
+* https://simonwillison.net/2023/Dec/31/ai-in-2023/
+
+MIDJOURNEY
+* https://midlibrary.io/styles
+* Claude https://www.anthropic.com/
+
+how to teach https://news.ycombinator.com/item?id=38759877
+* embeddings https://simonwillison.net/2023/Oct/23/embeddings/
+* with notes https://github.com/reorproject/reor
+
 ChatGPT
+* BYO https://spreadsheets-are-all-you-need.ai/index.html
 * BYO flavor https://iamjoshknox.com/2023/12/06/econeats-an-ai-dining-guide/
 * https://github.com/minimaxir/simpleaichat/blob/main/examples/notebooks/schema_ttrpg.ipynb
 * hacks: offer to tip https://twitter.com/emollick/status/1730742277792813517 change date https://twitter.com/venturetwins/status/1710321733184667985 get instructions https://twitter.com/fabianstelzer/status/1709562237310878122
+* use when coding https://realpython.com/chatgpt-coding-mentor-python/
 * use when reading https://www.reddit.com/r/ChatGPT/comments/17p968u/leaving_chatgpt_voice_on_while_reading_a_book_is/?rdt=52836 https://marginalrevolution.com/marginalrevolution/2023/11/the-early-days.html
 * https://twitter.com/patio11/status/1728018125398978659/photo/1
 * run locally https://github.com/Mozilla-Ocho/llamafile
@@ -753,7 +820,6 @@ ChatGPT
 * respond to social pressure https://twitter.com/AndrewCurran_/status/1720177766283505724
 * run locally https://github.com/getumbrel/llama-gpt
 * use to study math https://news.ycombinator.com/item?id=37963453
-* copilot locally https://news.ycombinator.com/item?id=37940572&utm_term=comment
 * pretty transparent https://twitter.com/zoink/status/1599281052115034113
 * tooling https://github.com/eth-sri/lmql
 * _constitution_: heuristic for LLM https://www.anthropic.com/index/claudes-constitution
@@ -923,52 +989,6 @@ semantics
 * _text classification_: https://www.youtube.com/watch?v=VtRLrQ3Ev-U
 * _speech recognition_: https://www.youtube.com/watch?v=mYUyaKmvu6Y
 
-## techniques
-
-learning types
-* _supervised_: labeled data during training, unlabeled during predication [Trask 2.11]
-* _unsupervised_: unlabeled data during training and prediction [Trask 13]
-* _reinforcement_: no labels but algo can tell if it's getting hotter or colder http://aiplaybook.a16z.com/docs/guides/dl-learning#user-content-reinforcementlearning
-* _parametric_: modeler derives parameters [Trask 2.14, 2.18]
-* _nonparametric_: model derives parameters [Trask 2.14, 2.18]
-
-MONTE CARLO 🗄 `math.md` Markov chain
-* https://easylang.dev/apps/tutorial_mcarlo.html
-* aka simulation 📙 Konnikova bluff Zuckerman simons
-* https://sirupsen.com/napkin/problem-16-simulation 
-* https://www.erichgrunewald.com/posts/simulations-of-diversity-hiring/
-* https://conversationswithtyler.com/episodes/annie-duke/
-* _Monte Carlo tree search (MCTS)_: domain independent https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 12:00
-* tree: roots = next moves, branches = n order paths
-* search: takes weights from neural net, traverse branches, report back
-* _Monte Carlo_: 📙 Christian chapter 9 https://pbpython.com/monte-carlo.html https://news.ycombinator.com/item?id=27379310
-* determine weights for MCTS
-* weights = secret sauce https://github.com/leela-zero/leela-zero
-* _minimax_: predecessor to MCTS https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 1:15 used in chess 4:30 https://marginalrevolution.com/marginalrevolution/2021/05/maradona-plays-minimax.html
-
-KNN 🗄 `math.md` regression
-* _k-nearest neighbors_: taxonomize based on proximate elements i.e. those that have similar attributes
-* form of supervised learning
-* used for recommendation system, regression, OCR 📙 Bhargava [186,195,196]
-* recommendation systems https://github.com/gorse-io/gorse
-* https://philippmuens.com/k-nearest-neighbors-from-scratch/
-* https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
-* https://realpython.com/courses/knn-python/
-* https://news.ycombinator.com/item?id=26328958
-* https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
-* 📙 MacCormick chapter 6
-
-regression
-* _linear regression_: use set of numerical X values (e.g. study time, price of crude oil) to predict numerical Y values (e.g. test score, price of gasoline)
-* BYO https://www.youtube.com/watch?v=VmbA0pi2cRQ https://www.youtube.com/watch?v=KsVBBJRb9TE
-* in Pandas, SQL https://hakibenita.com/sql-for-data-analysis#linear-regression
-* uses k-NN 📙 Bhargava 10.196 🗄 `algos.md`
-* 名 relationship
-> the common narrative that it's a fairly simple regression with size, where small startups are fast and large companies are slow, I don't think that's necessarily the case at all, where Facebook is a good example of a company that's remarkable at executing quickly from a technology point of view https://www.stitcher.com/podcast/mathew-passy/invest-like-the-best/e/71161348 25:00
-* 动 plot relationship btw
-> People have regressed spending by countries, states, and districts on outcome metrics for a long time, and they pretty much universally show that there is no relationship between spending and success as defined in traditional terms. https://freddiedeboer.substack.com/p/is-the-conventional-wisdom-on-educational
-* _logistic regression_: use set of numerical X values (e.g. email attr) to predict categorical Y value (e.g. spam or no?) https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
-
 # PROJECTS
 
 * personalization engine https://news.ycombinator.com/item?id=30778100
@@ -1021,6 +1041,8 @@ Stockfish 10 at its top strength (without any level set) has a rating of about 3
 🗄
 * `ml.md` NLP
 * `za/search-engine` (port data to query sandbox)
+
+https://news.ycombinator.com/item?id=39293050
 
 FTS 📙 Karwin ch 17
 * _full text search (FTS)_: search all text https://en.wikipedia.org/wiki/Full-text_search
@@ -1199,6 +1221,7 @@ first frame stops blocking on else, comes off stack
 🛠
 * https://regex101.com
 * https://github.com/pemistahl/grex
+* https://github.com/royreznik/rexi
 
 METACHARACTERS
 > capitalize for opposite

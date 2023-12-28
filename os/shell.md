@@ -13,6 +13,7 @@
 
 ---
 
+* https://fabiensanglard.net/bash/
 * readline history https://github.com/atuinsh/atuin https://www.youtube.com/watch?v=WB7qojkkVVU
 > key features: UI, queries
 
@@ -95,7 +96,7 @@ echo -en "\n"
 # get file type info https://www.youtube.com/watch?v=hrbV5WGxxdY
 file $FILE
 
-# debug mode https://github.com/Idnan/bash-guide#4-debugging
+# debug mode https://github.com/Idnan/bash-guide#4-debugging https://wizardzines.com/comics/bash-debugging/
 #!/usr/bin/env bash - x
 
 # strict mode http://redsymbol.net/articles/unofficial-bash-strict-mode/ https://www.youtube.com/watch?v=kEJzqMfxZVI
@@ -965,6 +966,7 @@ CORE
 * _which_: search for executables on path https://github.com/Idnan/bash-guide#d-which full path https://nil.wallyjones.com/what-shell-am-i-using/
 * _rm_: send to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives https://github.com/nivekuil/rip https://github.com/arsenetar/send2trash/issues https://github.com/arsenetar/send2trash/issues/56 https://hacker-tools.github.io/command-line/
 * _w_: who is logged in and what they're doing https://rachelbythebay.com/w/2018/03/26/w/
+* _watch_: https://github.com/sachaos/viddy
 
 MODERN
 * _asciicinema_: terminal recording https://darrenburns.net/posts/tools/ https://github.com/nbedos/termtosvg https://github.com/cytopia/ffscreencast https://github.com/charmbracelet/vhs
@@ -1013,6 +1015,7 @@ CP
 DASHBOARDS 🗄 `python.md` TUI
 * https://github.com/wtfutil/wtf
 * https://github.com/Phantas0s/devdash
+* https://github.com/gizak/termui
 
 HISTORY https://catonmat.net/the-definitive-guide-to-bash-command-line-history
 * search: `ctrl r`
@@ -1135,6 +1138,7 @@ $ find business -type d | wc -l  # 1
 
 alternatives
 * https://github.com/kashav/fsql
+* https://github.com/darrenldl/docfd
 * fselect https://github.com/jhspetersson/fselect
 ```sh
 # ordering
@@ -1147,7 +1151,7 @@ fselect path, mime from /home/user where is_audio = 1
 ### list (exa)
 
 📜 https://github.com/ogham/exa https://the.exa.website/
-> replaced? https://github.com/eza-community/eza
+> replaced? https://github.com/eza-community/eza https://github.com/lsd-rs/lsd
 
 exa
 * conf https://the.exa.website/docs/environment-variables
@@ -1390,9 +1394,12 @@ ZA
 📜 https://github.com/sharkdp/bat
 
 ```sh
-# specify stdin language
+# CONFIG
+bat --config-dir
+bat --config-file
+# SPECIFY STDIN LANGUAGE
 yaml2json .travis.yml | json_pp | bat -l json
-# multiple
+# MULTIPLE
 bat src/*.rs
 ```
 

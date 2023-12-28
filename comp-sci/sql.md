@@ -17,6 +17,7 @@
 
 ---
 
+https://gvwilson.github.io/sql-tutorial/
 * Bealieau: port notes to digital copy, domains
 
 * grouping 📙 Evans 8, Beaulieu ch. 8
@@ -37,7 +38,7 @@ INTERVIEWING
 * _18_: Flyway for Dark Canary, modeling course
 * _17_: subqueries for Case
 
-# DDL
+# 🚧 DDL
 
 🗄
 * `db.md` modeling
@@ -172,6 +173,7 @@ This makes development much more involved than the traditional “flip a switch�
 
 ---
 
+https://github.com/pressly/goose
 https://github.com/amacneil/dbmate#alternatives
 * SQLite https://news.ycombinator.com/item?id=31249823
 * https://github.com/fabianlindfors/reshape
@@ -203,7 +205,7 @@ class Foo(models.Model):
 +----+--------------------+
 ```
 
-* _sink_: https://www.tarynpivots.com/post/migrating-40tb-sql-server-database/ https://github.blog/2020-02-14-automating-mysql-schema-migrations-with-github-actions-and-more/
+* _sink_: https://www.tarynpivots.com/post/migrating-40tb-sql-server-database/ https://github.blog/2020-02-14-automating-mysql-schema-migrations-with-github-actions-and-more/ pivot https://news.ycombinator.com/item?id=39353502
 
 Flyway https://flywaydb.org/documentation/ https://github.com/zachvalenta/flyway-tutorial
 * how it works
@@ -239,6 +241,7 @@ RELATIONS
 > when embedding would result in duplication of data but would not provide sufficient read performance advantages to outweigh the implications of the duplication.
 > to represent more complex many-to-many relationships
 > to model large hierarchical data sets
+> In the database community it has been conventional wisdom for nearly half a century now (basically since the invention of the relational model) that in designing your database schema you should be careful to avoid any kind of redundancy. That's what database normalization theory is all about. https://www.cell-lang.net/relations.html
 * _denormalization_: when speed more of a concern 📙 Conery imposter [320] Kleppmann [491] Manga [62]
 * _denormalized query engine_: subset of data for search https://speakerdeck.com/simon/the-denormalized-query-engine-design-pattern https://simonwillison.net/2020/Dec/19/dogsheep-beta/
 * _locality_: proximity of data relevant to an entity 📙 Kleppmann [32] 🗄 `db.md` document
@@ -350,6 +353,7 @@ https://news.ycombinator.com/item?id=37118633
 > The 1+N database anti-pattern is common: fetch some rows from the database then re-fetch specific rows to get all the items. An ORM can hide this away and make you not realize it is happening. https://suor.github.io/blog/2023/03/26/ban-1-plus-n-in-django/
 * solved with eager loading https://news.learnenough.com/eager-loading
 * _impedance mismatch_: difficulty of object-relational mapping [Kleppmann 1.33] multiple ways to aproach http://blogs.tedneward.com/post/the-vietnam-of-computer-science/
+> In the database community it has been conventional wisdom for nearly half a century now (basically since the invention of the relational model) that in designing your database schema you should be careful to avoid any kind of redundancy. That's what database normalization theory is all about. For some unfathomable reason, the same kind of thinking is never (or almost never) applied to software construction, even though it would be as beneficial (possibly even more so) as it is for databases. So, before we countinue our discussion, it's a good idea to talk a bit about redundancy, and to explain what's so harmful about it. https://www.cell-lang.net/relations.html
 
 QUERY BUILDERS
 * reverse query builder https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203030 https://github.com/kyleconroy/sqlc https://preslav.me/2023/03/07/reasons-against-sqlc/
@@ -603,7 +607,7 @@ foo_isrc,200.0,4
 qux_isrc,200.0,2
 ```
 
-# DML
+# 🚜 DML
 
 CLAUSES
 * _clause_: part of select statement 📙 Beaulieu [47]
@@ -758,6 +762,31 @@ lag() sum() ntile() row_number()
 
 📙 Beaulieu ch. 5, 10
 
+BASICS
+* _join_: include attr from n tables in result set 📙 Beaulieu [88]
+* for-loop combining records from diff tables based on condition
+```sql
+select deal.deal_id, house.addr
+from deal
+    join house on deal.house = house.house_id
+    join renter on deal.renter = renter.renter_id
+```
+* _driving table_: starting point of join 📙 Beaulieu [95]
+* _through table_: tables included in the join
+
+CONDITIONS
+```sql
+-- WHERE: old syntax 📙 Beaulieu [91]
+select * from employee, lob where employee.lob_id = lob.id
+-- ON: new syntax (SQL92), portable across dbms 📙 Beaulieu [92]
+select * from employee, lob on employee.lob_id = lob.id
+-- USING_: use w/ equi join if tables have attr w/ same name 📙 Beaulieu [90] https://www.neilwithdata.com/join-using
+select * from employee, lob using (lob_id)
+```
+* no condition = cartesian result set 📙 Beaulieu [35]
+
+---
+
 todo
 * https://antonz.org/sql-join/
 * https://news.ycombinator.com/item?id=36575784
@@ -766,49 +795,6 @@ todo
 * https://news.ycombinator.com/item?id=27760154
 * https://alexpetralia.com/posts/2017/7/19/more-dangerous-subtleties-of-joins-in-sql
 
-BASICS
-* _join_: include attr from n tables in result set 📙 Beaulieu [88]
-* for-loop combining records from diff tables based on condition
-* _driving table_: starting point of join 📙 Beaulieu [95]
-```sql
--- no condition = cartesian result set (35)
-from renter
-join house
--- condition = non-cartesian (11)
-from renter
-join house
-    on renter.district = house.district
-```
-* n tables 📙 Beaulieu 5.88
-```sql
--- basic
-select deal.deal_id, house.addr, renter.`name`
-from deal
-    join house on deal.house = house.house_id
-    join renter on deal.renter = renter.renter_id
-
--- w/ through table
-select job_id, city
-from job
-    join job_geo on job.job_id = job_geo.job
-    join geo on job_geo.geo = geo.geo_id
-where job_id = 3
-```
-
-SYNTAX
-* _WHERE_: old syntax 📙 Beaulieu [91]
-```sql
-select * from employee, lob where employee.lob_id = lob.id
-SELECT e.fname, e.lname, d.name -> FROM employee e, department d -> WHERE e.dept_id = d.dept_id;
-```
-* _ON_: new syntax (SQL92), portable across dbms 📙 Beaulieu [92]
-```sql
-select * from employee, lob on employee.lob_id = lob.id
-```
-* _USING_: use w/ equi join if tables have attr w/ same name 📙 Beaulieu [90] https://www.neilwithdata.com/join-using
-```sql
-select * from employee, lob using (lob_id)
-```
 
 INNER/OUTER, LEFT/RIGHT
 * _inner_: result set doesn't include rows for which the join fails 📙 Beaulieu [90]
@@ -1112,6 +1098,7 @@ FROM cd.facilities;
 DESIGN
 * SQL is boring and durable https://josephg.com/blog/databases-have-failed-the-web/
 * SQL is outdated and awkward https://news.ycombinator.com/item?id=33034351
+* SQL + pipelines (attempts to rewrite) https://news.ycombinator.com/item?id=39539252
 * ISO, ANSI standard [Beaulieu 5.86-7]
 * SQL92 📙 Beaulieu [91]
 * SQL2023 http://peter.eisentraut.org/blog/2023/04/04/sql-2023-is-finished-here-is-whats-new

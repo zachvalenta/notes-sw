@@ -21,6 +21,13 @@
 
 ---
 
+create repo to experiment
+
+https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894
+
+* db per tentant https://news.ycombinator.com/item?id=39004963
+* https://read.engineerscodex.com/p/how-instagram-scaled-to-14-million
+* race condition https://portswigger.net/research/smashing-the-state-machine
 * https://en.wikipedia.org/wiki/The_Association
 * db per user https://news.ycombinator.com/item?id=38171322
 state machine, audit https://blog.lawrencejones.dev/state-machines/ https://www.youtube.com/watch?v=YSUxLRlTzZ4
@@ -33,18 +40,8 @@ WORLD'S DUMBEST COMPLETE SAAS
 > scaffold (deployment, monitoring), accounts (individual, teams), auth (registration, login/logout, pw update, account removal), subscriptions
 * https://news.ycombinator.com/item?id=34530052
 * https://news.ycombinator.com/item?id=34483294
-* https://pocketbase.io/ 
+* https://pocketbase.io/
 * BYO Saas https://www.datasette.cloud/blog/2023/welcome/
-
-## done
-
-* _23_: 📙 Evans domain-driven
-* _20_: gunicorn, uWSGI
-* _19_: https://github.com/zachvalenta/nginx-wsgi URL shortener, Gitlab for CI
-* _18_: AMQP/Spring thing for Dark Canary
-* _17_: Google SRE book first 20 chapters
-
----
 
 https://www.youtube.com/watch?v=rIt0uj8TaKg
 
@@ -159,7 +156,15 @@ rf
 * infra https://mattsegal.dev/simple-django-deployment.html
 * https://saasitive.com/
 
-# API
+## done
+
+* _23_: 📙 Evans domain-driven
+* _20_: gunicorn, uWSGI
+* _19_: https://github.com/zachvalenta/nginx-wsgi URL shortener, Gitlab for CI
+* _18_: AMQP/Spring thing for Dark Canary
+* _17_: Google SRE book first 20 chapters
+
+# 🛰️ API
 
 🔍 https://github.com/public-apis/public-apis
 📙 Masse api rulebook
@@ -307,6 +312,7 @@ def endpoint():
 ```
 
 OpenAPI
+* howto https://www.youtube.com/watch?v=qcxio8C9Mh0
 * _versions_: OpenAPI (v3) Swagger (v2)
 * _schema_: description of API; formats differ between v2 and v3 https://docs.apistar.com/api-documentation/
 * _parameters_: headers, query string, path https://swagger.io/docs/specification/describing-parameters/
@@ -351,7 +357,7 @@ https://app.pluralsight.com/library/courses/designing-restful-web-apis/table-of-
 
 * _sink_: https://www.youtube.com/watch?v=dqDnB6jKzcE https://www.moesif.com/blog/technical/api-design/Best-Practices-for-Versioning-REST-and-GraphQL-APIs/ https://stackoverflow.com/questions/55877310/add-x-frame-options-header-to-all-flask-responses https://flask.palletsprojects.com/en/1.1.x/api/#flask.Flask.after_request https://pythonise.com/series/learning-flask/python-before-after-request https://stripe.com/blog/api-versioning https://news.ycombinator.com/item?id=21834628 https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api https://brandur.org/api-upgrades security https://nostarch.com/hacking-apis
 
-# ARCHITECTURE
+# ⛪️ ARCHITECTURE
 
 🔍 https://github.com/DovAmir/awesome-design-patterns
 📙 Brooks design of design https://news.ycombinator.com/item?id=33410375
@@ -742,7 +748,7 @@ load balancing
 * _hw_: Kemp, Barracuda, F5; run $1-20k bc need to handle GBps of traffic https://news.ycombinator.com/item?id=21095159&utm_term=comment 
 * BYO: https://kasvith.github.io/posts/lets-create-a-simple-lb-go/ https://dev.to/bmf_san/implement-a-load-balancer-in-golang-8gj
 
-# DISTRIBUTED
+# 🌌 DISTRIBUTED
 
 🗄
 * `db.md` plumbing
@@ -938,7 +944,7 @@ locking
 * _dirty read_: read uncommitted data
 * e.g. transaction 1 updates a row, transaction 2 reads the updated row before transaction 1 commits the update, transaction 1 rolls back the change, transaction 2 will have read data that is considered never to have existed https://retool.com/blog/whats-an-acid-compliant-database/
 
-# PROGRAMS
+# 🏡 PROGRAMS
 
 📚
 * Buelta python architecture
@@ -1161,30 +1167,29 @@ URL shortener 🗄 `fd url-short`
 ## deployment
 
 🗄
-* `infra.md` telemetry
+* `infra.md` config mgmt
 * `linux.md` build systems
 * `security.md` secrets mgmt
 * `sql.md` migrations
 
 APPLICATION CONFIG
 * env files: https://snarky.ca/use-toml-for-env-files/
+* https://direnv.net/
 
 DEPLOYMENT
+* taxonomy: yolo (edit on server) FTP (edit on local, push to server) SCM (SSH to sever and pull repo, maybe use cron) CICD (triggered by repo hook https://dagger.io/) https://css-tricks.com/deployment/
+* pipelines: fetch (clone from repo) build (install deps, compile) test (run unit tests) deploy (put artifact somewhere so CD can pick it up and run it)
+* Jenkins https://itnext.io/jenkins-is-getting-old-2c98b3422f79 https://www.youtube.com/watch?v=WWcijE7ifcA
+* BYO http://aosabook.org/en/500L/a-continuous-integration-system.html
 * _deployment_: align higher env w/ lower env https://css-tricks.com/deployment/
 * _staged deployment_: deploy to a few nodes at a time 📙 Kleppmann 4.112
-* _blue-green deployment_: split traffic btw new and old; aka red-black https://fly.io/django-beats/smooth-database-changes-in-blue-green-deployments/?utm_campaign=Django%2BNewsletter&utm_medium=email&utm_source=Django_Newsletter_198
+* _blue-green deployment_: split traffic btw new and old; aka red-black https://fly.io/django-beats/smooth-database-changes-in-blue-green-deployments/?utm_campaign=Django%2BNewsletter&utm_medium=email&utm_source=Django_Newsletter_198 https://news.ycombinator.com/item?id=39048317
 
 RELEASE
 * _release_: users get latest deployment
 * have a `RELEASE.md` https://news.ycombinator.com/item?id=26902887
 * have a runbook https://github.com/Microsoft/vscode/wiki/Development-Process#inside-an-iteration
 * _canary release_: only subset of users get latest deployment https://medium.com/netflix-techblog/automated-canary-analysis-at-netflix-with-kayenta-3260bc7acc69 
-
-IMPL https://css-tricks.com/deployment/
-* _yolo_: edit on server
-* _FTP_: edit on local, push to server
-* _SCM_: SSH to sever and pull repo, maybe use cron
-* _CICD_: repo hook triggers CICD https://dagger.io/
 
 FEATURE FLAGGING 🗄 `infra.md` analytics
 * _feature flag_: toggle functionality; impl agnostic (env var, db, aaS) https://medium.com/@noahrobi/feature-toggles-give-you-superpowers-78fdeb7ab5e8

@@ -12,12 +12,7 @@
 
 ---
 
-* rf Mongo aggregations
-* 📙 Bradshaw guide
-* https://github.com/tommyboytech/t3/pull/9998/files
-* https://github.com/tommyboytech/t3/pull/10084/files
-* https://github.com/tommyboytech/t3/pull/10146/files
-* repl - add functions to map all full paths user-track and track-user
+* Postgres for everything https://news.ycombinator.com/item?id=39273954
 
 ## done
 

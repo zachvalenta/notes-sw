@@ -11,6 +11,8 @@
 
 ## standing
 
+traceroute https://terminaltrove.com/trippy/ asn https://terminaltrove.com/asn/
+
 https://www.youtube.com/watch?v=dV8mjZd1OtU
 https://www.youtube.com/watch?v=F5rni9fr1yE
 https://www.youtube.com/watch?v=37AFBZv4_6Y

@@ -24,6 +24,10 @@
 
 # 📦 PACKAGING
 
+🗄
+* `linux.md` build systems
+* `system.md` deployment
+
 SEMANTICS
 * _app_: runs on your box
 * _executable_: runs on someone else's box
@@ -31,6 +35,20 @@ SEMANTICS
 * less e.g. jQuery
 * _framework_: lib + default methods called
 * more e.g. React
+
+BINARIES
+* management: Artifactory, Nexus, Github Package Registry, Pulp https://pulpproject.org/ people also use these for language libraries and object stores as well https://devops.stackexchange.com/a/1900
+* containerized runtimes e.g. flatpak, Steam https://ludocode.com/blog/flatpak-is-not-the-future https://news.ycombinator.com/item?id=30408161
+```python
+# upload
+my_file = {"file": open(f"{file_name}", "rb")}
+requests.put(artifactory_url, files=my_file, verify=False, auth=(user, pw))
+# list archives in dir http://stackoverflow.com/a/55892053
+requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
+```
+* _precompiled binary_: using what you've been given e.g. broot needs Rust as build dep, I don't have Rust, but I can still grab broot from Homebrew; downside is that in the app's build process, could be trying to run something sudo or trying to download one of its dependencies w/out verifying a checksum https://www.vitavonni.de/blog/201503/2015031201-the-sad-state-of-sysadmin-in-the-age-of-containers.html
+* notarized binary: https://www.kencochrane.com/2020/08/01/build-and-sign-golang-binaries-for-macos-with-github-actions/
+* _build from source_: can set compiler flags to optimize for your os (e.g. turn off debugging metrics so it runs faster) https://softwareengineering.stackexchange.com/a/167507 https://golang.org/doc/install#download
 
 ---
 
@@ -44,26 +62,6 @@ SEMANTICS
 * tracking stats https://lwn.net/Articles/826216/
 * never update anything if you can avoid it https://blog.kronis.dev/articles/never-update-anything
 * pkg mgmt https://news.ycombinator.com/item?id=34577844
-
-CI
-* _pipline stages_: fetch (clone from repo) build (install deps, compilation) test (run unit tests) deploy (put artifact somewhere so CD can pick it up and run it)
-* _what not to build_: `.git`, dev deps
-* _options_: hosted Git 🗄 `git.md` Jenkins https://www.youtube.com/watch?v=f4idgaq2VqA https://itnext.io/jenkins-is-getting-old-2c98b3422f79 https://www.youtube.com/watch?v=WWcijE7ifcA BYO http://aosabook.org/en/500L/a-continuous-integration-system.html
-
-binaries
-* _management_: Artifactory, Nexus, Github Package Registry, Pulp https://pulpproject.org/ people also use these for language libraries and object stores as well https://devops.stackexchange.com/a/1900
-```python
-# upload
-my_file = {"file": open(f"{file_name}", "rb")}
-requests.put(artifactory_url, files=my_file, verify=False, auth=(user, pw))
-
-# list archives in dir http://stackoverflow.com/a/55892053
-requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
-```
-* _precompiled binary_: using what you've been given e.g. broot needs Rust as build dep, I don't have Rust, but I can still grab broot from Homebrew; downside is that in the app's build process, could be trying to run something sudo or trying to download one of its dependencies w/out verifying a checksum https://www.vitavonni.de/blog/201503/2015031201-the-sad-state-of-sysadmin-in-the-age-of-containers.html
-* notarized binary: https://www.kencochrane.com/2020/08/01/build-and-sign-golang-binaries-for-macos-with-github-actions/
-* _build from source_: can set compiler flags to optimize for your os (e.g. turn off debugging metrics so it runs faster) https://softwareengineering.stackexchange.com/a/167507 https://golang.org/doc/install#download
-* containerized runtimes e.g. flatpak, Steam https://ludocode.com/blog/flatpak-is-not-the-future https://news.ycombinator.com/item?id=30408161
 
 ## build systems
 
@@ -207,6 +205,8 @@ brew outdated | xargs brew upgrade  # updated all outdated
 ```
 
 ---
+
+get binaries from Github https://github.com/zyedidia/eget
 
 GUI https://news.ycombinator.com/item?id=37075730
 
@@ -451,6 +451,7 @@ vocab
 # ZA
 
 DATA TRANSFER
+* alternative https://github.com/abdfnx/tran
 * _FTP_: sends binary instead of metadata
 * FileZilla (client) VSFTPD (server)
 * server GUI https://github.com/mickael-kerjean/filestash https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2
@@ -476,7 +477,7 @@ scp user@host:/src/file.txt /local/
 * sysadmins https://xkcd.com/705/
 > Somewhere there’s a database programmer surrounded by empty Mountain Dew bottles whose husband thinks she’s dead. And if these people stop, the world burns. Most people don’t even know what sysadmins do, but trust me, if they all took a lunch break at the same time they wouldn’t make it to the deli before you ran out of bullets protecting your canned goods from roving bands of mutants. http://www.stilldrinking.org/programming-sucks
 * trash: https://github.com/andreafrancia/trash-cli recover deleted files https://sabotage-linux.github.io/blog/6/ alternative to rm https://github.com/alanzchen/rm-protection
-* _tar_: work w/ compressed files
+* _tar_: work w/ compressed files https://terminaltrove.com/ouch/
 * extract `-xf`
 * compress w/ gzip `.tar.gz`
 * aunpack/atoo https://hacker-tools.github.io/command-line/
@@ -649,7 +650,7 @@ za
 
 ---
 
-files
+FILES
 * _file_: sequence of bytes https://netflixtechblog.com/building-netflixs-distributed-tracing-infrastructure-bb856c319304
 * or a name in a hierachy, or a file descriptor https://blog.sunfishcode.online/is-everything-is-a-file/?utm_source=pocket_saves
 * _file handle_: https://stackoverflow.com/a/3385261/6813490 https://danluu.com/file-consistency/
@@ -671,7 +672,7 @@ https://fasterthanli.me/series/reading-files-the-hard-way
 * _inode_: file ID; ‘index node’ https://wizardzines.com/comics/inodes/
 * `/var`: for [variable data files](https://unix.stackexchange.com/a/264345)
 
-locations
+LOCATIONS
 * `~/.config`: config for CLIs (http-prompt, wireshark)
 * `/tmp`: can be either stored on disk or using tmpfs
 * `/dev/shm`: alternative to `/tmp` https://superuser.com/a/45509 https://pythonspeed.com/articles/gunicorn-in-docker/
@@ -684,7 +685,7 @@ locations
 * `/dev/null`: black hole `rm local.db 2> /dev/null; sqlite3 local.db < schema.sql`
 📝 [`/dev/null`](https://askubuntu.com/a/12099) special file for dumping this sort of thing
 
-file system
+FILE SYSTEM
 * _file system_: map of file name to file contents
 * abstraction of persistent storage hw [Think OS chapter 4 intro]
 * way to represent data from hard disk to os
@@ -737,7 +738,7 @@ system calls
 
 ## users / groups
 
-🔗 https://jvns.ca/blog/2017/11/20/groups/
+🔗 https://jvns.ca/blog/2017/11/20/groups/ https://terminaltrove.com/ugm
 
 users
 * _UID_: user id; `root` is 0

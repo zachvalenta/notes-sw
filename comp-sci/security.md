@@ -19,7 +19,7 @@
 * auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas
 * https://www.youtube.com/watch?v=F5KJVuii0Yw
 * mv email
-* hacking cloud databases, CIDR, port scanning https://infosecwriteups.com/how-i-discovered-thousands-of-open-databases-on-aws-764729aa7f32#836b port scan https://github.com/RustScan/RustScan
+* hacking cloud databases, CIDR, port scanning https://infosecwriteups.com/how-i-discovered-thousands-of-open-databases-on-aws-764729aa7f32#836b port scan https://github.com/RustScan/RustScan https://terminaltrove.com/havn/
 * lab: VirtualBox for Windows on nix? https://nostarch.com/ethical-hacking
 * https://www.cnn.com/2022/03/30/politics/ukraine-hack-russian-ransomware-gang/index.html
 * https://github.blog/2022-02-22-github-advisory-database-now-open-to-community-contributions/ https://www.thoughtworks.com/radar/techniques?blipid=202203063
@@ -108,6 +108,8 @@ https://security.stackexchange.com/questions/174932/what-is-the-difference-betwe
 
 __in action__
 
+* https://skii.dev/rook-to-xss/
+
 🔗 https://24ways.org/2018/securing-your-site-like-its-1999/
 
 * couldn't submit `<script>`, but -> added attribute to html ala `<div style="background:url('javascript:alert(1)')">` 
@@ -171,6 +173,8 @@ encryption https://danielmiessler.com/study/encoding-encryption-hashing-obfuscat
 * _hash_: 🗄 `python.md` hashable
 * _nonce_: random number used in crypto to prevent replay attack https://en.wikipedia.org/wiki/Cryptographic_nonce#Authentication
 * _obfuscate_: 
+
+https://github.com/FiloSottile/age
 
 > anything that requires encryption requires a secret key https://stackoverflow.com/a/22463969
 * breaking https://news.ycombinator.com/item?id=26085515
@@ -583,115 +587,3 @@ __monitoring exposure__
 * https://www.stopdatamining.me/
 * [Have I Been Pwned](https://www.troyhunt.com/the-legitimisation-of-have-i-been-pwned/)
 
-## secrets mgmt
-
-🗄
-* `infra.md` config mgmt
-* `shell.md` profiles
-
-* _secret_: sensitive auth creds (db user/pass, AWS IAM roles) https://testdriven.io/blog/managing-secrets-with-vault-and-consul/#what-is-vault
-* anything you can't version control
-* don't use env var?! https://news.ycombinator.com/item?id=34055914
-* scan Github https://github.com/eth0izzle/shhgit https://github.com/kootenpv/gittyleaks https://github.com/zricethezav/gitleaks
-* _secrets mgmt_: instead of passing around over email, use a tool for SSoT / audit trail / encryption https://testdriven.io/blog/managing-secrets-with-vault-and-consul/#what-is-vault
-* https://news.ycombinator.com/item?id=34083366
-
-sops 📜 https://github.com/mozilla/sops
-* = create encrypted secrets file for version control https://www.youtube.com/watch?v=AAUJjwdCx4I
-* only values are encrypted
-* workflow
-```yaml
-# config: `.sops.yaml` [1:50]
-creation_rules:
-    - path_regex: path/to/files # path to files that sops will encrypt
-      kms/age: <public_key>     # public key to use
-```
-```sh
-# open secrets file as human-readable to edit
-sops my-secrets.yaml
-# file encrypted viewed otherwise
-bat my-secrets.yaml
-```
-
----
-
-https://github.com/Infisical/infisical
-* https://github.com/tellerops/teller
-> Teller is an open-source universal secret manager for developers that ensures the correct environment variables are set when starting an application. However, it's not a vault itself — it's a CLI tool that connects to a variety of sources, ranging from cloud secrets providers to third-party solutions like HashiCorp Vault to local environment files. Teller has additional functionality to scan for vault-kept secrets in your code, to redact secrets from logs, to detect drift between secrets providers and to sync between them. Given the sensitivity of accessing secrets, we can't emphasize enough the need to secure the supply chain for open-source dependencies, but we appreciate how easy the CLI is to use in local development environments, CI/CD pipelines and deployment automation.
-* _KMS_: AWS service for storing encryption keys https://www.youtube.com/watch?v=eIvbUU8VH30
-
-local dev and keeping secrets out of app/dotfiles
-* app env: app uses `.env` + alias that when you nav to app dir cp `.env` from outside dotfiles
-* shell env: source `.env.profile` from outside dotfiles
-```sh
-.env
-.env.profile
-├── dotfiles
-│   └── .bash_profile
-│   └── .zprofile
-```
-
-envs 🗄 `shell.md` env var
-* don't use prod data outside of prod https://www.thoughtworks.com/radar/techniques/production-data-in-test-environments
-* you don't need staging https://news.ycombinator.com/item?id=30899362
-* _parity_: aka isomorphism 🗄 `testing.md` db
-* db: not a silver bullet (Postgres in your Docker container will have some differences to db server you're connecting to in prod)
-* codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://github.com/features/codespaces
-
-config in general
-* _config_: everything that varies between deployment envs https://12factor.net/config 
-* not to be confused with 'configuration mgmt' i.e. setting up consistent infra, although sometimes terms are mixed https://rednafi.github.io/digressions/python/2020/06/03/python-configs.html 🗄 `infra.md` Ansible
-* can always just push your dev env to the cloud https://softwareengineeringdaily.com/2020/10/14/gitpod-cloud-development-environments-with-johannes-landgraf-and-sven-efftinge/
-* _config class_: https://lincolnloop.com/blog/goodconf-python-configuration-library https://testdriven.io/blog/dynamic-secret-generation-with-vault-and-flask/ https://rednafi.github.io/digressions/python/2020/06/03/python-configs.html https://whalesalad.com/blog/doing-python-configuration-right [Grinberg chapter 7]
-* _FTP on steroids_: spin up entire environment remotely then file watch/sync to mv local changes to remote https://slack.engineering/development-environments-at-slack/
-* https://www.youtube.com/watch?v=omhJrT90lXU&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=39
-* CLI https://smallstep.com/blog/command-line-secrets/
-* store enums w/ versions https://martinfowler.com/articles/patterns-of-distributed-systems/versioned-value.html
-* remote dev env https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15
-
-my current approach
-* Makefile rule to sym link canonical env file into place from either `.env.dev` or `env.prod` [Osborn 14.106] export secrets from shell and document in README https://12factor.net/config downside is duplication btw files, this config class inheritance would pay off
-```makefile
-env-list:
-	ls -al | grep '>'
-
-env-dev:
-	ln -sf .env.dev .env
-
-env-prod:
-	ln -sf .env.prod .env
-```
-* dummy approach to toggling database (in order to maintain test suite db setup)
-* this emerged bc adding Postgres connection broke db setup for integration tests
-* what you should probably do is overwrite the db connection in the test module itself
-```python
-if os.getenv("FLASK_ENV") == "production":
-    db_uri = "postgresql://postgres:postgres@db:5432/postgres"
-else
-    db_path = os.path.join(basedir, os.getenv("DATABASE"))
-    db_uri = "sqlite:///" + db_path
-```
-
-env file syntax
-* _JSON_: work team, https://www.arp242.net/json-config.html generation and jsonnet https://leebriggs.co.uk/blog/2019/02/07/why-are-we-templating-yaml.html
-* _YAML_: https://yaml.org/ file has to start with `---` (doesn't seem like people follow) linters https://github.com/adrienverge/yamllint processor https://github.com/mikefarah/yq generation https://github.com/jazzband/tablib
-* _INI_: still used in Ansible https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-formats-hosts-and-groups python's `ConfigParser` uses but maybe people don't like INI? 艘 gmail for 'Dmitrii' https://www.youtube.com/watch?v=HH9L9WFMfnE seems like people don't use .ini as extension https://github.com/rorymckinley/commcare-sandbox/tree/40cd03619641fd1ee94d5d544b03e0d1167e2b9f/ansible/inventories
-* _altnernatives_: actual programming language (JS for Webpack, Python for setuptools) https://beepb00p.xyz/configs-suck.html#who_else
-* _format problems_: reuse, templating languages = learning a new worse DSL https://beepb00p.xyz/configs-suck.html#cons https://www.arp242.net/yaml-config.html https://github.com/wincent/wincent/blob/master/fig/README.md https://leebriggs.co.uk/blog/2019/02/07/why-are-we-templating-yaml.html
-
-* env var are strings
-```python
-# settings.py
-TOGGLE = os.getenv("toggle", False)
-# elsewhere
-if settings.TOGGLE:
-    pass
-```
-```conf
-# eval to True
-toggle=True
-toggle=False
-
-# eval to False
-toggle=
-```
