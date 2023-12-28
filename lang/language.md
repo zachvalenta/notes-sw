@@ -662,12 +662,29 @@ OVERLOADING
 > Function overloading is a common programming pattern which seems to be reserved to statically-typed, compiled languages. https://martinheinz.dev/blog/50
 * can do in Python via multiple dispath / multimethods https://martinheinz.dev/blog/50
 * can do in Python via `__call__`, virtual namespace, decorators https://arpitbhayani.me/blogs/function-overloading
-* _operator overloading_: operator works differently based on args https://en.wikipedia.org/wiki/Operator_overloading https://monadical.com/posts/operator-overloading-in-python.html
-> Like in C++, most built-in operators with special syntax (arithmetic operators, subscripting etc.) can be redefined for class instances. https://docs.python.org/dev/tutorial/classes.html
+* _operator overloading_: operator works differently based on args https://en.wikipedia.org/wiki/Operator_overloading
+* handled by language data model
 ```python
 print(1 + 2)
 print("hey " + "there)
 print("hey " * 3)
+```
+* handled by classes
+> operators with special syntax (arithmetic operators, etc.) can be redefined for class instances https://docs.python.org/dev/tutorial/classes.html
+```python
+# https://monadical.com/posts/operator-overloading-in-python.html
+class Clock:
+   def __init__(self, time: str):
+       self.hour, self.min = [int(i) for i in time.split(':')]
+
+   def __repr__(self) -> str:
+       min = '0' + str(self.min)
+       return str(self.hour) + ':' + min[-2:]
+
+   def __add__(self, other: Clock) -> Clock:
+       hour, min = divmod(self.min + other.min, 60)
+       hour = (hour + self.hour + other.hour) % 24
+       return self.__class__(str(hour) + ':' + str(min))
 ```
 
 za
@@ -828,6 +845,7 @@ implementations https://github.com/marcpaq/b1fipl
 * _SQL_: http://aosabook.org/en/sqlalchemy.html
 
 clean up
+* mojo https://www.fast.ai/posts/2023-05-03-mojo-launch.html
 * _compiled_: src type checked, then run
 * _reference implementation_: primary implementation of language (CPython) as compared to other alternate implementations (PyPy, Jython)
 * need to have same errors

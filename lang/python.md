@@ -16,7 +16,7 @@
 ---
 
 * install Rich globally and use with bpython https://realpython.com/python-rich-package/
-* 📙 Ramalho @ 2.20 -> hashable -> hash tables 🗄 `algos.md` hash tables re: maps, ADTs
+* 📙 Ramalho @ 2.20 -> hashable -> hash tables 🗄 `algos.md` hash tables re: maps, ADTs https://realpython.com/solid-principles-python/
 
 ENUMS
 * https://realpython.com/python-enum/
@@ -101,6 +101,19 @@ DATACLASS
 * convert dict to dataclass https://github.com/konradhalas/dacite
 
 ## attributes
+
+---
+
+```python
+# https://monadical.com/posts/operator-overloading-in-python.html
+class Clock:
+   def __init__(self, time: str):
+       self.hour, self.min = [int(i) for i in time.split(':')]
+
+   def __repr__(self) -> str:
+       min = '0' + str(self.min)
+       return str(self.hour) + ':' + min[-2:]
+```
 
 SEMANTICS
 * _attributes_: value tied to obj and accessed via dot notation https://docs.python.org/3/glossary.html#term-attribute
@@ -1924,11 +1937,11 @@ format
 * `sql.md` munge
 * `theory.md` notation
 
-| REPL          | pkg    | features                           |
-| --------------|--------|------------------------------------|
-| python        | stdlib | readline, history substitution     |
-| iPython       | PyPI   | color, ipdb, magic func            |
-| bpython       | PyPI   | object explorer                    |
+| REPL          | pkg    | features                               |
+| --------------|--------|----------------------------------------|
+| python        | stdlib | readline, history substitution         |
+| iPython       | PyPI   | color, ipdb, magic func                |
+| bpython       | PyPI   | object explorer                        |
 | ptpython      | PyPI   | https://realpython.com/ptpython-shell/ |
 
 BPYTHON
@@ -3507,6 +3520,7 @@ SEMANTICS https://python.hamel.dev/concurrency/
 
 ---
 
+* https://charlesleifer.com/blog/asyncio/
 * https://tonybaloney.github.io/posts/sub-interpreter-web-workers.html
 * thead pools https://pythonspeed.com/articles/two-thread-pools/
 * https://pythonspeed.com/articles/optimizing-dithering/

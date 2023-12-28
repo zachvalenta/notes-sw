@@ -17,6 +17,7 @@
 
 ---
 
+* do with books https://www.fast.ai/
 * regex 🗄 vimrc, regex-test.md https://chat.openai.com/share/c31be3fc-ad04-4bea-bf65-1401d3d91f09 https://learnbyexample.gitbooks.io/vim-reference/content/Regular_Expressions.html https://neovim.io/doc/user/usr_03.html
 * https://mathspp.com/blog/5-ways-to-flatten-a-list-of-lists
 * hash tables re: maps, ADTs https://stackabuse.com/hash-tables-in-python/
@@ -745,6 +746,7 @@ ChatGPT
 * BYO flavor https://iamjoshknox.com/2023/12/06/econeats-an-ai-dining-guide/
 * https://github.com/minimaxir/simpleaichat/blob/main/examples/notebooks/schema_ttrpg.ipynb
 * hacks: offer to tip https://twitter.com/emollick/status/1730742277792813517 change date https://twitter.com/venturetwins/status/1710321733184667985 get instructions https://twitter.com/fabianstelzer/status/1709562237310878122
+* use when coding https://realpython.com/chatgpt-coding-mentor-python/
 * use when reading https://www.reddit.com/r/ChatGPT/comments/17p968u/leaving_chatgpt_voice_on_while_reading_a_book_is/?rdt=52836 https://marginalrevolution.com/marginalrevolution/2023/11/the-early-days.html
 * https://twitter.com/patio11/status/1728018125398978659/photo/1
 * run locally https://github.com/Mozilla-Ocho/llamafile

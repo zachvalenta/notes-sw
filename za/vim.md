@@ -20,6 +20,12 @@
 
 ---
 
+LSP
+* https://www.youtube.com/watch?v=puWgHa7k3SY&list=WL&index=1&t=312s&pp=gAQBiAQB
+* https://www.youtube.com/watch?v=Ku-m7eEbWas&list=WL&index=2&t=322s&pp=gAQBiAQB
+* https://www.youtube.com/watch?v=C9X5VF9ASac&list=WL&index=3&t=195s&pp=gAQBiAQB
+* https://www.youtube.com/watch?v=190HoB0pVro&list=WL&index=5&pp=gAQBiAQB
+
 FUZZY SEARCH HEADER GLOBALLY (CMD T) https://vi.stackexchange.com/q/42870/35177
 * ❌ src `lsp.lua` breaks aerial (`no symbols`)
 * ❌ Telescope: `lsp_workspace_symbols` err `no client attached` if no buffer open
@@ -596,7 +602,7 @@ THEMES
 * _colorizer_: generate colors from hex w/in editor https://github.com/norcalli/nvim-colorizer.lua https://github.com/NvChad/nvim-colorizer.lua
 * fs location: `$VIMRUNTIME/.vim/colors` http://vimcasts.org/episodes/creating-colorschemes-for-vim/ 0:45
 * use same theme across terminal, multiplexer, Vim https://www.youtube.com/watch?v=h509rn2xIyU 🗄 `shell.md` terminal / features
-* BYO https://vi.stackexchange.com/questions/2782/how-can-i-create-my-own-colorscheme http://vimcasts.org/episodes/creating-colorschemes-for-vim/ https://alvinalexander.com/linux/vi-vim-editor-color-scheme-syntax/ https://github.com/martinsione/darkplus.nvim/blob/main/lua/darkplus/theme.lua https://github.com/Rigellute/rigel/blob/master/colors/rigel.vim https://gist.github.com/romainl/5cd2f4ec222805f49eca https://github.com/flazz/vim-colorschemes/blob/master/colors/256_noir.vim https://github.com/lukas-reineke/onedark.nvim/blob/master/lua/onedark.lua#L16
+* BYO https://vi.stackexchange.com/questions/2782/how-can-i-create-my-own-colorscheme http://vimcasts.org/episodes/creating-colorschemes-for-vim/ https://alvinalexander.com/linux/vi-vim-editor-color-scheme-syntax/ https://github.com/martinsione/darkplus.nvim/blob/main/lua/darkplus/theme.lua https://github.com/Rigellute/rigel/blob/master/colors/rigel.vim https://gist.github.com/romainl/5cd2f4ec222805f49eca https://github.com/flazz/vim-colorschemes/blob/master/colors/256_noir.vim https://github.com/lukas-reineke/onedark.nvim/blob/master/lua/onedark.lua#L16 https://www.youtube.com/watch?v=EJLrssH1ip0
 * pack https://github.com/flazz/vim-colorschemes/tree/master
 * _catppuccin_: ✅ https://github.com/catppuccin/nvim
 * _gruvbox_: https://github.com/morhetz/gruvbox
@@ -930,6 +936,7 @@ edit
 
 THINGS I'M NOTICING ABOUT VSC
 * autocomplete works for any word in the workspace
+* prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421
 
 WORKSPACES 📜 https://code.visualstudio.com/docs/editor/multi-root-workspaces 
 * _workspace_: dir(s) in scope for search https://stackoverflow.com/a/50185038

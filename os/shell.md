@@ -1390,9 +1390,12 @@ ZA
 📜 https://github.com/sharkdp/bat
 
 ```sh
-# specify stdin language
+# CONFIG
+bat --config-dir
+bat --config-file
+# SPECIFY STDIN LANGUAGE
 yaml2json .travis.yml | json_pp | bat -l json
-# multiple
+# MULTIPLE
 bat src/*.rs
 ```
 
