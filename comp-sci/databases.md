@@ -18,6 +18,7 @@
 
 ---
 
+* start with this for data eng https://uwekorn.com/2019/10/19/taking-duckdb-for-a-spin.html
 * db: Conery + query sandbox
 https://tedconbeer.com/ https://github.com/ankane/blazer
 
@@ -26,7 +27,6 @@ https://tedconbeer.com/ https://github.com/ankane/blazer
 * https://jepsen.io/analyses/mysql-8.0.34
 * query everything https://www.hytradboi.com/2022/how-to-query-almost-everything
 * Carnegie Mellon, Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf
-* _vector_: for recommendation systems, NLP https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/
 * https://www.thenile.dev/blog/things-dbs-dont-do
 
 ## done
@@ -195,7 +195,7 @@ WAREHOUSE DBMS
 > I hear people arguing "a dataset can fit in memory". RAM capacity, even on the Cloud, has grown a lot recently. There are EC2 instances with 2 TB of RAM. RAM can typically be used at 12-25 GB/s depending on the architecture of your setup. Using RAM alone won't provide any failure recovery if the machine suffers a power failure. To add to this, the cost per GB will is tremendous compared to using disks. https://tech.marksblogg.com/is-hadoop-dead.html
 * can always use Postgres https://brandur.org/warehouse https://tech.marksblogg.com/billion-nyc-taxi-rides-postgresql.html https://news.ycombinator.com/item?id=27109960
 > I've also heard arguments that row-oriented systems like MySQL and PostgreSQL can fit the needs of analytical workloads as well as their traditional transactional workloads. Both of these offerings can do analytics and if you're looking at less than 20 GB of data it's probably not worth the effort of having multiple pieces of software running your data platform. https://tech.marksblogg.com/is-hadoop-dead.html
-* _DuckDB_: embedded https://duckdb.org/ https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/ https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf https://kadekillary.work/note/duckdb/ https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html https://news.ycombinator.com/item?id=39141652&utm_term=comment
+* _DuckDB_: embedded https://duckdb.org/ for analytics https://news.ycombinator.com/item?id=24531085 https://news.ycombinator.com/item?id=23287278 own flavor of SQL https://duckdb.org/2022/05/04/friendlier-sql.html https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/ https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf https://kadekillary.work/note/duckdb/ https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html https://news.ycombinator.com/item?id=39141652&utm_term=comment
 * _Clickhouse_: https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html
 * _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
 * beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
@@ -263,6 +263,7 @@ TOOLS
 
 ---
 
+* _vector_: for recommendation systems, NLP https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/
 * Datomic (Hickey), datalog/prolog https://news.ycombinator.com/item?id=21742222 https://kevinlynagh.com/newsletter/2022_04_on_datalog_application_databases/ https://news.ycombinator.com/item?id=31154039 https://news.ycombinator.com/item?id=35094017 https://news.ycombinator.com/item?id=35727967 https://clojure.org/news/2023/08/04/next-rich
 * can be a problem is you need to change the PK https://calpaterson.com/non-relational-beartraps.html
 > Changing the primary key of a table is a surprisingly common activity. In truth, it's pretty easy to pick something that initially looks like it will be unique but which later turns out to not be unique...Unfortunately, in many non-relational database systems the primary key is "special". For example, Dynamo-style systems will use the primary key to decide which of the partitions the record will go on.

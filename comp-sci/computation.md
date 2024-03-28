@@ -606,7 +606,7 @@ JSON 📜 http://www.json.org/ https://seriot.ch/projects/parsing_json.html http
 }
 ```
 * fmt: `python3 -m json.tool music-lib.json > music-lib-fmt.json` https://orbifold.xyz/check-in-json.html
-* query: jq https://github.com/stedolan/jq clones https://github.com/01mf02/jaq mistql https://www.mistql.com/ duckdb https://duckdb.org/2023/03/03/json.html jsoncrack https://github.com/AykutSarac/jsoncrack.com 🗄 `db.md` SQLite / CLI
+* query: jq https://github.com/stedolan/jq using duckdb https://www.pgrs.net/2024/03/21/duckdb-as-the-new-jq/ https://news.ycombinator.com/item?id=35009612 jnv https://github.com/ynqa/jnv clones https://github.com/01mf02/jaq mistql https://www.mistql.com/ duckdb https://duckdb.org/2023/03/03/json.html jsoncrack https://github.com/AykutSarac/jsoncrack.com 🗄 `db.md` SQLite / CLI
 ```sh
 # 📜 https://stedolan.github.io/jq/manual
 # 🔍 https://github.com/noahgorstein/jqp 
@@ -672,7 +672,7 @@ BINARY
 * used more for internal services 📙 Jeffrey distributed [5]
 * db res in binary which is parsed by language-specific API 📙 Kleppmann 4.128
 📙 Kleppmann 4.117, 4.122, 4.130
-* _Arrow_: https://github.com/adriangb/pgpq relationship to Pandas https://news.ycombinator.com/item?id=34968769 https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i
+* _Arrow_: in-memory format https://news.ycombinator.com/item?id=29010103 https://github.com/adriangb/pgpq relationship to Pandas https://news.ycombinator.com/item?id=34968769 https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i
 * _Avro_: serialization format https://avro.apache.org/docs/current/
 * better than CSV bc handles typing, cells missing data
 * CSV disadvantages: inferred data types https://www.youtube.com/watch?v=SZX9DM_gyOE 1:20
@@ -695,7 +695,7 @@ BINARY
 
 PARQUET
 * https://pythonspeed.com/articles/best-file-format-for-pandas/
-* _Parquet_: column-oriented file format, like CSV https://www.youtube.com/watch?v=H_dLfHETO0g https://news.ycombinator.com/item?id=35418933
+* _Parquet_: column-oriented file format, like CSV https://www.youtube.com/watch?v=H_dLfHETO0g https://news.ycombinator.com/item?id=35418933 https://news.ycombinator.com/item?id=29010103
 * easier to use now vs. CSV https://news.ycombinator.com/item?id=30595026
 * use to build no-code API https://tech.marksblogg.com/roapi-rust-data-api.html
 

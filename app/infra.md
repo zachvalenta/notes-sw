@@ -102,6 +102,7 @@ ZA
 
 ## IAM
 
+* https://news.ycombinator.com/item?id=39714155
 * rotate access key https://github.com/Fullscreen/aws-rotate-key
 * https://learn.hashicorp.com/terraform/aws/iam-policy
 * everthing is: _user_ (operator w/ permanent credentials; has API _access keys_ ID/secret) _group_ (collection of users) _role_ (user w/ tmp credentials) _policy_ (perms to access service; resource [S3] action [read] effect[boo]) https://stackoverflow.com/a/51888634/6813490
@@ -185,6 +186,7 @@ __other options if that doesn't work__
 https://www.youtube.com/watch?v=W4FPZ29Trpw
 https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/migrate-dns-domain-inactive.html
 https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html
+S3 bucket viewer https://terminaltrove.com/stree/
 http://shon.github.io/2014/12/21/dns_migration_story.html
 http://blog.alfredcalayag.com/development/2015/03/02/personal-site-hosted.html
 https://www.youtube.com/watch?v=D6qB7MEFOe0

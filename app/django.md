@@ -12,9 +12,8 @@
 
 ---
 
-htmx
-
 COURSES 🗄 `system.md`
+> https://news.ycombinator.com/item?id=39732932
 * 📙 Vincent beginners
 * 📙 Vincent api
 * 📙 Vincent professionals
@@ -711,6 +710,7 @@ STRUCTURE
 
 * keep track of failed logins https://github.com/jazzband/django-axes
 https://testdriven.io/blog/django-rest-auth/
+https://www.photondesigner.com/articles/email-sign-in
 
 VINCENT
 * basic https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication https://tech.marksblogg.com/passwords-in-django.html
@@ -837,6 +837,7 @@ https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-djan
 * _CORS_: https://github.com/adamchainz/django-cors-headers
 * _debug_ https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
 * _Docker_: https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/ https://www.untangled.dev/2020/06/06/docker-django-local-dev https://testdriven.io/courses/tdd-django https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
+* _editor_: https://406.ch/writing/django-prose-editor-prose-editing-component-for-the-django-admin/
 * _email_: https://learndjango.com/tutorials/django-email-contact-form
 * _favicon_: https://learndjango.com/tutorials/django-favicon-tutorial
 * _internals_: https://djangodeconstructed.com/ how do class names (`PasswordChangeView`) resolve to import names (`from django.contrib.auth.views import password_change`)?

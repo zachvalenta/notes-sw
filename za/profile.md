@@ -2,12 +2,15 @@
 
 ## now
 
+* prep capital one
 * rf `pitch-letter.md`
+* apps https://news.ycombinator.com/item?id=38101004 https://news.ycombinator.com/item?id=38871286 https://news.ycombinator.com/item?id=38108790 https://news.ycombinator.com/item?id=39568665 https://news.ycombinator.com/item?id=39563728 https://www.linkedin.com/jobs/view/3829398222/?trackingId=kfOfr6gnb4BzR3 https://www.linkedin.com/jobs/view/3856268932/?trackingId=jQZe4MtkBUfiWdX7d1 https://www.linkedin.com/jobs/view/3855601551/?trackingId=8kx3liI https://www.linkedin.com/jobs/view/3854217358/?trackingId=MzuyT0LQHJHsI6WUNs34Jg + Eliassen, Vanguard, Dror, US Marshal
+* resume
 
 ## next
 
-* apps https://news.ycombinator.com/item?id=38101004 https://news.ycombinator.com/item?id=38871286 https://news.ycombinator.com/item?id=38108790 https://news.ycombinator.com/item?id=39568665 https://news.ycombinator.com/item?id=39563728 https://www.linkedin.com/jobs/view/3829398222/?trackingId=kfOfr6gnb4BzR3 https://www.linkedin.com/jobs/view/3856268932/?trackingId=jQZe4MtkBUfiWdX7d1 https://www.linkedin.com/jobs/view/3855601551/?trackingId=8kx3liI https://www.linkedin.com/jobs/view/3854217358/?trackingId=MzuyT0LQHJHsI6WUNs34Jg
-> Eliassen
+---
+
 * Dror
 * does Eva still know anyone at Palantir?
 * go through previous roles
@@ -65,6 +68,7 @@ MGMT https://jacobian.org/posts/
 
 ## resume
 
+🛣️ Django
 🗄 notebook [23.05.02,05.09]
 
 * databases: data eng, data science
@@ -176,12 +180,9 @@ OPERATIONS
 
 ## commits
 
-* ren: phoenix
-* mini23 dot: open hm at last line
 * air22 dot
 * air22 bin
 * jrnl
-* profile.md to career.md
 * denv
 * gitconfig: mv alias to zprofile, reorder to put my specific conf at top of file
 * open ticket for M2 mac https://github.com/birchb1024/frangipanni/issues/21 add documentation https://github.com/birchb1024/frangipanni/issues/22

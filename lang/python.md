@@ -1697,6 +1697,10 @@ SEMANTICS
 
 ---
 
+YOUR PROBLEM
+* poetry not playing well with pyyaml https://stackoverflow.com/questions/77828411/unable-to-install-pyyaml-using-poetry https://github.com/python-poetry/poetry/issues/8287
+
+https://chriswarrick.com/blog/2024/01/15/python-packaging-one-year-later/
 
 * _uv_: early days, took over Rye https://astral.sh/blog/uv https://news.ycombinator.com/item?id=39387641 https://lucumr.pocoo.org/2024/2/4/rye-a-vision/
 https://chriswarrick.com/blog/2024/01/15/python-packaging-one-year-later/

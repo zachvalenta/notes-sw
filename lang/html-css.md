@@ -461,6 +461,7 @@ PELICAN 📜 https://github.com/getpelican/pelican
 
 FEATURES https://twitter.com/danluu/status/1244051446313574402 https://news.ycombinator.com/item?id=39511714&utm_term=comment https://meridian.mercury.com/dwarkesh-patel https://mkaz.blog/working-with-python/ https://shreyans.org/
 * templating
+* write on music https://yearofbach.substack.com/p/march-25-the-six-cello-suites-bwv
 * page metadata e.g. title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/
 * search: Stork https://stork-search.net/ TinySearch https://github.com/tinysearch/tinysearch https://news.ycombinator.com/item?id=23474134 DDG https://vadosware.io/ https://ddg.patdryburgh.com/ lunr.js https://github.com/olivernn/lunr.js https://brainbaking.com/search/?q=database example https://clearerthinkingpodcast.com/#episodes
 * RSS generation

@@ -866,7 +866,7 @@ EDITOR HISTORY
 * 1991: Vim https://twobithistory.org/2018/08/05/where-vim-came-from.html https://begriffs.com/posts/2019-07-19-history-use-vim.html
 * 2006: Vim 7.0
 * 2013: Vim 8.0 [PV 5.27]
-* newish: Helix https://helix-editor.com/ Zed https://zed.dev/ https://zed.dev/blog/we-have-to-start-over
+* newish: Helix https://helix-editor.com/ Zed https://zed.dev/ https://zed.dev/blog/we-have-to-start-over Amp https://amp.rs/
 
 ## Jetbrains
 

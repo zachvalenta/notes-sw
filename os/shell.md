@@ -3,6 +3,7 @@
 ## 参考
 
 📚
+* Barrett https://www.amazon.com/gp/product/1098113403
 * Evans shell
 * Shotts linux command line https://www.linuxcommand.org/tlcl.php
 * Stutz cookbook

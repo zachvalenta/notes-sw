@@ -569,8 +569,9 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 | `music-usb-2` | desk     | 24.02 | `yin`      |               |
 
 TODO
-* yin: far (cleanup = all) rnb (80s) rap (nyc) za (gospel) + singles, cut copy to pop, girl talk, lcd soundsystem, laurel halo, larry young, julee cruise, jim croce, pointer sisters, jackie wilson, bobby bland, rotary connection, sza, genesis, fugazi, allmans, waylon, jerry jeff walker
+* yin: far (cleanup = all) rnb (80s) rap (nyc) za (gospel) + singles + cut copy to pop, girl talk, lcd soundsystem, laurel halo, larry young, julee cruise, jim croce, pointer sisters, jackie wilson, bobby bland, rotary connection, sza, genesis, fugazi, allmans, waylon, jerry jeff walker
 * digits
+* admin: parking tickets
 * golf: swings
 * music: Hilton basics
 * mat: Kernighan golang Connoly database Luksa kubernetes
