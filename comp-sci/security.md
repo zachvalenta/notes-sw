@@ -64,6 +64,7 @@ roles https://www.netmeister.org/blog/infosec-skillsets.html
 
 ---
 
+* _SSRF_: https://ejj.io/blog/capital-one
 * _zero-knowledge proof (ZKP)_: someone prove that you know something without disclosing what you know https://www.notboring.co/p/zero-knowledge
 * _command injection_: input causes system call on server
 * _dictionary attack_: go through list of common passwords; form of brute force
@@ -243,6 +244,7 @@ pass
 🗄 `application.md` security
 
 vocab
+https://ntietz.com/blog/lets-say-instead-of-auth/
 * _authorization_: identity
 * _authentication_: access
 * aka permissions https://github.com/authzed/spicedb https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203085
@@ -421,7 +423,7 @@ types
 * _basic_: base64 encoded https://blog.luisrei.com/articles/flaskrest.html
 * _bearer_: crypto signed
 * used by OAuth https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Authentication_schemes
-* _JWT_: 📍 http://eradman.com/posts/practical-jwt.html
+* _JWT_: 📍 http://eradman.com/posts/practical-jwt.html https://github.com/jwt-rs/jwt-ui
 
 approaches
 * _stateless_: contains hashed version of user info (id, auth) https://en.wikipedia.org/wiki/Access_token

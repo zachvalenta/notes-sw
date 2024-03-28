@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -8,33 +8,19 @@
 * Kennedy in action
 * Kernighan go programming language
 
-## now
+## 进步
 
-## next
-
----
-
-📙 Ball
-
-BASICS
+BASICS 📙 Ball
+* https://www.youtube.com/watch?v=un6ZyFkqFKo
+* https://www.youtube.com/watch?v=8uiZC0l4Ajw
 * https://go.dev/tour/list
 * https://gist.github.com/prologic/5f6afe9c1b98016ca278f4d507e65510
-
-WEB
-* start here https://www.youtube.com/watch?v=F9H6vYelYyU
-* https://github.com/nikolaydubina/go-recipes
-* https://pocketbase.io/ 
-* https://github.com/livebud/bud
-* https://www.allhandsontech.com/programming/golang/web-app-sqlite-go/
-* URL shortener https://jrstupkadev.medium.com/golang-url-shortener-22ba6c970792 https://blog.pratimbhosale.com/building-a-url-shortener-using-go-and-sqlite#heading-project-setup
-
-## done
 
 * _20_: research packaging
 * _19_: version mgmt (uninstall macOS pkg, reinstall `go` and `dep` w/ brew)
 * _17_: PluralSight course w/ Roberto and Josh
 
-# LANG
+# 📝 LANG
 
 📜
 * https://github.com/uber-go/guide/blob/master/style.md
@@ -275,7 +261,8 @@ var myBool // false
 var myString // ""
 var myInt // 0
 ```
-# STDLIB
+
+# 📔 STDLIB
 
 🔍
 * https://threedots.tech/post/list-of-recommended-libraries/
@@ -322,6 +309,8 @@ var myInt // 0
 
 ---
 
+* https://www.dolthub.com/blog/2023-03-29-interactive-shell-golang/
+
 * dataclerk, fz/tz https://github.com/charmbracelet/lipgloss https://github.com/charmbracelet/bubbles?tab=readme-ov-file#viewport https://github.com/charmbracelet/harmonica https://github.com/charmbracelet/mods https://github.com/charmbracelet/gum https://github.com/charmbracelet/glow
 
 * https://clig.dev/ https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46 https://www.youtube.com/watch?v=eMz0vni6PAw https://eryb.space/2020/05/27/diving-into-go-by-building-a-cli-application.html https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ email author -> 艘 'Golang article typo'
@@ -354,6 +343,13 @@ var myInt // 0
 
 ## web
 
+* start here https://www.youtube.com/watch?v=F9H6vYelYyU
+* https://github.com/nikolaydubina/go-recipes
+* https://pocketbase.io/ 
+* https://github.com/livebud/bud
+* https://www.allhandsontech.com/programming/golang/web-app-sqlite-go/
+* URL shortener https://jrstupkadev.medium.com/golang-url-shortener-22ba6c970792 https://blog.pratimbhosale.com/building-a-url-shortener-using-go-and-sqlite#heading-project-setup
+
 * basic
 ```golang
 package main
@@ -367,6 +363,7 @@ func main() {
 	http.ListenAndServe(":8000", nil)
 }
 ```
+* OpenAPI https://github.com/danielgtaylor/huma
 * https://github.com/carlmjohnson/requests
 * https://news.ycombinator.com/item?id=39318867
 * https://www.allhandsontech.com/programming/golang/web-app-sqlite-go/
@@ -381,7 +378,7 @@ func main() {
 * servers: https://eli.thegreenplace.net/2021/rest-servers-in-go-part-1-standard-library/
 * https://www.honeybadger.io/blog/go-web-services/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://www.usegolang.com/sample/?__s=aqtioiz6aumf2qzwpp96 https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg https://www.usegolang.com/ https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg  https://github.com/go-resty/resty https://github.com/gojek/heimdall https://benhoyt.com/writings/go-routing/ https://github.com/projectdiscovery/httpx
 
-# ZA
+# 🟨 ZA
 
 ENV VAR
 * flags https://github.com/peterbourgon/ff

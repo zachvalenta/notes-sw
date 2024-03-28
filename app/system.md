@@ -1,29 +1,40 @@
-# 开
+# ⛩️
 
 ## 参考
 
-🗄 `infra.md`
-📅 conferences https://www.micahlerner.com/2021/08/14/systems-conferences-2021.html https://www.micahlerner.com/2021/12/30/conferences-2022.html
-📹 https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/videos
 🔍
-* https://roadmap.sh/backend
 * https://softwarerecs.stackexchange.com
 * https://softwareengineering.stackexchange.com
 📚
 * Bueno mature optimization http://book.mixu.net/distsys/index.html
-* Jeffrey distributed services
 * Kleppmann data-intensive
+
+## 进步
+
+* _23_: 📙 Evans domain-driven
+* _20_: gunicorn, uWSGI
+* _19_: https://github.com/zachvalenta/nginx-wsgi URL shortener, Gitlab for CI
+* _18_: AMQP/Spring thing for Dark Canary
+* _17_: Google SRE book first 20 chapters
+
+# 📍 CLEAN UP
+
+for Roots Autmation https://www.youtube.com/watch?v=8zsdpwvTxos
+
+> Beware of arguments related to programming speed. All things being equal, faster is better. But all things are never equal. Do you need the kind of speed that lets you get a website up and running quickly? Or the kind that allows you to rotate a few thousand polygons in 3D in real time? Do you need to convert 10,000 PDFs into text per hour? Or 10 million PDFs into text once? These are different problems. - Ford what is code?
+
+> do these after cleaning up everything else
+
+https://www.youtube.com/playlist?list=PLCRMIe5FDPsd0gVs500xeOewfySTsmEjf
+
+https://www.youtube.com/playlist?list=PLCRMIe5FDPseVvwzRiCQBmNOVUIZSSkP8
+
+* create repo to experiment
+* https://blog.pecar.me/faster-api
+* https://roadmap.sh/backend
+* https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/videos
+https://www.youtube.com/playlist?list=PL8hP5HjAnJ3_mT7IHXjlbpYX_xiz4v_kP
 * Google SRE https://sre.google/sre-book/table-of-contents/
-
-## now
-
-## next
-
----
-
-create repo to experiment
-
-https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894
 
 * db per tentant https://news.ycombinator.com/item?id=39004963
 * https://read.engineerscodex.com/p/how-instagram-scaled-to-14-million
@@ -47,6 +58,8 @@ https://www.youtube.com/watch?v=rIt0uj8TaKg
 
 incentives https://news.ycombinator.com/item?id=36380711&utm_term=comment
 
+https://www.benkuhn.net/progessays/
+
 🗄 notebook 23.01.11
 
 CRD DDD 🗄 notebook 22.12.13
@@ -67,53 +80,23 @@ CRD DDD 🗄 notebook 22.12.13
 * Facebook clone https://www.youtube.com/watch?v=xSUm6iMtREA
 * PagerDuty clone https://www.youtube.com/watch?v=4xuBT3BbsYU alerts https://github.com/keephq/keep
 
-* Jeffrey distributed systems ++ rf
 > ++ `infra.md` telemetry
 * course on microservices https://www.youtube.com/watch?v=hmkF77F9TLw https://www.youtube.com/watch?v=NVvIpqmf_Xc
 * https://brooker.co.za/blog/
 * https://runninginproduction.com/podcast/
 
-STREAMING / BLOCKING 🗄 `computation.md` serialization
-* blocking
-* https://ossinsight.io/blog/why-we-choose-tidb-to-support-ossinsight/
-* async https://www.b-list.org/weblog/2022/aug/16/async https://www.youtube.com/watch?v=bw1qeMoFBmw https://www.youtube.com/watch?v=0z74b3c63GA
-* batch: TQ, Airflow
-> port from `db.md`
-* streaming: Kafka https://www.youtube.com/watch?v=qi7uR3ItaOY 🗄 site/drafts/ddd.md
-* https://simonwillison.net/2021/Jul/1/pagnis/ https://news.ycombinator.com/item?id=38167423
-* forum software in 500 lines or less https://news.ycombinator.com/item?id=33153152
-> what is the relationship bte Kafka and faust? https://www.youtube.com/watch?v=Ik1PBbCWcTc
-> is flink streaming or batch? https://github.com/apache/flink
-> what is windowing? https://www.scattered-thoughts.net/writing/against-sql
-batch vs. streaming https://robertheaton.com/2020/02/08/pfab9-batch-vs-stream-processing/ 📙 Kleppmann section 3 🗄 `application.md` WebSocket
-> 📍 batch to ETL, streaming to where?
-* _batch_: more than one at a time 📍 Kleppmann chapter 9
-* requires fewer trips to data source
-* higher memory consumption
-> Since the data in parsed_messages is essentially the same as that in raw_log but in a different form, parsed_messages probably takes up about the same amount of memory again as raw_log. We’re therefore using at least 20MB of memory to process a 10MB file.
-```ruby
-raw_log = File.read("samplelog.txt")
-parsed_messages = parse_raw_log(raw_log)
-message_stats = calculate_stats(parsed_messages)
-```
-* _stream processing_: one at a time 📙 Kleppmann ch. 10 🗄 `system.md` Kafka
-* libraries: https://github.com/robinhood/faust https://github.com/apache/flink
-* sources: clickstream, IoT sensors, time series
-* lower memory consumption
-> Once the block has finished executing, the Ruby interpreter is able to garbage collect the data for both the raw line and processed message, since it can see that the program won’t reference them again. This means that the Ruby interpreter can reuse the piece of memory in which they were stored.
-```ruby
-stats = {}
-File.open("samplelog.txt").each_line do |l|
-  message = parse_raw_log_line(l)
-  stats = add_message_to_stats(message, stats)
-end
-```
-
+SEMANTICS
+* _comment engine_: https://github.com/umputun/remark42 or just use a repo https://lists.sr.ht/~skeeto
+* _devops_: align incentives of dev (functionality) and ops (stability); make sysadmin scale
+* _files - static_: CSS, JS, fonts https://learndjango.com/tutorials/django-static-files
+* _files - media_: uploaded by user https://docs.djangoproject.com/en/3.1/topics/files/#managing-files
+* _mirroring_: http://www.postfix.org/mirror.html
+* _platform engineering_: devops but w/ the word 'engineering' at the end https://softwareengineeringdaily.com/2020/02/13/setting-the-stage-for-platform-engineering/
+* https://sre.google/sre-book/table-of-contents/ definition of production readiness https://www.thoughtworks.com/radar/techniques?blipid=202203026
 https://news.ycombinator.com/item?id=32319147
 https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/videos
 
 rf
-> Solutions architect - Associate
 * db https://news.ycombinator.com/item?id=34434025
 * soft delete https://news.ycombinator.com/item?id=32156009 https://brandur.org/soft-deletion https://brandur.org/fragments/deleted-record-insert
 * https://www.youtube.com/watch?v=Y-Gl4HEyeUQ
@@ -155,14 +138,6 @@ rf
 * caching https://mattsegal.dev/simple-django-deployment.html
 * infra https://mattsegal.dev/simple-django-deployment.html
 * https://saasitive.com/
-
-## done
-
-* _23_: 📙 Evans domain-driven
-* _20_: gunicorn, uWSGI
-* _19_: https://github.com/zachvalenta/nginx-wsgi URL shortener, Gitlab for CI
-* _18_: AMQP/Spring thing for Dark Canary
-* _17_: Google SRE book first 20 chapters
 
 # 🛰️ API
 
@@ -234,6 +209,7 @@ RPC
 * https://etherealbits.com/2012/12/debunking-the-myths-of-rpc-rest/ https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/ https://apihandyman.io/do-you-really-know-why-you-prefer-rest-over-rpc/ https://stackoverflow.com/questions/15056878/rest-vs-json-rpc https://stackoverflow.com/a/26831221 https://github.com/fullstorydev/grpcurl https://realpython.com/python-microservices-grpc/ https://github.com/tomerfiliba-org/rpyc
 
 GraphQL 📹 https://www.youtube.com/watch?v=QJhiMSUFgDM
+* https://news.ycombinator.com/item?id=40521518
 * https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/
 * spec + query language for API
 * componenents: client (Apollo) server (Graphene)
@@ -275,7 +251,7 @@ misc
 * _spec_: doc explaining schema https://www.youtube.com/watch?v=1lo7idI7uq8
 * generate spec from API and vice versa https://www.youtube.com/watch?v=1lo7idI7uq8 3:00
 
-JSON Schema https://json-schema.org/
+JSON SCHEMA https://json-schema.org/
 * validate incoming requests via decorator https://apisyouwonthate.com/blog/json-api-openapi-and-json-schema-working-in-harmony https://stoplight.io/blog/openapi-json-schema/
 ```python
 # decorator to validate req
@@ -311,7 +287,8 @@ def endpoint():
     return res
 ```
 
-OpenAPI
+OPENAPI
+* https://github.com/zaghaghi/openapi-tui
 * howto https://www.youtube.com/watch?v=qcxio8C9Mh0
 * _versions_: OpenAPI (v3) Swagger (v2)
 * _schema_: description of API; formats differ between v2 and v3 https://docs.apistar.com/api-documentation/
@@ -362,6 +339,25 @@ https://app.pluralsight.com/library/courses/designing-restful-web-apis/table-of-
 🔍 https://github.com/DovAmir/awesome-design-patterns
 📙 Brooks design of design https://news.ycombinator.com/item?id=33410375
 
+SEMANTICS 🗄 distributed/semantics
+* _architecture_: the stuff that's hard to change
+* will change with each order of magnitude i.e. from 1.5k users to 10k 📙 Kleppmann [17,22]
+* _node_: process https://leanpub.com/systemdesignmanual/read_sample
+* _service_: 1/n nodes providing API https://leanpub.com/systemdesignmanual/read_sample
+* _elastic_: scales automatically with load 📙 Kleppmann [17]
+
+SEARCH
+* _Algolia_: record (JSON obj) field (attr on obj) clients https://github.com/algolia/algoliasearch-client-javascript https://github.com/algolia/algoliasearch-client-python
+* _Elasticsearch_: use in Postgres https://github.com/zombodb/zombodb alternative https://github.com/valeriansaliou/sonic https://github.com/paradedb/paradedb
+* _Lucene_: framework https://stackoverflow.com/questions/15704644/difference-between-solr-and-lucene
+* _Meilisearch_: https://github.com/meilisearch/MeiliSearch https://news.ycombinator.com/item?id=22685831 https://github.com/valeriansaliou/sonic https://softwareengineeringdaily.com/2019/03/20/elasticsearch-at-scale-with-volkan-yazici/ https://github.com/typesense/typesense https://news.ycombinator.com/item?id=25414389 https://tech.marksblogg.com/meilisearch-full-text-search.html https://tech.marksblogg.com/meilisearch-full-text-search.html
+* _RediSearch_: built on Redis https://oss.redislabs.com/redisearch/
+* _Redka_: Redis fork using SQLite https://github.com/nalgeon/redka
+* _Solr_: built on Lucene https://blog.codepen.io/2016/05/24/091-solr/
+* _Typesense_: https://github.com/typesense/typesense https://xkcd-search.typesense.org/ https://www.thoughtworks.com/radar/tools?blipid=202203031
+* _whoosh_: project is dead https://github.com/gyllstromk/Flask-WhooshAlchemy/issues/69 https://stackoverflow.com/a/53338666/6813490 
+* _Zinc_: https://github.com/zinclabs/zinc
+
 ## approaches
 
 🗄
@@ -369,12 +365,15 @@ https://app.pluralsight.com/library/courses/designing-restful-web-apis/table-of-
 * `language.md` design
 * `science.md` complexity
 
-SEMANTICS 🗄 distributed/semantics
-* _architecture_: the stuff that's hard to change
-* will change with each order of magnitude i.e. from 1.5k users to 10k 📙 Kleppmann [17,22]
-* _node_: process https://leanpub.com/systemdesignmanual/read_sample
-* _service_: 1/n nodes providing API https://leanpub.com/systemdesignmanual/read_sample
-* _elastic_: scales automatically with load 📙 Kleppmann [17]
+SERVERLESS
+* types: FaaS (Lambda) cloud SQL (BigQuery) ITTT (Zapier) msg (Twilio)
+* start: warm (run code) cold (download code, start container, bootstrap runtime, run code) https://www.youtube.com/watch?v=NhDYbskXRgc [1:12:30]
+* costs more and runs slower https://einaregilsson.com/serverless-15-percent-slower-and-eight-times-more-expensive/
+* saves on devops labor costs https://news.ycombinator.com/item?id=21046547
+* bad for local dev https://twitter.com/dvassallo/status/1154516910265884672 
+* testing https://buddy.works/tutorials/integration-testing-for-aws-lambda-in-go-with-docker-compose
+
+---
 
 BAKED DATA
 * _baked data_: data embedded as static asset https://simonwillison.net/2020/Dec/13/datasette-io/ https://news.ycombinator.com/item?id=28015980 https://postlight.com/insights/big-data-small-effort
@@ -401,14 +400,6 @@ MONOLITH/DB/CDN
 > I am always puzzled about this "autoscale" thing on a cloud. If your task can be represented as something like calculate sum of some ginormous array then sure. Split array in parts and launch thousand instances each working on it's own slice and then combine. In way more common situation you have a service hitting database and doing something with it. Sure you can spin a thousand instances of said service. But they will all be hitting the same database. - https://news.ycombinator.com/item?id=21741870
 * _horizontal scaling_: shard https://www.youtube.com/watch?v=7v-wrJjcg4k until recently you waited as long as you could on this 📙 Kleppmann 1.18
 > horizontal-scaling is often based on the partitioning of the data i.e. each node contains only part of the data, in vertical-scaling the data resides on a single node and scaling is done through multi-core i.e. spreading the load between the CPU and RAM resources of that machine. With horizontal-scaling it is often easier to scale dynamically by adding more machines into the existing pool - Vertical-scaling is often limited to the capacity of a single machine, scaling beyond that capacity often involves downtime and comes with an upper limit. - https://stackoverflow.com/a/11715598/6813490
-
-SERVERLESS
-* _types_: from FaaS (https://github.com/beer-garden/beer-garden) to cloud SQL (BigQuery) to messaging (SQS, Twilio) to ITTT (Zapier) https://softwareengineeringdaily.com/2019/01/10/zeit-serverless-cloud-with-guillermo-rauch/
-* _downsides_: local dev https://twitter.com/dvassallo/status/1154516910265884672 speed and cost https://news.ycombinator.com/item?id=21046547 https://einaregilsson.com/serverless-15-percent-slower-and-eight-times-more-expensive/
-* _events_: API, timer, msg
-* _start_: cold (download code, start container, bootstrap runtime, run code) warm (run code)
-* in Python https://github.com/Miserlou/Zappa
-* testing https://buddy.works/tutorials/integration-testing-for-aws-lambda-in-go-with-docker-compose
 
 NO CODE
 * _retool_: https://retool.com/ https://www.youtube.com/watch?v=4xuBT3BbsYU https://www.youtube.com/watch?v=ChTGbmR2NeM
@@ -467,7 +458,8 @@ taxonomy
 * avoid fault in one part of a system taking down the system
 * _coupling_: one change necessitates another
 * _horizontal scaling_: aka shared-nothing architecture [Kleppmann 17]
-* _multi-tenant_: Edge, Sentry, Parse https://www.youtube.com/watch?v=W1fkGyIcePA&t=1044s https://www.pythonpodcast.com/datacoral-serverless-technology-episode-214/ 15:00-19:00 https://www.youtube.com/watch?v=OfPE7yj1trw https://www.viget.com/articles/multi-tenancy-in-django
+* _multi-tenant_: multiple customer users https://www.saaspegasus.com/
+* Edge, Sentry, Parse https://www.youtube.com/watch?v=W1fkGyIcePA&t=1044s https://www.pythonpodcast.com/datacoral-serverless-technology-episode-214/ 15:00-19:00 https://www.youtube.com/watch?v=OfPE7yj1trw https://www.viget.com/articles/multi-tenancy-in-django
 * _service mesh_: https://servicemesh.io/ https://news.ycombinator.com/item?id=17415421 https://www.digitalocean.com/community/tutorials/an-introduction-to-service-meshes sidecar, eBPF https://www.thoughtworks.com/radar/techniques?blipid=202203060 Istio
 * data mesh https://news.ycombinator.com/item?id=30721198 https://www.thoughtworks.com/radar/techniques?blipid=201911051
 * _SSoT_: single source of truth
@@ -506,9 +498,6 @@ KISS
 * https://www.benkuhn.net/progessays/
 * one dev's edge cases are another's entire project 📙 Kleppmann 491
 
-* _extract_: separate [Fowler https://refactoring.com/catalog/]
-* _inline_: combine
-> Inlining is the concept of replacing a function call in a program with the contents of the function itself, thus avoiding the call. https://golangweekly.com/issues/470
 * _bikeshedding_: aka yak shaving https://jsonapi.org/ http://bikeshed.org/ https://drewdevault.com/2020/08/17/Engineers-solve-problems.html
 
 depends on use case
@@ -607,48 +596,6 @@ in general
 * http://danluu.com/2choices-eviction/
 * https://www.digitalocean.com/community/tutorials/web-caching-basics-terminology-http-headers-and-caching-strategies
 
-Redis
-* implementation http://aosabook.org/en/nosql.html
-* test/mock https://github.com/cunla/fakeredis-py
-* use Postgres as impl https://github.com/alash3al/redix
-* governance https://news.ycombinator.com/item?id=23689549
-* key expiration https://news.ycombinator.com/item?id=30099572
-* alternative https://github.com/dragonflydb/dragonfly https://github.com/buraksezer/olric#installing
-> You can either set Redis up as a "data-structures" server or you set it up right as a cache. You can't do both. If you choose to use Redis as your cache, ensure that the cache instance is only serving as your cache. Your inter-system message bus should be on a different Redis with a different configuration. https://calpaterson.com/ttl-hell.html
-
-memcached
-* _is?_: volatile cache https://news.ycombinator.com/item?id=23689549 aka application caching layer
-* _how?_: distributed hash table i.e. n instances of app share 1 distributed instance of memcached
-* _why?_: so you don't have to read from db
-* _disadvantages_: doesn't track cache misses; meant for simple data, not tables or objects; not durable http://aosabook.org/en/nosql.html
-* _sink_: https://realpython.com/python-memcache-efficient-caching/ https://github.com/thadeusb/flask-cache Django has OOB support for memcached https://docs.djangoproject.com/en/2.1/topics/cache/
-
-## concurrency
-
-📙 Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
-🗄
-* `golang.md` concurrency
-* `linux.md` threads
-* `python.md` concurrency
-
-* _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
-* clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep
-* _callback_: another func to call after func finishes execution 🗄 `application.md` webhook
-* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/59370383#59370383
-* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/48530284#48530284
-* imperative programming fundamentally about order, which makes concurrency hard https://softwareengineeringdaily.com/2020/05/28/distributed-systems-research-with-peter-alvaro/ 7:00
-* concurrency is nearly always a bad idea https://www.arp242.net/go-easy.html
-* [concurrency != parallelism](https://blog.golang.org/concurrency-is-not-parallelism)
-* [multi-threading != parallelism](https://stackoverflow.com/a/806506/6813490) https://news.ycombinator.com/item?id=4495305
-* https://news.ycombinator.com/item?id=23496994
-* _sleeping barber problem_ http://kachayev.github.io/talks/kharkivpy%230/#/
-* reactive in Python https://blog.oakbits.com/introduction-to-rxpy.html
-* [the guy who wrote SQLAlchemy thinks async is kinda bs](https://news.ycombinator.com/item?id=18113889) + https://techspot.zzzeek.org/2015/02/15/asynchronous-python-and-databases/
-* https://return.co.de/blog/articles/dont-drink-too-much-reactive-cool-aid/
-* [asyncio problems](https://www.roguelynn.com/words/asyncio-we-did-it-wrong/)
-* most (web) things are bound by network, not CPU https://talkpython.fm/episodes/show/225/can-subinterpreters-free-us-from-python-s-gil
-* concurrency is a bad thing https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
-
 ## diagrams
 
 🗄
@@ -663,7 +610,7 @@ TYPES
 * _infrastructure_: https://github.com/mingrammer/diagrams 
 * _mind map_: https://github.com/nadrad/h-m-m https://markmap.js.org/ https://news.ycombinator.com/item?id=24132631 https://news.ycombinator.com/item?id=27614912 https://strlen.com/treesheets/ https://news.ycombinator.com/item?id=34184993 https://blog.dornea.nu/2015/09/17/organizing-and-visualizing-knowledge/ https://www.dendron.so/
 * _state_: https://github.com/statecharts/statecharts.github.io/issues/44 https://en.wikipedia.org/wiki/State_diagram
-* _tree/map_: https://github.com/niyue/skillmap
+* _treemap_: https://github.com/niyue/skillmap https://github.com/nikolaydubina/go-cover-treemap
 * _sequence_: msg passing https://sequencediagram.org https://gist.github.com/zachvalenta/2aeac1f945c5848c79087b2481cb187a https://arthursonzogni.com/Diagon/#Sequence
 * https://jessems.com/posts/2023-07-22-the-unreasonable-effectiveness-of-sequence-diagrams-in-mermaidjs
 * _UML_: aka class diagram https://www.amazon.com/UML-Distilled-Standard-Modeling-Language/dp/0321193687
@@ -684,6 +631,17 @@ PROVIDERS 🔍 https://xosh.org/text-to-diagram/
 * mermaid https://news.ycombinator.com/item?id=34906378
 * _Monodraw_: https://monodraw.helftone.com/
 * _PlantUML_: UML `.puml`
+
+## perf
+
+📙 Gregg systems performance
+
+https://blog.pecar.me/sqlite-wal
+https://blog.pecar.me/django-sqlite-benchmark
+https://blog.pecar.me/django-sqlite-dblock
+https://testdriven.io/blog/django-performance-optimization-tips/
+https://www.youtube.com/watch?v=gpbpVheR3gM
+https://blog.pecar.me/django-streaming-responses
 
 ## proxies
 
@@ -730,6 +688,7 @@ CDN
 
 ---
 
+* https://github.com/apernet/hysteria
 * when things go wrong on Cloudflare https://news.ycombinator.com/item?id=30054739
 📍 https://www.youtube.com/watch?v=-W9F__D3oY4
 * _OpenResty_: Nginx + script some more logic in with Lua https://www.dataengineeringpodcast.com/linode-object-storage-service-episode-125/ 10:00
@@ -738,9 +697,13 @@ CDN
 * https://softwareengineeringdaily.com/2021/08/10/fly-io-geographic-app-deployment-with-kurt-mackey/
 * _sink_: https://serversforhackers.com/t/proxies https://www.maxcdn.com/one/visual-glossary/proxy-caching/ reverse cache https://msdn.microsoft.com/en-us/library/windows/desktop/dd892097%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396 https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236
 
-load balancing
+LOAD BALANCING
 * https://news.ycombinator.com/item?id=35588797
 * https://www.youtube.com/watch?v=galcDRNd5Ow
+* _ALB_: protocols (HTTP, gRPC) algo (round robin based on HTTP headers or session ID) https://aws.amazon.com/compare/the-difference-between-the-difference-between-application-network-and-gateway-load-balancing/
+> You should probably use one even if you only have 1 instance. For $16/mo you get automatic TLS cert management, and that alone makes it worth it IMO. You just set it up once & forget about it. An ALB is probably what you’ll need, but NLB is good too. https://x.com/dvassallo/status/1154516910265884672
+* _NLB_: protocols (TCP, UDP, TLS) algo (flow hash based on IP address)
+* _GLB_: network
 * load balancer vs. API gateway vs. ingress controller https://caddyserver.com/docs/
 * _HAProxy_: just does load balancing (vs. Nginx, which also serves static assets) https://stackoverflow.com/a/21181066/6813490 conf (port, lb algo, server for forwarding)
 * Nginx, Envoy https://dropbox.tech/infrastructure/how-we-migrated-dropbox-from-nginx-to-envoy https://news.ycombinator.com/item?id=32572153
@@ -751,7 +714,7 @@ load balancing
 # 🌌 DISTRIBUTED
 
 🗄
-* `db.md` plumbing
+* `databases.md` plumbing
 * `infra.md` queues
 📚
 * Arpaci ch. 48-50
@@ -759,6 +722,8 @@ load balancing
 * Jeffrey distributed
 * Kleppmann data intensive
 * Takada fun/profit
+
+---
 
 * _distributed system_: no shared memory, no shared clock https://news.ycombinator.com/item?id=26089683
 * needs coordination across network/cores 📙 Jeffrey distributed [4]
@@ -775,10 +740,16 @@ za
 * _Jepsen analysis_: standard safety in distributed/transactional systems https://news.ycombinator.com/item?id=8385970 https://news.ycombinator.com/item?id=26645654 https://www.micahlerner.com/2021/06/12/foundationdb-a-distributed-unbundled-transactional-key-value-store.html
 * _GFS (Google File System)_: https://www.micahlerner.com/2020/03/22/understanding-googles-file-system.html
 
-CAP theorem 🗄 `algos.md` probabilistic data structures
+## CAP theorem
+
+---
+
+🗄 `algos.md` probabilistic data structures
+
 * https://www.youtube.com/watch?v=_RbsFXWRZ10 https://softwareengineeringdaily.com/2023/07/25/cap-theorem/
 * _CAP theorem_: tradeoffs if network partition
 * _consistency_: ACID
+* eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
 * _availability_: res for req
 * _partition tolerance_: works offline 📙 Conery 336
 * C: refuse to incoming reads/writes
@@ -912,6 +883,7 @@ ZOOKEEPER https://www.youtube.com/watch?v=Vv4HpLfqAz4
 
 ---
 
+* https://jepsen.io/analyses/mysql-8.0.34
 https://sqlfordevs.com/transaction-locking-prevent-race-condition
 
 transactions & isolation levels 📙 Beaulieu 12
@@ -950,7 +922,7 @@ locking
 * Buelta python architecture
 * Dibernardo 500 lines or less http://aosabook.org/en/index.html
 * ✅ Evans domain-driven design
-* Fowler refactoring
+* Fowler refactoring https://www.amazon.com/dp/0134757599/
 * Martin clean code https://qntm.org/clean
 * McConnell code complete
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
@@ -981,6 +953,11 @@ HOOKS
 
 ---
 
+* more domain-driven https://www.youtube.com/watch?v=72V-5hrilv0
+* _extract_: separate [Fowler https://refactoring.com/catalog/]
+* _inline_: combine
+> Inlining is the concept of replacing a function call in a program with the contents of the function itself, thus avoiding the call. https://golangweekly.com/issues/470
+
 * CRD DDD 🗄 notebook 22.12.13
 * DRY, single responsibility https://news.ycombinator.com/item?id=35151088
 
@@ -1002,6 +979,45 @@ https://news.ycombinator.com/item?id=33999191
 * _readability_: factors (familiarity, consistency) fetishization of one-liners (cf. Peter Norvig 'mine is shorter' from Crista Lopes talk on 'Exercises in Programming Style' @ 20:15)
 > One of the core tenets behind the design of Python is creating readable code. The motivation behind this design is simple: The number one thing that Python programmers do is read code. [Hitchhiker's Guide 3.3]
 > "A computer language is not just a way of getting a computer to perform operations...it is a novel formal medium for expressing ideas about methodology. Thus, programs must be written for people to read, and only incidentally for machines to execute." - Ford what is code? qt. SICP
+
+URL shortener 🗄 `fd url-short`
+* _URL shortener_: make links look more trustworthy
+* providers: Bitly, TinyURL
+* https://www.youtube.com/watch?v=rGQKHpjMn_M
+* https://blog.codinghorror.com/url-shortening-hashes-in-practice/
+
+## concurrency
+
+📙 Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
+🗄
+* `golang.md` concurrency
+* `infra.md` queues
+* `linux.md` threads
+* `python.md` concurrency
+
+BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
+* why: WebSockets https://channels.readthedocs.io/en/latest/
+* why not: hard to reason about, just use a queue or a WebSockets server https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
+
+---
+
+* _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
+* clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep
+* _callback_: another func to call after func finishes execution 🗄 `application.md` webhook
+* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/59370383#59370383
+* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/48530284#48530284
+* imperative programming fundamentally about order, which makes concurrency hard https://softwareengineeringdaily.com/2020/05/28/distributed-systems-research-with-peter-alvaro/ 7:00
+* concurrency is nearly always a bad idea https://www.arp242.net/go-easy.html
+* [concurrency != parallelism](https://blog.golang.org/concurrency-is-not-parallelism)
+* [multi-threading != parallelism](https://stackoverflow.com/a/806506/6813490) https://news.ycombinator.com/item?id=4495305
+* https://news.ycombinator.com/item?id=23496994
+* _sleeping barber problem_ http://kachayev.github.io/talks/kharkivpy%230/#/
+* reactive in Python https://blog.oakbits.com/introduction-to-rxpy.html
+* [the guy who wrote SQLAlchemy thinks async is kinda bs](https://news.ycombinator.com/item?id=18113889) + https://techspot.zzzeek.org/2015/02/15/asynchronous-python-and-databases/
+* https://return.co.de/blog/articles/dont-drink-too-much-reactive-cool-aid/
+* [asyncio problems](https://www.roguelynn.com/words/asyncio-we-did-it-wrong/)
+* most (web) things are bound by network, not CPU https://talkpython.fm/episodes/show/225/can-subinterpreters-free-us-from-python-s-gil
+* concurrency is a bad thing https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
 
 ## dep inject (DI)
 
@@ -1142,87 +1158,46 @@ as red flag https://news.ycombinator.com/item?id=30675182
 * _sink_: https://github.com/kamranahmedse/design-patterns-for-humans https://www.youtube.com/playlist?list=PLVmRRBrc2pRAEgzxUIJc_7LLABdg_58hJ https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
 * in python https://python-patterns.guide/ https://hynek.me/articles/python-subclassing-redux/
 
-# ZA
+## streaming
 
-SEMANTICS
-* _comment engine_: https://github.com/umputun/remark42 or just use a repo https://lists.sr.ht/~skeeto
-* _devops_: align incentives of dev (functionality) and ops (stability); make sysadmin scale
-* _files - static_: CSS, JS, fonts https://learndjango.com/tutorials/django-static-files
-* _files - media_: uploaded by user https://docs.djangoproject.com/en/3.1/topics/files/#managing-files
-* _mirroring_: http://www.postfix.org/mirror.html
-* _platform engineering_: devops but w/ the word 'engineering' at the end https://softwareengineeringdaily.com/2020/02/13/setting-the-stage-for-platform-engineering/
-* https://sre.google/sre-book/table-of-contents/ definition of production readiness https://www.thoughtworks.com/radar/techniques?blipid=202203026
+---
 
-MONEY
-* rightsizing https://softwareengineeringdaily.com/2021/01/12/kubecost-with-webb-brown/
-* on-prem: need to integrate w/ legacy systems inside firewall, regulatory, cheaper, you can still make the consumption of your data center feel like a public cloud (CF, HPE)
-* _capacity planning_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/
-
-URL shortener 🗄 `fd url-short`
-* _URL shortener_: make links look more trustworthy
-* providers: Bitly, TinyURL
-* https://www.youtube.com/watch?v=rGQKHpjMn_M
-* https://blog.codinghorror.com/url-shortening-hashes-in-practice/
-
-## deployment
-
-🗄
-* `infra.md` config mgmt
-* `linux.md` build systems
-* `security.md` secrets mgmt
-* `sql.md` migrations
-
-APPLICATION CONFIG
-* env files: https://snarky.ca/use-toml-for-env-files/
-* https://direnv.net/
-
-DEPLOYMENT
-* taxonomy: yolo (edit on server) FTP (edit on local, push to server) SCM (SSH to sever and pull repo, maybe use cron) CICD (triggered by repo hook https://dagger.io/) https://css-tricks.com/deployment/
-* pipelines: fetch (clone from repo) build (install deps, compile) test (run unit tests) deploy (put artifact somewhere so CD can pick it up and run it)
-* Jenkins https://itnext.io/jenkins-is-getting-old-2c98b3422f79 https://www.youtube.com/watch?v=WWcijE7ifcA
-* BYO http://aosabook.org/en/500L/a-continuous-integration-system.html
-* _deployment_: align higher env w/ lower env https://css-tricks.com/deployment/
-* _staged deployment_: deploy to a few nodes at a time 📙 Kleppmann 4.112
-* _blue-green deployment_: split traffic btw new and old; aka red-black https://fly.io/django-beats/smooth-database-changes-in-blue-green-deployments/?utm_campaign=Django%2BNewsletter&utm_medium=email&utm_source=Django_Newsletter_198 https://news.ycombinator.com/item?id=39048317
-
-RELEASE
-* _release_: users get latest deployment
-* have a `RELEASE.md` https://news.ycombinator.com/item?id=26902887
-* have a runbook https://github.com/Microsoft/vscode/wiki/Development-Process#inside-an-iteration
-* _canary release_: only subset of users get latest deployment https://medium.com/netflix-techblog/automated-canary-analysis-at-netflix-with-kayenta-3260bc7acc69 
-
-FEATURE FLAGGING 🗄 `infra.md` analytics
-* _feature flag_: toggle functionality; impl agnostic (env var, db, aaS) https://medium.com/@noahrobi/feature-toggles-give-you-superpowers-78fdeb7ab5e8
-* https://github.com/flipt-io/flipt
-* use cases: decouple deployment/release, canary release https://github.com/facebook/planout A/B testing https://findwork.dev/blog/django-b-testing-google-optimize https://www.evanmiller.org/
-* lib: https://waffle.readthedocs.io/en/stable/
-* service: paid (Launch Darkly, Split.io, Optimizely) on-prem (https://github.com/markphelps/flipt https://bullet-train.io/ https://github.com/Unleash/unleash)
-* as tech debt https://www.youtube.com/watch?v=HhxNaPYpYiU https://github.blog/2021-04-27-ship-code-faster-safer-feature-flags/
-* feature-flag-driven development
-> Always start a feature with a feature flag and try to get something to production on day 1. even if it's only feature flagged to you. usual feature flag timeline: week 1 - developer and people interested in a feature week 3 - release or do beta with users
-```python
-class FeatureFlag(models.Model):
-    name = models.CharField(max_length=80)
-    enabled = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
+STREAMING / BLOCKING 🗄 `computation.md` serialization
+* https://www.scattered-thoughts.net/
+* https://github.com/ynqa/sig?ref=terminaltrove
+* blocking
+* https://ossinsight.io/blog/why-we-choose-tidb-to-support-ossinsight/
+* async https://www.b-list.org/weblog/2022/aug/16/async https://www.youtube.com/watch?v=bw1qeMoFBmw https://www.youtube.com/watch?v=0z74b3c63GA
+* batch: TQ, Airflow
+> port from `db.md`
+* streaming: Kafka https://www.youtube.com/watch?v=qi7uR3ItaOY 🗄 site/drafts/ddd.md
+* https://simonwillison.net/2021/Jul/1/pagnis/ https://news.ycombinator.com/item?id=38167423
+* forum software in 500 lines or less https://news.ycombinator.com/item?id=33153152
+> what is the relationship bte Kafka and faust? https://www.youtube.com/watch?v=Ik1PBbCWcTc
+> is flink streaming or batch? https://github.com/apache/flink
+> what is windowing? https://www.scattered-thoughts.net/writing/against-sql
+batch vs. streaming https://robertheaton.com/2020/02/08/pfab9-batch-vs-stream-processing/ 📙 Kleppmann section 3 🗄 `application.md` WebSocket
+> 📍 batch to ETL, streaming to where?
+* _batch_: more than one at a time 📍 Kleppmann chapter 9
+* requires fewer trips to data source
+* higher memory consumption
+> Since the data in parsed_messages is essentially the same as that in raw_log but in a different form, parsed_messages probably takes up about the same amount of memory again as raw_log. We’re therefore using at least 20MB of memory to process a 10MB file.
+```ruby
+raw_log = File.read("samplelog.txt")
+parsed_messages = parse_raw_log(raw_log)
+message_stats = calculate_stats(parsed_messages)
 ```
-
-## mobile
-
-* app stores are a pain https://news.ycombinator.com/item?id=33632468
-* automate app submission https://github.com/fastlane/fastlane
-
-Apple ID
-* tied to user/device
-* so if user/device tries to create a new account, use Apple ID to lookup their previous receipt
-* i.e. they can't free trial multiple times
-* on app start, hit endpoint to verify receipt(s) tied to Apple ID, so user with previous receipt can't just create new account and be given a fresh slate
-> Google version of this is that you have a single email for Google Play store, so even if you use diff email(s) per app, purchases on GP still tied to that single email
-
-two apple envs
-* prod
-* development
-
-each with a URL for
-* dummy charges
-* real charges
+* temporal data, virtual time https://www.hytradboi.com/2022/working-with-virtual-time-in-sql https://github.com/frankmcsherry/blog/blob/master/posts/2021-02-11.md
+* _stream processing_: one at a time 📙 Kleppmann ch. 10 🗄 `system.md` Kafka
+* libraries: https://github.com/robinhood/faust https://github.com/apache/flink
+* sources: clickstream, IoT sensors, time series
+* https://www.hytradboi.com/2022/a-faster-inner-dev-loop-for-stream-processing
+* lower memory consumption
+> Once the block has finished executing, the Ruby interpreter is able to garbage collect the data for both the raw line and processed message, since it can see that the program won’t reference them again. This means that the Ruby interpreter can reuse the piece of memory in which they were stored.
+```ruby
+stats = {}
+File.open("samplelog.txt").each_line do |l|
+  message = parse_raw_log_line(l)
+  stats = add_message_to_stats(message, stats)
+end
+```

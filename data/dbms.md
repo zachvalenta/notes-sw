@@ -1,4 +1,4 @@
-# 开 
+# ⛩️
 
 ## 参考
 
@@ -6,20 +6,12 @@
 * https://dba.stackexchange.com
 * https://roadmap.sh/postgresql-dba
 
-## now
-
-## next
-
----
-
-* Postgres for everything https://news.ycombinator.com/item?id=39273954
-
-## done
+## 进步
 
 * _22_: 📙 Bradshaw ch. 1/4/7/10/14/18
 * _20_: Postgres with Django (psycopg, Docker)
 
-# MONGO
+# 🟩 MONGO
 
 📙 Bradshaw guide
 🎓 https://university.mongodb.com/dashboard
@@ -354,15 +346,20 @@ use <db>  # switch/create db
 show collections  # view collections
 ```
 
-# POSTGRES
+# 🐘 POSTGRES
 
+📙 Suzuki postgres internals https://www.interdb.jp/pg/
 📜
 * general https://www.postgresql.org/docs/current/index.html
 * guide http://postgresguide.com/
 * wiki https://wiki.postgresql.org/wiki/Main_Page
-* design https://news.ycombinator.com/item?id=35599118
+* design https://news.ycombinator.com/item?id=35599118 Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf
 
-how to
+HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https://news.ycombinator.com/item?id=39273954
+* generate `create table` from existing table https://github.com/lacanoid/pgddl
+* Elasticsearch https://github.com/paradedb/paradedb
+* serverless https://neon.tech/ https://news.ycombinator.com/item?id=31536827
+* embedded for testing https://github.com/electric-sql/pglite https://news.ycombinator.com/item?id=39960537
 * sharding https://github.com/postgresml/pgcat
 * Snowflake, DuckDB, Clickhouse https://github.com/scottpersinger/pgwarehouse
 * result set to CSV https://stackoverflow.com/a/1517692
@@ -401,7 +398,8 @@ select json_col -> 'top_level_key' ->> 'nested_key' from table
 ```
 * _system columns_: ctid, xmin, xmax https://www.youtube.com/watch?v=AveRgUrC7FM
 
-utils
+UTILS
+* lint https://github.com/sbdchd/squawk
 * generate harmful workloads https://github.com/lesovsky/noisia
 * generate test data https://news.ycombinator.com/item?id=26564168 https://hakibenita.com/sql-for-data-analysis#generating-data
 * tmp db for testing: https://eradman.com/posts/schema-definition.html https://github.com/eradman/ephemeralpg/ https://stackoverflow.com/questions/14314026/embedded-postgresql-for-java-junit-tests 🗄 `testing.md`
@@ -423,8 +421,8 @@ misc
 * stored procedures https://www.postgresql.org/docs/current/xplang.html https://dev.nextthought.com/blog/2018/09/getting-started-with-pgsql-plpythonu.html 
 
 * _anonymize_: https://postgresql-anonymizer.readthedocs.io/en/latest/
-* _audit_: https://github.com/pgaudit/pgaudit https://supabase.com/blog/2022/03/08/audit https://news.ycombinator.com/item?id=36004925&utm_term=comment https://news.ycombinator.com/item?id=30615470 https://blog.sequin.io/all-the-ways-to-capture-changes-in-postgres/
-* _backup_: https://www.crunchydata.com/blog/introduction-to-postgres-backups https://github.com/2ndquadrant-it/barman/ https://github.com/ankane/pgsync https://github.com/postgrespro/pg_probackup https://pgbackrest.org/index.html https://github.com/aiven/pghoard https://github.com/orgrim/pg_back https://www.youtube.com/watch?v=kbCytSYPh0E https://github.com/EnterpriseDB/barman
+* _audit_: https://github.com/pgaudit/pgaudit https://supabase.com/blog/2022/03/08/audit https://news.ycombinator.com/item?id=36004925&utm_term=comment https://news.ycombinator.com/item?id=30615470 https://blog.sequin.io/all-the-ways-to-capture-changes-in-postgres/ change data capture (CDC) https://news.ycombinator.com/item?id=40276768
+* _backup_: https://www.crunchydata.com/blog/introduction-to-postgres-backups https://github.com/2ndquadrant-it/barman/ https://github.com/ankane/pgsync https://github.com/postgrespro/pg_probackup https://pgbackrest.org/index.html https://github.com/aiven/pghoard https://github.com/orgrim/pg_back https://www.youtube.com/watch?v=kbCytSYPh0E https://github.com/EnterpriseDB/barman https://github.com/pgmoneta/pgmoneta
 * _benchmarking_: https://github.com/ankane/pghero https://blog.codeship.com/tuning-postgresql-with-pgbench/ https://softwareengineeringdaily.com/2022/09/22/automatic-database-tuning/
 * _diagram_: https://pgmodeler.io/ https://github.com/akarki15/dbdot
 * _extensions_: https://news.ycombinator.com/item?id=23821112 https://github.com/zombodb/pgx https://tech.marksblogg.com/postgresql-extension-rust.html distributed https://github.com/citusdata/citus ydb https://news.ycombinator.com/item?id=31081272 https://tech.marksblogg.com/postgresql-extension-rust.html https://github.com/tcdi/pgx
@@ -440,6 +438,7 @@ misc
 ## auth
 
 * _role_: Postgres equivalent of a user, necessary to connect 📙 Conery [4.5] https://www.postgresql.org/docs/8.1/user-manag.html
+* are complex https://news.ycombinator.com/item?id=40186752
 * _role creation_: PG will create role/db matching Linux user that installed PG; sometimes this doesn't happen w/ Homebrew 📙 Conery 4.4 0:15
 * _list roles_: `\du`
 * _connection string_: `postgresql://user:pass@host:port/db` https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/#docker https://flask-sqlalchemy.palletsprojects.com/en/2.x/config/#connection-uri-format
@@ -604,7 +603,7 @@ web_1  |     import psycopg2
 web_1  | ModuleNotFoundError: No module named 'psycopg2'
 ```
 
-# SQLITE
+# 🟦 SQLITE
 
 📜 https://sqlite.org/docs.html
 🛠 https://github.com/simonw/sqlite-utils
@@ -621,12 +620,12 @@ ZA
 * backups https://github.com/benbjohnson/litestream https://news.ycombinator.com/item?id=34517474 https://github.com/maxpert/marmot https://litestream.io/alternatives/cron/ https://news.ycombinator.com/item?id=31152490 https://news.ycombinator.com/item?id=31318708
 
 HOWTO
-* ERD https://github.com/Dicklesworthstone/sqlalchemy_data_model_visualizer
+* ERD https://github.com/Dicklesworthstone/sqlalchemy_data_model_visualizer https://gitlab.com/Screwtapello/sqlite-schema-diagram
 * diff changes / changelog https://news.ycombinator.com/item?id=38110286&utm_term=comment
-* tuning https://news.ycombinator.com/item?id=35547819
+* tuning https://news.ycombinator.com/item?id=35547819 https://news.ycombinator.com/item?id=39955288
 * config (journal, wal, timeout) https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html https://avi.im/blag/2021/fast-sqlite-inserts/
 * migrations: https://news.ycombinator.com/item?id=22367104
-* perf https://news.ycombinator.com/item?id=26103776
+* perf https://news.ycombinator.com/item?id=26103776 https://kerkour.com/sqlite-for-servers
 * diff databases https://news.ycombinator.com/item?id=31256704
 * corrupt a database https://news.ycombinator.com/item?id=31214131
 
@@ -716,7 +715,7 @@ limitations
 EXTENSIONS
 * fewer functions than other dbms
 * bundled https://github.com/nalgeon/sqlean https://github.com/zachvalenta/golf
-* _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ 🗄 `algos.md` FTS
+* _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ https://www.philipotoole.com/building-a-highly-available-search-engine-using-sqlite/ 🗄 `algos.md` FTS
 * JSON https://dba.stackexchange.com/questions/122198/is-it-possible-to-store-and-query-json-in-sqlite https://news.ycombinator.com/item?id=30486052
 
 types
@@ -746,7 +745,7 @@ constraints
 > rn Flask-SQLA will happily violate FK or just leave null 
 * `pragma`: cmd to set env var
 
-# ZA
+# 🟨 ZA
 
 TAXNOMY https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 * data structures e.g. relational, document
@@ -760,6 +759,7 @@ TAXNOMY https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 
 ## MySQL
 
+* TUI: https://github.com/charles-001/dolphie
 * MariaDB is done https://news.ycombinator.com/item?id=27922687 https://news.ycombinator.com/item?id=35467243
 * CLI: https://www.mycli.net/docs flags https://dev.mysql.com/doc/refman/8.0/en/mysql-command-options.html
 * GUI: https://sequelpro.com/

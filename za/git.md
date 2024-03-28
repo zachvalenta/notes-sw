@@ -750,11 +750,13 @@ notas post-mortem
 
 📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks https://githooks.com/
 
+---
+
 * actions: client-side (commit, merge) server (push)
 * file-system location: `.git/hooks` 
 * ignore failed hooks w/ `git commit --no-verify` http://omerkatz.com/blog/2013/2/15/git-hooks-part-1-the-basics
 
-pre-commit https://pre-commit.com https://github.com/pre-commit/pre-commit/issues https://gitlab.com/zachvalenta/pre-commit-test
+PRE-COMMIT https://pre-commit.com https://github.com/pre-commit/pre-commit/issues https://gitlab.com/zachvalenta/pre-commit-test https://learndjango.com/tutorials/pre-commit-django
 * set: `pre-commit install -t pre-commit; pre-commit install -t pre-push` (i.e. copy Python scripts in place of Git samples) https://pre-commit.com/#3-install-the-git-hook-scripts https://pre-commit.com/#pre-commit-install
 * skip: `SKIP=<stage> git commit -m "foo"`
 * uninstall: `pre-commit uninstall -t <action>`
@@ -822,4 +824,5 @@ REPO BROWSER
 ZA
 * bug tracker https://github.com/MichaelMure/git-bug 🗄 `econ.md` documentation / issue tracking
 * repo stats: https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
+* Githup-specific https://github.com/dlvhdr/gh-dash
 * heat map https://github.com/jmforsythe/Git-Heat-Map

@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -11,15 +11,22 @@
 * Ramalho fluent
 * Van Rossum tutorial
 
-## now
+## 进步
 
-## next
+* _23_: hashable
+* _22_: iteration (iterators, generators), big rf
+* _21_: rf pdb, doctest basics
+* _20_: not much
+* _19_: executables, imports, obj assignment, pipx and Poetry, first pass (lambdas, tuple unpacking, iteration, dataclasses, shallow vs. copy, closure, decorator)
+* _18_: Hitchhiker's Guide, first pass (imports, unit testing)
+* _17_: PSF install, PS beginner course
 
----
+# 📍 CLEAN UP
 
+* https://github.com/darrenburns/ward
 * 📙 Ramalho @ 2.20 -> hashable -> hash tables 🗄 `algos.md` hash tables re: maps, ADTs https://realpython.com/solid-principles-python/ https://github.com/dabeaz-course/python-mastery https://mkaz.blog/working-with-python/
-
-CLEAN UP
+* https://realpython.com/python-lazy-evaluation/
+* https://realpython.com/python-pydantic/
 * install Rich globally and use with bpython https://realpython.com/python-rich-package/
 * initialize vs. construct, __init__, __new__ https://www.fluentpython.com/lingo/#initializer https://www.fluentpython.com/lingo/#constructor
 attributes
@@ -49,16 +56,6 @@ attributes
 * dictview, lru_cache https://death.andgravity.com/caching-methods namedtuple, frozen dataclasses, fractions over floats https://www.textualize.io/blog/posts/7-things-about-terminals multiset https://www.youtube.com/watch?v=b-K1ujf8u_k&pp=ygUQcHl0aG9uIGZyb3plbnNldA%3D%3D
 * https://snarky.ca/tag/syntactic-sugar/ https://realpython.com/python-del-statement/ https://www.wrighters.io/intro-to-python-match-statement/
 * enums https://realpython.com/python-enum/ https://florian-dahlitz.de/blog/why-you-should-use-more-enums-in-python
-
-## done
-
-* _23_: hashable
-* _22_: iteration (iterators, generators), big rf
-* _21_: rf pdb, doctest basics
-* _20_: not much
-* _19_: executables, imports, obj assignment, pipx and Poetry, first pass (lambdas, tuple unpacking, iteration, dataclasses, shallow vs. copy, closure, decorator)
-* _18_: Hitchhiker's Guide, first pass (imports, unit testing)
-* _17_: PSF install, PS beginner course
 
 # 🗂 CLASSES
 
@@ -504,6 +501,8 @@ myd["magic"]
 
 ---
 
+https://www.pythonmorsels.com/time-complexities/
+
 | CLASS   | TYPE    | MUTABLE | HASHABLE       | SUBSCRIPTABLE |  NOTES              |
 |---------|---------|---------|----------------|---------------|---------------------|
 | list    | seq     | yes     | no             | byes          | for iteration       |
@@ -881,6 +880,7 @@ for i in range(5,1):
 
 ---
 
+* iterate according to wall time https://github.com/brohrer/pacemaker
 * dispatch https://martinheinz.dev/blog/90
 * K can be int https://stackoverflow.com/questions/44814719/can-both-the-values-and-keys-of-a-dictionary-be-integers
 * impl w/ hash table https://akshayr.me/blog/articles/python-dictionaries https://www.pythoninsight.com/2018/08/python-basics-dict-lookup/ https://habr.com/en/post/458518/ https://docs.python.org/3/faq/design.html#how-are-dictionaries-implemented-in-cpython
@@ -1002,6 +1002,7 @@ ur_set.remove('foo_el')
 ### list
 
 https://realpython.com/python-list/
+https://codeconfessions.substack.com/p/why-do-python-lists-multiply-oddly
 
 ```python
 ###
@@ -1293,6 +1294,7 @@ def outer(num):
 ## lambdas
 
 https://www.pythonmorsels.com/lambda-expressions/
+https://lwn.net/Articles/964839/
 * https://docs.python.org/3/glossary.html#term-lambda
 * _anonymous_: don't assign a name https://treyhunner.com/2018/09/stop-writing-lambda-expressions/
 * _constraints_: only for expression i.e. no iteration, conditions https://wsvincent.com/python-lambda-expressions/
@@ -1697,13 +1699,24 @@ SEMANTICS
 
 ---
 
+https://outlore.dev/blog/python-dev-2024/
+https://burakku.com/blog/rye-test-and-python-tools/
 
-* _uv_: early days, took over Rye https://astral.sh/blog/uv https://news.ycombinator.com/item?id=39387641 https://lucumr.pocoo.org/2024/2/4/rye-a-vision/
+YOUR PROBLEM
+* poetry not playing well with pyyaml https://stackoverflow.com/questions/77828411/unable-to-install-pyyaml-using-poetry https://github.com/python-poetry/poetry/issues/8287
+
 https://chriswarrick.com/blog/2024/01/15/python-packaging-one-year-later/
-https://iahmed.me/post/python-air-gapped/
-https://talkpython.fm/episodes/show/436/an-unbiased-evaluation-of-environment-and-packaging-tools https://drivendata.co/blog/python-packaging-2023
-https://news.ycombinator.com/item?id=38196412
-https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/
+
+VENV
+* _venv_: use `bin` to make https://stackoverflow.com/questions/45293436/how-to-specify-python-version-used-to-create-virtual-2
+* _virtual environment_: Python installation + pkgs [tutorial 12.1, Grinberg 4]
+* _Docker_: shouldn't just use whole container as env https://hynek.me/articles/python-app-deps-2018/
+* _history_: `venv` and `virtualenv` are not the same  ️https://docs.python.org/3/installing/index.html https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/#tools-and-management https://stackoverflow.com/a/49967371/6813490
+* _PEP 517_: build backend https://github.com/pdm-project/pdm
+* _PEP 582_: https://medium.com/@grassfedcode/goodbye-virtual-environments-b9f8115bc2b6 https://pythonbytes.fm/episodes/show/117/is-this-the-end-of-python-virtual-environments https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
+* _PEP 621_: how metadata should be represented in `pyproject.toml` https://github.com/pdm-project/pdm
+* _location_: per project or all in `~`
+* _sink_: using a Makefile https://github.com/sio/Makefile.venv https://realpython.com/python-virtual-environments-a-primer/
 
 📜 https://docs.python.org/3/installing/index.html
 
@@ -1727,7 +1740,7 @@ https://pythonspeed.com/articles/distributing-software/ https://pgjones.dev/blog
 
 * _tldr_: dep mgmt and distro are intermingled cf. `setuptools`; even with things outside either cf. `setup.cfg` https://www.b-list.org/weblog/2020/jan/05/packaging/ ❓ should all apps also be packages from a 'this makes working with other Python constructs easier?' https://hynek.me/articles/python-app-deps-2018/
 
-* `pyproject.toml` does both distro (replaces `setup.py`) and dep mgmt (`requirements.txt`, `Pipfile`, which is backend by the PyPA); tricky w/ Heroku https://jacobian.org/2019/nov/11/python-environment-2020/ https://snarky.ca/what-the-heck-is-pyproject-toml https://github.com/carlosperate/awesome-pyproject
+* `pyproject.toml` does both distro (replaces `setup.py`) and dep mgmt (`requirements.txt`, `Pipfile`, which is backend by the PyPA); tricky w/ Heroku https://jacobian.org/2019/nov/11/python-environment-2020/ https://snarky.ca/what-the-heck-is-pyproject-toml https://github.com/carlosperate/awesome-pyproject https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/
 * `distutils`: initial approach to packaging and foundation for current tools (pip); mailing list for packaging https://docs.python.org/3/installing/index.html deprecated https://towardsdatascience.com/all-the-important-features-and-changes-in-python-3-10-e3d1fe542fbf
 
 ## executable
@@ -1845,38 +1858,55 @@ ZA
 * _history_: https://stackoverflow.com/a/14753678/6813490 https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 7:40
 * _project structure_: `src`: https://blog.ganssle.io/articles/2019/08/test-as-installed.html https://pythonbytes.fm/episodes/show/159/brian-s-pr-is-merged-the-src-will-flow https://github.com/taktluyver/flit/pull/260/commits https://bskinn.github.io/My-How-Why-Pyproject-Src/ https://github.com/takluyver/flit/pull/260 https://bskinn.github.io/My-How-Why-Pyproject-Src/ repetitive paths https://github.com/zachvalenta/site-content/commit/7e6b5f66ffd9f6b3b13b19669050289b26d8925b
 
-## pkg mgmt
-
-OVERVIEW
-* too many tools https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/#tooling-proliferation-and-the-python-package-authority
-* _hatch_: https://github.com/pypa/hatch
-* single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
-* good: no need for tox, separates deps by dev/test/link https://andrich.me/2023/08/switching-to-hatch/
-* bad: no envs in project dir, no lockfile, no support for C extension modules, single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
-* _pdm_: smart people like https://github.com/pdm-project/pdm
-* _pipenv_: Reitz problem https://github.com/pypa/pipenv/commit/9ba23242
-* _piptools_ https://www.pythonpodcast.com/devops-in-python-episode-244/
-
-PIPX 📜 https://github.com/pypa/pipx
-* config file: `~/Library/Application Support/pipx`
-* venvs: `~/Library/Application Support/pipx/venvs`
-
-POETRY 📜 https://python-poetry.org/docs/
-* config file: `~/Library/Application Support/pypoetry/config.toml`
-* venvs: local (`$PROJ/.venv`) global (`~/Library/Caches/pypoetry/virtualenvs`)
-* commands
-```sh
-init -n        # create pyproject.toml
-install        # install deps
-add -D         # add deps to dev
-show --no-dev  # show prod deps
-env info       # show Poetry env and where Poetry is installed (pipx)
-remove -D      # remove dev dep
-```
+## pip
 
 ---
 
 PIP 📜 https://pip.pypa.io/en/stable/
+* pinning w/ pip-tools https://lincolnloop.com/blog/python-dependency-locking-pip-tools
+* pip-compile
+* local PyPI https://testdriven.io/blog/private-pypi/
+```sh
+# https://github.com/pywharf/pywharf https://stefan.sofa-rockers.org/2019/04/18/python-packaging-gitlab-conda/ https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you https://pydist.com https://github.com/devpi/devpi
+# create index
+mkdir pypi-local
+
+# populate index w/ pkg
+pip3 download -r /Users/zach/Desktop/zvmac/materials/sw/lang/python/create-python-app/requirements.txt
+
+# use index for new project
+pip3 install --no-index --find-links=~/Desktop/pypi-local coverage
+```
+* m2h
+```make
+@echo "📦 DEPENDENCIES"
+@echo
+@echo "freeze:   	freeze dependencies into requirements.txt"
+@echo "install:   	install dependencies from requirements.txt"
+@echo "purge:   	remove any installed pkg *not* in requirements.txt"
+
+freeze:
+	pip freeze > requirements.txt
+
+install:
+	pip install -r requirements.txt
+
+purge:
+	@echo "🔍 - DISCOVERING UNSAVED PACKAGES\n"
+	pip freeze > pkgs-to-rm.txt
+	@echo
+	@echo "📦 - UNINSTALL ALL PACKAGES\n"
+	pip uninstall -y -r pkgs-to-rm.txt
+	@echo
+	@echo "♻️  - REINSTALL SAVED PACKAGES\n"
+	pip install -r requirements.txt
+	@echo
+	@echo "🗑  - UNSAVED PACKAGES REMOVED\n"
+	diff pkgs-to-rm.txt requirements.txt | grep '<'
+	@echo
+	rm pkgs-to-rm.txt
+	@echo
+```
 * https://www.ianwootten.co.uk/2023/02/17/one-does-not-simply-pip-install/
 * https://www.b-list.org/weblog/2023/dec/07/pip-install-safely/
 * install - user: `install PKG --user` 🗄 `python-3.10-youtube-ffmpeg.md`
@@ -1895,115 +1925,7 @@ PIP 📜 https://pip.pypa.io/en/stable/
 > When a virtual environment is active, the `VIRTUAL_ENV` environment variable is set to the path of the virtual environment. https://docs.python.org/3/library/venv.html#creating-virtual-environments
 * cache venv in CI https://adamj.eu/tech/2023/11/02/github-actions-faster-python-virtual-environments/
 
-PIPX 📜 https://pypa.github.io/pipx/
-* solution for Python 3.10 (diez) 🗄 `python-3.10-youtube-ffmpeg.md`
-* install: Homebrew https://pipx.pypa.io/stable/installation/
-* install: pip https://stackoverflow.com/a/70636663 https://packaging.python.org/en/latest/guides/installing-stand-alone-command-line-tools/
-```sh
-python3 -m pip install --user pipx
-python3 -m pipx ensurepath
-```
-* freeze https://github.com/pipxproject/pipx/issues/109
-* _inject_: add lib to CLI's env `pipx inject visidata psycopg2` https://jacobian.org/2019/nov/11/python-environment-2020/ https://pipxproject.github.io/pipx/examples/#pipx-inject-example 🗄 `html-css/drafts/dev/pipx-psycopg2.md`
-```sh
-pipx install visidata
-pipx inject visidata psycopg2
-```
-* wanted to switch Python-based Homebrew packages (asciinema, httpie, litecli, pgcli, ranger, youtube-dl) but ran into issue w/ youtube-dl, ddgr https://github.com/pipxproject/pipx/issues/232 https://github.com/jarun/ddgr/issues/66 https://stackoverflow.com/a/42098127/6813490 googler worked with Homebrew
-* when Python version upgrades it might lose track of the envs and you'll have to reinstall everything https://pythonbytes.fm/episodes/show/127/that-python-code-is-on-fire @ 14:00
-* list pkgs like brew `leaves` https://github.com/pipxproject/pipx/issues/390
-* _global dependency_: something you'd use as a CLI (pipenv, AWS) https://jacobian.org/2018/feb/21/python-environment-2018/
-* can always just use pip for user or even global install
-* system Python no longer exposed https://news.ycombinator.com/item?id=29238700
-* trickery: `bin` symlinks to + script w/ shebang line scoped to local venv https://stackoverflow.com/a/30541898/6813490 https://pythonbytes.fm/episodes/show/123/time-to-right-the-py-wrongs
-
-POETRY 📜 https://python-poetry.org/docs/
-> shell https://www.reddit.com/r/Python/comments/rjwr2d/moving_from_pipenv_to_poetry_or_pdm/
-> using with pyenv https://jacobian.org/2019/nov/11/python-environment-2020/
-| operation | dev        | prod          |
-|-----------|----------- |---------------|
-| init      | init -n    |               |
-| install   | install    |               |
-| add       | add -D     | add           |
-| list      | show       | show --no-dev |
-| dep dir   | env info   |               |
-| rm        | remove -D  | remove        |
-| run dep   |            | run <dep>     |
-
-https://github.com/python-poetry/poetry/pull/7415
-using inside docker https://ashishb.net/all/using-python-poetry-inside-docker/
-* debug: `<cmd> -vvv`
-* gotcha: project directory can't have same name as a dependency used by project https://github.com/python-poetry/poetry/issues/3438
-* VS Code support https://github.com/microsoft/vscode-python/wiki/Support-poetry-virtual-environments
-* can't show just top-level deps https://github.com/python-poetry/poetry/issues/1990
-* `SolverProblemError` = conflict btw Python version in `[tool.poetry.dependencies]` and Python version required by dependency
-```python
-# run script using env
-poetry run python script.py
-# use dep as CLI
-poetry run flask
-```
-* conf - list: `config --list`
-* conf - file location: `~/Library/Application Support/pypoetry` https://python-poetry.org/docs/configuration/#configuration
-* conf - set: `config virtualenvs.in-project true`
-* venv - store as `.venv`: `config virtualenvs.in-project true` https://python-poetry.org/docs/configuration/#virtualenvsin-project
-* venv - store as named: `~/Library/Caches/pypoetry/virtualenvs/`
-
----
-
-PIP RF
-* pinning w/ pip-tools https://lincolnloop.com/blog/python-dependency-locking-pip-tools
-* pip-compile
-* local PyPI https://testdriven.io/blog/private-pypi/
-```sh
-# https://github.com/pywharf/pywharf https://stefan.sofa-rockers.org/2019/04/18/python-packaging-gitlab-conda/ https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you https://pydist.com https://github.com/devpi/devpi
-# create index
-mkdir pypi-local
-
-# populate index w/ pkg
-pip3 download -r /Users/zach/Desktop/zvmac/materials/sw/lang/python/create-python-app/requirements.txt
-
-# use index for new project
-pip3 install --no-index --find-links=~/Desktop/pypi-local coverage
-```
-
-|                 operation                   |      Makefile                          |     Poetry              |
-| ------------------------------------------- | ---------------------------------------| ----------------------- |
-|  create env                                 |  `python3 -m venv venv`                | `init`                  |  
-
-* create env - new project: `venv` --- `poetry init -n`
-* create env - existing project: `venv` + `pip install -r requirements.txt` --- `poetry install`
-* create env - existing project - prod: ❌ --- `poetry install --no-dev`
-* rm venv: `rm venv` ---  `env remove 3.7` 
-
-* tree view: `make deps` --- `poetry show --tree`
-
-* add dep - prod: `pip install <foo>` + `make freeze` --- `poetry add <pkg>`
-* add dep - dev: ❌ --- `poetry add --dev <dep>`
-* rm dep - prod: `pip uninstall <pkg>` + `make purge` --- `poetry remove <pkg>`
-* rm dep - dev: ❌ --- `remove -D`
-
-* add unsaved dep: `pip install <pkg>` --- ❌
-* rm unsaved dep: `make purge` --- ❌
-
-* view env: `ls` --- `poetry env info`
-* list dep tree: `pipdeptree` --- poetry show --tree`
-
-* can install a C compiler with pip https://news.ycombinator.com/item?id=31776873
-
-venv https://stackoverflow.com/a/49967371/6813490
-* _venv_: use `bin` to make https://stackoverflow.com/questions/45293436/how-to-specify-python-version-used-to-create-virtual-2
-* _virtual environment_: Python installation + pkgs [tutorial 12.1, Grinberg 4]
-* _Docker_: shouldn't just use whole container as env https://hynek.me/articles/python-app-deps-2018/
-* _history_: `venv` and `virtualenv` are not the same  ️https://docs.python.org/3/installing/index.html https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/#tools-and-management
-* _PEP 517_: build backend https://github.com/pdm-project/pdm
-* _PEP 582_: https://medium.com/@grassfedcode/goodbye-virtual-environments-b9f8115bc2b6 https://pythonbytes.fm/episodes/show/117/is-this-the-end-of-python-virtual-environments https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
-* _PEP 621_: how metadata should be represented in `pyproject.toml` https://github.com/pdm-project/pdm
-* _location_: per project or all in `~`
-* _sink_: using a Makefile https://github.com/sio/Makefile.venv https://realpython.com/python-virtual-environments-a-primer/
-
 * latest versions don't try to compile, will just get binary https://pythonspeed.com/articles/upgrade-pip
-
 * checking for updates https://stackabuse.com/python-update-all-packages-with-pip-review/
 * _upgrade_: `pip install --upgrade pip`
 * _bundling_: comes w/ versions >= 2.7.9; don't install using os-managed Python https://pip.pypa.io/en/stable/installing/
@@ -2012,7 +1934,6 @@ venv https://stackoverflow.com/a/49967371/6813490
 * bash profile `venv` hack 🗄 `pip-venv-hack`
 * _freeze_: `pip freeze > requirements.txt`
 * _install from frozen_: `pip install -r requirements.txt`
-
 * _fuzzy installs_: case insensitive (`flask-sqlalchemy` treated same as `Flask-SQLAlchemy` https://github.com/pallets/flask-sqlalchemy/) converts underscores to hyphen (`flask_whooshalchemy` same as `flask-whooshalchemy` https://github.com/gyllstromk/Flask-WhooshAlchemy https://www.youtube.com/watch?v=bAPcmGNsulc @ 0:55)
 ```diff
 - /U/a/D/vue-firebase-master $ poetry add flask_whooshalchemy
@@ -2045,7 +1966,76 @@ index-url = http://download.zope.org/ppix # CLI arg is `-i`
 ```
 * https://pydist.com/blog/pip-install 
 
-POETRY RF
+## pipx
+
+📜 https://github.com/pypa/pipx
+
+* install: Homebrew, pip https://pipx.pypa.io/stable/installation/ https://stackoverflow.com/a/70636663 https://packaging.python.org/en/latest/guides/installing-stand-alone-command-line-tools/
+```sh
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+```
+* config file: `~/Library/Application Support/pipx`
+* venvs: `~/Library/Application Support/pipx/venvs`
+* _inject_: add lib to CLI's env `pipx inject visidata psycopg2` https://jacobian.org/2019/nov/11/python-environment-2020/ https://pipxproject.github.io/pipx/examples/#pipx-inject-example 🗄 `html-css/drafts/dev/pipx-psycopg2.md`
+```sh
+pipx install visidata
+pipx inject visidata psycopg2
+```
+
+GLOBAL DEPENDENCIES
+* _global dependency_: something you'd use as a CLI (pipenv, AWS) https://jacobian.org/2018/feb/21/python-environment-2018/
+* can always just use pip for user or even global install
+
+---
+
+* freeze https://github.com/pipxproject/pipx/issues/109
+* list pkgs like brew `leaves` https://github.com/pipxproject/pipx/issues/390
+* wanted to switch Python-based Homebrew packages (asciinema, httpie, litecli, pgcli, ranger, youtube-dl) but ran into issue w/ youtube-dl, ddgr https://github.com/pipxproject/pipx/issues/232 https://github.com/jarun/ddgr/issues/66 https://stackoverflow.com/a/42098127/6813490 googler worked with Homebrew
+* when Python version upgrades it might lose track of the envs and you'll have to reinstall everything https://pythonbytes.fm/episodes/show/127/that-python-code-is-on-fire @ 14:00
+
+GLOBAL DEPENDENCIES
+* why: system Python no longer exposed https://news.ycombinator.com/item?id=29238700
+* how it works: `bin` symlinks to + script w/ shebang line scoped to local venv https://stackoverflow.com/a/30541898/6813490 https://pythonbytes.fm/episodes/show/123/time-to-right-the-py-wrongs
+
+## Poetry
+
+📜 https://python-poetry.org/docs/
+
+* config file: `~/Library/Application Support/pypoetry/config.toml`
+* venvs: local (`$PROJ/.venv`) global (`~/Library/Caches/pypoetry/virtualenvs`)
+* commands
+```sh
+init -n        # create pyproject.toml
+install        # install deps
+add -D         # add deps to dev
+show --no-dev  # show prod deps
+env info       # show Poetry env and where Poetry is installed (pipx)
+remove -D      # remove dev dep
+```
+
+ALTERNATIVES
+* too many tools https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/#tooling-proliferation-and-the-python-package-authority
+* _hatch_: https://github.com/pypa/hatch
+* single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
+* good: no need for tox, separates deps by dev/test/link https://andrich.me/2023/08/switching-to-hatch/
+* bad: no envs in project dir, no lockfile, no support for C extension modules, single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
+* _pdm_: smart people like https://github.com/pdm-project/pdm
+* _pipenv_: Reitz problem https://github.com/pypa/pipenv/commit/9ba23242
+* _piptools_ https://www.pythonpodcast.com/devops-in-python-episode-244/
+* _uv_: early days, took over Rye https://astral.sh/blog/uv https://news.ycombinator.com/item?id=39387641 https://lucumr.pocoo.org/2024/2/4/rye-a-vision/
+
+---
+
+MORE ON ALTERNATIVES
+* https://talkpython.fm/episodes/show/453/uv-the-next-evolution-in-python-packages
+* https://chriswarrick.com/blog/2024/01/15/python-packaging-one-year-later/
+* https://iahmed.me/post/python-air-gapped/
+* https://talkpython.fm/episodes/show/436/an-unbiased-evaluation-of-environment-and-packaging-tools
+* https://drivendata.co/blog/python-packaging-2023
+* https://news.ycombinator.com/item?id=38196412
+* https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/
+
 * create env - new project: `init - n` creates `pyproject.toml`; deps dir (macOS: `~/Library/Caches/pypoetry` RHEL: `~/.cache/pypoetry/virtualenvs`) and lockfile (`poetry.lock`) not created until you actually install something
 * create env - existing project: `install` creates deps dir and installs deps using `poetry.lock` (if present) or `pyproject.toml` (if `poetry.lock` not present) https://poetry.eustace.io/docs/basic-usage/#installing-dependencies ❓ not being able to pick virtualenv name a problem https://hynek.me/articles/python-app-deps-2018/
 * create env - existing project - prod: `install --no-dev` https://jacobian.org/2019/nov/11/python-environment-2020/
@@ -2076,13 +2066,59 @@ format
 * _import_: to go from `requirements.txt` is mostly manual https://jacobian.org/2019/nov/11/python-environment-2020/
 * _export_: `export -f requirements.txt > req.txt` https://pythonspeed.com/articles/pipenv-docker/ only dev https://github.com/python-poetry/poetry/issues/1441 ignore https://github.com/python-poetry/poetry/issues/2010
 
+> shell https://www.reddit.com/r/Python/comments/rjwr2d/moving_from_pipenv_to_poetry_or_pdm/
+> using with pyenv https://jacobian.org/2019/nov/11/python-environment-2020/
+| operation | dev        | prod          |
+|-----------|----------- |---------------|
+| init      | init -n    |               |
+| install   | install    |               |
+| add       | add -D     | add           |
+| list      | show       | show --no-dev |
+| dep dir   | env info   |               |
+| rm        | remove -D  | remove        |
+| run dep   |            | run <dep>     |
+
+https://github.com/python-poetry/poetry/pull/7415
+using inside docker https://ashishb.net/all/using-python-poetry-inside-docker/
+* debug: `<cmd> -vvv`
+* gotcha: project directory can't have same name as a dependency used by project https://github.com/python-poetry/poetry/issues/3438
+* VS Code support https://github.com/microsoft/vscode-python/wiki/Support-poetry-virtual-environments
+* can't show just top-level deps https://github.com/python-poetry/poetry/issues/1990
+* `SolverProblemError` = conflict btw Python version in `[tool.poetry.dependencies]` and Python version required by dependency
+```python
+# run script using env
+poetry run python script.py
+# use dep as CLI
+poetry run flask
+```
+* conf - list: `config --list`
+* conf - file location: `~/Library/Application Support/pypoetry` https://python-poetry.org/docs/configuration/#configuration
+* conf - set: `config virtualenvs.in-project true`
+* venv - store as `.venv`: `config virtualenvs.in-project true` https://python-poetry.org/docs/configuration/#virtualenvsin-project
+* venv - store as named: `~/Library/Caches/pypoetry/virtualenvs/`
+
+* create env - new project: `venv` --- `poetry init -n`
+* create env - existing project: `venv` + `pip install -r requirements.txt` --- `poetry install`
+* create env - existing project - prod: ❌ --- `poetry install --no-dev`
+* rm venv: `rm venv` ---  `env remove 3.7` 
+* tree view: `make deps` --- `poetry show --tree`
+* add dep - prod: `pip install <foo>` + `make freeze` --- `poetry add <pkg>`
+* add dep - dev: ❌ --- `poetry add --dev <dep>`
+* rm dep - prod: `pip uninstall <pkg>` + `make purge` --- `poetry remove <pkg>`
+* rm dep - dev: ❌ --- `remove -D`
+* add unsaved dep: `pip install <pkg>` --- ❌
+* rm unsaved dep: `make purge` --- ❌
+* view env: `ls` --- `poetry env info`
+* list dep tree: `pipdeptree` --- poetry show --tree`
+* can install a C compiler with pip https://news.ycombinator.com/item?id=31776873
+
+
 # 📺 REPL
 
 📙 Van Rossum ch. 2, 14
 🗄
-* `aesthetics.md` design
-* `sql.md` munge
-* `theory.md` notation
+* `databases.md` tooling
+* `education.md` design
 
 | REPL          | pkg    | features                               |
 | --------------|--------|----------------------------------------|
@@ -2101,11 +2137,14 @@ EXPLORATORY PROGRAMMING
 > When commands are read from a tty, the interpreter is said to be in interactive mode. https://docs.python.org/3/tutorial/interpreter.html#interactive-mode
 * aka OODA loop https://scholars-stage.org/the-ooda-loop-ancient-china-style/ https://en.wikipedia.org/wiki/John_Boyd_%28military_strategist%29#OODA_loop https://dominiccummings.substack.com/p/regime-change-2-a-plea-to-silicon https://dominiccummings.substack.com/p/how-could-labour-win-swap-dud-dead
 * _object explorer_: autocomplete + print docstrings https://github.com/darrenburns/shira
-* _debugger_: REPL + program state e.g. pdb
-* _Codi_: real time debugger for non-running program https://github.com/metakirby5/codi.vim https://www.youtube.com/watch?v=tLQmGabfXHU
+* _debugger_: REPL + running program state e.g. pdb
 * _db CLI_: REPL + db state e.g. visidata
+
+---
+
 * _notebook_: IDE + data e.g. Jupyter
 * _spreadsheet_: proprietary notebook https://www.youtube.com/watch?v=llgTl9BDuKw
+* _Codi_: real time debugger for non-running program https://github.com/metakirby5/codi.vim https://www.youtube.com/watch?v=tLQmGabfXHU
 
 ## interactive mode
 
@@ -2113,7 +2152,7 @@ EXPLORATORY PROGRAMMING
 
 everything is written in rust now? https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/
 https://bernsteinbear.com/blog/simple-python-repl/
-* https://github.com/Textualize/rich https://github.com/catppuccin/python https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/
+* https://github.com/Textualize/rich https://github.com/catppuccin/python https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/ https://github.com/ChrisBuilds/terminaltexteffects
 * https://docs.python.org/3/tutorial/interpreter.html
 * https://docs.python.org/3/tutorial/interactive.html
 * https://docs.python.org/3/tutorial/appendix.html#interactive-mode
@@ -2137,9 +2176,16 @@ INIT
 
 📜 https://ipython.readthedocs.io/en/stable/index.html
 
-* catpuccin for stdout https://github.com/catppuccin/python/issues/22
-
 ---
+
+```bash
+ fd ipyth
+dotfiles/python/ipython_config.py
+logs/pyenv/pip/ipython.log
+logs/pyenv/pipx/ipython.log
+```
+
+* catpuccin for stdout https://github.com/catppuccin/python/issues/22
 
 🔗 https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html https://realpython.com/ipython-interactive-python-shell/
 
@@ -2170,7 +2216,18 @@ cmd to check out https://jakevdp.github.io/PythonDataScienceHandbook/01.03-magic
 * profile https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-prun time https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time
 * run file https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-run
 
-## Jupyter
+## notebooks
+
+MARIMO 📻 https://github.com/marimo-team/marimo
+```bash
+poetry init -n
+poetry add marimo
+poetry run python marimo tutorial intro
+```
+
+---
+
+> alternatives: Julia Evans, Gitbook, notesbooks (Quarto https://quarto.org/ uses Pandoc)
 
 📜 https://jupyter.readthedocs.io/en/latest/index.html
 
@@ -2179,7 +2236,6 @@ HISTORY
 * _IPython Notebook_: IPython + persistence, web browser, visualizations (chart, Markdown)
 * _Jupyter_: IPython Notebook + kernels for other languages (R, F#, Java)
 * _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304
-* https://github.com/jtpio/jupyterlite
 
 INSTALL
 * Conda recommended https://jupyter.readthedocs.io/en/latest/install.html#id3
@@ -2188,13 +2244,14 @@ INSTALL
 
 ZA
 * `.ipynb_checkpoints`: most recent state of `<file>.ipynb` https://stackoverflow.com/a/46422176/6813490 ignore in version control https://stackoverflow.com/a/39997938/6813490
+* libraries https://github.com/twosigma/beakerx 
 * _kernel_: interpreter
 * alternatives: https://github.com/Bycelium/PyFlow in Vim https://www.maxwellrules.com/misc/nvim_jupyter.html https://livebook.dev/
 * notebooks as articles https://news.ycombinator.com/item?id=27367948 as books https://executablebooks.org/en/latest/ https://jupyterbook.org/en/stable/intro.html
 * reproducibility https://jvns.ca/blog/2017/11/12/binder--an-awesome-tool-for-hosting-jupyter-notebooks/ https://news.ycombinator.com/item?id=24943962
 * to Markdown https://github.com/mwouts/jupytext
-* alternatives https://github.com/twosigma/beakerx https://zeppelin.apache.org/ https://www.datacamp.com/community/blog/jupyter-notebook-r https://github.com/ottomatica/docable-notebooks https://datacrayon.com/shop/product/data-analysis-with-rust-notebooks/ https://marimo.io/
-* design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/
+* alternatives https://zeppelin.apache.org/ https://github.com/ottomatica/docable-notebooks https://marimo.io/
+* design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch
 
 ## pdb
 
@@ -2528,6 +2585,7 @@ self.assertEqual(x.exception.code, 1)
 
 ---
 
+* dead code https://github.com/jendrikseipp/vulture
 * _six_: convert from Python 2 and Python 3
 * control mouse/keyboard https://github.com/asweigart/pyautogui
 
@@ -2600,7 +2658,9 @@ TypeError: choice() got an unexpected keyword argument 'k'
 * `shell.md` CLI design
 * `theory.md` notation
 
-TUI 🗄 `golang.md` CLI
+---
+
+TUI
 * functionality: tables, color, layout
 * frameworks https://github.com/willmcgugan/textual https://github.com/bczsalba/pytermgui https://github.com/peterbrittain/asciimatics https://github.com/jquast/blessed pudb uses http://urwid.org/
 * _Textual_: complaints https://news.ycombinator.com/item?id=35123383 animation https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#demonstrating-animation dropdown https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#dropdown-autocompletion-menu file manager https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#a-file-manager-powered-by-textual graphics https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#pixel-art layout https://textual.textualize.io/blog/2022/12/11/version-060/#placeholder tabs https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#tabs-with-animated-underline testing https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#developer-console https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#snapshot-testing-for-terminal-apps example https://github.com/learnbyexample/TUI-apps/tree/main/CLI-Exercises
@@ -2660,10 +2720,10 @@ ZA
 
 📜 https://click.palletsprojects.com/en/8.1.x
 
-* basic
-```python
-# python script.py
+https://github.com/Textualize/trogon
 
+* `python script.py`
+```python
 #!/usr/bin/env python
 import click
 
@@ -2792,6 +2852,7 @@ last_month = str(int(this_month) - 1).rjust(2, '0')
 two_months_ago = str(int(this_month) - 2).rjust(2, '0')
 
 # compare timestamp to current time
+# timezones + currency https://github.com/pycountry/pycountry
 from datetime import datetime, timezone
 now = datetime.now(timezone.utc)  # https://stackoverflow.com/a/25662061
 
@@ -2988,6 +3049,7 @@ scrape
 * Scrapy
 * table data https://www.visidata.org/blog/2020/ten/#4-scrape-html-table-data-from-a-webpage
 * _Git scraping_: version control your scrapes https://simonwillison.net/2020/Nov/14/personal-data-warehouses/ 16:15
+* _crawlee_: https://github.com/apify/crawlee
 
 parse
 * BeautifulSoup
@@ -2998,6 +3060,13 @@ parse
 
 ---
 
+https://news.ycombinator.com/item?id=40033490
+https://datasette.io/tools/shot-scraper
+* _crawler_: recursively navigates pages via links e.g. GoogleBot, BingBot https://www.interviewcake.com/question/python3/compress-url-list https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
+> Crucially, I would not have it crawling the entire web from the outset. Instead, it should crawl a whitelist of domains, or “tier 1” domains. These would be the limited mainly to authoritative or high-quality sources for their respective specializations, and would be weighed upwards in search results. Pages that these sites link to would be crawled as well, and given tier 2 status, recursively up to an arbitrary N tiers. https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html
+> A significant portion of the web is cut off from you if your crawler is not famous. Google has a huge competitive advantage in this regard, a lot of site owners allow just GoogleBot (and maybe BingBot), making it an extremely tedious process for an unknown crawler to get whitelisted on these sites. https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
+> We were told that this would take between 1 and 2 years to complete, and would cost a minimum of $1 billion (Again, this was 2013!). Needless to say, this was not a very enticing proposition. https://0x65.dev/blog/2019-12-05/a-new-search-engine.html
+https://news.ycombinator.com/item?id=39810378
 https://github.com/geziyor/geziyor
 
 muffet
@@ -3148,7 +3217,7 @@ with open('data.txt', 'w') as f:
 
 # misc
 shutil.make_archive(root_dir=dir_to_tar, base_name=tarball_name, format='zip')  # make zip
-os.system  # run script; subprocess, Sultan also work https://stackoverflow.com/a/56842257/6813490
+os.system  # run script; subprocess, Sultan also work https://stackoverflow.com/a/56842257/6813490 https://github.com/pomponchik/suby
 tarballs = [os.base.pathname(x) for x in glob(f"{Path.cwd().joinpath('foo')}/*.tar.gz")] # grab file names sans full path https://stackoverflow.com/a/55439309/6813490 https://stackoverflow.com/a/20384686/6813490
 ```
 
@@ -3175,16 +3244,22 @@ with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
 🗄 `linux.md` tracing
 📜 https://docs.python.org/3/library/debug.html
 
-> It might be a good idea to have an active profiler - to push performance data to the programmer instead of waiting for him to come asking for it. http://paulgraham.com/popular.html
-> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem. http://paulgraham.com/popular.html
-> Beware of arguments related to programming speed. All things being equal, faster is better. But all things are never equal. Do you need the kind of speed that lets you get a website up and running quickly? Or the kind that allows you to rotate a few thousand polygons in 3D in real time? Do you need to convert 10,000 PDFs into text per hour? Or 10 million PDFs into text once? These are different problems. - Ford what is code?
-> A good language, as everyone knows, should generate fast code. But in practice I don't think fast code comes primarily from things you do in the design of the language. As Knuth pointed out long ago, speed only matters in certain critical bottlenecks. And as many programmers have observed since, one is very often mistaken about where these bottlenecks are. So, in practice, the way to get fast code is to have a very good profiler, rather than by, say, making the language strongly typed. You don't need to know the type of every argument in every call in the program. You do need to be able to declare the types of arguments in the bottlenecks. And even more, you need to be able to find out where the bottlenecks are. http://paulgraham.com/popular.html
+PG http://paulgraham.com/popular.html
+> It might be a good idea to have an active profiler - to push performance data to the programmer instead of waiting for him to come asking for it.
+> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem.
+> A good language, as everyone knows, should generate fast code. But in practice I don't think fast code comes primarily from things you do in the design of the language. As Knuth pointed out long ago, speed only matters in certain critical bottlenecks. And as many programmers have observed since, one is very often mistaken about where these bottlenecks are. So, in practice, the way to get fast code is to have a very good profiler, rather than by, say, making the language strongly typed. You don't need to know the type of every argument in every call in the program. You do need to be able to declare the types of arguments in the bottlenecks. And even more, you need to be able to find out where the bottlenecks are.
+
+---
+
+> sort out what needs to be in Linux tracing vs. what needs to be here
 
 * _profile_: measure performance i.e. see which lines are executing and how long they take
 * _trace_: https://github.com/furkanonder/beetrace
 
----
+https://textual.textualize.io/blog/2024/02/20/remote-memory-profiling-with-memray/
 
+Sentry
+https://www.youtube.com/watch?v=bGAVrtb_tFs https://www.brendangregg.com/
 https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html
 https://www.freecodecamp.org/news/python-debugging-handbook/
 https://madebyme.today/blog/python-dict-vs-curly-brackets/
@@ -3284,6 +3359,8 @@ if __name__=='__main__':
 
 📜 https://docs.pytest.org/en/latest/contents.html#toc
 
+* https://github.com/darrenburns/pytest-clarity
+* plugins https://blog.pecar.me/pytest-plugin
 * matchers: https://github.com/hamcrest/PyHamcrest https://github.com/mwilliamson/python-precisely https://changelog.com/gotime/159 https://github.com/corbym/gocrest
 * _non-fatal assertions_: continue execution if assertion fails https://github.com/okken/pytest-check unittest https://stackoverflow.com/a/5028110 pytest parameters https://stackoverflow.com/a/36760045
 
@@ -3446,6 +3523,54 @@ regex.findall("zach another thing zach 1234")  # all matches
 * `sub`: https://stackoverflow.com/a/16720752/6813490
 * `.match()`: apparently good for searching telephone numbers, anything that's not a sentence https://howchoo.com/g/zdvmogrlngz/python-regexes-findall-search-and-match but otherwise no one uses https://stackoverflow.com/questions/180986/what-is-the-difference-between-re-search-and-re-match inconsistent w/ how regex work in Perl, sed, grep https://stackoverflow.com/a/37363575/6813490 allegedly faster than `search()` but not so! https://stackoverflow.com/a/49710946/6813490
 
+## requests
+
+📜 https://requests.readthedocs.io/en/latest/
+
+* alternatives: https://github.com/search?utf8=%E2%9C%93&q=aiohttp https://github.com/encode/httpx single-file https://github.com/slingamn/mureq
+```python
+# data = dict(form), json.dumps(string) https://stackoverflow.com/a/42121407 https://requests.readthedocs.io/en/latest/api/#requests.request
+# json = dict(json) https://requests.readthedocs.io/en/latest/user/quickstart https://stackoverflow.com/a/26344315
+res = requests.post(url, data=data)
+res.raise_for_status()  # raise exception for 400/500 https://requests.readthedocs.io/en/master/user/quickstart/#json-response-content
+```
+* mock requests https://github.com/jamielennox/requests-mock
+* file download https://realpython.com/python-download-file-from-url/
+* timeouts https://findwork.dev/blog/advanced-usage-python-requests-timeouts-retries-hooks/ https://robertovitillo.com/default-timeouts/
+```python
+# BASICS
+requests.get(url)
+requests.post(url, data=data)
+requests.put(url, data=data)
+
+# VIEW RES
+res =requests.get("https://httpstat.us/502")
+res.text
+res.url
+
+# DOWNLOAD FILE
+with open("tmp.text", "wb") as f:
+    f.write(res.content)
+
+# DOWNLOAD FILE WITH AUTH TOKEN https://stackoverflow.com/a/44699717
+res = requests.get(
+    'https://gitlab.com/zachvalenta/pre-commit-test/repository/archive.tar.gz?ref=master',
+    headers={'PRIVATE-TOKEN': 'urPrivateToken'}
+)
+if res.url == "https://gitlab.com/users/sign_in":
+    print("set token")
+    os._exit(0)
+with open(r'zjv_test.tar.gz', 'wb') as f:
+    f.write(res.content)
+
+# UPLOAD FILE https://2.python-requests.org/en/master/user/quickstart/#post-a-multipart-encoded-file https://2.python-requests.org/en/master/user/advanced/#post-multiple-multipart-encoded-files
+my_file = {"file": open("foo.txt", "rb")}  # idk if 'file' significant here
+requests.post(url, files=my_file)  # PUT also works fine
+
+# RM FILE
+res = requests.delete(url, auth=(user, pw))
+```
+
 ## serialization
 
 📙 Beazley ch. 6
@@ -3537,56 +3662,12 @@ artist_schema = ArtistSchema(only=("name", "songs"))  # subset
 * `application.md` utils
 * `language.md` frameworks
 
-REQUESTS 📜 https://requests.readthedocs.io/en/latest/
-* alternatives: https://github.com/search?utf8=%E2%9C%93&q=aiohttp https://github.com/encode/httpx single-file https://github.com/slingamn/mureq
-```python
-# data = dict(form), json.dumps(string) https://stackoverflow.com/a/42121407 https://requests.readthedocs.io/en/latest/api/#requests.request
-# json = dict(json) https://requests.readthedocs.io/en/latest/user/quickstart https://stackoverflow.com/a/26344315
-res = requests.post(url, data=data)
-res.raise_for_status()  # raise exception for 400/500 https://requests.readthedocs.io/en/master/user/quickstart/#json-response-content
-```
-* mock requests https://github.com/jamielennox/requests-mock
-* file download https://realpython.com/python-download-file-from-url/
-* timeouts https://findwork.dev/blog/advanced-usage-python-requests-timeouts-retries-hooks/ https://robertovitillo.com/default-timeouts/
-```python
-# BASICS
-requests.get(url)
-requests.post(url, data=data)
-requests.put(url, data=data)
-
-# VIEW RES
-res =requests.get("https://httpstat.us/502")
-res.text
-res.url
-
-# DOWNLOAD FILE
-with open("tmp.text", "wb") as f:
-    f.write(res.content)
-
-# DOWNLOAD FILE WITH AUTH TOKEN https://stackoverflow.com/a/44699717
-res = requests.get(
-    'https://gitlab.com/zachvalenta/pre-commit-test/repository/archive.tar.gz?ref=master',
-    headers={'PRIVATE-TOKEN': 'urPrivateToken'}
-)
-if res.url == "https://gitlab.com/users/sign_in":
-    print("set token")
-    os._exit(0)
-with open(r'zjv_test.tar.gz', 'wb') as f:
-    f.write(res.content)
-
-# UPLOAD FILE https://2.python-requests.org/en/master/user/quickstart/#post-a-multipart-encoded-file https://2.python-requests.org/en/master/user/advanced/#post-multiple-multipart-encoded-files
-my_file = {"file": open("foo.txt", "rb")}  # idk if 'file' significant here
-requests.post(url, files=my_file)  # PUT also works fine
-
-# RM FILE
-res = requests.delete(url, auth=(user, pw))
-```
-
 FRAMEWORKS
 > Web development is often broad, not deep - problems span many domains. https://docs.djangoproject.com/en/2.0/intro/whatsnext/
 > A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
 * components: HTTP, routes, ORM
 * BYO https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/
+* RSGI https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server https://github.com/emmett-framework/granian
 
 WSGI 
 * interface btw app server and framework https://docs.python-guide.org/scenarios/web/#wsgi bc pre-WSGI which framework you picked determined which web server you could use https://www.pythonpodcast.com/episode-43-wsgi-2/ @ 08:00
@@ -3596,12 +3677,12 @@ WSGI
 * https://stackoverflow.com/a/38685758/6813490 https://talkpython.fm/episodes/show/13/flask-web-framework-and-much-much-more @ 30:00 https://djangodeconstructed.com/2018/02/15/how-a-request-becomes-a-response-diving-deeper-into-wsgi
 
 ASGI
-* _ASGI_: async alternative
+* _ASGI_: async alternative to WSGI
 * frameworks: Django (Channels) Quart (Flask on async) Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
 * servers: uvicorn, Daphne
 * sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
 
-# ZA
+# 🟨 ZA
 
 DESIGN https://docs.python.org/3/faq/design.html
 * history: origins in ABC https://www.fluentpython.com/lingo/
@@ -3617,6 +3698,7 @@ DOCUMENTATION
 * mixs usage of "parameter" and "argument" https://www.fluentpython.com/lingo/#parameter
 
 GOVERNANCE
+* internal language team at Google https://news.ycombinator.com/item?id=40176338
 * quasi-official (PyPA, PyCQA)
 * Donald Stuft (PyPA) Raymond Hettinger (core) Tim Peters (Zen of Python `import this`, Timsort) Armin Ronacher (Flask) Brett Cannon (core) Nick Coghlan (core) Eli Bendersky (Google, buddies w/ Coghlan) https://mail.python.org/pipermail/python-committers/2019-February/006520.html
 * _Steering Council_: https://mail.python.org/pipermail/python-committers/2019-February/006520.html
@@ -3654,29 +3736,37 @@ UNDERSCORES https://dbader.org/blog/meaning-of-underscores-in-python
 
 ## concurrency
 
+🗄 `system.md` concurrency
 📙 Beazley ch. 12
-🗄
-* web
-* `system.md` concurrency
 
 BIG PICTURE
 * Python as a language spec supports multiple threads
-* CPython cannot execute cannot run threads in parallel https://stackoverflow.com/a/3086582
-* Python is good at concurrency (IO e.g. networking) https://news.ycombinator.com/item?id=22907891
-* Python is bad at parallelism (CPU e.g. search) http://esr.ibiblio.org/?p=8161
+* CPython cannot execute threads in parallel https://stackoverflow.com/a/3086582
+* Python is good at concurrency (IO intensive e.g. networking) https://news.ycombinator.com/item?id=22907891
+* Python is bad at parallelism (CPU intensive e.g. search) http://esr.ibiblio.org/?p=8161
 
 LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 * `multithreading`: actually parallel bc spawns own process i.e. heavier
-* `asyncio`: single processor; pre-emptive multi-tasking (OS interrupts itself); lighter than threads
-* `threading`: single processor; cooperative multi-tasking (code tells OS when to interrupt)
+* `asyncio`: single process; pre-emptive multi-tasking (OS interrupts itself); lighter than threads
+* `threading`: single process; cooperative multi-tasking (code tells OS when to interrupt)
+
+---
+
+
+https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html
 
 SEMANTICS https://python.hamel.dev/concurrency/
 * thread
 * process
-* _coroutine_ https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/ https://www.fluentpython.com/extra/classic-coroutines/ prime https://www.fluentpython.com/lingo https://www.fluentpython.com/lingo/#coroutine https://docs.python.org/3/glossary.html#term-coroutine-function https://docs.python.org/3/glossary.html#term-coroutine
+* _coroutine_ https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/ https://www.fluentpython.com/extra/classic-coroutines/ prime https://www.fluentpython.com/lingo https://www.fluentpython.com/lingo/#coroutine https://docs.python.org/3/glossary.html#term-coroutine-function https://docs.python.org/3/glossary.html#term-coroutine https://news.ycombinator.com/item?id=40097681&utm_term=comment
 
----
+https://realpython.com/python-concurrency/
+https://realpython.com/python-async-features/
+https://realpython.com/intro-to-python-threading/
+https://jacobpadilla.com/articles/recreating-asyncio https://news.ycombinator.com/item?id=40281139
 
+* https://blog.wilsonl.in/hackerverse/
+* https://news.ycombinator.com/item?id=39812969
 * https://pythonspeed.com/articles/cpu-thread-pool-size
 * https://www.photondesigner.com/articles/instant-messenger
 * https://pythonspeed.com/articles/gpu-vs-cpu/
@@ -3689,6 +3779,7 @@ SEMANTICS https://python.hamel.dev/concurrency/
 * semaphore https://death.andgravity.com/limit-concurrency
 * async https://textual.textualize.io/blog/2023/03/15/no-async-async-with-python/
 https://news.ycombinator.com/item?id=35073136
+* https://superfastpython.com/asyncio-coroutine-methods/
 * _async iterator_: https://docs.python.org/3/glossary.html#term-asynchronous-iterator
 * _async generator_: https://docs.python.org/3/glossary.html#term-asynchronous-generator
 * _async iteratable_: https://docs.python.org/3/glossary.html#term-asynchronous-iterable

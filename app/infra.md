@@ -1,254 +1,16 @@
-# 开
-
-* OpenTelemetry https://news.ycombinator.com/item?id=37559506 https://andydote.co.uk/2023/09/19/tracing-is-better/
+# ⛩️
 
 ## 参考
 
-🗄 `system.md`
-
-## now
-
-## next
-
-## DONE
+## 进步
 
 * _20_: Heroku (simple Django app)
 * _18_: Cloud Foundry (Dark Canary)
 * _17_: try out Terraform and AWS for Comcast interview
 
-# 📦 AWS
-
-⛩ https://console.aws.amazon.com/console/home
-🔍 https://www.expeditedssl.com/aws-in-plain-english
-📜
-* https://aws.amazon.com/documentation/
-* https://github.com/awsdocs
-* https://github.com/open-guides/og-aws
-* https://www.lastweekinaws.com/
-
-CERTIFICATION account https://www.aws.training/Account/Profile/Basic https://www.certmetrics.com/amazon/default.aspx
-* courses https://www.youtube.com/watch?v=Ia-UEYYR44s https://www.freecodecamp.org/news/pass-the-aws-developer-associate-exam-with-this-free-16-hour-course/
-* roadmap: CCP -> solutions associate -> solutions professional
-* associate certs are easy but professional certs garner respect https://news.ycombinator.com/item?id=12198316 https://news.ycombinator.com/item?id=27580134
-* _cloud practioner (CCP)_: basic https://aws.amazon.com/certification/certified-cloud-practitioner/
-* _dev associate_: harder https://aws.amazon.com/certification/certified-developer-associate/
-* _solutions architect associate_: more popular https://aws.amazon.com/certification/certified-solutions-architect-associate/
-
-COMPUTE
-* _Compute Engine_: EC2; compare prices https://ec2.shop/
-* _ECS_ https://www.youtube.com/watch?v=I9VAMGEjW-Q re: Datadog https://lp.datadoghq.com/rs/875-UVY-685/images/ec2_monitoring_cheatsheet.pdf
-* _EKS_: managed Kubernetes (GKE is the GCP version of this) https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html
-* _Fargate_: one level up from ECS
-* _EMR_: Spark
-* _spot instance_: https://blog.codepen.io/2016/03/08/080-spot-instances/
-
-ZA
-* has their own job board https://news.ycombinator.com/item?id=29984721 https://iq.aws.amazon.com/
-
----
-
-services https://www.freecodecamp.org/news/pass-the-aws-developer-associate-exam-with-this-free-16-hour-course/
-
-CLI https://kadekillary.work/note/awscli/
-* _access key_: public key 💻 `~/.aws/config`
-* _secret access key_: private key
-* set
-```sh
-aws configure  # ~/.aws/config
-```
-
-https://github.com/PaulleDemon/AWS-deployment
-
-* _Cloudwatch_: monitors services and collects logs, UM setup forwarded to Datadog
-* _Aurora_: RDS but https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/ https://softwareengineeringdaily.com/2022/10/05/open-source-serverless-postgres/
-* _log driver_: sw that stores your logs e.g. awslogs, Splunk https://stackoverflow.com/questions/58001403/how-to-get-all-logs-from-an-ecs-cluster https://stackoverflow.com/questions/58001403/how-to-get-all-logs-from-an-ecs-cluster https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_awslogs.html
-* getting logs from AWS ECS service (at UM just forwarded to Datadog) https://stackoverflow.com/q/58001403/6813490
-
-za
-* _Elastic Beanstalk_: PaaS (replaced by CodeStar?); apparently Beanstalk and Lightsail are not good https://softwareengineeringdaily.com/2019/06/17/render-high-level-cloud-with-anurag-goel/ 27:30 https://testdriven.io/blog/flask-elastic-beanstalk/
-* _Glue_: run ETL using Spark https://aws.amazon.com/blogs/aws/aws-glue-version-2-0-featuring-10x-faster-job-start-times-and-1-minute-minimum-billing-duration/
-* _KMS_: password vault
-* _SES_: email https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/
-* _CloudWatch_: monitoring if->then
-* e.g. if Lambda throws error then raise alarm https://www.youtube.com/watch?v=lHWrAAzoxJA
-* e.g. if ECS Kafka consumer writes log then forward to Datadog
-
-QUEUE
-* _SNS_: pub sub 🔗 `amqp.md`
-* _SQS_: queue; Postgres impl https://github.com/CoreDB-io/coredb/tree/main/extensions/pgmq
-
-VPC
-* _security group_: firewall; whitelist IPs your services can connect to (and vice versa) https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html
-* https://www.verypossible.com/blog/aws-development-dark-art-of-vpc-networking
-* https://dev.to/davidk01/aws-and-gcp-networking-differences-1fb1 https://twitter.com/paulg/status/1408442886023176198
-
-CLIENTS
-* _CLI_:  `~/.aws/config` https://github.com/awslabs/aws-shell https://github.com/donnemartin/saws https://realpython.com/python-boto3-aws-s3/ 🔗 `python.md` 'globals'
-* run shell in browser https://aws.amazon.com/blogs/aws/aws-cloudshell-command-line-access-to-aws-resources/
-
-ZA
-* AWS is more expensive https://calpaterson.com/amazon-premium.html
-* _benefits_: cost (sometimes) scalability (most times) geographic DR (nearly always)
-* _clean up old resources_: https://github.com/genevieve/leftovers https://github.com/rebuy-de/aws-nuke https://github.com/servian/aws-auto-cleanup https://github.com/gruntwork-io/cloud-nuke
-* _consultants_: https://aws.amazon.com/iq/ https://www.gruntwork.io/
-* _cost control_: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ https://www.lastweekinaws.com/ https://github.com/mlabouardy/komiser https://www.infracost.io/
-* _local dev_: https://github.com/localstack/localstack
-* list resources https://github.com/jckuester/awsls
-* _region_: collection of AZ http://cloudping.bastionhost.org/en/ https://status.aws.amazon.com/
-* _scaling_: ElasticBeanstalk (autoconf mem) IaaS (set CloudWatch alert for cluster and add instances behind LB when load triggers alert)
-* _security_: https://github.com/avishayil/caponeme
-* _X-Ray_: trace HTTP req through n services https://www.freecodecamp.org/news/pass-the-aws-developer-associate-exam-with-this-free-16-hour-course/
-* _sink_: https://twitter.com/dvassallo/status/1154516910265884672 https://www.aws.training/LearningLibrary https://acloud.guru/ https://www.reddit.com/r/aws/comments/aa7v1p/is_it_just_me_or_is_aws_is_a_nightmare_for/ https://cloudonaut.io/my-mental-model-of-aws/ http://blog.cleverelephant.ca/2019/07/aws-aurora.html?ck_subscriber_id=512830619 https://bravenewgeek.com/multi-cloud-is-a-trap/  https://github.com/jessebye/awser
-
-## IAM
-
-* rotate access key https://github.com/Fullscreen/aws-rotate-key
-* https://learn.hashicorp.com/terraform/aws/iam-policy
-* everthing is: _user_ (operator w/ permanent credentials; has API _access keys_ ID/secret) _group_ (collection of users) _role_ (user w/ tmp credentials) _policy_ (perms to access service; resource [S3] action [read] effect[boo]) https://stackoverflow.com/a/51888634/6813490
-> Hal_9000 (_user_) is a computer_overlord (_role_) who can open_pod_bay_door (_policy_) and turn_off_life_support (_policy_).
-* https://github.com/Netflix/repokid
-* users default principal of least-permission
-* create admin account and use that instead of root; it's root and then everyone else https://docs.aws.amazon.com/general/latest/gr/root-vs-iam.html
-* handling keypairs https://www.tastycidr.net/using-aws-vault-with-linux
-* give someone scoped access to account https://kevinslin.com/aws/aws_account_access_policies
-
-## Lambda
-
-* _alternatives_: Zappa https://www.youtube.com/watch?v=Vl5wroVmSuk https://www.reddit.com/r/django/comments/psddt8/zappa_is_no_longer_maintained/ w/ db https://romandc.com/zappa-django-guide/
-* _blueprint_: bootstrap e.g. canary (cron to hit site)
-* _debug_: get function running in EC2 (uses the same AMZ Linux AMI)
-* _dependencies_: must be less than 250MB (uncompressed) and 50MB (compressed)
-* frameworks Sparta (Golang) Chalice (Python)
-* _internals_: https://brandur.org/go-lambda
-* _perms_: necessar for the other services you're integrating with
-* _runtimes_: need custom for something like jq https://docs.aws.amazon.com/lambda/latest/dg/runtimes-custom.html
-* _startup time_: can reuse the container the function runs in https://medium.com/capital-one-tech/best-practices-for-aws-lambda-container-reuse-6ec45c74b67e
-* _Step Functions_: flowchart for Lambda
-* _time limit_: 300 sec; workaround is chaining functions and using something else (S3) to persist in the meantime
-
-## messaging
-
-* _MSK (Managed Streaming Kafka)_: take away operations overhead of running Kafka
-* don't need to worry about patching infra, storage performance, monitoring replication across AZ https://www.youtube.com/watch?v=5yMzTwumD_g 3:20
-* can also manual deploy Kafka https://aws.amazon.com/blogs/big-data/best-practices-for-running-apache-kafka-on-aws/
-* _Eventbridge_: route events btw AWS services https://cloudonaut.io/versus/messaging/eventbridge-vs-msk/
-* _Kinesis_: AWS version of Kafka https://engineering.statefarm.com/blog/comparison-of-aws-services-for-event-driven-architecture/
-* _SQS_: API-based queue - you publish to an SQS queue and you consume from the queue https://stackoverflow.com/a/60543786
-
-| factor             | MSK             | Eventbridge   |
-|--------------------|-----------------|---------------|
-| pricing            | per broker      | per msg       |
-| protocol           | Kafka           | REST          |
-| persistance        | forever         | awhile        |
-| delivery guarantee | can config      | at least once |
-| integrations       | Lambda          | all AWS       |
-| encryption         | rest, transit   | rest, transit |
-
-## network
-
-network
-* _ACM_: certificates
-* _CloudFront_: CDN https://alexkudlick.com/blog/ila-cloudfront/index.html
-
-----
-
-* https://grahamlyons.com/article/everything-you-need-to-know-about-networking-on-aws
-
-Route53
-* = DNS
-* https://stackoverflow.com/questions/51452111
-* https://github.com/cloudkj/scar
-
-__setup Route 53 as DNS service__: copy zone file to AWS, copy DNS info from AWS to DNS provider
-* add zone file
-```
-Error parsing zone file: Error in line 1: no owner (encountered after 0 correct records) In line: @ 3601 IN SOA parkingpage.namecheap.com.
-```
-* add `$origin example.com.` to first line 
-https://ubuntuforums.org/showthread.php?t=1216801 
-https://hathaway.cc/2011/02/how-to-import-bind-zone-files-into-amazon-route-53/
-```
-Error parsing zone file: Unsupported directive: $origin
-```
-* add `@origin example.com.` to first line http://shon.github.io/2014/12/21/dns_migration_story.html
-```
-Error parsing zone file: Error in line 1: Invalid type 'example.com.' (encountered after 0 correct records) In line:@origin example.com.
-```
-* add `$ORIGIN www.zjayv.com` to first line, rm white space from each line --> WORKS!
-
-__other options if that doesn't work__ 
-* remove white space from beginning of each line
-* add TTL thing to second line
-* try cli53
-* ask Stack Overflow
-
-https://www.youtube.com/watch?v=W4FPZ29Trpw
-https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/migrate-dns-domain-inactive.html
-https://docs.aws.amazon.com/AmazonS3/latest/dev/website-hosting-custom-domain-walkthrough.html
-http://shon.github.io/2014/12/21/dns_migration_story.html
-http://blog.alfredcalayag.com/development/2015/03/02/personal-site-hosted.html
-https://www.youtube.com/watch?v=D6qB7MEFOe0
-
-## storage
-
-DB https://www.lastweekinaws.com/blog/running-relational-databases-on-aws/
-* _neon_: https://neon.tech/ https://news.ycombinator.com/item?id=31536827
-* _Aurora_: dbms; can migrate from/to MySQL/Postgres; fastest growing service
-* _DMS_: db migrations
-* _DynamoDB_: NoSQL https://www.freecodecamp.org/news/ultimate-dynamodb-2020-cheatsheet/
-* _RDS_: DBaaS; supports Aurora + others; under the covers is just dmbs on top of EC2 but w/ backups/updates for free (vs. doing yourself) https://github.com/Vonng/pigsty
-* _parameter group_: config for RDS https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithParamGroups.html
-* _Redshift_: analytics for big data; have to manage
-* _Athena_: BigQuery w/ S3 as datastore
-
-FILE
-* _block_: mount to instance, 1 clients; EBS can be snapshot, instance volume is default and temporary
-* _file_: mount to instance, n clients
-* _object_: don't mount to instance, used by n clients
-* _EBS_: attachable storage for EC2; can be snapshot
-* _EFS_: like S3 but mimics filesystem (slower bc file locked over wire vs. OS calls) https://blog.codepen.io/2017/05/09/129-projects-infrastructure/
-* _Glacier_: S3 but cheaper in exchange for higher latency
-* _S3_: obj storage
-* file client https://news.ycombinator.com/item?id=35155944
-* Backblaze as alternative https://news.ycombinator.com/item?id=26427333
-* scale https://news.ycombinator.com/item?id=36894932 https://www.allthingsdistributed.com/2023/07/building-and-operating-a-pretty-big-storage-system.html
-* _bucket_: holds obj https://www.youtube.com/watch?v=Ia-UEYYR44s 15:50
-* don't have to work about file systems or disk space https://www.youtube.com/watch?v=Ia-UEYYR44s 14:50
-* can take 0.5 million RPS https://www.dataengineeringpodcast.com/upsolver-data-lake-database-administrator-episode-135/ 13:30
-* client https://github.com/Miserlou/NoDB https://github.com/s3tools/s3cmd
-
----
-
-S3
-* https://news.ycombinator.com/item?id=30371604
-* https://tech.marksblogg.com/minio-aws-s3-hdfs.html
-
-tighten perms for S3 buckets
-* domains: www.zjayv.com, zjayv.com, zvtest1234
-* yolo perms I used at the time
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "PublicReadGetObject",
-      "Effect": "Allow",
-      "Principal": {
-        "AWS": "*"
-      },
-      "Action": "s3:GetObject",
-      "Resource": "arn:aws:s3:::zjayv.com/*"
-    }
-  ]
-}
-```
-
 # 🧮 CONFIG MGMT
 
-🗄
-* `security.md` secrets mgmt
-* `shell.md` profiles
-* `system.md` deployment
+---
 
 * SQL https://news.ycombinator.com/item?id=28554089
 * Ansible-like (Puppet, Chef, Salt)
@@ -273,6 +35,7 @@ REMOTE EXECUTION
 * https://serversforhackers.com/s/ansible
 
 * Mitogen: make Ansible fast https://mitogen.networkgenomics.com/ansible_detailed.html
+* alternative https://news.ycombinator.com/item?id=40211655 https://pyinfra.com/
 
 semantics
 * _control_: controls execution
@@ -342,6 +105,53 @@ localhost | SUCCESS => {
 }
 ```
 
+## deployment
+
+🗄
+* `infra.md` config mgmt
+* `linux.md` build systems
+* `security.md` secrets mgmt
+* `sql.md` migrations
+
+https://blog.pecar.me/rds-blue-green
+https://blog.pecar.me/gunicorn-restart
+https://github.com/piku/piku
+
+APPLICATION CONFIG
+* env files: https://snarky.ca/use-toml-for-env-files/
+* https://direnv.net/
+
+DEPLOYMENT
+* taxonomy: yolo (edit on server) FTP (edit on local, push to server) SCM (SSH to sever and pull repo, maybe use cron) CICD (triggered by repo hook https://dagger.io/) https://css-tricks.com/deployment/
+* pipelines: fetch (clone from repo) build (install deps, compile) test (run unit tests) deploy (put artifact somewhere so CD can pick it up and run it)
+* Jenkins https://itnext.io/jenkins-is-getting-old-2c98b3422f79 https://www.youtube.com/watch?v=WWcijE7ifcA
+* BYO http://aosabook.org/en/500L/a-continuous-integration-system.html
+* _deployment_: align higher env w/ lower env https://css-tricks.com/deployment/
+* _staged deployment_: deploy to a few nodes at a time 📙 Kleppmann 4.112
+* _blue-green deployment_: split traffic btw new and old; aka red-black https://fly.io/django-beats/smooth-database-changes-in-blue-green-deployments/?utm_campaign=Django%2BNewsletter&utm_medium=email&utm_source=Django_Newsletter_198 https://news.ycombinator.com/item?id=39048317
+
+RELEASE
+* _release_: users get latest deployment
+* have a `RELEASE.md` https://news.ycombinator.com/item?id=26902887
+* have a runbook https://github.com/Microsoft/vscode/wiki/Development-Process#inside-an-iteration
+* _canary release_: only subset of users get latest deployment https://medium.com/netflix-techblog/automated-canary-analysis-at-netflix-with-kayenta-3260bc7acc69 
+
+FEATURE FLAGGING 🗄 `infra.md` analytics
+* _feature flag_: toggle functionality; impl agnostic (env var, db, aaS) https://medium.com/@noahrobi/feature-toggles-give-you-superpowers-78fdeb7ab5e8
+* https://github.com/flipt-io/flipt
+* use cases: decouple deployment/release, canary release https://github.com/facebook/planout A/B testing https://findwork.dev/blog/django-b-testing-google-optimize https://www.evanmiller.org/
+* lib: https://waffle.readthedocs.io/en/stable/
+* service: paid (Launch Darkly, Split.io, Optimizely) on-prem (https://github.com/markphelps/flipt https://bullet-train.io/ https://github.com/Unleash/unleash)
+* as tech debt https://www.youtube.com/watch?v=HhxNaPYpYiU https://github.blog/2021-04-27-ship-code-faster-safer-feature-flags/
+* feature-flag-driven development
+> Always start a feature with a feature flag and try to get something to production on day 1. even if it's only feature flagged to you. usual feature flag timeline: week 1 - developer and people interested in a feature week 3 - release or do beta with users
+```python
+class FeatureFlag(models.Model):
+    name = models.CharField(max_length=80)
+    enabled = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+```
+
 ## secrets
 
 🗄
@@ -395,7 +205,7 @@ envs 🗄 `shell.md` env var
 * you don't need staging https://news.ycombinator.com/item?id=30899362
 * _parity_: aka isomorphism 🗄 `testing.md` db
 * db: not a silver bullet (Postgres in your Docker container will have some differences to db server you're connecting to in prod)
-* codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://github.com/features/codespaces alternative https://www.daytona.io/
+* codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://github.com/features/codespaces alternative https://www.daytona.io/ https://www.lastweekinaws.com/blog/the-real-reason-cloud-ide-adoption-is-lagging/
 
 config in general
 * _config_: everything that varies between deployment envs https://12factor.net/config 
@@ -406,7 +216,7 @@ config in general
 * https://www.youtube.com/watch?v=omhJrT90lXU&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=39
 * CLI https://smallstep.com/blog/command-line-secrets/
 * store enums w/ versions https://martinfowler.com/articles/patterns-of-distributed-systems/versioned-value.html
-* remote dev env https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15
+* remote dev env https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15 https://github.com/coder/coder
 
 my current approach
 * Makefile rule to sym link canonical env file into place from either `.env.dev` or `env.prod` [Osborn 14.106] export secrets from shell and document in README https://12factor.net/config downside is duplication btw files, this config class inheritance would pay off
@@ -467,6 +277,10 @@ SEMANTICS
 
 ---
 
+* https://github.com/leg100/pug
+* certification https://www.hashicorp.com/certification
+* alternative https://opentofu.org/
+* https://github.com/idoavrah/terraform-tui
 * `tf -plan`
 * CLI to query https://github.com/mazen160/tfquery
 * Python alternative https://www.pulumi.com/ https://leebriggs.co.uk/
@@ -548,7 +362,7 @@ WORKFLOW ENGINES
 * _AWS Step Functions_: 
 * _Airflow_: https://news.ycombinator.com/item?id=23349507 https://tech.marksblogg.com/install-and-configure-apache-airflow.html
 * aaS https://www.astronomer.io/managed-airflow-service/
-* _Dagster_: https://github.com/dagster-io/dagster https://www.pythonpodcast.com/dagster-data-orchestration-episode-279/ https://www.dagster.io/blog/dagster-airflow https://news.ycombinator.com/item?id=39217728
+* _Dagster_: https://github.com/dagster-io/dagster https://www.pythonpodcast.com/dagster-data-orchestration-episode-279/ https://www.dagster.io/blog/dagster-airflow https://news.ycombinator.com/item?id=39217728 https://talkpython.fm/episodes/show/454/data-pipelines-with-dagster
 * _Luigi_: https://github.com/spotify/luigi
 * _Mage_: https://github.com/mage-ai/mage-ai
 * _n8n_: hosted, WSIYWG https://news.ycombinator.com/item?id=37274052
@@ -663,7 +477,7 @@ alternatives
 * benchmark: https://httpd.apache.org/docs/2.4/programs/ab.html https://github.com/wg/wrk https://github.com/giltene/wrk2 https://github.com/rakyll/hey https://github.com/encode/starlette#performance https://falconframework.org/#sectionBenchmarks https://www.webpagetest.org/ https://www.golang.dk/articles/benchmarking-sqlite-performance-in-go
 * BYO https://github.com/codecrafters-io/build-your-own-x#build-your-own-web-server
 * mock server: https://smocker.dev/
-* URL for dev server: ngrok
+* URL for dev server: ngrok https://news.ycombinator.com/item?id=40355744 https://github.com/andydunstall/piko
 * comment server: Disqus, isso https://avi.im/blag/about/ https://posativ.org/isso/docs/
 * _Apache_: on start, Apache runs as master process `root` and binds to port 80; pre-fork (master process spawns child proccesses under UID `apached` to wait for connections) https://stackoverflow.com/a/25894770/6813490
 * _CGI_: process per req (vs. connection) cannot keep db connection over multiple
@@ -868,8 +682,11 @@ if __name__ == "__main__":
 
 # 📊 TELEMETRY
 
-OPENTELEMETRY https://opentelemetry.io/ 
+OPENTELEMETRY
+* https://opentelemetry.io/ 
 * https://github.blog/2021-05-26-why-and-how-github-is-adopting-opentelemetry/
+* https://news.ycombinator.com/item?id=37559506
+* https://andydote.co.uk/2023/09/19/tracing-is-better/
 
 SEMANTICS https://www.datadoghq.com/ebook/monitoring-modern-infrastructure/
 * _event_: change to system e.g. build, release, add/substract host/container, alert going off
@@ -934,12 +751,13 @@ PROVIDERS
 * _Heap_: https://satchel.com/web-analytics/
 * _Highlight_: https://news.ycombinator.com/item?id=34897645
 * _LogRocket_: https://news.ycombinator.com/item?id=34897645
-* _Mixpanel_: https://satchel.com/web-analytics/
+* _Mixpanel_: https://satchel.com/web-analytics/ https://news.ycombinator.com/item?id=40432213
 * _Posthog_: https://github.com/posthog/posthog https://www.pythonpodcast.com/posthog-product-analytics-episode-266/
 * _Umami_: https://github.com/umami-software/umami
 
 ---
 
+https://www.thediff.co/archive/the-data-business-at-three-resolutions/
 * _Prometheus_: store metrics https://www.youtube.com/watch?v=9TJx7QTrTyo 13:00
 * _Grafana_: visualize metrics https://www.youtube.com/watch?v=9TJx7QTrTyo 14:00
 
@@ -1017,6 +835,7 @@ service:t3.services.split_payments resource_name:services.split_payments.service
 
 📑 LOGGING
 * only retained for 15 days
+* has log ingestion svc that UM used to add context to traces
 * `log.info` ingested https://github.com/tommyboytech/t3/pull/12912/files
 * ingestion from Cloudwatch https://um-t.slack.com/archives/CC11T8R3L/p1659138271124939
 * there has got to be a better way than Hungarian notation i.e. putting `SPX` in each log line
@@ -1056,6 +875,9 @@ LOG STORES
 
 ---
 
+* https://github.com/tstack/lnav
+* https://github.com/textualize/toolong
+* https://logdy.dev/
 * https://github.com/bensadeh/tailspin
 * https://terminaltrove.com/logss/
 * https://github.com/Textualize/toolong
@@ -1082,10 +904,7 @@ https://news.ycombinator.com/item?id=30394152
 
 🗄 `python.md` profiling
 
-https://news.ycombinator.com/item?id=36469147&
-https://jvns.ca/blog/2022/07/09/monitoring-small-web-services/
-have a health check page https://www.thoughtworks.com/radar/techniques/health-check-pages
-https://www.ryancheley.com/2023/10/29/error-culture/
+---
 
 UPTIME / HEALTHCHECK / HEARTBEAT
 * baseline
@@ -1105,11 +924,14 @@ INCIDENTS
 * _management_: https://github.com/monzo/response https://response.pagerduty.com/ https://netflixtechblog.com/introducing-dispatch-da4b8a2a8072 Pager Duty alternative https://github.com/target/goalert
 * _post-mortem_: https://blog.github.com/2018-10-30-oct21-post-incident-analysis/ https://status.sr.ht/issues/2020-10-08-git.sr.ht-disk-usage/
 * _chaos engineering_: trigger fault to see if it causes a failure https://github.com/powerfulseal/powerfulseal
+* https://news.ycombinator.com/item?id=40573790&utm_term=comment
 
----
+https://github.com/pydantic/logfire
+https://news.ycombinator.com/item?id=36469147&
+https://jvns.ca/blog/2022/07/09/monitoring-small-web-services/
+have a health check page https://www.thoughtworks.com/radar/techniques/health-check-pages
+https://www.ryancheley.com/2023/10/29/error-culture/
 
-* _Datadog_: agent + log ingestion
-> DataDog has a log ingestion service that we mostly use to add context to traces.
 * Datadog alternative https://news.ycombinator.com/item?id=33049046 https://github.com/SigNoz/signoz
 * users online https://analytics.usa.gov/
 * uptime https://news.ycombinator.com/item?id=25553445 depends on system component https://www.openmymind.net/Im-Not-Sold-On-High-Availability/
@@ -1181,19 +1003,7 @@ za
 * https://danluu.com/tracing-analytics/
 * https://netflixtechblog.com/building-netflixs-distributed-tracing-infrastructure-bb856c319304
 
-# ZA
-
-* query services w/ SQL https://github.com/turbot/steampipe https://www.hytradboi.com/2022/how-to-query-almost-everything https://github.com/stackql/stackql
-* test: https://news.ycombinator.com/item?id=34070272 https://github.com/spulec/moto
-* Azure https://softwareengineeringdaily.com/2021/06/08/azure-with-troy-hunt/
-* migrate https://news.ycombinator.com/item?id=30942698
-* _block-level storage_: hard drive aaS e.g. AWS EBS for db backups
-* egress, Cloudfare https://news.ycombinator.com/item?id=28707317
-* repl.it https://blog.replit.com/replit-web
-* buy don't build https://news.ycombinator.com/item?id=25399250
-* linode vs. digital ocean https://news.ycombinator.com/item?id=26262465 https://news.ycombinator.com/item?id=30352772 https://softwareengineeringdaily.com/2021/06/10/digital-ocean-with-john-allspaw/
-* if it's not your data center you're not really self-hosting https://news.ycombinator.com/item?id=27674726 https://github.com/khuedoan/homelab
-> But the thing is in most of the companies you don't have full control over the whole stack. Even if you have "full control" over the database, you don't have control over networking, firewall, OS, "security" patching, VMs, Docker, Kubernetes, Load balancers, vendors managing parts of the infra, internet provider, hosting provider ... Not even datacenter team may have control over all of it, but at least that's their job and their area of expertise.
+# 🟨 ZA
 
 ## Cloud Foundry
 
@@ -1335,8 +1145,20 @@ frontend: webpack --watch
 
 🗄 `html-css.com`
 
+TAXONOMY https://www.youtube.com/watch?v=NhDYbskXRgc [48:00]
+* _node_: physical or virtual to host something (web server, API)
+* con: can't vertically scale https://www.youtube.com/watch?v=NhDYbskXRgc [1:09:30]
+* _dedicated_: physical machine (Raspberry Pi, Rackspace) + single business https://news.ycombinator.com/item?id=22407098
+* _virtual_: virtualize physical node + single business
+* _shared_: virtualize physical node + n businesses
+* BYO https://news.ycombinator.com/item?id=30676595
+* _cloud_: virtualize n nodes + n businesses; offers metered billing, composable services https://www.youtube.com/watch?v=NhDYbskXRgc [55:45]
+* OSS: OpenStack, CloudStack, VSphere
+* _PaaS_: e.g. Heroku https://www.youtube.com/watch?v=NhDYbskXRgc [1:14:15]
+* _IaaS_: e.g. AWS
+
 STATIC SITE
-* _AWS_: https://brandur.org/aws-intrinsic-static S3 and Cloudfront https://www.benkuhn.net/about/ https://github.com/s3tools/s3cmd
+* _AWS_: https://brandur.org/aws-intrinsic-static S3 and Cloudfront https://www.benkuhn.net/about/ https://github.com/s3tools/s3cmd s3-website https://bedford.io/misc/about/
 * _Firebase_: https://tinyprojects.dev/projects/tiny_website
 * _Github_: source has to be public
 * _Netlify_: https://wsvincent.com/site-design/ https://adamwathan.me/uses/
@@ -1344,17 +1166,9 @@ STATIC SITE
 ---
 
 * hosting https://news.ycombinator.com/item?id=34860655 https://news.ycombinator.com/item?id=34867314
-
 * Cloudflare https://rutar.org/writing/how-to-build-a-personal-webpage-from-scratch/ https://rutar.org/writing/previewing-a-development-branch-on-cloudflare-pages/ https://news.ycombinator.com/item?id=34639212
 * https://adamj.eu/colophon/
-* s3-website https://bedford.io/misc/about/
-* https://brianli.com/about/
 * Netlify https://uglyduck.ca/articles/
-* node (physical or virtual) to host something (web server, API)
-* _physical_: DIY (Raspberry Pi) real deal (Rackspace costs $100s/month) https://news.ycombinator.com/item?id=22407098
-* _virtual_: easy clouds (Netlify, Github) complex clouds (AWS et al.) domain name company (NameCheap, et al. will do this for you)
-* BYO https://news.ycombinator.com/item?id=30676595
-
 * https://dev.to/harri_etty/the-introduction-to-servers-i-wish-i-d-had-44jl
 * _level 2 (resellers)_: Heroku, Netlify, Render https://render.com/ https://softwareengineeringdaily.com/2019/06/17/render-high-level-cloud-with-anurag-goel/ Serverless https://serverless.com/
 * _alternatives_: Platform.sh https://news.ycombinator.com/item?id=22486031, Zeit/Vercel https://news.ycombinator.com/item?id=22933479 OpenShift (RHEL managed Kubernetes https://news.ycombinator.com/item?id=3003289) Cloud Run https://alexolivier.me/posts/deploy-container-stateless-cheap-google-cloud-run-serverless Dokku http://dokku.viewdocs.io/dokku/ Cap Rover https://news.ycombinator.com/item?id=23465087 https://fly.io/
@@ -1390,5 +1204,25 @@ za
 * GCS = S3
 * Cloud SQL = RDS
 * Cloud Spanner = Aurora
-* _BiqQuery_: serverless db
+* _BigQuery_: serverless db, good for GIS https://news.ycombinator.com/item?id=40052172
 * _BigTable_: BigQuery but NoSQL https://cloud.google.com/free/docs/map-aws-google-cloud-platform
+
+## mobile
+
+* app stores are a pain https://news.ycombinator.com/item?id=33632468
+* automate app submission https://github.com/fastlane/fastlane
+
+Apple ID
+* tied to user/device
+* so if user/device tries to create a new account, use Apple ID to lookup their previous receipt
+* i.e. they can't free trial multiple times
+* on app start, hit endpoint to verify receipt(s) tied to Apple ID, so user with previous receipt can't just create new account and be given a fresh slate
+> Google version of this is that you have a single email for Google Play store, so even if you use diff email(s) per app, purchases on GP still tied to that single email
+
+two apple envs
+* prod
+* development
+
+each with a URL for
+* dummy charges
+* real charges

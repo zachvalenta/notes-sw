@@ -10,6 +10,7 @@
 
 ---
 
+* https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
 * perf https://hpbn.co/primer-on-web-performance/
 
 ## done
@@ -21,6 +22,7 @@
 # FRAMEWORKS
 
 taxonomy
+* BYO https://nolanlawson.com/2023/12/02/lets-learn-how-modern-javascript-frameworks-work-by-building-one/
 * https://github.com/redwoodjs/redwood https://news.ycombinator.com/item?id=34069527
 * for Deno https://alephjs.org/
 * Astro https://docs.astro.build/en/concepts/why-astro/
@@ -69,9 +71,20 @@ SPA tradeoffs
 
 ---
 
-> For my rewrite of the client, I’m going to skip the drama and just use htmx. Render Django templates server-side, include a single JS script, thrown in some HTML attributes, distinguish between full page requests vs. requests for a partial with updated data, and call it a day. No TypeScript, no Webpack, none of that nonsense. If I need special interactivity I can throw in some hyperscript. https://news.ycombinator.com/item?id=38517099
-
+DESIGN
+* hypermedia https://quii.dev/HTMX_is_the_Future https://github.com/PyHAT-stack/awesome-python-htmx
+* creator seems cool https://news.ycombinator.com/item?id=26769809 https://changelog.com/gotime/266
+* vs. alpine, mithril https://news.ycombinator.com/item?id=32011439
 * internals https://www.youtube.com/watch?v=javGxN-h9VQ
+
+DJANGO
+> For my rewrite of the client, I’m going to skip the drama and just use htmx. Render Django templates server-side, include a single JS script, thrown in some HTML attributes, distinguish between full page requests vs. requests for a partial with updated data, and call it a day. No TypeScript, no Webpack, none of that nonsense. If I need special interactivity I can throw in some hyperscript. https://news.ycombinator.com/item?id=38517099
+* https://www.youtube.com/watch?v=LwH4ifjt3Y4
+* https://dev.to/kummerer94/django-and-htmx-i5c
+* https://github.com/jacklinke/django-htmx-todo-list
+* https://www.sharperinfo.com/post/htmx-django-bringing-the-new-school-to-the-old-school
+* https://justdjango.com/blog/dynamic-forms-in-django-htmx https://github.com/guettli/django-htmx-fun
+
 * https://leanrada.com/htmz/
 * https://news.ycombinator.com/item?id=38952214
 https://testdriven.io/courses/django-htmx/
@@ -80,22 +93,16 @@ content negotiation https://news.ycombinator.com/item?id=38338033
 https://htmx.org/essays/no-build-step/
 replace your React https://htmx.org/essays/a-real-world-react-to-htmx-port/
 
-PHILOSOPHY
-* hypermedia https://quii.dev/HTMX_is_the_Future https://github.com/PyHAT-stack/awesome-python-htmx
-
 * alternative: marko https://github.com/marko-js/marko
 * vs. jQuery https://www.youtube.com/watch?v=VyCyDRcFHZc
 * porting from React https://htmx.org/essays/a-real-world-react-to-htmx-port/
 * dynamic search https://github.com/MattSegal/django-htmx-list-view
-* creator seems cool https://news.ycombinator.com/item?id=26769809 https://changelog.com/gotime/266
 * https://testdriven.io/blog/flask-htmx-tailwind https://raw.githubusercontent.com/testdrivenio/flask-htmx-tailwind/master/todo.py
 * tabs https://htmx.org/examples/tabs-hateoas/
 * search https://htmx.org/examples/active-search/
 * fade in https://htmx.org/examples/lazy-load/
 * progress bar https://htmx.org/examples/progress-bar/
 * download src https://testdriven.io/blog/flask-htmx-tailwind/#live-search-example
-* Django app using https://github.com/jacklinke/django-htmx-todo-list https://www.sharperinfo.com/post/htmx-django-bringing-the-new-school-to-the-old-school https://justdjango.com/blog/dynamic-forms-in-django-htmx https://github.com/guettli/django-htmx-fun
-* vs. alpine, mithril https://news.ycombinator.com/item?id=32011439
 
 ## React
 
@@ -183,6 +190,7 @@ SEMANTICS
 * editors: Code Mirror, Monaco (what repl.it used before Code Mirror)
 
 STDLIB
+* dashboard/D3 https://news.ycombinator.com/item?id=40378791
 * site tour https://github.com/shipshapecode/shepherd
 * datatable https://github.com/handsontable/handsontable https://appliku.com/post/django-rest-framework-and-datatable-example https://github.com/pivotal-energy-solutions/django-datatable-view https://news.ycombinator.com/item?id=30919257
 * HTTP: Fetch, XHR/AJAX https://eloquentjavascript.net/18_http.html
@@ -192,6 +200,7 @@ STDLIB
 * WYSIWYG: https://quilljs.com/
 * tooling in other languages https://news.ycombinator.com/item?id=26872457
 * rich text editor https://news.ycombinator.com/item?id=30299800
+* heatmap https://cal-heatmap.com/
 
 SPECS
 * _ECMAScript_: standards org (Bluetooth, USB); JS engines listen to them

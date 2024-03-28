@@ -151,6 +151,7 @@ cmd:
 
 > years ago websites were made of files; now they are made of dependencies https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/
 
+* vet https://github.com/irgolic/vet
 * incl comment for each dep explaining need https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies 13:15
 * update lockfile periodically https://news.ycombinator.com/item?id=30578276
 
@@ -163,6 +164,7 @@ semver
 
 ---
 
+* just pull unmaintained repos in your own lib https://lucumr.pocoo.org/2024/3/26/rust-cdo/
 * dependabot for Python https://pyup.io/
 
 > However. How can curl disappear? Curl is not just one of the most important dependencies, it's also one of the most resilient dependencies. When you or me install curl, we rarely install it from the official website. Curl is more likely to come from a mirror, vendored into a library we're using, there are a lot of forks in proprietary code bases etc. Curl is an unkillable dependency. Not only can the website go down, also the original developer could probably go away and someone would pick up the work, it's that useful. Let's contrast this for a second with the situation on npm...A few days ago the developer behind that library [colors] decided to release a new version of the library that no longer does what it advertised on the tin. Since it was a minor update quite a few people ended up with that version. They didn't however even know that they were depending on “that one package”, they probably pulled it in because something else in their dependency chain needed it. https://lucumr.pocoo.org/2022/1/10/dependency-risk-and-funding/
@@ -438,6 +440,9 @@ vocab
 
 ---
 
+flamegraph https://github.com/laixintao/flameshow
+https://events.linuxfoundation.org/wp-content/uploads/2022/10/elena-zannoni-tracing-tutorial-LF-2021.pdf
+
 * strace, ptrace https://nullprogram.com/blog/2018/06/23/
 * magic trace https://github.com/janestreet/magic-trace
 * ptrace https://medium.com/@lizrice/a-debugger-from-scratch-part-1-7f55417bc85f
@@ -450,8 +455,8 @@ vocab
 
 # ZA
 
-DATA TRANSFER
-* alternative https://github.com/abdfnx/tran
+DATA TRANSFER https://github.com/veeso/termscp
+* alternative file transfer https://github.com/abdfnx/tran cyberduck https://fabiensanglard.net/html/index.html https://github.com/SpatiumPortae/portal
 * _FTP_: sends binary instead of metadata
 * FileZilla (client) VSFTPD (server)
 * server GUI https://github.com/mickael-kerjean/filestash https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2

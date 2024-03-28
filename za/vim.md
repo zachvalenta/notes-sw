@@ -199,6 +199,7 @@ rf
 
 ---
 
+* motion https://news.ycombinator.com/item?id=33136190
 * wrap: `gw`  https://vimtricks.substack.com/p/vimtrick-tidy-paragraphs
 https://github.com/easymotion/vim-easymotion
 
@@ -445,6 +446,7 @@ LSP https://www.youtube.com/playlist?list=WL
 * created by Microsoft and RedHat https://www.youtube.com/watch?v=C9X5VF9ASac 1:15
 * used as a synonym for language server https://www.youtube.com/watch?v=OhnLevLpGB4 2:35
 * JetBrains has their own version of this https://news.ycombinator.com/item?id=33211373 https://blog.jetbrains.com/platform/2023/07/lsp-for-plugin-developers/
+* Sourcegraph LSP https://sourcegraph.com/blog/the-self-driving-ide-is-coming
 * _lsp-zero_: ✅ wrapper around `nvim-lspconfig`, `nvim-cmp`, and `mason` https://github.com/VonHeikemen/lsp-zero.nvim https://www.youtube.com/watch?v=3a1PCir_aHs 2:15
 * keybindings: things that don't work so far are `gd` but maybe this is because poetry build broken https://github.com/VonHeikemen/lsp-zero.nvim?tab=readme-ov-file#keybindings
 * install: for some reason pyright needs `npm`, installed with `nodenv` and then ran `nodenv init` (need to restart terminal) https://github.com/VonHeikemen/lsp-zero.nvim/issues/91#issuecomment-1364608056
@@ -467,6 +469,7 @@ MISC PLUGINS
 * alternative to using regex to understand language features https://www.youtube.com/watch?v=Ku-m7eEbWas
 * install: you'll get a install error from vim-plug, open neovim again and it should download language parsers
 * can use for code folding https://www.youtube.com/watch?v=Ku-m7eEbWas 4:30
+* https://news.ycombinator.com/item?id=27292237
 
 HIGHLIGHT PLUGINS
 * ✅ cursorword https://github.com/RRethy/vim-illuminate https://github.com/itchyny/vim-cursorword https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-cursorword.md
@@ -862,11 +865,11 @@ SEMANTICS
 EDITOR HISTORY
 * stone age: no screen = teletype
 * 1969: ed https://begriffs.com/posts/2019-07-19-history-use-vim.html
-* 1976: screens = ex, Vi, Emacs https://lwn.net/Articles/832429/ https://two-wrongs.com/why-you-should-buy-into-the-emacs-platform https://two-wrongs.com/on-escape-meta-alt-control-shift-emacs.html https://github.com/hlissner/doom-emacs https://news.ycombinator.com/item?id=34967802 org mode (just seems like predecessor to Markdown) https://github.com/nvim-neorg/neorg https://www.murilopereira.com/a-rabbit-hole-full-of-lisp/ https://www.murilopereira.com/whats-good-about-staying-inside-emacs/ https://www.murilopereira.com/emacs-from-catching-up-to-getting-ahead/ https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla/ https://www.thediff.co/archive/building-for-power-users/
+* 1976: screens = ex, Vi, Emacs https://lwn.net/Articles/832429/ https://two-wrongs.com/why-you-should-buy-into-the-emacs-platform https://two-wrongs.com/on-escape-meta-alt-control-shift-emacs.html https://github.com/hlissner/doom-emacs https://news.ycombinator.com/item?id=34967802 org mode (just seems like predecessor to Markdown) https://github.com/nvim-neorg/neorg https://www.murilopereira.com/a-rabbit-hole-full-of-lisp/ https://www.murilopereira.com/whats-good-about-staying-inside-emacs/ https://www.murilopereira.com/emacs-from-catching-up-to-getting-ahead/ https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla/ https://www.thediff.co/archive/building-for-power-users/ https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla
 * 1991: Vim https://twobithistory.org/2018/08/05/where-vim-came-from.html https://begriffs.com/posts/2019-07-19-history-use-vim.html
 * 2006: Vim 7.0
 * 2013: Vim 8.0 [PV 5.27]
-* newish: Helix https://helix-editor.com/ Zed https://zed.dev/ https://zed.dev/blog/we-have-to-start-over
+* newish: Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 Zed https://zed.dev/ https://zed.dev/blog/we-have-to-start-over Amp https://amp.rs/
 
 ## Jetbrains
 

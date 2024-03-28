@@ -420,6 +420,47 @@ Update them from Software Update in System Preferences or run:
   softwareupdate --all --install --force
 ```
 
+# iPad
+
+🔗 versions https://en.wikipedia.org/wiki/IPad#iPad
+
+| IPAD   | USED | NEW | DISPLAY | STORAGE | PENCIL |
+|--------|------|-----|---------|---------|--------|
+| mini   | 120  | 500 | 8       |  64     | ?      |
+| reg    | 170  | 350 | 11      |  64     | ?      |
+| air    | ---  | --- | 11      |  --     | ?      |
+| pro    | ---  | --- | --      |  --     | ?      |
+
+---
+
+ROUGH PLAN
+* buy used mini for golf ($150)
+* buy used reg for procreate ($170 + pencil $80)
+
+https://buyersguide.macrumors.com/#iPad-Air
+https://www.amazon.com/dp/B09G9FPHY6 
+https://www.ebay.com/itm/144379058448?itmmeta=01HYK52QFWFVWA6GQWZJ4QHAPJ
+https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=guaranteecellular&store_cat=0&store_name=guaranteecellular&_oac=1&_nkw=mini
+
+PENCIL
+* can just buy on amazon https://www.youtube.com/watch?v=MQnejB-SLWw [5:15]
+* https://www.amazon.com/Apple-Pencil-1st-Generation-Adapter/dp/B0BJLG69QR
+* https://support.apple.com/en-us/108937
+* https://en.wikipedia.org/wiki/Apple_Pencil
+* https://www.lifewire.com/apple-pencil-compatibility-with-ipad-5189841
+
+> procreate/garageband storage needs
+> any special reqs for recording guitar?
+
+* reg: $425 11" (with pencil) 64GB
+* air: $725 11" 128GB; $800 13"
+
+USE CASES
+* procreate https://www.creativebloq.com/buying-guides/best-ipad-for-procreate
+* golf https://apps.apple.com/us/app/onform-video-analysis-app/id1490334045 https://apps.apple.com/us/app/swing-profile-golf-analyzer/id1039981052 https://apps.apple.com/us/app/v1-golf-golf-swing-analyzer/id349715369
+* skate
+* garageband
+
 ## keybindings
 
 system
@@ -569,11 +610,14 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 | `music-usb-2` | desk     | 24.02 | `yin`      |               |
 
 TODO
-* yin: far (cleanup = all) rnb (80s) rap (nyc) za (gospel) + singles, cut copy to pop, girl talk, lcd soundsystem, laurel halo, larry young, julee cruise, jim croce, pointer sisters, jackie wilson, bobby bland, rotary connection, sza, genesis, fugazi, allmans, waylon, jerry jeff walker
-* digits
-* golf: swings
-* music: Hilton basics
-* mat: Kernighan golang Connoly database Luksa kubernetes
+* auto insurance, parking tickets
+* econ
+> 📍 all after cleanup
+* dev: Kernighan golang Connoly database Luksa kubernetes Fowler refactoring
+> 📍 clean up DS files `fd -HI DS`
+* yin: far (cleanup = all) rnb (80s, 70s) rap (nyc) za (gospel) + all singles + dylan, girl talk, lcd soundsystem, larry young, julee cruise, jim croce, pointer sisters, jackie wilson, bobby bland, rotary connection, sza, genesis, fugazi, allmans, waylon, jerry jeff walker, fleetwood mac, hailu mergia, cymande, jersey club, charley crockett new album, john talabot, sui generis, sun electric, stevie wonder singles
+> mv: cut copy to pop, breakwater to the 80s, spinners to 50s, bobby bland to blues, kc and sunshine to dance
+> modern lovers girlfriend, oscar peterson jet song
 
 SEMANTICS
 * _transfer_: mv data from A to B

@@ -71,6 +71,7 @@ ZA
 
 ---
 
+* https://github.com/mr-karan/doggo
 * https://news.ycombinator.com/item?id=37531801&utm_term=comment
 * DNS, ints/floats https://jvns.ca/blog/2023/06/23/new-zine--how-integers-and-floats-work/
 * TLD https://textslashplain.com/2023/05/13/new-tlds-not-bad-actually/
@@ -132,6 +133,8 @@ FQDN
 * _FQDN_: `http://math.mit.edu/about`
 * _scheme/protocol_: `http://` http, https, et al.
 * _sub/domain_: `math.mit` namespace
+* domain: 
+* subdomain: https://www.shortcut.com/blog/building-a-saas-app-you-should-probably-stick-to-a-single-subdomain
 * _TLD_: `.edu` set of domains doled out by the same authority https://tech.marksblogg.com/rdns-domain-name-tld-extract-golang.html https://tech.marksblogg.com/rdns-domain-name-tld-extract-rust.html
 * _path_: `about` namespace targeting specific resource
 * _query string_: `?prof=lambeau` way to filter resources https://stackoverflow.com/a/31261026 way to send KV to server (if you don't want to put in HTTP body)
@@ -362,8 +365,11 @@ security https://securityheaders.com/
 
 🗄 `shell.md` userland
 
+https://github.com/Julien-cpsn/ATAC
 https://github.com/qustavo/httplab
 https://github.com/usebruno/bruno
+https://github.com/Orange-OpenSource/hurl
+* query w/ SQL https://github.com/turbot/steampipe https://www.hytradboi.com/2022/how-to-query-almost-everything
 
 HTTPIE 📜 https://httpie.org/doc
 * no ability to yet config base URL https://github.com/httpie/httpie/pull/1377
@@ -453,6 +459,7 @@ WWW
 
 ## email
 
+* content/templates https://news.ycombinator.com/item?id=40280490
 * archive: Mailstore https://news.ycombinator.com/item?id=34070957 sync https://news.ycombinator.com/item?id=27446156
 * images: https://news.ycombinator.com/item?id=26661430
 * HTML: https://news.ycombinator.com/item?id=26659553
@@ -606,9 +613,9 @@ process https://help.ubuntu.com/community/SSH/OpenSSH/Keys
 📚 Kleppmann chapter 8 https://www.youtube.com/watch?v=U612mx16j7U
 > Time is nature's way to keep everything from happening all at once - John Wheeler https://lwn.net/Articles/827180/
 
-time
-> ask Robert Hawk
+TIME
 * YYYY-MM-DD is the only correct answer https://twitter.com/VitalikButerin/status/1547161382373756928
+* https://www.libertysys.com.au/2024/05/aws-microsecond-accurate-time-second-look/?ck_subscriber_id=512830619
 * _Internet Time Service_: current time as provided by NIST https://news.ycombinator.com/item?id=37778496
 * _NTP_: protocol to handle keeping correct time packets move geographically [Network Flow Analysis 6] https://sookocheff.com/post/time/how-does-ntp-work/
 * _NTPsec_: fork meant to replace NTP
@@ -619,8 +626,8 @@ time
 * human perception https://hpbn.co/primer-on-web-performance/#speed-performance-and-human-perception
 * _sink_: https://zachholman.com/talk/utc-is-enough-for-everyone-right https://alexwlchan.net/2019/05/falsehoods-programmers-believe-about-unix-time/ https://app.pluralsight.com/library/courses/date-time-fundamentals/table-of-contents https://news.ycombinator.com/item?id=24746836 timezones https://pyvideo.org/pycon-us-2019/working-with-time-zones-everything-you-wish-you-didnt-need-to-know.html
 
-space
-* _GIS_: ESRI (SaaS) Postgres https://news.ycombinator.com/item?id=23361794 geocode https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code https://www.wired.com/story/geocode-address-puerto-rico-hurricane-maria/ https://github.com/giswqs/leafmap https://www.paulox.net/2021/07/19/maps-with-django-part-2-geodjango-postgis-and-leaflet/ https://github.com/marceloprates/prettymaps https://softwareengineeringdaily.com/2021/04/26/makepath-geospatial-technology-with-brendan-collins/ https://gis.stackexchange.com/ isochrones https://tech.marksblogg.com/valhalla-isochrones.html https://tech.marksblogg.com/pretty-maps-in-python.html satellite https://github.com/plant99/felicette https://realpython.com/python-folium-web-maps-from-data/ https://github.com/geoserver/geoserver https://walker-data.com/posts/lodes-commutes/ https://walker-data.com/census-r/index.html https://walker-data.com/posts/proximity-analysis/
+SPACE
+* _GIS_: ESRI (SaaS) Postgres https://news.ycombinator.com/item?id=23361794 geocode https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code https://www.wired.com/story/geocode-address-puerto-rico-hurricane-maria/ https://github.com/giswqs/leafmap https://www.paulox.net/2021/07/19/maps-with-django-part-2-geodjango-postgis-and-leaflet/ https://github.com/marceloprates/prettymaps https://softwareengineeringdaily.com/2021/04/26/makepath-geospatial-technology-with-brendan-collins/ https://gis.stackexchange.com/ isochrones https://tech.marksblogg.com/valhalla-isochrones.html https://tech.marksblogg.com/pretty-maps-in-python.html satellite https://github.com/plant99/felicette https://realpython.com/python-folium-web-maps-from-data/ https://github.com/geoserver/geoserver https://walker-data.com/posts/lodes-commutes/ https://walker-data.com/census-r/index.html https://walker-data.com/posts/proximity-analysis/  https://news.ycombinator.com/item?id=40052172 tiny map https://github.com/tinyworldmap/tiny-world-map Open Street Map https://pybit.es/articles/openstreetmaps-overpass-api-and-python/
 * maps https://storymaps.arcgis.com/stories/1e7f582d478a4b99bd0c70fffeac4c8b
 * _GPS_: https://news.ycombinator.com/item?id=29981188 https://ciechanow.ski/gps/
 * _sink_: https://www.bloomberg.com/news/features/2018-07-25/the-world-economy-runs-on-gps-it-needs-a-backup-plan https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code
@@ -657,7 +664,7 @@ TLS
 * released in 2006 https://davidwong.fr/tls13/ preceded by SSL (released by Netscape in 1995) browsers starting to only support 1.2 and beyond https://utcc.utoronto.ca/~cks/space/blog/web/FirefoxOldTLSWarning
 * requires more server maintenance https://utcc.utoronto.ca/~cks/space/blog/web/HTTPSNoOldServers
 * sink https://robertheaton.com/2018/11/28/https-in-the-real-world/ https://blog.cloudflare.com/how-to-build-your-own-public-key-infrastructure/ https://blog.behrang.org/articles/creating-a-ca-with-openssl.html https://smallstep.com/blog/everything-pki.html https://www.nginx.com/blog/lets-encrypt-tls-nginx https://www.badssl.com https://www.expeditedssl.com/ https://flak.tedunangst.com/post/ssh-in-https https://tls.ulfheim.net/ https://tls.ulfheim.net/ https://github.com/jpalardy/warp https://hpbn.co/transport-layer-security-tls/ https://smallstep.com/blog/everything-pki/ https://blog.filippo.io/mkcert-valid-https-certificates-for-localhost/
-* _HTTPS_: HTTPS over TLS; slower bc adding TLS handshake after TCP handshake https://jvns.ca/blog/2017/04/01/slow-down-your-internet-with-tc/ https://blog.codepen.io/2017/05/23/131-going-https/ headers are encrypted
+* _HTTPS_: HTTPS over TLS; slower bc adding TLS handshake after TCP handshake https://jvns.ca/blog/2017/04/01/slow-down-your-internet-with-tc/ https://blog.codepen.io/2017/05/23/131-going-https/ headers are encrypted https://news.ycombinator.com/item?id=39765630 redirect https://news.ycombinator.com/item?id=40504756&utm_term=comment
 * config https://hacker-tools.github.io/security/ https://mattsegal.dev/simple-django-deployment.html https://testdriven.io/blog/django-lets-encrypt testing https://hacker-tools.github.io/security/
 * _HSTS_: tells browser to use HTTPS https://really-simple-ssl.com/knowledge-base/what-does-hsts-mean/ https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security
 * if site uses HTTPS then embedded content must be as well, apparently this conflicts w/ adverts which is why many news sites aren't https://robertheaton.com/2014/03/27/how-does-https-actually-work/ https://howhttps.works/episodes/ https://whydoesaptnotusehttps.com/ https://stackoverflow.com/a/187685/6813490
@@ -734,13 +741,12 @@ ValueError: unsupported hash type md5
 
 🗄 `system.md` servers
 
+* _WebSocket_: protocol to send msg to client outside req-res cycle e.g. pub-sub to push data to frontend i.e. way to do full duplex
+
 ---
 
 * https://gotify.net/
 * Sendgrid (send emails to customers) Braze (Sendgrid++?)
-* _WebSocket_: protocol to send message to client outside req-res cycle
-* e.g. use pub-sub to push data to frontend from Postgres
-* way to do full duplex
 * IETF RFC 6455 and browser API https://hpbn.co/websocket/
 * compared to `Keep-Alive` https://stackoverflow.com/questions/7620620/whats-the-behavioral-difference-between-http-stay-alive-and-websockets
 * _HTTP2_: multiplexed i.e n assets from single request; servers can push (in same way as Web Sockets); binary instead of HTTP's text https://serversforhackers.com/s/http2 https://hpbn.co/http2/ https://news.ycombinator.com/item?id=26263085

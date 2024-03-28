@@ -44,7 +44,7 @@ UI
 * synthetic https://docs.datadoghq.com/synthetics/
 * mocking API = faster test runs but highe chance of rot; tooling (json-server, duckrails) https://github.com/SpectoLabs/hoverfly
 * visual diff https://css-tricks.com/video-screencasts/178-percy-catches-visual-changes-in-any-workflow/
-* browser automation: JS (Cypress, https://github.com/puppeteer/puppeteer, Selenium) Python https://github.com/microsoft/playwright-python https://talkpython.fm/episodes/show/368/end-to-end-web-testing-with-playwright https://github.com/golemhq/golem 
+* browser automation: JS (Cypress, https://github.com/puppeteer/puppeteer, Selenium) Python https://github.com/microsoft/playwright-python https://talkpython.fm/episodes/show/368/end-to-end-web-testing-with-playwright https://github.com/golemhq/golem https://github.com/danclaudiupop/robox
 * view user flow, Chrome recorder panel https://developer.chrome.com/docs/devtools/recorder/ https://www.thoughtworks.com/radar/tools?blipid=202203004
 * capture disappearing element https://stackoverflow.com/a/38783090/6813490
 * cross browser https://www.browserling.com/
@@ -56,11 +56,14 @@ UI
 * `django.md` migrations
 * `system.md` application config
 
+---
+
 https://www.semicolonandsons.com/
 * lots of test data https://gogognome.nl/how-to-write-tests-that-need-a-lot-of-data.html https://sqlfordevs.com/fill-table-test-data
 
 approaches
-* seed https://tla.wtf/posts/django-seed-db/
+* anonymous https://news.ycombinator.com/item?id=40443927 https://github.com/nucleuscloud/neosync
+* seed https://tla.wtf/posts/django-seed-db/ https://sqlfordevs.com/fill-table-test-data
 * get subset of data for testing https://github.com/Wisser/Jailer
 * clone https://github.com/postgres-ai/database-lab-engine
 * db as normal and eat the speed costs https://changelog.com/podcast/145 https://corecursive.com/045-david-heinemeier-hansson-software-contrarian/ 48:00
@@ -147,6 +150,43 @@ Then I should see a welcome message
 * Then I should see the message Welcome Back Bob
 ```
 
+## load
+
+---
+
+* _load testing_: send many requests at system
+* CLI tools https://github.com/hatoo/oha https://github.com/nakabonne/ali https://github.com/tsenart/vegeta
+* via config https://github.com/fcsonline/drill
+
+LOCUST 📜 https://docs.locust.io/en/stable/
+* _locust_: CLI + via code https://github.com/locustio/locust https://github.com/rednafi/stress-test-locust 🗄 `htmx-demo`
+* config: num concurrent users, spawn rate (new users per second)
+* telemetry: save as CSV https://docs.locust.io/en/stable/retrieving-stats.html
+* 📍 telemetry: TPS, RPS, response (p50, p95) https://github.com/locustio/locust/wiki/FAQ#increase-my-request-raterps RPS https://docs.locust.io/en/stable/increase-performance.html#increase-performance-with-a-faster-http-client
+> Interpreting performance test results is quite complex (and mostly out of scope for this manual), but if your graphs start looking like this, the target service/system cannot handle the load and you have found a bottleneck. When we get to around 9 users, response times start increasing so fast that even though Locust is still spawning more users, the number of requests per second is no longer increasing. The target service is “overloaded” or “saturated”. If your response times are not increasing then add even more users until you find the service’s breaking point, or celebrate that your service is already performant enough for your expected load.
+```python
+# INSTALL
+pip install locust
+
+# CLI https://docs.locust.io/en/stable/quickstart.html#direct-command-line-usage-headless
+locust --headless --users 10 --spawn-rate 1 -H http://your-server.com
+
+# CLI + LOCUSTFILE https://docs.locust.io/en/stable/running-without-web-ui.html#running-without-the-web-ui
+poetry run locust -f locustfile.py --headless -t 10s -u 5 -r 1 --host "http://127.0.0.1:5002"
+
+# LOCUSTFILE
+from locust import HttpUser, task
+class HelloWorldUser(HttpUser):
+    @task
+    def hello_world(self):
+        self.client.get("/hc")
+```
+
+---
+
+https://github.com/wg/wrk https://github.com/giltene/wrk2
+https://news.ycombinator.com/item?id=35781728
+https://github.com/grafana/k6
 # ZA
 
 SOURCE CODE
@@ -218,7 +258,7 @@ za
 * everything that's not tested will break https://return.co.de/blog/articles/everything-not-tested-will-break/
 * tests are about design (if the src is britter so, too, the tests) https://www.openmymind.net/Tests-Are-About-Design/
 * writing tests takes time, debugging without them takes more
-* coverage https://corecursive.com/066-sqlite-with-richard-hipp/
+* coverage https://corecursive.com/066-sqlite-with-richard-hipp/ as a treemap https://github.com/nikolaydubina/go-cover-treemap
 > I’d been doing some work for Rockwell Collins, an avionics manufacturer, Rockwell Collins, and they introduced me to this concept of DO-178B. It’s a quality standard for safety-critical aviation products, and unlike so many quality standards, this one’s actually readable. Now, it does have a lot of bureaucratic stuff in it, but you can actually buy a copy of this. You do have to buy it. It’s a couple hundred dollars, but it’s a reasonably thin volume and you can read through it, and with sufficient study you can understand what they’re talking about, so I did that, and I actually started following some of their processes, and one of the key things that they push is, they want 100% MCDC test coverage. That’s modified condition decision coverage of the code. Your tests have to cause each branch operation in the resulting binary code to be taken and to fall through at least once.
 > It’s pretty easy to get up to 90 or 95% test coverage. Getting that last 5% is really, really hard and it took about a year for me to get there, but once we got to that point, we stopped getting bug reports from Android.
 > How do you count tests? We’ll have a test case but it’ll be parametrized, so that one test case might run 100, 1,000, 100,000 tests, just by looping, by changing one of the parameters. For a typical release, we’ll do billions of tests, but we have, I think it’s on the order of 100,000 distinct test cases. Yes, so we’ll do billions of tests.
@@ -237,7 +277,7 @@ https://talkpython.fm/episodes/show/287/testing-without-dependencies-mocking-in-
 
 * _mock_: override method so you can test; `unittest.mock` vs. `pytest.monkeypatch` https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/ mock vs. magicmock https://stackoverflow.com/questions/17181687/mock-vs-magicmock https://realpython.com/python-mock-library/ https://joshpeak.net/posts/2019-06-18-Advanced-python-testing.html env var https://adamj.eu/tech/2020/10/13/how-to-mock-environment-variables-with-pytest https://www.b-list.org/weblog/2023/dec/08/mock-python-httpx/
 > https://um-t.slack.com/archives/G01LATMU4M6/p1684432308547779
-* mocks https://github.com/tommyboytech/t3/pull/11146/files
+* mocks https://github.com/tommyboytech/t3/pull/11146/files https://testing.googleblog.com/2013/05/testing-on-toilet-dont-overuse-mocks.html
 * _testing external resources_: use real thing, use Docker version https://github.com/schireson/pytest-mock-resources/ https://yanglinzhao.com/posts/test-elasticsearch-in-django
 * https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html
 
@@ -299,40 +339,4 @@ void main() {
 // algebra proof: that x + y = y + x -> f always returns true
 ```
 
-* _TLA+_: https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2 https://nchammas.com/writing/how-not-to-die-hard-with-hypothesis hypothesis testing https://github.com/pandera-dev/pandera Pact, contract testing https://www.thoughtworks.com/radar/tools?blipid=202110074 Jepsen https://news.ycombinator.com/item?id=38525968&utm_term=comment
-
-## load testing
-
-* _load testing_: send many requests at system
-* CLI tools https://github.com/hatoo/oha https://github.com/nakabonne/ali https://github.com/tsenart/vegeta
-* via config https://github.com/fcsonline/drill
-
-LOCUST 📜 https://docs.locust.io/en/stable/
-* _locust_: CLI + via code https://github.com/locustio/locust https://github.com/rednafi/stress-test-locust 🗄 `htmx-demo`
-* config: num concurrent users, spawn rate (new users per second)
-* telemetry: save as CSV https://docs.locust.io/en/stable/retrieving-stats.html
-* 📍 telemetry: TPS, RPS, response (p50, p95) https://github.com/locustio/locust/wiki/FAQ#increase-my-request-raterps RPS https://docs.locust.io/en/stable/increase-performance.html#increase-performance-with-a-faster-http-client
-> Interpreting performance test results is quite complex (and mostly out of scope for this manual), but if your graphs start looking like this, the target service/system cannot handle the load and you have found a bottleneck. When we get to around 9 users, response times start increasing so fast that even though Locust is still spawning more users, the number of requests per second is no longer increasing. The target service is “overloaded” or “saturated”. If your response times are not increasing then add even more users until you find the service’s breaking point, or celebrate that your service is already performant enough for your expected load.
-```python
-# INSTALL
-pip install locust
-
-# CLI https://docs.locust.io/en/stable/quickstart.html#direct-command-line-usage-headless
-locust --headless --users 10 --spawn-rate 1 -H http://your-server.com
-
-# CLI + LOCUSTFILE https://docs.locust.io/en/stable/running-without-web-ui.html#running-without-the-web-ui
-poetry run locust -f locustfile.py --headless -t 10s -u 5 -r 1 --host "http://127.0.0.1:5002"
-
-# LOCUSTFILE
-from locust import HttpUser, task
-class HelloWorldUser(HttpUser):
-    @task
-    def hello_world(self):
-        self.client.get("/hc")
-```
-
----
-
-https://github.com/wg/wrk https://github.com/giltene/wrk2
-https://news.ycombinator.com/item?id=35781728
-https://github.com/grafana/k6
+* _TLA+_: https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2 https://nchammas.com/writing/how-not-to-die-hard-with-hypothesis hypothesis testing https://github.com/pandera-dev/pandera Pact, contract testing https://www.thoughtworks.com/radar/tools?blipid=202110074 Jepsen https://news.ycombinator.com/item?id=38525968&utm_term=comment https://tratt.net/laurie/blog/2024/what_factors_explain_the_nature_of_software.html

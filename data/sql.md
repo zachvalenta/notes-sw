@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -11,11 +11,7 @@
 * Karwin sql antipatterns https://pragprog.com/cms/errata/bksqla-errata/
 * Molinaro sql cookbook
 
-## now
-
-## next
-
----
+## 进步
 
 https://gvwilson.github.io/sql-tutorial/
 * Bealieau: port notes to digital copy, domains
@@ -28,8 +24,6 @@ INTERVIEWING
 * https://leetcode.com/problemset/database/
 * https://www.hackerrank.com/domains/sql
 * https://www.youtube.com/channel/UCW8Ews7tdKKkBT6GdtQaXvQ/videos
-
-## done
 
 * _23_: port Beaulieu to paper copy, rf, read rest of Beaulieu
 * _21_: semantics (migrations, tables), `query-sandbox`, litecli config
@@ -54,7 +48,7 @@ DROP DATABASE <db>;
 
 -- ATTR
 ALTER TABLE <table> ADD <col> <type>;  -- add
-ALTER TABLE <table> ALTER COLUMN <col> TYPE <type> -- update type
+ALTER TABLE <table> ALTER COLUMN <col> TYPE <type> -- update type https://news.ycombinator.com/item?id=40286403
 UPDATE <table> set <col>=concat('prependThis_', <col>)  -- update name
 ALTER TABLE <table> DROP COLUMN <col>; -- rm
 DESCRIBE mytable; -- list constraints/indexes
@@ -101,7 +95,7 @@ PRIMARY KEY (PK) 🗄 indexing `connolly.pdf`
 ```sql
 
 ```
-* _natural key_: attr that goes together with other attr in table (vs. surrogate key)
+* _natural key_: attr that goes together with other attr in table (vs. surrogate key) https://news.ycombinator.com/item?id=40580549
 * _surrogate key_: unrelated to table attr https://stackoverflow.com/a/36773462
 * typically auto-incremented but doesn't necessarily have to be 📙 Beaulieu [34]
 ```sql
@@ -145,6 +139,7 @@ DATA
 
 SCHEMA
 * _schema migration_: DDL i.e. change schema (alongside related change in src) https://en.wikipedia.org/wiki/Schema_migration
+* https://news.ycombinator.com/item?id=40186752
 * no needs to manually alter tables https://realpython.com/django-migrations-a-primer/#ensuring-model-definitions-and-the-database-schema-in-sync
 * can be generated from model changes https://realpython.com/django-migrations-a-primer/#avoiding-repetition
 * version controllable https://realpython.com/django-migrations-a-primer/#tracking-database-schema-change-in-version-control
@@ -238,6 +233,7 @@ ACCESS PATTERNS
 RELATIONS
 * _relationship_: what ties tables together https://twobithistory.org/2017/12/29/codd-relational-model.html
 * _relational model_: Codd 📙 Kent data/reality [155] Beaulieu [5]
+* relational algebra https://news.ycombinator.com/item?id=39753749
 > when embedding would result in duplication of data but would not provide sufficient read performance advantages to outweigh the implications of the duplication.
 > to represent more complex many-to-many relationships
 > to model large hierarchical data sets
@@ -357,7 +353,7 @@ https://news.ycombinator.com/item?id=37118633
 
 QUERY BUILDERS
 * reverse query builder https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203030 https://github.com/kyleconroy/sqlc https://preslav.me/2023/03/07/reasons-against-sqlc/
-* _query builder_: what it sounds like i.e. cares about physical tables, doesn't care about objects i.e. not an ORM
+* _query builder_: what it sounds like i.e. cares about physical tables, doesn't care about objects i.e. not an ORM https://github.com/stephenafamo/bob
 * BYO https://death.andgravity.com/query-builder-how
 * _aiosql_: https://github.com/nackjicholson/aiosql load sql file into Python and run queries as methods https://github.com/nackjicholson/aiosql
 * _csql_: https://news.ycombinator.com/item?id=24866377
@@ -384,7 +380,7 @@ ALTERNATIVES
 * _dataset_: lightweight https://dataset.readthedocs.io/en/latest/index.html 
 * _orator_: from the guy who did Poetry https://github.com/sdispater/orator
 * _Peewee_: https://github.com/coleifer/peewee not for async https://fastapi.tiangolo.com/advanced/sql-databases-peewee/
-* _SQLmodel_: SQLAlchemy wrapper (why this is necessary...) https://github.com/tiangolo/sqlmodel
+* _SQLmodel_: SQLAlchemy wrapper https://github.com/tiangolo/sqlmodel
 * _Tortoise_: async https://github.com/tortoise/tortoise-orm
 
 ----
@@ -559,7 +555,7 @@ new thing [id 1 name thing1 desc thing-1-desc]
 TYPES
 * _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
 * _varchar_: variable 📙 Beaulieu [21]
-* _blob_: `text` in Postgres, `longtext` in MySQL
+* _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485
 * _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf`
 * _integer_: 
 > The type integer is the common choice, as it offers the best balance between range, storage size, and performance. The smallint type is generally only used if disk space is at a premium. The bigint type is designed to be used when the range of the integer type is insufficient. https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-INT
@@ -674,13 +670,14 @@ PROC
 * too many and you've got business logic split btw application and db https://news.ycombinator.com/item?id=24845300
 
 TRIGGER
-* _trigger_: hook e.g. on record update write previous state to archive table 🗄 `db.md` audit
+* _trigger_: hook e.g. on record update write previous state to archive/audit table https://www.youtube.com/watch?v=LFIAqFt9z2s
+* alternative to audit table is abadoning update-in-place entirely https://www.hytradboi.com/2022/baking-in-time-at-the-bottom-of-the-database
 * avoid data updates by tracking things from which current info can be derived i.e. DOB instead of age
 ```sql
 --  https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql
-CREATE TRIGGER actor_trigger_ai AFTER INSERT ON actor
+CREATE TRIGGER actor_trigger AFTER INSERT ON actor
  BEGIN
-  UPDATE actor SET last_update = DATETIME('NOW')  WHERE rowid = new.rowid;
+  UPDATE actor SET last_update = DATETIME('NOW') WHERE rowid = new.rowid;
  END
 ;
 ```
@@ -718,7 +715,7 @@ GROUP BY
 * _group by_: result set w/ 1 record for each group 📙 Evans [8]
 * group data by column value 📙 Beaulieu [60]
 * aka binning https://hakibenita.com/sql-for-data-analysis#binning
-* aka pivot table https://hakibenita.com/sql-for-data-analysis#pivot-tables
+* aka pivot table https://hakibenita.com/sql-for-data-analysis#pivot-tables https://realpython.com/how-to-pandas-pivot-table/
 ```sql
 -- only columns worth selecting are the grouped by column and aggregates
 select count(*) from executions group by "First Name" 
@@ -732,6 +729,10 @@ select "Age at Execution" from executions group by "First Name"
 * 📍 practice https://www.helenanderson.co.nz/sql-aggregate-functions/
 * 📍 rollup https://hakibenita.com/sql-for-data-analysis#subtotals
 * 📍 rolling https://ponder.io/python-for-finance-pandas-resample-groupby-and-rolling/
+* https://stackoverflow.com/a/24767207
+```sql
+select col, count(*) from tab group by col
+```
 
 PARTITION BY
 * _partition_: group by but retain individual records w/ group https://stackoverflow.com/a/2404574
@@ -1093,7 +1094,7 @@ SELECT NAME,
 FROM cd.facilities;  
 ```
 
-# ZA
+# 🟨️ ZA
 
 DESIGN
 * SQL is boring and durable https://josephg.com/blog/databases-have-failed-the-web/
@@ -1172,6 +1173,44 @@ KEYWORDS https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html https://
 * _keyword_: reserved + non-reserved; case-insensitive
 > As a general rule, if you get spurious parser errors for commands that contain any of the listed key words as an identifier you should try to quote the identifier to see if the problem goes away. - https://www.postgresql.org/docs/8.1/static/sql-keywords-appendix.html
 
+## pedagogy
+
+* tldr: better at SQL if data 1) local 2) interesting
+* small databases https://news.ycombinator.com/item?id=34558054
+* example databases: Spanish, Sakila https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql 📙 Beaulieau [41]
+
+CONNECT TO ACTUAL SERVER
+* https://data.stackexchange.com/help
+* https://sqlpd.com/
+* https://news.ycombinator.com/item?id=30631477
+
+PLAYGROUNDS
+* PG exercises https://github.com/zachvalenta/pg-exercises
+* https://jvns.ca/blog/2023/04/17/a-list-of-programming-playgrounds/
+
+BAKED DATA
+* Datasette https://csvbase.com/ fetching https://github.com/fatiando/pooch
+* SQL.js https://selectstarsql.com/frontmatter.html#technicals https://github.com/sql-js/sql.js https://github.com/NUKnightLab/sql-mysteries
+* https://news.ycombinator.com/item?id=34558054 https://news.ycombinator.com/item?id=34630153
+* https://sqlbolt.com/
+* https://dataschool.com/learn-sql/basic-practice/
+* https://sql-playground.wizardzines.com/
+
+GET DATA
+* general https://github.com/awesomedata/awesome-public-datasets https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks https://corgis-edu.github.io/corgis/csv/ https://www.data-is-plural.com/archive/ https://redis.com/blog/datasets-for-test-databases/
+* JSON https://github.com/jdorfman/awesome-json-datasets
+* csv https://github.com/secretGeek/awesomecsv#data
+* 📍 more in 🗄 `ml.md`? put these there? Paul Swanson videos?
+> put in ML
+* PG Exercises https://pgexercises.com/gettingstarted.html https://github.com/AlisdairO/pgexercises/issues/28
+* executions https://selectstarsql.com/frontmatter.html#dataset
+* housing https://www.zillow.com/research/data/
+* music https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks
+* shootings https://catalog.data.gov/dataset/nypd-shooting-incident-data-historic
+* verbos https://github.com/ghidinelli/fred-jehle-spanish-verbs
+* HN https://github.com/dogsheep/hacker-news-to-sqlite https://news.ycombinator.com/submitted?id=luu
+* movies https://simonwillison.net/2019/Feb/25/sqlite-utils/ https://github.com/jdorfman/awesome-json-datasets
+* music https://corgis-edu.github.io/corgis/csv/music/ 
 ## tables
 
 TYPES

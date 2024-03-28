@@ -49,7 +49,7 @@ TAILWIND
 * https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/
 * https://github.com/dohliam/dropin-minimal-css
 * https://news.ycombinator.com/item?id=23270581
-* alternatives: https://news.ycombinator.com/item?id=35709494 water.css https://watercss.netlify.com/ https://github.com/kognise/water.css/issues/160 Pure https://github.com/pure-css/pure/ https://newcss.net/ https://bulma.io/ https://simplecss.org/
+* alternatives: https://news.ycombinator.com/item?id=35709494 water.css https://watercss.netlify.com/ https://github.com/kognise/water.css/issues/160 Pure https://github.com/pure-css/pure/ https://newcss.net/ https://bulma.io/ https://simplecss.org/ https://css.winterveil.net/
 
 ---
 
@@ -100,6 +100,7 @@ VARIABLES
 📙 https://www.refactoringui.com/
 
 COLOR
+* https://anthonyhobday.com/sideprojects/saferules/
 * variables, currentColor, preprocessor https://css-tricks.com/nerds-guide-color-web/
 * _HSL_: https://designsystem.digital.gov/design-tokens/color/overview/
 * _hex_: https://css-tricks.com/nerds-guide-color-web/
@@ -457,10 +458,11 @@ PELICAN 📜 https://github.com/getpelican/pelican
 * features: templating, metadata, tags
 * tags vs. categories http://pirsquared.org/blog/pelican-tags-vs-categories.html
 * https://tech.marksblogg.com/website-cdn-with-pelican-and-s3cmd.html
-* table of contents: `pelican-toc` https://chat.openai.com/c/25d8a905-4ff4-4905-b63f-126f60ec9c75
+* table of contents: `pelican-toc` https://chat.openai.com/c/25d8a905-4ff4-4905-b63f-126f60ec9c75 https://www.murilopereira.com/how-to-open-a-file-in-emacs
 
 FEATURES https://twitter.com/danluu/status/1244051446313574402 https://news.ycombinator.com/item?id=39511714&utm_term=comment https://meridian.mercury.com/dwarkesh-patel https://mkaz.blog/working-with-python/ https://shreyans.org/
 * templating
+* write on music https://yearofbach.substack.com/p/march-25-the-six-cello-suites-bwv
 * page metadata e.g. title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/
 * search: Stork https://stork-search.net/ TinySearch https://github.com/tinysearch/tinysearch https://news.ycombinator.com/item?id=23474134 DDG https://vadosware.io/ https://ddg.patdryburgh.com/ lunr.js https://github.com/olivernn/lunr.js https://brainbaking.com/search/?q=database example https://clearerthinkingpodcast.com/#episodes
 * RSS generation
@@ -482,6 +484,7 @@ FEATURES https://twitter.com/danluu/status/1244051446313574402 https://news.ycom
 SSGs https://jamstack.org/generators/
 * BYO https://www.youtube.com/watch?v=Ph7oJDR71Jc https://github.com/mitsuhiko/rstblog https://til.simonwillison.net/django/building-a-blog-in-django dynamic https://realpython.com/build-a-blog-from-scratch-django/ https://dev.to/chasefleming/building-a-go-static-site-generator-using-elem-go-3fhh
 * me: run m2h, move all html from content to src, open any html files from src with modified Git status
+* https://fabiensanglard.net/html/index.html
 * _Bearclaw_: https://github.com/donuts-are-good/bearclaw
 * _Eleventy_: https://www.11ty.dev/ https://www.erichgrunewald.com/ https://news.ycombinator.com/item?id=31293971
 * _Lanyon_: server, same guy that did termgraph https://github.com/mkaz/lanyon

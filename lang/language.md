@@ -121,6 +121,7 @@ ZA
 * _Law of Demeter_: don't reach through one object to get to another [Conery 278]
 
 OPINIONS
+* Golang https://blog.gypsydave5.com/posts/2024/4/12/go-is-an-object-oriented-programming-language/
 * Smalltalk https://news.ycombinator.com/item?id=34137751
 * http://www.smashcompany.com/technology/object-oriented-programming-is-an-expensive-disaster-which-must-end
 * creates confusion
@@ -257,10 +258,11 @@ LUA 📜 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awes
 * colons https://www.youtube.com/watch?v=prnrwpOEsmo 13:00
 * syntax = Python + `end`
 * small stdlib https://news.ycombinator.com/item?id=3535382
-* libraties https://luarocks.org/
+* libraries https://luarocks.org/
 * for binaries https://news.ycombinator.com/item?id=10974870
 * easy to embed https://news.ycombinator.com/item?id=3534746
 * not backwards compatibile bc don't keep previous mistakes around https://news.ycombinator.com/item?id=3535382
+* people like? https://news.ycombinator.com/item?id=40538540
 * multiple compilers https://news.ycombinator.com/item?id=23686297
 
 R
@@ -272,6 +274,7 @@ R
 > Terseness here is a huge advantage as well because in many data analysis workflows you are rerunning that same 10 line snippet over and over, making small changes, adjusting to eventually visualize the thing you're looking for perfectly. Having all of that in the same small block is ideal. https://news.ycombinator.com/item?id=30764505
 
 RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/
+* example project https://github.com/nate-sys/tuime https://github.com/swsnr/mdcat
 * books https://news.ycombinator.com/item?id=34556318 https://github.com/plabayo/learn-rust-101/blob/main/README.md
 * CLI https://www.amazon.com/gp/product/1098109430/ref=ox_sc_act_title_1?smid=ATVPDKIKX0DER&psc=1
 * web https://tech.marksblogg.com/poem-rust-web-framework.html https://tech.marksblogg.com/actix-rust-web-framework.html https://tech.marksblogg.com/rocket-rust-web-framework.html https://www.shuttle.rs/blog/2023/09/27/rust-vs-go-comparison
@@ -490,10 +493,12 @@ SPRING
 
 ## Lisp
 
+https://tryclojure.org/
 https://news.ycombinator.com/item?id=33600941
 
 ---
 
+https://news.ycombinator.com/item?id=40335608
 https://www.fosskers.ca/en/blog/rounds-of-lisp
 
 📙 SICP https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/  https://news.ycombinator.com/item?id=30016323
@@ -792,7 +797,7 @@ gcc foo.c -Wall -o my_program m -std='c99'
 * aka freeze in Python land https://docs.python-guide.org/shipping/freezing/
 
 don't have good topic name for this yet
-* _parser_: generates AST from src https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html
+* _parser_: generates AST from src https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html https://astral.sh/blog/ruff-v0.4.0
 * _AST_: src as tree https://sadh.life/post/ast/
 * translate AST from c to Golang src https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
 ```python

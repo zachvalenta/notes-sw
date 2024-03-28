@@ -1,86 +1,57 @@
-# 开
+# ⛩️
 
 ## 参考
 
 📜 https://docs.djangoproject.com/en/stable https://github.com/HackSoftware/Django-Styleguide
 🗣 https://djangochat.com/episodes https://forum.djangoproject.com/
 🧪 https://github.com/zachvalenta?tab=repositories&q=django
+📚
+* https://www.saaspegasus.com/
+* Vincent beginners
+* Vincent professionals
+* Layman https://www.mattlayman.com/understand-django/
 
-## now
+## 进步
 
-## next
-
----
-
-htmx
-
-COURSES 🗄 `system.md`
-* 📙 Vincent beginners
-* 📙 Vincent api
-* 📙 Vincent professionals
-* 🔗 https://www.mattlayman.com/understand-django/
-* 📹 https://www.youtube.com/channel/UCRM1gWNTDx0SHIqUJygD-kQ/videos https://cur.at/bVI7ivw?m=email&sid=mK7DmLE
-
-CLEAN UP
-* https://www.youtube.com/@DjangoConUS/videos
-* https://blog.pecar.me/django-sqlite-benchmark
-* framework design https://lukeplant.me.uk/blog/posts/mvc-is-not-a-helpful-analogy-for-django/
-* https://spookylukey.github.io/django-views-the-right-way/
-* https://lukeplant.me.uk/blog/posts/mvc-is-not-a-helpful-analogy-for-django/
-* https://johnnymetz.com/posts/slow-django-database-queries/
-* https://github.com/godd0t/django-docker-quickstart
-* https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/
-* https://learndjango.com/tutorials/essential-django-3rd-party-packages
-* perf https://testdriven.io/blog/django-performance-optimization-tips/
-* real-time without websockets https://valberg.dk/django-sse-postgresql-listen-notify.html
-* DRF caching https://www.screamingatmyscreen.com/caching-and-django-rest-framework
-* https://www.better-simple.com/django/cairn/2023/02/28/plotting-the-trail-for-django-cairn/
-* htmx https://dev.to/kummerer94/django-and-htmx-i5c
-* https://james.walters.click/what-django-deployment-is-really-about.html
-* https://learndjango.com/tutorials/official-django-rest-framework-tutorial-beginners
-* auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas https://testdriven.io/blog/django-rest-authjs/
-* https://ctrlzblog.com/how-to-create-rows-in-the-database-with-django-orm
-* https://djangochat.com/episodes/sentry-david-cramer?utm_campaign=Django%2BNewsletter
-* https://mattsegal.dev/
-* https://blog.ovalerio.net/archives/2420
-* https://adamj.eu/tech/2021/12/08/pre-order-boost-your-django-dx/
-* https://github.com/dabapps/django-zen-queries
-* group_by https://stackoverflow.com/a/24767207
-```sql
-select col, count(*) from tab group by col
-```
-* get query string https://www.django-rest-framework.org/api-guide/filtering/#filtering-against-query-parameters
-```txt
-http://app.com/foo/?top=10
-request.query_params
-```
-* QS eval @ `.all()` or repr, len, list, bool
-> QuerySets are lazy – the act of creating a QuerySet doesn’t involve any database activity. You can stack filters together all day long, and Django won’t actually run the query until the QuerySet is evaluated. https://docs.djangoproject.com/en/3.1/topics/db/queries/#querysets-are-lazy
-* check column present: `Foo.objects.filter(col__isnull=False)`
-* https://docs.djangoproject.com/en/3.1/topics/db/
-* http://blog.abedmaatalla.me/2020/12/django-orm-optimization-tips.html
-* https://docs.djangoproject.com/en/3.1/intro/tutorial02/
-> each model has a number of class variables, each of which represents a database field in the model.
-> You can use an optional first positional argument to a Field to designate a human-readable name. That’s used in a couple of introspective parts of Django, and it doubles as documentation.
-```python
-pub_date = models.DateTimeField('date published')
-```
-* _schema_: `create table` statements https://docs.djangoproject.com/en/3.1/intro/tutorial02/
-* https://docs.djangoproject.com/en/3.1/intro/tutorial02/#activating-models
-* extensions https://monadical.com/posts/django-packages.html
-* DRF refresh https://learndjango.com/tutorials/official-django-rest-framework-tutorial-beginners
-* DRF https://www.youtube.com/watch?v=06DJBu1zwoY https://www.laceyhenschel.com/blog/2021/2/22/what-you-should-know-about-drf-part-1-modelviewset-attributes-and-methods
-* basics: CRUD (seed) CQ (hooks)
-* Vincent beginners: re-read chapters 1-3, finish rest of book
-
-## done
-
+* _24_: rf
 * _21_: rf, DML
 * _20_: basics - CRUD (ORM, serialization, repl) env (conf, Docker) CQ (testing); DRF (views, nested serializers, testing, read_only) basic middleware to 403 req based on IP addr; tutorials https://wsvincent.com/django-rest-framework-tutorial/ https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api
 * _19_: Osborn hello web app
 * _18_: skim official tutorial and Ekker course, DRF and ORM at work
 
-# API
+# 🛰️ API
+
+## DRF
+
+📙 Vincent api
+
+* DRF caching https://www.screamingatmyscreen.com/caching-and-django-rest-framework
+* https://learndjango.com/tutorials/official-django-rest-framework-tutorial-beginners
+* refresh https://learndjango.com/tutorials/official-django-rest-framework-tutorial-beginners
+* https://www.youtube.com/watch?v=06DJBu1zwoY https://www.laceyhenschel.com/blog/2021/2/22/what-you-should-know-about-drf-part-1-modelviewset-attributes-and-methods
+* https://github.com/hbakri/django-ninja-crud
+* serialization can be expensive, can drop when you need perf https://hakibenita.com/django-rest-framework-slow
+* exclude field https://www.django-rest-framework.org/community/3.4-announcement/#use-fields-or-exclude-on-serializer-classes
+* fields defaults to string https://www.django-rest-framework.org/tutorial/1-serialization/#creating-a-serializer-class
+* dataclasses https://github.com/oxan/djangorestframework-dataclasses
+* similar to Django forms
+```python
+class Thing(models.Model):
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    slug = models.SlugField(unique=True)
+
+class ThingForm(ModelForm):
+    class Meta:
+        model = Thing
+        fields = ('name', 'description')
+
+if request.method == 'POST':
+    form = ThingForm(data=request.POST, instance=thing)
+    if form.is_valid():
+        form.save()
+        return redirect('thing_detail', slug=thing.slug)
+```
 
 ## middleware
 
@@ -202,31 +173,6 @@ class Serializer:
         return super().to_internal_value(data)
 ```
 
-DRF
-* https://github.com/hbakri/django-ninja-crud
-* serialization can be expensive, can drop when you need perf https://hakibenita.com/django-rest-framework-slow
-* exclude field https://www.django-rest-framework.org/community/3.4-announcement/#use-fields-or-exclude-on-serializer-classes
-* fields defaults to string https://www.django-rest-framework.org/tutorial/1-serialization/#creating-a-serializer-class
-* dataclasses https://github.com/oxan/djangorestframework-dataclasses
-* similar to Django forms
-```python
-class Thing(models.Model):
-    name = models.CharField(max_length=255)
-    description = models.TextField()
-    slug = models.SlugField(unique=True)
-
-class ThingForm(ModelForm):
-    class Meta:
-        model = Thing
-        fields = ('name', 'description')
-
-if request.method == 'POST':
-    form = ThingForm(data=request.POST, instance=thing)
-    if form.is_valid():
-        form.save()
-        return redirect('thing_detail', slug=thing.slug)
-```
-
 nested
 * `StringRelatedField` https://www.django-rest-framework.org/api-guide/relations/#stringrelatedfield https://stackoverflow.com/questions/31936401/string-related-field-in-djangorest https://github.com/zachvalenta/django-crud/commit/f0e1b0b4be18289d807e6b012c1ecc11cfa545ef#diff-39f8266a93579ae5dbdb3790c2bfda58R6
 * GET nested attr e.g. `parent/1/children` https://www.django-rest-framework.org/api-guide/relations/#custom-hyperlinked-fields https://stackoverflow.com/questions/62156484/drf-create-object-with-nested-serializers-and-foreign-keys
@@ -301,6 +247,14 @@ gui:
 
 🔗 https://spookylukey.github.io/django-views-the-right-way/
 
+* https://spookylukey.github.io/django-views-the-right-way/
+
+* get query string https://www.django-rest-framework.org/api-guide/filtering/#filtering-against-query-parameters
+```txt
+http://app.com/foo/?top=10
+request.query_params
+```
+
 status codes
 * 200: `HttpResponse` https://docs.djangoproject.com/en/3.1/ref/request-response/#httpresponse-objects
 * 500: `HttpResponseServerError` https://docs.djangoproject.com/en/3.1/ref/request-response/#django.http.HttpResponseServerError `Response(content, status=status.HTTP_500_INTERNAL_SERVER_ERROR)` https://www.django-rest-framework.org/api-guide/status-codes/#server-error-5xx
@@ -359,46 +313,22 @@ class IndexView(generic.ListView):
         return Question.objects.order_by('-pub_date')[:5]
 ```
 
-# DB
+# 🍱 DB
 
-📜 https://docs.djangoproject.com/en/3.2/#the-model-layer
-🔍
-* https://djangocentral.com/django-orm-cheatsheet/
-* https://books.agiliq.com/projects/django-orm-cookbook/en/latest/
+🗄 `sql.md` ORMs
 
-how to
-* ERD https://github.com/pikhovkin/django-schema-viewer
-* ❓ implicit queries https://news.ycombinator.com/item?id=34936023
-* GeneratedField https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/
-* catch dirty model instances https://github.com/romgar/django-dirtyfields
-* anonymize data https://github.com/Tesorio/django-anon
-* audit table https://github.com/jazzband/django-simple-history
-* graph ER model https://github.com/meshy/django-schema-graph/
-* generate view from queryset https://schinckel.net/2020/03/03/postgres-view-from-django-queryset
-* rich text / blob https://github.com/withlogicco/django-prose
-
-## design
-
-🗄 `db.md` ORM
-
-transactions 🗄 `db.md` consistency
-* enter atomic context:	`START TRANSACTION`
-* exit atomic context w/out exception: `COMMIT`
-* exit atomic context w/ exception: `ROLLBACK`
-* default is autocommit mode i.e. "Each query is immediately committed to the database, unless a transaction is active." https://docs.djangoproject.com/en/3.2/topics/db/transactions/#django-s-default-transaction-behavior
-* there is much more to learn https://charemza.name/blog/posts/django/postgres/transactions/not-as-atomic-as-you-may-think/
-
-flow http://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/
-* generates SQL
+FLOW http://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/
+* generates SQL i.e. lazy
 * exec
 * deserialize result set into Py obj
 * update/save Py obj in mem
 * `UPDATE` in SQL
 
-misc
+---
+
 * https://github.com/wagtail/queryish
 * _F expression_: perform SQL operation without serializing data into Python obj first https://docs.djangoproject.com/en/3.1/ref/models/expressions/#f-expressions
-* lazy evaluation https://docs.djangoproject.com/en/3.1/topics/db/queries/#querysets-are-lazy https://davit.tech/django-queryset-examples/#section-contents
+* lazy evaluation https://docs.djangoproject.com/en/3.1/topics/db/queries/#querysets-are-lazy https://davit.tech/django-queryset-examples/#section-contents dangerous for property calls https://news.ycombinator.com/item?id=38518978
 ```python
 qs = Foo.objects.all()  # no eval
 qs.filter(foo='foo val')  # no eval
@@ -412,15 +342,41 @@ session.query(Book).join(Book, Author).filter(Author.age==27)
 Book.objects.filter(author__age=27)
 ```
 
+TRANSACTIONS 🗄 `db.md` consistency
+* enter atomic context:	`START TRANSACTION`
+* exit atomic context w/out exception: `COMMIT`
+* exit atomic context w/ exception: `ROLLBACK`
+* default is autocommit mode i.e. "Each query is immediately committed to the database, unless a transaction is active." https://docs.djangoproject.com/en/3.2/topics/db/transactions/#django-s-default-transaction-behavior
+* there is much more to learn https://charemza.name/blog/posts/django/postgres/transactions/not-as-atomic-as-you-may-think/
+
+📜 https://docs.djangoproject.com/en/3.2/#the-model-layer
+🔍
+* https://djangocentral.com/django-orm-cheatsheet/
+* https://books.agiliq.com/projects/django-orm-cookbook/en/latest/
+
+* https://github.com/dabapps/django-zen-queries
+> QuerySets are lazy – the act of creating a QuerySet doesn’t involve any database activity. You can stack filters together all day long, and Django won’t actually run the query until the QuerySet is evaluated. https://docs.djangoproject.com/en/3.1/topics/db/queries/#querysets-are-lazy
+how to
+* http://blog.abedmaatalla.me/2020/12/django-orm-optimization-tips.html
+* ERD https://github.com/pikhovkin/django-schema-viewer
+* ❓ implicit queries https://news.ycombinator.com/item?id=34936023
+* GeneratedField https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/
+* catch dirty model instances https://github.com/romgar/django-dirtyfields
+* anonymize data https://github.com/Tesorio/django-anon
+* audit table https://github.com/jazzband/django-simple-history https://github.com/jazzband/django-auditlog
+* graph ER model https://github.com/meshy/django-schema-graph/
+* generate view from queryset https://schinckel.net/2020/03/03/postgres-view-from-django-queryset
+* rich text / blob https://github.com/withlogicco/django-prose
+
 ## admin
 
+* https://github.com/simonw/django-sql-dashboard
 * https://roman.pt/posts/django-admin-and-service-layer/
 * https://testdriven.io/blog/customize-django-admin/
 * https://github.com/koleror/django-admin-views
 * https://www.youtube.com/watch?v=CgJziscOafw
 * https://news.ycombinator.com/item?id=30321330
 * db GUI [Osborn 1.6.37]
-* _Django SQL Dashboard_: datasette + visualization
 * styling won't work unless `debug=True` https://stackoverflow.com/a/50868962
 * register model w/ `admin.py` https://books.agiliq.com/projects/django-admin-cookbook/en/latest/
 * for analytics https://github.com/otto-torino/django-baton
@@ -429,6 +385,7 @@ Book.objects.filter(author__age=27)
 
 ## DDL
 
+* https://blog.bmispelon.rocks/articles/2024/2024-05-09-django-getting-a-full-model-instance-from-a-subquery.html
 * create uuid for record for API https://0of1.com/blog/posts/django-staples/
 * phone numbers https://0of1.com/blog/posts/django-staples
 * make everything read-only https://github.com/adamchainz/django-read-only
@@ -505,6 +462,8 @@ class Post(models.Model):
 
 ## DML
 
+* check column present: `Foo.objects.filter(col__isnull=False)`
+* https://johnnymetz.com/posts/slow-django-database-queries/
 clean up
 * select related, prefetch related https://www.youtube.com/watch?v=TzgZBg7oXNA
 * use count instead of len() https://docs.djangoproject.com/en/3.2/ref/models/querysets/#django.db.models.query.QuerySet.count
@@ -579,11 +538,12 @@ migrate <app> <num>  # rollback
 migrate <app>        # reapply
 ```
 clean up
+* https://www.youtube.com/watch?v=mnr_fJhbMzc
 * https://django-migration-zero.readthedocs.io/en/latest/
 * https://docs.djangoproject.com/en/3.0/howto/initial-data/
 * https://github.com/Brobin/django-seed https://eli.thegreenplace.net/2014/02/15/programmatically-populating-a-django-database
 * https://eli.thegreenplace.net/2014/02/20/clearing-the-database-with-django-commands
-* https://www.mattlayman.com/blog/2020/django-testing-toolbox/
+* https://www.mattlayman.com/blog/2020/django-testing-toolbox/ factory boy https://djangotricks.blogspot.com/2024/05/generating-fake-django-model-instances-with-factory-boy.html
 * https://jefftriplett.com/2020/how-do-i-test-1000-objects-in-django https://github.com/model-bakers/model_bakery
 * https://kite.com/blog/python/django-database-migrations-overview/ https://realpython.com/django-migrations-a-primer https://realpython.com/digging-deeper-into-migrations/
 * https://www.mattlayman.com/understand-django/test-your-apps/
@@ -634,83 +594,32 @@ rollback
 misc
 * _ordering issues_: make db changes on local, generate a new migration script `001-foo`, at some later point pull in `develop` and there's already `001-bar` migration and Django complains about `001-foo`, solve by rm `001-bar` and running `make makemigrations` then `make migrate`
 
-# ZA
+# 🟨 ZA
 
-* core dev https://marijkeluttekes.dev/blog/articles/2024/01/25/a-simple-approach-to-running-django-core-locally/
-* pre-commit https://learndjango.com/tutorials/pre-commit-django
-* internationalization https://testdriven.io/blog/multiple-languages-in-django/
-* profiling, startup https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
-* alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016
-* codebases: https://github.com/python/pythondotorg
-* deployment: https://github.com/PaulleDemon/AWS-deployment
-* GraphQL: https://github.com/PaulGilmartin/graph_wrap
-* reload: watchman instead of django file watcher https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman/ https://github.com/adamchainz/django-browser-reload
-* _signals_: send message before/after somethings been done, pass info btw separate Django apps (pre/post-save) https://stackoverflow.com/a/17658156 hooks as replacement https://monadical.com/posts/django-packages.html https://www.mattlayman.com/blog/2023/django-signals-async/
-* versions: https://www.codestasis.com/
-
-COMMUNITY
+📰 GOVERNANCE / COMMUNITY
 * creators: Simon https://news.ycombinator.com/user?id=simonw Adrian https://www.soundslice.com/ Jacob https://jacobian.org/ Andrew Godwin (did south and migrations)
+* versions: https://www.codestasis.com/
+* alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016
 * _DSF_: admin https://wsvincent.com/how-django-works-behind-the-scenes/ 501 non-profit https://www.b-list.org/weblog/2018/nov/20/core/
 * _DEP_: PEP for Django https://github.com/django/deps
 * _fellows_: paid devs https://www.b-list.org/weblog/2018/nov/20/core/
 * _technical board_: engineering; replaced core teams https://jacobian.org/2020/mar/12/django-governance/
 
-DEV SERVER ON REMOTE
-* start cmd: `python manage.py runserver 0.0.0.0:8000`
-* `ALLOWED_HOSTS`: if running on server need to add hostname; `localhost` seems to be implicit https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts https://stackoverflow.com/a/46443432/6813490
-* Docker: set `DEBUG=False` https://stackoverflow.com/a/60832028
+SIGNALS https://docs.djangoproject.com/en/5.0/topics/signals/
+* _signals_: emit/consume msgs (btw separate Django apps) e.g. pre/post-save https://stackoverflow.com/a/17658156
+* are not async i.e. consumer(s) must finish before further execution https://www.mattlayman.com/blog/2023/django-signals-async/
+* hooks as replacement https://monadical.com/posts/django-packages.html
 
-SECURITY https://snyk.io/blog/django-security-tips
-* throttle auth
-* don't use raw queries
-* cookies over HTTPS
-* no user uploads
-* mv admin url from `/admin/`; csrf = necessary for stuff w/ `POST` [📙 Osborn 1 9.59] 
-* https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/web_application_security
-* https://www.mattlayman.com/understand-django/secure-apps
-* https://www.ponycheckup.com/ https://www.youtube.com/watch?v=8W4MGggwgfM https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/web_application_security generate secret key https://humberto.io/blog/tldr-generate-django-secret-key https://github.com/jamesturk/django-honeypot https://learndjango.com/tutorials/django-search-tutorial
+---
 
-SHELL
-* kill server: https://startcodingnow.com/kill-django-development-server
-```sh
-ps aux | head --lines=1 && ps aux | grep 'manage.py runserver' | kill
-```
-* run script: `./manage.py shell < myscript.py` https://stackoverflow.com/a/16853799
-* run script w/ env: https://django-extensions.readthedocs.io/en/latest/runscript.html https://www.b-list.org/weblog/2007/sep/22/standalone-django-scripts/
-* autload models: `poetry run python manage.py shell_plus --bpython` https://django-extensions.readthedocs.io/en/latest/shell_plus.html
-* `dbshell`: passes env var from `settings.py` to default CLI for dbms; https://github.com/dbcli/pgcli.com/blob/2f7a5aac0a9f5fa81670019301a12e9394a416da/content/django-pgcli.md 
-
-STATIC FILES
-* `collectstatic`: rifle through `static` of each app and copy assets to project-level `static` https://www.smashingmagazine.com/2020/06/django-highlights-wrangling-static-assets-media-files-part-4/
-* default is app-level `static` dir but everyone uses project-level directory `static` dir
-* in production: WhiteNoise handles first request and subsequent hit Cloudflare cache https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#49:30 S3 https://0of1.com/blog/posts/django-staples/ https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/ https://www.youtube.com/watch?v=E613X3RBegI more cache https://testdriven.io/blog/django-low-level-cache https://news.ycombinator.com/item?id=30324608
-```python
-# this is where admin static images are located -> django/contrib/admin/static/admin/img/icon-addlink.svg
-# idk how it works but maybe something to do with installed_apps
-INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.staticfiles",
-]
-```
-
-STRUCTURE
-* https://noumenal.es/notes/django/single-folder-layout/
-* `django-admin`: CLI for project https://docs.djangoproject.com/en/3.0/ref/django-admin/
-* `manage.py`: CLI for app https://docs.djangoproject.com/en/3.0/ref/django-admin/
-* _project_: thing w/ settings.py https://stackoverflow.com/q/50090341 create (`django-admin startproject <name> .`)
-* _app_: unit of functionality https://forum.djangoproject.com/t/why-do-we-need-apps/827 don't overdo it https://news.ycombinator.com/item?id=26492798
-* check https://docs.djangoproject.com/en/3.0/ref/django-admin/#check https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
-* different ways to structure https://learndjango.com/tutorials/hello-world-5-different-ways
-* create `django-admin startapp <name>` https://hellowebbooks.com/setup/ `python manage.py startapp <name>` https://djangoforbeginners.com/hello-world/
-* multiple ways to register app with project https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api https://wsvincent.com/django-rest-framework-tutorial/
-* naming conventions https://stackoverflow.com/a/3101894
-* people are too keen to make everything an app https://news.ycombinator.com/item?id=26492043
-* API in own app https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api in main app https://wsvincent.com/django-rest-framework-tutorial/
+* deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge
 
 ## auth
 
+* auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas https://testdriven.io/blog/django-rest-authjs/
 * keep track of failed logins https://github.com/jazzband/django-axes
 https://testdriven.io/blog/django-rest-auth/
+https://www.photondesigner.com/articles/email-sign-in
 
 VINCENT
 * basic https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication https://tech.marksblogg.com/passwords-in-django.html
@@ -823,10 +732,55 @@ if os.getenv("APP_ENV") == "prod":
     }
 ```
 
+## design
+
+https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
+https://lukeplant.me.uk/blog/posts/mvc-is-not-a-helpful-analogy-for-django/
+https://lukeplant.me.uk/
+
+## dev env
+
+---
+
+https://blog.pecar.me/django-tui
+* https://adamj.eu/tech/2021/12/08/pre-order-boost-your-django-dx/
+* https://blog.ovalerio.net/archives/2420
+* reload: watchman instead of django file watcher https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman/ https://github.com/adamchainz/django-browser-reload
+
+DEV SERVER ON REMOTE
+* start cmd: `python manage.py runserver 0.0.0.0:8000`
+* `ALLOWED_HOSTS`: if running on server need to add hostname; `localhost` seems to be implicit https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts https://stackoverflow.com/a/46443432/6813490
+* Docker: set `DEBUG=False` https://stackoverflow.com/a/60832028
+
+🚢 DOCKER
+* https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
+* https://www.untangled.dev/2020/06/06/docker-django-local-dev
+* https://testdriven.io/courses/tdd-django
+* https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
+* https://github.com/godd0t/django-docker-quickstart
+
+🐚 SHELL
+* kill server: https://startcodingnow.com/kill-django-development-server
+```sh
+ps aux | head --lines=1 && ps aux | grep 'manage.py runserver' | kill
+```
+* run script: `./manage.py shell < myscript.py` https://stackoverflow.com/a/16853799
+* run script w/ env: https://django-extensions.readthedocs.io/en/latest/runscript.html https://www.b-list.org/weblog/2007/sep/22/standalone-django-scripts/
+* autload models: `poetry run python manage.py shell_plus --bpython` https://django-extensions.readthedocs.io/en/latest/shell_plus.html
+* `dbshell`: passes env var from `settings.py` to default CLI for dbms; https://github.com/dbcli/pgcli.com/blob/2f7a5aac0a9f5fa81670019301a12e9394a416da/content/django-pgcli.md 
+
+🩻 SYSTEM CHECK
+* https://github.com/metalogico/django-sonar
+* https://adamj.eu/tech/2024/03/23/django-optimizing-system-checks/
+* introspection for coding standards https://lukeplant.me.uk/blog/posts/enforcing-conventions-in-django-projects-with-introspection/
+* https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
+
 ## libs
 
 🔍 https://learndjango.com/tutorials/essential-django-3rd-party-packages
 
+* extensions https://monadical.com/posts/django-packages.html
+https://learndjango.com/tutorials/essential-django-3rd-party-packages
 https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-django
 
 * _3rd-party apps_: anything installed by adding to `settings.py/INSTALLED_APPS` https://djangopackages.org https://realpython.com/installable-django-app/
@@ -836,10 +790,11 @@ https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-djan
 * _channels_: https://www.aeracode.org/2018/06/04/django-async-roadmap/ https://testdriven.io/blog/django-async-views/ https://www.youtube.com/watch?v=j6IOuD5WD8c https://testdriven.io/courses/real-time-app-with-django-channels-and-angular/ https://testdriven.io/courses/real-time-app-with-django-channels-and-angular kinda live Phoenix LiveView? https://github.com/edelvalle/reactor https://runninginproduction.com/podcast/11-logflare-is-a-log-management-and-event-analytics-platform
 * _CORS_: https://github.com/adamchainz/django-cors-headers
 * _debug_ https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
-* _Docker_: https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/ https://www.untangled.dev/2020/06/06/docker-django-local-dev https://testdriven.io/courses/tdd-django https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
-* _email_: https://learndjango.com/tutorials/django-email-contact-form
+* _editor_: https://406.ch/writing/django-prose-editor-prose-editing-component-for-the-django-admin/
+* _email_: https://learndjango.com/tutorials/django-email-contact-form https://softwarecrafts.co.uk/100-words/day-76
 * _favicon_: https://learndjango.com/tutorials/django-favicon-tutorial
 * _internals_: https://djangodeconstructed.com/ how do class names (`PasswordChangeView`) resolve to import names (`from django.contrib.auth.views import password_change`)?
+* _internationalization_: https://testdriven.io/blog/multiple-languages-in-django/
 * _logging_: https://mattsegal.dev/django-gunicorn-nginx-logging.html https://djangodeconstructed.com/2018/12/18/django-and-python-logging-in-plain-english/ https://www.willmcgugan.com/blog/tech/post/richer-django-logging
 * _maps_: https://www.paulox.net/2020/12/08/maps-with-django-part-1-geodjango-spatialite-and-leaflet/
 * _Markdown_: https://learndjango.com/tutorials/django-markdown-tutorial
@@ -855,8 +810,53 @@ https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-djan
 * _tracing_: https://github.com/dabapps/django-log-request-id
 * _type checking_ https://sobolevn.me/2019/08/typechecking-django-and-drf
 
+## project structure
+
+* https://www.mostlypython.com/django-from-first-principles/ https://news.ycombinator.com/item?id=40140396
+* https://noumenal.es/notes/django/single-folder-layout/
+* `django-admin`: CLI for project https://docs.djangoproject.com/en/3.0/ref/django-admin/
+* `manage.py`: CLI for app https://docs.djangoproject.com/en/3.0/ref/django-admin/
+* _project_: thing w/ settings.py https://stackoverflow.com/q/50090341 create (`django-admin startproject <name> .`)
+* _app_: unit of functionality https://forum.djangoproject.com/t/why-do-we-need-apps/827 don't overdo it https://news.ycombinator.com/item?id=26492798
+* check https://docs.djangoproject.com/en/3.0/ref/django-admin/#check https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
+* different ways to structure https://learndjango.com/tutorials/hello-world-5-different-ways
+* create `django-admin startapp <name>` https://hellowebbooks.com/setup/ `python manage.py startapp <name>` https://djangoforbeginners.com/hello-world/
+* multiple ways to register app with project https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api https://wsvincent.com/django-rest-framework-tutorial/
+* naming conventions https://stackoverflow.com/a/3101894
+* people are too keen to make everything an app https://news.ycombinator.com/item?id=26492043
+* API in own app https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api in main app https://wsvincent.com/django-rest-framework-tutorial/
+
+## security
+
+---
+
+https://snyk.io/blog/django-security-tips
+* throttle auth
+* don't use raw queries
+* cookies over HTTPS
+* no user uploads https://news.ycombinator.com/item?id=40221210
+* mv admin url from `/admin/`; csrf = necessary for stuff w/ `POST` [📙 Osborn 1 9.59] 
+* https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/web_application_security
+* https://www.mattlayman.com/understand-django/secure-apps
+* https://www.ponycheckup.com/ https://www.youtube.com/watch?v=8W4MGggwgfM https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/web_application_security generate secret key https://humberto.io/blog/tldr-generate-django-secret-key https://github.com/jamesturk/django-honeypot https://learndjango.com/tutorials/django-search-tutorial
+
+## static files
+
+* `collectstatic`: rifle through `static` of each app and copy assets to project-level `static` https://www.smashingmagazine.com/2020/06/django-highlights-wrangling-static-assets-media-files-part-4/
+* default is app-level `static` dir but everyone uses project-level directory `static` dir
+* in production: WhiteNoise handles first request and subsequent hit Cloudflare cache https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#49:30 S3 https://0of1.com/blog/posts/django-staples/ https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/ https://www.youtube.com/watch?v=E613X3RBegI more cache https://testdriven.io/blog/django-low-level-cache https://news.ycombinator.com/item?id=30324608
+```python
+# this is where admin static images are located -> django/contrib/admin/static/admin/img/icon-addlink.svg
+# idk how it works but maybe something to do with installed_apps
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.staticfiles",
+]
+```
+
 ## templates
 
+* https://django-formset.fly.dev/
 * https://girlthatlovestocode.com/django-template-tags
 * charting https://www.youtube.com/watch?v=B4Vmm3yZPgc
 * linting https://github.com/thibaudcolas/curlylint

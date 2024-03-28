@@ -13,6 +13,8 @@
 
 ## now
 
+https://github.com/mrjackwills/oxker
+
 ## next
 
 ---
@@ -586,12 +588,13 @@ DESIGN
 * easy to see exact state of all services https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
 * use when you have more services than docker-compose
 > Kubernetes sees itself as solving a problem statement closer to "CloudFormation" - in the sense that it wants to be sufficient to define your entire infrastructure - except that it also attempts to do so in a way that is generic over the underlying cloud provider or hardware. https://buttondown.email/nelhage/archive/two-reasons-kubernetes-is-so-complex/
-* complexity https://k8s.af/ easier if managed https://news.ycombinator.com/item?id=22491794
+* complexity https://k8s.af/ easier if managed https://news.ycombinator.com/item?id=22491794 https://www.lastweekinaws.com/blog/the-baffling-maze-of-kubernetes/ https://www.lastweekinaws.com/blog/a-brief-history-of-kubernetes-its-use-cases-and-its-problems/ https://www.lastweekinaws.com/blog/how-to-learn-something-new-kubernetes-the-much-harder-way/
 * history: emerges from Borg (C++ 100M LOC) and moved to Linux Foundation (CNCF) in 2014
 * previous competition: Swarm, Mesos, Nomad, Marathon https://technodrone.blogspot.com/2019/02/goodbye-docker-and-thanks-for-all-fish.html
 
 UTIL
 * https://www.faizanbashir.me/interacting-with-kubernetes-deployments-and-services-using-python-sdk
+* https://terminaltrove.com/kubecolor/
 * GUI https://aptakube.com/
 * _caretta_: dependency map https://github.com/groundcover-com/caretta
 * _minikube_: run locally https://kubernetes.io/docs/tasks/tools/#minikube

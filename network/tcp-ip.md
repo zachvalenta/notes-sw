@@ -2,6 +2,7 @@
 
 # 参考
 
+https://en.wikipedia.org/wiki/Internet_protocol_suite
 📚 
 * https://explained-from-first-principles.com/internet
 * https://intronetworks.cs.luc.edu/
@@ -110,6 +111,7 @@ models
 
 ---
 
+* port viewer https://github.com/allyring/pvw
 * nc/netcat: check if TCP/UDP port is open
 * _tc_: add network latency
 * _ARP_: 🗄 `practical-packet-analysis.pdf` chapter 6

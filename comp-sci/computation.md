@@ -36,7 +36,7 @@
 * _14_: Gleick the information
 * _11_: Hillis pattern in the stone
 
-# FOUNDATIONS
+# 🪨 FOUNDATIONS
 
 📙 Conery ch. 1-4
 
@@ -70,6 +70,7 @@ COMPRESSION
 * https://www.destroyallsoftware.com/screencasts/catalog https://go-compression.github.io/ Grudzinski 40
 * MacCormick chapter 7
 * https://tech.marksblogg.com/minimalist-guide-compression.html
+* video streaming https://news.ycombinator.com/item?id=40408515
 
 ENTROPY
 > got here from "how to create session ID in Python?" 🗄 `http.md` https://stackoverflow.com/questions/817882/unique-session-id-in-python https://unix.stackexchange.com/a/361789
@@ -144,7 +145,7 @@ STATE MACHINE
 * DFA https://en.wikipedia.org/wiki/Deterministic_finite_automaton
 * state machine replication https://signalsandthreads.com/state-machine-replication-and-why-you-should-care/
 
-# HARDWARE
+# 💻 HARDWARE
 
 🗄 `science.md` electricity
 📚
@@ -273,7 +274,7 @@ ALU
 * _ALU_: executes on opcode [Manga 1.23] https://en.wikipedia.org/wiki/Arithmetic_logic_unit#Implementation
 * _opcode_: operator and operand https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ https://tech.marksblogg.com/faster-python.html
 * _data path_: how much data moves around circuit e.g. computer data pathes generally 1 byte wide [Petzold 180]
-* _cache_: caches RAM for processor, needs a few more cycles to read than registers https://www.reddit.com/r/compsci/comments/95ns21/what_is_difference_between_register_and_l1_cache/e3u4tlt e.g. L1 cache https://www.ardanlabs.com/blog/2023/07/getting-friendly-with-cpu-caches.html
+* _cache_: caches RAM for processor, needs a few more cycles to read than registers https://www.reddit.com/r/compsci/comments/95ns21/what_is_difference_between_register_and_l1_cache/e3u4tlt e.g. L1 cache https://www.ardanlabs.com/blog/2023/07/getting-friendly-with-cpu-caches.html https://news.ycombinator.com/item?id=40365248
 * _register_: internal to processor i.e. not memory https://stackoverflow.com/a/9287273 size can vary on data type held e.g. 80 bits for floating point https://lock.cmpxchg8b.com/zenbleed.html
 
 ISA 📙 Bryant ch. 4 https://en.wikipedia.org/wiki/Instruction_set_architecture
@@ -302,7 +303,7 @@ scheduling 🗄 `linux.md` processes
 * _chip_: piece of silicon holding approx B transistor; made by Intel, ARM, AMD, Qualcomm
 * _processor_: main chip https://blog.robertelder.org/how-to-make-a-cpu/
 * _chip set_: other chips that help out processor
-* _motherboard_: aka PCB; holds chips; made of fiberglass
+* _PCB_: holds chips and all the wiring; made of fiberglass; motherboartd is a type of https://www.youtube.com/watch?v=Z2LgmIGE2nI
 * _trace_: copper wires carrying electricity around PCB
 
 operations
@@ -342,7 +343,7 @@ operations
 | long-term | -           | https://archiveprogram.github.com/ https://spectrum.ieee.org/computing/hardware/why-the-future-of-data-storage-is-still-magnetic-tape
 | --------- | ----------- | ------------------------- 
 
-# PROTOCOLS
+# 🛰️ PROTOCOLS
 
 > serialization, numeral systems, and ascii should be grouped, but not sure whether it should be under protocol or encoding or what
 
@@ -395,6 +396,8 @@ semantics
 ## encoding
 
 ---
+
+https://github.com/abhimanyu003/sttr
 
 * encoding 📙 Bryant computer systems chapter 1
 
@@ -479,9 +482,10 @@ prefix codes https://gist.github.com/joepie91/26579e2f73ad903144dd5d75e2f03d83
 * `\n`: new line
 * `\t`: in a string literal is an escape sequence for tab character, horizontal whitespace, ASCII codepoint 9 https://stackoverflow.com/a/22116523/6813490
 
+https://terminaltrove.com/lemmeknow/
 * _ASCII_: mapping from number to glyph (char) 📍 Petzold 15.181, computerphile 📚 Petzold code ch. 20 https://www.youtube.com/watch?v=XaGXPObx2Gs from pre 8-bit era; `man ascii` https://increment.com/programming-languages/unplain-text-primer-on-non-latin/ can use hex as repr https://github.com/GNOME/ghex
 * https://bestasciitable.com/
-* _UTF8_: multi-byte i.e. characters outside of English just get more bytes thrown at them https://sethmlarson.dev/blog/utf-8 https://news.ycombinator.com/item?id=30259097
+* _UTF8_: multi-byte i.e. characters outside of English just get more bytes thrown at them https://sethmlarson.dev/blog/utf-8 https://news.ycombinator.com/item?id=30259097 https://viralinstruction.com/posts/utf8/
 * _Unicode_: char set https://stackoverflow.com/a/13212528/6813490 https://github.com/arp242/uni https://www.youtube.com/watch?v=MijmeoH9LT4 https://rentafounder.com/how-to-count-unicode-string-characters/ https://www.dampfkraft.com/ghost-characters.html code point, glyph, octal, hex https://realpython.com/courses/python-unicode/ `unicode-standard.pdf` https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/ https://en.wikipedia.org/wiki/Code_point CLI tool https://github.com/arp242/uni/ in Python https://blog.phylum.io/malicious-actors-use-unicode-support-in-python-to-evade-detection https://news.ycombinator.com/item?id=37735801 https://realpython.com/python-sort-unicode-strings/
 * unicode, emoji in the terminal https://news.ycombinator.com/item?id=37047785
 > Since the distinction between string and unicode has been done away with in Python 3, __unicode__ is gone and __bytes__ (which behaves similarly to __str__ and __unicode__ in 2.7) exists for a new built-in for constructing byte arrays. https://rszalski.github.io/magicmethods/#appendix2
@@ -545,7 +549,7 @@ decimal in binary
 * _unsigned_: positive
 * _signed_: positive and negative; can reserve leftmost bit for sign https://www.interviewcake.com/article/python3/data-structures-coding-interview#binary-numbers
 * _fixed width_: has specific size e.g. 32 or 64 bits https://www.interviewcake.com/article/python3/data-structures-coding-interview#fixed-width-nums
-* _floating point_: 1,230,000 as 1.23 (significand) * 10^6 (exponent) w/ significand as always greater than 1 but less than 2 [manga 42-3]; faster for CPU computation; makes getting a high-level language to behave like your desktop calculator more difficult than you'd expect https://stefanoborini.com/why-01-plus-02-is-not-03-in-python/ https://docs.python.org/3/tutorial/floatingpoint.html https://stackoverflow.com/a/46700365/6813490 https://stackoverflow.com/a/50340297/6813490 https://0.30000000000000004.com/ fractions also get weird, too https://orbifold.xyz/numbers.html 📜 Van Rossum ch. 8 https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/ https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/ https://wizardzines.com/zines/integers-floats/
+* _floating point_: 1,230,000 as 1.23 (significand) * 10^6 (exponent) w/ significand as always greater than 1 but less than 2 [manga 42-3]; faster for CPU computation; makes getting a high-level language to behave like your desktop calculator more difficult than you'd expect https://stefanoborini.com/why-01-plus-02-is-not-03-in-python/ https://docs.python.org/3/tutorial/floatingpoint.html https://stackoverflow.com/a/46700365/6813490 https://stackoverflow.com/a/50340297/6813490 https://0.30000000000000004.com/ fractions also get weird, too https://orbifold.xyz/numbers.html 📜 Van Rossum ch. 8 https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/ https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/ https://wizardzines.com/zines/integers-floats/ https://github.com/francisrstokes/githublog/blob/main/2024%2F5%2F29%2Ffast-inverse-sqrt.md
 > 10000 is 100%. We're using integers so that we're not using floats. Floats and money are a bad combination. https://jvns.ca/blog/2023/02/08/why-does-0-1-plus-0-2-equal-0-30000000000000004/
 > https://ciechanow.ski/exposing-floating-point/
 ```python
@@ -559,7 +563,7 @@ hex 📚 Petzold code ch. 15
 * _hexit_: hex digit (1 nybble) https://www.youtube.com/watch?v=dPxCGlW9lfM 4:30
 * used bc easier to convert to binary than decimal [Petzold code 181 https://www.youtube.com/watch?v=dPxCGlW9lfM 4:20]
 * _viewer_: https://github.com/sharkdp/hexyl https://github.com/wader/fq https://github.com/WerWolv/ImHex `hexdump -C <file>` https://www.youtube.com/watch?v=-eDY7yh-CyA 1:50
-* _editor_: online https://hexed.it/ macOS https://ridiculousfish.com/hexfiend/ hexedit https://news.ycombinator.com/item?id=23762626
+* _editor_: online https://hexed.it/ macOS https://ridiculousfish.com/hexfiend/ hexedit https://news.ycombinator.com/item?id=23762626 https://github.com/thetacom/hexabyte
 
 ## serialization
 
@@ -582,6 +586,7 @@ QUERY TOOLS
 * https://github.com/datafold/data-diff
 * https://github.com/mithrandie/csvq
 * https://github.com/dinedal/textql
+* https://github.com/noborus/trdsql
 
 JSON 📜 http://www.json.org/ https://seriot.ch/projects/parsing_json.html https://github.com/burningtree/awesome-json
 * benefits: readable, tooling, mindshare 📙 Jeffrey distributed [4]
@@ -606,7 +611,7 @@ JSON 📜 http://www.json.org/ https://seriot.ch/projects/parsing_json.html http
 }
 ```
 * fmt: `python3 -m json.tool music-lib.json > music-lib-fmt.json` https://orbifold.xyz/check-in-json.html
-* query: jq https://github.com/stedolan/jq clones https://github.com/01mf02/jaq mistql https://www.mistql.com/ duckdb https://duckdb.org/2023/03/03/json.html jsoncrack https://github.com/AykutSarac/jsoncrack.com 🗄 `db.md` SQLite / CLI
+* query: jq https://github.com/stedolan/jq using duckdb https://www.pgrs.net/2024/03/21/duckdb-as-the-new-jq/ https://news.ycombinator.com/item?id=35009612 jnv https://github.com/ynqa/jnv clones https://github.com/01mf02/jaq mistql https://www.mistql.com/ duckdb https://duckdb.org/2023/03/03/json.html jsoncrack https://github.com/AykutSarac/jsoncrack.com 🗄 `db.md` SQLite / CLI https://terminaltrove.com/jnv/
 ```sh
 # 📜 https://stedolan.github.io/jq/manual
 # 🔍 https://github.com/noahgorstein/jqp 
@@ -655,6 +660,7 @@ cat more-subs.json | jq '.[]|select(.num_receipts>0)|select(.is_migrated == true
 CSV 🗄 `db.md` munge 🛠 https://csvkit.readthedocs.io/en/latest/
 * query https://news.ycombinator.com/item?id=38889820 https://github.com/jqnatividad/qsv
 * better for streaming bc each line of file is valid CSV (unlike JSON) https://jfhr.me/consider-using-csv/
+* bat https://github.com/YS-L/csvlens
 * editor https://www.moderncsv.com/
 * diff https://github.com/aswinkarthik/csvdiff
 * _DSV_: same as `.dat` https://en.wikipedia.org/wiki/Delimiter-separated_values https://www.thoughtspot.com/blog/csv-vs-delimited-flat-files-how-choose
@@ -672,7 +678,7 @@ BINARY
 * used more for internal services 📙 Jeffrey distributed [5]
 * db res in binary which is parsed by language-specific API 📙 Kleppmann 4.128
 📙 Kleppmann 4.117, 4.122, 4.130
-* _Arrow_: https://github.com/adriangb/pgpq relationship to Pandas https://news.ycombinator.com/item?id=34968769 https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i
+* _Arrow_: in-memory format https://news.ycombinator.com/item?id=29010103 https://github.com/adriangb/pgpq relationship to Pandas https://news.ycombinator.com/item?id=34968769 https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i
 * _Avro_: serialization format https://avro.apache.org/docs/current/
 * better than CSV bc handles typing, cells missing data
 * CSV disadvantages: inferred data types https://www.youtube.com/watch?v=SZX9DM_gyOE 1:20
@@ -695,9 +701,10 @@ BINARY
 
 PARQUET
 * https://pythonspeed.com/articles/best-file-format-for-pandas/
-* _Parquet_: column-oriented file format, like CSV https://www.youtube.com/watch?v=H_dLfHETO0g https://news.ycombinator.com/item?id=35418933
+* _Parquet_: column-oriented file format, like CSV https://www.youtube.com/watch?v=H_dLfHETO0g https://news.ycombinator.com/item?id=35418933 https://news.ycombinator.com/item?id=29010103
 * easier to use now vs. CSV https://news.ycombinator.com/item?id=30595026
 * use to build no-code API https://tech.marksblogg.com/roapi-rust-data-api.html
+* pyarrow https://www.blog.pythonlibrary.org/2024/05/06/how-to-read-and-write-parquet-files-with-python/
 
 XML
 * https://news.ycombinator.com/item?id=35467711

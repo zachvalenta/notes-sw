@@ -1,9 +1,7 @@
-# 开
+# ⛩️
 
 ## 参考
 
-🗄 `system.md` distributed
-🧠 https://www.hytradboi.com/
 🔍 
 * https://dba.stackexchange.com
 * https://roadmap.sh/postgresql-dba
@@ -12,24 +10,7 @@
 * Kleppmann data intensive applications
 * Takahashi manga databases
 
-## now
-
-## next
-
----
-
-* db: Conery + query sandbox
-https://tedconbeer.com/ https://github.com/ankane/blazer
-
-* diff: compare queries across dbms https://github.com/rickbergfalk/sqlpad compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
-* https://tontinton.com/posts/database-fundementals/
-* https://jepsen.io/analyses/mysql-8.0.34
-* query everything https://www.hytradboi.com/2022/how-to-query-almost-everything
-* Carnegie Mellon, Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf
-* _vector_: for recommendation systems, NLP https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/
-* https://www.thenile.dev/blog/things-dbs-dont-do
-
-## done
+## 进步
 
 * _24_: try harlequin
 * _22_: basic xsv/miller/Pandas
@@ -40,10 +21,12 @@ https://tedconbeer.com/ https://github.com/ankane/blazer
 # 🏗️ DATA ENG
 
 🗄
-* `algos.md` ML / data science
 * `infra.md` queues
 
 TYPES OF DATA
+* _hot storage_: in-mem
+* _cold storage_: analytics, archives https://github.com/tembo-io/pg_tier
+* _data tiering_: moving cold data to (cheaper) cold storage https://github.com/tembo-io/pg_tier
 * _dataset_: actual data (vs. schema) https://pgexercises.com/gettingstarted.html
 * _dummy data_: fake/seed data for development; https://github.com/zachvalenta/flask-CRUD/blob/master/db_seed.py https://github.com/joke2k/faker#providers https://mimesis.name/ https://mockaroo.com/ https://github.com/Qovery/replibyte
 * _synthetic data_: real data but anonymized https://softwareengineeringdaily.com/2021/02/16/synthetic-data-with-ian-coe-andrew-colombi-and-adam-kamor/ https://gretel.ai/blog/what-is-synthetic-data
@@ -80,8 +63,24 @@ BACKUPS 🗄 `it.md` backups `system.md` data
 * _reliability_: data available
 * _redundant_: same data stored multiple places e.g. RAID https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
 
+TRADITIONAL DBA https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/
+* install dbms
+* maintenance
+* monitoring
+* security patches
+* make backups
+
 ---
 
+* start with data eng https://uwekorn.com/2019/10/19/taking-duckdb-for-a-spin.html https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html facets https://datasette.io/for/exploratory-analysis plugins https://datasette.io/tools https://datasette.io/plugins Timescale https://aliramadhan.me/2024/03/31/trillion-rows.html https://www.freecodecamp.org/learn/data-analysis-with-python/#data-analysis-with-python-course https://www.youtube.com/watch?v=v65n9yQWfVs https://www.youtube.com/watch?v=qowFCmaNFp4
+* https://www.thenile.dev/blog/things-dbs-dont-do
+* Conery + query sandbox https://tedconbeer.com/ https://github.com/ankane/blazer
+* https://news.ycombinator.com/item?id=40488844&utm_term=comment
+* datagolf https://datagolf.com/tour-standings https://datagolf.com/field-updates https://datagolf.com/datagolf-rankings https://datagolf.com/api-access
+> https://www.linkedin.com/in/matthew-courchene-2a19587b/ https://www.globalgolfpost.com/featured/data-gold/ https://www.sloansportsconference.com/people/matthew-courchene https://golf.com/news/features/data-golf-analytics-new-level-pay-attention-gamblers/ https://twitter.com/DataGolf/status/1779890636537094231
+> read on sports better, stats
+
+* steampipe https://news.ycombinator.com/item?id=40343131
 * https://news.ycombinator.com/item?id=39338626
 * data eng https://news.ycombinator.com/item?id=37222191
 * https://news.ycombinator.com/item?id=35478240
@@ -92,8 +91,9 @@ BACKUPS 🗄 `it.md` backups `system.md` data
 * https://www.crunchydata.com/blog/is-your-postgres-ready-for-production
 * https://news.ycombinator.com/item?id=35438192&utm_term=comment
 * https://github.com/calpaterson/csvbase
+* https://news.ycombinator.com/item?id=40352686
 
-industry
+INDUSTRY
 * _data engineer_: shepard (ETL) librarian (catalog) https://www.youtube.com/watch?v=qqlbYDfqeI4 1:45
 > But if data analytics usually means extracting insights from existing data, data engineering means the process of building infrastructure to deliver, store and process the data. https://khashtamov.com/en/how-to-become-a-data-engineer/
 * vs. web dev https://tech.marksblogg.com/is-hadoop-dead.html
@@ -138,6 +138,10 @@ TOOLS
 * files replicated across nodes (not all nodes; two additional copies)
 * _pyspark_: Python API to Spark https://www.youtube.com/watch?v=XrpSRCwISdk
 * _Spark_: Pandas + distributed
+* _RDD_: collection of obj https://www.youtube.com/watch?v=XrpSRCwISdk [3:30]
+* _dataframe_: table https://www.youtube.com/watch?v=XrpSRCwISdk [3:30]
+* architecture: driver/lib -> executor -> operates on data https://www.youtube.com/watch?v=XrpSRCwISdk [5:10]
+* similar interface as Pandas https://www.youtube.com/watch?v=XrpSRCwISdk [10:20]
 * used for ML https://tech.marksblogg.com/is-hadoop-dead.html
 * kinda part of Hadoop, kinda not https://tech.marksblogg.com/is-hadoop-dead.html
 > At some point, the Spark community tried to distance itself from the Hadoop ecosystem. They didn't want to be seen as built on legacy software nor as some sort of "add-on" for Hadoop. Given the level of integration, Spark has with the rest of the Hadoop ecosystem and given the 100s of libraries from other Hadoop projects being used by Spark I don't subscribe to the belief that Spark is its own thing.
@@ -145,10 +149,12 @@ TOOLS
 ## BI
 
 🗄
-* `algos.md` data science
+* `algos.md` ML / data science
 * `education.md` design / information design
-* `sql.md` munge
 
+* https://news.ycombinator.com/item?id=40132424&utm_term=comment https://hashquery.dev/ https://github.com/hashboard-hq/hashquery
+* data analyst tooling sucks as much as SQL vendors https://softwareengineeringdaily.com/2020/03/09/dbt-data-build-tool-with-tristan-handy/ 11:00 
+* _Lightdash_: BI for dbt https://github.com/lightdash/lightdash
 * Blazer https://github.com/ankane/blazer
 * reporting https://github.com/evidence-dev/evidence
 * _business intelligence (BI)_: exploration (for non-devs), reports
@@ -195,7 +201,7 @@ WAREHOUSE DBMS
 > I hear people arguing "a dataset can fit in memory". RAM capacity, even on the Cloud, has grown a lot recently. There are EC2 instances with 2 TB of RAM. RAM can typically be used at 12-25 GB/s depending on the architecture of your setup. Using RAM alone won't provide any failure recovery if the machine suffers a power failure. To add to this, the cost per GB will is tremendous compared to using disks. https://tech.marksblogg.com/is-hadoop-dead.html
 * can always use Postgres https://brandur.org/warehouse https://tech.marksblogg.com/billion-nyc-taxi-rides-postgresql.html https://news.ycombinator.com/item?id=27109960
 > I've also heard arguments that row-oriented systems like MySQL and PostgreSQL can fit the needs of analytical workloads as well as their traditional transactional workloads. Both of these offerings can do analytics and if you're looking at less than 20 GB of data it's probably not worth the effort of having multiple pieces of software running your data platform. https://tech.marksblogg.com/is-hadoop-dead.html
-* _DuckDB_: embedded https://duckdb.org/ https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/ https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf https://kadekillary.work/note/duckdb/ https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html https://news.ycombinator.com/item?id=39141652&utm_term=comment
+* _DuckDB_: embedded https://duckdb.org/ for analytics https://news.ycombinator.com/item?id=24531085 https://news.ycombinator.com/item?id=23287278 own flavor of SQL https://duckdb.org/2022/05/04/friendlier-sql.html https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/ https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf https://kadekillary.work/note/duckdb/ https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html https://news.ycombinator.com/item?id=39141652&utm_term=comment https://www.nikolasgoebel.com/2024/05/28/duckdb-doesnt-need-data.html
 * _Clickhouse_: https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html
 * _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
 * beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
@@ -263,7 +269,8 @@ TOOLS
 
 ---
 
-* Datomic (Hickey), datalog/prolog https://news.ycombinator.com/item?id=21742222 https://kevinlynagh.com/newsletter/2022_04_on_datalog_application_databases/ https://news.ycombinator.com/item?id=31154039 https://news.ycombinator.com/item?id=35094017 https://news.ycombinator.com/item?id=35727967 https://clojure.org/news/2023/08/04/next-rich
+* _vector_: for recommendation systems, NLP https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/
+* Datomic (Hickey), datalog/prolog https://news.ycombinator.com/item?id=21742222 https://kevinlynagh.com/newsletter/2022_04_on_datalog_application_databases/ https://news.ycombinator.com/item?id=31154039 https://news.ycombinator.com/item?id=35094017 https://news.ycombinator.com/item?id=35727967 https://clojure.org/news/2023/08/04/next-rich https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need
 * can be a problem is you need to change the PK https://calpaterson.com/non-relational-beartraps.html
 > Changing the primary key of a table is a surprisingly common activity. In truth, it's pretty easy to pick something that initially looks like it will be unique but which later turns out to not be unique...Unfortunately, in many non-relational database systems the primary key is "special". For example, Dynamo-style systems will use the primary key to decide which of the partitions the record will go on.
 * _polyglot persistence_: using multiple types of data stores 📙 Kleppmann 2.29 because choosing just one is no fun :) https://old.reddit.com/r/learnpython/comments/glbuog/whats_is_your_decision_process_between_csv_json/
@@ -340,23 +347,26 @@ HIERARCHICAL
 
 ## graph
 
-* _network database_: similar to graph https://stackoverflow.com/a/52325525 📙 Takahashi 2.39 anything that would have ever been network is now SQL https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37 📙 Kleppmann 2.36
+* _network database_: similar to graph https://stackoverflow.com/a/52325525 📙 Takahashi [2.39]
+* anything that would have ever been network is now SQL https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37 📙 Kleppmann [2.36]
 
-dbms
+DBMS
 * embedded w/ Datalog https://news.ycombinator.com/item?id=33518320 https://github.com/cozodb/cozo
 * Mongo offers as well https://www.mongodb.com/databases/mongodb-graph-database
 * SQLite, Postgres https://news.ycombinator.com/item?id=35386948
 * _Age_: Postgres extension https://github.com/apache/age
 * _Janus_: distributed, OSS https://github.com/JanusGraph/janusgraph
+* _SQLite_: https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need
 * _Tao_: distributed https://news.ycombinator.com/item?id=29045443 https://www.micahlerner.com/2021/10/13/tao-facebooks-distributed-data-store-for-the-social-graph.html
 
-query languages
+QUERY LANGUAGES
 * _Cypher_: declarative
 * _GQL_: emerging standard https://stackoverflow.com/q/13824962 https://www.youtube.com/watch?v=h8cyPIEfxQY 11:30
 * _Gremlin_: wrapper over Neo4J Java API
 
 ---
 
+* https://www.hytradboi.com/2022/how-to-query-almost-everything
 * https://www.kaseyklimes.com/notes/2019/10/16/an-augmented-mind-designing-a-personal-knowledge-base-with-notion
 * _use cases_: good at relationships btw heterogenous data ("does Alice follow Bob?") w/out a million joins  📙 Kleppmann 2.49, 2.63 bad at aggregates or anything that deals w/ a few attr over many records; used for networks (IAM, knowledge mgmt, Git, recommendation engine) https://www.youtube.com/watch?v=h8cyPIEfxQY 14:30
 * _dbms_: Tiger Graph, Dgraph https://softwareengineeringdaily.com/2021/01/19/dgraph-native-graphql-database-with-manish-jain/ Memgraph, Terminus db, Neo4J https://media.pragprog.com/titles/pwrdata/neo4j.pdf embedded https://github.com/CodyKochmann/graphdb https://github.com/dpapathanasiou/simple-graph cache for dgraph https://github.com/dgraph-io/ristretto
@@ -371,7 +381,23 @@ query languages
 
 ## key
 
-🗄 `system.md` distributed/consensus
+---
+
+REDIS 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
+* implementation http://aosabook.org/en/nosql.html
+* test/mock https://github.com/cunla/fakeredis-py
+* use Postgres as impl https://github.com/alash3al/redix
+* governance https://news.ycombinator.com/item?id=23689549
+* key expiration https://news.ycombinator.com/item?id=30099572
+* alternative https://github.com/dragonflydb/dragonfly https://github.com/buraksezer/olric#installing
+> You can either set Redis up as a "data-structures" server or you set it up right as a cache. You can't do both. If you choose to use Redis as your cache, ensure that the cache instance is only serving as your cache. Your inter-system message bus should be on a different Redis with a different configuration. https://calpaterson.com/ttl-hell.html
+
+MEMCACHED
+* _is?_: volatile cache https://news.ycombinator.com/item?id=23689549 aka application caching layer
+* _how?_: distributed hash table i.e. n instances of app share 1 distributed instance of memcached
+* _why?_: so you don't have to read from db
+* _disadvantages_: doesn't track cache misses; meant for simple data, not tables or objects; not durable http://aosabook.org/en/nosql.html
+* _sink_: https://realpython.com/python-memcache-efficient-caching/ https://github.com/thadeusb/flask-cache Django has OOB support for memcached https://docs.djangoproject.com/en/2.1/topics/cache/
 
 * _KV store_: hash map + persistence 📙 Kleppmann [72]
 * options: Redis, Bitcask
@@ -399,6 +425,7 @@ za
 * `infra.md` analytics
 
 todo
+* Postgres https://tembo.io/blog/pg-timeseries
 * https://www.youtube.com/watch?v=nT6UsVgJ0xw
 * https://www.youtube.com/watch?v=Z6pghPlZ1vQ
 * time-weighted average https://blog.timescale.com/blog/what-time-weighted-averages-are-and-why-you-should-care/?
@@ -426,43 +453,24 @@ dbms
 
 # 🔬️ PLUMBING
 
-📹 CMU https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi https://www.youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O
-📚
-* Suzuki postgres internals https://www.interdb.jp/pg/
-* Winand sql perf https://use-the-index-luke.com/
+📙 Petrov database internals
+🗄
+* `dbms.md` Postgres
+* `system.md` distributed
+
+---
+
+CMU https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi https://www.youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O
+
+https://supabase.com/blog/postgres-bloat
 
 * _correlation_: correlation btw storage on disk and order of rows https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
-* locks https://news.ycombinator.com/item?id=35981238&utm_term=comment
+* locks https://news.ycombinator.com/item?id=35981238&utm_term=comment https://leontrolski.github.io/pglockpy.html
 
 ASYNC
 * Django: not yet supported https://docs.djangoproject.com/en/3.2/topics/async/
 * Encode `databases`; adds async to SQLAlchemy https://www.encode.io/databases/database_queries/ https://fastapi.tiangolo.com/advanced/async-sql-databases/
 * Postgres: can use async functions that underly synchronous `PQexec` https://www.postgresql.org/docs/9.5/libpq-async.html
-
-BYO 📙 Dibernardo, Kleppmann
-* BYO dbms https://github.com/spandanb/learndb-py
-* https://build-your-own.org/database
-* https://build-your-own.org/
-* https://github.com/weinberg/SQLToy https://news.ycombinator.com/item?id=26811279 https://github.com/joaoh82/rust_sqlite https://github.com/auxten/go-sqldb https://github.com/erikgrinaker/toydb/blob/master/docs/references.md?utm_source=pocket_mylist https://github.com/codecrafters-io/build-your-own-x#build-your-own-database
-* https://architecturenotes.co/things-you-should-know-about-databases/
-* https://www.hytradboi.com/
-* https://cstack.github.io/db_tutorial/
-* https://github.com/eatonphil/gosql
-* https://notes.eatonphil.com/database-basics.html
-* https://notes.eatonphil.com/database-basics-expressions-and-where.html
-* https://notes.eatonphil.com/database-basics-indexes.html
-* https://notes.eatonphil.com/database-basics-a-database-sql-driver.html
-
-OPTIMIZATION / PERF
-* queries: avoid `distinct`, `having`, subqueries, `*` https://dataschool.com/sql-optimization/optimize-your-sql-query/
-* query plan
-* use indexes
-* https://github.com/ankane/pghero
-* https://klotzandrew.com/blog/quickly-debugging-postgres-problems
-* _QPS (queries per second)_: https://www.youtube.com/watch?v=kEShMV4VfWE
-* https://stackoverflow.com/a/11275107/6813490/ 
-* https://numeracy.co/blog/life-of-a-sql-query
-* https://www.digitalocean.com/community/tutorials/how-to-use-mysql-query-profiling
 
 SECURITY
 * read-only access https://pgexercises.com/about.html
@@ -474,6 +482,21 @@ SECURITY
 TIMEZONES
 * client sould specify their timezone before querying https://hakibenita.com/sql-dos-and-donts#be-aware-of-timezones
 * relational has problems w/ this https://increment.com/software-architecture/architecture-for-generations/ https://en.wikipedia.org/wiki/Temporal_database#Example https://retool.com/blog/formatting-and-dealing-with-dates-in-sql/
+
+BYO 📙 Dibernardo, Kleppmann
+* https://tontinton.com/posts/database-fundementals
+* https://github.com/spandanb/learndb-py
+* https://build-your-own.org/database
+* https://build-your-own.org/
+* https://github.com/weinberg/SQLToy https://news.ycombinator.com/item?id=26811279 https://github.com/joaoh82/rust_sqlite https://github.com/auxten/go-sqldb https://github.com/erikgrinaker/toydb/blob/master/docs/references.md?utm_source=pocket_mylist https://github.com/codecrafters-io/build-your-own-x#build-your-own-database
+* https://architecturenotes.co/things-you-should-know-about-databases/
+* https://www.hytradboi.com/
+* https://cstack.github.io/db_tutorial/
+* https://github.com/eatonphil/gosql
+* https://notes.eatonphil.com/database-basics.html
+* https://notes.eatonphil.com/database-basics-expressions-and-where.html
+* https://notes.eatonphil.com/database-basics-indexes.html
+* https://notes.eatonphil.com/database-basics-a-database-sql-driver.html
 
 ## connections
 
@@ -588,10 +611,11 @@ parse -> plans -> engine https://pganalyze.com/blog/how-postgres-chooses-index
 explain 🗄 indexing
 * plan hints https://news.ycombinator.com/item?id=35963572
 > In some circumstances, you have knowledge of your data that the optimizer does not have, or cannot have. You might be able to improve the performance of a query by providing additional information to the optimizer https://hakibenita.com/sql-dos-and-donts#add-faux-predicates
-* `explain`: view preflight execution plan  https://thoughtbot.com/blog/reading-an-explain-analyze-query-plan https://dataschool.com/sql-optimization/optimization-using-explain/
+* `explain`: view preflight execution plan  https://thoughtbot.com/blog/reading-an-explain-analyze-query-plan https://dataschool.com/sql-optimization/optimization-using-explain/ "returns the steps a database will take to execute a query" https://render.com/blog/postgresql-slow-query-to-fast-via-stats
+* how to interpret https://render.com/blog/postgresql-slow-query-to-fast-via-stats
 * adds overhead caused by the Volcano model https://www.ongres.com/blog/explain_analyze_may_be_lying_to_you/
 * `analyze`: update table stats after bulk index https://sqlfordevs.com/table-maintenance-bulk-modification
-* `explain analyze`: view postflight analysis 📙 Evans 25
+* `explain analyze`: view postflight analysis 📙 Evans 25 https://jaywhy13.hashnode.dev/that-time-postgresql-said-no-thanks-i-dont-need-your-index
 * `seq scan`:  query plan doesn't use an index 📙 Evans 25
 * aka full table scan https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
 * making sense of Postgres output https://www.pgmustard.com/docs/explain https://explain.depesz.com/
@@ -627,14 +651,38 @@ STORAGE ENGINES 🗄 `system.md` transactions
 types
 * _command log_: log commands to change state but not incremental changes
 * _append-only log_: immutability at the db level; conflict w/ GDPR https://www.bloorresearch.com/2018/02/append-databases-gdpr-conundrum/
-* _write-ahead log (WAL)_: log changes in state before update so you can recover if failure (power, OS, hw) https://softwareengineeringdaily.com/wp-content/uploads/2018/06/SED613-Database-Reliability-Engineering.pdf BYO https://github.com/khonsulabs/okaywal logical decoding messages https://www.infoq.com/articles/wonders-of-postgres-logical-decoding-messages/
+* _write-ahead log (WAL)_: log changes in state before update so you can recover if failure (power, OS, hw) https://softwareengineeringdaily.com/wp-content/uploads/2018/06/SED613-Database-Reliability-Engineering.pdf BYO https://github.com/khonsulabs/okaywal logical decoding messages https://www.infoq.com/articles/wonders-of-postgres-logical-decoding-messages/ https://pgdash.io/blog/taming-postgresql-wal-file-growth.html
 * used in b-tree 📙 Kleppmann 84
 * individual entries known as frames https://news.ycombinator.com/item?id=26583558
 * turn off if you're just doing a transformation https://hakibenita.com/sql-tricks-application-dba#use-unlogged-tables-for-intermediate-data
 
+## perf
+
+📙 Winand sql perf https://use-the-index-luke.com/
+
+---
+
+* should `explain analyze` be here?
+
+https://www.timescale.com/blog/13-tips-to-improve-postgresql-insert-performance/
+
+* queries: avoid `distinct`, `having`, subqueries, `*` https://dataschool.com/sql-optimization/optimize-your-sql-query/
+* query plan
+* use indexes
+* https://github.com/ankane/pghero
+* https://klotzandrew.com/blog/quickly-debugging-postgres-problems
+* _QPS (queries per second)_: https://www.youtube.com/watch?v=kEShMV4VfWE
+* https://stackoverflow.com/a/11275107/6813490/ 
+* https://numeracy.co/blog/life-of-a-sql-query
+* https://www.digitalocean.com/community/tutorials/how-to-use-mysql-query-profiling
+
 # 🛠️ TOOLING
 
 🗄 `shell.md` munge
+
+ZA
+* compare queries across dbms https://github.com/rickbergfalk/sqlpad
+* compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
 
 API / CODE GENERATION
 * https://github.com/directus/directus
@@ -642,7 +690,7 @@ API / CODE GENERATION
 * GraphQL https://www.graphile.org/postgraphile/ 
 * query SQLite over HTTP https://news.ycombinator.com/item?id=30636796
 * ROAPI https://github.com/roapi/roapi https://tech.marksblogg.com/roapi-rust-data-api.html
-* Datasette https://www.youtube.com/watch?v=pTr1uLQTJNE
+* Datasette https://www.youtube.com/watch?v=pTr1uLQTJNE https://www.hytradboi.com/2022/datasette-a-big-bag-of-tricks-for-solving-interesting-problems-using-sqlite
 * DBCore https://github.com/eatonphil/dbcore https://notes.eatonphil.com/generating-a-rest-api-from-a-database.html
 * Octo https://github.com/octoproject/octo-cli
 * https://github.com/thevahidal/soul
@@ -685,6 +733,36 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 * _sanitize_: validate + filter/escape
 * _parameterize_: sanitization for SQL https://security.stackexchange.com/a/143925
 
+## dataclerk
+
+* repos that need: golf, bookcase
+
+TAXONOMY
+* _personal data warehouse_: generated personal data https://simonwillison.net/2020/Nov/14/personal-data-warehouses/
+* these always seem like a waste of time https://krausefx.com//blog/how-i-put-my-whole-life-into-a-single-database
+* _personal database_: hand curated https://tomcritchlow.com/2022/01/26/electric-tables/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
+
+STATUS QUO
+* user: web app
+* admin: script/proc, visidata, GUI https://realpython.com/python-contact-book/#step-5-creating-new-contacts
+* back office: ask admin, use Basedash https://softwareengineeringdaily.com/2020/10/12/basedash-low-code-database-editor-with-max-musing/ https://www.basedash.com/
+
+IMPL
+* check out the help section of pgcli, pgcli can now autocomplete joins?
+* documentation https://github.com/k1LoW/tbls
+* parser https://news.ycombinator.com/item?id=32560039
+* visidata for now and add constraints later?
+* ERD?
+* https://github.com/szktkfm/mdtt
+* https://stackoverflow.com/questions/2732356/list-of-all-tables-with-a-relationship-to-a-given-table-or-view
+* https://stackoverflow.com/questions/8094156/know-relationships-between-all-the-tables-of-database-in-sql-server
+* https://stackoverflow.com/questions/5499003/sqlite-list-all-foreign-keys-in-a-database
+```python
+# https://stackoverflow.com/a/59171912
+SELECT * FROM pragma_foreign_key_list('reading');
+# next step is running this from sqlite3
+```
+
 ## dbcli
 
 📜
@@ -718,8 +796,11 @@ NAMED QUERIES
 
 📜 https://harlequin.sh
 
+> try this instead https://github.com/quarylabs/quary
+
 * have to import CSV files after opening harlequin? import via data catalog? via `conn_str = ["local.db"]`? https://github.com/tconbeer/harlequin/discussions/314
 * profiles: sqlite, duckdb, postgres
+* Django https://adamj.eu/tech/2024/05/07/django-harlequin/
 
 ## miller
 
@@ -785,6 +866,11 @@ allow-ragged-csv-input  # if data line fields > header line, insert empty val in
 
 ---
 
+Pandas, arrow, Polars, Ibis https://talkpython.fm/episodes/show/462/pandas-and-beyond-with-wes-mckinney https://ibis-project.org/
+* McKinney https://wesmckinney.com/book/
+
+tables https://posit-dev.github.io/great-tables https://posit-dev.github.io/great-tables/blog/design-philosophy/
+
 📜 https://pandas.pydata.org/docs/
 📹 https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS https://talkpython.fm/episodes/show/358/understanding-pandas-visually-with-pandastutor
 🔍 
@@ -793,7 +879,6 @@ allow-ragged-csv-input  # if data line fields > header line, insert empty val in
 * https://github.com/jvns/pandas-cookbook
 * https://web.archive.org/web/20230127194856/https://scribe.citizen4.eu/pandas-illustrated-the-definitive-visual-guide-to-pandas-c31fa921a43
 📚
-* McKinney https://wesmckinney.com/book/
 * VanderPlas https://jakevdp.github.io/PythonDataScienceHandbook/
 
 semantics
@@ -889,14 +974,22 @@ PRO / CON
 * good REPL for single table https://www.ultorg.com/
 * bad at n tables
 > Whether in finance, engineering, operations, or the life sciences, you are likely working with tables of data in spreadsheets, CSV files, or an external database. Spreadsheets are excellent tools for managing a single table of data. They are a poor fit for database tasks, however, where data must be combined and queried in many different ways. https://www.ultorg.com/
-* bad at UX, hence Airtable https://luttig.substack.com/p/dont-forget-microsoft Airtable is bad? https://news.ycombinator.com/item?id=26448985 Airtable let's you attach images, documents https://github.com/nocodb/nocodb https://news.ycombinator.com/item?id=34127804 https://gitlab.com/baserow/baserow more Airtable https://teable.io/
+* bad at UX, hence Airtable https://luttig.substack.com/p/dont-forget-microsoft Airtable is bad? https://news.ycombinator.com/item?id=26448985 Airtable let's you attach images, documents https://github.com/nocodb/nocodb https://news.ycombinator.com/item?id=34127804 https://gitlab.com/baserow/baserow more Airtable https://teable.io/ https://www.hytradboi.com/2022/why-airtable-is-easy-to-learn-and-hard-to-outgrow
 * bad at collaboration, hence Google Sheets https://luttig.substack.com/p/dont-forget-microsoft
 * criticism https://betonit.substack.com/p/spreadsheets-letters-from-a-quant https://www.natemeyvis.com/writing/on-bryan-caplans-spreadsheets/
 
+ALTERNATIVES
+* _visicalc_: predecessor to Lotus123, Excel http://www.paulgraham.com/mac.html
+* _UltOrg_: spreadsheet on top of dbms https://news.ycombinator.com/item?id=30868696 🔍 `Ultorg beta`
+* TUI https://github.com/andmarti1424/sc-im
+* OSS https://github.com/gristlabs/grist-core
+* webapp https://equals.app/ https://rowzero.io/ https://rows.com/
+* in Python https://pyspread.gitlab.io/ https://news.ycombinator.com/item?id=40284219
+
 📊 EXCEL
-* alternatives: visicalc (predecessor to Lotus123, Excel http://www.paulgraham.com/mac.html) UltOrg (spreadsheet on top of dbms) https://news.ycombinator.com/item?id=30868696 🔍 `Ultorg beta` https://github.com/andmarti1424/sc-im https://rowzero.io/ https://equals.app/ https://rows.com/ https://github.com/gristlabs/grist-core https://news.ycombinator.com/item?id=30868696
 * ubiquity https://news.ycombinator.com/item?id=26386419 https://www.wsj.com/articles/stop-using-excel-finance-chiefs-tell-staffs-1511346601 https://news.ycombinator.com/item?id=28595155 https://dataingovernment.blog.gov.uk/2019/06/10/improving-how-we-manage-spreadsheet-data/ https://medium.com/backchannel/a-spreadsheet-way-of-knowledge-8de60af7146e
 * with SQL https://sheetsql.io/
+* transpile to Python https://news.ycombinator.com/item?id=40457631
 * praise https://www.reifyworks.com/writing/2017-01-25-i-was-wrong-about-spreadsheets-and-im-sorry
 > Excel in my opinion is the most successful software application in history. https://subset.so/blog/excel-2-0 https://news.ycombinator.com/item?id=30868696
 > Slightly overrated by users and wildly underrated by anyone who spends most of their time using more powerful tools https://diff.substack.com/p/inside-the-house-report-on-big-tech-6a6
@@ -1074,6 +1167,6 @@ FEATURES
 * data entry: https://github.com/centerofci/mathesar 🗄 dataclerk
 * follow FKs: https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
 * _data catalog_: dbs, tables https://harlequin.sh
-* _ERD_: https://databasediagram.com/
+* _ERD_: https://databasediagram.com/ https://drawdb.vercel.app/
 * _query editor_: save, autocomplete
 * _results viewer_: result set

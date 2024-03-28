@@ -3,6 +3,7 @@
 ## 参考
 
 📚
+* Barrett https://www.amazon.com/gp/product/1098113403
 * Evans shell
 * Shotts linux command line https://www.linuxcommand.org/tlcl.php
 * Stutz cookbook
@@ -13,6 +14,7 @@
 
 ---
 
+* https://github.com/denisidoro/navi
 * https://fabiensanglard.net/bash/
 * readline history https://github.com/atuinsh/atuin https://www.youtube.com/watch?v=WB7qojkkVVU
 > key features: UI, queries
@@ -469,7 +471,8 @@ envsubst < foo.sh  # stdout: zach
 * clean up: 🗄 `broot.log` https://unix.stackexchange.com/a/106606/331460 https://github.com/thoughtbot/til/blob/master/bash/bash_profile_vs_bashrc.md
 * _direnv_: load env var based on dir https://jamey.thesharps.us/2019/05/29/per-project-postgres/ https://github.com/direnv/direnv
 
-$PATH
+PATH
+* https://terminaltrove.com/pathos/
 * `$PATH`: list of directories that the shell should search when looking for programs corresponding to commands entered by the user [LPI 2.7]
 * change precedence: https://apple.stackexchange.com/a/49961
 * _default_: `/bin`, `usr/bin`
@@ -1001,6 +1004,7 @@ CLI IMPL LANGUAGE 🗄 `information.md` serialization `python.md` CLI
 > use Rust for CLI and Python for business logic? https://github.com/chubin/wttr.in
 * tracking user info https://www.visidata.org/blog/2021/usage-graphs/
 > build modern CLI applications without worrying about user accounts, data storage and encryption https://github.com/charmbracelet/charm#charm-kv
+* fuzzy find https://github.com/denisidoro/navi
 * C: ✅ fast ❌ development speed
 * Nim: ✅ distribution ❌ maturity https://ssalewski.de/nimprogramming.html
 * Python: ✅ exploratory ❌ distribution
@@ -1029,7 +1033,7 @@ HISTORY https://catonmat.net/the-definitive-guide-to-bash-command-line-history
 * https://github.com/cantino/mcfly
 
 MONITORING
-* directory size: du, ncdu https://github.com/bootandy/dust `du -sh -- * | sort -r` https://unix.stackexchange.com/a/185777 https://github.com/muesli/duf
+* directory size: du, ncdu https://github.com/bootandy/dust `du -sh -- * | sort -r` https://unix.stackexchange.com/a/185777 https://github.com/muesli/duf https://github.com/imsnif/diskonaut
 * disk space: view of mounts; `df -h`; colorize https://danyspin97.org/blog/colorize-your-cli/
 * memory: free (UNIX) top (macos) gotop https://github.com/xxxserxxx/gotop/issues/50 ytop https://github.com/cjbassi/ytop htop https://tech.marksblogg.com/top-htop-glances.html below https://github.com/facebookincubator/below https://github.com/bvaisvil/zenith
 * network: https://github.com/imsnif/bandwhich
@@ -1041,6 +1045,7 @@ SNIPPETS
 * copy file to clipboard: `pbcopy < ~/.ssh/id_rsa.pub`
 
 TUI
+* https://news.ycombinator.com/item?id=40273177
 * _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
 * _ncurses_: Linux https://github.com/jesseduffield/lazydocker https://github.com/NerdyPepper/dijo
 
@@ -1068,6 +1073,7 @@ FILE WATCHERS
 * _fswatch_: https://github.com/emcrisostomo/fswatch https://slack.engineering/development-environments-at-slack/
 * _watch_: https://www.youtube.com/watch?v=bB2TmCfJiX8
 * _watchman_: https://facebook.github.io/watchman/ https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman
+* _hwatch_: https://github.com/blacknon/hwatch
 
 ### explorer (broot)
 
@@ -1102,6 +1108,7 @@ FILE EXPLORERS
 * _mini_: 🎯 https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
 * _nnn_: https://github.com/jarun/nnn
 * _telescope_: 🎯 https://github.com/nvim-telescope/telescope.nvim https://www.youtube.com/watch?v=OhnLevLpGB4 https://www.youtube.com/watch?v=indguFY7wJ0
+* _superfile_: 🎯 https://github.com/MHNightCat/superfile https://news.ycombinator.com/item?id=40323101
 * _vifm_: https://github.com/vifm/vifm https://www.youtube.com/watch?v=RGOsE3UWqhI https://www.youtube.com/watch?v=6eyFXcyosu8
 * _walk_: https://github.com/antonmedv/walk
 * _xlpr_: https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020
@@ -1405,6 +1412,8 @@ bat src/*.rs
 
 ---
 
+* pretty pager that supports following https://github.com/noborus/ov
+
 * _pager_: print file
 * cat https://twobithistory.org/2018/11/12/cat.html
 * bat https://github.com/sharkdp/bat
@@ -1478,4 +1487,3 @@ $QUERY $PATH
 -E 'PROJECTS|venv' ~/.bash_profile
 '^user' $PATH  # begins w/
 ```
-
