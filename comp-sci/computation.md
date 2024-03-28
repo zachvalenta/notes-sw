@@ -36,7 +36,7 @@
 * _14_: Gleick the information
 * _11_: Hillis pattern in the stone
 
-# FOUNDATIONS
+# 🪨 FOUNDATIONS
 
 📙 Conery ch. 1-4
 
@@ -144,7 +144,7 @@ STATE MACHINE
 * DFA https://en.wikipedia.org/wiki/Deterministic_finite_automaton
 * state machine replication https://signalsandthreads.com/state-machine-replication-and-why-you-should-care/
 
-# HARDWARE
+# 💻 HARDWARE
 
 🗄 `science.md` electricity
 📚
@@ -342,7 +342,7 @@ operations
 | long-term | -           | https://archiveprogram.github.com/ https://spectrum.ieee.org/computing/hardware/why-the-future-of-data-storage-is-still-magnetic-tape
 | --------- | ----------- | ------------------------- 
 
-# PROTOCOLS
+# 🛰️ PROTOCOLS
 
 > serialization, numeral systems, and ascii should be grouped, but not sure whether it should be under protocol or encoding or what
 

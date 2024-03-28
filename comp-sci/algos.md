@@ -989,7 +989,7 @@ semantics
 * _text classification_: https://www.youtube.com/watch?v=VtRLrQ3Ev-U
 * _speech recognition_: https://www.youtube.com/watch?v=mYUyaKmvu6Y
 
-# PROJECTS
+# 🖍️ PROJECTS
 
 * personalization engine https://news.ycombinator.com/item?id=30778100
 

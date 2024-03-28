@@ -10,16 +10,12 @@
 
 ## next
 
----
-
-* Postgres for everything https://news.ycombinator.com/item?id=39273954
-
 ## done
 
 * _22_: 📙 Bradshaw ch. 1/4/7/10/14/18
 * _20_: Postgres with Django (psycopg, Docker)
 
-# MONGO
+# 🟩 MONGO
 
 📙 Bradshaw guide
 🎓 https://university.mongodb.com/dashboard
@@ -354,8 +350,9 @@ use <db>  # switch/create db
 show collections  # view collections
 ```
 
-# POSTGRES
+# 🐘 POSTGRES
 
+🔍 https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https://news.ycombinator.com/item?id=39273954
 📜
 * general https://www.postgresql.org/docs/current/index.html
 * guide http://postgresguide.com/
@@ -604,7 +601,7 @@ web_1  |     import psycopg2
 web_1  | ModuleNotFoundError: No module named 'psycopg2'
 ```
 
-# SQLITE
+# 🟦 SQLITE
 
 📜 https://sqlite.org/docs.html
 🛠 https://github.com/simonw/sqlite-utils

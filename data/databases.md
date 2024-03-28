@@ -432,6 +432,8 @@ dbms
 * Suzuki postgres internals https://www.interdb.jp/pg/
 * Winand sql perf https://use-the-index-luke.com/
 
+---
+
 * _correlation_: correlation btw storage on disk and order of rows https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
 * locks https://news.ycombinator.com/item?id=35981238&utm_term=comment
 
@@ -439,20 +441,6 @@ ASYNC
 * Django: not yet supported https://docs.djangoproject.com/en/3.2/topics/async/
 * Encode `databases`; adds async to SQLAlchemy https://www.encode.io/databases/database_queries/ https://fastapi.tiangolo.com/advanced/async-sql-databases/
 * Postgres: can use async functions that underly synchronous `PQexec` https://www.postgresql.org/docs/9.5/libpq-async.html
-
-BYO 📙 Dibernardo, Kleppmann
-* BYO dbms https://github.com/spandanb/learndb-py
-* https://build-your-own.org/database
-* https://build-your-own.org/
-* https://github.com/weinberg/SQLToy https://news.ycombinator.com/item?id=26811279 https://github.com/joaoh82/rust_sqlite https://github.com/auxten/go-sqldb https://github.com/erikgrinaker/toydb/blob/master/docs/references.md?utm_source=pocket_mylist https://github.com/codecrafters-io/build-your-own-x#build-your-own-database
-* https://architecturenotes.co/things-you-should-know-about-databases/
-* https://www.hytradboi.com/
-* https://cstack.github.io/db_tutorial/
-* https://github.com/eatonphil/gosql
-* https://notes.eatonphil.com/database-basics.html
-* https://notes.eatonphil.com/database-basics-expressions-and-where.html
-* https://notes.eatonphil.com/database-basics-indexes.html
-* https://notes.eatonphil.com/database-basics-a-database-sql-driver.html
 
 OPTIMIZATION / PERF
 * queries: avoid `distinct`, `having`, subqueries, `*` https://dataschool.com/sql-optimization/optimize-your-sql-query/
@@ -475,6 +463,20 @@ SECURITY
 TIMEZONES
 * client sould specify their timezone before querying https://hakibenita.com/sql-dos-and-donts#be-aware-of-timezones
 * relational has problems w/ this https://increment.com/software-architecture/architecture-for-generations/ https://en.wikipedia.org/wiki/Temporal_database#Example https://retool.com/blog/formatting-and-dealing-with-dates-in-sql/
+
+BYO 📙 Dibernardo, Kleppmann
+* BYO dbms https://github.com/spandanb/learndb-py
+* https://build-your-own.org/database
+* https://build-your-own.org/
+* https://github.com/weinberg/SQLToy https://news.ycombinator.com/item?id=26811279 https://github.com/joaoh82/rust_sqlite https://github.com/auxten/go-sqldb https://github.com/erikgrinaker/toydb/blob/master/docs/references.md?utm_source=pocket_mylist https://github.com/codecrafters-io/build-your-own-x#build-your-own-database
+* https://architecturenotes.co/things-you-should-know-about-databases/
+* https://www.hytradboi.com/
+* https://cstack.github.io/db_tutorial/
+* https://github.com/eatonphil/gosql
+* https://notes.eatonphil.com/database-basics.html
+* https://notes.eatonphil.com/database-basics-expressions-and-where.html
+* https://notes.eatonphil.com/database-basics-indexes.html
+* https://notes.eatonphil.com/database-basics-a-database-sql-driver.html
 
 ## connections
 
