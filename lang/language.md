@@ -122,7 +122,7 @@ ZA
 
 OPINIONS
 * Golang https://blog.gypsydave5.com/posts/2024/4/12/go-is-an-object-oriented-programming-language/
-* Smalltalk https://news.ycombinator.com/item?id=34137751
+* Smalltalk https://news.ycombinator.com/item?id=34137751 https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
 * http://www.smashcompany.com/technology/object-oriented-programming-is-an-expensive-disaster-which-must-end
 * creates confusion
 > In 2003, Jane Street began a rewrite of its core trading systems in Java. The rewrite was eventually abandoned, in part because the resulting code was too difficult to read and reason about...we built up a nest of classes that left people scratching their heads when they wanted to understand just what piece of code was actually being invoked when a given method was called. https://queue.acm.org/detail.cfm?id=2038036
@@ -493,35 +493,43 @@ SPRING
 
 ## Lisp
 
-https://tryclojure.org/
-https://news.ycombinator.com/item?id=33600941
+LANGUAGE
+* little syntax https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
+* mutual interop w/ Java https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
+
+ZA
+* written in Lisp: ITA, Emacs
+* embedded in Python https://news.ycombinator.com/item?id=33600941
 
 ---
 
-https://news.ycombinator.com/item?id=40335608
-https://www.fosskers.ca/en/blog/rounds-of-lisp
-
-📙 SICP https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/  https://news.ycombinator.com/item?id=30016323
-
-> At one point, I decided I should learn Lisp or Haskell, probably because of something Paul Graham wrote. I couldn't find a Lisp textbook in the library, but I found a Haskell textbook. After I worked through the exercises, I had no idea how to accomplish anything practical. But I did learn about list comprehensions and got in the habit of using higher-order functions. https://danluu.com/learning-to-program/
-
-Lisps https://stackoverflow.com/questions/47482349/what-characterizes-a-lisp-dialect
-* _Clojure_: https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792
-* _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
-* _Racket_: based off Scheme, async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=19952714 https://news.ycombinator.com/item?id=23132621 https://news.ycombinator.com/item?id=8206038 https://news.ycombinator.com/item?id=13881535 https://news.ycombinator.com/item?id=32723784
-* _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
-* _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
-
-language
+LANGUAGE https://tryclojure.org/
 * s-expressions https://news.ycombinator.com/item?id=5654398 https://notes.eatonphil.com/compiler-basics-lisp-to-assembly.html
 * no loops https://www.lvguowei.me/post/sicp-goodness-looping/
 * prefix notation: operator comes first https://www.braveclojure.com/getting-started/
 
-misc
-* declarative? [Karwin 2]
+ZA
+* declarative? 📙 Karwin [2]
 * _history_: self-perpetuating failure https://news.ycombinator.com/item?id=13143282 Lisp was more awesome in a world w/out Java, Python?
-* _written in Lisp_: ITA, Emacs
-* _sink_: https://twobithistory.org/2018/10/14/lisp.html https://beautifulracket.com/appendix/why-racket-why-lisp.html http://jakob.space/blog/thoughts-on-lisps.html http://www.paulgraham.com/rootsoflisp.html https://treenotation.org/ https://www.youtube.com/watch?v=1r5GkhoN-Zc https://github.com/syncsynchalt/axiomatic-lisp
+* https://twobithistory.org/2018/10/14/lisp.html
+* https://beautifulracket.com/appendix/why-racket-why-lisp.html
+* http://jakob.space/blog/thoughts-on-lisps.html
+* http://www.paulgraham.com/rootsoflisp.html
+* https://treenotation.org/
+* https://www.youtube.com/watch?v=1r5GkhoN-Zc
+* https://github.com/syncsynchalt/axiomatic-lisp
+* https://news.ycombinator.com/item?id=33600941
+* https://news.ycombinator.com/item?id=40335608
+* https://www.fosskers.ca/en/blog/rounds-of-lisp
+
+📙 SICP https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
+
+LISPS https://stackoverflow.com/questions/47482349/what-characterizes-a-lisp-dialect
+* _Clojure_: https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792
+* _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
+* _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
+* _Racket_: based off Scheme, async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=19952714 https://news.ycombinator.com/item?id=23132621 https://news.ycombinator.com/item?id=8206038 https://news.ycombinator.com/item?id=13881535 https://news.ycombinator.com/item?id=32723784
+* _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
 
 # 📥 MEMORY
 

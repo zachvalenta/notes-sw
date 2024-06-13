@@ -9,6 +9,7 @@
 * Evans linux
 * Evans za
 * Kerrisk lpi
+* Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
 * Stutz cookbook
 
 ## now
@@ -426,7 +427,7 @@ single-threaded + multicast https://signalsandthreads.com/multicast-and-the-mark
 🗄
 * processes
 * `python.md` profiling
-* `system.md` monitoring
+* `telemetry.md` tracing
 📚
 * Evans debug tools
 * Evans perf

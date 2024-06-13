@@ -1,12 +1,14 @@
-# 开
+# ⛩️
 
 ## 参考
 
-`python.md` testing
+## 进步
 
-## now
-
-## next
+* _20_: pre-commit for Git hooks, behave for bdd
+* _19_: switch to pytest
+* _18_: exposure to coverage and Git hooks, course on unit testing in Python
+* _17_: integration test suite using Selenium
+* _16_: basics at Zip Code
 
 ---
 
@@ -22,15 +24,7 @@ rf
 * doubles
 * testing types
 
-## done
-
-* _20_: pre-commit for Git hooks, behave for bdd
-* _19_: switch to pytest
-* _18_: exposure to coverage and Git hooks, course on unit testing in Python
-* _17_: integration test suite using Selenium
-* _16_: basics at Zip Code
-
-# INTEGRATION
+# 🕳️ INTEGRATION
 
 * use actual deps instead of mocks https://testcontainers.com/ https://news.ycombinator.com/item?id=39531536
 * testing object store (S3) https://www.sanjaysiddhanti.com/2020/04/08/s3testing/ https://www.youtube.com/watch?v=NBICMF0i4Ok
@@ -187,7 +181,8 @@ class HelloWorldUser(HttpUser):
 https://github.com/wg/wrk https://github.com/giltene/wrk2
 https://news.ycombinator.com/item?id=35781728
 https://github.com/grafana/k6
-# ZA
+
+# 🟨 ZA
 
 SOURCE CODE
 * _production code_: app itself
@@ -266,14 +261,14 @@ za
 
 ## doubles
 
+---
+
 * spin up db in docker, run migrations, run integration tests; alternately, use CTEs https://news.ycombinator.com/item?id=34603691 https://news.ycombinator.com/item?id=34603244
 
 * don't teardown db btw test runs
 > Better yet, when your tests don't assume they're starting from a clean sheet, you can run your tests with a dump from production loaded into your database. This can help confirm that data access patterns you're using will work when the database, as a whole, is at production size. https://calpaterson.com/against-database-teardown.html
 
-https://romantomjak.com/posts/testing-python-code-that-makes-http-requests.html
 https://pythonspeed.com/articles/faster-db-tests/
-https://talkpython.fm/episodes/show/287/testing-without-dependencies-mocking-in-python https://quii.gitbook.io/learn-go-with-tests/testing-fundamentals/working-without-mocks
 
 * _mock_: override method so you can test; `unittest.mock` vs. `pytest.monkeypatch` https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/ mock vs. magicmock https://stackoverflow.com/questions/17181687/mock-vs-magicmock https://realpython.com/python-mock-library/ https://joshpeak.net/posts/2019-06-18-Advanced-python-testing.html env var https://adamj.eu/tech/2020/10/13/how-to-mock-environment-variables-with-pytest https://www.b-list.org/weblog/2023/dec/08/mock-python-httpx/
 > https://um-t.slack.com/archives/G01LATMU4M6/p1684432308547779
@@ -299,16 +294,6 @@ https://nedbatchelder.com//blog/201908/why_your_mock_doesnt_work.html
 
 🗣 mocking promotes unnecessary abstraction http://250bpm.com/blog:86
 
-📙 [mock cookbook](https://chase-seibert.github.io/blog/2015/06/25/python-mocking-cookbook.html) + https://www.toptal.com/python/an-introduction-to-mocking-in-python + https://medium.com/@yeraydiazdiaz/what-the-mock-cheatsheet-mocking-in-python-6a71db997832 + https://realpython.com/python-mock-library/
-* https://medium.com/ryans-dev-notes/python-mock-and-magicmock-b3295c2cc7eb
-* https://thoughtbot.com/upcase/test-doubles
-https://thoughtbot.com/upcase/test-doubles
-* fake
-* mock --> have an example from Python Cookbook with stdout https://www.youtube.com/watch?v=Ldlz4V-UCFw  https://pythonspeed.com/articles/verified-fakes/
-* spy
-* _monkey patch_: changing code at runtime https://www.fluentpython.com/lingo/#monkey_patching https://news.ycombinator.com/item?id=34611969
-
-* https://medium.com/@yeraydiazdiaz/what-the-mock-cheatsheet-mocking-in-python-6a71db997832
 * https://www.quora.com/Software-Testing-What-is-the-difference-between-Mocks-and-Stubs
 * https://blog.pragmatists.com/test-doubles-fakes-mocks-and-stubs-1a7491dfa3da
 * https://stackoverflow.com/questions/3459287/whats-the-difference-between-a-mock-stub/51998394#51998394

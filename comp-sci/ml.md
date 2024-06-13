@@ -29,6 +29,10 @@
 
 ## LLM
 
+> He does not think of them as Artificial Intelligence. He thinks of them as Imitation Intelligence. They predict the next word in a sentence. When they get good at that, it's spooky what they can do. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
+
+---
+
 * https://news.ycombinator.com/item?id=40416362
 * https://explainextended.com/2023/12/31/happy-new-year-15/ https://news.ycombinator.com/item?id=40378499
 * https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math
@@ -176,10 +180,34 @@ https://stratechery.com/2023/ai-and-the-big-five/
 
 ## chat
 
-https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html
+OPTIONS
+* code: https://ollama.com/blog/python-javascript-libraries
+* _Gemma_: https://ai.google.dev/gemma
+* _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model)
+* uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally
+* _Mistral_: https://en.wikipedia.org/wiki/Mistral_AI
+
+PROMPTS https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
+* _prompt injection_: getting model to do something its creators don't want
+> Ask it to give options (it's more likely to give a better answer)
+> It will rarely get the answer right. Ask it to "do better."
+
+---
+
+* https://notebooklm.google/
+* Claude https://www.anthropic.com/
+* https://news.ycombinator.com/item?id=40441945
+* custom GPT https://talkpython.fm/episodes/show/456/building-gpt-actions-with-fastapi-and-pydantic
+* customization prompt https://news.ycombinator.com/item?id=40474716
+
+REPOS
+https://www.freecodecamp.org/news/get-started-with-hugging-face/
+https://huggingface.co/stabilityai/stable-diffusion-3-medium
+https://github.com/ggozad/oterm
+https://arena.lmsys.org/
 
 LOCAL
-* https://github.com/ggozad/oterm
+* https://llm.datasette.io/en/stable/
 * https://github.com/khoj-ai/khoj
 * https://github.com/darrenburns/elia
 * https://github.com/sigoden/aichat
@@ -187,15 +215,14 @@ LOCAL
 * llamafile https://news.ycombinator.com/item?id=40424519
 * BYO https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset
 
-OPTIONS
-* https://notebooklm.google/
-* Claude https://www.anthropic.com/
-* https://news.ycombinator.com/item?id=40441945
-* custom GPT https://talkpython.fm/episodes/show/456/building-gpt-actions-with-fastapi-and-pydantic
-* customization prompt https://news.ycombinator.com/item?id=40474716
-
 ## code assist
 
+---
+
+> LLMs are good at explaining code. Give it code in a language you don't understand and it will explain it with 90% accuracy. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
+
+* code prompt: https://ollama.com/blog/how-to-prompt-code-llama https://ollama.com/blog/run-code-llama-locally Codestral https://ollama.com/blog/continue-code-assistant
+* math: https://ollama.com/blog/wizardmath-examples
 * Copilot
 * Cody https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
 * https://stratechery.com/2024/gemini-1-5-and-googles-nature/

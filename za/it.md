@@ -612,8 +612,6 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 TODO
 * auto insurance, parking tickets
 * econ
-> 📍 all after cleanup
-* dev: Kernighan golang Connoly database Luksa kubernetes Fowler refactoring
 > 📍 clean up DS files `fd -HI DS`
 * yin: far (cleanup = all) rnb (80s, 70s) rap (nyc) za (gospel) + all singles + dylan, girl talk, lcd soundsystem, larry young, julee cruise, jim croce, pointer sisters, jackie wilson, bobby bland, rotary connection, sza, genesis, fugazi, allmans, waylon, jerry jeff walker, fleetwood mac, hailu mergia, cymande, jersey club, charley crockett new album, john talabot, sui generis, sun electric, stevie wonder singles
 > mv: cut copy to pop, breakwater to the 80s, spinners to 50s, bobby bland to blues, kc and sunshine to dance
