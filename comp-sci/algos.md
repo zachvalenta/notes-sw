@@ -17,12 +17,18 @@
 
 ---
 
+fizz buzz
+fibonacci
+> look up the ten algorithms you have to know, rosetta code, project euler
+
+https://roadmap.sh/datastructures-and-algorithms https://roadmap.sh/python
 https://www.softwaredesign.ing/blog/ai-is-the-reason-interviews-are-harder-now
 https://realpython.com/python-hash-table/
 * do with books https://www.fast.ai/
 * regex 🗄 vimrc, regex-test.md https://chat.openai.com/share/c31be3fc-ad04-4bea-bf65-1401d3d91f09 https://learnbyexample.gitbooks.io/vim-reference/content/Regular_Expressions.html https://neovim.io/doc/user/usr_03.html
 * https://mathspp.com/blog/5-ways-to-flatten-a-list-of-lists
-* hash tables re: maps, ADTs https://stackabuse.com/hash-tables-in-python/
+* hash tables re: maps, ADTs https://stackabuse.com/hash-tables-in-python/ https://blog.codingconfessions.com/p/cpython-set-implementation
+* counter https://blog.ovalerio.net/archives/2924
 * rf
 * Monte Carlo
 * trends https://news.ycombinator.com/item?id=35886900
@@ -338,6 +344,7 @@ def linear_and_quadratic():  # O(n + n^2) = O(n^2)
 
 ## runtimes
 
+⏲️ https://www.pythonmorsels.com/time-complexities/
 🗄️ `math.md` logarithms
 🔗 https://stackoverflow.com/a/11611770
 
@@ -451,7 +458,9 @@ def set_covering(states_needed, stations):
 
 🔗 https://www.interviewcake.com/data-structures-reference
 📙 Conery ch. 7
-🗄 `education.md` design / information design
+🗄
+* `education.md` design / information design
+* `databases.md` data structures
 
 OPERATIONS https://github.com/jamiebuilds/itsy-bitsy-data-structures https://www.interviewcake.com/concept/python3/array
 * _lookup_: read
@@ -536,7 +545,7 @@ SEMANTICS
 * category theory https://news.ycombinator.com/item?id=28953155 https://www.amazon.com/Joy-Abstraction-Exploration-Category-Theory/dp/1108477224
 * doesn't add much value irl https://markusstrasser.org/p/bcd8bded-7136-4bb4-8f97-e8a3a7b6d926/
 * graph of blogs https://astralcodexten.substack.com/p/links-for-april-644
-* dependency graphs, build systems https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
+* _DAG_: https://github.com/pyjanitor-devs/pyjanitor dependency graphs, build systems https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
 * _cycle_: https://endcrawl.com/credits-ordering/
 ```python
 # UNWEIGHTED
@@ -581,7 +590,7 @@ hash tables 🗄 `security.md` `python.md`
 * aka map, dictionary, associative array https://docs.python.org/3/glossary.html#term-dictionary
 * alternatives incl. BST, skip list https://stackoverflow.com/a/301822 📙 Skiena 12.1
 
-bloom filter
+bloom filter https://www.youtube.com/watch?v=qZNJTh2NEiU
 * _bloom filter_: like a hash table except takes up a lot less space and false positives are possible
 * use case is to see whether item already part of a very large set e.g. whether a key exists in a database 📙 11.210-11
 * https://vprusso.github.io/blog/2017/bloom-filters-and-pokemon/ 📙 Kleppmann 79 https://onatm.dev/2020/08/10/let-s-implement-a-bloom-filter/ http://aosabook.org/en/posa/working-with-big-data-in-bioinformatics.html https://luminousmen.com/post/building-a-bloom-filter
@@ -751,7 +760,7 @@ Stockfish 10 at its top strength (without any level set) has a rating of about 3
 
 SEARCH ENGINE 🗄 `za/search-engine` (port data to query sandbox)
 * BYO https://news.ycombinator.com/item?id=39293050 https://www.alexmolas.com/2024/02/05/a-search-engine-in-80-lines.html
-* _robots.txt_: file that tells crawlers what files to ignore https://adamj.eu/tech/2020/02/10/robots-tx
+* _robots.txt_: file that tells crawlers what files to ignore https://adamj.eu/tech/2020/02/10/robots-tx https://pythonbytes.fm/episodes/show/376/every-dunder-method-in-a-python-lockbox
 * _PageRank_: ranking algo that weights on number of incoming links (and their popularity)
 * _instant answer_: display text from top result in overall results https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html
 * _indexer_: writes/updates keys https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html

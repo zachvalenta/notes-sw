@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -8,18 +8,12 @@
 * Shotts linux command line https://www.linuxcommand.org/tlcl.php
 * Stutz cookbook
 
-## now
-
-## next
-
----
+## 进步
 
 * https://github.com/denisidoro/navi
 * https://fabiensanglard.net/bash/
 * readline history https://github.com/atuinsh/atuin https://www.youtube.com/watch?v=WB7qojkkVVU
 > key features: UI, queries
-
-# done
 
 * _23_: big rf, Conery unix chapter, research Zellij
 * _22_: Fira Mono for iTerm font/icons, try starship, try/fail vi mode for readline, organize utils
@@ -449,10 +443,31 @@ cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
 
 ## profiles
 
+ZSH https://unix.stackexchange.com/a/71258
+* `.zshenv`: src for all shells
+> often contains exported variables that should be available to other programs. For example, $PATH, $EDITOR, and $PAGER are often set in .zshenv. Also, you can set $ZDOTDIR in .zshenv to specify an alternative location for the rest of your zsh configuration.
+* `.zprofile`: src for login shells, src before `.zshrc`
+* `.zshrc`: src for interactive shells
+
 ALIASES
 * _alias_: evaluated when shell loads profile
 * view: `type <alias>` https://www.youtube.com/watch?v=aLMepxvUj4s 4:15
 * use unaliased: `\cd` https://stackoverflow.com/a/11056541
+
+PATH
+* https://github.com/epogrebnyak/justpath?tab=readme-ov-file
+* https://terminaltrove.com/pathos/
+* `$PATH`: list of directories that the shell should search when looking for programs corresponding to commands entered by the user [LPI 2.7]
+* change precedence: https://apple.stackexchange.com/a/49961
+* _default_: `/bin`, `usr/bin`
+* _global_: `/etc/paths`
+* _user_: `.bash_profile`
+
+SHELL TYPES https://github.com/nushell/nushell/issues/8169
+* _interactive_: normal
+* _non-interactive_: process spawned when script run 📙 LPI 2.2 https://unix.stackexchange.com/questions/43385/what-do-you-mean-by-interactive-shell/43389#43389 
+* _login_: reads profiles and env var 
+* _non-login_: cron jobs https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell/46856#46856 https://www.quora.com/What-are-the-differences-between-a-login-shell-and-a-non-login-shell/answer/Rod-Nussbaumer-1?srid=ebCJ
 
 ENV VAR 🗄 `infra.md` config mgmt `security.md` secrets mgmt
 ```sh
@@ -469,34 +484,16 @@ foo.sh  # echo $LOGNAME
 envsubst < foo.sh  # stdout: zach
 ```
 * clean up: 🗄 `broot.log` https://unix.stackexchange.com/a/106606/331460 https://github.com/thoughtbot/til/blob/master/bash/bash_profile_vs_bashrc.md
-* _direnv_: load env var based on dir https://jamey.thesharps.us/2019/05/29/per-project-postgres/ https://github.com/direnv/direnv
-
-PATH
-* https://terminaltrove.com/pathos/
-* `$PATH`: list of directories that the shell should search when looking for programs corresponding to commands entered by the user [LPI 2.7]
-* change precedence: https://apple.stackexchange.com/a/49961
-* _default_: `/bin`, `usr/bin`
-* _global_: `/etc/paths`
-* _user_: `.bash_profile`
+* _direnv_: load env var based on dir https://jamey.thesharps.us/2019/05/29/per-project-postgres/ https://github.com/direnv/direnv alternative https://github.com/jdx/mise
 
 ---
 
 * https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/
 * macOS execution order: `.bash_profile`, `.bash_login`, `.profile`
 
-SOURCING
-* zsh automatically sources `.zprofile` and `.zshrc`
-* bash automatically sources `.bash_profile`
-* silence warning not to use bash `export BASH_SILENCE_DEPRECATION_WARNING=1` https://elisabethirgens.github.io/notes/2020/02/bye-bash/
-* bash on zsh MacOS iTerm: profiles > command: (`bash`, `source ~/.bash_profile`)
-
-SHELL TYPES
-* _interactive_: normal
-* _non-interactive_: process spawned when script run 📙 LPI 2.2 https://unix.stackexchange.com/questions/43385/what-do-you-mean-by-interactive-shell/43389#43389 
-* _login_: reads profiles and env var 
-* _non-login_: cron jobs https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell/46856#46856 https://www.quora.com/What-are-the-differences-between-a-login-shell-and-a-non-login-shell/answer/Rod-Nussbaumer-1?srid=ebCJ
-
 ---
+
+* bash automatically sources `.bash_profile`
 
 * _system_: `/etc/profile` `/etc/bashrc` https://bencane.com/2013/09/16/understanding-a-little-more-about-etcprofile-and-etcbashrc/
 * _login_: `~/.bash_profile` 
@@ -612,6 +609,7 @@ UI
 * i.e. command line + viewport (previous cmd, output)
 * get current terminal `echo $TERM_PROGRAM` https://github.com/dylanaraps/neofetch/wiki/Terminal-and-Terminal-Font-detection
 * handles font, colors https://hacker-tools.github.io/command-line/ https://wizardzines.com/comics/terminals/
+* color support https://github.com/apparebit/prettypretty
 * "emulator" bc original terminals were hw connected to mainframe https://news.ycombinator.com/item?id=23320090
 * _multiplexer_: window manager + session mgmt for terminal 📙 Hogan [x]
 * multiplexers w/out sessions e.g. dvtm
@@ -685,10 +683,55 @@ $ color p<TAB><TAB>
 
 ## multiplex (Zellij)
 
-📙 notebook [82,84]
+🗄️ `vim.md` buffers
+📙 notebook [82]
 
-ZELLIJ 📜 https://zellij.dev/documentation/
-> quick resize of panes = Zellij might be better than using Vim splits
+WORKFLOW
+* why: can name workspaces and bc screen mgmt (quick resize of panes) is what it's meant to do https://www.youtube.com/watch?v=zH3CH6zXTew
+> Vim tab groups don't allow named tab groups  https://www.youtube.com/watch?v=hbs7tuwpgZA [5:00]
+* why: better than iTerm for quick switch for diff workspaces https://www.youtube.com/watch?v=hbs7tuwpgZA [7:50]
+* why not Vim: splits are for looking at a bunch of code at once https://www.youtube.com/watch?v=ST_DZ6yIiXY
+* why not Vim: cannot name tabs
+* howto: one session per project e.g. baseline (desktop/cmus/yin), data eng, algos, sk8list https://www.youtube.com/watch?v=hbs7tuwpgZA [1:45]
+
+---
+
+TMUX 📜 https://github.com/tmux/tmux 📙 Hogan https://github.com/git-pull/tao-of-tmux https://willvaughn.org/articles/the-tmux-manual-review/
+* video courses https://thoughtbot.com/upcase/tmux https://www.youtube.com/watch?v=GH3kpsbbERo
+> https://www.youtube.com/watch?v=sSOfr2MtRU8 https://www.youtube.com/watch?v=DzNmUNvnB04
+* install: Homebrew
+* stacked panes: closest option is hiding panes https://unix.stackexchange.com/questions/145857/how-do-you-hide-a-tmux-pane
+* workspaces via named sessions https://www.youtube.com/watch?v=niuOc02Rvrc&t=482s
+* alternatives: https://www.gnu.org/software/screen/ https://github.com/shell-pool/shpool
+* pkg mgmt https://github.com/tmux-plugins/tpm
+* status bar restore https://stackoverflow.com/questions/22407819/my-tmux-status-bar-has-disappeared
+* color theme https://github.com/nordtheme/tmux
+* status bar https://github.com/git-pull/tao-of-tmux/blob/master/manuscript/09-status-bar.md
+* config: more ergonomic binding for prefix https://thoughtbot.com/upcase/videos/tmux-introduction https://thoughtbot.com/upcase/videos/tmux-configuration pane count https://www.youtube.com/watch?v=FTklH6z0LWA
+* env var https://news.ycombinator.com/item?id=35021587
+* _pane_: terminal window + split https://thoughtbot.com/upcase/videos/tmux-introduction
+* 类似 Vim split (and you could also have a window be a single pane of a Vim instance within which you use Vim splits) https://www.youtube.com/watch?v=hbs7tuwpgZA 3:58 https://thoughtbot.com/upcase/videos/tmux-vim-integration
+* nav btw Vim and tmux splits https://github.com/christoomey/vim-tmux-navigator
+* _window_: a tab (in Zellij terms)
+* _session_: window(s) + state https://www.youtube.com/watch?v=hbs7tuwpgZA 3:30
+* cmd https://thoughtbot.com/upcase/videos/tmux-introduction
+```sh
+tmux/exit  # start/stop
+CTRL b  # prefix
+?  # list cmd
+prefix %  # split
+prefix o  # toggle split
+prefix arrow  # toggle split by direction
+new-session -s $NAME  # create session; tmux-resurrect https://www.youtube.com/watch?v=hbs7tuwpgZA [9:50] https://github.com/tmux-plugins/tmux-continuum
+ls  # list sessions
+a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/videos/tmux-navigation
+```
+
+ZELLIJ 📜 https://zellij.dev/documentation/ https://github.com/zellij-org/awesome-zellij
+* why: stacked panes, named tabs/workspaces, tmux seems like a steeper learning curve
+* why not: copy/paste doesn't work with iTerm but Alacritty doesn't have native global hotkey, doesn't use login shell (couldn't get around with `pane command`) https://zellij.dev/documentation/layout-examples https://github.com/zellij-org/zellij/issues/1434#issuecomment-2185020449
+* https://github.com/imsnif/monocle
+* status bar https://github.com/dj95/zjstatus/
 * plugins: Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45 Catpppuccin https://github.com/catppuccin/zellij
 * workaround for keybinding conflicts w/ Vim https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:45
 * scrollback https://zellij.dev/screencasts/
@@ -703,6 +746,12 @@ ZELLIJ 📜 https://zellij.dev/documentation/
 * _tab_: group of panes
 * named tabs useful for work https://www.youtube.com/watch?v=gtjPeTCkm-8 3:30
 * _layout_: tab + state https://www.youtube.com/watch?v=lmcrVRM9V4k 17:15
+```sh
+# worked from cli
+zellij --layout path/to/layout
+# didn't work from conf
+layout_dir "~/.config/zellij"
+```
 * really like version control https://www.youtube.com/watch?v=gtjPeTCkm-8 4:15
 * open with cmd https://www.youtube.com/watch?v=lmcrVRM9V4k 17:15
 * sync = run same cmd in all panes https://www.youtube.com/watch?v=lmcrVRM9V4k 18:00
@@ -712,74 +761,6 @@ ZELLIJ 📜 https://zellij.dev/documentation/
 * 类似 tabs but for stuff you don't need going all the time https://www.youtube.com/watch?v=gtjPeTCkm-8 3:45
 * mgmt https://zellij.dev/news/session-manager-protobuffs/
 * resurrect https://zellij.dev/news/session-resurrection-ui-components/
-
-TMUX 📜 https://github.com/tmux/tmux 📙 Hogan https://thoughtbot.com/upcase/tmux https://github.com/git-pull/tao-of-tmux
-* install: Homebrew
-* _pane_: terminal window + split https://thoughtbot.com/upcase/videos/tmux-introduction
-* 类似 Vim split (and you could also have a window be a single pane of a Vim instance within which you use Vim splits) https://www.youtube.com/watch?v=hbs7tuwpgZA 3:58 https://thoughtbot.com/upcase/videos/tmux-vim-integration
-* _window_: a tab (in Zellij terms)
-* _session_: window(s) + state https://www.youtube.com/watch?v=hbs7tuwpgZA 3:30
-
-ZA
-* feature overlap re: editors/terminals: tabs (Vim, iTerm), sessions (Vim), replicated plugins (Harpoon, fuzzy find)
-* history: screen https://www.gnu.org/software/screen/ -> tmux -> zellij
-
----
-
-VIM
-> pro of using zellij to control Vim via panes is you have access to zellij panes resizing but don't think zellij can handle having the Vim workspace in context for Harpoon e.g. I don't want to open a new pane and try fuzzy finding and only having the files in context that Strider knows about https://www.youtube.com/watch?v=lmcrVRM9V4k 16:30
-* https://rutar.org/writing/from-vim-and-tmux-to-neovim/
-* https://github.com/christoomey/vim-tmux-navigator
-* https://www.youtube.com/watch?v=gnupOrSEikQ
-* https://vimtricks.com/p/quickly-access-project-notes/
-* https://www.youtube.com/results?search_query=vim+sessions+vs.+tmux https://www.youtube.com/watch?v=ST_DZ6yIiXY
-
-WHY
-* _why switch from iTerm?_ named sessions https://www.youtube.com/watch?v=hbs7tuwpgZA 7:50 temp full screen of panes [ibid 6:35]
-* _workflow_: session per Git project https://www.youtube.com/watch?v=hbs7tuwpgZA https://thoughtbot.com/upcase/videos/tmux-introduction one pane for Vim and another for running tests
-* copy, paste https://thoughtbot.com/upcase/videos/tmux-navigation
-
-PLUGINS
-* _tpm_: pkg mgmt https://github.com/tmux-plugins/tpm
-* color theme https://github.com/nordtheme/tmux
-* status bar https://github.com/git-pull/tao-of-tmux/blob/master/manuscript/09-status-bar.md
-* https://github.com/tmux-plugins/tmux-resurrect
-* https://github.com/tmux-plugins/tmux-continuum
-* https://www.youtube.com/watch?v=DzNmUNvnB04
-* https://www.youtube.com/shorts/PL1EoKjy4iM
-
-* send keys https://news.ycombinator.com/item?id=37172711
-* Zellij https://news.ycombinator.com/item?id=26902430 https://news.ycombinator.com/item?id=32444564 https://www.youtube.com/watch?v=mnp9LCUdtJw
-* one session per project e.g. t3, data eng, baseline (desktop/cmus/yin) https://www.youtube.com/watch?v=hbs7tuwpgZA 1:45
-* guided tour https://www.youtube.com/watch?v=sSOfr2MtRU8 @ 5:00
-* persist sessions through restart https://github.com/tmux-plugins/tmux-resurrect https://www.youtube.com/watch?v=sMbuGf2g7gc
-* n windows w/in single session of terminal emulator https://linuxize.com/post/getting-started-with-tmux/
-* switch btw sessions w/ fzf https://news.ycombinator.com/item?id=22857615
-* config, pane count https://www.youtube.com/watch?v=FTklH6z0LWA
-* https://willvaughn.org/articles/the-tmux-manual-review/
-* https://news.ycombinator.com/item?id=35021587
-* _config_: more ergonomic binding for prefix https://thoughtbot.com/upcase/videos/tmux-introduction https://thoughtbot.com/upcase/videos/tmux-configuration
-* _normal navigation cmds (page up, et al.)_: prefix [ then q to exit
-* _leader_: synonym for hotkey?
-
-cmd
-* _start_: `tmux`
-* _stop_: `exit`
-* _prefix to all cmd_: `ctrl b`
-* _list all cmd_: `?`
-
-pane https://thoughtbot.com/upcase/videos/tmux-introduction
-* _horizontal split_: prefix %
-* _vertical split_: prefix "
-* _toggle splits_: prefix o
-* _switch splits by direction_: prefix arrow
-
-session
-* _create named_: `tmux new-session -s <name>`
-* _save_: tmux-resurrect (apparently you'd otherwise lose on shutdown) https://www.youtube.com/watch?v=hbs7tuwpgZA 9:50
-* _detach_: run in background; `prefix d` or `tmux detach-session` https://thoughtbot.com/upcase/videos/tmux-introduction
-* _list_: `tmux ls`
-* _attach_: bring to foreground; `tmux a <num>` or `tmux attach -t <name>`; can use `choose-tree` as well https://thoughtbot.com/upcase/videos/tmux-navigation
 
 ## shell (zsh)
 
@@ -807,7 +788,7 @@ FISH 📜 https://fishshell.com/
 * ✅ autocomplete https://news.ycombinator.com/item?id=27992073 https://www.benkuhn.net/autocomplete/ https://ianthehenry.com/posts/sd-my-script-directory/ https://news.ycombinator.com/item?id=18777113 
 * accept autosuggestion: `CTRL f` https://stackoverflow.com/a/58382167/6813490
 * ❌ have to rewrite profile https://news.ycombinator.com/item?id=15913251 https://superuser.com/questions/446925/re-use-profile-for-fish
-* ❌ `!!` doesn't run last cmd https://news.ycombinator.com/item?id=15943070 https://bsago.me/tech-notes
+* ❌ `!!` doesn't run last cmd https://news.ycombinator.com/item?id=15943070 https://bsago.me/tech-notes https://bsago.me/tech-notes/a-replacement-for-!!-in-fish
 * ❌ Vi mode but apparently doesn't work well https://stackoverflow.com/questions/28444740/how-to-use-vi-mode-in-fish-shell https://news.ycombinator.com/item?id=18778048
 * ❌ scripting language not portable https://news.ycombinator.com/item?id=18778681 https://news.ycombinator.com/item?id=15911216 https://rutar.org/writing/vim-session-management-an-introduction-to-fish/
 * can't run bash scripts = just switch back to bash https://news.ycombinator.com/item?id=18777141 https://jvns.ca/blog/2017/04/23/the-fish-shell-is-awesome/
@@ -817,7 +798,7 @@ ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 * _crush_ https://news.ycombinator.com/item?id=24079001
 * _elvish_ https://news.ycombinator.com/item?id=18778681
 * _nushell_: https://www.nushell.sh/
-* _oil_: https://news.ycombinator.com/item?id=24079001
+* _oil_: https://github.com/oilshell/oil
 * _Powershell_: supports some Bash commands but no arguments https://yehudakatz.com/2019/04/24/powershell-lets-get-started
 * good at working with structured text like CSV https://news.ycombinator.com/item?id=28306401
 * multiple versions https://www.youtube.com/watch?v=--c3yNP-hL0 7:30
@@ -843,11 +824,12 @@ FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/
 * viz: background color/image, transparency, themes e.g. gruvbox https://www.youtube.com/watch?v=h509rn2xIyU
 * _hotkey_: keypress handled by listening program even if another program is active
 * the killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
-* options: AutoHotKey https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ Hammerspoon, Keyboard Maestro https://news.ycombinator.com/item?id=34070951 Karabiner https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934 Alfred https://www.alfredapp.com/ snap https://rectangleapp.com/
+* options: AutoHotKey https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ Hammerspoon, Keyboard Maestro https://news.ycombinator.com/item?id=34070951 Karabiner https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934 Alfred https://www.alfredapp.com/
 
 PROMPT
 * things I want: Git branch, Python version, venv
 * Git: https://www.youtube.com/watch?v=wku-1nJR_oA https://github.com/zachvalenta/dotfiles/commit/cc4117a72c7b1d80f0ec58021530727435a2e4af https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh https://stackoverflow.com/questions/31252573/get-current-directory-without-full-path-in-fish-shell
+* _ohmyposh_: https://github.com/jandedobbeleer/oh-my-posh
 * _pure_: zsh only https://github.com/sindresorhus/pure
 * _powerlevel10k_: https://github.com/romkatv/powerlevel10k
 * _powerline_: statusline and prompt for Vim and used by zsh https://github.com/powerline/powerline
@@ -860,7 +842,7 @@ PROMPT
 * uninstall `sh -c 'rm "$(command -v 'starship')"'`
 * venv https://github.com/starship/starship/issues/1529
 * won't get Python version if you're using an alias https://github.com/starship/starship/issues/632
-* _powerline-shell_: powerline but works on bash and zsh (w/out ohmyzsh) https://github.com/b-ryan/powerline-shell
+* _powerline-shell_: ✅ powerline but works on bash and zsh (w/out ohmyzsh) https://github.com/b-ryan/powerline-shell
 * conf: `~/.config/powerline-shell/config.json`
 * requires powerline for fonts? https://powerline.readthedocs.io/en/latest/installation/osx.html
 * no Poetry support https://github.com/b-ryan/powerline-shell/issues/507
@@ -902,9 +884,10 @@ https://news.ycombinator.com/item?id=35126280
 
 ALTERNATIVES
 > UX also isn't something that can really be competed on for a terminal app as the UX is typically dictated by the shell, tool, tmux, etc. https://news.ycombinator.com/item?id=35125295
+* _Alacritty_: no native global hotkey https://github.com/alacritty/alacritty/issues/3313 but workarounds available (Hammerspoon, Karabiner) https://github.com/alacritty/alacritty/issues/862
 * _Hyper_: Electron https://hyper.is/
 * _kitty_: can preview images in broot https://sw.kovidgoyal.net/kitty/
-* _sshx_: ✅ real-time collaboration https://github.com/ekzhang/sshx
+* _sshx_: real-time collaboration https://github.com/ekzhang/sshx
 * _Tabby_: memory hog https://news.ycombinator.com/item?id=35111397
 * _Warp_: launch configurations 类似 iterm profiles, need to login w/ Github https://news.ycombinator.com/item?id=30926360
 * _Wezterm_: immature https://wezfurlong.org/wezterm/index.html
@@ -940,6 +923,7 @@ WINDOW MANAGERS
 * _PaperWM_: https://jvns.ca/blog/2020/01/05/paperwm/
 * _Slate_: unmaintained https://github.com/jigish/slate
 * _Sway_: https://swaywm.org/
+* _Rectable_: macOS https://rectangleapp.com/
 * _X.org_: https://www.x.org/wiki/
 * _XQuartz_: port of X.org for macOS https://www.xquartz.org/
 * _xmonad_: x11, no macOS https://news.ycombinator.com/item?id=30402358 https://xmonad.org/
@@ -957,6 +941,31 @@ WINDOW MANAGERS
 * `git.md` utils
 * `linux.md` denv
 
+HISTORY
+* `history 0`: see full history in zsh https://unix.stackexchange.com/a/657934
+
+---
+
+HISTORY https://catonmat.net/the-definitive-guide-to-bash-command-line-history https://martinheinz.dev/blog/110
+* search: `ctrl r`
+* scroll all items that match query: `ctrl r` (again)
+* cancel search: `ctrl c`
+* scroll previous: `ctrl p`
+* scroll next: `ctrl n`
+> same when you're in search mode
+* event designator: `history | rg cd` then go to event w/ `!<event_num>`
+> it can be helpful to stick something like `#useful` or `# description` on the end of a command you expect to need again https://news.ycombinator.com/item?id=13888269
+* https://github.com/cantino/mcfly
+
+MAN PAGES
+* _whereis_: search for executables and man page in system db https://github.com/Idnan/bash-guide#c-whereis
+* _tldr_: cheatsheets https://github.com/tldr-pages/tldr/tree/master/pages https://github.com/dbrgn/tealdeer https://github.com/chubin/cheat.sh
+* offline documentations https://devdocs.io/
+> you can download plaintext of Python docs
+* man (UNIX) vs. info (GNU) https://askubuntu.com/a/9332 man pages for systems calls as well (`sendfile`) [`evans-linux.pdf` 11]
+* help: `man`, `info`, `whatis`, `man 2 <cmd>` (for system calls)
+* man pages: following links (like at bottom of cmus manpage) https://unix.stackexchange.com/a/18161/331460 set pager `export MANPAGER=bat` https://askubuntu.com/a/679058
+
 CORE
 * versions: Linux uses GNU, macOS uses BSD (get w/ `brew install coreutils`) 📙 Evans shell [4]
 * _dd_: copy/rm data https://github.com/akavel/up
@@ -965,8 +974,7 @@ CORE
 * _free_: disk space? free memory? `df` memory https://apple.stackexchange.com/q/4286/328389 or `duf` https://github.com/ibraheemdev/modern-unix `top` on macOS
 * _bc_: do math on stdin https://missing.csail.mit.edu/2020/data-wrangling/
 * _head_: 类似 SQL `limit` e.g. `ls <query> | head -4` or `kaiff` (`ls | sort -f | head -1 | xargs open`) https://stackoverflow.com/a/14510257/6813490
-* _whereis_: search for executables in system db https://github.com/Idnan/bash-guide#c-whereis
-* _which_: search for executables on path https://github.com/Idnan/bash-guide#d-which full path https://nil.wallyjones.com/what-shell-am-i-using/
+* _which_: search for executables on $PATH https://github.com/Idnan/bash-guide#d-which full path https://nil.wallyjones.com/what-shell-am-i-using/
 * _rm_: send to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives https://github.com/nivekuil/rip https://github.com/arsenetar/send2trash/issues https://github.com/arsenetar/send2trash/issues/56 https://hacker-tools.github.io/command-line/
 * _w_: who is logged in and what they're doing https://rachelbythebay.com/w/2018/03/26/w/
 * _watch_: https://github.com/sachaos/viddy
@@ -978,21 +986,14 @@ MODERN
 * _imgcat_: render img in terminal https://news.ycombinator.com/item?id=23319272
 * get file duration https://www.youtube.com/watch?v=s6DXMf_yj64
 * _gotty_: term as web app https://github.com/yudai/gotty
-* _neofetch_: system info
+* _neofetch_: system info https://github.com/Dr-Noob/cpufetch
 * _pdfgrep_: https://pdfgrep.org/ alternative
 * _scc_: code stats https://github.com/XAMPPRocky/tokei
 * _tee_: view output https://www.youtube.com/watch?v=NsAUBict1Aw
-* _tldr_: cheatsheets https://github.com/tldr-pages/tldr/tree/master/pages https://github.com/dbrgn/tealdeer https://github.com/chubin/cheat.sh
 * _tsukae_: view most commonly used commands https://github.com/irevenko/tsukae
 * _try_: view files that command touches https://github.com/binpash/try
 * weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/
 * Wikipedia https://github.com/yashsinghcodes/wik
-
-AUTOJUMP
-* _autojump_: jump to recently visited dir https://missing.csail.mit.edu/2020/shell-tools/
-* what I use: lots of alias in `.bash_profile`
-* options: https://github.com/rupa/z https://github.com/wting/autojump https://github.com/clvv/fasd https://github.com/ajeetdsouza/zoxide https://github.com/mfaerevaag/wd
-* BYO https://news.ycombinator.com/item?id=22853119
 
 COREUTILS
 * _coreutils_: ls, rm, cat, et al. https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands
@@ -1021,19 +1022,8 @@ DASHBOARDS 🗄 `python.md` TUI
 * https://github.com/Phantas0s/devdash
 * https://github.com/gizak/termui
 
-HISTORY https://catonmat.net/the-definitive-guide-to-bash-command-line-history
-* search: `ctrl r`
-* scroll all items that match query: `ctrl r` (again)
-* cancel search: `ctrl c`
-* scroll previous: `ctrl p`
-* scroll next: `ctrl n`
-> same when you're in search mode
-* event designator: `history | rg cd` then go to event w/ `!<event_num>`
-> it can be helpful to stick something like `#useful` or `# description` on the end of a command you expect to need again https://news.ycombinator.com/item?id=13888269
-* https://github.com/cantino/mcfly
-
 MONITORING
-* directory size: du, ncdu https://github.com/bootandy/dust `du -sh -- * | sort -r` https://unix.stackexchange.com/a/185777 https://github.com/muesli/duf https://github.com/imsnif/diskonaut
+* directory size: du, ncdu https://github.com/bootandy/dust `du -sh -- * | sort -r` https://unix.stackexchange.com/a/185777 https://github.com/muesli/duf https://github.com/imsnif/diskonaut https://github.com/KSXGitHub/parallel-disk-usage
 * disk space: view of mounts; `df -h`; colorize https://danyspin97.org/blog/colorize-your-cli/
 * memory: free (UNIX) top (macos) gotop https://github.com/xxxserxxx/gotop/issues/50 ytop https://github.com/cjbassi/ytop htop https://tech.marksblogg.com/top-htop-glances.html below https://github.com/facebookincubator/below https://github.com/bvaisvil/zenith
 * network: https://github.com/imsnif/bandwhich
@@ -1048,6 +1038,62 @@ TUI
 * https://news.ycombinator.com/item?id=40273177
 * _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
 * _ncurses_: Linux https://github.com/jesseduffield/lazydocker https://github.com/NerdyPepper/dijo
+
+## cron
+
+🗄 `distributed.md` TQ
+
+NOHUP
+* _nohup_: separates process and terminal https://unix.stackexchange.com/a/148698
+* keeps process alive after terminal that started process is killed https://hacker-tools.github.io/remote-machines/
+* appends to `nohup.out`
+```sh
+# keep alive https://github.com/Idnan/bash-guide#d-nohup
+nohup <cmd>
+# keep alive + run in background
+nohup <cmd> &
+```
+
+---
+
+* use postgres https://github.com/cybertec-postgresql/pg_timetable
+* https://www.youtube.com/watch?v=AHAAA7zfT7Q
+* _bg_: put job in background
+* _fg_: put background job into foreground https://hacker-tools.github.io/shell/
+* _&_: run in background
+* _nq_: queuing commands https://github.com/leahneukirchen/nq
+```sh
+# build targets without occupying the terminal
+$ nq make clean
+$ nq make depends
+$ nq make all
+$ fq  # look at output without stopping the build
+```
+
+* https://www.twilio.com/blog/2017/04/wedding-at-scale-how-i-used-twilio-python-and-google-to-automate-my-wedding.html
+* https://github.com/SkullTech/drymail
+* https://github.com/caronc/apprise
+* https://github.com/fonoster/fonos
+* https://hacker-tools.github.io/automation/
+* Python https://github.com/agronholm/apscheduler
+* _anacron_: runs certain time after system start i.e. better for personal machine; 1 time/day
+* _launchd_: macOS equivalent https://blog.bejarano.io/fixing-cron-jobs-in-mojave.html
+* _batch_: runs when server load drops below specific level
+* _Autosys_: tool for coordinating cron jobs; first heard about this 2017.11
+* _monitoring_: https://github.com/healthchecks/healthchecks
+
+* _cron_: expects specific time i.e. better for server
+* `/etc/crontab` for system
+* `~/crontab` for user
+>  It’s a simple text file with an ASCII table that will execute a command on schedule. 📙 Conery [422]
+* `crontab -e`: edit crontab 📙 Conery [422]
+* `crontab -l`: see active entries
+
+* syntax https://www.youtube.com/watch?v=QZJ1drMQz1A&t=895s https://crontab.guru/
+```sh
+# 1-min(0-59) 2-hour 3-day(month) 4-month 5-day(week)
+5 * * * *  # 5th minute of every hour, every day of month, every month, every day of week
+```
 
 ## file
 
@@ -1074,44 +1120,6 @@ FILE WATCHERS
 * _watch_: https://www.youtube.com/watch?v=bB2TmCfJiX8
 * _watchman_: https://facebook.github.io/watchman/ https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman
 * _hwatch_: https://github.com/blacknon/hwatch
-
-### explorer (broot)
-
-📜 https://dystroy.org/broot/ https://github.com/Canop/broot
-
-CONFIG https://dystroy.org/broot/conf_file/
-* fs on personal `~/Library/Preferences/org.dystroy.broot`
-* fs on work machines `~/.config/broot/conf.toml`
-* default file now `conf.hjson` but can rm and use `conf.toml`
-* broot will run exec on ALT ENTER
-* mv focus to preview pane https://github.com/Canop/broot/issues/480 https://dystroy.org/broot/#preview-files
-
-KEYBINDINGS
-* preview file `alt p`
-* close preview `alt q`
-* quit `ctrl w`
-* open file in default OS app `alt enter` https://github.com/Canop/broot/issues/86#issuecomment-573197384
-* open file in $EDITOR `enter` https://dystroy.org/broot/tricks/#change-standard-file-opening
-
-INSTALL
-* shell function adds line to bash profile https://github.com/Canop/broot/issues/115
-* Homebrew version might lag https://github.com/Canop/broot/issues/123
-* reinstall: `broot --install`
-* ❓ how to turn file preview on by default? https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
-* set Vim as editor https://missing.csail.mit.edu/2020/editors/
-
-FILE EXPLORERS
-* _file explorer_: TUI for file system e.g. Finder (mv, rm, preview)
-* aka file browser, file manager
-* _fff_: https://github.com/dylanaraps/fff/issues/135 
-* _lf_: https://www.youtube.com/c/BrodieRobertson/search?query=lf
-* _mini_: 🎯 https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
-* _nnn_: https://github.com/jarun/nnn
-* _telescope_: 🎯 https://github.com/nvim-telescope/telescope.nvim https://www.youtube.com/watch?v=OhnLevLpGB4 https://www.youtube.com/watch?v=indguFY7wJ0
-* _superfile_: 🎯 https://github.com/MHNightCat/superfile https://news.ycombinator.com/item?id=40323101
-* _vifm_: https://github.com/vifm/vifm https://www.youtube.com/watch?v=RGOsE3UWqhI https://www.youtube.com/watch?v=6eyFXcyosu8
-* _walk_: https://github.com/antonmedv/walk
-* _xlpr_: https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020
 
 ### find (fd)
 
@@ -1154,6 +1162,54 @@ fselect path from /tmp order by size desc, name
 fselect duration, path from /home/user/music where genre = Rap and bitrate = 320 and mp3_year lt 2000  
 fselect path, mime from /home/user where is_audio = 1
 ```
+
+### explorer (broot)
+
+📜 https://dystroy.org/broot/ https://github.com/Canop/broot
+
+CONFIG https://dystroy.org/broot/conf_file/
+* fs on personal `~/Library/Preferences/org.dystroy.broot`
+* fs on work machines `~/.config/broot/conf.toml`
+* default file now `conf.hjson` but can rm and use `conf.toml`
+* broot will run exec on ALT ENTER
+* mv focus to preview pane https://github.com/Canop/broot/issues/480 https://dystroy.org/broot/#preview-files
+
+KEYBINDINGS
+* preview file `alt p`
+* close preview `alt q`
+* quit `ctrl w`
+* open file in default OS app `alt enter` https://github.com/Canop/broot/issues/86#issuecomment-573197384
+* open file in $EDITOR `enter` https://dystroy.org/broot/tricks/#change-standard-file-opening
+
+INSTALL
+* shell function adds line to bash profile https://github.com/Canop/broot/issues/115
+* Homebrew version might lag https://github.com/Canop/broot/issues/123
+* reinstall: `broot --install`
+* ❓ how to turn file preview on by default? https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
+* set Vim as editor https://missing.csail.mit.edu/2020/editors/
+
+ALTERNATIVES
+* _file explorer_: TUI for file system e.g. Finder (mv, rm, preview)
+* aka file browser, file manager
+* _fff_: https://github.com/dylanaraps/fff/issues/135 
+* _lf_: https://www.youtube.com/c/BrodieRobertson/search?query=lf
+* _mini_: 🎯 https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
+* _nnn_: https://github.com/jarun/nnn
+* _telescope_: 🎯 https://github.com/nvim-telescope/telescope.nvim https://www.youtube.com/watch?v=OhnLevLpGB4 https://www.youtube.com/watch?v=indguFY7wJ0
+* _superfile_: 🎯 https://github.com/MHNightCat/superfile https://news.ycombinator.com/item?id=40323101
+* _vifm_: https://github.com/vifm/vifm https://www.youtube.com/watch?v=RGOsE3UWqhI https://www.youtube.com/watch?v=6eyFXcyosu8
+* _walk_: https://github.com/antonmedv/walk
+* _xlpr_: https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020
+* _yazi_: https://github.com/sxyazi/yazi
+
+### jump
+
+* `.bash_profile` aliases
+* BYO https://news.ycombinator.com/item?id=22853119
+* _autojump_: mature https://github.com/wting/autojump
+* _wd_: manually add https://github.com/mfaerevaag/wd
+* _z_: https://github.com/rupa/z
+* _zoxide_: tried out and init in zsh didn't work, requires fzf https://github.com/ajeetdsouza/zoxide
 
 ### list (exa)
 
@@ -1220,7 +1276,9 @@ pyclean () {
 
 color output: `tput` https://stackoverflow.com/a/20983251/6813490
 
-## fuzzy find (fzf)
+## text
+
+### fuzzy find (fzf)
 
 🗄 `vim.md` fuzzy find
 📜 https://github.com/junegunn/fzf
@@ -1234,6 +1292,7 @@ USES https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-d
 
 ---
 
+https://www.youtube.com/watch?v=MvLQor1Ck3M
 * https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
 > As well as filtering the list of matches, the fuzzy finder also sorts the results using a ranking algorithm 📙 Neil modern [3.2   6]
 
@@ -1270,65 +1329,9 @@ cdf() {
 * _keybindings_: Emacs; ctrl j/k to scroll https://github.com/junegunn/fzf/issues/1716#issuecomment-542756200 but just type a few more char https://github.com/junegunn/fzf/issues/1716#issuecomment-542784884 more scroll bindings https://github.com/junegunn/fzf.vim/issues/211#issuecomment-497943378 https://github.com/junegunn/fzf.vim/issues/358#issuecomment-296737223 https://github.com/junegunn/fzf/blob/master/CHANGELOG.md#0152
 * _Vim_: 🗄 `fzf.log`
 
-## jobs (cron)
+### munge (awk, sed)
 
-🗄 `distributed.md` TQ
-
-NOHUP
-* _nohup_: separates process and terminal https://unix.stackexchange.com/a/148698
-* keeps process alive after terminal that started process is killed https://hacker-tools.github.io/remote-machines/
-* appends to `nohup.out`
-```sh
-# keep alive https://github.com/Idnan/bash-guide#d-nohup
-nohup <cmd>
-# keep alive + run in background
-nohup <cmd> &
-```
-
----
-
-* use postgres https://github.com/cybertec-postgresql/pg_timetable
-* https://www.youtube.com/watch?v=AHAAA7zfT7Q
-* _bg_: put job in background
-* _fg_: put background job into foreground https://hacker-tools.github.io/shell/
-* _&_: run in background
-* _nq_: queuing commands https://github.com/leahneukirchen/nq
-```sh
-# build targets without occupying the terminal
-$ nq make clean
-$ nq make depends
-$ nq make all
-$ fq  # look at output without stopping the build
-```
-
-* https://www.twilio.com/blog/2017/04/wedding-at-scale-how-i-used-twilio-python-and-google-to-automate-my-wedding.html
-* https://github.com/SkullTech/drymail
-* https://github.com/caronc/apprise
-* https://github.com/fonoster/fonos
-* https://hacker-tools.github.io/automation/
-* Python https://github.com/agronholm/apscheduler
-* _anacron_: runs certain time after system start i.e. better for personal machine; 1 time/day
-* _launchd_: macOS equivalent https://blog.bejarano.io/fixing-cron-jobs-in-mojave.html
-* _batch_: runs when server load drops below specific level
-* _Autosys_: tool for coordinating cron jobs; first heard about this 2017.11
-* _monitoring_: https://github.com/healthchecks/healthchecks
-
-* _cron_: expects specific time i.e. better for server
-* `/etc/crontab` for system
-* `~/crontab` for user
->  It’s a simple text file with an ASCII table that will execute a command on schedule. 📙 Conery [422]
-* `crontab -e`: edit crontab 📙 Conery [422]
-* `crontab -l`: see active entries
-
-* syntax https://www.youtube.com/watch?v=QZJ1drMQz1A&t=895s https://crontab.guru/
-```sh
-# 1-min(0-59) 2-hour 3-day(month) 4-month 5-day(week)
-5 * * * *  # 5th minute of every hour, every day of month, every month, every day of week
-```
-
-## munge (awk, sed)
-
-🗄 `sql.md` munge
+🗄 `databased.md` tooling
 
 COLUMNAR
 * _cut_: rm columns https://blog.balthazar-rouberol.com/text-processing-in-the-shell#cut https://kadekillary.work/posts/cli-4-ds/ https://github.com/theryangeary/choose https://github.com/ibraheemdev/modern-unix
@@ -1396,7 +1399,7 @@ ZA
 # 📍 todo
 ```
 
-## pager (bat)
+### pager (bat)
 
 📜 https://github.com/sharkdp/bat
 
@@ -1429,7 +1432,7 @@ bat src/*.rs
 bat --line-range 227:236 $NOTES_DIR/sw/za/algos.md
 ```
 
-## text search (ripgrep)
+### search (ripgrep)
 
 🗄 `vim.md` code completion
 

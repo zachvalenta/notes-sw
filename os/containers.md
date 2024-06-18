@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -11,24 +11,26 @@
 * Takemura book of xen
 * Tanenbaum circus ch 7
 
-## now
+## 进步
 
+https://github.com/robertpsoane/ducker
 https://github.com/mrjackwills/oxker
-
-## next
-
----
-
 * making things actually reproducible https://pythonspeed.com/articles/reproducible-docker-builds-python/
 
-## done
+IMPROVE WORKLOW
+* hot reload https://www.youtube.com/watch?v=YFl2mCHdv24 8:30
+> DRF/crud app already seems to be hot reloading
+* fresh volume when running locally
+* _ignore_: .git, local.db https://gist.github.com/wassname/b25471b0f3bb2f9ff81f build context https://codefresh.io/docker-tutorial/not-ignore-dockerignore-2/ https://alecthegeek.github.io/docker/2019/06/06/Docker-Build-With-No-Build-Context.html
+* _deps_: export prod-only deps, add `http` as dev dep
+* _tooling_: lint image, GUI https://github.com/jesseduffield/lazydocker CLI https://github.com/j-bennet/wharfee https://github.com/veggiemonk/awesome-docker#terminal
 
 * _22_: rf Kubernetes notes
 * _20_: docker-compose (handle container startup order) skeletons (SQLite, gunicorn, Postgres), secrets mgmt, workflow (build cache to speed rebuilds, use ARGs, Makefile rules for rebuild and shell) compose (variables for db creds, envs using multiple compose files)
 * _19_: another course, Flask skeleton
 * _17_: Pluralsight course, explain what a container is in a work meeting :)
 
-# DOCKER
+# 🚢 DOCKER
 
 OS STORAGE
 * `docker.raw`: allocated 32GB but only 3-4GB of images https://apple.stackexchange.com/q/391377
@@ -90,14 +92,6 @@ docker run --name poc -d -p 5000:5000 poc  # map port 5000 on local machine to p
 volumes
 * _list all_: `volume ls` https://stackoverflow.com/a/31997267
 * _prune unused_: `volume prune` https://stackoverflow.com/a/40654726 all https://gist.github.com/evanscottgray/8571828#gistcomment-2866236 https://docs.docker.com/config/pruning/#prune-everything
-
-IMPROVE WORKLOW
-* hot reload https://www.youtube.com/watch?v=YFl2mCHdv24 8:30
-> DRF/crud app already seems to be hot reloading
-* fresh volume when running locally
-* _ignore_: .git, local.db https://gist.github.com/wassname/b25471b0f3bb2f9ff81f build context https://codefresh.io/docker-tutorial/not-ignore-dockerignore-2/ https://alecthegeek.github.io/docker/2019/06/06/Docker-Build-With-No-Build-Context.html
-* _deps_: export prod-only deps, add `http` as dev dep
-* _tooling_: lint image, GUI https://github.com/jesseduffield/lazydocker CLI https://github.com/j-bennet/wharfee https://github.com/veggiemonk/awesome-docker#terminal
 
 ## components
 
@@ -290,6 +284,7 @@ services:
 
 ---
 
+* dont use Alpine? https://martinheinz.dev/blog/92
 * view fs changes https://github.com/wagoodman/dive https://fzakaria.com/2020/05/31/containers-from-first-principles.html
 * copy images from one registry to another https://www.thoughtworks.com/radar/tools?blipid=202203084 https://github.com/containers/skopeo
 * security scan https://github.com/anchore/grype https://www.thoughtworks.com/radar/tools?blipid=202203019
@@ -496,7 +491,7 @@ types https://stackoverflow.com/a/55366707 https://www.youtube.com/watch?v=YFl2m
 * persisted even if container deleted unless you explicity wipe it out
 * apparently for local dev you mount your src directory onto container file system but for prod you copy your src into container itself
 
-# ZA
+# 🟨 ZA
 
 ## containerization
 
@@ -559,6 +554,7 @@ VMWARE
 
 ## Kubernetes
 
+https://roadmap.sh/kubernetes
 🗄 `system.md` distributed
 🔍 https://ramitsurana.github.io/awesome-kubernetes/
 📚
@@ -576,7 +572,7 @@ BASICS
 * _group_: n pods running on a node
 * _node_: machine (physical, virtual) w/ container runtime (Docker, containerd) + Kubes agent
 * _cluster_: n nodes https://www.mattlayman.com/blog/2019/web-development-environments 
-* _etcd_: db on cluser state https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
+* _etcd_: db on cluser state https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/ use Postgres https://martinheinz.dev/blog/100
 * _Helm_: pkg manager for cluster; Cue https://github.com/stefanprodan/timoni
 * _chart_: Helm pkg
 * _Rancher_: hardened K8s for enterprise https://www.rancher.com/
@@ -591,8 +587,10 @@ DESIGN
 * complexity https://k8s.af/ easier if managed https://news.ycombinator.com/item?id=22491794 https://www.lastweekinaws.com/blog/the-baffling-maze-of-kubernetes/ https://www.lastweekinaws.com/blog/a-brief-history-of-kubernetes-its-use-cases-and-its-problems/ https://www.lastweekinaws.com/blog/how-to-learn-something-new-kubernetes-the-much-harder-way/
 * history: emerges from Borg (C++ 100M LOC) and moved to Linux Foundation (CNCF) in 2014
 * previous competition: Swarm, Mesos, Nomad, Marathon https://technodrone.blogspot.com/2019/02/goodbye-docker-and-thanks-for-all-fish.html
+* https://news.ycombinator.com/item?id=30767393
 
 UTIL
+* debugging Python https://martinheinz.dev/blog/99
 * https://www.faizanbashir.me/interacting-with-kubernetes-deployments-and-services-using-python-sdk
 * https://terminaltrove.com/kubecolor/
 * GUI https://aptakube.com/

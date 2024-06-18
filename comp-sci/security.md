@@ -11,6 +11,7 @@
 
 ---
 
+* https://roadmap.sh/cyber-security
 * https://www.freecodecamp.org/learn/information-security/
 * https://news.ycombinator.com/item?id=38332222
 * https://www.osohq.com/academy
@@ -30,6 +31,8 @@
 * https://news.ycombinator.com/item?id=28979231
 * tie mulitple emails to important accounts as disaster prevention https://news.ycombinator.com/item?id=28274880
 * public key cryptography [MacCormick 4] https://austinvernon.eth.link/blog/pkexamples.html https://austinvernon.eth.link/blog/publickey.html
+* https://nostarch.com/hacks-leaks-and-revelations
+* EDR endpoint detection https://nostarch.com/evading-edr
 
 things to know https://www.netmeister.org/blog/infosec-competencies.html https://jacobian.org/2021/jul/8/appsec-pagnis https://latacora.github.io/careers/
 
@@ -243,6 +246,8 @@ pass
 
 🗄 `application.md` security
 
+https://roadmap.sh/backend
+
 vocab
 https://ntietz.com/blog/lets-say-instead-of-auth/
 * _authorization_: identity
@@ -378,13 +383,15 @@ tracking w/ cookies
 
 🗄 `django.md` users
 
+---
+
+generate https://github.com/oleiade/motus
+
 workflow https://robertheaton.com/2019/08/12/programming-projects-for-advanced-beginners-user-logins/
 * how to validate registration: to prevent the waste of maintaining empty accounts https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/ to prevent someone from accidentally reigstering wrong email and inadvertently giving someone access to their account [email - 'new feedback message']
 * how to store: hash them https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account
 * _change_: update for logged-in user
 * _reset_: update for user who cannot login 📙 Osborn 1.10
-
----
 
 * GPG https://www.youtube.com/watch?v=1vVIpIvboSg
 * pwgen https://www.youtube.com/watch?v=G3aH2WYJxGA

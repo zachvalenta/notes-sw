@@ -1,12 +1,13 @@
-# 开
+# ⛩️
 
 ## 参考
 
-## now
+## 进步
 
-## next
-
-## done
+LANGUAGES TO LEARN
+* Golang: Ball compiler book, PocketBase
+* Zig/C: systems
+* Lisp/Lua: paradigms
 
 * _19-present_: Python, SQL
 * _18_: Python, Spring Boot, Django/DRM
@@ -63,6 +64,11 @@ SYSTEMS PROGRAMMING
 
 ## functional
 
+---
+
+https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell
+https://bytes.yingw787.com/posts/2018/11/07/data_driven_testing
+
 FUNCTIONAL 📙 Conery https://github.com/hemanth/functional-programming-jargon
 * _functional_: function that operates on other functions https://stackoverflow.com/a/94056
 * as design: pure, uses higher-order
@@ -84,10 +90,9 @@ https://github.com/dry-python/returns Land of Lisp epilogue https://docs.python.
 
 ## object-oriented
 
-📙 Ramalho fluent python
-🗄
-* typing
-* `system.md` programs / DDD
+📙 Bugayenko elegant obj https://www.elegantobjects.org/
+
+SOLID https://realpython.com/solid-principles-python/
 
 OBJECTS
 * _object_: vs. procedural 📙 Evans domain-driven [51]
@@ -235,24 +240,23 @@ turns into metadata addiction
 
 # 📚 LANGUAGES
 
-> [a programming language is] an algorithm management system - Ford what is code?
+> an algorithm management system 📰 Ford what is code?
 > We can see that Brooks' 1986 claim that we've basically captured all the productivity gains high-level languages can provide isn't too different from an assembly language programmer saying the same thing in 1955, thinking that assembly is as good as any language can be. https://danluu.com/essential-complexity/#summary
 
-ELIXIR
-* good at distributed https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023
-* people love it https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/
-* _OTP_: Erlang's stdlib
-* _BEAM_: Erlang VM https://elixir-lang.org/
-* https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620
+HISTORY https://increment.com/programming-languages/language-history/
+* _1957_: Fortran (IBM); still the best for math https://news.ycombinator.com/item?id=14498904 Python better? https://cerfacs.fr/coop/fortran-vs-python role in Python https://labs.quansight.org/blog/building-scipy-with-flang
+* _1958_: Lisp (MIT)
+* _1959_: Cobol; process transactions
+* _1972_: C (Bell Labs) Smalltalk (Xerox Parc) 
+* _1985_: C++ (Bell Labs)
+* _1990_: Python
+* _1993_: Lua
+* _1995_: Java (Sun) JS (Netscape) Ruby (Matz) https://twobithistory.org/2017/11/19/the-ruby-story.html
+* _2015_: Rust
+* _2016_: Zig
 
-JULIA
-* https://increment.com/programming-languages/goldilocks-language-history-of-julia/
-* https://danluu.com/julialang/
-* https://www.evanmiller.org/why-im-betting-on-julia.html
-* https://news.ycombinator.com/item?id=27884165
-* Jupyter notebooks https://github.com/fonsp/Pluto.jl https://news.ycombinator.com/item?id=31321620
-
-LUA 📜 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua
+🇧🇷 LUA https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua https://nvchad.com/docs/quickstart/learn-lua
+* pkg mgmt https://luarocks.org/
 * filepaths: use `.` separator, will handle forward/backslash on Linux, Windows https://www.youtube.com/watch?v=prnrwpOEsmo 9:45
 * functions: can omit parens if passing string or table as a single arg https://www.youtube.com/watch?v=prnrwpOEsmo 10:15
 * colons https://www.youtube.com/watch?v=prnrwpOEsmo 13:00
@@ -265,15 +269,8 @@ LUA 📜 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awes
 * people like? https://news.ycombinator.com/item?id=40538540
 * multiple compilers https://news.ycombinator.com/item?id=23686297
 
-R
-> Like statistical software? Primarily SPSS and some SAS & STATA.
-* _tidyverse_: stdlib https://www.tidyverse.org/index.html
-* https://github.com/sfirke/janitor
-* good for spatial https://walker-data.com/census-r/index.html
-* Pandas-esque
-> Terseness here is a huge advantage as well because in many data analysis workflows you are rerunning that same 10 line snippet over and over, making small changes, adjusting to eventually visualize the thing you're looking for perfectly. Having all of that in the same small block is ideal. https://news.ycombinator.com/item?id=30764505
-
-RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/
+🦀 RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust
+* Neovim https://www.youtube.com/watch?v=mh_EJhH49Ms
 * example project https://github.com/nate-sys/tuime https://github.com/swsnr/mdcat
 * books https://news.ycombinator.com/item?id=34556318 https://github.com/plabayo/learn-rust-101/blob/main/README.md
 * CLI https://www.amazon.com/gp/product/1098109430/ref=ox_sc_act_title_1?smid=ATVPDKIKX0DER&psc=1
@@ -289,7 +286,7 @@ RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm
 * what people love: packaging, DX https://stackoverflow.blog/2020/06/05/why-the-developers-who-use-rust-love-it-so-much parallelization https://news.ycombinator.com/item?id=26443768 CLI (jless) https://news.ycombinator.com/item?id=30273940 correctness
 > [invariant violation] At point A, there's some assumption, and way over there at point B, that assumption is violated... Type systems prevent some invariant violations. Because that works, there are ongoing attempts to extend type systems to prevent still more invariant violations. That creates another layer of confusing abstraction. Some invariants are not well represented as types, and trying makes for a bad fit. What you're really trying to do is to substitute manual specification of attributes for global analysis. The Rust borrow checker is an invariant enforcer. It explicitly does automatic global analysis, and reports explicitly that what's going on at point B is inconsistent with what point A needs. This is real progress in programming language design, and is Rust's main contribution. https://news.ycombinator.com/item?id=29996240
 
-ZIG
+↯ ZIG
 * overview https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203010
 * tutorial https://gist.github.com/ityonemo/769532c2017ed9143f3571e5ac104e50
 * BYO ls https://stackoverflow.com/questions/13554150/implementing-the-ls-al-command-in-c
@@ -297,16 +294,21 @@ ZIG
 * https://news.ycombinator.com/item?id=29702607
 * seems way easier than Rust https://scattered-thoughts.net/writing/assorted-thoughts-on-zig-and-rust/ https://kevinlynagh.com/rust-zig/
 * smart users https://github.com/jamii
+* current state of affairs https://news.ycombinator.com/item?id=36149462
+* use as compiler https://jakstys.lt/2022/how-uber-uses-zig/
+* as a teaching language https://news.ycombinator.com/item?id=32752383
 
 ZA
 * _APL_: https://mathspp.com/blog/what-learning-apl-taught-me-about-python
 * _C++_: https://ccc.codes/ https://github.com/green7ea/cpp-compilation http://esr.ibiblio.org/?p=7724 people hate C++ https://news.ycombinator.com/item?id=33436268 https://borretti.me/article/simplicity-and-survival https://news.ycombinator.com/item?id=34588340 https://news.ycombinator.com/item?id=34643530
-* _Elixir_ the main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 &utm_term=comment
+* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805
 * with Alpine https://news.ycombinator.com/item?id=34365515
-* _Haskell_: https://haskellbook.com/
+* _Haskell_: https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
+* _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/  https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
 * _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter
+* _R_: great stdlib, good for spatial https://www.tidyverse.org/index.html https://github.com/sfirke/janitor https://walker-data.com/census-r/index.html
 
 ## assembly
 
@@ -327,24 +329,19 @@ https://wizardzines.com/comics/assembly/
 
 ## C lang
 
-📹 https://www.youtube.com/c/JacobSorber/videos https://www.youtube.com/watch?v=j-_s8f5K30I
+📹 https://www.youtube.com/c/JacobSorber/videos
 📚
 * Matthews dive https://diveintosystems.org/
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
 🔍
-* http://www.buildyourownlisp.com
-* http://fabiensanglard.net/c/index.php
-* https://buildyourownlisp.com/
-* https://gribblelab.org/CBootCamp @ https://gribblelab.org/CBootCamp/3_Basic_Types_Operators_And_Expressions.html
-* Hacking page 21
-* https://www.enlightenment.org/docs/c/start
-* https://realpython.com/c-for-python-programmers/
+* courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
+* more books http://fabiensanglard.net/c/index.php
 
 STDLIB
+* things people don't like and replacements https://news.ycombinator.com/item?id=25125034
 * _libc_: POSIX spec for os stdlib; used by higher-levels languages for everything from networking to memory management https://wizardzines.com/comics/libc/
 * _glibc_: most common impl of libc https://stackoverflow.com/a/11373143
 * _musl_: used by Alpine https://www.musl-libc.org/ https://news.ycombinator.com/item?id=23819500 https://www.etalabs.net/compare_libcs.html cleaner? https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
-* things people don't like and replacements https://news.ycombinator.com/item?id=25125034
 
 DESIGN
 > C has a tendency to be conservative, changing and growing very slowly. https://nullprogram.com/blog/2018/11/21/
@@ -369,10 +366,10 @@ PROJECTS
 * cmus https://github.com/cmus
 * BYO virtual machine https://justinmeiners.github.io/lc3-vm/
 * BYO text editor https://viewsourcecode.org/snaptoken/kilo/01.setup.html https://github.com/codecrafters-io/build-your-own-x#build-your-own-text-editor
-* BYO Lisp http://www.buildyourownlisp.com
 
 ----
 
+* start here https://realpython.com/c-for-python-programmers/
 > Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
 
 misc
@@ -381,7 +378,6 @@ misc
 * _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron
 * Postgres codebase is supposed to be a good guide https://news.ycombinator.com/item?id=20556336
 * `#define`: constants https://www.youtube.com/watch?v=hsmGp3cp_50 0:50
-* malloc vs. calloc https://vorpus.org/blog/why-does-calloc-exist/
 
 under the hood
 * _ABI_: https://en.wikipedia.org/wiki/Application_binary_interface https://news.ycombinator.com/item?id=24140848 https://gankra.github.io/blah/c-isnt-a-language/
@@ -503,10 +499,7 @@ ZA
 
 ---
 
-LANGUAGE https://tryclojure.org/
-* s-expressions https://news.ycombinator.com/item?id=5654398 https://notes.eatonphil.com/compiler-basics-lisp-to-assembly.html
-* no loops https://www.lvguowei.me/post/sicp-goodness-looping/
-* prefix notation: operator comes first https://www.braveclojure.com/getting-started/
+📙 SICP https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
 
 ZA
 * declarative? 📙 Karwin [2]
@@ -522,14 +515,18 @@ ZA
 * https://news.ycombinator.com/item?id=40335608
 * https://www.fosskers.ca/en/blog/rounds-of-lisp
 
-📙 SICP https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
-
-LISPS https://stackoverflow.com/questions/47482349/what-characterizes-a-lisp-dialect
+LISPS
 * _Clojure_: https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792
 * _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
 * _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
 * _Racket_: based off Scheme, async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=19952714 https://news.ycombinator.com/item?id=23132621 https://news.ycombinator.com/item?id=8206038 https://news.ycombinator.com/item?id=13881535 https://news.ycombinator.com/item?id=32723784
 * _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
+
+LANGUAGE https://tryclojure.org/
+* https://stackoverflow.com/questions/47482349/what-characterizes-a-lisp-dialect
+* s-expressions https://news.ycombinator.com/item?id=5654398 https://notes.eatonphil.com/compiler-basics-lisp-to-assembly.html
+* no loops https://www.lvguowei.me/post/sicp-goodness-looping/
+* prefix notation: operator comes first https://www.braveclojure.com/getting-started/
 
 # 📥 MEMORY
 
@@ -589,9 +586,15 @@ id(counter)  # 4304845312
 
 ## pointers
 
-* _pointer_: obj storing a memory address https://nullprogram.com/blog/2019/06/30/ https://boredzo.org/pointers/#definition https://www.alexedwards.net/blog/a-gentle-introduction-to-pointers
+* a memory address https://nullprogram.com/blog/2019/06/30/
+* _thin pointer_: takes up space of one unsigned int https://users.rust-lang.org/t/thin-pointers-fat-pointers-alignment-oh-my/50261
+* _fat pointer_: takes up space of two unsigned ints, extra int stores length (e.g. Go slice) https://nullprogram.com/blog/2019/06/30/ https://stackoverflow.com/a/57754902
 
 ---
+
+obj storing a memory address https://nullprogram.com/blog/2019/06/30/ https://boredzo.org/pointers/#definition https://www.alexedwards.net/blog/a-gentle-introduction-to-pointers
+
+pointer arithmetic https://nullprogram.com/blog/2019/06/30/
 
 * https://golangweekly.com/link/147076/web
 * https://www.youtube.com/watch?v=mqH21m0MsWk
@@ -625,6 +628,8 @@ int y = x;  // 0x7ffee4c114f4
 ```
 
 ## stacks
+
+https://pythontutor.com/
 
 * _stack frame_: instance of function execution
 * vars, args, metadata (location in call stack, return address)
@@ -660,16 +665,7 @@ def out_of_place(qd):
         new_qd[ind] *= el
 ```
 
-# ZA
-
-HISTORY https://increment.com/programming-languages/language-history/
-* _1957_: Fortran (IBM); still the best for math https://news.ycombinator.com/item?id=14498904 Python better? https://cerfacs.fr/coop/fortran-vs-python role in Python https://labs.quansight.org/blog/building-scipy-with-flang
-* _1958_: Lisp (MIT)
-* _1959_: Cobol; process transactions
-* _1972_: C (Bell Labs) Smalltalk (Xerox Parc) 
-* _1985_: C++ (Bell Labs)
-* _1990_: Python
-* _1995_: Java (Sun) JS (Netscape) Ruby (Matz) https://twobithistory.org/2017/11/19/the-ruby-story.html
+# 🟨 ZA
 
 OVERLOADING
 * _function overloading_: same method name, different sig (i.e. diff params)
@@ -748,6 +744,7 @@ when you really love your favorite language 💜
 * Eloquent Javascript
 
 SEMANTICS
+* _compiler_: src code -> machine code https://www.youtube.com/watch?v=QdnxjYj1pS0
 * _transpile_: convert from one HLA to another http://coconut-lang.org/
 * in JS world, to previous ECMAScript spec for older browser e.g. Babel https://www.vrk.dev/2019/07/11/why-is-modern-web-development-so-complicated-a-long-yet-hasty-explanation-part-1/
 * _hot reload_: change program while it runs http://www.jakubkonka.com/2022/03/16/hcs-zig.html
@@ -767,7 +764,7 @@ BYO JSON parser https://news.ycombinator.com/item?id=38150833
 * Nisan nand2tetris (4, 6-11)
 
 types of code 📙 Bryant computer systems (3)
-* _machine code_: binary; handled by compiler's backend https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
+* _machine code_: binary; handled by compiler's backend https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ via `objdump` 📙 Erickson hacking [21]
 * _instuction set_: pattern of bits/int/char that map to cmd https://en.wikipedia.org/wiki/Machine_code#Instruction_set https://steveklabnik.com/writing/is-webassembly-the-return-of-java-applets-flash
 * _intermediate representation (IR)_: final step before machine code; handled by compiler's front end https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
 * _instruction_: individual line of machine code https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
@@ -921,7 +918,10 @@ ZA
 
 ## functions
 
-🗄 stacks
+* _caller_: calls
+* _callee_: is called https://nullprogram.com/blog/2019/06/30/
+
+---
 
 SEMANTICS https://realpython.com/python-pass-by-reference/#defining-pass-by-reference
 * _function_: returns single obj https://www.youtube.com/watch?v=EnSu9hHGq5o 14:30
@@ -960,7 +960,7 @@ UNITS
 * compositions of n expressions 📙 Haverbeke [ch.2]
 * _block_: 名 group of statements
 
-OPERATORS
+OPERATORS 📙 Nisan nand2tetris ch. 1-2
 * _operand_: value used by operator
 * _operator_: perform action
 * _assignment_: =

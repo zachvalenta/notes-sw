@@ -29,6 +29,8 @@ BASICS 📙 Ball
 
 ---
 
+* generics https://www.dolthub.com/blog/2024-07-01-golang-generic-collections/
+* lodash https://github.com/samber/lo
 * enums https://www.zarl.dev/articles/enums
 * loops https://go.dev/blog/loopvar-preview
 * inheritance, interfaces https://www.dolthub.com/blog/2023-02-22-golangs-fake-inheritance/ https://preslav.me/2023/02/22/partially-implemented-interfaces-in-golang/ https://medium.com/@jankammerath/how-go-fixed-everything-that-was-wrong-with-programming-1b599a1055a8
@@ -58,6 +60,8 @@ type Book struct {
 ```
 
 ## concurrency
+
+---
 
 SEMANTICS
 * _goroutine_: thread but... https://github.com/uber-go/goleak
@@ -376,6 +380,7 @@ func main() {
 * frameworks: Buffalo, Gin, Echo; hot reload for Gin https://github.com/cosmtrek/air https://github.com/go-goyave/goyave https://github.com/cloudwego/hertz
 * routing: https://benhoyt.com/writings/go-routing/
 * servers: https://eli.thegreenplace.net/2021/rest-servers-in-go-part-1-standard-library/
+* https://github.com/go-goyave/goyave
 * https://www.honeybadger.io/blog/go-web-services/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://www.usegolang.com/sample/?__s=aqtioiz6aumf2qzwpp96 https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg https://www.usegolang.com/ https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg  https://github.com/go-resty/resty https://github.com/gojek/heimdall https://benhoyt.com/writings/go-routing/ https://github.com/projectdiscovery/httpx
 
 # 🟨 ZA

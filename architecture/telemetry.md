@@ -13,6 +13,8 @@
 
 ---
 
+* https://sre.google/sre-book/table-of-contents/
+
 OPENTELEMETRY
 * https://opentelemetry.io/ 
 * https://github.blog/2021-05-26-why-and-how-github-is-adopting-opentelemetry/
@@ -192,6 +194,8 @@ ZA
 
 ---
 
+* _frecency_: frequency + recency https://missing.csail.mit.edu/2020/shell-tools/ https://github.com/rupa/z
+
 SEMANTICS https://www.datadoghq.com/ebook/monitoring-modern-infrastructure/
 * _event_: change to system e.g. build, release, add/substract host/container, alert going off
 * _metric_: value from system at a particlar point in time
@@ -270,6 +274,7 @@ SEMANTICS
 PROVIDERS
 * howto: server logs (GoAccess), CSS https://herman.bearblog.dev/how-bear-does-analytics-with-css/
 * _Amplitude_: https://satchel.com/web-analytics/
+* _Braze_: 
 * _Chartbeat_: publishing
 > The most influential is Chartbeat, which shows you every article on your site, indicates the number of people on each article at any given second, and colors the dots representing those people to tell you how they found the article. Green dots mean they found you through a search engine. Purple dots mean they came from a social network, usually Facebook, Twitter, or Reddit. It’s pure pleasure to watch the display for an article you worked hard on fill with dots. https://www.vox.com/2020/1/28/21077888/why-were-polarized-media-book-ezra-news
 * _GoatCounter_: Visidata uses https://www.goatcounter.com/ alternative https://github.com/ihucos/counter.dev https://news.ycombinator.com/item?id=26379569 https://simpleanalytics.com/ https://newcss.net/
@@ -312,6 +317,7 @@ LOG STORES
 
 ---
 
+* https://github.com/ptmcg/logmerger
 * https://github.com/tstack/lnav
 * https://github.com/textualize/toolong
 * https://logdy.dev/
@@ -339,6 +345,7 @@ https://news.ycombinator.com/item?id=30394152
 
 ## perf
 
+🗄️ `databases.md` perf
 📙 Gregg systems performance
 
 ---

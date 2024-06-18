@@ -75,6 +75,7 @@ misc
 * _repeater_: take in signal, interprets data, generates new clean signal, outputs signal; fights attentuation (degradation of signal over distance); half-duplex
 * _hub_: same as repeater but outputs to multiple ports aka 'multiple port repeater'; allowed transition from hub topology to star
 * _switch_: handle data inside your network; connects devices; uses MAC addr to map to node which listens on specific port which, combined with buffers to store data, allows for full duplex; the amount of traffic today demands full duplex
+* just a chip https://news.ycombinator.com/item?id=40694254
 * _router_: connect networks e.g. LAN to WAN [Cisco Routers for the Desperate 2.11]
 * _default gateway_: IP address of router
 * _modem_: connect to ISP's WAN (via coax cable) 🗄 `netgear-modem.zip`

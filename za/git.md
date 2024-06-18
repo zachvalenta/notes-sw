@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -7,16 +7,12 @@
 📙 Chacon pro git https://git-scm.com/book/en/v2 @ ch. 3
 🎨 https://onlywei.github.io/explain-git-with-d3
 
-## now
+## 进步
 
-## next
-
----
-
+* https://martinheinz.dev/blog/109
 * lazygit
 * https://jvns.ca/blog/2024/02/16/popular-git-config-options/
 
-DONE
 * _21_: prepopulate commit msg
 * _20_: stash commands, 📙 Chacon ch 1-2, Gitlab as secondary remote for notes, auth for BNY (Gitlab token types, server protocols and set up, lots of debugging)
 * _19_: hooks (pre-commit) branches (another pass at merge squash rebase) tooling (GitUp, Tig)
@@ -26,6 +22,8 @@ DONE
 # PLUMBING
 
 🙂 punk rock https://xkcd.com/1597/
+
+https://wizardzines.com/zines/git/
 
 * _snapshot_: files at particular time e.g. a commit https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
 * `checkout`: will move rm changes to file in working tree e.g. if file is updated and staged, then updated again, checkout will only rm most recently updates i.e. changes in staging area won't be affected
@@ -109,6 +107,8 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 ## branch
 
 🛠 curate https://github.com/matt-harvey/git_curate
+
+https://x.com/asbradbury/status/1804565477605458259
 
 RM
 * local - merged: `branch -d <br>`
@@ -247,10 +247,12 @@ tags
 
 semantics
 * three-way merge https://news.ycombinator.com/item?id=38222596
+* conflict https://www.youtube.com/watch?v=HJtxQPJUcJc
 * _merge_: interleave n commits 📙 Chacon 144
 * _cherry pick_: put 1 commit onto tip of branch https://stackoverflow.com/a/9339460
 * can always just merge other branch if it's only one commit ahead of master
 * _rebase_: put n commits onto tip of branch https://stackoverflow.com/a/43551395 https://jvns.ca/blog/2023/11/06/rebasing-what-can-go-wrong-/
+* interactive https://www.youtube.com/watch?v=H7RFt0Pxxp8
 * can also use `squash` https://stackoverflow.com/q/2427238
 * my notes workflow: `git rebase -i main`
 ```sh
@@ -586,7 +588,7 @@ SEARCH https://docs.github.com/en/github/searching-for-information-on-github/sea
 * draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
 * Mermaid support https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/ 
 * feedback https://github.com/github/feedback/discussions/8293 https://support.github.com/ticket/personal/0/1530410
-* _Actions_: https://github.com/nektos/act https://hynek.me/articles/python-github-actions/ https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml https://github.com/github/super-linter https://www.youtube.com/watch?v=E1OunoCyuhY https://github.com/nektos/act https://news.ycombinator.com/item?id=30060765 https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a python https://brntn.me/blog/open-source-python-ci/ run locally https://github.com/nektos/act
+* _Actions_: https://github.com/nektos/act https://hynek.me/articles/python-github-actions/ https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml https://github.com/github/super-linter https://www.youtube.com/watch?v=E1OunoCyuhY https://github.com/nektos/act https://news.ycombinator.com/item?id=30060765 https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a python https://brntn.me/blog/open-source-python-ci/ run locally https://github.com/nektos/act local https://github.com/nektos/act
 * _analytics_: watchers `<URL>/watchers` stars `<URL>/stargazers` https://webapps.stackexchange.com/a/41800 profile views https://rushter.com/blog/github-profile-markdown/ 3rd party analytics around your commit history https://sourcerer.io/elena
 * _CLI_: https://github.com/cli/cli
 * _dependency graph/tree_: https://github.com/zachvalenta/create-python-app/network/dependencies
@@ -693,7 +695,8 @@ log --grep $QUERY -p
 SUBMODULES
 * _submodules_: `.gitmodules` separate Git repo w/in main repo
 * for pulling dependencies https://longair.net/blog/2010/06/02/git-submodules-explained/ https://github.com/sharkdp/bat/blob/master/.gitmodules https://www.youtube.com/watch?v=8Z4Cmhji_FQ https://www.youtube.com/watch?v=ZYq3NJnO08U https://www.youtube.com/watch?v=iv7WwDgyb0U https://www.youtube.com/watch?v=De8Bc1VxcGQ
-* my use case: sharing dev notes btw personal/work machines, just `.gitignore` subdir and make subdir it's own repo https://stackoverflow.com/a/4660048 🗄 `km.md` file system https://github.com/zachvalenta/test-biji https://github.com/zachvalenta/test-keji
+* howto: add child dir to parent dir `.gitignore`, init new Git repo in child https://stackoverflow.com/a/4660048 🗄️ `denv/bin`
+* my use case: sharing dev notes btw personal/work machines, just `.gitignore` subdir and make subdir it's own repo 🗄 `km.md` file system https://github.com/zachvalenta/test-biji https://github.com/zachvalenta/test-keji
 ```txt
 * add `stem/dev` to gitignore
 * rm `stem/dev` from git index

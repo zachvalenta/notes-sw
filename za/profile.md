@@ -46,13 +46,10 @@ NEXT 🗄️ `something`
 ## commits
 
 RECENT
-* shu
-* ren
-* https://github.com/oleiade/motus
-* https://github.com/Textualize/frogmouth
-* https://github.com/bloznelis/typioca
+* bin + repos
 
 CLEAN UP
+* broot fix on air22?
 * jrnl
 * air22 dot
 * air22 bin
@@ -69,49 +66,71 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 * https://github.com/Canop/broot/issues/86#issuecomment-573197384
 * https://dystroy.org/broot/install-br/
 
-NEOVIM
-* set up basic config on mini23 https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn
-* blow everything away and try pre-installed config like Lazy, Lunar, et al.
-
 ## skills
 
-🗄 notebook [23.05.02,05.09]
+> get to composer 2025
 
----
+ENV - PYTHON
+- [x] feedback: think through notebook usage
+> yes: Ramalho + notes + REPL | repo + doctest https://github.com/fluentpython/example-code-2e/tree/master/01-data-model
+> no: org mode (adoption time) notebooks (dont need visualizations, wordiness of notes needs density of editor)
+- [ ] feedback: REPL - util
+- [x] editor: VS Code interpreter selection for Poetry
+- [ ] stdlib: doctest
+- [ ] stdlib: lint
+- [ ] stdlib: ward
+- [ ] feedback: REPL - iPython
+- [ ] feedback: debugger (algos sandbox) +️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
 
-* positioning: AWS, data eng / Pandas, system https://jamesrledoux.com/projects/open-source/introducing-pybaseball/ https://www.thedrummeyangle.com/post/an-introduction-to-pybaseball-using-python-to-analyze-baseball-data https://www.datacamp.com/tutorial/scikit-learn-tutorial-baseball-1
-* interviewing: Python, algos, SQL
+INTERVIEWING - CODE MONKEY
+- [ ] Python: collections 📙 Ramalho ch. 2-3, 18
+- [ ] Python: functions 📙 Ramalho ch. 7, 9-10
+> decorator, lambda, generator https://roadmap.sh/python
+- [ ] Python: classes 📙 Ramalho ch. 1, 5, 11-14, 16, 22-24
+- [ ] Python: obj 📙 Ramalho ch. 6
+- [ ] algos: rf notes
+- [ ] algos: rf fs
+- [ ] algos: repo/core 🗄️ `sandbox/src` miscellaneous, thirty
 
-> what IDE are you coding in? https://fastapi.tiangolo.com/python-types/
-notes, code, SQL
+ENV - GENERAL
+- [x] multiplex: rule out Zellij for now
+- [ ] multiplex: tmux
+- [ ] Neovim
 
-things to get on your resume: FastAPI, Typescript https://www.linkedin.com/jobs/view/3938855509/
+ENV - DATA
+- [x] tooling in general
+- [x] research BI
+- [x] rf dataframes: Ibis/Polars + Arrow
+- [ ] sandbox: sandbox
+> dataset repo, pick single dataset, rf `sql.md` + use case for notebooks + chance to learn Pandas/Polars/Ibis?
+- [ ] tooling: dbcli
+- [ ] tooling: evaluate harlequin
+- [ ] BI: distributions
+- [ ] Spark
 
-REPOS
-* Python
-* algos
-* db
-* system design
-* profiling
-* data structures
-* BYO db
+INTERVIEWING - SENIOR ENG
+- [ ] roadmap.sh
+- [ ] architecture/system.md
+- [ ] svc/src.md
+- [ ] AWS SA
+- [ ] AWS ML
+- [x] fix existing webcam
+- [ ] setup better webcam
+- [ ] personal site
 
-* AWS SA
+PROJECTS
+* pymus: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/
+* pytest plugin for ward
+* TUI for Websters 1913
+* TUI for BYO dictionary
 * Sk8list
+> Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
 * book notes: Kleppmann, Jeffrey
 > Python, Distributed
-
-SEQUENCE
-* 05: AWS (CCP, SA)
-* 06: system (Django, architecture, data eng)
-* 07: CS (algos, ML, golang) + resume (CSS, fix site) https://darrenkopp.com/
-
-* _data_: AWS (ML, data eng), dataclerk, day trading, sports betting, golf, city data https://www.youtube.com/watch?v=fHsMZ3cuMhU
-* _infra_: AWS (CCP, SA)
-* _backend_: sk8list, Piedmont https://datasette.io/for/exploratory-analysis
-> ZVPROJ: Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
-
-local election data https://www.dataforindia.com/introducing-data-for-india/
+* dataclerk
+* sports betting
+* city data https://www.youtube.com/watch?v=fHsMZ3cuMhU
+* Piedmont https://datasette.io/for/exploratory-analysis
 
 ## leads
 
@@ -164,6 +183,12 @@ One thing I think I do well is technical communication. This shows up in:
 ## answers
 
 ----
+
+IMPEDIMENTS https://pythonbytes.fm/episodes/show/383/why-aren-t-devs-shipping-faster
+* dev env (local, remote)
+* poor documentation
+* vague requirements
+* scope creep
 
 * why did you leave your last job https://jacobian.org/2021/mar/8/why-did-you-leave-your-last-job/
 * https://jacobian.org/posts/

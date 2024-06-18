@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -12,13 +12,12 @@
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
 * Stutz cookbook
 
-## now
+## 进步
 
-## next
+https://roadmap.sh/linux
 
-## done
-
-* _22_: dev env
+* _24_: combine Homebrew and other managers
+* _22_: denv
 * _21_: macOS (failed upgrade to Big Sur)
 * _19_: backups (Dropbox as placeholder until Tarsnap) macOS (upgrade to Mojave) 📙 `evans-random.pdf`
 * _18_: phone (switch to new number, 'unknown number' problem, WhatsApp debacle)
@@ -64,7 +63,7 @@ requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
 * never update anything if you can avoid it https://blog.kronis.dev/articles/never-update-anything
 * pkg mgmt https://news.ycombinator.com/item?id=34577844
 
-## build systems
+## build systems (Make)
 
 📙 Meckleberg gnu make https://signalsandthreads.com/build-systems/
 🗄 `system.md` deployment
@@ -150,20 +149,20 @@ cmd:
 * `golang.md` packaging
 * `python.md` packaging
 
-> years ago websites were made of files; now they are made of dependencies https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/
-
-* vet https://github.com/irgolic/vet
-* incl comment for each dep explaining need https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies 13:15
-* update lockfile periodically https://news.ycombinator.com/item?id=30578276
-
-semver
+SEMVER https://stackoverflow.com/a/22345808
 * _patch_: update all patches w/out changing minor e.g. `~1.3.7` gets everything up to `1.4.0`
-* _minor_: update all patch + minor w/out changing major e.g. `^1.3.7` gets everything up to `2.0.0` https://stackoverflow.com/a/22345808 
+* _minor_: update all patch + minor w/out changing major e.g. `^1.3.7` gets everything up to `2.0.0`
 * definitions fuzzy e.g. what does "major" actually mean e.g. breaking change? for what percentage of users? https://gist.github.com/jashkenas/cbd2b088e20279ae2c8e https://snarky.ca/why-i-dont-like-semver/
 * Golang brings into the realm of module/packges namespace (and therefore imports), meaning a version that is backwards incomptable must have a new namespace https://research.swtch.com/vgo-import https://news.ycombinator.com/item?id=16431299 🗄 `golang.md` 'semantic import versioning'
 * contradictory interpretations? https://poetry.eustace.io/docs/basic-usage/#version-constraints https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept https://poetry.eustace.io/docs/versions/ https://research.swtch.com/deps
 
 ---
+
+> years ago websites were made of files; now they are made of dependencies https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/
+
+* vet https://github.com/irgolic/vet
+* incl comment for each dep explaining need https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies 13:15
+* update lockfile periodically https://news.ycombinator.com/item?id=30578276
 
 * just pull unmaintained repos in your own lib https://lucumr.pocoo.org/2024/3/26/rust-cdo/
 * dependabot for Python https://pyup.io/
@@ -189,133 +188,98 @@ problems
 * _resolution_: figuring out subdepedencies for a dependency https://github.com/sdispater/mixology https://pyfound.blogspot.com/2020/03/new-pip-resolver-to-roll-out-this-year.html 
 * _boolean satisfiability problem (SAT)_: dependency resolution, basically https://codingnest.com/modern-sat-solvers-fast-neat-underused-part-1-of-n/ NP complete https://en.wikipedia.org/wiki/Boolean_satisfiability_problem https://stackoverflow.com/a/9378268/6813490 used by Composer https://stackoverflow.com/q/37818396 https://news.ycombinator.com/item?id=14508546 https://jix.one/the-assembly-language-of-satisfiability/
 
-## Homebrew
+## manager (Homebrew)
 
-📜 https://docs.brew.sh/Manpage
-🗄
-* `application.md` TLS
-* `python.md` version mgmt
-
-(UN)INSTALL
-* install Homebrew: requires Xcode command line tools
-* uninstall Homebrew https://github.com/homebrew/install#uninstall-homebrew
+HOMEBREW 📜 https://docs.brew.sh/Manpage
+* un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew
+* GUI version https://news.ycombinator.com/item?id=37075730
+* fs: Homebrew `/usr/local/Homebrew` installs `/usr/local/Cellar` 🔗 `/usr/local/bin`
+* installs deps just for building pkg https://github.com/Homebrew/brew/issues/634#issue-169347205
+* `pin` https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/
+* find older pkg versions in Homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
+> brew cleanup works against this
+* switch to different installed version: `switch` https://github.com/thoughtbot/til/blob/master/homebrew/using_different_homebrew_formula_versions.md
+> `link` does the same? https://stackoverflow.com/a/54175781
+* _formulae_: Ruby class that manages install; create your own https://www.youtube.com/watch?v=fbyrLo6yx8M
+* _tap_: repo of formulae not maintained by Homebrew https://stackoverflow.com/a/37973017/6813490
+* _bottle_: pre-compiled i.e. you don't need to download and build, just download i.e. faster
+* _services_: integrates w/ MacOS launchctl to start program on OS boot
 ```sh
+# INSTALL
 install # curls URL, compares download against checksum
 install -- prefix  # specific install location
 uninstall -s # uninstall + rm from cache
 upgrade # update; there's another cmd called `update` (akin to git fetch?)
 brew outdated | xargs brew upgrade  # updated all outdated
+
+# INFO
+commands  # list cmd
+help $CMD  # help per cmd
+doctor  # healthcheck
+search  # search available pkg
+leaves  # list installed (top-level) https://apple.stackexchange.com/a/279078
+ls  # list installed (transitive) https://github.com/Homebrew/brew/issues/8257
+info $PKG  # info on pkg
+deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/322371 https://github.com/martido/homebrew-graph
 ```
 
----
-
-get binaries from Github https://github.com/zyedidia/eget
-
-GUI https://news.ycombinator.com/item?id=37075730
-
-info
-* _list cmd_: `commands`
-* _help for cmd_: `help <cmd>`
-* _healthcheck_: `doctor`
-* _search available_: `search`
-
-dependencies
-* _list installed - top level_: `leaves` https://apple.stackexchange.com/a/279078
-* _list installed - transitive_: `ls` https://github.com/Homebrew/brew/issues/8257
-* _pkg info_: `info <pkg>`
-* _dependency graph_: `brew deps --tree --installed` https://apple.stackexchange.com/a/322371 https://github.com/martido/homebrew-graph
-
-terms
-* _formulae_: Ruby class that manages install; create your own https://www.youtube.com/watch?v=fbyrLo6yx8M
-* _tap_: repo of formulae not maintained by Homebrew https://stackoverflow.com/a/37973017/6813490
-* _bottle_: pre-compiled i.e. you don't need to download and build, just download i.e. faster
-* _services_: integrates w/ MacOS launchctl to start program on OS boot
-
-file system locations
-* _Homebrew_: `/usr/local/Homebrew`
-* _installs_: `/usr/local/Cellar` 🔗 `/usr/local/bin`
-* installs deps just for building pkg https://github.com/Homebrew/brew/issues/634#issue-169347205
-
-older versions
-* _pin_: `pin` https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/
-* _find older version_: look in homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
-> brew cleanup works against this
-* _switch to different installed version_: `switch` https://github.com/thoughtbot/til/blob/master/homebrew/using_different_homebrew_formula_versions.md `link` does the same? https://stackoverflow.com/a/54175781
-
-## managers
-
-MANAGERS
+ALTERNATIVES
 * _apk_: Alpine
-* _Snap_: Ubuntu https://lwn.net/Articles/825005/
+* _apt_: used by Debian, Ubuntu, Mint
+```sh
+apt list -installed # list installed
+-y  # yes to interactive prompts `export DEBIAN_FRONTEND=noninteractive``
+apt-get -y update # update package listing so we know what packages exist
+apt-get -y upgrade # grab security updates
+RUN apt-get -y install <pkg> # install https://stackoverflow.com/a/50870967  sometimes have to update/upgrade or pkg won't be found
+apt-get -y install --no-install-recommends <pkg> # don't install subdeps https://pythonspeed.com/articles/system-packages-docker/
+apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythonspeed.com/articles/system-packages-docker/
+```
+* _dpkg_: alternative to apt just installs pkg, not subdeps https://askubuntu.com/a/309121 list pkgs `dpkg-query -l`
 * _lmod_: pkg + change env https://lmod.readthedocs.io/en/latest/ `module list` (what you have loaded) `module avail` (what you can load)
-* _Nix_: https://github.com/NixOS/nix
+* _Nix_: 🎯 https://github.com/NixOS/nix
 > The point of nix is just to create completely reproducible builds and package management, including support for multiple versions of packages side-by-size with no issues. It's sort of a next-generation package management system that tries to avoid most of the pitfalls that OS package managers have fumbled with up to this point. https://news.ycombinator.com/item?id=23251754
+* can use in place of Homebrew, provides one-off shell without having to install pkg https://www.youtube.com/watch?v=m4ST2dq10no
+* isolate pkg by user/shell https://github.com/jetpack-io/devbox can do via flakes? https://www.youtube.com/watch?v=m4ST2dq10no
+* use in tmp env (vs. full install) https://wickedchicken.github.io/post/macos-nix-setup/ like pipx https://pipx.pypa.io/stable/#inject-a-package
+* NixOS is a whole other can of worms https://www.youtube.com/watch?v=m4ST2dq10no
 * overview https://shopify.engineering/what-is-nix
+* design https://news.ycombinator.com/item?id=34577844
 * using w/ Docker https://pythonspeed.com/articles/reproducible-docker-builds-python/
 * advanced usage https://bmcgee.ie/posts/2022/12/setting-up-my-new-laptop-nix-style/
-* allows temporary installs https://wickedchicken.github.io/post/macos-nix-setup/
 * macOS: need nix-darwin https://wickedchicken.github.io/post/macos-nix-setup/ installs more isolated than Homebrew https://wickedchicken.github.io/post/macos-nix-setup/ https://www.reddit.com/r/Nix/comments/zdcteb/should_i_migrate_from_homebrew_to_nix/ https://news.ycombinator.com/item?id=29079096
-* _pixi_: https://twitter.com/wuoulf/status/1691833538226610355 https://taras.glek.net/post/trying-pixi-modern-python-packaging/ https://github.com/prefix-dev/pixi https://talkpython.fm/episodes/show/439/pixi-a-fast-package-manager
+* _pixi_: uses conda-forge https://twitter.com/wuoulf/status/1691833538226610355 https://taras.glek.net/post/trying-pixi-modern-python-packaging/ https://github.com/prefix-dev/pixi https://talkpython.fm/episodes/show/439/pixi-a-fast-package-manager https://pythonbytes.fm/episodes/show/386/major-releases-abound
 * _rpm_: pkg format and, confusingly, pkg manager for RHEL https://stackoverflow.com/a/8201051/6813490
-* _Tasksel_: install packages in bundled fashion (LAMP stack)
+* _Snap_: Ubuntu https://lwn.net/Articles/825005/
+* _Tasksel_: Debian tool to install packages in bundled fashion e.g. LAMP stack
 * _yum_: Red Hat (RHEL, Fedora)
 * _Windows_: Chocolately, Nuget; uses Powershell under the hood
 
-APT
-* _os that use_: Debian, Ubuntu, Mint
-* _dpkg_: alternative that just installs pkg, not subdeps https://askubuntu.com/a/309121 list pkgs `dpkg-query -l`
-```sh
-# list installed
-apt list -installed
-
-# yes to interactive prompts
--y
-export DEBIAN_FRONTEND=noninteractive
-
-# update package listing so we know what packages exist
-apt-get -y update
-
-# grab security updates
-apt-get -y upgrade
-
-# ⚠️ sometimes have to update and upgrade or the package you're trying to donwload won't even be found
-# install https://stackoverflow.com/a/50870967
-RUN apt-get -y install <pkg>
-
-# don't install subdeps (or does recommended here mean something else?) https://pythonspeed.com/articles/system-packages-docker/
-apt-get -y install --no-install-recommends <pkg>
-
-# clean up file cache https://pythonspeed.com/articles/system-packages-docker/
-apt-get clean
-rm -rf /var/lib/apt/lists/*
-```
-
----
-
-* pkg mgmt https://news.ycombinator.com/item?id=34577844
-* TUI https://github.com/wick3dr0se/pkm
-* _devbox_: isolate pkg by user/shell https://github.com/jetpack-io/devbox
-* _whatis_: show description from manpage db https://github.com/Idnan/bash-guide#c-whereis
-* man (UNIX) vs. info (GNU) https://askubuntu.com/a/9332 man pages for systems calls as well (`sendfile`) [`evans-linux.pdf` 11]
-* help: `man`, `info`, `whatis`, `man 2 <cmd>` (for system calls)
-* _man pages_: following links (like at bottom of cmus manpage) https://unix.stackexchange.com/a/18161/331460 set pager `export MANPAGER=bat` https://askubuntu.com/a/679058
-* offline documentations https://devdocs.io/
-
 # 🧵 PROCESSES
 
+🗄
+* `python/runtime.md` concurrency
+* `src.md` concurrency
 📙
 * Arpaci ch. 13-23
 * Kerrisk lpi 2.7
 * Galvin dinosaur ch. 3-5
 
+* _segmentation fault_: process tries to use inaccessible memory https://corecursive.com/066-sqlite-with-richard-hipp/
+* e.g. indexing array OOB, writing to memory address belonging to another process, dereferencing null pointer https://www.youtube.com/watch?v=XIhQYRNBAYs
+
+---
+
+visualize https://github.com/joknarf/pgtree
+
 https://thorstenball.com/blog/2014/06/13/where-did-fork-go/
 > Every process running on a Unix system started out as a call to fork(2) followed by a call to execve(2). Well, not every process, since the first process, the init process, the one that starts up the rest of the operating system, didn’t. But every process that came after. The idea is rather simple: fork(2) creates a new process and execve(2) turns the new process into the kind of process you want it to be.
 > Let’s say you’re a shell and your user wants to start his productivity utility vimwonderhorse. Now, the first thing you’ve got to do is to start a new process. The reason for that is simple: when the user quits vimwonderhorse you should still be there and wait for the user’s input again. If you, as the shell, would have changed into vimwonderhorse and the user quit, well, then you would be gone, too. So you start a new process with fork(2).
 
-semantics
+TAXONOMY
 * _thread_: instance of executing program
 * incl: stack, heap, text (src) data (var)
-* _process_: group of threads https://stackoverflow.com/a/47824267 [LPI 2.7]
+* _process_: group of threads https://stackoverflow.com/a/47824267 [LPI 2.7] https://www.youtube.com/watch?v=4rLW7zg21gI
 * _job_: group of processes [LPI 2.13]
 
 types
@@ -329,7 +293,8 @@ segments [LPI 31]
 * _data_: static variables (won't change so thread-safe) [LPI 6.116]
 > less sure about this definition
 * _stack_: 🗄 `architecture.md` memory
-* _heap_: 🗄 `architecture.md` memory
+* _heap_: 🗄 `architecture.md` memory 📙 Evans linux [16]
+* _memory allocator_: keep track of memory usage and get more when necessary from OS; malloc, calloc, et al. 📙 Evans linux [16]
 
 creation
 * `fork()`: called by existing process (parent) to create new process (child), which is a duplicate [LPI 2.7 31]
@@ -388,6 +353,8 @@ telemetry
 * Arpaci ch. 26-33
 * Bryant ch. 12
 
+---
+
 basics
 * _concurrency_: design tasks that can be independently executed
 * best for network-bound tasks e.g. callbacks, task queue
@@ -409,9 +376,6 @@ storage problems
 * _split brain_: data inconsistencies https://en.wikipedia.org/wiki/Split-brain
 * e.g. two application instances write to database and search index such that each reads their own value from index 📙 Kleppmann 491/453
 * solutions is either serve inconsistencies or serve old results until system heals
-* _segmentation fault_: process tries to use inaccessible memory https://corecursive.com/066-sqlite-with-richard-hipp/
-
----
 
 single-threaded + multicast https://signalsandthreads.com/multicast-and-the-markets/
 
@@ -454,7 +418,7 @@ https://events.linuxfoundation.org/wp-content/uploads/2022/10/elena-zannoni-trac
 ✅ `strace` debugging: 'these are the system calls your program is making'
 📝 don't run strace on production processes (or anything that needs to run at normal speed)
 
-# ZA
+# 🟨 ZA
 
 DATA TRANSFER https://github.com/veeso/termscp
 * alternative file transfer https://github.com/abdfnx/tran cyberduck https://fabiensanglard.net/html/index.html https://github.com/SpatiumPortae/portal

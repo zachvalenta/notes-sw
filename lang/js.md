@@ -21,12 +21,11 @@
 
 # FRAMEWORKS
 
-taxonomy
-* BYO https://nolanlawson.com/2023/12/02/lets-learn-how-modern-javascript-frameworks-work-by-building-one/
-* https://github.com/redwoodjs/redwood https://news.ycombinator.com/item?id=34069527
-* for Deno https://alephjs.org/
-* Astro https://docs.astro.build/en/concepts/why-astro/
-> It's hard to believe, but in 2022, the developer community continues to pump out interesting new frameworks for building web applications. Astro is a recent, open-source, multi-page application framework that renders HTML on the server and minimizes the amount of JavaScript sent over the wire. Astro seems particularly well-suited to content-oriented websites that pull from many different sources. We like the fact that although Astro encourages sending only HTML, it still supports — when appropriate — select active components written in the front-end JavaScript framework of your choice. It does this through its island architecture. Islands are regions of interactivity within a single page where the necessary JavaScript is downloaded only when needed. Astro is relatively new but seems to support a growing ecosystem of developers and code. It's one to watch as it develops. https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202210057
+* Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer
+
+## design
+
+TAXONOMY
 * _CRUD-and-forms_: Django https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/ 
 * _vanilla_: https://github.com/bradtraversy/vanillawebprojects https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies
 * _HTML-only_: htmx
@@ -58,6 +57,16 @@ SPA tradeoffs
 > And one more thing: it’s possible to make fast, efficient CRUD apps the same way we made them in 2010. Fire up Django or Rails, stick the data in Postgres, put some thought into your forms and maybe add a tiny bit of javascript to enhance some input fields. Surely I must be missing something. Surely the billions of programming hours that have gone into all these new things aren’t in vain. https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/
 > But the cultural tides are strong. Building a company on Django in 2020 seems like the equivalent of driving a PT Cruiser and blasting Faith Hill’s “Breathe” on a CD while your friends are listening to The Weeknd in their Teslas. Swimming against this current isn’t easy, and not in a trendy contrarian way. https://macwright.org/2020/05/10/spa-fatigue.html
 
+ZA
+* page reloads are ok
+> We ran Basecamp on a single server for the first year...most of the problems we feared weren't that big of a deal to customers. As long as you keep people in the loop, and are honest about the situation, they'll understand. - 📙 Getting Real [44]
+taxonomy
+* BYO https://nolanlawson.com/2023/12/02/lets-learn-how-modern-javascript-frameworks-work-by-building-one/
+* https://github.com/redwoodjs/redwood https://news.ycombinator.com/item?id=34069527
+* for Deno https://alephjs.org/
+* Astro https://docs.astro.build/en/concepts/why-astro/
+> It's hard to believe, but in 2022, the developer community continues to pump out interesting new frameworks for building web applications. Astro is a recent, open-source, multi-page application framework that renders HTML on the server and minimizes the amount of JavaScript sent over the wire. Astro seems particularly well-suited to content-oriented websites that pull from many different sources. We like the fact that although Astro encourages sending only HTML, it still supports — when appropriate — select active components written in the front-end JavaScript framework of your choice. It does this through its island architecture. Islands are regions of interactivity within a single page where the necessary JavaScript is downloaded only when needed. Astro is relatively new but seems to support a growing ecosystem of developers and code. It's one to watch as it develops. https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202210057
+
 ## htmx
 
 📜
@@ -72,10 +81,12 @@ SPA tradeoffs
 ---
 
 DESIGN
+* https://news.ycombinator.com/item?id=40847376
 * hypermedia https://quii.dev/HTMX_is_the_Future https://github.com/PyHAT-stack/awesome-python-htmx
 * creator seems cool https://news.ycombinator.com/item?id=26769809 https://changelog.com/gotime/266
 * vs. alpine, mithril https://news.ycombinator.com/item?id=32011439
 * internals https://www.youtube.com/watch?v=javGxN-h9VQ
+* htmz https://news.ycombinator.com/item?id=40709769
 
 DJANGO
 > For my rewrite of the client, I’m going to skip the drama and just use htmx. Render Django templates server-side, include a single JS script, thrown in some HTML attributes, distinguish between full page requests vs. requests for a partial with updated data, and call it a day. No TypeScript, no Webpack, none of that nonsense. If I need special interactivity I can throw in some hyperscript. https://news.ycombinator.com/item?id=38517099
@@ -107,7 +118,9 @@ replace your React https://htmx.org/essays/a-real-world-react-to-htmx-port/
 ## React
 
 📙 https://www.amazon.com/Road-learn-React-pragmatic-React-js/dp/172004399X/
+https://roadmap.sh/react
 
+* just a bit, Parcel https://mkaz.blog/code/add-react-to-existing-page
 * solid.js https://typeofnan.dev/solid-js-feels-like-what-i-always-wanted-react-to-be/ https://github.com/solidjs/solid
 * testing, Storybook, Ladle https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202210060
 > As Storybook grew in popularity, it became more and more of a behemoth. If all you really care about is isolating and testing your React UI components, then Ladle is the alternative. Ladle supports most of the Storybook API (MDX files are not supported yet) and can be used as a drop-in replacement. It is lightweight and has better integration with Vite. It also provides simple and clean APIs that can be easily integrated with other testing frameworks.
@@ -296,13 +309,15 @@ let bob = Object.assign({}, player, {score: 3});
 
 ## Node
 
+https://roadmap.sh/nodejs
+
 * _Node_: libuv (IO library) + V8 (JS engine) https://neovim.io/charter/
 * don't install from OpenJS https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
 * _Deno_: Node replacement https://softwareengineeringdaily.com/2020/09/28/deno-and-typescript-with-elio-rivero/
 * _bun_: runtime + tooling (bundle, transpile) https://bun.sh/
 
 NODENV https://github.com/nodenv/nodenv
-* alternatives: nvm https://github.com/creationix/nvm#important-notes asdf https://github.com/asdf-vm/asdf volta https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039
+* alternatives: nvm https://github.com/creationix/nvm#important-notes asdf https://github.com/asdf-vm/asdf volta https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039 fnm https://github.com/Schniz/fnm mise https://github.com/jdx/mise
 * rm version: find fs location `nodenv prefix <ver>` and then just rm dir https://github.com/nodenv/nodenv#uninstalling-node-versions
 * _shim_: intercepts cmd and passes to specific version https://medium.com/@ujjawal.dixit/what-is-a-shim-72d9ac5d8620
 * e.g. when you run `npm`, nodenv will find `npm` on `$PATH` in which Node version you're using and pass cmd to that binary use whatever

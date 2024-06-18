@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -14,17 +14,26 @@
 * Neil practical vim
 * Robbins learning vim
 
-## now
+## 进步
 
-## next
+* Codi
+* text objects in treesitter https://www.youtube.com/watch?v=CEMPq_r8UYQ
+
+* _23_: try mv to Neovim, stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
+* _22_: built-in pkg mgmt
+* _20_: VS Code (Markdown extensions break, pinned to 1.41 since 20.12.17)
+* _19_: VS Code + vim emulation 📙 Neil practical vim 1.1-3, 2.7-9, 3.13-15, 4.20-22, 5.27-28, 8.47-53, 9.56-57, 10.60-62
+* _18_: IntelliJ, PyCharm
+* _17_: Eclipse
+* _15_: Sublime
 
 ---
 
 LSP
-* https://www.youtube.com/watch?v=puWgHa7k3SY&list=WL&index=1&t=312s&pp=gAQBiAQB
-* https://www.youtube.com/watch?v=Ku-m7eEbWas&list=WL&index=2&t=322s&pp=gAQBiAQB
-* https://www.youtube.com/watch?v=C9X5VF9ASac&list=WL&index=3&t=195s&pp=gAQBiAQB
-* https://www.youtube.com/watch?v=190HoB0pVro&list=WL&index=5&pp=gAQBiAQB
+* https://www.youtube.com/watch?v=puWgHa7k3SY
+* https://www.youtube.com/watch?v=Ku-m7eEbWas
+* https://www.youtube.com/watch?v=C9X5VF9ASac
+* https://www.youtube.com/watch?v=190HoB0pVro
 
 FUZZY SEARCH HEADER GLOBALLY (CMD T) https://vi.stackexchange.com/q/42870/35177
 * ❌ src `lsp.lua` breaks aerial (`no symbols`)
@@ -71,23 +80,283 @@ ZA
 * replace vimv https://github.com/stevearc/oil.nvim
 * `H/M/L`
 
-WINDOWING
-- [ ] Neovim - buffers - setup tab/buffer/Zellij interplay
-> just use Zellij because you can name workspaces and bc screen mgmt is what it's meant to do https://www.youtube.com/watch?v=zH3CH6zXTew
-> splits are for looking at a bunch of code at once https://www.youtube.com/watch?v=ST_DZ6yIiXY
-> tabs should be for workspaces but inability to name them hampers that
+# 🦚 ALTERNATIVES
 
-## done
+FEATURES
+* _soft wrap_: wrap real line to look like multiple lines https://www.youtube.com/watch?v=5WLlLxU2EZE [10:45]
+* modal
+* LSP
+* document outline
+* plugin mgmt
+* terminal
 
-* _23_: start move to Neovim 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7), learn about visual block mode, buffers/windows/sessions/workspaces, config, choose vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar, start LSP)
-* _22_: built-in pkg mgmt
-* _20_: VS Code (Markdown extensions break, pinned to 1.41 since 20.12.17)
-* _19_: VS Code + vim emulation 📙 Neil practical vim 1.1-3, 2.7-9, 3.13-15, 4.20-22, 5.27-28, 8.47-53, 9.56-57, 10.60-62
-* _18_: IntelliJ, PyCharm
-* _17_: Eclipse
-* _15_: Sublime
+HISTORY
+* stone age: no screen = teletype
+* 1969: ed https://begriffs.com/posts/2019-07-19-history-use-vim.html
+* 1976: vi, Emacs
+* 1991: Vim https://twobithistory.org/2018/08/05/where-vim-came-from.html https://begriffs.com/posts/2019-07-19-history-use-vim.html
+* 2006: Vim 7.0
+* 2013: Vim 8.0 📙 PV [5.27]
+* 2015: Neovim
+* 2020s: Zed, Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
+> select + action and space mode makes me think helix is worth learning https://www.youtube.com/watch?v=xHebvTGOdH8 https://www.youtube.com/watch?v=5WLlLxU2EZE
 
-# EDIT
+## Emacs
+
+ORG MODE https://en.wikipedia.org/wiki/Org-mode
+* killer features: traversal, exec code snippets https://www.youtube.com/watch?v=cxoE2FhOIgI
+* calendar https://www.youtube.com/watch?v=3V3wIJgMeqE
+* _Roam_: Zettelkasten https://www.youtube.com/watch?v=AyhPmypHDEw don't like the journal functionality bc don't want journal and domain notes intermixed https://www.youtube.com/watch?v=3-sLBaJAtew Vim port https://github.com/chipsenkbeil/org-roam.nvim
+
+VIM PORTS
+* _neorg_: feature incomplete, uses new package manager, doesn't have Roam https://news.ycombinator.com/item?id=39828963 https://github.com/nvim-neorg/neorg https://vhyrro.github.io/posts/neorg-and-luarocks/ https://github.com/nvim-neorocks/rocks.nvim
+* _nvim-orgmode_: 🎯 https://github.com/nvim-orgmode/orgmode
+* _vimwiki_: dislike syntax https://github.com/vimwiki/vimwiki
+
+---
+
+* https://www.youtube.com/@SystemCrafters/videos
+* https://lwn.net/Articles/832429/
+* https://two-wrongs.com/why-you-should-buy-into-the-emacs-platform
+* https://two-wrongs.com/on-escape-meta-alt-control-shift-emacs.html
+* https://github.com/hlissner/doom-emacs https://news.ycombinator.com/item?id=34967802
+* https://www.murilopereira.com/a-rabbit-hole-full-of-lisp/
+* https://www.murilopereira.com/whats-good-about-staying-inside-emacs/
+* https://www.murilopereira.com/emacs-from-catching-up-to-getting-ahead/
+* https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla/
+* https://www.thediff.co/archive/building-for-power-users/
+
+## Jetbrains
+
+* _find action (god command)_: CMD SHIFT a
+* _problems_: sometimes doesn't display *any* directories properly and you need to close IDE and blow away `.idea` dir and restart IDE, ignore dir in search is flaky
+* _keymap schemes_: macOS (what the keymap reference PDF shows) OS-agnostic (what you'd be used to if you use other JetBrains IDEs)
+* _sink_: https://github.com/JetBrains/awesome-pycharm https://www.youtube.com/playlist?list=PLQ176FUIyIUZ1mwB-uImQE-gmkwzjNLjP
+* _settings - global_ | CMD ,
+* _settings - project_ | CMD ;
+* _editor font_: preferences > editor > font
+* _default dir to open projects_: appearance > system settings
+* _editor config_: `code style`
+* [change file association](https://intellij-support.jetbrains.com/hc/en-us/community/posts/206237949-Change-file-association-manually)
+* [turn off spell check](https://stackoverflow.com/a/2298724/6813490)
+* visual guide for line length: `preferences > code style`
+* ignore PEP8 error code in Pycharm: `preferences > inspections > Python > PEP8 > 'ignore errors` > add 'E5' (for line length)
+* [show current file being edited in project window](https://stackoverflow.com/a/36738303/6813490)
+* spaces instead of tabs: `editor > code style > Python` uncheck `use tab character` --> then do 'reformat code' in file to go from [tabs to spaces](https://stackoverflow.com/a/11816221/6813490)
+* ['speed search'](https://www.jetbrains.com/help/phpstorm/speed-search-in-the-tool-windows.html) i.e. fuzzy search once inside project window
+* exclude file (from inspections, code completion): [project structure](https://www.jetbrains.com/help/pycharm/excluding-files-from-projects.html)
+* need `localhost` in `etc/hosts` to use console https://stackoverflow.com/a/41345334/6813490
+* config interpreter to venv: `pref > project > interpreter > venv/bin/python_interpreter` ['Django Fundamentals']
+* settings: `~/Library/Preferences/<PyCharmEdition>`
+* launcher script: open dir/file from CLI; 'Tools | Create Command-Line Launcher'
+* [can be discrepancy btw PyCharm and terminal](https://stackoverflow.com/q/31348711/6813490) about whether your imports are done correctly; potential resolution [here](https://stackoverflow.com/a/21241988/6813490)
+
+editor
+* _line_: CMD l (`main menu > navigate`)
+* _tab - by number_: CMD # (GoToTabs plugin)
+* _tab - scroll ('select next tab')_ : `CMD ALT arrow`
+* _method - search_: ALT m https://stackoverflow.com/a/3992371/6813490
+* _method - next/previous_: CMD SHIFT arrow
+* _un/fold - single_: CMD +/-
+* _un/fold -  all_: CMD SHIFT +/-
+
+project
+* _project - close_: CMD SHIFT w
+* _project - open_: CMD SHIFT o
+* _project - open recent_: CMD ALT o
+* _pane - split_: CMD ALT s https://vimtricks.com/p/close-all-other-splits/ https://vimtricks.com/p/open-file-in-a-split/ https://vimtricks.com/p/open-vim-and-split-files/ https://vimtricks.com/p/navigating-splits/
+* _pane - switch ('splitter')_: CMD ALT j/k
+* _function - declaration_: CMD b
+* _function - usage_: CMD u
+* _search - class_: CMD n
+* _search - text ('find in path')_: CMD SHIFT f
+
+windows
+* show current editor file in sidebar via 'Autoscroll from source' in project window settings
+* _windows + recent files_ | CMD e
+* _editor_: ESC (when in other windows)
+* _project_: ALT 1
+* _shell - Bash_: ALT 2
+* _shell - Python_: ALT 3 (close w/ ALT w)
+* _find_: ALT 4
+* _structure_: ALT 8
+* _todo_: ALT 9
+
+edit
+* _code completion_: SHIFT RETURN
+* _quick fix_: ALT RETURN
+* _comment_: CMD /
+* _line - cut_:  CMD x
+* _line - move_ | CMD arrows
+* _refactor_ | CMD SHIFT r
+* _select - next occurence_: 📍
+* _select - all occurences_: 📍
+* _undo/redo_ | CMD z / CMD SHIFT z
+
+## VSC
+
+🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
+
+THINGS I'M NOTICING ABOUT VSC
+* autocomplete works for any word in the workspace
+* prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421
+* constantly wipes out the outliner and requires Vim action to prompt redraw
+
+WORKSPACES 📜 https://code.visualstudio.com/docs/editor/multi-root-workspaces 
+* _workspace_: dir(s) in scope for search https://stackoverflow.com/a/50185038
+* create: file > 'save workspace as'
+* add to: file > 'add folder to workspace'
+* open: select `.workspace` file in project root
+* switch: 'open recent' from cmd pallete
+* `<dir>.code-workspace`: not sure how this works; doesn't seem to tell VS Code "here are paths to dir inside workspace"
+```json
+// BEFORE
+{
+	"folders": [
+        { "path": "./notes" },
+        { "path": "./personal/contacts" },
+        { "path": "./personal/calendar/logs/yearly" },
+        { "path": "personal/calendar/logs" },
+        { "path": "notes/domains" }
+    ]
+}
+// AFTER
+{
+	"folders": [
+        { "path": "notes/domains" },
+        { "path": "personal/logs" },
+        { "path": "personal/people" }
+    ]
+}
+```
+
+MARKDOWN
+* _Markdown Shortcuts_: activity https://github.com/mdickin/vscode-markdown-shortcuts/issues/57 double underscore for bold https://github.com/mdickin/vscode-markdown-shortcuts/issues/49 bold depends on highlighting word first https://github.com/mdickin/vscode-markdown-shortcuts/issues/58
+* _Markdown All in One_: bold/italic `cmd b/i` check `alt c`; perf https://github.com/yzhang-gh/vscode-markdown/issues/578 can't config bold https://github.com/yzhang-gh/vscode-markdown/issues/325
+* bullet points: think this was provided by previous version of VS Code itself, still works using carriage return (vs. Vim's operator)
+* emphasis
+```json
+// Markdown All in One
+"markdown.extension.italic.indicator": "_",
+// Markdown Shortcuts
+"markdownShortcuts.bold.marker": "__",
+```
+
+---
+
+* not OSS https://news.ycombinator.com/item?id=34078225
+* type of highlighting https://stackoverflow.com/questions/39775406/how-to-turn-off-matching-highlighting-in-vs-code/45640244#45640244 
+* outline view: sort by postition, follow cursor
+* explorer font/zoom: `window.zoomLevel: <num>` https://stackoverflow.com/a/36041997
+
+downsides
+* update perils https://github.com/microsoft/vscode/issues/142451
+* search randomly breaks
+* versions (1.41 broke Markdown extensions, seems unsustainable to run older)
+* outline view too verbose
+* still bloated (console, terminal, version control)
+* GUI
+* MS product https://news.ycombinator.com/item?id=28812486
+
+misc
+* upsides: completion, Vim emulation, less memory usage and better community than Sublime w/ less bloat than PyCharm, same editor for notes and code, merge requests, Markdown formatting (outline for inline code w/ 1.41 is nice), respect gitignore on file search
+* views: command pallete, editor, sidebar
+* remote development: think this requires src on remote itself vs. Pycharm (which afaik you edit locally and autodeploys to remote on save and runs interpreter there) https://code.visualstudio.com/docs/remote/remote-overview have to repoint `python.venvPath` (settings.json) and `git.path` (ssh settings)
+* on path `ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/vsc`
+
+EXTENSIONS
+* fs location: `$HOME/.vscode/extensions`
+* previous breaks from Markdown extensions https://github.com/mdickin/vscode-markdown-shortcuts/issues/60 https://github.com/mdickin/vscode-markdown-shortcuts/issues/59 https://github.com/yzhang-gh/vscode-markdown/issues/578
+* freeze: `alias vscfr="ls ~/.vscode/extensions/ > $DOTFILES_DIR/vsc-pkg.txt"`
+* rollback version https://stackoverflow.com/questions/42626065/vs-code-rollback-extension-install-specific-extension-version
+* Makefile: ecosystem could use one just for goto https://github.com/microsoft/vscode/issues/47098 outline support https://github.com/microsoft/vscode/issues/81069 there's another extension that tries to run Makefile targets, mine just provides goto symbol and outline support (with prereqs) https://marketplace.visualstudio.com/items?itemName=technosophos.vscode-make&ssr=false
+* Markdown: auto-close, bold/italic (independent of cursor location in word)
+
+config
+* _file locations_: config home `~/Library/Application Support/Code/User/` conf `settings.json` keys `keybindings.json` snippets `/snippets` https://stackoverflow.com/a/45910856
+* exclude dir from search `search.exclude` https://stackoverflow.com/a/33418660/6813490
+* file explorer outline follow cursor, sort by position, levels of nesting https://github.com/Microsoft/vscode/issues/54941 https://github.com/Microsoft/vscode/issues/58095
+* relative line number for Vim https://github.com/VSCodeVim/Vim/issues/423
+* workaround for VSC Docker extension popup https://github.com/Microsoft/vscode-docker/issues/150#issuecomment-462079524
+* clickable URLs https://github.com/Microsoft/vscode/issues/68333
+* Markdown: autoclose for backticks and quotes https://github.com/Microsoft/vscode/issues/38352 bold w/ double underscore https://github.com/mdickin/vscode-markdown-shortcuts/issues/57 https://github.com/mdickin/vscode-markdown-shortcuts/issues/58
+* open tabs to far right https://stackoverflow.com/a/46865080
+* open links w/ keybinding https://github.com/microsoft/vscode/issues/68333
+```json
+{
+    "key": "cmd+alt+enter",
+    "command": "editor.action.openLink"
+}
+```
+* finding Python envs https://github.com/microsoft/vscode-python/issues/8372 stuck on recently used w/ Poetry https://github.com/microsoft/vscode-python/issues/9826
+* _code completion and virtual environment_:  does it really work? or just using globally installed pkg? https://realpython.com/python-development-visual-studio-code/ manually set https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations https://code.visualstudio.com/docs/python/environments#_manually-specify-an-interpreter https://stackoverflow.com/questions/40377654/how-to-create-and-init-vscode-in-vscode
+
+reinstall
+* rm old using App Cleaner
+* install
+* disable plugins you only use occasionally
+* outline view: follow cursor, sort by position
+* color theme
+* symlink to `dotfiles`
+```sh
+# path/to/Code/User
+ln -sf "/Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/settings.json" "/Users/zach/Library/Application Support/Code/User/settings.json"
+ln -sf "/Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/keybindings.json" "/Users/zach/Library/Application Support/Code/User/keybindings.json"
+
+# path/to/Code/User/snippets
+ln -sf "/Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/markdown.json" "/Users/zach/Library/Application Support/Code/User/snippets/markdown.json"
+```
+
+install specific version
+* uninstall using App Cleaner
+* grab specific version
+* unzip and move to `/Applications`
+* open then quickly close so you can ⤵️ https://github.com/microsoft/vscode/issues/87215
+* symlink from `settings.json`, `keybindings.json`, and snippets https://stackoverflow.com/a/49347158/6813490
+* uninstall didn't seem to affect `~/.vscode/extensions`, fresh install just picked them up, enabled by default
+* 1.41: broke Markdown extensions
+* 1.46: pinned tabs https://code.visualstudio.com/updates/v1_46#_pin-tabs more flexible layouts https://code.visualstudio.com/updates/v1_46#_flexible-layout
+
+keybindings
+* tab: previous `gT` next `gt` (w/ Vim extension) https://stackoverflow.com/a/51407314
+* goto symbol https://code.visualstudio.com/updates/v1_44#_workbench
+* _clear file history_: command pallete + `clear editor history`
+* _command palette (god command)_: `cmd shift p`
+* _extensions_: `cmd shift x`
+* _file explorer_: `cmd shift e`
+* _function - declaration/definition_: cmd palette -> 'definition'
+* _function - usage/reference_: cmd palette -> 'reference'
+* Markdown preview: `cmd shift v`
+* _outline view_: rm imports/vars/classes and leave only functions https://github.com/microsoft/vscode/issues/84380 https://github.com/zfeher/dotfiles/blob/66f3c1cb0d7a502adb5d4ee6d90493af3fab6c49/vscode/User/settings.json
+* _pane - split_: `CMD \`
+* _pane - switch ('splitter')_: `CMD ALT <arrow>`
+* _search workspace_: `CMD SHIFT f` if you accidentally pull this off the activity bar [the leftmost section] you can drag back on https://stackoverflow.com/a/50065112/6813490
+* _sidebar - show_: `cmd b`
+* _tab - by number_: `{ "key": "cmd+1", "command": "workbench.action.openEditorAtIndex1" }`
+* _tab - close others_: `cmd alt t`
+* _un/fold_: cmd palette
+
+## Zed
+
+📜 https://zed.dev/
+
+PLUS / MINUS
+* no document outline
+> in progress https://github.com/zed-industries/zed/discussions/13421
+* makes itself default editor (broot)
+* fast
+* just works with Poetry
+
+THINGS TO TRY
+* integrated GPT
+* team tools for pairing
+
+ZA
+* design https://zed.dev/blog/between-editors-and-ides https://zed.dev/blog/we-have-to-start-over 
+* Vim mode https://zed.dev/blog/zed-decoded-vim
+* themes https://zed.dev/blog/user-themes-now-in-preview
+
+# ✏️ EDIT
 
 PLUGINS
 * pairs - edit: https://github.com/tpope/vim-surround https://stackoverflow.com/a/50687836 https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-surround.md
@@ -179,6 +448,8 @@ JUMPS https://github.com/folke/flash.nvim https://github.com/phaazon/hop.nvim ht
 
 ---
 
+* `gj/k`: mv visual line
+* `j/k`: mv real line
 * run on every line https://www.getrevue.co/profile/vim_tricks/issues/operate-on-every-line-1181574
 * `g_` mv to last normal char in line (vs. new line) https://stackoverflow.com/a/105734
 * _case_: lower `gu` upper `gU` https://vimtricks.com/p/change-character-case/
@@ -309,11 +580,11 @@ https://vimtricks.com/p/improving-usage-of-registers/
 * https://vimtricks.com/p/go-to-next-match-and-select/
 * [PV 10.61]
 
-# UTILS
+# 🛠️ UTILS
 
 ## buffers
 
-🗄 `shell.md` file explorer, fuzzy find, multiplex
+🗄️ `shell.md` file explorer, fuzzy find, multiplex
 📙 Neil modern ch. 3 practical ch. 6-7
 
 BUFFERS https://github.com/romgrk/barbar.nvim/issues/279
@@ -352,6 +623,7 @@ WINDOWS
 TABS / SESSIONS
 * _tab group_: collection of windows 📙 Neil practical [6.95] http://vimcasts.org/episodes/working-with-tabs/ http://vimcasts.org/episodes/how-to-use-tabs/
 > this is something that I didn't fully realize that I wanted from VS Code
+* `tabedit` workflow https://vimtricks.com/p/quickly-access-project-notes/
 * use to encapsulate diff types of files e.g. business logic vs. immediate files https://www.youtube.com/watch?v=hbs7tuwpgZA 5:00
 * no way to name, tab gets name from `MyTabLabel` https://github.com/neovim/neovim/issues/19272 https://neovim.io/doc/user/tabpage.html
 ```sh
@@ -440,7 +712,11 @@ LSP https://www.youtube.com/playlist?list=WL
 * how this works in Neovim: `nvim-lspconfig` configs nvim client, `vim.lsp` as framework for tooling to connect to language servers, tool for language server mgmt (mason) https://www.youtube.com/watch?v=3a1PCir_aHs
 * _language server_: provides editor with code completion, syntax highlighting https://github.com/echasnovski/mini.nvim#general-principles
 * enables: analysis, completion, navigation, linting https://www.youtube.com/watch?v=3a1PCir_aHs 0:40
-* Python: pylance (closed source) https://github.com/microsoft/pylance-release/issues/4 pyright (open source version of pylance) https://github.com/microsoft/pyright vanilla (OSS) https://github.com/microsoft/python-language-server jedi https://github.com/davidhalter/jedi https://www.pythonpodcast.com/episode-113-jedi-code-completion-with-david-halter/ 
+* _pylance_: closed source, uses pyright https://github.com/microsoft/pylance-release/issues/4
+* _pyright_: type checker https://github.com/microsoft/pyright
+* _pylyzer_: pyright but better? https://github.com/mtshiba/pylyzer
+* _vanilla_: OSS https://github.com/microsoft/python-language-server
+* _jedi_: https://github.com/davidhalter/jedi https://www.pythonpodcast.com/episode-113-jedi-code-completion-with-david-halter/ 
 * _LSP_: protocol for language servers and editors https://en.wikipedia.org/wiki/Language_Server_Protocol 📙 Neil modern [127]
 * client = editor impl LSP, server = provides language info https://www.youtube.com/watch?v=C9X5VF9ASac 2:30
 * created by Microsoft and RedHat https://www.youtube.com/watch?v=C9X5VF9ASac 1:15
@@ -625,7 +901,7 @@ ZA
 * _statusline_: display Vim mode, Git branch; lualine https://github.com/nvim-lualine/lualine.nvim alternatives https://github.com/itchyny/lightline.vim https://github.com/vim-airline/vim-airline https://github.com/nvimdev/galaxyline.nvim https://github.com/powerline/powerline BYO https://jdhao.github.io/2019/11/03/vim_custom_statusline https://kadekillary.work/posts/statusline-vim/ https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-statusline.md
 > does Lualine work with Rigel?
 
-# ZA
+# 🟨 ZA
 
 > open help in new tab `:tab help $TOPIC` https://www.youtube.com/watch?v=ZlyiNuxlkJY 1:45
 * installation: M1 macs come with Vim installed; `vim --version` https://www.vim.org/download.php
@@ -639,7 +915,7 @@ HELP https://neovim.io/doc/user/usr_02.html#help-summary
 NEOVIM
 * vs. VS Code: can run in terminal, more customizable, modal https://www.reddit.com/r/neovim/comments/15c7al9/why_turn_neovim_into_vscode/
 * installation: Homebrew (requires macOS > 10.14) 📙 Neil modern [5]
-* design: run tasks async, Lua for scripting https://github.com/nvim-lua/plenary.nvim
+* design: run tasks async, Lua for scripting https://github.com/nvim-lua/plenary.nvim can also use Python to script https://mkaz.blog/code/neovim-plugin-python
 > Bram's comparison is Vi, Neovim teams' comparison is VS Code. https://news.ycombinator.com/item?id=31936725
 
 ## command mode
@@ -655,7 +931,7 @@ OPEN FILE AT
 ---
 
 * completion https://alpha2phi.medium.com/neovim-for-beginners-built-in-completion-8bbbb0f16c9c
-* can run terminal emulator inside buffer http://vimcasts.org/episodes/neovim-terminal/ 📙 Neil modern [5.130] http://vimcasts.org/episodes/neovim-terminal/ http://vimcasts.org/episodes/neovim-terminal-mappings/ https://github.com/akinsho/toggleterm.nvim
+* can run terminal emulator inside buffer http://vimcasts.org/episodes/neovim-terminal/ https://www.youtube.com/watch?v=ehD382bPuPA https://rutar.org/writing/from-vim-and-tmux-to-neovim/ 📙 Neil modern [5.130] http://vimcasts.org/episodes/neovim-terminal/ http://vimcasts.org/episodes/neovim-terminal-mappings/ https://github.com/akinsho/toggleterm.nvim
 
 ARGDO
 * bufdo, tabdo, location list, quickfix list 📙 Neil practical chapter 17 https://github.com/iggredible/Learn-Vim/blob/master/ch21_multiple_file_operations.md
@@ -689,13 +965,18 @@ can also use to delete lines https://vimtricks.substack.com/p/vimtrick-remove-li
 * https://github.com/romainl/idiomatic-vimrc
 * https://github.com/tpope/vim-sensible
 * https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
-🚀
-* Astro https://github.com/AstroNvim/AstroNvim
-* LazyVim https://www.lazyvim.org/
-* Lunar https://www.lunarvim.org/
-* NVChad https://github.com/NvChad/NvChad 
 
-NEOVIM https://github.com/NvChad/NvChad
+NEOVIM SETUPS
+* DIY https://www.youtube.com/watch?v=x__SZUuLOxw https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn https://www.youtube.com/watch?v=6pAG3BHurdM
+* _Astro_: 12k stars; strong maintainer https://github.com/mehalter https://github.com/AstroNvim/AstroNvim
+* _LazyVim_: 15k stars https://www.lazyvim.org/
+* _Lunar_: 17.5k stars; more open issues, heavy setup (req: npm, cargo, rg) https://www.lunarvim.org/
+* _NVChad_: 🎯 23.5 stars https://nvchad.com/
+* PYthon setup https://www.youtube.com/watch?v=4BnVeOUeZxc
+* still have to do the hard part yourself?
+> Once the binaries are installed, you will have to configure them to properly work with LSP, conform.nvim, nvim-lint, nvim-dap etc. It depends on what you installed. NvChad does not provide any language configuration aside from lua. https://nvchad.com/docs/config/lsp/
+
+NEOVIM
 * files: `init.lua`, `init.vim` 📙 Neil modern [6] https://neovim.io/doc/user/starting.html#init.vim
 * debug: `:checkhealth` http://vimcasts.org/episodes/neovim-checkhealth/
 * fs
@@ -859,223 +1140,3 @@ SEMANTICS
 * install: add to `runtimepath` 📙 Neil modern [12]
 * can impl using other languages e.g. Python https://www.youtube.com/watch?v=vMAeYp8mX_M
 * scope: global, filetype (aka `ftplugin` https://www.swamphogg.com/2015/vim-setup/ https://thoughtbot.com/upcase/videos/intro-to-dotfiles)
-
-# 💀
-
-EDITOR HISTORY
-* stone age: no screen = teletype
-* 1969: ed https://begriffs.com/posts/2019-07-19-history-use-vim.html
-* 1976: screens = ex, Vi, Emacs https://lwn.net/Articles/832429/ https://two-wrongs.com/why-you-should-buy-into-the-emacs-platform https://two-wrongs.com/on-escape-meta-alt-control-shift-emacs.html https://github.com/hlissner/doom-emacs https://news.ycombinator.com/item?id=34967802 org mode (just seems like predecessor to Markdown) https://github.com/nvim-neorg/neorg https://www.murilopereira.com/a-rabbit-hole-full-of-lisp/ https://www.murilopereira.com/whats-good-about-staying-inside-emacs/ https://www.murilopereira.com/emacs-from-catching-up-to-getting-ahead/ https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla/ https://www.thediff.co/archive/building-for-power-users/ https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla
-* 1991: Vim https://twobithistory.org/2018/08/05/where-vim-came-from.html https://begriffs.com/posts/2019-07-19-history-use-vim.html
-* 2006: Vim 7.0
-* 2013: Vim 8.0 [PV 5.27]
-* newish: Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 Zed https://zed.dev/ https://zed.dev/blog/we-have-to-start-over Amp https://amp.rs/
-
-## Jetbrains
-
-* _find action (god command)_: CMD SHIFT a
-* _problems_: sometimes doesn't display *any* directories properly and you need to close IDE and blow away `.idea` dir and restart IDE, ignore dir in search is flaky
-* _keymap schemes_: macOS (what the keymap reference PDF shows) OS-agnostic (what you'd be used to if you use other JetBrains IDEs)
-* _sink_: https://github.com/JetBrains/awesome-pycharm https://www.youtube.com/playlist?list=PLQ176FUIyIUZ1mwB-uImQE-gmkwzjNLjP
-* _settings - global_ | CMD ,
-* _settings - project_ | CMD ;
-* _editor font_: preferences > editor > font
-* _default dir to open projects_: appearance > system settings
-* _editor config_: `code style`
-* [change file association](https://intellij-support.jetbrains.com/hc/en-us/community/posts/206237949-Change-file-association-manually)
-* [turn off spell check](https://stackoverflow.com/a/2298724/6813490)
-* visual guide for line length: `preferences > code style`
-* ignore PEP8 error code in Pycharm: `preferences > inspections > Python > PEP8 > 'ignore errors` > add 'E5' (for line length)
-* [show current file being edited in project window](https://stackoverflow.com/a/36738303/6813490)
-* spaces instead of tabs: `editor > code style > Python` uncheck `use tab character` --> then do 'reformat code' in file to go from [tabs to spaces](https://stackoverflow.com/a/11816221/6813490)
-* ['speed search'](https://www.jetbrains.com/help/phpstorm/speed-search-in-the-tool-windows.html) i.e. fuzzy search once inside project window
-* exclude file (from inspections, code completion): [project structure](https://www.jetbrains.com/help/pycharm/excluding-files-from-projects.html)
-* need `localhost` in `etc/hosts` to use console https://stackoverflow.com/a/41345334/6813490
-* config interpreter to venv: `pref > project > interpreter > venv/bin/python_interpreter` ['Django Fundamentals']
-* settings: `~/Library/Preferences/<PyCharmEdition>`
-* launcher script: open dir/file from CLI; 'Tools | Create Command-Line Launcher'
-* [can be discrepancy btw PyCharm and terminal](https://stackoverflow.com/q/31348711/6813490) about whether your imports are done correctly; potential resolution [here](https://stackoverflow.com/a/21241988/6813490)
-
-editor
-* _line_: CMD l (`main menu > navigate`)
-* _tab - by number_: CMD # (GoToTabs plugin)
-* _tab - scroll ('select next tab')_ : `CMD ALT arrow`
-* _method - search_: ALT m https://stackoverflow.com/a/3992371/6813490
-* _method - next/previous_: CMD SHIFT arrow
-* _un/fold - single_: CMD +/-
-* _un/fold -  all_: CMD SHIFT +/-
-
-project
-* _project - close_: CMD SHIFT w
-* _project - open_: CMD SHIFT o
-* _project - open recent_: CMD ALT o
-* _pane - split_: CMD ALT s https://vimtricks.com/p/close-all-other-splits/ https://vimtricks.com/p/open-file-in-a-split/ https://vimtricks.com/p/open-vim-and-split-files/ https://vimtricks.com/p/navigating-splits/
-* _pane - switch ('splitter')_: CMD ALT j/k
-* _function - declaration_: CMD b
-* _function - usage_: CMD u
-* _search - class_: CMD n
-* _search - text ('find in path')_: CMD SHIFT f
-
-windows
-* show current editor file in sidebar via 'Autoscroll from source' in project window settings
-* _windows + recent files_ | CMD e
-* _editor_: ESC (when in other windows)
-* _project_: ALT 1
-* _shell - Bash_: ALT 2
-* _shell - Python_: ALT 3 (close w/ ALT w)
-* _find_: ALT 4
-* _structure_: ALT 8
-* _todo_: ALT 9
-
-edit
-* _code completion_: SHIFT RETURN
-* _quick fix_: ALT RETURN
-* _comment_: CMD /
-* _line - cut_:  CMD x
-* _line - move_ | CMD arrows
-* _refactor_ | CMD SHIFT r
-* _select - next occurence_: 📍
-* _select - all occurences_: 📍
-* _undo/redo_ | CMD z / CMD SHIFT z
-
-## VSC
-
-🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
-
-THINGS I'M NOTICING ABOUT VSC
-* autocomplete works for any word in the workspace
-* prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421
-
-WORKSPACES 📜 https://code.visualstudio.com/docs/editor/multi-root-workspaces 
-* _workspace_: dir(s) in scope for search https://stackoverflow.com/a/50185038
-* create: file > 'save workspace as'
-* add to: file > 'add folder to workspace'
-* open: select `.workspace` file in project root
-* switch: 'open recent' from cmd pallete
-* `<dir>.code-workspace`: not sure how this works; doesn't seem to tell VS Code "here are paths to dir inside workspace"
-```json
-// BEFORE
-{
-	"folders": [
-        { "path": "./notes" },
-        { "path": "./personal/contacts" },
-        { "path": "./personal/calendar/logs/yearly" },
-        { "path": "personal/calendar/logs" },
-        { "path": "notes/domains" }
-    ]
-}
-// AFTER
-{
-	"folders": [
-        { "path": "notes/domains" },
-        { "path": "personal/logs" },
-        { "path": "personal/people" }
-    ]
-}
-```
-
-MARKDOWN
-* _Markdown Shortcuts_: activity https://github.com/mdickin/vscode-markdown-shortcuts/issues/57 double underscore for bold https://github.com/mdickin/vscode-markdown-shortcuts/issues/49 bold depends on highlighting word first https://github.com/mdickin/vscode-markdown-shortcuts/issues/58
-* _Markdown All in One_: bold/italic `cmd b/i` check `alt c`; perf https://github.com/yzhang-gh/vscode-markdown/issues/578 can't config bold https://github.com/yzhang-gh/vscode-markdown/issues/325
-* bullet points: think this was provided by previous version of VS Code itself, still works using carriage return (vs. Vim's operator)
-* emphasis
-```json
-// Markdown All in One
-"markdown.extension.italic.indicator": "_",
-// Markdown Shortcuts
-"markdownShortcuts.bold.marker": "__",
-```
-
----
-
-* not OSS https://news.ycombinator.com/item?id=34078225
-* type of highlighting https://stackoverflow.com/questions/39775406/how-to-turn-off-matching-highlighting-in-vs-code/45640244#45640244 
-* outline view: sort by postition, follow cursor
-* explorer font/zoom: `window.zoomLevel: <num>` https://stackoverflow.com/a/36041997
-
-downsides
-* update perils https://github.com/microsoft/vscode/issues/142451
-* search randomly breaks
-* versions (1.41 broke Markdown extensions, seems unsustainable to run older)
-* outline view too verbose
-* still bloated (console, terminal, version control)
-* GUI
-* MS product https://news.ycombinator.com/item?id=28812486
-
-misc
-* upsides: completion, Vim emulation, less memory usage and better community than Sublime w/ less bloat than PyCharm, same editor for notes and code, merge requests, Markdown formatting (outline for inline code w/ 1.41 is nice), respect gitignore on file search
-* views: command pallete, editor, sidebar
-* remote development: think this requires src on remote itself vs. Pycharm (which afaik you edit locally and autodeploys to remote on save and runs interpreter there) https://code.visualstudio.com/docs/remote/remote-overview have to repoint `python.venvPath` (settings.json) and `git.path` (ssh settings)
-* on path `ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/vsc`
-
-EXTENSIONS
-* fs location: `$HOME/.vscode/extensions`
-* previous breaks from Markdown extensions https://github.com/mdickin/vscode-markdown-shortcuts/issues/60 https://github.com/mdickin/vscode-markdown-shortcuts/issues/59 https://github.com/yzhang-gh/vscode-markdown/issues/578
-* freeze: `alias vscfr="ls ~/.vscode/extensions/ > $DOTFILES_DIR/vsc-pkg.txt"`
-* rollback version https://stackoverflow.com/questions/42626065/vs-code-rollback-extension-install-specific-extension-version
-* Makefile: ecosystem could use one just for goto https://github.com/microsoft/vscode/issues/47098 outline support https://github.com/microsoft/vscode/issues/81069 there's another extension that tries to run Makefile targets, mine just provides goto symbol and outline support (with prereqs) https://marketplace.visualstudio.com/items?itemName=technosophos.vscode-make&ssr=false
-* Markdown: auto-close, bold/italic (independent of cursor location in word)
-
-config
-* _file locations_: config home `~/Library/Application Support/Code/User/` conf `settings.json` keys `keybindings.json` snippets `/snippets` https://stackoverflow.com/a/45910856
-* exclude dir from search `search.exclude` https://stackoverflow.com/a/33418660/6813490
-* file explorer outline follow cursor, sort by position, levels of nesting https://github.com/Microsoft/vscode/issues/54941 https://github.com/Microsoft/vscode/issues/58095
-* relative line number for Vim https://github.com/VSCodeVim/Vim/issues/423
-* workaround for VSC Docker extension popup https://github.com/Microsoft/vscode-docker/issues/150#issuecomment-462079524
-* clickable URLs https://github.com/Microsoft/vscode/issues/68333
-* Markdown: autoclose for backticks and quotes https://github.com/Microsoft/vscode/issues/38352 bold w/ double underscore https://github.com/mdickin/vscode-markdown-shortcuts/issues/57 https://github.com/mdickin/vscode-markdown-shortcuts/issues/58
-* open tabs to far right https://stackoverflow.com/a/46865080
-* open links w/ keybinding https://github.com/microsoft/vscode/issues/68333
-```json
-{
-    "key": "cmd+alt+enter",
-    "command": "editor.action.openLink"
-}
-```
-* finding Python envs https://github.com/microsoft/vscode-python/issues/8372 stuck on recently used w/ Poetry https://github.com/microsoft/vscode-python/issues/9826
-* _code completion and virtual environment_:  does it really work? or just using globally installed pkg? https://realpython.com/python-development-visual-studio-code/ manually set https://code.visualstudio.com/docs/getstarted/settings#_settings-file-locations https://code.visualstudio.com/docs/python/environments#_manually-specify-an-interpreter https://stackoverflow.com/questions/40377654/how-to-create-and-init-vscode-in-vscode
-
-reinstall
-* rm old using App Cleaner
-* install
-* disable plugins you only use occasionally
-* outline view: follow cursor, sort by position
-* color theme
-* symlink to `dotfiles`
-```sh
-# path/to/Code/User
-ln -sf "/Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/settings.json" "/Users/zach/Library/Application Support/Code/User/settings.json"
-ln -sf "/Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/keybindings.json" "/Users/zach/Library/Application Support/Code/User/keybindings.json"
-
-# path/to/Code/User/snippets
-ln -sf "/Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/markdown.json" "/Users/zach/Library/Application Support/Code/User/snippets/markdown.json"
-```
-
-install specific version
-* uninstall using App Cleaner
-* grab specific version
-* unzip and move to `/Applications`
-* open then quickly close so you can ⤵️ https://github.com/microsoft/vscode/issues/87215
-* symlink from `settings.json`, `keybindings.json`, and snippets https://stackoverflow.com/a/49347158/6813490
-* uninstall didn't seem to affect `~/.vscode/extensions`, fresh install just picked them up, enabled by default
-* 1.41: broke Markdown extensions
-* 1.46: pinned tabs https://code.visualstudio.com/updates/v1_46#_pin-tabs more flexible layouts https://code.visualstudio.com/updates/v1_46#_flexible-layout
-
-keybindings
-* tab: previous `gT` next `gt` (w/ Vim extension) https://stackoverflow.com/a/51407314
-* goto symbol https://code.visualstudio.com/updates/v1_44#_workbench
-* _clear file history_: command pallete + `clear editor history`
-* _command palette (god command)_: `cmd shift p`
-* _extensions_: `cmd shift x`
-* _file explorer_: `cmd shift e`
-* _function - declaration/definition_: cmd palette -> 'definition'
-* _function - usage/reference_: cmd palette -> 'reference'
-* Markdown preview: `cmd shift v`
-* _outline view_: rm imports/vars/classes and leave only functions https://github.com/microsoft/vscode/issues/84380 https://github.com/zfeher/dotfiles/blob/66f3c1cb0d7a502adb5d4ee6d90493af3fab6c49/vscode/User/settings.json
-* _pane - split_: `CMD \`
-* _pane - switch ('splitter')_: `CMD ALT <arrow>`
-* _search workspace_: `CMD SHIFT f` if you accidentally pull this off the activity bar [the leftmost section] you can drag back on https://stackoverflow.com/a/50065112/6813490
-* _sidebar - show_: `cmd b`
-* _tab - by number_: `{ "key": "cmd+1", "command": "workbench.action.openEditorAtIndex1" }`
-* _tab - close others_: `cmd alt t`
-* _un/fold_: cmd palette

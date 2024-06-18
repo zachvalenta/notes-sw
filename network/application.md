@@ -11,6 +11,7 @@
 
 ---
 
+* https://www.youtube.com/watch?v=j9QmMEWmcfo
 * https://softwareengineeringdaily.com/2023/10/11/the-future-of-http/
 * https://www.charlesproxy.com/
 * https://twobithistory.org/2018/06/10/birth-of-the-web.html
@@ -48,6 +49,7 @@ what happens when 📙 `evans-networking-ack.pdf`
 🛠 https://jvns.ca/blog/2021/12/15/mess-with-dns/
 🔗 https://news.ycombinator.com/item?id=36909427
 📚
+* Evans https://wizardzines.com/zines/dns/
 * Kozierok guide ch. 52-57
 * Liu dns and bind
 * Sanders packet analyis
@@ -150,6 +152,8 @@ FQDN
 * Gourley http
 * Hafner where wizards stay up late
 * Kozeriok tcp-ip guide (ch. 79-84)
+
+BYO server https://news.ycombinator.com/item?id=40642865
 
 message structure https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages
 * encodings: ascii (start-line, header keys) octet (header value, body) https://stackoverflow.com/q/818122 🗄 `math.md` encoding/info theory
@@ -365,6 +369,8 @@ security https://securityheaders.com/
 
 🗄 `shell.md` userland
 
+postman alternative https://github.com/darrenburns/posting
+https://github.com/ducaale/xh
 https://github.com/Julien-cpsn/ATAC
 https://github.com/qustavo/httplab
 https://github.com/usebruno/bruno
@@ -459,6 +465,7 @@ WWW
 
 ## email
 
+SPF, DKIM, and DMARC https://news.ycombinator.com/item?id=40708476
 * content/templates https://news.ycombinator.com/item?id=40280490
 * archive: Mailstore https://news.ycombinator.com/item?id=34070957 sync https://news.ycombinator.com/item?id=27446156
 * images: https://news.ycombinator.com/item?id=26661430

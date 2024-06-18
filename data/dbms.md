@@ -2,14 +2,196 @@
 
 ## 参考
 
-🔍 
-* https://dba.stackexchange.com
-* https://roadmap.sh/postgresql-dba
+📚
+* Connolly database systems
+* Takahashi manga databases
 
 ## 进步
 
 * _22_: 📙 Bradshaw ch. 1/4/7/10/14/18
-* _20_: Postgres with Django (psycopg, Docker)
+* _20_: Postgres with Django (psycopg, Docker) 📙 Kleppmann section 1
+
+# 🔬️ INTERNALS
+
+🗄 `design.md` distributed
+📚
+* Petrov database internals
+* Kleppmann ch. 3
+
+---
+
+CMU https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi https://www.youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O
+
+https://supabase.com/blog/postgres-bloat
+
+* _correlation_: correlation btw storage on disk and order of rows https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
+* locks https://news.ycombinator.com/item?id=35981238&utm_term=comment https://leontrolski.github.io/pglockpy.html
+
+ASYNC
+* Django: not yet supported https://docs.djangoproject.com/en/3.2/topics/async/
+* Encode `databases`; adds async to SQLAlchemy https://www.encode.io/databases/database_queries/ https://fastapi.tiangolo.com/advanced/async-sql-databases/
+* Postgres: can use async functions that underly synchronous `PQexec` https://www.postgresql.org/docs/9.5/libpq-async.html
+
+BYO 📙 Dibernardo, Kleppmann
+* https://www.youtube.com/watch?v=5Pc18ge9ohI
+* https://tontinton.com/posts/database-fundementals
+* https://github.com/spandanb/learndb-py
+* https://build-your-own.org/database
+* https://build-your-own.org/
+* https://github.com/weinberg/SQLToy https://news.ycombinator.com/item?id=26811279 https://github.com/joaoh82/rust_sqlite https://github.com/auxten/go-sqldb https://github.com/erikgrinaker/toydb/blob/master/docs/references.md?utm_source=pocket_mylist https://github.com/codecrafters-io/build-your-own-x#build-your-own-database
+* https://architecturenotes.co/things-you-should-know-about-databases/
+* https://www.hytradboi.com/
+* https://cstack.github.io/db_tutorial/
+* https://github.com/eatonphil/gosql
+* https://notes.eatonphil.com/database-basics.html
+* https://notes.eatonphil.com/database-basics-expressions-and-where.html
+* https://notes.eatonphil.com/database-basics-indexes.html
+* https://notes.eatonphil.com/database-basics-a-database-sql-driver.html
+
+## connections
+
+* _wire protocol_: protocol for db client-server https://datastation.multiprocess.io/blog/2022-02-08-the-world-of-postgresql-wire-compatibility.html
+* e.g. can translate Mongo protocol to SQL and store in Postgres https://github.com/FerretDB/FerretDB https://pythonbytes.fm/episodes/show/318/gil-how-we-will-miss-you
+
+order
+* 1 auth 📙 Beaulieu 3.41
+* 2 assigned connection ID 📙 Beaulieu 3.41
+
+---
+
+* how rows are stored https://ketansingh.me/posts/how-postgres-stores-rows/
+* _connection_: has an ID 📙 Beaulieu [45]
+* _connection pool_: cache for connections https://en.wikipedia.org/wiki/Connection_pool
+* _pool_: group of open connections we keep around for when the app needs them (vs. opening a new one w/ each request or using a single one for each req) 📙 Conery IH 252 https://brettwooldridge.github.io/HikariCP/ https://brandur.org/postgres-connections
+* uses TCP/IP as connection protocol
+* _at dbms level_: process per connection (Postgres) coroutine per connection (RethinkDB) https://news.ycombinator.com/item?id=12649712
+> The PostgreSQL server can handle multiple concurrent connections from clients. To achieve this it starts (“forks”) a new process for each connection. From that point on, the client and the new server process communicate without intervention by the original postgres process. Thus, the master server process is always running, waiting for client connections, whereas client and associated server processes come and go. - https://www.postgresql.org/docs/12/tutorial-arch.html
+* _serialization_: query responses typically in binary and parsed by language specific API 📙 Kleppmann 4.128
+* _sink_: https://www.usegolang.com/ in Flask https://stackoverflow.com/questions/16311974/connect-to-a-database-in-flask-which-approach-is-better https://flask.palletsprojects.com/en/1.1.x/tutorial/database/ https://github.com/questionlp/api.wwdt.me https://brandur.org/postgres-connections
+
+## data structures
+
+🗄️ `algos.md` data structures
+
+---
+
+* _b-tree_: most popular 📙 Kleppmann 83 Winand vii Petrox ch. 2,4,6
+* sorted keys, pointers to range of keys on disk 📙 Kleppmann 80
+* bad for filtering? https://sirupsen.com/napkin/problem-13-filtering-with-inverted-indexes
+* diff than hash index bc in memory and updates in place (vs. append-only) 📙 Kleppmann 80
+> Several data structures, such as B+Trees, help NoSQL systems quickly retrieve data from disk. Updates to those structures result in updates in random locations in the data structures' files, resulting in several random writes per update if you fsync after each update. http://aosabook.org/en/nosql.html
+* _bitmap index_: used for low-cardinality columns https://en.wikipedia.org/wiki/Bitmap_index https://www.youtube.com/watch?v=5imhr4ye3Tw 📙 Kleppmann 97, 561
+* semantic confusion? https://en.wikipedia.org/wiki/Bitmap https://github.com/RoaringBitmap/roaring
+* bitmap scan https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data https://spacelift.io/blog/tricking-postgres-into-using-query-plan
+* _hash index_: in-mem hash table
+* V location in physical storage e.g. append-only log as in Riak Bitcask 📙 Kleppmann 72
+* hash table must fit in memory 📙 Kleppmann 75 https://hakibenita.com/postgresql-hash-index
+* _SSTable (sorted string)_: hash index but sorted keys 📙 Kleppmann 76
+* doesn't need to have all keys in memory 📙 Kleppmann 77
+* impl w/ LSM tree 📙 Kleppmann 78
+* _LSM tree_: faster for writes 📙 Kleppmann 83 Petrov ch. 7 https://news.ycombinator.com/item?id=35634673
+* compress more easily 📙 Kleppmann 84
+* used in Cassandra, LevelDB 📙 Kleppmann 79, 85 https://nakabonne.dev/posts/write-tsdb-from-scratch/ 🗄 `algos.md` trees
+* _BRIN_: https://hakibenita.com/sql-tricks-application-dba#index-columns-with-high-correlation-using-brin
+
+STORAGE ENGINES 🗄 `design.md` transactions
+* _journal_: journaling i.e. keep track of transactions? https://fly.io/blog/sqlite-internals-rollback-journal/
+* _storage engine_: handle transactions, maintain index https://stackoverflow.com/a/39204302
+* row-oriented vs. column-oriented 📙 Kleppmann 586
+* log-structured (Riak Bitcask) 📙 Kleppmann 72
+* page-oriented 📙 Kleppmann 70 https://sirupsen.com/napkin/problem-6 https://news.ycombinator.com/item?id=32250426
+* _Berkeley DB_: https://corecursive.com/066-sqlite-with-richard-hipp/
+* _InnoDB_: MySQL; locks table row during transaction
+* _MyISAM_: locks whole table https://stackoverflow.com/a/5414622/6813490 
+* _WiredTiger_: Mongo 📙 Bradshaw [6]
+* _OrioleDB_: for Postgres https://github.com/orioledb/orioledb/
+> OrioleDB is a new storage engine for PostgreSQL. Our teams use PostgreSQL a lot, but its storage engine was originally designed for hard drives. Although there are several options to tune for modern hardware, it can be difficult and cumbersome to achieve optimal results. OrioleDB addresses these challenges by implementing a cloud-native storage engine with explicit support for solid-state drives (SSDs) and nonvolatile random-access memory (NVRAM). To try the new engine, first install the enhancement patches to the current table access methods and then install OrioleDB as a PostgreSQL extension. We believe OrioleDB has great potential to address several long-pending issues in PostgreSQL, and we encourage you to carefully assess it. https://www.thoughtworks.com/radar/platforms?blipid=202210068
+
+## indexing
+
+📚
+* Bradshaw ch. 5
+* Winand https://use-the-index-luke.com/
+* https://sqlfordevs.com/ebooks/indexing
+🗄
+* `algos.md` search engine
+* `big-data.md` perf
+* `vim.md` ctags
+
+START HERE
+* https://www.jefftk.com/p/you-dont-always-need-indexes
+* make invisible > delete https://sqlfordevs.com/invisible-index-before-delete
+* https://news.ycombinator.com/item?id=35978757&utm_term=comment
+* Postgres has partial indexes
+* notes for Karwin chapter 13
+> mention of caching? https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
+* https://calpaterson.com/how-a-sql-database-works.html
+* https://dataschool.com/sql-optimization/how-indexing-works/
+* BRIN https://hakibenita.com/sql-tricks-application-dba#index-columns-with-high-correlation-using-brin https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/ https://en.wikipedia.org/wiki/Block_Range_Index https://hakibenita.com/postgresql-correlation-brin-multi-minmax
+* https://www.youtube.com/watch?v=HubezKbFL7E
+* Beaulieu chapter 13, 15
+* Faroult 3
+* https://github.com/BurntSushi/xsv
+* https://news.ycombinator.com/item?id=32250426
+* ghost conditions https://sqlfordevs.com/ghost-conditions-for-unindexed-columns
+
+BASICS
+* _index_: binning vs. full table scan 📙 Evans 24
+```sql
+CREATE INDEX idx_fk_country_id ON city(country_id) -- https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql
+```
+* impl: metadata as tree
+* subset of data (vs. concordance)
+* why: faster reads but slower writes 📙 Kleppmann [71] Karwin [6]
+> If you need to access data quickly, you index it...that's 90% of what you need to know https://www.bennadel.com/blog/3467-the-not-so-dark-art-of-designing-database-indexes-reflections-from-an-average-software-engineer.htm
+* _vacuum_: 📍 https://news.ycombinator.com/item?id=29858083
+* _reindex_: 📍 https://news.ycombinator.com/item?id=29858083
+
+TYPES https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/
+* _covering_: store additional columns in index https://hakibenita.com/django-32-exciting-features#covering-indexes
+> A covering index is when you have an index and it has multiple columns in the index and you’re doing a query on just the first couple of columns in the index and the answer you want is in the remaining columns in the index. When that happens, the database engine can use just the index. It never has to refer to the original table, and that makes things go faster if it only has to look up one thing. https://corecursive.com/066-sqlite-with-richard-hipp/
+* _primary_: keeping track of order of entry i.e. having a primary key 📙 Kleppmann 85
+* _partial_: normal index + `WHERE` clause https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions https://hakibenita.com/sql-tricks-application-dba https://dataschool.com/sql-optimization/partial-indexes/ 📙 Bradshaw [5]
+* _secondary_: https://calpaterson.com/non-relational-beartraps.html 📙 Kleppmann [85] Bradshaw [5]
+* _multicolumn_: aka concatenated 📙 Kleppmann 87 https://dataschool.com/sql-optimization/multicolumn-indexes/
+
+## logging
+
+* _log_: append-only data file; used to deal w/ concurrency 📙 Kleppmann 71
+* _segment_: chunk of log; immutable 📙 Kleppmann 73
+* _compaction_: rm dupe keys from log; done by plucking most recent update for key and writing to new, smaller segment file; done in background while continuing to use existing segments for read/write 📙 Kleppmann 73
+* fsync log instead of fsyncing data itself to increase throughput? http://aosabook.org/en/nosql.html
+> Several data structures, such as B+Trees, help NoSQL systems quickly retrieve data from disk. Updates to those structures result in updates in random locations in the data structures' files, resulting in several random writes per update if you fsync after each update. To reduce random writes, systems such as Cassandra, HBase, Redis, and Riak append update operations to a sequentially-written file called a log. While other data structures used by the system are only periodically fsynced, the log is frequently fsynced. By treating the log as the ground-truth state of the database after a crash, these storage engines are able to turn random updates into sequential ones. While NoSQL systems such as MongoDB perform writes in-place in their data structures, others take logging even further. Cassandra and HBase use a technique borrowed from BigTable of combining their logs and lookup data structures into one log-structured merge tree. Riak provides similar functionality with a log-structured hash table. CouchDB has modified the traditional B+Tree so that all changes to the data structure are appended to the structure on physical storage. These techniques result in improved write throughput, but require a periodic log compaction to keep the log from growing unbounded.
+
+TYPES
+* _command log_: log commands to change state but not incremental changes
+* _append-only log_: immutability at the db level; conflict w/ GDPR https://www.bloorresearch.com/2018/02/append-databases-gdpr-conundrum/
+* _write-ahead log (WAL)_: log changes in state before update so you can recover if failure (power, OS, hw) https://softwareengineeringdaily.com/wp-content/uploads/2018/06/SED613-Database-Reliability-Engineering.pdf BYO https://github.com/khonsulabs/okaywal logical decoding messages https://www.infoq.com/articles/wonders-of-postgres-logical-decoding-messages/ https://pgdash.io/blog/taming-postgresql-wal-file-growth.html
+* used in b-tree 📙 Kleppmann 84
+* individual entries known as frames https://news.ycombinator.com/item?id=26583558
+* turn off if you're just doing a transformation https://hakibenita.com/sql-tricks-application-dba#use-unlogged-tables-for-intermediate-data
+
+## query engine
+
+🔗 https://pganalyze.com/blog/how-postgres-chooses-index
+
+* _database engine_: container for components https://www.sqlite.org/draft/queryplanner.html https://www.practical-mongodb-aggregations.com/intro/introducing-aggregations.html
+* lexer: lex, yac https://news.ycombinator.com/item?id=30086374 https://www.interdb.jp/pg/index.html
+* _parser_: https://github.com/reata/sqllineage 🗄 `language.md` compiler
+* https://tokern.io/blog/open-source-sql-parsers/
+* transpile btw Presto, Hive Spark https://github.com/tobymao/sqlglot
+* _query optimizer_: generates query plans, picks execution plan 📙 Beaulieu [46] https://news.ycombinator.com/item?id=30855639
+* returns hints 📙 Beaulieu [46]
+* aka querry planner 📙 Bradshaw [167]
+> decides which parts of the query to execute in which order and which indexes to use 📙 Kleppmann 37
+* cost-based 📙 Kleppmann 427 https://blog.jooq.org/10-cool-sql-optimisations-that-do-not-depend-on-the-cost-model/ https://pghintplan.osdn.jp/pg_hint_plan.html
+* ❓ virtual machine https://news.ycombinator.com/item?id=32750676
+* _query plan_: output from query optimizer = imperative steps to impl declarative SQL https://www.youtube.com/watch?v=IwahVdNboc8 https://dataschool.com/sql-optimization/what-is-a-query-plan/
+* _execution plan_: query plan chosen by optimizer 📙 Beaulieu [46]
+> There is a trade-off between the amount of time spent figuring out the best query plan and the quality of the choice https://en.wikipedia.org/wiki/Query_optimization
+* _query hint_: explicitly tell optimizer what to do 📙 Beaulieu 3.42 https://en.wikipedia.org/wiki/Hint_(SQL)
+* Postgres doesn't support https://wiki.postgresql.org/wiki/Todo
+* _query engine_: executes query plan https://en.wikipedia.org/wiki/Presto_(SQL_query_engine) https://news.ycombinator.com/item?id=27006476
 
 # 🟩 MONGO
 
@@ -346,6 +528,199 @@ use <db>  # switch/create db
 show collections  # view collections
 ```
 
+# 🗺️ NON-RELATIONAL
+
+📙 Kleppmann ch. 2
+
+> There are data stores that are also used as message queues (Redis), and there are message queues with database-like durability guarantees (Kafka), so the boundaries between the categories are becoming blurred 📙 Kleppmann [12]
+
+* modeling from different angles https://www.openmymind.net/2011/7/5/Rethink-your-Data-Model/
+
+---
+
+* _vector_: for recommendation systems, NLP https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/
+* Datomic (Hickey), datalog/prolog https://news.ycombinator.com/item?id=21742222 https://kevinlynagh.com/newsletter/2022_04_on_datalog_application_databases/ https://news.ycombinator.com/item?id=31154039 https://news.ycombinator.com/item?id=35094017 https://news.ycombinator.com/item?id=35727967 https://clojure.org/news/2023/08/04/next-rich https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need
+* can be a problem is you need to change the PK https://calpaterson.com/non-relational-beartraps.html
+> Changing the primary key of a table is a surprisingly common activity. In truth, it's pretty easy to pick something that initially looks like it will be unique but which later turns out to not be unique...Unfortunately, in many non-relational database systems the primary key is "special". For example, Dynamo-style systems will use the primary key to decide which of the partitions the record will go on.
+* _polyglot persistence_: using multiple types of data stores 📙 Kleppmann 2.29 because choosing just one is no fun :) https://old.reddit.com/r/learnpython/comments/glbuog/whats_is_your_decision_process_between_csv_json/
+* _block_: https://news.ycombinator.com/item?id=27200177
+* immutable https://github.com/codenotary/immudb
+
+## column
+
+📙 Kleppmann chapter 3
+🗄 `computation.md` encoding/CSV, Parquet
+
+* _column store_: not row-oriented (like OLTP)
+* can do in Sqlite? https://news.ycombinator.com/item?id=39207570&utm_term=comment
+* 不明觉厉 https://news.ycombinator.com/item?id=36571110
+* e.g. instead of looking for all `price` values by iterating over every sale record, just grab `price` column 📙 Kleppmann 96
+* ❓ stores data differently on disk https://nchammas.com/writing/database-access-patterns
+* in order to reconstruct a row, everything in row must be stored as nth in column 📙 Kleppmann 100
+> Neither Parquet nor ORC files existed prior to 2012. These file formats were instrumental in making analytics fast on Hadoop. Prior to these formats, workloads were largely row-oriented. If you needed to transform TBs of data and could do so in a parallel fashion then Hadoop did a good job of that. MapReduce was a framework often used for this purpose. What columnar storage offered was a way to analyse TBs of data in seconds. This proved to be a more valuable proposition to more businesses. Data Scientists may only need a small amount of data to produce insights but they'll need to look over a data lake with potentially PBs of data to pick out what they need first. Columnar analytics is key for them to build the data fluency needed to know what to cherry-pick. https://tech.marksblogg.com/is-hadoop-dead.html
+* _wide column store_: ❓
+
+dbms https://en.wikipedia.org/wiki/List_of_column-oriented_DBMSes
+* Cassandra https://stackoverflow.com/q/13010225 https://www.youtube.com/watch?v=J-cSy5MeMOA 📙 Kleppmann 99 https://news.ycombinator.com/item?id=28292369 https://simonwillison.net/2021/Aug/24/how-discord-stores-billions-of-messages/
+* _Bigtable_: wide table = document store in SQL https://en.wikipedia.org/wiki/Wide-column_store
+* _HBase_: Hadoop db
+
+## document
+
+📙 Kleppmann 2.28-42
+
+document store
+* _document_: JSON "obj"
+* replaces row as paradigm 📙 Bradshaw [3]
+* _schema_: structure of document https://docs.mongodb.com/realm/schemas/
+* not fixed i.e. inconsistent intra-collection 📙 Bradshaw [3]
+* _document reference_: UUID 📙 Kleppmann 3.38
+* _field_: key
+* _subdocument_: document key whose value is itself a document https://youtu.be/SM9gJv08dm0 1:20
+* aka embedded 📙 Bradshaw [174]
+* _collection_: group of documents
+
+design
+* 1-M w/in document itself
+* M-M via document reference 📙 Kleppmann 3.38
+* joins https://news.ycombinator.com/item?id=22834036
+* good for 1-M or no relationships 📙 Kleppmann 2.49
+* flexiblity: schema per doc aka schemaless/schema-on-read, obviates need for migrations 📙 Kleppmann 2.63, 4.111
+* easier to scale/shard apparently, locality 📙 Kleppmann 2.32
+* transactions only at level of single document https://docs.mongodb.com/v3.4/core/write-operations-atomicity/
+* easy to have dupes 📙 Kleppmann 2.33
+* hands off processing to application, so it's both slower in dev time and execution time 📙 Bradshaw [8]
+
+dbms
+* BYO https://notes.eatonphil.com/documentdb.html https://github.com/marsupialtail/quokka https://news.ycombinator.com/item?id=34189422
+* _CouchDB_: good at replication https://www.dataengineeringpodcast.com/couchdb-document-database-episode-124/ 7:15 
+* _Mongo_: OSS alternative https://github.com/FerretDB/FerretDB https://pythonbytes.fm/episodes/show/318/gil-how-we-will-miss-you
+* _Postgres_: JSON
+* _TinyDB_: 🎯 embedded https://github.com/msiemens/tinydb
+* alternatives https://github.com/256dpi/lungo https://github.com/vincentdchan/PoloDB
+* not atomic but potential workaround https://tinydb.readthedocs.io/en/latest/extensions.html#tinyrecord
+```python
+from tinydb import TinyDB, Query
+db = TinyDB("/path/to/db.json")
+q = Query()
+```
+
+HIERARCHICAL
+* _hierarchical database_: document store + tree structure i.e. child only has one parent 📙 Takahashi [39] Beaulieu [2]
+* too rigid for a data store https://stratechery.com/2016/oracles-cloudy-future/ https://twobithistory.org/2017/12/29/codd-relational-model.html
+* e.g. file system, DNS https://www.postgresql.org/docs/12/tutorial-concepts.html 📙 Kleppmann 2.36-38
+* used in Zookeeper https://www.youtube.com/watch?v=Vv4HpLfqAz4 8:50
+* can be done in relational as well https://hoverbear.org/blog/postgresql-hierarchical-structures/
+* _IMS_: https://twobithistory.org/2017/10/07/the-most-important-database.html
+
+## graph
+
+* _EdgeDB_: graph-relational = no impedance mismatch but still relational https://news.ycombinator.com/item?id=30290225
+* written in Python on top of Postgres https://talkpython.fm/episodes/show/355/edgedb-building-a-database-in-python
+* _network database_: similar to graph https://stackoverflow.com/a/52325525 📙 Takahashi [2.39]
+* anything that would have ever been network is now SQL https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37 📙 Kleppmann [2.36]
+
+DBMS
+* embedded w/ Datalog https://news.ycombinator.com/item?id=33518320 https://github.com/cozodb/cozo
+* Mongo offers as well https://www.mongodb.com/databases/mongodb-graph-database
+* SQLite, Postgres https://news.ycombinator.com/item?id=35386948
+* _Age_: Postgres extension https://github.com/apache/age
+* _Janus_: distributed, OSS https://github.com/JanusGraph/janusgraph
+* _SQLite_: https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need
+* _Tao_: distributed https://news.ycombinator.com/item?id=29045443 https://www.micahlerner.com/2021/10/13/tao-facebooks-distributed-data-store-for-the-social-graph.html
+
+QUERY LANGUAGES
+* _Cypher_: declarative
+* _GQL_: emerging standard https://stackoverflow.com/q/13824962 https://www.youtube.com/watch?v=h8cyPIEfxQY 11:30
+* _Gremlin_: wrapper over Neo4J Java API
+
+---
+
+* https://www.hytradboi.com/2022/how-to-query-almost-everything
+* https://www.kaseyklimes.com/notes/2019/10/16/an-augmented-mind-designing-a-personal-knowledge-base-with-notion
+* _use cases_: good at relationships btw heterogenous data ("does Alice follow Bob?") w/out a million joins  📙 Kleppmann 2.49, 2.63 bad at aggregates or anything that deals w/ a few attr over many records; used for networks (IAM, knowledge mgmt, Git, recommendation engine) https://www.youtube.com/watch?v=h8cyPIEfxQY 14:30
+* _dbms_: Tiger Graph, Dgraph https://softwareengineeringdaily.com/2021/01/19/dgraph-native-graphql-database-with-manish-jain/ Memgraph, Terminus db, Neo4J https://media.pragprog.com/titles/pwrdata/neo4j.pdf embedded https://github.com/CodyKochmann/graphdb https://github.com/dpapathanasiou/simple-graph cache for dgraph https://github.com/dgraph-io/ristretto
+* _OGM_: ORM for graphs https://www.youtube.com/watch?v=h8cyPIEfxQY 12:30
+
+* _property graph_: vertex (id, dict of properties, and list of incoming/outgoing edges) edge (id, dict of properties, start/end vertices and descriptive label) 📙 Kleppmann 2.50
+* _triple-store_: subject (vertex) predicate, object (value or another vertex) 📙 Kleppmann 2.55 used by Datomic (Datalog query language) 📙 ibid 2.50, 60, 63
+* _RDF (resource description framework)_: triple store for semantic web 📙 Kleppmann 2.57 SPARQL query language 📙 ibid 59 https://twobithistory.org/2020/01/05/foaf.html
+* _types_: https://stackoverflow.com/a/59532041/6813490
+* visualization https://github.com/shahinrostami/chord https://github.com/plotly/falcon
+* _sink_: https://github.com/brettkromkamp/contextualise https://www.youtube.com/watch?v=GekQqFZm7mA https://www.denizcemonduygu.com/philo/ http://aosabook.org/en/500L/dagoba-an-in-memory-graph-database.html https://pragprog.com/book/pwrdata/seven-databases-in-seven-weeks-second-edition
+
+## key
+
+---
+
+REDIS 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
+> just use postgres https://martinheinz.dev/blog/105
+* implementation http://aosabook.org/en/nosql.html
+* test/mock https://github.com/cunla/fakeredis-py
+* use Postgres as impl https://github.com/alash3al/redix
+* governance https://news.ycombinator.com/item?id=23689549
+* key expiration https://news.ycombinator.com/item?id=30099572
+* alternative https://github.com/dragonflydb/dragonfly https://github.com/buraksezer/olric#installing
+* embedded https://github.com/symisc/vedis https://news.ycombinator.com/item?id=19464144
+> You can either set Redis up as a "data-structures" server or you set it up right as a cache. You can't do both. If you choose to use Redis as your cache, ensure that the cache instance is only serving as your cache. Your inter-system message bus should be on a different Redis with a different configuration. https://calpaterson.com/ttl-hell.html
+
+MEMCACHED
+* _is?_: volatile cache https://news.ycombinator.com/item?id=23689549 aka application caching layer
+* _how?_: distributed hash table i.e. n instances of app share 1 distributed instance of memcached
+* _why?_: so you don't have to read from db
+* _disadvantages_: doesn't track cache misses; meant for simple data, not tables or objects; not durable http://aosabook.org/en/nosql.html
+* _sink_: https://realpython.com/python-memcache-efficient-caching/ https://github.com/thadeusb/flask-cache Django has OOB support for memcached https://docs.djangoproject.com/en/2.1/topics/cache/
+
+* _KV store_: hash map + persistence 📙 Kleppmann [72]
+* distributed KV store used for service discovery (etcd) ()
+* used for metadata, counters
+> ZippyDB serves a number of use cases, ranging from metadata for a distributed filesystem, counting events for both internal and external purposes, to product data that’s used for various app features https://engineering.fb.com/2021/08/06/core-data/zippydb/
+* impl: hash index; faster not bc they don't have to go to disk but bc don't have to translate in-mem data structure to something that can be written to disk 📙 Kleppmann [89]
+* typed values allow for in/decrement, push/pop from list
+* used for caching db result set e.g. memcached 📙 Kleppmann [89] https://github.com/akrylysov/pogreb
+* dbms: embedded https://github.com/patx/pickledb https://github.com/spacejam/sled https://github.com/charmbracelet/skate https://github.com/dgraph-io/badger disk for storage https://github.com/peterbourgon/diskv
+* RocksDB, memcached used as storage for distributed KV https://github.com/bitleak/kvrocks https://engineering.fb.com/2021/08/06/core-data/zippydb/ https://www.micahlerner.com/2021/05/31/scaling-memcache-at-facebook.html
+* BYO: https://aosabook.org/en/500L/dbdb-dog-bed-database.html https://notes.eatonphil.com/2023-05-25-raft.html Bitcask https://github.com/avinassh/py-caskdb
+> In short, keys are stored in a hash table in RAM, k/v pairs are written to log files. Dead simple, but powerful enough. https://news.ycombinator.com/item?id=31306678
+
+za
+* _object store_: KV in which K is ID and V is blob (file, binary) 🗄 `infra.md` AWS/S3
+* can only create/update, not append https://stackoverflow.com/a/47524241
+* sink https://ceph.io/ceph-storage/ https://github.com/minio/minio https://stackoverflow.com/questions/56627446/docker-compose-how-to-use-minio-in-and-outside-of-the-docker-network https://alexwlchan.net/2020/08/s3-keys-are-not-file-paths
+* _flat file_: meant for config, no way to represent relationships or handle concurrency (e.g. prevent dirty read); some structure via delimiters, new lines https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37
+
+## time series
+
+🗄
+* `math.md` graphs / uplot
+* `infra.md` analytics
+
+todo
+* Postgres https://tembo.io/blog/pg-timeseries
+* https://www.youtube.com/watch?v=nT6UsVgJ0xw
+* https://www.youtube.com/watch?v=Z6pghPlZ1vQ
+* time-weighted average https://blog.timescale.com/blog/what-time-weighted-averages-are-and-why-you-should-care/?
+* https://www.honeycomb.io/blog/time-series-database/
+* https://news.ycombinator.com/item?id=28901063
+* https://www.influxdata.com/blog/start-python-influxdb
+* Homebrew analytics https://docs.brew.sh/Analytics
+
+basics
+* _time series_: KV in which K is time https://en.wikipedia.org/wiki/Time_series_database
+* used for monitoring 🗄 `system.md` https://github.com/VictoriaMetrics/VictoriaMetrics
+* _panel data_: timeseries for individuals https://en.wikipedia.org/wiki/Panel_data
+
+libs
+* _darts_: https://github.com/unit8co/darts/
+* _kats_: https://github.com/facebookresearch/kats
+* _sktime_: https://github.com/alan-turing-institute/sktime
+
+dbms
+* _Influx_: https://softwareengineeringdaily.com/2019/08/21/time-series-databases-with-rob-skillington/ https://softwareengineeringdaily.com/2021/08/19/influxdata-time-series-data-with-russ-savage/
+* _Husky_: event store https://www.datadoghq.com/blog/engineering/husky-deep-dive/
+* _Timescale_: built on Postgres https://blog.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/ https://softwareengineeringdaily.com/2021/06/28/timescale-time-series-databases-with-mike-freedman/
+* _tstorage_: embedded https://github.com/nakabonne/tstorage BYO https://nakabonne.dev/posts/write-tsdb-from-scratch/ https://news.ycombinator.com/item?id=27730854
+* _Whisper_: embedded db for Graphite https://github.com/graphite-project/whisper
 # 🐘 POSTGRES
 
 📙 Suzuki postgres internals https://www.interdb.jp/pg/
@@ -356,6 +731,7 @@ show collections  # view collections
 * design https://news.ycombinator.com/item?id=35599118 Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf
 
 HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https://news.ycombinator.com/item?id=39273954
+* perf, memory https://news.ycombinator.com/item?id=40642803
 * generate `create table` from existing table https://github.com/lacanoid/pgddl
 * Elasticsearch https://github.com/paradedb/paradedb
 * serverless https://neon.tech/ https://news.ycombinator.com/item?id=31536827
@@ -610,6 +986,7 @@ web_1  | ModuleNotFoundError: No module named 'psycopg2'
 🔗 https://tech.marksblogg.com/sqlite3-tutorial-and-guide.html
 
 ZA
+* https://news.ycombinator.com/item?id=40637303
 * single-tenant i.e each user gets own db https://news.ycombinator.com/item?id=38171322
 * transactions for perf https://news.ycombinator.com/item?id=36583317
 * WAL https://simonwillison.net/2022/Oct/23/datasette-gunicorn

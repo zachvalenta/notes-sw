@@ -604,18 +604,14 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 | mini23        | -        |       | fs         |               |
 | air22         | -        | ----- | mini23     |               |
 | `ExFatMain`   | desk     | 24.02 | mini23     |               |
-| `WD1`         | safe     | 24.02 | mini23     |               |
-| `WD2`         | lockbox  | 20.06 | mini23     |               |
+| `WD1`         | safe     | 24.06 | mini23     |               |
+| `WD2`         | lockbox  | 20.02 | mini23     |               |
 | `music-usb`   | desk     | ----- | `yin`      |               |
 | `music-usb-2` | desk     | 24.02 | `yin`      |               |
 
 TODO
-* auto insurance, parking tickets
-* econ
 > 📍 clean up DS files `fd -HI DS`
-* yin: far (cleanup = all) rnb (80s, 70s) rap (nyc) za (gospel) + all singles + dylan, girl talk, lcd soundsystem, larry young, julee cruise, jim croce, pointer sisters, jackie wilson, bobby bland, rotary connection, sza, genesis, fugazi, allmans, waylon, jerry jeff walker, fleetwood mac, hailu mergia, cymande, jersey club, charley crockett new album, john talabot, sui generis, sun electric, stevie wonder singles
-> mv: cut copy to pop, breakwater to the 80s, spinners to 50s, bobby bland to blues, kc and sunshine to dance
-> modern lovers girlfriend, oscar peterson jet song
+* yin: rock/blues, roots/dylan, country/singles, mayra andrade
 
 SEMANTICS
 * _transfer_: mv data from A to B

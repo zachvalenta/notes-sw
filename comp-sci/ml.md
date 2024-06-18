@@ -2,7 +2,9 @@
 
 ## 参考
 
-🔍 https://ai.stackexchange.com/
+🔍
+* https://ai.stackexchange.com/
+* https://datascience.stackexchange.com/
 📚
 * Ferguson game of go
 * Perrota programming ML https://www.amazon.com/Programming-Machine-Learning-Zero-Deep/dp/1680506609/ref=sr_1_1
@@ -17,7 +19,7 @@
 🗄 `math.md` regression
 
 * _k-nearest neighbors_: taxonomize based on proximate elements i.e. those that have similar attributes
-* form of supervised learning
+* form of supervised learning https://stats.stackexchange.com/a/56504
 * used for recommendation system, regression, OCR 📙 Bhargava [186,195,196]
 * recommendation systems https://github.com/gorse-io/gorse
 * https://philippmuens.com/k-nearest-neighbors-from-scratch/
@@ -26,6 +28,7 @@
 * https://news.ycombinator.com/item?id=26328958
 * https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
 * 📙 MacCormick chapter 6
+* _k means_: group points into K clusters; unsupervised https://stats.stackexchange.com/a/56504
 
 ## LLM
 
@@ -126,6 +129,7 @@ dot([1,2,3], [4,5,6])
 
 # 🛠️ TOOLING
 
+* AI friend https://x.com/deedydas/status/1804550284552949771
 * Devin https://news.ycombinator.com/item?id=40008109
 * BYO https://spreadsheets-are-all-you-need.ai/index.html
 * BYO flavor https://iamjoshknox.com/2023/12/06/econeats-an-ai-dining-guide/
@@ -184,7 +188,7 @@ OPTIONS
 * code: https://ollama.com/blog/python-javascript-libraries
 * _Gemma_: https://ai.google.dev/gemma
 * _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model)
-* uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally
+* uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
 * _Mistral_: https://en.wikipedia.org/wiki/Mistral_AI
 
 PROMPTS https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
@@ -194,17 +198,7 @@ PROMPTS https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sim
 
 ---
 
-* https://notebooklm.google/
-* Claude https://www.anthropic.com/
-* https://news.ycombinator.com/item?id=40441945
-* custom GPT https://talkpython.fm/episodes/show/456/building-gpt-actions-with-fastapi-and-pydantic
-* customization prompt https://news.ycombinator.com/item?id=40474716
-
-REPOS
-https://www.freecodecamp.org/news/get-started-with-hugging-face/
-https://huggingface.co/stabilityai/stable-diffusion-3-medium
-https://github.com/ggozad/oterm
-https://arena.lmsys.org/
+building into projects https://news.ycombinator.com/item?id=40857589
 
 LOCAL
 * https://llm.datasette.io/en/stable/
@@ -215,9 +209,31 @@ LOCAL
 * llamafile https://news.ycombinator.com/item?id=40424519
 * BYO https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset
 
+ZA
+* structured output https://news.ycombinator.com/item?id=40713952
+* https://notebooklm.google/
+* Claude https://www.anthropic.com/ https://x.com/AnthropicAI/status/1803790681971859473
+* https://news.ycombinator.com/item?id=40441945
+* custom GPT https://talkpython.fm/episodes/show/456/building-gpt-actions-with-fastapi-and-pydantic
+* customization prompt https://news.ycombinator.com/item?id=40474716
+* telemetry https://github.com/dagworks-inc/burr?tab=readme-ov-file
+
+REPOS
+https://www.freecodecamp.org/news/get-started-with-hugging-face/
+https://huggingface.co/stabilityai/stable-diffusion-3-medium
+https://github.com/ggozad/oterm
+https://arena.lmsys.org/
+
 ## code assist
 
 ---
+
+> The crux of my raging hatred is not that I hate LLMs or the generative AI craze. I had my fun with Copilot before I decided that it was making me stupider - it's impressive, but not actually suitable for anything more than churning out boilerplate. Nothing wrong with that, but it did not end up being the crazy productivity booster that I thought it would be, because programming is designing and these tools aren't good enough (yet) to assist me with this seriously. https://ludic.mataroa.blog/blog/i-will-fucking-piledrive-you-if-you-mention-ai-again/
+
+https://github.com/leapingio/leaping
+https://visualstudiomagazine.com/articles/2024/01/25/copilot-research.aspx
+https://www.youtube.com/watch?v=MzFr7iXsESs
+https://www.youtube.com/watch?v=dkV01hBdhZE
 
 > LLMs are good at explaining code. Give it code in a language you don't understand and it will explain it with 90% accuracy. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
 
@@ -264,6 +280,8 @@ https://www.freecodecamp.org/learn/machine-learning-with-python/#tensorflow
 * context window https://twitter.com/deedydas/status/1778621375592485076
 > Google hasn’t said how Gemini 1.5 was made, but clearly the company has overcome the key limitation of traditional transformers: memory requirements increase quadratically with context length. One promising approach is Ring Attention with Blockwise Transformers, which breaks long contexts into pieces to be computed individually even as the various devices computing those pieces simultaneously communicate to make sense of the context as a whole; in this case memory requirements scale linearly with context length, and can be extended by simply adding more devices to the ring topology. https://stratechery.com/2024/gemini-1-5-and-googles-nature/
 * https://news.ycombinator.com/item?id=39849393
+
+https://zed.dev/blog/between-editors-and-ides
 
 WAYS OF LEARNING https://danielmiessler.com/blog/machine-learning-new-statistics/
 * event-based: no model + datum
@@ -364,6 +382,9 @@ SEMANTICS
 
 ## operationalizing
 
+* gradient-boosted trees better for audit than neural nets
+* https://roadmap.sh/mlops
+* https://news.ycombinator.com/item?id=35438192
 * https://applied-llms.org/
 * https://news.ycombinator.com/item?id=38120493
 * MLflow https://www.thoughtworks.com/radar/tools/mlflow metaflow https://www.thoughtworks.com/radar/tools?blipid=202203023

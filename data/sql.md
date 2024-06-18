@@ -13,6 +13,7 @@
 
 ## 进步
 
+https://roadmap.sh/sql
 https://gvwilson.github.io/sql-tutorial/
 * Bealieau: port notes to digital copy, domains
 
@@ -333,219 +334,6 @@ IT103    |   2009-2   | 120      | Web Design   |
 ```
 * _5NF (Boyce-Codd)_: when you're going too far 📙 Winand [5]
 
-## ORMs
-
----
-
-https://news.ycombinator.com/item?id=37118633
-* _ORM (object-relational mapper)_: obj as frontend to relational data store
-* why: dbms portability, terseness https://monadical.com/posts/why-use-orm.html
-* why not: SQL is more durable, more help on SO, easier for complicated relationships https://news.ycombinator.com/item?id=21961214 https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://sirupsen.com/stop-relying-on-your-orm-and-learn-sql https://news.ycombinator.com/item?id=36497613
-* write thin DSL over ORM vs. modifying default ORM methods https://rtpg.co/2016/09/12/orms-are-scary.html
-* _data mapper_: https://en.wikipedia.org/wiki/SQLAlchemy https://www.openmymind.net/2011/11/18/I-Just-Dont-Like-Object-Mappers/
-* _active record_: wrapper (row + DSL) https://www.martinfowler.com/eaaCatalog/activeRecord.html http://calpaterson.com/activerecord.html https://github.com/sdispater/orator
-* ActiveRecord for Golang https://github.com/volatiletech/sqlboiler
-* _N+1 problem_: https://macwright.org/2020/05/10/spa-fatigue.html https://stackoverflow.com/q/97197/6813490 https://www.sqlalchemy.org/features.html https://tech.yplanapp.com/2016/09/26/introducing-django-perf-rec/ https://www.youtube.com/watch?v=uCbFMZYQbxE https://github.com/jmcarp/nplusone https://news.ycombinator.com/item?id=26151302 https://fly.io/blog/introducing-litefs/ https://github.com/superfly/litefs
-> The 1+N database anti-pattern is common: fetch some rows from the database then re-fetch specific rows to get all the items. An ORM can hide this away and make you not realize it is happening. https://suor.github.io/blog/2023/03/26/ban-1-plus-n-in-django/
-* solved with eager loading https://news.learnenough.com/eager-loading
-* _impedance mismatch_: difficulty of object-relational mapping [Kleppmann 1.33] multiple ways to aproach http://blogs.tedneward.com/post/the-vietnam-of-computer-science/
-> In the database community it has been conventional wisdom for nearly half a century now (basically since the invention of the relational model) that in designing your database schema you should be careful to avoid any kind of redundancy. That's what database normalization theory is all about. For some unfathomable reason, the same kind of thinking is never (or almost never) applied to software construction, even though it would be as beneficial (possibly even more so) as it is for databases. So, before we countinue our discussion, it's a good idea to talk a bit about redundancy, and to explain what's so harmful about it. https://www.cell-lang.net/relations.html
-
-QUERY BUILDERS
-* reverse query builder https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203030 https://github.com/kyleconroy/sqlc https://preslav.me/2023/03/07/reasons-against-sqlc/
-* _query builder_: what it sounds like i.e. cares about physical tables, doesn't care about objects i.e. not an ORM https://github.com/stephenafamo/bob
-* BYO https://death.andgravity.com/query-builder-how
-* _aiosql_: https://github.com/nackjicholson/aiosql load sql file into Python and run queries as methods https://github.com/nackjicholson/aiosql
-* _csql_: https://news.ycombinator.com/item?id=24866377
-* _pypika_ https://github.com/kayak/pypika https://github.com/zachvalenta/query-sandbox/blob/main/queries.py
-* _records_: just write SQL https://github.com/kennethreitz/records
-* _spyql_: https://github.com/dcmoura/spyql https://news.ycombinator.com/item?id=30074787
-
-## SQLAlchemy
-
-📜 https://docs.sqlalchemy.org/en/20/
-🗄
-* design
-* `django.md` db
-
-* overly complex https://news.ycombinator.com/item?id=34541452
-* people hate the docs https://news.ycombinator.com/item?id=34540251 https://news.ycombinator.com/item?id=34542075 https://news.ycombinator.com/item?id=34578772 https://news.ycombinator.com/item?id=34540960
-* migrations: Alembic https://news.ycombinator.com/item?id=34549578
-
-MIGRATION TO 2.0
-* https://www.sqlalchemy.org/blog/2023/01/26/sqlalchemy-2.0.0-released/
-* Pandas incompatibility https://news.ycombinator.com/item?id=34542287
-
-ALTERNATIVES
-* _dataset_: lightweight https://dataset.readthedocs.io/en/latest/index.html 
-* _orator_: from the guy who did Poetry https://github.com/sdispater/orator
-* _Peewee_: https://github.com/coleifer/peewee not for async https://fastapi.tiangolo.com/advanced/sql-databases-peewee/
-* _SQLmodel_: SQLAlchemy wrapper https://github.com/tiangolo/sqlmodel
-* _Tortoise_: async https://github.com/tortoise/tortoise-orm
-
-----
-
-* https://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/
-* https://talkpython.fm/episodes/show/344/sqlalchemy-2.0
-
-SQLAlchemy http://aosabook.org/en/sqlalchemy.html https://docs.sqlalchemy.org/en/13/ https://www.sqlalchemy.org/library.html#tutorials
-* https://blog.miguelgrinberg.com/post/what-s-new-in-sqlalchemy-2-0
-* https://talkpython.fm/episodes/show/344/sqlalchemy-2.0
-* https://realpython.com/python-sqlite-sqlalchemy/
-* tutorial https://www.youtube.com/watch?v=5SSC6nU314c
-* create table `create_all` https://docs.sqlalchemy.org/en/14/core/metadata.html#creating-and-dropping-database-tables
-* _core_: manages connection pool and dialects (diff dbms); fine to just use core https://news.ycombinator.com/item?id=10270605
-* _JSONField_: https://amercader.net/blog/beware-of-json-fields-in-sqlalchemy/
-* _core - components_: engine, connection, session https://stackoverflow.com/a/42772654/6813490 event system https://www.sqlalchemy.org/features.html
-* _ORM_: niceties on top of core https://www.sqlalchemy.org/features.html
-* _row object_: record https://stackoverflow.com/q/1958219
-* _unit of work_: writes changes all at once, similar to how Hibernate does it https://www.sqlalchemy.org/features.html
-* build queries from functions https://www.sqlalchemy.org/features.html
-* built on PEP249 (DBAPI) https://www.python.org/dev/peps/pep-0249/
-* _not async_: even if your app framework if
-* `bulk_save_objects` doesn't seem to work when it comes to backrefs https://github.com/zachvalenta/flask-skeleton/commit/548c36088dfe595fccabeb67fa11c7254e847948#diff-c61c1bc5b0486cc6e721bee29c28fe33R17
-* search expressions w/ engine https://stackoverflow.com/questions/3325467/sqlalchemy-equivalent-to-sql-like-statement
-* _parameterized query_: `select foo from bar where baz = :bazid` https://docs.sqlalchemy.org/en/13/core/tutorial.html#using-textual-sql https://stackoverflow.com/a/18808942/6813490 apparently should use a session https://stackoverflow.com/a/22084672/6813490
-* compared to Django https://apirobot.me/posts/introduction-to-sqlalchemy-orm-for-django-developers
-* sessions
-> This is not at all how SQLAlchemy's ORM component works. In SQLAlchemy you have an object called the “session”. It basically encapsulates a transaction. However it does more. Each object is tracked by primary key in this session. As such each object only exists once by primary key. As such you can safely make a lot of queries and you never have things out of sync. When you commit the session it will send all changes at once to the database in correct order, if you rollback the session nothing happens instead. - http://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/
-
-* _backref_: used for 1-M, adds virtual column to obj from parent table that enforces constraint on child table itself https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/?highlight=backref https://docs.sqlalchemy.org/en/13/orm/backref.html#linking-relationships-with-backref
-```python
-# PARENT
-class Concert(db.Model):
-    concert_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.Text)
-    performances = db.relationship("Performance", backref="concert")
-
-# backref = no change to underlying table
-+-----+------------+---------+---------+------------+----+
-| cid | name       | type    | notnull | dflt_value | pk |
-+-----+------------+---------+---------+------------+----+
-| 0   | concert_id | INTEGER | 1       | <null>     | 1  |
-| 1   | name       | TEXT    | 0       | <null>     | 0  |
-+-----+------------+---------+---------+------------+----+
-
-# rather, gets virtual column i.e. query run on obj creation to fetch all child obj that reference parent https://www.youtube.com/watch?v=cYWiDiIUxQc 15:20
-Concert.query.get(1).performances
-
-# CHILD
-class Performance(db.Model):
-    perf_id = db.Column(db.Integer, primary_key=True)
-    concert_id = db.Column(db.Integer, db.ForeignKey("concert.concert_id"))
-
-# FK = adds constraint via column on underlying table
-+-----+------------+---------+---------+------------+----+
-| cid | name       | type    | notnull | dflt_value | pk |
-+-----+------------+---------+---------+------------+----+
-| 0   | perf_id    | INTEGER | 1       | <null>     | 1  |
-| 1   | concert_id | INTEGER | 0       | <null>     | 0  |
-+-----+------------+---------+---------+------------+----+
-# physical column reflected in ORM obj
-Performance.query.get(1).concert_id  # 1
-# but also gets virtual column as well
-Performance.query.get(1).concert  # id 1 name Glastonbury
-```
-
-* snippets
-```python
-###
-# JOINS https://stackoverflow.com/q/19841877/6813490 https://stackoverflow.com/q/6044309/6813490
-###
-
-outer = (
-    db.session.query(Artist, Song)
-    .outerjoin(Song, Artist.artist_id == Song.artist_id)
-    .all()
-)
-outer_pages = (
-    db.session.query(Artist, Song)
-    .outerjoin(Song, Artist.artist_id == Song.artist_id)
-    .paginate()
-)
-
-inner = (
-    db.session.query(Artist, Song).join(Song, Artist.artist_id == Song.artist_id).all()
-)
-
-# pull values out of result set obj https://stackoverflow.com/a/42093713/6813490
-# irl you'd want to use Marshmallow for this
-class Artist(db.Model):
-    artist_id = db.Column(db.Integer, primary_key=True)
-
-class Song(db.Model):
-    song_id = db.Column(db.Integer, primary_key=True)
-    artist_id = db.Column(db.Integer, db.ForeignKey('artist.artist_id'), nullable=False)
-
-artists = [Artist(artist_name='Massive Attack'), Artist(artist_name='Nas')]
-songs = [Song(song_name='One Love', artist_id=2), Song(song_name='One Love', artist_id=1)]
-
-query = "select artist_name, song_name from song s inner join artist a on s.artist_id = a.artist_id where artist_name='Massive Attack'"
-for x in db.engine.execute(query):
-    print(x)  # ('Massive Attack', 'One Love')
-
-@app.route("api")
-def get_foo():
-    query = "select col1, col2 from foo"
-    rs = db.engine.execute(query).fetchall()
-    marshalled_rs = [x[0, 1] for x in rs]
-    return jsonify({"results": marshalled_rs})
-
-# saving from repl https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database 'shell'
-# unable to persist a record using Flask-SQLAlchemy from the Python REPL, but the same code works fine when run as a script.
-
-# APP.PY
-
-import os
-from dotenv import find_dotenv, load_dotenv
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-
-load_dotenv(find_dotenv())
-basedir = os.path.abspath(os.path.dirname(__file__))
-db_path = os.path.join(basedir, os.getenv("DATABASE"))
-db_uri = "sqlite:///" + db_path
-
-app = Flask(__name__)
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
-db = SQLAlchemy(app)
-
-class Thing(db.Model):
-    thing_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30))
-    description = db.Column(db.Text)
-
-    def __repr__(self):
-        return f"id {self.thing_id} name {self.name} desc {self.description}"
-    
-# DB_SEED.PY
-
-#!/usr/bin/env python
-from app import db, Thing
-
-db.drop_all()
-db.create_all()
-thing = Thing(name="thing1", description="thing-1-desc")
-db.session.add(thing)
-db.session.commit()
-print(f"new thing {Thing.query.all()} \n")
-```
-```sh
-# Running the script persists a record
-$ poetry run python db_seed.py
-new thing [id 1 name thing1 desc thing-1-desc]
-# When I try to do the same thing from inside the Python REPL, however, the record isn't created
->>> from app import db, Thing
->>> db.drop_all()
->>> db.create_all()
->>> thing = Thing(name="thing1", description="thing-1-desc")
->>> db.session.add(thing)
->>> db.session.commit()
->>> Thing.query.all()
-[]
-```
-
 ## typing
 
 📜 https://www.postgresql.org/docs/current/datatype.html
@@ -712,7 +500,7 @@ select count(*) over (), track, sum(share), count(*) from splits group by track 
 🗄 `math.md` stat
 
 GROUP BY
-* _group by_: result set w/ 1 record for each group 📙 Evans [8]
+* _group by_: rs w/ 1 record for each group 📙 Evans [8]
 * group data by column value 📙 Beaulieu [60]
 * aka binning https://hakibenita.com/sql-for-data-analysis#binning
 * aka pivot table https://hakibenita.com/sql-for-data-analysis#pivot-tables https://realpython.com/how-to-pandas-pivot-table/
@@ -1124,8 +912,7 @@ STYLE 📜 https://www.sqlstyle.guide/
 * white space / tabs not significant
 * ✅ ubiquitous language ❌ but no Hungarian notation https://news.ycombinator.com/item?id=24403236 
 * ✅ starts w/ char, use underscores where you'd use a space in natural language https://www.sqlstyle.guide/#naming-conventions
-* ❌ Hungarian notation https://www.sqlstyle.guide/#tables https://news.ycombinator.com/item?id=24403236
-> seems to contradict advice on suffixes
+* ❌ _Hungarian notation_: type in signature https://www.sqlstyle.guide/#tables https://news.ycombinator.com/item?id=24403236
 * ❌ through table as concatentation of its constituents https://www.sqlstyle.guide/#tables
 * ❌ `id` as PK https://www.sqlstyle.guide/#columns https://github.com/jOOQ/jOOQ/tree/master/jOOQ-examples/Sakila
 * ✅ singular for attr https://www.sqlstyle.guide/#columns
@@ -1211,6 +998,213 @@ GET DATA
 * HN https://github.com/dogsheep/hacker-news-to-sqlite https://news.ycombinator.com/submitted?id=luu
 * movies https://simonwillison.net/2019/Feb/25/sqlite-utils/ https://github.com/jdorfman/awesome-json-datasets
 * music https://corgis-edu.github.io/corgis/csv/music/ 
+
+## SQLAlchemy
+
+📜 https://docs.sqlalchemy.org/en/20/
+🗄 `django.md` db
+
+* overly complex https://news.ycombinator.com/item?id=34541452
+* people hate the docs https://news.ycombinator.com/item?id=34540251 https://news.ycombinator.com/item?id=34542075 https://news.ycombinator.com/item?id=34578772 https://news.ycombinator.com/item?id=34540960
+* migrations: Alembic https://news.ycombinator.com/item?id=34549578
+
+ORMS
+* _ORM (object-relational mapper)_: obj as frontend to relational data store
+* why: dbms portability, terseness, getting data into obj https://monadical.com/posts/why-use-orm.html https://news.ycombinator.com/item?id=37118633
+* why not: SQL is more durable, more help on SO, easier for complicated relationships https://news.ycombinator.com/item?id=21961214 https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://sirupsen.com/stop-relying-on-your-orm-and-learn-sql https://news.ycombinator.com/item?id=36497613
+* write thin DSL over ORM vs. modifying default ORM methods https://rtpg.co/2016/09/12/orms-are-scary.html
+* _data mapper_: https://en.wikipedia.org/wiki/SQLAlchemy https://www.openmymind.net/2011/11/18/I-Just-Dont-Like-Object-Mappers/
+* _active record_: wrapper (row + DSL) https://www.martinfowler.com/eaaCatalog/activeRecord.html http://calpaterson.com/activerecord.html https://github.com/sdispater/orator
+* ActiveRecord for Golang https://github.com/volatiletech/sqlboiler
+* _N+1 problem_: https://roadmap.sh/backend https://macwright.org/2020/05/10/spa-fatigue.html https://stackoverflow.com/q/97197/6813490 https://www.sqlalchemy.org/features.html https://tech.yplanapp.com/2016/09/26/introducing-django-perf-rec/ https://www.youtube.com/watch?v=uCbFMZYQbxE https://github.com/jmcarp/nplusone https://news.ycombinator.com/item?id=26151302 https://fly.io/blog/introducing-litefs/ https://github.com/superfly/litefs
+> The 1+N database anti-pattern is common: fetch some rows from the database then re-fetch specific rows to get all the items. An ORM can hide this away and make you not realize it is happening. https://suor.github.io/blog/2023/03/26/ban-1-plus-n-in-django/
+* solved with eager loading https://news.learnenough.com/eager-loading
+* _impedance mismatch_: difficulty of object-relational mapping [Kleppmann 1.33] multiple ways to aproach http://blogs.tedneward.com/post/the-vietnam-of-computer-science/
+> In the database community it has been conventional wisdom for nearly half a century now (basically since the invention of the relational model) that in designing your database schema you should be careful to avoid any kind of redundancy. That's what database normalization theory is all about. For some unfathomable reason, the same kind of thinking is never (or almost never) applied to software construction, even though it would be as beneficial (possibly even more so) as it is for databases. So, before we countinue our discussion, it's a good idea to talk a bit about redundancy, and to explain what's so harmful about it. https://www.cell-lang.net/relations.html
+
+QUERY BUILDERS
+* reverse query builder https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203030 https://github.com/kyleconroy/sqlc https://preslav.me/2023/03/07/reasons-against-sqlc/
+* _query builder_: what it sounds like i.e. cares about physical tables, doesn't care about objects i.e. not an ORM https://github.com/stephenafamo/bob
+* BYO https://death.andgravity.com/query-builder-how
+* _aiosql_: https://github.com/nackjicholson/aiosql load sql file into Python and run queries as methods https://github.com/nackjicholson/aiosql
+* _csql_: https://news.ycombinator.com/item?id=24866377
+* _hashquery_: https://news.ycombinator.com/item?id=40132424 https://hashquery.dev/ https://github.com/hashboard-hq/hashquery
+* _pypika_ https://github.com/kayak/pypika https://github.com/zachvalenta/query-sandbox/blob/main/queries.py
+* _records_: just write SQL https://github.com/kennethreitz/records
+* _spyql_: https://github.com/dcmoura/spyql https://news.ycombinator.com/item?id=30074787
+
+ALTERNATIVES
+* _dataset_: lightweight https://dataset.readthedocs.io/en/latest/index.html 
+* _orator_: from the guy who did Poetry https://github.com/sdispater/orator
+* _Peewee_: https://github.com/coleifer/peewee not for async https://fastapi.tiangolo.com/advanced/sql-databases-peewee/
+* _SQLmodel_: SQLAlchemy wrapper https://github.com/tiangolo/sqlmodel
+* _Tortoise_: async https://github.com/tortoise/tortoise-orm
+
+----
+
+* https://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/
+* https://talkpython.fm/episodes/show/344/sqlalchemy-2.0
+
+SQLALCHEMY http://aosabook.org/en/sqlalchemy.html https://docs.sqlalchemy.org/en/13/ https://www.sqlalchemy.org/library.html#tutorials
+* https://blog.miguelgrinberg.com/post/what-s-new-in-sqlalchemy-2-0
+* https://talkpython.fm/episodes/show/344/sqlalchemy-2.0
+* https://realpython.com/python-sqlite-sqlalchemy/
+* tutorial https://www.youtube.com/watch?v=5SSC6nU314c
+* create table `create_all` https://docs.sqlalchemy.org/en/14/core/metadata.html#creating-and-dropping-database-tables
+* _core_: manages connection pool and dialects (diff dbms); fine to just use core https://news.ycombinator.com/item?id=10270605
+* _JSONField_: https://amercader.net/blog/beware-of-json-fields-in-sqlalchemy/
+* _core - components_: engine, connection, session https://stackoverflow.com/a/42772654/6813490 event system https://www.sqlalchemy.org/features.html
+* _ORM_: niceties on top of core https://www.sqlalchemy.org/features.html
+* _row object_: record https://stackoverflow.com/q/1958219
+* _unit of work_: writes changes all at once, similar to how Hibernate does it https://www.sqlalchemy.org/features.html
+* build queries from functions https://www.sqlalchemy.org/features.html
+* built on PEP249 (DBAPI) https://www.python.org/dev/peps/pep-0249/
+* _not async_: even if your app framework if
+* `bulk_save_objects` doesn't seem to work when it comes to backrefs https://github.com/zachvalenta/flask-skeleton/commit/548c36088dfe595fccabeb67fa11c7254e847948#diff-c61c1bc5b0486cc6e721bee29c28fe33R17
+* search expressions w/ engine https://stackoverflow.com/questions/3325467/sqlalchemy-equivalent-to-sql-like-statement
+* _parameterized query_: `select foo from bar where baz = :bazid` https://docs.sqlalchemy.org/en/13/core/tutorial.html#using-textual-sql https://stackoverflow.com/a/18808942/6813490 apparently should use a session https://stackoverflow.com/a/22084672/6813490
+* compared to Django https://apirobot.me/posts/introduction-to-sqlalchemy-orm-for-django-developers
+* sessions
+> This is not at all how SQLAlchemy's ORM component works. In SQLAlchemy you have an object called the “session”. It basically encapsulates a transaction. However it does more. Each object is tracked by primary key in this session. As such each object only exists once by primary key. As such you can safely make a lot of queries and you never have things out of sync. When you commit the session it will send all changes at once to the database in correct order, if you rollback the session nothing happens instead. - http://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/
+
+BACKREF
+* used for 1-M
+* adds virtual column to obj from parent table that enforces constraint on child table itself https://flask-sqlalchemy.palletsprojects.com/en/2.x/models/?highlight=backref https://docs.sqlalchemy.org/en/13/orm/backref.html#linking-relationships-with-backref
+```python
+# PARENT
+class Concert(db.Model):
+    concert_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text)
+    performances = db.relationship("Performance", backref="concert")
+
+# backref = no change to underlying table
++-----+------------+---------+---------+------------+----+
+| cid | name       | type    | notnull | dflt_value | pk |
++-----+------------+---------+---------+------------+----+
+| 0   | concert_id | INTEGER | 1       | <null>     | 1  |
+| 1   | name       | TEXT    | 0       | <null>     | 0  |
++-----+------------+---------+---------+------------+----+
+
+# rather, gets virtual column i.e. query run on obj creation to fetch all child obj that reference parent https://www.youtube.com/watch?v=cYWiDiIUxQc 15:20
+Concert.query.get(1).performances
+
+# CHILD
+class Performance(db.Model):
+    perf_id = db.Column(db.Integer, primary_key=True)
+    concert_id = db.Column(db.Integer, db.ForeignKey("concert.concert_id"))
+
+# FK = adds constraint via column on underlying table
++-----+------------+---------+---------+------------+----+
+| cid | name       | type    | notnull | dflt_value | pk |
++-----+------------+---------+---------+------------+----+
+| 0   | perf_id    | INTEGER | 1       | <null>     | 1  |
+| 1   | concert_id | INTEGER | 0       | <null>     | 0  |
++-----+------------+---------+---------+------------+----+
+# physical column reflected in ORM obj
+Performance.query.get(1).concert_id  # 1
+# but also gets virtual column as well
+Performance.query.get(1).concert  # id 1 name Glastonbury
+```
+
+* snippets
+```python
+###
+# JOINS https://stackoverflow.com/q/19841877/6813490 https://stackoverflow.com/q/6044309/6813490
+###
+
+outer = (
+    db.session.query(Artist, Song)
+    .outerjoin(Song, Artist.artist_id == Song.artist_id)
+    .all()
+)
+outer_pages = (
+    db.session.query(Artist, Song)
+    .outerjoin(Song, Artist.artist_id == Song.artist_id)
+    .paginate()
+)
+
+inner = (
+    db.session.query(Artist, Song).join(Song, Artist.artist_id == Song.artist_id).all()
+)
+
+# pull values out of result set obj https://stackoverflow.com/a/42093713/6813490
+# irl you'd want to use Marshmallow for this
+class Artist(db.Model):
+    artist_id = db.Column(db.Integer, primary_key=True)
+
+class Song(db.Model):
+    song_id = db.Column(db.Integer, primary_key=True)
+    artist_id = db.Column(db.Integer, db.ForeignKey('artist.artist_id'), nullable=False)
+
+artists = [Artist(artist_name='Massive Attack'), Artist(artist_name='Nas')]
+songs = [Song(song_name='One Love', artist_id=2), Song(song_name='One Love', artist_id=1)]
+
+query = "select artist_name, song_name from song s inner join artist a on s.artist_id = a.artist_id where artist_name='Massive Attack'"
+for x in db.engine.execute(query):
+    print(x)  # ('Massive Attack', 'One Love')
+
+@app.route("api")
+def get_foo():
+    query = "select col1, col2 from foo"
+    rs = db.engine.execute(query).fetchall()
+    marshalled_rs = [x[0, 1] for x in rs]
+    return jsonify({"results": marshalled_rs})
+
+# saving from repl https://blog.miguelgrinberg.com/post/the-flask-mega-tutorial-part-iv-database 'shell'
+# unable to persist a record using Flask-SQLAlchemy from the Python REPL, but the same code works fine when run as a script.
+
+# APP.PY
+
+import os
+from dotenv import find_dotenv, load_dotenv
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+
+load_dotenv(find_dotenv())
+basedir = os.path.abspath(os.path.dirname(__file__))
+db_path = os.path.join(basedir, os.getenv("DATABASE"))
+db_uri = "sqlite:///" + db_path
+
+app = Flask(__name__)
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SQLALCHEMY_DATABASE_URI"] = db_uri
+db = SQLAlchemy(app)
+
+class Thing(db.Model):
+    thing_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(30))
+    description = db.Column(db.Text)
+
+    def __repr__(self):
+        return f"id {self.thing_id} name {self.name} desc {self.description}"
+    
+# DB_SEED.PY
+
+#!/usr/bin/env python
+from app import db, Thing
+
+db.drop_all()
+db.create_all()
+thing = Thing(name="thing1", description="thing-1-desc")
+db.session.add(thing)
+db.session.commit()
+print(f"new thing {Thing.query.all()} \n")
+```
+```sh
+# Running the script persists a record
+$ poetry run python db_seed.py
+new thing [id 1 name thing1 desc thing-1-desc]
+# When I try to do the same thing from inside the Python REPL, however, the record isn't created
+>>> from app import db, Thing
+>>> db.drop_all()
+>>> db.create_all()
+>>> thing = Thing(name="thing1", description="thing-1-desc")
+>>> db.session.add(thing)
+>>> db.session.commit()
+>>> Thing.query.all()
+[]
+```
+
 ## tables
 
 TYPES
@@ -1219,17 +1213,17 @@ TYPES
 * impl as heap or b-tree https://calpaterson.com/activerecord.html
 * _derived_: return from subquery and held in memory 📙 Beaulieu [53]
 * _temporary_: table in mem 📙 Beaulieu [53] aka non-persistent 📙 Beaulieu [8]
-* _result set_: temp table returned from query 📙 Beaulieu [8] Evans [4]
+* _result set (rs)_: temp table returned from query 📙 Beaulieu [8] Evans [4]
 * intermediate rs created at each stage in join 📙 Beaulieu [90-digital-copy]
 * _virtual_: created using `create view` cmd 📙 Beaulieu [53]
 * _intemediate_: table instaniated for a job and then deleted https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
 * _scalar table_: table w/ single column and single row https://pgexercises.com/questions/basic/agg2.html
 * _temporal_: https://news.ycombinator.com/item?id=29733854 https://news.ycombinator.com/item?id=29735695 https://stackoverflow.com/questions/50199752/comparing-csv-entries-against-entries-in-postgresql-table-using-python 
 
-COMPONENTS 📙 Beaulieu 1.6
+COMPONENTS 📙 Beaulieu [1.6]
 * _entity_: thing you're trying to describe e.g. customer, order, et al. 📙 Beaulieu [8]
-* _attribute_: aka column
-* _record_: aka row
+* _column_: aka attribute
+* _row_: aka record
 * _value_: aka cell, field
 
 VIEWS 📙 Beaulieu chapter 14

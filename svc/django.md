@@ -315,7 +315,7 @@ class IndexView(generic.ListView):
 
 # 🍱 DB
 
-🗄 `sql.md` ORMs
+🗄 `sql.md` SQLAlchemy
 
 FLOW http://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/
 * generates SQL i.e. lazy
@@ -616,6 +616,9 @@ SIGNALS https://docs.djangoproject.com/en/5.0/topics/signals/
 
 ## auth
 
+---
+
+https://github.com/jazzband/django-axes
 * auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas https://testdriven.io/blog/django-rest-authjs/
 * keep track of failed logins https://github.com/jazzband/django-axes
 https://testdriven.io/blog/django-rest-auth/
@@ -686,6 +689,8 @@ what is this for? ⬇️
 ## config
 
 📜 https://docs.djangoproject.com/en/stable/topics/settings/ https://docs.djangoproject.com/en/stable/ref/settings/ https://www.mattlayman.com/understand-django/settings/
+
+https://news.ycombinator.com/item?id=40688336
 
 * `settings.py`: just a Python module w/ buncha attributes; fmt installed apps same as imports https://wsvincent.com/django-rest-framework-tutorial/ uses pathlib as of 3.1 https://learndjango.com/tutorials/whats-new-django-31
 * https://adamj.eu/tech/2022/11/24/django-settings-patterns-to-avoid/
@@ -759,7 +764,7 @@ DEV SERVER ON REMOTE
 * https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
 * https://github.com/godd0t/django-docker-quickstart
 
-🐚 SHELL
+🐚 SHELL https://docs.djangoproject.com/en/3.0/ref/django-admin/#shell https://docs.bpython-interpreter.org/en/latest/django.html
 * kill server: https://startcodingnow.com/kill-django-development-server
 ```sh
 ps aux | head --lines=1 && ps aux | grep 'manage.py runserver' | kill
@@ -789,7 +794,7 @@ https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-djan
 * _caching_: https://wsvincent.com/django-caching-for-beginners/ https://eralpbayraktar.com/blog/django/2020/caching-with-django
 * _channels_: https://www.aeracode.org/2018/06/04/django-async-roadmap/ https://testdriven.io/blog/django-async-views/ https://www.youtube.com/watch?v=j6IOuD5WD8c https://testdriven.io/courses/real-time-app-with-django-channels-and-angular/ https://testdriven.io/courses/real-time-app-with-django-channels-and-angular kinda live Phoenix LiveView? https://github.com/edelvalle/reactor https://runninginproduction.com/podcast/11-logflare-is-a-log-management-and-event-analytics-platform
 * _CORS_: https://github.com/adamchainz/django-cors-headers
-* _debug_ https://django-debug-toolbar.readthedocs.io/en/latest/installation.html
+* _debug_ https://django-debug-toolbar.readthedocs.io/en/latest/installation.html https://talkpython.fm/episodes/show/464/seeing-code-flows-and-generating-tests-with-kolo
 * _editor_: https://406.ch/writing/django-prose-editor-prose-editing-component-for-the-django-admin/
 * _email_: https://learndjango.com/tutorials/django-email-contact-form https://softwarecrafts.co.uk/100-words/day-76
 * _favicon_: https://learndjango.com/tutorials/django-favicon-tutorial

@@ -9,22 +9,21 @@
 
 ## 进步
 
-* _21_: rf pdb, doctest basics
-
----
-
 * https://cjolowicz.github.io/posts/hypermodern-python-01-setup/ https://talkpython.fm/episodes/show/362/hypermodern-python-projects
 * https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/ https://www.b-list.org/weblog/2022/dec/19/boring-python-code-quality/
 * https://talkpython.fm/episodes/show/327/little-automation-tools-in-python
 
-# 🔬 CQ
+* _24_: split from `python.md`, lib (ward)
+* _21_: rf pdb, doctest basics
+
+# 🧫 CQ
+
+⭐️ https://github.com/stars/zachvalenta/lists/code-quality
 
 ---
 
-* autoformat: Black, isort, blacker https://github.com/akaihola/darker black on documentation https://github.com/asottile/blacken-docs
-* dead code: https://github.com/jendrikseipp/vulture https://github.com/sobolevn/flake8-eradicate 
+* dead code: https://github.com/jendrikseipp/vulture https://github.com/sobolevn/flake8-eradicate  https://github.com/jendrikseipp/vulture
 * security: bandit, https://pyup.io/ (uses same vulnerability db as pipenv) pysa https://github.com/facebook/pyre-check https://news.ycombinator.com/item?id=24083432 https://github.com/DataDog/guarddog
-* dead code https://github.com/jendrikseipp/vulture
 
 ## docs
 
@@ -61,9 +60,257 @@ def foo(my_arg):
     """
 ```
 
+## lint / fmt
+
+🗄️ `core.md` style
+
+RUFF 📜 https://github.com/astral-sh/ruff
+* meant to replace black, isort
+```sh
+check  # lint
+check --fix  # fix lint err
+```
+
+ZA
+* custom via AST e.g. enforce docs https://docs.python.org/3/library/inspect.html#retrieving-source-code
+* lint natural language https://vale.sh/
+* lint exceptions https://github.com/guilatrova/tryceratops
+* fmt code blocks in doc files https://github.com/asottile/blacken-docs
+* fmt based on recent changes https://github.com/akaihola/darker
+* _pycodestyle_: style rules; used in ruff https://github.com/PyCQA/pycodestyle https://406.ch/writing/how-ruff-changed-my-python-programming-habits/
+* _pyflakes_: style rules; used in ruff https://github.com/PyCQA/pyflakes
+* _pyupgrade_: upgrade syntax for future Python versions https://github.com/asottile/pyupgrade
+
+FLAKE 📜 https://flake8.pycqa.org/
+* ignore line: `# NOQA` https://flake8.pycqa.org/en/2.6.0/config.html#per-code-line 
+```sh
+flake8 src test # lint multiple dir 🗄️ algos
+flake8 exclude = */__init__.py  # all __init__
+flake8 --isolated  # can use from shell, but it might be picking up config file somewhere, so this worked to get back to defaults
+```
+```conf
+[flake8]  # .flake8 https://ljvmiranda921.github.io/notebook/2018/06/21/precommits-using-black-and-flake8/
+max-complexity = 10
+max-line-length = 88
+ignore =  # http://flake8.pycqa.org/en/latest/user/configuration.html
+    E203,  # play nice w/ Black https://github.com/psf/black/issues/1029
+    E402  # workaround for flattened Flask project structure
+    W503  # rule dated on line break? https://www.flake8rules.com/rules/W503.html https://dev.to/m1yag1/how-to-setup-your-project-with-pre-commit-black-and-flake8-183k
+per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
+    db_shell.py:F401  # give user access to all models from REPL
+```
+
+## logging
+
+🗄
+* `python/runtime.md` REPL
+* `telemetry` logging
+
+---
+
+icecream for print debugging https://github.com/gruns/icecream
+* people don't use format/f-strings in logging
+* https://monadical.com/posts/ins-and-outs-of-logging-in-python-part-one.html
+* logs sent by default to `sys.stdout` i.e. they're buffered https://stackoverflow.com/a/51362214/6813490 https://realpython.com/python-flush-print-output/
+* pretty stdout https://github.com/onelivesleft/PrettyErrors
+* can unbuffer w/ `PYTHONUNBUFFERED=1` https://docs.python.org/3/using/cmdline.html?highlight=pythonunbuffered#envvar-PYTHONUNBUFFERED
+* this shows up in Docker, Docker won't show logs from Flask dev server in real-time unless logs set to unbuffered although I don't know why https://github.com/sclorg/s2i-python-container/issues/157 https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
+* add logs without updating source https://github.com/yiblet/inquest
+* _libraries_: https://stackoverflow.com/a/51362214 https://github.com/Delgan/loguru https://github.com/BNMetrics/logme https://github.com/hynek/structlog https://github.com/itamarst/eliot stdlib https://docs.python.org/3/howto/logging.html https://docs.python.org/3/howto/logging-cookbook.html GUI https://github.com/busimus/cutelog
+
+## profiling
+
+📙 Beazley ch. 14
+🗄 `linux.md` tracing
+📜 https://docs.python.org/3/library/debug.html
+
+PG http://paulgraham.com/popular.html
+> It might be a good idea to have an active profiler - to push performance data to the programmer instead of waiting for him to come asking for it.
+> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem.
+> A good language, as everyone knows, should generate fast code. But in practice I don't think fast code comes primarily from things you do in the design of the language. As Knuth pointed out long ago, speed only matters in certain critical bottlenecks. And as many programmers have observed since, one is very often mistaken about where these bottlenecks are. So, in practice, the way to get fast code is to have a very good profiler, rather than by, say, making the language strongly typed. You don't need to know the type of every argument in every call in the program. You do need to be able to declare the types of arguments in the bottlenecks. And even more, you need to be able to find out where the bottlenecks are.
+
+---
+
+OPTIONS
+* _cprofile_: https://www.pythonmorsels.com/cli-tools/ https://martinheinz.dev/blog/64
+* _phlare_: https://martinheinz.dev/blog/89
+* _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
+* _timeit_: https://www.pythonmorsels.com/cli-tools/
+
+https://www.pythonmorsels.com/cli-tools/
+
+py-spy, speedscope, Valgrind https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+
+> sort out what needs to be in Linux tracing vs. what needs to be here
+
+https://github.com/nakabonne/gosivy https://github.com/nakabonne/ali/releases/tag/v0.7.0
+
+* _profile_: measure performance i.e. see which lines are executing and how long they take
+* _trace_: https://github.com/furkanonder/beetrace
+
+https://textual.textualize.io/blog/2024/02/20/remote-memory-profiling-with-memray/
+
+Sentry
+https://www.youtube.com/watch?v=bGAVrtb_tFs https://www.brendangregg.com/
+https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html
+https://www.freecodecamp.org/news/python-debugging-handbook/
+https://madebyme.today/blog/python-dict-vs-curly-brackets/
+https://superfastpython.com/benchmark-execution-time/
+https://stackabuse.com/why-does-python-code-run-faster-in-a-function/
+https://realpython.com/python-profiling/
+https://adamj.eu/tech/2023/07/23/python-profile-section-cprofile/
+* https://realpython.com/python312-perf-profiler/
+* https://functiontrace.com/
+* Rust, Cython https://pythonspeed.com/articles/faster-text-processing/ https://www.equalto.com/blog/rust-in-anger-high-performance-web-applications
+* https://news.ycombinator.com/item?id=36605730
+* https://www.petermcconnell.com/posts/perf_eng_with_py12/
+* benchmark https://pythonspeed.com/articles/faster-json-library/ https://eli.thegreenplace.net/2023/common-pitfalls-in-go-benchmarking/
+```sh
+time $CMD  # https://news.ycombinator.com/item?id=30224063
+```
+* https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
+* frame stack sampler https://github.com/P403n1x87/austin https://github.com/P403n1x87/austin-tui
+https://github.com/DataDog/go-profiler-notes
+
+EBPF
+* https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06
+* https://news.ycombinator.com/item?id=27435081
+* https://www.brendangregg.com/blog/2022-04-15/netflix-farewell-1.html
+* https://ebpf.io/what-is-ebpf/ https://softwareengineeringdaily.com/2023/03/06/ebpf-with-thomas-graf/
+* https://www.polarsignals.com/blog/posts/2023/10/04/profiling-python-and-ruby-with-ebpf
+* https://about.gitlab.com/blog/2022/11/28/how-we-diagnosed-and-resolved-redis-latency-spikes/
+* https://softwareengineeringdaily.com/2022/07/15/continuous-profiling-using-ebpf-with-frederic-branczyk/
+* https://github.com/keyval-dev/odigos
+* https://github.com/google/gops
+* https://thume.ca/2023/12/02/tracing-methods/
+
+* `py3 -m trace --trace example.py`
+* https://pythonspeed.com/articles/measuring-python-performance/
+* https://switowski.com/blog/how-to-benchmark-python-code/
+* https://github.com/bloomberg/memray https://realpython.com/podcasts/rpp/128/ https://talkpython.fm/episodes/show/425/memray-the-endgame-python-memory-profiler
+* https://codesolid.com/how-do-i-profile-python-code/
+* https://tinkering.xyz/fmo-optimization-story/
+* https://tech.marksblogg.com/faster-python.html https://www.peterbaumgartner.com/blog/intro-to-just-enough-cython-to-be-useful/ https://github.com/tonybaloney/perflint https://rednafi.github.io/reflections/pre-allocated-lists-in-python.html
+* https://github.com/pyroscope-io/pyroscope
+* https://flamegraph.com/ https://github.com/laixintao/flameshow
+* profiling CLI, `time` https://news.ycombinator.com/item?id=30224063
+* profiling async https://github.com/aviramha/capara
+* https://pythonspeed.com/memory/
+* https://github.com/pythonprofilers/memory_profiler https://news.ycombinator.com/item?id=27025829
+* https://github.com/csurfer/pyheat
+* https://github.com/joerick/pyinstrument
+* https://www.youtube.com/watch?v=1EZ8oqjLun0
+* https://medium.com/statch/speeding-up-python-code-with-nim-ec205a8a5d9c
+* https://github.com/joerick/pyinstrument
+* https://hakibenita.com/django-rest-framework-slow
+* https://github.com/brandtbucher/specialist
+* https://github.com/robusta-dev/WhyProfiler
+* `time` https://hacker-tools.github.io/program-introspection/
+* https://github.com/joerick/pyinstrument
+* https://github.com/P403n1x87/austin https://talkpython.fm/episodes/show/265/why-is-python-slow 54:00
+* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions
+* _tools_: PyFlame https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 PySpy https://github.com/benfred/py-spy/ profile CPython https://instagram-engineering.com/profiling-cpython-at-instagram-89d4cbeeb898 https://pythonspeed.com/articles/memory-profiler-data-scientists/ Fil https://pythonspeed.com/products/filmemoryprofiler/ https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
+* sink: https://www.blog.pythonlibrary.org/2020/04/14/an-overview-of-profiling-tools-for-python/ https://www.roguelynn.com/words/tracing-fast-and-slow/ https://pythonspeed.com/articles/blocking-cpu-or-io/ https://pythonspeed.com/articles/custom-python-profiler/ https://pythonspeed.com/articles/live-debugging-python/ https://www.markkeller.dev/2018-07-14-optimize_python/ https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ pyspy https://jvns.ca/blog/2018/12/23/2018--year-in-review/ https://www.youtube.com/watch?v=d5SGUscT2GA https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://github.com/ionelmc/python-hunter https://wsvincent.com/algorithms-binary-search/ https://wsvincent.com/python-optimizations-with-guido/ https://realpython.com/python-f-strings/ https://github.com/airspeed-velocity/asv
+* pyperf, timeit https://medium.com/@martin.heinz/python-cli-tricks-that-dont-require-any-code-whatsoever-e7bdb9409aeb https://log.beshr.com/python-311-speedup-part-1/
+* benchmark: https://github.com/sharkdp/hyperfine https://github.com/egoist/dum
+* can use hyperfine under the hood https://github.com/dandavison/magit-delta https://github.com/sharkdp/hyperfine
+* https://blog.usejournal.com/how-to-create-your-own-timing-context-manager-in-python-a0e944b48cf8 https://martinheinz.dev/blog/13 https://realpython.com/python-timer/
+```python
+# try this instead https://github.com/wasi-master/fastero
+
+# The "timeit" module lets you measure the execution
+# time of small bits of Python code
+# https://www.youtube.com/watch?v=EcGWDNlGTNg
+import timeit
+timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
+timeit.timeit('"-".join([str(n) for n in range(100)])', number=10000)
+timeit.timeit('"-".join(map(str, range(100)))', number=10000)
+
+# https://stackoverflow.com/a/7523810/6813490
+from timeit import Timer
+# doesn't manifest savings in small collections
+names_list = ['alice', 'bob', 'candace']
+names_set = set(['alice', 'bob', 'candace'])
+
+# setup large collection of numbers and see what happens then
+def lookup_list(l):
+    return 'alice' in l
+def lookup_set(s):
+    return 'alice' in s
+def cast_to_timer(func, args):
+	return Timer(lambda: func(args))
+def timeit_ms(func):
+	return print(func.timeit(number=1000))
+if __name__=='__main__':
+    timeit_ms(cast_to_timer(lookup_list, names_list))
+    timeit_ms(cast_to_timer(lookup_set, names_set))
+```
+
+
+# 🔬 TEST
+
+🗄️ `test.md`
+⭐️ https://github.com/stars/zachvalenta/lists/test
+
+## behave
+
+📜 https://behave.readthedocs.io/en/latest/ https://github.com/behave/behave
+
+* alternative https://github.com/pytest-dev/pytest-bdd 
+* same syntax as Cucumber https://stackoverflow.com/a/52027041
+* few commits but seems active https://github.com/behave/behave/projects/4#card-50138436)
+* Django integration: https://behave.readthedocs.io/en/latest/usecase_django.html https://whoisnicoleharris.com/2015/03/19/bdd-part-two.html https://semaphoreci.com/community/tutorials/setting-up-a-bdd-stack-on-a-django-application
+> we got around at work bc we're just using to hit our deployed endpoints
+
+CLI
+```sh
+# view stdout https://stackoverflow.com/a/28551235/6813490 https://stackoverflow.com/a/41969164/6813490
+behave --no-capture --no-color --tags @foo
+
+# exclude tag
+--tags ~@tag1        # single
+--tags ~@tag1, tag2  # n
+```
+
+PROJECT SETUP
+```sh
+# default https://behave.readthedocs.io/en/latest/gherkin.html?highlight=directory#feature-testing-layout
+├── features
+│   └── foo.feature
+│   └── bar.feature
+│   └──── steps
+│   └─────── baz.py
+
+# with config https://behave.readthedocs.io/en/latest/behave.html?highlight=configuration#configuration-files
+├── bdd
+│   └── features
+│   └──── foo.feature
+│   └── steps
+│   └──── foo.py
+
+# .behaverc
+[behave]
+paths=dj_app/bdd
+```
+
+STEP SYNTAX
+```python
+from behave import given, then
+
+@given('we have behave installed')
+def step_impl(context):
+    pass
+
+@then('behave will test them for us!')  # actual identifier in decorator
+def step_impl(context):  # function identifier identical; must take `context` as arg
+    assert context.failed is False  # vanilla assertions
+```
+
 ## coverage
 
 📜 https://coverage.readthedocs.io/
+
+* design https://nedbatchelder.com/blog/202406/coverage_at_a_crossroads.html
 * `.coverage`: result files; read by `coverage report` and `coverage html`
 * pytest-cov` also has `--cov-fail-under=MIN` arg you could pass as a normal pipeline step https://github.com/pytest-dev/pytest-cov
 * pretty slow https://www.drmaciver.com/2017/09/python-coverage-could-be-fast/
@@ -85,6 +332,7 @@ coverage html && coverage htmlcov/index.html
 
 ---
 
+* `ELLIPSIS` 📙 Ramalho [7]
 * _doctest_: docstring + test https://www.fluentpython.com/lingo/#doctest
 > [key feature] they look like transcripts of interactive Python console sessions, so you can easily try out the demonstrations yourself 📙 Ramalho [xviii]
 * as TDD-as-design tool bc favors small functions that require minimal setup
@@ -98,21 +346,6 @@ def foo(a, b):
     """
     return a + b
 ```
-
-## logging
-
-🗄 `telemetry` logging
-
----
-
-* people don't use format/f-strings in logging
-* https://monadical.com/posts/ins-and-outs-of-logging-in-python-part-one.html
-* logs sent by default to `sys.stdout` i.e. they're buffered https://stackoverflow.com/a/51362214/6813490 https://realpython.com/python-flush-print-output/
-* pretty stdout https://github.com/onelivesleft/PrettyErrors
-* can unbuffer w/ `PYTHONUNBUFFERED=1` https://docs.python.org/3/using/cmdline.html?highlight=pythonunbuffered#envvar-PYTHONUNBUFFERED
-* this shows up in Docker, Docker won't show logs from Flask dev server in real-time unless logs set to unbuffered although I don't know why https://github.com/sclorg/s2i-python-container/issues/157 https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
-* add logs without updating source https://github.com/yiblet/inquest
-* _libraries_: https://stackoverflow.com/a/51362214 https://github.com/Delgan/loguru https://github.com/BNMetrics/logme https://github.com/hynek/structlog https://github.com/itamarst/eliot stdlib https://docs.python.org/3/howto/logging.html https://docs.python.org/3/howto/logging-cookbook.html GUI https://github.com/busimus/cutelog
 
 ## mocks
 
@@ -136,20 +369,51 @@ https://talkpython.fm/episodes/show/287/testing-without-dependencies-mocking-in-
 
 📜 https://docs.pytest.org/en/latest/contents.html#toc
 
-* https://github.com/darrenburns/ward
+PLUGINS
+* randomize execution order https://github.com/pytest-dev/pytest-randomly 
+* port ward output to pytest https://github.com/darrenburns/ward/blob/master/ward/_terminal.py https://docs.pytest.org/en/7.1.x/how-to/writing_plugins.html#writing-your-own-plugin https://github.com/nicoddemus/pytest-rich/tree/main
+* _pluggy_: framework for write plugins https://ward.readthedocs.io/en/latest/guide/plugins.html https://pluggy.readthedocs.io/en/latest/
+
+STDOUT
+* https://pypi.org/project/pytest-testdox/
 * https://github.com/darrenburns/pytest-clarity
+* summary reports https://docs.pytest.org/en/latest/usage.html#detailed-summary-report
+* info in tracebacks https://docs.pytest.org/en/latest/usage.html#modifying-python-traceback-printing
+* `-s` see print statements https://stackoverflow.com/a/55950781/6813490
+* `-v` see each test that executed https://github.com/darrenburns/pytest-clarity https://github.com/Teemu/pytest-sugar https://github.com/numirias/pytest-json-report
+* group related tests https://pypi.org/project/pytest-testdox/
+```python
+@pytest.mark.describe("doing stuff")  # can also use mark.it()
+def test_doing_this():
+    pass
+def test_doing_that():
+    pass
+```
+```sh
+doing stuff
+ [x] doing this
+ [x] doing that
+```
+
+---
+
+MARKS
+* _mark_: decorator to add metadata
+* skip test `pytest.skip('WIP')` https://github.com/box/flaky https://danluu.com/wat/
+* params https://docs.pytest.org/en/6.2.x/parametrize.html
+> these less readable to me
+
+ZA
 * plugins https://blog.pecar.me/pytest-plugin
 * matchers: https://github.com/hamcrest/PyHamcrest https://github.com/mwilliamson/python-precisely https://changelog.com/gotime/159 https://github.com/corbym/gocrest
 * _non-fatal assertions_: continue execution if assertion fails https://github.com/okken/pytest-check unittest https://stackoverflow.com/a/5028110 pytest parameters https://stackoverflow.com/a/36760045
-
-misc
 * does pytest/unittest use `trace` module?
 * better than unittest bc easier assertions, parameterization, function-based https://github.com/renzon/pytest-vs-unittest https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/
 * will pick up modules prepended w/ `test_` otherwise on you to specify
 * run in parallel https://github.com/pytest-dev/pytest-xdist https://tech.marksblogg.com/faster-django-testing.html
 * xfail https://blog.ganssle.io/articles/2021/11/pytest-xfail.html
 
-cli
+CLI
 * freezes terminal if encounters breakpoint, workaround w/ `pytest -s --pdb`
 * `pytest.set_trace()` is deprecated and doesn't work w/ pdbpp https://github.com/pdbpp/pdbpp/issues/392 https://docs.pytest.org/en/latest/historical-notes.html#pytest-set-trace 
 ```sh
@@ -184,32 +448,7 @@ test_mod.py::test_func  # func
 -l       # locals https://hackebrot.github.io/pytest-tricks/debug_test_failures/
 ```
 
-marks
-* _mark_: decorator to add metadata
-* skip test `pytest.skip('WIP')` https://github.com/box/flaky https://danluu.com/wat/
-* params https://docs.pytest.org/en/6.2.x/parametrize.html
-> these less readable to me
-
-stdout
-* summary reports https://docs.pytest.org/en/latest/usage.html#detailed-summary-report
-* info in tracebacks https://docs.pytest.org/en/latest/usage.html#modifying-python-traceback-printing
-* `-s` see print statements https://stackoverflow.com/a/55950781/6813490
-* `-v` see each test that executed https://github.com/darrenburns/pytest-clarity https://github.com/Teemu/pytest-sugar https://github.com/numirias/pytest-json-report
-* group related tests https://pypi.org/project/pytest-testdox/
-```python
-@pytest.mark.describe("doing stuff")  # can also use mark.it()
-def test_doing_this():
-    pass
-def test_doing_that():
-    pass
-```
-```sh
-doing stuff
- [x] doing this
- [x] doing that
-```
-
-config
+CONFIG
 ```python
 class Test():
     __test__ = False  # tells pytest to not collect this class https://stackoverflow.com/a/42534950/6813490
@@ -225,7 +464,8 @@ filterwarnings =
     ignore::DeprecationWarning
 ```
 
-fixtures
+FIXTURES
+* https://betterstack.com/community/guides/testing/pytest-fixtures-guide/
 * session https://nedbatchelder.com/text/test3/test3.html#39 
 * parameterize: aka table-driven https://arslan.io/2022/12/04/functional-table-driven-tests-in-go/ https://nedbatchelder.com/text/test3/test3.html#41 cannot use module scoped data https://github.com/pytest-dev/pytest/issues/349
 * set module scope for data https://stackoverflow.com/a/47885205 https://docs.pytest.org/en/latest/how-to/fixtures.html#scope-sharing-fixtures-across-classes-modules-packages-or-session
@@ -255,16 +495,6 @@ def test_foo():
     pass
 ```
 
-Django
-* things we used at work: pytest-django, pytest-env, pytest-python
-* specify settings https://pypi.org/project/pytest-env/
-```ini
-# pytest.ini
-[pytest]
-env =
-  DJANGO_SETTINGS_MODULE=proj.settings
-```
-
 ## tox
 
 * test against multiple Python versions
@@ -287,6 +517,8 @@ tox -- tests/util/dicts_test.py
 ## unittest
 
 📜 stdlib chapter 26 📙 Beazley ch. 14
+
+---
 
 * _advantages_: `unittest` assertions > Python OOB `assert` keyword bc useful logging https://stackoverflow.com/a/2958183/6813490
 * _config_: tests prepended with `test_`; `discover` requires `__init__.py` in sub-directory https://stackoverflow.com/a/6672873/6813490
@@ -324,75 +556,26 @@ with self.assertRaises(SystemExit) as x:
 self.assertEqual(x.exception.code, 1)
 ```
 
+## ward
+
+📜 https://github.com/darrenburns/ward
+
+* downside: symbols don't show up in VS Code
+* tags = pytest marks https://ward.readthedocs.io/en/latest/guide/writing_tests.html#descriptive-testing
+* fixtures https://blog.thea.codes/my-python-testing-style-guide/
+
 # 💻 UI
 
 🗄
 * `golang.md` CLI
 * `shell.md` CLI design
-* `theory.md` notation
-
----
 
 * control mouse/keyboard https://github.com/asweigart/pyautogui
-
 * GUI: tkinter https://www.youtube.com/watch?v=xqDonHEYPgA Kivy, pyqt https://build-system.fman.io/pyqt5-tutorial https://github.com/PySimpleGUI/PySimpleGUI https://github.com/chriskiehl/Gooey
-
-RICH 📜 https://github.com/Textualize/rich 
-* test install: `poetry run python -m rich`
-
-INPUT 🗄 `security.md` sanitization
-* basic: `ur_in = input()`
-* autocomplete / fuzzy finder: used by dbcli https://github.com/amjith/fuzzyfinder https://github.com/darrenburns/textual-autocomplete
-* repl https://github.com/Mckinsey666/bullet https://github.com/tmbo/questionary https://github.com/Aperocky/replbuilder
-* _prompt-toolkit_: used by pgcli, http-prompt https://github.com/j-bennet/wharfee/blob/master/setup.py https://github.com/wasi-master/fastero
-
-OUTPUT
-* colors https://github.com/timofurrer/colorful https://github.com/erikrose/blessings
-* tables https://github.com/astanin/python-tabulate
-* progress bar https://dev.to/rsalmei/a-cool-new-progress-bar-for-python-1c0g https://github.com/tqdm/tqdm https://github.com/rsalmei/alive-progress https://pypi.org/project/enlighten/
-```python
-if i % 100 == 0:
-    progress = ((i + 1) / float(len(qd))) * 100.0
-    print('%.2f%%' % progress)
-```
-
-ARGPARSE
-* alternatives: https://github.com/tiangolo/typer old (`sys.argv`, optparse, docopt)
-* testing: https://github.com/dbader/photosorter/blob/master/test_sorter.py https://www.youtube.com/watch?v=ApTZib0L2X8 4:00
-* `description`: one-liner on purpose of CLI http://dustinrcollins.com/testing-python-command-line-apps
-* `action=store_true`: boolean https://stackoverflow.com/a/15008806/6813490 https://stackoverflow.com/a/36710639/6813490
-* `metavar=''`: avoid weird upppercasing https://docs.python.org/3/library/argparse.html#metavar
-* scaffold
-```python
-def parse():
-    parser = ArgumentParser()
-    parser.add_argument("-f", "--file", help="file")
-    parser.add_argument("-s", "--start", help="start trim")
-    parser.add_argument("-e", "--end", help="end trim")
-    if len(argv) == 1:
-        parser.print_help()
-        exit()
-    return parser.parse_args()
-
-args = parse()
-main(file=args.file, start=args.start, end=args.end)
-```
-
-ZA
-* you can write a Python CLI in Rust?! https://saadmk11.github.io/blog/posts/build-python-cli-tool-with-rust/
-* CLI from obj: https://github.com/google/python-fire https://github.com/chriskiehl/Gooey https://github.com/BstLabs/py-dynacli
-* interpreter / shebang
-```sh
-# https://realpython.com/run-python-scripts/#using-the-script-filename
-#!/usr/bin/python --> explicit path
-#!/usr/bin/env python --> use whatever python on $PATH
-```
 
 ## Click
 
 📜 https://click.palletsprojects.com/en/8.1.x
-
-https://github.com/Textualize/trogon
 
 * `python script.py`
 ```python
@@ -407,7 +590,7 @@ if __name__ == "__main__":
     main()
 ```
 
-* command + arg
+command + arg
 ```python
 # run: python script.py hello alice
 
@@ -428,6 +611,47 @@ def goodbye(person):
 
 ---
 
+* port Click app to TUI https://github.com/Textualize/trogon
+
+ALTERNATIVES
+* `sys.argv`
+* optparse
+* docopt
+* https://github.com/tiangolo/typer https://rahulpai.co.uk/smart-clis-with-typer.html
+* interactive https://github.com/Aperocky/replbuilder
+* Rust https://saadmk11.github.io/blog/posts/build-python-cli-tool-with-rust/
+* CLI from obj: https://github.com/google/python-fire https://github.com/chriskiehl/Gooey https://github.com/BstLabs/py-dynacli
+
+INTERPRETER / SHEBANG
+```sh
+# https://realpython.com/run-python-scripts/#using-the-script-filename
+#!/usr/bin/python --> explicit path
+#!/usr/bin/env python --> use whatever python on $PATH
+```
+
+ARGPARSE
+* rich for output https://github.com/hamdanal/rich-argparse
+* testing: https://github.com/dbader/photosorter/blob/master/test_sorter.py https://www.youtube.com/watch?v=ApTZib0L2X8 4:00
+* `description`: one-liner on purpose of CLI http://dustinrcollins.com/testing-python-command-line-apps
+* `action=store_true`: boolean https://stackoverflow.com/a/15008806/6813490 https://stackoverflow.com/a/36710639/6813490
+* `metavar=''`: avoid weird upppercasing https://docs.python.org/3/library/argparse.html#metavar
+* scaffold
+```python
+def parse():
+    parser = ArgumentParser()
+    parser.add_argument("-f", "--file", help="file")
+    parser.add_argument("-s", "--start", help="start trim")
+    parser.add_argument("-e", "--end", help="end trim")
+    if len(argv) == 1:
+        parser.print_help()
+        exit()
+    return parser.parse_args()
+
+args = parse()
+main(file=args.file, start=args.start, end=args.end)
+```
+
+MORE CLICK
 * args vs. options https://click.palletsprojects.com/en/8.1.x/parameters/
 * types: str, int https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types
 > I'm not using these semantically, using options in lieu of args bc options have better syntax on command invocation
@@ -456,7 +680,49 @@ def main(in_path, out_file):
         with open(path_input, mode="r") as csv_in:
 ```
 
-for later: prompts, lazy load
+## IO
+
+RICH 📜 https://github.com/Textualize/rich https://github.com/zachvalenta/dotfiles-mini23/blob/main/python/python_startup.py
+* to try: repr for obj https://rich.readthedocs.io/en/latest/pretty.html#rich-repr-protocol
+https://rich.readthedocs.io/en/latest/introduction.html#ipython-extension
+```python
+from rich import print as rp  # print
+from rich import pretty; pretty.install()  # default to Rich print in REPL
+from rich import inspect
+inspect(superhero, methods=True)  # more limited version of stdlib inspect
+
+# EXCEPTIONS
+from rich.console import Console
+console = Console()
+from rich.traceback import install
+install(show_locals=True)
+
+raise RuntimeError("hey there")  # normal output (contra examples)?
+
+try:  # Rich output
+    do_something()
+except Exception:
+    console.print_exception(show_locals=True)
+```
+
+INPUT 🗄 `security.md` sanitization
+* take input: basic (`ur_in = input()`)
+* basic: 
+* autocomplete / fuzzy finder: used by dbcli https://github.com/amjith/fuzzyfinder https://github.com/darrenburns/textual-autocomplete
+* REPL https://github.com/Mckinsey666/bullet https://github.com/tmbo/questionary
+* _prompt-toolkit_: used by pgcli, http-prompt https://github.com/j-bennet/wharfee/blob/master/setup.py https://github.com/wasi-master/fastero
+
+OUTPUT
+* animation https://github.com/ChrisBuilds/terminaltexteffects https://realpython.com/python-rich-package/
+* colors https://github.com/timofurrer/colorful https://github.com/erikrose/blessings
+* syntax highlighting https://github.com/pygments/pygments
+* tables https://github.com/astanin/python-tabulate https://realpython.com/python-rich-package/
+* progress bar https://realpython.com/python-rich-package/ https://github.com/rsalmei/alive-progress https://github.com/tqdm/tqdm
+```python
+if i % 100 == 0:
+    progress = ((i + 1) / float(len(qd))) * 100.0
+    print('%.2f%%' % progress)
+```
 
 ## Textual
 
@@ -464,7 +730,7 @@ for later: prompts, lazy load
 
 * functionality: tables, color, layout
 * frameworks https://github.com/willmcgugan/textual https://github.com/bczsalba/pytermgui https://github.com/peterbrittain/asciimatics https://github.com/jquast/blessed pudb uses http://urwid.org/
-* _Textual_: complaints https://news.ycombinator.com/item?id=35123383 animation https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#demonstrating-animation dropdown https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#dropdown-autocompletion-menu file manager https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#a-file-manager-powered-by-textual graphics https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#pixel-art layout https://textual.textualize.io/blog/2022/12/11/version-060/#placeholder tabs https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#tabs-with-animated-underline testing https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#developer-console https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#snapshot-testing-for-terminal-apps example https://github.com/learnbyexample/TUI-apps/tree/main/CLI-Exercises
+* _Textual_: complaints https://news.ycombinator.com/item?id=35123383 animation https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#demonstrating-animation dropdown https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#dropdown-autocompletion-menu file manager https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#a-file-manager-powered-by-textual graphics https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#pixel-art layout https://textual.textualize.io/blog/2022/12/11/version-060/#placeholder tabs https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#tabs-with-animated-underline testing https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#developer-console https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#snapshot-testing-for-terminal-apps example https://github.com/learnbyexample/TUI-apps/tree/main/CLI-Exercises https://www.blog.pythonlibrary.org/2024/02/06/creating-a-modal-dialog-for-your-tuis-in-textual/
 
 # 🕸️ WEB
 
@@ -478,24 +744,17 @@ FRAMEWORKS
 > A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
 * components: HTTP, routes, ORM
 * BYO https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/
-* RSGI https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server https://github.com/emmett-framework/granian
-
-WSGI 
-* interface btw app server and framework https://docs.python-guide.org/scenarios/web/#wsgi bc pre-WSGI which framework you picked determined which web server you could use https://www.pythonpodcast.com/episode-43-wsgi-2/ @ 08:00
-* _interface_: contract e.g. "app server will do these things in this way as specified by WSGI and app framework will hook into them in this way as specified by WSGI and that way gunicorn will work with any WSGI-compliant app framework and Flask will work with any-WSGI compliant app server"
-* _constraints_: single-threaded https://stackoverflow.com/a/32217701 doesn't do async or WebSockets https://pythonbytes.fm/episodes/show/48/garbage-collection-and-memory-management-in-python https://www.pythonpodcast.com/episode-43-wsgi-2/ @ 18:00
-* _supported by_: servers (gunicorn, uWSGI, mod_wsgi) frameworks (Flask, Django, Falcon, Pyramid)
-* https://stackoverflow.com/a/38685758/6813490 https://talkpython.fm/episodes/show/13/flask-web-framework-and-much-much-more @ 30:00 https://djangodeconstructed.com/2018/02/15/how-a-request-becomes-a-response-diving-deeper-into-wsgi
-
-ASGI
-* _ASGI_: async alternative to WSGI
-* frameworks: Django (Channels) Quart (Flask on async) Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
-* servers: uvicorn, Daphne
-* sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
 
 ## HTML
 
 🗄 `html-css.md`
+
+---
+
+https://github.com/MechanicalSoup/MechanicalSoup
+* follow redirects
+* follow links
+* submit forms
 
 BeautifulSoup 📜 https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 * parse HTML
@@ -604,7 +863,7 @@ Selenium
 
 📜 https://requests.readthedocs.io/en/latest/
 
-* alternatives: https://github.com/search?utf8=%E2%9C%93&q=aiohttp https://github.com/encode/httpx single-file https://github.com/slingamn/mureq
+* alternatives: https://github.com/search?utf8=%E2%9C%93&q=aiohttp https://github.com/encode/httpx single-file https://github.com/slingamn/mureq https://github.com/jawah/niquests
 ```python
 # data = dict(form), json.dumps(string) https://stackoverflow.com/a/42121407 https://requests.readthedocs.io/en/latest/api/#requests.request
 # json = dict(json) https://requests.readthedocs.io/en/latest/user/quickstart https://stackoverflow.com/a/26344315
@@ -732,9 +991,35 @@ artist_schema = ArtistSchema(only=("name", "songs"))  # subset
 # validate https://www.cameronmacleod.com/blog/better-validation-flask-marshmallow https://medium.com/bitproject/recently-i-created-a-restful-api-with-flask-where-my-models-had-many-parameters-75da1db870b7
 ```
 
+## SGI
+
+WSGI
+* interface btw app server and framework bc pre-WSGI which framework you picked determined which web server you could use https://www.pythonpodcast.com/episode-43-wsgi-2/ [8:00]
+> The Web Server Gateway Interface (or "WSGI" for short) is a standard interface between web servers and Python web application frameworks. By standardizing behavior and communication between web servers and Python web frameworks, WSGI makes it possible to write portable Python web code that can be deployed in any WSGI-compliant web server. WSGI is documented in PEP 3333. https://docs.python-guide.org/scenarios/web/#wsgi
+* _interface_: contract e.g. "app server will do these things in this way as specified by WSGI and app framework will hook into them in this way as specified by WSGI and that way gunicorn will work with any WSGI-compliant app framework and Flask will work with any-WSGI compliant app server"
+* _constraints_: single-threaded https://stackoverflow.com/a/32217701 doesn't do async or WebSockets https://pythonbytes.fm/episodes/show/48/garbage-collection-and-memory-management-in-python https://www.pythonpodcast.com/episode-43-wsgi-2/ @ 18:00
+* _supported by_: servers (gunicorn, uWSGI, mod_wsgi) frameworks (Flask, Django, Falcon, Pyramid)
+* https://stackoverflow.com/a/38685758/6813490 https://talkpython.fm/episodes/show/13/flask-web-framework-and-much-much-more @ 30:00 https://djangodeconstructed.com/2018/02/15/how-a-request-becomes-a-response-diving-deeper-into-wsgi
+
+ASGI
+* _ASGI_: async alternative to WSGI
+* frameworks: Django (Channels) Quart (Flask on async) Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
+* servers: uvicorn, Daphne
+* sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
+
+RSGI
+* _RSGI_: for Rust https://github.com/emmett-framework/granian/blob/master/docs/spec/RSGI.md
+* https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server https://github.com/emmett-framework/granian
+
 # 🟨 ZA
 
+* country data (language, currency) https://github.com/pycountry/pycountry
+* validation (email, IP address) https://martinheinz.dev/blog/96
+* URL: urllib, urlparse https://github.com/gruns/furl
+
 ---
+
+* `eval()`: take string and evaluate as if expression from language
 
 * rise of 3rd-party packages, dead batteries http://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html https://www.python.org/dev/peps/pep-0594/ provisional API https://docs.python.org/3/glossary.html#term-provisional-API
 
@@ -799,6 +1084,85 @@ TypeError: choice() got an unexpected keyword argument 'k'
 * _scheduling_: https://docs.python.org/3/library/sched.html https://github.com/dbader/schedule
 * _unit conversion_: https://pint.readthedocs.io/en/0.10.1/
 * _zip/tar_: https://github.com/BuzonIO/zipfly
+
+## datetime
+
+📙 Beazley ch. 3
+https://pypi.org/project/pytz/ https://blog.ganssle.io/articles/2018/03/pytz-fastest-footgun.html https://github.com/crsmithdev/arrow https://github.com/timofurrer/maya https://github.com/sdispater/pendulum https://github.com/dateutil/dateutil parser https://github.com/wanasit/chrono
+
+* mock with freezegun https://martinheinz.dev/blog/96
+* str fmt: `dt.now().strftime("%y.%m.%d-%H:%M:%S")` https://stackoverflow.com/a/51262245
+* get last day of month https://stackoverflow.com/a/43663/6813490
+* distance btw 2 dates
+```python
+from datetime import datetime as dt
+abs((dt.strptime("2021-09-09", "%Y-%m-%d") - dt.strptime("2023-01-06", "%Y-%m-%d")).days)
+abs((dt.strptime("2023-01-01", "%Y-%m-%d") - dt.today()).days)
+>>>
+```
+* string to datetime https://stackoverflow.com/a/27914405
+```python
+from datetime import datetime as dt
+dt.strptime("22-05", '%y-%m')
+dt.strptime("05-22", '%m-%y')
+dt.strptime("2022-May", '%Y-%b')
+dt.strptime("20220501", '%Y%m%d')
+```
+
+```python
+# iterate months in range https://stackoverflow.com/a/35651063
+import datetime as dt
+from dateutil.relativedelta import relativedelta as delta
+def iter_months(year, month, day):
+    month_start = dt.date(year, month, day)
+    month_previous_dt = dt.datetime.utcnow().replace(day=1) - delta(days=1)
+    month_previous = month_previous_dt.date()
+    while month_start <= month_previous:
+        do_something()
+        month_start += delta(months=1)
+
+# string to date
+nov_2019 = dt.strptime("2019 Nov", "%Y %b")  # datetime.datetime(2019, 11, 1, 0, 0)
+nov_2019.strftime("%Y %m")  # "22 03"
+
+datetime.date(2021, 12, 1).strftime("%b %Y").upper()
+
+month_start = "2019 11"
+month_end = dt.now().strftime("%Y %m")  # "22 03"
+
+start = dt.date(2019,11,1)
+end = dt.now()
+
+# create timestamp
+from datetime import datetime as dt
+dt.now().isoformat()
+ts = int(dt.timestamp(dt.today()))
+import time
+ts = int(time.time())
+
+# timestamp to Python https://docs.python.org/3/library/datetime.html#datetime.date.fromtimestamp
+dt.date.fromtimestamp(ts)
+date.fromisoformat('2019-12-04')  # not in 2.7
+
+# formatting https://strftime.org/ https://stackoverflow.com/a/48947064
+this_month = dt.now().strftime('%m')
+
+# pad string https://stackoverflow.com/a/339024
+last_month = str(int(this_month) - 1).rjust(2, '0')
+two_months_ago = str(int(this_month) - 2).rjust(2, '0')
+
+# compare timestamp to current time
+# timezones + currency https://github.com/pycountry/pycountry
+from datetime import datetime, timezone
+now = datetime.now(timezone.utc)  # https://stackoverflow.com/a/25662061
+
+from dateutil import parser
+task = parser.isoparse("2021-06-04T18:10:19.885484Z")
+# datetime.datetime(2021, 6, 4, 18, 10, 19, 885484, tzinfo=tzutc())
+
+diff = now - task
+diff.seconds
+```
 
 ## files
 
@@ -960,87 +1324,11 @@ reader = csv.DictReader(string_obj)
 for row in reader:
 ```
 
-## datetime
-
-📙 Beazley ch. 3
-https://pypi.org/project/pytz/ https://blog.ganssle.io/articles/2018/03/pytz-fastest-footgun.html https://github.com/crsmithdev/arrow https://github.com/timofurrer/maya https://github.com/sdispater/pendulum https://github.com/dateutil/dateutil parser https://github.com/wanasit/chrono
-
-* str fmt: `dt.now().strftime("%y.%m.%d-%H:%M:%S")` https://stackoverflow.com/a/51262245
-* get last day of month https://stackoverflow.com/a/43663/6813490
-* distance btw 2 dates
-```python
-from datetime import datetime as dt
-abs((dt.strptime("2021-09-09", "%Y-%m-%d") - dt.strptime("2023-01-06", "%Y-%m-%d")).days)
-abs((dt.strptime("2023-01-01", "%Y-%m-%d") - dt.today()).days)
->>>
-```
-* string to datetime https://stackoverflow.com/a/27914405
-```python
-from datetime import datetime as dt
-dt.strptime("22-05", '%y-%m')
-dt.strptime("05-22", '%m-%y')
-dt.strptime("2022-May", '%Y-%b')
-dt.strptime("20220501", '%Y%m%d')
-```
-
-```python
-# iterate months in range https://stackoverflow.com/a/35651063
-import datetime as dt
-from dateutil.relativedelta import relativedelta as delta
-def iter_months(year, month, day):
-    month_start = dt.date(year, month, day)
-    month_previous_dt = dt.datetime.utcnow().replace(day=1) - delta(days=1)
-    month_previous = month_previous_dt.date()
-    while month_start <= month_previous:
-        do_something()
-        month_start += delta(months=1)
-
-# string to date
-nov_2019 = dt.strptime("2019 Nov", "%Y %b")  # datetime.datetime(2019, 11, 1, 0, 0)
-nov_2019.strftime("%Y %m")  # "22 03"
-
-datetime.date(2021, 12, 1).strftime("%b %Y").upper()
-
-month_start = "2019 11"
-month_end = dt.now().strftime("%Y %m")  # "22 03"
-
-start = dt.date(2019,11,1)
-end = dt.now()
-
-# create timestamp
-from datetime import datetime as dt
-dt.now().isoformat()
-ts = int(dt.timestamp(dt.today()))
-import time
-ts = int(time.time())
-
-# timestamp to Python https://docs.python.org/3/library/datetime.html#datetime.date.fromtimestamp
-dt.date.fromtimestamp(ts)
-date.fromisoformat('2019-12-04')  # not in 2.7
-
-# formatting https://strftime.org/ https://stackoverflow.com/a/48947064
-this_month = dt.now().strftime('%m')
-
-# pad string https://stackoverflow.com/a/339024
-last_month = str(int(this_month) - 1).rjust(2, '0')
-two_months_ago = str(int(this_month) - 2).rjust(2, '0')
-
-# compare timestamp to current time
-# timezones + currency https://github.com/pycountry/pycountry
-from datetime import datetime, timezone
-now = datetime.now(timezone.utc)  # https://stackoverflow.com/a/25662061
-
-from dateutil import parser
-task = parser.isoparse("2021-06-04T18:10:19.885484Z")
-# datetime.datetime(2021, 6, 4, 18, 10, 19, 885484, tzinfo=tzutc())
-
-diff = now - task
-diff.seconds
-```
-
 ## git
 
 📜 https://gitpython.readthedocs.io/en/stable/tutorial.html https://github.com/gitpython-developers/GitPython
+
+https://github.com/jelmer/dulwich
 
 ```python
 # clone https://stackoverflow.com/a/41252521 https://stackoverflow.com/a/34424094
@@ -1097,35 +1385,106 @@ repo = Repo(p)
 repo.git.ls_remote("--heads", "origin", "master")
 ```
 
-LINT https://flake8.pycqa.org/
-* Rust alternatives https://github.com/charliermarsh/ruff https://406.ch/writing/how-ruff-changed-my-python-programming-habits/ https://github.com/mtshiba/pylyzer
-* lint natural language https://vale.sh/
-* exceptions https://github.com/guilatrova/tryceratops
-* only run on everything outside of repository https://github.com/akaihola/darker
-* ignore line: `# NOQA` https://flake8.pycqa.org/en/2.6.0/config.html#per-code-line 
-```conf
-# multiple
-flake8 dir1 dir2
-# all __init__
-exclude = */__init__.py
-# can use from shell, but it might be picking up config file somewhere, so this worked to get back to defaults
-flake8 --isolated
+## math
 
-# .flake8 (don't use tox.ini) 
-# example conf https://ljvmiranda921.github.io/notebook/2018/06/21/precommits-using-black-and-flake8/
-[flake8]
-max-complexity = 10
-max-line-length = 88
-ignore =  # http://flake8.pycqa.org/en/latest/user/configuration.html
-    # play nice w/ Black https://github.com/psf/black/issues/1029
-    E203,  
-    # workaround for flattened Flask project structure
-    E402
-    # flake8 seems dated on line break https://www.flake8rules.com/rules/W503.html https://dev.to/m1yag1/how-to-setup-your-project-with-pre-commit-black-and-flake8-183k
-    W503
-per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
-    # give user access to all models from REPL
-    db_shell.py:F401
+📙 Beazley ch. 3
+🔗 https://github.com/cosmologicon/pywat
+
+sum https://jcarlosroldan.com/post/329/my-latest-tils-about-python
+
+FLOATING POINT ARITHMETIC 📙 Van Rossum ch. 15
+* comparing floats: `math.isclose(0.1 + 0.2, 0.3)` https://davidamos.dev/the-right-way-to-compare-floats-in-python/
+> You can specify the relative tolerance with the rel_tol keyword argument of math.isclose() which defaults to 1e-9. In other words, if abs(a - b) is less than 1e-9 * max(abs(a), abs(b)), then a and b are considered "close" to each other. This guarantees that a and b are equal to about nine decimal places.
+* rounding https://stackoverflow.com/a/43661374
+```python
+# rm decimal
+int(1.9)  # 1
+
+# round to closest
+round(1.9)  # 2
+round(1.94, 1)  # 1.9
+
+# round down
+math.floor(1.9)  # 1
+
+# round up
+math.ceil(1.1)  # 2
+```
+
+* use `localcontext` when dealing w/ decimals https://orbifold.xyz/numbers.html
+
+```python
+###
+# INTS & FLOATS https://davidamos.dev/the-right-way-to-compare-floats-in-python/ 📙 Van Rossum ch. 15
+###
+
+# increment operators https://stackoverflow.com/a/15376520
+
+# + -> calls __add__()
+num = 0
+num + 1
+num  # 0
+# += -> calls __iadd__(), can't use in return statement
+num = 0
+num += 1
+num  # 1
+
+def inc(num):
+    return num + 1 # ✅
+    return num += 1  # ❌
+
+###################################################
+
+# main types
+# integers are objects https://pythonspeed.com/articles/python-integers-memory/
+int()  # can be as big as your memory can deal with https://realpython.com/python-data-types/#integers
+float()
+
+# can also represent binary and complex
+0b10  # 2  https://realpython.com/python-data-types/#integers
+42+7j  # <class 'complex'> https://realpython.com/python-data-types/#complex-numbers [Saha 1.6]
+
+# conversions -> can't convert float string to int [Saha 1.8]
+float('1')  # 1.0
+int('1')  # 1
+float('1.0')  # 1.0
+int('1.0')  # ValueError
+
+# validate floats
+1.0.is_integer()  # True
+1.3.is_integer()  # False
+
+# integers turn to floats if division https://orbifold.xyz/numbers.html
+4/3
+
+# avoid floats with floor division operator [Saha 1.2]
+4//3
+
+# variables holding integers btw -5 and 256 are just references to existing obj in Python integer cache https://wsvincent.com/python-wat-integer-cache/ https://arpitbhayani.me/blogs/python-caches-integers
+a = 8
+b = 8
+id(a)  # 4304845536
+id(b)  # 4304845536
+
+# negative infinity https://www.interviewcake.com/article/python/big-o-notation-time-and-space-complexity
+float("-inf")
+
+# square root via exponent operator [Saha 1.3]
+8 ** (1/3)
+```
+
+* rounding
+```sh
+# rounding works as expected
+python -c 'print(round(0.0273, 3))'   # 0.027
+python -c 'print(round(0.0273, 2))'   # 0.03
+
+# division rounds down when there is a remainder
+python -c 'print(14 / 5)'             # 2
+python -c 'print(5 / 10)'             # 0
+
+# workaround
+python -c 'print(float(15) / float(365))'  # 0.041095890411
 ```
 
 ## os
@@ -1133,12 +1492,24 @@ per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
 📙 Beazley ch. 13
 🔗 https://docs.python.org/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
 
+STDOUT
+* `stderr.flush()`
+> Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so.
+* `print()`: implicitly adds `\n` under the hood; workaround is `print('hello zv', end="")`
+
+PROCESS EXEC https://martinheinz.dev/blog/98 🗄️ `infra.md` IaC / remote execution
+* `os.system`
+* `subprocess`
+* _sh_: https://github.com/amoffat/sh https://martinheinz.dev/blog/96
+* _suby_: https://github.com/pomponchik/suby
+* _Sultan_: https://github.com/aeroxis/sultan https://stackoverflow.com/a/56842257/6813490
+
+----
+
 ```python
 # mkdir in cwd
 os.mkdir(os.path.join(os.getcwd(), dir_name))
 ```
-
-----
 
 * run shell commands https://martinheinz.dev/blog/98
 * _path-like object_: https://docs.python.org/3/glossary.html#term-path-based-finder
@@ -1214,7 +1585,6 @@ with open('data.txt', 'w') as f:
 
 # misc
 shutil.make_archive(root_dir=dir_to_tar, base_name=tarball_name, format='zip')  # make zip
-os.system  # run script; subprocess, Sultan also work https://stackoverflow.com/a/56842257/6813490 https://github.com/pomponchik/suby
 tarballs = [os.base.pathname(x) for x in glob(f"{Path.cwd().joinpath('foo')}/*.tar.gz")] # grab file names sans full path https://stackoverflow.com/a/55439309/6813490 https://stackoverflow.com/a/20384686/6813490
 ```
 
@@ -1235,123 +1605,6 @@ with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
         print(line.replace(text_to_search, replacement_text), end='')
 ```
 
-## profiling
-
-📙 Beazley ch. 14
-🗄 `linux.md` tracing
-📜 https://docs.python.org/3/library/debug.html
-
-PG http://paulgraham.com/popular.html
-> It might be a good idea to have an active profiler - to push performance data to the programmer instead of waiting for him to come asking for it.
-> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem.
-> A good language, as everyone knows, should generate fast code. But in practice I don't think fast code comes primarily from things you do in the design of the language. As Knuth pointed out long ago, speed only matters in certain critical bottlenecks. And as many programmers have observed since, one is very often mistaken about where these bottlenecks are. So, in practice, the way to get fast code is to have a very good profiler, rather than by, say, making the language strongly typed. You don't need to know the type of every argument in every call in the program. You do need to be able to declare the types of arguments in the bottlenecks. And even more, you need to be able to find out where the bottlenecks are.
-
----
-
-> sort out what needs to be in Linux tracing vs. what needs to be here
-
-* _profile_: measure performance i.e. see which lines are executing and how long they take
-* _trace_: https://github.com/furkanonder/beetrace
-
-https://textual.textualize.io/blog/2024/02/20/remote-memory-profiling-with-memray/
-
-Sentry
-https://www.youtube.com/watch?v=bGAVrtb_tFs https://www.brendangregg.com/
-https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html
-https://www.freecodecamp.org/news/python-debugging-handbook/
-https://madebyme.today/blog/python-dict-vs-curly-brackets/
-https://superfastpython.com/benchmark-execution-time/
-https://stackabuse.com/why-does-python-code-run-faster-in-a-function/
-https://realpython.com/python-profiling/
-https://adamj.eu/tech/2023/07/23/python-profile-section-cprofile/
-* https://realpython.com/python312-perf-profiler/
-* https://functiontrace.com/
-* Rust, Cython https://pythonspeed.com/articles/faster-text-processing/ https://www.equalto.com/blog/rust-in-anger-high-performance-web-applications
-* https://news.ycombinator.com/item?id=36605730
-* https://www.petermcconnell.com/posts/perf_eng_with_py12/
-* benchmark https://pythonspeed.com/articles/faster-json-library/ https://eli.thegreenplace.net/2023/common-pitfalls-in-go-benchmarking/
-```sh
-time $CMD  # https://news.ycombinator.com/item?id=30224063
-```
-* https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
-* frame stack sampler https://github.com/P403n1x87/austin https://github.com/P403n1x87/austin-tui
-https://github.com/DataDog/go-profiler-notes
-
-EBPF
-* https://news.ycombinator.com/item?id=27435081
-* https://www.brendangregg.com/blog/2022-04-15/netflix-farewell-1.html
-* https://ebpf.io/what-is-ebpf/ https://softwareengineeringdaily.com/2023/03/06/ebpf-with-thomas-graf/
-* https://www.polarsignals.com/blog/posts/2023/10/04/profiling-python-and-ruby-with-ebpf
-* https://about.gitlab.com/blog/2022/11/28/how-we-diagnosed-and-resolved-redis-latency-spikes/
-* https://softwareengineeringdaily.com/2022/07/15/continuous-profiling-using-ebpf-with-frederic-branczyk/
-* https://github.com/keyval-dev/odigos
-* https://github.com/google/gops
-* https://thume.ca/2023/12/02/tracing-methods/
-
-* `py3 -m trace --trace example.py`
-* https://pythonspeed.com/articles/measuring-python-performance/
-* https://switowski.com/blog/how-to-benchmark-python-code/
-* https://github.com/bloomberg/memray https://realpython.com/podcasts/rpp/128/ https://talkpython.fm/episodes/show/425/memray-the-endgame-python-memory-profiler
-* https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack
-* https://codesolid.com/how-do-i-profile-python-code/
-* https://tinkering.xyz/fmo-optimization-story/
-* https://tech.marksblogg.com/faster-python.html https://www.peterbaumgartner.com/blog/intro-to-just-enough-cython-to-be-useful/ https://github.com/tonybaloney/perflint https://rednafi.github.io/reflections/pre-allocated-lists-in-python.html
-* https://github.com/pyroscope-io/pyroscope
-* https://flamegraph.com/ https://github.com/laixintao/flameshow
-* profiling CLI, `time` https://news.ycombinator.com/item?id=30224063
-* profiling async https://github.com/aviramha/capara
-* https://pythonspeed.com/memory/
-* https://github.com/pythonprofilers/memory_profiler https://news.ycombinator.com/item?id=27025829
-* https://github.com/csurfer/pyheat
-* https://github.com/joerick/pyinstrument
-* https://www.youtube.com/watch?v=1EZ8oqjLun0
-* https://medium.com/statch/speeding-up-python-code-with-nim-ec205a8a5d9c
-* https://github.com/joerick/pyinstrument
-* https://hakibenita.com/django-rest-framework-slow
-* https://github.com/brandtbucher/specialist
-* https://github.com/robusta-dev/WhyProfiler
-* `time` https://hacker-tools.github.io/program-introspection/
-* https://github.com/joerick/pyinstrument
-* https://github.com/P403n1x87/austin https://talkpython.fm/episodes/show/265/why-is-python-slow 54:00
-* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions
-* _tools_: PyFlame https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 PySpy https://github.com/benfred/py-spy/ profile CPython https://instagram-engineering.com/profiling-cpython-at-instagram-89d4cbeeb898 https://pythonspeed.com/articles/memory-profiler-data-scientists/ Fil https://pythonspeed.com/products/filmemoryprofiler/ https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
-* sink: https://www.blog.pythonlibrary.org/2020/04/14/an-overview-of-profiling-tools-for-python/ https://www.roguelynn.com/words/tracing-fast-and-slow/ https://pythonspeed.com/articles/blocking-cpu-or-io/ https://pythonspeed.com/articles/custom-python-profiler/ https://pythonspeed.com/articles/live-debugging-python/ https://www.markkeller.dev/2018-07-14-optimize_python/ https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ pyspy https://jvns.ca/blog/2018/12/23/2018--year-in-review/ https://www.youtube.com/watch?v=d5SGUscT2GA https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://github.com/ionelmc/python-hunter https://wsvincent.com/algorithms-binary-search/ https://www.fluentpython.com/extra/ordered-sequences-with-bisect/ https://wsvincent.com/python-optimizations-with-guido/ https://realpython.com/python-f-strings/ https://github.com/airspeed-velocity/asv
-* pyperf, timeit https://medium.com/@martin.heinz/python-cli-tricks-that-dont-require-any-code-whatsoever-e7bdb9409aeb https://log.beshr.com/python-311-speedup-part-1/
-* benchmark: https://github.com/sharkdp/hyperfine https://github.com/egoist/dum
-* can use hyperfine under the hood https://github.com/dandavison/magit-delta https://github.com/sharkdp/hyperfine
-* https://blog.usejournal.com/how-to-create-your-own-timing-context-manager-in-python-a0e944b48cf8 https://martinheinz.dev/blog/13 https://realpython.com/python-timer/
-```python
-# try this instead https://github.com/wasi-master/fastero
-
-# The "timeit" module lets you measure the execution
-# time of small bits of Python code
-# https://www.youtube.com/watch?v=EcGWDNlGTNg
-import timeit
-timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
-timeit.timeit('"-".join([str(n) for n in range(100)])', number=10000)
-timeit.timeit('"-".join(map(str, range(100)))', number=10000)
-
-# https://stackoverflow.com/a/7523810/6813490
-from timeit import Timer
-# doesn't manifest savings in small collections
-names_list = ['alice', 'bob', 'candace']
-names_set = set(['alice', 'bob', 'candace'])
-
-# setup large collection of numbers and see what happens then
-def lookup_list(l):
-    return 'alice' in l
-def lookup_set(s):
-    return 'alice' in s
-def cast_to_timer(func, args):
-	return Timer(lambda: func(args))
-def timeit_ms(func):
-	return print(func.timeit(number=1000))
-if __name__=='__main__':
-    timeit_ms(cast_to_timer(lookup_list, names_list))
-    timeit_ms(cast_to_timer(lookup_set, names_set))
-```
-
-
 ## regex
 
 🗄
@@ -1363,6 +1616,8 @@ if __name__=='__main__':
 * https://docs.python.org/3/howto/regex.html
 
 ---
+
+https://leanpub.com/regexpython/
 
 ```python
 regex = re.compile(r"foo/([^\s]+)")  # capture anything up to white space

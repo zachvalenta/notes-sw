@@ -180,10 +180,10 @@ https://www.youtube.com/watch?v=D6qB7MEFOe0
 * https://www.verypossible.com/blog/aws-development-dark-art-of-vpc-networking
 * https://dev.to/davidk01/aws-and-gcp-networking-differences-1fb1 https://twitter.com/paulg/status/1408442886023176198
 
-# 🏗️ STORAGE
+# 🧳️ STORAGE
 
 DATA ENG 🗄️ compute / data eng
-* _Redshift_: data warehouse
+* _Redshift_: data warehouse https://tech.marksblogg.com/billion-nyc-taxi-rides-redshift.html
 * _Snowball_: like having a hard drive for import/export to/from AWS
 
 ZA
@@ -310,6 +310,7 @@ MOBILE SVC
 * https://www.aws.training/Account/Profile/Basic
 * https://www.reddit.com/r/AWSCertifications/
 * https://www.exampro.co/ https://tutorialsdojo.com/
+* questions https://www.youtube.com/watch?v=8zsdpwvTxos
 
 CERTS
 * _cloud practioner (CCP/CLF-C02)_: replaced CLF-C01 in 2024 https://www.pluralsight.com/resources/blog/cloud/new-aws-clf-c02-exam0
@@ -342,6 +343,7 @@ ZA
 
 ---
 
+https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 * rightsizing https://softwareengineeringdaily.com/2021/01/12/kubecost-with-webb-brown/
 * on-prem: need to integrate w/ legacy systems inside firewall, regulatory, cheaper, you can still make the consumption of your data center feel like a public cloud (CF, HPE)
 * _capacity planning_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/
@@ -421,7 +423,7 @@ internal accounts https://www.lastweekinaws.com/blog/the-aws-service-i-hate-the-
 QUEUE
 * _Eventbridge_: route events btw AWS services https://cloudonaut.io/versus/messaging/eventbridge-vs-msk/
 * _SNS_: pub sub 🔗 `amqp.md`
-* _SQS_: queue; Postgres impl https://github.com/CoreDB-io/coredb/tree/main/extensions/pgmq
+* _SQS_: queue; Postgres impl https://github.com/CoreDB-io/coredb/tree/main/extensions/pgmq https://github.com/poundifdef/SmoothMQ
 * API-based queue - you publish to an SQS queue and you consume from the queue https://stackoverflow.com/a/60543786
 * _SWF_: SQS + logic
 * _SES_: email https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/
