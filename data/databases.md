@@ -20,8 +20,7 @@
 
 # 🏗️ DATA ENG
 
-🗄
-* `infra.md` queues
+🗄 `architecture.md` data
 
 TYPES OF DATA
 * _hot storage_: in-mem
@@ -31,21 +30,22 @@ TYPES OF DATA
 * _dummy data_: fake/seed data for development; https://github.com/zachvalenta/flask-CRUD/blob/master/db_seed.py https://github.com/joke2k/faker#providers https://mimesis.name/ https://mockaroo.com/ https://github.com/Qovery/replibyte
 * _synthetic data_: real data but anonymized https://softwareengineeringdaily.com/2021/02/16/synthetic-data-with-ian-coe-andrew-colombi-and-adam-kamor/ https://gretel.ai/blog/what-is-synthetic-data
 
-OLTP
-> If you have a transactional need for your dataset it's best to keep this workload isolated with a transactional data store. This is why I expect MySQL, PostgreSQL, Oracle and MSSQL to be around for a very long time to come. https://tech.marksblogg.com/is-hadoop-dead.html
-* data: application
-* access pattern: writes 📙 Kleppmann [90]
-* schema: DIY
-* model: relational
-* consumers: users
+* _data science_: stats w/ higher salary https://thestatsgeek.com/2019/08/08/whats-the-difference-between-statistics-and-machine-learning/
+* more about the data than the ML https://news.ycombinator.com/item?id=27290246
+* steps: import, clean, model, operationalize https://www.kamwithk.com/machine-learning-field-guide
+* most work is infra and cleaning data, not modeling https://news.ycombinator.com/item?id=22806434
+* interviewing https://github.com/alexeygrigorev/data-science-interviews/blob/master/theory.md
 
-OLAP
-> But would you like to see a 4-hour outage at Uber because one of their Presto queries produced unexpected behaviour? Would you like to be told your company needs to produce invoices for the month so the website will need to be switched off for a week so there are enough resources available for the task? Analytical workloads don't need to be coupled with transactional workloads. You can lower operational risks and pick better-suited hardware by running them on separate infrastructure. https://tech.marksblogg.com/is-hadoop-dead.html
-* data: from n data sources (application, analytics) 📙 Kleppmann [92]
-* access pattern: reads (aggregates) 📙 Kleppmann [90-92] 🗄 `sql.md` tables/views
-* schema: star
-* model: maybe non-relational 📙 Kleppmann [93,101]
-* consumers: DBA, BI, ML https://softwareengineeringdaily.com/2021/07/14/data-science-on-aws-implementing-ai-and-ml-pipelines-on-aws-with-chris-fregly/
+DATASETS
+* general: https://ourworldindata.org/ https://www.wikidata.org/ https://datasetsearch.research.google.com/ https://www.kaggle.com/datasets https://datausa.io/ https://www.splitgraph.com/
+* art https://news.ycombinator.com/item?id=28445761
+* finance: https://github.com/ranaroussi/yfinance
+* housing: https://www.zillow.com/research/data/
+* literature: ratings http://fastml.com/goodbooks-10k-a-new-dataset-for-book-recommendations/ https://github.com/zygmuntz/goodbooks-10k https://bookbrainz.org/ text http://www.jessamyn.com/barth/index.html https://en.wikisource.org/ https://news.ycombinator.com/item?id=1394077
+* music: https://musicbrainz.org/
+* population: https://simplemaps.com/data
+* scientific: https://news.ycombinator.com/item?id=27365755
+* census https://www.ipums.org/
 
 BACKUPS 🗄 `it.md` backups `system.md` data
 * short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00
@@ -106,8 +106,6 @@ INDUSTRY
 
 📙 Kleppmann ch. 10
 
-just use CLIs https://news.ycombinator.com/item?id=39136472
-
 FACTORS
 * size: can't fit into normal dbms
 * velocity: challenges processor to keep up
@@ -123,6 +121,7 @@ SIZE
 > There are diminishing returns to the amount of information you can extract from data. The tenth gigabyte is worth much less than the second gigabyte. https://www.evanmiller.org/small-data.html
 
 TOOLS
+* just use CLIs https://news.ycombinator.com/item?id=39136472
 * _Hadoop_: parallelization for large data 🗄 `infra.md` EMR
 * no one uses anymore? https://news.ycombinator.com/item?id=30595026 https://tech.marksblogg.com/architecting-modern-data-platforms-book-review.html https://tech.marksblogg.com/is-hadoop-dead.html
 > Whereas Hadoop and big data targeted analytics applications, often in the data warehousing space, the low latency nature of Kafka makes it applicable for the kind of core applications that directly power a business 📙 Narkhede kafka 
@@ -146,31 +145,25 @@ TOOLS
 * kinda part of Hadoop, kinda not https://tech.marksblogg.com/is-hadoop-dead.html
 > At some point, the Spark community tried to distance itself from the Hadoop ecosystem. They didn't want to be seen as built on legacy software nor as some sort of "add-on" for Hadoop. Given the level of integration, Spark has with the rest of the Hadoop ecosystem and given the 100s of libraries from other Hadoop projects being used by Spark I don't subscribe to the belief that Spark is its own thing.
 
-## BI
-
-🗄
-* `algos.md` ML / data science
-* `education.md` design / information design
-
-* https://news.ycombinator.com/item?id=40132424&utm_term=comment https://hashquery.dev/ https://github.com/hashboard-hq/hashquery
-* data analyst tooling sucks as much as SQL vendors https://softwareengineeringdaily.com/2020/03/09/dbt-data-build-tool-with-tristan-handy/ 11:00 
-* _Lightdash_: BI for dbt https://github.com/lightdash/lightdash
-* Blazer https://github.com/ankane/blazer
-* reporting https://github.com/evidence-dev/evidence
-* _business intelligence (BI)_: exploration (for non-devs), reports
-* ChartIO https://news.ycombinator.com/item?id=22548217
-* Looker: more legacy? https://www.youtube.com/watch?v=M8oi7nSaWps 0:30 OSS version https://github.com/lightdash/lightdash
-* Lux https://softwareengineeringdaily.com/2021/05/27/data-exploration-with-a-new-python-library-with-doris-lee/ https://github.com/lux-org/lux
-* Tableau: via Pandas https://github.com/Kanaries/pygwalker Markdown https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=39519145
-* Superset, Datalens also popular here https://news.ycombinator.com/item?id=37657772
-* https://news.ycombinator.com/item?id=30323131
-* OSS: Redash https://github.com/getredash/redash Poli https://github.com/shzlw/poli
-* Minerva https://medium.com/airbnb-engineering/how-airbnb-achieved-metric-consistency-at-scale-f23cc53dea70
-> Metrics store, sometimes referred to as headless business intelligence (BI), is a layer that decouples metrics definitions from their usage in reports and visualizations. Traditionally, metrics are defined inside the context of BI tools, but this approach leads to duplication and inconsistencies as different teams use them in different contexts. By decoupling the definition in the metrics store, we get clear and consistent reuse across BI reports, visualizations and even embedded analytics. This technique is not new; for example, Airbnb introduced Minerva a year ago. However, we're now seeing considerable traction in the data and analytics ecosystem with more tools supporting metrics stores out of the box. https://www.thoughtworks.com/radar/techniques?blipid=202210028
-
 ## OLAP
 
 🗄 `infra.md` analytics
+
+OLTP
+> If you have a transactional need for your dataset it's best to keep this workload isolated with a transactional data store. This is why I expect MySQL, PostgreSQL, Oracle and MSSQL to be around for a very long time to come. https://tech.marksblogg.com/is-hadoop-dead.html
+* data: application
+* access pattern: writes 📙 Kleppmann [90]
+* schema: DIY
+* model: relational
+* consumers: users
+
+OLAP
+> But would you like to see a 4-hour outage at Uber because one of their Presto queries produced unexpected behaviour? Would you like to be told your company needs to produce invoices for the month so the website will need to be switched off for a week so there are enough resources available for the task? Analytical workloads don't need to be coupled with transactional workloads. You can lower operational risks and pick better-suited hardware by running them on separate infrastructure. https://tech.marksblogg.com/is-hadoop-dead.html
+* data: from n data sources (application, analytics) 📙 Kleppmann [92]
+* access pattern: reads (aggregates) 📙 Kleppmann [90-92] 🗄 `sql.md` tables/views
+* schema: star
+* model: maybe non-relational 📙 Kleppmann [93,101]
+* consumers: DBA, BI, ML https://softwareengineeringdaily.com/2021/07/14/data-science-on-aws-implementing-ai-and-ml-pipelines-on-aws-with-chris-fregly/
 
 TAXONOMY 📙 Kleppmann [90-95]
 * _data source_: where you're getting the data https://dataschool.com/data-governance
@@ -213,7 +206,6 @@ WAREHOUSE DBMS
 * apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
 * can build dashboards off queries
 * _Redshift_: https://tech.marksblogg.com/billion-nyc-taxi-rides-redshift.html https://dataschool.com/sql-optimization/optimizing-data-queries-with-redshift/
-* _Superset_: https://github.com/apache/superset https://medium.com/airbnb-engineering/how-airbnb-achieved-metric-consistency-at-scale-f23cc53dea70
 
 ## pipelines
 
@@ -734,13 +726,30 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 * _parameterize_: sanitization for SQL https://security.stackexchange.com/a/143925
 
 ## dataclerk
+## BI
 
 * repos that need: golf, bookcase
+🗄 `math.md` graphs
 
 TAXONOMY
 * _personal data warehouse_: generated personal data https://simonwillison.net/2020/Nov/14/personal-data-warehouses/
 * these always seem like a waste of time https://krausefx.com//blog/how-i-put-my-whole-life-into-a-single-database
 * _personal database_: hand curated https://tomcritchlow.com/2022/01/26/electric-tables/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
+* _business intelligence (BI)_: exploration (for non-devs) + graphs
+* _business intelligence (BI)_: explorer (for non-devs) + graphs
+* SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
+
+TOOLS
+* _Blazer_: https://github.com/ankane/blazer
+* _Datalens_: Docker https://news.ycombinator.com/item?id=37657772
+* _Evidence_: 🎯 borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111
+* _Lightdash_: https://github.com/lightdash/lightdash
+* _Metabase_: popular https://news.ycombinator.com/item?id=30323131
+* _Poli_: local, Java https://github.com/shzlw/poli
+* _Quary_: VS Code extension https://github.com/quarylabs/quary
+* _Redash_: cloud deploy https://github.com/getredash/redash
+* _Tableau_: via Pandas https://github.com/Kanaries/pygwalker Markdown https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=39519145
+* _Superset_: popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset
 
 STATUS QUO
 * user: web app
@@ -764,6 +773,10 @@ SELECT * FROM pragma_foreign_key_list('reading');
 ```
 
 ## dbcli
+HOWTO 🗄️ `math.md` stat/distributions
+* https://hakibenita.com/sql-for-data-analysis#descriptive-statistics
+* https://medium.com/epfl-extension-school/advanced-exploratory-data-analysis-eda-with-python-536fa83c578a `EDA.pdf`
+* _facet_: https://datasette.io/for/exploratory-analysis https://stackoverflow.com/questions/5321595/what-is-faceted-search
 
 📜
 * https://litecli.com/
@@ -1152,7 +1165,6 @@ TUI
 * _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
 * _harlequin_: ✅ query editor https://harlequin.sh
 * _GoBang_: perpetual alpha https://github.com/TaKO8Ki/gobang
-* _visidata_: ✅ data exploration
 
 GUI
 * NoSQL: Table Plus https://news.ycombinator.com/item?id=22908224 DbGate https://github.com/dbgate/dbgate
@@ -1160,13 +1172,21 @@ GUI
 * Postgres: pgAdmin, PGweb https://github.com/centerofci/mathesar
 * _Beekeeper_: $7/month https://www.beekeeperstudio.io/
 * _Datagrip_: $25/month, ERD
+* _Datasette_: 🎯 SQLite only https://github.com/simonw/datasette/issues/670
 * _DBeaver_: OSS, ERD https://stackoverflow.com/a/48397209
 * _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
 
 FEATURES
-* data entry: https://github.com/centerofci/mathesar 🗄 dataclerk
-* follow FKs: https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
-* _data catalog_: dbs, tables https://harlequin.sh
-* _ERD_: https://databasediagram.com/ https://drawdb.vercel.app/
+* autocomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
+* follow FKs https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
+* data catalog https://harlequin.sh
+* ERD https://databasediagram.com/ https://drawdb.vercel.app/
 * _query editor_: save, autocomplete
 * _results viewer_: result set
+
+---
+
+HARLEQUIN 📜 https://harlequin.sh
+* have to import CSV files after opening harlequin? import via data catalog? via `conn_str = ["local.db"]`? https://github.com/tconbeer/harlequin/discussions/314
+* profiles: sqlite, duckdb, postgres
+* Django https://adamj.eu/tech/2024/05/07/django-harlequin/
