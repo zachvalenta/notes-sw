@@ -30,12 +30,6 @@ TYPES OF DATA
 * _dummy data_: fake/seed data for development; https://github.com/zachvalenta/flask-CRUD/blob/master/db_seed.py https://github.com/joke2k/faker#providers https://mimesis.name/ https://mockaroo.com/ https://github.com/Qovery/replibyte
 * _synthetic data_: real data but anonymized https://softwareengineeringdaily.com/2021/02/16/synthetic-data-with-ian-coe-andrew-colombi-and-adam-kamor/ https://gretel.ai/blog/what-is-synthetic-data
 
-* _data science_: stats w/ higher salary https://thestatsgeek.com/2019/08/08/whats-the-difference-between-statistics-and-machine-learning/
-* more about the data than the ML https://news.ycombinator.com/item?id=27290246
-* steps: import, clean, model, operationalize https://www.kamwithk.com/machine-learning-field-guide
-* most work is infra and cleaning data, not modeling https://news.ycombinator.com/item?id=22806434
-* interviewing https://github.com/alexeygrigorev/data-science-interviews/blob/master/theory.md
-
 DATASETS
 * general: https://ourworldindata.org/ https://www.wikidata.org/ https://datasetsearch.research.google.com/ https://www.kaggle.com/datasets https://datausa.io/ https://www.splitgraph.com/
 * art https://news.ycombinator.com/item?id=28445761
@@ -687,15 +681,6 @@ API / CODE GENERATION
 * Octo https://github.com/octoproject/octo-cli
 * https://github.com/thevahidal/soul
 
-AGGREGATE/ANALYSIS
-* dedupe https://github.com/moj-analytical-services/splink https://sqlfordevs.com/delete-duplicate-rows
-* view missing https://github.com/ResidentMario/missingno
-* https://hakibenita.com/sql-for-data-analysis#descriptive-statistics
-* https://hakibenita.com/sql-for-data-analysis#sampling
-* reservoir sampling https://en.wikipedia.org/wiki/Reservoir_sampling https://github.com/BurntSushi/xsv
-* stats https://github.com/capitalone/dataprofiler
-* can use R from command line https://missing.csail.mit.edu/2020/data-wrangling/ https://www.r-project.org/
-
 CONVERSION / GENERATION
 * https://hakibenita.com/sql-for-data-analysis#generating-data
 * import from 3rd party: Dogsheep https://datasette.substack.com/p/dogsheep-personal-analytics-with
@@ -715,7 +700,6 @@ LINTING
 * https://sqlfum.pt/
 
 SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data
-* munge https://realpython.com/python-for-data-analysis/
 * _validation_: compare against rules
 * Pydantic https://www.pythonpodcast.com/pydantic-data-validation-episode-263/ https://github.com/shopnilsazal/validus https://blog.couchbase.com/validate-json-documents-in-python-using-pydantic/
 * Cerberus https://github.com/pyeve/cerberus https://hector.dev/2020/12/29/validating-data-in-python-with-cerberus.html
@@ -725,17 +709,12 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 * _sanitize_: validate + filter/escape
 * _parameterize_: sanitization for SQL https://security.stackexchange.com/a/143925
 
-## dataclerk
 ## BI
 
-* repos that need: golf, bookcase
-🗄 `math.md` graphs
+🗄
+* `math.md` graphs
+* `math.md` stat / distributions
 
-TAXONOMY
-* _personal data warehouse_: generated personal data https://simonwillison.net/2020/Nov/14/personal-data-warehouses/
-* these always seem like a waste of time https://krausefx.com//blog/how-i-put-my-whole-life-into-a-single-database
-* _personal database_: hand curated https://tomcritchlow.com/2022/01/26/electric-tables/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
-* _business intelligence (BI)_: exploration (for non-devs) + graphs
 * _business intelligence (BI)_: explorer (for non-devs) + graphs
 * SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
 
@@ -746,10 +725,103 @@ TOOLS
 * _Lightdash_: https://github.com/lightdash/lightdash
 * _Metabase_: popular https://news.ycombinator.com/item?id=30323131
 * _Poli_: local, Java https://github.com/shzlw/poli
+* _PyGWalker_: https://github.com/Kanaries/pygwalker
 * _Quary_: VS Code extension https://github.com/quarylabs/quary
 * _Redash_: cloud deploy https://github.com/getredash/redash
 * _Tableau_: via Pandas https://github.com/Kanaries/pygwalker Markdown https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=39519145
 * _Superset_: popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset
+
+---
+
+HOWTO 🗄️ `math.md` stat/distributions
+* https://hakibenita.com/sql-for-data-analysis#descriptive-statistics
+* https://medium.com/epfl-extension-school/advanced-exploratory-data-analysis-eda-with-python-536fa83c578a `EDA.pdf`
+* https://realpython.com/python-for-data-analysis/
+* dedupe https://github.com/moj-analytical-services/splink https://sqlfordevs.com/delete-duplicate-rows
+* view missing https://github.com/ResidentMario/missingno
+* https://hakibenita.com/sql-for-data-analysis#descriptive-statistics
+* https://hakibenita.com/sql-for-data-analysis#sampling
+* reservoir sampling https://en.wikipedia.org/wiki/Reservoir_sampling https://github.com/BurntSushi/xsv
+* stats https://github.com/capitalone/dataprofiler
+* can use R from command line https://missing.csail.mit.edu/2020/data-wrangling/ https://www.r-project.org/
+* _facet_: https://datasette.io/for/exploratory-analysis https://stackoverflow.com/questions/5321595/what-is-faceted-search
+
+## CLI (dbcli, miller, xsv)
+
+DBCLI 📜 https://litecli.com/ https://www.pgcli.com
+* open with env var: `cli -h`
+* exit: `exit`, `\q`
+* list tables: `\dt`
+* help: `\?`
+* autocomplete: `ctrl e`
+* autocomplete: `ctrl e`
+* clear screen: `ctrl l`
+* _metacommand_: preceded w/ backslash https://www.pgcli.com/commands
+* set pager to bat: `pager = less -SRXF` https://www.pgcli.com/docs
+* _named query_: snippet, saved query https://www.pgcli.com/named_queries.md
+* syntax: `f` (litecli) `n` (pgcli)
+* list: `\f` https://github.com/dbcli/pgcli/issues/1236
+* save: `\fs <name> <query>` https://github.com/dbcli/pgcli/issues/938
+* save w/ param: `\fs <name> <query where foo = $1>` https://github.com/dbcli/pgcli/issues/938
+> broken in sandbox: could be pager, Python version, config (try default config installed in $HOME) https://github.com/dbcli/pgcli/search?q=codec&type=issues
+* use: `\f <name>`
+* use w/ param: `\f <name> "arg"`
+* rm: `\fd <name>` https://litecli.com/favorites/
+
+XSV 📜 https://github.com/BurntSushi/xsv
+```sh
+count songs.csv # count records
+headers songs.csv # get headers
+split -s <records_per_file> <output-dir> <csv> # split into n files
+select "header" <csv> # all from header
+search -i -s "header" "query" <csv> # search within header (case insensitive)
+stats <table> | xsv table # stats (sum, min, max)
+xsv sample 50 full.csv > sample.csv # get sampled subset
+xsv slice -i 0 csv | xsv flatten # get line of data and display as two columns
+```
+
+MILLER 📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
+```sh
+# BASICS
+cat <csv> # select *
+head -n 5 <csv> # limit
+cut -o -f "col1","col2" <csv> # select col = -o -f col
+cut -x -f "col1","col2" <csv> # ignore col = -x -f co l
+head -n 20 then cut -o -f "id","artist" then sort -f "artist" <csv> # chaining
+
+# PREDICATES, GROUPING
+uniq -g <header> <csv> | wc -l # uniq for header
+most-frequent -f col -n 1000 example.csv # most frequent value by header
+most-frequent -f col -n 1000 example.csv | mlr --opprint sort -f col # most frequent value by header + group by header
+--c2p cut -o -f "21.08","21.09" then put '${total} = ${21.08} + ${21.09}' <csv> # put = computed fields; ${field} for fields w/ spaces
+filter '$header == "value"' example.csv # select * where header = val
+filter '$header1 == "value-foo"' && '$header2 == "value-bar"' example.csv
+filter 'is_null($header)' example.csv # https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
+filter '$earnings > 0.0' example.csv
+
+# IO
+--icsv    # input csv
+--opprint # output pprint
+--c2p     # combine --icsv and --opprint https://miller.readthedocs.io/en/latest/keystroke-savers/#short-format-specifiers-including-c2p
+--csv     # IO csv
+
+# CONFIG (.mlrrc) https://miller.readthedocs.io/en/latest/customization/
+--list-color-names # view colors https://miller.readthedocs.io/en/latest/output-colorization/
+c2p  # --c2p
+allow-ragged-csv-input  # if data line fields > header line, insert empty val instead of err (CSV header/data length mismatch)
+```
+
+## entry (dataclerk)
+
+---
+
+* https://github.com/centerofci/mathesar 🗄 dataclerk
+* repos that need: golf, bookcase
+
+TAXONOMY
+* _personal data warehouse_: generated personal data https://simonwillison.net/2020/Nov/14/personal-data-warehouses/
+* these always seem like a waste of time https://krausefx.com//blog/how-i-put-my-whole-life-into-a-single-database
+* _personal database_: hand curated https://tomcritchlow.com/2022/01/26/electric-tables/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
 
 STATUS QUO
 * user: web app
@@ -761,7 +833,6 @@ IMPL
 * documentation https://github.com/k1LoW/tbls
 * parser https://news.ycombinator.com/item?id=32560039
 * visidata for now and add constraints later?
-* ERD?
 * https://github.com/szktkfm/mdtt
 * https://stackoverflow.com/questions/2732356/list-of-all-tables-with-a-relationship-to-a-given-table-or-view
 * https://stackoverflow.com/questions/8094156/know-relationships-between-all-the-tables-of-database-in-sql-server
@@ -772,131 +843,33 @@ SELECT * FROM pragma_foreign_key_list('reading');
 # next step is running this from sqlite3
 ```
 
-## dbcli
-HOWTO 🗄️ `math.md` stat/distributions
-* https://hakibenita.com/sql-for-data-analysis#descriptive-statistics
-* https://medium.com/epfl-extension-school/advanced-exploratory-data-analysis-eda-with-python-536fa83c578a `EDA.pdf`
-* _facet_: https://datasette.io/for/exploratory-analysis https://stackoverflow.com/questions/5321595/what-is-faceted-search
+## dataframe (Pandas)
 
-📜
-* https://litecli.com/
-* https://www.pgcli.com
+📚
+* McKinney https://wesmckinney.com/book/
+* VanderPlas https://jakevdp.github.io/PythonDataScienceHandbook/
 
-CMD
-* open with env var: `cli -h`
-* exit: `exit`, `\q`
-* list tables: `\dt`
-* help: `\?`
-* autocomplete: `ctrl e`
-* autocomplete: `ctrl e`
-* clear screen: `ctrl l`
-* _metacommand_: preceded w/ backslash https://www.pgcli.com/commands
-* set pager to bat: `pager = less -SRXF` https://www.pgcli.com/docs
-
-NAMED QUERIES
-* 📍 open PR: print query on usage (less_chatty?)
-* _named query_: snippet, saved query https://www.pgcli.com/named_queries.md
-* syntax: `f` (litecli) `n` (pgcli)
-* list: `\f` https://github.com/dbcli/pgcli/issues/1236
-* save: `\fs <name> <query>` https://github.com/dbcli/pgcli/issues/938
-* save w/ param: `\fs <name> <query where foo = $1>` https://github.com/dbcli/pgcli/issues/938
-> broken in sandbox: could be pager, Python version, config (try default config installed in $HOME) https://github.com/dbcli/pgcli/search?q=codec&type=issues
-* use: `\f <name>`
-* use w/ param: `\f <name> "arg"`
-* rm: `\fd <name>` https://litecli.com/favorites/
-
-## harlequin
-
-📜 https://harlequin.sh
-
-> try this instead https://github.com/quarylabs/quary
-
-* have to import CSV files after opening harlequin? import via data catalog? via `conn_str = ["local.db"]`? https://github.com/tconbeer/harlequin/discussions/314
-* profiles: sqlite, duckdb, postgres
-* Django https://adamj.eu/tech/2024/05/07/django-harlequin/
-
-## miller
-
-📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
-
-BASICS
-```sh
-# select *
-cat <csv>
-
-# limit
-head -n 5 <csv>
-
-# select col = -o -f col
-cut -o -f "col1","col2" <csv>
-
-# ignore col = -x -f co l
-cut -x -f "col1","col2" <csv>
-
-# chaining
-head -n 20 then cut -o -f "id","artist" then sort -f "artist" <csv>
-```
-
-PREDICATES, GROUPING
-```sh
-# uniq for header
-uniq -g <header> <csv> | wc -l
-
-# select * where header = val
-filter '$header == "value"' example.csv
-filter '$header1 == "value-foo"' && '$header2 == "value-bar"' example.csv
-filter 'is_null($header)' example.csv # https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
-filter '$earnings > 0.0' example.csv
-
-# most frequent value by header
-most-frequent -f col -n 1000 example.csv
-
-# most frequent value by header + group by header
-most-frequent -f col -n 1000 example.csv | mlr --opprint sort -f col
-
-# put = computed fields
-# ${field} for fields w/ spaces
---c2p cut -o -f "21.08","21.09" then put '${total} = ${21.08} + ${21.09}' <csv>
-```
-
-IO
-```sh
---icsv    # input csv
---opprint # output pprint
---c2p     # combine --icsv and --opprint https://miller.readthedocs.io/en/latest/keystroke-savers/#short-format-specifiers-including-c2p
---csv     # IO csv
-```
-
-CONFIG https://miller.readthedocs.io/en/latest/customization/
-* view colors: `--list-color-names` https://miller.readthedocs.io/en/latest/output-colorization/
-* `.mlrrc`
-```sh
-c2p  # --c2p
-allow-ragged-csv-input  # if data line fields > header line, insert empty val instead of err (CSV header/data length mismatch)
-```
-
-## Pandas
+PANDAS
+* howto https://github.com/jvns/pandas-cookbook https://github.com/kxzk/an-embarrassment-of-pandas
 
 ---
 
+* Lux https://softwareengineeringdaily.com/2021/05/27/data-exploration-with-a-new-python-library-with-doris-lee/ https://github.com/lux-org/lux
 Pandas, arrow, Polars, Ibis https://talkpython.fm/episodes/show/462/pandas-and-beyond-with-wes-mckinney https://ibis-project.org/
-* McKinney https://wesmckinney.com/book/
+
+semantics
+* _dataframe_: table https://www.youtube.com/watch?v=zmdjNSmRXF4 10:00
+* _series_: 1d array https://pandas.pydata.org/docs/user_guide/10min.html#getting https://pandas.pydata.org/docs/user_guide/dsintro.html#series
+
+* _Polars_: https://news.ycombinator.com/item?id=35423569 https://github.com/pola-rs/polars https://pythonspeed.com/articles/polars-memory-pandas/ https://www.confessionsofadataguy.com/replacing-pandas-with-polars-a-practical-guide/ https://realpython.com/polars-python/ https://pythonspeed.com/articles/polars-pandas-interopability/ https://pola.rs/posts/polars_birds_eye_view/
 
 tables https://posit-dev.github.io/great-tables https://posit-dev.github.io/great-tables/blog/design-philosophy/
 
 📜 https://pandas.pydata.org/docs/
 📹 https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS https://talkpython.fm/episodes/show/358/understanding-pandas-visually-with-pandastutor
 🔍 
-* https://kadekillary.work/posts/embarrassment-of-pandas/
-* https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf https://github.com/maxhumber/redframes
-* https://github.com/jvns/pandas-cookbook
+* https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
 * https://web.archive.org/web/20230127194856/https://scribe.citizen4.eu/pandas-illustrated-the-definitive-visual-guide-to-pandas-c31fa921a43
-📚
-* VanderPlas https://jakevdp.github.io/PythonDataScienceHandbook/
-
-semantics
-* _dataframe_: table https://www.youtube.com/watch?v=zmdjNSmRXF4 10:00
-* _series_: 1d array https://pandas.pydata.org/docs/user_guide/10min.html#getting https://pandas.pydata.org/docs/user_guide/dsintro.html#series
 
 * dataframes
 ```python
@@ -972,62 +945,19 @@ verified.to_csv(os.path.join(os.getcwd(), out_file))
 za
 * DataFrame protocol https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/
 * `inplace` https://sourcery.ai/blog/pandas-inplace/
-* _Polars_: https://news.ycombinator.com/item?id=35423569 https://github.com/pola-rs/polars https://pythonspeed.com/articles/polars-memory-pandas/ https://www.confessionsofadataguy.com/replacing-pandas-with-polars-a-practical-guide/ https://realpython.com/polars-python/ https://pythonspeed.com/articles/polars-pandas-interopability/ https://pola.rs/posts/polars_birds_eye_view/
 * method chaining https://github.com/pyjanitor-devs/pyjanitor
 * validation https://github.com/pandera-dev/pandera
 * perf https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance https://pythonspeed.com/memory
 * test https://github.com/pandera-dev/pandera https://www.peterbaumgartner.com/blog/testing-for-data-science/
 * version: 1.15 works w/ Python 3.6 https://pypi.org/project/numpy/#history 🗄 `ml/grok-ml`
 
-## spreadsheet
-
-🗄 `python.md` REPL
-
-PRO / CON
-* good REPL for single table https://www.ultorg.com/
-* bad at n tables
-> Whether in finance, engineering, operations, or the life sciences, you are likely working with tables of data in spreadsheets, CSV files, or an external database. Spreadsheets are excellent tools for managing a single table of data. They are a poor fit for database tasks, however, where data must be combined and queried in many different ways. https://www.ultorg.com/
-* bad at UX, hence Airtable https://luttig.substack.com/p/dont-forget-microsoft Airtable is bad? https://news.ycombinator.com/item?id=26448985 Airtable let's you attach images, documents https://github.com/nocodb/nocodb https://news.ycombinator.com/item?id=34127804 https://gitlab.com/baserow/baserow more Airtable https://teable.io/ https://www.hytradboi.com/2022/why-airtable-is-easy-to-learn-and-hard-to-outgrow
-* bad at collaboration, hence Google Sheets https://luttig.substack.com/p/dont-forget-microsoft
-* criticism https://betonit.substack.com/p/spreadsheets-letters-from-a-quant https://www.natemeyvis.com/writing/on-bryan-caplans-spreadsheets/
-
-ALTERNATIVES
-* _visicalc_: predecessor to Lotus123, Excel http://www.paulgraham.com/mac.html
-* _UltOrg_: spreadsheet on top of dbms https://news.ycombinator.com/item?id=30868696 🔍 `Ultorg beta`
-* TUI https://github.com/andmarti1424/sc-im
-* OSS https://github.com/gristlabs/grist-core
-* webapp https://equals.app/ https://rowzero.io/ https://rows.com/
-* in Python https://pyspread.gitlab.io/ https://news.ycombinator.com/item?id=40284219
-
-📊 EXCEL
-* ubiquity https://news.ycombinator.com/item?id=26386419 https://www.wsj.com/articles/stop-using-excel-finance-chiefs-tell-staffs-1511346601 https://news.ycombinator.com/item?id=28595155 https://dataingovernment.blog.gov.uk/2019/06/10/improving-how-we-manage-spreadsheet-data/ https://medium.com/backchannel/a-spreadsheet-way-of-knowledge-8de60af7146e
-* with SQL https://sheetsql.io/
-* transpile to Python https://news.ycombinator.com/item?id=40457631
-* praise https://www.reifyworks.com/writing/2017-01-25-i-was-wrong-about-spreadsheets-and-im-sorry
-> Excel in my opinion is the most successful software application in history. https://subset.so/blog/excel-2-0 https://news.ycombinator.com/item?id=30868696
-> Slightly overrated by users and wildly underrated by anyone who spends most of their time using more powerful tools https://diff.substack.com/p/inside-the-house-report-on-big-tech-6a6
-> It blew my mind how many business critical processes were managed with excel spreadsheets being shared via email chains. It is incredible how flexible and effective Excel is for such a wide variety of use-cases. https://benadam.me/thoughts/my-experience-at-amazon/
-* write to google sheets https://jacobian.org/til/gspread-dictwriter/
-* from Excel to Python https://talkpython.fm/episodes/show/288/10-tips-to-move-from-excel-to-python https://talkpython.fm/episodes/show/200/escaping-excel-hell-with-python-and-pandas
-* _workbook_: entire document
-* _sheet_: sub-document
-* can't open more than 1 million rows in single tab but can script so that Excel will break larger file into multiple tabs.
-* row limit of 65k for xls files https://stackoverflow.com/a/45741831
-* libraries https://www.xlwings.org/ https://realpython.com/openpyxl-excel-spreadsheets-python/ https://github.com/python-excel/xlrd https://github.com/dgorissen/pycel
-* generate https://github.com/jazzband/tablib https://github.com/zachvalenta/csv-convert
-* use from Python https://github.com/xlwings/xlwings
-* use from Golang https://github.com/qax-os/excelize
-* Visual Basic https://retool.com/visual-basic/
-
-## visidata
+## explorer (visidata)
 
 🔍 https://stackoverflow.com/questions/tagged/visidata
 📜
 * docs http://visidata.org/docs/
 * guide https://jsvine.github.io/intro-to-visidata/
 * ref https://jsvine.github.io/visidata-cheat-sheet/en/
-
-* null = those yellow crossed out circles https://www.visidata.org/docs/rows/
 
 ⬇️ ATTR https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
 * search: `/`
@@ -1041,6 +971,7 @@ ALTERNATIVES
 * expand json: `()`
 
 ⏭ RECORDS
+* null = those yellow crossed out circles https://www.visidata.org/docs/rows/
 * mv: `SHIFT j/k`
 * sort: `[]`
 * page: `ctrl b/f`
@@ -1078,8 +1009,6 @@ ALTERNATIVES
 ---
 
 * alternatives https://github.com/mathaou/termdbms https://github.com/chrisbra/csv.vim
-* EDA
-> When you get a fresh data set, the first thing you usually want to do is get familiar with it. Some people call this "Exploratory data analysis" [EDA]. https://hakibenita.com/sql-for-data-analysis#descriptive-statistics https://medium.com/epfl-extension-school/advanced-exploratory-data-analysis-eda-with-python-536fa83c578a
 
 * visidata config: default to col full expansion
 * dealing with large files https://jsvine.github.io/intro-to-visidata/intermediate/large-files/
@@ -1129,37 +1058,48 @@ filter
 * _filter on selected_: `"` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#using-frequency-tables-to-select-and-filter-for-multiple-values
 * https://jsvine.github.io/intro-to-visidata/basics/navigating-visidata/#how-to-move-via-searching https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#via-expressions
 
-## xsv
+## spreadsheet (Excel)
 
-📜 https://github.com/BurntSushi/xsv
+🗄 `python.md` REPL
 
-```sh
-# count records
-count songs.csv
+PRO / CON
+* good REPL for single table https://www.ultorg.com/
+* bad at n tables
+> Whether in finance, engineering, operations, or the life sciences, you are likely working with tables of data in spreadsheets, CSV files, or an external database. Spreadsheets are excellent tools for managing a single table of data. They are a poor fit for database tasks, however, where data must be combined and queried in many different ways. https://www.ultorg.com/
+* bad at UX, hence Airtable https://luttig.substack.com/p/dont-forget-microsoft Airtable is bad? https://news.ycombinator.com/item?id=26448985 Airtable let's you attach images, documents https://github.com/nocodb/nocodb https://news.ycombinator.com/item?id=34127804 https://gitlab.com/baserow/baserow more Airtable https://teable.io/ https://www.hytradboi.com/2022/why-airtable-is-easy-to-learn-and-hard-to-outgrow
+* bad at collaboration, hence Google Sheets https://luttig.substack.com/p/dont-forget-microsoft
+* criticism https://betonit.substack.com/p/spreadsheets-letters-from-a-quant https://www.natemeyvis.com/writing/on-bryan-caplans-spreadsheets/
 
-# get headers
-headers songs.csv
+ALTERNATIVES
+* _visicalc_: predecessor to Lotus123, Excel http://www.paulgraham.com/mac.html
+* _UltOrg_: spreadsheet on top of dbms https://news.ycombinator.com/item?id=30868696 🔍 `Ultorg beta`
+* TUI https://github.com/andmarti1424/sc-im
+* OSS https://github.com/gristlabs/grist-core
+* webapp https://equals.app/ https://rowzero.io/ https://rows.com/
+* in Python https://pyspread.gitlab.io/ https://news.ycombinator.com/item?id=40284219
 
-# split into n files
-split -s <records_per_file> <output-dir> <csv>
+📊 EXCEL
+* ubiquity https://news.ycombinator.com/item?id=26386419 https://www.wsj.com/articles/stop-using-excel-finance-chiefs-tell-staffs-1511346601 https://news.ycombinator.com/item?id=28595155 https://dataingovernment.blog.gov.uk/2019/06/10/improving-how-we-manage-spreadsheet-data/ https://medium.com/backchannel/a-spreadsheet-way-of-knowledge-8de60af7146e https://www.theverge.com/c/24133822/microsoft-excel-spreadsheet-competition-championship
+* porting to Python https://www.youtube.com/watch?v=llgTl9BDuKw
+* with SQL https://sheetsql.io/
+* transpile to Python https://news.ycombinator.com/item?id=40457631
+* praise https://www.reifyworks.com/writing/2017-01-25-i-was-wrong-about-spreadsheets-and-im-sorry
+> Excel in my opinion is the most successful software application in history. https://subset.so/blog/excel-2-0 https://news.ycombinator.com/item?id=30868696
+> Slightly overrated by users and wildly underrated by anyone who spends most of their time using more powerful tools https://diff.substack.com/p/inside-the-house-report-on-big-tech-6a6
+> It blew my mind how many business critical processes were managed with excel spreadsheets being shared via email chains. It is incredible how flexible and effective Excel is for such a wide variety of use-cases. https://benadam.me/thoughts/my-experience-at-amazon/
+* write to google sheets https://jacobian.org/til/gspread-dictwriter/
+* from Excel to Python https://talkpython.fm/episodes/show/288/10-tips-to-move-from-excel-to-python https://talkpython.fm/episodes/show/200/escaping-excel-hell-with-python-and-pandas
+* _workbook_: entire document
+* _sheet_: sub-document
+* can't open more than 1 million rows in single tab but can script so that Excel will break larger file into multiple tabs.
+* row limit of 65k for xls files https://stackoverflow.com/a/45741831
+* libraries https://www.xlwings.org/ https://realpython.com/openpyxl-excel-spreadsheets-python/ https://github.com/python-excel/xlrd https://github.com/dgorissen/pycel
+* generate https://github.com/jazzband/tablib https://github.com/zachvalenta/csv-convert
+* use from Python https://github.com/xlwings/xlwings
+* use from Golang https://github.com/qax-os/excelize
+* Visual Basic https://retool.com/visual-basic/
 
-# all from header
-select "header" <csv>
-
-# search within header (case insensitive)
-search -i -s "header" "query" <csv>
-
-# stats (sum, min, max)
-stats <table> | xsv table
-
-# get sampled subset
-xsv sample 50 full.csv > sample.csv
-
-# get line of data and display as two columns
-xsv slice -i 0 csv | xsv flatten
-```
-
-## UI
+## UI (harlequin)
 
 TUI
 * _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
