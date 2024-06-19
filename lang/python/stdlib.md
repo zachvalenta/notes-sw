@@ -9,22 +9,20 @@
 
 ## 进步
 
-* _21_: rf pdb, doctest basics
-
----
-
 * https://cjolowicz.github.io/posts/hypermodern-python-01-setup/ https://talkpython.fm/episodes/show/362/hypermodern-python-projects
 * https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/ https://www.b-list.org/weblog/2022/dec/19/boring-python-code-quality/
 * https://talkpython.fm/episodes/show/327/little-automation-tools-in-python
 
-# 🔬 CQ
+* _24_: split from `python.md`
+* _21_: rf pdb, doctest basics
+
+# 🧫 CQ
 
 ---
 
 * autoformat: Black, isort, blacker https://github.com/akaihola/darker black on documentation https://github.com/asottile/blacken-docs
-* dead code: https://github.com/jendrikseipp/vulture https://github.com/sobolevn/flake8-eradicate 
+* dead code: https://github.com/jendrikseipp/vulture https://github.com/sobolevn/flake8-eradicate  https://github.com/jendrikseipp/vulture
 * security: bandit, https://pyup.io/ (uses same vulnerability db as pipenv) pysa https://github.com/facebook/pyre-check https://news.ycombinator.com/item?id=24083432 https://github.com/DataDog/guarddog
-* dead code https://github.com/jendrikseipp/vulture
 
 ## docs
 
@@ -60,6 +58,177 @@ def foo(my_arg):
     :return: what this function is returning
     """
 ```
+
+## lint
+
+---
+
+https://flake8.pycqa.org/
+
+* Rust alternatives https://github.com/charliermarsh/ruff https://406.ch/writing/how-ruff-changed-my-python-programming-habits/ https://github.com/mtshiba/pylyzer
+* lint natural language https://vale.sh/
+* exceptions https://github.com/guilatrova/tryceratops
+* only run on everything outside of repository https://github.com/akaihola/darker
+* ignore line: `# NOQA` https://flake8.pycqa.org/en/2.6.0/config.html#per-code-line 
+```conf
+# multiple
+flake8 dir1 dir2
+# all __init__
+exclude = */__init__.py
+# can use from shell, but it might be picking up config file somewhere, so this worked to get back to defaults
+flake8 --isolated
+
+# .flake8 (don't use tox.ini) 
+# example conf https://ljvmiranda921.github.io/notebook/2018/06/21/precommits-using-black-and-flake8/
+[flake8]
+max-complexity = 10
+max-line-length = 88
+ignore =  # http://flake8.pycqa.org/en/latest/user/configuration.html
+    # play nice w/ Black https://github.com/psf/black/issues/1029
+    E203,  
+    # workaround for flattened Flask project structure
+    E402
+    # flake8 seems dated on line break https://www.flake8rules.com/rules/W503.html https://dev.to/m1yag1/how-to-setup-your-project-with-pre-commit-black-and-flake8-183k
+    W503
+per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
+    # give user access to all models from REPL
+    db_shell.py:F401
+```
+
+## logging
+
+🗄 `telemetry` logging
+
+---
+
+* people don't use format/f-strings in logging
+* https://monadical.com/posts/ins-and-outs-of-logging-in-python-part-one.html
+* logs sent by default to `sys.stdout` i.e. they're buffered https://stackoverflow.com/a/51362214/6813490 https://realpython.com/python-flush-print-output/
+* pretty stdout https://github.com/onelivesleft/PrettyErrors
+* can unbuffer w/ `PYTHONUNBUFFERED=1` https://docs.python.org/3/using/cmdline.html?highlight=pythonunbuffered#envvar-PYTHONUNBUFFERED
+* this shows up in Docker, Docker won't show logs from Flask dev server in real-time unless logs set to unbuffered although I don't know why https://github.com/sclorg/s2i-python-container/issues/157 https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
+* add logs without updating source https://github.com/yiblet/inquest
+* _libraries_: https://stackoverflow.com/a/51362214 https://github.com/Delgan/loguru https://github.com/BNMetrics/logme https://github.com/hynek/structlog https://github.com/itamarst/eliot stdlib https://docs.python.org/3/howto/logging.html https://docs.python.org/3/howto/logging-cookbook.html GUI https://github.com/busimus/cutelog
+
+## profiling
+
+📙 Beazley ch. 14
+🗄 `linux.md` tracing
+📜 https://docs.python.org/3/library/debug.html
+
+PG http://paulgraham.com/popular.html
+> It might be a good idea to have an active profiler - to push performance data to the programmer instead of waiting for him to come asking for it.
+> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem.
+> A good language, as everyone knows, should generate fast code. But in practice I don't think fast code comes primarily from things you do in the design of the language. As Knuth pointed out long ago, speed only matters in certain critical bottlenecks. And as many programmers have observed since, one is very often mistaken about where these bottlenecks are. So, in practice, the way to get fast code is to have a very good profiler, rather than by, say, making the language strongly typed. You don't need to know the type of every argument in every call in the program. You do need to be able to declare the types of arguments in the bottlenecks. And even more, you need to be able to find out where the bottlenecks are.
+
+---
+
+> sort out what needs to be in Linux tracing vs. what needs to be here
+
+* _profile_: measure performance i.e. see which lines are executing and how long they take
+* _trace_: https://github.com/furkanonder/beetrace
+
+https://textual.textualize.io/blog/2024/02/20/remote-memory-profiling-with-memray/
+
+Sentry
+https://www.youtube.com/watch?v=bGAVrtb_tFs https://www.brendangregg.com/
+https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html
+https://www.freecodecamp.org/news/python-debugging-handbook/
+https://madebyme.today/blog/python-dict-vs-curly-brackets/
+https://superfastpython.com/benchmark-execution-time/
+https://stackabuse.com/why-does-python-code-run-faster-in-a-function/
+https://realpython.com/python-profiling/
+https://adamj.eu/tech/2023/07/23/python-profile-section-cprofile/
+* https://realpython.com/python312-perf-profiler/
+* https://functiontrace.com/
+* Rust, Cython https://pythonspeed.com/articles/faster-text-processing/ https://www.equalto.com/blog/rust-in-anger-high-performance-web-applications
+* https://news.ycombinator.com/item?id=36605730
+* https://www.petermcconnell.com/posts/perf_eng_with_py12/
+* benchmark https://pythonspeed.com/articles/faster-json-library/ https://eli.thegreenplace.net/2023/common-pitfalls-in-go-benchmarking/
+```sh
+time $CMD  # https://news.ycombinator.com/item?id=30224063
+```
+* https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
+* frame stack sampler https://github.com/P403n1x87/austin https://github.com/P403n1x87/austin-tui
+https://github.com/DataDog/go-profiler-notes
+
+EBPF
+* https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06
+* https://news.ycombinator.com/item?id=27435081
+* https://www.brendangregg.com/blog/2022-04-15/netflix-farewell-1.html
+* https://ebpf.io/what-is-ebpf/ https://softwareengineeringdaily.com/2023/03/06/ebpf-with-thomas-graf/
+* https://www.polarsignals.com/blog/posts/2023/10/04/profiling-python-and-ruby-with-ebpf
+* https://about.gitlab.com/blog/2022/11/28/how-we-diagnosed-and-resolved-redis-latency-spikes/
+* https://softwareengineeringdaily.com/2022/07/15/continuous-profiling-using-ebpf-with-frederic-branczyk/
+* https://github.com/keyval-dev/odigos
+* https://github.com/google/gops
+* https://thume.ca/2023/12/02/tracing-methods/
+
+* `py3 -m trace --trace example.py`
+* https://pythonspeed.com/articles/measuring-python-performance/
+* https://switowski.com/blog/how-to-benchmark-python-code/
+* https://github.com/bloomberg/memray https://realpython.com/podcasts/rpp/128/ https://talkpython.fm/episodes/show/425/memray-the-endgame-python-memory-profiler
+* https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack
+* https://codesolid.com/how-do-i-profile-python-code/
+* https://tinkering.xyz/fmo-optimization-story/
+* https://tech.marksblogg.com/faster-python.html https://www.peterbaumgartner.com/blog/intro-to-just-enough-cython-to-be-useful/ https://github.com/tonybaloney/perflint https://rednafi.github.io/reflections/pre-allocated-lists-in-python.html
+* https://github.com/pyroscope-io/pyroscope
+* https://flamegraph.com/ https://github.com/laixintao/flameshow
+* profiling CLI, `time` https://news.ycombinator.com/item?id=30224063
+* profiling async https://github.com/aviramha/capara
+* https://pythonspeed.com/memory/
+* https://github.com/pythonprofilers/memory_profiler https://news.ycombinator.com/item?id=27025829
+* https://github.com/csurfer/pyheat
+* https://github.com/joerick/pyinstrument
+* https://www.youtube.com/watch?v=1EZ8oqjLun0
+* https://medium.com/statch/speeding-up-python-code-with-nim-ec205a8a5d9c
+* https://github.com/joerick/pyinstrument
+* https://hakibenita.com/django-rest-framework-slow
+* https://github.com/brandtbucher/specialist
+* https://github.com/robusta-dev/WhyProfiler
+* `time` https://hacker-tools.github.io/program-introspection/
+* https://github.com/joerick/pyinstrument
+* https://github.com/P403n1x87/austin https://talkpython.fm/episodes/show/265/why-is-python-slow 54:00
+* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions
+* _tools_: PyFlame https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 PySpy https://github.com/benfred/py-spy/ profile CPython https://instagram-engineering.com/profiling-cpython-at-instagram-89d4cbeeb898 https://pythonspeed.com/articles/memory-profiler-data-scientists/ Fil https://pythonspeed.com/products/filmemoryprofiler/ https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
+* sink: https://www.blog.pythonlibrary.org/2020/04/14/an-overview-of-profiling-tools-for-python/ https://www.roguelynn.com/words/tracing-fast-and-slow/ https://pythonspeed.com/articles/blocking-cpu-or-io/ https://pythonspeed.com/articles/custom-python-profiler/ https://pythonspeed.com/articles/live-debugging-python/ https://www.markkeller.dev/2018-07-14-optimize_python/ https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ pyspy https://jvns.ca/blog/2018/12/23/2018--year-in-review/ https://www.youtube.com/watch?v=d5SGUscT2GA https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://github.com/ionelmc/python-hunter https://wsvincent.com/algorithms-binary-search/ https://www.fluentpython.com/extra/ordered-sequences-with-bisect/ https://wsvincent.com/python-optimizations-with-guido/ https://realpython.com/python-f-strings/ https://github.com/airspeed-velocity/asv
+* pyperf, timeit https://medium.com/@martin.heinz/python-cli-tricks-that-dont-require-any-code-whatsoever-e7bdb9409aeb https://log.beshr.com/python-311-speedup-part-1/
+* benchmark: https://github.com/sharkdp/hyperfine https://github.com/egoist/dum
+* can use hyperfine under the hood https://github.com/dandavison/magit-delta https://github.com/sharkdp/hyperfine
+* https://blog.usejournal.com/how-to-create-your-own-timing-context-manager-in-python-a0e944b48cf8 https://martinheinz.dev/blog/13 https://realpython.com/python-timer/
+```python
+# try this instead https://github.com/wasi-master/fastero
+
+# The "timeit" module lets you measure the execution
+# time of small bits of Python code
+# https://www.youtube.com/watch?v=EcGWDNlGTNg
+import timeit
+timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
+timeit.timeit('"-".join([str(n) for n in range(100)])', number=10000)
+timeit.timeit('"-".join(map(str, range(100)))', number=10000)
+
+# https://stackoverflow.com/a/7523810/6813490
+from timeit import Timer
+# doesn't manifest savings in small collections
+names_list = ['alice', 'bob', 'candace']
+names_set = set(['alice', 'bob', 'candace'])
+
+# setup large collection of numbers and see what happens then
+def lookup_list(l):
+    return 'alice' in l
+def lookup_set(s):
+    return 'alice' in s
+def cast_to_timer(func, args):
+	return Timer(lambda: func(args))
+def timeit_ms(func):
+	return print(func.timeit(number=1000))
+if __name__=='__main__':
+    timeit_ms(cast_to_timer(lookup_list, names_list))
+    timeit_ms(cast_to_timer(lookup_set, names_set))
+```
+
+
+# 🔬 TEST
 
 ## coverage
 
@@ -98,21 +267,6 @@ def foo(a, b):
     """
     return a + b
 ```
-
-## logging
-
-🗄 `telemetry` logging
-
----
-
-* people don't use format/f-strings in logging
-* https://monadical.com/posts/ins-and-outs-of-logging-in-python-part-one.html
-* logs sent by default to `sys.stdout` i.e. they're buffered https://stackoverflow.com/a/51362214/6813490 https://realpython.com/python-flush-print-output/
-* pretty stdout https://github.com/onelivesleft/PrettyErrors
-* can unbuffer w/ `PYTHONUNBUFFERED=1` https://docs.python.org/3/using/cmdline.html?highlight=pythonunbuffered#envvar-PYTHONUNBUFFERED
-* this shows up in Docker, Docker won't show logs from Flask dev server in real-time unless logs set to unbuffered although I don't know why https://github.com/sclorg/s2i-python-container/issues/157 https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
-* add logs without updating source https://github.com/yiblet/inquest
-* _libraries_: https://stackoverflow.com/a/51362214 https://github.com/Delgan/loguru https://github.com/BNMetrics/logme https://github.com/hynek/structlog https://github.com/itamarst/eliot stdlib https://docs.python.org/3/howto/logging.html https://docs.python.org/3/howto/logging-cookbook.html GUI https://github.com/busimus/cutelog
 
 ## mocks
 
@@ -325,6 +479,8 @@ self.assertEqual(x.exception.code, 1)
 ```
 
 ## ward
+
+📜 https://github.com/darrenburns/ward
 
 # 💻 UI
 
@@ -1105,37 +1261,6 @@ repo = Repo(p)
 repo.git.ls_remote("--heads", "origin", "master")
 ```
 
-LINT https://flake8.pycqa.org/
-* Rust alternatives https://github.com/charliermarsh/ruff https://406.ch/writing/how-ruff-changed-my-python-programming-habits/ https://github.com/mtshiba/pylyzer
-* lint natural language https://vale.sh/
-* exceptions https://github.com/guilatrova/tryceratops
-* only run on everything outside of repository https://github.com/akaihola/darker
-* ignore line: `# NOQA` https://flake8.pycqa.org/en/2.6.0/config.html#per-code-line 
-```conf
-# multiple
-flake8 dir1 dir2
-# all __init__
-exclude = */__init__.py
-# can use from shell, but it might be picking up config file somewhere, so this worked to get back to defaults
-flake8 --isolated
-
-# .flake8 (don't use tox.ini) 
-# example conf https://ljvmiranda921.github.io/notebook/2018/06/21/precommits-using-black-and-flake8/
-[flake8]
-max-complexity = 10
-max-line-length = 88
-ignore =  # http://flake8.pycqa.org/en/latest/user/configuration.html
-    # play nice w/ Black https://github.com/psf/black/issues/1029
-    E203,  
-    # workaround for flattened Flask project structure
-    E402
-    # flake8 seems dated on line break https://www.flake8rules.com/rules/W503.html https://dev.to/m1yag1/how-to-setup-your-project-with-pre-commit-black-and-flake8-183k
-    W503
-per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
-    # give user access to all models from REPL
-    db_shell.py:F401
-```
-
 ## os
 
 📙 Beazley ch. 13
@@ -1242,124 +1367,6 @@ with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
     for line in file:
         print(line.replace(text_to_search, replacement_text), end='')
 ```
-
-## profiling
-
-📙 Beazley ch. 14
-🗄 `linux.md` tracing
-📜 https://docs.python.org/3/library/debug.html
-
-PG http://paulgraham.com/popular.html
-> It might be a good idea to have an active profiler - to push performance data to the programmer instead of waiting for him to come asking for it.
-> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem.
-> A good language, as everyone knows, should generate fast code. But in practice I don't think fast code comes primarily from things you do in the design of the language. As Knuth pointed out long ago, speed only matters in certain critical bottlenecks. And as many programmers have observed since, one is very often mistaken about where these bottlenecks are. So, in practice, the way to get fast code is to have a very good profiler, rather than by, say, making the language strongly typed. You don't need to know the type of every argument in every call in the program. You do need to be able to declare the types of arguments in the bottlenecks. And even more, you need to be able to find out where the bottlenecks are.
-
----
-
-> sort out what needs to be in Linux tracing vs. what needs to be here
-
-* _profile_: measure performance i.e. see which lines are executing and how long they take
-* _trace_: https://github.com/furkanonder/beetrace
-
-https://textual.textualize.io/blog/2024/02/20/remote-memory-profiling-with-memray/
-
-Sentry
-https://www.youtube.com/watch?v=bGAVrtb_tFs https://www.brendangregg.com/
-https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html
-https://www.freecodecamp.org/news/python-debugging-handbook/
-https://madebyme.today/blog/python-dict-vs-curly-brackets/
-https://superfastpython.com/benchmark-execution-time/
-https://stackabuse.com/why-does-python-code-run-faster-in-a-function/
-https://realpython.com/python-profiling/
-https://adamj.eu/tech/2023/07/23/python-profile-section-cprofile/
-* https://realpython.com/python312-perf-profiler/
-* https://functiontrace.com/
-* Rust, Cython https://pythonspeed.com/articles/faster-text-processing/ https://www.equalto.com/blog/rust-in-anger-high-performance-web-applications
-* https://news.ycombinator.com/item?id=36605730
-* https://www.petermcconnell.com/posts/perf_eng_with_py12/
-* benchmark https://pythonspeed.com/articles/faster-json-library/ https://eli.thegreenplace.net/2023/common-pitfalls-in-go-benchmarking/
-```sh
-time $CMD  # https://news.ycombinator.com/item?id=30224063
-```
-* https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
-* frame stack sampler https://github.com/P403n1x87/austin https://github.com/P403n1x87/austin-tui
-https://github.com/DataDog/go-profiler-notes
-
-EBPF
-* https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06
-* https://news.ycombinator.com/item?id=27435081
-* https://www.brendangregg.com/blog/2022-04-15/netflix-farewell-1.html
-* https://ebpf.io/what-is-ebpf/ https://softwareengineeringdaily.com/2023/03/06/ebpf-with-thomas-graf/
-* https://www.polarsignals.com/blog/posts/2023/10/04/profiling-python-and-ruby-with-ebpf
-* https://about.gitlab.com/blog/2022/11/28/how-we-diagnosed-and-resolved-redis-latency-spikes/
-* https://softwareengineeringdaily.com/2022/07/15/continuous-profiling-using-ebpf-with-frederic-branczyk/
-* https://github.com/keyval-dev/odigos
-* https://github.com/google/gops
-* https://thume.ca/2023/12/02/tracing-methods/
-
-* `py3 -m trace --trace example.py`
-* https://pythonspeed.com/articles/measuring-python-performance/
-* https://switowski.com/blog/how-to-benchmark-python-code/
-* https://github.com/bloomberg/memray https://realpython.com/podcasts/rpp/128/ https://talkpython.fm/episodes/show/425/memray-the-endgame-python-memory-profiler
-* https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack
-* https://codesolid.com/how-do-i-profile-python-code/
-* https://tinkering.xyz/fmo-optimization-story/
-* https://tech.marksblogg.com/faster-python.html https://www.peterbaumgartner.com/blog/intro-to-just-enough-cython-to-be-useful/ https://github.com/tonybaloney/perflint https://rednafi.github.io/reflections/pre-allocated-lists-in-python.html
-* https://github.com/pyroscope-io/pyroscope
-* https://flamegraph.com/ https://github.com/laixintao/flameshow
-* profiling CLI, `time` https://news.ycombinator.com/item?id=30224063
-* profiling async https://github.com/aviramha/capara
-* https://pythonspeed.com/memory/
-* https://github.com/pythonprofilers/memory_profiler https://news.ycombinator.com/item?id=27025829
-* https://github.com/csurfer/pyheat
-* https://github.com/joerick/pyinstrument
-* https://www.youtube.com/watch?v=1EZ8oqjLun0
-* https://medium.com/statch/speeding-up-python-code-with-nim-ec205a8a5d9c
-* https://github.com/joerick/pyinstrument
-* https://hakibenita.com/django-rest-framework-slow
-* https://github.com/brandtbucher/specialist
-* https://github.com/robusta-dev/WhyProfiler
-* `time` https://hacker-tools.github.io/program-introspection/
-* https://github.com/joerick/pyinstrument
-* https://github.com/P403n1x87/austin https://talkpython.fm/episodes/show/265/why-is-python-slow 54:00
-* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions
-* _tools_: PyFlame https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 PySpy https://github.com/benfred/py-spy/ profile CPython https://instagram-engineering.com/profiling-cpython-at-instagram-89d4cbeeb898 https://pythonspeed.com/articles/memory-profiler-data-scientists/ Fil https://pythonspeed.com/products/filmemoryprofiler/ https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
-* sink: https://www.blog.pythonlibrary.org/2020/04/14/an-overview-of-profiling-tools-for-python/ https://www.roguelynn.com/words/tracing-fast-and-slow/ https://pythonspeed.com/articles/blocking-cpu-or-io/ https://pythonspeed.com/articles/custom-python-profiler/ https://pythonspeed.com/articles/live-debugging-python/ https://www.markkeller.dev/2018-07-14-optimize_python/ https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ pyspy https://jvns.ca/blog/2018/12/23/2018--year-in-review/ https://www.youtube.com/watch?v=d5SGUscT2GA https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://github.com/ionelmc/python-hunter https://wsvincent.com/algorithms-binary-search/ https://www.fluentpython.com/extra/ordered-sequences-with-bisect/ https://wsvincent.com/python-optimizations-with-guido/ https://realpython.com/python-f-strings/ https://github.com/airspeed-velocity/asv
-* pyperf, timeit https://medium.com/@martin.heinz/python-cli-tricks-that-dont-require-any-code-whatsoever-e7bdb9409aeb https://log.beshr.com/python-311-speedup-part-1/
-* benchmark: https://github.com/sharkdp/hyperfine https://github.com/egoist/dum
-* can use hyperfine under the hood https://github.com/dandavison/magit-delta https://github.com/sharkdp/hyperfine
-* https://blog.usejournal.com/how-to-create-your-own-timing-context-manager-in-python-a0e944b48cf8 https://martinheinz.dev/blog/13 https://realpython.com/python-timer/
-```python
-# try this instead https://github.com/wasi-master/fastero
-
-# The "timeit" module lets you measure the execution
-# time of small bits of Python code
-# https://www.youtube.com/watch?v=EcGWDNlGTNg
-import timeit
-timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
-timeit.timeit('"-".join([str(n) for n in range(100)])', number=10000)
-timeit.timeit('"-".join(map(str, range(100)))', number=10000)
-
-# https://stackoverflow.com/a/7523810/6813490
-from timeit import Timer
-# doesn't manifest savings in small collections
-names_list = ['alice', 'bob', 'candace']
-names_set = set(['alice', 'bob', 'candace'])
-
-# setup large collection of numbers and see what happens then
-def lookup_list(l):
-    return 'alice' in l
-def lookup_set(s):
-    return 'alice' in s
-def cast_to_timer(func, args):
-	return Timer(lambda: func(args))
-def timeit_ms(func):
-	return print(func.timeit(number=1000))
-if __name__=='__main__':
-    timeit_ms(cast_to_timer(lookup_list, names_list))
-    timeit_ms(cast_to_timer(lookup_set, names_set))
-```
-
 
 ## regex
 
