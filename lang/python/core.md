@@ -24,6 +24,7 @@
 * 📙 Ramalho @ 2.20 -> hashable -> hash tables 🗄 `algos.md` hash tables re: maps, ADTs https://realpython.com/solid-principles-python/ https://github.com/dabeaz-course/python-mastery https://mkaz.blog/working-with-python/
 * https://realpython.com/python-lazy-evaluation/
 * https://realpython.com/python-pydantic/
+* https://www.pythonmorsels.com/cli-tools/
 * initialize vs. construct, __init__, __new__ https://www.fluentpython.com/lingo/#initializer https://www.fluentpython.com/lingo/#constructor
 attributes
 * https://realpython.com/python-array/

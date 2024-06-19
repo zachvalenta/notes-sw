@@ -324,6 +324,8 @@ with self.assertRaises(SystemExit) as x:
 self.assertEqual(x.exception.code, 1)
 ```
 
+## ward
+
 # 💻 UI
 
 🗄
@@ -478,20 +480,6 @@ FRAMEWORKS
 > A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
 * components: HTTP, routes, ORM
 * BYO https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/
-* RSGI https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server https://github.com/emmett-framework/granian
-
-WSGI 
-* interface btw app server and framework https://docs.python-guide.org/scenarios/web/#wsgi bc pre-WSGI which framework you picked determined which web server you could use https://www.pythonpodcast.com/episode-43-wsgi-2/ @ 08:00
-* _interface_: contract e.g. "app server will do these things in this way as specified by WSGI and app framework will hook into them in this way as specified by WSGI and that way gunicorn will work with any WSGI-compliant app framework and Flask will work with any-WSGI compliant app server"
-* _constraints_: single-threaded https://stackoverflow.com/a/32217701 doesn't do async or WebSockets https://pythonbytes.fm/episodes/show/48/garbage-collection-and-memory-management-in-python https://www.pythonpodcast.com/episode-43-wsgi-2/ @ 18:00
-* _supported by_: servers (gunicorn, uWSGI, mod_wsgi) frameworks (Flask, Django, Falcon, Pyramid)
-* https://stackoverflow.com/a/38685758/6813490 https://talkpython.fm/episodes/show/13/flask-web-framework-and-much-much-more @ 30:00 https://djangodeconstructed.com/2018/02/15/how-a-request-becomes-a-response-diving-deeper-into-wsgi
-
-ASGI
-* _ASGI_: async alternative to WSGI
-* frameworks: Django (Channels) Quart (Flask on async) Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
-* servers: uvicorn, Daphne
-* sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
 
 ## HTML
 
@@ -731,6 +719,26 @@ artist_schema = ArtistSchema(only=("name", "songs"))  # subset
 # DESERIALIZE https://marshmallow.readthedocs.io/en/3.0/quickstart.html#deserializing-objects-loading
 # validate https://www.cameronmacleod.com/blog/better-validation-flask-marshmallow https://medium.com/bitproject/recently-i-created-a-restful-api-with-flask-where-my-models-had-many-parameters-75da1db870b7
 ```
+
+## SGI
+
+WSGI
+* interface btw app server and framework bc pre-WSGI which framework you picked determined which web server you could use https://www.pythonpodcast.com/episode-43-wsgi-2/ [8:00]
+> The Web Server Gateway Interface (or "WSGI" for short) is a standard interface between web servers and Python web application frameworks. By standardizing behavior and communication between web servers and Python web frameworks, WSGI makes it possible to write portable Python web code that can be deployed in any WSGI-compliant web server. WSGI is documented in PEP 3333. https://docs.python-guide.org/scenarios/web/#wsgi
+* _interface_: contract e.g. "app server will do these things in this way as specified by WSGI and app framework will hook into them in this way as specified by WSGI and that way gunicorn will work with any WSGI-compliant app framework and Flask will work with any-WSGI compliant app server"
+* _constraints_: single-threaded https://stackoverflow.com/a/32217701 doesn't do async or WebSockets https://pythonbytes.fm/episodes/show/48/garbage-collection-and-memory-management-in-python https://www.pythonpodcast.com/episode-43-wsgi-2/ @ 18:00
+* _supported by_: servers (gunicorn, uWSGI, mod_wsgi) frameworks (Flask, Django, Falcon, Pyramid)
+* https://stackoverflow.com/a/38685758/6813490 https://talkpython.fm/episodes/show/13/flask-web-framework-and-much-much-more @ 30:00 https://djangodeconstructed.com/2018/02/15/how-a-request-becomes-a-response-diving-deeper-into-wsgi
+
+ASGI
+* _ASGI_: async alternative to WSGI
+* frameworks: Django (Channels) Quart (Flask on async) Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
+* servers: uvicorn, Daphne
+* sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
+
+RSGI
+* _RSGI_: for Rust https://github.com/emmett-framework/granian/blob/master/docs/spec/RSGI.md
+* https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server https://github.com/emmett-framework/granian
 
 # 🟨 ZA
 
@@ -1278,6 +1286,7 @@ time $CMD  # https://news.ycombinator.com/item?id=30224063
 https://github.com/DataDog/go-profiler-notes
 
 EBPF
+* https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06
 * https://news.ycombinator.com/item?id=27435081
 * https://www.brendangregg.com/blog/2022-04-15/netflix-farewell-1.html
 * https://ebpf.io/what-is-ebpf/ https://softwareengineeringdaily.com/2023/03/06/ebpf-with-thomas-graf/
