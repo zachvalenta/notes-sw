@@ -536,7 +536,7 @@ SEMANTICS
 * category theory https://news.ycombinator.com/item?id=28953155 https://www.amazon.com/Joy-Abstraction-Exploration-Category-Theory/dp/1108477224
 * doesn't add much value irl https://markusstrasser.org/p/bcd8bded-7136-4bb4-8f97-e8a3a7b6d926/
 * graph of blogs https://astralcodexten.substack.com/p/links-for-april-644
-* dependency graphs, build systems https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
+* _DAG_: https://github.com/pyjanitor-devs/pyjanitor dependency graphs, build systems https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
 * _cycle_: https://endcrawl.com/credits-ordering/
 ```python
 # UNWEIGHTED

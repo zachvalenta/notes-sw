@@ -2,7 +2,9 @@
 
 ## 参考
 
-🔍 https://ai.stackexchange.com/
+🔍
+* https://ai.stackexchange.com/
+* https://datascience.stackexchange.com/
 📚
 * Ferguson game of go
 * Perrota programming ML https://www.amazon.com/Programming-Machine-Learning-Zero-Deep/dp/1680506609/ref=sr_1_1
@@ -195,7 +197,7 @@ PROMPTS https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sim
 ---
 
 * https://notebooklm.google/
-* Claude https://www.anthropic.com/
+* Claude https://www.anthropic.com/ https://x.com/AnthropicAI/status/1803790681971859473
 * https://news.ycombinator.com/item?id=40441945
 * custom GPT https://talkpython.fm/episodes/show/456/building-gpt-actions-with-fastapi-and-pydantic
 * customization prompt https://news.ycombinator.com/item?id=40474716
@@ -264,6 +266,8 @@ https://www.freecodecamp.org/learn/machine-learning-with-python/#tensorflow
 * context window https://twitter.com/deedydas/status/1778621375592485076
 > Google hasn’t said how Gemini 1.5 was made, but clearly the company has overcome the key limitation of traditional transformers: memory requirements increase quadratically with context length. One promising approach is Ring Attention with Blockwise Transformers, which breaks long contexts into pieces to be computed individually even as the various devices computing those pieces simultaneously communicate to make sense of the context as a whole; in this case memory requirements scale linearly with context length, and can be extended by simply adding more devices to the ring topology. https://stratechery.com/2024/gemini-1-5-and-googles-nature/
 * https://news.ycombinator.com/item?id=39849393
+
+https://zed.dev/blog/between-editors-and-ides
 
 WAYS OF LEARNING https://danielmiessler.com/blog/machine-learning-new-statistics/
 * event-based: no model + datum
