@@ -1079,3 +1079,15 @@ keybindings
 * _tab - by number_: `{ "key": "cmd+1", "command": "workbench.action.openEditorAtIndex1" }`
 * _tab - close others_: `cmd alt t`
 * _un/fold_: cmd palette
+
+## Zed
+
+📜 https://zed.dev/
+
+PLUS / MINUS
+* no document outline
+* fast
+
+THINGS TO TRY
+* integrated GPT
+* team tools for pairing
