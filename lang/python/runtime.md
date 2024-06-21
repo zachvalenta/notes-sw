@@ -4,12 +4,190 @@
 
 ## 进步
 
+* _24_: split from `python.md`
 * _19_: pipx and Poetry
+
+# 🤖 INTERPRETER
 
 ---
 
-* install Rich globally and use with bpython https://realpython.com/python-rich-package/
-* stack trace https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
+USE FROM SHELL https://docs.python.org/3/using/cmdline.html
+* script: `python <mod>` https://realpython.com/run-python-scripts
+* script + pdb: `python -i <mod>` https://docs.python.org/3/using/cmdline.html#cmdoption-i
+* use module: `python -m unittest discover` https://docs.python.org/3/using/cmdline.html#cmdoption-m
+* open browser `python -m webbrowser -n "https://www.python.org"` open browser https://medium.com/@martin.heinz/python-cli-tricks-that-dont-require-any-code-whatsoever-e7bdb9409aeb
+* run command inline: `python -c "import example.foo; foo.bar()"` https://docs.python.org/3/using/cmdline.html#cmdoption-c
+
+VERSIONS https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com/text/which-py.html
+* major https://en.wikipedia.org/wiki/History_of_Python#Table_of_versions
+* minor/patch https://blog.python.org/
+* switch to latest minor version after subsequent patch release https://www.b-list.org/weblog/2022/nov/08/python-311-gotcha/ https://pythonspeed.com/articles/upgrade-python-3.11/
+* _89_: initial
+* _00_: Python 2
+* _08_: Python 3 https://nedbatchelder.com/blog/201803/whats_in_which_python_3436.html
+* _18_: 3.7
+* _19_: 3.8 https://realpython.com/courses/cool-new-features-python-38/
+* _20_: Python 2 EoL
+
+## CPython
+
+📙 Shaw cpyton internals
+🗄 `language.md` compilers
+
+---
+
+ALTERNATIVES
+* unique insofar as has to fit many use cases (web, CLI, security) https://talkpython.fm/episodes/show/265/why-is-python-slow 47:00
+* things that need to be fast will be written in C https://talkpython.fm/episodes/show/265/why-is-python-slow 50:00
+* _pypy_: JIT, supports Python 2 https://news.ycombinator.com/item?id=22928030 http://aosabook.org/en/pypy.html https://ao.gl/when-your-python-code-is-much-faster-with-pypy/ https://www.reddit.com/r/Python/comments/bv50uz/is_anyone_using_pypy_on_production/ https://realpython.com/pypy-faster-python/ https://avi.im/blag/2021/fast-sqlite-inserts/ 📙 Beazly 595
+* pypy is dead https://news.ycombinator.com/item?id=33330706
+* _numba_: just add annotation https://news.ycombinator.com/item?id=34148455 https://talkpython.fm/episodes/show/265/why-is-python-slow 37:00 https://news.ycombinator.com/item?id=30205848 📙 Beazly 595
+* _pyjion_: https://talkpython.fm/episodes/show/340/time-to-jit-your-python-with-pyjion
+* _Cython_: write Python, get perf of C++ 🗄 'executables'
+* _others_: Jython (Java) Iron Python (.NET) call Go from Python https://opendatagroup.github.io/development/2019/06/13/go-ffi.html
+
+STAGES https://www.youtube.com/watch?v=QU158nGABxI 25:30
+* parse https://www.pythonpodcast.com/cpython-parser-replacement-episode-285/
+* compile
+* execute (interpreter loop)
+
+C EXTENSIONS 📙 Beazley ch. 15
+* howto https://kenschutte.com/python-swap-ints/
+* simplistic interpreter = C extensions = Python for datascience https://lucumr.pocoo.org/2018/7/13/python/
+* can write extensions in Rust https://towardsdatascience.com/nine-rules-for-writing-python-extensions-in-rust-d35ea3a4ec29 https://github.com/RustPython/RustPython https://blog.jerrycodes.com/python-trends-in-2023/ https://www.peterbaumgartner.com/blog/wrapping-a-rust-crate-in-a-python-package/ https://github.com/fulcrum-so/ziggy-pydust
+
+* Rust https://rustpython.github.io/
+* actually compiled https://realpython.com/build-a-blog-from-scratch-django/
+* foreign functions https://arturdryomov.dev/posts/python-foreign-functions-and-steam/
+* production build won't run asserts https://docs.python.org/3/using/configure.html#python-debug-build
+* _Cinder_ https://news.ycombinator.com/item?id=36621027
+
+https://github.com/brandtbucher/specialist
+Shannon plan, PEP 659, adaptive interpreter https://realpython.com/python311-new-features/#faster-code-execution
+
+misc
+* _contributing_: https://medium.com/@Captain_Joannah/so-you-want-to-contribute-to-cpython-gather-here-5a2694148ca4 http://emilyemorehouse.com/blog/015-my-path-to-becoming-a-python-core-developer/ http://lukasz.langa.pl/cv/ https://paper.dropbox.com/doc/Contributing-to-CPython--AuND60K_lABiNS7PHp0KZ9hoAg-JlgnduI6kw9MJIaGPpN9G
+* _portable_: https://www.scylladb.com/2019/02/14/the-complex-path-for-a-simple-portable-python-interpreter-or-snakes-on-a-data-plane/
+* _optimization_: minimize function calls and obj attr lookup https://gregoryszorc.com/blog/2019/01/10/what-i've-learned-about-optimizing-python/
+* why Python doesn't have `main()` https://news.ycombinator.com/item?id=23904313
+* _sink_: https://realpython.com/cpython-source-code-guide https://hackernoon.com/has-the-python-gil-been-slain-9440d28fa93d https://realpython.com/run-python-scripts/#whats-the-python-interpreter https://snarky.ca/what-is-the-core-of-the-python-programming-language
+
+* going faster https://talkpython.fm/episodes/show/339/making-python-faster-with-guido-and-mark
+* https://www.freecodecamp.org/news/hacking-together-a-simple-graphical-python-debugger-efe7e6b1f9a8/ https://github.com/puremourning/vimspector
+https://tenthousandmeters.com/blog/python-behind-the-scenes-6-how-python-object-system-works/
+CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-guided-tour-of-the-cpython-source-code https://github.com/python/cpython https://news.ycombinator.com/item?id=34570315
+* has no formal spec https://www.pythonpodcast.com/cpython-formal-specification-episode-288/
+* _Python_: language spec; very much tied to CPython e.g. metaclasses https://news.ycombinator.com/item?id=23698846
+* _components_: stdlib in Python, core objects and IO in C
+* _PVM_: virtual machine https://leanpub.com/insidethepythonvirtualmachine/read
+* _CPython_: https://www.fluentpython.com/lingo/#CPython compiler (reference impl of lang spec) + PVM https://eli.thegreenplace.net/2010/09/18/python-internals-symbol-tables-part-1#id5; core written in C https://docs.python-guide.org/starting/which-python/#implementations libs written in Python https://realpython.com/python-logging-source-code/ how to contribute https://pythonbytes.fm/episodes/show/37/rule-over-the-shells-with-sultan internals https://log.beshr.com/python-311-speedup-part-1/
+* _PEM_: execution model
+* compiled to bytecode https://www.pythoninsight.com/2018/09/python-basics-bytecode/ https://snarky.ca/not-unravelling-generator-expressions/
+* executes in the PVM https://realpython.com/run-python-scripts/#how-does-the-interpreter-run-python-scripts https://stackoverflow.com/q/441824/6813490 https://leanpub.com/insidethepythonvirtualmachine/read https://stackoverflow.com/q/6889747/6813490
+* simplistic interpreter = C extensions = Python for datascience https://lucumr.pocoo.org/2018/7/13/python/
+* can write extensions in Rust https://towardsdatascience.com/nine-rules-for-writing-python-extensions-in-rust-d35ea3a4ec29 https://github.com/RustPython/RustPython
+* _bytecode_: https://opensource.com/article/18/4/introduction-python-bytecode https://nullprogram.com/blog/2019/02/24/ https://snarky.ca/unravelling-attribute-access-in-python/ https://www.youtube.com/watch?v=QU158nGABxI 23:00 28:30 https://docs.python.org/3/glossary.html#term-bytecode
+* compiler execution flow: Python src to bytecode, VM runs bytecode https://eli.thegreenplace.net/2012/03/23/python-internals-how-callables-work https://eli.thegreenplace.net/2010/06/30/python-internals-adding-a-new-statement-to-python/
+> CPython bytecode is evaluated by the the mammoth function PyEval_EvalFrameEx in Python/ceval.c. The function is scary but it's nothing more than a fancy dispatcher of opcodes.
+
+## version mgmt (pyenv)
+
+🗄 it / mpb 2014
+
+PYENV 📜 https://github.com/pyenv/pyenv
+* cmd
+```sh
+pyenv commands # list cmd
+pyenv which python # list which version in use
+pyenv versions # list installed versions
+pyenv install -l # list versions available for install https://stackoverflow.com/a/58138512 upgrade pyenv to grab latest https://stackoverflow.com/a/43996315
+pyenv local 3.9 # set local version (creates `.python-version` in $CWD)
+pyenv global <ver> # set global version e.g. 3.9, system
+pyenv which <library> # list library version https://realpython.com/intro-to-pyenv/#which
+```
+* how it works: wrapper that passes cmd to appropriate version http://akbaribrahim.com/managing-multiple-python-versions-with-pyenv/#how-pyenv-works https://rutar.org/writing/managing-python-versions-with-pyenv/
+* Windows is a second-class citizen https://github.com/pyenv/pyenv#windows
+* can use different interpreter (PyPy, Jython) https://realpython.com/intro-to-pyenv/
+* install: Homebrew https://jacobian.org/2019/nov/11/python-environment-2020/ Linux https://mitelman.engineering/blog/python-best-practice/automating-python-best-practices-for-a-new-project/
+* fs: `~/.pyenv/versions`
+* setup
+```sh
+# create
+pyenv virtualenv 3.8.5 project-3.8
+# activate
+. .pyenv/versions/project-3.8/bin/activate
+# deps
+pip install -r requirements.txt
+```
+
+---
+
+NON-TRIVIAL
+* new versions have syntax/features unsupported by other tools https://pythonspeed.com/articles/major-python-release/
+* _PEP 394_: `python` should continue to point to OS version for comptability reasons https://github.com/sdispater/poetry/issues/536#issuecomment-507897724
+* easy to shoot yourself in the foot https://xkcd.com/1987 but it's still your fault https://snarky.ca/deconstructing-xkcd-com-1987/
+* too many versions on local https://www.hackerfactor.com/blog/index.php?/archives/825-8-Reasons-Python-Sucks.html
+* Vincent https://talkpython.fm/episodes/show/190/teaching-django Guido https://twitter.com/brettsky/status/991172186911076352
+
+OPTIONS
+* ❌ system: pkg mgmt (yum) require own version https://realpython.com/intro-to-pyenv/#why-not-use-system-python
+* ❌ macOS command line tools https://justinmayer.com/posts/homebrew-python-is-not-for-you/ https://docs.brew.sh/Homebrew-and-Python#python-3x
+* ❌ PSF: no uninstaller https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/#macos https://docs.python.org/3/using/index.html 🗄 `psf-uninstall-problem.md`
+* ❌ Homebrew: will update interpreter under your feet https://justinmayer.com/posts/homebrew-python-is-not-for-you/ https://realpython.com/intro-to-pyenv/#what-about-a-package-manager
+* ❓ Anaconda
+* ❓ nix; https://github.com/DavHau/mach-nix https://github.com/nix-community/poetry2nix
+* ❓ asdf: https://justinmayer.com/posts/homebrew-python-is-not-for-you/
+* ✅ pyenv
+
+PYENV AT UNITED MASTERS
+* macOS M1 issues https://news.ycombinator.com/item?id=26018722
+* x86 brew to fix pyenv https://www.mejorcodigo.com/p/97778.html
+```sh
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init --path)"
+fi
+eval "$(brew shellenv)"
+eval "$(pyenv init --path)"
+
+# install brew x86_64
+arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# install brew arm64
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# alias Brew
+alias brew86="arch -x86_64 /usr/local/Homebrew/bin/brew"
+# install pyenv
+brew86 install pyenv
+# in case doesn't get linked add to the PATH brew86 dirs (consider to put it at the begining of your .zbashrc file)
+export PATH=/usr/local/Homebrew/bin:/usr/local/Homebrew/sbin:$PATH
+# install python through pyenv
+pyenv install 3.8.5
+# necessary?
+$ brew86 install openssl readline sqlite3 xz zlib
+```
+
+VERSION INHERITANCE
+> why are you not installing pipx via pyenv?
+* Homebrew
+* pipx: installed by Homebrew but can/will have different Python version as dependency
+* Poetry: inherits from pipx
+* project: inherits from Poetry (e.g. qing/send2track)
+```txt
+get algos project working and align Python versions btw pyenv python and pipx python
+* use pip to install poetry
+* or use pip to install pipx
+* read up https://stackoverflow.com/questions/68735503/how-does-pipx-know-which-python-version-to-use
+```
+
+ANACONDA
+* just some random company https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/
+* big in corporate envs bc built their own userland that handles python version + packaging https://news.ycombinator.com/item?id=39390246
+* _conda_: pkg manager + Python version (400 MB)
+* install via `miniconda`
+* can install databases, non-Python pkg
+* _anaconda_: all the pkgs (3 GB)
+* install via `anaconda` https://stackoverflow.com/a/30057885/6813490
+* ❓ mini/conda play nice w/ existing Python install? https://www.thisismetis.com/assets/files/Metis-Bootcamp-Curriculum-52f9979f4f638857bc185b0b788d6d832efb7f34d3b240e199dc6d3f2eef40ed.pdf
+* https://mlpipes.com/changing-the-python-version-in-conda/ https://conda.io/docs/user-guide/install/index.html https://www.anaconda.com/blog/developer-blog/using-pip-in-a-conda-environment/ http://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/ http://www.sexchrlab.org/blog/2015/10/26/managing-multiple-python-environments-using-anaconda https://tdhopper.com/blog/my-python-environment-workflow-with-conda/ virtual env https://janakiev.com/til/jupyter-virtual-envs/
 
 # 📦 PACKAGING
 
@@ -353,6 +531,8 @@ ALTERNATIVES
 
 ---
 
+https://github.com/python-poetry/poetry/issues/8662
+
 MORE ON ALTERNATIVES
 * https://talkpython.fm/episodes/show/453/uv-the-next-evolution-in-python-packages
 * https://chriswarrick.com/blog/2024/01/15/python-packaging-one-year-later/
@@ -438,40 +618,28 @@ poetry run flask
 * list dep tree: `pipdeptree` --- poetry show --tree`
 * can install a C compiler with pip https://news.ycombinator.com/item?id=31776873
 
-# 📺 REPL
+# 📺 EXPLORATORY PROGRAMMING
 
 📙 Van Rossum ch. 2, 14
 🗄
 * `databases.md` tooling
 * `education.md` design
 
-| REPL          | pkg    | features                               |
-| --------------|--------|----------------------------------------|
-| python        | stdlib | readline, history substitution         |
-| iPython       | PyPI   | color, ipdb, magic func                |
-| bpython       | PyPI   | object explorer                        |
-| ptpython      | PyPI   | https://realpython.com/ptpython-shell/ |
-
-BPYTHON
-* undo `CTRL r`
-* autocomplete `CTRL f/e`
-
-EXPLORATORY PROGRAMMING
-* _REPL_: interface to interpreter + prompt https://docs.python.org/3/tutorial/interpreter.html#interactive-mode
-* aka interactive mode https://docs.python.org/3/glossary.html#term-interactive
-> When commands are read from a tty, the interpreter is said to be in interactive mode. https://docs.python.org/3/tutorial/interpreter.html#interactive-mode
-* aka OODA loop https://scholars-stage.org/the-ooda-loop-ancient-china-style/ https://en.wikipedia.org/wiki/John_Boyd_%28military_strategist%29#OODA_loop https://dominiccummings.substack.com/p/regime-change-2-a-plea-to-silicon https://dominiccummings.substack.com/p/how-could-labour-win-swap-dud-dead
-* _object explorer_: autocomplete + print docstrings https://github.com/darrenburns/shira
-* _debugger_: REPL + running program state e.g. pdb
-* _db CLI_: REPL + db state e.g. visidata
+* _REPL_: interface to interpreter + prompt https://docs.python.org/3/glossary.html#term-interactive https://docs.python.org/3/tutorial/interpreter.html#interactive-mode
+* Codi = REPL running async as you type https://github.com/metakirby5/codi.vim https://www.youtube.com/watch?v=tLQmGabfXHU
+* db CLI = REPL to db 🗄️ `databases.md` CLI
+* _object explorer_: REPL + autocomplete print docstrings https://github.com/darrenburns/shira
+* _debugger_: REPL + running program state
 
 ---
 
-* _notebook_: IDE + data e.g. Jupyter
+* _notebook_: REPL + persistent data e.g. Jupyter
 * _spreadsheet_: proprietary notebook https://www.youtube.com/watch?v=llgTl9BDuKw
-* _Codi_: real time debugger for non-running program https://github.com/metakirby5/codi.vim https://www.youtube.com/watch?v=tLQmGabfXHU
 
-## interactive mode
+* install Rich globally and use with bpython https://realpython.com/python-rich-package/
+* stack trace https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
+
+## REPL (iPython)
 
 ---
 
@@ -506,8 +674,19 @@ INIT
 
 ---
 
+| REPL          |  FEATURES                              |
+| --------------|----------------------------------------|
+| python        | readline, history substitution         |
+| iPython       | color, ipdb, magic func                |
+| bpython       | object explorer                        |
+| ptpython      | https://realpython.com/ptpython-shell/ |
+
+BPYTHON
+* undo `CTRL r`
+* autocomplete `CTRL f/e`
+
 ```bash
- fd ipyth
+fd ipyth
 dotfiles/python/ipython_config.py
 logs/pyenv/pip/ipython.log
 logs/pyenv/pipx/ipython.log
@@ -544,7 +723,7 @@ cmd to check out https://jakevdp.github.io/PythonDataScienceHandbook/01.03-magic
 * profile https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-prun time https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time
 * run file https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-run
 
-## notebooks
+## notebook (Marimo)
 
 MARIMO 📻 https://github.com/marimo-team/marimo
 ```bash
@@ -581,14 +760,14 @@ ZA
 * alternatives https://zeppelin.apache.org/ https://github.com/ottomatica/docable-notebooks https://marimo.io/
 * design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch
 
-## pdb
+## debugger (pdb)
 
 🗄 iPython
 📙 Beazley ch. 14
 📜
 * `help pdb`
 * https://docs.python.org/3/library/pdb.html
-* https://docs.python.org/3/library/debug.html
+* https://docs.python.org/3/library/debug.html https://www.debuggingbook.org/
 
 CONTEXT
 * `a`: func args
@@ -702,6 +881,7 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 ---
 
 
+https://hakibenita.com/django-concurrency
 https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sync-vs-async-in-python-tools-benchmarks-and-asgiwsgi-explained
 
 SEMANTICS https://python.hamel.dev/concurrency/
@@ -822,6 +1002,7 @@ NAMING
 
 ----
 
+https://nedbatchelder.com/blog/202405/one_way_to_fix_python_circular_imports.html
 https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
 * https://news.ycombinator.com/item?id=34727287
 * _import_: https://docs.python.org/3/glossary.html#term-importing
@@ -1032,186 +1213,3 @@ __get Python to find your pkg (here be dragons)__
 * ⚠️ edit env var https://orbifold.xyz/pythonpath.html
 * `context.py` file inside test suite https://docs.python-guide.org/writing/structure/#test-suite
 * um, avoid it? https://alex.dzyoba.com/blog/python-import/ https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html#case-4-importing-from-parent-directory 
-
-## interpreter
-
-📙 Shaw cpyton internals
-🗄 `language.md` compilers
-
-USE FROM SHELL https://docs.python.org/3/using/cmdline.html
-* script: `python <mod>` https://realpython.com/run-python-scripts
-* script + pdb: `python -i <mod>` https://docs.python.org/3/using/cmdline.html#cmdoption-i
-* use module: `python -m unittest discover` https://docs.python.org/3/using/cmdline.html#cmdoption-m
-* open browser `python -m webbrowser -n "https://www.python.org"` open browser https://medium.com/@martin.heinz/python-cli-tricks-that-dont-require-any-code-whatsoever-e7bdb9409aeb
-* run command inline: `python -c "import example.foo; foo.bar()"` https://docs.python.org/3/using/cmdline.html#cmdoption-c
-
-stages https://www.youtube.com/watch?v=QU158nGABxI 25:30
-* parse https://www.pythonpodcast.com/cpython-parser-replacement-episode-285/
-* compile
-* execute (interpreter loop)
-
-C exentions 📙 Beazley ch. 15
-* howto https://kenschutte.com/python-swap-ints/
-* simplistic interpreter = C extensions = Python for datascience https://lucumr.pocoo.org/2018/7/13/python/
-* can write extensions in Rust https://towardsdatascience.com/nine-rules-for-writing-python-extensions-in-rust-d35ea3a4ec29 https://github.com/RustPython/RustPython https://blog.jerrycodes.com/python-trends-in-2023/ https://www.peterbaumgartner.com/blog/wrapping-a-rust-crate-in-a-python-package/ https://github.com/fulcrum-so/ziggy-pydust
-
----
-
-* Rust https://rustpython.github.io/
-* actually compiled https://realpython.com/build-a-blog-from-scratch-django/
-* foreign functions https://arturdryomov.dev/posts/python-foreign-functions-and-steam/
-* production build won't run asserts https://docs.python.org/3/using/configure.html#python-debug-build
-* _Cinder_ https://news.ycombinator.com/item?id=36621027
-
-https://github.com/brandtbucher/specialist
-Shannon plan, PEP 659, adaptive interpreter https://realpython.com/python311-new-features/#faster-code-execution
-
-misc
-* _contributing_: https://medium.com/@Captain_Joannah/so-you-want-to-contribute-to-cpython-gather-here-5a2694148ca4 http://emilyemorehouse.com/blog/015-my-path-to-becoming-a-python-core-developer/ http://lukasz.langa.pl/cv/ https://paper.dropbox.com/doc/Contributing-to-CPython--AuND60K_lABiNS7PHp0KZ9hoAg-JlgnduI6kw9MJIaGPpN9G
-* _portable_: https://www.scylladb.com/2019/02/14/the-complex-path-for-a-simple-portable-python-interpreter-or-snakes-on-a-data-plane/
-* _optimization_: minimize function calls and obj attr lookup https://gregoryszorc.com/blog/2019/01/10/what-i've-learned-about-optimizing-python/
-* why Python doesn't have `main()` https://news.ycombinator.com/item?id=23904313
-* _sink_: https://realpython.com/cpython-source-code-guide https://hackernoon.com/has-the-python-gil-been-slain-9440d28fa93d https://realpython.com/run-python-scripts/#whats-the-python-interpreter https://snarky.ca/what-is-the-core-of-the-python-programming-language
-
-* going faster https://talkpython.fm/episodes/show/339/making-python-faster-with-guido-and-mark
-* https://www.freecodecamp.org/news/hacking-together-a-simple-graphical-python-debugger-efe7e6b1f9a8/ https://github.com/puremourning/vimspector
-https://tenthousandmeters.com/blog/python-behind-the-scenes-6-how-python-object-system-works/
-CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-guided-tour-of-the-cpython-source-code https://github.com/python/cpython https://news.ycombinator.com/item?id=34570315
-* has no formal spec https://www.pythonpodcast.com/cpython-formal-specification-episode-288/
-* _Python_: language spec; very much tied to CPython e.g. metaclasses https://news.ycombinator.com/item?id=23698846
-* _components_: stdlib in Python, core objects and IO in C
-* _PVM_: virtual machine https://leanpub.com/insidethepythonvirtualmachine/read
-* _CPython_: https://www.fluentpython.com/lingo/#CPython compiler (reference impl of lang spec) + PVM https://eli.thegreenplace.net/2010/09/18/python-internals-symbol-tables-part-1#id5; core written in C https://docs.python-guide.org/starting/which-python/#implementations libs written in Python https://realpython.com/python-logging-source-code/ how to contribute https://pythonbytes.fm/episodes/show/37/rule-over-the-shells-with-sultan internals https://log.beshr.com/python-311-speedup-part-1/
-* _PEM_: execution model
-* compiled to bytecode https://www.pythoninsight.com/2018/09/python-basics-bytecode/ https://snarky.ca/not-unravelling-generator-expressions/
-* executes in the PVM https://realpython.com/run-python-scripts/#how-does-the-interpreter-run-python-scripts https://stackoverflow.com/q/441824/6813490 https://leanpub.com/insidethepythonvirtualmachine/read https://stackoverflow.com/q/6889747/6813490
-* simplistic interpreter = C extensions = Python for datascience https://lucumr.pocoo.org/2018/7/13/python/
-* can write extensions in Rust https://towardsdatascience.com/nine-rules-for-writing-python-extensions-in-rust-d35ea3a4ec29 https://github.com/RustPython/RustPython
-* _bytecode_: https://opensource.com/article/18/4/introduction-python-bytecode https://nullprogram.com/blog/2019/02/24/ https://snarky.ca/unravelling-attribute-access-in-python/ https://www.youtube.com/watch?v=QU158nGABxI 23:00 28:30 https://docs.python.org/3/glossary.html#term-bytecode
-* compiler execution flow: Python src to bytecode, VM runs bytecode https://eli.thegreenplace.net/2012/03/23/python-internals-how-callables-work https://eli.thegreenplace.net/2010/06/30/python-internals-adding-a-new-statement-to-python/
-> CPython bytecode is evaluated by the the mammoth function PyEval_EvalFrameEx in Python/ceval.c. The function is scary but it's nothing more than a fancy dispatcher of opcodes.
-
-alternatives
-* unique insofar as has to fit many use cases (web, CLI, security) https://talkpython.fm/episodes/show/265/why-is-python-slow 47:00
-* things that need to be fast will be written in C https://talkpython.fm/episodes/show/265/why-is-python-slow 50:00
-* _pypy_: JIT, supports Python 2 https://news.ycombinator.com/item?id=22928030 http://aosabook.org/en/pypy.html https://ao.gl/when-your-python-code-is-much-faster-with-pypy/ https://www.reddit.com/r/Python/comments/bv50uz/is_anyone_using_pypy_on_production/ https://realpython.com/pypy-faster-python/ https://avi.im/blag/2021/fast-sqlite-inserts/ 📙 Beazly 595
-* pypy is dead https://news.ycombinator.com/item?id=33330706
-* _numba_: just add annotation https://news.ycombinator.com/item?id=34148455 https://talkpython.fm/episodes/show/265/why-is-python-slow 37:00 https://news.ycombinator.com/item?id=30205848 📙 Beazly 595
-* _pyjion_: https://talkpython.fm/episodes/show/340/time-to-jit-your-python-with-pyjion
-* _Cython_: write Python, get perf of C++ 🗄 'executables'
-* _others_: Jython (Java) Iron Python (.NET) call Go from Python https://opendatagroup.github.io/development/2019/06/13/go-ffi.html
-
-## version mgmt
-
-🗄 it / mpb 2014
-
-PYENV 📜 https://github.com/pyenv/pyenv
-* cmd
-```sh
-# list cmd
-pyenv commands
-# list which version in use
-pyenv which python
-# list installed versions
-pyenv versions
-# list versions available for install https://stackoverflow.com/a/58138512 upgrade pyenv to grab latest https://stackoverflow.com/a/43996315
-pyenv install -l
-# set local version (creates `.python-version` in $CWD)
-pyenv local 3.9
-# set global version e.g. 3.9, system
-pyenv global <ver>
-# list library version https://realpython.com/intro-to-pyenv/#which
-pyenv which <library>
-```
-* how it works: wrapper that passes cmd to appropriate version http://akbaribrahim.com/managing-multiple-python-versions-with-pyenv/#how-pyenv-works https://rutar.org/writing/managing-python-versions-with-pyenv/
-* Windows is a second-class citizen https://github.com/pyenv/pyenv#windows
-* can use different interpreter (PyPy, Jython) https://realpython.com/intro-to-pyenv/
-* install: Homebrew https://jacobian.org/2019/nov/11/python-environment-2020/ Linux https://mitelman.engineering/blog/python-best-practice/automating-python-best-practices-for-a-new-project/
-* fs: `~/.pyenv/versions`
-* setup
-```sh
-# create
-pyenv virtualenv 3.8.5 project-3.8
-# activate
-. .pyenv/versions/project-3.8/bin/activate
-# deps
-pip install -r requirements.txt
-```
-
-PYENV AT UNITED MASTERS
-* macOS M1 issues https://news.ycombinator.com/item?id=26018722
-* x86 brew to fix pyenv https://www.mejorcodigo.com/p/97778.html
-```sh
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init --path)"
-fi
-eval "$(brew shellenv)"
-eval "$(pyenv init --path)"
-
-# install brew x86_64
-arch -x86_64 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# install brew arm64
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# alias Brew
-alias brew86="arch -x86_64 /usr/local/Homebrew/bin/brew"
-# install pyenv
-brew86 install pyenv
-# in case doesn't get linked add to the PATH brew86 dirs (consider to put it at the begining of your .zbashrc file)
-export PATH=/usr/local/Homebrew/bin:/usr/local/Homebrew/sbin:$PATH
-# install python through pyenv
-pyenv install 3.8.5
-# necessary?
-$ brew86 install openssl readline sqlite3 xz zlib
-```
-
-VERSIONS https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com/text/which-py.html
-* major https://en.wikipedia.org/wiki/History_of_Python#Table_of_versions
-* minor/patch https://blog.python.org/
-* switch to latest minor version after subsequent patch release https://www.b-list.org/weblog/2022/nov/08/python-311-gotcha/ https://pythonspeed.com/articles/upgrade-python-3.11/
-* _89_: initial
-* _00_: Python 2
-* _08_: Python 3 https://nedbatchelder.com/blog/201803/whats_in_which_python_3436.html
-* _18_: 3.7
-* _19_: 3.8 https://realpython.com/courses/cool-new-features-python-38/
-* _20_: Python 2 EoL
-
-VERSION INHERITANCE
-> why are you not installing pipx via pyenv?
-* Homebrew
-* pipx: installed by Homebrew but can/will have different Python version as dependency
-* Poetry: inherits from pipx
-* project: inherits from Poetry (e.g. qing/send2track)
-```txt
-get algos project working and align Python versions btw pyenv python and pipx python
-* use pip to install poetry
-* or use pip to install pipx
-* read up https://stackoverflow.com/questions/68735503/how-does-pipx-know-which-python-version-to-use
-```
-
-ANACONDA
-* just some random company https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/
-* big in corporate envs bc built their own userland that handles python version + packaging https://news.ycombinator.com/item?id=39390246
-* _conda_: pkg manager + Python version (400 MB)
-* install via `miniconda`
-* can install databases, non-Python pkg
-* _anaconda_: all the pkgs (3 GB)
-* install via `anaconda` https://stackoverflow.com/a/30057885/6813490
-* ❓ mini/conda play nice w/ existing Python install? https://www.thisismetis.com/assets/files/Metis-Bootcamp-Curriculum-52f9979f4f638857bc185b0b788d6d832efb7f34d3b240e199dc6d3f2eef40ed.pdf
-* https://mlpipes.com/changing-the-python-version-in-conda/ https://conda.io/docs/user-guide/install/index.html https://www.anaconda.com/blog/developer-blog/using-pip-in-a-conda-environment/ http://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/ http://www.sexchrlab.org/blog/2015/10/26/managing-multiple-python-environments-using-anaconda https://tdhopper.com/blog/my-python-environment-workflow-with-conda/ virtual env https://janakiev.com/til/jupyter-virtual-envs/
-
-OPTIONS
-* ❌ system: pkg mgmt (yum) require own version https://realpython.com/intro-to-pyenv/#why-not-use-system-python
-* ❌ macOS command line tools https://justinmayer.com/posts/homebrew-python-is-not-for-you/ https://docs.brew.sh/Homebrew-and-Python#python-3x
-* ❌ PSF: no uninstaller https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/#macos https://docs.python.org/3/using/index.html 🗄 `psf-uninstall-problem.md`
-* ❌ Homebrew: will update interpreter under your feet https://justinmayer.com/posts/homebrew-python-is-not-for-you/ https://realpython.com/intro-to-pyenv/#what-about-a-package-manager
-* ❓ Anaconda
-* ❓ nix; https://github.com/DavHau/mach-nix https://github.com/nix-community/poetry2nix
-* ❓ asdf: https://justinmayer.com/posts/homebrew-python-is-not-for-you/
-* ✅ pyenv
-
-NON-TRIVIAL
-* new versions have syntax/features unsupported by other tools https://pythonspeed.com/articles/major-python-release/
-* _PEP 394_: `python` should continue to point to OS version for comptability reasons https://github.com/sdispater/poetry/issues/536#issuecomment-507897724
-* easy to shoot yourself in the foot https://xkcd.com/1987 but it's still your fault https://snarky.ca/deconstructing-xkcd-com-1987/
-* too many versions on local https://www.hackerfactor.com/blog/index.php?/archives/825-8-Reasons-Python-Sucks.html
-* Vincent https://talkpython.fm/episodes/show/190/teaching-django Guido https://twitter.com/brettsky/status/991172186911076352
