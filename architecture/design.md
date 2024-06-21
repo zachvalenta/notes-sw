@@ -14,35 +14,8 @@
 
 ---
 
-for Roots Autmation https://www.youtube.com/watch?v=8zsdpwvTxos
-
-> Beware of arguments related to programming speed. All things being equal, faster is better. But all things are never equal. Do you need the kind of speed that lets you get a website up and running quickly? Or the kind that allows you to rotate a few thousand polygons in 3D in real time? Do you need to convert 10,000 PDFs into text per hour? Or 10 million PDFs into text once? These are different problems. - Ford what is code?
-
-> do these after cleaning up everything else
-
-https://www.youtube.com/playlist?list=PLCRMIe5FDPsd0gVs500xeOewfySTsmEjf
-
-https://www.youtube.com/playlist?list=PLCRMIe5FDPseVvwzRiCQBmNOVUIZSSkP8
-
-https://github.com/DovAmir/awesome-design-patterns
-
-* create repo to experiment
-* https://blog.pecar.me/faster-api
-* https://roadmap.sh/backend
-* https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/videos
-https://www.youtube.com/playlist?list=PL8hP5HjAnJ3_mT7IHXjlbpYX_xiz4v_kP
-* Google SRE https://sre.google/sre-book/table-of-contents/
-
-* db per tentant https://news.ycombinator.com/item?id=39004963
-* https://read.engineerscodex.com/p/how-instagram-scaled-to-14-million
-* race condition https://portswigger.net/research/smashing-the-state-machine
-* https://en.wikipedia.org/wiki/The_Association
-* db per user https://news.ycombinator.com/item?id=38171322
-state machine, audit https://blog.lawrencejones.dev/state-machines/ https://www.youtube.com/watch?v=YSUxLRlTzZ4
-cellular https://news.ycombinator.com/item?id=37274871
- https://news.ycombinator.com/item?id=36208420 https://github.com/karanpratapsingh/system-design https://davidvujic.blogspot.com/2023/08/kafka-messaging-with-python-and-polylith.html
-
 WORLD'S DUMBEST COMPLETE SAAS
+> use as your repo to experiment
 * Vincent books 🗄 `django.md`
 * https://saasitive.com/
 > scaffold (deployment, monitoring), accounts (individual, teams), auth (registration, login/logout, pw update, account removal), subscriptions
@@ -51,36 +24,13 @@ WORLD'S DUMBEST COMPLETE SAAS
 * https://pocketbase.io/
 * BYO Saas https://www.datasette.cloud/blog/2023/welcome/
 
-https://www.youtube.com/watch?v=rIt0uj8TaKg
-
-incentives https://news.ycombinator.com/item?id=36380711&utm_term=comment
-
-https://www.benkuhn.net/progessays/
-
-🗄 notebook 23.01.11
-
-CRD DDD 🗄 notebook 22.12.13
-* transport: HTTP, RPC, GraphQL
-* service: business logic
-* repo: mapper to db
-* db
-
-* do with the Golang microservices book https://news.ycombinator.com/item?id=34572263
-
-> Microservices, while often sold as solving a technical problem, usually actually solve for a human problem in scaling up an organization. There's two technical problems that microservices purport to solve: modularization (separation of concerns, hiding implementation, document interface and all that good stuff) and scalability (being able to increase the amount of compute, memory and IO to the specific modules that need it). The first problem, modules, can be solved at the language level. Modules can do that job, and that's the point of this blog post. The second problem, scalability, is harder to solve at the language level in most languages outside those designed to be run in a distributed environment. But most people need it a lot less than they think. Normally the database is your bottleneck and if you keep your application server stateless, you can just run lots of them; the database can eventually be a bottleneck, but you can scale up databases a lot. The real reason that microservices may make sense is because they keep people honest around module boundaries. They make it much harder to retain access to persistent in-memory state, harder to navigate object graphs to take dependencies on things they shouldn't, harder to create PRs with complex changes on either side of a module boundary without a conversation about designing for change and future proofing. Code ownership by teams is something you need as an organization scales, if only to reduce the amount of context switching that developers need to do if treated as fully fungible; owning a service is more defensible than owning a module, since the team will own release schedules and quality gating. I'm not so positive on every microservice maintaining its own copy of state, potentially with its own separate data store. I think that usually adds more ongoing complexity in synchronization than it saves by isolating schemas. A better rule is for one service to own writes for a table, and other services can only read that table, and maybe even then not all columns or all non-owned tables. Problems with state synchronization are one of the most common failure modes in distributed applications, where queues get backed up, retries of "bad" events cause blockages and so on. https://news.ycombinator.com/item?id=34231020
-
-* https://news.ycombinator.com/item?id=34612919
-* https://www.youtube.com/@AsliEngineering/videos
-* things you need in an app https://www.amazon.com/Become-Awesome-Software-Architect-Foundation/dp/1697271065
-* Heroku clone https://www.youtube.com/watch?v=zhJLVFR3pE8
-* Netflix clone https://www.youtube.com/watch?v=gbyYXgiSgdM
-* Facebook clone https://www.youtube.com/watch?v=xSUm6iMtREA
-* PagerDuty clone https://www.youtube.com/watch?v=4xuBT3BbsYU alerts https://github.com/keephq/keep
-
-> ++ `infra.md` telemetry
-* course on microservices https://www.youtube.com/watch?v=hmkF77F9TLw https://www.youtube.com/watch?v=NVvIpqmf_Xc
-* https://brooker.co.za/blog/
-* https://runninginproduction.com/podcast/
+WEB APP CHECKLIST
+* env: config, Docker, ❌ auth
+* CQ: testing, hooks
+* data: seed, repl, ❌ migrations, serialization, ORM
+* UI: styling, pagination, search
+🏡 intermediate - ✅ migrations, auth, env (✅ config, ✅ Docker)
+🥕 basic - CRUD (✅ ORM, ✅ serialization, seed) UI (styling, search, pagination) CQ (✅ testing, hooks)
 
 SEMANTICS
 * _comment engine_: https://github.com/umputun/remark42 or just use a repo https://lists.sr.ht/~skeeto
@@ -90,10 +40,40 @@ SEMANTICS
 * _mirroring_: http://www.postfix.org/mirror.html
 * _platform engineering_: devops but w/ the word 'engineering' at the end https://softwareengineeringdaily.com/2020/02/13/setting-the-stage-for-platform-engineering/
 * https://sre.google/sre-book/table-of-contents/ definition of production readiness https://www.thoughtworks.com/radar/techniques?blipid=202203026
-https://news.ycombinator.com/item?id=32319147
-https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/videos
+* https://news.ycombinator.com/item?id=32319147
+* https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/videos
 
-rf
+ZA
+* https://blog.pecar.me/faster-api
+* https://roadmap.sh/backend
+* https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/videos
+https://www.youtube.com/playlist?list=PL8hP5HjAnJ3_mT7IHXjlbpYX_xiz4v_kP
+* Google SRE https://sre.google/sre-book/table-of-contents/
+* db per tentant https://news.ycombinator.com/item?id=39004963
+* db per user https://news.ycombinator.com/item?id=38171322
+* https://maheshba.bitbucket.io/blog/2023/07/12/Design.html
+* https://read.engineerscodex.com/p/how-instagram-scaled-to-14-million
+* race condition https://portswigger.net/research/smashing-the-state-machine
+* state machine, audit https://blog.lawrencejones.dev/state-machines/ https://www.youtube.com/watch?v=YSUxLRlTzZ4
+* cellular https://news.ycombinator.com/item?id=37274871
+* https://news.ycombinator.com/item?id=36208420
+* https://github.com/karanpratapsingh/system-design
+* https://davidvujic.blogspot.com/2023/08/kafka-messaging-with-python-and-polylith.html
+* https://www.youtube.com/watch?v=rIt0uj8TaKg
+* incentives https://news.ycombinator.com/item?id=36380711&utm_term=comment
+* https://www.benkuhn.net/progessays/
+* 🗄 notebook 23.01.11
+* do with the Golang microservices book https://news.ycombinator.com/item?id=34572263
+* https://news.ycombinator.com/item?id=34612919
+* https://www.youtube.com/@AsliEngineering/videos
+* things you need in an app https://www.amazon.com/Become-Awesome-Software-Architect-Foundation/dp/1697271065
+* Heroku clone https://www.youtube.com/watch?v=zhJLVFR3pE8
+* Netflix clone https://www.youtube.com/watch?v=gbyYXgiSgdM
+* Facebook clone https://www.youtube.com/watch?v=xSUm6iMtREA
+* PagerDuty clone https://www.youtube.com/watch?v=4xuBT3BbsYU alerts https://github.com/keephq/keep
+* course on microservices https://www.youtube.com/watch?v=hmkF77F9TLw https://www.youtube.com/watch?v=NVvIpqmf_Xc
+* https://brooker.co.za/blog/
+* https://runninginproduction.com/podcast/
 * db https://news.ycombinator.com/item?id=34434025
 * soft delete https://news.ycombinator.com/item?id=32156009 https://brandur.org/soft-deletion https://brandur.org/fragments/deleted-record-insert
 * https://www.youtube.com/watch?v=Y-Gl4HEyeUQ
@@ -143,72 +123,29 @@ rf
 * `language.md` design
 * `science.md` complexity
 
-SERVERLESS
-* types: FaaS (Lambda) cloud SQL (BigQuery) ITTT (Zapier) msg (Twilio)
-* start: warm (run code) cold (download code, start container, bootstrap runtime, run code) https://www.youtube.com/watch?v=NhDYbskXRgc [1:12:30]
-* costs more and runs slower https://einaregilsson.com/serverless-15-percent-slower-and-eight-times-more-expensive/
-* saves on devops labor costs https://news.ycombinator.com/item?id=21046547
-* bad for local dev https://twitter.com/dvassallo/status/1154516910265884672 
-* testing https://buddy.works/tutorials/integration-testing-for-aws-lambda-in-go-with-docker-compose
-
 ---
 
-BAKED DATA
-* _baked data_: data embedded as static asset https://simonwillison.net/2020/Dec/13/datasette-io/ https://news.ycombinator.com/item?id=28015980 https://postlight.com/insights/big-data-small-effort
-* bc full stack SQL doesn't work https://news.ycombinator.com/item?id=26822884 https://simonwillison.net/2021/Jul/28/baked-data/
-* aka flat data https://news.ycombinator.com/item?id=27197950
-* sql.js https://github.com/sql-js/sql.js/ https://selectstarsql.com/frontmatter.html#technicals https://jvns.ca/blog/2019/09/30/notes-on-building-sql-exercises/ https://news.ycombinator.com/item?id=27016630
-* query SQLite over HTTP https://github.com/psanford/sqlite3vfshttp
-* with pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/
+KLEPPMANN
+* _reliability_: works even if hw/sw failure [6]
+* _scalability_: able to deal w/ growth (data, traffic, complexity)
+* _maintainability_: other devs able to work on system
+> it is well know that the majority of the cost of software is not in its intial development, but its ongoing maintenance [Kleppmann 18] https://www.jefftk.com/p/designing-low-upkeep-software
+* _db on 1 machine_: requires planned downtime [8]
+* _db on n machines_: can do rolling upgrade [8]
+* _n db_:
+* _things that can go wrong_: runaway process (consuming too much memory) [8] unresponsive downstream service [9] operator error [9]
+* _how to prevent things going wrong_: testing https://danluu.com/why-benchmark/ easy rollback, monitoring
+* _fan out_: num of req to other services to handle one incoming req [11]
+📍 need to review SQL of Twitter example
+* _evolvability_: ability to change different parts of system independently [Kleppmann 4.128]
 
-STATIC SITES, JAMSTACK
-* _static site_: content not generated on the fly i.e. no db/server interaction https://wsvincent.com/static-vs-dynamic-a-question-of-layers/
-* generators https://github.com/ehouse/kackle https://www.youtube.com/watch?v=ShBD5v6YoNw
-* _JAMstack_: static site + APIs
-* = dynamism via APIs instead of db https://wsvincent.com/what-is-a-static-site-generator/
-* advantages: speed (everything on CDN) security (no db) ++ good for SEO? https://immutablewebapps.org
-* 📍 clean up --> https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/ apparently good for SEO as well Netlify, Gridsome https://redwoodjs.com/ deployment on Zeit, Netlify https://softwareengineeringdaily.com/2020/04/30/jamstack-content-management-with-scott-gallant-jordan-patterson-and-nolan-phillips/ 15:00 https://hacks.mozilla.org/2020/10/mdn-web-docs-evolves-lowdown-on-the-upcoming-new-platform  what it means for backend dev https://www.youtube.com/watch?v=Z2JK7SS82wE https://www.youtube.com/watch?v=grSxHfGoaeg https://scotch.io/@sw-yx/python-the-jamstack
-
-MONOLITH/DB/CDN
-> It is well-known that the majority of the cost of software is not in its initial development, but in its ongoing maintenance [Kleppmann 24] Vinsel, Innovation Delusion
-> Scaling for many web applications is typically bottlenecked by the database, not the web workers. - https://pythonspeed.com/articles/dont-need-kubernetes/ https://stribny.name/blog/2020/07/scaling-relational-sql-databases
-> Build a monolith with copious amounts of telemetry. Use a RDBMS. Use a CDN. Let your telemetry guide you on how to scale, cache, or split your workloads. Don't hire people who want to boil the ocean. https://news.ycombinator.com/item?id=25037628
-* just use one big db https://news.ycombinator.com/item?id=31084147
-* _vertical scaling_: get faster drives for db
-> I am always puzzled about this "autoscale" thing on a cloud. If your task can be represented as something like calculate sum of some ginormous array then sure. Split array in parts and launch thousand instances each working on it's own slice and then combine. In way more common situation you have a service hitting database and doing something with it. Sure you can spin a thousand instances of said service. But they will all be hitting the same database. - https://news.ycombinator.com/item?id=21741870
-* _horizontal scaling_: shard https://www.youtube.com/watch?v=7v-wrJjcg4k until recently you waited as long as you could on this 📙 Kleppmann 1.18
-> horizontal-scaling is often based on the partitioning of the data i.e. each node contains only part of the data, in vertical-scaling the data resides on a single node and scaling is done through multi-core i.e. spreading the load between the CPU and RAM resources of that machine. With horizontal-scaling it is often easier to scale dynamically by adding more machines into the existing pool - Vertical-scaling is often limited to the capacity of a single machine, scaling beyond that capacity often involves downtime and comes with an upper limit. - https://stackoverflow.com/a/11715598/6813490
-
-NO CODE
-* _retool_: https://retool.com/ https://www.youtube.com/watch?v=4xuBT3BbsYU https://www.youtube.com/watch?v=ChTGbmR2NeM
-* wrap and connect APIs https://softwareengineeringdaily.com/2019/12/19/no-code-with-shawn-wang/ aka workflow automation https://github.com/n8n-io/n8n https://news.ycombinator.com/item?id=24648960
-* _automatisch_: Zapier alternative https://github.com/automatisch/automatisch https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
-* _Zapier_ https://softwareengineeringdaily.com/2020/02/27/makerpad-low-code-tools-with-ben-tossell/ https://softwareengineeringdaily.com/2020/02/26/parabola-no-code-data-workflows-with-alex-yaseen/
-* Honey Comb https://news.ycombinator.com/item?id=23633110 https://www.alexhudson.com/2020/01/13/the-no-code-delusion/ https://www.makerpad.co/ WebFlow https://news.ycombinator.com/item?id=27421408
-* https://news.ycombinator.com/item?id=28984955
-
-WEB APP CHECKLIST
-* env: config, Docker, ❌ auth
-* CQ: testing, hooks
-* data: seed, repl, ❌ migrations, serialization, ORM
-* UI: styling, pagination, search
-🏡 intermediate - ✅ migrations, auth, env (✅ config, ✅ Docker)
-🥕 basic - CRUD (✅ ORM, ✅ serialization, seed) UI (styling, search, pagination) CQ (✅ testing, hooks)
-
-options https://drewdevault.com/2020/09/20/The-potential-of-federation.html
-* _centralized_: you own all the servers
-* _peer to peer (p2p)_: you only own your serverr
-* _federation_: servers work together but not p2p https://lwn.net/Articles/687294/ https://github.com/mastodon/mastodon
-
-taxonomy
+TAXONOMY
 * _monolith_: single service, single data store https://news.ycombinator.com/item?id=24505467
 * _SOA (service oriented)_: n services, n data stores
 * _DOA (data oriented)_: n services, single data store https://blog.eyas.sh/2020/03/data-oriented-architecture/ https://changelog.com/podcast/522
 
----
-
+ZA
 * layered architecture https://blog.europython.eu/kraken-technologies-how-we-organize-our-very-large-pythonmonolith/
-* event-driven https://encore.dev/blog/event-driven-architecture
 * beware theologians https://news.ycombinator.com/item?id=26492798
 * _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749
 * _resiliency_: perform job through failure https://leanpub.com/systemdesignmanual/read_sample
@@ -229,61 +166,33 @@ taxonomy
 * _fault domain_: components sharing SPoF https://lethain.com/fault-domains/
 * _sink_: https://martinfowler.com/architecture/ https://engineering.videoblocks.com/web-architecture-101-a3224e126947
 
-Kleppmann
-* _reliability_: works even if hw/sw failure [6]
-* _scalability_: able to deal w/ growth (data, traffic, complexity)
-* _maintainability_: other devs able to work on system
-> it is well know that the majority of the cost of software is not in its intial development, but its ongoing maintenance [Kleppmann 18] https://www.jefftk.com/p/designing-low-upkeep-software
-* _db on 1 machine_: requires planned downtime [8]
-* _db on n machines_: can do rolling upgrade [8]
-* _n db_:
-* _things that can go wrong_: runaway process (consuming too much memory) [8] unresponsive downstream service [9] operator error [9]
-* _how to prevent things going wrong_: testing https://danluu.com/why-benchmark/ easy rollback, monitoring
-* _fan out_: num of req to other services to handle one incoming req [11]
-📍 need to review SQL of Twitter example
-* _evolvability_: ability to change different parts of system independently [Kleppmann 4.128]
+## baked data
 
-* _bikeshedding_: aka yak shaving https://jsonapi.org/ http://bikeshed.org/ https://drewdevault.com/2020/08/17/Engineers-solve-problems.html
+* _baked data_: data embedded as static asset https://simonwillison.net/2020/Dec/13/datasette-io/ https://news.ycombinator.com/item?id=28015980 https://postlight.com/insights/big-data-small-effort
+* bc full stack SQL doesn't work https://news.ycombinator.com/item?id=26822884 https://simonwillison.net/2021/Jul/28/baked-data/
+* aka flat data https://news.ycombinator.com/item?id=27197950
+* sql.js https://github.com/sql-js/sql.js/ https://selectstarsql.com/frontmatter.html#technicals https://jvns.ca/blog/2019/09/30/notes-on-building-sql-exercises/ https://news.ycombinator.com/item?id=27016630
+* query SQLite over HTTP https://github.com/psanford/sqlite3vfshttp
+* with pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/
 
-depends on use case
-> Some applications where you would consider ditching Django to shave off some latency are: a stock trading marketplace; an global online advertisement serving network; a low level infrastructure control API - https://mattsegal.dev/is-django-too-slow.html
->  Forget that all these things exist: Microservices, Lambda, API Gateway, Containers, Kubernetes, Docker. Anything whose main value proposition is about “ability to scale” will likely trade off your "ability to be agile & survive". That’s rarely a good trade off. Start with a t3.nano EC2 instance, and do all your testing & staging on it. It only costs $3.80/mo. Then before you launch, use something bigger for prod, maybe an m5.large (2 vCPU & 8 GB mem). It’s $70/mo and can easily serve 1 million page views per day. - https://twitter.com/dvassallo/status/1154516910265884672
+## event-driven 
 
-Getting Real
-> don't waste time on problems you don't have yet - page 42
-> We ran Basecamp on a single server for the first year...most of the problems we feared weren't that big of a deal to customers. As long as you keep people in the loop, and are honest about the situation, they'll understand. - page 44
-> The bigger problem isn't scaling, it's getting to the point where you have to scale. - page 45
+* https://news.ycombinator.com/item?id=40723302
+* https://encore.dev/blog/event-driven-architecture
+* https://news.ycombinator.com/item?id=40619521
 
-* listen to Knuth -> fast code matters less than you think https://www.youtube.com/watch?v=PhUb7y9WZGs
-> We should forget about small efficiencies, say about 97% of the time; premature optimization is the root of all evil. - Donald Knuth
-* write code that's easy to throw away
-> Write code to be changed and/or deleted. This comes from someone who's worked in startups for the past 5 years. We often overestimate how long code =is supposed to live. We as programmers often exaggerate with our DRY and stuff, we do not want to repeat ourselves, we want to find another abstraction...we want to find some general that can help us abstract stuff away. My piece of advice is that, step back and consider for a moment that this code is not going to stay in, so maybe only try and find the abstraction layer once you really sure that this is how it's going to be. - Thorsten Ball https://developeronfire.com/podcast/episode-373-thorsten-ball-interpreters-compilers-and-writing
-> To be attractive to hackers, a language must be good for writing the kinds of programs they want to write. And that means, perhaps surprisingly, that it has to be good for writing throwaway programs. - http://paulgraham.com/popular.html
-* don't cargo cult 'best practices'
-> Sophisticated design principles can make your code faster, more flexible, more modular, and all of the other positive adjectives that people use to describe high-quality software. But they also make it more complex. `AbstractSyntaxRenderers` and `DoubleBackflipDatabaseTransmogrophiers` do make some programs clearer and easier to understand, especially large ones. But they can also be the equivalent of using a metrics-oriented, fully agile, stakeholder-prioritized development flow for working on a jigsaw puzzle with your dad. Sure you’re following best practices, but you probably didn’t need to, and now your dad thinks you’re a Scientologist. - https://robertheaton.com/2018/12/02/programming-project-5-snake/
-* wait for shared concerns to emerge -> repeat yourself until you find the right abstraction https://programmingisterrible.com/post/176657481103/repeat-yourself-do-more-than-one-thing-and
-> There seemed to be a tendency to extract tiny packages first instead of waiting for a shared concern to emerge from the code and only then extracting a package. https://commandercoriander.net/blog/2017/12/31/writing-go/
-> The problem with always using an abstraction is that you’re preemptively guessing which parts of the codebase need to change together. “Don’t Repeat Yourself” will lead to a rigid, tightly coupled mess of code. Repeating yourself is the best way to discover which abstractions, if any, you actually need.
+## jamstack
 
-## KISS
-
-* aka transitional architecture https://www.thoughtworks.com/radar/techniques?blipid=202203071
-> But the cultural tides are strong. Building a company on Django in 2020 seems like the equivalent of driving a PT Cruiser and blasting Faith Hill’s “Breathe” on a CD while your friends are listening to The Weeknd in their Teslas. Swimming against this current isn’t easy, and not in a trendy contrarian way. https://macwright.com/2020/05/10/spa-fatigue.html
-* https://martinfowler.com/bliki/Yagni.html https://www.jefftk.com/p/designing-low-upkeep-software
-* https://thorstenball.com/blog/2020/09/15/the-context-in-which-we-build-software/
-* https://news.ycombinator.com/item?id=26071906
-* boring tech has well-understood failure modes https://news.ycombinator.com/item?id=23444594 https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
-* https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
-* https://josephg.com/blog/databases-have-failed-the-web/
-* https://twitter.com/b0rk/status/1229860328139296768
-* https://wizardzines.com/about/
-* https://blog.cerebralab.com/Imaginary_Problems_Are_the_Root_of_Bad_Software https://blog.cerebralab.com/Stop_future_proofing_software
-* https://blog.cerebralab.com/Bimodal_programming_%E2%80%93_why_design_patterns_fail
-* Hickey simple made easy https://news.ycombinator.com/item?id=38433358 https://www.youtube.com/watch?v=LKtk3HCgTa8 data is not easy https://grishaev.me/en/ddd-lie
-* https://www.benkuhn.net/progessays/
-* one dev's edge cases are another's entire project 📙 Kleppmann 491
+* _static site_: content not generated on the fly i.e. no db/server interaction https://wsvincent.com/static-vs-dynamic-a-question-of-layers/
+* generators https://github.com/ehouse/kackle https://www.youtube.com/watch?v=ShBD5v6YoNw
+* _JAMstack_: static site + APIs
+* = dynamism via APIs instead of db https://wsvincent.com/what-is-a-static-site-generator/
+* advantages: speed (everything on CDN) security (no db) ++ good for SEO? https://immutablewebapps.org
+* 📍 clean up --> https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/ apparently good for SEO as well Netlify, Gridsome https://redwoodjs.com/ deployment on Zeit, Netlify https://softwareengineeringdaily.com/2020/04/30/jamstack-content-management-with-scott-gallant-jordan-patterson-and-nolan-phillips/ 15:00 https://hacks.mozilla.org/2020/10/mdn-web-docs-evolves-lowdown-on-the-upcoming-new-platform  what it means for backend dev https://www.youtube.com/watch?v=Z2JK7SS82wE https://www.youtube.com/watch?v=grSxHfGoaeg https://scotch.io/@sw-yx/python-the-jamstack
 
 ## microservices
+
+> Microservices, while often sold as solving a technical problem, usually actually solve for a human problem in scaling up an organization. There's two technical problems that microservices purport to solve: modularization (separation of concerns, hiding implementation, document interface and all that good stuff) and scalability (being able to increase the amount of compute, memory and IO to the specific modules that need it). The first problem, modules, can be solved at the language level. Modules can do that job, and that's the point of this blog post. The second problem, scalability, is harder to solve at the language level in most languages outside those designed to be run in a distributed environment. But most people need it a lot less than they think. Normally the database is your bottleneck and if you keep your application server stateless, you can just run lots of them; the database can eventually be a bottleneck, but you can scale up databases a lot. The real reason that microservices may make sense is because they keep people honest around module boundaries. They make it much harder to retain access to persistent in-memory state, harder to navigate object graphs to take dependencies on things they shouldn't, harder to create PRs with complex changes on either side of a module boundary without a conversation about designing for change and future proofing. Code ownership by teams is something you need as an organization scales, if only to reduce the amount of context switching that developers need to do if treated as fully fungible; owning a service is more defensible than owning a module, since the team will own release schedules and quality gating. I'm not so positive on every microservice maintaining its own copy of state, potentially with its own separate data store. I think that usually adds more ongoing complexity in synchronization than it saves by isolating schemas. A better rule is for one service to own writes for a table, and other services can only read that table, and maybe even then not all columns or all non-owned tables. Problems with state synchronization are one of the most common failure modes in distributed applications, where queues get backed up, retries of "bad" events cause blockages and so on. https://news.ycombinator.com/item?id=34231020
 
 * https://github.com/micro/micro
 * = distributed monolith, modularity https://news.ycombinator.com/item?id=31727453
@@ -299,6 +208,70 @@ Getting Real
 * _benefits_: devs (specialization, experimentation) ergonomics (easier to grok)
 * _drawbacks_: no joins (favor document db) outside single process (slower, flaky network) devs (easy code, complex infrastructure) hard to integration test https://aadrake.com/posts/2017-05-20-enough-with-the-microservices.html https://thoughtbot.com/blog/services-are-not-a-silver-bullet
 * _communcation_: mq, pub-sub, RPC/REST https://testdriven.io/courses/microservices-with-docker-flask-and-react/part-one-microservices/
+
+## monolith
+
+---
+
+* _bikeshedding_: aka yak shaving https://jsonapi.org/ http://bikeshed.org/ https://drewdevault.com/2020/08/17/Engineers-solve-problems.html
+> Some applications where you would consider ditching Django to shave off some latency are: a stock trading marketplace; an global online advertisement serving network; a low level infrastructure control API - https://mattsegal.dev/is-django-too-slow.html
+> Forget that all these things exist: Microservices, Lambda, API Gateway, Containers, Kubernetes, Docker. Anything whose main value proposition is about “ability to scale” will likely trade off your "ability to be agile & survive". That’s rarely a good trade off. Start with a t3.nano EC2 instance, and do all your testing & staging on it. It only costs $3.80/mo. Then before you launch, use something bigger for prod, maybe an m5.large (2 vCPU & 8 GB mem). It’s $70/mo and can easily serve 1 million page views per day. - https://twitter.com/dvassallo/status/1154516910265884672
+> don't waste time on problems you don't have yet 📙 Getting Real [42]
+> The bigger problem isn't scaling, it's getting to the point where you have to scale. 📙 Getting Real [42]
+> It is well-known that the majority of the cost of software is not in its initial development, but in its ongoing maintenance [Kleppmann 24] Vinsel, Innovation Delusion
+> Scaling for many web applications is typically bottlenecked by the database, not the web workers. - https://pythonspeed.com/articles/dont-need-kubernetes/ https://stribny.name/blog/2020/07/scaling-relational-sql-databases
+> Build a monolith with copious amounts of telemetry. Use a RDBMS. Use a CDN. Let your telemetry guide you on how to scale, cache, or split your workloads. Don't hire people who want to boil the ocean. https://news.ycombinator.com/item?id=25037628
+* just use one big db https://news.ycombinator.com/item?id=31084147
+* _vertical scaling_: get faster drives for db
+> I am always puzzled about this "autoscale" thing on a cloud. If your task can be represented as something like calculate sum of some ginormous array then sure. Split array in parts and launch thousand instances each working on it's own slice and then combine. In way more common situation you have a service hitting database and doing something with it. Sure you can spin a thousand instances of said service. But they will all be hitting the same database. - https://news.ycombinator.com/item?id=21741870
+* _horizontal scaling_: shard https://www.youtube.com/watch?v=7v-wrJjcg4k until recently you waited as long as you could on this 📙 Kleppmann 1.18
+> horizontal-scaling is often based on the partitioning of the data i.e. each node contains only part of the data, in vertical-scaling the data resides on a single node and scaling is done through multi-core i.e. spreading the load between the CPU and RAM resources of that machine. With horizontal-scaling it is often easier to scale dynamically by adding more machines into the existing pool - Vertical-scaling is often limited to the capacity of a single machine, scaling beyond that capacity often involves downtime and comes with an upper limit. - https://stackoverflow.com/a/11715598/6813490
+
+KISS
+* aka transitional architecture https://www.thoughtworks.com/radar/techniques?blipid=202203071
+> But the cultural tides are strong. Building a company on Django in 2020 seems like the equivalent of driving a PT Cruiser and blasting Faith Hill’s “Breathe” on a CD while your friends are listening to The Weeknd in their Teslas. Swimming against this current isn’t easy, and not in a trendy contrarian way. https://macwright.com/2020/05/10/spa-fatigue.html
+* https://martinfowler.com/bliki/Yagni.html https://www.jefftk.com/p/designing-low-upkeep-software
+* https://thorstenball.com/blog/2020/09/15/the-context-in-which-we-build-software/
+* https://news.ycombinator.com/item?id=26071906
+* boring tech has well-understood failure modes https://news.ycombinator.com/item?id=23444594 https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
+* https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
+* https://josephg.com/blog/databases-have-failed-the-web/
+* https://twitter.com/b0rk/status/1229860328139296768
+* https://wizardzines.com/about/
+* https://blog.cerebralab.com/Imaginary_Problems_Are_the_Root_of_Bad_Software https://blog.cerebralab.com/Stop_future_proofing_software
+* https://blog.cerebralab.com/Bimodal_programming_%E2%80%93_why_design_patterns_fail
+* Hickey simple made easy https://news.ycombinator.com/item?id=38433358 https://www.youtube.com/watch?v=LKtk3HCgTa8 data is not easy https://grishaev.me/en/ddd-lie
+* https://www.benkuhn.net/progessays/
+* one dev's edge cases are another's entire project 📙 Kleppmann 491
+* listen to Knuth -> fast code matters less than you think https://www.youtube.com/watch?v=PhUb7y9WZGs
+> We should forget about small efficiencies, say about 97% of the time; premature optimization is the root of all evil. - Donald Knuth
+* write code that's easy to throw away
+> Write code to be changed and/or deleted. This comes from someone who's worked in startups for the past 5 years. We often overestimate how long code =is supposed to live. We as programmers often exaggerate with our DRY and stuff, we do not want to repeat ourselves, we want to find another abstraction...we want to find some general that can help us abstract stuff away. My piece of advice is that, step back and consider for a moment that this code is not going to stay in, so maybe only try and find the abstraction layer once you really sure that this is how it's going to be. - Thorsten Ball https://developeronfire.com/podcast/episode-373-thorsten-ball-interpreters-compilers-and-writing
+> To be attractive to hackers, a language must be good for writing the kinds of programs they want to write. And that means, perhaps surprisingly, that it has to be good for writing throwaway programs. - http://paulgraham.com/popular.html
+* don't cargo cult 'best practices'
+> Sophisticated design principles can make your code faster, more flexible, more modular, and all of the other positive adjectives that people use to describe high-quality software. But they also make it more complex. `AbstractSyntaxRenderers` and `DoubleBackflipDatabaseTransmogrophiers` do make some programs clearer and easier to understand, especially large ones. But they can also be the equivalent of using a metrics-oriented, fully agile, stakeholder-prioritized development flow for working on a jigsaw puzzle with your dad. Sure you’re following best practices, but you probably didn’t need to, and now your dad thinks you’re a Scientologist. - https://robertheaton.com/2018/12/02/programming-project-5-snake/
+* wait for shared concerns to emerge -> repeat yourself until you find the right abstraction https://programmingisterrible.com/post/176657481103/repeat-yourself-do-more-than-one-thing-and
+> There seemed to be a tendency to extract tiny packages first instead of waiting for a shared concern to emerge from the code and only then extracting a package. https://commandercoriander.net/blog/2017/12/31/writing-go/
+> The problem with always using an abstraction is that you’re preemptively guessing which parts of the codebase need to change together. “Don’t Repeat Yourself” will lead to a rigid, tightly coupled mess of code. Repeating yourself is the best way to discover which abstractions, if any, you actually need.
+> Beware of arguments related to programming speed. All things being equal, faster is better. But all things are never equal. Do you need the kind of speed that lets you get a website up and running quickly? Or the kind that allows you to rotate a few thousand polygons in 3D in real time? Do you need to convert 10,000 PDFs into text per hour? Or 10 million PDFs into text once? These are different problems. - Ford what is code?
+
+## no code
+
+* _retool_: https://retool.com/ https://www.youtube.com/watch?v=4xuBT3BbsYU https://www.youtube.com/watch?v=ChTGbmR2NeM
+* wrap and connect APIs https://softwareengineeringdaily.com/2019/12/19/no-code-with-shawn-wang/ aka workflow automation https://github.com/n8n-io/n8n https://news.ycombinator.com/item?id=24648960
+* _automatisch_: Zapier alternative https://github.com/automatisch/automatisch https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
+* _Zapier_ https://softwareengineeringdaily.com/2020/02/27/makerpad-low-code-tools-with-ben-tossell/ https://softwareengineeringdaily.com/2020/02/26/parabola-no-code-data-workflows-with-alex-yaseen/
+* Honey Comb https://news.ycombinator.com/item?id=23633110 https://www.alexhudson.com/2020/01/13/the-no-code-delusion/ https://www.makerpad.co/ WebFlow https://news.ycombinator.com/item?id=27421408
+* https://news.ycombinator.com/item?id=28984955
+
+## serverless
+
+* types: FaaS (Lambda) cloud SQL (BigQuery) ITTT (Zapier) msg (Twilio)
+* start: warm (run code) cold (download code, start container, bootstrap runtime, run code) https://www.youtube.com/watch?v=NhDYbskXRgc [1:12:30]
+* costs more and runs slower https://einaregilsson.com/serverless-15-percent-slower-and-eight-times-more-expensive/
+* saves on devops labor costs https://news.ycombinator.com/item?id=21046547
+* bad for local dev https://twitter.com/dvassallo/status/1154516910265884672 
+* testing https://buddy.works/tutorials/integration-testing-for-aws-lambda-in-go-with-docker-compose
 
 ## streaming
 
@@ -368,6 +341,11 @@ end
 > What happens when you want to serve customers in one market, and make sure that their data stays local for regulatory compliance reasons or latency? Are you OK with having separate databases? Distribution isn't only about scale, it's also about locality.
 * mesh, service weaver https://serviceweaver.dev/blog/quick_intro.html
 
+https://drewdevault.com/2020/09/20/The-potential-of-federation.html
+* _centralized_: you own all the servers
+* _peer to peer (p2p)_: you only own your serverr
+* _federation_: servers work together but not p2p https://lwn.net/Articles/687294/ https://github.com/mastodon/mastodon
+
 za
 * _Jepsen analysis_: standard safety in distributed/transactional systems https://news.ycombinator.com/item?id=8385970 https://news.ycombinator.com/item?id=26645654 https://www.micahlerner.com/2021/06/12/foundationdb-a-distributed-unbundled-transactional-key-value-store.html
 * _GFS (Google File System)_: https://www.micahlerner.com/2020/03/22/understanding-googles-file-system.html
@@ -425,7 +403,7 @@ Raft https://raft.github.io/
 
 📙 Kleppmann ch. 5-6
 🗄
-* `db.md` backup, Mongo
+* `databases.md` data eng
 * `sql.md` migrations
 
 https://github.com/zknill/sqledge
@@ -459,7 +437,7 @@ PARTITION
 
 * https://news.ycombinator.com/item?id=30767393
 
-blockchain
+BLOCKCHAIN
 > Blockchains are special computers that anyone can access but no one owns. https://twitter.com/cdixon/status/1442201642338643969
 * https://cdixon.org/2018/02/18/why-decentralization-matters
 * ethereum https://github.com/smartcontracts/eth2-book
@@ -515,6 +493,7 @@ ZOOKEEPER https://www.youtube.com/watch?v=Vv4HpLfqAz4
 
 ---
 
+https://hakibenita.com/django-nested-transaction
 * https://jepsen.io/analyses/mysql-8.0.34
 https://sqlfordevs.com/transaction-locking-prevent-race-condition
 
