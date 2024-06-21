@@ -7,6 +7,239 @@
 * _24_: split from `python.md`
 * _19_: pipx and Poetry
 
+# 📺 FEEDBACK
+
+📙 Van Rossum ch. 2, 14
+🗄
+* `databases.md` tooling
+* `education.md` design
+
+TAXONOMY https://en.wikipedia.org/wiki/Exploratory_programming
+* _REPL_: interface to interpreter + prompt https://docs.python.org/3/glossary.html#term-interactive https://docs.python.org/3/tutorial/interpreter.html#interactive-mode
+* Codi = REPL running async as you type https://github.com/metakirby5/codi.vim https://www.youtube.com/watch?v=tLQmGabfXHU
+* db CLI = REPL to db 🗄️ `databases.md` CLI
+* _object explorer_: REPL + autocomplete print docstrings https://github.com/darrenburns/shira
+* _debugger_: REPL + running program state
+* _notebook_: REPL + persistent data e.g. Jupyter
+* _spreadsheet_: proprietary notebook https://www.youtube.com/watch?v=llgTl9BDuKw
+
+## debugger (pdb)
+
+🗄 iPython
+📙 Beazley ch. 14
+📜
+* `help pdb`
+* https://docs.python.org/3/library/pdb.html
+* https://docs.python.org/3/library/debug.html https://www.debuggingbook.org/
+
+CONTEXT
+* `a`: func args
+* `p <obj>`: print obj https://docs.python.org/3/library/pdb.html#pdbcommand-p 🗄 `.pdbrc`
+* `i <obj>`: print obj attr 🗄 `.pdbrc`
+* `loc`: print obj in scope 🗄 `.pdbrc`
+* `pp <expresion>`: same but pprint
+* `__return__`: view return val from function https://stackoverflow.com/a/18674516
+* `whatis`: = `type()`
+* `interact`: start REPL w/ local var in context
+> how to exit REPL w/ out exit pdb? -> `!` run new code
+
+CONTROL FLOW
+* _step in_: `s` = enter func at current line
+* _step over_: `n` = execute func at current line or exit current func
+* _step out_: `r` = exec to end of current func
+* `c`: continue exec to completion (or next breakpoint)
+* `until <LOC>`: exit loop and jump to LOC https://docs.python.org/3/library/pdb.html?highlight=until#pdbcommand-until https://stackoverflow.com/a/61151333
+* next iteration in loop: breakpoint inside loop + `c` https://stackoverflow.com/a/28414891
+
+PAGING
+* _list point (lp)_: LOC to list around
+* != current LOC, != breakpoint
+* ❓ lp follows current LOC as determined by control flow cmd?
+* `l`: list n LOC from lp and then mv lp (hence `l .` to reset)
+* `l .`: reset lp to current LOC https://stackoverflow.com/a/23064293
+* doens't work on 2.7
+* `ll`: list page at list point
+* `w`: location in call stack
+```python
+# list src after navigation cmd
+# = pdbpp 'sticky mode' https://github.com/pdbpp/pdbpp#sticky-mode
+alias n n;;l
+alias r r;;l
+```
+
+EXEC
+```sh
+# RUN FROM REPL
+import pdb
+import ur_script
+script.div(6, 0)            # throws err
+pdb.pm()                    # post-mortem mode
+
+# RUN FROM SHELL
+python3 -m pdb mymodule.py  # starts in pdb https://www.youtube.com/watch?v=P0pIW5tJrRM 2:50
+python -i script.py         # interactive; `python --help` -> "inspect interactively after running script"
+python -m pdb -c continue myscript.py  # https://stackoverflow.com/a/2438834/6813490
+```
+
+---
+
+ALTERNATIVES
+* _pudb_: 🎯 https://github.com/inducer/pudb https://realpython.com/python-packages/#pudb-for-visual-debugging
+* _ipdb_: 🎯 https://stackoverflow.com/a/15976544/6813490 https://adamj.eu/tech/2021/02/21/improve-your-django-experience-with-ipython/
+* _bdb_: level down from pdb https://stackoverflow.com/a/10302538/6813490
+* _gdb_: deep bad things https://wiki.python.org/moin/DebuggingWithGdb
+* `print()`: if you don't know how to use a debugger https://twitter.com/raymondh/status/1266668437020897280 https://github.com/gruns/icecream https://github.com/cool-RR/PySnooper
+> It takes less time to decide where to put print statements than to single-step to the critical section of code https://news.ycombinator.com/item?id=26928696
+* _pdb++_: 🎯 https://github.com/pdbpp/pdbpp
+* main reason to use seem to be syntax highlighting and tab completion https://github.com/pdbpp/pdbpp#what-is-it
+* pytest workaround https://github.com/pdbpp/pdbpp/issues/392 https://github.com/zachvalenta/algos/blob/master/Makefile#L43
+* overrides pdb breakpoint https://github.com/pdbpp/pdbpp/issues/281
+* `track`: (requires pypy)
+* `display`: (couldn't figure out how this worked first time around)
+
+BYO https://www.timdbg.com/posts/writing-a-debugger-from-scratch-part-5/
+https://werat.dev/blog/what-a-good-debugger-can-do/
+https://github.com/cansarigol/pdbr
+
+todo
+* `h`
+* `r`
+* `u / d`
+* `interact`
+
+config
+* `.pdbrc`: `$HOME` is default file location https://docs.python.org/3/library/pdb.html?highlight=pdbrc#debugger-commands
+> should be sources if present in $CWD but so far only sourced if in $HOME https://docs.python.org/3/library/pdb.html?highlight=pdbrc#debugger-commands
+* aliases https://docs.python.org/3.2/library/pdb.html#pdbcommand-alias
+* comments https://nedbatchelder.com/blog/200704/my_pdbrc.html https://www.youtube.com/watch?v=_kCKBXtA2jQ
+* command history buggy w/ readline incompatability https://stackoverflow.com/questions/6348034/python-pdb-command-history-not-working-on-windows
+
+internals https://www.youtube.com/watch?v=QU158nGABxI
+* `settrace` registers callback on interpreter for function call, LOC executed, func return value, exceptions raised [3:45]
+```python
+def simple_tracer(frame, event):  # 4:30
+```
+* trickier with multithreading [10:00]
+* BYO w/ bdb [11:45]
+
+## notebook (Marimo)
+
+MARIMO 📻 https://github.com/marimo-team/marimo
+```bash
+poetry init -n
+poetry add marimo
+poetry run python marimo tutorial intro
+```
+
+---
+
+> alternatives: Julia Evans, Gitbook, notesbooks (Quarto https://quarto.org/ uses Pandoc)
+
+📜 https://jupyter.readthedocs.io/en/latest/index.html
+
+HISTORY
+* _iPython_: REPL + syntax highlighting, access to Bash cmd
+* _IPython Notebook_: IPython + persistence, web browser, visualizations (chart, Markdown)
+* _Jupyter_: IPython Notebook + kernels for other languages (R, F#, Java)
+* _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304
+
+INSTALL
+* Conda recommended https://jupyter.readthedocs.io/en/latest/install.html#id3
+* pip works fine https://jupyter.readthedocs.io/en/latest/install.html#alternative-for-experienced-python-users-installing-jupyter-with-pip
+* poetry worked as well http://jupyterlab.io/install.html
+
+ZA
+* `.ipynb_checkpoints`: most recent state of `<file>.ipynb` https://stackoverflow.com/a/46422176/6813490 ignore in version control https://stackoverflow.com/a/39997938/6813490
+* libraries https://github.com/twosigma/beakerx 
+* _kernel_: interpreter
+* alternatives: https://github.com/Bycelium/PyFlow in Vim https://www.maxwellrules.com/misc/nvim_jupyter.html https://livebook.dev/
+* notebooks as articles https://news.ycombinator.com/item?id=27367948 as books https://executablebooks.org/en/latest/ https://jupyterbook.org/en/stable/intro.html
+* reproducibility https://jvns.ca/blog/2017/11/12/binder--an-awesome-tool-for-hosting-jupyter-notebooks/ https://news.ycombinator.com/item?id=24943962
+* to Markdown https://github.com/mwouts/jupytext
+* alternatives https://zeppelin.apache.org/ https://github.com/ottomatica/docable-notebooks https://marimo.io/
+* design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch
+
+## REPL (iPython)
+
+IPYTHON 📜 https://ipython.readthedocs.io/en/stable/index.html
+
+---
+
+install
+```bash
+fd ipyth
+dotfiles/python/ipython_config.py
+logs/pyenv/pip/ipython.log
+logs/pyenv/pipx/ipython.log
+```
+
+🔗 https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html https://realpython.com/ipython-interactive-python-shell/
+* catpuccin for stdout https://github.com/catppuccin/python/issues/22
+
+* command
+```python
+# run iPython and debug at site of error https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/ https://stackoverflow.com/a/21508070
+from IPython import embed; embed()
+# use already running iPython to debug at site of error
+%debug
+# pretty print obj
+pp
+# paste from system clipboard
+%paste
+```
+
+* magic cmd https://jakevdp.github.io/PythonDataScienceHandbook/01.03-magic-commands.html
+* edit https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-edit
+* macro https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-macro
+* debug https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-debug
+* doc string https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-pdoc
+* profile https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-prun time https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time
+* run file https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-run
+* _line magic_: `%` operates on single line
+* list https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic
+* _cell magic_: `%%` operates on n lines
+* _automagic_: don't need prefex for line magic
+* relationship to shell https://jakevdp.github.io/PythonDataScienceHandbook/01.05-ipython-and-shell-commands.html
+* tab to view obj attr https://stackoverflow.com/q/41812447
+
+| REPL          |  FEATURES                              |
+| --------------|----------------------------------------|
+| python        | readline, history substitution         |
+| iPython       | color, ipdb, magic func                |
+| bpython       | object explorer                        |
+| ptpython      | https://realpython.com/ptpython-shell/ |
+
+BPYTHON
+* undo `CTRL r`
+* autocomplete `CTRL f/e`
+
+* install Rich globally and use with bpython https://realpython.com/python-rich-package/
+* stack trace https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
+* everything is written in rust now? https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/
+https://bernsteinbear.com/blog/simple-python-repl/
+* https://github.com/Textualize/rich https://github.com/catppuccin/python https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/ https://github.com/ChrisBuilds/terminaltexteffects
+* https://docs.python.org/3/tutorial/interpreter.html
+* https://docs.python.org/3/tutorial/interactive.html
+* https://docs.python.org/3/tutorial/appendix.html#interactive-mode
+* https://news.ycombinator.com/item?id=29947891 https://news.ycombinator.com/item?id=29947891
+> the point here is to have context and reload when you're working rapidly (script, interviewing)
+> importlib? non-breakpoint pdb modes?
+* preload: pipx inject
+> is there a way we could namespace these i.e. one for networking, for CLI dev? https://pipxproject.github.io/pipx/examples/#pipx-inject-example
+* reload src: point is to avoid continual exit/rerun https://news.ycombinator.com/item?id=23793054 https://mikelevins.github.io/posts/2020-12-18-repl-driven/
+
+INIT
+* point to init script w/ interface (`bpython -i <script>`) https://stackoverflow.com/a/14244342 https://stackoverflow.com/a/56844640 🗄 `algos`
+* set `PYTHONSTARTUP` (`export PYTHONSTARTUP='./repl.py' && poetry run bpython`) https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP
+* helpers for `locals()` on pythonpath https://stackoverflow.com/a/21961813/6813490
+* sink https://arpitbhayani.me/blogs/python-prompts https://github.com/bpython/bpython/blob/ae4a502a443e024bd82ed1a7b88adf8be2068a2c/doc/sphinx/source/django.rst https://github.com/bpython/bpython/search?q=PYTHONSTARTUP&unscoped_q=PYTHONSTARTUP https://stackoverflow.com/a/14244310 https://stackoverflow.com/a/34774703 https://stackoverflow.com/a/4289945 https://docs.bpython-interpreter.org/en/latest/django.html https://docs.djangoproject.com/en/3.0/ref/django-admin/#shell check out this lib https://github.com/sloria/konch/blob/master/konch.py
+* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged
+* history: save https://stackoverflow.com/a/33880964 readline error manifests in garbled cmd history (have only seen when setting breakpoint in Flask) https://stackoverflow.com/a/3486617
+* https://news.ycombinator.com/item?id=34865421
+* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#overcoming-gil-with-subinterpreters-and-immutability
+* JIT https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#building-a-jit-compiler-for-cpython
+* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#unlocking-the-parallel-universe-subinterpreters-and-free-threading-in-python-313
+
 # 🤖 INTERPRETER
 
 ---
@@ -617,248 +850,6 @@ poetry run flask
 * view env: `ls` --- `poetry env info`
 * list dep tree: `pipdeptree` --- poetry show --tree`
 * can install a C compiler with pip https://news.ycombinator.com/item?id=31776873
-
-# 📺 EXPLORATORY PROGRAMMING
-
-📙 Van Rossum ch. 2, 14
-🗄
-* `databases.md` tooling
-* `education.md` design
-
-* _REPL_: interface to interpreter + prompt https://docs.python.org/3/glossary.html#term-interactive https://docs.python.org/3/tutorial/interpreter.html#interactive-mode
-* Codi = REPL running async as you type https://github.com/metakirby5/codi.vim https://www.youtube.com/watch?v=tLQmGabfXHU
-* db CLI = REPL to db 🗄️ `databases.md` CLI
-* _object explorer_: REPL + autocomplete print docstrings https://github.com/darrenburns/shira
-* _debugger_: REPL + running program state
-
----
-
-* _notebook_: REPL + persistent data e.g. Jupyter
-* _spreadsheet_: proprietary notebook https://www.youtube.com/watch?v=llgTl9BDuKw
-
-* install Rich globally and use with bpython https://realpython.com/python-rich-package/
-* stack trace https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
-
-## REPL (iPython)
-
----
-
-everything is written in rust now? https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/
-https://bernsteinbear.com/blog/simple-python-repl/
-* https://github.com/Textualize/rich https://github.com/catppuccin/python https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/ https://github.com/ChrisBuilds/terminaltexteffects
-* https://docs.python.org/3/tutorial/interpreter.html
-* https://docs.python.org/3/tutorial/interactive.html
-* https://docs.python.org/3/tutorial/appendix.html#interactive-mode
-* https://news.ycombinator.com/item?id=29947891 https://news.ycombinator.com/item?id=29947891
-> the point here is to have context and reload when you're working rapidly (script, interviewing)
-> importlib? non-breakpoint pdb modes?
-* preload: pipx inject
-> is there a way we could namespace these i.e. one for networking, for CLI dev? https://pipxproject.github.io/pipx/examples/#pipx-inject-example
-* reload src: point is to avoid continual exit/rerun https://news.ycombinator.com/item?id=23793054 https://mikelevins.github.io/posts/2020-12-18-repl-driven/
-
-INIT
-* point to init script w/ interface (`bpython -i <script>`) https://stackoverflow.com/a/14244342 https://stackoverflow.com/a/56844640 🗄 `algos`
-* set `PYTHONSTARTUP` (`export PYTHONSTARTUP='./repl.py' && poetry run bpython`) https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP
-* helpers for `locals()` on pythonpath https://stackoverflow.com/a/21961813/6813490
-* sink https://arpitbhayani.me/blogs/python-prompts https://github.com/bpython/bpython/blob/ae4a502a443e024bd82ed1a7b88adf8be2068a2c/doc/sphinx/source/django.rst https://github.com/bpython/bpython/search?q=PYTHONSTARTUP&unscoped_q=PYTHONSTARTUP https://stackoverflow.com/a/14244310 https://stackoverflow.com/a/34774703 https://stackoverflow.com/a/4289945 https://docs.bpython-interpreter.org/en/latest/django.html https://docs.djangoproject.com/en/3.0/ref/django-admin/#shell check out this lib https://github.com/sloria/konch/blob/master/konch.py
-* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged
-* history: save https://stackoverflow.com/a/33880964 readline error manifests in garbled cmd history (have only seen when setting breakpoint in Flask) https://stackoverflow.com/a/3486617
-* https://news.ycombinator.com/item?id=34865421
-* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#overcoming-gil-with-subinterpreters-and-immutability
-* JIT https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#building-a-jit-compiler-for-cpython
-* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#unlocking-the-parallel-universe-subinterpreters-and-free-threading-in-python-313
-
-## iPython
-
-📜 https://ipython.readthedocs.io/en/stable/index.html
-
----
-
-| REPL          |  FEATURES                              |
-| --------------|----------------------------------------|
-| python        | readline, history substitution         |
-| iPython       | color, ipdb, magic func                |
-| bpython       | object explorer                        |
-| ptpython      | https://realpython.com/ptpython-shell/ |
-
-BPYTHON
-* undo `CTRL r`
-* autocomplete `CTRL f/e`
-
-```bash
-fd ipyth
-dotfiles/python/ipython_config.py
-logs/pyenv/pip/ipython.log
-logs/pyenv/pipx/ipython.log
-```
-
-* catpuccin for stdout https://github.com/catppuccin/python/issues/22
-
-🔗 https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html https://realpython.com/ipython-interactive-python-shell/
-
-* command
-```python
-# run iPython and debug at site of error https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/ https://stackoverflow.com/a/21508070
-from IPython import embed; embed()
-# use already running iPython to debug at site of error
-%debug
-# pretty print obj
-pp
-# paste from system clipboard
-%paste
-```
-
-* _line magic_: `%` operates on single line
-* list https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic
-* _cell magic_: `%%` operates on n lines
-* _automagic_: don't need prefex for line magic
-* relationship to shell https://jakevdp.github.io/PythonDataScienceHandbook/01.05-ipython-and-shell-commands.html
-* tab to view obj attr https://stackoverflow.com/q/41812447
-
-cmd to check out https://jakevdp.github.io/PythonDataScienceHandbook/01.03-magic-commands.html
-* edit https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-edit
-* macro https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-macro
-* debug https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-debug
-* doc string https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-pdoc
-* profile https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-prun time https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time
-* run file https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-run
-
-## notebook (Marimo)
-
-MARIMO 📻 https://github.com/marimo-team/marimo
-```bash
-poetry init -n
-poetry add marimo
-poetry run python marimo tutorial intro
-```
-
----
-
-> alternatives: Julia Evans, Gitbook, notesbooks (Quarto https://quarto.org/ uses Pandoc)
-
-📜 https://jupyter.readthedocs.io/en/latest/index.html
-
-HISTORY
-* _iPython_: REPL + syntax highlighting, access to Bash cmd
-* _IPython Notebook_: IPython + persistence, web browser, visualizations (chart, Markdown)
-* _Jupyter_: IPython Notebook + kernels for other languages (R, F#, Java)
-* _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304
-
-INSTALL
-* Conda recommended https://jupyter.readthedocs.io/en/latest/install.html#id3
-* pip works fine https://jupyter.readthedocs.io/en/latest/install.html#alternative-for-experienced-python-users-installing-jupyter-with-pip
-* poetry worked as well http://jupyterlab.io/install.html
-
-ZA
-* `.ipynb_checkpoints`: most recent state of `<file>.ipynb` https://stackoverflow.com/a/46422176/6813490 ignore in version control https://stackoverflow.com/a/39997938/6813490
-* libraries https://github.com/twosigma/beakerx 
-* _kernel_: interpreter
-* alternatives: https://github.com/Bycelium/PyFlow in Vim https://www.maxwellrules.com/misc/nvim_jupyter.html https://livebook.dev/
-* notebooks as articles https://news.ycombinator.com/item?id=27367948 as books https://executablebooks.org/en/latest/ https://jupyterbook.org/en/stable/intro.html
-* reproducibility https://jvns.ca/blog/2017/11/12/binder--an-awesome-tool-for-hosting-jupyter-notebooks/ https://news.ycombinator.com/item?id=24943962
-* to Markdown https://github.com/mwouts/jupytext
-* alternatives https://zeppelin.apache.org/ https://github.com/ottomatica/docable-notebooks https://marimo.io/
-* design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch
-
-## debugger (pdb)
-
-🗄 iPython
-📙 Beazley ch. 14
-📜
-* `help pdb`
-* https://docs.python.org/3/library/pdb.html
-* https://docs.python.org/3/library/debug.html https://www.debuggingbook.org/
-
-CONTEXT
-* `a`: func args
-* `p <obj>`: print obj https://docs.python.org/3/library/pdb.html#pdbcommand-p 🗄 `.pdbrc`
-* `i <obj>`: print obj attr 🗄 `.pdbrc`
-* `loc`: print obj in scope 🗄 `.pdbrc`
-* `pp <expresion>`: same but pprint
-* `__return__`: view return val from function https://stackoverflow.com/a/18674516
-* `whatis`: = `type()`
-* `interact`: start REPL w/ local var in context
-> how to exit REPL w/ out exit pdb? -> `!` run new code
-
-CONTROL FLOW
-* _step in_: `s` = enter func at current line
-* _step over_: `n` = execute func at current line or exit current func
-* _step out_: `r` = exec to end of current func
-* `c`: continue exec to completion (or next breakpoint)
-* `until <LOC>`: exit loop and jump to LOC https://docs.python.org/3/library/pdb.html?highlight=until#pdbcommand-until https://stackoverflow.com/a/61151333
-* next iteration in loop: breakpoint inside loop + `c` https://stackoverflow.com/a/28414891
-
-PAGING
-* _list point (lp)_: LOC to list around
-* != current LOC, != breakpoint
-* ❓ lp follows current LOC as determined by control flow cmd?
-* `l`: list n LOC from lp and then mv lp (hence `l .` to reset)
-* `l .`: reset lp to current LOC https://stackoverflow.com/a/23064293
-* doens't work on 2.7
-* `ll`: list page at list point
-* `w`: location in call stack
-```python
-# list src after navigation cmd
-# = pdbpp 'sticky mode' https://github.com/pdbpp/pdbpp#sticky-mode
-alias n n;;l
-alias r r;;l
-```
-
-EXEC
-```sh
-# RUN FROM REPL
-import pdb
-import ur_script
-script.div(6, 0)            # throws err
-pdb.pm()                    # post-mortem mode
-
-# RUN FROM SHELL
-python3 -m pdb mymodule.py  # starts in pdb https://www.youtube.com/watch?v=P0pIW5tJrRM 2:50
-python -i script.py         # interactive; `python --help` -> "inspect interactively after running script"
-python -m pdb -c continue myscript.py  # https://stackoverflow.com/a/2438834/6813490
-```
-
----
-
-BYO https://www.timdbg.com/posts/writing-a-debugger-from-scratch-part-5/
-https://werat.dev/blog/what-a-good-debugger-can-do/
-https://github.com/cansarigol/pdbr
-
-todo
-* `h`
-* `r`
-* `u / d`
-* `interact`
-
-config
-* `.pdbrc`: `$HOME` is default file location https://docs.python.org/3/library/pdb.html?highlight=pdbrc#debugger-commands
-> should be sources if present in $CWD but so far only sourced if in $HOME https://docs.python.org/3/library/pdb.html?highlight=pdbrc#debugger-commands
-* aliases https://docs.python.org/3.2/library/pdb.html#pdbcommand-alias
-* comments https://nedbatchelder.com/blog/200704/my_pdbrc.html https://www.youtube.com/watch?v=_kCKBXtA2jQ
-* command history buggy w/ readline incompatability https://stackoverflow.com/questions/6348034/python-pdb-command-history-not-working-on-windows
-
-internals https://www.youtube.com/watch?v=QU158nGABxI
-* `settrace` registers callback on interpreter for function call, LOC executed, func return value, exceptions raised [3:45]
-```python
-def simple_tracer(frame, event):  # 4:30
-```
-* trickier with multithreading [10:00]
-* BYO w/ bdb [11:45]
-
-pdb++ https://github.com/pdbpp/pdbpp
-* main reason to use seem to be syntax highlighting and tab completion https://github.com/pdbpp/pdbpp#what-is-it
-* pytest workaround https://github.com/pdbpp/pdbpp/issues/392 https://github.com/zachvalenta/algos/blob/master/Makefile#L43
-* overrides pdb breakpoint https://github.com/pdbpp/pdbpp/issues/281
-* `track`: (requires pypy)
-* `display`: (couldn't figure out how this worked first time around)
-
-alternatives
-* _pudb_: https://github.com/inducer/pudb https://realpython.com/python-packages/#pudb-for-visual-debugging
-* _ipdb_: https://stackoverflow.com/a/15976544/6813490 https://adamj.eu/tech/2021/02/21/improve-your-django-experience-with-ipython/
-* _bdb_: level down from pdb https://stackoverflow.com/a/10302538/6813490
-* _gdb_: deep bad things https://wiki.python.org/moin/DebuggingWithGdb
-* `print()`: if you don't know how to use a debugger https://twitter.com/raymondh/status/1266668437020897280 https://github.com/gruns/icecream https://github.com/cool-RR/PySnooper
-> It takes less time to decide where to put print statements than to single-step to the critical section of code https://news.ycombinator.com/item?id=26928696
 
 # 🟨 ZA
 
