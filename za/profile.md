@@ -47,10 +47,12 @@ NEXT 🗄️ `something`
 
 RECENT
 * shu
+* ml
 * ren
 * https://github.com/oleiade/motus
 * https://github.com/Textualize/frogmouth
 * https://github.com/bloznelis/typioca
+* seg fault https://github.com/tconbeer/harlequin/issues?q=fault
 
 CLEAN UP
 * jrnl
@@ -76,42 +78,51 @@ NEOVIM
 ## skills
 
 🗄 notebook [23.05.02,05.09]
+🎗️ use Evans debug guide for everything https://wizardzines.com/zines/debugging-guide/
+
+INTERVIEWING
+- [x] webcam
+- [x] Python env: rf `stdlib.md`
+- [ ] data env: tooling in general, research BI, rf dataframes
+
+PYTHON ENV FOR ALGOS
+* feedback: notebooks
+* feedback: debugger (algos sandbox)
+* feedback: REPL
+* stdlib: lint
+* stdlib: doctest
+* stdlib: ward
+
+GENERAL ENV
+* neovim (Codi) | Zed
+* Zellij
+
+PYTHON FOR ALGOS 📙 Ramalho
+* obj
+* collections
+* functions
+* classes
+
+SENIOR ENG FOR INTERVIEWS
+* design
+* svc
 
 ---
 
-* positioning: AWS, data eng / Pandas, system https://jamesrledoux.com/projects/open-source/introducing-pybaseball/ https://www.thedrummeyangle.com/post/an-introduction-to-pybaseball-using-python-to-analyze-baseball-data https://www.datacamp.com/tutorial/scikit-learn-tutorial-baseball-1
-* interviewing: Python, algos, SQL
+DATA ENV
+* BI: distributions
+* UI: evaluate harlequin
 
-> what IDE are you coding in? https://fastapi.tiangolo.com/python-types/
-notes, code, SQL
-
-things to get on your resume: FastAPI, Typescript https://www.linkedin.com/jobs/view/3938855509/
-
-REPOS
-* Python
-* algos
-* db
-* system design
-* profiling
-* data structures
-* BYO db
-
+THINGS TO SHOW
 * AWS SA
 * Sk8list
 * book notes: Kleppmann, Jeffrey
 > Python, Distributed
 
-SEQUENCE
-* 05: AWS (CCP, SA)
-* 06: system (Django, architecture, data eng)
-* 07: CS (algos, ML, golang) + resume (CSS, fix site) https://darrenkopp.com/
-
 * _data_: AWS (ML, data eng), dataclerk, day trading, sports betting, golf, city data https://www.youtube.com/watch?v=fHsMZ3cuMhU
 * _infra_: AWS (CCP, SA)
 * _backend_: sk8list, Piedmont https://datasette.io/for/exploratory-analysis
 > ZVPROJ: Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
-
-local election data https://www.dataforindia.com/introducing-data-for-india/
 
 ## leads
 
