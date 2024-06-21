@@ -230,6 +230,62 @@ if __name__=='__main__':
 
 # 🔬 TEST
 
+🗄️ `test.md`
+
+## behave
+
+📜 https://behave.readthedocs.io/en/latest/ https://github.com/behave/behave
+
+* alternative https://github.com/pytest-dev/pytest-bdd 
+* same syntax as Cucumber https://stackoverflow.com/a/52027041
+* few commits but seems active https://github.com/behave/behave/projects/4#card-50138436)
+* Django integration: https://behave.readthedocs.io/en/latest/usecase_django.html https://whoisnicoleharris.com/2015/03/19/bdd-part-two.html https://semaphoreci.com/community/tutorials/setting-up-a-bdd-stack-on-a-django-application
+> we got around at work bc we're just using to hit our deployed endpoints
+
+CLI
+```sh
+# view stdout https://stackoverflow.com/a/28551235/6813490 https://stackoverflow.com/a/41969164/6813490
+behave --no-capture --no-color --tags @foo
+
+# exclude tag
+--tags ~@tag1        # single
+--tags ~@tag1, tag2  # n
+```
+
+PROJECT SETUP
+```sh
+# default https://behave.readthedocs.io/en/latest/gherkin.html?highlight=directory#feature-testing-layout
+├── features
+│   └── foo.feature
+│   └── bar.feature
+│   └──── steps
+│   └─────── baz.py
+
+# with config https://behave.readthedocs.io/en/latest/behave.html?highlight=configuration#configuration-files
+├── bdd
+│   └── features
+│   └──── foo.feature
+│   └── steps
+│   └──── foo.py
+
+# .behaverc
+[behave]
+paths=dj_app/bdd
+```
+
+STEP SYNTAX
+```python
+from behave import given, then
+
+@given('we have behave installed')
+def step_impl(context):
+    pass
+
+@then('behave will test them for us!')  # actual identifier in decorator
+def step_impl(context):  # function identifier identical; must take `context` as arg
+    assert context.failed is False  # vanilla assertions
+```
+
 ## coverage
 
 📜 https://coverage.readthedocs.io/
@@ -290,20 +346,49 @@ https://talkpython.fm/episodes/show/287/testing-without-dependencies-mocking-in-
 
 📜 https://docs.pytest.org/en/latest/contents.html#toc
 
-* https://github.com/darrenburns/ward
+PLUGINS
+* randomize execution order https://github.com/pytest-dev/pytest-randomly 
+
+STDOUT
+* https://pypi.org/project/pytest-testdox/
 * https://github.com/darrenburns/pytest-clarity
+* summary reports https://docs.pytest.org/en/latest/usage.html#detailed-summary-report
+* info in tracebacks https://docs.pytest.org/en/latest/usage.html#modifying-python-traceback-printing
+* `-s` see print statements https://stackoverflow.com/a/55950781/6813490
+* `-v` see each test that executed https://github.com/darrenburns/pytest-clarity https://github.com/Teemu/pytest-sugar https://github.com/numirias/pytest-json-report
+* group related tests https://pypi.org/project/pytest-testdox/
+```python
+@pytest.mark.describe("doing stuff")  # can also use mark.it()
+def test_doing_this():
+    pass
+def test_doing_that():
+    pass
+```
+```sh
+doing stuff
+ [x] doing this
+ [x] doing that
+```
+
+---
+
+MARKS
+* _mark_: decorator to add metadata
+* skip test `pytest.skip('WIP')` https://github.com/box/flaky https://danluu.com/wat/
+* params https://docs.pytest.org/en/6.2.x/parametrize.html
+> these less readable to me
+
+ZA
 * plugins https://blog.pecar.me/pytest-plugin
 * matchers: https://github.com/hamcrest/PyHamcrest https://github.com/mwilliamson/python-precisely https://changelog.com/gotime/159 https://github.com/corbym/gocrest
 * _non-fatal assertions_: continue execution if assertion fails https://github.com/okken/pytest-check unittest https://stackoverflow.com/a/5028110 pytest parameters https://stackoverflow.com/a/36760045
-
-misc
 * does pytest/unittest use `trace` module?
 * better than unittest bc easier assertions, parameterization, function-based https://github.com/renzon/pytest-vs-unittest https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/
 * will pick up modules prepended w/ `test_` otherwise on you to specify
 * run in parallel https://github.com/pytest-dev/pytest-xdist https://tech.marksblogg.com/faster-django-testing.html
 * xfail https://blog.ganssle.io/articles/2021/11/pytest-xfail.html
 
-cli
+CLI
 * freezes terminal if encounters breakpoint, workaround w/ `pytest -s --pdb`
 * `pytest.set_trace()` is deprecated and doesn't work w/ pdbpp https://github.com/pdbpp/pdbpp/issues/392 https://docs.pytest.org/en/latest/historical-notes.html#pytest-set-trace 
 ```sh
@@ -338,32 +423,7 @@ test_mod.py::test_func  # func
 -l       # locals https://hackebrot.github.io/pytest-tricks/debug_test_failures/
 ```
 
-marks
-* _mark_: decorator to add metadata
-* skip test `pytest.skip('WIP')` https://github.com/box/flaky https://danluu.com/wat/
-* params https://docs.pytest.org/en/6.2.x/parametrize.html
-> these less readable to me
-
-stdout
-* summary reports https://docs.pytest.org/en/latest/usage.html#detailed-summary-report
-* info in tracebacks https://docs.pytest.org/en/latest/usage.html#modifying-python-traceback-printing
-* `-s` see print statements https://stackoverflow.com/a/55950781/6813490
-* `-v` see each test that executed https://github.com/darrenburns/pytest-clarity https://github.com/Teemu/pytest-sugar https://github.com/numirias/pytest-json-report
-* group related tests https://pypi.org/project/pytest-testdox/
-```python
-@pytest.mark.describe("doing stuff")  # can also use mark.it()
-def test_doing_this():
-    pass
-def test_doing_that():
-    pass
-```
-```sh
-doing stuff
- [x] doing this
- [x] doing that
-```
-
-config
+CONFIG
 ```python
 class Test():
     __test__ = False  # tells pytest to not collect this class https://stackoverflow.com/a/42534950/6813490
@@ -379,7 +439,7 @@ filterwarnings =
     ignore::DeprecationWarning
 ```
 
-fixtures
+FIXTURES
 * session https://nedbatchelder.com/text/test3/test3.html#39 
 * parameterize: aka table-driven https://arslan.io/2022/12/04/functional-table-driven-tests-in-go/ https://nedbatchelder.com/text/test3/test3.html#41 cannot use module scoped data https://github.com/pytest-dev/pytest/issues/349
 * set module scope for data https://stackoverflow.com/a/47885205 https://docs.pytest.org/en/latest/how-to/fixtures.html#scope-sharing-fixtures-across-classes-modules-packages-or-session
@@ -409,16 +469,6 @@ def test_foo():
     pass
 ```
 
-Django
-* things we used at work: pytest-django, pytest-env, pytest-python
-* specify settings https://pypi.org/project/pytest-env/
-```ini
-# pytest.ini
-[pytest]
-env =
-  DJANGO_SETTINGS_MODULE=proj.settings
-```
-
 ## tox
 
 * test against multiple Python versions
@@ -441,6 +491,8 @@ tox -- tests/util/dicts_test.py
 ## unittest
 
 📜 stdlib chapter 26 📙 Beazley ch. 14
+
+---
 
 * _advantages_: `unittest` assertions > Python OOB `assert` keyword bc useful logging https://stackoverflow.com/a/2958183/6813490
 * _config_: tests prepended with `test_`; `discover` requires `__init__.py` in sub-directory https://stackoverflow.com/a/6672873/6813490
@@ -482,6 +534,8 @@ self.assertEqual(x.exception.code, 1)
 
 📜 https://github.com/darrenburns/ward
 
+fixtures https://blog.thea.codes/my-python-testing-style-guide/
+
 # 💻 UI
 
 🗄
@@ -497,6 +551,7 @@ self.assertEqual(x.exception.code, 1)
 
 RICH 📜 https://github.com/Textualize/rich 
 * test install: `poetry run python -m rich`
+* https://github.com/apparebit/prettypretty
 
 INPUT 🗄 `security.md` sanitization
 * basic: `ur_in = input()`
@@ -640,6 +695,13 @@ FRAMEWORKS
 ## HTML
 
 🗄 `html-css.md`
+
+---
+
+https://github.com/MechanicalSoup/MechanicalSoup
+* follow redirects
+* follow links
+* submit forms
 
 BeautifulSoup 📜 https://www.crummy.com/software/BeautifulSoup/bs4/doc/
 * parse HTML

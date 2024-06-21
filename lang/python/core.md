@@ -13,6 +13,7 @@
 
 ## 进步
 
+* _24_: split from `python.md`, typing (exhaustiveness check, type narrowing)
 * _23_: hashable
 * _22_: iteration (iterators, generators), big rf
 * _19_: executables, imports, obj assignment, first pass (lambdas, tuple unpacking, iteration, dataclasses, shallow vs. copy, closure, decorator)
@@ -865,6 +866,9 @@ for i in range(5,1):
 
 ## dict
 
+---
+
+https://realpython.com/python-mappings/
 * _diciontary_: map hashable K to mutable V https://docs.python.org/3/glossary.html#term-dictionary
 ```python
 # hashed K
@@ -1622,6 +1626,11 @@ foo  # [42, 2, 3]
 
 🗄 `language.md` typing
 
+* _exhaustiveness check_: check that functions handle newly-added attributes on their args https://news.ycombinator.com/item?id=25428583
+* _type narrowing_: issue warning if src tries to operate on type that args cannot be passed on blocks's previous code https://hakibenita.com/python-mypy-exhaustive-checking
+
+---
+
 * _type annotation_: Python 3, PEP 484 https://blog.zulip.org/2016/10/13/static-types-in-python-oh-mypy/
 ```python
 def greeting(name: str) -> str:
@@ -1642,6 +1651,14 @@ func.__annotations__
 ```
 
 ---
+
+PYDANTIC
+* throw err if typing mismatch https://hackernoon.com/pydantic-what-it-is-and-why-its-useful https://talkpython.fm/episodes/show/466/pydantic-performance-tips
+* https://fastapi.tiangolo.com/python-types/
+* https://www.pythonpodcast.com/pydantic-data-validation-episode-263/
+* https://github.com/shopnilsazal/validus
+* https://blog.couchbase.com/validate-json-documents-in-python-using-pydantic/
+* https://talkpython.fm/episodes/show/466/pydantic-performance-tips
 
 > you probably know my skepticism towards Python typing. This stems from the syntax's complexity, the sluggishness of mypy, the overall cumbersome nature of its implementation and awkwardness of interactions with it...in a way in some areas we are creating the new Java. We became the people we originally displaced. Just that when we are not careful we are on a path to the world's worst Java. We put typing on a language that does not support it, our interpreter is slow, it has a GIL. We need to be careful not to forget that our roots are somewhere else. We should not collectively throw away the benefits we had. https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
 
@@ -1703,6 +1720,7 @@ GOVERNANCE
 * _PEP_: RFCs for Python
 * 0 (establish what a PEP is) 8 (style guide) 20 (Zen of Python) https://talkpython.fm/episodes/show/153/how-python-evolves https://peps.python.org/
 * how libs get into the stdlib https://github.com/hukkin/tomli/issues/141#issuecomment-997999824
+* https://news.ycombinator.com/item?id=26826158
 
 UNDERSCORES https://dbader.org/blog/meaning-of-underscores-in-python
 * _single_: placeholder for throwaway values from unpacking
@@ -1736,6 +1754,10 @@ UNDERSCORES https://dbader.org/blog/meaning-of-underscores-in-python
 
 🗄 `language.md`
 📙 Van Rossum ch. 4
+
+RETURN
+* _pass_: results in NOP https://wsvincent.com/python-pass-statement/
+* returns neither True nor False
 
 CONDITIONALS
 ```python
@@ -1799,13 +1821,19 @@ def get_better_life():
 
 ---
 
-* multiple exceptions https://realpython.com/python-catch-multiple-exceptions/
+https://docs.python.org/3/tutorial/controlflow.html
+
+https://realpython.com/python-assert-statement/
+
+PATTERN MATCHING
+* switch statement on steroids https://benhoyt.com/writings/python-pattern-matching/ https://peps.python.org/pep-0634/
+> An if...elif...elif...sequence is a substitute for the switch or case statements found in other languages. https://docs.python.org/3/tutorial/controlflow.html
 * match https://www.fluentpython.com/lingo/#subject
 * _switch statement replacements_: bisect https://stackoverflow.com/a/61030734/6813490 https://www.youtube.com/watch?v=gllUwQnYVww https://github.com/ralsina/enum_switch https://pythonbytes.fm/episodes/show/135/macos-deprecates-python-2-will-stop-shipping-it-eventually https://pythonbytes.fm/episodes/show/135/macos-deprecates-python-2-will-stop-shipping-it-eventually https://docs.python.org/3/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python
-* _pass_: results in NOP https://wsvincent.com/python-pass-statement/
-* returns neither True nor False
 
-https://github.com/guilatrova/tryceratops
+TRY/CATCH
+* multiple exceptions https://realpython.com/python-catch-multiple-exceptions/
+* https://github.com/guilatrova/tryceratops
 * control flow: don't go nuts with it https://blog.cerebralab.com/Exceptions_as_control_flow
 ```python
 # CONTROL FLOW
@@ -1833,11 +1861,35 @@ except Exception as err:
     logger.exception(err)
 ```
 
-* _approach_: EAFP (forgivness > perm i.e. try-catch) better than LBYL (C-style if-else) https://docs.python.org/3/glossary.html#term-eafp
-* _sink_: 📙 tutorial ch 8 stdlib ch 5 https://realpython.com/courses/python-exceptions-101/ https://sobolevn.me/2019/02/python-exceptions-considered-an-antipattern https://news.ycombinator.com/item?id=19133948
+MORE EXCEPTIONS
+* warnings, subclasses https://lerner.co.il/2020/04/27/working-with-warnings-in-python/
+* 📙 tutorial ch 8 stdlib ch 5
+* approach: EAFP (forgivness > perm i.e. try-catch) better than LBYL (C-style if-else) https://docs.python.org/3/glossary.html#term-EAFP
+* https://realpython.com/courses/python-exceptions-101/
+* https://sobolevn.me/2019/02/python-exceptions-considered-an-antipattern
+* https://news.ycombinator.com/item?id=19133948
+* swallow msg: https://stackoverflow.com/a/52625133/6813490
 
-* _swallow msg_: https://stackoverflow.com/a/52625133/6813490
-* _warnings_: https://www.reddit.com/r/learnpython/comments/a14ow5/psa_when_developing_set_pythonwarnings/ https://lerner.co.il/2020/04/27/working-with-warnings-in-python/
+> write him about this, seems wrong https://chatgpt.com/c/e3586239-ba06-4ed2-acac-d3a8d3fa32b8
+```python
+# my version
+def handle_status(status):
+    if status == 'foo':
+        print('foo')
+    elif status == 'bar':
+        print('bar')
+    assert False, f'Unhandled status "{status}"'
+
+# his version
+def handle_order(status: OrderStatus) -> None:
+    if status is OrderStatus.Ready:
+        print('ship order')
+
+    elif status is OrderStatus.Shipped:
+        print('charge order')
+
+    assert False, f'Unhandled status "{status}"'
+```
 
 ## math
 
