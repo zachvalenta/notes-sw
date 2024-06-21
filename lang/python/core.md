@@ -460,44 +460,7 @@ def use_decorator():
 * Beazley ch. 1
 * Van Rossum ch. 5
 
-CHARACTERISTICS
-* _hashable_: hash value never changes (`__hash__`) and can be compared to other objects (`__eq__`) https://docs.python.org/3/glossary.html#term-hashable
-```python
-https://stackoverflow.com/questions/1957396/why-dict-objects-are-unhashable-in-python
-https://realpython.com/python-hash-table/
-```
-* _immutable_: obj w/ fixed value https://docs.python.org/3/glossary.html#term-immutable
-* mutable objs can alter values but keep same ID https://docs.python.org/3/glossary.html#term-mutable
-```python
-# mutable bc diff values same ID
-foo = list()
-id(foo)  # 4339427648
-foo.append("hey")
-id(foo)  # 4339427648
-```
-* _subscriptable_: 
-```python
-
-```
-
-> first section of dictionary header
-OVERVIEW
-* use case: container
-* characteristics
-```python
-myd = dict(magic=32, larry=33)
-
-# UNHASHABLE
-
-# MUTABLE
-
-# SUBSCRIPTABLE
-myd["magic"]
-```
-
 ---
-
-https://www.pythonmorsels.com/time-complexities/
 
 | CLASS   | TYPE    | MUTABLE | HASHABLE       | SUBSCRIPTABLE |  NOTES              |
 |---------|---------|---------|----------------|---------------|---------------------|
@@ -507,9 +470,44 @@ https://www.pythonmorsels.com/time-complexities/
 | dict    | mapping | yes     | no             | yes           | place for ur stuff  |
 | set     | set     | yes     | no             | no            | for set operations  |
 
-CHARACTERISTICS
-* _subscriptable_: read by index or key aka indexing
+SEMANTICS
+* _collection_: https://www.fluentpython.com/lingo/#collection
+* _sequence_: https://www.fluentpython.com/lingo/#sequence https://docs.python.org/3/glossary.html#term-sequence
+* _flat sequence_: https://www.fluentpython.com/lingo/#flat_sequence
+* _binary sequence_: https://www.fluentpython.com/lingo/#binary_sequence
+* _mapping_: https://docs.python.org/3/glossary.html#term-mapping
+* _byte array_: used for HTTP response, passing files around
+* _bytes-like object_: https://www.fluentpython.com/lingo/#bytes-like_object https://docs.python.org/3/glossary.html#term-bytes-like-object
+
+## abilities
+
+MUTABLE
+* can be altered i.e. updated values still use same obj/ID https://docs.python.org/3/glossary.html#term-mutable
+* vs. updated values using new obj/ID https://docs.python.org/3/glossary.html#term-immutable
+```python
+# MUTABLE
+foo = list()
+id(foo)  # 4339427648
+foo.append("hey")
+id(foo)  # 4339427648
+
+# IMMUTABLE
+bar = "hi"
+bar[0] = "b"  # TypeError: 'str' object does not support item assignment
+id(bar)  # 4440141744
+bar = "hey"
+id(bar)  # 4458076080
+```
+
+---
+
+SUBSCRIPTABLE
+* read by index or key; aka indexing
 * impl via `__getitem__` https://stackoverflow.com/a/216980
+```python
+myd = dict(magic=32, larry=33)
+myd["magic"]
+```
 ```python
 from enum import Enum
 
@@ -518,22 +516,12 @@ class Color(Enum):
 
 Color.GREEN[0]  # TypeError: 'Color' object is not subscriptable
 ```
-* _mutable_: can be altered i.e. diff values same obj ID https://docs.python.org/3/glossary.html#term-mutable
-```python
-foo = list()
-id(foo)  # 4339427648
-foo.append("hey")
-id(foo)  # 4339427648
-```
-* _immutable_: cannot be altered i.e. updates = new obj https://docs.python.org/3/glossary.html#term-immutable
-```python
-bar = "hi"
-bar[0] = "b"  # TypeError: 'str' object does not support item assignment
-id(bar)  # 4440141744
-bar = "hey"
-id(bar)  # 4458076080
-```
-* _hashable_: impl `__eq__` and `__hash__` (immutable) https://www.fluentpython.com/lingo/#hashable 📍📙 Ramalho [84,415]
+
+HASHABLE
+* hash value never changes (`__hash__`) and can be compared to other objects (`__eq__`) https://docs.python.org/3/glossary.html#term-hashable
+* https://stackoverflow.com/questions/1957396/why-dict-objects-are-unhashable-in-python
+* https://realpython.com/python-hash-table/
+* impl `__eq__` and `__hash__` (immutable) https://www.fluentpython.com/lingo/#hashable 📍📙 Ramalho [84,415]
 * if `a == b` + also `hash(a) and hash(b)`
 ```python
 from enum import Enum
@@ -555,15 +543,6 @@ hash([2]) == hash([2])                # TypeError: unhashable type: 'list'
 {[1,2,3], [42,13,7]}  # TypeError: unhashable type: 'list'
 {"hey", "hi"}         # ok
 ```
-
-SEMANTICS
-* _collection_: https://www.fluentpython.com/lingo/#collection
-* _sequence_: https://www.fluentpython.com/lingo/#sequence https://docs.python.org/3/glossary.html#term-sequence
-* _flat sequence_: https://www.fluentpython.com/lingo/#flat_sequence
-* _binary sequence_: https://www.fluentpython.com/lingo/#binary_sequence
-* _mapping_: https://docs.python.org/3/glossary.html#term-mapping
-* _byte array_: used for HTTP response, passing files around
-* _bytes-like object_: https://www.fluentpython.com/lingo/#bytes-like_object https://docs.python.org/3/glossary.html#term-bytes-like-object
 
 ## operations
 
@@ -601,35 +580,6 @@ n = deepcopy(l)
 n[2][0] = 100
 l  # [42, 'abc', [100, 2, 3]]
 n  # [42, 'abc', [1, 2, 3]]
-```
-
-SLICE
-* _slice_: subset of sequence type https://www.fluentpython.com/lingo/#slicing
-* out-of-place https://stackoverflow.com/a/5131563
-```python
-# syntax https://stackoverflow.com/a/509295
-[start : stop : step/direction]
-
-# start/stop
-'alice'[1:]  # 'lice' -> start is inclusive
-'alice'[:3]  # 'ali' -> stop is exclusive
-'alice'[:-2]  # 'ali' -> stop by negative index
-
-# step
-'alice'[::1]  # 'alice' 
-'alice'[::2]  # 'aie'  -> inclusive
-
-# direction
-'alice'[::-1]  # 'ecila' 
-'alice'[::-2]  # 'eia'  -> can combine w/ step
-
-# slice obj https://stackoverflow.com/a/24713353 https://stackoverflow.com/a/10573523
-my_s = slice(1,3)
-'alice'[my_s]  # 'li'
-
-# doesn't throw IndexError https://wsvincent.com/python-wat-slice-out-of-range/
-[42, 13, 7][:100]  # returns entire collection
-[42, 13, 7][100:]  # returns empty string
 ```
 
 SORT 📜 https://docs.python.org/3/howto/sorting.html https://realpython.com/python-sort
@@ -679,6 +629,54 @@ sorted(musicians, key=attrgetter('instrument', 'genre'))  # nas in front of mick
 ```
 
 ## iteration
+
+---
+
+INDEXES
+* https://docs.python.org/3/tutorial/datastructures.html#looping-techniques
+* https://treyhunner.com/2016/04/how-to-loop-with-indexes-in-python/
+```python
+# sequence
+for val in seq:
+for ind, val in enumerate(seq):  # aka elementwise operation
+for artist, album in zip(artists, album):
+
+# mapping https://realpython.com/iterate-through-dictionary-python
+for k, v in cidian.items():
+```
+
+* `range()`
+```python
+# start inclusive, end exlusive
+range(<start>, <stop>, <step>)
+
+# single arg refers to 'stop'
+range(1)  # iterates for zeroeth el
+for _ in range(1):
+    print('hey')
+# hey
+
+# two args refer to 'start' and 'stop'
+for _ in range(2, 7):
+    print('hey')
+# hey
+# hey
+# hey
+# hey
+# hey
+
+# three args refer to 'start', 'stop', 'step'
+for _ in range(2, 7, 2):
+    print('hey')
+# hey
+# hey
+# hey
+
+# if start is higher than stop, simple returns range obj that will iterate 0 times
+for i in range(5,1):
+    print(i)  # nothing happens
+>>>
+```
 
 📙 Beazley ch. 4
 🔗
@@ -818,52 +816,6 @@ list_of_dict = [
     for i in range(3)]
 ```
 
-INDEXES
-* https://docs.python.org/3/tutorial/datastructures.html#looping-techniques
-* https://treyhunner.com/2016/04/how-to-loop-with-indexes-in-python/
-```python
-# sequence
-for val in seq:
-for ind, val in enumerate(seq):  # aka elementwise operation
-for artist, album in zip(artists, album):
-
-# mapping https://realpython.com/iterate-through-dictionary-python
-for k, v in cidian.items():
-```
-
-* `range()`
-```python
-# start inclusive, end exlusive
-range(<start>, <stop>, <step>)
-
-# single arg refers to 'stop'
-range(1)  # iterates for zeroeth el
-for _ in range(1):
-    print('hey')
-# hey
-
-# two args refer to 'start' and 'stop'
-for _ in range(2, 7):
-    print('hey')
-# hey
-# hey
-# hey
-# hey
-# hey
-
-# three args refer to 'start', 'stop', 'step'
-for _ in range(2, 7, 2):
-    print('hey')
-# hey
-# hey
-# hey
-
-# if start is higher than stop, simple returns range obj that will iterate 0 times
-for i in range(5,1):
-    print(i)  # nothing happens
->>>
-```
-
 ## dict
 
 ---
@@ -997,6 +949,37 @@ ur_set.remove('foo_el')
 ```
 
 ## sequence
+
+---
+
+SLICE
+* _slice_: subset of sequence type https://www.fluentpython.com/lingo/#slicing
+* out-of-place https://stackoverflow.com/a/5131563
+```python
+# syntax https://stackoverflow.com/a/509295
+[start : stop : step/direction]
+
+# start/stop
+'alice'[1:]  # 'lice' -> start is inclusive
+'alice'[:3]  # 'ali' -> stop is exclusive
+'alice'[:-2]  # 'ali' -> stop by negative index
+
+# step
+'alice'[::1]  # 'alice' 
+'alice'[::2]  # 'aie'  -> inclusive
+
+# direction
+'alice'[::-1]  # 'ecila' 
+'alice'[::-2]  # 'eia'  -> can combine w/ step
+
+# slice obj https://stackoverflow.com/a/24713353 https://stackoverflow.com/a/10573523
+my_s = slice(1,3)
+'alice'[my_s]  # 'li'
+
+# doesn't throw IndexError https://wsvincent.com/python-wat-slice-out-of-range/
+[42, 13, 7][:100]  # returns entire collection
+[42, 13, 7][100:]  # returns empty string
+```
 
 ### list
 
@@ -1703,7 +1686,7 @@ DESIGN https://docs.python.org/3/faq/design.html
 * history: origins in ABC https://www.fluentpython.com/lingo/
 * readabillity: indentation for statement grouping https://xkcd.com/353/
 * aesthetic: `python -m this` https://peps.python.org/pep-0020/ significant white space vs. semi-colons https://news.ycombinator.com/item?id=34936023
-* used for: teaching, web dev, sys admin, ML, security, scraping, microcontrollers, industrial automation https://www.pythonpodcast.com/episode-114-industrial-automation-with-jonas-neubert/ finance https://www.openbb.co/ architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
+* used for: teaching, web dev, sys admin, ML, security, scraping, microcontrollers, industrial automation https://www.pythonpodcast.com/episode-114-industrial-automation-with-jonas-neubert/ finance https://www.openbb.co/ architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings Nvidia warp, second-best language for everything https://news.ycombinator.com/item?id=40680737
 * used at: Instagram, Dropbox, Reddit, Pinterest
 * pain points: binaries, import system, version management, packaging, browser, native (mobile, desktop), speed (not built for multi-core https://twitter.com/mitsuhiko/status/1091802711908106240)
 * soft keywords https://mathspp.com/blog/til/pythons-soft-keywords

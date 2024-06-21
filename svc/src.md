@@ -224,6 +224,7 @@ https://app.pluralsight.com/library/courses/designing-restful-web-apis/table-of-
 
 ---
 
+https://github.com/DovAmir/awesome-design-patterns
 * fanout https://www.better-simple.com/django/2023/12/06/fanout-pattern-explained/
 * the big ball of mud https://news.ycombinator.com/item?id=35481309
 * _strangler_: you run the old code and new code live, in production, side-by-side, checking that the new code behaves exactly the same as the old code. Once you are confident it does, you retire the old code https://www.kosli.com/blog/how-to-strangle-old-code-using-python-decorators/
@@ -431,16 +432,17 @@ BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 
 ## dep inject (DI)
 
+---
+
 https://www.youtube.com/watch?v=0yc2UANSDiw
 * _dependency injection_: passing args [Conery 282]
 * why?: loose coupling http://kc.my-junk.info/di-ioc-dip https://www.youtube.com/watch?v=sD94szvFqGw
+* https://blog.thea.codes/my-python-testing-style-guide/
 
 https://testdriven.io/blog/python-dependency-injection
 https://github.com/ZechCodes/Bevy
 https://hakibenita.com/python-dependency-injection
 https://romantomjak.com/posts/testing-python-code-that-makes-http-requests.html
-
----
 
 * https://docs.pytest.org/en/latest/fixture.html#fixture
 * in Python https://io.made.com/dependency-injection-with-type-signatures-in-python/ + https://moltenframework.com/v0.7.3/index.html + https://github.com/ekiro/haps + https://github.com/Dobiasd/enterprython/blob/master/why_you_want_formal_dependency_injection_in_python_too.md https://pythonbytes.fm/episodes/show/112/don-t-use-the-greater-than-sign-in-programming

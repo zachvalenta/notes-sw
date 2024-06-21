@@ -168,8 +168,7 @@ config
 
 # 🏁 QUEUES
 
-🗄
-* `db.md` data eng/ETL
+🗄 `db.md` data eng/ETL
 📚
 * Kleppmann ch. 11
 * Narkhede ch. 11

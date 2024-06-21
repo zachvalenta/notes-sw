@@ -310,6 +310,7 @@ MOBILE SVC
 * https://www.aws.training/Account/Profile/Basic
 * https://www.reddit.com/r/AWSCertifications/
 * https://www.exampro.co/ https://tutorialsdojo.com/
+* questions https://www.youtube.com/watch?v=8zsdpwvTxos
 
 CERTS
 * _cloud practioner (CCP/CLF-C02)_: replaced CLF-C01 in 2024 https://www.pluralsight.com/resources/blog/cloud/new-aws-clf-c02-exam0

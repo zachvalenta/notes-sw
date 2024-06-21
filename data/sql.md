@@ -357,6 +357,7 @@ QUERY BUILDERS
 * BYO https://death.andgravity.com/query-builder-how
 * _aiosql_: https://github.com/nackjicholson/aiosql load sql file into Python and run queries as methods https://github.com/nackjicholson/aiosql
 * _csql_: https://news.ycombinator.com/item?id=24866377
+* _hashquery_: https://news.ycombinator.com/item?id=40132424 https://hashquery.dev/ https://github.com/hashboard-hq/hashquery
 * _pypika_ https://github.com/kayak/pypika https://github.com/zachvalenta/query-sandbox/blob/main/queries.py
 * _records_: just write SQL https://github.com/kennethreitz/records
 * _spyql_: https://github.com/dcmoura/spyql https://news.ycombinator.com/item?id=30074787
@@ -1226,10 +1227,10 @@ TYPES
 * _scalar table_: table w/ single column and single row https://pgexercises.com/questions/basic/agg2.html
 * _temporal_: https://news.ycombinator.com/item?id=29733854 https://news.ycombinator.com/item?id=29735695 https://stackoverflow.com/questions/50199752/comparing-csv-entries-against-entries-in-postgresql-table-using-python 
 
-COMPONENTS 📙 Beaulieu 1.6
+COMPONENTS 📙 Beaulieu [1.6]
 * _entity_: thing you're trying to describe e.g. customer, order, et al. 📙 Beaulieu [8]
-* _attribute_: aka column
-* _record_: aka row
+* _column_: aka attribute
+* _row_: aka record
 * _value_: aka cell, field
 
 VIEWS 📙 Beaulieu chapter 14

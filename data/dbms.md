@@ -356,6 +356,7 @@ show collections  # view collections
 * design https://news.ycombinator.com/item?id=35599118 Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf
 
 HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https://news.ycombinator.com/item?id=39273954
+* perf, memory https://news.ycombinator.com/item?id=40642803
 * generate `create table` from existing table https://github.com/lacanoid/pgddl
 * Elasticsearch https://github.com/paradedb/paradedb
 * serverless https://neon.tech/ https://news.ycombinator.com/item?id=31536827
@@ -610,6 +611,7 @@ web_1  | ModuleNotFoundError: No module named 'psycopg2'
 🔗 https://tech.marksblogg.com/sqlite3-tutorial-and-guide.html
 
 ZA
+* https://news.ycombinator.com/item?id=40637303
 * single-tenant i.e each user gets own db https://news.ycombinator.com/item?id=38171322
 * transactions for perf https://news.ycombinator.com/item?id=36583317
 * WAL https://simonwillison.net/2022/Oct/23/datasette-gunicorn

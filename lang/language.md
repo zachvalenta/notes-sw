@@ -1,12 +1,8 @@
-# 开
+# ⛩️
 
 ## 参考
 
-## now
-
-## next
-
-## done
+## 进步
 
 * _19-present_: Python, SQL
 * _18_: Python, Spring Boot, Django/DRM
@@ -62,6 +58,11 @@ SYSTEMS PROGRAMMING
 * is easy :) https://news.ycombinator.com/item?id=34566918
 
 ## functional
+
+---
+
+https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell
+https://bytes.yingw787.com/posts/2018/11/07/data_driven_testing
 
 FUNCTIONAL 📙 Conery https://github.com/hemanth/functional-programming-jargon
 * _functional_: function that operates on other functions https://stackoverflow.com/a/94056
@@ -252,7 +253,7 @@ JULIA
 * https://news.ycombinator.com/item?id=27884165
 * Jupyter notebooks https://github.com/fonsp/Pluto.jl https://news.ycombinator.com/item?id=31321620
 
-LUA 📜 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua
+LUA 📜 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua https://nvchad.com/docs/quickstart/learn-lua
 * filepaths: use `.` separator, will handle forward/backslash on Linux, Windows https://www.youtube.com/watch?v=prnrwpOEsmo 9:45
 * functions: can omit parens if passing string or table as a single arg https://www.youtube.com/watch?v=prnrwpOEsmo 10:15
 * colons https://www.youtube.com/watch?v=prnrwpOEsmo 13:00
@@ -503,10 +504,7 @@ ZA
 
 ---
 
-LANGUAGE https://tryclojure.org/
-* s-expressions https://news.ycombinator.com/item?id=5654398 https://notes.eatonphil.com/compiler-basics-lisp-to-assembly.html
-* no loops https://www.lvguowei.me/post/sicp-goodness-looping/
-* prefix notation: operator comes first https://www.braveclojure.com/getting-started/
+📙 SICP https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
 
 ZA
 * declarative? 📙 Karwin [2]
@@ -522,14 +520,18 @@ ZA
 * https://news.ycombinator.com/item?id=40335608
 * https://www.fosskers.ca/en/blog/rounds-of-lisp
 
-📙 SICP https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
-
-LISPS https://stackoverflow.com/questions/47482349/what-characterizes-a-lisp-dialect
+LISPS
 * _Clojure_: https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792
 * _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
 * _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
 * _Racket_: based off Scheme, async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=19952714 https://news.ycombinator.com/item?id=23132621 https://news.ycombinator.com/item?id=8206038 https://news.ycombinator.com/item?id=13881535 https://news.ycombinator.com/item?id=32723784
 * _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
+
+LANGUAGE https://tryclojure.org/
+* https://stackoverflow.com/questions/47482349/what-characterizes-a-lisp-dialect
+* s-expressions https://news.ycombinator.com/item?id=5654398 https://notes.eatonphil.com/compiler-basics-lisp-to-assembly.html
+* no loops https://www.lvguowei.me/post/sicp-goodness-looping/
+* prefix notation: operator comes first https://www.braveclojure.com/getting-started/
 
 # 📥 MEMORY
 

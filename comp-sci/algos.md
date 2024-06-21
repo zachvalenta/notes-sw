@@ -17,6 +17,7 @@
 
 ---
 
+https://www.pythonmorsels.com/time-complexities/
 https://www.softwaredesign.ing/blog/ai-is-the-reason-interviews-are-harder-now
 https://realpython.com/python-hash-table/
 * do with books https://www.fast.ai/

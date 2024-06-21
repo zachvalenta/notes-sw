@@ -21,6 +21,8 @@
 
 # FRAMEWORKS
 
+* page reloads are ok
+> We ran Basecamp on a single server for the first year...most of the problems we feared weren't that big of a deal to customers. As long as you keep people in the loop, and are honest about the situation, they'll understand. - 📙 Getting Real [44]
 taxonomy
 * BYO https://nolanlawson.com/2023/12/02/lets-learn-how-modern-javascript-frameworks-work-by-building-one/
 * https://github.com/redwoodjs/redwood https://news.ycombinator.com/item?id=34069527
@@ -76,6 +78,7 @@ DESIGN
 * creator seems cool https://news.ycombinator.com/item?id=26769809 https://changelog.com/gotime/266
 * vs. alpine, mithril https://news.ycombinator.com/item?id=32011439
 * internals https://www.youtube.com/watch?v=javGxN-h9VQ
+* htmz https://news.ycombinator.com/item?id=40709769
 
 DJANGO
 > For my rewrite of the client, I’m going to skip the drama and just use htmx. Render Django templates server-side, include a single JS script, thrown in some HTML attributes, distinguish between full page requests vs. requests for a partial with updated data, and call it a day. No TypeScript, no Webpack, none of that nonsense. If I need special interactivity I can throw in some hyperscript. https://news.ycombinator.com/item?id=38517099
@@ -302,7 +305,7 @@ let bob = Object.assign({}, player, {score: 3});
 * _bun_: runtime + tooling (bundle, transpile) https://bun.sh/
 
 NODENV https://github.com/nodenv/nodenv
-* alternatives: nvm https://github.com/creationix/nvm#important-notes asdf https://github.com/asdf-vm/asdf volta https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039
+* alternatives: nvm https://github.com/creationix/nvm#important-notes asdf https://github.com/asdf-vm/asdf volta https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039 fnm https://github.com/Schniz/fnm
 * rm version: find fs location `nodenv prefix <ver>` and then just rm dir https://github.com/nodenv/nodenv#uninstalling-node-versions
 * _shim_: intercepts cmd and passes to specific version https://medium.com/@ujjawal.dixit/what-is-a-shim-72d9ac5d8620
 * e.g. when you run `npm`, nodenv will find `npm` on `$PATH` in which Node version you're using and pass cmd to that binary use whatever

@@ -689,6 +689,7 @@ $ color p<TAB><TAB>
 
 ZELLIJ 📜 https://zellij.dev/documentation/
 > quick resize of panes = Zellij might be better than using Vim splits
+* https://github.com/imsnif/monocle
 * plugins: Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45 Catpppuccin https://github.com/catppuccin/zellij
 * workaround for keybinding conflicts w/ Vim https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:45
 * scrollback https://zellij.dev/screencasts/
@@ -715,6 +716,7 @@ ZELLIJ 📜 https://zellij.dev/documentation/
 
 TMUX 📜 https://github.com/tmux/tmux 📙 Hogan https://thoughtbot.com/upcase/tmux https://github.com/git-pull/tao-of-tmux
 * install: Homebrew
+* alternative https://github.com/shell-pool/shpool
 * _pane_: terminal window + split https://thoughtbot.com/upcase/videos/tmux-introduction
 * 类似 Vim split (and you could also have a window be a single pane of a Vim instance within which you use Vim splits) https://www.youtube.com/watch?v=hbs7tuwpgZA 3:58 https://thoughtbot.com/upcase/videos/tmux-vim-integration
 * _window_: a tab (in Zellij terms)

@@ -27,6 +27,8 @@ DONE
 
 🙂 punk rock https://xkcd.com/1597/
 
+https://wizardzines.com/zines/git/
+
 * _snapshot_: files at particular time e.g. a commit https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
 * `checkout`: will move rm changes to file in working tree e.g. if file is updated and staged, then updated again, checkout will only rm most recently updates i.e. changes in staging area won't be affected
 * _reference_: human-readable name acting as point to commit SHA-1

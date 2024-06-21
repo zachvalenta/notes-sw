@@ -315,7 +315,7 @@ https://thorstenball.com/blog/2014/06/13/where-did-fork-go/
 semantics
 * _thread_: instance of executing program
 * incl: stack, heap, text (src) data (var)
-* _process_: group of threads https://stackoverflow.com/a/47824267 [LPI 2.7]
+* _process_: group of threads https://stackoverflow.com/a/47824267 [LPI 2.7] https://www.youtube.com/watch?v=4rLW7zg21gI
 * _job_: group of processes [LPI 2.13]
 
 types

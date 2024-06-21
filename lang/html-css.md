@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -7,15 +7,9 @@
 * `js.md` browser
 * `python.md` HTML
 
-## now
-
-## next
-
----
+## 进步
 
 * learn CSS for site redesign https://web.dev/learn/css/ https://wizardzines.com/zines/css/
-
-## done
 
 * _24_: big rf
 * _22_: rf fs, try Pelican, redesign
@@ -311,6 +305,8 @@ FILE FMT https://practicaltypography.com/triplicate.html
 
 ---
 
+> NBA more like football: fans dont matter in arena - home court doesnt matter - load mgmt - more lower seeds in finals - lower ratings (playoffs rating matter most for nba)
+
 * _PWA (progressive enhancement)_: https://technology.blog.gov.uk/2016/09/19/why-we-use-progressive-enhancement-to-build-gov-uk/ https://www.youtube.com/playlist?list=PL4cUxeGkcC9gTxqJBcDmoi5Q2pzDusSL7
 * _semantic web_: element describes content e.g. `<footer>` `<section>` https://twobithistory.org/2018/06/10/birth-of-the-web.html#fnref:11 https://twobithistory.org/2018/05/27/semantic-web.html https://news.ycombinator.com/item?id=30166788
 * _UI_: elements https://codepen.io/topics/ is hard https://overreacted.io/the-elements-of-ui-engineering/
@@ -457,17 +453,15 @@ PELICAN 📜 https://github.com/getpelican/pelican
 * install: pipx
 * features: templating, metadata, tags
 * tags vs. categories http://pirsquared.org/blog/pelican-tags-vs-categories.html
-* https://tech.marksblogg.com/website-cdn-with-pelican-and-s3cmd.html
+* deploy https://tech.marksblogg.com/website-cdn-with-pelican-and-s3cmd.html
 * table of contents: `pelican-toc` https://chat.openai.com/c/25d8a905-4ff4-4905-b63f-126f60ec9c75 https://www.murilopereira.com/how-to-open-a-file-in-emacs
 
-FEATURES https://twitter.com/danluu/status/1244051446313574402 https://news.ycombinator.com/item?id=39511714&utm_term=comment https://meridian.mercury.com/dwarkesh-patel https://mkaz.blog/working-with-python/ https://shreyans.org/
-* templating
-* write on music https://yearofbach.substack.com/p/march-25-the-six-cello-suites-bwv
-* page metadata e.g. title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/
+FEATURES
+> https://twitter.com/danluu/status/1244051446313574402 https://news.ycombinator.com/item?id=39511714&utm_term=comment https://meridian.mercury.com/dwarkesh-patel https://mkaz.blog/working-with-python/ https://shreyans.org/
 * search: Stork https://stork-search.net/ TinySearch https://github.com/tinysearch/tinysearch https://news.ycombinator.com/item?id=23474134 DDG https://vadosware.io/ https://ddg.patdryburgh.com/ lunr.js https://github.com/olivernn/lunr.js https://brainbaking.com/search/?q=database example https://clearerthinkingpodcast.com/#episodes
 * RSS generation
-* minification
 * tags: https://github.com/erwald/blog/blob/master/_data/series.json https://www.erichgrunewald.com/posts/the-kingdom-of-tamego/ https://github.com/jeffkaufman/webscripts/blob/e1c8a399536bb92e3f09886eea9fb925e710c981/intros.json https://www.jefftk.com/news/money
+* _metadata_: title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/
 * _HTML preprocessor_: turn Markdown in HTML e.g. Nunjucks https://css-tricks.com/killer-features-of-nunjucks/ https://github.com/erwald/blog
 ```sh
 # https://fvsch.com/static-site-generators
@@ -481,7 +475,7 @@ FEATURES https://twitter.com/danluu/status/1244051446313574402 https://news.ycom
     └── rss.xml
 ```
 
-SSGs https://jamstack.org/generators/
+SSGs
 * BYO https://www.youtube.com/watch?v=Ph7oJDR71Jc https://github.com/mitsuhiko/rstblog https://til.simonwillison.net/django/building-a-blog-in-django dynamic https://realpython.com/build-a-blog-from-scratch-django/ https://dev.to/chasefleming/building-a-go-static-site-generator-using-elem-go-3fhh
 * me: run m2h, move all html from content to src, open any html files from src with modified Git status
 * https://fabiensanglard.net/html/index.html
@@ -492,16 +486,13 @@ SSGs https://jamstack.org/generators/
 * bad docs https://yawpitchroll.com/posts/hugo-probably-is-not-for-you/
 * Markdown is weird? https://twitter.com/danluu/status/1244024025019342851 
 * bad once nesting exceeds top-level? https://gohugo.io/templates/lists/ https://discourse.gohugo.io/t/list-pages-of-sub-sub-folders/9436/2
+* _Lektor_: Python https://www.getlektor.com/ https://lucumr.pocoo.org/2015/12/21/introducing-lektor/
+* _Makesite_: Python https://github.com/sunainapai/makesite
+* _Markata_: Python https://github.com/WaylonWalker/markata
 * _Metalsmith_: Javascript https://github.com/metalsmith/metalsmith
+* _Nikola_: Python https://getnikola.com/
 * _Shite_: Bash https://github.com/adityaathalye/shite
 * _Zola_: Rust; no assumptions regarding the structure of your site https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola https://haskellbook.com/ 
-
-PYTHON SSGs
-* _Hyde_: deprecated https://github.com/hyde/hyde
-* _Lektor_: maybe https://www.getlektor.com/ https://lucumr.pocoo.org/2015/12/21/introducing-lektor/
-* _Makesite_: DIY https://github.com/sunainapai/makesite
-* _Markata_: DIY https://github.com/WaylonWalker/markata
-* _Nikola_: maybe https://getnikola.com/
 
 CMS
 * _website builder_: optimized for non-dev e.g. Wix, SquareSpace

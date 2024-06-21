@@ -610,12 +610,12 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 | `music-usb-2` | desk     | 24.02 | `yin`      |               |
 
 TODO
-* auto insurance, parking tickets
-* econ
 > 📍 clean up DS files `fd -HI DS`
 * yin: far (cleanup = all) rnb (80s, 70s) rap (nyc) za (gospel) + all singles + dylan, girl talk, lcd soundsystem, larry young, julee cruise, jim croce, pointer sisters, jackie wilson, bobby bland, rotary connection, sza, genesis, fugazi, allmans, waylon, jerry jeff walker, fleetwood mac, hailu mergia, cymande, jersey club, charley crockett new album, john talabot, sui generis, sun electric, stevie wonder singles
 > mv: cut copy to pop, breakwater to the 80s, spinners to 50s, bobby bland to blues, kc and sunshine to dance
 > modern lovers girlfriend, oscar peterson jet song
+* sw/os/shell
+* sw/comp-sci/computation/evans.pdf
 
 SEMANTICS
 * _transfer_: mv data from A to B

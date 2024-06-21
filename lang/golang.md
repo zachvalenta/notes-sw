@@ -59,6 +59,8 @@ type Book struct {
 
 ## concurrency
 
+---
+
 SEMANTICS
 * _goroutine_: thread but... https://github.com/uber-go/goleak
 scheduled by Go runtime instead of OS
@@ -376,6 +378,7 @@ func main() {
 * frameworks: Buffalo, Gin, Echo; hot reload for Gin https://github.com/cosmtrek/air https://github.com/go-goyave/goyave https://github.com/cloudwego/hertz
 * routing: https://benhoyt.com/writings/go-routing/
 * servers: https://eli.thegreenplace.net/2021/rest-servers-in-go-part-1-standard-library/
+* https://github.com/go-goyave/goyave
 * https://www.honeybadger.io/blog/go-web-services/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://www.usegolang.com/sample/?__s=aqtioiz6aumf2qzwpp96 https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg https://www.usegolang.com/ https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg  https://github.com/go-resty/resty https://github.com/gojek/heimdall https://benhoyt.com/writings/go-routing/ https://github.com/projectdiscovery/httpx
 
 # 🟨 ZA

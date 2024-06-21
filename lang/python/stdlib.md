@@ -18,6 +18,8 @@
 
 # 🧫 CQ
 
+⭐️ https://github.com/stars/zachvalenta/lists/code-quality
+
 ---
 
 * autoformat: Black, isort, blacker https://github.com/akaihola/darker black on documentation https://github.com/asottile/blacken-docs
@@ -231,6 +233,7 @@ if __name__=='__main__':
 # 🔬 TEST
 
 🗄️ `test.md`
+⭐️ https://github.com/stars/zachvalenta/lists/test
 
 ## behave
 
