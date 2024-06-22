@@ -84,6 +84,7 @@ python -m pdb -c continue myscript.py  # https://stackoverflow.com/a/2438834/681
 ---
 
 ALTERNATIVES
+> tmux send-keys https://news.ycombinator.com/item?id=37172711 https://www.reddit.com/r/zellij/comments/13zqggd/sending_keys_to_another_terminal/ https://www.youtube.com/results?search_query=send-keys+tmux
 * _pudb_: 🎯 https://github.com/inducer/pudb https://realpython.com/python-packages/#pudb-for-visual-debugging
 * _ipdb_: 🎯 https://stackoverflow.com/a/15976544/6813490 https://adamj.eu/tech/2021/02/21/improve-your-django-experience-with-ipython/
 * _bdb_: level down from pdb https://stackoverflow.com/a/10302538/6813490
@@ -96,6 +97,7 @@ ALTERNATIVES
 * overrides pdb breakpoint https://github.com/pdbpp/pdbpp/issues/281
 * `track`: (requires pypy)
 * `display`: (couldn't figure out how this worked first time around)
+* _nvim-dap_: 🎯 https://github.com/mfussenegger/nvim-dap https://www.youtube.com/watch?v=4BnVeOUeZxc
 
 BYO https://www.timdbg.com/posts/writing-a-debugger-from-scratch-part-5/
 https://werat.dev/blog/what-a-good-debugger-can-do/

@@ -77,53 +77,55 @@ NEOVIM
 
 ## skills
 
-🗄 notebook [23.05.02,05.09]
-🎗️ use Evans debug guide for everything https://wizardzines.com/zines/debugging-guide/
+ENV - GENERAL
+- [ ] multiplex: Zellij
+- [ ] editor: neovim (Codi)
 
-INTERVIEWING
-- [x] webcam
-- [x] Python env: rf `stdlib.md`
-- [ ] data env: tooling in general, research BI, rf dataframes
-- [ ] dev env: Zellij, editor
+ENV - DATA
+- [x] tooling in general
+- [x] research BI
+- [ ] rf dataframes
+- [ ] BI: distributions
+- [ ] UI: evaluate harlequin
 
-PYTHON ENV FOR ALGOS
-* feedback: notebooks
-* feedback: debugger (algos sandbox)
-* feedback: REPL
-* stdlib: lint
-* stdlib: doctest
-* stdlib: ward
+ENV - PYTHON
+- [ ] feedback: notebooks
+- [ ] feedback: debugger (algos sandbox)
+- [ ] feedback: REPL
+- [ ] stdlib: lint
+- [ ] stdlib: doctest
+- [ ] stdlib: ward
 
-GENERAL ENV
-* neovim (Codi) | Zed
-* Zellij
+INTERVIEWING - CODE MONKEY 📙 Ramalho
+>️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
+- [ ] Python: obj
+- [ ] Python: collections
+- [ ] Python: functions
+- [ ] Python: classes
+- [ ] algos: rf notes
+- [ ] algos: rf fs
+- [ ] algos: REPL (ward, doctest notebook)
+- [ ] algos: core 🗄️ `sandbox/src` miscellaneous, thirty
 
-PYTHON FOR ALGOS 📙 Ramalho
-* obj
-* collections
-* functions
-* classes
+INTERVIEWING - SENIOR ENG
+- [ ] design
+- [ ] svc
+- [ ] AWS SA
+- [ ] AWS ML
+- [x] fix existing webcam
+- [ ] setup better webcam
+- [ ] personal site
 
-SENIOR ENG FOR INTERVIEWS
-* design
-* svc
-
----
-
-DATA ENV
-* BI: distributions
-* UI: evaluate harlequin
-
-THINGS TO SHOW
-* AWS SA
+PROJECTS
 * Sk8list
+> Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
 * book notes: Kleppmann, Jeffrey
 > Python, Distributed
-
-* _data_: AWS (ML, data eng), dataclerk, day trading, sports betting, golf, city data https://www.youtube.com/watch?v=fHsMZ3cuMhU
-* _infra_: AWS (CCP, SA)
-* _backend_: sk8list, Piedmont https://datasette.io/for/exploratory-analysis
-> ZVPROJ: Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
+* dataclerk
+* sports betting
+* city data https://www.youtube.com/watch?v=fHsMZ3cuMhU
+* Piedmont https://datasette.io/for/exploratory-analysis
+* book of lyrics for Luambo, Rochereau, Mulatu, Francis Bebey, Cesaria Evora, Amalia Rodrigues
 
 ## leads
 

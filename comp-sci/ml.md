@@ -128,6 +128,7 @@ dot([1,2,3], [4,5,6])
 
 # 🛠️ TOOLING
 
+* AI friend https://x.com/deedydas/status/1804550284552949771
 * Devin https://news.ycombinator.com/item?id=40008109
 * BYO https://spreadsheets-are-all-you-need.ai/index.html
 * BYO flavor https://iamjoshknox.com/2023/12/06/econeats-an-ai-dining-guide/

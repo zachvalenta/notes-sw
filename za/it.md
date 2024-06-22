@@ -616,6 +616,7 @@ TODO
 > modern lovers girlfriend, oscar peterson jet song
 * sw/os/shell
 * sw/comp-sci/computation/evans.pdf
+* sw/comp-sci/algos
 
 SEMANTICS
 * _transfer_: mv data from A to B
