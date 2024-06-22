@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -14,17 +14,23 @@
 * Neil practical vim
 * Robbins learning vim
 
-## now
+## 进步
 
-## next
+* _23_: try mv to Neovim, stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
+* _22_: built-in pkg mgmt
+* _20_: VS Code (Markdown extensions break, pinned to 1.41 since 20.12.17)
+* _19_: VS Code + vim emulation 📙 Neil practical vim 1.1-3, 2.7-9, 3.13-15, 4.20-22, 5.27-28, 8.47-53, 9.56-57, 10.60-62
+* _18_: IntelliJ, PyCharm
+* _17_: Eclipse
+* _15_: Sublime
 
 ---
 
 LSP
-* https://www.youtube.com/watch?v=puWgHa7k3SY&list=WL&index=1&t=312s&pp=gAQBiAQB
-* https://www.youtube.com/watch?v=Ku-m7eEbWas&list=WL&index=2&t=322s&pp=gAQBiAQB
-* https://www.youtube.com/watch?v=C9X5VF9ASac&list=WL&index=3&t=195s&pp=gAQBiAQB
-* https://www.youtube.com/watch?v=190HoB0pVro&list=WL&index=5&pp=gAQBiAQB
+* https://www.youtube.com/watch?v=puWgHa7k3SY
+* https://www.youtube.com/watch?v=Ku-m7eEbWas
+* https://www.youtube.com/watch?v=C9X5VF9ASac
+* https://www.youtube.com/watch?v=190HoB0pVro
 
 FUZZY SEARCH HEADER GLOBALLY (CMD T) https://vi.stackexchange.com/q/42870/35177
 * ❌ src `lsp.lua` breaks aerial (`no symbols`)
@@ -71,23 +77,7 @@ ZA
 * replace vimv https://github.com/stevearc/oil.nvim
 * `H/M/L`
 
-WINDOWING
-- [ ] Neovim - buffers - setup tab/buffer/Zellij interplay
-> just use Zellij because you can name workspaces and bc screen mgmt is what it's meant to do https://www.youtube.com/watch?v=zH3CH6zXTew
-> splits are for looking at a bunch of code at once https://www.youtube.com/watch?v=ST_DZ6yIiXY
-> tabs should be for workspaces but inability to name them hampers that
-
-## done
-
-* _23_: start move to Neovim 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7), learn about visual block mode, buffers/windows/sessions/workspaces, config, choose vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar, start LSP)
-* _22_: built-in pkg mgmt
-* _20_: VS Code (Markdown extensions break, pinned to 1.41 since 20.12.17)
-* _19_: VS Code + vim emulation 📙 Neil practical vim 1.1-3, 2.7-9, 3.13-15, 4.20-22, 5.27-28, 8.47-53, 9.56-57, 10.60-62
-* _18_: IntelliJ, PyCharm
-* _17_: Eclipse
-* _15_: Sublime
-
-# EDIT
+# ✏️ EDIT
 
 PLUGINS
 * pairs - edit: https://github.com/tpope/vim-surround https://stackoverflow.com/a/50687836 https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-surround.md
@@ -309,11 +299,11 @@ https://vimtricks.com/p/improving-usage-of-registers/
 * https://vimtricks.com/p/go-to-next-match-and-select/
 * [PV 10.61]
 
-# UTILS
+# 🛠️ UTILS
 
 ## buffers
 
-🗄 `shell.md` file explorer, fuzzy find, multiplex
+🗄️ `shell.md` file explorer, fuzzy find, multiplex
 📙 Neil modern ch. 3 practical ch. 6-7
 
 BUFFERS https://github.com/romgrk/barbar.nvim/issues/279
@@ -352,6 +342,7 @@ WINDOWS
 TABS / SESSIONS
 * _tab group_: collection of windows 📙 Neil practical [6.95] http://vimcasts.org/episodes/working-with-tabs/ http://vimcasts.org/episodes/how-to-use-tabs/
 > this is something that I didn't fully realize that I wanted from VS Code
+* `tabedit` workflow https://vimtricks.com/p/quickly-access-project-notes/
 * use to encapsulate diff types of files e.g. business logic vs. immediate files https://www.youtube.com/watch?v=hbs7tuwpgZA 5:00
 * no way to name, tab gets name from `MyTabLabel` https://github.com/neovim/neovim/issues/19272 https://neovim.io/doc/user/tabpage.html
 ```sh
@@ -625,7 +616,7 @@ ZA
 * _statusline_: display Vim mode, Git branch; lualine https://github.com/nvim-lualine/lualine.nvim alternatives https://github.com/itchyny/lightline.vim https://github.com/vim-airline/vim-airline https://github.com/nvimdev/galaxyline.nvim https://github.com/powerline/powerline BYO https://jdhao.github.io/2019/11/03/vim_custom_statusline https://kadekillary.work/posts/statusline-vim/ https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-statusline.md
 > does Lualine work with Rigel?
 
-# ZA
+# 🟨 ZA
 
 > open help in new tab `:tab help $TOPIC` https://www.youtube.com/watch?v=ZlyiNuxlkJY 1:45
 * installation: M1 macs come with Vim installed; `vim --version` https://www.vim.org/download.php
@@ -636,11 +627,40 @@ HELP https://neovim.io/doc/user/usr_02.html#help-summary
 * use Telescope https://www.youtube.com/watch?v=prnrwpOEsmo 20:00
 * notifications https://github.com/vigoux/notifier.nvim https://github.com/folke/noice.nvim https://github.com/j-hui/fidget.nvim
 
+EDITOR HISTORY
+* stone age: no screen = teletype
+* 1969: ed https://begriffs.com/posts/2019-07-19-history-use-vim.html
+* 1976: vi, Emacs
+* 1991: Vim https://twobithistory.org/2018/08/05/where-vim-came-from.html https://begriffs.com/posts/2019-07-19-history-use-vim.html
+* 2006: Vim 7.0
+* 2013: Vim 8.0 📙 PV [5.27]
+* 2015: Neovim
+* 2020s: Zed, Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 Amp https://amp.rs/
+
 NEOVIM
 * vs. VS Code: can run in terminal, more customizable, modal https://www.reddit.com/r/neovim/comments/15c7al9/why_turn_neovim_into_vscode/
 * installation: Homebrew (requires macOS > 10.14) 📙 Neil modern [5]
 * design: run tasks async, Lua for scripting https://github.com/nvim-lua/plenary.nvim
 > Bram's comparison is Vi, Neovim teams' comparison is VS Code. https://news.ycombinator.com/item?id=31936725
+
+ZED https://zed.dev/
+* design https://zed.dev/blog/between-editors-and-ides https://zed.dev/blog/we-have-to-start-over 
+* Vim mode https://zed.dev/blog/zed-decoded-vim
+* themes https://zed.dev/blog/user-themes-now-in-preview
+
+---
+
+EMACS
+* https://lwn.net/Articles/832429/
+* https://two-wrongs.com/why-you-should-buy-into-the-emacs-platform
+* https://two-wrongs.com/on-escape-meta-alt-control-shift-emacs.html
+* https://github.com/hlissner/doom-emacs https://news.ycombinator.com/item?id=34967802
+* https://github.com/nvim-neorg/neorg
+* https://www.murilopereira.com/a-rabbit-hole-full-of-lisp/
+* https://www.murilopereira.com/whats-good-about-staying-inside-emacs/
+* https://www.murilopereira.com/emacs-from-catching-up-to-getting-ahead/
+* https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla/
+* https://www.thediff.co/archive/building-for-power-users/
 
 ## command mode
 
@@ -655,7 +675,7 @@ OPEN FILE AT
 ---
 
 * completion https://alpha2phi.medium.com/neovim-for-beginners-built-in-completion-8bbbb0f16c9c
-* can run terminal emulator inside buffer http://vimcasts.org/episodes/neovim-terminal/ 📙 Neil modern [5.130] http://vimcasts.org/episodes/neovim-terminal/ http://vimcasts.org/episodes/neovim-terminal-mappings/ https://github.com/akinsho/toggleterm.nvim
+* can run terminal emulator inside buffer http://vimcasts.org/episodes/neovim-terminal/ https://www.youtube.com/watch?v=ehD382bPuPA https://rutar.org/writing/from-vim-and-tmux-to-neovim/ 📙 Neil modern [5.130] http://vimcasts.org/episodes/neovim-terminal/ http://vimcasts.org/episodes/neovim-terminal-mappings/ https://github.com/akinsho/toggleterm.nvim
 
 ARGDO
 * bufdo, tabdo, location list, quickfix list 📙 Neil practical chapter 17 https://github.com/iggredible/Learn-Vim/blob/master/ch21_multiple_file_operations.md
@@ -689,13 +709,16 @@ can also use to delete lines https://vimtricks.substack.com/p/vimtrick-remove-li
 * https://github.com/romainl/idiomatic-vimrc
 * https://github.com/tpope/vim-sensible
 * https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
-🚀
-* Astro https://github.com/AstroNvim/AstroNvim
-* LazyVim https://www.lazyvim.org/
-* Lunar https://www.lunarvim.org/
-* NVChad https://github.com/NvChad/NvChad 
 
-NEOVIM https://github.com/NvChad/NvChad
+NEOVIM SETUPS
+> this one with NvChad https://www.youtube.com/watch?v=4BnVeOUeZxc
+> try these if nothing else works https://www.youtube.com/watch?v=gnupOrSEikQ https://www.youtube.com/watch?v=x__SZUuLOxw
+* _Astro_: 12k stars; strong maintainer https://github.com/mehalter https://github.com/AstroNvim/AstroNvim
+* _LazyVim_: 15k stars https://www.lazyvim.org/
+* _Lunar_: 17.5k stars; more open issues, heavy setup (req: npm, cargo, rg) https://www.lunarvim.org/
+* _NVChad_: 🎯 23.5 stars  https://nvchad.com/
+
+NEOVIM
 * files: `init.lua`, `init.vim` 📙 Neil modern [6] https://neovim.io/doc/user/starting.html#init.vim
 * debug: `:checkhealth` http://vimcasts.org/episodes/neovim-checkhealth/
 * fs
@@ -861,15 +884,6 @@ SEMANTICS
 * scope: global, filetype (aka `ftplugin` https://www.swamphogg.com/2015/vim-setup/ https://thoughtbot.com/upcase/videos/intro-to-dotfiles)
 
 # 💀
-
-EDITOR HISTORY
-* stone age: no screen = teletype
-* 1969: ed https://begriffs.com/posts/2019-07-19-history-use-vim.html
-* 1976: screens = ex, Vi, Emacs https://lwn.net/Articles/832429/ https://two-wrongs.com/why-you-should-buy-into-the-emacs-platform https://two-wrongs.com/on-escape-meta-alt-control-shift-emacs.html https://github.com/hlissner/doom-emacs https://news.ycombinator.com/item?id=34967802 org mode (just seems like predecessor to Markdown) https://github.com/nvim-neorg/neorg https://www.murilopereira.com/a-rabbit-hole-full-of-lisp/ https://www.murilopereira.com/whats-good-about-staying-inside-emacs/ https://www.murilopereira.com/emacs-from-catching-up-to-getting-ahead/ https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla/ https://www.thediff.co/archive/building-for-power-users/ https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla
-* 1991: Vim https://twobithistory.org/2018/08/05/where-vim-came-from.html https://begriffs.com/posts/2019-07-19-history-use-vim.html
-* 2006: Vim 7.0
-* 2013: Vim 8.0 [PV 5.27]
-* newish: Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 Zed https://zed.dev/ https://zed.dev/blog/we-have-to-start-over Amp https://amp.rs/
 
 ## Jetbrains
 
