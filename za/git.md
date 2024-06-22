@@ -249,10 +249,12 @@ tags
 
 semantics
 * three-way merge https://news.ycombinator.com/item?id=38222596
+* conflict https://www.youtube.com/watch?v=HJtxQPJUcJc
 * _merge_: interleave n commits 📙 Chacon 144
 * _cherry pick_: put 1 commit onto tip of branch https://stackoverflow.com/a/9339460
 * can always just merge other branch if it's only one commit ahead of master
 * _rebase_: put n commits onto tip of branch https://stackoverflow.com/a/43551395 https://jvns.ca/blog/2023/11/06/rebasing-what-can-go-wrong-/
+* interactive https://www.youtube.com/watch?v=H7RFt0Pxxp8
 * can also use `squash` https://stackoverflow.com/q/2427238
 * my notes workflow: `git rebase -i main`
 ```sh

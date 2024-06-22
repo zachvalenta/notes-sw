@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -12,13 +12,12 @@
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
 * Stutz cookbook
 
-## now
+## 进步
 
-## next
+mv from Homebrew to Nix
 
-## done
-
-* _22_: dev env
+* _24_: combine Homebrew and other managers
+* _22_: denv
 * _21_: macOS (failed upgrade to Big Sur)
 * _19_: backups (Dropbox as placeholder until Tarsnap) macOS (upgrade to Mojave) 📙 `evans-random.pdf`
 * _18_: phone (switch to new number, 'unknown number' problem, WhatsApp debacle)
@@ -64,7 +63,7 @@ requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
 * never update anything if you can avoid it https://blog.kronis.dev/articles/never-update-anything
 * pkg mgmt https://news.ycombinator.com/item?id=34577844
 
-## build systems
+## build systems (Make)
 
 📙 Meckleberg gnu make https://signalsandthreads.com/build-systems/
 🗄 `system.md` deployment
@@ -189,117 +188,72 @@ problems
 * _resolution_: figuring out subdepedencies for a dependency https://github.com/sdispater/mixology https://pyfound.blogspot.com/2020/03/new-pip-resolver-to-roll-out-this-year.html 
 * _boolean satisfiability problem (SAT)_: dependency resolution, basically https://codingnest.com/modern-sat-solvers-fast-neat-underused-part-1-of-n/ NP complete https://en.wikipedia.org/wiki/Boolean_satisfiability_problem https://stackoverflow.com/a/9378268/6813490 used by Composer https://stackoverflow.com/q/37818396 https://news.ycombinator.com/item?id=14508546 https://jix.one/the-assembly-language-of-satisfiability/
 
-## Homebrew
+## manager (Homebrew)
 
-📜 https://docs.brew.sh/Manpage
-🗄
-* `application.md` TLS
-* `python.md` version mgmt
-
-(UN)INSTALL
-* install Homebrew: requires Xcode command line tools
-* uninstall Homebrew https://github.com/homebrew/install#uninstall-homebrew
+HOMEBREW 📜 https://docs.brew.sh/Manpage
+* un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew
+* GUI version https://news.ycombinator.com/item?id=37075730
+* fs: Homebrew `/usr/local/Homebrew` installs `/usr/local/Cellar` 🔗 `/usr/local/bin`
+* installs deps just for building pkg https://github.com/Homebrew/brew/issues/634#issue-169347205
+* `pin` https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/
+* find older pkg versions in Homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
+> brew cleanup works against this
+* switch to different installed version: `switch` https://github.com/thoughtbot/til/blob/master/homebrew/using_different_homebrew_formula_versions.md
+> `link` does the same? https://stackoverflow.com/a/54175781
+* _formulae_: Ruby class that manages install; create your own https://www.youtube.com/watch?v=fbyrLo6yx8M
+* _tap_: repo of formulae not maintained by Homebrew https://stackoverflow.com/a/37973017/6813490
+* _bottle_: pre-compiled i.e. you don't need to download and build, just download i.e. faster
+* _services_: integrates w/ MacOS launchctl to start program on OS boot
 ```sh
+# INSTALL
 install # curls URL, compares download against checksum
 install -- prefix  # specific install location
 uninstall -s # uninstall + rm from cache
 upgrade # update; there's another cmd called `update` (akin to git fetch?)
 brew outdated | xargs brew upgrade  # updated all outdated
+
+# INFO
+commands  # list cmd
+help $CMD  # help per cmd
+doctor  # healthcheck
+search  # search available pkg
+leaves  # list installed (top-level) https://apple.stackexchange.com/a/279078
+ls  # list installed (transitive) https://github.com/Homebrew/brew/issues/8257
+info $PKG  # info on pkg
+deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/322371 https://github.com/martido/homebrew-graph
 ```
 
----
-
-get binaries from Github https://github.com/zyedidia/eget
-
-GUI https://news.ycombinator.com/item?id=37075730
-
-info
-* _list cmd_: `commands`
-* _help for cmd_: `help <cmd>`
-* _healthcheck_: `doctor`
-* _search available_: `search`
-
-dependencies
-* _list installed - top level_: `leaves` https://apple.stackexchange.com/a/279078
-* _list installed - transitive_: `ls` https://github.com/Homebrew/brew/issues/8257
-* _pkg info_: `info <pkg>`
-* _dependency graph_: `brew deps --tree --installed` https://apple.stackexchange.com/a/322371 https://github.com/martido/homebrew-graph
-
-terms
-* _formulae_: Ruby class that manages install; create your own https://www.youtube.com/watch?v=fbyrLo6yx8M
-* _tap_: repo of formulae not maintained by Homebrew https://stackoverflow.com/a/37973017/6813490
-* _bottle_: pre-compiled i.e. you don't need to download and build, just download i.e. faster
-* _services_: integrates w/ MacOS launchctl to start program on OS boot
-
-file system locations
-* _Homebrew_: `/usr/local/Homebrew`
-* _installs_: `/usr/local/Cellar` 🔗 `/usr/local/bin`
-* installs deps just for building pkg https://github.com/Homebrew/brew/issues/634#issue-169347205
-
-older versions
-* _pin_: `pin` https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/
-* _find older version_: look in homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
-> brew cleanup works against this
-* _switch to different installed version_: `switch` https://github.com/thoughtbot/til/blob/master/homebrew/using_different_homebrew_formula_versions.md `link` does the same? https://stackoverflow.com/a/54175781
-
-## managers
-
-MANAGERS
+ALTERNATIVES
 * _apk_: Alpine
-* _Snap_: Ubuntu https://lwn.net/Articles/825005/
+* _apt_: used by Debian, Ubuntu, Mint
+```sh
+apt list -installed # list installed
+-y  # yes to interactive prompts `export DEBIAN_FRONTEND=noninteractive``
+apt-get -y update # update package listing so we know what packages exist
+apt-get -y upgrade # grab security updates
+RUN apt-get -y install <pkg> # install https://stackoverflow.com/a/50870967  sometimes have to update/upgrade or pkg won't be found
+apt-get -y install --no-install-recommends <pkg> # don't install subdeps https://pythonspeed.com/articles/system-packages-docker/
+apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythonspeed.com/articles/system-packages-docker/
+```
+* _dpkg_: alternative to apt just installs pkg, not subdeps https://askubuntu.com/a/309121 list pkgs `dpkg-query -l`
 * _lmod_: pkg + change env https://lmod.readthedocs.io/en/latest/ `module list` (what you have loaded) `module avail` (what you can load)
-* _Nix_: https://github.com/NixOS/nix
+* _Nix_: 🎯 https://github.com/NixOS/nix
 > The point of nix is just to create completely reproducible builds and package management, including support for multiple versions of packages side-by-size with no issues. It's sort of a next-generation package management system that tries to avoid most of the pitfalls that OS package managers have fumbled with up to this point. https://news.ycombinator.com/item?id=23251754
+* can use in place of Homebrew, provides one-off shell without having to install pkg https://www.youtube.com/watch?v=m4ST2dq10no
+* isolate pkg by user/shell https://github.com/jetpack-io/devbox can do via flakes? https://www.youtube.com/watch?v=m4ST2dq10no
+* NixOS is a whole other can of worms https://www.youtube.com/watch?v=m4ST2dq10no
 * overview https://shopify.engineering/what-is-nix
+* design https://news.ycombinator.com/item?id=34577844
 * using w/ Docker https://pythonspeed.com/articles/reproducible-docker-builds-python/
 * advanced usage https://bmcgee.ie/posts/2022/12/setting-up-my-new-laptop-nix-style/
 * allows temporary installs https://wickedchicken.github.io/post/macos-nix-setup/
 * macOS: need nix-darwin https://wickedchicken.github.io/post/macos-nix-setup/ installs more isolated than Homebrew https://wickedchicken.github.io/post/macos-nix-setup/ https://www.reddit.com/r/Nix/comments/zdcteb/should_i_migrate_from_homebrew_to_nix/ https://news.ycombinator.com/item?id=29079096
 * _pixi_: https://twitter.com/wuoulf/status/1691833538226610355 https://taras.glek.net/post/trying-pixi-modern-python-packaging/ https://github.com/prefix-dev/pixi https://talkpython.fm/episodes/show/439/pixi-a-fast-package-manager
 * _rpm_: pkg format and, confusingly, pkg manager for RHEL https://stackoverflow.com/a/8201051/6813490
-* _Tasksel_: install packages in bundled fashion (LAMP stack)
+* _Snap_: Ubuntu https://lwn.net/Articles/825005/
+* _Tasksel_: Debian tool to install packages in bundled fashion e.g. LAMP stack
 * _yum_: Red Hat (RHEL, Fedora)
 * _Windows_: Chocolately, Nuget; uses Powershell under the hood
-
-APT
-* _os that use_: Debian, Ubuntu, Mint
-* _dpkg_: alternative that just installs pkg, not subdeps https://askubuntu.com/a/309121 list pkgs `dpkg-query -l`
-```sh
-# list installed
-apt list -installed
-
-# yes to interactive prompts
--y
-export DEBIAN_FRONTEND=noninteractive
-
-# update package listing so we know what packages exist
-apt-get -y update
-
-# grab security updates
-apt-get -y upgrade
-
-# ⚠️ sometimes have to update and upgrade or the package you're trying to donwload won't even be found
-# install https://stackoverflow.com/a/50870967
-RUN apt-get -y install <pkg>
-
-# don't install subdeps (or does recommended here mean something else?) https://pythonspeed.com/articles/system-packages-docker/
-apt-get -y install --no-install-recommends <pkg>
-
-# clean up file cache https://pythonspeed.com/articles/system-packages-docker/
-apt-get clean
-rm -rf /var/lib/apt/lists/*
-```
-
----
-
-* pkg mgmt https://news.ycombinator.com/item?id=34577844
-* TUI https://github.com/wick3dr0se/pkm
-* _devbox_: isolate pkg by user/shell https://github.com/jetpack-io/devbox
-* _whatis_: show description from manpage db https://github.com/Idnan/bash-guide#c-whereis
-* man (UNIX) vs. info (GNU) https://askubuntu.com/a/9332 man pages for systems calls as well (`sendfile`) [`evans-linux.pdf` 11]
-* help: `man`, `info`, `whatis`, `man 2 <cmd>` (for system calls)
-* _man pages_: following links (like at bottom of cmus manpage) https://unix.stackexchange.com/a/18161/331460 set pager `export MANPAGER=bat` https://askubuntu.com/a/679058
-* offline documentations https://devdocs.io/
 
 # 🧵 PROCESSES
 
@@ -454,7 +408,7 @@ https://events.linuxfoundation.org/wp-content/uploads/2022/10/elena-zannoni-trac
 ✅ `strace` debugging: 'these are the system calls your program is making'
 📝 don't run strace on production processes (or anything that needs to run at normal speed)
 
-# ZA
+# 🟨 ZA
 
 DATA TRANSFER https://github.com/veeso/termscp
 * alternative file transfer https://github.com/abdfnx/tran cyberduck https://fabiensanglard.net/html/index.html https://github.com/SpatiumPortae/portal

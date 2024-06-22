@@ -84,6 +84,7 @@ INTERVIEWING
 - [x] webcam
 - [x] Python env: rf `stdlib.md`
 - [ ] data env: tooling in general, research BI, rf dataframes
+- [ ] dev env: Zellij, editor
 
 PYTHON ENV FOR ALGOS
 * feedback: notebooks

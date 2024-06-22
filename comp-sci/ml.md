@@ -221,6 +221,8 @@ LOCAL
 
 ---
 
+https://www.youtube.com/watch?v=MzFr7iXsESs
+
 > LLMs are good at explaining code. Give it code in a language you don't understand and it will explain it with 90% accuracy. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
 
 * code prompt: https://ollama.com/blog/how-to-prompt-code-llama https://ollama.com/blog/run-code-llama-locally Codestral https://ollama.com/blog/continue-code-assistant
