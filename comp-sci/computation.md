@@ -115,6 +115,7 @@ ZA
 * _Von Neumann architecture_: model for hardware that allowed for data input via memory vs. rewiring hardware itself https://blog.robertelder.org/computer-science-for-engineers/
 
 TURING MACHINE
+* https://snarky.ca/mvpy-minimum-viable-python/
 * _Turing complete_: functional parity w/ Turing machine https://www.youtube.com/watch?v=dNRDvLACg5Q
 ```python
 if state == state359 and current_tape_location == 1:

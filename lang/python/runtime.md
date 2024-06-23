@@ -17,10 +17,12 @@
 TAXONOMY https://en.wikipedia.org/wiki/Exploratory_programming
 * _REPL_: interface to interpreter + prompt https://docs.python.org/3/glossary.html#term-interactive https://docs.python.org/3/tutorial/interpreter.html#interactive-mode
 * Codi = REPL running async as you type https://github.com/metakirby5/codi.vim https://www.youtube.com/watch?v=tLQmGabfXHU
-* db CLI = REPL to db 🗄️ `databases.md` CLI
+* Magma = highlight code blocks and exec in Jupyter https://github.com/dccsillag/magma-nvim
+* Org Mode = exec code snippets
+* _db CLI_: REPL to db 🗄️ `databases.md` CLI
 * _object explorer_: REPL + autocomplete print docstrings https://github.com/darrenburns/shira
 * _debugger_: REPL + running program state
-* _notebook_: REPL + persistent data e.g. Jupyter
+* _notebook_: REPL + presentation layer + persistent data
 * _spreadsheet_: proprietary notebook https://www.youtube.com/watch?v=llgTl9BDuKw
 
 ## debugger (pdb)
@@ -126,20 +128,30 @@ def simple_tracer(frame, event):  # 4:30
 * trickier with multithreading [10:00]
 * BYO w/ bdb [11:45]
 
-## notebook (Marimo)
+## notebook
+
+---
+
+https://www.reddit.com/r/Python/comments/6hwa22/what_is_the_point_of_jupyter/ https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.html
+https://www.hytradboi.com/2022/percival-a-reactive-language-for-exploratory-data-analysis-and-visualization
 
 MARIMO 📻 https://github.com/marimo-team/marimo
+* design https://marimo.io/blog/lessons-learned
+> no ToC
 ```bash
 poetry init -n
 poetry add marimo
 poetry run python marimo tutorial intro
 ```
 
----
+> other ways to show your work: zine (Julia Evans), book (Gitbook, https://quarto.org/ uses Pandoc), org mode
 
-> alternatives: Julia Evans, Gitbook, notesbooks (Quarto https://quarto.org/ uses Pandoc)
+📜 https://jupyter.readthedocs.io/en/latest/index.html https://realpython.com/jupyter-notebook-introduction/
 
-📜 https://jupyter.readthedocs.io/en/latest/index.html
+ToC
+* https://jupyterlab.readthedocs.io/en/stable/user/toc.html
+* https://jupyterbook.org/en/stable/intro.html
+* https://github.com/fluentpython/example-code-2e/blob/master/01-data-model/data-model.ipynb
 
 HISTORY
 * _iPython_: REPL + syntax highlighting, access to Bash cmd
@@ -279,6 +291,9 @@ VERSIONS https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com
 🗄 `language.md` compilers
 
 ---
+
+https://snarky.ca/unravelling-attribute-access-in-python/
+https://snarky.ca/mvpy-minimum-viable-python/
 
 ALTERNATIVES
 * unique insofar as has to fit many use cases (web, CLI, security) https://talkpython.fm/episodes/show/265/why-is-python-slow 47:00
@@ -776,10 +791,12 @@ GLOBAL DEPENDENCIES
 
 📜 https://python-poetry.org/docs/
 
+FS
 * config file: `~/Library/Application Support/pypoetry/config.toml`
 * venvs: local (`$PROJ/.venv`) global (`~/Library/Caches/pypoetry/virtualenvs`)
 > specify in VS Code https://stackoverflow.com/questions/59882884/vscode-doesnt-show-poetry-virtualenvs-in-select-interpreter-option https://code.visualstudio.com/docs/python/environments
-* commands
+
+CMD
 ```sh
 init -n        # create pyproject.toml
 install        # install deps

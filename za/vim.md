@@ -630,40 +630,11 @@ HELP https://neovim.io/doc/user/usr_02.html#help-summary
 * use Telescope https://www.youtube.com/watch?v=prnrwpOEsmo 20:00
 * notifications https://github.com/vigoux/notifier.nvim https://github.com/folke/noice.nvim https://github.com/j-hui/fidget.nvim
 
-EDITOR HISTORY
-* stone age: no screen = teletype
-* 1969: ed https://begriffs.com/posts/2019-07-19-history-use-vim.html
-* 1976: vi, Emacs
-* 1991: Vim https://twobithistory.org/2018/08/05/where-vim-came-from.html https://begriffs.com/posts/2019-07-19-history-use-vim.html
-* 2006: Vim 7.0
-* 2013: Vim 8.0 📙 PV [5.27]
-* 2015: Neovim
-* 2020s: Zed, Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 Amp https://amp.rs/
-
 NEOVIM
 * vs. VS Code: can run in terminal, more customizable, modal https://www.reddit.com/r/neovim/comments/15c7al9/why_turn_neovim_into_vscode/
 * installation: Homebrew (requires macOS > 10.14) 📙 Neil modern [5]
 * design: run tasks async, Lua for scripting https://github.com/nvim-lua/plenary.nvim
 > Bram's comparison is Vi, Neovim teams' comparison is VS Code. https://news.ycombinator.com/item?id=31936725
-
-ZED https://zed.dev/
-* design https://zed.dev/blog/between-editors-and-ides https://zed.dev/blog/we-have-to-start-over 
-* Vim mode https://zed.dev/blog/zed-decoded-vim
-* themes https://zed.dev/blog/user-themes-now-in-preview
-
----
-
-EMACS
-* https://lwn.net/Articles/832429/
-* https://two-wrongs.com/why-you-should-buy-into-the-emacs-platform
-* https://two-wrongs.com/on-escape-meta-alt-control-shift-emacs.html
-* https://github.com/hlissner/doom-emacs https://news.ycombinator.com/item?id=34967802
-* https://github.com/nvim-neorg/neorg
-* https://www.murilopereira.com/a-rabbit-hole-full-of-lisp/
-* https://www.murilopereira.com/whats-good-about-staying-inside-emacs/
-* https://www.murilopereira.com/emacs-from-catching-up-to-getting-ahead/
-* https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla/
-* https://www.thediff.co/archive/building-for-power-users/
 
 ## command mode
 
@@ -888,6 +859,37 @@ SEMANTICS
 
 # 💀
 
+EDITOR HISTORY
+* stone age: no screen = teletype
+* 1969: ed https://begriffs.com/posts/2019-07-19-history-use-vim.html
+* 1976: vi, Emacs
+* 1991: Vim https://twobithistory.org/2018/08/05/where-vim-came-from.html https://begriffs.com/posts/2019-07-19-history-use-vim.html
+* 2006: Vim 7.0
+* 2013: Vim 8.0 📙 PV [5.27]
+* 2015: Neovim
+* 2020s: Zed, Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 Amp https://amp.rs/
+
+## Emacs
+
+ORG MODE https://en.wikipedia.org/wiki/Org-mode
+* killer feature, can execute code snippets https://www.youtube.com/watch?v=cxoE2FhOIgI
+* Neovim version is still beta, uses new package manager, doesn't have Roam https://github.com/nvim-neorg/neorg https://vhyrro.github.io/posts/neorg-and-luarocks/ https://github.com/nvim-neorocks/rocks.nvim
+* Roam: Zettelkasten https://www.youtube.com/watch?v=AyhPmypHDEw
+> don't like the journal functionality bc don't want journal and domain notes intermixed https://www.youtube.com/watch?v=3-sLBaJAtew
+
+---
+
+* https://www.youtube.com/@SystemCrafters/videos
+* https://lwn.net/Articles/832429/
+* https://two-wrongs.com/why-you-should-buy-into-the-emacs-platform
+* https://two-wrongs.com/on-escape-meta-alt-control-shift-emacs.html
+* https://github.com/hlissner/doom-emacs https://news.ycombinator.com/item?id=34967802
+* https://www.murilopereira.com/a-rabbit-hole-full-of-lisp/
+* https://www.murilopereira.com/whats-good-about-staying-inside-emacs/
+* https://www.murilopereira.com/emacs-from-catching-up-to-getting-ahead/
+* https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla/
+* https://www.thediff.co/archive/building-for-power-users/
+
 ## Jetbrains
 
 * _find action (god command)_: CMD SHIFT a
@@ -1104,9 +1106,15 @@ keybindings
 PLUS / MINUS
 * no document outline
 > in progress https://github.com/zed-industries/zed/discussions/13421
+* makes itself default editor (broot)
 * fast
 * just works with Poetry
 
 THINGS TO TRY
 * integrated GPT
 * team tools for pairing
+
+ZA
+* design https://zed.dev/blog/between-editors-and-ides https://zed.dev/blog/we-have-to-start-over 
+* Vim mode https://zed.dev/blog/zed-decoded-vim
+* themes https://zed.dev/blog/user-themes-now-in-preview

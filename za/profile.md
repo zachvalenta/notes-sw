@@ -78,29 +78,29 @@ NEOVIM
 
 ## skills
 
-ENV - GENERAL
-- [ ] multiplex: tmux
-- [ ] editor: VS Code interpreter selection for Poetry
-
 ENV - PYTHON
-- [ ] feedback: notebooks
-- [ ] feedback: debugger (algos sandbox)
+- [x] feedback: think through notebook usage
+> yes: Ramalho + notes + REPL | repo + doctest https://github.com/fluentpython/example-code-2e/tree/master/01-data-model
+> no: org mode looks great (exec code snippet, easier traversal) but no time to switch to emacs or figure out neorg; dont think I need notebooks bc no need for visualizations, wordiness of notes needs density of editor
+- [ ] editor: VS Code interpreter selection for Poetry
+- [ ] feedback: debugger (algos sandbox) + ️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
 - [ ] feedback: REPL
 - [ ] stdlib: lint
 - [ ] stdlib: doctest
 - [ ] stdlib: ward
 
-INTERVIEWING - CODE MONKEY 📙 Ramalho
->️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
-> figure out how your going to read Ramalho first
-- [ ] Python: obj
-- [ ] Python: collections
-- [ ] Python: functions
-- [ ] Python: classes
+INTERVIEWING - CODE MONKEY
+- [ ] Python: collections 📙 Ramalho ch. 2-3, 18
+- [ ] Python: functions 📙 Ramalho ch. 7, 9-10
+- [ ] Python: classes 📙 Ramalho ch. 1, 5, 11-14, 16, 22-24
+- [ ] Python: obj 📙 Ramalho ch. 6
 - [ ] algos: rf notes
 - [ ] algos: rf fs
-- [ ] algos: REPL (ward, doctest notebook)
-- [ ] algos: core 🗄️ `sandbox/src` miscellaneous, thirty
+- [ ] algos: repo/core 🗄️ `sandbox/src` miscellaneous, thirty
+
+ENV - GENERAL
+- [x] multiplex: rule out Zellij for now
+- [ ] multiplex: tmux
 
 ENV - DATA
 - [x] tooling in general
