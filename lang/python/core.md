@@ -545,7 +545,7 @@ id(bar)  # 4458076080
 ---
 
 SUBSCRIPTABLE
-* read by index or key; aka indexing
+* read by key or index (indexing)
 * impl via `__getitem__` https://stackoverflow.com/a/216980
 ```python
 myd = dict(magic=32, larry=33)

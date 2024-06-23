@@ -20,8 +20,6 @@
 
 # 🏗️ DATA ENG
 
-🗄 `architecture.md` data
-
 TYPES OF DATA
 * _hot storage_: in-mem
 * _cold storage_: analytics, archives https://github.com/tembo-io/pg_tier
@@ -30,39 +28,43 @@ TYPES OF DATA
 * _dummy data_: fake/seed data for development; https://github.com/zachvalenta/flask-CRUD/blob/master/db_seed.py https://github.com/joke2k/faker#providers https://mimesis.name/ https://mockaroo.com/ https://github.com/Qovery/replibyte
 * _synthetic data_: real data but anonymized https://softwareengineeringdaily.com/2021/02/16/synthetic-data-with-ian-coe-andrew-colombi-and-adam-kamor/ https://gretel.ai/blog/what-is-synthetic-data
 
+OLTP
+> If you have a transactional need for your dataset it's best to keep this workload isolated with a transactional data store. This is why I expect MySQL, PostgreSQL, Oracle and MSSQL to be around for a very long time to come. https://tech.marksblogg.com/is-hadoop-dead.html
+* data: application
+* access pattern: writes 📙 Kleppmann [90]
+* schema: DIY
+* model: relational
+* consumers: users
+
+OLAP
+> But would you like to see a 4-hour outage at Uber because one of their Presto queries produced unexpected behaviour? Would you like to be told your company needs to produce invoices for the month so the website will need to be switched off for a week so there are enough resources available for the task? Analytical workloads don't need to be coupled with transactional workloads. You can lower operational risks and pick better-suited hardware by running them on separate infrastructure. https://tech.marksblogg.com/is-hadoop-dead.html
+* data: from n data sources (application, analytics) 📙 Kleppmann [92]
+* access pattern: reads (aggregates) 📙 Kleppmann [90-92] 🗄 `sql.md` tables/views
+* schema: star
+* model: maybe non-relational 📙 Kleppmann [93,101]
+* consumers: DBA, BI, ML https://softwareengineeringdaily.com/2021/07/14/data-science-on-aws-implementing-ai-and-ml-pipelines-on-aws-with-chris-fregly/
+
 DATASETS
 * general: https://ourworldindata.org/ https://www.wikidata.org/ https://datasetsearch.research.google.com/ https://www.kaggle.com/datasets https://datausa.io/ https://www.splitgraph.com/
 * art https://news.ycombinator.com/item?id=28445761
+* baseball https://jamesrledoux.com/projects/open-source/introducing-pybaseball/ https://www.thedrummeyangle.com/post/an-introduction-to-pybaseball-using-python-to-analyze-baseball-data https://www.datacamp.com/tutorial/scikit-learn-tutorial-baseball-1
+* census https://www.ipums.org/
 * finance: https://github.com/ranaroussi/yfinance
 * housing: https://www.zillow.com/research/data/
+* India https://www.dataforindia.com/
 * literature: ratings http://fastml.com/goodbooks-10k-a-new-dataset-for-book-recommendations/ https://github.com/zygmuntz/goodbooks-10k https://bookbrainz.org/ text http://www.jessamyn.com/barth/index.html https://en.wikisource.org/ https://news.ycombinator.com/item?id=1394077
 * music: https://musicbrainz.org/
 * population: https://simplemaps.com/data
 * scientific: https://news.ycombinator.com/item?id=27365755
-* census https://www.ipums.org/
 
-BACKUPS 🗄 `it.md` backups `system.md` data
-* short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00
-* hard drive health: 2% annual fail rate https://drewdevault.com/2020/04/22/How-to-store-data-forever.html DriveDX https://binaryfruit.com/drivedx/usb-drive-support Wear_Leveling_Count https://superuser.com/q/1037644 SMART https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology https://news.ycombinator.com/item?id=11110902
-* version control data: DVC https://github.com/iterative/dvc https://realpython.com/python-data-version-control/ Dolt https://github.com/dolthub/dolt
-> people don't really care about this https://news.ycombinator.com/item?id=22731928
-* diff https://github.com/datafold/data-diff
-* https://news.ycombinator.com/item?id=38961463
-* _snapshot_: backup whole table
-* _date-based_: backup portion of table i.e. acts as an immutable log
-* _cold storage_: infrequent reads/writes https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
-* _hot storage_: frequent reads/writes https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
-* _deduplication_: only touch new data (vs. entire file)
-* _durability_: data exists https://news.ycombinator.com/item?id=26428688
-* _reliability_: data available
-* _redundant_: same data stored multiple places e.g. RAID https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
-
-TRADITIONAL DBA https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/
-* install dbms
-* maintenance
-* monitoring
-* security patches
-* make backups
+DATA ENGINEERING
+* data engineer = shepard (ETL) librarian (catalog) https://www.youtube.com/watch?v=qqlbYDfqeI4 1:45
+> But if data analytics usually means extracting insights from existing data, data engineering means the process of building infrastructure to deliver, store and process the data. https://khashtamov.com/en/how-to-become-a-data-engineer/
+* vs. web dev https://tech.marksblogg.com/is-hadoop-dead.html
+> The above projects often aren't advertised in a way that web developers would be exposed to them. This is why someone could spend years working on new projects that are at the bottom of their S-curve in terms of both growth and data accumulated and largely never see a need for data processing outside of what could fit in RAM on a single machine.
+> Web Development was a big driver in the population growth of coders over the past 25 years. Most people that call themselves a coder are most often building web applications. I think a lot of the skillsets they possess overlap well with those needed in data engineering but often distributed computing, statistics and storytelling are lacking.
+> Websites often don't produce much load with any one user and often the aim is to keep the load on servers supporting a large number of users below the maximum hardware thresholds. The data world is made up of workloads where a single query is trying its best to maximize a large number of machines in order to finish as quickly as possible while keeping the infrastructure costs down.
+> Companies producing PBs of data often have a queue of experienced consultants and solutions providers at their door. I've rarely seen anyone plucked out of web development by their employer and brought into the data platform engineering space; it's almost always a lengthy, self-retraining exercise.
 
 ---
 
@@ -86,15 +88,6 @@ TRADITIONAL DBA https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-gu
 * https://news.ycombinator.com/item?id=35438192&utm_term=comment
 * https://github.com/calpaterson/csvbase
 * https://news.ycombinator.com/item?id=40352686
-
-INDUSTRY
-* _data engineer_: shepard (ETL) librarian (catalog) https://www.youtube.com/watch?v=qqlbYDfqeI4 1:45
-> But if data analytics usually means extracting insights from existing data, data engineering means the process of building infrastructure to deliver, store and process the data. https://khashtamov.com/en/how-to-become-a-data-engineer/
-* vs. web dev https://tech.marksblogg.com/is-hadoop-dead.html
-> The above projects often aren't advertised in a way that web developers would be exposed to them. This is why someone could spend years working on new projects that are at the bottom of their S-curve in terms of both growth and data accumulated and largely never see a need for data processing outside of what could fit in RAM on a single machine.
-> Web Development was a big driver in the population growth of coders over the past 25 years. Most people that call themselves a coder are most often building web applications. I think a lot of the skillsets they possess overlap well with those needed in data engineering but often distributed computing, statistics and storytelling are lacking.
-> Websites often don't produce much load with any one user and often the aim is to keep the load on servers supporting a large number of users below the maximum hardware thresholds. The data world is made up of workloads where a single query is trying its best to maximize a large number of machines in order to finish as quickly as possible while keeping the infrastructure costs down.
-> Companies producing PBs of data often have a queue of experienced consultants and solutions providers at their door. I've rarely seen anyone plucked out of web development by their employer and brought into the data platform engineering space; it's almost always a lengthy, self-retraining exercise.
 
 ## big data
 
@@ -139,27 +132,38 @@ TOOLS
 * kinda part of Hadoop, kinda not https://tech.marksblogg.com/is-hadoop-dead.html
 > At some point, the Spark community tried to distance itself from the Hadoop ecosystem. They didn't want to be seen as built on legacy software nor as some sort of "add-on" for Hadoop. Given the level of integration, Spark has with the rest of the Hadoop ecosystem and given the 100s of libraries from other Hadoop projects being used by Spark I don't subscribe to the belief that Spark is its own thing.
 
-## OLAP
+## DBA
+
+---
+
+BACKUPS 🗄 `it.md` backups `architecture.md` replication/partition
+* short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00
+* hard drive health: 2% annual fail rate https://drewdevault.com/2020/04/22/How-to-store-data-forever.html DriveDX https://binaryfruit.com/drivedx/usb-drive-support Wear_Leveling_Count https://superuser.com/q/1037644 SMART https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology https://news.ycombinator.com/item?id=11110902
+* version control data: DVC https://github.com/iterative/dvc https://realpython.com/python-data-version-control/ Dolt https://github.com/dolthub/dolt
+> people don't really care about this https://news.ycombinator.com/item?id=22731928
+* diff https://github.com/datafold/data-diff
+* https://news.ycombinator.com/item?id=38961463
+* _snapshot_: backup whole table
+* _date-based_: backup portion of table i.e. acts as an immutable log
+* _cold storage_: infrequent reads/writes https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
+* _hot storage_: frequent reads/writes https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
+* _deduplication_: only touch new data (vs. entire file)
+* _durability_: data exists https://news.ycombinator.com/item?id=26428688
+* _reliability_: data available
+* _redundant_: same data stored multiple places e.g. RAID https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
+
+TRADITIONAL DBA https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/
+* install dbms
+* maintenance
+* monitoring
+* security patches
+* make backups
+
+## OLAP (DuckDB)
 
 🗄 `infra.md` analytics
 
-OLTP
-> If you have a transactional need for your dataset it's best to keep this workload isolated with a transactional data store. This is why I expect MySQL, PostgreSQL, Oracle and MSSQL to be around for a very long time to come. https://tech.marksblogg.com/is-hadoop-dead.html
-* data: application
-* access pattern: writes 📙 Kleppmann [90]
-* schema: DIY
-* model: relational
-* consumers: users
-
-OLAP
-> But would you like to see a 4-hour outage at Uber because one of their Presto queries produced unexpected behaviour? Would you like to be told your company needs to produce invoices for the month so the website will need to be switched off for a week so there are enough resources available for the task? Analytical workloads don't need to be coupled with transactional workloads. You can lower operational risks and pick better-suited hardware by running them on separate infrastructure. https://tech.marksblogg.com/is-hadoop-dead.html
-* data: from n data sources (application, analytics) 📙 Kleppmann [92]
-* access pattern: reads (aggregates) 📙 Kleppmann [90-92] 🗄 `sql.md` tables/views
-* schema: star
-* model: maybe non-relational 📙 Kleppmann [93,101]
-* consumers: DBA, BI, ML https://softwareengineeringdaily.com/2021/07/14/data-science-on-aws-implementing-ai-and-ml-pipelines-on-aws-with-chris-fregly/
-
-TAXONOMY 📙 Kleppmann [90-95]
+🏗️ TAXONOMY 📙 Kleppmann [90-95]
 * _data source_: where you're getting the data https://dataschool.com/data-governance
 * _lakehouse_: https://softwareengineeringdaily.com/2022/08/25/lakehouse-data-stack-with-raj-bains-2/ https://www.databricks.com/
 * _lake_: 类似 file system https://www.youtube.com/watch?v=V0GvZ_KAI70 https://news.ycombinator.com/item?id=32336977
@@ -183,12 +187,24 @@ family https://news.ycombinator.com/item?id=37520374
 * Collibra https://www.thoughtworks.com/radar/platforms?blipid=202203049
 * https://github.com/open-metadata/OpenMetadata https://github.com/datahub-project/datahub
 
-WAREHOUSE DBMS
+🦆 DUCKDB https://duckdb.org/
+* embedded
+* role in ecosystem https://wesmckinney.com/blog/looking-back-15-years/
+* for analytics https://news.ycombinator.com/item?id=24531085 https://news.ycombinator.com/item?id=23287278
+* own flavor of SQL https://duckdb.org/2022/05/04/friendlier-sql.html
+* https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/
+* https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf
+* https://kadekillary.work/note/duckdb/
+* https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html
+* interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html
+* https://news.ycombinator.com/item?id=39141652
+* https://www.nikolasgoebel.com/2024/05/28/duckdb-doesnt-need-data.html
+
+ALTERNATIVES
 * cloud: petabytes in single query and comes back in seconds/minutes e.g. Snowflake 📻 Macey 32:20
 > I hear people arguing "a dataset can fit in memory". RAM capacity, even on the Cloud, has grown a lot recently. There are EC2 instances with 2 TB of RAM. RAM can typically be used at 12-25 GB/s depending on the architecture of your setup. Using RAM alone won't provide any failure recovery if the machine suffers a power failure. To add to this, the cost per GB will is tremendous compared to using disks. https://tech.marksblogg.com/is-hadoop-dead.html
 * can always use Postgres https://brandur.org/warehouse https://tech.marksblogg.com/billion-nyc-taxi-rides-postgresql.html https://news.ycombinator.com/item?id=27109960
 > I've also heard arguments that row-oriented systems like MySQL and PostgreSQL can fit the needs of analytical workloads as well as their traditional transactional workloads. Both of these offerings can do analytics and if you're looking at less than 20 GB of data it's probably not worth the effort of having multiple pieces of software running your data platform. https://tech.marksblogg.com/is-hadoop-dead.html
-* _DuckDB_: embedded https://duckdb.org/ for analytics https://news.ycombinator.com/item?id=24531085 https://news.ycombinator.com/item?id=23287278 own flavor of SQL https://duckdb.org/2022/05/04/friendlier-sql.html https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/ https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf https://kadekillary.work/note/duckdb/ https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html https://news.ycombinator.com/item?id=39141652&utm_term=comment https://www.nikolasgoebel.com/2024/05/28/duckdb-doesnt-need-data.html
 * _Clickhouse_: https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html
 * _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
 * beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
@@ -203,8 +219,6 @@ WAREHOUSE DBMS
 
 ## pipelines
 
-🗄 logging
-
 SCHEMAS
 * _star schema_: fact table at center
 * _snowflake schema_: like star schema but more normalized
@@ -218,7 +232,6 @@ PIPELINES
 * mv/copy from one db to another https://news.ycombinator.com/item?id=39525071 https://github.com/bruin-data/ingestr
 * _transform_: 名 step that remodels data to dimensionsal https://www.youtube.com/watch?v=M8oi7nSaWps 3:30 https://news.ycombinator.com/item?id=34578324
 * e.g. head/tail, add/rm col, type conversion, join https://www.youtube.com/watch?v=llRLh8cM7QI 15:50
-* testing: validate integrity https://github.com/great-expectations/great_expectations https://softwareengineeringdaily.com/2020/02/17/great-expectations-data-pipeline-testing-with-abe-gong/ https://github.com/socialpoint-labs/sqlbucket
 * _ETL_: mv fact tables to dimensionsal 📙 Conery 323
 * howto https://www.youtube.com/watch?v=v65n9yQWfVs
 * _ELT_: cp facts tables, then mv to dimensionsal https://www.youtube.com/watch?v=voC0ewDeltA 4:00
@@ -236,10 +249,10 @@ TOOLS
 * metrics https://news.ycombinator.com/item?id=30938109
 * why does everyone love it so much? https://highgrowthengineering.substack.com/p/why-is-dbt-so-important-
 > Fivetran as the best-in-class E and L, and dbt as the corresponding T. https://luttig.substack.com/p/dont-forget-microsoft
-* _GX (Great Expectations)_: https://github.com/great-expectations/great_expectations
+* _GX (Great Expectations)_: https://github.com/great-expectations/great_expectations https://softwareengineeringdaily.com/2020/02/17/great-expectations-data-pipeline-testing-with-abe-gong/ https://github.com/socialpoint-labs/sqlbucket
 * alternative https://github.com/sodadata/soda-core https://www.thoughtworks.com/radar/tools?blipid=202210008
 > Great Expectations is a framework that allows you to craft built-in controls that flag anomalies or quality issues in data pipelines. 
-* Pandera https://endjin.com/blog/2023/03/a-look-into-pandera-and-great-expectations-for-data-validation
+* Pandera https://endjin.com/blog/2023/03/a-look-into-pandera-and-great-expectations-for-data-validation https://www.peterbaumgartner.com/blog/testing-for-data-science/
 * _petl_: transforms https://petl.readthedocs.io/en/stable/
 * if petl can only handle thousands of records, why not just use Pandas? https://www.youtube.com/watch?v=llRLh8cM7QI 9:30 25:00 https://petl.readthedocs.io/en/stable/
 * _Zingg_: entity resolution i.e. fix data integrity problems https://github.com/zinggAI/zingg
@@ -283,7 +296,7 @@ dbms https://en.wikipedia.org/wiki/List_of_column-oriented_DBMSes
 * _Bigtable_: wide table = document store in SQL https://en.wikipedia.org/wiki/Wide-column_store
 * _HBase_: Hadoop db
 
-## document
+## document (TinyDB)
 
 📙 Kleppmann 2.28-42
 
@@ -376,6 +389,7 @@ REDIS 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
 * governance https://news.ycombinator.com/item?id=23689549
 * key expiration https://news.ycombinator.com/item?id=30099572
 * alternative https://github.com/dragonflydb/dragonfly https://github.com/buraksezer/olric#installing
+* embedded https://github.com/symisc/vedis https://news.ycombinator.com/item?id=19464144
 > You can either set Redis up as a "data-structures" server or you set it up right as a cache. You can't do both. If you choose to use Redis as your cache, ensure that the cache instance is only serving as your cache. Your inter-system message bus should be on a different Redis with a different configuration. https://calpaterson.com/ttl-hell.html
 
 MEMCACHED
@@ -525,7 +539,7 @@ start here
 > mention of caching? https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
 * https://calpaterson.com/how-a-sql-database-works.html
 * https://dataschool.com/sql-optimization/how-indexing-works/
-* BRIN https://hakibenita.com/sql-tricks-application-dba#index-columns-with-high-correlation-using-brin https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/
+* BRIN https://hakibenita.com/sql-tricks-application-dba#index-columns-with-high-correlation-using-brin https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/ https://en.wikipedia.org/wiki/Block_Range_Index https://hakibenita.com/postgresql-correlation-brin-multi-minmax
 * https://www.youtube.com/watch?v=HubezKbFL7E
 * Beaulieu chapter 13, 15
 * Faroult 3
@@ -613,7 +627,7 @@ WHERE modified < '2019-01-01 asia/tel_aviv'
 + AND created < '2019-01-01 asia/tel_aviv'
 ```
 
-STORAGE ENGINES 🗄 `system.md` transactions
+STORAGE ENGINES 🗄 `design.md` transactions
 * _journal_: journaling i.e. keep track of transactions? https://fly.io/blog/sqlite-internals-rollback-journal/
 * _storage engine_: handle transactions, maintain index https://stackoverflow.com/a/39204302
 * row-oriented vs. column-oriented 📙 Kleppmann 586
@@ -699,11 +713,11 @@ LINTING
 * https://github.com/darold/pgFormatter
 * https://sqlfum.pt/
 
-SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data
+SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data `python/core.md` typing
 * _validation_: compare against rules
-* Pydantic https://www.pythonpodcast.com/pydantic-data-validation-episode-263/ https://github.com/shopnilsazal/validus https://blog.couchbase.com/validate-json-documents-in-python-using-pydantic/
 * Cerberus https://github.com/pyeve/cerberus https://hector.dev/2020/12/29/validating-data-in-python-with-cerberus.html
 * BYO https://realpython.com/primer-on-python-decorators/#more-real-world-examples https://blog.drewolson.org/declarative-validation
+* clean/munge https://github.com/pyjanitor-devs/pyjanitor
 * _filter_: rm validation violations 
 * _escape_: convert validation violations
 * _sanitize_: validate + filter/escape
@@ -734,6 +748,7 @@ TOOLS
 ---
 
 HOWTO 🗄️ `math.md` stat/distributions
+> can you do any of this in visidata
 * https://hakibenita.com/sql-for-data-analysis#descriptive-statistics
 * https://medium.com/epfl-extension-school/advanced-exploratory-data-analysis-eda-with-python-536fa83c578a `EDA.pdf`
 * https://realpython.com/python-for-data-analysis/
@@ -830,7 +845,7 @@ STATUS QUO
 
 IMPL
 * check out the help section of pgcli, pgcli can now autocomplete joins?
-* documentation https://github.com/k1LoW/tbls
+* https://github.com/k1LoW/tbls
 * parser https://news.ycombinator.com/item?id=32560039
 * visidata for now and add constraints later?
 * https://github.com/szktkfm/mdtt
@@ -843,113 +858,90 @@ SELECT * FROM pragma_foreign_key_list('reading');
 # next step is running this from sqlite3
 ```
 
-## dataframe (Pandas)
+## dataframe (Ibis)
 
 📚
 * McKinney https://wesmckinney.com/book/
 * VanderPlas https://jakevdp.github.io/PythonDataScienceHandbook/
 
-PANDAS
-* howto https://github.com/jvns/pandas-cookbook https://github.com/kxzk/an-embarrassment-of-pandas
+ZA
+* tables https://posit-dev.github.io/great-tables
+* _dataframe_: result set + operations https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://github.com/go-gota/gota/blob/master/dataframe/dataframe.go
+* Dataframe Interchange Protocol, Dataframe API Standard https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/ https://pythonspeed.com/articles/polars-pandas-interopability/
+* _series_: rows from a single column https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://pandas.pydata.org/docs/user_guide/10min.html#getting
 
----
+🦢 IBIS https://ibis-project.org/
+* design: dataframe API that can use Polars/Pandas query engine or transpile to SQL and run against relational dbms https://talkpython.fm/episodes/show/462/pandas-and-beyond-with-wes-mckinney
 
-* Lux https://softwareengineeringdaily.com/2021/05/27/data-exploration-with-a-new-python-library-with-doris-lee/ https://github.com/lux-org/lux
-Pandas, arrow, Polars, Ibis https://talkpython.fm/episodes/show/462/pandas-and-beyond-with-wes-mckinney https://ibis-project.org/
+🐻‍❄️ POLARS
+* guide https://realpython.com/polars-python/
+* design: query engine with dataframe frontend https://pola.rs/posts/polars_birds_eye_view/
+* can't use Parquet https://www.confessionsofadataguy.com/replacing-pandas-with-polars-a-practical-guide/
+* can use some Pandas libraries https://pythonspeed.com/articles/polars-pandas-interopability/
+* better than Pandas: query in Python or SQL, no dependencies, sensible pip install (vs. conda) https://github.com/pola-rs/polars better perf https://pola.rs/posts/benchmarks/ less memory usage https://pythonspeed.com/articles/polars-memory-pandas/
+* worse than Pandas: not meant for Excel-like operations
+> andas was originally written to replace excel in financial/econometric modeling, not as a replacement for sql. Models written solely in the long relational style are near unmaintainable for constantly evolving models with hundreds of data sources and thousands of interactions being developed and tuned by teams of analysts and engineers. https://news.ycombinator.com/item?id=35429555
 
-semantics
-* _dataframe_: table https://www.youtube.com/watch?v=zmdjNSmRXF4 10:00
-* _series_: 1d array https://pandas.pydata.org/docs/user_guide/10min.html#getting https://pandas.pydata.org/docs/user_guide/dsintro.html#series
-
-* _Polars_: https://news.ycombinator.com/item?id=35423569 https://github.com/pola-rs/polars https://pythonspeed.com/articles/polars-memory-pandas/ https://www.confessionsofadataguy.com/replacing-pandas-with-polars-a-practical-guide/ https://realpython.com/polars-python/ https://pythonspeed.com/articles/polars-pandas-interopability/ https://pola.rs/posts/polars_birds_eye_view/
-
-tables https://posit-dev.github.io/great-tables https://posit-dev.github.io/great-tables/blog/design-philosophy/
-
-📜 https://pandas.pydata.org/docs/
-📹 https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS https://talkpython.fm/episodes/show/358/understanding-pandas-visually-with-pandastutor
-🔍 
-* https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
-* https://web.archive.org/web/20230127194856/https://scribe.citizen4.eu/pandas-illustrated-the-definitive-visual-guide-to-pandas-c31fa921a43
-
-* dataframes
+🐼 PANDAS https://pandas.pydata.org/docs/
+* howto https://github.com/jvns/pandas-cookbook https://github.com/kxzk/an-embarrassment-of-pandas https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
+* guide https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS
+* design https://web.archive.org/web/20230127194856/https://scribe.citizen4.eu/pandas-illustrated-the-definitive-visual-guide-to-pandas-c31fa921a43
+* perf https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance https://pythonspeed.com/memory
+* graph https://github.com/lux-org/lux
+* style: method chaining https://github.com/pyjanitor-devs/pyjanitor
+* impl: built on NumPy https://en.wikipedia.org/wiki/Pandas_(software)
 ```python
-# load
+# LOAD
 import pandas as pd
 df = pd.DataFrame(pd.read_csv("filename.csv"))  # https://kadekillary.work/posts/csvs-pandas/
 
-# iteration https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas https://stackoverflow.com/questions/50267185/iterate-over-pandas-series don't iterate https://realpython.com/pandas-iterate-over-rows/
+# ITERATION https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas https://stackoverflow.com/questions/50267185/iterate-over-pandas-series don't iterate https://realpython.com/pandas-iterate-over-rows/
 for series in df.iterrows():
 
-# predicate
+# PREDICATE
 df[df["company"] == "ABC corp"]  # equality
 df[df["earnings"] > 0]  # comparison
 df[(df["col1"] >= 1) & (df["col1"] <=1 )]  # uses indexing https://stackoverflow.com/a/13616382
-```
 
-* grouping
-```python
-# iteration 📙 McKinney [291]
+# GROUPING 📙 McKinney [291]
 for gk, grp in df.groupby("isrc"):
-    pass
 
-# csv per group https://stackoverflow.com/a/50818244
+# CSV PER GROUP https://stackoverflow.com/a/50818244
 df = pd.DataFrame(pd.read_csv("paintings.csv"))
 path = os.path.join(os.getcwd(), "output_dir")
 for i, (name, group) in enumerate(df.groupby("ARTIST")):
     group.to_csv("{}/{}.csv".format(path, name.replace(" ", "").lower()))
 
-# verify totals per group
+# VERIFY TOTALS PER GROUP
 invalid = list()
 for _, (foo, group) in enumerate(df.groupby("foo")):
     if int(group["bar"].sum()) != 100:
         invalid.append(foo)
 log.info("foo count - invalid: {}".format(len(invalid)))
-```
 
-snippets
-```python
 myl = [foo, bar]
 
 # SHAPE https://stackoverflow.com/a/35523946
-df.shape[0]  # count - rows
-df.shape[1]  # count - col
+df.shape[0]  # count rows
+df.shape[1]  # count col
 
 # SELECT
 df.col   # get col https://pandas.pydata.org/docs/user_guide/10min.html#getting
 df[0:3]  # get row
+df.col.isin(myl) # bool for each row
+df.index[df.col.isin(myl)] # row index for True bool
+df.drop(df.index[df.col.isin(myl)]) # drop row indexes for rows matching list el
+df.columns # all col
+df[["col1", "col2"]] # n col
+df.iloc[3] # get row by row index
+df.iloc[3, 17] # get row by row index + col index e.g. row 3 col 17
+df.iloc[[3, 42]] # get n row by row index e.g. rows 3 and 42
 
-# bool for each row
-df.col.isin(myl)
-# row index for True bool
-df.index[df.col.isin(myl)]
-# drop row indexes for rows matching list el
-df.drop(df.index[df.col.isin(myl)])
-
-# all col
-df.columns
-# n col
-df[["col1", "col2"]]
-# get row by row index
-df.iloc[3]
-# get row by row index + col index e.g. row 3 col 17
-df.iloc[3, 17]
-# get n row by row index e.g. rows 3 and 42
-df.iloc[[3, 42]]
-
-# persist foo w/ valid bar
+# PERSIST FOO W/ VALID BAR
 verified = df.drop(df.index[df.foo.isin(invalid)])
 log.info("count - verified: {}".format(len(set(verified.foo))))
 verified.to_csv(os.path.join(os.getcwd(), out_file))
 ```
-
-za
-* DataFrame protocol https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/
-* `inplace` https://sourcery.ai/blog/pandas-inplace/
-* method chaining https://github.com/pyjanitor-devs/pyjanitor
-* validation https://github.com/pandera-dev/pandera
-* perf https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance https://pythonspeed.com/memory
-* test https://github.com/pandera-dev/pandera https://www.peterbaumgartner.com/blog/testing-for-data-science/
-* version: 1.15 works w/ Python 3.6 https://pypi.org/project/numpy/#history 🗄 `ml/grok-ml`
 
 ## explorer (visidata)
 
@@ -1007,8 +999,6 @@ za
 * view deleted `gS`
 
 ---
-
-* alternatives https://github.com/mathaou/termdbms https://github.com/chrisbra/csv.vim
 
 * visidata config: default to col full expansion
 * dealing with large files https://jsvine.github.io/intro-to-visidata/intermediate/large-files/
@@ -1127,6 +1117,8 @@ FEATURES
 ---
 
 HARLEQUIN 📜 https://harlequin.sh
+> need to first fix the visidata command in Makefile to generate SQLite db from CSV
+> or try this https://github.com/danvergara/dblab
 * have to import CSV files after opening harlequin? import via data catalog? via `conn_str = ["local.db"]`? https://github.com/tconbeer/harlequin/discussions/314
 * profiles: sqlite, duckdb, postgres
 * Django https://adamj.eu/tech/2024/05/07/django-harlequin/

@@ -30,6 +30,8 @@
 * https://news.ycombinator.com/item?id=28979231
 * tie mulitple emails to important accounts as disaster prevention https://news.ycombinator.com/item?id=28274880
 * public key cryptography [MacCormick 4] https://austinvernon.eth.link/blog/pkexamples.html https://austinvernon.eth.link/blog/publickey.html
+* https://nostarch.com/hacks-leaks-and-revelations
+* EDR endpoint detection https://nostarch.com/evading-edr
 
 things to know https://www.netmeister.org/blog/infosec-competencies.html https://jacobian.org/2021/jul/8/appsec-pagnis https://latacora.github.io/careers/
 

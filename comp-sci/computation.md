@@ -242,7 +242,6 @@ bits
 * _mmap_: Linux program that maps disk to memory https://brunocalza.me/discovering-and-exploring-mmap-using-go/ 📙 `evans-linux.pdf` 24
 
 * _ROM_: measured in megahertz
-* _segmentation fault (segfault)_: [`evans-linux.pdf` 16]
 * _buffer overflow_: buffer writes to adjacent memory instead of intended location; useful to escalate privilege e.g. Morris worm
 * _continguous_: buffer https://docs.python.org/3/glossary.html#term-contiguous
 

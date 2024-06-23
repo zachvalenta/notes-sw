@@ -257,16 +257,24 @@ apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythons
 
 # 🧵 PROCESSES
 
+🗄
+* `python/runtime.md` concurrency
+* `src.md` concurrency
 📙
 * Arpaci ch. 13-23
 * Kerrisk lpi 2.7
 * Galvin dinosaur ch. 3-5
 
+* _segmentation fault_: process tries to use inaccessible memory https://corecursive.com/066-sqlite-with-richard-hipp/
+* e.g. indexing array OOB, writing to memory address belonging to another process, dereferencing null pointer https://www.youtube.com/watch?v=XIhQYRNBAYs
+
+---
+
 https://thorstenball.com/blog/2014/06/13/where-did-fork-go/
 > Every process running on a Unix system started out as a call to fork(2) followed by a call to execve(2). Well, not every process, since the first process, the init process, the one that starts up the rest of the operating system, didn’t. But every process that came after. The idea is rather simple: fork(2) creates a new process and execve(2) turns the new process into the kind of process you want it to be.
 > Let’s say you’re a shell and your user wants to start his productivity utility vimwonderhorse. Now, the first thing you’ve got to do is to start a new process. The reason for that is simple: when the user quits vimwonderhorse you should still be there and wait for the user’s input again. If you, as the shell, would have changed into vimwonderhorse and the user quit, well, then you would be gone, too. So you start a new process with fork(2).
 
-semantics
+TAXONOMY
 * _thread_: instance of executing program
 * incl: stack, heap, text (src) data (var)
 * _process_: group of threads https://stackoverflow.com/a/47824267 [LPI 2.7] https://www.youtube.com/watch?v=4rLW7zg21gI
@@ -283,7 +291,8 @@ segments [LPI 31]
 * _data_: static variables (won't change so thread-safe) [LPI 6.116]
 > less sure about this definition
 * _stack_: 🗄 `architecture.md` memory
-* _heap_: 🗄 `architecture.md` memory
+* _heap_: 🗄 `architecture.md` memory 📙 Evans linux [16]
+* _memory allocator_: keep track of memory usage and get more when necessary from OS; malloc, calloc, et al. 📙 Evans linux [16]
 
 creation
 * `fork()`: called by existing process (parent) to create new process (child), which is a duplicate [LPI 2.7 31]
@@ -342,6 +351,8 @@ telemetry
 * Arpaci ch. 26-33
 * Bryant ch. 12
 
+---
+
 basics
 * _concurrency_: design tasks that can be independently executed
 * best for network-bound tasks e.g. callbacks, task queue
@@ -363,9 +374,6 @@ storage problems
 * _split brain_: data inconsistencies https://en.wikipedia.org/wiki/Split-brain
 * e.g. two application instances write to database and search index such that each reads their own value from index 📙 Kleppmann 491/453
 * solutions is either serve inconsistencies or serve old results until system heals
-* _segmentation fault_: process tries to use inaccessible memory https://corecursive.com/066-sqlite-with-richard-hipp/
-
----
 
 single-threaded + multicast https://signalsandthreads.com/multicast-and-the-markets/
 

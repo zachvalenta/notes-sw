@@ -350,6 +350,28 @@ za
 * _Jepsen analysis_: standard safety in distributed/transactional systems https://news.ycombinator.com/item?id=8385970 https://news.ycombinator.com/item?id=26645654 https://www.micahlerner.com/2021/06/12/foundationdb-a-distributed-unbundled-transactional-key-value-store.html
 * _GFS (Google File System)_: https://www.micahlerner.com/2020/03/22/understanding-googles-file-system.html
 
+## blockchain
+
+---
+
+> Blockchains are special computers that anyone can access but no one owns. https://twitter.com/cdixon/status/1442201642338643969
+* https://cdixon.org/2018/02/18/why-decentralization-matters
+* ethereum https://github.com/smartcontracts/eth2-book
+* networking https://softwareengineeringdaily.com/2021/08/03/hedera-hashgraph-with-leemon-baird/
+* sharding https://vitalik.ca/general/2021/04/07/sharding.html
+* https://marginalrevolution.com/marginalrevolution/2021/09/roughgarden-on-blockchains.html
+> We already store data. In a database. It works well. https://news.ycombinator.com/item?id=22296659
+* token https://www.drorpoleg.com/the-crypto-future-of-work/
+> Tokens play a vital role in the crypto world. They can serve as “tickets” to access events, as “coupons” to receive goods and services, as “shares” to receive rights to cash flow from a business, and as “votes” that govern an organization or project.
+* _blockchain_: db distributed over p2p network w/ each node holding entire db https://danielmiessler.com/study/blockchain/
+* _smart contract_: app using blockchain
+* _oracle_: data ingestion onto chain
+* BYO https://news.ycombinator.com/item?id=27594943 https://norswap.com/blockchain-how/
+* use by criminals https://news.ycombinator.com/item?id=27313895
+* history: https://danromero.org/crypto-reading/
+* design: size of chain makes fraud difficult bc would have tamper with block, then re-write proceeding blocks on all nodes
+* why does Patrick McKenzie not like them? https://medium.com/@cdixon/why-decentralization-matters-5e3f79f7638e http://adilmoujahid.com/posts/2018/03/intro-blockchain-bitcoin-python/ https://litepaper.com/ https://a16zcrypto.com/ https://blog.smartdec.net/you-do-not-need-blockchain-eight-popular-use-cases-and-why-they-do-not-work-f2ecc6cc2129 https://www.wired.com/story/how-blockchain-can-wrest-the-internet-from-corporations/ https://www.wired.com/story/theres-no-good-reason-to-trust-blockchain-technology/ https://unwttng.com/what-is-a-blockchain https://hackernoon.com/learn-blockchains-by-building-one-117428612f46 https://medium.com/crypto-currently/lets-build-the-tiniest-blockchain-e70965a248b https://a16z.com/2018/02/10/crypto-readings-resources/ https://www.freecodecamp.org/news/the-authoritative-guide-to-blockchain-development-855ab65b58bc/ https://www.manning.com/books/grokking-bitcoin 
+
 ## CAP theorem
 
 ---
@@ -399,16 +421,12 @@ Raft https://raft.github.io/
 * more resistant to CAP theory resistant SQL i.e. seems to shard more finely so that in network partition some very high % of cluster can remain available i.e. trade-off still there just minimized to the point that most users won't notice https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37
 * dbms: Cockroach https://www.openmymind.net/Migrating-To-CockroachDB/ Spanner, Rethink https://brandur.org/cloud-databases distributed https://github.com/erikgrinaker/toydb https://github.com/rqlite/rqlite https://github.com/maxpert/marmot
 
-## data
+## replicate / partition
 
 📙 Kleppmann ch. 5-6
 🗄
 * `databases.md` data eng
 * `sql.md` migrations
-
-https://github.com/zknill/sqledge
-* cutover
-> There's an ongoing sync job as well, so writes that land on the old database are pushed to the new one, so low risk of data loss.
 
 REPLICATION
 * _replication_: same data on diff nodes 📙 Kleppmann [199] https://news.ycombinator.com/item?id=37066284
@@ -436,25 +454,9 @@ PARTITION
 ---
 
 * https://news.ycombinator.com/item?id=30767393
-
-BLOCKCHAIN
-> Blockchains are special computers that anyone can access but no one owns. https://twitter.com/cdixon/status/1442201642338643969
-* https://cdixon.org/2018/02/18/why-decentralization-matters
-* ethereum https://github.com/smartcontracts/eth2-book
-* networking https://softwareengineeringdaily.com/2021/08/03/hedera-hashgraph-with-leemon-baird/
-* sharding https://vitalik.ca/general/2021/04/07/sharding.html
-* https://marginalrevolution.com/marginalrevolution/2021/09/roughgarden-on-blockchains.html
-> We already store data. In a database. It works well. https://news.ycombinator.com/item?id=22296659
-* token https://www.drorpoleg.com/the-crypto-future-of-work/
-> Tokens play a vital role in the crypto world. They can serve as “tickets” to access events, as “coupons” to receive goods and services, as “shares” to receive rights to cash flow from a business, and as “votes” that govern an organization or project.
-* _blockchain_: db distributed over p2p network w/ each node holding entire db https://danielmiessler.com/study/blockchain/
-* _smart contract_: app using blockchain
-* _oracle_: data ingestion onto chain
-* BYO https://news.ycombinator.com/item?id=27594943 https://norswap.com/blockchain-how/
-* use by criminals https://news.ycombinator.com/item?id=27313895
-* history: https://danromero.org/crypto-reading/
-* design: size of chain makes fraud difficult bc would have tamper with block, then re-write proceeding blocks on all nodes
-* why does Patrick McKenzie not like them? https://medium.com/@cdixon/why-decentralization-matters-5e3f79f7638e http://adilmoujahid.com/posts/2018/03/intro-blockchain-bitcoin-python/ https://litepaper.com/ https://a16zcrypto.com/ https://blog.smartdec.net/you-do-not-need-blockchain-eight-popular-use-cases-and-why-they-do-not-work-f2ecc6cc2129 https://www.wired.com/story/how-blockchain-can-wrest-the-internet-from-corporations/ https://www.wired.com/story/theres-no-good-reason-to-trust-blockchain-technology/ https://unwttng.com/what-is-a-blockchain https://hackernoon.com/learn-blockchains-by-building-one-117428612f46 https://medium.com/crypto-currently/lets-build-the-tiniest-blockchain-e70965a248b https://a16z.com/2018/02/10/crypto-readings-resources/ https://www.freecodecamp.org/news/the-authoritative-guide-to-blockchain-development-855ab65b58bc/ https://www.manning.com/books/grokking-bitcoin 
+* https://github.com/zknill/sqledge
+* cutover
+> There's an ongoing sync job as well, so writes that land on the old database are pushed to the new one, so low risk of data loss.
 
 ## service discovery
 

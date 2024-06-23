@@ -26,7 +26,9 @@ TAXONOMY https://en.wikipedia.org/wiki/Exploratory_programming
 ## debugger (pdb)
 
 🗄 iPython
-📙 Beazley ch. 14
+📙
+* Beazley ch. 14
+* Seitz grey hat ch. 2
 📜
 * `help pdb`
 * https://docs.python.org/3/library/pdb.html
@@ -869,8 +871,10 @@ poetry run flask
 
 ## concurrency
 
-🗄 `system.md` concurrency
 📙 Beazley ch. 12
+🗄
+* `linux.md` processes
+* `src.md` concurrency
 
 BIG PICTURE
 * Python as a language spec supports multiple threads

@@ -328,24 +328,19 @@ https://wizardzines.com/comics/assembly/
 
 ## C lang
 
-📹 https://www.youtube.com/c/JacobSorber/videos https://www.youtube.com/watch?v=j-_s8f5K30I
+📹 https://www.youtube.com/c/JacobSorber/videos
 📚
 * Matthews dive https://diveintosystems.org/
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
 🔍
-* http://www.buildyourownlisp.com
-* http://fabiensanglard.net/c/index.php
-* https://buildyourownlisp.com/
-* https://gribblelab.org/CBootCamp @ https://gribblelab.org/CBootCamp/3_Basic_Types_Operators_And_Expressions.html
-* Hacking page 21
-* https://www.enlightenment.org/docs/c/start
-* https://realpython.com/c-for-python-programmers/
+* courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
+* more books http://fabiensanglard.net/c/index.php
 
 STDLIB
+* things people don't like and replacements https://news.ycombinator.com/item?id=25125034
 * _libc_: POSIX spec for os stdlib; used by higher-levels languages for everything from networking to memory management https://wizardzines.com/comics/libc/
 * _glibc_: most common impl of libc https://stackoverflow.com/a/11373143
 * _musl_: used by Alpine https://www.musl-libc.org/ https://news.ycombinator.com/item?id=23819500 https://www.etalabs.net/compare_libcs.html cleaner? https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
-* things people don't like and replacements https://news.ycombinator.com/item?id=25125034
 
 DESIGN
 > C has a tendency to be conservative, changing and growing very slowly. https://nullprogram.com/blog/2018/11/21/
@@ -370,10 +365,10 @@ PROJECTS
 * cmus https://github.com/cmus
 * BYO virtual machine https://justinmeiners.github.io/lc3-vm/
 * BYO text editor https://viewsourcecode.org/snaptoken/kilo/01.setup.html https://github.com/codecrafters-io/build-your-own-x#build-your-own-text-editor
-* BYO Lisp http://www.buildyourownlisp.com
 
 ----
 
+* start here https://realpython.com/c-for-python-programmers/
 > Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
 
 misc
@@ -382,7 +377,6 @@ misc
 * _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron
 * Postgres codebase is supposed to be a good guide https://news.ycombinator.com/item?id=20556336
 * `#define`: constants https://www.youtube.com/watch?v=hsmGp3cp_50 0:50
-* malloc vs. calloc https://vorpus.org/blog/why-does-calloc-exist/
 
 under the hood
 * _ABI_: https://en.wikipedia.org/wiki/Application_binary_interface https://news.ycombinator.com/item?id=24140848 https://gankra.github.io/blah/c-isnt-a-language/
@@ -762,7 +756,7 @@ BYO JSON parser https://news.ycombinator.com/item?id=38150833
 * Nisan nand2tetris (4, 6-11)
 
 types of code 📙 Bryant computer systems (3)
-* _machine code_: binary; handled by compiler's backend https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
+* _machine code_: binary; handled by compiler's backend https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ via `objdump` 📙 Erickson hacking [21]
 * _instuction set_: pattern of bits/int/char that map to cmd https://en.wikipedia.org/wiki/Machine_code#Instruction_set https://steveklabnik.com/writing/is-webassembly-the-return-of-java-applets-flash
 * _intermediate representation (IR)_: final step before machine code; handled by compiler's front end https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
 * _instruction_: individual line of machine code https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/

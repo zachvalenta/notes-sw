@@ -81,13 +81,6 @@ ENV - GENERAL
 - [ ] multiplex: Zellij
 - [ ] editor: neovim (Codi)
 
-ENV - DATA
-- [x] tooling in general
-- [x] research BI
-- [ ] rf dataframes
-- [ ] BI: distributions
-- [ ] UI: evaluate harlequin
-
 ENV - PYTHON
 - [ ] feedback: notebooks
 - [ ] feedback: debugger (algos sandbox)
@@ -107,6 +100,13 @@ INTERVIEWING - CODE MONKEY 📙 Ramalho
 - [ ] algos: rf fs
 - [ ] algos: REPL (ward, doctest notebook)
 - [ ] algos: core 🗄️ `sandbox/src` miscellaneous, thirty
+
+ENV - DATA
+- [x] tooling in general
+- [x] research BI
+- [x] rf dataframes: Ibis/Polars + Arrow
+- [ ] UI: evaluate harlequin
+- [ ] BI: distributions
 
 INTERVIEWING - SENIOR ENG
 - [ ] design

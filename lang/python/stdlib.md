@@ -127,6 +127,8 @@ PG http://paulgraham.com/popular.html
 
 > sort out what needs to be in Linux tracing vs. what needs to be here
 
+https://github.com/nakabonne/gosivy https://github.com/nakabonne/ali/releases/tag/v0.7.0
+
 * _profile_: measure performance i.e. see which lines are executing and how long they take
 * _trace_: https://github.com/furkanonder/beetrace
 
