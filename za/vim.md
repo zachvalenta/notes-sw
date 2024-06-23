@@ -16,6 +16,8 @@
 
 ## 进步
 
+> text objects in treesitter https://www.youtube.com/watch?v=CEMPq_r8UYQ
+
 * _23_: try mv to Neovim, stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
 * _22_: built-in pkg mgmt
 * _20_: VS Code (Markdown extensions break, pinned to 1.41 since 20.12.17)

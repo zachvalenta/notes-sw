@@ -98,6 +98,7 @@ ENV - PYTHON
 
 INTERVIEWING - CODE MONKEY 📙 Ramalho
 >️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
+> figure out how your going to read Ramalho first
 - [ ] Python: obj
 - [ ] Python: collections
 - [ ] Python: functions

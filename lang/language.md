@@ -4,6 +4,11 @@
 
 ## 进步
 
+LANGUAGES TO LEARN
+* Golang: Ball compiler book, PocketBase
+* Zig/C: systems
+* Lisp/Lua: paradigms
+
 * _19-present_: Python, SQL
 * _18_: Python, Spring Boot, Django/DRM
 * _17_: PHP, SQL
@@ -236,24 +241,22 @@ turns into metadata addiction
 
 # 📚 LANGUAGES
 
-> [a programming language is] an algorithm management system - Ford what is code?
+> an algorithm management system 📰 Ford what is code?
 > We can see that Brooks' 1986 claim that we've basically captured all the productivity gains high-level languages can provide isn't too different from an assembly language programmer saying the same thing in 1955, thinking that assembly is as good as any language can be. https://danluu.com/essential-complexity/#summary
 
-ELIXIR
-* good at distributed https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023
-* people love it https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/
-* _OTP_: Erlang's stdlib
-* _BEAM_: Erlang VM https://elixir-lang.org/
-* https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620
+HISTORY https://increment.com/programming-languages/language-history/
+* _1957_: Fortran (IBM); still the best for math https://news.ycombinator.com/item?id=14498904 Python better? https://cerfacs.fr/coop/fortran-vs-python role in Python https://labs.quansight.org/blog/building-scipy-with-flang
+* _1958_: Lisp (MIT)
+* _1959_: Cobol; process transactions
+* _1972_: C (Bell Labs) Smalltalk (Xerox Parc) 
+* _1985_: C++ (Bell Labs)
+* _1990_: Python
+* _1993_: Lua
+* _1995_: Java (Sun) JS (Netscape) Ruby (Matz) https://twobithistory.org/2017/11/19/the-ruby-story.html
+* _2015_: Rust
+* _2016_: Zig
 
-JULIA
-* https://increment.com/programming-languages/goldilocks-language-history-of-julia/
-* https://danluu.com/julialang/
-* https://www.evanmiller.org/why-im-betting-on-julia.html
-* https://news.ycombinator.com/item?id=27884165
-* Jupyter notebooks https://github.com/fonsp/Pluto.jl https://news.ycombinator.com/item?id=31321620
-
-LUA 📜 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua https://nvchad.com/docs/quickstart/learn-lua
+🇧🇷 LUA https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua https://nvchad.com/docs/quickstart/learn-lua
 * filepaths: use `.` separator, will handle forward/backslash on Linux, Windows https://www.youtube.com/watch?v=prnrwpOEsmo 9:45
 * functions: can omit parens if passing string or table as a single arg https://www.youtube.com/watch?v=prnrwpOEsmo 10:15
 * colons https://www.youtube.com/watch?v=prnrwpOEsmo 13:00
@@ -266,15 +269,7 @@ LUA 📜 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awes
 * people like? https://news.ycombinator.com/item?id=40538540
 * multiple compilers https://news.ycombinator.com/item?id=23686297
 
-R
-> Like statistical software? Primarily SPSS and some SAS & STATA.
-* _tidyverse_: stdlib https://www.tidyverse.org/index.html
-* https://github.com/sfirke/janitor
-* good for spatial https://walker-data.com/census-r/index.html
-* Pandas-esque
-> Terseness here is a huge advantage as well because in many data analysis workflows you are rerunning that same 10 line snippet over and over, making small changes, adjusting to eventually visualize the thing you're looking for perfectly. Having all of that in the same small block is ideal. https://news.ycombinator.com/item?id=30764505
-
-RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/
+🦀 RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/
 * example project https://github.com/nate-sys/tuime https://github.com/swsnr/mdcat
 * books https://news.ycombinator.com/item?id=34556318 https://github.com/plabayo/learn-rust-101/blob/main/README.md
 * CLI https://www.amazon.com/gp/product/1098109430/ref=ox_sc_act_title_1?smid=ATVPDKIKX0DER&psc=1
@@ -290,7 +285,7 @@ RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm
 * what people love: packaging, DX https://stackoverflow.blog/2020/06/05/why-the-developers-who-use-rust-love-it-so-much parallelization https://news.ycombinator.com/item?id=26443768 CLI (jless) https://news.ycombinator.com/item?id=30273940 correctness
 > [invariant violation] At point A, there's some assumption, and way over there at point B, that assumption is violated... Type systems prevent some invariant violations. Because that works, there are ongoing attempts to extend type systems to prevent still more invariant violations. That creates another layer of confusing abstraction. Some invariants are not well represented as types, and trying makes for a bad fit. What you're really trying to do is to substitute manual specification of attributes for global analysis. The Rust borrow checker is an invariant enforcer. It explicitly does automatic global analysis, and reports explicitly that what's going on at point B is inconsistent with what point A needs. This is real progress in programming language design, and is Rust's main contribution. https://news.ycombinator.com/item?id=29996240
 
-ZIG
+↯ ZIG
 * overview https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203010
 * tutorial https://gist.github.com/ityonemo/769532c2017ed9143f3571e5ac104e50
 * BYO ls https://stackoverflow.com/questions/13554150/implementing-the-ls-al-command-in-c
@@ -298,16 +293,21 @@ ZIG
 * https://news.ycombinator.com/item?id=29702607
 * seems way easier than Rust https://scattered-thoughts.net/writing/assorted-thoughts-on-zig-and-rust/ https://kevinlynagh.com/rust-zig/
 * smart users https://github.com/jamii
+* current state of affairs https://news.ycombinator.com/item?id=36149462
+* use as compiler https://jakstys.lt/2022/how-uber-uses-zig/
+* as a teaching language https://news.ycombinator.com/item?id=32752383
 
 ZA
 * _APL_: https://mathspp.com/blog/what-learning-apl-taught-me-about-python
 * _C++_: https://ccc.codes/ https://github.com/green7ea/cpp-compilation http://esr.ibiblio.org/?p=7724 people hate C++ https://news.ycombinator.com/item?id=33436268 https://borretti.me/article/simplicity-and-survival https://news.ycombinator.com/item?id=34588340 https://news.ycombinator.com/item?id=34643530
-* _Elixir_ the main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 &utm_term=comment
+* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805
 * with Alpine https://news.ycombinator.com/item?id=34365515
 * _Haskell_: https://haskellbook.com/
+* _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/  https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
 * _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter
+* _R_: great stdlib, good for spatial https://www.tidyverse.org/index.html https://github.com/sfirke/janitor https://walker-data.com/census-r/index.html
 
 ## assembly
 
@@ -628,6 +628,8 @@ int y = x;  // 0x7ffee4c114f4
 
 ## stacks
 
+https://pythontutor.com/
+
 * _stack frame_: instance of function execution
 * vars, args, metadata (location in call stack, return address)
 * _call stack_: all frames in state of execution 📙 Bhargava [42]
@@ -662,16 +664,7 @@ def out_of_place(qd):
         new_qd[ind] *= el
 ```
 
-# ZA
-
-HISTORY https://increment.com/programming-languages/language-history/
-* _1957_: Fortran (IBM); still the best for math https://news.ycombinator.com/item?id=14498904 Python better? https://cerfacs.fr/coop/fortran-vs-python role in Python https://labs.quansight.org/blog/building-scipy-with-flang
-* _1958_: Lisp (MIT)
-* _1959_: Cobol; process transactions
-* _1972_: C (Bell Labs) Smalltalk (Xerox Parc) 
-* _1985_: C++ (Bell Labs)
-* _1990_: Python
-* _1995_: Java (Sun) JS (Netscape) Ruby (Matz) https://twobithistory.org/2017/11/19/the-ruby-story.html
+# 🟨 ZA
 
 OVERLOADING
 * _function overloading_: same method name, different sig (i.e. diff params)
@@ -962,7 +955,7 @@ UNITS
 * compositions of n expressions 📙 Haverbeke [ch.2]
 * _block_: 名 group of statements
 
-OPERATORS
+OPERATORS 📙 Nisan nand2tetris ch. 1-2
 * _operand_: value used by operator
 * _operator_: perform action
 * _assignment_: =

@@ -13,15 +13,7 @@
 
 ## 进步
 
-* _24_: split from `python.md`, typing (exhaustiveness check, type narrowing)
-* _23_: hashable
-* _22_: iteration (iterators, generators), big rf
-* _19_: executables, imports, obj assignment, first pass (lambdas, tuple unpacking, iteration, dataclasses, shallow vs. copy, closure, decorator)
-* _18_: Hitchhiker's Guide, first pass (imports, unit testing)
-* _17_: PSF install, PS beginner course
-
----
-
+CLEAN UP
 * 📙 Ramalho @ 2.20 -> hashable -> hash tables 🗄 `algos.md` hash tables re: maps, ADTs https://realpython.com/solid-principles-python/ https://github.com/dabeaz-course/python-mastery https://mkaz.blog/working-with-python/
 * https://realpython.com/python-lazy-evaluation/
 * https://realpython.com/python-pydantic/
@@ -52,6 +44,13 @@ attributes
 * dictview, lru_cache https://death.andgravity.com/caching-methods namedtuple, frozen dataclasses, fractions over floats https://www.textualize.io/blog/posts/7-things-about-terminals multiset https://www.youtube.com/watch?v=b-K1ujf8u_k&pp=ygUQcHl0aG9uIGZyb3plbnNldA%3D%3D
 * https://snarky.ca/tag/syntactic-sugar/ https://realpython.com/python-del-statement/ https://www.wrighters.io/intro-to-python-match-statement/
 * enums https://realpython.com/python-enum/ https://florian-dahlitz.de/blog/why-you-should-use-more-enums-in-python
+
+* _24_: split from `python.md`, typing (exhaustiveness check, type narrowing)
+* _23_: hashable
+* _22_: iteration (iterators, generators), big rf
+* _19_: executables, imports, obj assignment, first pass (lambdas, tuple unpacking, iteration, dataclasses, shallow vs. copy, closure, decorator)
+* _18_: Hitchhiker's Guide, first pass (imports, unit testing)
+* _17_: PSF install, PS beginner course
 
 # 🗂 CLASSES
 
@@ -95,6 +94,18 @@ DATACLASS
 ## attributes
 
 ---
+
+* _get class_: `type()` or `obj.__class__`
+* _single underscore_: hint (not enforcement) of private method [tutorial 9.6] i.e. no access modifiers
+* _name mangling_: https://www.fluentpython.com/lingo/
+
+UNDERSCORES https://dbader.org/blog/meaning-of-underscores-in-python
+* _single_: placeholder for throwaway values from unpacking
+* in REPL, refers to result of last operation
+* _single leading_: won't be imported in `from <mod> import *` https://stackoverflow.com/a/8689983
+* _single trailing_: break naming conflict
+* _double leading_: name mangling i.e. measure to prevent accidental overrides
+* _doubled_: dunder methods
 
 ```python
 # https://monadical.com/posts/operator-overloading-in-python.html
@@ -478,6 +489,38 @@ SEMANTICS
 * _mapping_: https://docs.python.org/3/glossary.html#term-mapping
 * _byte array_: used for HTTP response, passing files around
 * _bytes-like object_: https://www.fluentpython.com/lingo/#bytes-like_object https://docs.python.org/3/glossary.html#term-bytes-like-object
+
+SET
+```python
+# CREATE
+ur_set = set()  # have to use parens for empty bc braces creates empty dictionary https://docs.python.org/3/tutorial/datastructures.html#sets
+ur_set = {1, 1, 2, 3}  # literal
+ur_set = set(['foo', 'foo', 'baz', 'foo'])  # constructor
+
+# UPDATE: no way to read sans mutation bc sets are unordered don't support indexing https://stackoverflow.com/q/59825
+my_set.add(el)  # push - single
+my_set.pop()  # shift
+my_set.update(iterable)  # push - n
+
+# DELETE
+ur_set.remove('foo_el')
+
+# OPERATIONS 📍 pick SSoT between here and 🗄 `math.md` and 🗄 `sql.md` operations / set
+fruit =  {"avocado", "banana", "tomato"}
+veg = {"beet", "carrot", "tomato"}
+# difference: el unique to first set 📙 Bhargava [150]
+fruit - veg  # avocado, banana
+# intersection: el shared 📙 Beaulieu [1000]
+fruit & veg  # tomato
+# symmetric difference: el not shared https://www.idiotinside.com/2017/08/19/set-theory-and-python-tips-tricks/
+fruit ^ veg  # avocado, banana, beet, carrot
+# union: el across sets sans dupes 📙 Beaulieu [99]
+fruit | veg   # avocado, banana, tomato, beet, carrot
+
+# SUB/SUPER
+{42, 7}.issubset({13, 7, 42})  # true
+{1,2,3}.issuperset({1,2})      # true
+```
 
 ## abilities
 
@@ -911,46 +954,11 @@ k = my_dict.pop('key', None)  # no KeyError if nonexistant
 k, v = cidian.popitem()  # pop off kv of last el
 ```
 
-## set
-
-* set operations 📍 pick SSoT between here and 🗄 `math.md` and 🗄 `sql.md` operations / set
-```python
-fruit =  {"avocado", "banana", "tomato"}
-veg = {"beet", "carrot", "tomato"}
-
-# _difference_: el unique to first set 📙 Bhargava [150]
-fruit - veg  # avocado, banana
-# _intersection_: el shared 📙 Beaulieu [1000]
-fruit & veg  # tomato
-# _symmetric difference_: el not shared https://www.idiotinside.com/2017/08/19/set-theory-and-python-tips-tricks/
-fruit ^ veg  # avocado, banana, beet, carrot
-# _union_: el across sets sans dupes 📙 Beaulieu [99]
-fruit | veg   # avocado, banana, tomato, beet, carrot
-
-{42, 7}.issubset({13, 7, 42})  # true
-{1,2,3}.issuperset({1,2})      # true
-```
-
-* CRUD
-```python
-# CREATE
-ur_set = set()  # have to use parens for empty bc braces creates empty dictionary https://docs.python.org/3/tutorial/datastructures.html#sets
-ur_set = {1, 1, 2, 3}  # literal
-ur_set = set(['foo', 'foo', 'baz', 'foo'])  # constructor
-
-# UPDATE
-# no way to read sans mutation bc sets are unordered don't support indexing https://stackoverflow.com/q/59825
-my_set.add(el)  # push - single
-my_set.pop()  # shift
-my_set.update(iterable)  # push - n
-
-# DELETE
-ur_set.remove('foo_el')
-```
-
 ## sequence
 
 ---
+
+* _trailing commas_: for last el in collection https://docs.python.org/3/faq/design.html#why-does-python-allow-commas-at-the-end-of-lists-and-tuples https://www.python.org/dev/peps/pep-0008/#when-to-use-trailing-commas
 
 SLICE
 * _slice_: subset of sequence type https://www.fluentpython.com/lingo/#slicing
@@ -1162,6 +1170,11 @@ stevie.instrument  # 'guitar'
 📙 Beazley ch. 7
 🗄 obj/assignment
 
+---
+
+* multiple dispacth / multimethods https://martinheinz.dev/blog/50
+* mixs usage of "parameter" and "argument" https://www.fluentpython.com/lingo/#parameter
+
 * _argument_: https://docs.python.org/3/glossary.html#term-argument
 * _pass_: implicit return of `None`
 * _return_: implicit return of `None` if no other return defined
@@ -1225,9 +1238,11 @@ DEFAULT
 
 ## functional
 
-TOOLS
+---
+
+* https://docs.python.org/3/howto/functional.html
+* https://realpython.com/python-functional-programming/ 
 * https://github.com/pytoolz/toolz
-* howto https://docs.python.org/3/howto/functional.html https://realpython.com/python-functional-programming/ 
 
 FUNCTOOLS https://florian-dahlitz.de/articles/introduction-to-pythons-functools-module https://pybit.es/articles/6-cool-things-you-can-do-with-the-functools-module/
 * _partial_: create callable by wrapping another callable w/ default args http://pymotw.com/2/functools/
@@ -1362,6 +1377,10 @@ foo  # global foo untouched
 
 ---
 
+* _callable_: any obj that impl `__call__` e.g function, method, classes e.g. `MyClass()` https://eli.thegreenplace.net/2012/03/23/python-internals-how-callables-work https://www.fluentpython.com/lingo/#callable_object https://www.pythonmorsels.com/class-function-and-callable/ https://docs.python.org/3/glossary.html#term-callable
+* _key function_: for callables https://docs.python.org/3/glossary.html#term-key-function
+* _destructuors_: https://eli.thegreenplace.net/2009/06/12/safely-using-destructors-in-python
+
 * immortal https://engineering.fb.com/2023/08/15/developer-tools/immortal-objects-for-python-instagram-meta/
 * get class name from obj `foo.__class__.__name__`
 * comparison operators 🗄 `language.md` semantics
@@ -1404,8 +1423,6 @@ hey = 'abc'
 sys.getrefcount('abc')  # 44
 ```
 
-* _get class_: `type()` or `obj.__class__`
-* _single underscore_: hint (not enforcement) of private method [tutorial 9.6] i.e. no access modifiers
 
 * OOP
 ```python
@@ -1682,7 +1699,7 @@ def get_config_value(key: str): Optional[str]:
 
 # 🟨 ZA
 
-DESIGN https://docs.python.org/3/faq/design.html
+DESIGN 📜 https://docs.python.org/3/faq/design.html
 * history: origins in ABC https://www.fluentpython.com/lingo/
 * readabillity: indentation for statement grouping https://xkcd.com/353/
 * aesthetic: `python -m this` https://peps.python.org/pep-0020/ significant white space vs. semi-colons https://news.ycombinator.com/item?id=34936023
@@ -1691,9 +1708,14 @@ DESIGN https://docs.python.org/3/faq/design.html
 * pain points: binaries, import system, version management, packaging, browser, native (mobile, desktop), speed (not built for multi-core https://twitter.com/mitsuhiko/status/1091802711908106240)
 * soft keywords https://mathspp.com/blog/til/pythons-soft-keywords
 
-DOCUMENTATION
-* _user-defined_: as opposed to CPython devs https://www.fluentpython.com/lingo/
-* mixs usage of "parameter" and "argument" https://www.fluentpython.com/lingo/#parameter
+STYLE
+* _line continuation_: "join consecutive lines if the last character of the line is a backslash" [HG 3.2.5 pg. 56] can use parens https://stackoverflow.com/a/53180/6813490
+* https://www.python.org/dev/peps/pep-0008/
+* https://github.com/google/styleguide/blob/gh-pages/pyguide.md
+* PEP8 error codes https://pep8.readthedocs.io/en/release-1.7.x/intro.html#error-codes
+* line length http://jakevdp.github.io/blog/2017/11/09/exploring-line-lengths-in-python-packages/
+* https://nickjanetakis.com/blog/80-characters-per-line-is-a-standard-worth-sticking-to-even-today
+* blank lines: 2 after imports, 2 before functions, 1 before methods https://www.python.org/dev/peps/pep-0008/#blank-lines
 
 GOVERNANCE
 * internal language team at Google https://news.ycombinator.com/item?id=40176338
@@ -1704,34 +1726,6 @@ GOVERNANCE
 * 0 (establish what a PEP is) 8 (style guide) 20 (Zen of Python) https://talkpython.fm/episodes/show/153/how-python-evolves https://peps.python.org/
 * how libs get into the stdlib https://github.com/hukkin/tomli/issues/141#issuecomment-997999824
 * https://news.ycombinator.com/item?id=26826158
-
-UNDERSCORES https://dbader.org/blog/meaning-of-underscores-in-python
-* _single_: placeholder for throwaway values from unpacking
-* in REPL, refers to result of last operation
-* _single leading_: won't be imported in `from <mod> import *` https://stackoverflow.com/a/8689983
-* _single trailing_: break naming conflict
-* _double leading_: naming mangling i.e. measure to prevent accidental overrides
-* _doubled_: dunder methods
-
----
-
-* `stderr.flush()`
-> Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so.
-* multiple dispath / multimethods https://martinheinz.dev/blog/50
-* _name mangling_: https://www.fluentpython.com/lingo/
-
-* using other language in Python e.g. Julia https://www.peterbaumgartner.com/blog/incorporating-julia-into-python-programs/
-* 2to3 https://news.ycombinator.com/item?id=24461157
-* _callable_: any obj that impl `__call__` e.g function, method, classes e.g. `MyClass()` https://eli.thegreenplace.net/2012/03/23/python-internals-how-callables-work https://www.fluentpython.com/lingo/#callable_object https://www.pythonmorsels.com/class-function-and-callable/ https://docs.python.org/3/glossary.html#term-callable
-* _key function_: for callables https://docs.python.org/3/glossary.html#term-key-function
-* _destructuors_: https://eli.thegreenplace.net/2009/06/12/safely-using-destructors-in-python
-* `eval()`: take string and evaluate as if expression from language
-* _line continuation_: "join consecutive lines if the last character of the line is a backslash" [HG 3.2.5 pg. 56] can use parens https://stackoverflow.com/a/53180/6813490
-* `print()`: implicitly adds `\n` under the hood; workaround is `print('hello zv', end="")`
-* `__pycache__`: holds bytecode in the form of `.pyc` https://stackoverflow.com/a/28365204/6813490 speeds up module loading https://docs.python.org/3/tutorial/modules.html#compiled-python-files suppress creation of with `export PYTHONDONTWRITEBYTECODE=1` more on bytecode https://blog.jse.li/posts/pyc/ https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md
-* _Python2_: can't test Python2 code using Python3 if you're using parts of stdlib that have been deprecated between releases (urllib2, xrange); Tauthon to backport Python3 features https://www.pythonpodcast.com/tauthon-python-2-fork-episode-265/
-* _style_: style guides https://www.python.org/dev/peps/pep-0008/ https://github.com/google/styleguide/blob/gh-pages/pyguide.md PEP8 error codes https://pep8.readthedocs.io/en/release-1.7.x/intro.html#error-codes line length http://jakevdp.github.io/blog/2017/11/09/exploring-line-lengths-in-python-packages/ https://nickjanetakis.com/blog/80-characters-per-line-is-a-standard-worth-sticking-to-even-today blank lines (2 after imports, 2 before functions, 1 before methods) https://www.python.org/dev/peps/pep-0008/#blank-lines
-* _trailing commas_: for last el in collection https://docs.python.org/3/faq/design.html#why-does-python-allow-commas-at-the-end-of-lists-and-tuples https://www.python.org/dev/peps/pep-0008/#when-to-use-trailing-commas
 
 ## control flow
 
@@ -1765,43 +1759,6 @@ return True if x else False
 var = foo if condition else bar
 ```
 
-EXCEPTIONS 📚 Beazley ch. 14, Van Rossum ch. 8 https://docs.python.org/3/tutorial/errors.html https://www.b-list.org/weblog/2023/dec/11/python-exceptions/
-* _handler_: `try` block
-* _unhandled_: no handler found
-* `Attribute`: attr doesn't exist or cannot be set
-* `Index`: trying to access non-existent index; slices handle these in a weak way (i.e. type conversion)
-* `Key`: dict doesn't have key you asked for
-* `Name`: identifier not defined
-* `Syntax`: kw misspelled, bad indentation, missing closing syntax
-* `Type`: give wrong type to function, try to do something you can't (mutate string)
-* `Value`: func given correct type but still err ex. `int('5')` can convert string to int but not for all strings e.g. `int('five')`
-* user-defined: way to dedupe logging
-```python
-# SIMPLE IMPL
-class EarthquakError(Exception): 
-    pass
-
-if not stable_plate:
-    raise EarthquakError("earthquake!")
-```
-```python
-# fancy IMPL
-class EarthquakError(Exception): 
-    def __init__(self, place):
-        self.place = place
-    def __str__(self):
-        return f"uh oh {self.place} has earthquakes"
-
-def move_to(place):
-    raise EarthquakError(place)
-
-def get_better_life():
-    try:
-        move_to(place="california")
-    except EarthquakError as e:
-        print(e)
-```
-
 ---
 
 https://docs.python.org/3/tutorial/controlflow.html
@@ -1813,6 +1770,44 @@ PATTERN MATCHING
 > An if...elif...elif...sequence is a substitute for the switch or case statements found in other languages. https://docs.python.org/3/tutorial/controlflow.html
 * match https://www.fluentpython.com/lingo/#subject
 * _switch statement replacements_: bisect https://stackoverflow.com/a/61030734/6813490 https://www.youtube.com/watch?v=gllUwQnYVww https://github.com/ralsina/enum_switch https://pythonbytes.fm/episodes/show/135/macos-deprecates-python-2-will-stop-shipping-it-eventually https://pythonbytes.fm/episodes/show/135/macos-deprecates-python-2-will-stop-shipping-it-eventually https://docs.python.org/3/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python
+
+## exceptions
+
+📚 Beazley ch. 14, Van Rossum ch. 8 https://docs.python.org/3/tutorial/errors.html https://www.b-list.org/weblog/2023/dec/11/python-exceptions/
+
+SEMANTICS
+* _handler_: `try` block
+* _handled_: try/catch
+* _unhandled_: no handler found
+
+TYPES
+* `Attribute`: attr doesn't exist or cannot be set
+* `Index`: trying to access non-existent index; slices handle these in a weak way (i.e. type conversion)
+* `Key`: dict doesn't have key you asked for
+* `Name`: identifier not defined
+* `Syntax`: kw misspelled, bad indentation, missing closing syntax
+* `Type`: give wrong type to function, try to do something you can't (mutate string)
+* `Value`: func given correct type but still err ex. `int('5')` can convert string to int but not for all strings e.g. `int('five')`
+
+USER-DEFINED
+* why: way to dedupe logging
+* simple impl
+```python
+class EarthquakError(Exception): 
+    pass
+raise EarthquakError("earthquake!")
+```
+* fancier impl
+```python
+class EarthquakError(Exception): 
+    def __init__(self, place):
+        self.place = place
+    def __str__(self):
+        return f"earthquake at {self.place}"
+raise EarthquakError(place)
+```
+
+---
 
 TRY/CATCH
 * multiple exceptions https://realpython.com/python-catch-multiple-exceptions/
@@ -1874,13 +1869,10 @@ def handle_order(status: OrderStatus) -> None:
     assert False, f'Unhandled status "{status}"'
 ```
 
-## math
+## operators
 
-🗄 `computation.md` theory/numeral systems
+🗄️ `language.md` semantics / operators
 🔗 https://github.com/cosmologicon/pywat
-📚
-* Beazley ch. 3
-* Nisan 1-2
 
 OPERATORS 🗄 `philosophy.md` logic `language.md` semantics
 * _not_: opposite of operand
@@ -1968,84 +1960,3 @@ python -c 'print(float(15) / float(365))'  # 0.041095890411
 ```
 
 * _infix operator_: `*` 🗄 `language.md`
-
-FLOATING POINT ARITHMETIC 📙 Van Rossum ch. 15
-* comparing floats: `math.isclose(0.1 + 0.2, 0.3)` https://davidamos.dev/the-right-way-to-compare-floats-in-python/
-> You can specify the relative tolerance with the rel_tol keyword argument of math.isclose() which defaults to 1e-9. In other words, if abs(a - b) is less than 1e-9 * max(abs(a), abs(b)), then a and b are considered "close" to each other. This guarantees that a and b are equal to about nine decimal places.
-* rounding https://stackoverflow.com/a/43661374
-```python
-# rm decimal
-int(1.9)  # 1
-
-# round to closest
-round(1.9)  # 2
-round(1.94, 1)  # 1.9
-
-# round down
-math.floor(1.9)  # 1
-
-# round up
-math.ceil(1.1)  # 2
-```
-
-* use `localcontext` when dealing w/ decimals https://orbifold.xyz/numbers.html
-
-```python
-###
-# INTS & FLOATS https://davidamos.dev/the-right-way-to-compare-floats-in-python/ 📙 Van Rossum ch. 15
-###
-
-# increment operators https://stackoverflow.com/a/15376520
-
-# + -> calls __add__()
-num = 0
-num + 1
-num  # 0
-# += -> calls __iadd__(), can't use in return statement
-num = 0
-num += 1
-num  # 1
-
-def inc(num):
-    return num + 1 # ✅
-    return num += 1  # ❌
-
-###################################################
-
-# main types
-# integers are objects https://pythonspeed.com/articles/python-integers-memory/
-int()  # can be as big as your memory can deal with https://realpython.com/python-data-types/#integers
-float()
-
-# can also represent binary and complex
-0b10  # 2  https://realpython.com/python-data-types/#integers
-42+7j  # <class 'complex'> https://realpython.com/python-data-types/#complex-numbers [Saha 1.6]
-
-# conversions -> can't convert float string to int [Saha 1.8]
-float('1')  # 1.0
-int('1')  # 1
-float('1.0')  # 1.0
-int('1.0')  # ValueError
-
-# validate floats
-1.0.is_integer()  # True
-1.3.is_integer()  # False
-
-# integers turn to floats if division https://orbifold.xyz/numbers.html
-4/3
-
-# avoid floats with floor division operator [Saha 1.2]
-4//3
-
-# variables holding integers btw -5 and 256 are just references to existing obj in Python integer cache https://wsvincent.com/python-wat-integer-cache/ https://arpitbhayani.me/blogs/python-caches-integers
-a = 8
-b = 8
-id(a)  # 4304845536
-id(b)  # 4304845536
-
-# negative infinity https://www.interviewcake.com/article/python/big-o-notation-time-and-space-complexity
-float("-inf")
-
-# square root via exponent operator [Saha 1.3]
-8 ** (1/3)
-```

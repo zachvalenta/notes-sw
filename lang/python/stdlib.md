@@ -537,7 +537,8 @@ self.assertEqual(x.exception.code, 1)
 
 📜 https://github.com/darrenburns/ward
 
-fixtures https://blog.thea.codes/my-python-testing-style-guide/
+* downside: symbols don't show up in VS Code
+* fixtures https://blog.thea.codes/my-python-testing-style-guide/
 
 # 💻 UI
 
@@ -965,6 +966,8 @@ RSGI
 
 ---
 
+* `eval()`: take string and evaluate as if expression from language
+
 * rise of 3rd-party packages, dead batteries http://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html https://www.python.org/dev/peps/pep-0594/ provisional API https://docs.python.org/3/glossary.html#term-provisional-API
 
 * _auth_: https://authlib.org/
@@ -1326,17 +1329,107 @@ repo = Repo(p)
 repo.git.ls_remote("--heads", "origin", "master")
 ```
 
+## math
+
+ Beazley ch. 3
+🔗 https://github.com/cosmologicon/pywat
+
+FLOATING POINT ARITHMETIC 📙 Van Rossum ch. 15
+* comparing floats: `math.isclose(0.1 + 0.2, 0.3)` https://davidamos.dev/the-right-way-to-compare-floats-in-python/
+> You can specify the relative tolerance with the rel_tol keyword argument of math.isclose() which defaults to 1e-9. In other words, if abs(a - b) is less than 1e-9 * max(abs(a), abs(b)), then a and b are considered "close" to each other. This guarantees that a and b are equal to about nine decimal places.
+* rounding https://stackoverflow.com/a/43661374
+```python
+# rm decimal
+int(1.9)  # 1
+
+# round to closest
+round(1.9)  # 2
+round(1.94, 1)  # 1.9
+
+# round down
+math.floor(1.9)  # 1
+
+# round up
+math.ceil(1.1)  # 2
+```
+
+* use `localcontext` when dealing w/ decimals https://orbifold.xyz/numbers.html
+
+```python
+###
+# INTS & FLOATS https://davidamos.dev/the-right-way-to-compare-floats-in-python/ 📙 Van Rossum ch. 15
+###
+
+# increment operators https://stackoverflow.com/a/15376520
+
+# + -> calls __add__()
+num = 0
+num + 1
+num  # 0
+# += -> calls __iadd__(), can't use in return statement
+num = 0
+num += 1
+num  # 1
+
+def inc(num):
+    return num + 1 # ✅
+    return num += 1  # ❌
+
+###################################################
+
+# main types
+# integers are objects https://pythonspeed.com/articles/python-integers-memory/
+int()  # can be as big as your memory can deal with https://realpython.com/python-data-types/#integers
+float()
+
+# can also represent binary and complex
+0b10  # 2  https://realpython.com/python-data-types/#integers
+42+7j  # <class 'complex'> https://realpython.com/python-data-types/#complex-numbers [Saha 1.6]
+
+# conversions -> can't convert float string to int [Saha 1.8]
+float('1')  # 1.0
+int('1')  # 1
+float('1.0')  # 1.0
+int('1.0')  # ValueError
+
+# validate floats
+1.0.is_integer()  # True
+1.3.is_integer()  # False
+
+# integers turn to floats if division https://orbifold.xyz/numbers.html
+4/3
+
+# avoid floats with floor division operator [Saha 1.2]
+4//3
+
+# variables holding integers btw -5 and 256 are just references to existing obj in Python integer cache https://wsvincent.com/python-wat-integer-cache/ https://arpitbhayani.me/blogs/python-caches-integers
+a = 8
+b = 8
+id(a)  # 4304845536
+id(b)  # 4304845536
+
+# negative infinity https://www.interviewcake.com/article/python/big-o-notation-time-and-space-complexity
+float("-inf")
+
+# square root via exponent operator [Saha 1.3]
+8 ** (1/3)
+```
 ## os
 
 📙 Beazley ch. 13
 🔗 https://docs.python.org/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
 
+STDOUT
+* `stderr.flush()`
+> Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so.
+* `print()`: implicitly adds `\n` under the hood; workaround is `print('hello zv', end="")`
+
+----
+
 ```python
 # mkdir in cwd
 os.mkdir(os.path.join(os.getcwd(), dir_name))
 ```
-
-----
 
 * run shell commands https://martinheinz.dev/blog/98
 * _path-like object_: https://docs.python.org/3/glossary.html#term-path-based-finder

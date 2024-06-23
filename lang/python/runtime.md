@@ -246,6 +246,8 @@ INIT
 
 ---
 
+* `__pycache__`: holds bytecode in the form of `.pyc` https://stackoverflow.com/a/28365204/6813490 speeds up module loading https://docs.python.org/3/tutorial/modules.html#compiled-python-files suppress creation of with `export PYTHONDONTWRITEBYTECODE=1` more on bytecode https://blog.jse.li/posts/pyc/ https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md
+
 USE FROM SHELL https://docs.python.org/3/using/cmdline.html
 * script: `python <mod>` https://realpython.com/run-python-scripts
 * script + pdb: `python -i <mod>` https://docs.python.org/3/using/cmdline.html#cmdoption-i
@@ -258,11 +260,16 @@ VERSIONS https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com
 * minor/patch https://blog.python.org/
 * switch to latest minor version after subsequent patch release https://www.b-list.org/weblog/2022/nov/08/python-311-gotcha/ https://pythonspeed.com/articles/upgrade-python-3.11/
 * _89_: initial
-* _00_: Python 2
-* _08_: Python 3 https://nedbatchelder.com/blog/201803/whats_in_which_python_3436.html
+* _00_: Python2
+* _08_: Python3 https://nedbatchelder.com/blog/201803/whats_in_which_python_3436.html
+* can't test Python2 code using Python3 if you're using parts of stdlib that have been deprecated between releases (urllib2, xrange)
+* Tauthon to backport Python3 features to Python2 https://www.pythonpodcast.com/tauthon-python-2-fork-episode-265/
+* 2to3 https://news.ycombinator.com/item?id=24461157
 * _18_: 3.7
 * _19_: 3.8 https://realpython.com/courses/cool-new-features-python-38/
 * _20_: Python 2 EoL
+
+* using other language in Python e.g. Julia https://www.peterbaumgartner.com/blog/incorporating-julia-into-python-programs/
 
 ## CPython
 
@@ -597,7 +604,33 @@ ZA
 * _history_: https://stackoverflow.com/a/14753678/6813490 https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 7:40
 * _project structure_: `src`: https://blog.ganssle.io/articles/2019/08/test-as-installed.html https://pythonbytes.fm/episodes/show/159/brian-s-pr-is-merged-the-src-will-flow https://github.com/taktluyver/flit/pull/260/commits https://bskinn.github.io/My-How-Why-Pyproject-Src/ https://github.com/takluyver/flit/pull/260 https://bskinn.github.io/My-How-Why-Pyproject-Src/ repetitive paths https://github.com/zachvalenta/site-content/commit/7e6b5f66ffd9f6b3b13b19669050289b26d8925b
 
-## pip
+## mgmt
+
+ALTERNATIVES
+* too many tools https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/#tooling-proliferation-and-the-python-package-authority
+* _hatch_: https://github.com/pypa/hatch
+* single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
+* good: no need for tox, separates deps by dev/test/link https://andrich.me/2023/08/switching-to-hatch/
+* bad: no envs in project dir, no lockfile, no support for C extension modules, single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
+* _pdm_: smart people like https://github.com/pdm-project/pdm
+* _pipenv_: Reitz problem https://github.com/pypa/pipenv/commit/9ba23242
+* _piptools_ https://www.pythonpodcast.com/devops-in-python-episode-244/
+* _uv_: early days, took over Rye https://astral.sh/blog/uv https://news.ycombinator.com/item?id=39387641 https://lucumr.pocoo.org/2024/2/4/rye-a-vision/
+
+---
+
+https://github.com/python-poetry/poetry/issues/8662
+
+MORE ON ALTERNATIVES
+* https://talkpython.fm/episodes/show/453/uv-the-next-evolution-in-python-packages
+* https://chriswarrick.com/blog/2024/01/15/python-packaging-one-year-later/
+* https://iahmed.me/post/python-air-gapped/
+* https://talkpython.fm/episodes/show/436/an-unbiased-evaluation-of-environment-and-packaging-tools
+* https://drivendata.co/blog/python-packaging-2023
+* https://news.ycombinator.com/item?id=38196412
+* https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/
+
+### pip
 
 ---
 
@@ -705,7 +738,7 @@ index-url = http://download.zope.org/ppix # CLI arg is `-i`
 ```
 * https://pydist.com/blog/pip-install 
 
-## pipx
+### pipx
 
 📜 https://github.com/pypa/pipx
 
@@ -737,12 +770,13 @@ GLOBAL DEPENDENCIES
 * why: system Python no longer exposed https://news.ycombinator.com/item?id=29238700
 * how it works: `bin` symlinks to + script w/ shebang line scoped to local venv https://stackoverflow.com/a/30541898/6813490 https://pythonbytes.fm/episodes/show/123/time-to-right-the-py-wrongs
 
-## Poetry
+### Poetry
 
 📜 https://python-poetry.org/docs/
 
 * config file: `~/Library/Application Support/pypoetry/config.toml`
 * venvs: local (`$PROJ/.venv`) global (`~/Library/Caches/pypoetry/virtualenvs`)
+> specify in VS Code https://stackoverflow.com/questions/59882884/vscode-doesnt-show-poetry-virtualenvs-in-select-interpreter-option https://code.visualstudio.com/docs/python/environments
 * commands
 ```sh
 init -n        # create pyproject.toml
@@ -753,29 +787,7 @@ env info       # show Poetry env and where Poetry is installed (pipx)
 remove -D      # remove dev dep
 ```
 
-ALTERNATIVES
-* too many tools https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/#tooling-proliferation-and-the-python-package-authority
-* _hatch_: https://github.com/pypa/hatch
-* single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
-* good: no need for tox, separates deps by dev/test/link https://andrich.me/2023/08/switching-to-hatch/
-* bad: no envs in project dir, no lockfile, no support for C extension modules, single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
-* _pdm_: smart people like https://github.com/pdm-project/pdm
-* _pipenv_: Reitz problem https://github.com/pypa/pipenv/commit/9ba23242
-* _piptools_ https://www.pythonpodcast.com/devops-in-python-episode-244/
-* _uv_: early days, took over Rye https://astral.sh/blog/uv https://news.ycombinator.com/item?id=39387641 https://lucumr.pocoo.org/2024/2/4/rye-a-vision/
-
 ---
-
-https://github.com/python-poetry/poetry/issues/8662
-
-MORE ON ALTERNATIVES
-* https://talkpython.fm/episodes/show/453/uv-the-next-evolution-in-python-packages
-* https://chriswarrick.com/blog/2024/01/15/python-packaging-one-year-later/
-* https://iahmed.me/post/python-air-gapped/
-* https://talkpython.fm/episodes/show/436/an-unbiased-evaluation-of-environment-and-packaging-tools
-* https://drivendata.co/blog/python-packaging-2023
-* https://news.ycombinator.com/item?id=38196412
-* https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/
 
 * create env - new project: `init - n` creates `pyproject.toml`; deps dir (macOS: `~/Library/Caches/pypoetry` RHEL: `~/.cache/pypoetry/virtualenvs`) and lockfile (`poetry.lock`) not created until you actually install something
 * create env - existing project: `install` creates deps dir and installs deps using `poetry.lock` (if present) or `pyproject.toml` (if `poetry.lock` not present) https://poetry.eustace.io/docs/basic-usage/#installing-dependencies ❓ not being able to pick virtualenv name a problem https://hynek.me/articles/python-app-deps-2018/
