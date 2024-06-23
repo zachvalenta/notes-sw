@@ -49,6 +49,7 @@ RECENT
 * shu
 * ml
 * ren
+* dot
 * https://github.com/oleiade/motus
 * https://github.com/Textualize/frogmouth
 * https://github.com/bloznelis/typioca
@@ -78,8 +79,8 @@ NEOVIM
 ## skills
 
 ENV - GENERAL
-- [ ] multiplex: Zellij
-- [ ] editor: neovim (Codi)
+- [ ] multiplex: tmux
+- [ ] editor: VS Code interpreter selection for Poetry
 
 ENV - PYTHON
 - [ ] feedback: notebooks
