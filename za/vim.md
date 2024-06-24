@@ -633,7 +633,7 @@ HELP https://neovim.io/doc/user/usr_02.html#help-summary
 NEOVIM
 * vs. VS Code: can run in terminal, more customizable, modal https://www.reddit.com/r/neovim/comments/15c7al9/why_turn_neovim_into_vscode/
 * installation: Homebrew (requires macOS > 10.14) 📙 Neil modern [5]
-* design: run tasks async, Lua for scripting https://github.com/nvim-lua/plenary.nvim
+* design: run tasks async, Lua for scripting https://github.com/nvim-lua/plenary.nvim can also use Python to script https://mkaz.blog/code/neovim-plugin-python
 > Bram's comparison is Vi, Neovim teams' comparison is VS Code. https://news.ycombinator.com/item?id=31936725
 
 ## command mode
@@ -685,7 +685,7 @@ can also use to delete lines https://vimtricks.substack.com/p/vimtrick-remove-li
 * https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 
 NEOVIM SETUPS
-> this one with NvChad https://www.youtube.com/watch?v=4BnVeOUeZxc
+> this one with NvChad https://www.youtube.com/watch?v=4BnVeOUeZxc https://www.youtube.com/watch?v=6pAG3BHurdM
 > try these if nothing else works https://www.youtube.com/watch?v=gnupOrSEikQ https://www.youtube.com/watch?v=x__SZUuLOxw
 * _Astro_: 12k stars; strong maintainer https://github.com/mehalter https://github.com/AstroNvim/AstroNvim
 * _LazyVim_: 15k stars https://www.lazyvim.org/
@@ -872,10 +872,14 @@ EDITOR HISTORY
 ## Emacs
 
 ORG MODE https://en.wikipedia.org/wiki/Org-mode
-* killer feature, can execute code snippets https://www.youtube.com/watch?v=cxoE2FhOIgI
-* Neovim version is still beta, uses new package manager, doesn't have Roam https://github.com/nvim-neorg/neorg https://vhyrro.github.io/posts/neorg-and-luarocks/ https://github.com/nvim-neorocks/rocks.nvim
-* Roam: Zettelkasten https://www.youtube.com/watch?v=AyhPmypHDEw
-> don't like the journal functionality bc don't want journal and domain notes intermixed https://www.youtube.com/watch?v=3-sLBaJAtew
+* killer features: traversal, exec code snippets https://www.youtube.com/watch?v=cxoE2FhOIgI
+* calendar https://www.youtube.com/watch?v=3V3wIJgMeqE
+* _Roam_: Zettelkasten https://www.youtube.com/watch?v=AyhPmypHDEw don't like the journal functionality bc don't want journal and domain notes intermixed https://www.youtube.com/watch?v=3-sLBaJAtew Vim port https://github.com/chipsenkbeil/org-roam.nvim
+
+VIM PORTS
+* _neorg_: feature incomplete, uses new package manager, doesn't have Roam https://news.ycombinator.com/item?id=39828963 https://github.com/nvim-neorg/neorg https://vhyrro.github.io/posts/neorg-and-luarocks/ https://github.com/nvim-neorocks/rocks.nvim
+* _nvim-orgmode_: 🎯 https://github.com/nvim-orgmode/orgmode
+* _vimwiki_: dislike syntax https://github.com/vimwiki/vimwiki
 
 ---
 
@@ -964,6 +968,7 @@ edit
 THINGS I'M NOTICING ABOUT VSC
 * autocomplete works for any word in the workspace
 * prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421
+* constantly wipes out the outliner and requires Vim action to prompt redraw
 
 WORKSPACES 📜 https://code.visualstudio.com/docs/editor/multi-root-workspaces 
 * _workspace_: dir(s) in scope for search https://stackoverflow.com/a/50185038
