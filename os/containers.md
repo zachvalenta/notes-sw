@@ -552,6 +552,7 @@ VMWARE
 
 ## Kubernetes
 
+https://roadmap.sh/kubernetes
 🗄 `system.md` distributed
 🔍 https://ramitsurana.github.io/awesome-kubernetes/
 📚

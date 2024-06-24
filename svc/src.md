@@ -53,6 +53,7 @@ end
 📚
 * Kleppmann ch. 3
 * Masse api rulebook
+* https://roadmap.sh/api-design https://roadmap.sh/backend
 
 REST
 * hypermedia is REST https://htmx.org/essays/
@@ -86,6 +87,7 @@ RPC
 * https://etherealbits.com/2012/12/debunking-the-myths-of-rpc-rest/ https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/ https://apihandyman.io/do-you-really-know-why-you-prefer-rest-over-rpc/ https://stackoverflow.com/questions/15056878/rest-vs-json-rpc https://stackoverflow.com/a/26831221 https://github.com/fullstorydev/grpcurl https://realpython.com/python-microservices-grpc/ https://github.com/tomerfiliba-org/rpyc
 
 GraphQL 📹 https://www.youtube.com/watch?v=QJhiMSUFgDM
+* https://roadmap.sh/graphql
 * https://news.ycombinator.com/item?id=40521518
 * https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/
 * spec + query language for API

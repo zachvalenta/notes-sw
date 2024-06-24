@@ -11,6 +11,7 @@
 
 ---
 
+* https://roadmap.sh/cyber-security
 * https://www.freecodecamp.org/learn/information-security/
 * https://news.ycombinator.com/item?id=38332222
 * https://www.osohq.com/academy
@@ -244,6 +245,8 @@ pass
 ## auth
 
 🗄 `application.md` security
+
+https://roadmap.sh/backend
 
 vocab
 https://ntietz.com/blog/lets-say-instead-of-auth/

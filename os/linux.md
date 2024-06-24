@@ -14,7 +14,7 @@
 
 ## 进步
 
-mv from Homebrew to Nix
+https://roadmap.sh/linux
 
 * _24_: combine Homebrew and other managers
 * _22_: denv

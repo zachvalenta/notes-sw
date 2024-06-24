@@ -110,7 +110,9 @@ replace your React https://htmx.org/essays/a-real-world-react-to-htmx-port/
 ## React
 
 📙 https://www.amazon.com/Road-learn-React-pragmatic-React-js/dp/172004399X/
+https://roadmap.sh/react
 
+* just a bit, Parcel https://mkaz.blog/code/add-react-to-existing-page
 * solid.js https://typeofnan.dev/solid-js-feels-like-what-i-always-wanted-react-to-be/ https://github.com/solidjs/solid
 * testing, Storybook, Ladle https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202210060
 > As Storybook grew in popularity, it became more and more of a behemoth. If all you really care about is isolating and testing your React UI components, then Ladle is the alternative. Ladle supports most of the Storybook API (MDX files are not supported yet) and can be used as a drop-in replacement. It is lightweight and has better integration with Vite. It also provides simple and clean APIs that can be easily integrated with other testing frameworks.
@@ -298,6 +300,8 @@ let bob = Object.assign({}, player, {score: 3});
 ```
 
 ## Node
+
+https://roadmap.sh/nodejs
 
 * _Node_: libuv (IO library) + V8 (JS engine) https://neovim.io/charter/
 * don't install from OpenJS https://docs.npmjs.com/downloading-and-installing-node-js-and-npm

@@ -14,6 +14,12 @@
 
 ---
 
+https://roadmap.sh/system-design
+https://roadmap.sh/software-architect
+https://roadmap.sh/software-design-architecture
+* CQRS, service mesh, SOA, scaling (back pressure, throttling) https://roadmap.sh/backend
+https://www.amazon.com/gp/product/1492052205
+
 WORLD'S DUMBEST COMPLETE SAAS
 > use as your repo to experiment
 * Vincent books 🗄 `django.md`

@@ -17,7 +17,7 @@
 
 ---
 
-https://www.pythonmorsels.com/time-complexities/
+https://roadmap.sh/datastructures-and-algorithms https://roadmap.sh/python
 https://www.softwaredesign.ing/blog/ai-is-the-reason-interviews-are-harder-now
 https://realpython.com/python-hash-table/
 * do with books https://www.fast.ai/
@@ -339,6 +339,7 @@ def linear_and_quadratic():  # O(n + n^2) = O(n^2)
 
 ## runtimes
 
+⏲️ https://www.pythonmorsels.com/time-complexities/
 🗄️ `math.md` logarithms
 🔗 https://stackoverflow.com/a/11611770
 

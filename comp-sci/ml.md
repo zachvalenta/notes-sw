@@ -372,6 +372,7 @@ SEMANTICS
 
 ## operationalizing
 
+* https://roadmap.sh/mlops
 * https://applied-llms.org/
 * https://news.ycombinator.com/item?id=38120493
 * MLflow https://www.thoughtworks.com/radar/tools/mlflow metaflow https://www.thoughtworks.com/radar/tools?blipid=202203023

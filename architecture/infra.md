@@ -13,6 +13,7 @@
 
 ---
 
+https://roadmap.sh/linux
 * SQL https://news.ycombinator.com/item?id=28554089
 * Ansible-like (Puppet, Chef, Salt)
 * https://github.com/Fizzadar/pyinfra https://www.pythonpodcast.com/pyinfra-configuration-management-episode-270/

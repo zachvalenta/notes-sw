@@ -443,7 +443,7 @@ cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
 
 ## profiles
 
-SHELL TYPES
+SHELL TYPES https://github.com/nushell/nushell/issues/8169
 * _interactive_: normal
 * _non-interactive_: process spawned when script run 📙 LPI 2.2 https://unix.stackexchange.com/questions/43385/what-do-you-mean-by-interactive-shell/43389#43389 
 * _login_: reads profiles and env var 
@@ -796,7 +796,7 @@ ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 * _crush_ https://news.ycombinator.com/item?id=24079001
 * _elvish_ https://news.ycombinator.com/item?id=18778681
 * _nushell_: https://www.nushell.sh/
-* _oil_: https://news.ycombinator.com/item?id=24079001
+* _oil_: https://github.com/oilshell/oil
 * _Powershell_: supports some Bash commands but no arguments https://yehudakatz.com/2019/04/24/powershell-lets-get-started
 * good at working with structured text like CSV https://news.ycombinator.com/item?id=28306401
 * multiple versions https://www.youtube.com/watch?v=--c3yNP-hL0 7:30
@@ -1039,6 +1039,62 @@ TUI
 * _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
 * _ncurses_: Linux https://github.com/jesseduffield/lazydocker https://github.com/NerdyPepper/dijo
 
+## cron
+
+🗄 `distributed.md` TQ
+
+NOHUP
+* _nohup_: separates process and terminal https://unix.stackexchange.com/a/148698
+* keeps process alive after terminal that started process is killed https://hacker-tools.github.io/remote-machines/
+* appends to `nohup.out`
+```sh
+# keep alive https://github.com/Idnan/bash-guide#d-nohup
+nohup <cmd>
+# keep alive + run in background
+nohup <cmd> &
+```
+
+---
+
+* use postgres https://github.com/cybertec-postgresql/pg_timetable
+* https://www.youtube.com/watch?v=AHAAA7zfT7Q
+* _bg_: put job in background
+* _fg_: put background job into foreground https://hacker-tools.github.io/shell/
+* _&_: run in background
+* _nq_: queuing commands https://github.com/leahneukirchen/nq
+```sh
+# build targets without occupying the terminal
+$ nq make clean
+$ nq make depends
+$ nq make all
+$ fq  # look at output without stopping the build
+```
+
+* https://www.twilio.com/blog/2017/04/wedding-at-scale-how-i-used-twilio-python-and-google-to-automate-my-wedding.html
+* https://github.com/SkullTech/drymail
+* https://github.com/caronc/apprise
+* https://github.com/fonoster/fonos
+* https://hacker-tools.github.io/automation/
+* Python https://github.com/agronholm/apscheduler
+* _anacron_: runs certain time after system start i.e. better for personal machine; 1 time/day
+* _launchd_: macOS equivalent https://blog.bejarano.io/fixing-cron-jobs-in-mojave.html
+* _batch_: runs when server load drops below specific level
+* _Autosys_: tool for coordinating cron jobs; first heard about this 2017.11
+* _monitoring_: https://github.com/healthchecks/healthchecks
+
+* _cron_: expects specific time i.e. better for server
+* `/etc/crontab` for system
+* `~/crontab` for user
+>  It’s a simple text file with an ASCII table that will execute a command on schedule. 📙 Conery [422]
+* `crontab -e`: edit crontab 📙 Conery [422]
+* `crontab -l`: see active entries
+
+* syntax https://www.youtube.com/watch?v=QZJ1drMQz1A&t=895s https://crontab.guru/
+```sh
+# 1-min(0-59) 2-hour 3-day(month) 4-month 5-day(week)
+5 * * * *  # 5th minute of every hour, every day of month, every month, every day of week
+```
+
 ## file
 
 FILE/DIR DIFF
@@ -1211,7 +1267,9 @@ pyclean () {
 
 color output: `tput` https://stackoverflow.com/a/20983251/6813490
 
-## fuzzy find (fzf)
+## text
+
+### fuzzy find (fzf)
 
 🗄 `vim.md` fuzzy find
 📜 https://github.com/junegunn/fzf
@@ -1262,63 +1320,7 @@ cdf() {
 * _keybindings_: Emacs; ctrl j/k to scroll https://github.com/junegunn/fzf/issues/1716#issuecomment-542756200 but just type a few more char https://github.com/junegunn/fzf/issues/1716#issuecomment-542784884 more scroll bindings https://github.com/junegunn/fzf.vim/issues/211#issuecomment-497943378 https://github.com/junegunn/fzf.vim/issues/358#issuecomment-296737223 https://github.com/junegunn/fzf/blob/master/CHANGELOG.md#0152
 * _Vim_: 🗄 `fzf.log`
 
-## jobs (cron)
-
-🗄 `distributed.md` TQ
-
-NOHUP
-* _nohup_: separates process and terminal https://unix.stackexchange.com/a/148698
-* keeps process alive after terminal that started process is killed https://hacker-tools.github.io/remote-machines/
-* appends to `nohup.out`
-```sh
-# keep alive https://github.com/Idnan/bash-guide#d-nohup
-nohup <cmd>
-# keep alive + run in background
-nohup <cmd> &
-```
-
----
-
-* use postgres https://github.com/cybertec-postgresql/pg_timetable
-* https://www.youtube.com/watch?v=AHAAA7zfT7Q
-* _bg_: put job in background
-* _fg_: put background job into foreground https://hacker-tools.github.io/shell/
-* _&_: run in background
-* _nq_: queuing commands https://github.com/leahneukirchen/nq
-```sh
-# build targets without occupying the terminal
-$ nq make clean
-$ nq make depends
-$ nq make all
-$ fq  # look at output without stopping the build
-```
-
-* https://www.twilio.com/blog/2017/04/wedding-at-scale-how-i-used-twilio-python-and-google-to-automate-my-wedding.html
-* https://github.com/SkullTech/drymail
-* https://github.com/caronc/apprise
-* https://github.com/fonoster/fonos
-* https://hacker-tools.github.io/automation/
-* Python https://github.com/agronholm/apscheduler
-* _anacron_: runs certain time after system start i.e. better for personal machine; 1 time/day
-* _launchd_: macOS equivalent https://blog.bejarano.io/fixing-cron-jobs-in-mojave.html
-* _batch_: runs when server load drops below specific level
-* _Autosys_: tool for coordinating cron jobs; first heard about this 2017.11
-* _monitoring_: https://github.com/healthchecks/healthchecks
-
-* _cron_: expects specific time i.e. better for server
-* `/etc/crontab` for system
-* `~/crontab` for user
->  It’s a simple text file with an ASCII table that will execute a command on schedule. 📙 Conery [422]
-* `crontab -e`: edit crontab 📙 Conery [422]
-* `crontab -l`: see active entries
-
-* syntax https://www.youtube.com/watch?v=QZJ1drMQz1A&t=895s https://crontab.guru/
-```sh
-# 1-min(0-59) 2-hour 3-day(month) 4-month 5-day(week)
-5 * * * *  # 5th minute of every hour, every day of month, every month, every day of week
-```
-
-## munge (awk, sed)
+### munge (awk, sed)
 
 🗄 `databased.md` tooling
 
@@ -1388,7 +1390,7 @@ ZA
 # 📍 todo
 ```
 
-## pager (bat)
+### pager (bat)
 
 📜 https://github.com/sharkdp/bat
 
@@ -1421,7 +1423,7 @@ bat src/*.rs
 bat --line-range 227:236 $NOTES_DIR/sw/za/algos.md
 ```
 
-## text search (ripgrep)
+### search (ripgrep)
 
 🗄 `vim.md` code completion
 

@@ -13,10 +13,7 @@
 
 ## 进步
 
-CLEAN UP
-* 📙 Ramalho @ 2.20 -> hashable -> hash tables 🗄 `algos.md` hash tables re: maps, ADTs https://realpython.com/solid-principles-python/ https://github.com/dabeaz-course/python-mastery https://mkaz.blog/working-with-python/
 * https://realpython.com/python-lazy-evaluation/
-* https://realpython.com/python-pydantic/
 * https://www.pythonmorsels.com/cli-tools/
 * initialize vs. construct, __init__, __new__ https://www.fluentpython.com/lingo/#initializer https://www.fluentpython.com/lingo/#constructor
 attributes
@@ -217,18 +214,21 @@ class Person():
 
 📚
 * lang ref ch. 3-4
-* Ramalho ch. 1
+* Kettler magic  https://news.ycombinator.com/item?id=17727437
 * Van Rossum ch. 9
 
-METHODS 📙 Kettler magic https://news.ycombinator.com/item?id=17727437
-* lifecycle: `__new__`, `__init__`, `__hash__`, `__eq__`
-* __dict__: stores obj writable attributes https://docs.python.org/3/library/stdtypes.html#object.__dict__
+---
+
+* getitem, iter, and/or, bool, getstate/setstate, repr https://books.agiliq.com/projects/Journeyman-Python/en/latest/magic-methods.html
+* _call_: make class instance callable e.g. `foo = Foo(); foo()` https://realpython.com/python-class-constructor/ https://realpython.com/python-multiple-constructors/ re: metaclasses https://eli.thegreenplace.net/2012/04/16/python-object-creation-sequence
+* _dict_: stores obj writable attributes https://docs.python.org/3/library/stdtypes.html#object.__dict__
 * called by `vars()` https://docs.python.org/3/library/functions.html#vars
-* __new__: thing that actually creates obj instance https://betterprogramming.pub/5-pairs-of-magic-methods-in-python-you-should-know-f98f0e5356d6 https://realpython.com/python-class-constructor/
-* __init__: initializes obj https://realpython.com/python-multiple-constructors/ https://realpython.com/python-class-constructor/
+
+LIFECYLE
+* _new_: thing that actually creates obj instance https://betterprogramming.pub/5-pairs-of-magic-methods-in-python-you-should-know-f98f0e5356d6 https://realpython.com/python-class-constructor/
+* _init_: initializes obj https://realpython.com/python-multiple-constructors/ https://realpython.com/python-class-constructor/
 * use `cls()` when you want a wrapper in front of this in a class constructor https://stackoverflow.com/q/24799403
 ```python
-# straightforward
 class Foo:
     def __init__(self, thing):
         result = lookup(thing)
@@ -248,8 +248,10 @@ class Foo:
 
 Foo.get(thing="hi")
 ```
+COMPARE
+* __eq__: 📙 Ramalho [84,415]
 * __hash__: returns int 📙 Ramalho [84,415] https://docs.python.org/3/reference/datamodel.html#object.__hash__
-* use case: comparing obj https://www.youtube.com/watch?v=opijuVoq3Kk 5:50
+* usage: compare obj https://www.youtube.com/watch?v=opijuVoq3Kk 5:50
 > the same logic as a conditional but just putting a bow on it
 * called by `hash()`
 * used by dict, set https://www.youtube.com/watch?v=opijuVoq3Kk 0:35
@@ -262,20 +264,8 @@ def __hash__:
     return hash(self.foo) ^ hash(self.bar)
     # 📍 https://stackoverflow.com/questions/2909106/whats-a-correct-and-good-way-to-implement-hash https://stackoverflow.com/questions/4005318/how-to-implement-a-good-hash-function-in-python
 ```
-* __eq__: 📙 Ramalho [84,415]
-* __call__: make class instance callable e.g. `foo = Foo(); foo()` https://realpython.com/python-class-constructor/ https://realpython.com/python-multiple-constructors/ re: metaclasses https://eli.thegreenplace.net/2012/04/16/python-object-creation-sequence
 
-BASICS
-* _dunder_: methods called by the interpreter 📙 Ramalho [3]
-> When an object is passed to the str built-in function, its __str__ method is called. https://treyhunner.com/2018/06/how-to-make-an-iterator-in-python/
-* aka magic method, special method 📙 Ramalho [4] https://www.fluentpython.com/lingo/#special_method https://docs.python.org/3/glossary.html#term-magic-method https://docs.python.org/dev/reference/datamodel.html#specialnames
-> why isn't "magic method" or "dunder" in the docs? 📙 Kettler https://docs.python.org/dev/reference/datamodel.html#specialnames
-* usage: Django queryset https://books.agiliq.com/projects/Journeyman-Python/en/latest/magic-methods.html
-* documentation: language reference ch. 3 (data model) https://docs.python.org/dev/reference/datamodel.html#specialnames language reference ch. 4 (mapping types) https://www.fluentpython.com/lingo/#special_method
-> They're also not as well documented as they need to be. All of the magic methods for Python appear in the same section in the Python docs, but they're scattered about and only loosely organized. There's hardly an example to be found in that section (and that may very well be by design, since they're all detailed in the language reference, along with boring syntax descriptions, etc). https://rszalski.github.io/magicmethods/
-
----
-
+FILES
 ```python
 class UrOpener(object):
   def __init__(self, filename):
@@ -298,6 +288,15 @@ with UrOpener('sample-file.txt') as file:
   contents = file.read()
   print(contents)
 ```
+
+BASICS
+* _dunder_: methods called by the interpreter 📙 Ramalho [3]
+> When an object is passed to the str built-in function, its __str__ method is called. https://treyhunner.com/2018/06/how-to-make-an-iterator-in-python/
+* _Python data model_: dunder methods as a framework called by the interpreter [3,8]
+* why: ubiquitous names for standard operations across stdlib and user-defined classes [6]
+* used for: attribute access, iteration, operator overloading [4]
+* documentation: language reference ch. 3 (data model) https://docs.python.org/dev/reference/datamodel.html#specialnames language reference ch. 4 (mapping types) https://www.fluentpython.com/lingo/#special_method "magic method"/"dunder" not in the docs 📙 Kettler https://docs.python.org/dev/reference/datamodel.html#specialnames https://www.fluentpython.com/lingo/#special_method https://docs.python.org/3/glossary.html#term-magic-method https://docs.python.org/dev/reference/datamodel.html#specialnames 📙 Ramalho [4]
+> They're also not as well documented as they need to be. All of the magic methods for Python appear in the same section in the Python docs, but they're scattered about and only loosely organized. There's hardly an example to be found in that section (and that may very well be by design, since they're all detailed in the language reference, along with boring syntax descriptions, etc). 📙 Kettler https://rszalski.github.io/magicmethods/
 
 ## inheritance
 
@@ -466,29 +465,20 @@ def use_decorator():
 
 # 🧮 COLLECTIONS
 
+⏲️ https://www.pythonmorsels.com/time-complexities/
 📜 https://docs.python.org/3/library/stdtypes.html
+💻 https://github.com/python/cpython/tree/main/Include
 📚
 * Beazley ch. 1
 * Van Rossum ch. 5
 
+* _collection_: data structures in which items can be accessed individually https://www.fluentpython.com/lingo/#collection
+* _container_: holds ref to other objs e.g. list, tuple, dict https://www.fluentpython.com/lingo/#container
+* _flat sequence_: physically stores the values of its items, and not references to other objects e.g. str, bytes, array https://www.fluentpython.com/lingo/#flat_sequence
+* _binary sequence_: sequence + byte e.g. byte, bytearray, memoryview https://www.fluentpython.com/lingo/#binary_sequence https://docs.python.org/3/glossary.html#term-bytes-like-object
+* `bytearray`: used for HTTP response, passing files around
+
 ---
-
-| CLASS   | TYPE    | MUTABLE | HASHABLE       | SUBSCRIPTABLE |  NOTES              |
-|---------|---------|---------|----------------|---------------|---------------------|
-| list    | seq     | yes     | no             | byes          | for iteration       |
-| tuple   | seq     | no      | if el hashable | yes           | list + immutable    |
-| string  | seq     | no      | yes            | yes           | tuple + for text    |
-| dict    | mapping | yes     | no             | yes           | place for ur stuff  |
-| set     | set     | yes     | no             | no            | for set operations  |
-
-SEMANTICS
-* _collection_: https://www.fluentpython.com/lingo/#collection
-* _sequence_: https://www.fluentpython.com/lingo/#sequence https://docs.python.org/3/glossary.html#term-sequence
-* _flat sequence_: https://www.fluentpython.com/lingo/#flat_sequence
-* _binary sequence_: https://www.fluentpython.com/lingo/#binary_sequence
-* _mapping_: https://docs.python.org/3/glossary.html#term-mapping
-* _byte array_: used for HTTP response, passing files around
-* _bytes-like object_: https://www.fluentpython.com/lingo/#bytes-like_object https://docs.python.org/3/glossary.html#term-bytes-like-object
 
 SET
 ```python
@@ -543,6 +533,14 @@ id(bar)  # 4458076080
 ```
 
 ---
+
+| CLASS   | TYPE    | MUTABLE | HASHABLE       | SUBSCRIPTABLE |  NOTES              |
+|---------|---------|---------|----------------|---------------|---------------------|
+| list    | seq     | yes     | no             | byes          | for iteration       |
+| tuple   | seq     | no      | if el hashable | yes           | list + immutable    |
+| string  | seq     | no      | yes            | yes           | tuple + for text    |
+| dict    | mapping | yes     | no             | yes           | place for ur stuff  |
+| set     | set     | yes     | no             | no            | for set operations  |
 
 SUBSCRIPTABLE
 * read by key or index (indexing)
@@ -863,6 +861,7 @@ list_of_dict = [
 
 ---
 
+* _mapping_: https://docs.python.org/3/glossary.html#term-mapping
 https://realpython.com/python-mappings/
 * _diciontary_: map hashable K to mutable V https://docs.python.org/3/glossary.html#term-dictionary
 ```python
@@ -958,6 +957,7 @@ k, v = cidian.popitem()  # pop off kv of last el
 
 ---
 
+* _sequence_: https://www.fluentpython.com/lingo/#sequence https://docs.python.org/3/glossary.html#term-sequence
 * _trailing commas_: for last el in collection https://docs.python.org/3/faq/design.html#why-does-python-allow-commas-at-the-end-of-lists-and-tuples https://www.python.org/dev/peps/pep-0008/#when-to-use-trailing-commas
 
 SLICE
@@ -1654,6 +1654,7 @@ func.__annotations__
 
 PYDANTIC
 * throw err if typing mismatch https://hackernoon.com/pydantic-what-it-is-and-why-its-useful https://talkpython.fm/episodes/show/466/pydantic-performance-tips
+* https://realpython.com/python-pydantic/
 * https://fastapi.tiangolo.com/python-types/
 * https://www.pythonpodcast.com/pydantic-data-validation-episode-263/
 * https://github.com/shopnilsazal/validus
@@ -1808,6 +1809,8 @@ raise EarthquakError(place)
 ```
 
 ---
+
+hide stack track https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
 
 TRY/CATCH
 * multiple exceptions https://realpython.com/python-catch-multiple-exceptions/

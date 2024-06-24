@@ -125,6 +125,8 @@ PG http://paulgraham.com/popular.html
 
 ---
 
+https://www.pythonmorsels.com/cli-tools/
+
 > sort out what needs to be in Linux tracing vs. what needs to be here
 
 https://github.com/nakabonne/gosivy https://github.com/nakabonne/ali/releases/tag/v0.7.0
@@ -315,6 +317,7 @@ coverage html && coverage htmlcov/index.html
 
 ---
 
+* `ELLIPSIS` 📙 Ramalho [7]
 * _doctest_: docstring + test https://www.fluentpython.com/lingo/#doctest
 > [key feature] they look like transcripts of interactive Python console sessions, so you can easily try out the demonstrations yourself 📙 Ramalho [xviii]
 * as TDD-as-design tool bc favors small functions that require minimal setup
@@ -1275,6 +1278,8 @@ diff.seconds
 ## git
 
 📜 https://gitpython.readthedocs.io/en/stable/tutorial.html https://github.com/gitpython-developers/GitPython
+
+https://github.com/jelmer/dulwich
 
 ```python
 # clone https://stackoverflow.com/a/41252521 https://stackoverflow.com/a/34424094

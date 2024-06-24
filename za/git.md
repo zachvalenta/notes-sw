@@ -112,6 +112,8 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 
 🛠 curate https://github.com/matt-harvey/git_curate
 
+https://x.com/asbradbury/status/1804565477605458259
+
 RM
 * local - merged: `branch -d <br>`
 * local - unmerged: `branch -D <br>`

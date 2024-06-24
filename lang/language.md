@@ -91,9 +91,8 @@ https://github.com/dry-python/returns Land of Lisp epilogue https://docs.python.
 ## object-oriented
 
 📙 Ramalho fluent python
-🗄
-* typing
-* `system.md` programs / DDD
+
+SOLID https://realpython.com/solid-principles-python/
 
 OBJECTS
 * _object_: vs. procedural 📙 Evans domain-driven [51]
@@ -270,7 +269,8 @@ HISTORY https://increment.com/programming-languages/language-history/
 * people like? https://news.ycombinator.com/item?id=40538540
 * multiple compilers https://news.ycombinator.com/item?id=23686297
 
-🦀 RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon
+🦀 RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust
+* Neovim https://www.youtube.com/watch?v=mh_EJhH49Ms
 * example project https://github.com/nate-sys/tuime https://github.com/swsnr/mdcat
 * books https://news.ycombinator.com/item?id=34556318 https://github.com/plabayo/learn-rust-101/blob/main/README.md
 * CLI https://www.amazon.com/gp/product/1098109430/ref=ox_sc_act_title_1?smid=ATVPDKIKX0DER&psc=1
