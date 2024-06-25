@@ -764,7 +764,7 @@ DEV SERVER ON REMOTE
 * https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
 * https://github.com/godd0t/django-docker-quickstart
 
-🐚 SHELL
+🐚 SHELL https://docs.djangoproject.com/en/3.0/ref/django-admin/#shell https://docs.bpython-interpreter.org/en/latest/django.html
 * kill server: https://startcodingnow.com/kill-django-development-server
 ```sh
 ps aux | head --lines=1 && ps aux | grep 'manage.py runserver' | kill

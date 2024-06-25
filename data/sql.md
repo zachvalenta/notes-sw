@@ -714,7 +714,7 @@ select count(*) over (), track, sum(share), count(*) from splits group by track 
 🗄 `math.md` stat
 
 GROUP BY
-* _group by_: result set w/ 1 record for each group 📙 Evans [8]
+* _group by_: rs w/ 1 record for each group 📙 Evans [8]
 * group data by column value 📙 Beaulieu [60]
 * aka binning https://hakibenita.com/sql-for-data-analysis#binning
 * aka pivot table https://hakibenita.com/sql-for-data-analysis#pivot-tables https://realpython.com/how-to-pandas-pivot-table/
@@ -1221,7 +1221,7 @@ TYPES
 * impl as heap or b-tree https://calpaterson.com/activerecord.html
 * _derived_: return from subquery and held in memory 📙 Beaulieu [53]
 * _temporary_: table in mem 📙 Beaulieu [53] aka non-persistent 📙 Beaulieu [8]
-* _result set_: temp table returned from query 📙 Beaulieu [8] Evans [4]
+* _result set (rs)_: temp table returned from query 📙 Beaulieu [8] Evans [4]
 * intermediate rs created at each stage in join 📙 Beaulieu [90-digital-copy]
 * _virtual_: created using `create view` cmd 📙 Beaulieu [53]
 * _intemediate_: table instaniated for a job and then deleted https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning

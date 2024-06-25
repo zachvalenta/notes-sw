@@ -177,21 +177,59 @@ ZA
 
 ## REPL (iPython)
 
-IPYTHON 📜 https://ipython.readthedocs.io/en/stable/index.html
+ZA
+* features: code completion, syntax highlighting, readline, obj explorer
+* BYO using `code.InteractiveConsole()` https://bernsteinbear.com/blog/simple-python-repl/
+
+BPYTHON
+* undo `CTRL r`
+* autocomplete `CTRL f/e`
+
+CONTEXT
+* `PYTHONSTARTUP`: load helper module https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://github.com/zachvalenta/algo-sandbox/blob/master/Makefile#L28 https://github.com/zachvalenta/dotfiles-mini23/blob/main/shell/.zprofile#L183
+> improvement? https://github.com/sloria/konch
+* `$REPL -i $MODULE`: load main module https://stackoverflow.com/a/14244342 https://stackoverflow.com/a/56844640
 
 ---
 
-install
+> create Pelican blog and make a post out of this
+
+CONTEXT
+> pretty print, cmds, reload
+* surface `PYTHONSTARTUP` cmd https://news.ycombinator.com/item?id=34865421
+* `locals`, `globals`, `dir` https://stackoverflow.com/a/21961813/6813490
+* Rich https://github.com/Textualize/rich catpuccin integration? https://github.com/catppuccin/python/issues/3 https://github.com/catppuccin/python/issues/4 https://github.com/catppuccin/python/issues/22
+> inspect https://news.ycombinator.com/item?id=29947891 https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/
+* 🗄️ `stdlib.md` IO
+
+BPYTHON
+* config https://github.com/bpython/bpython/blob/a12d339e1a0bdca726d439ed1231f3f2ca993eac/bpython/sample-config
+* do other REPLs have object explorers? https://realpython.com/ptpython-shell/
+
+INIT
+* sink https://arpitbhayani.me/blogs/python-prompts https://github.com/bpython/bpython/blob/ae4a502a443e024bd82ed1a7b88adf8be2068a2c/doc/sphinx/source/django.rst https://github.com/bpython/bpython/search?q=PYTHONSTARTUP&unscoped_q=PYTHONSTARTUP https://stackoverflow.com/a/14244310 https://stackoverflow.com/a/34774703
+* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged
+* history: save https://stackoverflow.com/a/33880964 readline error manifests in garbled cmd history (have only seen when setting breakpoint in Flask) https://stackoverflow.com/a/3486617
+
+* https://docs.python.org/3/tutorial/interpreter.html
+* https://docs.python.org/3/tutorial/interactive.html
+* https://docs.python.org/3/tutorial/appendix.html#interactive-mode
+> importlib? non-breakpoint pdb modes?
+* preload: pipx inject
+> is there a way we could namespace these i.e. one for networking, for CLI dev? https://pipxproject.github.io/pipx/examples/#pipx-inject-example
+* reload src: point is to avoid continual exit/rerun https://news.ycombinator.com/item?id=23793054 https://mikelevins.github.io/posts/2020-12-18-repl-driven/
+* history https://stackoverflow.com/a/4289945
+
+IPYTHON 📜 https://ipython.readthedocs.io/en/stable/index.html 🔗 https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html https://realpython.com/ipython-interactive-python-shell/
+* why: ipdb, magic func
+* install
 ```bash
 fd ipyth
 dotfiles/python/ipython_config.py
 logs/pyenv/pip/ipython.log
 logs/pyenv/pipx/ipython.log
 ```
-
-🔗 https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html https://realpython.com/ipython-interactive-python-shell/
 * catpuccin for stdout https://github.com/catppuccin/python/issues/22
-
 * command
 ```python
 # run iPython and debug at site of error https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/ https://stackoverflow.com/a/21508070
@@ -203,7 +241,6 @@ pp
 # paste from system clipboard
 %paste
 ```
-
 * magic cmd https://jakevdp.github.io/PythonDataScienceHandbook/01.03-magic-commands.html
 * edit https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-edit
 * macro https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-macro
@@ -218,56 +255,11 @@ pp
 * relationship to shell https://jakevdp.github.io/PythonDataScienceHandbook/01.05-ipython-and-shell-commands.html
 * tab to view obj attr https://stackoverflow.com/q/41812447
 
-| REPL          |  FEATURES                              |
-| --------------|----------------------------------------|
-| python        | readline, history substitution         |
-| iPython       | color, ipdb, magic func                |
-| bpython       | object explorer                        |
-| ptpython      | https://realpython.com/ptpython-shell/ |
-
-BPYTHON
-* undo `CTRL r`
-* autocomplete `CTRL f/e`
-
-* install Rich globally and use with bpython https://realpython.com/python-rich-package/
-* stack trace https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
-* everything is written in rust now? https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/
-https://bernsteinbear.com/blog/simple-python-repl/
-* https://github.com/Textualize/rich https://github.com/catppuccin/python https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/ https://github.com/ChrisBuilds/terminaltexteffects
-* https://docs.python.org/3/tutorial/interpreter.html
-* https://docs.python.org/3/tutorial/interactive.html
-* https://docs.python.org/3/tutorial/appendix.html#interactive-mode
-* https://news.ycombinator.com/item?id=29947891 https://news.ycombinator.com/item?id=29947891
-> the point here is to have context and reload when you're working rapidly (script, interviewing)
-> importlib? non-breakpoint pdb modes?
-* preload: pipx inject
-> is there a way we could namespace these i.e. one for networking, for CLI dev? https://pipxproject.github.io/pipx/examples/#pipx-inject-example
-* reload src: point is to avoid continual exit/rerun https://news.ycombinator.com/item?id=23793054 https://mikelevins.github.io/posts/2020-12-18-repl-driven/
-
-INIT
-* point to init script w/ interface (`bpython -i <script>`) https://stackoverflow.com/a/14244342 https://stackoverflow.com/a/56844640 🗄 `algos`
-* set `PYTHONSTARTUP` (`export PYTHONSTARTUP='./repl.py' && poetry run bpython`) https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP
-* helpers for `locals()` on pythonpath https://stackoverflow.com/a/21961813/6813490
-* sink https://arpitbhayani.me/blogs/python-prompts https://github.com/bpython/bpython/blob/ae4a502a443e024bd82ed1a7b88adf8be2068a2c/doc/sphinx/source/django.rst https://github.com/bpython/bpython/search?q=PYTHONSTARTUP&unscoped_q=PYTHONSTARTUP https://stackoverflow.com/a/14244310 https://stackoverflow.com/a/34774703 https://stackoverflow.com/a/4289945 https://docs.bpython-interpreter.org/en/latest/django.html https://docs.djangoproject.com/en/3.0/ref/django-admin/#shell check out this lib https://github.com/sloria/konch/blob/master/konch.py
-* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged
-* history: save https://stackoverflow.com/a/33880964 readline error manifests in garbled cmd history (have only seen when setting breakpoint in Flask) https://stackoverflow.com/a/3486617
-* https://news.ycombinator.com/item?id=34865421
-* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#overcoming-gil-with-subinterpreters-and-immutability
-* JIT https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#building-a-jit-compiler-for-cpython
-* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#unlocking-the-parallel-universe-subinterpreters-and-free-threading-in-python-313
-
 # 🤖 INTERPRETER
 
 ---
 
 * `__pycache__`: holds bytecode in the form of `.pyc` https://stackoverflow.com/a/28365204/6813490 speeds up module loading https://docs.python.org/3/tutorial/modules.html#compiled-python-files suppress creation of with `export PYTHONDONTWRITEBYTECODE=1` more on bytecode https://blog.jse.li/posts/pyc/ https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md
-
-USE FROM SHELL https://docs.python.org/3/using/cmdline.html
-* script: `python <mod>` https://realpython.com/run-python-scripts
-* script + pdb: `python -i <mod>` https://docs.python.org/3/using/cmdline.html#cmdoption-i
-* use module: `python -m unittest discover` https://docs.python.org/3/using/cmdline.html#cmdoption-m
-* open browser `python -m webbrowser -n "https://www.python.org"` open browser https://medium.com/@martin.heinz/python-cli-tricks-that-dont-require-any-code-whatsoever-e7bdb9409aeb
-* run command inline: `python -c "import example.foo; foo.bar()"` https://docs.python.org/3/using/cmdline.html#cmdoption-c
 
 VERSIONS https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com/text/which-py.html
 * major https://en.wikipedia.org/wiki/History_of_Python#Table_of_versions
@@ -348,6 +340,18 @@ CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-g
 * _bytecode_: https://opensource.com/article/18/4/introduction-python-bytecode https://nullprogram.com/blog/2019/02/24/ https://snarky.ca/unravelling-attribute-access-in-python/ https://www.youtube.com/watch?v=QU158nGABxI 23:00 28:30 https://docs.python.org/3/glossary.html#term-bytecode
 * compiler execution flow: Python src to bytecode, VM runs bytecode https://eli.thegreenplace.net/2012/03/23/python-internals-how-callables-work https://eli.thegreenplace.net/2010/06/30/python-internals-adding-a-new-statement-to-python/
 > CPython bytecode is evaluated by the the mammoth function PyEval_EvalFrameEx in Python/ceval.c. The function is scary but it's nothing more than a fancy dispatcher of opcodes.
+
+## exec
+
+📜 https://docs.python.org/3/using/cmdline.html
+📰 https://www.pythonmorsels.com/cli-tools/
+
+```sh
+python $MODULE  # exec module https://realpython.com/run-python-scripts
+python -i $MODULE  # enter pdb after exec https://docs.python.org/3/using/cmdline.html#cmdoption-i
+python -m $LIB $CMD  # exec lib cmd https://docs.python.org/3/using/cmdline.html#cmdoption-m
+python -c "import $MOD; $MOD.$METHOD()"  # exec inline https://docs.python.org/3/using/cmdline.html#cmdoption-c
+```
 
 ## version mgmt (pyenv)
 
@@ -766,6 +770,7 @@ python3 -m pipx ensurepath
 ```
 * config file: `~/Library/Application Support/pipx`
 * venvs: `~/Library/Application Support/pipx/venvs`
+* use in tmp env (like Nix) https://pipx.pypa.io/stable/#inject-a-package
 * _inject_: add lib to CLI's env `pipx inject visidata psycopg2` https://jacobian.org/2019/nov/11/python-environment-2020/ https://pipxproject.github.io/pipx/examples/#pipx-inject-example 🗄 `html-css/drafts/dev/pipx-psycopg2.md`
 ```sh
 pipx install visidata
@@ -906,9 +911,14 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 
 ---
 
-
+https://www.amazon.com/gp/product/1492055026
+https://roadmap.sh/python
 https://hakibenita.com/django-concurrency
 https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sync-vs-async-in-python-tools-benchmarks-and-asgiwsgi-explained
+
+* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#overcoming-gil-with-subinterpreters-and-immutability
+* JIT https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#building-a-jit-compiler-for-cpython
+* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#unlocking-the-parallel-universe-subinterpreters-and-free-threading-in-python-313
 
 SEMANTICS https://python.hamel.dev/concurrency/
 * thread

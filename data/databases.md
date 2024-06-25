@@ -75,7 +75,6 @@ DATA ENGINEERING
 * datagolf https://datagolf.com/tour-standings https://datagolf.com/field-updates https://datagolf.com/datagolf-rankings https://datagolf.com/api-access
 > https://www.linkedin.com/in/matthew-courchene-2a19587b/ https://www.globalgolfpost.com/featured/data-gold/ https://www.sloansportsconference.com/people/matthew-courchene https://golf.com/news/features/data-golf-analytics-new-level-pay-attention-gamblers/ https://twitter.com/DataGolf/status/1779890636537094231
 > read on sports better, stats
-
 * steampipe https://news.ycombinator.com/item?id=40343131
 * https://news.ycombinator.com/item?id=39338626
 * data eng https://news.ycombinator.com/item?id=37222191

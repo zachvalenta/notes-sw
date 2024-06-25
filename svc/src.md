@@ -167,6 +167,7 @@ def endpoint():
 ```
 
 OPENAPI
+* https://github.com/marshmallow-code/apispec
 * https://github.com/zaghaghi/openapi-tui
 * howto https://www.youtube.com/watch?v=qcxio8C9Mh0
 * _versions_: OpenAPI (v3) Swagger (v2)

@@ -81,17 +81,18 @@ NEOVIM
 ENV - PYTHON
 - [x] feedback: think through notebook usage
 > yes: Ramalho + notes + REPL | repo + doctest https://github.com/fluentpython/example-code-2e/tree/master/01-data-model
-> no: org mode looks great (exec code snippet, easier traversal) but no time to switch to emacs or figure out neorg; dont think I need notebooks bc no need for visualizations, wordiness of notes needs density of editor
-- [ ] editor: VS Code interpreter selection for Poetry
-- [ ] feedback: debugger (algos sandbox) + ️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
+> no: org mode (adoption time) notebooks (dont need visualizations, wordiness of notes needs density of editor)
 - [ ] feedback: REPL
-- [ ] stdlib: lint
+- [ ] editor: VS Code interpreter selection for Poetry
 - [ ] stdlib: doctest
+- [ ] stdlib: lint
 - [ ] stdlib: ward
+- [ ] feedback: debugger (algos sandbox) +️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
 
 INTERVIEWING - CODE MONKEY
 - [ ] Python: collections 📙 Ramalho ch. 2-3, 18
 - [ ] Python: functions 📙 Ramalho ch. 7, 9-10
+> decorator, lambda, generator https://roadmap.sh/python
 - [ ] Python: classes 📙 Ramalho ch. 1, 5, 11-14, 16, 22-24
 - [ ] Python: obj 📙 Ramalho ch. 6
 - [ ] algos: rf notes
@@ -106,10 +107,14 @@ ENV - DATA
 - [x] tooling in general
 - [x] research BI
 - [x] rf dataframes: Ibis/Polars + Arrow
-- [ ] UI: evaluate harlequin
+- [ ] sandbox: sandbox
+> dataset repo, pick single dataset, rf `sql.md` + use case for notebooks + chance to learn Pandas/Polars/Ibis?
+- [ ] tooling: dbcli
+- [ ] tooling: evaluate harlequin
 - [ ] BI: distributions
 
 INTERVIEWING - SENIOR ENG
+- [ ] roadmap.sh
 - [ ] design
 - [ ] svc
 - [ ] AWS SA
@@ -127,7 +132,6 @@ PROJECTS
 * sports betting
 * city data https://www.youtube.com/watch?v=fHsMZ3cuMhU
 * Piedmont https://datasette.io/for/exploratory-analysis
-* book of lyrics for Luambo, Rochereau, Mulatu, Francis Bebey, Cesaria Evora, Amalia Rodrigues
 
 ## leads
 

@@ -550,71 +550,13 @@ self.assertEqual(x.exception.code, 1)
 🗄
 * `golang.md` CLI
 * `shell.md` CLI design
-* `theory.md` notation
-
----
 
 * control mouse/keyboard https://github.com/asweigart/pyautogui
-
 * GUI: tkinter https://www.youtube.com/watch?v=xqDonHEYPgA Kivy, pyqt https://build-system.fman.io/pyqt5-tutorial https://github.com/PySimpleGUI/PySimpleGUI https://github.com/chriskiehl/Gooey
-
-RICH 📜 https://github.com/Textualize/rich 
-* test install: `poetry run python -m rich`
-* https://github.com/apparebit/prettypretty
-
-INPUT 🗄 `security.md` sanitization
-* basic: `ur_in = input()`
-* autocomplete / fuzzy finder: used by dbcli https://github.com/amjith/fuzzyfinder https://github.com/darrenburns/textual-autocomplete
-* repl https://github.com/Mckinsey666/bullet https://github.com/tmbo/questionary https://github.com/Aperocky/replbuilder
-* _prompt-toolkit_: used by pgcli, http-prompt https://github.com/j-bennet/wharfee/blob/master/setup.py https://github.com/wasi-master/fastero
-
-OUTPUT
-* colors https://github.com/timofurrer/colorful https://github.com/erikrose/blessings
-* tables https://github.com/astanin/python-tabulate
-* progress bar https://dev.to/rsalmei/a-cool-new-progress-bar-for-python-1c0g https://github.com/tqdm/tqdm https://github.com/rsalmei/alive-progress https://pypi.org/project/enlighten/
-```python
-if i % 100 == 0:
-    progress = ((i + 1) / float(len(qd))) * 100.0
-    print('%.2f%%' % progress)
-```
-
-ARGPARSE
-* alternatives: https://github.com/tiangolo/typer old (`sys.argv`, optparse, docopt)
-* testing: https://github.com/dbader/photosorter/blob/master/test_sorter.py https://www.youtube.com/watch?v=ApTZib0L2X8 4:00
-* `description`: one-liner on purpose of CLI http://dustinrcollins.com/testing-python-command-line-apps
-* `action=store_true`: boolean https://stackoverflow.com/a/15008806/6813490 https://stackoverflow.com/a/36710639/6813490
-* `metavar=''`: avoid weird upppercasing https://docs.python.org/3/library/argparse.html#metavar
-* scaffold
-```python
-def parse():
-    parser = ArgumentParser()
-    parser.add_argument("-f", "--file", help="file")
-    parser.add_argument("-s", "--start", help="start trim")
-    parser.add_argument("-e", "--end", help="end trim")
-    if len(argv) == 1:
-        parser.print_help()
-        exit()
-    return parser.parse_args()
-
-args = parse()
-main(file=args.file, start=args.start, end=args.end)
-```
-
-ZA
-* you can write a Python CLI in Rust?! https://saadmk11.github.io/blog/posts/build-python-cli-tool-with-rust/
-* CLI from obj: https://github.com/google/python-fire https://github.com/chriskiehl/Gooey https://github.com/BstLabs/py-dynacli
-* interpreter / shebang
-```sh
-# https://realpython.com/run-python-scripts/#using-the-script-filename
-#!/usr/bin/python --> explicit path
-#!/usr/bin/env python --> use whatever python on $PATH
-```
 
 ## Click
 
 📜 https://click.palletsprojects.com/en/8.1.x
-
-https://github.com/Textualize/trogon
 
 * `python script.py`
 ```python
@@ -629,7 +571,7 @@ if __name__ == "__main__":
     main()
 ```
 
-* command + arg
+command + arg
 ```python
 # run: python script.py hello alice
 
@@ -650,6 +592,46 @@ def goodbye(person):
 
 ---
 
+* port Click app to TUI https://github.com/Textualize/trogon
+
+ALTERNATIVES
+* `sys.argv`
+* optparse
+* docopt
+* https://github.com/tiangolo/typer
+* interactive https://github.com/Aperocky/replbuilder
+* Rust https://saadmk11.github.io/blog/posts/build-python-cli-tool-with-rust/
+* CLI from obj: https://github.com/google/python-fire https://github.com/chriskiehl/Gooey https://github.com/BstLabs/py-dynacli
+
+INTERPRETER / SHEBANG
+```sh
+# https://realpython.com/run-python-scripts/#using-the-script-filename
+#!/usr/bin/python --> explicit path
+#!/usr/bin/env python --> use whatever python on $PATH
+```
+
+ARGPARSE
+* testing: https://github.com/dbader/photosorter/blob/master/test_sorter.py https://www.youtube.com/watch?v=ApTZib0L2X8 4:00
+* `description`: one-liner on purpose of CLI http://dustinrcollins.com/testing-python-command-line-apps
+* `action=store_true`: boolean https://stackoverflow.com/a/15008806/6813490 https://stackoverflow.com/a/36710639/6813490
+* `metavar=''`: avoid weird upppercasing https://docs.python.org/3/library/argparse.html#metavar
+* scaffold
+```python
+def parse():
+    parser = ArgumentParser()
+    parser.add_argument("-f", "--file", help="file")
+    parser.add_argument("-s", "--start", help="start trim")
+    parser.add_argument("-e", "--end", help="end trim")
+    if len(argv) == 1:
+        parser.print_help()
+        exit()
+    return parser.parse_args()
+
+args = parse()
+main(file=args.file, start=args.start, end=args.end)
+```
+
+MORE CLICK
 * args vs. options https://click.palletsprojects.com/en/8.1.x/parameters/
 * types: str, int https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types
 > I'm not using these semantically, using options in lieu of args bc options have better syntax on command invocation
@@ -678,7 +660,31 @@ def main(in_path, out_file):
         with open(path_input, mode="r") as csv_in:
 ```
 
-for later: prompts, lazy load
+## IO
+
+---
+
+RICH 📜 https://github.com/Textualize/rich 
+* test install: `poetry run python -m rich`
+* https://github.com/apparebit/prettypretty
+
+INPUT 🗄 `security.md` sanitization
+* take input: basic (`ur_in = input()`)
+* basic: 
+* autocomplete / fuzzy finder: used by dbcli https://github.com/amjith/fuzzyfinder https://github.com/darrenburns/textual-autocomplete
+* REPL https://github.com/Mckinsey666/bullet https://github.com/tmbo/questionary
+* _prompt-toolkit_: used by pgcli, http-prompt https://github.com/j-bennet/wharfee/blob/master/setup.py https://github.com/wasi-master/fastero
+
+OUTPUT
+* animation https://github.com/ChrisBuilds/terminaltexteffects
+* colors https://github.com/timofurrer/colorful https://github.com/erikrose/blessings
+* tables https://github.com/astanin/python-tabulate
+* progress bar https://dev.to/rsalmei/a-cool-new-progress-bar-for-python-1c0g https://github.com/tqdm/tqdm https://github.com/rsalmei/alive-progress https://pypi.org/project/enlighten/
+```python
+if i % 100 == 0:
+    progress = ((i + 1) / float(len(qd))) * 100.0
+    print('%.2f%%' % progress)
+```
 
 ## Textual
 
@@ -969,6 +975,8 @@ RSGI
 
 # 🟨 ZA
 
+* new batteries written in Rust https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/
+
 ---
 
 * `eval()`: take string and evaluate as if expression from language
@@ -1036,6 +1044,84 @@ TypeError: choice() got an unexpected keyword argument 'k'
 * _scheduling_: https://docs.python.org/3/library/sched.html https://github.com/dbader/schedule
 * _unit conversion_: https://pint.readthedocs.io/en/0.10.1/
 * _zip/tar_: https://github.com/BuzonIO/zipfly
+
+## datetime
+
+📙 Beazley ch. 3
+https://pypi.org/project/pytz/ https://blog.ganssle.io/articles/2018/03/pytz-fastest-footgun.html https://github.com/crsmithdev/arrow https://github.com/timofurrer/maya https://github.com/sdispater/pendulum https://github.com/dateutil/dateutil parser https://github.com/wanasit/chrono
+
+* str fmt: `dt.now().strftime("%y.%m.%d-%H:%M:%S")` https://stackoverflow.com/a/51262245
+* get last day of month https://stackoverflow.com/a/43663/6813490
+* distance btw 2 dates
+```python
+from datetime import datetime as dt
+abs((dt.strptime("2021-09-09", "%Y-%m-%d") - dt.strptime("2023-01-06", "%Y-%m-%d")).days)
+abs((dt.strptime("2023-01-01", "%Y-%m-%d") - dt.today()).days)
+>>>
+```
+* string to datetime https://stackoverflow.com/a/27914405
+```python
+from datetime import datetime as dt
+dt.strptime("22-05", '%y-%m')
+dt.strptime("05-22", '%m-%y')
+dt.strptime("2022-May", '%Y-%b')
+dt.strptime("20220501", '%Y%m%d')
+```
+
+```python
+# iterate months in range https://stackoverflow.com/a/35651063
+import datetime as dt
+from dateutil.relativedelta import relativedelta as delta
+def iter_months(year, month, day):
+    month_start = dt.date(year, month, day)
+    month_previous_dt = dt.datetime.utcnow().replace(day=1) - delta(days=1)
+    month_previous = month_previous_dt.date()
+    while month_start <= month_previous:
+        do_something()
+        month_start += delta(months=1)
+
+# string to date
+nov_2019 = dt.strptime("2019 Nov", "%Y %b")  # datetime.datetime(2019, 11, 1, 0, 0)
+nov_2019.strftime("%Y %m")  # "22 03"
+
+datetime.date(2021, 12, 1).strftime("%b %Y").upper()
+
+month_start = "2019 11"
+month_end = dt.now().strftime("%Y %m")  # "22 03"
+
+start = dt.date(2019,11,1)
+end = dt.now()
+
+# create timestamp
+from datetime import datetime as dt
+dt.now().isoformat()
+ts = int(dt.timestamp(dt.today()))
+import time
+ts = int(time.time())
+
+# timestamp to Python https://docs.python.org/3/library/datetime.html#datetime.date.fromtimestamp
+dt.date.fromtimestamp(ts)
+date.fromisoformat('2019-12-04')  # not in 2.7
+
+# formatting https://strftime.org/ https://stackoverflow.com/a/48947064
+this_month = dt.now().strftime('%m')
+
+# pad string https://stackoverflow.com/a/339024
+last_month = str(int(this_month) - 1).rjust(2, '0')
+two_months_ago = str(int(this_month) - 2).rjust(2, '0')
+
+# compare timestamp to current time
+# timezones + currency https://github.com/pycountry/pycountry
+from datetime import datetime, timezone
+now = datetime.now(timezone.utc)  # https://stackoverflow.com/a/25662061
+
+from dateutil import parser
+task = parser.isoparse("2021-06-04T18:10:19.885484Z")
+# datetime.datetime(2021, 6, 4, 18, 10, 19, 885484, tzinfo=tzutc())
+
+diff = now - task
+diff.seconds
+```
 
 ## files
 
@@ -1195,84 +1281,6 @@ text = byte.decode("utf-8-sig")
 string_obj = io.StringIO(text)
 reader = csv.DictReader(string_obj)
 for row in reader:
-```
-
-## datetime
-
-📙 Beazley ch. 3
-https://pypi.org/project/pytz/ https://blog.ganssle.io/articles/2018/03/pytz-fastest-footgun.html https://github.com/crsmithdev/arrow https://github.com/timofurrer/maya https://github.com/sdispater/pendulum https://github.com/dateutil/dateutil parser https://github.com/wanasit/chrono
-
-* str fmt: `dt.now().strftime("%y.%m.%d-%H:%M:%S")` https://stackoverflow.com/a/51262245
-* get last day of month https://stackoverflow.com/a/43663/6813490
-* distance btw 2 dates
-```python
-from datetime import datetime as dt
-abs((dt.strptime("2021-09-09", "%Y-%m-%d") - dt.strptime("2023-01-06", "%Y-%m-%d")).days)
-abs((dt.strptime("2023-01-01", "%Y-%m-%d") - dt.today()).days)
->>>
-```
-* string to datetime https://stackoverflow.com/a/27914405
-```python
-from datetime import datetime as dt
-dt.strptime("22-05", '%y-%m')
-dt.strptime("05-22", '%m-%y')
-dt.strptime("2022-May", '%Y-%b')
-dt.strptime("20220501", '%Y%m%d')
-```
-
-```python
-# iterate months in range https://stackoverflow.com/a/35651063
-import datetime as dt
-from dateutil.relativedelta import relativedelta as delta
-def iter_months(year, month, day):
-    month_start = dt.date(year, month, day)
-    month_previous_dt = dt.datetime.utcnow().replace(day=1) - delta(days=1)
-    month_previous = month_previous_dt.date()
-    while month_start <= month_previous:
-        do_something()
-        month_start += delta(months=1)
-
-# string to date
-nov_2019 = dt.strptime("2019 Nov", "%Y %b")  # datetime.datetime(2019, 11, 1, 0, 0)
-nov_2019.strftime("%Y %m")  # "22 03"
-
-datetime.date(2021, 12, 1).strftime("%b %Y").upper()
-
-month_start = "2019 11"
-month_end = dt.now().strftime("%Y %m")  # "22 03"
-
-start = dt.date(2019,11,1)
-end = dt.now()
-
-# create timestamp
-from datetime import datetime as dt
-dt.now().isoformat()
-ts = int(dt.timestamp(dt.today()))
-import time
-ts = int(time.time())
-
-# timestamp to Python https://docs.python.org/3/library/datetime.html#datetime.date.fromtimestamp
-dt.date.fromtimestamp(ts)
-date.fromisoformat('2019-12-04')  # not in 2.7
-
-# formatting https://strftime.org/ https://stackoverflow.com/a/48947064
-this_month = dt.now().strftime('%m')
-
-# pad string https://stackoverflow.com/a/339024
-last_month = str(int(this_month) - 1).rjust(2, '0')
-two_months_ago = str(int(this_month) - 2).rjust(2, '0')
-
-# compare timestamp to current time
-# timezones + currency https://github.com/pycountry/pycountry
-from datetime import datetime, timezone
-now = datetime.now(timezone.utc)  # https://stackoverflow.com/a/25662061
-
-from dateutil import parser
-task = parser.isoparse("2021-06-04T18:10:19.885484Z")
-# datetime.datetime(2021, 6, 4, 18, 10, 19, 885484, tzinfo=tzutc())
-
-diff = now - task
-diff.seconds
 ```
 
 ## git

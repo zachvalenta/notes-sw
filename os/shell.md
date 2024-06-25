@@ -786,7 +786,7 @@ FISH 📜 https://fishshell.com/
 * ✅ autocomplete https://news.ycombinator.com/item?id=27992073 https://www.benkuhn.net/autocomplete/ https://ianthehenry.com/posts/sd-my-script-directory/ https://news.ycombinator.com/item?id=18777113 
 * accept autosuggestion: `CTRL f` https://stackoverflow.com/a/58382167/6813490
 * ❌ have to rewrite profile https://news.ycombinator.com/item?id=15913251 https://superuser.com/questions/446925/re-use-profile-for-fish
-* ❌ `!!` doesn't run last cmd https://news.ycombinator.com/item?id=15943070 https://bsago.me/tech-notes
+* ❌ `!!` doesn't run last cmd https://news.ycombinator.com/item?id=15943070 https://bsago.me/tech-notes https://bsago.me/tech-notes/a-replacement-for-!!-in-fish
 * ❌ Vi mode but apparently doesn't work well https://stackoverflow.com/questions/28444740/how-to-use-vi-mode-in-fish-shell https://news.ycombinator.com/item?id=18778048
 * ❌ scripting language not portable https://news.ycombinator.com/item?id=18778681 https://news.ycombinator.com/item?id=15911216 https://rutar.org/writing/vim-session-management-an-introduction-to-fish/
 * can't run bash scripts = just switch back to bash https://news.ycombinator.com/item?id=18777141 https://jvns.ca/blog/2017/04/23/the-fish-shell-is-awesome/
@@ -881,7 +881,7 @@ https://news.ycombinator.com/item?id=35126280
 
 ALTERNATIVES
 > UX also isn't something that can really be competed on for a terminal app as the UX is typically dictated by the shell, tool, tmux, etc. https://news.ycombinator.com/item?id=35125295
-* _Alacritty_: no OOB global hotkey https://github.com/alacritty/alacritty/issues/3313 but workarounds available (Hammerspoon, Karabiner) https://github.com/alacritty/alacritty/issues/862
+* _Alacritty_: no native global hotkey https://github.com/alacritty/alacritty/issues/3313 but workarounds available (Hammerspoon, Karabiner) https://github.com/alacritty/alacritty/issues/862
 * _Hyper_: Electron https://hyper.is/
 * _kitty_: can preview images in broot https://sw.kovidgoyal.net/kitty/
 * _sshx_: real-time collaboration https://github.com/ekzhang/sshx

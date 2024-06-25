@@ -401,6 +401,7 @@ VIEWERS
 
 ---
 
+* use image (w/ Github renderer) https://github.com/catppuccin/python/blob/main/README.md
 * current approach https://github.com/zachvalenta/markdown-2-html
 ```log
 .rwxr-xr-x@ 2.0k zach 21 Dec 17:19 -- jb*
@@ -449,7 +450,7 @@ add styles
 * `km.md` documentation
 * `system.md` architecture/noDB
 
-PELICAN 📜 https://github.com/getpelican/pelican
+PELICAN 📜 https://docs.getpelican.com/en/stable/
 * install: pipx
 * features: templating, metadata, tags
 * tags vs. categories http://pirsquared.org/blog/pelican-tags-vs-categories.html
@@ -457,7 +458,7 @@ PELICAN 📜 https://github.com/getpelican/pelican
 * table of contents: `pelican-toc` https://chat.openai.com/c/25d8a905-4ff4-4905-b63f-126f60ec9c75 https://www.murilopereira.com/how-to-open-a-file-in-emacs
 
 FEATURES
-> https://twitter.com/danluu/status/1244051446313574402 https://news.ycombinator.com/item?id=39511714&utm_term=comment https://meridian.mercury.com/dwarkesh-patel https://mkaz.blog/working-with-python/ https://shreyans.org/
+> https://twitter.com/danluu/status/1244051446313574402 https://news.ycombinator.com/item?id=39511714&utm_term=comment https://meridian.mercury.com/dwarkesh-patel https://mkaz.blog/working-with-python/ https://shreyans.org/ book of lyrics for Luambo, Rochereau, Mulatu, Francis Bebey, Cesaria Evora, Amalia Rodrigues
 * search: Stork https://stork-search.net/ TinySearch https://github.com/tinysearch/tinysearch https://news.ycombinator.com/item?id=23474134 DDG https://vadosware.io/ https://ddg.patdryburgh.com/ lunr.js https://github.com/olivernn/lunr.js https://brainbaking.com/search/?q=database example https://clearerthinkingpodcast.com/#episodes
 * RSS generation
 * tags: https://github.com/erwald/blog/blob/master/_data/series.json https://www.erichgrunewald.com/posts/the-kingdom-of-tamego/ https://github.com/jeffkaufman/webscripts/blob/e1c8a399536bb92e3f09886eea9fb925e710c981/intros.json https://www.jefftk.com/news/money

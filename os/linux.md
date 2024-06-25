@@ -241,12 +241,12 @@ apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythons
 > The point of nix is just to create completely reproducible builds and package management, including support for multiple versions of packages side-by-size with no issues. It's sort of a next-generation package management system that tries to avoid most of the pitfalls that OS package managers have fumbled with up to this point. https://news.ycombinator.com/item?id=23251754
 * can use in place of Homebrew, provides one-off shell without having to install pkg https://www.youtube.com/watch?v=m4ST2dq10no
 * isolate pkg by user/shell https://github.com/jetpack-io/devbox can do via flakes? https://www.youtube.com/watch?v=m4ST2dq10no
+* use in tmp env (vs. full install) https://wickedchicken.github.io/post/macos-nix-setup/ like pipx https://pipx.pypa.io/stable/#inject-a-package
 * NixOS is a whole other can of worms https://www.youtube.com/watch?v=m4ST2dq10no
 * overview https://shopify.engineering/what-is-nix
 * design https://news.ycombinator.com/item?id=34577844
 * using w/ Docker https://pythonspeed.com/articles/reproducible-docker-builds-python/
 * advanced usage https://bmcgee.ie/posts/2022/12/setting-up-my-new-laptop-nix-style/
-* allows temporary installs https://wickedchicken.github.io/post/macos-nix-setup/
 * macOS: need nix-darwin https://wickedchicken.github.io/post/macos-nix-setup/ installs more isolated than Homebrew https://wickedchicken.github.io/post/macos-nix-setup/ https://www.reddit.com/r/Nix/comments/zdcteb/should_i_migrate_from_homebrew_to_nix/ https://news.ycombinator.com/item?id=29079096
 * _pixi_: https://twitter.com/wuoulf/status/1691833538226610355 https://taras.glek.net/post/trying-pixi-modern-python-packaging/ https://github.com/prefix-dev/pixi https://talkpython.fm/episodes/show/439/pixi-a-fast-package-manager
 * _rpm_: pkg format and, confusingly, pkg manager for RHEL https://stackoverflow.com/a/8201051/6813490
