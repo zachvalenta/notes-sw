@@ -434,7 +434,11 @@ LSP https://www.youtube.com/playlist?list=WL
 * how this works in Neovim: `nvim-lspconfig` configs nvim client, `vim.lsp` as framework for tooling to connect to language servers, tool for language server mgmt (mason) https://www.youtube.com/watch?v=3a1PCir_aHs
 * _language server_: provides editor with code completion, syntax highlighting https://github.com/echasnovski/mini.nvim#general-principles
 * enables: analysis, completion, navigation, linting https://www.youtube.com/watch?v=3a1PCir_aHs 0:40
-* Python: pylance (closed source) https://github.com/microsoft/pylance-release/issues/4 pyright (open source version of pylance) https://github.com/microsoft/pyright vanilla (OSS) https://github.com/microsoft/python-language-server jedi https://github.com/davidhalter/jedi https://www.pythonpodcast.com/episode-113-jedi-code-completion-with-david-halter/ 
+* _pylance_: closed source, uses pyright https://github.com/microsoft/pylance-release/issues/4
+* _pyright_: type checker https://github.com/microsoft/pyright
+* _pylyzer_: pyright but better? https://github.com/mtshiba/pylyzer
+* _vanilla_: OSS https://github.com/microsoft/python-language-server
+* _jedi_: https://github.com/davidhalter/jedi https://www.pythonpodcast.com/episode-113-jedi-code-completion-with-david-halter/ 
 * _LSP_: protocol for language servers and editors https://en.wikipedia.org/wiki/Language_Server_Protocol 📙 Neil modern [127]
 * client = editor impl LSP, server = provides language info https://www.youtube.com/watch?v=C9X5VF9ASac 2:30
 * created by Microsoft and RedHat https://www.youtube.com/watch?v=C9X5VF9ASac 1:15

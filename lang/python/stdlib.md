@@ -22,7 +22,6 @@
 
 ---
 
-* autoformat: Black, isort, blacker https://github.com/akaihola/darker black on documentation https://github.com/asottile/blacken-docs
 * dead code: https://github.com/jendrikseipp/vulture https://github.com/sobolevn/flake8-eradicate  https://github.com/jendrikseipp/vulture
 * security: bandit, https://pyup.io/ (uses same vulnerability db as pipenv) pysa https://github.com/facebook/pyre-check https://news.ycombinator.com/item?id=24083432 https://github.com/DataDog/guarddog
 
@@ -61,40 +60,43 @@ def foo(my_arg):
     """
 ```
 
-## lint
+## lint / fmt
 
----
+🗄️ `core.md` style
 
-https://flake8.pycqa.org/
+RUFF 📜 https://github.com/astral-sh/ruff
+* meant to replace black, isort
+```sh
+check  # lint
+check --fix  # fix lint err
+```
 
-* Rust alternatives https://github.com/charliermarsh/ruff https://406.ch/writing/how-ruff-changed-my-python-programming-habits/ https://github.com/mtshiba/pylyzer
+ZA
 * lint natural language https://vale.sh/
-* exceptions https://github.com/guilatrova/tryceratops
-* only run on everything outside of repository https://github.com/akaihola/darker
-* ignore line: `# NOQA` https://flake8.pycqa.org/en/2.6.0/config.html#per-code-line 
-```conf
-# multiple
-flake8 dir1 dir2
-# all __init__
-exclude = */__init__.py
-# can use from shell, but it might be picking up config file somewhere, so this worked to get back to defaults
-flake8 --isolated
+* lint exceptions https://github.com/guilatrova/tryceratops
+* fmt code blocks in doc files https://github.com/asottile/blacken-docs
+* fmt based on recent changes https://github.com/akaihola/darker
+* _pycodestyle_: style rules; used in ruff https://github.com/PyCQA/pycodestyle https://406.ch/writing/how-ruff-changed-my-python-programming-habits/
+* _pyflakes_: style rules; used in ruff https://github.com/PyCQA/pyflakes
+* _pyupgrade_: upgrade syntax for future Python versions https://github.com/asottile/pyupgrade
 
-# .flake8 (don't use tox.ini) 
-# example conf https://ljvmiranda921.github.io/notebook/2018/06/21/precommits-using-black-and-flake8/
-[flake8]
+FLAKE 📜 https://flake8.pycqa.org/
+* ignore line: `# NOQA` https://flake8.pycqa.org/en/2.6.0/config.html#per-code-line 
+```sh
+flake8 src test # lint multiple dir 🗄️ algos
+flake8 exclude = */__init__.py  # all __init__
+flake8 --isolated  # can use from shell, but it might be picking up config file somewhere, so this worked to get back to defaults
+```
+```conf
+[flake8]  # .flake8 https://ljvmiranda921.github.io/notebook/2018/06/21/precommits-using-black-and-flake8/
 max-complexity = 10
 max-line-length = 88
 ignore =  # http://flake8.pycqa.org/en/latest/user/configuration.html
-    # play nice w/ Black https://github.com/psf/black/issues/1029
-    E203,  
-    # workaround for flattened Flask project structure
-    E402
-    # flake8 seems dated on line break https://www.flake8rules.com/rules/W503.html https://dev.to/m1yag1/how-to-setup-your-project-with-pre-commit-black-and-flake8-183k
-    W503
+    E203,  # play nice w/ Black https://github.com/psf/black/issues/1029
+    E402  # workaround for flattened Flask project structure
+    W503  # rule dated on line break? https://www.flake8rules.com/rules/W503.html https://dev.to/m1yag1/how-to-setup-your-project-with-pre-commit-black-and-flake8-183k
 per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
-    # give user access to all models from REPL
-    db_shell.py:F401
+    db_shell.py:F401  # give user access to all models from REPL
 ```
 
 ## logging

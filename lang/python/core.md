@@ -397,6 +397,7 @@ else:
 ```
 
 TERNARY
+* hides branching from coverage https://406.ch/writing/how-ruff-changed-my-python-programming-habits/#flake8-simplify
 ```python
 this() if x else that()
 return True if x else False
@@ -1258,9 +1259,10 @@ foo  # global foo untouched
 
 ## style
 
+🗄️ `stdlib.md` lint/fmt
 📜 https://peps.python.org/pep-0008/ https://github.com/google/styleguide/blob/gh-pages/pyguide.md
 
-* string quotes: single|double both fine https://peps.python.org/pep-0008/#string-quotes
+* string quotes: single|double both fine https://peps.python.org/pep-0008/#string-quotes black/ruff use double quotes https://github.com/astral-sh/ruff
 
 ---
 

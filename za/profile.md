@@ -46,9 +46,6 @@ NEXT 🗄️ `something`
 ## commits
 
 RECENT
-* ml
-* ren
-* dot
 * https://github.com/oleiade/motus
 * https://github.com/Textualize/frogmouth
 * https://github.com/bloznelis/typioca
