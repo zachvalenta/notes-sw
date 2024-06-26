@@ -583,7 +583,7 @@ hash tables 🗄 `security.md` `python.md`
 * aka map, dictionary, associative array https://docs.python.org/3/glossary.html#term-dictionary
 * alternatives incl. BST, skip list https://stackoverflow.com/a/301822 📙 Skiena 12.1
 
-bloom filter
+bloom filter https://www.youtube.com/watch?v=qZNJTh2NEiU
 * _bloom filter_: like a hash table except takes up a lot less space and false positives are possible
 * use case is to see whether item already part of a very large set e.g. whether a key exists in a database 📙 11.210-11
 * https://vprusso.github.io/blog/2017/bloom-filters-and-pokemon/ 📙 Kleppmann 79 https://onatm.dev/2020/08/10/let-s-implement-a-bloom-filter/ http://aosabook.org/en/posa/working-with-big-data-in-bioinformatics.html https://luminousmen.com/post/building-a-bloom-filter

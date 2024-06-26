@@ -5,7 +5,7 @@
 ## 进步
 
 * _24_: split from `python.md`
-* _19_: pipx and Poetry
+* _19_: lib (pipx, Poetry, pyinstaller)
 
 # 📺 FEEDBACK
 
@@ -938,6 +938,7 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 
 ---
 
+start here https://www.youtube.com/watch?v=ftmdDlwMwwQ https://www.youtube.com/watch?v=X7vBbelRXn0
 https://martinheinz.dev/blog/97
 https://higherorderco.com/
 https://www.amazon.com/gp/product/1492055026

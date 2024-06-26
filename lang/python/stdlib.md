@@ -13,7 +13,7 @@
 * https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/ https://www.b-list.org/weblog/2022/dec/19/boring-python-code-quality/
 * https://talkpython.fm/episodes/show/327/little-automation-tools-in-python
 
-* _24_: split from `python.md`
+* _24_: split from `python.md`, lib (ward)
 * _21_: rf pdb, doctest basics
 
 # 🧫 CQ
