@@ -193,7 +193,7 @@ UTIL
 
 ---
 
-icecream for print debugging https://martinheinz.dev/blog/96
+icecream for print debugging https://github.com/gruns/icecream
 track state https://github.com/saurabh0719/constable
 
 UTIL
@@ -599,6 +599,7 @@ ALTERNATIVES
 ---
 
 example repo https://github.com/brohrer/pacemaker
+structure https://www.pythonpapers.com/p/how-to-publish-a-python-package-to
 
 history
 * https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
@@ -837,6 +838,12 @@ show --no-dev  # show prod deps
 env info       # show Poetry env and where Poetry is installed (pipx)
 remove -D      # remove dev dep
 ```
+
+VS CODE SELECT INTERPRETER https://www.markhneedham.com/blog/2023/07/24/vscode-poetry-python-interpreter/
+* open new, non-workspace window
+* get path to venv `poetry env info --path | pbcopy`
+* `select interpreter` > `enter interpreter path`
+* can also use `"python.defaultInterpreterPath": "/Users/zach/Documents/zv/materials/sw/lang/python/mianshi/.venv"`?
 
 ---
 
