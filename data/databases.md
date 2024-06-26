@@ -382,6 +382,7 @@ QUERY LANGUAGES
 ---
 
 REDIS 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
+> just use postgres https://martinheinz.dev/blog/105
 * implementation http://aosabook.org/en/nosql.html
 * test/mock https://github.com/cunla/fakeredis-py
 * use Postgres as impl https://github.com/alash3al/redix
@@ -399,7 +400,6 @@ MEMCACHED
 * _sink_: https://realpython.com/python-memcache-efficient-caching/ https://github.com/thadeusb/flask-cache Django has OOB support for memcached https://docs.djangoproject.com/en/2.1/topics/cache/
 
 * _KV store_: hash map + persistence 📙 Kleppmann [72]
-* options: Redis, Bitcask
 * distributed KV store used for service discovery (etcd) ()
 * used for metadata, counters
 > ZippyDB serves a number of use cases, ranging from metadata for a distributed filesystem, counting events for both internal and external purposes, to product data that’s used for various app features https://engineering.fb.com/2021/08/06/core-data/zippydb/
@@ -459,6 +459,7 @@ dbms
 
 ---
 
+BYO https://www.youtube.com/watch?v=5Pc18ge9ohI
 CMU https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi https://www.youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O
 
 https://supabase.com/blog/postgres-bloat
@@ -683,7 +684,7 @@ ZA
 * compare queries across dbms https://github.com/rickbergfalk/sqlpad
 * compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
 
-API / CODE GENERATION
+API / CODE GENERATION 🗄️ `src.md` API
 * https://github.com/directus/directus
 * Postgrest https://github.com/PostgREST/postgrest https://news.ycombinator.com/item?id=30132947 https://github.com/prest/prest
 * GraphQL https://www.graphile.org/postgraphile/ 
@@ -733,6 +734,7 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 
 TOOLS
 * _Blazer_: https://github.com/ankane/blazer
+* _Dataherald_: 🎯 query using natural language via LLM https://github.com/Dataherald/dataherald
 * _Datalens_: Docker https://news.ycombinator.com/item?id=37657772
 * _Evidence_: 🎯 borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111
 * _Lightdash_: https://github.com/lightdash/lightdash

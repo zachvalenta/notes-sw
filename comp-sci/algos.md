@@ -753,7 +753,7 @@ Stockfish 10 at its top strength (without any level set) has a rating of about 3
 
 SEARCH ENGINE 🗄 `za/search-engine` (port data to query sandbox)
 * BYO https://news.ycombinator.com/item?id=39293050 https://www.alexmolas.com/2024/02/05/a-search-engine-in-80-lines.html
-* _robots.txt_: file that tells crawlers what files to ignore https://adamj.eu/tech/2020/02/10/robots-tx
+* _robots.txt_: file that tells crawlers what files to ignore https://adamj.eu/tech/2020/02/10/robots-tx https://pythonbytes.fm/episodes/show/376/every-dunder-method-in-a-python-lockbox
 * _PageRank_: ranking algo that weights on number of incoming links (and their popularity)
 * _instant answer_: display text from top result in overall results https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html
 * _indexer_: writes/updates keys https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html

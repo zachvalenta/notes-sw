@@ -125,7 +125,15 @@ PG http://paulgraham.com/popular.html
 
 ---
 
+OPTIONS
+* _cprofile_: https://www.pythonmorsels.com/cli-tools/ https://martinheinz.dev/blog/64
+* _phlare_: https://martinheinz.dev/blog/89
+* _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
+* _timeit_: https://www.pythonmorsels.com/cli-tools/
+
 https://www.pythonmorsels.com/cli-tools/
+
+py-spy, speedscope, Valgrind https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
 
 > sort out what needs to be in Linux tracing vs. what needs to be here
 
@@ -174,7 +182,6 @@ EBPF
 * https://pythonspeed.com/articles/measuring-python-performance/
 * https://switowski.com/blog/how-to-benchmark-python-code/
 * https://github.com/bloomberg/memray https://realpython.com/podcasts/rpp/128/ https://talkpython.fm/episodes/show/425/memray-the-endgame-python-memory-profiler
-* https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack
 * https://codesolid.com/how-do-i-profile-python-code/
 * https://tinkering.xyz/fmo-optimization-story/
 * https://tech.marksblogg.com/faster-python.html https://www.peterbaumgartner.com/blog/intro-to-just-enough-cython-to-be-useful/ https://github.com/tonybaloney/perflint https://rednafi.github.io/reflections/pre-allocated-lists-in-python.html
@@ -197,7 +204,7 @@ EBPF
 * https://github.com/P403n1x87/austin https://talkpython.fm/episodes/show/265/why-is-python-slow 54:00
 * _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions
 * _tools_: PyFlame https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 PySpy https://github.com/benfred/py-spy/ profile CPython https://instagram-engineering.com/profiling-cpython-at-instagram-89d4cbeeb898 https://pythonspeed.com/articles/memory-profiler-data-scientists/ Fil https://pythonspeed.com/products/filmemoryprofiler/ https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
-* sink: https://www.blog.pythonlibrary.org/2020/04/14/an-overview-of-profiling-tools-for-python/ https://www.roguelynn.com/words/tracing-fast-and-slow/ https://pythonspeed.com/articles/blocking-cpu-or-io/ https://pythonspeed.com/articles/custom-python-profiler/ https://pythonspeed.com/articles/live-debugging-python/ https://www.markkeller.dev/2018-07-14-optimize_python/ https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ pyspy https://jvns.ca/blog/2018/12/23/2018--year-in-review/ https://www.youtube.com/watch?v=d5SGUscT2GA https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://github.com/ionelmc/python-hunter https://wsvincent.com/algorithms-binary-search/ https://www.fluentpython.com/extra/ordered-sequences-with-bisect/ https://wsvincent.com/python-optimizations-with-guido/ https://realpython.com/python-f-strings/ https://github.com/airspeed-velocity/asv
+* sink: https://www.blog.pythonlibrary.org/2020/04/14/an-overview-of-profiling-tools-for-python/ https://www.roguelynn.com/words/tracing-fast-and-slow/ https://pythonspeed.com/articles/blocking-cpu-or-io/ https://pythonspeed.com/articles/custom-python-profiler/ https://pythonspeed.com/articles/live-debugging-python/ https://www.markkeller.dev/2018-07-14-optimize_python/ https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ pyspy https://jvns.ca/blog/2018/12/23/2018--year-in-review/ https://www.youtube.com/watch?v=d5SGUscT2GA https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://github.com/ionelmc/python-hunter https://wsvincent.com/algorithms-binary-search/ https://wsvincent.com/python-optimizations-with-guido/ https://realpython.com/python-f-strings/ https://github.com/airspeed-velocity/asv
 * pyperf, timeit https://medium.com/@martin.heinz/python-cli-tricks-that-dont-require-any-code-whatsoever-e7bdb9409aeb https://log.beshr.com/python-311-speedup-part-1/
 * benchmark: https://github.com/sharkdp/hyperfine https://github.com/egoist/dum
 * can use hyperfine under the hood https://github.com/dandavison/magit-delta https://github.com/sharkdp/hyperfine
@@ -296,6 +303,8 @@ def step_impl(context):  # function identifier identical; must take `context` as
 ## coverage
 
 📜 https://coverage.readthedocs.io/
+
+* design https://nedbatchelder.com/blog/202406/coverage_at_a_crossroads.html
 * `.coverage`: result files; read by `coverage report` and `coverage html`
 * pytest-cov` also has `--cov-fail-under=MIN` arg you could pass as a normal pipeline step https://github.com/pytest-dev/pytest-cov
 * pretty slow https://www.drmaciver.com/2017/09/python-coverage-could-be-fast/
@@ -598,7 +607,7 @@ ALTERNATIVES
 * `sys.argv`
 * optparse
 * docopt
-* https://github.com/tiangolo/typer
+* https://github.com/tiangolo/typer https://rahulpai.co.uk/smart-clis-with-typer.html
 * interactive https://github.com/Aperocky/replbuilder
 * Rust https://saadmk11.github.io/blog/posts/build-python-cli-tool-with-rust/
 * CLI from obj: https://github.com/google/python-fire https://github.com/chriskiehl/Gooey https://github.com/BstLabs/py-dynacli
@@ -611,6 +620,7 @@ INTERPRETER / SHEBANG
 ```
 
 ARGPARSE
+* rich for output https://github.com/hamdanal/rich-argparse
 * testing: https://github.com/dbader/photosorter/blob/master/test_sorter.py https://www.youtube.com/watch?v=ApTZib0L2X8 4:00
 * `description`: one-liner on purpose of CLI http://dustinrcollins.com/testing-python-command-line-apps
 * `action=store_true`: boolean https://stackoverflow.com/a/15008806/6813490 https://stackoverflow.com/a/36710639/6813490
@@ -692,7 +702,7 @@ if i % 100 == 0:
 
 * functionality: tables, color, layout
 * frameworks https://github.com/willmcgugan/textual https://github.com/bczsalba/pytermgui https://github.com/peterbrittain/asciimatics https://github.com/jquast/blessed pudb uses http://urwid.org/
-* _Textual_: complaints https://news.ycombinator.com/item?id=35123383 animation https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#demonstrating-animation dropdown https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#dropdown-autocompletion-menu file manager https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#a-file-manager-powered-by-textual graphics https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#pixel-art layout https://textual.textualize.io/blog/2022/12/11/version-060/#placeholder tabs https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#tabs-with-animated-underline testing https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#developer-console https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#snapshot-testing-for-terminal-apps example https://github.com/learnbyexample/TUI-apps/tree/main/CLI-Exercises
+* _Textual_: complaints https://news.ycombinator.com/item?id=35123383 animation https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#demonstrating-animation dropdown https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#dropdown-autocompletion-menu file manager https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#a-file-manager-powered-by-textual graphics https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#pixel-art layout https://textual.textualize.io/blog/2022/12/11/version-060/#placeholder tabs https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#tabs-with-animated-underline testing https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#developer-console https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#snapshot-testing-for-terminal-apps example https://github.com/learnbyexample/TUI-apps/tree/main/CLI-Exercises https://www.blog.pythonlibrary.org/2024/02/06/creating-a-modal-dialog-for-your-tuis-in-textual/
 
 # 🕸️ WEB
 
@@ -825,7 +835,7 @@ Selenium
 
 📜 https://requests.readthedocs.io/en/latest/
 
-* alternatives: https://github.com/search?utf8=%E2%9C%93&q=aiohttp https://github.com/encode/httpx single-file https://github.com/slingamn/mureq
+* alternatives: https://github.com/search?utf8=%E2%9C%93&q=aiohttp https://github.com/encode/httpx single-file https://github.com/slingamn/mureq https://github.com/jawah/niquests
 ```python
 # data = dict(form), json.dumps(string) https://stackoverflow.com/a/42121407 https://requests.readthedocs.io/en/latest/api/#requests.request
 # json = dict(json) https://requests.readthedocs.io/en/latest/user/quickstart https://stackoverflow.com/a/26344315
@@ -975,7 +985,9 @@ RSGI
 
 # 🟨 ZA
 
-* new batteries written in Rust https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/
+* country data (language, currency) https://github.com/pycountry/pycountry
+* validation (email, IP address) https://martinheinz.dev/blog/96
+* new batteries written in Rust https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
 
 ---
 
@@ -1050,6 +1062,7 @@ TypeError: choice() got an unexpected keyword argument 'k'
 📙 Beazley ch. 3
 https://pypi.org/project/pytz/ https://blog.ganssle.io/articles/2018/03/pytz-fastest-footgun.html https://github.com/crsmithdev/arrow https://github.com/timofurrer/maya https://github.com/sdispater/pendulum https://github.com/dateutil/dateutil parser https://github.com/wanasit/chrono
 
+* mock with freezegun https://martinheinz.dev/blog/96
 * str fmt: `dt.now().strftime("%y.%m.%d-%H:%M:%S")` https://stackoverflow.com/a/51262245
 * get last day of month https://stackoverflow.com/a/43663/6813490
 * distance btw 2 dates
@@ -1346,8 +1359,10 @@ repo.git.ls_remote("--heads", "origin", "master")
 
 ## math
 
- Beazley ch. 3
+📙 Beazley ch. 3
 🔗 https://github.com/cosmologicon/pywat
+
+sum https://jcarlosroldan.com/post/329/my-latest-tils-about-python
 
 FLOATING POINT ARITHMETIC 📙 Van Rossum ch. 15
 * comparing floats: `math.isclose(0.1 + 0.2, 0.3)` https://davidamos.dev/the-right-way-to-compare-floats-in-python/
@@ -1439,6 +1454,13 @@ STDOUT
 > Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so.
 * `print()`: implicitly adds `\n` under the hood; workaround is `print('hello zv', end="")`
 
+PROCESS EXEC https://martinheinz.dev/blog/98 🗄️ `infra.md` IaC / remote execution
+* `os.system`
+* `subprocess`
+* _sh_: https://github.com/amoffat/sh https://martinheinz.dev/blog/96
+* _suby_: https://github.com/pomponchik/suby
+* _Sultan_: https://github.com/aeroxis/sultan https://stackoverflow.com/a/56842257/6813490
+
 ----
 
 ```python
@@ -1520,7 +1542,6 @@ with open('data.txt', 'w') as f:
 
 # misc
 shutil.make_archive(root_dir=dir_to_tar, base_name=tarball_name, format='zip')  # make zip
-os.system  # run script; subprocess, Sultan also work https://stackoverflow.com/a/56842257/6813490 https://github.com/pomponchik/suby
 tarballs = [os.base.pathname(x) for x in glob(f"{Path.cwd().joinpath('foo')}/*.tar.gz")] # grab file names sans full path https://stackoverflow.com/a/55439309/6813490 https://stackoverflow.com/a/20384686/6813490
 ```
 
@@ -1552,6 +1573,8 @@ with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
 * https://docs.python.org/3/howto/regex.html
 
 ---
+
+https://leanpub.com/regexpython/
 
 ```python
 regex = re.compile(r"foo/([^\s]+)")  # capture anything up to white space

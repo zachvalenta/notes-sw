@@ -46,7 +46,6 @@ NEXT 🗄️ `something`
 ## commits
 
 RECENT
-* shu
 * ml
 * ren
 * dot
@@ -82,11 +81,12 @@ ENV - PYTHON
 - [x] feedback: think through notebook usage
 > yes: Ramalho + notes + REPL | repo + doctest https://github.com/fluentpython/example-code-2e/tree/master/01-data-model
 > no: org mode (adoption time) notebooks (dont need visualizations, wordiness of notes needs density of editor)
-- [ ] feedback: REPL
+- [ ] feedback: REPL - util
 - [ ] editor: VS Code interpreter selection for Poetry
 - [ ] stdlib: doctest
 - [ ] stdlib: lint
 - [ ] stdlib: ward
+- [ ] feedback: REPL - iPython
 - [ ] feedback: debugger (algos sandbox) +️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
 
 INTERVIEWING - CODE MONKEY
@@ -184,6 +184,12 @@ One thing I think I do well is technical communication. This shows up in:
 ## answers
 
 ----
+
+IMPEDIMENTS https://pythonbytes.fm/episodes/show/383/why-aren-t-devs-shipping-faster
+* dev env (local, remote)
+* poor documentation
+* vague requirements
+* scope creep
 
 * why did you leave your last job https://jacobian.org/2021/mar/8/why-did-you-leave-your-last-job/
 * https://jacobian.org/posts/

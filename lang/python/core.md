@@ -13,6 +13,15 @@
 
 ## 进步
 
+* _24_: split from `python.md`, typing (exhaustiveness check, type narrowing)
+* _23_: hashable
+* _22_: iteration (iterators, generators), big rf
+* _19_: executables, imports, obj assignment, first pass (lambdas, tuple unpacking, iteration, dataclasses, shallow vs. copy, closure, decorator)
+* _18_: Hitchhiker's Guide, first pass (imports, unit testing)
+* _17_: PSF install, PS beginner course
+
+# 📍 CLEAN UP
+
 * https://realpython.com/python-lazy-evaluation/
 * https://www.pythonmorsels.com/cli-tools/
 * initialize vs. construct, __init__, __new__ https://www.fluentpython.com/lingo/#initializer https://www.fluentpython.com/lingo/#constructor
@@ -32,7 +41,6 @@ attributes
 {**bar, **bar}
 ```
 * https://rednafi.com/python/dataclasses_and_methods/
-* difflib https://florian-dahlitz.de/articles/create-your-own-diff-tool-using-python
 * library design https://benhoyt.com/writings/python-api-design/
 * dataclasses, typing https://kobzol.github.io/rust/python/2023/05/20/writing-python-like-its-rust.html
 * classes https://realpython.com/python-classes/
@@ -42,19 +50,25 @@ attributes
 * https://snarky.ca/tag/syntactic-sugar/ https://realpython.com/python-del-statement/ https://www.wrighters.io/intro-to-python-match-statement/
 * enums https://realpython.com/python-enum/ https://florian-dahlitz.de/blog/why-you-should-use-more-enums-in-python
 
-* _24_: split from `python.md`, typing (exhaustiveness check, type narrowing)
-* _23_: hashable
-* _22_: iteration (iterators, generators), big rf
-* _19_: executables, imports, obj assignment, first pass (lambdas, tuple unpacking, iteration, dataclasses, shallow vs. copy, closure, decorator)
-* _18_: Hitchhiker's Guide, first pass (imports, unit testing)
-* _17_: PSF install, PS beginner course
-
 # 🗂 CLASSES
 
 🗄 `language.md` object-oriented
 📚
 * Beazley ch. 7
 * Van Rossum ch. 9 https://docs.python.org/dev/tutorial/classes.html
+
+---
+
+SEMANTICS
+* _attributes_: value tied to obj and accessed via dot notation https://docs.python.org/3/glossary.html#term-attribute
+* data + methods 📙 Ramalho [839]
+* _method_: callable attribute 📙 Ramalho [839]
+* _data_: readable/writable attributes
+* read via: dot notation, `dir()` (K) `vars()` (K-V)
+
+DATA https://stackoverflow.com/questions/2714573/instance-variables-vs-class-variables-in-python
+* _instance variable_: 
+* _class variable_: 
 
 TYPES https://blog.ionelmc.ro/2015/02/09/understanding-python-metaclasses/
 * _metaclass_: parent of classes https://www.fluentpython.com/lingo/#metaclass https://eli.thegreenplace.net/2012/04/16/python-object-creation-sequence https://docs.python.org/3/glossary.html#term-metaclass
@@ -87,102 +101,6 @@ DATACLASS
 * `__repr__` and `__eq__` for free https://realpython.com/python-data-classes/
 * faster access than `namedtuple` but worse mem usage https://stackoverflow.com/a/51673969
 * convert dict to dataclass https://github.com/konradhalas/dacite
-
-## attributes
-
----
-
-* _get class_: `type()` or `obj.__class__`
-* _single underscore_: hint (not enforcement) of private method [tutorial 9.6] i.e. no access modifiers
-* _name mangling_: https://www.fluentpython.com/lingo/
-
-UNDERSCORES https://dbader.org/blog/meaning-of-underscores-in-python
-* _single_: placeholder for throwaway values from unpacking
-* in REPL, refers to result of last operation
-* _single leading_: won't be imported in `from <mod> import *` https://stackoverflow.com/a/8689983
-* _single trailing_: break naming conflict
-* _double leading_: name mangling i.e. measure to prevent accidental overrides
-* _doubled_: dunder methods
-
-```python
-# https://monadical.com/posts/operator-overloading-in-python.html
-class Clock:
-   def __init__(self, time: str):
-       self.hour, self.min = [int(i) for i in time.split(':')]
-
-   def __repr__(self) -> str:
-       min = '0' + str(self.min)
-       return str(self.hour) + ':' + min[-2:]
-```
-
-SEMANTICS
-* _attributes_: value tied to obj and accessed via dot notation https://docs.python.org/3/glossary.html#term-attribute
-* data + methods 📙 Ramalho [839]
-* _method_: callable attribute 📙 Ramalho [839]
-* _data_: readable/writable attributes
-* read via: dot notation, `dir()` (K) `vars()` (K-V)
-
-DATA https://stackoverflow.com/questions/2714573/instance-variables-vs-class-variables-in-python
-* _instance variable_: 
-* _class variable_: 
-
-METHODS
-| type      | called on | arg          | variable access | use case                                          |
-|-----------|-----------|--------------|-----------------|---------------------------------------------------|
-| instance  | instance  | instance     | instance, class |                                                   |
-| class     | class     | class        | class           | factory                                           |
-| static    | class     | user-defined | --------------- | just plain func namespaced to class; Ramalho [371]|
-* _self_: parameter to instance method whose arg is instance itself
-* _cls_: parameter to class method whose arg is class itself
-* impl via descriptor https://www.youtube.com/watch?v=ANLjBsWHshc
-* just a naming convention https://stackoverflow.com/a/475919
-* debate http://neopythonic.blogspot.com/2008/10/why-explicit-self-has-to-stay.html https://stackoverflow.com/q/2709821
-* _property_: 
-* 📙 Ramalho [839]
-* call method same way you used access property/attr i.e. dot notation
-* way to refactor field into method https://www.machinelearningplus.com/python/python-property/ https://stackoverflow.com/q/6618002/6813490
-* uniform acccess principle https://www.fluentpython.com/lingo/
-```python
-# phase 1 - .fullname becomes inconsistent if other attr updated bc only set on init
-class Person():
-    def __init__(self, firstname, lastname):
-        self.first = firstname
-        self.last = lastname
-        self.fullname = self.first + ' '+ self.last
-
-# phase 2 - works but a breaking change bc .fullname is now .fullname()
-class Person():
-    def __init__(self, firstname, lastname):
-        self.first = firstname
-        self.last = lastname
-
-    def fullname(self)
-        return self.first + ' ' + self.last
-
-# phase 3 - invoke method with same syntax as accessing property
-class Person():
-
-    def __init__(self, firstname, lastname):
-        self.first = firstname
-        self.last = lastname
-
-    @property
-    def fullname(self)
-        return self.first + ' ' + self.last
-```
-
-
----
-
-* the use of class methods https://stackoverflow.com/a/38276/6813490
-> c.f. dunder / __init__
-* https://stackoverflow.com/questions/22616559/use-cases-for-property-vs-descriptor-vs-getattribute
-* `__getattr__`: https://docs.python.org/3/glossary.html#term-attribute 
-* `__setattr__`: https://docs.python.org/3/glossary.html#term-attribute 
-* `__getattribute__` https://news.ycombinator.com/item?id=3719179
-
-* bound method https://www.fluentpython.com/lingo/#bound_method
-* _accessor_: https://www.fluentpython.com/lingo/#accessor
 
 ## descriptor
 
@@ -218,6 +136,14 @@ class Person():
 * Van Rossum ch. 9
 
 ---
+
+https://www.pythonmorsels.com/every-dunder-method/
+
+* `__getattr__`: https://docs.python.org/3/glossary.html#term-attribute 
+* `__setattr__`: https://docs.python.org/3/glossary.html#term-attribute 
+* `__getattribute__` https://news.ycombinator.com/item?id=3719179
+
+https://martinheinz.dev/blog/87 more introspection https://martinheinz.dev/blog/82
 
 * getitem, iter, and/or, bool, getstate/setstate, repr https://books.agiliq.com/projects/Journeyman-Python/en/latest/magic-methods.html
 * _call_: make class instance callable e.g. `foo = Foo(); foo()` https://realpython.com/python-class-constructor/ https://realpython.com/python-multiple-constructors/ re: metaclasses https://eli.thegreenplace.net/2012/04/16/python-object-creation-sequence
@@ -292,7 +218,8 @@ with UrOpener('sample-file.txt') as file:
 BASICS
 * _dunder_: methods called by the interpreter 📙 Ramalho [3]
 > When an object is passed to the str built-in function, its __str__ method is called. https://treyhunner.com/2018/06/how-to-make-an-iterator-in-python/
-* _Python data model_: dunder methods as a framework called by the interpreter [3,8]
+* _Python data model_: dunder methods as a framework called by the interpreter 📙 Ramalho [3,8]
+> dunno if I agree with this semantic 🗄️ obj
 * why: ubiquitous names for standard operations across stdlib and user-defined classes [6]
 * used for: attribute access, iteration, operator overloading [4]
 * documentation: language reference ch. 3 (data model) https://docs.python.org/dev/reference/datamodel.html#specialnames language reference ch. 4 (mapping types) https://www.fluentpython.com/lingo/#special_method "magic method"/"dunder" not in the docs 📙 Kettler https://docs.python.org/dev/reference/datamodel.html#specialnames https://www.fluentpython.com/lingo/#special_method https://docs.python.org/3/glossary.html#term-magic-method https://docs.python.org/dev/reference/datamodel.html#specialnames 📙 Ramalho [4]
@@ -351,116 +278,73 @@ c.walk()
 c.crawl()
 ```
 
-## metaprogramming
-
-📜 https://docs.python.org/3/library/language.html
-🗄 `language.md` design / metaprogramming
-📚
-* Beazley ch. 9
-* Ramalho ch. 22-24
+## methods
 
 ---
 
-* https://dev.to/karishmashukla/a-practical-guide-to-metaprogramming-in-python-691
-* Flask debugger, typing, metaprogramming vs monkey patching https://news.ycombinator.com/item?id=34611969
-* _metaprogramming_: functions that manipulate existing code e.g. decorators, inspection 📙 Beazley 329
-* also synonym for process (build tools, dep mgmt) https://missing.csail.mit.edu/2020/metaprogramming/
-* in Ruby (Perrotta) https://news.ycombinator.com/item?id=24935242 
+* virtual method https://stackoverflow.com/questions/622132/what-are-virtual-methods
+* the use of class methods https://stackoverflow.com/a/38276/6813490
+* https://stackoverflow.com/questions/22616559/use-cases-for-property-vs-descriptor-vs-getattribute
+* bound method https://www.fluentpython.com/lingo/#bound_method
+* _accessor_: https://www.fluentpython.com/lingo/#accessor
 
-* _meta programming_: function that takes some other code, wraps it, and returns https://medium.com/@saurabhkukade_96600/meta-programming-in-python-7fb94c8c7152
-* view source https://stackoverflow.com/a/1562795
+* _single underscore_: hint (not enforcement) of private method [tutorial 9.6] i.e. no access modifiers
+* _name mangling_: https://www.fluentpython.com/lingo/
+
 ```python
-from inspect import getsource
-print(getsource(ur_func))
+# https://monadical.com/posts/operator-overloading-in-python.html
+class Clock:
+   def __init__(self, time: str):
+       self.hour, self.min = [int(i) for i in time.split(':')]
+
+   def __repr__(self) -> str:
+       min = '0' + str(self.min)
+       return str(self.hour) + ':' + min[-2:]
 ```
 
-AST
-* inspect https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
-* https://www.mattlayman.com/blog/2018/decipher-python-ast/
-* https://talkpython.fm/episodes/show/152/understanding-and-using-python-s-ast
-* get data structure from string `ast.literal_eval(ds_as_str)` https://stackoverflow.com/a/17768535
-
-DECORATORS
-* _decorator_: factory + functionality https://www.fluentpython.com/lingo/#decorator
-* https://www.fluentpython.com/lingo/#decorator https://docs.python.org/3/glossary.html#term-decorator https://www.bitecode.dev/p/xmas-decorations-part-3
-* use cases
+METHODS
+| type      | called on | arg          | variable access | use case                                          |
+|-----------|-----------|--------------|-----------------|---------------------------------------------------|
+| instance  | instance  | instance     | instance, class |                                                   |
+| class     | class     | class        | class           | factory                                           |
+| static    | class     | user-defined | --------------- | just plain func namespaced to class; Ramalho [371]|
+* _self_: parameter to instance method whose arg is instance itself https://martinheinz.dev/blog/81
+* _cls_: parameter to class method whose arg is class itself
+* impl via descriptor https://www.youtube.com/watch?v=ANLjBsWHshc
+* just a naming convention https://stackoverflow.com/a/475919
+* debate http://neopythonic.blogspot.com/2008/10/why-explicit-self-has-to-stay.html https://stackoverflow.com/q/2709821
+* _property_: 
+* 📙 Ramalho [839]
+* call method same way you used access property/attr i.e. dot notation
+* way to refactor field into method https://www.machinelearningplus.com/python/python-property/ https://stackoverflow.com/q/6618002/6813490
+* uniform acccess principle https://www.fluentpython.com/lingo/
 ```python
-# logging
+# phase 1 - .fullname becomes inconsistent if other attr updated bc only set on init
+class Person():
+    def __init__(self, firstname, lastname):
+        self.first = firstname
+        self.last = lastname
+        self.fullname = self.first + ' '+ self.last
 
-# caching
+# phase 2 - works but a breaking change bc .fullname is now .fullname()
+class Person():
+    def __init__(self, firstname, lastname):
+        self.first = firstname
+        self.last = lastname
 
-# sanitization
+    def fullname(self)
+        return self.first + ' ' + self.last
 
-# app config https://bytepawn.com/python-decorators-for-data-scientists.html
+# phase 3 - invoke method with same syntax as accessing property
+class Person():
 
-# execeptions https://dev.to/fcurella/refining-exceptions-with-context-decorators-31i5
+    def __init__(self, firstname, lastname):
+        self.first = firstname
+        self.last = lastname
 
-# login https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples
-
-# pagination https://stackoverflow.com/questions/53638221/unable-to-handle-two-links-having-different-pagination-using-decorator
-```
-* https://bas.codes/posts/python-decorators
-* https://blog.luisrei.com/articles/flaskrest.html
-* https://stackoverflow.com/questions/308999/what-does-functools-wraps-do
-* https://samireland.com/writing/decorators/ https://rednafi.github.io/digressions/python/2020/05/13/python-decorators.html
-* _decorator_: factory that takes func and adds functionality via inner function; introduced in 2.4 via PEP 318
-* _basics_: https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples https://www.youtube.com/watch?v=MjHpMCIvwsY
-* _factory_: https://joeriksson.io/blog/Decorator-with-arguments/ https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://stackoverflow.com/a/28695034/6813490 https://www.learnpython.org/en/Decorators https://stackoverflow.com/questions/10957409/python-naming-conventions-in-decorators https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://zenhack.net/2016/12/25/why-python-is-not-my-favorite-language.html
-
-* pre-2.4
-```python
-def my_decorator(func):
-    def wrapper():
-        print(f"my_decorator is wrapping {func}")
-        func()
-    return wrapper
-
-def use_decorator():
-    print("calling use_decorator")
-
-use_decorator = my_decorator(use_decorator)
-```
-
-* syntactic sugar https://realpython.com/primer-on-python-decorators/#simple-decorators
-```python
-def my_decorator(func):
-    def wrapper():
-        print(f"my_decorator is wrapping {func}")
-        func()
-    return wrapper
-
-@my_decorator
-def use_decorator():
-    print("calling use_decorator")
-```
-
-* decorator that can handle the decorated functions args
-```python
-def my_decorator(func):
-    def wrapper(*args, **kwargs):  # wrapper takes function args just like my_decorator takes function itself
-        print(f"my_decorator is wrapping {func}")
-        func(*args, **kwargs)
-    return wrapper
-
-@my_decorator
-def use_decorator(name):
-    print(f"calling use_decorator with args {name}")
-```
-
-* decorator w/ introspection
-```python
-import functools
-
-def my_decorator(func):
-    @functools.wraps(func)
-    def wrapper():
-        print(f"my_decorator is wrapping {func}")
-        func()
-    return wrapper
-
-@my_decorator
-def use_decorator():
-    print("calling use_decorator")
+    @property
+    def fullname(self)
+        return self.first + ' ' + self.last
 ```
 
 # 🧮 COLLECTIONS
@@ -587,9 +471,11 @@ hash([2]) == hash([2])                # TypeError: unhashable type: 'list'
 
 ## operations
 
-🛠
-* lodash https://github.com/dgilland/pydash https://github.com/dgilland/fnc
-* diff https://github.com/seperman/deepdiff
+LODASH-ESQUE LIBRARIES
+* https://github.com/mahmoud/boltons https://martinheinz.dev/blog/96
+* https://github.com/dgilland/pydash
+* https://github.com/dgilland/fnc
+* https://github.com/seperman/deepdiff
 
 COPY
 * _idiom_: use factory function i.e. `list()` `dict()` instead of specific impl (`l[:]`, `l.copy()`) https://realpython.com/copying-python-objects/
@@ -672,6 +558,9 @@ sorted(musicians, key=attrgetter('instrument', 'genre'))  # nas in front of mick
 ## iteration
 
 ---
+
+https://martinheinz.dev/blog/103
+https://github.com/brohrer/pacemaker
 
 INDEXES
 * https://docs.python.org/3/tutorial/datastructures.html#looping-techniques
@@ -789,6 +678,7 @@ for n in Count():
 GENERATORS
 * _generator_: https://realpython.com/introduction-to-python-generators/ 🗄 `language.md` functions
 * https://www.fluentpython.com/lingo/#generator https://docs.python.org/3/glossary.html#index-19 https://tushar.lol/post/recursive-generators/
+* https://martinheinz.dev/blog/88
 * iterator using `yield` https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/
 * _generator iterator_: https://docs.python.org/3/glossary.html#term-generator-iterator
 * _generator expression_: syntactic sugar for generator function https://www.youtube.com/watch?v=EnSu9hHGq5o 24:45 https://docs.python.org/3/glossary.html#index-20
@@ -805,10 +695,11 @@ for el in gen:
 * lazy vs. eager https://treyhunner.com/2016/11/check-whether-all-items-match-a-condition-in-python/ https://www.fluentpython.com/lingo/#lazy
 * type of continuation https://www.hhyu.org/posts/generator_and_continuation/
 * with multiprocessing http://www.antoncohen.com/2016/10/python-generators-with-multiple-threads.html
-* 📍 https://medium.com/canopy-tax/sammys-generators-in-python-57e43386b89e https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/  https://martinheinz.dev/blog/88
+* 📍 https://medium.com/canopy-tax/sammys-generators-in-python-57e43386b89e https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/
 
 ITERTOOLS
 * module for doing stuff with iterables
+* more-itertools https://martinheinz.dev/blog/96
 * https://github.com/erikrose/more-itertools/ https://www.pythoncheatsheet.org/#itertools-Module https://realpython.com/python-itertools/ https://jeffknupp.com/blog/2018/12/13/how-to-do-just-about-anything-with-python-lists/ https://towardsdatascience.com/tour-of-python-itertools-2af84db18a5e https://florian-dahlitz.de/blog/introduction-to-itertools https://www.blog.pythonlibrary.org/2021/12/07/a-tour-of-pythons-itertools-library/ https://martinheinz.dev/blog/52
 ```python
 # COMBINATIONS AND PERMUTATIONS https://www.youtube.com/watch?v=jUM_Dpt6yu0
@@ -828,6 +719,7 @@ round(reduce(add, [5.15, 4.2, 10.7]), 2)
 COMPREHENSIONS
 * aka listcomp https://www.fluentpython.com/lingo/#listcomp
 * are eager https://www.fluentpython.com/lingo/#list_comprehension
+* https://martinheinz.dev/blog/80
 * for-loop replacement https://sourcery.ai/blog/effective-collection-handling/
 * takes iterable, performs operation on each el and adds to collection (list, dict, set)
 ```python
@@ -993,6 +885,7 @@ my_s = slice(1,3)
 
 https://realpython.com/python-list/
 https://codeconfessions.substack.com/p/why-do-python-lists-multiply-oddly
+* bisect https://www.fluentpython.com/extra/ordered-sequences-with-bisect/ https://martinheinz.dev/blog/106 
 
 ```python
 ###
@@ -1071,6 +964,12 @@ else:
 
 📙 Beazley ch. 1
 
+---
+
+* textwrap https://martinheinz.dev/blog/108
+* f-strings https://martinheinz.dev/blog/103 https://martinheinz.dev/blog/70
+* fuzzy comparison: difflib, thefuzz https://martinheinz.dev/blog/96 https://florian-dahlitz.de/articles/create-your-own-diff-tool-using-python
+
 * munge
 ```python
 # PARTS
@@ -1124,7 +1023,7 @@ my_var = (
 ```
 * parsing quotes https://pymotw.com/2/shlex/
 * char values: `import string; string.string.ascii_letters` https://realpython.com/python-coding-interview-tips/#access-common-string-groups-with-string-constants
-* _raw string_: treats backslash as literal, which is why they're seen in Django URLs, `re` https://docs.python.org/3/reference/lexical_analysis.html?highlight=string%20literal#string-and-bytes-literals https://realpython.com/python-raw-strings/
+* _raw string_: treats backslash as literal, which is why they're seen in Django URLs, `re` https://docs.python.org/3/reference/lexical_analysis.html?highlight=string%20literal#string-and-bytes-literals https://realpython.com/python-raw-strings/ https://martinheinz.dev/blog/103
 * _StringIO_: access string as if it were a file (for modules that are used to working with files) https://stackoverflow.com/a/7996541
 encoding 🗄 `math.md` encoding https://docs.python.org/3/glossary.html#term-list
 * _impl_: `PyBytesObject` (Python 3) `PyStringOjbect` (Python 2) https://www.laurentluce.com/posts/python-string-objects-implementation/ https://docs.python.org/3/whatsnew/2.6.html?highlight=pystringobject#pep-3112-byte-literals https://github.com/python/cpython/blob/45876a90e2663f12b90c2090ec3e48bd97841aae/Objects/bytesobject.c
@@ -1135,6 +1034,7 @@ encoding 🗄 `math.md` encoding https://docs.python.org/3/glossary.html#term-li
 
 ---
 
+https://martinheinz.dev/blog/103
 https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences https://realpython.com/python-tuple/
 
 ```python
@@ -1168,7 +1068,13 @@ stevie.instrument  # 'guitar'
 # 🤖 FUNCTIONS
 
 📙 Beazley ch. 7
-🗄 obj/assignment
+
+BUILT-IN 📜 https://docs.python.org/3/library/functions.html
+* _all_: return True if iterable empty or all el true
+* _dir_: list obj attr
+* _next_: call `__next__`
+* _type_: calls `obj.__class__`
+* _vars_: list obj attr; calls `__dict__`
 
 ---
 
@@ -1181,12 +1087,6 @@ stevie.instrument  # 'guitar'
 > A Python function will always have a return value. There is no notion of procedure or routine in Python. https://realpython.com/python-return-statement/#implicit-return-statements
 * multimethod, generic function https://www.fluentpython.com/lingo
 * callable object https://www.fluentpython.com/lingo/#function
-
-BUILT-IN 📜 https://docs.python.org/3/library/functions.html
-* _all()_: return True if iterable empty or all el true
-* _dir()_: list obj attr
-* _next()_: call `__next__`
-* _vars()_: list obj attr + values via `__dict__`
 
 ## args
 
@@ -1254,7 +1154,7 @@ import sys
 print_stderr = partial(print, file=sys.stderr)
 print_stderr("This goes to standard error output")
 ```
-* _reduce_: sum over list comprehension https://stackoverflow.com/a/16632125 https://realpython.com/python-reduce-function/
+* _reduce_: sum over list comprehension https://stackoverflow.com/a/16632125 https://realpython.com/python-reduce-function/ https://martinheinz.dev/blog/93
 ```python
 from functools import reduce
 from operator import mul
@@ -1336,44 +1236,118 @@ sorted(colors, key=lambda s: s.lower())  # ['cyan', 'Goldenrod', 'purple', 'Salm
 sorted(colors, key=lambda c: (len(c), c.lower()))  # can also use tuple for combinatorial i.e. sort by length and then, if tie in length, use lexicographical (lowercased)
 ```
 
-## scope
+## metaprogramming
 
-🗄 `language.md` overloading
+📜 https://docs.python.org/3/library/language.html
+🗄 `language.md` design / metaprogramming
+📚
+* Beazley ch. 9
+* Ramalho ch. 22-24
 
 ---
 
-* _nested scope_: https://docs.python.org/3/glossary.html#term-nested-scope
-🔗 https://blog.araj.me/til-nonlocal-statement-in-python/ https://realpython.com/python-namespaces-scope/ https://muhammadraza.me/2023/Python-Namespace/
+* https://dev.to/karishmashukla/a-practical-guide-to-metaprogramming-in-python-691
+* Flask debugger, typing, metaprogramming vs monkey patching https://news.ycombinator.com/item?id=34611969
+* _metaprogramming_: functions that manipulate existing code e.g. decorators, inspection 📙 Beazley 329
+* also synonym for process (build tools, dep mgmt) https://missing.csail.mit.edu/2020/metaprogramming/
+* in Ruby (Perrotta) https://news.ycombinator.com/item?id=24935242 
 
-unbound local, formal parameter https://www.fluentpython.com/lingo/#parameter https://docs.python.org/3/glossary.html#term-parameter
-
-`locals()`, `globals()` https://arpitbhayani.me/blogs/function-overloading
-> Calling the function locals() after defining a function we see that it returns a dictionary of all variables defined in the local namespace. The key of the dictionary is the name of the variable and value is the reference/value of that variable. When the runtime encounters another function with the same name it updates the entry in the local namespace and thus removes the possibility of two functions co-existing. Hence python does not support Function overloading. https://arpitbhayani.me/blogs/function-overloading
-
-* _scope_: namespace; doesn't correspond to code blocks e.g. `if` doesn't introduce nested scope
-* _local_: current function https://realpython.com/python-pass-by-reference/#passing-arguments-in-python
+* _meta programming_: function that takes some other code, wraps it, and returns https://medium.com/@saurabhkukade_96600/meta-programming-in-python-7fb94c8c7152
+* view source https://stackoverflow.com/a/1562795
 ```python
-def loc():
-    foo = 'foo val'
-    print(locals())  # {'foo': 'foo val'}
+from inspect import getsource
+print(getsource(ur_func))
 ```
-* _global_: module (func/class, imports, var); can cast name to global but not recommended (not thread safe) https://realpython.com/python-pass-by-reference/#replicating-pass-by-reference-with-python
-* _variable shadowing_: prevent access to same name in higher scope [Smalleshire 5.5 @ 2:30]; use `global` to refer to globally scoped name in event of shadowing
-```python
-foo = 'foo val'  # global foo
-def fail_to_set_foo():
-    foo = 'new val'  # local foo
 
-fail_to_set_foo()
-foo  # global foo untouched
+DECORATORS
+* _decorator_: factory + functionality https://www.fluentpython.com/lingo/#decorator https://jcarlosroldan.com/post/329/my-latest-tils-about-python
+* https://www.fluentpython.com/lingo/#decorator https://docs.python.org/3/glossary.html#term-decorator https://www.bitecode.dev/p/xmas-decorations-part-3
+* use cases
+```python
+# logging
+
+# caching
+
+# sanitization
+
+# app config https://bytepawn.com/python-decorators-for-data-scientists.html
+
+# execeptions https://dev.to/fcurella/refining-exceptions-with-context-decorators-31i5
+
+# login https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples
+
+# pagination https://stackoverflow.com/questions/53638221/unable-to-handle-two-links-having-different-pagination-using-decorator
+```
+* https://bas.codes/posts/python-decorators
+* https://blog.luisrei.com/articles/flaskrest.html
+* https://stackoverflow.com/questions/308999/what-does-functools-wraps-do
+* https://samireland.com/writing/decorators/ https://rednafi.github.io/digressions/python/2020/05/13/python-decorators.html
+* _decorator_: factory that takes func and adds functionality via inner function; introduced in 2.4 via PEP 318
+* _basics_: https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples https://www.youtube.com/watch?v=MjHpMCIvwsY
+* _factory_: https://joeriksson.io/blog/Decorator-with-arguments/ https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://stackoverflow.com/a/28695034/6813490 https://www.learnpython.org/en/Decorators https://stackoverflow.com/questions/10957409/python-naming-conventions-in-decorators https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://zenhack.net/2016/12/25/why-python-is-not-my-favorite-language.html
+
+* pre-2.4
+```python
+def my_decorator(func):
+    def wrapper():
+        print(f"my_decorator is wrapping {func}")
+        func()
+    return wrapper
+
+def use_decorator():
+    print("calling use_decorator")
+
+use_decorator = my_decorator(use_decorator)
+```
+
+* syntactic sugar https://realpython.com/primer-on-python-decorators/#simple-decorators
+```python
+def my_decorator(func):
+    def wrapper():
+        print(f"my_decorator is wrapping {func}")
+        func()
+    return wrapper
+
+@my_decorator
+def use_decorator():
+    print("calling use_decorator")
+```
+
+* decorator that can handle the decorated functions args
+```python
+def my_decorator(func):
+    def wrapper(*args, **kwargs):  # wrapper takes function args just like my_decorator takes function itself
+        print(f"my_decorator is wrapping {func}")
+        func(*args, **kwargs)
+    return wrapper
+
+@my_decorator
+def use_decorator(name):
+    print(f"calling use_decorator with args {name}")
+```
+
+* decorator w/ introspection
+```python
+import functools
+
+def my_decorator(func):
+    @functools.wraps(func)
+    def wrapper():
+        print(f"my_decorator is wrapping {func}")
+        func()
+    return wrapper
+
+@my_decorator
+def use_decorator():
+    print("calling use_decorator")
 ```
 
 # 🕉 OBJECTS
 
-📜 https://docs.python.org/3/tutorial/classes.html
-
 * _object_: https://docs.python.org/3/glossary.html#term-object
-* _object model_: everything inherits from `object` as of Python 2.2 https://www.youtube.com/watch?v=vvuYPUbwAO0 2:30
+* _object model_: everything inherits from `object` as of Python 2.2 https://www.youtube.com/watch?v=vvuYPUbwAO0 2:30 https://docs.python.org/3/reference/datamodel.html
+* everything is an object, which means tons of allocations and therefore GC
+> A massive number of memory allocations (malloc) and a significant amount of time spent on garbage collection. This is when ‘everything is an object’ really bites you. https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
 
 ---
 
@@ -1383,6 +1357,7 @@ foo  # global foo untouched
 
 * immortal https://engineering.fb.com/2023/08/15/developer-tools/immortal-objects-for-python-instagram-meta/
 * get class name from obj `foo.__class__.__name__`
+> gets entire functionality from this attribute https://martinheinz.dev/blog/103
 * comparison operators 🗄 `language.md` semantics
 ```python
 # isinstance -> type
@@ -1446,6 +1421,7 @@ class SomeView(BaseView):
 
 > port to `language.md`
 
+* weakref https://martinheinz.dev/blog/112
 * _garbage_: memory occupied by obj no longer in use
 * _garbage collection_: scheduled memory management
 * _why?_ other wise you'd run out of memory; easier than manual, but can be slower
@@ -1508,7 +1484,7 @@ view_obj(myo)  # 4300357872
 ```python
 ###
 # WALRUS
-# combine assignment w/ another operatation
+# combine assignment w/ another operatation https://martinheinz.dev/blog/79
 ##
 
 foo = 'foo val'  # w/out walrus, have to do next operation (print, whatever) in another statement
@@ -1700,6 +1676,14 @@ def get_config_value(key: str): Optional[str]:
 
 # 🟨 ZA
 
+UNDERSCORES https://dbader.org/blog/meaning-of-underscores-in-python
+* _single_: placeholder for throwaway values from unpacking
+* in REPL, refers to result of last operation
+* _single leading_: won't be imported in `from <mod> import *` https://stackoverflow.com/a/8689983
+* _single trailing_: break naming conflict
+* _double leading_: name mangling i.e. measure to prevent accidental overrides
+* _doubled_: dunder methods
+
 DESIGN 📜 https://docs.python.org/3/faq/design.html
 * history: origins in ABC https://www.fluentpython.com/lingo/
 * readabillity: indentation for statement grouping https://xkcd.com/353/
@@ -1762,14 +1746,16 @@ var = foo if condition else bar
 
 ---
 
+dictionary dispatch https://martinheinz.dev/blog/90
 https://docs.python.org/3/tutorial/controlflow.html
 
 https://realpython.com/python-assert-statement/
 
 PATTERN MATCHING
+* https://martinheinz.dev/blog/78
 * switch statement on steroids https://benhoyt.com/writings/python-pattern-matching/ https://peps.python.org/pep-0634/
 > An if...elif...elif...sequence is a substitute for the switch or case statements found in other languages. https://docs.python.org/3/tutorial/controlflow.html
-* match https://www.fluentpython.com/lingo/#subject
+* subject https://www.fluentpython.com/lingo/#subject
 * _switch statement replacements_: bisect https://stackoverflow.com/a/61030734/6813490 https://www.youtube.com/watch?v=gllUwQnYVww https://github.com/ralsina/enum_switch https://pythonbytes.fm/episodes/show/135/macos-deprecates-python-2-will-stop-shipping-it-eventually https://pythonbytes.fm/episodes/show/135/macos-deprecates-python-2-will-stop-shipping-it-eventually https://docs.python.org/3/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python
 
 ## exceptions
@@ -1809,8 +1795,6 @@ raise EarthquakError(place)
 ```
 
 ---
-
-hide stack track https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
 
 TRY/CATCH
 * multiple exceptions https://realpython.com/python-catch-multiple-exceptions/
@@ -1915,6 +1899,8 @@ bool("") ^ bool("")
 
 ---
 
+* https://martinheinz.dev/blog/54
+* fuzzy comparison w/ dirty-equals https://martinheinz.dev/blog/96
 * format specifier https://stackoverflow.com/a/50340297
 * compared to algebra, variable values true/false (not numbers) and operations are logical (not addition, et al.) https://www.youtube.com/watch?v=gI-qXk7XojA 2:35
 * _decision table_: extension of truth table? https://www.hillelwayne.com/post/decision-tables/
@@ -1963,3 +1949,35 @@ python -c 'print(float(15) / float(365))'  # 0.041095890411
 ```
 
 * _infix operator_: `*` 🗄 `language.md`
+
+## scope
+
+🗄 `language.md` overloading
+
+---
+
+* _nested scope_: https://docs.python.org/3/glossary.html#term-nested-scope
+🔗 https://blog.araj.me/til-nonlocal-statement-in-python/ https://realpython.com/python-namespaces-scope/ https://muhammadraza.me/2023/Python-Namespace/
+
+unbound local, formal parameter https://www.fluentpython.com/lingo/#parameter https://docs.python.org/3/glossary.html#term-parameter
+
+`locals()`, `globals()` https://arpitbhayani.me/blogs/function-overloading
+> Calling the function locals() after defining a function we see that it returns a dictionary of all variables defined in the local namespace. The key of the dictionary is the name of the variable and value is the reference/value of that variable. When the runtime encounters another function with the same name it updates the entry in the local namespace and thus removes the possibility of two functions co-existing. Hence python does not support Function overloading. https://arpitbhayani.me/blogs/function-overloading
+
+* _scope_: namespace; doesn't correspond to code blocks e.g. `if` doesn't introduce nested scope
+* _local_: current function https://realpython.com/python-pass-by-reference/#passing-arguments-in-python
+```python
+def loc():
+    foo = 'foo val'
+    print(locals())  # {'foo': 'foo val'}
+```
+* _global_: module (func/class, imports, var); can cast name to global but not recommended (not thread safe) https://realpython.com/python-pass-by-reference/#replicating-pass-by-reference-with-python
+* _variable shadowing_: prevent access to same name in higher scope [Smalleshire 5.5 @ 2:30]; use `global` to refer to globally scoped name in event of shadowing
+```python
+foo = 'foo val'  # global foo
+def fail_to_set_foo():
+    foo = 'new val'  # local foo
+
+fail_to_set_foo()
+foo  # global foo untouched
+```

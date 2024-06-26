@@ -283,6 +283,7 @@ services:
 
 ---
 
+* dont use Alpine? https://martinheinz.dev/blog/92
 * view fs changes https://github.com/wagoodman/dive https://fzakaria.com/2020/05/31/containers-from-first-principles.html
 * copy images from one registry to another https://www.thoughtworks.com/radar/tools?blipid=202203084 https://github.com/containers/skopeo
 * security scan https://github.com/anchore/grype https://www.thoughtworks.com/radar/tools?blipid=202203019
@@ -570,7 +571,7 @@ BASICS
 * _group_: n pods running on a node
 * _node_: machine (physical, virtual) w/ container runtime (Docker, containerd) + Kubes agent
 * _cluster_: n nodes https://www.mattlayman.com/blog/2019/web-development-environments 
-* _etcd_: db on cluser state https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
+* _etcd_: db on cluser state https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/ use Postgres https://martinheinz.dev/blog/100
 * _Helm_: pkg manager for cluster; Cue https://github.com/stefanprodan/timoni
 * _chart_: Helm pkg
 * _Rancher_: hardened K8s for enterprise https://www.rancher.com/
@@ -587,6 +588,7 @@ DESIGN
 * previous competition: Swarm, Mesos, Nomad, Marathon https://technodrone.blogspot.com/2019/02/goodbye-docker-and-thanks-for-all-fish.html
 
 UTIL
+* debugging Python https://martinheinz.dev/blog/99
 * https://www.faizanbashir.me/interacting-with-kubernetes-deployments-and-services-using-python-sdk
 * https://terminaltrove.com/kubecolor/
 * GUI https://aptakube.com/

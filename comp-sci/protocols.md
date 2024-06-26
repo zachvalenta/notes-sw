@@ -2,15 +2,6 @@
 
 ## 参考
 
-📚
-* Buelta python architecture
-* Dibernardo 500 lines or less http://aosabook.org/en/index.html
-* ✅ Evans domain-driven design
-* Fowler refactoring https://www.amazon.com/dp/0134757599/
-* Martin clean code https://qntm.org/clean
-* McConnell code complete
-* Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
-
 ## 进步
 
 * ❓ how is BSON more binary than JSON itself? https://stackoverflow.com/questions/3554325/why-is-it-called-bson 📙 Kleppmann ch. 4

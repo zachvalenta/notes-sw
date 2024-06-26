@@ -222,6 +222,8 @@ LOCAL
 
 ---
 
+https://github.com/leapingio/leaping
+https://visualstudiomagazine.com/articles/2024/01/25/copilot-research.aspx
 https://www.youtube.com/watch?v=MzFr7iXsESs
 https://www.youtube.com/watch?v=dkV01hBdhZE
 

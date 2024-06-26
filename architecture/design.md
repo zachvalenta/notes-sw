@@ -2,13 +2,8 @@
 
 ## 参考
 
-🔍
-* https://softwarerecs.stackexchange.com
-* https://softwareengineering.stackexchange.com
 📚
-* Brooks design of design https://news.ycombinator.com/item?id=33410375
-* Bueno mature optimization http://book.mixu.net/distsys/index.html
-* Kleppmann data-intensive
+* Bueno mature optimization https://carlos.bueno.org/optimization/
 
 ## 进步
 
@@ -152,6 +147,8 @@ TAXONOMY
 
 ZA
 * layered architecture https://blog.europython.eu/kraken-technologies-how-we-organize-our-very-large-pythonmonolith/
+* modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
+> A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
 * beware theologians https://news.ycombinator.com/item?id=26492798
 * _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749
 * _resiliency_: perform job through failure https://leanpub.com/systemdesignmanual/read_sample
@@ -266,7 +263,7 @@ KISS
 * _retool_: https://retool.com/ https://www.youtube.com/watch?v=4xuBT3BbsYU https://www.youtube.com/watch?v=ChTGbmR2NeM
 * wrap and connect APIs https://softwareengineeringdaily.com/2019/12/19/no-code-with-shawn-wang/ aka workflow automation https://github.com/n8n-io/n8n https://news.ycombinator.com/item?id=24648960
 * _automatisch_: Zapier alternative https://github.com/automatisch/automatisch https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
-* _Zapier_ https://softwareengineeringdaily.com/2020/02/27/makerpad-low-code-tools-with-ben-tossell/ https://softwareengineeringdaily.com/2020/02/26/parabola-no-code-data-workflows-with-alex-yaseen/
+* _Zapier_ https://softwareengineeringdaily.com/2020/02/27/makerpad-low-code-tools-with-ben-tossell/ https://softwareengineeringdaily.com/2020/02/26/parabola-no-code-data-workflows-with-alex-yaseen/ https://github.com/mkjt2/lockbox
 * Honey Comb https://news.ycombinator.com/item?id=23633110 https://www.alexhudson.com/2020/01/13/the-no-code-delusion/ https://www.makerpad.co/ WebFlow https://news.ycombinator.com/item?id=27421408
 * https://news.ycombinator.com/item?id=28984955
 
@@ -322,6 +319,7 @@ File.open("samplelog.txt").each_line do |l|
   stats = add_message_to_stats(message, stats)
 end
 ```
+
 # 🌌 DISTRIBUTED
 
 🗄
@@ -332,7 +330,18 @@ end
 * Galvin dinosaur chapter 17
 * Jeffrey distributed
 * Kleppmann data intensive
-* Takada fun/profit
+* Takada fun/profit http://book.mixu.net/distsys/index.html
+
+BLOCKCHAIN https://a16zcrypto.com/
+* design https://unwttng.com/what-is-a-blockchain https://a16z.com/2018/02/10/crypto-readings-resources/ https://www.manning.com/books/grokking-bitcoin
+* https://cdixon.org/2018/02/18/why-decentralization-matters
+> Blockchains are special computers that anyone can access but no one owns. https://twitter.com/cdixon/status/1442201642338643969
+* BYO https://news.ycombinator.com/item?id=27594943 https://norswap.com/blockchain-how/ https://hackernoon.com/learn-blockchains-by-building-one-117428612f46 
+* history: https://danromero.org/crypto-reading/
+* design: size of chain makes fraud difficult bc would have tamper with block, then re-write proceeding blocks on all nodes
+* _blockchain_: db distributed over p2p network w/ each node holding entire db https://danielmiessler.com/study/blockchain/
+* _smart contract_: app using blockchain
+* _oracle_: data ingestion onto chain
 
 ---
 
@@ -355,28 +364,6 @@ https://drewdevault.com/2020/09/20/The-potential-of-federation.html
 za
 * _Jepsen analysis_: standard safety in distributed/transactional systems https://news.ycombinator.com/item?id=8385970 https://news.ycombinator.com/item?id=26645654 https://www.micahlerner.com/2021/06/12/foundationdb-a-distributed-unbundled-transactional-key-value-store.html
 * _GFS (Google File System)_: https://www.micahlerner.com/2020/03/22/understanding-googles-file-system.html
-
-## blockchain
-
----
-
-> Blockchains are special computers that anyone can access but no one owns. https://twitter.com/cdixon/status/1442201642338643969
-* https://cdixon.org/2018/02/18/why-decentralization-matters
-* ethereum https://github.com/smartcontracts/eth2-book
-* networking https://softwareengineeringdaily.com/2021/08/03/hedera-hashgraph-with-leemon-baird/
-* sharding https://vitalik.ca/general/2021/04/07/sharding.html
-* https://marginalrevolution.com/marginalrevolution/2021/09/roughgarden-on-blockchains.html
-> We already store data. In a database. It works well. https://news.ycombinator.com/item?id=22296659
-* token https://www.drorpoleg.com/the-crypto-future-of-work/
-> Tokens play a vital role in the crypto world. They can serve as “tickets” to access events, as “coupons” to receive goods and services, as “shares” to receive rights to cash flow from a business, and as “votes” that govern an organization or project.
-* _blockchain_: db distributed over p2p network w/ each node holding entire db https://danielmiessler.com/study/blockchain/
-* _smart contract_: app using blockchain
-* _oracle_: data ingestion onto chain
-* BYO https://news.ycombinator.com/item?id=27594943 https://norswap.com/blockchain-how/
-* use by criminals https://news.ycombinator.com/item?id=27313895
-* history: https://danromero.org/crypto-reading/
-* design: size of chain makes fraud difficult bc would have tamper with block, then re-write proceeding blocks on all nodes
-* why does Patrick McKenzie not like them? https://medium.com/@cdixon/why-decentralization-matters-5e3f79f7638e http://adilmoujahid.com/posts/2018/03/intro-blockchain-bitcoin-python/ https://litepaper.com/ https://a16zcrypto.com/ https://blog.smartdec.net/you-do-not-need-blockchain-eight-popular-use-cases-and-why-they-do-not-work-f2ecc6cc2129 https://www.wired.com/story/how-blockchain-can-wrest-the-internet-from-corporations/ https://www.wired.com/story/theres-no-good-reason-to-trust-blockchain-technology/ https://unwttng.com/what-is-a-blockchain https://hackernoon.com/learn-blockchains-by-building-one-117428612f46 https://medium.com/crypto-currently/lets-build-the-tiniest-blockchain-e70965a248b https://a16z.com/2018/02/10/crypto-readings-resources/ https://www.freecodecamp.org/news/the-authoritative-guide-to-blockchain-development-855ab65b58bc/ https://www.manning.com/books/grokking-bitcoin 
 
 ## CAP theorem
 
@@ -435,6 +422,7 @@ Raft https://raft.github.io/
 * `sql.md` migrations
 
 REPLICATION
+* https://github.com/bruin-data/ingestr
 * _replication_: same data on diff nodes 📙 Kleppmann [199] https://news.ycombinator.com/item?id=37066284
 * secondaries only accept writes from primary 📙 Bradshaw [236]
 * very slow if synchronous https://lethain.com/distributed-systems-vocabulary/
@@ -628,7 +616,7 @@ in general
 
 > A good example of a piece of functionality that is better handled with decoration is memoization or caching: you want to store the results of an expensive function in a table and use them directly instead of recomputing them when they have already been computed. This is clearly not part of the function logic. [Hitchhiker's Guide 3.1.6]
 
-*  https://www.openmymind.net/Caching-Your-Worst-Best-Friend/
+* https://www.openmymind.net/Caching-Your-Worst-Best-Friend/
 * https://bhavaniravi.com/blog/caching-in-python 
 * https://ieftimov.com/post/when-why-least-frequently-used-cache-implementation-golang/ 
 * http://danluu.com/2choices-eviction/
@@ -670,7 +658,7 @@ PROVIDERS 🔍 https://xosh.org/text-to-diagram/
 * _Monodraw_: https://monodraw.helftone.com/
 * _PlantUML_: UML `.puml`
 
-## proxies
+## proxy
 
 🗄
 * `flask.md` context
@@ -700,7 +688,7 @@ CONNECTIONS
 TYPES
 * _proxy_: layer between requester and responder
 * _reverse proxy_: closer to servers; less of a need given a cloud environment where a load balancer is already built-in https://pythonspeed.com/articles/gunicorn-in-docker/ https://testdriven.io/blog/django-docker-traefik/ https://www.artur-rodrigues.com/tech/2023/03/12/reverse-proxy-with-dynamic-backend-selection.html
-* _forward proxy_: closer to users; way for users to access resources outside network https://www.linuxbabe.com/it-knowledge/differences-between-forward-proxy-and-reverse-proxy
+* _forward proxy_: closer to users; way for users to access resources outside network https://www.linuxbabe.com/it-knowledge/differences-between-forward-proxy-and-reverse-proxy https://github.com/mkjt2/lockbox
 * _sidecar proxy_: https://caddyserver.com/docs/
 
 CDN

@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -7,16 +7,12 @@
 📙 Chacon pro git https://git-scm.com/book/en/v2 @ ch. 3
 🎨 https://onlywei.github.io/explain-git-with-d3
 
-## now
+## 进步
 
-## next
-
----
-
+* https://martinheinz.dev/blog/109
 * lazygit
 * https://jvns.ca/blog/2024/02/16/popular-git-config-options/
 
-DONE
 * _21_: prepopulate commit msg
 * _20_: stash commands, 📙 Chacon ch 1-2, Gitlab as secondary remote for notes, auth for BNY (Gitlab token types, server protocols and set up, lots of debugging)
 * _19_: hooks (pre-commit) branches (another pass at merge squash rebase) tooling (GitUp, Tig)
@@ -592,7 +588,7 @@ SEARCH https://docs.github.com/en/github/searching-for-information-on-github/sea
 * draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
 * Mermaid support https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/ 
 * feedback https://github.com/github/feedback/discussions/8293 https://support.github.com/ticket/personal/0/1530410
-* _Actions_: https://github.com/nektos/act https://hynek.me/articles/python-github-actions/ https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml https://github.com/github/super-linter https://www.youtube.com/watch?v=E1OunoCyuhY https://github.com/nektos/act https://news.ycombinator.com/item?id=30060765 https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a python https://brntn.me/blog/open-source-python-ci/ run locally https://github.com/nektos/act
+* _Actions_: https://github.com/nektos/act https://hynek.me/articles/python-github-actions/ https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml https://github.com/github/super-linter https://www.youtube.com/watch?v=E1OunoCyuhY https://github.com/nektos/act https://news.ycombinator.com/item?id=30060765 https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a python https://brntn.me/blog/open-source-python-ci/ run locally https://github.com/nektos/act local https://github.com/nektos/act
 * _analytics_: watchers `<URL>/watchers` stars `<URL>/stargazers` https://webapps.stackexchange.com/a/41800 profile views https://rushter.com/blog/github-profile-markdown/ 3rd party analytics around your commit history https://sourcerer.io/elena
 * _CLI_: https://github.com/cli/cli
 * _dependency graph/tree_: https://github.com/zachvalenta/create-python-app/network/dependencies

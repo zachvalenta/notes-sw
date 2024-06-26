@@ -2,6 +2,8 @@
 
 ## 参考
 
+🔍 https://softwarerecs.stackexchange.com
+
 ## 进步
 
 * _20_: Heroku (simple Django app), gunicorn, uWSGI
@@ -21,10 +23,9 @@ https://roadmap.sh/linux
 * _CloudFormation_: deployment
 * _config mgmt_: provision server remotely
 
-REMOTE EXECUTION
-* subprocess, sultan
-* _Paramiko_: https://github.com/paramiko/paramiko
+REMOTE EXECUTION 🗄️ `python/stdlib.md` process exec
 * _Fabric_: execute script on server; apparently not meant for fully-fledged config mgmt https://stackoverflow.com/questions/39370364/when-to-use-fabric-or-ansible but can/could be used with Ansible (article doesn't explain why not just use Ansible and is undated)
+* _Paramiko_: https://github.com/paramiko/paramiko
 
 ## Ansible
 
@@ -307,11 +308,11 @@ Redis Queue (RQ)
 * https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/#workflow
 * https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
 
-alternatives
+ALTERNATIVES
+* Postgres https://github.com/procrastinate-org/procrastinate https://brandur.org/river
 * _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io
-* https://brandur.org/river
+* _Hatchet_: https://github.com/hatchet-dev/hatchet
 * _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey
-* Postgres https://github.com/procrastinate-org/procrastinate
 
 # 🤖 SERVERS
 
@@ -629,7 +630,16 @@ request flow
 
 ## Heroku 
 
-* alternatives https://testdriven.io/blog/heroku-alternatives/ Fly.io https://www.youtube.com/watch?v=0eP98xkLj9w
+ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
+* _AWS Beanstalk_:
+* _Dokku_:
+* _Fly.io_: https://www.youtube.com/watch?v=0eP98xkLj9w
+* _Google App Engine_:
+* _Kamal_: https://kamal-deploy.org/
+* _Netlify_: 
+* _Render_: 
+* _Platform.sh_:
+* _Vercel_: 
 
 > With something like Heroku, you can have multiple VM's in staging and production, w/ a deployment pipeline that supports rollbacks, monitoring, alerting, autoscaling, all in a managed environment w/ a managed, highly available Postgres setup, with very little effort and 0 maintenance. This is what I've setup at my current startup. My last company was on K8's and I loved it -- but this is nearly as good and requires literally no maintenance and far less expertise / setup. - https://news.ycombinator.com/item?id=22493873 
 

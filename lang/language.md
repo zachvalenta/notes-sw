@@ -90,7 +90,7 @@ https://github.com/dry-python/returns Land of Lisp epilogue https://docs.python.
 
 ## object-oriented
 
-📙 Ramalho fluent python
+📙 Bugayenko elegant obj https://www.elegantobjects.org/
 
 SOLID https://realpython.com/solid-principles-python/
 

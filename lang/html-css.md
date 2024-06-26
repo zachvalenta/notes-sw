@@ -488,6 +488,7 @@ SSGs
 * Markdown is weird? https://twitter.com/danluu/status/1244024025019342851 
 * bad once nesting exceeds top-level? https://gohugo.io/templates/lists/ https://discourse.gohugo.io/t/list-pages-of-sub-sub-folders/9436/2
 * _Lektor_: Python https://www.getlektor.com/ https://lucumr.pocoo.org/2015/12/21/introducing-lektor/
+* _Lume_: https://lume.land/
 * _Makesite_: Python https://github.com/sunainapai/makesite
 * _Markata_: Python https://github.com/WaylonWalker/markata
 * _Metalsmith_: Javascript https://github.com/metalsmith/metalsmith

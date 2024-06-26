@@ -2,6 +2,7 @@
 
 ## 参考
 
+🔍 https://softwareengineering.stackexchange.com
 📚
 * Buelta python architecture
 * Dibernardo 500 lines or less http://aosabook.org/en/index.html
@@ -18,8 +19,9 @@
 
 # 🛰️ API
 
-🔍 https://github.com/public-apis/public-apis
+🗄️ `databases.md` tooling / code generation
 📙 Masse api rulebook
+🔍 https://github.com/public-apis/public-apis
 
 PAGINATION
 * _paginate_: return subset of records
@@ -437,6 +439,7 @@ BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 
 ---
 
+https://www.youtube.com/watch?v=uWTvMCra-_Y
 https://www.youtube.com/watch?v=0yc2UANSDiw
 * _dependency injection_: passing args [Conery 282]
 * why?: loose coupling http://kc.my-junk.info/di-ioc-dip https://www.youtube.com/watch?v=sD94szvFqGw

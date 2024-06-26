@@ -248,7 +248,7 @@ apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythons
 * using w/ Docker https://pythonspeed.com/articles/reproducible-docker-builds-python/
 * advanced usage https://bmcgee.ie/posts/2022/12/setting-up-my-new-laptop-nix-style/
 * macOS: need nix-darwin https://wickedchicken.github.io/post/macos-nix-setup/ installs more isolated than Homebrew https://wickedchicken.github.io/post/macos-nix-setup/ https://www.reddit.com/r/Nix/comments/zdcteb/should_i_migrate_from_homebrew_to_nix/ https://news.ycombinator.com/item?id=29079096
-* _pixi_: https://twitter.com/wuoulf/status/1691833538226610355 https://taras.glek.net/post/trying-pixi-modern-python-packaging/ https://github.com/prefix-dev/pixi https://talkpython.fm/episodes/show/439/pixi-a-fast-package-manager
+* _pixi_: uses conda-forge https://twitter.com/wuoulf/status/1691833538226610355 https://taras.glek.net/post/trying-pixi-modern-python-packaging/ https://github.com/prefix-dev/pixi https://talkpython.fm/episodes/show/439/pixi-a-fast-package-manager https://pythonbytes.fm/episodes/show/386/major-releases-abound
 * _rpm_: pkg format and, confusingly, pkg manager for RHEL https://stackoverflow.com/a/8201051/6813490
 * _Snap_: Ubuntu https://lwn.net/Articles/825005/
 * _Tasksel_: Debian tool to install packages in bundled fashion e.g. LAMP stack

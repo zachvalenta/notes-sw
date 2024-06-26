@@ -132,6 +132,7 @@ def simple_tracer(frame, event):  # 4:30
 
 ---
 
+TUI https://mastodon.top/@davidbrochart/111926774648199625
 https://www.reddit.com/r/Python/comments/6hwa22/what_is_the_point_of_jupyter/ https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.html
 https://www.hytradboi.com/2022/percival-a-reactive-language-for-exploratory-data-analysis-and-visualization
 
@@ -185,26 +186,34 @@ BPYTHON
 * undo `CTRL r`
 * autocomplete `CTRL f/e`
 
-CONTEXT
+UTIL
 * `PYTHONSTARTUP`: load helper module https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://github.com/zachvalenta/algo-sandbox/blob/master/Makefile#L28 https://github.com/zachvalenta/dotfiles-mini23/blob/main/shell/.zprofile#L183
 > improvement? https://github.com/sloria/konch
 * `$REPL -i $MODULE`: load main module https://stackoverflow.com/a/14244342 https://stackoverflow.com/a/56844640
 
 ---
 
-> create Pelican blog and make a post out of this
+icecream for print debugging https://martinheinz.dev/blog/96
+track state https://github.com/saurabh0719/constable
 
-CONTEXT
+UTIL
 > pretty print, cmds, reload
-* surface `PYTHONSTARTUP` cmd https://news.ycombinator.com/item?id=34865421
+* surface cmd from `PYTHONSTARTUP` https://news.ycombinator.com/item?id=34865421
 * `locals`, `globals`, `dir` https://stackoverflow.com/a/21961813/6813490
 * Rich https://github.com/Textualize/rich catpuccin integration? https://github.com/catppuccin/python/issues/3 https://github.com/catppuccin/python/issues/4 https://github.com/catppuccin/python/issues/22
 > inspect https://news.ycombinator.com/item?id=29947891 https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/
 * 🗄️ `stdlib.md` IO
 
+STACK TRACES 🗄️ stdlib/profiling
+* hide https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
+* fmt https://martinheinz.dev/blog/96
+* traceback https://martinheinz.dev/blog/66
+
 BPYTHON
 * config https://github.com/bpython/bpython/blob/a12d339e1a0bdca726d439ed1231f3f2ca993eac/bpython/sample-config
 * do other REPLs have object explorers? https://realpython.com/ptpython-shell/
+
+pyclbr https://www.pythonmorsels.com/cli-tools/
 
 INIT
 * sink https://arpitbhayani.me/blogs/python-prompts https://github.com/bpython/bpython/blob/ae4a502a443e024bd82ed1a7b88adf8be2068a2c/doc/sphinx/source/django.rst https://github.com/bpython/bpython/search?q=PYTHONSTARTUP&unscoped_q=PYTHONSTARTUP https://stackoverflow.com/a/14244310 https://stackoverflow.com/a/34774703
@@ -257,11 +266,12 @@ pp
 
 # 🤖 INTERPRETER
 
+
 ---
 
 * `__pycache__`: holds bytecode in the form of `.pyc` https://stackoverflow.com/a/28365204/6813490 speeds up module loading https://docs.python.org/3/tutorial/modules.html#compiled-python-files suppress creation of with `export PYTHONDONTWRITEBYTECODE=1` more on bytecode https://blog.jse.li/posts/pyc/ https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md
 
-VERSIONS https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com/text/which-py.html
+VERSIONS https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com/text/which-py.html https://www.nicholashairs.com/posts/major-changes-between-python-versions/
 * major https://en.wikipedia.org/wiki/History_of_Python#Table_of_versions
 * minor/patch https://blog.python.org/
 * switch to latest minor version after subsequent patch release https://www.b-list.org/weblog/2022/nov/08/python-311-gotcha/ https://pythonspeed.com/articles/upgrade-python-3.11/
@@ -274,6 +284,8 @@ VERSIONS https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com
 * _18_: 3.7
 * _19_: 3.8 https://realpython.com/courses/cool-new-features-python-38/
 * _20_: Python 2 EoL
+* _3.11_: specializing adaptive interpreter https://peps.python.org/pep-0659/
+* _3.13_: JIT https://tonybaloney.github.io/posts/python-gets-a-jit.html
 
 * using other language in Python e.g. Julia https://www.peterbaumgartner.com/blog/incorporating-julia-into-python-programs/
 
@@ -301,6 +313,13 @@ STAGES https://www.youtube.com/watch?v=QU158nGABxI 25:30
 * parse https://www.pythonpodcast.com/cpython-parser-replacement-episode-285/
 * compile
 * execute (interpreter loop)
+
+AST
+* https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+* inspect https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
+* https://www.mattlayman.com/blog/2018/decipher-python-ast/
+* https://talkpython.fm/episodes/show/152/understanding-and-using-python-s-ast
+* get data structure from string `ast.literal_eval(ds_as_str)` https://stackoverflow.com/a/17768535
 
 C EXTENSIONS 📙 Beazley ch. 15
 * howto https://kenschutte.com/python-swap-ints/
@@ -352,6 +371,8 @@ python -i $MODULE  # enter pdb after exec https://docs.python.org/3/using/cmdlin
 python -m $LIB $CMD  # exec lib cmd https://docs.python.org/3/using/cmdline.html#cmdoption-m
 python -c "import $MOD; $MOD.$METHOD()"  # exec inline https://docs.python.org/3/using/cmdline.html#cmdoption-c
 ```
+
+https://pythonbytes.fm/episodes/show/367/a-new-cloud-computing-paradigm-at-python-bytes https://peps.python.org/pep-0723/
 
 ## version mgmt (pyenv)
 
@@ -577,10 +598,14 @@ ALTERNATIVES
 
 ---
 
+example repo https://github.com/brohrer/pacemaker
+
 history
 * https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
 * https://snarky.ca/classifying-python-virtual-environment-workflows/ https://news.ycombinator.com/item?id=35131357
 * https://pradyunsg.me/blog/2023/01/21/thoughts-on-python-packaging https://news.ycombinator.com/item?id=34467952
+
+https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.html
 
 PAST
 * `setuptools`: uses `setup.py` to create distribution https://manikos.github.io/a-tour-on-python-packaging#mod_setuptools https://testandcode.com/52 @ 29:00 commonly thought of as distro tool but CLI (`easy_install`) was used for dep mtmt before `pip` https://dubroy.com/blog/so-you-want-to-install-a-python-package/ https://stackoverflow.com/questions/24727709/do-python-projects-need-a-manifest-in-and-what-should-be-in-it#24727824 for libraries https://github.com/pdm-project/pdm
@@ -618,6 +643,8 @@ ZA
 * example https://github.com/tfeldmann/simplematch
 * _deprecation_: https://www.dampfkraft.com/code/how-to-deprecate-a-pypi-package.html https://blog.ovalerio.net/archives/1971 https://sirupsen.com/shitlists/
 * _PyPI_: security https://github.com/gitpython-developers/GitPython
+* alternative https://pyoven.org/
+* find old versions https://pypi-browser.org/
 * warnings, PYTHONWARNINGS https://www.reddit.com/r/learnpython/comments/a14ow5/psa_when_developing_set_pythonwarnings/ https://docs.python.org/3/using/cmdline.html#cmdoption-w https://www.youtube.com/watch?v=X0AjcpicNOM&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=35
 
 * rm support for previous Python version https://adamj.eu/tech/2022/01/11/removing-python-3.6-support-from-my-packages
@@ -636,7 +663,7 @@ ALTERNATIVES
 * _pdm_: smart people like https://github.com/pdm-project/pdm
 * _pipenv_: Reitz problem https://github.com/pypa/pipenv/commit/9ba23242
 * _piptools_ https://www.pythonpodcast.com/devops-in-python-episode-244/
-* _uv_: early days, took over Rye https://astral.sh/blog/uv https://news.ycombinator.com/item?id=39387641 https://lucumr.pocoo.org/2024/2/4/rye-a-vision/
+* _uv_: early days, took over Rye, from creators of ruff https://astral.sh/blog/uv https://news.ycombinator.com/item?id=39387641 https://lucumr.pocoo.org/2024/2/4/rye-a-vision/ https://www.youtube.com/watch?v=_FdjW47Au30
 
 ---
 
@@ -911,6 +938,8 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 
 ---
 
+https://martinheinz.dev/blog/97
+https://higherorderco.com/
 https://www.amazon.com/gp/product/1492055026
 https://roadmap.sh/python
 https://hakibenita.com/django-concurrency

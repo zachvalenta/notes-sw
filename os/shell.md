@@ -443,16 +443,25 @@ cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
 
 ## profiles
 
+ALIASES
+* _alias_: evaluated when shell loads profile
+* view: `type <alias>` https://www.youtube.com/watch?v=aLMepxvUj4s 4:15
+* use unaliased: `\cd` https://stackoverflow.com/a/11056541
+
+PATH
+* https://github.com/epogrebnyak/justpath?tab=readme-ov-file
+* https://terminaltrove.com/pathos/
+* `$PATH`: list of directories that the shell should search when looking for programs corresponding to commands entered by the user [LPI 2.7]
+* change precedence: https://apple.stackexchange.com/a/49961
+* _default_: `/bin`, `usr/bin`
+* _global_: `/etc/paths`
+* _user_: `.bash_profile`
+
 SHELL TYPES https://github.com/nushell/nushell/issues/8169
 * _interactive_: normal
 * _non-interactive_: process spawned when script run 📙 LPI 2.2 https://unix.stackexchange.com/questions/43385/what-do-you-mean-by-interactive-shell/43389#43389 
 * _login_: reads profiles and env var 
 * _non-login_: cron jobs https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell/46856#46856 https://www.quora.com/What-are-the-differences-between-a-login-shell-and-a-non-login-shell/answer/Rod-Nussbaumer-1?srid=ebCJ
-
-ALIASES
-* _alias_: evaluated when shell loads profile
-* view: `type <alias>` https://www.youtube.com/watch?v=aLMepxvUj4s 4:15
-* use unaliased: `\cd` https://stackoverflow.com/a/11056541
 
 ENV VAR 🗄 `infra.md` config mgmt `security.md` secrets mgmt
 ```sh
@@ -470,14 +479,6 @@ envsubst < foo.sh  # stdout: zach
 ```
 * clean up: 🗄 `broot.log` https://unix.stackexchange.com/a/106606/331460 https://github.com/thoughtbot/til/blob/master/bash/bash_profile_vs_bashrc.md
 * _direnv_: load env var based on dir https://jamey.thesharps.us/2019/05/29/per-project-postgres/ https://github.com/direnv/direnv
-
-PATH
-* https://terminaltrove.com/pathos/
-* `$PATH`: list of directories that the shell should search when looking for programs corresponding to commands entered by the user [LPI 2.7]
-* change precedence: https://apple.stackexchange.com/a/49961
-* _default_: `/bin`, `usr/bin`
-* _global_: `/etc/paths`
-* _user_: `.bash_profile`
 
 ---
 
@@ -1011,7 +1012,7 @@ DASHBOARDS 🗄 `python.md` TUI
 * https://github.com/Phantas0s/devdash
 * https://github.com/gizak/termui
 
-HISTORY https://catonmat.net/the-definitive-guide-to-bash-command-line-history
+HISTORY https://catonmat.net/the-definitive-guide-to-bash-command-line-history https://martinheinz.dev/blog/110
 * search: `ctrl r`
 * scroll all items that match query: `ctrl r` (again)
 * cancel search: `ctrl c`
