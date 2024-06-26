@@ -939,7 +939,21 @@ WINDOW MANAGERS
 * `git.md` utils
 * `linux.md` denv
 
+HISTORY
+* `history 0`: see full history in zsh https://unix.stackexchange.com/a/657934
+
 ---
+
+HISTORY https://catonmat.net/the-definitive-guide-to-bash-command-line-history https://martinheinz.dev/blog/110
+* search: `ctrl r`
+* scroll all items that match query: `ctrl r` (again)
+* cancel search: `ctrl c`
+* scroll previous: `ctrl p`
+* scroll next: `ctrl n`
+> same when you're in search mode
+* event designator: `history | rg cd` then go to event w/ `!<event_num>`
+> it can be helpful to stick something like `#useful` or `# description` on the end of a command you expect to need again https://news.ycombinator.com/item?id=13888269
+* https://github.com/cantino/mcfly
 
 MAN PAGES
 * _whereis_: search for executables and man page in system db https://github.com/Idnan/bash-guide#c-whereis
@@ -1011,17 +1025,6 @@ DASHBOARDS 🗄 `python.md` TUI
 * https://github.com/wtfutil/wtf
 * https://github.com/Phantas0s/devdash
 * https://github.com/gizak/termui
-
-HISTORY https://catonmat.net/the-definitive-guide-to-bash-command-line-history https://martinheinz.dev/blog/110
-* search: `ctrl r`
-* scroll all items that match query: `ctrl r` (again)
-* cancel search: `ctrl c`
-* scroll previous: `ctrl p`
-* scroll next: `ctrl n`
-> same when you're in search mode
-* event designator: `history | rg cd` then go to event w/ `!<event_num>`
-> it can be helpful to stick something like `#useful` or `# description` on the end of a command you expect to need again https://news.ycombinator.com/item?id=13888269
-* https://github.com/cantino/mcfly
 
 MONITORING
 * directory size: du, ncdu https://github.com/bootandy/dust `du -sh -- * | sort -r` https://unix.stackexchange.com/a/185777 https://github.com/muesli/duf https://github.com/imsnif/diskonaut

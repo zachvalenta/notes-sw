@@ -490,8 +490,6 @@ SEMANTICS
 https://outlore.dev/blog/python-dev-2024/
 https://burakku.com/blog/rye-test-and-python-tools/
 
-YOUR PROBLEM
-* poetry not playing well with pyyaml https://stackoverflow.com/questions/77828411/unable-to-install-pyyaml-using-poetry https://github.com/python-poetry/poetry/issues/8287
 
 https://chriswarrick.com/blog/2024/01/15/python-packaging-one-year-later/
 
@@ -844,6 +842,12 @@ VS CODE SELECT INTERPRETER https://www.markhneedham.com/blog/2023/07/24/vscode-p
 * get path to venv `poetry env info --path | pbcopy`
 * `select interpreter` > `enter interpreter path`
 * can also use `"python.defaultInterpreterPath": "/Users/zach/Documents/zv/materials/sw/lang/python/mianshi/.venv"`?
+
+UPDATE
+* specific pkg https://github.com/orgs/python-poetry/discussions/3723
+* all deps https://python-poetry.org/docs/basic-usage/#updating-dependencies-to-their-latest-versions
+* Python version: `poetry env use $(which python)` https://stackoverflow.com/a/65589331
+* manually specify Python version via `pyproject.toml` https://python-poetry.org/docs/basic-usage#setting-a-python-version https://stackoverflow.com/a/65589331
 
 ---
 

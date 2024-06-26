@@ -149,20 +149,20 @@ cmd:
 * `golang.md` packaging
 * `python.md` packaging
 
-> years ago websites were made of files; now they are made of dependencies https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/
-
-* vet https://github.com/irgolic/vet
-* incl comment for each dep explaining need https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies 13:15
-* update lockfile periodically https://news.ycombinator.com/item?id=30578276
-
-semver
+SEMVER https://stackoverflow.com/a/22345808
 * _patch_: update all patches w/out changing minor e.g. `~1.3.7` gets everything up to `1.4.0`
-* _minor_: update all patch + minor w/out changing major e.g. `^1.3.7` gets everything up to `2.0.0` https://stackoverflow.com/a/22345808 
+* _minor_: update all patch + minor w/out changing major e.g. `^1.3.7` gets everything up to `2.0.0`
 * definitions fuzzy e.g. what does "major" actually mean e.g. breaking change? for what percentage of users? https://gist.github.com/jashkenas/cbd2b088e20279ae2c8e https://snarky.ca/why-i-dont-like-semver/
 * Golang brings into the realm of module/packges namespace (and therefore imports), meaning a version that is backwards incomptable must have a new namespace https://research.swtch.com/vgo-import https://news.ycombinator.com/item?id=16431299 🗄 `golang.md` 'semantic import versioning'
 * contradictory interpretations? https://poetry.eustace.io/docs/basic-usage/#version-constraints https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept https://poetry.eustace.io/docs/versions/ https://research.swtch.com/deps
 
 ---
+
+> years ago websites were made of files; now they are made of dependencies https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/
+
+* vet https://github.com/irgolic/vet
+* incl comment for each dep explaining need https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies 13:15
+* update lockfile periodically https://news.ycombinator.com/item?id=30578276
 
 * just pull unmaintained repos in your own lib https://lucumr.pocoo.org/2024/3/26/rust-cdo/
 * dependabot for Python https://pyup.io/
