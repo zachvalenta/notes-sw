@@ -312,6 +312,7 @@ LOG STORES
 
 ---
 
+* https://github.com/ptmcg/logmerger
 * https://github.com/tstack/lnav
 * https://github.com/textualize/toolong
 * https://logdy.dev/

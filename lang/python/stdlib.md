@@ -987,7 +987,7 @@ RSGI
 
 * country data (language, currency) https://github.com/pycountry/pycountry
 * validation (email, IP address) https://martinheinz.dev/blog/96
-* new batteries written in Rust https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+* URL: urllib, urlparse https://github.com/gruns/furl
 
 ---
 
@@ -1444,6 +1444,21 @@ float("-inf")
 # square root via exponent operator [Saha 1.3]
 8 ** (1/3)
 ```
+
+* rounding
+```sh
+# rounding works as expected
+python -c 'print(round(0.0273, 3))'   # 0.027
+python -c 'print(round(0.0273, 2))'   # 0.03
+
+# division rounds down when there is a remainder
+python -c 'print(14 / 5)'             # 2
+python -c 'print(5 / 10)'             # 0
+
+# workaround
+python -c 'print(float(15) / float(365))'  # 0.041095890411
+```
+
 ## os
 
 📙 Beazley ch. 13

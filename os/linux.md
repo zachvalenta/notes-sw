@@ -270,6 +270,8 @@ apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythons
 
 ---
 
+visualize https://github.com/joknarf/pgtree
+
 https://thorstenball.com/blog/2014/06/13/where-did-fork-go/
 > Every process running on a Unix system started out as a call to fork(2) followed by a call to execve(2). Well, not every process, since the first process, the init process, the one that starts up the rest of the operating system, didn’t. But every process that came after. The idea is rather simple: fork(2) creates a new process and execve(2) turns the new process into the kind of process you want it to be.
 > Let’s say you’re a shell and your user wants to start his productivity utility vimwonderhorse. Now, the first thing you’ve got to do is to start a new process. The reason for that is simple: when the user quits vimwonderhorse you should still be there and wait for the user’s input again. If you, as the shell, would have changed into vimwonderhorse and the user quit, well, then you would be gone, too. So you start a new process with fork(2).

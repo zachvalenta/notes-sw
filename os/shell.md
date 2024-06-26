@@ -478,7 +478,7 @@ foo.sh  # echo $LOGNAME
 envsubst < foo.sh  # stdout: zach
 ```
 * clean up: 🗄 `broot.log` https://unix.stackexchange.com/a/106606/331460 https://github.com/thoughtbot/til/blob/master/bash/bash_profile_vs_bashrc.md
-* _direnv_: load env var based on dir https://jamey.thesharps.us/2019/05/29/per-project-postgres/ https://github.com/direnv/direnv
+* _direnv_: load env var based on dir https://jamey.thesharps.us/2019/05/29/per-project-postgres/ https://github.com/direnv/direnv alternative https://github.com/jdx/mise
 
 ---
 

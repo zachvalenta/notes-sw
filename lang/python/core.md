@@ -369,6 +369,132 @@ class Person():
         return self.first + ' ' + self.last
 ```
 
+# 🌊 CONTROL FLOW
+
+🗄 `language.md`
+📙 Van Rossum ch. 4 https://docs.python.org/3/tutorial/controlflow.html
+
+## conditionals
+
+BRANCHING
+```python
+def if_example():
+    if True:
+        print("i will print")
+    if True: # unaffected by exec of previous if statements https://stackoverflow.com/a/53545252
+        print("i will also print")
+
+```
+
+MULTILINE
+```python
+if (
+    'spam' in email['sender'] or
+    'spam' in email['subject'] or
+    'spam' in email['metadata']
+    ):
+else:
+```
+
+TERNARY
+```python
+this() if x else that()
+return True if x else False
+var = foo if condition else bar
+```
+
+---
+
+dictionary dispatch https://martinheinz.dev/blog/90
+
+## exceptions
+
+📚 Beazley ch. 14, Van Rossum ch. 8 https://docs.python.org/3/tutorial/errors.html https://www.b-list.org/weblog/2023/dec/11/python-exceptions/
+
+SEMANTICS
+* _handler_: `try` block
+* _handled_: try/catch
+* _unhandled_: no handler found
+
+TYPES
+* `Attribute`: attr doesn't exist or cannot be set
+* `Index`: trying to access non-existent index; slices handle these in a weak way (i.e. type conversion)
+* `Key`: dict doesn't have key you asked for
+* `Name`: identifier not defined
+* `Syntax`: kw misspelled, bad indentation, missing closing syntax
+* `Type`: give wrong type to function, try to do something you can't (mutate string)
+* `Value`: func given correct type but still err ex. `int('5')` can convert string to int but not for all strings e.g. `int('five')`
+
+USER-DEFINED
+* why: way to dedupe logging
+* simple impl
+```python
+class EarthquakError(Exception): 
+    pass
+raise EarthquakError("earthquake!")
+```
+* fancier impl
+```python
+class EarthquakError(Exception): 
+    def __init__(self, place):
+        self.place = place
+    def __str__(self):
+        return f"earthquake at {self.place}"
+raise EarthquakError(place)
+```
+
+---
+
+* warnings, subclasses https://lerner.co.il/2020/04/27/working-with-warnings-in-python/
+* 📙 tutorial ch 8 stdlib ch 5
+* approach: EAFP (forgivness > perm i.e. try-catch) better than LBYL (C-style if-else) https://docs.python.org/3/glossary.html#term-EAFP
+* https://realpython.com/courses/python-exceptions-101/
+* https://sobolevn.me/2019/02/python-exceptions-considered-an-antipattern
+* https://news.ycombinator.com/item?id=19133948
+* swallow msg: https://stackoverflow.com/a/52625133/6813490
+
+## matching
+
+---
+* https://www.youtube.com/watch?v=ASRqxDGutpA
+* https://martinheinz.dev/blog/78
+* switch statement on steroids https://benhoyt.com/writings/python-pattern-matching/ https://peps.python.org/pep-0634/
+> An if...elif...elif...sequence is a substitute for the switch or case statements found in other languages. https://docs.python.org/3/tutorial/controlflow.html
+* subject https://www.fluentpython.com/lingo/#subject
+* _switch statement replacements_: bisect https://stackoverflow.com/a/61030734/6813490 https://www.youtube.com/watch?v=gllUwQnYVww https://github.com/ralsina/enum_switch https://pythonbytes.fm/episodes/show/135/macos-deprecates-python-2-will-stop-shipping-it-eventually https://pythonbytes.fm/episodes/show/135/macos-deprecates-python-2-will-stop-shipping-it-eventually https://docs.python.org/3/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python
+
+## try/catch
+
+---
+* multiple exceptions https://realpython.com/python-catch-multiple-exceptions/
+* https://github.com/guilatrova/tryceratops
+* control flow: don't go nuts with it https://blog.cerebralab.com/Exceptions_as_control_flow
+```python
+# CONTROL FLOW
+try:
+    pass
+except SpecificException as e:
+    logger.exception(e)
+    raise
+else: 
+    # only for the happy path
+finally:
+    # no matter what happens
+
+# PASS TO CALLER https://stackoverflow.com/a/34622772
+def raiser():
+    try:
+        do_something()
+    except ValueError as err:
+        logger.exception(err)
+        raise  # https://stackoverflow.com/a/24065533
+
+for el in li:
+    raiser()
+except Exception as err:
+    logger.exception(err)
+```
+
 # 🤖 FUNCTIONS
 
 📙 Beazley ch. 7
@@ -970,149 +1096,47 @@ UNDERSCORES https://dbader.org/blog/meaning-of-underscores-in-python
 * _double leading_: name mangling i.e. measure to prevent accidental overrides
 * _doubled_: dunder methods
 
-DESIGN 📜 https://docs.python.org/3/faq/design.html
-* history: origins in ABC https://www.fluentpython.com/lingo/
-* readabillity: indentation for statement grouping https://xkcd.com/353/
-* aesthetic: `python -m this` https://peps.python.org/pep-0020/ significant white space vs. semi-colons https://news.ycombinator.com/item?id=34936023
-* used for: teaching, web dev, sys admin, ML, security, scraping, microcontrollers, industrial automation https://www.pythonpodcast.com/episode-114-industrial-automation-with-jonas-neubert/ finance https://www.openbb.co/ architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings Nvidia warp, second-best language for everything https://news.ycombinator.com/item?id=40680737
-* used at: Instagram, Dropbox, Reddit, Pinterest
-* pain points: binaries, import system, version management, packaging, browser, native (mobile, desktop), speed (not built for multi-core https://twitter.com/mitsuhiko/status/1091802711908106240)
+---
+
 * soft keywords https://mathspp.com/blog/til/pythons-soft-keywords
 
-STYLE
-* _line continuation_: "join consecutive lines if the last character of the line is a backslash" [HG 3.2.5 pg. 56] can use parens https://stackoverflow.com/a/53180/6813490
-* https://www.python.org/dev/peps/pep-0008/
-* https://github.com/google/styleguide/blob/gh-pages/pyguide.md
-* PEP8 error codes https://pep8.readthedocs.io/en/release-1.7.x/intro.html#error-codes
-* line length http://jakevdp.github.io/blog/2017/11/09/exploring-line-lengths-in-python-packages/
-* https://nickjanetakis.com/blog/80-characters-per-line-is-a-standard-worth-sticking-to-even-today
-* blank lines: 2 after imports, 2 before functions, 1 before methods https://www.python.org/dev/peps/pep-0008/#blank-lines
+## ecosystem
+
+📜 https://docs.python.org/3/faq/design.html
+
+DESIGN
+* history: origins in ABC https://www.fluentpython.com/lingo/#ABC
+* readabillity: indentation for statement grouping via significant white space vs. semi-colons https://news.ycombinator.com/item?id=34936023
+* simplicity: `python -m this` https://peps.python.org/pep-0020/ https://xkcd.com/353/
+* pain points: binaries, import system, version management, packaging, browser, native (mobile, desktop), speed (not built for multi-core https://twitter.com/mitsuhiko/status/1091802711908106240)
+
+USAGE 💡 second-best for everything
+* teaching: Jupyter
+* web: Django, Flask, FastAPI
+* sys admin: Ansible, scripting
+* ML: data science, pytorch
+* security: network hacking, scraping
+* microcontrollers
+* industrial automation https://www.pythonpodcast.com/episode-114-industrial-automation-with-jonas-neubert/
+* finance https://www.openbb.co/
+* architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
+* GPU simulation https://news.ycombinator.com/item?id=40680737
 
 GOVERNANCE
-* internal language team at Google https://news.ycombinator.com/item?id=40176338
-* quasi-official (PyPA, PyCQA)
-* Donald Stuft (PyPA) Raymond Hettinger (core) Tim Peters (Zen of Python `import this`, Timsort) Armin Ronacher (Flask) Brett Cannon (core) Nick Coghlan (core) Eli Bendersky (Google, buddies w/ Coghlan) https://mail.python.org/pipermail/python-committers/2019-February/006520.html
+* corporate: internal language team at Google https://news.ycombinator.com/item?id=40176338
+* quasi-official: PyPA, PyCQA
+* people: Donald Stuft (PyPA) Raymond Hettinger (core) Tim Peters (Zen of Python `import this`, Timsort) Armin Ronacher (Flask) Brett Cannon (core) Nick Coghlan (core) Eli Bendersky (Google, buddies w/ Coghlan) https://mail.python.org/pipermail/python-committers/2019-February/006520.html
 * _Steering Council_: https://mail.python.org/pipermail/python-committers/2019-February/006520.html
-* _PEP_: RFCs for Python
-* 0 (establish what a PEP is) 8 (style guide) 20 (Zen of Python) https://talkpython.fm/episodes/show/153/how-python-evolves https://peps.python.org/
-* how libs get into the stdlib https://github.com/hukkin/tomli/issues/141#issuecomment-997999824
-* https://news.ycombinator.com/item?id=26826158
 
-## control flow
+STDLIB
+* new batteries in Rust https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+* how libs get in https://github.com/hukkin/tomli/issues/141#issuecomment-997999824
 
-🗄 `language.md`
-📙 Van Rossum ch. 4 https://docs.python.org/3/tutorial/controlflow.html
-
-CONDITIONALS
-```python
-def if_example():
-    if True:
-        print("i will print")
-    if True: # unaffected by exec of previous if statements https://stackoverflow.com/a/53545252
-        print("i will also print")
-
-# MULTILINE
-if (
-    'spam' in email['sender'] or
-    'spam' in email['subject'] or
-    'spam' in email['metadata']
-    ):
-else:
-
-# TERNARY
-this() if x else that()
-return True if x else False
-var = foo if condition else bar
-
-# dictionary dispatch https://martinheinz.dev/blog/90
-```
-
----
-
-
-PATTERN MATCHING
-* https://www.youtube.com/watch?v=ASRqxDGutpA
-* https://martinheinz.dev/blog/78
-* switch statement on steroids https://benhoyt.com/writings/python-pattern-matching/ https://peps.python.org/pep-0634/
-> An if...elif...elif...sequence is a substitute for the switch or case statements found in other languages. https://docs.python.org/3/tutorial/controlflow.html
-* subject https://www.fluentpython.com/lingo/#subject
-* _switch statement replacements_: bisect https://stackoverflow.com/a/61030734/6813490 https://www.youtube.com/watch?v=gllUwQnYVww https://github.com/ralsina/enum_switch https://pythonbytes.fm/episodes/show/135/macos-deprecates-python-2-will-stop-shipping-it-eventually https://pythonbytes.fm/episodes/show/135/macos-deprecates-python-2-will-stop-shipping-it-eventually https://docs.python.org/3/faq/design.html#why-isn-t-there-a-switch-or-case-statement-in-python
-
-TRY/CATCH
-* multiple exceptions https://realpython.com/python-catch-multiple-exceptions/
-* https://github.com/guilatrova/tryceratops
-* control flow: don't go nuts with it https://blog.cerebralab.com/Exceptions_as_control_flow
-```python
-# CONTROL FLOW
-try:
-    pass
-except SpecificException as e:
-    logger.exception(e)
-    raise
-else: 
-    # only for the happy path
-finally:
-    # no matter what happens
-
-# PASS TO CALLER https://stackoverflow.com/a/34622772
-def raiser():
-    try:
-        do_something()
-    except ValueError as err:
-        logger.exception(err)
-        raise  # https://stackoverflow.com/a/24065533
-
-for el in li:
-    raiser()
-except Exception as err:
-    logger.exception(err)
-```
-
-## exceptions
-
-📚 Beazley ch. 14, Van Rossum ch. 8 https://docs.python.org/3/tutorial/errors.html https://www.b-list.org/weblog/2023/dec/11/python-exceptions/
-
-SEMANTICS
-* _handler_: `try` block
-* _handled_: try/catch
-* _unhandled_: no handler found
-
-TYPES
-* `Attribute`: attr doesn't exist or cannot be set
-* `Index`: trying to access non-existent index; slices handle these in a weak way (i.e. type conversion)
-* `Key`: dict doesn't have key you asked for
-* `Name`: identifier not defined
-* `Syntax`: kw misspelled, bad indentation, missing closing syntax
-* `Type`: give wrong type to function, try to do something you can't (mutate string)
-* `Value`: func given correct type but still err ex. `int('5')` can convert string to int but not for all strings e.g. `int('five')`
-
-USER-DEFINED
-* why: way to dedupe logging
-* simple impl
-```python
-class EarthquakError(Exception): 
-    pass
-raise EarthquakError("earthquake!")
-```
-* fancier impl
-```python
-class EarthquakError(Exception): 
-    def __init__(self, place):
-        self.place = place
-    def __str__(self):
-        return f"earthquake at {self.place}"
-raise EarthquakError(place)
-```
-
----
-
-* warnings, subclasses https://lerner.co.il/2020/04/27/working-with-warnings-in-python/
-* 📙 tutorial ch 8 stdlib ch 5
-* approach: EAFP (forgivness > perm i.e. try-catch) better than LBYL (C-style if-else) https://docs.python.org/3/glossary.html#term-EAFP
-* https://realpython.com/courses/python-exceptions-101/
-* https://sobolevn.me/2019/02/python-exceptions-considered-an-antipattern
-* https://news.ycombinator.com/item?id=19133948
-* swallow msg: https://stackoverflow.com/a/52625133/6813490
+PEPS https://peps.python.org/
+* _0_: establish what a PEP is
+* _8_: style guide
+* _20_: Zen of Python
+* _387_: no promise of backwards comptability https://news.ycombinator.com/item?id=26826158
 
 ## operators
 
@@ -1198,20 +1222,6 @@ any(['hi', 'hey', ''])  # True
 any([''])  # False
 ```
 
-* rounding
-```sh
-# rounding works as expected
-python -c 'print(round(0.0273, 3))'   # 0.027
-python -c 'print(round(0.0273, 2))'   # 0.03
-
-# division rounds down when there is a remainder
-python -c 'print(14 / 5)'             # 2
-python -c 'print(5 / 10)'             # 0
-
-# workaround
-python -c 'print(float(15) / float(365))'  # 0.041095890411
-```
-
 * _infix operator_: `*` 🗄 `language.md`
 
 ## scope
@@ -1245,3 +1255,17 @@ def fail_to_set_foo():
 fail_to_set_foo()
 foo  # global foo untouched
 ```
+
+## style
+
+📜 https://peps.python.org/pep-0008/ https://github.com/google/styleguide/blob/gh-pages/pyguide.md
+
+* string quotes: single|double both fine https://peps.python.org/pep-0008/#string-quotes
+
+---
+
+* _line continuation_: "join consecutive lines if the last character of the line is a backslash" [HG 3.2.5 pg. 56] can use parens https://stackoverflow.com/a/53180/6813490
+* PEP8 error codes https://pep8.readthedocs.io/en/release-1.7.x/intro.html#error-codes
+* line length http://jakevdp.github.io/blog/2017/11/09/exploring-line-lengths-in-python-packages/
+* https://nickjanetakis.com/blog/80-characters-per-line-is-a-standard-worth-sticking-to-even-today
+* blank lines: 2 after imports, 2 before functions, 1 before methods https://www.python.org/dev/peps/pep-0008/#blank-lines
