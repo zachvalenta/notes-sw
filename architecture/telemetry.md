@@ -192,6 +192,8 @@ ZA
 
 ---
 
+* _frecency_: frequency + recency https://missing.csail.mit.edu/2020/shell-tools/ https://github.com/rupa/z
+
 SEMANTICS https://www.datadoghq.com/ebook/monitoring-modern-infrastructure/
 * _event_: change to system e.g. build, release, add/substract host/container, alert going off
 * _metric_: value from system at a particlar point in time

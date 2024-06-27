@@ -828,6 +828,7 @@ FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/
 PROMPT
 * things I want: Git branch, Python version, venv
 * Git: https://www.youtube.com/watch?v=wku-1nJR_oA https://github.com/zachvalenta/dotfiles/commit/cc4117a72c7b1d80f0ec58021530727435a2e4af https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh https://stackoverflow.com/questions/31252573/get-current-directory-without-full-path-in-fish-shell
+* _ohmyposh_: https://github.com/jandedobbeleer/oh-my-posh
 * _pure_: zsh only https://github.com/sindresorhus/pure
 * _powerlevel10k_: https://github.com/romkatv/powerlevel10k
 * _powerline_: statusline and prompt for Vim and used by zsh https://github.com/powerline/powerline
@@ -992,12 +993,6 @@ MODERN
 * _try_: view files that command touches https://github.com/binpash/try
 * weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/
 * Wikipedia https://github.com/yashsinghcodes/wik
-
-AUTOJUMP
-* _autojump_: jump to recently visited dir https://missing.csail.mit.edu/2020/shell-tools/
-* what I use: lots of alias in `.bash_profile`
-* options: https://github.com/rupa/z https://github.com/wting/autojump https://github.com/clvv/fasd https://github.com/ajeetdsouza/zoxide https://github.com/mfaerevaag/wd
-* BYO https://news.ycombinator.com/item?id=22853119
 
 COREUTILS
 * _coreutils_: ls, rm, cat, et al. https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands
@@ -1205,6 +1200,15 @@ ALTERNATIVES
 * _walk_: https://github.com/antonmedv/walk
 * _xlpr_: https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020
 * _yazi_: https://github.com/sxyazi/yazi
+
+### jump
+
+* `.bash_profile` aliases
+* BYO https://news.ycombinator.com/item?id=22853119
+* _autojump_: mature https://github.com/wting/autojump
+* _wd_: manually add https://github.com/mfaerevaag/wd
+* _z_: https://github.com/rupa/z
+* _zoxide_: tried out and init in zsh didn't work, requires fzf https://github.com/ajeetdsouza/zoxide
 
 ### list (exa)
 

@@ -72,6 +72,7 @@ check --fix  # fix lint err
 ```
 
 ZA
+* custom via AST
 * lint natural language https://vale.sh/
 * lint exceptions https://github.com/guilatrova/tryceratops
 * fmt code blocks in doc files https://github.com/asottile/blacken-docs
@@ -101,10 +102,13 @@ per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
 
 ## logging
 
-🗄 `telemetry` logging
+🗄
+* `python/runtime.md` REPL
+* `telemetry` logging
 
 ---
 
+icecream for print debugging https://github.com/gruns/icecream
 * people don't use format/f-strings in logging
 * https://monadical.com/posts/ins-and-outs-of-logging-in-python-part-one.html
 * logs sent by default to `sys.stdout` i.e. they're buffered https://stackoverflow.com/a/51362214/6813490 https://realpython.com/python-flush-print-output/
@@ -367,6 +371,8 @@ https://talkpython.fm/episodes/show/287/testing-without-dependencies-mocking-in-
 
 PLUGINS
 * randomize execution order https://github.com/pytest-dev/pytest-randomly 
+* port ward output to pytest https://github.com/darrenburns/ward/blob/master/ward/_terminal.py https://docs.pytest.org/en/7.1.x/how-to/writing_plugins.html#writing-your-own-plugin https://github.com/nicoddemus/pytest-rich/tree/main
+* _pluggy_: framework for write plugins https://ward.readthedocs.io/en/latest/guide/plugins.html https://pluggy.readthedocs.io/en/latest/
 
 STDOUT
 * https://pypi.org/project/pytest-testdox/
@@ -554,6 +560,7 @@ self.assertEqual(x.exception.code, 1)
 📜 https://github.com/darrenburns/ward
 
 * downside: symbols don't show up in VS Code
+* tags = pytest marks https://ward.readthedocs.io/en/latest/guide/writing_tests.html#descriptive-testing
 * fixtures https://blog.thea.codes/my-python-testing-style-guide/
 
 # 💻 UI

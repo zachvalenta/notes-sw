@@ -178,6 +178,8 @@ ZA
 
 ## REPL (iPython)
 
+🗄 `python/stdlib.md` logging
+
 ZA
 * features: code completion, syntax highlighting, readline, obj explorer
 * BYO using `code.InteractiveConsole()` https://bernsteinbear.com/blog/simple-python-repl/
@@ -193,7 +195,6 @@ UTIL
 
 ---
 
-icecream for print debugging https://github.com/gruns/icecream
 track state https://github.com/saurabh0719/constable
 
 UTIL
@@ -316,6 +317,8 @@ STAGES https://www.youtube.com/watch?v=QU158nGABxI 25:30
 
 AST
 * https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+* https://ward.readthedocs.io/en/latest/guide/writing_tests.html#using-assert-statements
+* https://www.youtube.com/watch?v=OjPT15y2EpE
 * inspect https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
 * https://www.mattlayman.com/blog/2018/decipher-python-ast/
 * https://talkpython.fm/episodes/show/152/understanding-and-using-python-s-ast
@@ -526,7 +529,7 @@ https://pythonspeed.com/articles/distributing-software/ https://pgjones.dev/blog
 
 * _tldr_: dep mgmt and distro are intermingled cf. `setuptools`; even with things outside either cf. `setup.cfg` https://www.b-list.org/weblog/2020/jan/05/packaging/ ❓ should all apps also be packages from a 'this makes working with other Python constructs easier?' https://hynek.me/articles/python-app-deps-2018/
 
-* `pyproject.toml` does both distro (replaces `setup.py`) and dep mgmt (`requirements.txt`, `Pipfile`, which is backend by the PyPA); tricky w/ Heroku https://jacobian.org/2019/nov/11/python-environment-2020/ https://snarky.ca/what-the-heck-is-pyproject-toml https://github.com/carlosperate/awesome-pyproject https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/
+* `pyproject.toml` does both distro (replaces `setup.py`) and dep mgmt (`requirements.txt`, `Pipfile`, which is backend by the PyPA); tricky w/ Heroku https://jacobian.org/2019/nov/11/python-environment-2020/ https://snarky.ca/what-the-heck-is-pyproject-toml https://github.com/carlosperate/awesome-pyproject https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/ projects that use https://github.com/carlosperate/awesome-pyproject
 * `distutils`: initial approach to packaging and foundation for current tools (pip); mailing list for packaging https://docs.python.org/3/installing/index.html deprecated https://towardsdatascience.com/all-the-important-features-and-changes-in-python-3-10-e3d1fe542fbf
 
 ## executable

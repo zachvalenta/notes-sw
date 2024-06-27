@@ -46,6 +46,7 @@ NEXT 🗄️ `something`
 ## commits
 
 RECENT
+* denv
 * https://github.com/oleiade/motus
 * https://github.com/Textualize/frogmouth
 * https://github.com/bloznelis/typioca
@@ -121,6 +122,10 @@ INTERVIEWING - SENIOR ENG
 - [ ] personal site
 
 PROJECTS
+* pytest plugin for ward
+* cmus replacement https://github.com/darrenburns/posting
+* TUI for Websters 1913
+* TUI for BYO dictionary
 * Sk8list
 > Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
 * book notes: Kleppmann, Jeffrey
