@@ -72,7 +72,7 @@ check --fix  # fix lint err
 ```
 
 ZA
-* custom via AST
+* custom via AST e.g. enforce docs https://docs.python.org/3/library/inspect.html#retrieving-source-code
 * lint natural language https://vale.sh/
 * lint exceptions https://github.com/guilatrova/tryceratops
 * fmt code blocks in doc files https://github.com/asottile/blacken-docs
@@ -681,11 +681,28 @@ def main(in_path, out_file):
 
 ## IO
 
----
+RICH 📜 https://github.com/Textualize/rich https://github.com/zachvalenta/dotfiles-mini23/blob/main/python/python_startup.py
+* to try: repr for obj https://rich.readthedocs.io/en/latest/pretty.html#rich-repr-protocol
+https://rich.readthedocs.io/en/latest/introduction.html#ipython-extension
+```python
+from rich import print as rp  # print
+from rich import pretty; pretty.install()  # default to Rich print in REPL
+from rich import inspect
+inspect(superhero, methods=True)  # more limited version of stdlib inspect
 
-RICH 📜 https://github.com/Textualize/rich 
-* test install: `poetry run python -m rich`
-* https://github.com/apparebit/prettypretty
+# EXCEPTIONS
+from rich.console import Console
+console = Console()
+from rich.traceback import install
+install(show_locals=True)
+
+raise RuntimeError("hey there")  # normal output (contra examples)?
+
+try:  # Rich output
+    do_something()
+except Exception:
+    console.print_exception(show_locals=True)
+```
 
 INPUT 🗄 `security.md` sanitization
 * take input: basic (`ur_in = input()`)
@@ -695,10 +712,11 @@ INPUT 🗄 `security.md` sanitization
 * _prompt-toolkit_: used by pgcli, http-prompt https://github.com/j-bennet/wharfee/blob/master/setup.py https://github.com/wasi-master/fastero
 
 OUTPUT
-* animation https://github.com/ChrisBuilds/terminaltexteffects
+* animation https://github.com/ChrisBuilds/terminaltexteffects https://realpython.com/python-rich-package/
 * colors https://github.com/timofurrer/colorful https://github.com/erikrose/blessings
-* tables https://github.com/astanin/python-tabulate
-* progress bar https://dev.to/rsalmei/a-cool-new-progress-bar-for-python-1c0g https://github.com/tqdm/tqdm https://github.com/rsalmei/alive-progress https://pypi.org/project/enlighten/
+* syntax highlighting https://github.com/pygments/pygments
+* tables https://github.com/astanin/python-tabulate https://realpython.com/python-rich-package/
+* progress bar https://realpython.com/python-rich-package/ https://github.com/rsalmei/alive-progress https://github.com/tqdm/tqdm
 ```python
 if i % 100 == 0:
     progress = ((i + 1) / float(len(qd))) * 100.0
