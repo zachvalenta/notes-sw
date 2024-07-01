@@ -792,6 +792,19 @@ index-url = http://download.zope.org/ppix # CLI arg is `-i`
 
 📜 https://github.com/pypa/pipx
 
+PKGS
+```sh
+pipx list --include-injected  # view injected pkg
+pipx list --short  # view top-level pkg https://github.com/pipxproject/pipx/issues/390
+```
+* install into tmp env (like Nix) https://pipx.pypa.io/stable/#walkthrough-running-an-application-in-a-temporary-virtual-environment
+* _inject_: add lib to CLI's env `pipx inject visidata psycopg2` https://jacobian.org/2019/nov/11/python-environment-2020/ https://pipxproject.github.io/pipx/examples/#pipx-inject-example 🗄 `html-css/drafts/dev/pipx-psycopg2.md`
+```sh
+pipx install visidata
+pipx inject visidata psycopg2
+```
+
+INSTALLATION / FS
 * install: Homebrew, pip https://pipx.pypa.io/stable/installation/ https://stackoverflow.com/a/70636663 https://packaging.python.org/en/latest/guides/installing-stand-alone-command-line-tools/
 ```sh
 python3 -m pip install --user pipx
@@ -799,26 +812,12 @@ python3 -m pipx ensurepath
 ```
 * config file: `~/Library/Application Support/pipx`
 * venvs: `~/Library/Application Support/pipx/venvs`
-* use in tmp env (like Nix) https://pipx.pypa.io/stable/#inject-a-package
-* _inject_: add lib to CLI's env `pipx inject visidata psycopg2` https://jacobian.org/2019/nov/11/python-environment-2020/ https://pipxproject.github.io/pipx/examples/#pipx-inject-example 🗄 `html-css/drafts/dev/pipx-psycopg2.md`
-```sh
-pipx install visidata
-pipx inject visidata psycopg2
-```
 
 GLOBAL DEPENDENCIES
 * _global dependency_: something you'd use as a CLI (pipenv, AWS) https://jacobian.org/2018/feb/21/python-environment-2018/
 * can always just use pip for user or even global install
-
----
-
-* freeze https://github.com/pipxproject/pipx/issues/109
-* list pkgs like brew `leaves` https://github.com/pipxproject/pipx/issues/390
-* wanted to switch Python-based Homebrew packages (asciinema, httpie, litecli, pgcli, ranger, youtube-dl) but ran into issue w/ youtube-dl, ddgr https://github.com/pipxproject/pipx/issues/232 https://github.com/jarun/ddgr/issues/66 https://stackoverflow.com/a/42098127/6813490 googler worked with Homebrew
-* when Python version upgrades it might lose track of the envs and you'll have to reinstall everything https://pythonbytes.fm/episodes/show/127/that-python-code-is-on-fire @ 14:00
-
-GLOBAL DEPENDENCIES
 * why: system Python no longer exposed https://news.ycombinator.com/item?id=29238700
+* why not homebrew: when Python version upgrades it might lose track of the envs and you'll have to reinstall everything https://pythonbytes.fm/episodes/show/127/that-python-code-is-on-fire [14:00]
 * how it works: `bin` symlinks to + script w/ shebang line scoped to local venv https://stackoverflow.com/a/30541898/6813490 https://pythonbytes.fm/episodes/show/123/time-to-right-the-py-wrongs
 
 ### Poetry
