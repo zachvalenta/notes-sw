@@ -690,7 +690,7 @@ can also use to delete lines https://vimtricks.substack.com/p/vimtrick-remove-li
 
 NEOVIM SETUPS
 > this one with NvChad https://www.youtube.com/watch?v=4BnVeOUeZxc https://www.youtube.com/watch?v=6pAG3BHurdM
-> try these if nothing else works https://www.youtube.com/watch?v=gnupOrSEikQ https://www.youtube.com/watch?v=x__SZUuLOxw
+> try these if nothing else works https://www.youtube.com/watch?v=gnupOrSEikQ https://www.youtube.com/watch?v=x__SZUuLOxw https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn
 * _Astro_: 12k stars; strong maintainer https://github.com/mehalter https://github.com/AstroNvim/AstroNvim
 * _LazyVim_: 15k stars https://www.lazyvim.org/
 * _Lunar_: 17.5k stars; more open issues, heavy setup (req: npm, cargo, rg) https://www.lunarvim.org/

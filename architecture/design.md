@@ -45,6 +45,7 @@ SEMANTICS
 * https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/videos
 
 ZA
+* https://tonsky.me/blog/crdt-filesync/
 * https://blog.pecar.me/faster-api
 * https://roadmap.sh/backend
 * https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/videos

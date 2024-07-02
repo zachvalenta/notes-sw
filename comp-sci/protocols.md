@@ -129,6 +129,7 @@ https://lucumr.pocoo.org/2014/1/5/unicode-in-2-and-3/
 # 🗃️ FILE FMT
 
 QUERY TOOLS
+* _qq_: https://github.com/JFryy/qq
 * https://github.com/simonw/sqlite-utils
 * https://github.com/harelba/q
 * https://github.com/multiprocessio/dsq

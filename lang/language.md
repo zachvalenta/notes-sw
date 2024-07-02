@@ -303,7 +303,7 @@ ZA
 * _C++_: https://ccc.codes/ https://github.com/green7ea/cpp-compilation http://esr.ibiblio.org/?p=7724 people hate C++ https://news.ycombinator.com/item?id=33436268 https://borretti.me/article/simplicity-and-survival https://news.ycombinator.com/item?id=34588340 https://news.ycombinator.com/item?id=34643530
 * _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805
 * with Alpine https://news.ycombinator.com/item?id=34365515
-* _Haskell_: https://haskellbook.com/
+* _Haskell_: https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
 * _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/  https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
@@ -586,9 +586,15 @@ id(counter)  # 4304845312
 
 ## pointers
 
-* _pointer_: obj storing a memory address https://nullprogram.com/blog/2019/06/30/ https://boredzo.org/pointers/#definition https://www.alexedwards.net/blog/a-gentle-introduction-to-pointers
+* a memory address https://nullprogram.com/blog/2019/06/30/
+* _thin pointer_: takes up space of one unsigned int https://users.rust-lang.org/t/thin-pointers-fat-pointers-alignment-oh-my/50261
+* _fat pointer_: takes up space of two unsigned ints, extra int stores length (e.g. Go slice) https://nullprogram.com/blog/2019/06/30/ https://stackoverflow.com/a/57754902
 
 ---
+
+obj storing a memory address https://nullprogram.com/blog/2019/06/30/ https://boredzo.org/pointers/#definition https://www.alexedwards.net/blog/a-gentle-introduction-to-pointers
+
+pointer arithmetic https://nullprogram.com/blog/2019/06/30/
 
 * https://golangweekly.com/link/147076/web
 * https://www.youtube.com/watch?v=mqH21m0MsWk
@@ -911,7 +917,10 @@ ZA
 
 ## functions
 
-🗄 stacks
+* _caller_: calls
+* _callee_: is called https://nullprogram.com/blog/2019/06/30/
+
+---
 
 SEMANTICS https://realpython.com/python-pass-by-reference/#defining-pass-by-reference
 * _function_: returns single obj https://www.youtube.com/watch?v=EnSu9hHGq5o 14:30

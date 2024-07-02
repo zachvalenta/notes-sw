@@ -197,6 +197,7 @@ PROMPTS https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sim
 
 ---
 
+* structured output https://news.ycombinator.com/item?id=40713952
 * https://notebooklm.google/
 * Claude https://www.anthropic.com/ https://x.com/AnthropicAI/status/1803790681971859473
 * https://news.ycombinator.com/item?id=40441945

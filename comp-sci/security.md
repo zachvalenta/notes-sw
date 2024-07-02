@@ -383,13 +383,15 @@ tracking w/ cookies
 
 🗄 `django.md` users
 
+---
+
+generate https://github.com/oleiade/motus
+
 workflow https://robertheaton.com/2019/08/12/programming-projects-for-advanced-beginners-user-logins/
 * how to validate registration: to prevent the waste of maintaining empty accounts https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/ to prevent someone from accidentally reigstering wrong email and inadvertently giving someone access to their account [email - 'new feedback message']
 * how to store: hash them https://cloud.google.com/blog/products/gcp/12-best-practices-for-user-account
 * _change_: update for logged-in user
 * _reset_: update for user who cannot login 📙 Osborn 1.10
-
----
 
 * GPG https://www.youtube.com/watch?v=1vVIpIvboSg
 * pwgen https://www.youtube.com/watch?v=G3aH2WYJxGA

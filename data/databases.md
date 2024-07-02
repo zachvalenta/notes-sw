@@ -44,19 +44,6 @@ OLAP
 * model: maybe non-relational 📙 Kleppmann [93,101]
 * consumers: DBA, BI, ML https://softwareengineeringdaily.com/2021/07/14/data-science-on-aws-implementing-ai-and-ml-pipelines-on-aws-with-chris-fregly/
 
-DATASETS
-* general: https://ourworldindata.org/ https://www.wikidata.org/ https://datasetsearch.research.google.com/ https://www.kaggle.com/datasets https://datausa.io/ https://www.splitgraph.com/
-* art https://news.ycombinator.com/item?id=28445761
-* baseball https://jamesrledoux.com/projects/open-source/introducing-pybaseball/ https://www.thedrummeyangle.com/post/an-introduction-to-pybaseball-using-python-to-analyze-baseball-data https://www.datacamp.com/tutorial/scikit-learn-tutorial-baseball-1
-* census https://www.ipums.org/
-* finance: https://github.com/ranaroussi/yfinance
-* housing: https://www.zillow.com/research/data/
-* India https://www.dataforindia.com/
-* literature: ratings http://fastml.com/goodbooks-10k-a-new-dataset-for-book-recommendations/ https://github.com/zygmuntz/goodbooks-10k https://bookbrainz.org/ text http://www.jessamyn.com/barth/index.html https://en.wikisource.org/ https://news.ycombinator.com/item?id=1394077
-* music: https://musicbrainz.org/
-* population: https://simplemaps.com/data
-* scientific: https://news.ycombinator.com/item?id=27365755
-
 DATA ENGINEERING
 * data engineer = shepard (ETL) librarian (catalog) https://www.youtube.com/watch?v=qqlbYDfqeI4 1:45
 > But if data analytics usually means extracting insights from existing data, data engineering means the process of building infrastructure to deliver, store and process the data. https://khashtamov.com/en/how-to-become-a-data-engineer/
@@ -130,6 +117,20 @@ TOOLS
 * used for ML https://tech.marksblogg.com/is-hadoop-dead.html
 * kinda part of Hadoop, kinda not https://tech.marksblogg.com/is-hadoop-dead.html
 > At some point, the Spark community tried to distance itself from the Hadoop ecosystem. They didn't want to be seen as built on legacy software nor as some sort of "add-on" for Hadoop. Given the level of integration, Spark has with the rest of the Hadoop ecosystem and given the 100s of libraries from other Hadoop projects being used by Spark I don't subscribe to the belief that Spark is its own thing.
+
+## datasets
+
+* general: https://ourworldindata.org/ https://www.wikidata.org/ https://datasetsearch.research.google.com/ https://www.kaggle.com/datasets https://datausa.io/ https://www.splitgraph.com/
+* art https://news.ycombinator.com/item?id=28445761
+* baseball https://jamesrledoux.com/projects/open-source/introducing-pybaseball/ https://www.thedrummeyangle.com/post/an-introduction-to-pybaseball-using-python-to-analyze-baseball-data https://www.datacamp.com/tutorial/scikit-learn-tutorial-baseball-1
+* census https://www.ipums.org/
+* finance: https://github.com/ranaroussi/yfinance
+* housing: https://www.zillow.com/research/data/
+* India https://www.dataforindia.com/
+* literature: ratings http://fastml.com/goodbooks-10k-a-new-dataset-for-book-recommendations/ https://github.com/zygmuntz/goodbooks-10k https://bookbrainz.org/ text http://www.jessamyn.com/barth/index.html https://en.wikisource.org/ https://news.ycombinator.com/item?id=1394077
+* music: https://musicbrainz.org/ https://www.kaggle.com/datasets/nolanbconaway/24169-pitchfork-reviews/data
+* population: https://simplemaps.com/data
+* scientific: https://news.ycombinator.com/item?id=27365755
 
 ## DBA
 
@@ -241,6 +242,7 @@ TOOLS
 * _Airbyte_: pull from data source https://www.youtube.com/watch?v=l48zwwRSGeA
 * workflow https://www.youtube.com/watch?v=qqlbYDfqeI4 11:00-11:15
 * plain text vs. crappy GUI tools for analysts https://www.youtube.com/watch?v=M8oi7nSaWps 5:45 https://www.youtube.com/watch?v=qqlbYDfqeI4 9:40
+* _amphi_: https://news.ycombinator.com/item?id=40723356
 * _DLT_: https://github.com/dlt-hub/dlt
 * _DBT_: tool for transforms https://www.youtube.com/watch?v=l48zwwRSGeA 6:15 https://news.ycombinator.com/item?id=33846087
 * create views via ETL in Snowflake (at UM)

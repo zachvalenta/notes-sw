@@ -47,10 +47,7 @@ NEXT 🗄️ `something`
 
 RECENT
 * denv
-* https://github.com/oleiade/motus
-* https://github.com/Textualize/frogmouth
-* https://github.com/bloznelis/typioca
-* seg fault https://github.com/tconbeer/harlequin/issues?q=fault
+* dot
 
 CLEAN UP
 * jrnl
@@ -68,10 +65,6 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 * https://github.com/zachvalenta/dotfiles/blob/master/.bashrc#L9
 * https://github.com/Canop/broot/issues/86#issuecomment-573197384
 * https://dystroy.org/broot/install-br/
-
-NEOVIM
-* set up basic config on mini23 https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn
-* blow everything away and try pre-installed config like Lazy, Lunar, et al.
 
 ## skills
 

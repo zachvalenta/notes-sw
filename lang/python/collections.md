@@ -137,7 +137,7 @@ list_of_dict = [
 
 ## iterables
 
-https://realpython.com/python-iterators-iterables/
+https://realpython.com/python-iterators-iterables/ https://www.youtube.com/watch?v=DcCt0dA6q1Q
 
 ITERABLE
 * _iterable_: 1) impl `__iter__` 2) where `__iter__` returns iterator https://www.youtube.com/watch?v=EnSu9hHGq5o 23:45
@@ -197,7 +197,10 @@ for n in Count():
 
 ## generators
 
+https://docs.python.org/3/tutorial/classes.html#iterators
 https://www.youtube.com/watch?v=tmeksb2fras
+https://docs.python.org/3/library/inspect.html#inspect.isgenerator
+https://docs.python.org/3/library/inspect.html#current-state-of-generators-coroutines-and-asynchronous-generators
 
 * _generator_: https://realpython.com/introduction-to-python-generators/ 🗄 `language.md` functions
 * https://www.fluentpython.com/lingo/#generator https://docs.python.org/3/glossary.html#index-19 https://tushar.lol/post/recursive-generators/

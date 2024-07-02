@@ -607,6 +607,7 @@ UI
 * i.e. command line + viewport (previous cmd, output)
 * get current terminal `echo $TERM_PROGRAM` https://github.com/dylanaraps/neofetch/wiki/Terminal-and-Terminal-Font-detection
 * handles font, colors https://hacker-tools.github.io/command-line/ https://wizardzines.com/comics/terminals/
+* color support https://github.com/apparebit/prettypretty
 * "emulator" bc original terminals were hw connected to mainframe https://news.ycombinator.com/item?id=23320090
 * _multiplexer_: window manager + session mgmt for terminal 📙 Hogan [x]
 * multiplexers w/out sessions e.g. dvtm

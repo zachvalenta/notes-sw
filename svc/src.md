@@ -471,6 +471,7 @@ https://github.com/piku/piku
 APPLICATION CONFIG
 * env files: https://snarky.ca/use-toml-for-env-files/
 * https://direnv.net/
+* _dotenv_: https://dotenvx.com/blog/2024/06/24/dotenvx-next-generation-config-management.html
 
 DEPLOYMENT
 * taxonomy: yolo (edit on server) FTP (edit on local, push to server) SCM (SSH to sever and pull repo, maybe use cron) CICD (triggered by repo hook https://dagger.io/) https://css-tricks.com/deployment/

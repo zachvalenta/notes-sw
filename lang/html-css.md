@@ -315,6 +315,9 @@ FILE FMT https://practicaltypography.com/triplicate.html
 
 ## features
 
+https://danilafe.com/blog/blog_microfeatures/
+https://kylascanlon.com/
+
 CONTENT
 * main
 * blog
@@ -396,8 +399,10 @@ PARSERS
 * _goldmark_: https://github.com/yuin/goldmark
 * HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown
 
-VIEWERS
-* _Frogmouth_: https://github.com/Textualize/frogmouth
+RENDER
+* mdcat
+* rich https://rich.readthedocs.io/en/latest/markdown.html
+* https://github.com/Textualize/frogmouth
 
 ---
 
