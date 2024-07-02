@@ -20,7 +20,7 @@ TAXONOMY https://en.wikipedia.org/wiki/Exploratory_programming
 * Magma = highlight code blocks and exec in Jupyter https://github.com/dccsillag/magma-nvim
 * Org Mode = exec code snippets
 * _db CLI_: REPL to db 🗄️ `databases.md` CLI
-* _object explorer_: REPL + autocomplete print docstrings https://github.com/darrenburns/shira
+* _object explorer_: REPL + autocomplete + print docstrings https://github.com/darrenburns/shira
 * _debugger_: REPL + running program state
 * _notebook_: REPL + presentation layer + persistent data
 * _spreadsheet_: proprietary notebook https://www.youtube.com/watch?v=llgTl9BDuKw
@@ -180,66 +180,38 @@ ZA
 
 🗄 `python/stdlib.md` logging
 
-ZA
-* features: code completion, syntax highlighting, readline, obj explorer
-* BYO using `code.InteractiveConsole()` https://bernsteinbear.com/blog/simple-python-repl/
+STARTUP 📜 https://docs.python.org/3/tutorial/appendix.html#the-interactive-startup-file
+* silence version info: `python -q`
+* load module: `$REPL -i $MODULE` https://stackoverflow.com/a/14244342 https://stackoverflow.com/a/56844640
+* startup file: default `~/.pythonstartup` env var `export PYTHONSTARTUP='$DOT_DIR/python/python_startup.py'` https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://github.com/zachvalenta/algo-sandbox/blob/master/Makefile#L28 https://github.com/zachvalenta/dotfiles-mini23/blob/main/shell/.zprofile#L183
+* list user-defined modules https://github.com/zachvalenta/algo-sandbox/commit/3ab6b3d8b4bcbf1ad7548c14f62958e5f88c75e1 https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
 
-BPYTHON
+INSPECT 📜 https://docs.python.org/3/library/inspect.html
+```python
+getsource(obj)  # view src code https://stackoverflow.com/a/1562795
+getfile(obj)  # filepath where obj defined
+obj.__class__.__mro__  # view inheriance hierarchy
+```
+
+IPYTHON 📜 https://github.com/ipython/ipython
+* why: 📍 Rich integration, Catpuccin theme, autocomplete, history, ipdb, magic func https://github.com/ipython/ipython?tab=readme-ov-file#alternatives-to-ipython https://docs.python.org/3/tutorial/interactive.html#alternatives-to-the-interactive-interpreter https://realpython.com/ptpython-shell/#highlighting-code-syntax
+* install using pip into global pyenv interpreter
+* config: `dotfiles/python/ipython_config.py`
+
+BPYTHON 📜 https://github.com/bpython/bpython
 * undo `CTRL r`
 * autocomplete `CTRL f/e`
+* no themes https://docs.bpython-interpreter.org/en/latest/themes.html https://realpython.com/bpython-alternative-python-repl/#color-themes
 
-UTIL
-* `PYTHONSTARTUP`: load helper module https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://github.com/zachvalenta/algo-sandbox/blob/master/Makefile#L28 https://github.com/zachvalenta/dotfiles-mini23/blob/main/shell/.zprofile#L183
-> improvement? https://github.com/sloria/konch
-* `$REPL -i $MODULE`: load main module https://stackoverflow.com/a/14244342 https://stackoverflow.com/a/56844640
+ZA
+* cant reload? https://news.ycombinator.com/item?id=34865421
+* features: code completion, syntax highlighting, readline, obj explorer
+* BYO using `code.InteractiveConsole()` https://bernsteinbear.com/blog/simple-python-repl/ https://news.ycombinator.com/item?id=34865421
 
 ---
 
-track state https://github.com/saurabh0719/constable
-
-UTIL
-> pretty print, cmds, reload
-* surface cmd from `PYTHONSTARTUP` https://news.ycombinator.com/item?id=34865421
-* `locals`, `globals`, `dir` https://stackoverflow.com/a/21961813/6813490
-* Rich https://github.com/Textualize/rich catpuccin integration? https://github.com/catppuccin/python/issues/3 https://github.com/catppuccin/python/issues/4 https://github.com/catppuccin/python/issues/22
-> inspect https://news.ycombinator.com/item?id=29947891 https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/
-* 🗄️ `stdlib.md` IO
-
-STACK TRACES 🗄️ stdlib/profiling
-* hide https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
-* fmt https://martinheinz.dev/blog/96
-* traceback https://martinheinz.dev/blog/66
-
-BPYTHON
-* config https://github.com/bpython/bpython/blob/a12d339e1a0bdca726d439ed1231f3f2ca993eac/bpython/sample-config
-* do other REPLs have object explorers? https://realpython.com/ptpython-shell/
-
-pyclbr https://www.pythonmorsels.com/cli-tools/
-
-INIT
-* sink https://arpitbhayani.me/blogs/python-prompts https://github.com/bpython/bpython/blob/ae4a502a443e024bd82ed1a7b88adf8be2068a2c/doc/sphinx/source/django.rst https://github.com/bpython/bpython/search?q=PYTHONSTARTUP&unscoped_q=PYTHONSTARTUP https://stackoverflow.com/a/14244310 https://stackoverflow.com/a/34774703
-* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged
-* history: save https://stackoverflow.com/a/33880964 readline error manifests in garbled cmd history (have only seen when setting breakpoint in Flask) https://stackoverflow.com/a/3486617
-
-* https://docs.python.org/3/tutorial/interpreter.html
-* https://docs.python.org/3/tutorial/interactive.html
-* https://docs.python.org/3/tutorial/appendix.html#interactive-mode
-> importlib? non-breakpoint pdb modes?
-* preload: pipx inject
-> is there a way we could namespace these i.e. one for networking, for CLI dev? https://pipxproject.github.io/pipx/examples/#pipx-inject-example
-* reload src: point is to avoid continual exit/rerun https://news.ycombinator.com/item?id=23793054 https://mikelevins.github.io/posts/2020-12-18-repl-driven/
-* history https://stackoverflow.com/a/4289945
-
 IPYTHON 📜 https://ipython.readthedocs.io/en/stable/index.html 🔗 https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html https://realpython.com/ipython-interactive-python-shell/
-* why: ipdb, magic func
-* install
-```bash
-fd ipyth
-dotfiles/python/ipython_config.py
-logs/pyenv/pip/ipython.log
-logs/pyenv/pipx/ipython.log
-```
-* catpuccin for stdout https://github.com/catppuccin/python/issues/22
+* catpuccin for theme https://github.com/catppuccin/python/issues/22 https://github.com/ipython/ipython/blob/a499dbd507a92ea0087eca0f53e550fc838f0580/IPython/terminal/interactiveshell.py#L683 https://github.com/catppuccin/python?tab=readme-ov-file#ipython https://github.com/catppuccin/python/issues/3 https://github.com/catppuccin/python/issues/4
 * command
 ```python
 # run iPython and debug at site of error https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/ https://stackoverflow.com/a/21508070
@@ -265,8 +237,28 @@ pp
 * relationship to shell https://jakevdp.github.io/PythonDataScienceHandbook/01.05-ipython-and-shell-commands.html
 * tab to view obj attr https://stackoverflow.com/q/41812447
 
-# 🤖 INTERPRETER
+STARTUP
+* sink https://arpitbhayani.me/blogs/python-prompts https://github.com/bpython/bpython/blob/ae4a502a443e024bd82ed1a7b88adf8be2068a2c/doc/sphinx/source/django.rst https://github.com/bpython/bpython/search?q=PYTHONSTARTUP&unscoped_q=PYTHONSTARTUP https://stackoverflow.com/a/14244310 https://stackoverflow.com/a/34774703
+* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged
+* reload src: point is to avoid continual exit/rerun https://news.ycombinator.com/item?id=23793054 https://mikelevins.github.io/posts/2020-12-18-repl-driven/
+* history: save https://stackoverflow.com/a/33880964 readline error manifests in garbled cmd history (have only seen when setting breakpoint in Flask) https://stackoverflow.com/a/3486617
 
+ZA
+* https://github.com/sloria/konch
+* track state https://github.com/saurabh0719/constable
+* `locals`, `globals`, `dir` https://stackoverflow.com/a/21961813/6813490
+* inspect https://news.ycombinator.com/item?id=29947891 https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/
+* pyclbr https://www.pythonmorsels.com/cli-tools/
+* 🗄️ `stdlib.md` IO
+
+STACK TRACES 🗄️ stdlib/profiling
+* hide https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
+* fmt https://martinheinz.dev/blog/96
+* traceback https://martinheinz.dev/blog/66 https://docs.python.org/3/library/inspect.html#inspect.istraceback
+* https://docs.python.org/3/library/inspect.html#the-interpreter-stack
+* history https://stackoverflow.com/a/4289945
+
+# 🤖 INTERPRETER
 
 ---
 
@@ -369,6 +361,8 @@ CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-g
 📰 https://www.pythonmorsels.com/cli-tools/
 
 ```sh
+#!/usr/bin/env python3 https://docs.python.org/3/tutorial/appendix.html#executable-python-scripts
+
 python $MODULE  # exec module https://realpython.com/run-python-scripts
 python -i $MODULE  # enter pdb after exec https://docs.python.org/3/using/cmdline.html#cmdoption-i
 python -m $LIB $CMD  # exec lib cmd https://docs.python.org/3/using/cmdline.html#cmdoption-m
@@ -952,6 +946,7 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 ---
 
 start here https://www.youtube.com/watch?v=ftmdDlwMwwQ https://www.youtube.com/watch?v=X7vBbelRXn0
+coroutine https://docs.python.org/3/glossary.html#term-coroutine-function
 https://martinheinz.dev/blog/97
 https://higherorderco.com/
 https://www.amazon.com/gp/product/1492055026
@@ -1078,6 +1073,9 @@ NAMING
 * _modules_: start w/ letter or underscore
 * _pkg_: all seem to use hyphens instead of underscores https://stackoverflow.com/a/36611371
 * case is significant https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles
+
+ZA
+* pkgutil https://docs.python.org/3/library/pkgutil.html https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
 
 ----
 
