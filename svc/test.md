@@ -11,6 +11,112 @@
 * _17_: integration test suite using Selenium
 * _16_: basics at Zip Code
 
+# 🧪 APPROACHES
+
+## BDD
+
+* origins: RSpec, Cucumber https://martinfowler.com/bliki/GivenWhenThen.html https://martinfowler.com/bliki/BusinessFacingTest.html
+* _step_: line of human readable text corresponding to step definition (code)
+* _scenario_: collection of steps
+* _feature_: collection of scenarios
+* keywords: given (preconditions) when (start) and (intermediate steps) then (assertion)
+* be declarative, not imperative https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Imperative+v.+Declarative+Testing+Scenarios
+```text
+# THIS
+Given I am on the Login Page
+When I sign in with correct credentials
+Then I should see a welcome message
+
+# NOT THIS
+* Given I open a browser
+* And I navigate to http://example.com/login
+* When I type in the username field bob97
+* And I type in the password field F1d0
+* And I click on Submit button
+* Then I should see the message Welcome Back Bob
+```
+
+## formal methods (TLA+)
+
+https://en.wikipedia.org/wiki/TLA%2B
+https://nchammas.com/writing/how-not-to-die-hard-with-hypothesis
+https://en.wikipedia.org/wiki/Automated_theorem_proving
+smt https://en.wikipedia.org/wiki/Satisfiability_modulo_theories https://github.com/philzook58/knuckledragger
+
+* _formal methods_: use algebra for testing instead of all possible values; aka automated reasoning
+> Automated-reasoning tools can be incredibly fast, even when the domains are infinite (e.g., unbounded mathematical integers rather than finite C ints). Unfortunately, the tools may answer "Don’t know" in some instances.
+```c
+// QUESTION: could f ever return false?
+bool f(unsigned int x, unsigned int y) {
+   return (x+y == y+x);
+}
+
+// ALGEBRA PROOF: that x + y = y + x -> f always returns true
+
+// TESTING PROOF: call f on all possible pairs of values of the type unsigned int
+// UINT_MAX typically 4B = 20 quintillion f calls to consider = need 1500 years
+void main() {
+   for (unsigned int x=0;1;x++) {
+      for (unsigned int y=0;1;y++) {
+         if (!f(x,y)) printf("Error!\n");
+         if (y==UINT_MAX) break;
+      }
+      if (x==UINT_MAX) break;
+   }
+}
+```
+
+* characterization, snapshot, golden-master https://news.ycombinator.com/item?id=23268911
+
+TLA+
+* https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2 Pact, contract testing https://www.thoughtworks.com/radar/tools?blipid=202110074 Jepsen https://news.ycombinator.com/item?id=38525968&utm_term=comment https://tratt.net/laurie/blog/2024/what_factors_explain_the_nature_of_software.html
+
+## fuzz
+
+* provide random input, see what breaks https://www.fuzzingbook.org/ https://github.com/ffuf/ffuf https://github.com/google/atheris https://blog.burntsushi.net/projects/ https://github.com/ffuf/ffuf https://bitfieldconsulting.com/golang/bugs-fuzzing
+> generally used to test software that parses complex inputs that follow a particular format, protocol, or are otherwise structured...from a security standpoint, fuzzing is also used to uncover security vulnerabilities in programs that parse inputs from untrusted sources (e.g. the internet). Fuzzing for long periods without any bugs being reported increases the confidence in the stability of the code. However, no amount of Fuzzing can guarantee an absence of bugs in the code...fuzzing is a good candidate for some classes of software, especially ones that include networking protocols, file formats, and query languages. These software classes require input to follow a strictly defined format adhering to the specifications defined in an RFC/IETF, a standard, formal grammar, or finite state machine. https://dgraph.io/blog/post/continuous-fuzzing-with-go/
+* cousin to chaos engineering https://en.wikipedia.org/wiki/Chaos_engineering
+> Google runs Disaster Recovery Training annually (DiRT) where security teams are tasked with simulating these "black swan" events. Seems like this practice needs to expand to more industries. https://news.ycombinator.com/item?id=34149340
+
+## mutation
+
+* change src and see if tests detect https://github.com/mutpy/mutpy
+> Mutation testers modify (mutate) your project code in small ways, then run your test suite. If the tests all pass, then that mutation is considered a problem: a bug that your tests didn’t catch. The theory is that a mutation will change the behavior of your program, so if your test suite is testing closely enough, some test should fail for each mutation. If a mutation doesn’t produce a test failure, then you need to add to your tests. There are a few problems with this plan. The first is that it is time-consuming. Most people feel like it takes too long to run their entire test suite just once. Mutation testers run the whole suite once for each mutation, and there can be thousands of mutations. But my larger concern is false positives: not all mutations are bugs, and if the mutation tester reports too many non-bugs as bugs, then its usefulness is diminished or even negated. https://nedbatchelder.com/blog/201903/mutmut.html
+* seems like just coverage? https://blog.scottlogic.com/2017/09/25/mutation-testing.html https://rachelcarmena.github.io/2017/09/01/do-we-have-a-good-safety-net-to-change-this-legacy-code.html
+
+## property-based
+
+* test case doesn't use example data (supplied by engineer) but random data (based on type) https://florian-dahlitz.de/blog/test-your-python-code-using-hypothesis
+> Of course, you can write more tests to test both functions with different values or even parametrize your tests. However, in the end, you test both functions using predefined values. Writing tests using a property-based testing library like Hypothesis is different. Here, you specify the types you are testing against and the way the software should work or behave. The library then generates random values in accordance with the specified types to actually test the functions. Thereby, you won't miss edge cases as they are tested once in a while. https://florian-dahlitz.de/articles/test-your-python-code-using-hypothesis
+> At its simplest, property-based testing is the inverse of normal unit testing. Instead of providing some amount of data and a transformation so the computer can assert a property, you provide a property and a transformation, so the computer can provide some data. https://bytes.yingw787.com/posts/2021/02/02/property_based_testing/
+> Testing-by-example (as opposed to property-based testing) is based on the programmer coming up with examples of inputs and asserting that when given those inputs the program produces the right outputs - or at least - the right sort of outputs. https://calpaterson.com/against-database-teardown.html
+```python
+# UNIT TESTING - YOU PROVIDE THE DATA
+def test_addOne():
+    assert addOne(5) == 6
+
+# PROPERTY TESTING - YOU JUST MAKE THE ASSERTION
+@given(st.integers())
+def test_addOne(_input):
+    assert addOne(_input) == _input + 1
+```
+
+ZA
+> If we have a function that operates on data and have a hard time figuring out what to test, hypothesis is a great library that can help. Rather than explicitly state the exact objects you want to run through a test, hypothesis generates examples of inputs that follow certain properties you define. https://www.peterbaumgartner.com/blog/testing-for-data-science/
+* https://nchammas.com/writing/how-not-to-die-hard-with-hypothesis
+* https://github.com/pandera-dev/pandera
+* https://pandera.readthedocs.io/en/stable/hypothesis.html#hypothesis 
+* https://increment.com/testing/in-praise-of-property-based-testing/
+* https://datascience.blog.wzb.eu/2019/11/08/property-based-testing-for-scientific-code-in-python/
+* https://www.youtube.com/playlist?list=PLP1DxoSC17LZTTzgfq0Dimkm6eWJQC9ki
+* https://www.hillelwayne.com/post/property-testing-complex-inputs/
+* using API schemas https://www.youtube.com/watch?v=1lo7idI7uq8
+* https://github.com/schemathesis/schemathesis
+* https://www.youtube.com/watch?v=uN6JjpzVsAo&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=71
+* https://nchammas.com/writing/how-not-to-die-hard-with-hypothesis
+* https://semaphoreci.com/blog/property-based-testing-python-hypothesis-pytest
+* https://github.com/flyingmutant/rapid
+
 # 🕳️ INTEGRATION
 
 ## API
@@ -47,10 +153,15 @@ class HelloWorldUser(HttpUser):
 ---
 
 * visual diff https://css-tricks.com/video-screencasts/178-percy-catches-visual-changes-in-any-workflow/
-* browser automation: JS (Cypress, https://github.com/puppeteer/puppeteer, Selenium) Python https://github.com/microsoft/playwright-python https://talkpython.fm/episodes/show/368/end-to-end-web-testing-with-playwright https://github.com/golemhq/golem https://github.com/danclaudiupop/robox
 * view user flow, Chrome recorder panel https://developer.chrome.com/docs/devtools/recorder/ https://www.thoughtworks.com/radar/tools?blipid=202203004
 * capture disappearing element https://stackoverflow.com/a/38783090/6813490
 * cross browser https://www.browserling.com/
+
+BROWSER AUTOMATION
+* _Cypress_: https://github.com/cypress-io/cypress
+* _Puppeteer_: https://github.com/puppeteer/puppeteer https://switowski.com/blog/web-automation/
+* _Selenium_: https://github.com/SeleniumHQ/selenium
+* _Playwright_: https://github.com/microsoft/playwright-python https://talkpython.fm/episodes/show/368/end-to-end-web-testing-with-playwright
 
 ## db
 
@@ -62,7 +173,7 @@ class HelloWorldUser(HttpUser):
 ---
 
 * _dummy data_: fake/seed data for development https://github.com/zachvalenta/flask-CRUD/blob/master/db_seed.py https://github.com/joke2k/faker#providers https://mimesis.name/ https://mockaroo.com/ https://github.com/Qovery/replibyte
-* _synthetic data_: real data but anonymized https://softwareengineeringdaily.com/2021/02/16/synthetic-data-with-ian-coe-andrew-colombi-and-adam-kamor/ https://gretel.ai/blog/what-is-synthetic-data
+* _synthetic data_: real data but anonymized https://softwareengineeringdaily.com/2021/02/16/synthetic-data-with-ian-coe-andrew-colombi-and-adam-kamor/ https://gretel.ai/blog/what-is-synthetic-data https://github.com/GreenmaskIO/greenmask
 
 https://www.semicolonandsons.com/
 * lots of test data https://gogognome.nl/how-to-write-tests-that-need-a-lot-of-data.html https://sqlfordevs.com/fill-table-test-data
@@ -99,90 +210,6 @@ TEST TYPES
 * _integration test_: uses IO (fs, network), db, another app; two flavors (API-only, UI + API)
 * _smoke test_: integration that tests something basic
 * _regression test_: prod data
-
-## approaches
-
-FUZZ
-* provide random input, see what breaks https://www.fuzzingbook.org/ https://github.com/ffuf/ffuf https://github.com/google/atheris https://blog.burntsushi.net/projects/ https://github.com/ffuf/ffuf https://bitfieldconsulting.com/golang/bugs-fuzzing
-> generally used to test software that parses complex inputs that follow a particular format, protocol, or are otherwise structured...from a security standpoint, fuzzing is also used to uncover security vulnerabilities in programs that parse inputs from untrusted sources (e.g. the internet). Fuzzing for long periods without any bugs being reported increases the confidence in the stability of the code. However, no amount of Fuzzing can guarantee an absence of bugs in the code...fuzzing is a good candidate for some classes of software, especially ones that include networking protocols, file formats, and query languages. These software classes require input to follow a strictly defined format adhering to the specifications defined in an RFC/IETF, a standard, formal grammar, or finite state machine. https://dgraph.io/blog/post/continuous-fuzzing-with-go/
-* cousin to chaos engineering https://en.wikipedia.org/wiki/Chaos_engineering
-> Google runs Disaster Recovery Training annually (DiRT) where security teams are tasked with simulating these "black swan" events. Seems like this practice needs to expand to more industries. https://news.ycombinator.com/item?id=34149340
-
-MUTATION
-* change src and see if tests detect https://github.com/mutpy/mutpy
-> Mutation testers modify (mutate) your project code in small ways, then run your test suite. If the tests all pass, then that mutation is considered a problem: a bug that your tests didn’t catch. The theory is that a mutation will change the behavior of your program, so if your test suite is testing closely enough, some test should fail for each mutation. If a mutation doesn’t produce a test failure, then you need to add to your tests. There are a few problems with this plan. The first is that it is time-consuming. Most people feel like it takes too long to run their entire test suite just once. Mutation testers run the whole suite once for each mutation, and there can be thousands of mutations. But my larger concern is false positives: not all mutations are bugs, and if the mutation tester reports too many non-bugs as bugs, then its usefulness is diminished or even negated. https://nedbatchelder.com/blog/201903/mutmut.html
-* seems like just coverage? https://blog.scottlogic.com/2017/09/25/mutation-testing.html https://rachelcarmena.github.io/2017/09/01/do-we-have-a-good-safety-net-to-change-this-legacy-code.html
-
-PROPERTY-BASED
-* test case doesn't use example data (supplied by engineer) but random data (based on type) https://florian-dahlitz.de/blog/test-your-python-code-using-hypothesis
-> Of course, you can write more tests to test both functions with different values or even parametrize your tests. However, in the end, you test both functions using predefined values. Writing tests using a property-based testing library like Hypothesis is different. Here, you specify the types you are testing against and the way the software should work or behave. The library then generates random values in accordance with the specified types to actually test the functions. Thereby, you won't miss edge cases as they are tested once in a while. https://florian-dahlitz.de/articles/test-your-python-code-using-hypothesis
-> At its simplest, property-based testing is the inverse of normal unit testing. Instead of providing some amount of data and a transformation so the computer can assert a property, you provide a property and a transformation, so the computer can provide some data. https://bytes.yingw787.com/posts/2021/02/02/property_based_testing/
-> Testing-by-example (as opposed to property-based testing) is based on the programmer coming up with examples of inputs and asserting that when given those inputs the program produces the right outputs - or at least - the right sort of outputs. https://calpaterson.com/against-database-teardown.html
-```python
-# UNIT TESTING - YOU PROVIDE THE DATA
-def test_addOne():
-    assert addOne(5) == 6
-
-# PROPERTY TESTING - YOU JUST MAKE THE ASSERTION
-@given(st.integers())
-def test_addOne(_input):
-    assert addOne(_input) == _input + 1
-```
-
----
-
-* _formal methods_: use algebra for testing instead of all possible values; aka automated reasoning
-> Automated-reasoning tools can be incredibly fast, even when the domains are infinite (e.g., unbounded mathematical integers rather than finite C ints). Unfortunately, the tools may answer "Don’t know" in some instances.
-```c
-// QUESTION: could f ever return false?
-bool f(unsigned int x, unsigned int y) {
-   return (x+y == y+x);
-}
-
-// ALGEBRA PROOF: that x + y = y + x -> f always returns true
-
-// TESTING PROOF: call f on all possible pairs of values of the type unsigned int
-// UINT_MAX typically 4B = 20 quintillion f calls to consider = need 1500 years
-void main() {
-   for (unsigned int x=0;1;x++) {
-      for (unsigned int y=0;1;y++) {
-         if (!f(x,y)) printf("Error!\n");
-         if (y==UINT_MAX) break;
-      }
-      if (x==UINT_MAX) break;
-   }
-}
-```
-
-* characterization, snapshot, golden-master https://news.ycombinator.com/item?id=23268911
-
-TLA+
-* https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2 https://nchammas.com/writing/how-not-to-die-hard-with-hypothesis hypothesis testing https://github.com/pandera-dev/pandera Pact, contract testing https://www.thoughtworks.com/radar/tools?blipid=202110074 Jepsen https://news.ycombinator.com/item?id=38525968&utm_term=comment https://tratt.net/laurie/blog/2024/what_factors_explain_the_nature_of_software.html
-
-PROPERTY-BASED
-* https://increment.com/testing/in-praise-of-property-based-testing/ https://datascience.blog.wzb.eu/2019/11/08/property-based-testing-for-scientific-code-in-python/ https://www.youtube.com/playlist?list=PLP1DxoSC17LZTTzgfq0Dimkm6eWJQC9ki https://www.hillelwayne.com/post/property-testing-complex-inputs/ using API schemas https://www.youtube.com/watch?v=1lo7idI7uq8 https://github.com/schemathesis/schemathesis https://www.youtube.com/watch?v=uN6JjpzVsAo&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=71 https://nchammas.com/writing/how-not-to-die-hard-with-hypothesis https://semaphoreci.com/blog/property-based-testing-python-hypothesis-pytest https://github.com/flyingmutant/rapid
-
-BDD
-* origins: RSpec, Cucumber https://martinfowler.com/bliki/GivenWhenThen.html https://martinfowler.com/bliki/BusinessFacingTest.html
-* _step_: line of human readable text corresponding to step definition (code)
-* _scenario_: collection of steps
-* _feature_: collection of scenarios
-* keywords: given (preconditions) when (start) and (intermediate steps) then (assertion)
-* be declarative, not imperative https://wiki.saucelabs.com/display/DOCS/Best+Practice%3A+Imperative+v.+Declarative+Testing+Scenarios
-```text
-# THIS
-Given I am on the Login Page
-When I sign in with correct credentials
-Then I should see a welcome message
-
-# NOT THIS
-* Given I open a browser
-* And I navigate to http://example.com/login
-* When I type in the username field bob97
-* And I type in the password field F1d0
-* And I click on Submit button
-* Then I should see the message Welcome Back Bob
-```
 
 ## doubles
 

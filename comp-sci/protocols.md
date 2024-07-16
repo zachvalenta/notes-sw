@@ -126,9 +126,33 @@ https://lucumr.pocoo.org/2014/1/5/unicode-in-2-and-3/
 * unicode, emoji in the terminal https://news.ycombinator.com/item?id=37047785
 > Since the distinction between string and unicode has been done away with in Python 3, __unicode__ is gone and __bytes__ (which behaves similarly to __str__ and __unicode__ in 2.7) exists for a new built-in for constructing byte arrays. https://rszalski.github.io/magicmethods/#appendix2
 
+## UUID
+
+🔗 https://en.wikipedia.org/wiki/Universally_unique_identifier
+
+VERSIONS https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/
+* version 1: generated from timestamp, monotonic counter, and a MAC address
+> don't use
+* version 2: reserved for security IDs with no known details
+* version 3: generated from MD5 hashes of some data you provide; RFC suggests DNS and URLs among the candidates for data.
+> superseded by version 5
+* version 4: generated from entirely random data; this is probably what most people think of and run into with UUIDs.
+> default
+* version 5: generated from SHA1 hahes of some data you proivde; RFC suggests DNS or URLs as candidates for data.
+> if you have your own data you want in the UUID
+* version 6: generated from timestamp, monotonic counter, and a MAC address; same data as Version 1 but they change the order so that sorting them will sort by creation time.
+> don't use
+* version 7: generated from a timestamp and random data.
+> if you're using in a context where you want to be able to sort e.g. database keys
+* version 8: entirely custom (besides the required version/variant fields that all versions contain).
+> if you have your own data you want in the UUID
+
 # 🗃️ FILE FMT
 
+🗄️ `eng.md` munge
+
 QUERY TOOLS
+* https://github.com/julien040/anyquery
 * _qq_: https://github.com/JFryy/qq
 * https://github.com/simonw/sqlite-utils
 * https://github.com/harelba/q
@@ -170,23 +194,26 @@ YAML
 
 ## CSV
 
----
+SEMANTICS
+* _header line_: line with col names https://miller.readthedocs.io/en/latest/glossary/#header-line
+* header not always first line, detection non-trivial https://news.ycombinator.com/item?id=28299015
+* _data line_: line with data https://miller.readthedocs.io/en/latest/customization/
+* _field_: value, either in header line or data line https://miller.readthedocs.io/en/latest/10min/#handling-field-names-with-spaces
 
-https://csvkit.readthedocs.io/en/latest/
-* query https://news.ycombinator.com/item?id=38889820 https://github.com/jqnatividad/qsv
+DESIGN
+* no firm spec https://peps.python.org/pep-0305/#abstract
 * better for streaming bc each line of file is valid CSV (unlike JSON) https://jfhr.me/consider-using-csv/
+* gaining in popularity https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html#fnref:2 
+* some parsers don't impl escaping rules correctly 📙 Kleppmann 4.145
+* comments: no standard from RFC 4180, parser can set https://stackoverflow.com/a/14428538 https://stackoverflow.com/a/1961018
+* TSV as alternative https://news.ycombinator.com/item?id=40622760
+
+TOOLS
+* query https://news.ycombinator.com/item?id=38889820 https://github.com/jqnatividad/qsv
 * bat https://github.com/YS-L/csvlens
 * editor https://www.moderncsv.com/
 * diff https://github.com/aswinkarthik/csvdiff
 * _DSV_: same as `.dat` https://en.wikipedia.org/wiki/Delimiter-separated_values https://www.thoughtspot.com/blog/csv-vs-delimited-flat-files-how-choose
-* no firm spec https://peps.python.org/pep-0305/#abstract
-* gaining in popularity https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html#fnref:2 
-* some parsers don't impl escaping rules correctly 📙 Kleppmann 4.145
-* comments: no standard from RFC 4180, parser can set https://stackoverflow.com/a/14428538 https://stackoverflow.com/a/1961018
-* _header line_: line with col names https://miller.readthedocs.io/en/latest/glossary/#header-line
-* _data line_: line with data https://miller.readthedocs.io/en/latest/customization/
-* _field_: value, either in header line or data line https://miller.readthedocs.io/en/latest/10min/#handling-field-names-with-spaces
-* header not always first line, detection non-trivial https://news.ycombinator.com/item?id=28299015
 
 ## JSON
 
@@ -267,7 +294,11 @@ cat more-subs.json | jq '.[]|select(.num_receipts>0)|select(.is_migrated == true
 
 ---
 
+* https://csvbase.com/blog/3
+* https://r4ds.hadley.nz/arrow#sec-parquet
+* partition elimination https://duckdb.org/2021/12/03/duck-arrow.html
 * https://pythonspeed.com/articles/best-file-format-for-pandas/
+* https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 * _Parquet_: column-oriented file format, like CSV https://www.youtube.com/watch?v=H_dLfHETO0g https://news.ycombinator.com/item?id=35418933 https://news.ycombinator.com/item?id=29010103
 * easier to use now vs. CSV https://news.ycombinator.com/item?id=30595026
 * use to build no-code API https://tech.marksblogg.com/roapi-rust-data-api.html
@@ -420,16 +451,6 @@ BINARY
 * _Capn Proto_: https://capnproto.org/
 * sustainable? https://github.com/capnproto/capnproto/issues/2067
 * _MessagePack_: like BSON https://msgpack.org/ https://neovim.io/ 📙 Kleppmann [4.116]
-
-ARROW
-* in-memory format https://news.ycombinator.com/item?id=29010103 https://github.com/adriangb/pgpq
-> This question comes up quite often. Parquet is a _file_ format, Arrow is a language-independent _in-memory_ format. You can e.g. read a parquet file into a typed Arrow buffer backed by shared memory, allowing code written in Java, Python, or C++ (and many more!) to read from it in a performant way (i.e. without copies). https://news.ycombinator.com/item?id=29010103
-* emerged from Pandas
-> We needed to create a way to represent data that was not tied to a specific programming language. And that could be used for a very efficient interchange between components. And the idea is that you would have this immutable, this kind of constant data structure, which is like it's the same in every programming language. And then you can use that as the basis for writing all of your algorithms. So as long as it's arrow, you have these reusable algorithms that process arrow data. https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
-> Pandas historically persisted string columns as objects, which was wildly inefficient. The new string[pyarrow] column type is around 3.5 times more efficient from what I've seen. https://news.ycombinator.com/item?id=34968769
-* decoupled Panas from numpy
-> While NumPy has been good enough to make pandas the popular library it is, it was never built as a backend for dataframe libraries, and it has some important limitations. https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i
-* used by Polars https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
 
 AVRO
 * serialization format https://avro.apache.org/docs/current/

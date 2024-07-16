@@ -65,10 +65,9 @@ requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
 
 ## build systems (Make)
 
-📙 Meckleberg gnu make https://signalsandthreads.com/build-systems/
-🗄 `system.md` deployment
+🗄 `svc/src.md` deployment
 
-* _build system_: build executables (esp. for C, C++)
+* _build system_: build executables (esp. for C, C++) https://signalsandthreads.com/build-systems/
 * aka task runner, command runner https://github.com/casey/just https://en.wikipedia.org/wiki/List_of_build_automation_software https://github.com/go-task/task
 * dependency graphs, build systems https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
 * analyze dependency graph https://github.com/loov/goda
@@ -79,15 +78,16 @@ TOOLS
 * _Bazel_: Make for FANG https://eng.uber.com/go-monorepo-bazel/ https://github.com/bazelbuild/bazel https://testdriven.io/blog/bazel-builds/ https://www.youtube.com/watch?v=zaymCO1A1dM
 * _cmake_: cross-platform buildfiles https://stackoverflow.com/a/25790020 http://aosabook.org/en/cmake.html
 * _Nx_: https://github.com/nrwl/nx
-* _Just_: ✅ https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529
+* _just_: 🎯 https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529
 * _make_: ✅ still awesome https://news.ycombinator.com/item?id=19900955 better than Bash script bc more declarative, dep tree https://stackoverflow.com/a/3798664
 * _ninja_: https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/
+* _Pants_: https://rdrn.me/postmodern-python/
 * _pypyr_: Python https://pypyr.io/
 * _redo_: Make for the Linux nerd's Linux nerd https://fzakaria.com/2020/06/08/my-love-letter-to-redo.html
 * _Task_: https://github.com/go-task/task
 * _Xc_: markdown task runner https://news.ycombinator.com/item?id=34911216 https://news.ycombinator.com/item?id=34911216
 
-MAKE
+MAKE 📙 Meckleberg gnu make
 * `all`, `clean`, `.PHONY`, `install` 📙 Conery [405]
 > Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
 * docs: `gnu-make.pdf` https://www.gnu.org/software/make/manual/make.html https://tech.davis-hansson.com/p/make/ http://gromnitsky.users.sourceforge.net/articles/notes-for-new-make-users/ https://www.openmymind.net/An-Awful-Introduction-To-Make/ https://makefiletutorial.com/ https://daniel.feldroy.com/posts/autodocumenting-makefiles
@@ -102,6 +102,15 @@ MAKE
 * directories https://github.com/zachvalenta/query-sandbox
 * _phony_: target that is name for a recipe vs. file name https://stackoverflow.com/a/3931814/6813490
 * snippets
+* escape dollar signs bc Make assumes you are referencing a Make variable otherwise (vs. shell variable or string literal) https://til.hashrocket.com/posts/k3kjqxtppx-escape-dollar-sign-on-makefiles
+```sh
+for i in *; do echo "i=$i"; done
+```
+```makefile
+my-files:
+	for i in *; do echo "i=$$i"; done
+```
+
 ```makefile
 #
 # VARAIABLES 📙 Conery [410]
@@ -422,6 +431,7 @@ https://events.linuxfoundation.org/wp-content/uploads/2022/10/elena-zannoni-trac
 
 DATA TRANSFER https://github.com/veeso/termscp
 * alternative file transfer https://github.com/abdfnx/tran cyberduck https://fabiensanglard.net/html/index.html https://github.com/SpatiumPortae/portal
+* https://github.com/schollz/croc
 * _FTP_: sends binary instead of metadata
 * FileZilla (client) VSFTPD (server)
 * server GUI https://github.com/mickael-kerjean/filestash https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2
@@ -629,6 +639,7 @@ FILES
 * _socket_: type of file that enables communications https://www.youtube.com/watch?v=Lbfe3-v7yE0 figure out how it works with Postgres
 * _link_: how file is known by file system i.e. possible to have a file unlinked from file system and therefore cannot be opened by other programs https://pymotw.com/2/tempfile/
 * rm broken https://github.com/sahib/rmlint
+* _pipe_: vmsplice https://qsantos.fr/2024/08/25/linux-pipes-are-slow/
 
 * https://www.youtube.com/watch?v=HbgzrKJvDRw
 * file metadata vs. xattrs https://the.exa.website/features/xattrs

@@ -135,16 +135,17 @@ COMPONENTS
 * _IPython Notebook_: IPython + persistence, web browser, visualizations (chart, Markdown); predecessor to contemporary Jupyter
 * _Jupyter_: IPython Notebook + kernels for other languages (R, F#, Java)
 * _kernel_: runtime
-* _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304
+* _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304 https://satyrn.app/
 
 ---
 
+* non-Python: Elixir Livebook, Typescript Srcbook https://news.ycombinator.com/item?id=41291700
 TUI https://mastodon.top/@davidbrochart/111926774648199625
 https://www.reddit.com/r/Python/comments/6hwa22/what_is_the_point_of_jupyter/ https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.html
 https://www.hytradboi.com/2022/percival-a-reactive-language-for-exploratory-data-analysis-and-visualization
 
 MARIMO 📻 https://github.com/marimo-team/marimo
-* design https://marimo.io/blog/lessons-learned
+* design https://marimo.io/blog/lessons-learned https://pythonbytes.fm/episodes/show/393/dare-enter-the-bash-dungeon
 > no ToC
 ```bash
 poetry init -n
@@ -152,7 +153,7 @@ poetry add marimo
 poetry run python marimo tutorial intro
 ```
 
-> other ways to show your work: zine (Julia Evans), book (Gitbook, https://quarto.org/ uses Pandoc), org mode
+> other ways to show your work: zine (Julia Evans), book (Gitbook, https://quarto.org/ uses Pandoc), org mode https://dualpower.supply/
 
 JUPYTER 📜 https://jupyter.readthedocs.io/en/latest/index.html https://realpython.com/jupyter-notebook-introduction/
 * everyone just uses VS Code now? https://news.ycombinator.com/item?id=40899242
@@ -176,24 +177,27 @@ ZA
 * reproducibility https://jvns.ca/blog/2017/11/12/binder--an-awesome-tool-for-hosting-jupyter-notebooks/ https://news.ycombinator.com/item?id=24943962
 * to Markdown https://github.com/mwouts/jupytext
 * alternatives https://zeppelin.apache.org/ https://github.com/ottomatica/docable-notebooks https://marimo.io/
-* design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch
+* design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch https://news.ycombinator.com/item?id=41045834
 
 ## REPL (iPython)
 
 📜 https://github.com/ipython/ipython
 
-MAGIC
-* alias https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-alias_magic
+---
 
-INSPECT 📜 https://docs.python.org/3/library/inspect.html
+https://switowski.com/blog/ipython-debugging/
+
+INSPECT 📜 https://docs.python.org/3/library/inspect.html https://www.youtube.com/watch?v=NIyljVEcJKw
 * rich vs. iypthon's `obj?` https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#exploring-your-objects
+* wat https://github.com/igrek51/wat
 ```python
 getsource(obj)  # view src code https://stackoverflow.com/a/1562795
 getfile(obj)  # filepath where obj defined
 obj.__class__.__mro__  # view inheriance hierarchy
 ```
 
-STARTUP 📜 https://docs.python.org/3/tutorial/appendix.html#the-interactive-startup-file
+STARTUP 📜 https://docs.python.org/3/tutorial/appendix.html#the-interactive-startup-file 🗄️ imports
+* view module help: `pretty(help(__name__))`
 * startup file: `export PYTHONSTARTUP='$DOT_DIR/python/python_startup.py'` https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://github.com/zachvalenta/algo-sandbox/blob/master/Makefile#L28 https://github.com/zachvalenta/dotfiles-mini23/blob/main/shell/.zprofile#L183
 * list user-defined modules https://github.com/zachvalenta/algo-sandbox/commit/3ab6b3d8b4bcbf1ad7548c14f62958e5f88c75e1 https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
 
@@ -203,20 +207,36 @@ ZA (IPYTHON)
 * bad: no docstrong in autocomplete for `PYTHONSTARTUP` function
 * good: numbered prompts, pretty traceback, magic cmd, auto indent, autocomplete
 
+FEATURES
+* block-level history https://treyhunner.com/2024/05/my-favorite-python-3-dot-13-feature/
+* paste https://treyhunner.com/2024/05/my-favorite-python-3-dot-13-feature/
+* autocomplete
+* syntax highlighting
+* obj explorer
+* readline https://docs.python.org/3/tutorial/interactive.html#alternatives-to-the-interactive-interpreter
+
 ZA
-* features: autocomplete, syntax highlighting, obj explorer, readline https://docs.python.org/3/tutorial/interactive.html#alternatives-to-the-interactive-interpreter
 * 📍 load module: `$REPL -i $MODULE` https://stackoverflow.com/a/14244342 https://stackoverflow.com/a/56844640
 * silence version info: `python -q`
 * reload https://news.ycombinator.com/item?id=34865421
 * BYO using `code.InteractiveConsole()` https://bernsteinbear.com/blog/simple-python-repl/ https://news.ycombinator.com/item?id=34865421
+* CTRL arrows on macOS https://mathspp.com/blog/til/ctrl-left-and-ctrl-right-not-working-in-the-python-repl-on-macos
 
 ---
+
+MAGIC
+* alias https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-alias_magic
+
+https://github.com/igrek51/wat
+rich for repl https://rich.readthedocs.io/en/latest/introduction.html#ipython-extension https://rich.readthedocs.io/en/latest/introduction.html#rich-in-the-repl https://rich.readthedocs.io/en/latest/pretty.html#rich-repr-protocol
+https://wesmckinney.com/book/ipython
+https://github.com/gotcha/ipdb
 
 * reload
 * embed
 * profiles https://ipython.readthedocs.io/en/stable/config/options/terminal.html#configtrait-BaseIPythonApplication.profile
 
-IPYTHON 📜 🔗 https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html https://realpython.com/ipython-interactive-python-shell/
+IPYTHON 📜 `ipython.py` https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html https://realpython.com/ipython-interactive-python-shell/
 * why: 📍 Rich integration, ipdb, magic func https://realpython.com/ptpython-shell/#highlighting-code-syntax
 * https://ipython.readthedocs.io/en/stable/config/options/terminal.html#configtrait-InteractiveShellApp.pylab
 * catpuccin for theme https://github.com/catppuccin/python/issues/22 https://github.com/ipython/ipython/blob/a499dbd507a92ea0087eca0f53e550fc838f0580/IPython/terminal/interactiveshell.py#L683 https://github.com/catppuccin/python?tab=readme-ov-file#ipython https://github.com/catppuccin/python/issues/3 https://github.com/catppuccin/python/issues/4
@@ -247,7 +267,7 @@ pp
 
 STARTUP
 * sink https://arpitbhayani.me/blogs/python-prompts https://github.com/bpython/bpython/blob/ae4a502a443e024bd82ed1a7b88adf8be2068a2c/doc/sphinx/source/django.rst https://github.com/bpython/bpython/search?q=PYTHONSTARTUP&unscoped_q=PYTHONSTARTUP https://stackoverflow.com/a/14244310 https://stackoverflow.com/a/34774703
-* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged
+* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged https://switowski.com/blog/ipython-autoreload/
 * reload src: point is to avoid continual exit/rerun https://news.ycombinator.com/item?id=23793054 https://mikelevins.github.io/posts/2020-12-18-repl-driven/
 * history: save https://stackoverflow.com/a/33880964 readline error manifests in garbled cmd history (have only seen when setting breakpoint in Flask) https://stackoverflow.com/a/3486617
 
@@ -298,6 +318,8 @@ VERSIONS https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com
 
 ---
 
+AST is slow https://www.gauge.sh/blog/python-extensions-should-be-lazy
+preprocessor https://pydong.org/posts/PythonsPreprocessor/
 https://snarky.ca/unravelling-attribute-access-in-python/
 https://snarky.ca/mvpy-minimum-viable-python/
 
@@ -375,6 +397,7 @@ python $MODULE  # exec module https://realpython.com/run-python-scripts
 python -i $MODULE  # enter pdb after exec https://docs.python.org/3/using/cmdline.html#cmdoption-i
 python -m $LIB $CMD  # exec lib cmd https://docs.python.org/3/using/cmdline.html#cmdoption-m
 python -c "import $MOD; $MOD.$METHOD()"  # exec inline https://docs.python.org/3/using/cmdline.html#cmdoption-c
+python -c "from home import foo; foo.bye()"  # exec module w/in dir
 ```
 
 CALLABLE FROM TERMINAL
@@ -485,7 +508,7 @@ get algos project working and align Python versions btw pyenv python and pipx py
 ```
 
 ANACONDA
-* just some random company https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/
+* just some random company https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/ https://paulromer.net/escaping-from-anaconda/
 * big in corporate envs bc built their own userland that handles python version + packaging https://news.ycombinator.com/item?id=39390246
 * _conda_: pkg manager + Python version (400 MB)
 * install via `miniconda`
@@ -618,13 +641,19 @@ ALTERNATIVES
 
 ---
 
-example repo, awful $proj_name/src/proj_name duped dir thing https://github.com/brohrer/pacemaker https://github.com/darrenburns/posting
-structure https://www.pythonpapers.com/p/how-to-publish-a-python-package-to
+* example repo, awful $proj_name/src/proj_name duped dir thing https://github.com/brohrer/pacemaker https://github.com/darrenburns/posting https://stackoverflow.com/questions/50090341/is-there-a-naming-convention-for-django-project-configuration-directory
+* structure https://www.pythonpapers.com/p/how-to-publish-a-python-package-to
+* lockfile https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
 
-history
+HISTORY
+* https://rdrn.me/postmodern-python/
+* https://blog.glyph.im/2016/08/python-packaging.html
+* https://dev.to/astrojuanlu/python-packaging-is-great-now-uv-is-all-you-need-4i2d
+* https://www.bitecode.dev/p/whats-the-deal-with-setuptools-setuppy
 * https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
 * https://snarky.ca/classifying-python-virtual-environment-workflows/ https://news.ycombinator.com/item?id=35131357
 * https://pradyunsg.me/blog/2023/01/21/thoughts-on-python-packaging https://news.ycombinator.com/item?id=34467952
+* https://aosabook.org/en/v1/packaging.html
 
 https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.html
 
@@ -683,8 +712,8 @@ ALTERNATIVES
 * bad: no envs in project dir, no lockfile, no support for C extension modules, single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
 * _pdm_: smart people like https://github.com/pdm-project/pdm
 * _pipenv_: Reitz problem https://github.com/pypa/pipenv/commit/9ba23242
-* _piptools_ https://www.pythonpodcast.com/devops-in-python-episode-244/
-* _uv_: early days, took over Rye, from creators of ruff https://astral.sh/blog/uv https://news.ycombinator.com/item?id=39387641 https://lucumr.pocoo.org/2024/2/4/rye-a-vision/ https://www.youtube.com/watch?v=_FdjW47Au30
+* _piptools_: https://www.pythonpodcast.com/devops-in-python-episode-244/
+* _uv_: early days, took over Rye, from creators of ruff https://rdrn.me/postmodern-python/ https://astral.sh/blog/uv https://news.ycombinator.com/item?id=39387641 https://lucumr.pocoo.org/2024/2/4/rye-a-vision/ https://www.youtube.com/watch?v=_FdjW47Au30 https://simonwillison.net/2024/Aug/20/uv-unified-python-packaging/ https://github.com/astral-sh/uv/releases/tag/0.4.0 Docker https://hynek.me/articles/docker-uv/ still not there yet https://pythonbytes.fm/episodes/show/396/uv-ing-your-way-to-python
 
 ---
 
@@ -859,7 +888,7 @@ CMD
 ```sh
 init -n        # create pyproject.toml
 install        # install deps
-add -D         # add deps to dev
+add $PKG --group $GROUP  # dev https://python-poetry.org/docs/managing-dependencies/#adding-a-dependency-to-a-group
 show --no-dev  # show prod deps
 env info       # show Poetry env and where Poetry is installed (pipx)
 remove -D      # remove dev dep
@@ -977,14 +1006,19 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 
 ---
 
+https://www.amazon.com/gp/product/1492055026
 start here https://www.youtube.com/watch?v=ftmdDlwMwwQ https://www.youtube.com/watch?v=X7vBbelRXn0
 coroutine https://docs.python.org/3/glossary.html#term-coroutine-function
+https://superfastpython.com/asyncio-event-loop-separate-thread/
+https://calpaterson.com/async-python-is-not-faster.html
 https://martinheinz.dev/blog/97
 https://higherorderco.com/
 https://www.amazon.com/gp/product/1492055026
 https://roadmap.sh/python
 https://hakibenita.com/django-concurrency
 https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sync-vs-async-in-python-tools-benchmarks-and-asgiwsgi-explained
+https://news.ycombinator.com/item?id=41001951
+https://realpython.com/python-async-iterators/
 
 * https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#overcoming-gil-with-subinterpreters-and-immutability
 * JIT https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#building-a-jit-compiler-for-cpython
@@ -1050,7 +1084,6 @@ event loops https://questions.wizardzines.com/event-loops.html
 changing would break C code https://old.reddit.com/r/Python/comments/sy369l/your_python_4_dream_list/
 parallel https://towardsdatascience.com/parallelizing-python-code-3eb3c8e5f9cd
 async https://www.youtube.com/watch?v=olT7ejlv0uE&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=43
-https://calpaterson.com/async-python-is-not-faster.html
 https://snarky.ca/unravelling-async-and-await/
 https://www.encode.io/articles/python-async-frameworks-beyond-developer-tribalism
 https://pythonbytes.fm/episodes/show/184/too-many-ways-to-wait-with-await
@@ -1110,6 +1143,13 @@ ZA
 * pkgutil https://docs.python.org/3/library/pkgutil.html https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
 
 ----
+
+`__all__` https://www.gauge.sh/blog/the-trouble-with-all https://github.com/gauge-sh/tach
+
+> When a Python module or package is imported, __name__ is set to the module's name. Usually, this is the name of the Python file itself without the .py extension: `import configparser; configparser.__name__` https://docs.python.org/3/library/__main__.html
+> __main__ is the name of the environment where top-level code is run. "Top-level code" is the first user-specified Python module that starts running. It's "top-level" because it imports all other modules that the program needs. Sometimes "top-level code" is called an entry point to the application. https://docs.python.org/3/library/__main__.html
+
+* happened to me when I was trying to import pandas in a dir named `to-csv` https://stackoverflow.com/a/36250354
 
 https://nedbatchelder.com/blog/202405/one_way_to_fix_python_circular_imports.html
 https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/

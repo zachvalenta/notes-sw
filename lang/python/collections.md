@@ -49,8 +49,110 @@ for artist, album in zip(artists, album):
 for k, v in cidian.items():
 ```
 
-ITERTOOLS
+## comprehensions
+
+* aka listcomp https://www.fluentpython.com/lingo/#listcomp
+* are eager https://www.fluentpython.com/lingo/#list_comprehension
+* https://martinheinz.dev/blog/80
+* for-loop replacement https://sourcery.ai/blog/effective-collection-handling/
+* takes iterable, performs operation on each el and adds to collection (list, dict, set)
+```python
+# syntax
+x * 42             # 3 operate
+for x in iterable  # 1 iterate
+if x % 2 == 0      # 2 condition
+
+# list
+my_list = [
+    x * 2
+    for x in my_iterable
+    if x % 2 == 0
+]
+
+# set comprehension to dedupe https://github.com/dedupeio/dedupe
+my_set = { i for i in [42, 13, 7, 7, 7] }
+
+# dictionary
+my_dict = {
+    i : string.ascii_letters[i]
+    for i in range(3)
+}
+
+list_of_dict = [
+    dict(id=i, letter=zimu[i])
+    for i in range(3)]
+```
+
+## iterables
+
+---
+
+https://realpython.com/python-iterators-iterables/ https://www.youtube.com/watch?v=DcCt0dA6q1Q
+
+ITERABLE
+* _iterable_: impl `__iter__` where `__iter__` returns iterator https://www.youtube.com/watch?v=EnSu9hHGq5o 23:45
+* https://www.fluentpython.com/lingo/#iterable https://docs.python.org/3/glossary.html#term-iterable
+* anything you can for loop i.e. obj that can return members sequentially e.g. collections, files https://treyhunner.com/2019/06/loop-better-a-deeper-look-at-iteration-in-python/
+```python
+# ❌ TypeError: 'TodoList' object is not iterable
+class TodoList():
+    def __init__(self, items):
+        self.items = items
+
+todos = TodoList(["buy groceries", "pickup kids"])
+for todo in todos:
+    print(todo)
+
+# ❌ TypeError: iter() returned non-iterator of type 'list'
+class TodoList():
+    def __init__(self, items):
+        self.items = items
+    def __iter__(self):
+        return self.items
+
+# ✅ iterable
+class TodoList():
+    def __init__(self, items):
+        self.items = items
+    def __iter__(self):
+        return iter(self.items)  # ✅ iterator
+```
+
+ITERATORS
+* _iterator_: obj that iterates https://www.fluentpython.com/lingo/#iterator https://docs.python.org/3/glossary.html#term-iterator https://bitfieldconsulting.com/golang/iterators
+```python
+# iterable
+myl = [3, 42, 7]
+# get iterator
+myi = iter(myl)
+# get next item (calls __next__)
+next(myi)  # 3
+```
+* itself an iterable (impl `__iter__`) and its iterator is itself (`__next__`) https://treyhunner.com/2018/06/how-to-make-an-iterator-in-python
+```python
+class Count:
+    def __init__(self, start=0):
+        self.num = start
+    def __iter__(self):
+        return self
+    def __next__(self):
+        num = self.num
+        self.num += 1
+        return num
+
+# for loop impl: 1) call __iter__ 2) call __next__ until handle StopIteration https://github.com/python/cpython/blob/ac0c6e128cb6553585af096c851c488b53a6c952/Lib/test/test_enumerate.py#L109
+for n in Count():
+    print(n)  # 0 1 2...
+```
+
+## itertools
+
+---
+
+* https://mathspp.com/blog/module-itertools-overview?featured_on=pythonbytes
 * module for doing stuff with iterables
+* https://www.youtube.com/watch?v=1p7xa_BHYDs
+* https://mathspp.com/blog/module-itertools-overview
 * more-itertools https://martinheinz.dev/blog/96
 * https://github.com/erikrose/more-itertools/ https://www.pythoncheatsheet.org/#itertools-Module https://realpython.com/python-itertools/ https://jeffknupp.com/blog/2018/12/13/how-to-do-just-about-anything-with-python-lists/ https://towardsdatascience.com/tour-of-python-itertools-2af84db18a5e https://florian-dahlitz.de/blog/introduction-to-itertools https://www.blog.pythonlibrary.org/2021/12/07/a-tour-of-pythons-itertools-library/ https://martinheinz.dev/blog/52
 ```python
@@ -99,100 +201,6 @@ for _ in range(2, 7, 2):
 for i in range(5,1):
     print(i)  # nothing happens
 >>>
-```
-
-## comprehensions
-
-* aka listcomp https://www.fluentpython.com/lingo/#listcomp
-* are eager https://www.fluentpython.com/lingo/#list_comprehension
-* https://martinheinz.dev/blog/80
-* for-loop replacement https://sourcery.ai/blog/effective-collection-handling/
-* takes iterable, performs operation on each el and adds to collection (list, dict, set)
-```python
-# syntax
-x * 42             # 3 operate
-for x in iterable  # 1 iterate
-if x % 2 == 0      # 2 condition
-
-# list
-my_list = [
-    x * 2
-    for x in my_iterable
-    if x % 2 == 0
-]
-
-# set comprehension to dedupe https://github.com/dedupeio/dedupe
-my_set = { i for i in [42, 13, 7, 7, 7] }
-
-# dictionary
-my_dict = {
-    i : string.ascii_letters[i]
-    for i in range(3)
-}
-
-list_of_dict = [
-    dict(id=i, letter=zimu[i])
-    for i in range(3)]
-```
-
-## iterables
-
-https://realpython.com/python-iterators-iterables/ https://www.youtube.com/watch?v=DcCt0dA6q1Q
-
-ITERABLE
-* _iterable_: 1) impl `__iter__` 2) where `__iter__` returns iterator https://www.youtube.com/watch?v=EnSu9hHGq5o 23:45
-* https://www.fluentpython.com/lingo/#iterable https://docs.python.org/3/glossary.html#term-iterable
-* anything you can for loop i.e. obj that can return members sequentially e.g. collections, files https://treyhunner.com/2019/06/loop-better-a-deeper-look-at-iteration-in-python/
-```python
-# ❌ TypeError: 'TodoList' object is not iterable
-class TodoList():
-    def __init__(self, items):
-        self.items = items
-
-todos = TodoList(["buy groceries", "pickup kids"])
-for todo in todos:
-    print(todo)
-
-# ❌ TypeError: iter() returned non-iterator of type 'list'
-class TodoList():
-    def __init__(self, items):
-        self.items = items
-    def __iter__(self):
-        return self.items
-
-# ✅ iterable
-class TodoList():
-    def __init__(self, items):
-        self.items = items
-    def __iter__(self):
-        return iter(self.items)  # ✅ iterator
-```
-
-ITERATORS
-* _iterator_: obj that does the iterating https://www.fluentpython.com/lingo/#iterator https://docs.python.org/3/glossary.html#term-iterator https://bitfieldconsulting.com/golang/iterators
-```python
-# iterable
-myl = [3, 42, 7]
-# get iterator
-myi = iter(myl)
-# get next item (calls __next__)
-next(myi)  # 3
-```
-* itself an iterable (impl `__iter__`) and its iterator is itself (`__next__`) https://treyhunner.com/2018/06/how-to-make-an-iterator-in-python
-```python
-class Count:
-    def __init__(self, start=0):
-        self.num = start
-    def __iter__(self):
-        return self
-    def __next__(self):
-        num = self.num
-        self.num += 1
-        return num
-
-# for loop impl: 1) call __iter__ 2) call __next__ until handle StopIteration https://github.com/python/cpython/blob/ac0c6e128cb6553585af096c851c488b53a6c952/Lib/test/test_enumerate.py#L109
-for n in Count():
-    print(n)  # 0 1 2...
 ```
 
 ## generators
@@ -351,6 +359,7 @@ sorted(musicians, key=attrgetter('instrument', 'genre'))  # nas in front of mick
 
 ---
 
+https://treyhunner.com/2021/11/how-to-sort-a-dictionary-in-python/
 https://www.youtube.com/watch?v=oUt1feRoyvI
 * _mapping_: https://docs.python.org/3/glossary.html#term-mapping
 https://realpython.com/python-mappings/
@@ -446,6 +455,7 @@ k, v = cidian.popitem()  # pop off kv of last el
 
 ## list
 
+https://treyhunner.com/2021/11/how-to-flatten-a-list-in-python/
 https://www.youtube.com/watch?v=rdlQzhP71pQ
 https://realpython.com/python-list/
 https://codeconfessions.substack.com/p/why-do-python-lists-multiply-oddly

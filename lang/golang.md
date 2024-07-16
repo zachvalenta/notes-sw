@@ -34,7 +34,6 @@ BASICS 📙 Ball
 * enums https://www.zarl.dev/articles/enums
 * loops https://go.dev/blog/loopvar-preview
 * inheritance, interfaces https://www.dolthub.com/blog/2023-02-22-golangs-fake-inheritance/ https://preslav.me/2023/02/22/partially-implemented-interfaces-in-golang/ https://medium.com/@jankammerath/how-go-fixed-everything-that-was-wrong-with-programming-1b599a1055a8
-* lodash https://github.com/samber/lo
 * dates https://www.digitalocean.com/community/tutorials/how-to-use-dates-and-times-in-go
 * _case_: uppercase (available on import) lower (unavailable on import)
 * _error handling_: https://benhoyt.com/writings/go-intro/ https://dev.to/web3coach/how-to-handle-errors-in-go-5-rules-2bgf https://rauljordan.com/2020/07/06/why-go-error-handling-is-awesome.html https://github.com/kisielk/errcheck https://medium.com/@jankammerath/how-go-fixed-everything-that-was-wrong-with-programming-1b599a1055a8 https://github.com/kisielk/errcheck
@@ -101,7 +100,7 @@ type Book struct {
 book := Book{Title: "Go in Action", Author: "William Kennedy"}
 ```
 
-* _slice_: resizable; doesn't store array data, but manipulating alters underlying array https://www.openmymind.net/The-Minimum-You-Need-To-Know-About-Arrays-And-Slices-In-Go/
+* _slice_: resizable; doesn't store array data, but manipulating alters underlying array https://www.openmymind.net/The-Minimum-You-Need-To-Know-About-Arrays-And-Slices-In-Go/ https://github.com/elliotchance/pie
 ```go
 []bool{true, true, false}  // build array and slice on top all in one go w/ slice literal
 // https://tour.golang.org/moretypes/10 --> same syntax as Python

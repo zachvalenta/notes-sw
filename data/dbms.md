@@ -8,6 +8,9 @@
 
 ## 进步
 
+* page, heap https://news.ycombinator.com/item?id=41159180 https://blog.sylver.dev/build-your-own-sqlite-part-1-listing-tables
+* physical storage https://drew.silcock.dev/blog/how-postgres-stores-data-on-disk/
+
 * _22_: 📙 Bradshaw ch. 1/4/7/10/14/18
 * _20_: Postgres with Django (psycopg, Docker) 📙 Kleppmann section 1
 
@@ -118,14 +121,16 @@ STORAGE ENGINES 🗄 `design.md` transactions
 * `big-data.md` perf
 * `vim.md` ctags
 
+> When I worked in ads I would often need to debug issues using production logs, and would use Dremel to run a distributed scan of very large amounts of data at interactive speeds. Because queries were relatively rare, an index would have been far more expensive to maintain. https://www.jefftk.com/p/you-dont-always-need-indexes
+
 START HERE
+* https://calpaterson.com/how-a-sql-database-works.html
 * https://www.jefftk.com/p/you-dont-always-need-indexes
 * make invisible > delete https://sqlfordevs.com/invisible-index-before-delete
 * https://news.ycombinator.com/item?id=35978757&utm_term=comment
 * Postgres has partial indexes
 * notes for Karwin chapter 13
 > mention of caching? https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
-* https://calpaterson.com/how-a-sql-database-works.html
 * https://dataschool.com/sql-optimization/how-indexing-works/
 * BRIN https://hakibenita.com/sql-tricks-application-dba#index-columns-with-high-correlation-using-brin https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/ https://en.wikipedia.org/wiki/Block_Range_Index https://hakibenita.com/postgresql-correlation-brin-multi-minmax
 * https://www.youtube.com/watch?v=HubezKbFL7E
@@ -538,7 +543,7 @@ show collections  # view collections
 
 ---
 
-* _vector_: for recommendation systems, NLP https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/
+* _vector_: for recommendation systems, NLP https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/ https://github.com/asg017/sqlite-vec
 * Datomic (Hickey), datalog/prolog https://news.ycombinator.com/item?id=21742222 https://kevinlynagh.com/newsletter/2022_04_on_datalog_application_databases/ https://news.ycombinator.com/item?id=31154039 https://news.ycombinator.com/item?id=35094017 https://news.ycombinator.com/item?id=35727967 https://clojure.org/news/2023/08/04/next-rich https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need
 * can be a problem is you need to change the PK https://calpaterson.com/non-relational-beartraps.html
 > Changing the primary key of a table is a surprisingly common activity. In truth, it's pretty easy to pick something that initially looks like it will be unique but which later turns out to not be unique...Unfortunately, in many non-relational database systems the primary key is "special". For example, Dynamo-style systems will use the primary key to decide which of the partitions the record will go on.
@@ -567,7 +572,11 @@ dbms https://en.wikipedia.org/wiki/List_of_column-oriented_DBMSes
 
 ## document
 
+---
+
 📙 Kleppmann 2.28-42
+
+> The thrust of it is that databases that are in the same genre as DynamoDB - which includes Cassandra and MongoDB - are fantastic if - and this is a load bearing if: You know exactly what your app needs to do, up-front. You know exactly what your access patterns will be, up-front. You have a known need to scale to really large sizes of data. You are okay giving up some level of consistency. This is because this sort of database is basically a giant distributed hash map. The only operations that work without needing to scan the entire database are lookups by partition key and scans that make use of a sort key. Whatever queries you need to make, you need to encode that knowledge in one of those indexes before you store it. You want to store users and look them up by either first name or last name? Well you best have a sort key that looks like `$FIRST_NAME $LAST_NAME>`. Your access patterns should be baked into how you store your data. If your access patterns change significantly, you might need to reprocess all of your data. https://mccue.dev/pages/8-16-24-just-use-postgres
 
 document store
 * _document_: JSON "obj"
@@ -643,7 +652,7 @@ QUERY LANGUAGES
 * _OGM_: ORM for graphs https://www.youtube.com/watch?v=h8cyPIEfxQY 12:30
 
 * _property graph_: vertex (id, dict of properties, and list of incoming/outgoing edges) edge (id, dict of properties, start/end vertices and descriptive label) 📙 Kleppmann 2.50
-* _triple-store_: subject (vertex) predicate, object (value or another vertex) 📙 Kleppmann 2.55 used by Datomic (Datalog query language) 📙 ibid 2.50, 60, 63
+* _triple-store_: subject (vertex) predicate, object (value or another vertex) 📙 Kleppmann 2.55 used by Datomic (Datalog query language) 📙 ibid 2.50, 60, 63 https://github.com/instantdb/instant
 * _RDF (resource description framework)_: triple store for semantic web 📙 Kleppmann 2.57 SPARQL query language 📙 ibid 59 https://twobithistory.org/2020/01/05/foaf.html
 * _types_: https://stackoverflow.com/a/59532041/6813490
 * visualization https://github.com/shahinrostami/chord https://github.com/plotly/falcon
@@ -656,6 +665,7 @@ QUERY LANGUAGES
 REDIS 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
 > just use postgres https://martinheinz.dev/blog/105
 * implementation http://aosabook.org/en/nosql.html
+* https://github.com/dragonflydb/dragonfly
 * test/mock https://github.com/cunla/fakeredis-py
 * use Postgres as impl https://github.com/alash3al/redix
 * governance https://news.ycombinator.com/item?id=23689549
@@ -718,9 +728,11 @@ libs
 dbms
 * _Influx_: https://softwareengineeringdaily.com/2019/08/21/time-series-databases-with-rob-skillington/ https://softwareengineeringdaily.com/2021/08/19/influxdata-time-series-data-with-russ-savage/
 * _Husky_: event store https://www.datadoghq.com/blog/engineering/husky-deep-dive/
+* _Lin_: https://github.com/lindb/lindb
 * _Timescale_: built on Postgres https://blog.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/ https://softwareengineeringdaily.com/2021/06/28/timescale-time-series-databases-with-mike-freedman/
 * _tstorage_: embedded https://github.com/nakabonne/tstorage BYO https://nakabonne.dev/posts/write-tsdb-from-scratch/ https://news.ycombinator.com/item?id=27730854
 * _Whisper_: embedded db for Graphite https://github.com/graphite-project/whisper
+
 # 🐘 POSTGRES
 
 📙 Suzuki postgres internals https://www.interdb.jp/pg/
@@ -731,6 +743,9 @@ dbms
 * design https://news.ycombinator.com/item?id=35599118 Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf
 
 HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https://news.ycombinator.com/item?id=39273954
+* duckdb extension https://motherduck.com/blog/pg_duckdb-postgresql-extension-for-duckdb-motherduck/ https://github.com/duckdb/pg_duckdb
+* copy btw tables https://ongres.com/blog/fastest_way_copy_data_between_postgres_tables/
+* embed https://github.com/electric-sql/pglite
 * perf, memory https://news.ycombinator.com/item?id=40642803
 * generate `create table` from existing table https://github.com/lacanoid/pgddl
 * Elasticsearch https://github.com/paradedb/paradedb
@@ -986,6 +1001,7 @@ web_1  | ModuleNotFoundError: No module named 'psycopg2'
 🔗 https://tech.marksblogg.com/sqlite3-tutorial-and-guide.html
 
 ZA
+* vector https://github.com/asg017/sqlite-vec
 * https://news.ycombinator.com/item?id=40637303
 * single-tenant i.e each user gets own db https://news.ycombinator.com/item?id=38171322
 * transactions for perf https://news.ycombinator.com/item?id=36583317
@@ -1063,14 +1079,15 @@ db files
 
 📜 https://sqlite.org/quirks.html
 
-components
+COMPONENTS
 * _SQLite_: library https://tech.marksblogg.com/sqlite3-tutorial-and-guide.html
 * Go port https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
 * plumbing https://jvns.ca/blog/2014/09/27/how-does-sqlite-work-part-1-pages/ https://jvns.ca/blog/2014/10/02/how-does-sqlite-work-part-2-btrees/
 * _sqlite3_: CLI
 * _sqlite3_: also the name of the Python lib/driver https://github.com/zachvalenta/sqlite3-demo https://github.com/zachvalenta/bookcase-sjk https://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html
 
-strong points https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html
+STRONG POINTS https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html
+* stability https://news.ycombinator.com/item?id=41347188
 * dbms in a C library
 * ACID-compliant
 * multithreaded https://sqlite.org/threadsafe.html
@@ -1079,8 +1096,9 @@ strong points https://unixsheikh.com/articles/sqlite-the-only-database-you-will-
 > This means that writers queue up. Each application does its database work quickly and moves on, and no lock lasts for more than a few milliseconds
 * file-based/serverless = good for unreliable network (smartphone, airplane)
 * db files can deal w/ TB https://news.ycombinator.com/item?id=24178013
+* faster than filesystem https://news.ycombinator.com/item?id=41085376
 
-limitations
+LIMITATIONS
 * auth https://news.ycombinator.com/item?id=36922518
 * files https://news.ycombinator.com/item?id=32146245
 * schema changes require downtime, PRAGMA https://news.ycombinator.com/item?id=31152490
@@ -1095,7 +1113,7 @@ EXTENSIONS
 * _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ https://www.philipotoole.com/building-a-highly-available-search-engine-using-sqlite/ 🗄 `algos.md` FTS
 * JSON https://dba.stackexchange.com/questions/122198/is-it-possible-to-store-and-query-json-in-sqlite https://news.ycombinator.com/item?id=30486052
 
-types
+TYPES
 * types: text, blob, null, int (whole num) real (decimal)
 * _class_: type for cell https://stackoverflow.com/a/3388158
 * _affinity_: type for attr

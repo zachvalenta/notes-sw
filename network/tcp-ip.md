@@ -97,8 +97,12 @@ tools - capture
 
 * _Burp_: HTTP proxy to intercept requests, pen test scans, automation of common attacks like XSS and SQL injection; OSS alternative https://github.com/dstotijn/hetty
 * _netcat_: https://stackoverflow.com/a/4777309/6813490 https://blog.ikuamike.io/posts/2021/netcat/ https://www.youtube.com/watch?v=CHVcVNb5rP4
+```sh
+nc -l 8080  # run server locally on port 8080 https://blog.sylver.dev/build-a-web-server-with-rust-and-tokio-part-0-a-simple-get-handler
+```
 * _socat_: https://stackoverflow.com/a/4777309/6813490 https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * _nmap_: check if anything listening on port
+* port scanner https://github.com/RustScan/RustScan
 * _sink_: https://github.com/imsnif/bandwhich https://robertheaton.com/2020/02/05/wacom-drawing-tablets-track-name-of-every-application-you-open/ https://github.com/rhaidiz/broxy https://news.ycombinator.com/item?id=22394708
 
 # ZA

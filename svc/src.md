@@ -14,6 +14,8 @@
 
 ## 进步
 
+https://www.amazon.com/gp/product/1492052205
+
 * _23_: 📙 Evans domain-driven
 * _19_: URL shortener, Gitlab for CI
 
@@ -21,7 +23,7 @@
 
 🗄️ `databases.md` tooling / code generation
 📙 Masse api rulebook
-🔍 https://github.com/public-apis/public-apis
+🔍 https://github.com/public-apis/public-apis https://rapidapi.com/hub
 
 PAGINATION
 * _paginate_: return subset of records
@@ -53,6 +55,7 @@ end
 ---
 
 REPRESENTING INDIVIDUAL RESOURCES IN URL
+https://news.ycombinator.com/item?id=41243992&utm_term=comment
 * PK (bad) 
 * UUID (unwieldy) https://news.ycombinator.com/item?id=31715119
 * short uuid (better https://0of1.com/blog/posts/django-staples/)
@@ -263,6 +266,7 @@ data mapper
 
 as red flag https://news.ycombinator.com/item?id=30675182
 
+* entity component https://akkartik.name/post/programming-2024
 * _design patterns_: ❓ inherently OOP? [Conery 236]
 * _adapter_: wrapper e.g. ORM class for Postgres, MySQL, et al. [Conery 249] https://bitfieldconsulting.com/golang/adapter
 * _bridge_: allows you to update abstraction w/breaking impl i.e. yet another layer of abstraction [Conery 250]

@@ -21,6 +21,8 @@
 
 ## 进步
 
+https://github.com/hackclub/RAM-a-thon
+
 * _14_: 📙 Gleick the information
 * _11_: 📙 Hillis pattern in the stone
 
@@ -190,7 +192,7 @@ materials https://www.youtube.com/watch?v=LN0ucKNX0hc
 
 timeline
 * _1830_: Babbage analytical engine https://www.youtube.com/watch?v=O5nskjZ_GoI 8:45 differential analyzer https://twobithistory.org/2020/04/06/differential-analyzer.html
-* _1890_: Hollerith machine (punch cards) for US census (https://en.wikipedia.org/wiki/Domesday_Book) -> became IBM in 1924 https://www.youtube.com/watch?v=O5nskjZ_GoI 10:55
+* _1890_: Hollerith machine (punch cards) for US census (https://en.wikipedia.org/wiki/Domesday_Book) -> became IBM in 1924 https://www.youtube.com/watch?v=O5nskjZ_GoI 10:55 https://www.thediff.co/archive/longreads-open-thread-85/
 * _1945_: Colussus - first programmable (configured w/ plugs) https://www.youtube.com/watch?v=LN0ucKNX0hc 6:10
 * _1946_: ENIAC https://www.youtube.com/watch?v=LN0ucKNX0hc 6:45
 * _1950_: IBM mainframes
@@ -228,6 +230,8 @@ VIRTUAL https://questions.wizardzines.com/virtual-memory.html
 * _swap area_: park of disk used as virtual memory https://serverfault.com/a/48487
 
 ---
+
+* _zero-copy_: op in which data not copied to another memory area https://en.wikipedia.org/wiki/Zero-copy https://duckdb.org/2021/12/03/duck-arrow.html
 
 bits
 * _bit depth_: [Franz 38, 226] bounce (mv from one bit depth to another) [Franz 226] https://reverb.com/news/home-recording-basics-ii-choosing-your-first-audio-interface-and-daw https://www.youtube.com/watch?v=JTtSihQ8QX0 2:45

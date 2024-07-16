@@ -16,9 +16,13 @@
 
 ## 进步
 
+* while you're stil on VS Code https://switowski.com/blog/plugins-for-python-in-vscode/
+
+https://stevedylan.dev/posts/leaving-neovim-for-zed/
 * Codi
 * text objects in treesitter https://www.youtube.com/watch?v=CEMPq_r8UYQ
 
+* _24_: try Zed
 * _23_: try mv to Neovim, stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
 * _22_: built-in pkg mgmt
 * _20_: VS Code (Markdown extensions break, pinned to 1.41 since 20.12.17)
@@ -196,6 +200,8 @@ edit
 ## VSC
 
 🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
+
+dev containers https://github.com/michidk/vscli
 
 THINGS I'M NOTICING ABOUT VSC
 * autocomplete works for any word in the workspace
@@ -435,46 +441,13 @@ SUBSTITUTE 📙 Neil practical ch. 14
 * show newline, invisible char http://vimcasts.org/episodes/show-invisibles/
 * lists: quickfixlist, arglist https://vimtricks.substack.com/p/vimtrick-copy-from-quickfix-to-the 📙 Neil modern ch. 4 https://vimtricks.substack.com/p/vimtricks-help-powerup
 
-## normal
-
-JUMPS https://github.com/folke/flash.nvim https://github.com/phaazon/hop.nvim https://github.com/ggandor/leap.nvim sneak https://www.youtube.com/watch?v=HkY3LoQqKVA https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-jump2d.md
-* _jump_: mv btw buffers; can think of as long-range motions 📙 Neil practical [9.135-6]
-* separate per window 📙 Neil practical [9.136]
-* `gf`: jump to filename 📙 Neil practical [9.136,139]
-> seems like more trouble than its worth compared to ctags
-* _jumplist_: list of recent jumps (move btw files, long-range motions) 📙 Neil practical [9.56]
-* `CTRL i/o`: forward/back 📙 Neil practical [9.136]
-* `:jumps`: list
+## motions
 
 ---
 
-* `gj/k`: mv visual line
-* `j/k`: mv real line
-* run on every line https://www.getrevue.co/profile/vim_tricks/issues/operate-on-every-line-1181574
-* `g_` mv to last normal char in line (vs. new line) https://stackoverflow.com/a/105734
-* _case_: lower `gu` upper `gU` https://vimtricks.com/p/change-character-case/
+> clean up normal mode header first
 
-📙 Neil practical 2.12
-🔗 `:h motion.txt`
-> clean these up
-
-rf
-* region selection https://vimtricks.substack.com/p/vimtrick-region-expanding
-🎗 all motion are either inclusive or exclusive [`:h exclusive`]
-
-* `]m`: next method https://vimtricks.substack.com/p/vimtrick-jump-to-next-method
-* `H/M/L`: mv to new cursor line at top/mid/btm of viewport 📙 Neil practical [9.136]
-* `$NUM G`: goto line 📙 Neil practical [9.136]
-* _motion_: mv w/in buffer 📙 Neil practical [113,9.135]
-* vs. jumps as long-range motions 📙 Neil practical [9.136]
-
----
-
-* motion https://news.ycombinator.com/item?id=33136190
-* wrap: `gw`  https://vimtricks.substack.com/p/vimtrick-tidy-paragraphs
-https://github.com/easymotion/vim-easymotion
-
- 📍 operate until https://vimtricks.substack.com/p/vimtrick-operate-until-pattern
+* https://news.ycombinator.com/item?id=33136190
 
 char
 * _find by_: `t` (incl) `f` (ex); `;` (next) `,` (previous); for current line, cap for backwards
@@ -500,6 +473,45 @@ word
 * _back to start_: `b`
 * _back to end_: `ge`
 
+## normal
+
+JUMPS https://github.com/folke/flash.nvim https://github.com/phaazon/hop.nvim https://github.com/ggandor/leap.nvim sneak https://www.youtube.com/watch?v=HkY3LoQqKVA https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-jump2d.md
+* _jump_: mv btw buffers; can think of as long-range motions 📙 Neil practical [9.135-6]
+* separate per window 📙 Neil practical [9.136]
+* `gf`: jump to filename 📙 Neil practical [9.136,139]
+> seems like more trouble than its worth compared to ctags
+* _jumplist_: list of recent jumps (move btw files, long-range motions) 📙 Neil practical [9.56]
+* `CTRL i/o`: forward/back 📙 Neil practical [9.136]
+* `:jumps`: list
+
+---
+
+* `gj/k`: mv visual line
+* `j/k`: mv real line
+* run on every line https://www.getrevue.co/profile/vim_tricks/issues/operate-on-every-line-1181574
+* `g_` mv to last normal char in line (vs. new line) https://stackoverflow.com/a/105734
+* _case_: lower `gu` upper `gU` https://vimtricks.com/p/change-character-case/
+
+📙 Neil practical 2.12
+🔗 `:h motion.txt`
+
+rf
+* region selection https://vimtricks.substack.com/p/vimtrick-region-expanding
+🎗 all motion are either inclusive or exclusive [`:h exclusive`]
+
+* `]m`: next method https://vimtricks.substack.com/p/vimtrick-jump-to-next-method
+* `H/M/L`: mv to new cursor line at top/mid/btm of viewport 📙 Neil practical [9.136]
+* `$NUM G`: goto line 📙 Neil practical [9.136]
+* _motion_: mv w/in buffer 📙 Neil practical [113,9.135]
+* vs. jumps as long-range motions 📙 Neil practical [9.136]
+
+---
+
+* wrap: `gw`  https://vimtricks.substack.com/p/vimtrick-tidy-paragraphs
+https://github.com/easymotion/vim-easymotion
+
+ 📍 operate until https://vimtricks.substack.com/p/vimtrick-operate-until-pattern
+
 ## operators
 
 * _operator_: verb
@@ -524,6 +536,7 @@ yank by line number without moving https://vimtricks.com/p/copying-and-pasting-l
 ## registers
 
 UNDO https://github.com/iggredible/Learn-Vim/blob/master/ch10_undo.md
+* https://news.ycombinator.com/item?id=40928893
 * VSCodeVim strangeness for undo bc using an embedded NeoVim? 📙 Neil modern [135]
 * `undofile`: persist undo history btw sessions 📙 Neil modern [6.99]
 * `u`: undo single change

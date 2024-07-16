@@ -1,19 +1,12 @@
-# 开
+# ⛩️
 
 ## 参考
 
 🗄 `km.md` file mgmt
 
-## now
+## 进步
 
-## next
-
----
-
-* sync `yin` to phone
 * replace previous (huge) email export with personal only https://www.google.com/search?hl=en&q=gmail%20export%20only%20subset https://webapps.stackexchange.com/a/67379
-
-## done
 
 * _24_: port media/admin from Dropbox to mini23 and backup mini23
 * _23_: mbp14 battery starts dying, buy mini23, port to mini23
@@ -60,24 +53,32 @@ LINUX https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=3418050
 
 🗄️ `aesthetics.md` home design
 
+KEYBOARDS 📙 https://shifthappens.site/#story-of-a-photo
+* _Keychron q1 pro_: $225 https://www.amazon.com/dp/B0BLZ1ZN3H
+* _Lofree flow84_: $175  https://www.amazon.com/dp/B0CJTV8P4Z https://www.imore.com/best-mechanical-keyboards-mac
+* _Nuphy air75 v2_: ✅ $125
+* can do wired https://www.reddit.com/r/NuPhy/comments/zt6qkt/wired_mode_does_not_work_75_air/
+
+---
+
 ZA
 * mouse: magic mouse, keychron m3 https://www.keychron.com/products/keychron-m3-wireless-mouse https://www.nytimes.com/wirecutter/reviews/best-wireless-mouse/
 * cooling pad for mbp2014 https://www.amazon.com/gp/product/B00NNMB3KS
 * keep Teams active :) https://news.ycombinator.com/item?id=34273107
 
-KEYBOARDS https://shifthappens.site/#story-of-a-photo
-* keychron https://archive.vn/pjhjh
+KEYBOARDS
+* happy hacking https://duarteocarmo.com/blog/happy-hacking-keyboard-review
 * tray https://www.amazon.com/VIVO-Computer-Keyboard-Platform-MOUNT-KB05E/dp/B07HFDJCSL
 * mechanical https://www.youtube.com/results?search_query=mechanical+keyboard+for+macos https://www.reddit.com/r/MechanicalKeyboards/comments/89fbk4/whats_all_the_hype_about_mechanical_keyboards_im/?rdt=56069
-* mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 try this one https://nuphy.com/products/halo75?variant=40300388941933 https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/
+* mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 try this one https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/
 * layers https://news.ycombinator.com/item?id=34069927
 * wrist rest https://news.ycombinator.com/item?id=34276226
-* moonlander https://news.ycombinator.com/item?id=34070425
 * Linux vs. Macos https://www.youtube.com/watch?v=GKoz7mm2tNI
 * chicklet https://www.youtube.com/watch?v=8jM1brvJhzg 5:20 butterfly started with 2015 12' Macbook https://www.theverge.com/2020/5/4/21246223/macbook-keyboard-butterfly-magic-pro-apple-design https://support.apple.com/keyboard-service-program-for-mac-notebooks returned to normal scissor keyboard (aka 'magic') with 2020 16' Macbook Pro https://www.wsj.com/articles/apple-updates-ipad-macbook-air-with-new-keyboard-11584538891
 * remapping https://missing.csail.mit.edu/2019/os-customization/
-* _stenography_: = transcription https://www.openstenoproject.org/plover/
-* _dead key_: for umlats and tildes
+* stenography for transcription https://www.openstenoproject.org/plover/
+* _Moonlander_: https://news.ycombinator.com/item?id=34070425
+* _Keychron_ https://archive.vn/pjhjh https://www.youtube.com/watch?v=gpcmimZyMlo https://www.keychron.com/products/keychron-k8-tenkeyless-wireless-mechanical-keyboard?variant=39515069612121
 
 MONITOR https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
 * config on macOS https://news.ycombinator.com/item?id=34487066
@@ -129,7 +130,7 @@ ANDROID
 * language: word reference, easy voice, vlc, libby, overdrive, translate, pleco
 * chess/golf: drive, camera, video frame player, chess clock, chess, lichess
 * util: clock, interval timer, youtube, play tube, latch, monzo, labcoat, google home, google authenticate
-* file manager https://github.com/zhanghai/MaterialFiles
+* files: Podcast Addict https://github.com/zhanghai/MaterialFiles
 
 ---
 
@@ -268,7 +269,7 @@ todo
 * https://apple.stackexchange.com/
 * https://git.herrbischoff.com/awesome-macos-command-line/about/
 
-za
+ZA
 * `.localized`: i18n e.g. show `/Library` as `/Biblioteca` https://discussions.apple.com/thread/252040
 * `scutil`: macOS tool to set hostname, etc.
 * disk format: disk utility > select outermost > erase > ExFAT https://www.youtube.com/watch?v=Rq0_PQa8Irs https://www.youtube.com/watch?v=rMkGdnUwvXE
@@ -279,7 +280,7 @@ za
 
 INVENTORY 🗄 `/Applications`
 * full list of applications: `about this mac > system report > sw > applications` --> 32-bit apps may not be compatible with macOS 10.14
-* menu bar: iTerm, VS Code, Brave
+* menu bar: iTerm, VS Code, Brave; Bitbar https://switowski.com/blog/favorite-mac-tools/
 * dev: iTerm, VS Code, GitUp
 * audio: cmus, Sound Source
 > have to enable keyboard volume through the app itself
@@ -337,7 +338,7 @@ Spotlight
 * access: `CMD SPACE`
 * folders to search: apps, calculator, definition, documents, folder, music, pdf documents, system preferences
 * NLP = can no longer turn off web search https://forums.macrumors.com/threads/spotlight-how-to-remove-web-search-from-results.2271616/
-* alternatives https://news.ycombinator.com/item?id=22849208
+* alternatives https://news.ycombinator.com/item?id=22849208 Alfred https://switowski.com/blog/favorite-mac-tools/
 
 coloration
 * dark mode: set from terminal https://stefan.sofa-rockers.org/2018/10/23/macos-dark-mode-terminal-vim/
@@ -420,7 +421,7 @@ Update them from Software Update in System Preferences or run:
   softwareupdate --all --install --force
 ```
 
-# iPad
+## iPad
 
 🔗 versions https://en.wikipedia.org/wiki/IPad#iPad
 
@@ -590,7 +591,10 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 /usr/local/bin/neofetch: line 4160: 11158 Trace/BPT trap: 5       awk -F'<|>' '/string/ {print $3}' "/System/Library/CoreServices/SystemVersion.plist"
 ```
 
-# ZA
+# 🟨 ZA
+
+* keystroke visualizer https://github.com/keycastr/keycastr https://switowski.com/blog/favorite-mac-tools/
+* screen capture https://switowski.com/blog/favorite-mac-tools/
 
 ## backups
 
@@ -611,7 +615,9 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 
 TODO
 > 📍 clean up DS files `fd -HI DS`
-* yin: rock/blues, roots/dylan, country/singles, mayra andrade
+* yin: rock/blues, roots/dylan, country/singles, mayra andrade, stax, dehd, sinatra
+* rm mckinney book
+* 23 taxes
 
 SEMANTICS
 * _transfer_: mv data from A to B

@@ -1,25 +1,20 @@
-# 开
+# ⛩️
 
 ## 参考
 
 📙 Eloquent Javascript
 
-## now
+## 进步
 
-## next
-
----
-
+* https://roadmap.sh/nodejs
 * https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
 * perf https://hpbn.co/primer-on-web-performance/
-
-## done
 
 * _19_: Vue for Test Runner
 * _18_: Vue for Dark Canary demo app
 * _17_: Angular 1 for Case
 
-# FRAMEWORKS
+# 🪑 FRAMEWORKS
 
 * Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer
 
@@ -80,8 +75,12 @@ taxonomy
 
 ---
 
+https://github.com/AnswerDotAI/fasthtml
+
 DESIGN
 * https://news.ycombinator.com/item?id=40847376
+* https://testdriven.io/blog/fastapi-htmx/
+* https://www.youtube.com/watch?v=kYV8K71pY64
 * hypermedia https://quii.dev/HTMX_is_the_Future https://github.com/PyHAT-stack/awesome-python-htmx
 * creator seems cool https://news.ycombinator.com/item?id=26769809 https://changelog.com/gotime/266
 * vs. alpine, mithril https://news.ycombinator.com/item?id=32011439
@@ -179,7 +178,7 @@ var app = new Vue({
 	el: '#root',
 ```
 
-# ZA
+# 🟨 ZA
 
 STATE
 * HTML over websockets https://news.ycombinator.com/item?id=26265999
@@ -194,6 +193,7 @@ SEMANTICS
 >  The JS bundle alone is more than 7x the weight of the rendered page, can’t be called until the first HTTP request completes, and still has to make an API call. https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/
 * _deep link_: opens to view inside native app
 * _microfrontend_: micro service for frontend https://www.thoughtworks.com/radar/techniques/micro-frontends
+* _minify_: https://glama.ai/blog/2024-08-29-reverse-engineering-minified-code-using-openai
 * _polyfill_: replacement for Web API
 * _sourcemap_: map from minified code to source for purpose of debugging
 * _tree shaking_: remove dead code
@@ -210,10 +210,11 @@ STDLIB
 * native: JS (Cordova/PhoneGap, Ionic, React Native, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter) Golang (Wails https://github.com/wailsapp/wails) Rust https://dioxuslabs.com/
 * typing: Typescript beat Elm/Flow
 * vizualization: https://www.chartjs.org/ https://testdriven.io/blog/django-charts/#prepare-and-serve-the-data https://github.com/airbnb/visx https://github.com/recharts/recharts -> https://openbb.co/open#social-media-metrics 🗄 `math.md` graphs
-* WYSIWYG: https://quilljs.com/
+* WYSIWYG: https://quilljs.com/ https://github.com/Milkdown/milkdown
 * tooling in other languages https://news.ycombinator.com/item?id=26872457
 * rich text editor https://news.ycombinator.com/item?id=30299800
 * heatmap https://cal-heatmap.com/
+* keybindings https://github.com/jamiebuilds/tinykeys
 
 SPECS
 * _ECMAScript_: standards org (Bluetooth, USB); JS engines listen to them
@@ -309,7 +310,7 @@ let bob = Object.assign({}, player, {score: 3});
 
 ## Node
 
-https://roadmap.sh/nodejs
+---
 
 * _Node_: libuv (IO library) + V8 (JS engine) https://neovim.io/charter/
 * don't install from OpenJS https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
@@ -317,7 +318,8 @@ https://roadmap.sh/nodejs
 * _bun_: runtime + tooling (bundle, transpile) https://bun.sh/
 
 NODENV https://github.com/nodenv/nodenv
-* alternatives: nvm https://github.com/creationix/nvm#important-notes asdf https://github.com/asdf-vm/asdf volta https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039 fnm https://github.com/Schniz/fnm mise https://github.com/jdx/mise
+> this is what you're using currently
+* alternatives: nvm https://github.com/creationix/nvm#important-notes asdf https://github.com/asdf-vm/asdf volta https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039 fnm https://github.com/Schniz/fnm mise https://github.com/jdx/mise https://github.com/carderne/carderne.github.io
 * rm version: find fs location `nodenv prefix <ver>` and then just rm dir https://github.com/nodenv/nodenv#uninstalling-node-versions
 * _shim_: intercepts cmd and passes to specific version https://medium.com/@ujjawal.dixit/what-is-a-shim-72d9ac5d8620
 * e.g. when you run `npm`, nodenv will find `npm` on `$PATH` in which Node version you're using and pass cmd to that binary use whatever

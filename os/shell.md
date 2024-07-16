@@ -3,18 +3,14 @@
 ## 参考
 
 📚
-* Barrett https://www.amazon.com/gp/product/1098113403
+* Barrett https://www.amazon.com/gp/product/1098113403 https://fabiensanglard.net/bash/
 * Evans shell
 * Shotts linux command line https://www.linuxcommand.org/tlcl.php
 * Stutz cookbook
 
 ## 进步
 
-* https://github.com/denisidoro/navi
-* https://fabiensanglard.net/bash/
-* readline history https://github.com/atuinsh/atuin https://www.youtube.com/watch?v=WB7qojkkVVU
-> key features: UI, queries
-
+* _24_: oh-my-posh, atuin, readline vi mode
 * _23_: big rf, Conery unix chapter, research Zellij
 * _22_: Fira Mono for iTerm font/icons, try starship, try/fail vi mode for readline, organize utils
 * _21_: line editor, fzf for bash history https://hacker-tools.github.io/lectures/
@@ -22,10 +18,11 @@
 * _19_: exa, symlink dotfiles, try out utils (z, fish, tig, fzf, ranger, ripgrep)
 * _18_: scripts (`fne`, `qing`, `ding`, `qiu`, `jb`)
 
-# 🔨 BASH
+# 🪨 BASH
 
 🔗
 * https://github.com/dylanaraps/pure-bash-bible
+* https://aosabook.org/en/v1/bash.html
 * http://aosabook.org/en/bash.html
 * https://github.com/anordal/shellharden/blob/master/how_to_do_things_safely_in_bash.md https://jvns.ca/blog/2023/08/08/what-helps-people-get-comfortable-on-the-command-line-/
 * https://leanpub.com/learnbashthehardway
@@ -226,7 +223,7 @@ A & B # A and B simultaneously
 
 * write script to do symlinks https://news.ycombinator.com/item?id=34304694
 * prefer programs that store config as text
-* keep under version control and symlink into place with script https://hacker-tools.github.io/dotfiles/ advanced mgmt https://github.com/twpayne/chezmoi https://news.ycombinator.com/item?id=32632533
+* keep under version control and symlink into place with script https://hacker-tools.github.io/dotfiles/ advanced mgmt https://github.com/twpayne/chezmoi https://news.ycombinator.com/item?id=32632533 https://github.com/atuinsh/atuin
 > There are two basic approaches: version your entire home directory or symbolically link your dotfiles into place from a stand-alone repository. The first approach is straightforward but has a number of issues that make it a poor choice. https://nullprogram.com/blog/2012/06/23/
 * install script https://www.youtube.com/watch?v=hXU54axdjJc https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
 * mgmt: GNU Stow https://www.youtube.com/watch?v=90xMTKml9O0 https://github.com/bbkane/fling
@@ -443,6 +440,8 @@ cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
 
 ## profiles
 
+---
+
 ZSH https://unix.stackexchange.com/a/71258
 * `.zshenv`: src for all shells
 > often contains exported variables that should be available to other programs. For example, $PATH, $EDITOR, and $PAGER are often set in .zshenv. Also, you can set $ZDOTDIR in .zshenv to specify an alternative location for the rest of your zsh configuration.
@@ -484,7 +483,7 @@ foo.sh  # echo $LOGNAME
 envsubst < foo.sh  # stdout: zach
 ```
 * clean up: 🗄 `broot.log` https://unix.stackexchange.com/a/106606/331460 https://github.com/thoughtbot/til/blob/master/bash/bash_profile_vs_bashrc.md
-* _direnv_: load env var based on dir https://jamey.thesharps.us/2019/05/29/per-project-postgres/ https://github.com/direnv/direnv alternative https://github.com/jdx/mise
+* _direnv_: load env var based on dir https://jamey.thesharps.us/2019/05/29/per-project-postgres/ https://github.com/direnv/direnv alternative https://github.com/jdx/mise https://www.youtube.com/watch?v=udezempDBVQ
 
 ---
 
@@ -622,65 +621,6 @@ UI
 * _teletype (TTY)_: https://bas.codes/posts/python-asterisks https://the.exa.website/introduction https://en.wikipedia.org/wiki/Tty_(Unix) https://en.wikipedia.org/wiki/Tty_(Unix) https://the.exa.website/introduction https://jvns.ca/blog/2022/08/30/a-way-to-categorize-debugging-skills/ https://news.ycombinator.com/item?id=34146212 https://en.wikipedia.org/wiki/Teleprinter
 * https://bestasciitable.com/
 
-## line editor (readline)
-
-* _readline_: line editor https://news.ycombinator.com/item?id=33785631
-* impl https://github.com/chzyer/readline
-* view keybindings: `bind -P` https://catonmat.net/bash-vi-editing-mode-cheat-sheet
-* set mode: `set -o <emacs/vi>`
-* exec previous cmd: `!!` https://bsago.me/tech-notes/a-replacement-for-!!-in-fish
-
-* _vi_: doesn't support text obj e.g. `cw` works but `ciw` doesn't https://vi.stackexchange.com/a/9876 https://catonmat.net/bash-vi-editing-mode-cheat-sheet
-* scroll history: `j/k`
-
----
-
-* history https://github.com/ddworken/hishtory https://github.com/pindexis/marker https://www.jefftk.com/p/logging-shell-history-in-zsh https://jvns.ca/blog/2023/08/08/what-helps-people-get-comfortable-on-the-command-line-/
-* autocomplete https://fig.io/
-
-to read before you take another swing at using vi mode
-* https://twobithistory.org/2019/08/22/readline.html
-* https://thoughtbot.com/upcase/videos/readline
-* config https://missing.csail.mit.edu/2020/editors/
-* problem #1: would allow single motion and then go into insert mode
-* problem #2: scroll history; can use emacs commands in vi mode as workaround https://stackoverflow.com/q/42951222
-> both of these worked at first
-
-bindings
-* readline https://stackoverflow.com/questions/35046794/where-can-i-view-all-my-custom-keybindings-in-bash
-* https://bsago.me/tech-notes/insert-text-with-fish-keybindings
-* https://stackoverflow.com/questions/10870468/whats-the-usage-of-bind-in-bash
-* https://www.computerhope.com/unix/bash/bind.htm
-
-EMACS MODE https://catonmat.net/bash-emacs-editing-mode-cheat-sheet
-* scroll history: `CTRL n/p`
-* _repeat previous command_: `!!`
-* _goto - word - forward_: alt b
-* _goto - word - forward_: alt f
-* _goto - line - end_: ctrl e
-* _goto - line - start_: ctrl a
-* _rm - word - back_: ctrl w
-* _rm - word - forward_: alt d
-* _rm to - line - end_: ctrl k
-* _rm to - line - start_: ctrl u
-
-completion
-* _tab completion_: aka autocomplete, expansion https://python-poetry.org/docs/ https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/ 
-* https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html
-* uses `complete` https://tuzz.tech/blog/how-bash-completion-works
-```sh
-$ complete -W "red green blue yellow purple pink orange" color
-$ color <TAB><TAB>
-# blue    green   orange  pink    purple  red     yellow
-$ color p<TAB><TAB>
-# pink    purple
-```
-* `ctrl e` tab complete from bash history
-```sh
-# tig.log
-> Bash completion has been installed to: /usr/local/etc/bash_completion.d
-```
-
 ## multiplex (Zellij)
 
 🗄️ `vim.md` buffers
@@ -694,47 +634,24 @@ WORKFLOW
 * why not Vim: cannot name tabs
 * howto: one session per project e.g. baseline (desktop/cmus/yin), data eng, algos, sk8list https://www.youtube.com/watch?v=hbs7tuwpgZA [1:45]
 
+* _pane_: terminal window + process
+* _tab_: group of panes
+* _layout_: tab + start cmd
+
+ZELLIJ 📜 https://zellij.dev/documentation/
+* shell: doesn't use login, work around using `.zshenv` https://github.com/zellij-org/zellij/issues/1434#issuecomment-2185020449
+* copy/paste: doesn't work with iTerm but Alacritty doesn't have native global hotkey https://zellij.dev/documentation/faq#copy--paste-isnt-working-how-can-i-fix-this
+
 ---
 
-TMUX 📜 https://github.com/tmux/tmux 📙 Hogan https://github.com/git-pull/tao-of-tmux https://willvaughn.org/articles/the-tmux-manual-review/
-* video courses https://thoughtbot.com/upcase/tmux https://www.youtube.com/watch?v=GH3kpsbbERo
-> https://www.youtube.com/watch?v=sSOfr2MtRU8 https://www.youtube.com/watch?v=DzNmUNvnB04
-* install: Homebrew
-* stacked panes: closest option is hiding panes https://unix.stackexchange.com/questions/145857/how-do-you-hide-a-tmux-pane
-* workspaces via named sessions https://www.youtube.com/watch?v=niuOc02Rvrc&t=482s
-* alternatives: https://www.gnu.org/software/screen/ https://github.com/shell-pool/shpool
-* pkg mgmt https://github.com/tmux-plugins/tpm
-* status bar restore https://stackoverflow.com/questions/22407819/my-tmux-status-bar-has-disappeared
-* color theme https://github.com/nordtheme/tmux
-* status bar https://github.com/git-pull/tao-of-tmux/blob/master/manuscript/09-status-bar.md
-* config: more ergonomic binding for prefix https://thoughtbot.com/upcase/videos/tmux-introduction https://thoughtbot.com/upcase/videos/tmux-configuration pane count https://www.youtube.com/watch?v=FTklH6z0LWA
-* env var https://news.ycombinator.com/item?id=35021587
-* _pane_: terminal window + split https://thoughtbot.com/upcase/videos/tmux-introduction
-* 类似 Vim split (and you could also have a window be a single pane of a Vim instance within which you use Vim splits) https://www.youtube.com/watch?v=hbs7tuwpgZA 3:58 https://thoughtbot.com/upcase/videos/tmux-vim-integration
-* nav btw Vim and tmux splits https://github.com/christoomey/vim-tmux-navigator
-* _window_: a tab (in Zellij terms)
-* _session_: window(s) + state https://www.youtube.com/watch?v=hbs7tuwpgZA 3:30
-* cmd https://thoughtbot.com/upcase/videos/tmux-introduction
-```sh
-tmux/exit  # start/stop
-CTRL b  # prefix
-?  # list cmd
-prefix %  # split
-prefix o  # toggle split
-prefix arrow  # toggle split by direction
-new-session -s $NAME  # create session; tmux-resurrect https://www.youtube.com/watch?v=hbs7tuwpgZA [9:50] https://github.com/tmux-plugins/tmux-continuum
-ls  # list sessions
-a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/videos/tmux-navigation
-```
+@ show status bar when opening with user-defined layout
 
-ZELLIJ 📜 https://zellij.dev/documentation/ https://github.com/zellij-org/awesome-zellij
+https://zellij.dev/screencasts/
+https://www.youtube.com/watch?v=lmcrVRM9V4k
+
+* plugins: https://github.com/zellij-org/awesome-zellij https://github.com/imsnif/monocle https://github.com/dj95/zjstatus/ Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45 Catpppuccin https://github.com/catppuccin/zellij
 * why: stacked panes, named tabs/workspaces, tmux seems like a steeper learning curve
-* why not: copy/paste doesn't work with iTerm but Alacritty doesn't have native global hotkey, doesn't use login shell (couldn't get around with `pane command`) https://zellij.dev/documentation/layout-examples https://github.com/zellij-org/zellij/issues/1434#issuecomment-2185020449
-* https://github.com/imsnif/monocle
-* status bar https://github.com/dj95/zjstatus/
-* plugins: Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45 Catpppuccin https://github.com/catppuccin/zellij
 * workaround for keybinding conflicts w/ Vim https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:45
-* scrollback https://zellij.dev/screencasts/
 * _normal mode_: workaround for not having to constantly switch back to this https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:00
 * _copy mode_: get a Neovim session to munge STDOUT (e.g. tailing logs) https://www.youtube.com/watch?v=BjfMWqy1hnw 5:45
 * _pane_: terminal window + process
@@ -761,6 +678,38 @@ layout_dir "~/.config/zellij"
 * 类似 tabs but for stuff you don't need going all the time https://www.youtube.com/watch?v=gtjPeTCkm-8 3:45
 * mgmt https://zellij.dev/news/session-manager-protobuffs/
 * resurrect https://zellij.dev/news/session-resurrection-ui-components/
+
+TMUX 📜 https://github.com/tmux/tmux 📙 Hogan https://github.com/git-pull/tao-of-tmux https://willvaughn.org/articles/the-tmux-manual-review/
+* video courses https://thoughtbot.com/upcase/tmux https://www.youtube.com/watch?v=GH3kpsbbERo
+> https://www.youtube.com/watch?v=sSOfr2MtRU8 https://www.youtube.com/watch?v=DzNmUNvnB04
+* install: Homebrew
+* floating pane https://www.youtube.com/watch?v=JFipv1_ycqU
+* stacked panes: closest option is hiding panes https://unix.stackexchange.com/questions/145857/how-do-you-hide-a-tmux-pane
+* workspaces via named sessions https://www.youtube.com/watch?v=niuOc02Rvrc&t=482s
+* alternatives: https://www.gnu.org/software/screen/ https://github.com/shell-pool/shpool
+* pkg mgmt https://github.com/tmux-plugins/tpm
+* status bar restore https://stackoverflow.com/questions/22407819/my-tmux-status-bar-has-disappeared
+* color theme https://github.com/nordtheme/tmux
+* status bar https://github.com/git-pull/tao-of-tmux/blob/master/manuscript/09-status-bar.md
+* config: more ergonomic binding for prefix https://thoughtbot.com/upcase/videos/tmux-introduction https://thoughtbot.com/upcase/videos/tmux-configuration pane count https://www.youtube.com/watch?v=FTklH6z0LWA
+* env var https://news.ycombinator.com/item?id=35021587
+* _pane_: terminal window + split https://thoughtbot.com/upcase/videos/tmux-introduction
+* 类似 Vim split (and you could also have a window be a single pane of a Vim instance within which you use Vim splits) https://www.youtube.com/watch?v=hbs7tuwpgZA 3:58 https://thoughtbot.com/upcase/videos/tmux-vim-integration
+* nav btw Vim and tmux splits https://github.com/christoomey/vim-tmux-navigator
+* _window_: a tab (in Zellij terms)
+* _session_: window(s) + state https://www.youtube.com/watch?v=hbs7tuwpgZA 3:30
+* cmd https://thoughtbot.com/upcase/videos/tmux-introduction
+```sh
+tmux/exit  # start/stop
+CTRL b  # prefix
+?  # list cmd
+prefix %  # split
+prefix o  # toggle split
+prefix arrow  # toggle split by direction
+new-session -s $NAME  # create session; tmux-resurrect https://www.youtube.com/watch?v=hbs7tuwpgZA [9:50] https://github.com/tmux-plugins/tmux-continuum
+ls  # list sessions
+a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/videos/tmux-navigation
+```
 
 ## shell (zsh)
 
@@ -794,10 +743,10 @@ FISH 📜 https://fishshell.com/
 * can't run bash scripts = just switch back to bash https://news.ycombinator.com/item?id=18777141 https://jvns.ca/blog/2017/04/23/the-fish-shell-is-awesome/
 
 ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
-* BYO https://www.destroyallsoftware.com/screencasts/catalog
-* _crush_ https://news.ycombinator.com/item?id=24079001
-* _elvish_ https://news.ycombinator.com/item?id=18778681
-* _nushell_: https://www.nushell.sh/
+* typical to write a scripting language to go along with your shell https://news.ycombinator.com/item?id=24079001
+* BYO https://www.destroyallsoftware.com/screencasts/catalog https://github.com/elves/elvish
+* _elvish_: https://news.ycombinator.com/item?id=18778681
+* _nushell_: structured data https://www.nushell.sh/
 * _oil_: https://github.com/oilshell/oil
 * _Powershell_: supports some Bash commands but no arguments https://yehudakatz.com/2019/04/24/powershell-lets-get-started
 * good at working with structured text like CSV https://news.ycombinator.com/item?id=28306401
@@ -816,40 +765,153 @@ ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 * switch shell: `<shell>` https://fishshell.com/docs/current/tutorial.html#tut_getting_started
 * return to default shell: `exit`
 
-## terminal (iTerm)
+### history (atuin)
 
-FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/
-* Unicode support: emojis, prompts https://darrenburns.net/posts/emoji-in-the-terminal/
-* tabs/profiles
-* viz: background color/image, transparency, themes e.g. gruvbox https://www.youtube.com/watch?v=h509rn2xIyU
-* _hotkey_: keypress handled by listening program even if another program is active
-* the killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
-* options: AutoHotKey https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ Hammerspoon, Keyboard Maestro https://news.ycombinator.com/item?id=34070951 Karabiner https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934 Alfred https://www.alfredapp.com/
+LIBS
+* _atuin_: better UI https://github.com/atuinsh/atuin https://docs.atuin.sh/
+* enter: `ctrl r`|up arrow
+* `ctrl r`: change search context (global, host, session, directory) https://www.youtube.com/watch?v=WB7qojkkVVU [7:45]
+* import will give everything a timestamp from moment of import https://www.youtube.com/watch?v=WB7qojkkVVU [4:40]
+* _history-sync_: zsh plugin https://martinheinz.dev/blog/110
+* _hishtory_: https://github.com/ddworken/hishtory
+* _marker_: uses tldr https://github.com/pindexis/marker
+* _mcfly_: cmd suggestions https://github.com/cantino/mcfly
+* _zsh-histdb_: https://github.com/larkery/zsh-histdb https://www.jefftk.com/p/logging-shell-history-in-zsh
 
-PROMPT
-* things I want: Git branch, Python version, venv
-* Git: https://www.youtube.com/watch?v=wku-1nJR_oA https://github.com/zachvalenta/dotfiles/commit/cc4117a72c7b1d80f0ec58021530727435a2e4af https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh https://stackoverflow.com/questions/31252573/get-current-directory-without-full-path-in-fish-shell
-* _ohmyposh_: https://github.com/jandedobbeleer/oh-my-posh
-* _pure_: zsh only https://github.com/sindresorhus/pure
-* _powerlevel10k_: https://github.com/romkatv/powerlevel10k
-* _powerline_: statusline and prompt for Vim and used by zsh https://github.com/powerline/powerline
-* can install via pip https://pypi.org/project/powerline-status/ https://github.com/wesbos/Cobalt2-iterm
+CMD
+* `history 0`: view full history https://unix.stackexchange.com/a/657934
+
+ZA
+* files: `.bash_history`, `.zsh_history` https://catonmat.net/the-definitive-guide-to-bash-command-line-history
+> unsure mechanism to determine which cmd end up here, all entries from mini23 are not there
+* search, rm entries https://catonmat.net/the-definitive-guide-to-bash-command-line-history
+* dedupe, fmt https://martinheinz.dev/blog/110
+* in bash https://www.jefftk.com/p/logging-shell-history-in-zsh
+* comment for easier search https://news.ycombinator.com/item?id=41031837
+
+---
+
+replace atuin for scrolling commands https://www.youtube.com/watch?v=uOnL4fEnldA [10:45]
+
+* search: `ctrl r`
+* scroll all items that match query: `ctrl r` (again)
+* cancel search: `ctrl c`
+* scroll previous: `ctrl p`
+* scroll next: `ctrl n`
+> same when you're in search mode
+* event designator: `history | rg cd` then go to event w/ `!<event_num>`
+> it can be helpful to stick something like `#useful` or `# description` on the end of a command you expect to need again https://news.ycombinator.com/item?id=13888269
+
+### line editor (readline)
+
+* _readline_: line editor https://news.ycombinator.com/item?id=33785631
+* impl https://github.com/chzyer/readline
+* view keybindings: `bind -P` https://catonmat.net/bash-vi-editing-mode-cheat-sheet
+* exec previous cmd: `!!` https://bsago.me/tech-notes/a-replacement-for-!!-in-fish
+
+MODES
+* set mode: `set -o <emacs/vi>`
+* _vi_: doesn't support text obj e.g. `cw` works but `ciw` doesn't https://vi.stackexchange.com/a/9876 https://catonmat.net/bash-vi-editing-mode-cheat-sheet
+* scroll history: `j/k`
+
+---
+
+* https://jvns.ca/blog/2024/07/08/readline/
+* https://twobithistory.org/2019/08/22/readline.html
+* https://thoughtbot.com/upcase/videos/readline
+* config https://missing.csail.mit.edu/2020/editors/
+* problem #1: would allow single motion and then go into insert mode
+* problem #2: scroll history; can use emacs commands in vi mode as workaround https://stackoverflow.com/q/42951222
+> both of these worked at first
+
+bindings
+* readline https://stackoverflow.com/questions/35046794/where-can-i-view-all-my-custom-keybindings-in-bash
+* https://bsago.me/tech-notes/insert-text-with-fish-keybindings
+* https://stackoverflow.com/questions/10870468/whats-the-usage-of-bind-in-bash
+* https://www.computerhope.com/unix/bash/bind.htm
+
+EMACS MODE https://catonmat.net/bash-emacs-editing-mode-cheat-sheet
+* scroll history: `CTRL n/p`
+* _repeat previous command_: `!!`
+* _goto - word - forward_: alt b
+* _goto - word - forward_: alt f
+* _goto - line - end_: ctrl e
+* _goto - line - start_: ctrl a
+* _rm - word - back_: ctrl w
+* _rm - word - forward_: alt d
+* _rm to - line - end_: ctrl k
+* _rm to - line - start_: ctrl u
+
+completion
+* _tab completion_: aka autocomplete, expansion https://python-poetry.org/docs/ https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
+* https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html
+* uses `complete` https://tuzz.tech/blog/how-bash-completion-works
+```sh
+$ complete -W "red green blue yellow purple pink orange" color
+$ color <TAB><TAB>
+# blue    green   orange  pink    purple  red     yellow
+$ color p<TAB><TAB>
+# pink    purple
+```
+* `ctrl e` tab complete from bash history
+```sh
+# tig.log
+> Bash completion has been installed to: /usr/local/etc/bash_completion.d
+```
+
+### prompt (oh-my-posh)
+
+FEATURES
+* Python version
+* venv https://github.com/b-ryan/powerline-shell/issues/507
+* transient: only display prompt for current cmd https://www.youtube.com/watch?v=9U8LCjuQzdc [0:50]
+* Git branch: can do in pure bash https://www.youtube.com/watch?v=wku-1nJR_oA https://github.com/zachvalenta/dotfiles/commit/cc4117a72c7b1d80f0ec58021530727435a2e4af https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh https://stackoverflow.com/questions/31252573/get-current-directory-without-full-path-in-fish-shell
+
+OPTIONS
+* _ohmyposh_: ✅ https://github.com/jandedobbeleer/oh-my-posh https://ohmyposh.dev/
+* themes: multiverse-neon, capr4n, powerlevel10k_lean, tokyonight_storm, tonybaloney, takuya, M365Princess
+* _powerlevel10k_: unsupported https://github.com/romkatv/powerlevel10k
+* _powerline_: Vim and zsh https://github.com/powerline/powerline https://pypi.org/project/powerline-status/ https://github.com/wesbos/Cobalt2-iterm
+* _powerline-shell_: ✅ powerline but works on bash and zsh (w/out ohmyzsh) https://github.com/b-ryan/powerline-shell
+* conf: `~/.config/powerline-shell/config.json`
+```json
+{
+    "segments": [
+      "cwd",
+      "git",
+      "ssh",
+      "virtual_env"
+    ],
+    "mode": "flat"
+}
+```
+* requires powerline for fonts? https://powerline.readthedocs.io/en/latest/installation/osx.html
+* no Poetry support https://github.com/b-ryan/powerline-shell/issues/507
+* https://github.com/b-ryan/powerline-shell#generic-segments
+* _pure_: https://github.com/sindresorhus/pure
 * _starship_: https://starship.rs/
-* downside: slower than powerline-shell, Git status looks worse
+* downside: slower than powerline-shell, unattractive Git status
 * upside: support for pyenv, Poetry https://starship.rs/config/#package-version
 * install `brew install starship` or `sh -c "$(curl -fsSL https://starship.rs/install.sh)"`
 * update `sh -c "$(curl -fsSL https://starship.rs/install.sh)"`
 * uninstall `sh -c 'rm "$(command -v 'starship')"'`
 * venv https://github.com/starship/starship/issues/1529
 * won't get Python version if you're using an alias https://github.com/starship/starship/issues/632
-* _powerline-shell_: ✅ powerline but works on bash and zsh (w/out ohmyzsh) https://github.com/b-ryan/powerline-shell
-* conf: `~/.config/powerline-shell/config.json`
-* requires powerline for fonts? https://powerline.readthedocs.io/en/latest/installation/osx.html
-* no Poetry support https://github.com/b-ryan/powerline-shell/issues/507
-* https://github.com/b-ryan/powerline-shell#generic-segments
+
+## terminal (iTerm)
+
+FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/ https://news.ycombinator.com/item?id=35125442
+* Unicode support: emojis, prompts https://darrenburns.net/posts/emoji-in-the-terminal/
+* tabs/profiles
+* viz: background color/image, transparency, themes e.g. gruvbox https://www.youtube.com/watch?v=h509rn2xIyU
+* _hotkey_: keypress handled by listening program even if another program is active
+* the killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
+* options: AutoHotKey https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ Hammerspoon, Keyboard Maestro https://news.ycombinator.com/item?id=34070951 Karabiner https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934 Alfred https://www.alfredapp.com/ BetterTouchTool https://switowski.com/blog/favorite-mac-tools/
+
 
 ITERM 📜 https://iterm2.com/documentation.html
 https://news.ycombinator.com/item?id=35126280
+* can edit tab title
 * conf: `$HOME/.config/iterm2/AppSupport -> /Users/zach/Library/Application Support/iTerm2`
 * allow file access: security > full disk access
 * getting help https://gitlab.com/gnachman/iterm2/-/issues/7517
@@ -884,13 +946,14 @@ https://news.ycombinator.com/item?id=35126280
 
 ALTERNATIVES
 > UX also isn't something that can really be competed on for a terminal app as the UX is typically dictated by the shell, tool, tmux, etc. https://news.ycombinator.com/item?id=35125295
-* _Alacritty_: no native global hotkey https://github.com/alacritty/alacritty/issues/3313 but workarounds available (Hammerspoon, Karabiner) https://github.com/alacritty/alacritty/issues/862
+* _Alacritty_: 🎯 TOML config, cross-platform
+* no global hotkey https://github.com/alacritty/alacritty/issues/3313 but workarounds available (Hammerspoon, Karabiner) https://github.com/alacritty/alacritty/issues/862
 * _Hyper_: Electron https://hyper.is/
-* _kitty_: can preview images in broot https://sw.kovidgoyal.net/kitty/
+* _kitty_: can preview images in broot https://sw.kovidgoyal.net/kitty/ maintainer is a jerk https://news.ycombinator.com/item?id=41223934
 * _sshx_: real-time collaboration https://github.com/ekzhang/sshx
-* _Tabby_: memory hog https://news.ycombinator.com/item?id=35111397
-* _Warp_: launch configurations 类似 iterm profiles, need to login w/ Github https://news.ycombinator.com/item?id=30926360
-* _Wezterm_: immature https://wezfurlong.org/wezterm/index.html
+* _Tabby_: Electron https://news.ycombinator.com/item?id=35111397 https://github.com/Eugeny/tabby?tab=readme-ov-file#what-tabby-is-and-isnt
+* _Warp_: ❌ launch configurations 类似 iterm profiles, need to login w/ Github https://news.ycombinator.com/item?id=30926360
+* _Wezterm_: immature https://wezfurlong.org/wezterm/index.html no global hotkey https://github.com/wez/wezterm/issues/1751
 
 ## windows
 
@@ -917,13 +980,14 @@ WINDOW MANAGERS
 * for Windows https://news.ycombinator.com/item?id=33168263
 * for macOS https://magnet.crowdcafe.com/ https://news.ycombinator.com/item?id=22852157 https://faun.pub/yabai-macos-tile-window-manager-833ce1be396a?gi=132df1bca0e1 https://github.com/koekeishiya/yabai https://news.ycombinator.com/item?id=36368990
 * AlwaysOnTop https://www.youtube.com/watch?v=6IxRlaTWsoQ
-* _Amethyst_: macOS https://github.com/ianyh/Amethyst https://www.reddit.com/r/xmonad/comments/3j4tnt/is_it_possible_to_use_xmonad_on_os_x/
+* _Amethyst_: macOS https://github.com/ianyh/Amethyst https://www.reddit.com/r/xmonad/comments/3j4tnt/is_it_possible_to_use_xmonad_on_os_x/ https://switowski.com/blog/favorite-mac-tools/
 * _dwm_: https://dwm.suckless.org/
 * _i3_: tiling + hotkeys https://www.youtube.com/watch?v=bdumjiHabhQ 3:30 https://www.youtube.com/watch?v=bdumjiHabhQ 1:30
+* _Magnet_: https://switowski.com/blog/favorite-mac-tools/
 * _PaperWM_: https://jvns.ca/blog/2020/01/05/paperwm/
 * _Slate_: unmaintained https://github.com/jigish/slate
 * _Sway_: https://swaywm.org/
-* _Rectable_: macOS https://rectangleapp.com/
+* _Rectangle_: macOS https://rectangleapp.com/ https://switowski.com/blog/favorite-mac-tools/
 * _X.org_: https://www.x.org/wiki/
 * _XQuartz_: port of X.org for macOS https://www.xquartz.org/
 * _xmonad_: x11, no macOS https://news.ycombinator.com/item?id=30402358 https://xmonad.org/
@@ -941,25 +1005,11 @@ WINDOW MANAGERS
 * `git.md` utils
 * `linux.md` denv
 
-HISTORY
-* `history 0`: see full history in zsh https://unix.stackexchange.com/a/657934
-
 ---
-
-HISTORY https://catonmat.net/the-definitive-guide-to-bash-command-line-history https://martinheinz.dev/blog/110
-* search: `ctrl r`
-* scroll all items that match query: `ctrl r` (again)
-* cancel search: `ctrl c`
-* scroll previous: `ctrl p`
-* scroll next: `ctrl n`
-> same when you're in search mode
-* event designator: `history | rg cd` then go to event w/ `!<event_num>`
-> it can be helpful to stick something like `#useful` or `# description` on the end of a command you expect to need again https://news.ycombinator.com/item?id=13888269
-* https://github.com/cantino/mcfly
 
 MAN PAGES
 * _whereis_: search for executables and man page in system db https://github.com/Idnan/bash-guide#c-whereis
-* _tldr_: cheatsheets https://github.com/tldr-pages/tldr/tree/master/pages https://github.com/dbrgn/tealdeer https://github.com/chubin/cheat.sh
+* _tldr_: cheatsheets https://github.com/tldr-pages/tldr/tree/master/pages https://github.com/dbrgn/tealdeer https://github.com/chubin/cheat.sh https://github.com/denisidoro/navi
 * offline documentations https://devdocs.io/
 > you can download plaintext of Python docs
 * man (UNIX) vs. info (GNU) https://askubuntu.com/a/9332 man pages for systems calls as well (`sendfile`) [`evans-linux.pdf` 11]
@@ -976,6 +1026,7 @@ CORE
 * _head_: 类似 SQL `limit` e.g. `ls <query> | head -4` or `kaiff` (`ls | sort -f | head -1 | xargs open`) https://stackoverflow.com/a/14510257/6813490
 * _which_: search for executables on $PATH https://github.com/Idnan/bash-guide#d-which full path https://nil.wallyjones.com/what-shell-am-i-using/
 * _rm_: send to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives https://github.com/nivekuil/rip https://github.com/arsenetar/send2trash/issues https://github.com/arsenetar/send2trash/issues/56 https://hacker-tools.github.io/command-line/
+* _tar_: https://switowski.com/blog/favorite-mac-tools/
 * _w_: who is logged in and what they're doing https://rachelbythebay.com/w/2018/03/26/w/
 * _watch_: https://github.com/sachaos/viddy
 
@@ -988,7 +1039,6 @@ MODERN
 * _gotty_: term as web app https://github.com/yudai/gotty
 * _neofetch_: system info https://github.com/Dr-Noob/cpufetch
 * _pdfgrep_: https://pdfgrep.org/ alternative
-* _scc_: code stats https://github.com/XAMPPRocky/tokei
 * _tee_: view output https://www.youtube.com/watch?v=NsAUBict1Aw
 * _tsukae_: view most commonly used commands https://github.com/irevenko/tsukae
 * _try_: view files that command touches https://github.com/binpash/try
@@ -1031,6 +1081,7 @@ MONITORING
 SNIPPETS
 * live log view `tail -f foo.log`
 
+* clipboard manager https://github.com/Slackadays/Clipboard
 * copy output to clipboard : `<cmd> | pbcopy` https://github.com/Slackadays/Clipboard
 * copy file to clipboard: `pbcopy < ~/.ssh/id_rsa.pub`
 
@@ -1196,9 +1247,9 @@ ALTERNATIVES
 * _mini_: 🎯 https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
 * _nnn_: https://github.com/jarun/nnn
 * _telescope_: 🎯 https://github.com/nvim-telescope/telescope.nvim https://www.youtube.com/watch?v=OhnLevLpGB4 https://www.youtube.com/watch?v=indguFY7wJ0
-* _superfile_: 🎯 https://github.com/MHNightCat/superfile https://news.ycombinator.com/item?id=40323101
+* _superfile_: no way to enter directory you've navigated to https://github.com/MHNightCat/superfile https://news.ycombinator.com/item?id=40323101
 * _vifm_: https://github.com/vifm/vifm https://www.youtube.com/watch?v=RGOsE3UWqhI https://www.youtube.com/watch?v=6eyFXcyosu8
-* _walk_: https://github.com/antonmedv/walk
+* _walk_: no way to enter directory you've navigated to https://github.com/antonmedv/walk
 * _xlpr_: https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020
 * _yazi_: https://github.com/sxyazi/yazi
 
@@ -1206,10 +1257,10 @@ ALTERNATIVES
 
 * `.bash_profile` aliases
 * BYO https://news.ycombinator.com/item?id=22853119
-* _autojump_: mature https://github.com/wting/autojump
+* _autojump_: 🎯 mature https://github.com/wting/autojump
 * _wd_: manually add https://github.com/mfaerevaag/wd
 * _z_: https://github.com/rupa/z
-* _zoxide_: tried out and init in zsh didn't work, requires fzf https://github.com/ajeetdsouza/zoxide
+* _zoxide_: ❌ tried out and init in zsh didn't work, requires fzf https://github.com/ajeetdsouza/zoxide
 
 ### list (exa)
 
@@ -1292,6 +1343,7 @@ USES https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-d
 
 ---
 
+https://github.com/peco/peco
 https://www.youtube.com/watch?v=MvLQor1Ck3M
 * https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
 > As well as filtering the list of matches, the fuzzy finder also sorts the results using a ranking algorithm 📙 Neil modern [3.2   6]
@@ -1331,14 +1383,14 @@ cdf() {
 
 ### munge (awk, sed)
 
-🗄 `databased.md` tooling
+🗄 `eng.md` munge
 
 COLUMNAR
 * _cut_: rm columns https://blog.balthazar-rouberol.com/text-processing-in-the-shell#cut https://kadekillary.work/posts/cli-4-ds/ https://github.com/theryangeary/choose https://github.com/ibraheemdev/modern-unix
 ```sh
 # todo
 ```
-* _awk_: process columnar data https://kadekillary.work/note/awk/ https://benhoyt.com/writings/goawk/ https://kadekillary.work/post/cli-4-ds/ https://neowaylabs.github.io/programming/unix-shell-for-data-scientists/ 📙 Kernighan https://github.com/thewhitetulip/awk-anti-textbook/ https://en.wikipedia.org/wiki/The_AWK_Programming_Language https://blog.jpalardy.com/posts/why-learn-awk/ https://gregable.com/2010/09/why-you-should-know-just-little-awk.html http://www.grymoire.com/Unix/Awk.html
+* _awk_: process columnar data https://missing.csail.mit.edu/2020/data-wrangling/ https://kadekillary.work/note/awk/ https://benhoyt.com/writings/goawk/ https://kadekillary.work/post/cli-4-ds/ https://neowaylabs.github.io/programming/unix-shell-for-data-scientists/ 📙 Kernighan https://github.com/thewhitetulip/awk-anti-textbook/ https://en.wikipedia.org/wiki/The_AWK_Programming_Language https://blog.jpalardy.com/posts/why-learn-awk/ https://gregable.com/2010/09/why-you-should-know-just-little-awk.html http://www.grymoire.com/Unix/Awk.html
 * avoid by parsing stdout to JSON then using JSON query tool e.g jq https://github.com/kellyjonbrazil/jc https://www.thoughtworks.com/radar/tools?blipid=202203056
 * versions: `awk- W version` (doesn't work on macOS) ; mawk (Ubuntu, Debian) gawk (other distro incl macOS)
 * rm blank lines: `"NF"` https://stackoverflow.com/a/29549497
@@ -1347,6 +1399,9 @@ COLUMNAR
 * get last word in line https://stackoverflow.com/a/16617037
 * sum series of numbers https://stackoverflow.com/a/28926450
 ```sh
+# RM TRAILING N CHARS https://chatgpt.com/share/2575c4e4-94d8-4006-8cab-829142e787b2
+echo 'eid,b_line,p_line,full_description,' | awk '{print substr($0, 1, length($0)-1)}'
+
 # use awk 'control file' against input file
 awk -f my_script.awk /etc/ntp.conf
 # set delimiter
@@ -1381,7 +1436,13 @@ sed '' BSD  # no cmd i.e. just send to stdout
 * print range: `sed -n '1,5p' bsd.txt` (specific) `sed -n '1,5p' bsd.txt` (relative)
 
 ZA
+* _tail_: `tail -n +42 $FILE` view file starting from 42 line https://askubuntu.com/a/410207
 * _tr_: string edit e.g. case, add newline https://github.com/Idnan/bash-guide#k-tr https://shapeshed.com/unix-tr/ https://blog.balthazar-rouberol.com/text-processing-in-the-shell#tr
+```sh
+cat example.txt | tr 'a-z' 'A-Z'  # uppercase
+cat example.txt | tr ' ' '\n'  # replace spaces with newlines
+cat example.txt | tr '\n' ','  # concat n lines into single comma-delineated line
+```
 * _join_: SQL join on files https://kadekillary.work/posts/cli-4-ds/
 * _paste_: merge sorted files https://kadekillary.work/posts/cli-4-ds/ https://blog.balthazar-rouberol.com/text-processing-in-the-shell#paste
 ```sh

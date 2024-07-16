@@ -4,11 +4,14 @@
 
 ## 进步
 
+https://borretti.me/article/language-pragmatics
+
 LANGUAGES TO LEARN
 * Golang: Ball compiler book, PocketBase
 * Zig/C: systems
 * Lisp/Lua: paradigms
 
+DONE
 * _19-present_: Python, SQL
 * _18_: Python, Spring Boot, Django/DRM
 * _17_: PHP, SQL
@@ -269,13 +272,25 @@ HISTORY https://increment.com/programming-languages/language-history/
 * people like? https://news.ycombinator.com/item?id=40538540
 * multiple compilers https://news.ycombinator.com/item?id=23686297
 
+🔤 R
+* language for stats https://walker-data.com/census-r/index.html
+* _CRAN_: where you download R itself and also (?) R packages https://cran.r-project.org/
+* _packrat_: pkg manager https://rstudio.github.io/packrat/
+* _RStudio_: IDE
+* _tidyverse_: https://www.tidyverse.org/index.html
+* clean https://github.com/sfirke/janitor https://tidyr.tidyverse.org https://tidyr.tidyverse.org/articles/tidy-data.html
+* functional https://purrr.tidyverse.org/
+* string pattern match https://stringr.tidyverse.org/
+* plot https://ggplot2.tidyverse.org/ grammar of graphics https://plotnine.org/
+* dataframes https://tibble.tidyverse.org/
+
 🦀 RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust
 * Neovim https://www.youtube.com/watch?v=mh_EJhH49Ms
 * example project https://github.com/nate-sys/tuime https://github.com/swsnr/mdcat
 * books https://news.ycombinator.com/item?id=34556318 https://github.com/plabayo/learn-rust-101/blob/main/README.md
 * CLI https://www.amazon.com/gp/product/1098109430/ref=ox_sc_act_title_1?smid=ATVPDKIKX0DER&psc=1
 * web https://tech.marksblogg.com/poem-rust-web-framework.html https://tech.marksblogg.com/actix-rust-web-framework.html https://tech.marksblogg.com/rocket-rust-web-framework.html https://www.shuttle.rs/blog/2023/09/27/rust-vs-go-comparison
-* TUI https://github.com/gyscos/Cursive https://github.com/fdehau/tui-rs
+* TUI https://github.com/gyscos/Cursive https://github.com/fdehau/tui-rs https://github.com/ratatui-org/ratatui
 * vs. Golang https://news.ycombinator.com/item?id=31205072
 * doesn't have a spec https://drewdevault.com/2019/03/25/Rust-is-not-a-good-C-replacement.html
 * big learning curve https://news.ycombinator.com/item?id=30627667
@@ -301,14 +316,13 @@ HISTORY https://increment.com/programming-languages/language-history/
 ZA
 * _APL_: https://mathspp.com/blog/what-learning-apl-taught-me-about-python
 * _C++_: https://ccc.codes/ https://github.com/green7ea/cpp-compilation http://esr.ibiblio.org/?p=7724 people hate C++ https://news.ycombinator.com/item?id=33436268 https://borretti.me/article/simplicity-and-survival https://news.ycombinator.com/item?id=34588340 https://news.ycombinator.com/item?id=34643530
-* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805
+* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html
 * with Alpine https://news.ycombinator.com/item?id=34365515
 * _Haskell_: https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
 * _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/  https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
 * _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter
-* _R_: great stdlib, good for spatial https://www.tidyverse.org/index.html https://github.com/sfirke/janitor https://walker-data.com/census-r/index.html
 
 ## assembly
 
@@ -586,11 +600,19 @@ id(counter)  # 4304845312
 
 ## pointers
 
+🔗 https://en.wikipedia.org/wiki/Pointer_(computer_programming)
+
 * a memory address https://nullprogram.com/blog/2019/06/30/
 * _thin pointer_: takes up space of one unsigned int https://users.rust-lang.org/t/thin-pointers-fat-pointers-alignment-oh-my/50261
 * _fat pointer_: takes up space of two unsigned ints, extra int stores length (e.g. Go slice) https://nullprogram.com/blog/2019/06/30/ https://stackoverflow.com/a/57754902
 
 ---
+
+https://pythonbytes.fm/episodes/show/375/pointing-at-countries
+
+null https://www.youtube.com/watch?v=XIhQYRNBAYs
+
+dereference https://stackoverflow.com/questions/4007268/what-exactly-is-meant-by-de-referencing-a-null-pointer https://stackoverflow.com/questions/14224831/meaning-of-referencing-and-dereferencing-in-c
 
 obj storing a memory address https://nullprogram.com/blog/2019/06/30/ https://boredzo.org/pointers/#definition https://www.alexedwards.net/blog/a-gentle-introduction-to-pointers
 
@@ -703,7 +725,7 @@ za
 * _embedded_: language runs in same process as another language i.e. you need to impl interpreter and stdlib for embedded lang within host lang runtime?
 * Jython being built in Java means it's easy to embed bc it will run anywhere that has a JVM https://softwareengineering.stackexchange.com/a/403915
 * Lua good at embedding bc small stdlib, used in game dev https://news.ycombinator.com/item?id=3534746 howto https://news.ycombinator.com/item?id=36107315
-* _static analysis_: run rules against non-running code; aka code quality (CQ); autofmt (black, prettier) lint (flake8) security (https://github.com/returntocorp/semgrep)
+* _static analysis_: run rules against non-running code; aka code quality (CQ); autofmt (black, prettier) lint (flake8) security (https://github.com/returntocorp/semgrep) Sylver https://blog.sylver.dev/building-a-json-validator-with-sylver-part13-writing-a-json-parser-in-49-lines-of-code https://blog.sylver.dev/build-a-custom-python-linter-in-5-minutes
 * _standard library (stdlib)_: algos, datetime, networking https://drewdevault.com/2021/03/19/A-new-systems-language.html
 > The base state of programming is gluing together library calls. Since glue code can be written in any language, most programmers' language preferences are really library preferences. - Graham https://twitter.com/paulg/status/1373926244673323008
 > The true measure of a language isn’t how it uses semicolons; it’s the standard library of each language. - Ford what is code
@@ -782,7 +804,7 @@ compilers
 * _cc_: original compiler https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
 * _gcc_: 
 * _Clang_: 
-* _LLVM_: 
+* _LLVM_: https://aosabook.org/en/v1/llvm.html
 
 compilation
 * _compilers_: gcc, Clang, cl (MS) LLVM (from source to IR, then optimize IR http://aosabook.org/en/llvm.html)

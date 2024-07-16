@@ -7,7 +7,8 @@
 🧪 https://github.com/zachvalenta?tab=repositories&q=django
 📚
 * https://www.saaspegasus.com/
-* Vincent beginners
+* Vincent beginners https://treypiepmeier.com/words/2024/08/django-is-for-everyone
+> new edition
 * Vincent professionals
 * Layman https://www.mattlayman.com/understand-django/
 
@@ -370,6 +371,7 @@ how to
 
 ## admin
 
+* https://github.com/cuducos/django-public-admin
 * https://github.com/simonw/django-sql-dashboard
 * https://roman.pt/posts/django-admin-and-service-layer/
 * https://testdriven.io/blog/customize-django-admin/
@@ -606,6 +608,7 @@ misc
 * _technical board_: engineering; replaced core teams https://jacobian.org/2020/mar/12/django-governance/
 
 SIGNALS https://docs.djangoproject.com/en/5.0/topics/signals/
+* https://blinker.readthedocs.io/en/stable/
 * _signals_: emit/consume msgs (btw separate Django apps) e.g. pre/post-save https://stackoverflow.com/a/17658156
 * are not async i.e. consumer(s) must finish before further execution https://www.mattlayman.com/blog/2023/django-signals-async/
 * hooks as replacement https://monadical.com/posts/django-packages.html
@@ -613,6 +616,7 @@ SIGNALS https://docs.djangoproject.com/en/5.0/topics/signals/
 ---
 
 * deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge
+* management commands https://adamj.eu/tech/2024/08/14/django-management-command-sub-commands/
 
 ## auth
 
@@ -788,6 +792,7 @@ ps aux | head --lines=1 && ps aux | grep 'manage.py runserver' | kill
 https://learndjango.com/tutorials/essential-django-3rd-party-packages
 https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-django
 
+* reports https://github.com/RamezIssac/django-slick-reporting
 * _3rd-party apps_: anything installed by adding to `settings.py/INSTALLED_APPS` https://djangopackages.org https://realpython.com/installable-django-app/
 * _analytics_: https://github.com/jazzband/django-analytical
 * _backups_: https://github.com/django-dbbackup/django-dbbackup
@@ -933,6 +938,7 @@ python3 manage.py test app.tests.tests.mod.cls:my_method  # method
 
 🗄 `security.md` users
 
+* https://github.com/zsoldosp/django-currentuser
 * custom user model https://brntn.me/blog/six-things-i-do-every-time-i-start-a-django-project/
 * https://simpleisbetterthancomplex.com/article/2021/07/08/what-you-should-know-about-the-django-user-model.html
 * groups https://github.com/bennylope/django-organizations

@@ -21,6 +21,7 @@
 
 # 📍 CLEAN UP
 
+* https://treyhunner.com/2022/03/variables-objects-and-pointers-in-python/
 * https://realpython.com/python-lazy-evaluation/
 * https://www.pythonmorsels.com/cli-tools/
 * initialize vs. construct, __init__, __new__ https://www.fluentpython.com/lingo/#initializer https://www.fluentpython.com/lingo/#constructor
@@ -117,6 +118,7 @@ class SomeView(BaseView):
 
 ## dataclass
 
+https://www.youtube.com/watch?v=vBH6GRJ1REM
 * vs. defined https://www.youtube.com/watch?v=1S2h11XronA
 > the most useful purpose is adding a certain degree of formalization to a group of values that need to be passed around. https://www.revsys.com/tidbits/dataclasses-and-attrs-when-and-why/
 * `__repr__` and `__eq__` for free https://realpython.com/python-data-classes/
@@ -708,6 +710,7 @@ DECORATORS
 # pagination https://stackoverflow.com/questions/53638221/unable-to-handle-two-links-having-different-pagination-using-decorator
 ```
 * https://bas.codes/posts/python-decorators
+* https://suyogdahal.com.np/posts/how-decorator-crashed-my-flask-app/
 * https://blog.luisrei.com/articles/flaskrest.html
 * https://stackoverflow.com/questions/308999/what-does-functools-wraps-do
 * https://samireland.com/writing/decorators/ https://rednafi.github.io/digressions/python/2020/05/13/python-decorators.html
@@ -1066,7 +1069,7 @@ ANNOTATIONS
 * boxing https://www.moderndescartes.com/essays/data_oriented_python/ https://en.wikipedia.org/wiki/Object_type_(object-oriented_programming)#Boxing https://stackoverflow.com/questions/13055/what-is-boxing-and-unboxing-and-what-are-the-trade-offs
 * _dummy version_: `isinstance`
 * type hints introduced in PEP 484 https://www.python.org/dev/peps/pep-0484/
-* mypy vs. pyright https://news.ycombinator.com/item?id=37914146
+* mypy vs. pyright https://news.ycombinator.com/item?id=37914146 https://rdrn.me/postmodern-python/
 * _libs_: mpypy (PSF) PyRight (Microsoft) https://github.com/Microsoft/pyright pyre (Facebook) https://pyre-check.org/ pyannotate (Dropbox i.e. Python 2) https://github.com/dropbox/pyannotate MonkeyType (Instagram i.e. Python 3 https://github.com/Instagram/MonkeyType https://www.pythonpodcast.com/monkeytype-with-carl-meyer-and-matt-page-episode-146/
 * _sink_: https://talkpython.fm/episodes/show/151/gradual-typing-of-production-applications https://www.youtube.com/watch?v=mh9jQSxzv0c https://inventwithpython.com/blog/2019/11/24/type-hints-for-busy-python-programmers/ https://veekaybee.github.io/2019/07/08/python-type-hints/ https://blog.petrzemek.net/2019/02/22/even-feature-that-you-do-not-use-can-bite-you/
 
@@ -1120,7 +1123,7 @@ USAGE 💡 second-best for everything
 * finance https://www.openbb.co/
 * architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * GPU simulation https://news.ycombinator.com/item?id=40680737
-* game engine https://github.com/kitao/pyxel
+* game engine https://github.com/kitao/pyxel https://github.com/Broderick-Westrope/tetrigo
 
 GOVERNANCE
 * corporate: internal language team at Google https://news.ycombinator.com/item?id=40176338
@@ -1142,6 +1145,11 @@ PEPS https://peps.python.org/
 
 🗄️ `language.md` semantics / operators
 🔗 https://github.com/cosmologicon/pywat
+
+PRECEDENCE
+* https://www.thepythoncodingstack.com/p/python-operator-precedence-after-you-no-i-insist
+* anything in parentheses executed first https://stackoverflow.com/a/10034611
+* AND has higher precedence than OR
 
 https://realpython.com/python-assert-statement/
 
@@ -1201,10 +1209,6 @@ OPERATORS
 * bitwise operators: `^` (caret) `&` (ampersand) `|` (pipe) https://docs.python.org/3/reference/expressions.html#binary-bitwise-operations
 * _logical_: `and` and `or` short-circuit https://docs.python.org/3/tutorial/datastructures.html#more-on-conditions https://docs.python.org/3/library/stdtypes.html#boolean-operations-and-or-not
 * _comparison_: can be chained e.g. `a > b == c` https://docs.python.org/3/tutorial/datastructures.html#more-on-conditions
-
-precedence
-* anything in parentheses executed first https://stackoverflow.com/a/10034611
-* AND has higher precedence than OR
 
 TRUE AND FALSE
 * _truthy_: non-empty collections, num greater than zero

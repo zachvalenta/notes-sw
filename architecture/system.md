@@ -4,11 +4,18 @@
 
 🗄 `databases.md` perf
 📙 Bueno mature optimization https://carlos.bueno.org/optimization/
+> The notes on benchmark performance graphs often read "higher is better" and performance improvements are even called "optimisations". But the truth is, at least as a user, once performance reaches a satisfactory level - enough for your own data analysis to complete in a reasonable about of time - there is no further benefit from increased speed. Instead of being called "performance optimisation" it should probably be called "performance satisfaction" as once it is satisfactory you have finished. Usability is different. The whole point of computers is as an aid to productivity so user-friendliness is actually the bit you want to optimise. Unlike speed, being easier to use is always better and there is very little limit to that. So it's "usability improvements" that should be called "optimisations" but perhaps the relevant ships on all of these terms have sailed. https://csvbase.com/blog/6
 
 ## 进步
 
 ---
 
+FACTORS
+* throughput, availability
+* data immutable (events, analytics)
+
+* https://www.fractionalarchitect.io/books/mastering-strategic-ddd
+* https://www.fractionalarchitect.io/books/master-software-architecture
 * db per tentant https://news.ycombinator.com/item?id=39004963
 * db per user https://news.ycombinator.com/item?id=38171322
 * https://maheshba.bitbucket.io/blog/2023/07/12/Design.html
@@ -166,6 +173,40 @@ ZA
 * advantages: speed (everything on CDN) security (no db) ++ good for SEO? https://immutablewebapps.org
 * 📍 clean up --> https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/ apparently good for SEO as well Netlify, Gridsome https://redwoodjs.com/ deployment on Zeit, Netlify https://softwareengineeringdaily.com/2020/04/30/jamstack-content-management-with-scott-gallant-jordan-patterson-and-nolan-phillips/ 15:00 https://hacks.mozilla.org/2020/10/mdn-web-docs-evolves-lowdown-on-the-upcoming-new-platform  what it means for backend dev https://www.youtube.com/watch?v=Z2JK7SS82wE https://www.youtube.com/watch?v=grSxHfGoaeg https://scotch.io/@sw-yx/python-the-jamstack
 
+## KISS
+
+---
+
+> "Bad engineering" in adhoc ways tends to mean new ideas are being explored. Sophisticated deployments, logistics, procedures, tends to mean you're optimizing or extending existing system. That's not to disparage the latter. making things work at scale is hard engineering. But when people praise the glory days, it may be a preference for working on new ideas in small projects. https://news.ycombinator.com/item?id=41278907
+
+* boring technology https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
+* aka transitional architecture https://www.thoughtworks.com/radar/techniques?blipid=202203071
+> But the cultural tides are strong. Building a company on Django in 2020 seems like the equivalent of driving a PT Cruiser and blasting Faith Hill’s “Breathe” on a CD while your friends are listening to The Weeknd in their Teslas. Swimming against this current isn’t easy, and not in a trendy contrarian way. https://macwright.com/2020/05/10/spa-fatigue.html
+* https://martinfowler.com/bliki/Yagni.html https://www.jefftk.com/p/designing-low-upkeep-software
+* https://thorstenball.com/blog/2020/09/15/the-context-in-which-we-build-software/
+* https://news.ycombinator.com/item?id=26071906
+* boring tech has well-understood failure modes https://news.ycombinator.com/item?id=23444594 https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
+* https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
+* https://josephg.com/blog/databases-have-failed-the-web/
+* https://twitter.com/b0rk/status/1229860328139296768
+* https://wizardzines.com/about/
+* https://blog.cerebralab.com/Imaginary_Problems_Are_the_Root_of_Bad_Software https://blog.cerebralab.com/Stop_future_proofing_software
+* https://blog.cerebralab.com/Bimodal_programming_%E2%80%93_why_design_patterns_fail
+* Hickey simple made easy https://news.ycombinator.com/item?id=38433358 https://www.youtube.com/watch?v=LKtk3HCgTa8 data is not easy https://grishaev.me/en/ddd-lie https://news.ycombinator.com/item?id=41290189
+* https://www.benkuhn.net/progessays/
+* one dev's edge cases are another's entire project 📙 Kleppmann 491
+* listen to Knuth -> fast code matters less than you think https://www.youtube.com/watch?v=PhUb7y9WZGs
+> We should forget about small efficiencies, say about 97% of the time; premature optimization is the root of all evil. - Donald Knuth
+* write code that's easy to throw away
+> Write code to be changed and/or deleted. This comes from someone who's worked in startups for the past 5 years. We often overestimate how long code =is supposed to live. We as programmers often exaggerate with our DRY and stuff, we do not want to repeat ourselves, we want to find another abstraction...we want to find some general that can help us abstract stuff away. My piece of advice is that, step back and consider for a moment that this code is not going to stay in, so maybe only try and find the abstraction layer once you really sure that this is how it's going to be. - Thorsten Ball https://developeronfire.com/podcast/episode-373-thorsten-ball-interpreters-compilers-and-writing
+> To be attractive to hackers, a language must be good for writing the kinds of programs they want to write. And that means, perhaps surprisingly, that it has to be good for writing throwaway programs. - http://paulgraham.com/popular.html
+* don't cargo cult 'best practices'
+> Sophisticated design principles can make your code faster, more flexible, more modular, and all of the other positive adjectives that people use to describe high-quality software. But they also make it more complex. `AbstractSyntaxRenderers` and `DoubleBackflipDatabaseTransmogrophiers` do make some programs clearer and easier to understand, especially large ones. But they can also be the equivalent of using a metrics-oriented, fully agile, stakeholder-prioritized development flow for working on a jigsaw puzzle with your dad. Sure you’re following best practices, but you probably didn’t need to, and now your dad thinks you’re a Scientologist. - https://robertheaton.com/2018/12/02/programming-project-5-snake/
+* wait for shared concerns to emerge -> repeat yourself until you find the right abstraction https://programmingisterrible.com/post/176657481103/repeat-yourself-do-more-than-one-thing-and
+> There seemed to be a tendency to extract tiny packages first instead of waiting for a shared concern to emerge from the code and only then extracting a package. https://commandercoriander.net/blog/2017/12/31/writing-go/
+> The problem with always using an abstraction is that you’re preemptively guessing which parts of the codebase need to change together. “Don’t Repeat Yourself” will lead to a rigid, tightly coupled mess of code. Repeating yourself is the best way to discover which abstractions, if any, you actually need.
+> Beware of arguments related to programming speed. All things being equal, faster is better. But all things are never equal. Do you need the kind of speed that lets you get a website up and running quickly? Or the kind that allows you to rotate a few thousand polygons in 3D in real time? Do you need to convert 10,000 PDFs into text per hour? Or 10 million PDFs into text once? These are different problems. - Ford what is code?
+
 ## microservices
 
 > Microservices, while often sold as solving a technical problem, usually actually solve for a human problem in scaling up an organization. There's two technical problems that microservices purport to solve: modularization (separation of concerns, hiding implementation, document interface and all that good stuff) and scalability (being able to increase the amount of compute, memory and IO to the specific modules that need it). The first problem, modules, can be solved at the language level. Modules can do that job, and that's the point of this blog post. The second problem, scalability, is harder to solve at the language level in most languages outside those designed to be run in a distributed environment. But most people need it a lot less than they think. Normally the database is your bottleneck and if you keep your application server stateless, you can just run lots of them; the database can eventually be a bottleneck, but you can scale up databases a lot. The real reason that microservices may make sense is because they keep people honest around module boundaries. They make it much harder to retain access to persistent in-memory state, harder to navigate object graphs to take dependencies on things they shouldn't, harder to create PRs with complex changes on either side of a module boundary without a conversation about designing for change and future proofing. Code ownership by teams is something you need as an organization scales, if only to reduce the amount of context switching that developers need to do if treated as fully fungible; owning a service is more defensible than owning a module, since the team will own release schedules and quality gating. I'm not so positive on every microservice maintaining its own copy of state, potentially with its own separate data store. I think that usually adds more ongoing complexity in synchronization than it saves by isolating schemas. A better rule is for one service to own writes for a table, and other services can only read that table, and maybe even then not all columns or all non-owned tables. Problems with state synchronization are one of the most common failure modes in distributed applications, where queues get backed up, retries of "bad" events cause blockages and so on. https://news.ycombinator.com/item?id=34231020
@@ -203,34 +244,6 @@ ZA
 * _horizontal scaling_: shard https://www.youtube.com/watch?v=7v-wrJjcg4k until recently you waited as long as you could on this 📙 Kleppmann 1.18
 > horizontal-scaling is often based on the partitioning of the data i.e. each node contains only part of the data, in vertical-scaling the data resides on a single node and scaling is done through multi-core i.e. spreading the load between the CPU and RAM resources of that machine. With horizontal-scaling it is often easier to scale dynamically by adding more machines into the existing pool - Vertical-scaling is often limited to the capacity of a single machine, scaling beyond that capacity often involves downtime and comes with an upper limit. - https://stackoverflow.com/a/11715598/6813490
 
-KISS
-* aka transitional architecture https://www.thoughtworks.com/radar/techniques?blipid=202203071
-> But the cultural tides are strong. Building a company on Django in 2020 seems like the equivalent of driving a PT Cruiser and blasting Faith Hill’s “Breathe” on a CD while your friends are listening to The Weeknd in their Teslas. Swimming against this current isn’t easy, and not in a trendy contrarian way. https://macwright.com/2020/05/10/spa-fatigue.html
-* https://martinfowler.com/bliki/Yagni.html https://www.jefftk.com/p/designing-low-upkeep-software
-* https://thorstenball.com/blog/2020/09/15/the-context-in-which-we-build-software/
-* https://news.ycombinator.com/item?id=26071906
-* boring tech has well-understood failure modes https://news.ycombinator.com/item?id=23444594 https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
-* https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
-* https://josephg.com/blog/databases-have-failed-the-web/
-* https://twitter.com/b0rk/status/1229860328139296768
-* https://wizardzines.com/about/
-* https://blog.cerebralab.com/Imaginary_Problems_Are_the_Root_of_Bad_Software https://blog.cerebralab.com/Stop_future_proofing_software
-* https://blog.cerebralab.com/Bimodal_programming_%E2%80%93_why_design_patterns_fail
-* Hickey simple made easy https://news.ycombinator.com/item?id=38433358 https://www.youtube.com/watch?v=LKtk3HCgTa8 data is not easy https://grishaev.me/en/ddd-lie
-* https://www.benkuhn.net/progessays/
-* one dev's edge cases are another's entire project 📙 Kleppmann 491
-* listen to Knuth -> fast code matters less than you think https://www.youtube.com/watch?v=PhUb7y9WZGs
-> We should forget about small efficiencies, say about 97% of the time; premature optimization is the root of all evil. - Donald Knuth
-* write code that's easy to throw away
-> Write code to be changed and/or deleted. This comes from someone who's worked in startups for the past 5 years. We often overestimate how long code =is supposed to live. We as programmers often exaggerate with our DRY and stuff, we do not want to repeat ourselves, we want to find another abstraction...we want to find some general that can help us abstract stuff away. My piece of advice is that, step back and consider for a moment that this code is not going to stay in, so maybe only try and find the abstraction layer once you really sure that this is how it's going to be. - Thorsten Ball https://developeronfire.com/podcast/episode-373-thorsten-ball-interpreters-compilers-and-writing
-> To be attractive to hackers, a language must be good for writing the kinds of programs they want to write. And that means, perhaps surprisingly, that it has to be good for writing throwaway programs. - http://paulgraham.com/popular.html
-* don't cargo cult 'best practices'
-> Sophisticated design principles can make your code faster, more flexible, more modular, and all of the other positive adjectives that people use to describe high-quality software. But they also make it more complex. `AbstractSyntaxRenderers` and `DoubleBackflipDatabaseTransmogrophiers` do make some programs clearer and easier to understand, especially large ones. But they can also be the equivalent of using a metrics-oriented, fully agile, stakeholder-prioritized development flow for working on a jigsaw puzzle with your dad. Sure you’re following best practices, but you probably didn’t need to, and now your dad thinks you’re a Scientologist. - https://robertheaton.com/2018/12/02/programming-project-5-snake/
-* wait for shared concerns to emerge -> repeat yourself until you find the right abstraction https://programmingisterrible.com/post/176657481103/repeat-yourself-do-more-than-one-thing-and
-> There seemed to be a tendency to extract tiny packages first instead of waiting for a shared concern to emerge from the code and only then extracting a package. https://commandercoriander.net/blog/2017/12/31/writing-go/
-> The problem with always using an abstraction is that you’re preemptively guessing which parts of the codebase need to change together. “Don’t Repeat Yourself” will lead to a rigid, tightly coupled mess of code. Repeating yourself is the best way to discover which abstractions, if any, you actually need.
-> Beware of arguments related to programming speed. All things being equal, faster is better. But all things are never equal. Do you need the kind of speed that lets you get a website up and running quickly? Or the kind that allows you to rotate a few thousand polygons in 3D in real time? Do you need to convert 10,000 PDFs into text per hour? Or 10 million PDFs into text once? These are different problems. - Ford what is code?
-
 ## no code
 
 * _retool_: https://retool.com/ https://www.youtube.com/watch?v=4xuBT3BbsYU https://www.youtube.com/watch?v=ChTGbmR2NeM
@@ -252,7 +265,7 @@ KISS
 # 🌌 DISTRIBUTED
 
 🗄
-* `big-data.md` replicate/partition
+* `eng.md` replicate
 * `infra.md` queues
 📚
 * Arpaci ch. 48-50
@@ -489,7 +502,7 @@ eviction, expiry
 > Caching by TTL gives up correctness to gain speed.
 * _LFU_: 
 * random: 
-* _LRU_: ensures cache full/hot as possible; used by application caches https://calpaterson.com/ttl-hell.html
+* _LRU_: ensures cache full/hot as possible; used by application caches https://calpaterson.com/ttl-hell.html https://jamesg.blog/2024/08/18/time-based-lru-cache-python/
 ```python
 # There's nothing wrong with the above code but it only allows for strategy #1: never invalidate https://calpaterson.com/ttl-hell.html
 from functools import lru_cache
@@ -541,16 +554,16 @@ in general
 * `aesthetics.md` design
 * `math.md` graphs
 
-TYPES
+TYPES https://news.ycombinator.com/item?id=41080189
 * _concept map_: https://cmap.ihmc.us/docs/learn.php
 * _DAG_: https://arthursonzogni.com/Diagon/#GraphDAG
 * _ERD_: syntax https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ 📙 Karwin [7] 🗄 `sql.md` utils
 * _flow_: https://news.ycombinator.com/item?id=26303784
 * _infrastructure_: https://github.com/mingrammer/diagrams 
-* _mind map_: https://github.com/nadrad/h-m-m https://markmap.js.org/ https://news.ycombinator.com/item?id=24132631 https://news.ycombinator.com/item?id=27614912 https://strlen.com/treesheets/ https://news.ycombinator.com/item?id=34184993 https://blog.dornea.nu/2015/09/17/organizing-and-visualizing-knowledge/ https://www.dendron.so/
+* _mind map_: https://github.com/nadrad/h-m-m https://markmap.js.org/ https://news.ycombinator.com/item?id=24132631 https://news.ycombinator.com/item?id=27614912 https://strlen.com/treesheets/ https://news.ycombinator.com/item?id=34184993 https://blog.dornea.nu/2015/09/17/organizing-and-visualizing-knowledge/ https://www.dendron.so/ https://switowski.com/blog/favorite-mac-tools/
 * _state_: https://github.com/statecharts/statecharts.github.io/issues/44 https://en.wikipedia.org/wiki/State_diagram
 * _treemap_: https://github.com/niyue/skillmap https://github.com/nikolaydubina/go-cover-treemap
-* _sequence_: msg passing https://sequencediagram.org https://gist.github.com/zachvalenta/2aeac1f945c5848c79087b2481cb187a https://arthursonzogni.com/Diagon/#Sequence
+* _sequence_: msg passing https://sequencediagram.org https://gist.github.com/zachvalenta/2aeac1f945c5848c79087b2481cb187a https://arthursonzogni.com/Diagon/#Sequence https://switowski.com/blog/web-automation/
 * https://jessems.com/posts/2023-07-22-the-unreasonable-effectiveness-of-sequence-diagrams-in-mermaidjs
 * _UML_: aka class diagram https://www.amazon.com/UML-Distilled-Standard-Modeling-Language/dp/0321193687
 * alternative syntax 📙 Evans domain-driven [42]
@@ -570,6 +583,15 @@ PROVIDERS 🔍 https://xosh.org/text-to-diagram/
 * mermaid https://news.ycombinator.com/item?id=34906378
 * _Monodraw_: https://monodraw.helftone.com/
 * _PlantUML_: UML `.puml`
+
+## ERP
+
+---
+
+* way to share info among LOBs https://retool.com/blog/erp-for-engineers/ https://github.com/frappe/erpnext SAPhttps://calpaterson.com/s3.html
+* Netsuite, Odoo https://steersman.works/ Odoo in Hacker News
+* https://www.google.com/search?hl=en&q=what%20erp%20does%20costco%20use
+> 10 years’ programming experience with IBM iSeries, CL, RPG (including IV and Free-Format), ILE, MQ and SQL. Data analysis skills, particularly with iSeries Database files and fields.
 
 ## proxy
 
@@ -623,6 +645,7 @@ CDN
 📍 https://www.youtube.com/watch?v=-W9F__D3oY4
 * _OpenResty_: Nginx + script some more logic in with Lua https://www.dataengineeringpodcast.com/linode-object-storage-service-episode-125/ 10:00
 * _firewall_: impl rules for server in/egress (e.g. iptables)
+* UFW https://github.com/peltho/tufw
 * phoning home, open snitch https://news.ycombinator.com/item?id=33506576
 * https://softwareengineeringdaily.com/2021/08/10/fly-io-geographic-app-deployment-with-kurt-mackey/
 * _sink_: https://serversforhackers.com/t/proxies https://www.maxcdn.com/one/visual-glossary/proxy-caching/ reverse cache https://msdn.microsoft.com/en-us/library/windows/desktop/dd892097%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396 https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236

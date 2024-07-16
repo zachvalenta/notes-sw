@@ -9,6 +9,8 @@
 
 ## 进步
 
+* rf blog/design/features
+* try Zola
 * learn CSS for site redesign https://web.dev/learn/css/ https://wizardzines.com/zines/css/
 
 * _24_: big rf
@@ -52,7 +54,7 @@ https://moderncss.dev/12-modern-css-one-line-upgrades/
 * aria-current https://www.erichgrunewald.com/start-here/ https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-current
 * aspect-ratio https://news.ycombinator.com/item?id=30280210&utm_term=comment
 * blocks https://thesephist.github.io/blocks.css/
-* _animation_: https://animejs.com/ https://fluca1978.github.io/2020/01/30/PostgreSQL_pgcatcheck.html https://www.youtube.com/watch?v=0-DY8J_skZ0 https://roughnotation.com/ https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://github.com/greensock/GSAP hover https://bsago.me/blog https://animejs.com/ https://sobolevn.me/2020/06/how-async-should-have-been
+* _animation_: https://animejs.com/ https://fluca1978.github.io/2020/01/30/PostgreSQL_pgcatcheck.html https://www.youtube.com/watch?v=0-DY8J_skZ0 https://roughnotation.com/ https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://github.com/greensock/GSAP hover https://bsago.me/blog https://animejs.com/ https://sobolevn.me/2020/06/how-async-should-have-been https://github.com/jh3y/whirl/tree/dist
 
 * _CSS-in-JS_: exactly what it sounds like; more composable, apparently https://frontarm.com/james-k-nelson/css-in-js-static-rendering/
 * _debug_: https://github.com/lucagez/Debucsser https://www.youtube.com/watch?v=Sp9ZfSvpf7A
@@ -88,29 +90,6 @@ VARIABLES
     border: 1px solid var(--base-color);
 }
 ```
-
-## design
-
-📙 https://www.refactoringui.com/
-
-COLOR
-* https://anthonyhobday.com/sideprojects/saferules/
-* variables, currentColor, preprocessor https://css-tricks.com/nerds-guide-color-web/
-* _HSL_: https://designsystem.digital.gov/design-tokens/color/overview/
-* _hex_: https://css-tricks.com/nerds-guide-color-web/
-* _named_: https://css-tricks.com/nerds-guide-color-web/
-
-INSPIRATION 🗄️ `sw/lang/html-css/design`
-* https://borretti.me/
-* https://maxlangenkamp.me/
-* https://anthonyhobday.com/sideprojects/saferules/
-* https://github.com/asnewman/asnewman.github.io
-* https://news.ycombinator.com/item?id=36745314
-* https://yossarian.net/
-* https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html
-* https://spwhitton.name/
-* link checker https://bernard.app/
-* https://sriramk.com/building-unmeasurable-things/
 
 ## layout
 
@@ -192,6 +171,7 @@ SEMANTICS
 * _emphasis_: bold, italics
 
 TOOLS
+* https://github.com/googlefonts/fontations
 * _fnt_: manager https://github.com/alexmyczko/fnt
 * Pollen https://docs.racket-lang.org/pollen/ https://news.ycombinator.com/item?id=20029372
 * TeX https://news.ycombinator.com/item?id=20027807 https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=7822057 https://news.ycombinator.com/item?id=20027116
@@ -223,6 +203,7 @@ FONTS https://www.nerdfonts.com/
 * _Clarendon_: used for newspaper in the 19th century https://www.typotheque.com/articles/brief_history_of_webfonts
 * _Computer Modern_: Donald Knuth https://czep.net/about/
 * _Concourse_: popular w/ software people https://practicaltypography.com/concourse.html https://wsvincent.com/site-design/ https://danielmiessler.com/colophon/
+* _Departure Mono_: https://news.ycombinator.com/item?id=41379985
 * _Editor_: https://www.worksinprogress.co/issue/why-didnt-suicides-rise-during-covid/
 * _Fira Code_: ligature crazy spin-off of Fira Mono https://practicaltypography.com/ligatures-in-programming-fonts-hell-no.html
 * _Fira Mono_: ✅ monospaced https://practicaltypography.com/courier-alternatives.html
@@ -305,20 +286,67 @@ FILE FMT https://practicaltypography.com/triplicate.html
 
 ---
 
-> NBA more like football: fans dont matter in arena - home court doesnt matter - load mgmt - more lower seeds in finals - lower ratings (playoffs rating matter most for nba)
+## blog
 
-* _PWA (progressive enhancement)_: https://technology.blog.gov.uk/2016/09/19/why-we-use-progressive-enhancement-to-build-gov-uk/ https://www.youtube.com/playlist?list=PL4cUxeGkcC9gTxqJBcDmoi5Q2pzDusSL7
-* _semantic web_: element describes content e.g. `<footer>` `<section>` https://twobithistory.org/2018/06/10/birth-of-the-web.html#fnref:11 https://twobithistory.org/2018/05/27/semantic-web.html https://news.ycombinator.com/item?id=30166788
-* _UI_: elements https://codepen.io/topics/ is hard https://overreacted.io/the-elements-of-ui-engineering/
-* _validation_: `<input maxlength= "15" type="url" regex="<regex>" required>` must be of type url, must input something and match regex, limit 15 chars
-* _W3C_: https://24ways.org/2018/researching-a-property-in-the-css-specifications/
+* book of lyrics for Luambo, Rochereau, Mulatu, Francis Bebey, Cesaria Evora, Amalia Rodrigues
+
+HOW I CODE
+* profiling
+* test
+* docs
+* API
+* paradigms
+* servers
+* monitoring / metrics
+* tracing
+* analytics
+
+HOW THINGS WORK
+* where movies shoot https://www.theringer.com/2024/8/21/24225522/the-arms-race-behind-where-movies-shoot
+* sports betting https://archive.vn/rfPo4 https://www.theringer.com/2024/8/5/24213559/the-state-of-sports-gambling-with-todd-fuhrman
+
+## design
+
+---
+
+📙 https://www.refactoringui.com/
+
+COLOR
+* https://anthonyhobday.com/sideprojects/saferules/
+* variables, currentColor, preprocessor https://css-tricks.com/nerds-guide-color-web/
+* _HSL_: https://designsystem.digital.gov/design-tokens/color/overview/
+* _hex_: https://css-tricks.com/nerds-guide-color-web/
+* _named_: https://css-tricks.com/nerds-guide-color-web/
+
+INSPIRATION 🗄️ `sw/lang/html-css/design` https://shreyans.org/ 
+* https://www.ntietz.com/
+* https://allaboutberlin.com/
+* https://jamesg.blog/2024/08/16/content-layout-design/
+* https://lock.cmpxchg8b.com/watch.html
+* https://borretti.me/
+* https://maxlangenkamp.me/
+* https://anthonyhobday.com/sideprojects/saferules/
+* https://github.com/asnewman/asnewman.github.io
+* https://news.ycombinator.com/item?id=36745314
+* https://yossarian.net/
+* https://vitalik.eth.limo/general/2023/11/27/techno_optimism.html
+* https://spwhitton.name/
+* https://sriramk.com/building-unmeasurable-things/
 
 ## features
 
+* _comment engine_: https://github.com/umputun/remark42 or just use a repo https://lists.sr.ht/~skeeto
+* _link checker_: https://bernard.app/
+* _TOC_: https://www.murilopereira.com/how-to-open-a-file-in-emacs
+
+---
+
+pictures https://mazzo.li/posts/fast-pipes.html#fn1
+
+https://news.ycombinator.com/item?id=39511714
 https://danilafe.com/blog/blog_microfeatures/
 https://kylascanlon.com/
 who i am https://www.youtube.com/watch?v=5WLlLxU2EZE
-* _comment engine_: https://github.com/umputun/remark42 or just use a repo https://lists.sr.ht/~skeeto
 
 CONTENT
 * main
@@ -349,7 +377,12 @@ USABILITY
 - [ ] analytics: `robots.txt` https://will-keleher.com/about.html
 - [ ] comments: HN, MR https://www.jefftk.com/p/designing-low-upkeep-software Discord, Github https://github.com/jameslittle230/stork/discussions
 > Folks wanted to talk about stuff where they already were, rather than centralizing that conversation on individual blogs. https://news.ycombinator.com/item?id=30853711
-- [ ] email: https://www.benkuhn.net/ https://lchsk.com/ Buttondown https://www.erichgrunewald.com/start-here/ https://news.ycombinator.com/item?id=34906476
+- [ ] email: https://www.benkuhn.net/ https://lchsk.com/ Buttondown https://www.erichgrunewald.com/start-here/ https://news.ycombinator.com/item?id=34906476 https://computer.rip/2024-07-13-the-contemporary-carphone.html
+> I sincerely apologize for the hCaptcha but some dumb credential stuffer has been shoveling emails into this form. Then people hit the spam report button on the confirmation emails and my gateway provider gets upset with me for harming their IP reputation. This is why we can't have nice things.
+> You've been sent a verification email with a link that you need to click, because that's how this always works. Check your inbox for a message from me@computer.rip. If you still haven't received it after an appropriate seeming amount of time, cross your fingers and try again, or maybe this thing broke and you should let me know at me@computer.rip.
+> Hello, and welcome to the elite circle of subscribers to *Computers Are Bad*. For reasons you can probably imagine, I have to confirm that you actually intend to subscribe to this list and are not yet another victim of low-level identity theft at the Harbor Freight checkout counter. To confirm your subscription, use this link:
+> In the future, you will be permitted (but not encouraged) to unsubscribe using a link at the end of each message. In the rare case that you experience lingering doubts, fears, or anxieties, you will find that this mailbox *is* monitored for replies.
+> Congratulations, you are now on the list. Look out for an email sometime in the indefinite future.
 - [ ] search
 - [ ] RSS: https://github.com/jeffkaufman/webscripts/blob/e7261e894cee12df6b1f0a90d426764a802691dd/reverserss.py#L20
 - [ ] tags
@@ -359,6 +392,12 @@ USABILITY
 📜 https://htmlreference.io/
 
 ---
+
+* _PWA (progressive enhancement)_: https://technology.blog.gov.uk/2016/09/19/why-we-use-progressive-enhancement-to-build-gov-uk/ https://www.youtube.com/playlist?list=PL4cUxeGkcC9gTxqJBcDmoi5Q2pzDusSL7
+* _semantic web_: element describes content e.g. `<footer>` `<section>` https://twobithistory.org/2018/06/10/birth-of-the-web.html#fnref:11 https://twobithistory.org/2018/05/27/semantic-web.html https://news.ycombinator.com/item?id=30166788 https://news.ycombinator.com/item?id=41307011
+* _UI_: elements https://codepen.io/topics/ is hard https://overreacted.io/the-elements-of-ui-engineering/
+* _validation_: `<input maxlength= "15" type="url" regex="<regex>" required>` must be of type url, must input something and match regex, limit 15 chars
+* _W3C_: https://24ways.org/2018/researching-a-property-in-the-css-specifications/
 
 * _attribute_: metadata
 * _canvas_: draw, make charts
@@ -385,6 +424,7 @@ forms
 * `type`: text, file, submit; submit is only useful for input elements (button el default to submit anyway https://stackoverflow.com/a/10079197/6813490)
 * encrypt/password protect HTML https://github.com/robinmoisson/staticrypt
 * EME encrypted media extensions https://stackoverflow.com/questions/46212264/example-encrypted-media-extensions-encryption/46374671#46374671
+* email is hard https://news.ycombinator.com/item?id=41007403
 
 ## Markdown
 
@@ -452,20 +492,8 @@ add styles
 
 ## static site (SSG)
 
-🔗 https://molodtsov.me/2023/02/how-to-start-your-blog-in-2023/
-🗄
-* `km.md` documentation
-* `system.md` architecture/noDB
-
-PELICAN 📜 https://docs.getpelican.com/en/stable/
-* install: pipx
-* features: templating, metadata, tags
-* tags vs. categories http://pirsquared.org/blog/pelican-tags-vs-categories.html
-* deploy https://tech.marksblogg.com/website-cdn-with-pelican-and-s3cmd.html
-* table of contents: `pelican-toc` https://chat.openai.com/c/25d8a905-4ff4-4905-b63f-126f60ec9c75 https://www.murilopereira.com/how-to-open-a-file-in-emacs
-
 FEATURES
-> https://twitter.com/danluu/status/1244051446313574402 https://news.ycombinator.com/item?id=39511714&utm_term=comment https://meridian.mercury.com/dwarkesh-patel https://mkaz.blog/working-with-python/ https://shreyans.org/ book of lyrics for Luambo, Rochereau, Mulatu, Francis Bebey, Cesaria Evora, Amalia Rodrigues
+> https://twitter.com/danluu/status/1244051446313574402 https://meridian.mercury.com/dwarkesh-patel
 * search: Stork https://stork-search.net/ TinySearch https://github.com/tinysearch/tinysearch https://news.ycombinator.com/item?id=23474134 DDG https://vadosware.io/ https://ddg.patdryburgh.com/ lunr.js https://github.com/olivernn/lunr.js https://brainbaking.com/search/?q=database example https://clearerthinkingpodcast.com/#episodes
 * RSS generation
 * tags: https://github.com/erwald/blog/blob/master/_data/series.json https://www.erichgrunewald.com/posts/the-kingdom-of-tamego/ https://github.com/jeffkaufman/webscripts/blob/e1c8a399536bb92e3f09886eea9fb925e710c981/intros.json https://www.jefftk.com/news/money
@@ -487,25 +515,24 @@ SSGs
 * BYO https://www.youtube.com/watch?v=Ph7oJDR71Jc https://github.com/mitsuhiko/rstblog https://til.simonwillison.net/django/building-a-blog-in-django dynamic https://realpython.com/build-a-blog-from-scratch-django/ https://dev.to/chasefleming/building-a-go-static-site-generator-using-elem-go-3fhh
 * me: run m2h, move all html from content to src, open any html files from src with modified Git status
 * https://fabiensanglard.net/html/index.html
-* https://github.com/capjamesg/aurora
+* _Astro micro_: https://drew.silcock.dev/about/ https://github.com/drewsilcock/silcock-dev https://astro.build/themes/details/astro-micro/ https://astro-nano-demo.vercel.app/
+* _aurora_: 🎯 https://github.com/capjamesg/aurora
 * _Bearclaw_: https://github.com/donuts-are-good/bearclaw
-* _Eleventy_: https://www.11ty.dev/ https://www.erichgrunewald.com/ https://news.ycombinator.com/item?id=31293971
+* _Eleventy_: https://www.11ty.dev/ https://www.erichgrunewald.com/ https://news.ycombinator.com/item?id=31293971 https://angeliqueweger.com/
 * _Lanyon_: server, same guy that did termgraph https://github.com/mkaz/lanyon
-* _Hugo_: more popular than Jekyll https://blog.golang.org/8years
-* bad docs https://yawpitchroll.com/posts/hugo-probably-is-not-for-you/
-* Markdown is weird? https://twitter.com/danluu/status/1244024025019342851 
-* bad once nesting exceeds top-level? https://gohugo.io/templates/lists/ https://discourse.gohugo.io/t/list-pages-of-sub-sub-folders/9436/2
+* _Hugo_: popular https://blog.golang.org/8years bad docs https://yawpitchroll.com/posts/hugo-probably-is-not-for-you/ https://twitter.com/danluu/status/1244024025019342851
 * _Lektor_: Python https://www.getlektor.com/ https://lucumr.pocoo.org/2015/12/21/introducing-lektor/
 * _Lume_: https://lume.land/
-* _Makesite_: Python https://github.com/sunainapai/makesite
+* _Makesite_: 🎯 https://github.com/sunainapai/makesite
 * _Markata_: Python https://github.com/WaylonWalker/markata
 * _Metalsmith_: Javascript https://github.com/metalsmith/metalsmith
-* _Nikola_: Python https://getnikola.com/
+* _Nikola_: 🎯 https://getnikola.com/ not a blog https://getnikola.com/creating-a-site-not-a-blog-with-nikola.html
+* _Pelican_: 🎯 no TOC, blog-oriented https://pirsquared.org/blog/pelican-transition.html https://pirsquared.org/blog/pelican-tags-vs-categories.html https://chat.openai.com/c/25d8a905-4ff4-4905-b63f-126f60ec9c75
 * _Shite_: Bash https://github.com/adityaathalye/shite
-* _Zola_: Rust; no assumptions regarding the structure of your site https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola https://haskellbook.com/ 
+* _Zola_: 🎯 Rust; no assumptions regarding the structure of your site https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola https://haskellbook.com/ https://chevyray.dev/ask/
 
 CMS
-* _website builder_: optimized for non-dev e.g. Wix, SquareSpace
+* _website builder_: optimized for non-dev e.g. Wix, SquareSpace https://news.ycombinator.com/item?id=41337356
 * _CMS_: client-server, content creation via UI, requires some dev e.g. Wordpress https://kevq.uk/the-case-for-wordpress https://blot.im/how
 * _headless CMS_: SPA gets content via API https://softwareengineeringdaily.com/2020/04/30/jamstack-content-management-with-scott-gallant-jordan-patterson-and-nolan-phillips/
 * Ghost: hosting, newsletters, Stripe, membership https://softwareengineeringdaily.com/2018/07/26/ghost-open-source-publishing-platform-with-john-onolan/

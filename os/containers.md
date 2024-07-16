@@ -23,7 +23,7 @@ IMPROVE WORKLOW
 * fresh volume when running locally
 * _ignore_: .git, local.db https://gist.github.com/wassname/b25471b0f3bb2f9ff81f build context https://codefresh.io/docker-tutorial/not-ignore-dockerignore-2/ https://alecthegeek.github.io/docker/2019/06/06/Docker-Build-With-No-Build-Context.html
 * _deps_: export prod-only deps, add `http` as dev dep
-* _tooling_: lint image, GUI https://github.com/jesseduffield/lazydocker CLI https://github.com/j-bennet/wharfee https://github.com/veggiemonk/awesome-docker#terminal
+* _tooling_: lint image, GUI https://github.com/amir20/dozzle https://github.com/jesseduffield/lazydocker https://github.com/will-moss/isaiah CLI https://github.com/j-bennet/wharfee https://github.com/veggiemonk/awesome-docker#terminal
 
 * _22_: rf Kubernetes notes
 * _20_: docker-compose (handle container startup order) skeletons (SQLite, gunicorn, Postgres), secrets mgmt, workflow (build cache to speed rebuilds, use ARGs, Makefile rules for rebuild and shell) compose (variables for db creds, envs using multiple compose files)
@@ -234,6 +234,7 @@ services:
 
 ---
 
+* alternative https://github.com/F1bonacc1/process-compose
 * _lifecycle hook_: hook on container status https://github.com/afroisalreadyinu/miniboss
 * running multiple instances of single service, restart policy https://www.youtube.com/watch?v=aetqo2nkQcA 1:40 https://github.com/willfarrell/docker-autoheal
 * read this https://nickjanetakis.com/blog/best-practices-around-production-ready-web-apps-with-docker-compose
@@ -555,6 +556,8 @@ VMWARE
 ## Kubernetes
 
 https://roadmap.sh/kubernetes
+https://github.com/ghik/kubernetes-the-harder-way https://news.ycombinator.com/item?id=41393160
+
 🗄 `system.md` distributed
 🔍 https://ramitsurana.github.io/awesome-kubernetes/
 📚

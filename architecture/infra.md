@@ -26,6 +26,7 @@ https://roadmap.sh/linux
 REMOTE EXECUTION 🗄️ `python/stdlib.md` process exec
 * _Fabric_: execute script on server; apparently not meant for fully-fledged config mgmt https://stackoverflow.com/questions/39370364/when-to-use-fabric-or-ansible but can/could be used with Ansible (article doesn't explain why not just use Ansible and is undated)
 * _Paramiko_: https://github.com/paramiko/paramiko
+* _Ruroco_: https://github.com/beac0n/ruroco
 
 ## Ansible
 
@@ -200,16 +201,7 @@ PUB/SUB 📙 Narkhede ch. 1
 * semantics 📻 Macey 4:50
 * https://bloomberg.github.io/blazingmq/
 
-WORKFLOW ENGINES
-* _AWS Step Functions_: 
-* _Airflow_: https://news.ycombinator.com/item?id=23349507 https://tech.marksblogg.com/install-and-configure-apache-airflow.html
-* aaS https://www.astronomer.io/managed-airflow-service/
-* _Dagster_: https://github.com/dagster-io/dagster https://www.pythonpodcast.com/dagster-data-orchestration-episode-279/ https://www.dagster.io/blog/dagster-airflow https://news.ycombinator.com/item?id=39217728 https://talkpython.fm/episodes/show/454/data-pipelines-with-dagster
-* _Luigi_: https://github.com/spotify/luigi
-* _Mage_: https://github.com/mage-ai/mage-ai
-* _n8n_: hosted, WSIYWG https://news.ycombinator.com/item?id=37274052
-
-## Kafka
+## event (Kafka)
 
 🗄 `db.md` data eng
 📜 https://kafka.apache.org/documentation/
@@ -262,7 +254,7 @@ za
 * Avro (eventbus README)
 * https://unitedmasters.atlassian.net/wiki/spaces/ENG/pages/322273452/Event+Bus+System
 
-## Rabbit
+## msg (Rabbit)
 
 * queue attributes: durability (keep in mem, write to disk, write to db bc broker can restart, fail) time-to-live (how long to keep in the queue?) security (what consumers have access?) batching (delivery immediately or wait until x messages before allowing consumers to take)
 * msg attributes: id, user/groups id, creation time, reply to, subject https://www.rabbitmq.com/tutorials/amqp-concepts.html
@@ -273,7 +265,7 @@ za
 * _back pressure_: pressure from data source to write new data when streaming system is already holding too much (e.g. bc consumer hasn't ingested) [Macey 39:00]
 * _order_: round robin in RabbitMQ https://www.rabbitmq.com/consumer-priority.html
 
-semantics
+SEMANTICS
 * _entity_: producer, consumer
 * _broker(queue)_: app to send/rec/store msgs conforming to AMQP
 * _exchange_: receives message, routes to queue
@@ -291,7 +283,15 @@ semantics
 🛠 https://taskqueues.com/ aka worker https://news.ycombinator.com/item?id=34940920
 * BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
 
+ZA
+* chron jobs https://github.com/Nukesor/pueue
+* Postgres https://github.com/procrastinate-org/procrastinate https://brandur.org/river https://github.com/riverqueue/river https://news.ycombinator.com/item?id=41284703
+* _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io
+* _Hatchet_: https://github.com/hatchet-dev/hatchet
+* _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey
+
 CELERY
+* chron job
 * https://steve.dignam.xyz/2023/05/20/many-problems-with-celery/
 * Redis as db for Celery jobs https://ljvmiranda921.github.io/notebook/2019/11/08/flask-redis-celery-mcdo/
 * _Flower_: monitor Celery https://github.com/mher/flower https://testdriven.io/blog/flower-nginx/
@@ -308,14 +308,21 @@ REDIS QUEUE (RQ)
 * https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/#workflow
 * https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
 
-ALTERNATIVES
-* Postgres https://github.com/procrastinate-org/procrastinate https://brandur.org/river https://github.com/riverqueue/river
-* _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io
-* _Hatchet_: https://github.com/hatchet-dev/hatchet
-* _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey
+## workflow engine (Airflow)
 
-# 🤖 SERVERS
+* _AWS Step Functions_: 
+* _Airflow_: https://news.ycombinator.com/item?id=23349507 https://tech.marksblogg.com/install-and-configure-apache-airflow.html
+* aaS https://www.astronomer.io/managed-airflow-service/
+* _Dagster_: https://github.com/dagster-io/dagster https://www.pythonpodcast.com/dagster-data-orchestration-episode-279/ https://www.dagster.io/blog/dagster-airflow https://news.ycombinator.com/item?id=39217728 https://talkpython.fm/episodes/show/454/data-pipelines-with-dagster https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
+* _Luigi_: https://github.com/spotify/luigi
+* _Mage_: https://github.com/mage-ai/mage-ai
+* _n8n_: hosted, WSIYWG https://news.ycombinator.com/item?id=37274052
 
+# 🤖 WEB SERVERS
+
+🗄️ `application.md` HTTP
+
+> Parsing the request is just a matter of splitting the request string into lines. The first line contains the method, path and protocol separated by spaces. The following lines contain the headers, followed by an empty line. https://blog.sylver.dev/build-a-web-server-with-rust-and-tokio-part-0-a-simple-get-handler
 * benchmark: https://httpd.apache.org/docs/2.4/programs/ab.html https://github.com/wg/wrk https://github.com/giltene/wrk2 https://github.com/rakyll/hey https://github.com/encode/starlette#performance https://falconframework.org/#sectionBenchmarks https://www.webpagetest.org/ https://www.golang.dk/articles/benchmarking-sqlite-performance-in-go
 * BYO https://github.com/codecrafters-io/build-your-own-x#build-your-own-web-server
 * mock server: https://smocker.dev/
@@ -639,6 +646,7 @@ ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
 * _Netlify_: 
 * _Render_: 
 * _Platform.sh_:
+* _Tau_: https://github.com/taubyte/tau
 * _Vercel_: 
 
 > With something like Heroku, you can have multiple VM's in staging and production, w/ a deployment pipeline that supports rollbacks, monitoring, alerting, autoscaling, all in a managed environment w/ a managed, highly available Postgres setup, with very little effort and 0 maintenance. This is what I've setup at my current startup. My last company was on K8's and I loved it -- but this is nearly as good and requires literally no maintenance and far less expertise / setup. - https://news.ycombinator.com/item?id=22493873 
@@ -674,6 +682,7 @@ frontend: webpack --watch
 🗄 `html-css.com`
 
 TAXONOMY https://www.youtube.com/watch?v=NhDYbskXRgc [48:00]
+> What is a server? Is it just, like, a big computer? Or is it actually special? There's a lot of industrial history wrapped up in that question, and the answer is often very context-specific. But there are some generalizations we can make about the history of the server: client-server computing originated mostly as an evolution of time-sharing computing using multiple terminals connected to a single computer. There was no expectation that terminals had a similar architecture to computers (and indeed they were usually vastly simpler machines), and that attitude carried over to client-server systems. The PC revolution instilled a WinTel monoculture in much of client-side computing by the mid-'90s, but it remained common into the '00s for servers to run entirely different operating systems and architectures. https://computer.rip/2024-08-31-ipmi.html
 * _node_: physical or virtual to host something (web server, API)
 * con: can't vertically scale https://www.youtube.com/watch?v=NhDYbskXRgc [1:09:30]
 * _dedicated_: physical machine (Raspberry Pi, Rackspace) + single business https://news.ycombinator.com/item?id=22407098
@@ -739,6 +748,7 @@ za
 
 * app stores are a pain https://news.ycombinator.com/item?id=33632468
 * automate app submission https://github.com/fastlane/fastlane
+* Android has bad dev experience https://news.ycombinator.com/item?id=41062292
 
 Apple ID
 * tied to user/device

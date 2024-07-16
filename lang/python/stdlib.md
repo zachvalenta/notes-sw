@@ -22,12 +22,15 @@
 
 ---
 
+* stats: scc https://github.com/XAMPPRocky/tokei https://github.com/k1LoW/octocov
 * dead code: https://github.com/jendrikseipp/vulture https://github.com/sobolevn/flake8-eradicate  https://github.com/jendrikseipp/vulture
 * security: bandit, https://pyup.io/ (uses same vulnerability db as pipenv) pysa https://github.com/facebook/pyre-check https://news.ycombinator.com/item?id=24083432 https://github.com/DataDog/guarddog
 
 ## docs
 
 ---
+
+https://rdrn.me/postmodern-python/
 
 LIB
 * _pdoc_: thing that pdoc3 forked from https://github.com/mitmproxy/pdoc
@@ -136,7 +139,10 @@ OPTIONS
 * _phlare_: https://martinheinz.dev/blog/89
 * _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
 * _timeit_: https://www.pythonmorsels.com/cli-tools/
+* _instruments_: https://registerspill.thorstenball.com/p/did-you-know-about-instruments
 
+performance tests https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
+ebpf https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
 https://www.pythonmorsels.com/cli-tools/
 
 py-spy, speedscope, Valgrind https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
@@ -332,6 +338,7 @@ coverage html && coverage htmlcov/index.html
 
 ---
 
+* https://rdrn.me/postmodern-python/
 * `ELLIPSIS` 📙 Ramalho [7]
 * _doctest_: docstring + test https://www.fluentpython.com/lingo/#doctest
 > [key feature] they look like transcripts of interactive Python console sessions, so you can easily try out the demonstrations yourself 📙 Ramalho [xviii]
@@ -498,7 +505,9 @@ def test_foo():
 ## tox
 
 * test against multiple Python versions
-* _nox_: https://sethmlarson.dev/nox-pyenv-all-python-versions https://github.com/wntrblm/nox https://hynek.me/articles/why-i-like-nox
+* https://github.com/maelstrom-software/maelstrom
+* https://hynek.me/articles/turbo-charge-tox/
+* _nox_: https://sethmlarson.dev/nox-pyenv-all-python-versions https://github.com/wntrblm/nox https://hynek.me/articles/why-i-like-nox https://hynek.me/articles/why-i-like-nox/
 * parallelize https://blog.sentry.io/2022/11/14/how-we-run-our-python-tests-in-hundreds-of-environments-really-fast/ split list https://realpython.com/how-to-split-a-python-list-into-chunks/
 * https://realpython.com/python-testing/#testing-in-multiple-environments https://www.andreagrandi.it/2019/02/21/skipping-tests-depending-python-version/ https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/
 ```sh
@@ -573,7 +582,7 @@ self.assertEqual(x.exception.code, 1)
 * control mouse/keyboard https://github.com/asweigart/pyautogui
 * GUI: tkinter https://www.youtube.com/watch?v=xqDonHEYPgA Kivy, pyqt https://build-system.fman.io/pyqt5-tutorial https://github.com/PySimpleGUI/PySimpleGUI https://github.com/chriskiehl/Gooey
 
-## Click
+## CLI (Click)
 
 📜 https://click.palletsprojects.com/en/8.1.x
 
@@ -680,7 +689,7 @@ def main(in_path, out_file):
         with open(path_input, mode="r") as csv_in:
 ```
 
-## IO
+## IO (rich)
 
 RICH 📜 https://github.com/Textualize/rich https://github.com/zachvalenta/dotfiles-mini23/blob/main/python/python_startup.py
 * to try: repr for obj https://rich.readthedocs.io/en/latest/pretty.html#rich-repr-protocol
@@ -724,7 +733,7 @@ if i % 100 == 0:
     print('%.2f%%' % progress)
 ```
 
-## Textual
+## TUI (Textual)
 
 ---
 
@@ -750,6 +759,8 @@ FRAMEWORKS
 🗄 `html-css.md`
 
 ---
+
+* _playwright_ https://github.com/microsoft/playwright https://www.sakisv.net/2024/08/tracking-supermarket-prices-playwright/
 
 https://github.com/MechanicalSoup/MechanicalSoup
 * follow redirects
@@ -847,7 +858,6 @@ Scrapy
 
 Selenium
 * other browser automation tool https://github.com/checkly/headless-recorder
-* alternative https://github.com/microsoft/playwright
 * why? dynamic content https://stackoverflow.com/questions/6682503/click-a-button-in-scrapy https://stackoverflow.com/questions/17975471/selenium-with-scrapy-for-dynamic-page https://stackoverflow.com/questions/30345623/scraping-dynamic-content-using-python-scrapy
 * Firefox driver https://github.com/mozilla/geckodriver/releases
 * find binary https://stackoverflow.com/a/40208762/6813490 https://stackoverflow.com/a/22130211/6813490
@@ -1005,6 +1015,7 @@ ASGI
 * _ASGI_: async alternative to WSGI
 * frameworks: Django (Channels) Quart (Flask on async) Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
 * servers: uvicorn, Daphne
+* FastAPI https://github.com/pomponchik/cbfa
 * sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
 
 RSGI
@@ -1504,6 +1515,22 @@ PROCESS EXEC https://martinheinz.dev/blog/98 🗄️ `infra.md` IaC / remote exe
 * _suby_: https://github.com/pomponchik/suby
 * _Sultan_: https://github.com/aeroxis/sultan https://stackoverflow.com/a/56842257/6813490
 
+PATHLIB
+* https://realpython.com/python-pathlib/
+* https://treyhunner.com/2018/12/why-you-should-be-using-pathlib/
+* https://treyhunner.com/2019/01/no-really-pathlib-is-great/
+```python
+# ACCESS
+Path.cwd()
+Path.cwd().parent
+Path.cwd().parent / 'subdir'
+
+# ASSERTIONS
+Path.exists(Path.cwd())
+Path.is_dir(Path.cwd() / 'sub1' / 'sub2')
+Path.is_file(Path.cwd() / 'sub1' / 'sub2' / 'foo.csv')
+```
+
 ----
 
 ```python
@@ -1515,7 +1542,6 @@ os.mkdir(os.path.join(os.getcwd(), dir_name))
 * _path-like object_: https://docs.python.org/3/glossary.html#term-path-based-finder
 
 * _check Python version from script_: `sys.version` https://stackoverflow.com/a/1093331/6813490
-* _sink_: https://realpython.com/python-pathlib/ https://treyhunner.com/2018/12/why-you-should-be-using-pathlib/ https://treyhunner.com/2019/01/no-really-pathlib-is-great/
 * _why path libs are useful_: avoid dealing with different directory delimiters per OS [Sweigart automate 8.174]
 * _how to represent paths_: Python can represent paths as strings (like os) https://realpython.com/python-pathlib/#the-problem-with-python-file-path-handling but Pathlib doesn't https://snarky.ca/why-pathlib-path-doesn-t-inherit-from-str/ in Python 2 binary and textual data were implicitly compatible and that caused problems https://snarky.ca/why-pathlib-path-doesn-t-inherit-from-str/
 * _Pathlib_: most functionality in `path`

@@ -4,6 +4,8 @@
 
 ## 进步
 
+https://rdrn.me/observability/
+
 * _23_: Datadog with CRD
 * _17_: Google SRE book first 20 chapters
 
@@ -22,7 +24,8 @@ OPENTELEMETRY
 * https://andydote.co.uk/2023/09/19/tracing-is-better/
 
 UPTIME / HEALTHCHECK / HEARTBEAT
-* baseline
+* https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
+* baseline https://healthchecks.io/
 * db connection https://www.youtube.com/watch?v=GT9WmExDbXQ
 * downstream services
 * aaS: UptimeRobot, Checkly, lcurl https://www.youtube.com/watch?v=um24VlkkqGo https://github.com/brotandgames/ciao
@@ -277,6 +280,7 @@ PROVIDERS
 * _Braze_: 
 * _Chartbeat_: publishing
 > The most influential is Chartbeat, which shows you every article on your site, indicates the number of people on each article at any given second, and colors the dots representing those people to tell you how they found the article. Green dots mean they found you through a search engine. Purple dots mean they came from a social network, usually Facebook, Twitter, or Reddit. It’s pure pleasure to watch the display for an article you worked hard on fill with dots. https://www.vox.com/2020/1/28/21077888/why-were-polarized-media-book-ezra-news
+* _Hotjar_: https://www.hotjar.com/
 * _GoatCounter_: Visidata uses https://www.goatcounter.com/ alternative https://github.com/ihucos/counter.dev https://news.ycombinator.com/item?id=26379569 https://simpleanalytics.com/ https://newcss.net/
 * _Google Analytics_: https://satchel.com/web-analytics/ alternatives https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
 * Ackee https://github.com/electerious/Ackee
@@ -303,6 +307,7 @@ ZA
 * https://danluu.com/metrics-analytics/ https://www.kalzumeus.com/greatest-hits/ https://danluu.com/web-bloat https://thoughtbot.com/upcase/analytics-for-developers 
 
 CLICKHOUSE
+* https://github.com/azat/chdig
 * https://posthog.com/handbook/engineering/clickhouse
 * CLI https://clickhouse.com/docs/en/operations/utilities/clickhouse-local/ https://news.ycombinator.com/item?id=34071918
 * local https://clickhouse.com/blog/extracting-converting-querying-local-files-with-sql-clickhouse-local
@@ -318,6 +323,7 @@ LOG STORES
 ---
 
 * https://github.com/ptmcg/logmerger
+* https://github.com/ReagentX/Logria
 * https://github.com/tstack/lnav
 * https://github.com/textualize/toolong
 * https://logdy.dev/

@@ -10,7 +10,6 @@
 ## 进步
 
 * https://martinheinz.dev/blog/109
-* lazygit
 * https://jvns.ca/blog/2024/02/16/popular-git-config-options/
 
 * _21_: prepopulate commit msg
@@ -19,7 +18,7 @@
 * _18_: PR workflow
 * _17_: desultory corporate usage, tutorial w/ Roberto
 
-# PLUMBING
+# 🔬️ INTERNALS
 
 🙂 punk rock https://xkcd.com/1597/
 
@@ -98,7 +97,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * _HEAD_: most recent commit of current branch; `.git/ref/head/<current_branch>`
 * compressed https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
-# PORCELAIN
+# 🔮 PORCELAIN
 
 📜 cmd https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config
 
@@ -200,7 +199,7 @@ view https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History
 * filter out merges: `--no-merges`
 * _date_: `--relative-date`, `--since=2.weeks`
 
-* _sink_: https://chris.beams.io/posts/git-commit/ https://fatbusinessman.com/2019/my-favourite-git-commit https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html https://stackoverflow.com/a/40506149/6813490 https://drewdevault.com/2019/02/25/Using-git-with-discipline.html use file for Git commit https://stackoverflow.com/a/20438380/6813490 https://medium.com/@hugooodias/the-anatomy-of-a-perfect-pull-request-567382bb6067 https://news.ycombinator.com/item?id=23739633
+* _sink_: https://chris.beams.io/posts/git-commit/ https://fatbusinessman.com/2019/my-favourite-git-commit https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html https://stackoverflow.com/a/40506149/6813490 https://drewdevault.com/2019/02/25/Using-git-with-discipline.html use file for Git commit https://stackoverflow.com/a/20438380/6813490 https://medium.com/@hugooodias/the-anatomy-of-a-perfect-pull-request-567382bb6067 https://news.ycombinator.com/item?id=23739633 https://til.simonwillison.net/git/backdate-git-commits
 
 tags
 * _tag_: way to label commits
@@ -477,7 +476,7 @@ git push origin :crd/my-feature-branch
 git branch -d crd/my-feature-branch
 ```
 
-# SERVER
+# 📡 SERVER
 
 * bug tracking: https://github.com/MichaelMure/git-bug https://www.youtube.com/watch?v=6Q4Lac0MCL0
 * https://gemini.nytpu.com/gemlog/2021-03-07.gmi
@@ -584,11 +583,12 @@ SEARCH https://docs.github.com/en/github/searching-for-information-on-github/sea
 
 ---
 
+* all forks are public https://news.ycombinator.com/item?id=41060102
 * https://github.com/pwntester/octo.nvim
 * draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
 * Mermaid support https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/ 
 * feedback https://github.com/github/feedback/discussions/8293 https://support.github.com/ticket/personal/0/1530410
-* _Actions_: https://github.com/nektos/act https://hynek.me/articles/python-github-actions/ https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml https://github.com/github/super-linter https://www.youtube.com/watch?v=E1OunoCyuhY https://github.com/nektos/act https://news.ycombinator.com/item?id=30060765 https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a python https://brntn.me/blog/open-source-python-ci/ run locally https://github.com/nektos/act local https://github.com/nektos/act
+* _Actions_: https://github.com/nektos/act https://hynek.me/articles/python-github-actions/ https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml https://github.com/github/super-linter https://www.youtube.com/watch?v=E1OunoCyuhY https://github.com/nektos/act https://news.ycombinator.com/item?id=30060765 https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a python https://brntn.me/blog/open-source-python-ci/ run locally https://github.com/nektos/act local https://github.com/nektos/act CICD https://github.com/carderne/postmodern-python/blob/main/.github/workflows/pr.yml
 * _analytics_: watchers `<URL>/watchers` stars `<URL>/stargazers` https://webapps.stackexchange.com/a/41800 profile views https://rushter.com/blog/github-profile-markdown/ 3rd party analytics around your commit history https://sourcerer.io/elena
 * _CLI_: https://github.com/cli/cli
 * _dependency graph/tree_: https://github.com/zachvalenta/create-python-app/network/dependencies
@@ -662,7 +662,7 @@ unit_tests:
 ax2: "${ax2}"
 ```
 
-# ZA
+# 🟨 ZA
 
 SEARCH https://www.youtube.com/watch?v=BaBKBy2vHmM
 ```sh
@@ -691,6 +691,8 @@ log --grep $QUERY -p
 * `-- <file>` (commits that touched file)
 
 ---
+
+`.gitattributes`: specify EOL https://stackoverflow.com/questions/73086622/is-a-gitattributes-file-really-necessary-for-git
 
 SUBMODULES
 * _submodules_: `.gitmodules` separate Git repo w/in main repo
@@ -755,6 +757,8 @@ notas post-mortem
 
 ---
 
+https://rdrn.me/postmodern-python/
+
 * actions: client-side (commit, merge) server (push)
 * file-system location: `.git/hooks` 
 * ignore failed hooks w/ `git commit --no-verify` http://omerkatz.com/blog/2013/2/15/git-hooks-part-1-the-basics
@@ -808,11 +812,11 @@ PAGER / DIFFVIEW
 PORCELAIN
 * _bit_: autcomplete https://github.com/chriswalz/bit
 * _forgit_: good UI, clunky install https://github.com/wfxr/forgit#-features
-* _gitsigns_: ✅ Neovim, similiar to vim-fugitive, catppuccin integration https://github.com/lewis6991/gitsigns.nvim
-* _lazygit_: popular, good UI https://github.com/jesseduffield/lazygit https://github.com/catppuccin/lazygit
-* _magit_: great but Emacs-only https://github.com/magit/magit https://github.com/dandavison/delta/issues/194#issuecomment-636001812 https://emacsair.me/2017/09/01/magit-walk-through/
-* _Neogit_: ✅ magit port https://github.com/NeogitOrg/neogit
-* _vim-fugitive_: ✅ https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI
+* _gitsigns_: 🎯 Neovim, similiar to vim-fugitive, catppuccin integration https://github.com/lewis6991/gitsigns.nvim
+* _lazygit_: popular, good UI https://github.com/jesseduffield/lazygit https://github.com/catppuccin/lazygit https://www.youtube.com/watch?v=Ihg37znaiBo
+* _magit_: looks great, Emacs-only https://github.com/magit/magit https://github.com/dandavison/delta/issues/194#issuecomment-636001812 https://emacsair.me/2017/09/01/magit-walk-through/
+* _Neogit_: 🎯 magit port https://github.com/NeogitOrg/neogit
+* _vim-fugitive_: 🎯 https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI
 * _vimagit_: https://github.com/jreybert/vimagit
 
 REPO BROWSER
@@ -826,6 +830,6 @@ REPO BROWSER
 
 ZA
 * bug tracker https://github.com/MichaelMure/git-bug 🗄 `econ.md` documentation / issue tracking
-* repo stats: https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
-* Githup-specific https://github.com/dlvhdr/gh-dash
+* repo stats https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
+* Github-specific https://github.com/dlvhdr/gh-dash
 * heat map https://github.com/jmforsythe/Git-Heat-Map
