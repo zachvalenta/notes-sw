@@ -762,6 +762,33 @@ layout_dir "~/.config/zellij"
 * mgmt https://zellij.dev/news/session-manager-protobuffs/
 * resurrect https://zellij.dev/news/session-resurrection-ui-components/
 
+## prompt (powerline)
+
+FEATURES
+* Python version
+* venv https://github.com/b-ryan/powerline-shell/issues/507
+* transient: only display prompt for current cmd https://www.youtube.com/watch?v=9U8LCjuQzdc [0:50]
+* Git branch: can do in pure bash https://www.youtube.com/watch?v=wku-1nJR_oA https://github.com/zachvalenta/dotfiles/commit/cc4117a72c7b1d80f0ec58021530727435a2e4af https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh https://stackoverflow.com/questions/31252573/get-current-directory-without-full-path-in-fish-shell
+
+OPTIONS
+* _ohmyposh_: 🎯 https://github.com/jandedobbeleer/oh-my-posh
+* _powerlevel10k_: unsupported https://github.com/romkatv/powerlevel10k
+* _powerline_: Vim and zsh https://github.com/powerline/powerline https://pypi.org/project/powerline-status/ https://github.com/wesbos/Cobalt2-iterm
+* _powerline-shell_: ✅ powerline but works on bash and zsh (w/out ohmyzsh) https://github.com/b-ryan/powerline-shell
+* conf: `~/.config/powerline-shell/config.json`
+* requires powerline for fonts? https://powerline.readthedocs.io/en/latest/installation/osx.html
+* no Poetry support https://github.com/b-ryan/powerline-shell/issues/507
+* https://github.com/b-ryan/powerline-shell#generic-segments
+* _pure_: https://github.com/sindresorhus/pure
+* _starship_: https://starship.rs/
+* downside: slower than powerline-shell, unattractive Git status
+* upside: support for pyenv, Poetry https://starship.rs/config/#package-version
+* install `brew install starship` or `sh -c "$(curl -fsSL https://starship.rs/install.sh)"`
+* update `sh -c "$(curl -fsSL https://starship.rs/install.sh)"`
+* uninstall `sh -c 'rm "$(command -v 'starship')"'`
+* venv https://github.com/starship/starship/issues/1529
+* won't get Python version if you're using an alias https://github.com/starship/starship/issues/632
+
 ## shell (zsh)
 
 ZSH 📜 https://zsh.sourceforge.io/
@@ -825,28 +852,6 @@ FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/
 * _hotkey_: keypress handled by listening program even if another program is active
 * the killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
 * options: AutoHotKey https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ Hammerspoon, Keyboard Maestro https://news.ycombinator.com/item?id=34070951 Karabiner https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934 Alfred https://www.alfredapp.com/
-
-PROMPT
-* things I want: Git branch, Python version, venv
-* Git: https://www.youtube.com/watch?v=wku-1nJR_oA https://github.com/zachvalenta/dotfiles/commit/cc4117a72c7b1d80f0ec58021530727435a2e4af https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh https://stackoverflow.com/questions/31252573/get-current-directory-without-full-path-in-fish-shell
-* _ohmyposh_: https://github.com/jandedobbeleer/oh-my-posh
-* _pure_: zsh only https://github.com/sindresorhus/pure
-* _powerlevel10k_: https://github.com/romkatv/powerlevel10k
-* _powerline_: statusline and prompt for Vim and used by zsh https://github.com/powerline/powerline
-* can install via pip https://pypi.org/project/powerline-status/ https://github.com/wesbos/Cobalt2-iterm
-* _starship_: https://starship.rs/
-* downside: slower than powerline-shell, Git status looks worse
-* upside: support for pyenv, Poetry https://starship.rs/config/#package-version
-* install `brew install starship` or `sh -c "$(curl -fsSL https://starship.rs/install.sh)"`
-* update `sh -c "$(curl -fsSL https://starship.rs/install.sh)"`
-* uninstall `sh -c 'rm "$(command -v 'starship')"'`
-* venv https://github.com/starship/starship/issues/1529
-* won't get Python version if you're using an alias https://github.com/starship/starship/issues/632
-* _powerline-shell_: ✅ powerline but works on bash and zsh (w/out ohmyzsh) https://github.com/b-ryan/powerline-shell
-* conf: `~/.config/powerline-shell/config.json`
-* requires powerline for fonts? https://powerline.readthedocs.io/en/latest/installation/osx.html
-* no Poetry support https://github.com/b-ryan/powerline-shell/issues/507
-* https://github.com/b-ryan/powerline-shell#generic-segments
 
 ITERM 📜 https://iterm2.com/documentation.html
 https://news.ycombinator.com/item?id=35126280
