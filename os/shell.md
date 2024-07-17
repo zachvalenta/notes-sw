@@ -3,17 +3,14 @@
 ## 参考
 
 📚
-* Barrett https://www.amazon.com/gp/product/1098113403
+* Barrett https://www.amazon.com/gp/product/1098113403 https://fabiensanglard.net/bash/
 * Evans shell
 * Shotts linux command line https://www.linuxcommand.org/tlcl.php
 * Stutz cookbook
 
 ## 进步
 
-* https://github.com/denisidoro/navi
-* https://fabiensanglard.net/bash/
-* readline history https://github.com/atuinsh/atuin https://www.youtube.com/watch?v=WB7qojkkVVU
-> key features: UI, queries
+* oh-my-posh: fix Git segment
 
 * _23_: big rf, Conery unix chapter, research Zellij
 * _22_: Fira Mono for iTerm font/icons, try starship, try/fail vi mode for readline, organize utils
@@ -780,10 +777,22 @@ FEATURES
 
 OPTIONS
 * _ohmyposh_: ✅ https://github.com/jandedobbeleer/oh-my-posh https://ohmyposh.dev/
+* themes: multiverse-neon, capr4n, powerlevel10k_lean, tokyonight_storm, tonybaloney, takuya, M365Princess
 * _powerlevel10k_: unsupported https://github.com/romkatv/powerlevel10k
 * _powerline_: Vim and zsh https://github.com/powerline/powerline https://pypi.org/project/powerline-status/ https://github.com/wesbos/Cobalt2-iterm
 * _powerline-shell_: ✅ powerline but works on bash and zsh (w/out ohmyzsh) https://github.com/b-ryan/powerline-shell
 * conf: `~/.config/powerline-shell/config.json`
+```json
+{
+    "segments": [
+      "cwd",
+      "git",
+      "ssh",
+      "virtual_env"
+    ],
+    "mode": "flat"
+}
+```
 * requires powerline for fonts? https://powerline.readthedocs.io/en/latest/installation/osx.html
 * no Poetry support https://github.com/b-ryan/powerline-shell/issues/507
 * https://github.com/b-ryan/powerline-shell#generic-segments
@@ -972,7 +981,7 @@ HISTORY https://catonmat.net/the-definitive-guide-to-bash-command-line-history h
 
 MAN PAGES
 * _whereis_: search for executables and man page in system db https://github.com/Idnan/bash-guide#c-whereis
-* _tldr_: cheatsheets https://github.com/tldr-pages/tldr/tree/master/pages https://github.com/dbrgn/tealdeer https://github.com/chubin/cheat.sh
+* _tldr_: cheatsheets https://github.com/tldr-pages/tldr/tree/master/pages https://github.com/dbrgn/tealdeer https://github.com/chubin/cheat.sh https://github.com/denisidoro/navi
 * offline documentations https://devdocs.io/
 > you can download plaintext of Python docs
 * man (UNIX) vs. info (GNU) https://askubuntu.com/a/9332 man pages for systems calls as well (`sendfile`) [`evans-linux.pdf` 11]

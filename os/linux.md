@@ -65,10 +65,9 @@ requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
 
 ## build systems (Make)
 
-📙 Meckleberg gnu make https://signalsandthreads.com/build-systems/
-🗄 `system.md` deployment
+🗄 `svc/src.md` deployment
 
-* _build system_: build executables (esp. for C, C++)
+* _build system_: build executables (esp. for C, C++) https://signalsandthreads.com/build-systems/
 * aka task runner, command runner https://github.com/casey/just https://en.wikipedia.org/wiki/List_of_build_automation_software https://github.com/go-task/task
 * dependency graphs, build systems https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
 * analyze dependency graph https://github.com/loov/goda
@@ -87,7 +86,7 @@ TOOLS
 * _Task_: https://github.com/go-task/task
 * _Xc_: markdown task runner https://news.ycombinator.com/item?id=34911216 https://news.ycombinator.com/item?id=34911216
 
-MAKE
+MAKE 📙 Meckleberg gnu make
 * `all`, `clean`, `.PHONY`, `install` 📙 Conery [405]
 > Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
 * docs: `gnu-make.pdf` https://www.gnu.org/software/make/manual/make.html https://tech.davis-hansson.com/p/make/ http://gromnitsky.users.sourceforge.net/articles/notes-for-new-make-users/ https://www.openmymind.net/An-Awful-Introduction-To-Make/ https://makefiletutorial.com/ https://daniel.feldroy.com/posts/autodocumenting-makefiles
