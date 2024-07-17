@@ -19,7 +19,7 @@
 * _18_: PR workflow
 * _17_: desultory corporate usage, tutorial w/ Roberto
 
-# PLUMBING
+# 🔬️ INTERNALS
 
 🙂 punk rock https://xkcd.com/1597/
 
@@ -98,7 +98,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * _HEAD_: most recent commit of current branch; `.git/ref/head/<current_branch>`
 * compressed https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
-# PORCELAIN
+# 🔮 PORCELAIN
 
 📜 cmd https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config
 
@@ -477,7 +477,7 @@ git push origin :crd/my-feature-branch
 git branch -d crd/my-feature-branch
 ```
 
-# SERVER
+# 📡 SERVER
 
 * bug tracking: https://github.com/MichaelMure/git-bug https://www.youtube.com/watch?v=6Q4Lac0MCL0
 * https://gemini.nytpu.com/gemlog/2021-03-07.gmi
@@ -662,7 +662,7 @@ unit_tests:
 ax2: "${ax2}"
 ```
 
-# ZA
+# 🟨 ZA
 
 SEARCH https://www.youtube.com/watch?v=BaBKBy2vHmM
 ```sh
@@ -826,6 +826,6 @@ REPO BROWSER
 
 ZA
 * bug tracker https://github.com/MichaelMure/git-bug 🗄 `econ.md` documentation / issue tracking
-* repo stats: https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
-* Githup-specific https://github.com/dlvhdr/gh-dash
+* repo stats https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
+* Github-specific https://github.com/dlvhdr/gh-dash
 * heat map https://github.com/jmforsythe/Git-Heat-Map

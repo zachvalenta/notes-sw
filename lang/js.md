@@ -10,6 +10,7 @@
 
 ---
 
+https://roadmap.sh/nodejs
 * https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
 * perf https://hpbn.co/primer-on-web-performance/
 
@@ -82,6 +83,7 @@ taxonomy
 
 DESIGN
 * https://news.ycombinator.com/item?id=40847376
+* https://testdriven.io/blog/fastapi-htmx/
 * hypermedia https://quii.dev/HTMX_is_the_Future https://github.com/PyHAT-stack/awesome-python-htmx
 * creator seems cool https://news.ycombinator.com/item?id=26769809 https://changelog.com/gotime/266
 * vs. alpine, mithril https://news.ycombinator.com/item?id=32011439
@@ -309,7 +311,7 @@ let bob = Object.assign({}, player, {score: 3});
 
 ## Node
 
-https://roadmap.sh/nodejs
+---
 
 * _Node_: libuv (IO library) + V8 (JS engine) https://neovim.io/charter/
 * don't install from OpenJS https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
@@ -317,6 +319,7 @@ https://roadmap.sh/nodejs
 * _bun_: runtime + tooling (bundle, transpile) https://bun.sh/
 
 NODENV https://github.com/nodenv/nodenv
+> this is what you're using currently
 * alternatives: nvm https://github.com/creationix/nvm#important-notes asdf https://github.com/asdf-vm/asdf volta https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039 fnm https://github.com/Schniz/fnm mise https://github.com/jdx/mise
 * rm version: find fs location `nodenv prefix <ver>` and then just rm dir https://github.com/nodenv/nodenv#uninstalling-node-versions
 * _shim_: intercepts cmd and passes to specific version https://medium.com/@ujjawal.dixit/what-is-a-shim-72d9ac5d8620

@@ -22,7 +22,7 @@
 * _19_: exa, symlink dotfiles, try out utils (z, fish, tig, fzf, ranger, ripgrep)
 * _18_: scripts (`fne`, `qing`, `ding`, `qiu`, `jb`)
 
-# 🔨 BASH
+# 🪨 BASH
 
 🔗
 * https://github.com/dylanaraps/pure-bash-bible
@@ -443,6 +443,8 @@ cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
 
 ## profiles
 
+---
+
 ZSH https://unix.stackexchange.com/a/71258
 * `.zshenv`: src for all shells
 > often contains exported variables that should be available to other programs. For example, $PATH, $EDITOR, and $PAGER are often set in .zshenv. Also, you can set $ZDOTDIR in .zshenv to specify an alternative location for the rest of your zsh configuration.
@@ -694,7 +696,48 @@ WORKFLOW
 * why not Vim: cannot name tabs
 * howto: one session per project e.g. baseline (desktop/cmus/yin), data eng, algos, sk8list https://www.youtube.com/watch?v=hbs7tuwpgZA [1:45]
 
+* _pane_: terminal window + process
+* _tab_: group of panes
+* _layout_: tab + start cmd
+
+ZELLIJ 📜 https://zellij.dev/documentation/
+* plugins: https://github.com/zellij-org/awesome-zellij https://github.com/imsnif/monocle https://github.com/dj95/zjstatus/ Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45 Catpppuccin https://github.com/catppuccin/zellij
+* shell: doesn't use login, work around using `.zshenv` https://github.com/zellij-org/zellij/issues/1434#issuecomment-2185020449
+* copy/paste: doesn't work with iTerm but Alacritty doesn't have native global hotkey
+
 ---
+
+https://zellij.dev/screencasts/
+https://www.youtube.com/watch?v=lmcrVRM9V4k
+
+* why: stacked panes, named tabs/workspaces, tmux seems like a steeper learning curve
+* workaround for keybinding conflicts w/ Vim https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:45
+* _normal mode_: workaround for not having to constantly switch back to this https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:00
+* _copy mode_: get a Neovim session to munge STDOUT (e.g. tailing logs) https://www.youtube.com/watch?v=BjfMWqy1hnw 5:45
+* _pane_: terminal window + process
+* stacked panes looks great https://www.youtube.com/watch?v=gtjPeTCkm-8 2:15
+* floating panes for ad hoc work https://www.youtube.com/watch?v=gtjPeTCkm-8 2:45 https://www.youtube.com/watch?v=BjfMWqy1hnw 7:45
+* resize https://www.youtube.com/watch?v=BjfMWqy1hnw 2:15 https://www.youtube.com/watch?v=BjfMWqy1hnw 4:40
+* break into separate tabs, mv btw tabs https://zellij.dev/news/session-manager-protobuffs/ https://www.youtube.com/watch?v=HaJoRgBlRc8
+* full screen https://www.youtube.com/watch?v=BjfMWqy1hnw 5:40
+* _tab_: group of panes
+* named tabs useful for work https://www.youtube.com/watch?v=gtjPeTCkm-8 3:30
+* _layout_: tab + state https://www.youtube.com/watch?v=lmcrVRM9V4k 17:15
+```sh
+# worked from cli
+zellij --layout path/to/layout
+# didn't work from conf
+layout_dir "~/.config/zellij"
+```
+* really like version control https://www.youtube.com/watch?v=gtjPeTCkm-8 4:15
+* open with cmd https://www.youtube.com/watch?v=lmcrVRM9V4k 17:15
+* sync = run same cmd in all panes https://www.youtube.com/watch?v=lmcrVRM9V4k 18:00
+* potential layouts: home (domains/bookcase, cmus, yin, shell) Ramalho (home w/ Python and book note opened and shell opened to REPL) personal site (repo, Neovim, file watcher) bread data (pf, vd, gobang, bread schema notes) t3 data (Mongo shell, REPL, t3 schema notes) t3 local (Neovim, broot repo)
+> maybe for all these, have a floating pane for wf
+* _session_: tab(s) + state https://www.youtube.com/watch?v=gtjPeTCkm-8 4:00
+* 类似 tabs but for stuff you don't need going all the time https://www.youtube.com/watch?v=gtjPeTCkm-8 3:45
+* mgmt https://zellij.dev/news/session-manager-protobuffs/
+* resurrect https://zellij.dev/news/session-resurrection-ui-components/
 
 TMUX 📜 https://github.com/tmux/tmux 📙 Hogan https://github.com/git-pull/tao-of-tmux https://willvaughn.org/articles/the-tmux-manual-review/
 * video courses https://thoughtbot.com/upcase/tmux https://www.youtube.com/watch?v=GH3kpsbbERo
@@ -727,42 +770,7 @@ ls  # list sessions
 a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/videos/tmux-navigation
 ```
 
-ZELLIJ 📜 https://zellij.dev/documentation/ https://github.com/zellij-org/awesome-zellij
-* why: stacked panes, named tabs/workspaces, tmux seems like a steeper learning curve
-* why not: copy/paste doesn't work with iTerm but Alacritty doesn't have native global hotkey, doesn't use login shell (couldn't get around with `pane command`) https://zellij.dev/documentation/layout-examples https://github.com/zellij-org/zellij/issues/1434#issuecomment-2185020449
-* https://github.com/imsnif/monocle
-* status bar https://github.com/dj95/zjstatus/
-* plugins: Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45 Catpppuccin https://github.com/catppuccin/zellij
-* workaround for keybinding conflicts w/ Vim https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:45
-* scrollback https://zellij.dev/screencasts/
-* _normal mode_: workaround for not having to constantly switch back to this https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:00
-* _copy mode_: get a Neovim session to munge STDOUT (e.g. tailing logs) https://www.youtube.com/watch?v=BjfMWqy1hnw 5:45
-* _pane_: terminal window + process
-* stacked panes looks great https://www.youtube.com/watch?v=gtjPeTCkm-8 2:15
-* floating panes for ad hoc work https://www.youtube.com/watch?v=gtjPeTCkm-8 2:45 https://www.youtube.com/watch?v=BjfMWqy1hnw 7:45
-* resize https://www.youtube.com/watch?v=BjfMWqy1hnw 2:15 https://www.youtube.com/watch?v=BjfMWqy1hnw 4:40
-* break into separate tabs, mv btw tabs https://zellij.dev/news/session-manager-protobuffs/ https://www.youtube.com/watch?v=HaJoRgBlRc8
-* full screen https://www.youtube.com/watch?v=BjfMWqy1hnw 5:40
-* _tab_: group of panes
-* named tabs useful for work https://www.youtube.com/watch?v=gtjPeTCkm-8 3:30
-* _layout_: tab + state https://www.youtube.com/watch?v=lmcrVRM9V4k 17:15
-```sh
-# worked from cli
-zellij --layout path/to/layout
-# didn't work from conf
-layout_dir "~/.config/zellij"
-```
-* really like version control https://www.youtube.com/watch?v=gtjPeTCkm-8 4:15
-* open with cmd https://www.youtube.com/watch?v=lmcrVRM9V4k 17:15
-* sync = run same cmd in all panes https://www.youtube.com/watch?v=lmcrVRM9V4k 18:00
-* potential layouts: home (domains/bookcase, cmus, yin, shell) Ramalho (home w/ Python and book note opened and shell opened to REPL) personal site (repo, Neovim, file watcher) bread data (pf, vd, gobang, bread schema notes) t3 data (Mongo shell, REPL, t3 schema notes) t3 local (Neovim, broot repo)
-> maybe for all these, have a floating pane for wf
-* _session_: tab(s) + state https://www.youtube.com/watch?v=gtjPeTCkm-8 4:00
-* 类似 tabs but for stuff you don't need going all the time https://www.youtube.com/watch?v=gtjPeTCkm-8 3:45
-* mgmt https://zellij.dev/news/session-manager-protobuffs/
-* resurrect https://zellij.dev/news/session-resurrection-ui-components/
-
-## prompt (powerline)
+## prompt (oh-my-posh)
 
 FEATURES
 * Python version
@@ -771,7 +779,7 @@ FEATURES
 * Git branch: can do in pure bash https://www.youtube.com/watch?v=wku-1nJR_oA https://github.com/zachvalenta/dotfiles/commit/cc4117a72c7b1d80f0ec58021530727435a2e4af https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh https://stackoverflow.com/questions/31252573/get-current-directory-without-full-path-in-fish-shell
 
 OPTIONS
-* _ohmyposh_: 🎯 https://github.com/jandedobbeleer/oh-my-posh
+* _ohmyposh_: ✅ https://github.com/jandedobbeleer/oh-my-posh https://ohmyposh.dev/
 * _powerlevel10k_: unsupported https://github.com/romkatv/powerlevel10k
 * _powerline_: Vim and zsh https://github.com/powerline/powerline https://pypi.org/project/powerline-status/ https://github.com/wesbos/Cobalt2-iterm
 * _powerline-shell_: ✅ powerline but works on bash and zsh (w/out ohmyzsh) https://github.com/b-ryan/powerline-shell

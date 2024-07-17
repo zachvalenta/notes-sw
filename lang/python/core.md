@@ -708,6 +708,7 @@ DECORATORS
 # pagination https://stackoverflow.com/questions/53638221/unable-to-handle-two-links-having-different-pagination-using-decorator
 ```
 * https://bas.codes/posts/python-decorators
+* https://suyogdahal.com.np/posts/how-decorator-crashed-my-flask-app/
 * https://blog.luisrei.com/articles/flaskrest.html
 * https://stackoverflow.com/questions/308999/what-does-functools-wraps-do
 * https://samireland.com/writing/decorators/ https://rednafi.github.io/digressions/python/2020/05/13/python-decorators.html
