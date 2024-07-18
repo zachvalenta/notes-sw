@@ -641,15 +641,17 @@ WORKFLOW
 * _layout_: tab + start cmd
 
 ZELLIJ 📜 https://zellij.dev/documentation/
-* plugins: https://github.com/zellij-org/awesome-zellij https://github.com/imsnif/monocle https://github.com/dj95/zjstatus/ Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45 Catpppuccin https://github.com/catppuccin/zellij
 * shell: doesn't use login, work around using `.zshenv` https://github.com/zellij-org/zellij/issues/1434#issuecomment-2185020449
-* copy/paste: doesn't work with iTerm but Alacritty doesn't have native global hotkey
+* copy/paste: doesn't work with iTerm but Alacritty doesn't have native global hotkey https://zellij.dev/documentation/faq#copy--paste-isnt-working-how-can-i-fix-this
 
 ---
+
+@ show status bar when opening with user-defined layout
 
 https://zellij.dev/screencasts/
 https://www.youtube.com/watch?v=lmcrVRM9V4k
 
+* plugins: https://github.com/zellij-org/awesome-zellij https://github.com/imsnif/monocle https://github.com/dj95/zjstatus/ Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45 Catpppuccin https://github.com/catppuccin/zellij
 * why: stacked panes, named tabs/workspaces, tmux seems like a steeper learning curve
 * workaround for keybinding conflicts w/ Vim https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:45
 * _normal mode_: workaround for not having to constantly switch back to this https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:00
