@@ -10,7 +10,9 @@
 
 ## 进步
 
-* oh-my-posh: fix Git segment
+OH-MY-POSH
+* put cursor on same line cwd
+* fix Git segment
 
 * _23_: big rf, Conery unix chapter, research Zellij
 * _22_: Fira Mono for iTerm font/icons, try starship, try/fail vi mode for readline, organize utils
@@ -223,7 +225,7 @@ A & B # A and B simultaneously
 
 * write script to do symlinks https://news.ycombinator.com/item?id=34304694
 * prefer programs that store config as text
-* keep under version control and symlink into place with script https://hacker-tools.github.io/dotfiles/ advanced mgmt https://github.com/twpayne/chezmoi https://news.ycombinator.com/item?id=32632533
+* keep under version control and symlink into place with script https://hacker-tools.github.io/dotfiles/ advanced mgmt https://github.com/twpayne/chezmoi https://news.ycombinator.com/item?id=32632533 https://github.com/atuinsh/atuin
 > There are two basic approaches: version your entire home directory or symbolically link your dotfiles into place from a stand-alone repository. The first approach is straightforward but has a number of issues that make it a poor choice. https://nullprogram.com/blog/2012/06/23/
 * install script https://www.youtube.com/watch?v=hXU54axdjJc https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
 * mgmt: GNU Stow https://www.youtube.com/watch?v=90xMTKml9O0 https://github.com/bbkane/fling
@@ -621,65 +623,6 @@ UI
 * _teletype (TTY)_: https://bas.codes/posts/python-asterisks https://the.exa.website/introduction https://en.wikipedia.org/wiki/Tty_(Unix) https://en.wikipedia.org/wiki/Tty_(Unix) https://the.exa.website/introduction https://jvns.ca/blog/2022/08/30/a-way-to-categorize-debugging-skills/ https://news.ycombinator.com/item?id=34146212 https://en.wikipedia.org/wiki/Teleprinter
 * https://bestasciitable.com/
 
-## line editor (readline)
-
-* _readline_: line editor https://news.ycombinator.com/item?id=33785631
-* impl https://github.com/chzyer/readline
-* view keybindings: `bind -P` https://catonmat.net/bash-vi-editing-mode-cheat-sheet
-* set mode: `set -o <emacs/vi>`
-* exec previous cmd: `!!` https://bsago.me/tech-notes/a-replacement-for-!!-in-fish
-
-* _vi_: doesn't support text obj e.g. `cw` works but `ciw` doesn't https://vi.stackexchange.com/a/9876 https://catonmat.net/bash-vi-editing-mode-cheat-sheet
-* scroll history: `j/k`
-
----
-
-* history https://github.com/ddworken/hishtory https://github.com/pindexis/marker https://www.jefftk.com/p/logging-shell-history-in-zsh https://jvns.ca/blog/2023/08/08/what-helps-people-get-comfortable-on-the-command-line-/
-* autocomplete https://fig.io/
-
-to read before you take another swing at using vi mode
-* https://twobithistory.org/2019/08/22/readline.html
-* https://thoughtbot.com/upcase/videos/readline
-* config https://missing.csail.mit.edu/2020/editors/
-* problem #1: would allow single motion and then go into insert mode
-* problem #2: scroll history; can use emacs commands in vi mode as workaround https://stackoverflow.com/q/42951222
-> both of these worked at first
-
-bindings
-* readline https://stackoverflow.com/questions/35046794/where-can-i-view-all-my-custom-keybindings-in-bash
-* https://bsago.me/tech-notes/insert-text-with-fish-keybindings
-* https://stackoverflow.com/questions/10870468/whats-the-usage-of-bind-in-bash
-* https://www.computerhope.com/unix/bash/bind.htm
-
-EMACS MODE https://catonmat.net/bash-emacs-editing-mode-cheat-sheet
-* scroll history: `CTRL n/p`
-* _repeat previous command_: `!!`
-* _goto - word - forward_: alt b
-* _goto - word - forward_: alt f
-* _goto - line - end_: ctrl e
-* _goto - line - start_: ctrl a
-* _rm - word - back_: ctrl w
-* _rm - word - forward_: alt d
-* _rm to - line - end_: ctrl k
-* _rm to - line - start_: ctrl u
-
-completion
-* _tab completion_: aka autocomplete, expansion https://python-poetry.org/docs/ https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/ 
-* https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html
-* uses `complete` https://tuzz.tech/blog/how-bash-completion-works
-```sh
-$ complete -W "red green blue yellow purple pink orange" color
-$ color <TAB><TAB>
-# blue    green   orange  pink    purple  red     yellow
-$ color p<TAB><TAB>
-# pink    purple
-```
-* `ctrl e` tab complete from bash history
-```sh
-# tig.log
-> Bash completion has been installed to: /usr/local/etc/bash_completion.d
-```
-
 ## multiplex (Zellij)
 
 🗄️ `vim.md` buffers
@@ -767,7 +710,152 @@ ls  # list sessions
 a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/videos/tmux-navigation
 ```
 
-## prompt (oh-my-posh)
+## shell (zsh)
+
+ZSH 📜 https://zsh.sourceforge.io/
+> ✅ autocomplete, default on macOS
+* _zsh_: bash superset
+* `.zprofile`: `.bash_profile` https://apple.stackexchange.com/q/388622
+* `.zshrc`: put `PS1` here https://unix.stackexchange.com/q/71253
+* silence warning not to use bash `export BASH_SILENCE_DEPRECATION_WARNING=1` https://elisabethirgens.github.io/notes/2020/02/bye-bash/
+* comes installed on macOS https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH https://nil.wallyjones.com/what-shell-am-i-using/
+* frameworks: ohmyzsh, pretzo https://hacker-tools.github.io/command-line/
+* plugins https://www.zapzsh.org/
+* autocomplete https://github.com/zsh-users/zsh-autosuggestions
+* scripting language not portable https://news.ycombinator.com/item?id=18778681
+* trailing percent sign thing https://unix.stackexchange.com/a/167600
+* startup speed https://news.ycombinator.com/item?id=33580350
+
+FISH 📜 https://fishshell.com/
+* design: pgcli inspired by fish https://news.ycombinator.com/item?id=23957325 https://news.ycombinator.com/item?id=15912028
+* install: brew; uninstall https://fishshell.com/docs/current/faq.html#faq-uninstalling
+* plugins https://github.com/jorgebucaran/fisher
+* prompt https://github.com/IlanCosman/tide
+* aliases
+> aliases (which are called abbreviations) are actually expanded after typing, so the full command appears in your history. You can also edit the full command before running it https://news.ycombinator.com/item?id=27992073
+* ✅ autocomplete https://news.ycombinator.com/item?id=27992073 https://www.benkuhn.net/autocomplete/ https://ianthehenry.com/posts/sd-my-script-directory/ https://news.ycombinator.com/item?id=18777113 
+* accept autosuggestion: `CTRL f` https://stackoverflow.com/a/58382167/6813490
+* ❌ have to rewrite profile https://news.ycombinator.com/item?id=15913251 https://superuser.com/questions/446925/re-use-profile-for-fish
+* ❌ `!!` doesn't run last cmd https://news.ycombinator.com/item?id=15943070 https://bsago.me/tech-notes https://bsago.me/tech-notes/a-replacement-for-!!-in-fish
+* ❌ Vi mode but apparently doesn't work well https://stackoverflow.com/questions/28444740/how-to-use-vi-mode-in-fish-shell https://news.ycombinator.com/item?id=18778048
+* ❌ scripting language not portable https://news.ycombinator.com/item?id=18778681 https://news.ycombinator.com/item?id=15911216 https://rutar.org/writing/vim-session-management-an-introduction-to-fish/
+* can't run bash scripts = just switch back to bash https://news.ycombinator.com/item?id=18777141 https://jvns.ca/blog/2017/04/23/the-fish-shell-is-awesome/
+
+ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
+* typical to write a scripting language to go along with your shell https://news.ycombinator.com/item?id=24079001
+* BYO https://www.destroyallsoftware.com/screencasts/catalog https://github.com/elves/elvish
+* _elvish_: https://news.ycombinator.com/item?id=18778681
+* _nushell_: structured data https://www.nushell.sh/
+* _oil_: https://github.com/oilshell/oil
+* _Powershell_: supports some Bash commands but no arguments https://yehudakatz.com/2019/04/24/powershell-lets-get-started
+* good at working with structured text like CSV https://news.ycombinator.com/item?id=28306401
+* multiple versions https://www.youtube.com/watch?v=--c3yNP-hL0 7:30
+* _WSL_: run Linux programs on Windows https://www.youtube.com/watch?v=idW-an99TAM https://blog.jessfraz.com/post/windows-for-linux-nerds/
+* version 2 much faster, using with Neovim https://www.youtube.com/watch?v=--c3yNP-hL0
+* _xonsh_: need to rewrite profile https://xon.sh/xonshrc.html https://xon.sh/bash_to_xsh.html bad w/ virtualenvs https://xon.sh/python_virtual_environments.html https://news.ycombinator.com/item?id=30302955 https://github.com/hauntsaninja/pyp
+
+---
+
+* zsh tutorial https://www.youtube.com/watch?v=bTLYiNvRIVI
+* what happens when... https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls
+* TUI for bash https://github.com/charmbracelet/gum
+* design https://www.micahlerner.com/2021/07/14/unix-shell-programming-the-next-50-years.html 🗣 Dan Luu https://borretti.me/article/shells-are-two-things
+* get current shell: `echo $SHELL` https://stackoverflow.com/a/3327022/6813490
+* switch shell: `<shell>` https://fishshell.com/docs/current/tutorial.html#tut_getting_started
+* return to default shell: `exit`
+
+### history (atuin)
+
+LIBS
+* _atuin_: better UI https://github.com/atuinsh/atuin
+* enter: `ctrl r`|up arrow
+* `ctrl r`: change search context (global, host, session, directory) https://www.youtube.com/watch?v=WB7qojkkVVU [7:45]
+* import will give everything a timestamp from moment of import https://www.youtube.com/watch?v=WB7qojkkVVU [4:40]
+* _history-sync_: zsh plugin https://martinheinz.dev/blog/110
+* _hishtory_: https://github.com/ddworken/hishtory
+* _marker_: uses tldr https://github.com/pindexis/marker
+* _mcfly_: cmd suggestions https://github.com/cantino/mcfly
+* _zsh-histdb_: https://github.com/larkery/zsh-histdb https://www.jefftk.com/p/logging-shell-history-in-zsh
+
+CMD
+* `history 0`: view full history https://unix.stackexchange.com/a/657934
+
+ZA
+* files: `.bash_history`, `.zsh_history` https://catonmat.net/the-definitive-guide-to-bash-command-line-history
+> unsure mechanism to determine which cmd end up here, all entries from mini23 are not there
+* search, rm entries https://catonmat.net/the-definitive-guide-to-bash-command-line-history
+* dedupe, fmt https://martinheinz.dev/blog/110
+* in bash https://www.jefftk.com/p/logging-shell-history-in-zsh
+
+---
+
+* search: `ctrl r`
+* scroll all items that match query: `ctrl r` (again)
+* cancel search: `ctrl c`
+* scroll previous: `ctrl p`
+* scroll next: `ctrl n`
+> same when you're in search mode
+* event designator: `history | rg cd` then go to event w/ `!<event_num>`
+> it can be helpful to stick something like `#useful` or `# description` on the end of a command you expect to need again https://news.ycombinator.com/item?id=13888269
+
+### line editor (readline)
+
+* _readline_: line editor https://news.ycombinator.com/item?id=33785631
+* impl https://github.com/chzyer/readline
+* view keybindings: `bind -P` https://catonmat.net/bash-vi-editing-mode-cheat-sheet
+* exec previous cmd: `!!` https://bsago.me/tech-notes/a-replacement-for-!!-in-fish
+
+MODES
+* set mode: `set -o <emacs/vi>`
+* _vi_: doesn't support text obj e.g. `cw` works but `ciw` doesn't https://vi.stackexchange.com/a/9876 https://catonmat.net/bash-vi-editing-mode-cheat-sheet
+* scroll history: `j/k`
+
+---
+
+to read before you take another swing at using vi mode
+* https://twobithistory.org/2019/08/22/readline.html
+* https://thoughtbot.com/upcase/videos/readline
+* config https://missing.csail.mit.edu/2020/editors/
+* problem #1: would allow single motion and then go into insert mode
+* problem #2: scroll history; can use emacs commands in vi mode as workaround https://stackoverflow.com/q/42951222
+> both of these worked at first
+
+bindings
+* readline https://stackoverflow.com/questions/35046794/where-can-i-view-all-my-custom-keybindings-in-bash
+* https://bsago.me/tech-notes/insert-text-with-fish-keybindings
+* https://stackoverflow.com/questions/10870468/whats-the-usage-of-bind-in-bash
+* https://www.computerhope.com/unix/bash/bind.htm
+
+EMACS MODE https://catonmat.net/bash-emacs-editing-mode-cheat-sheet
+* scroll history: `CTRL n/p`
+* _repeat previous command_: `!!`
+* _goto - word - forward_: alt b
+* _goto - word - forward_: alt f
+* _goto - line - end_: ctrl e
+* _goto - line - start_: ctrl a
+* _rm - word - back_: ctrl w
+* _rm - word - forward_: alt d
+* _rm to - line - end_: ctrl k
+* _rm to - line - start_: ctrl u
+
+completion
+* _tab completion_: aka autocomplete, expansion https://python-poetry.org/docs/ https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
+* https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html
+* uses `complete` https://tuzz.tech/blog/how-bash-completion-works
+```sh
+$ complete -W "red green blue yellow purple pink orange" color
+$ color <TAB><TAB>
+# blue    green   orange  pink    purple  red     yellow
+$ color p<TAB><TAB>
+# pink    purple
+```
+* `ctrl e` tab complete from bash history
+```sh
+# tig.log
+> Bash completion has been installed to: /usr/local/etc/bash_completion.d
+```
+
+### prompt (oh-my-posh)
 
 FEATURES
 * Python version
@@ -805,60 +893,6 @@ OPTIONS
 * uninstall `sh -c 'rm "$(command -v 'starship')"'`
 * venv https://github.com/starship/starship/issues/1529
 * won't get Python version if you're using an alias https://github.com/starship/starship/issues/632
-
-## shell (zsh)
-
-ZSH 📜 https://zsh.sourceforge.io/
-> ✅ autocomplete, default on macOS
-* _zsh_: bash superset
-* `.zprofile`: `.bash_profile` https://apple.stackexchange.com/q/388622
-* `.zshrc`: put `PS1` here https://unix.stackexchange.com/q/71253
-* silence warning not to use bash `export BASH_SILENCE_DEPRECATION_WARNING=1` https://elisabethirgens.github.io/notes/2020/02/bye-bash/
-* comes installed on macOS https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH https://nil.wallyjones.com/what-shell-am-i-using/
-* frameworks: ohmyzsh, pretzo https://hacker-tools.github.io/command-line/
-* plugins https://www.zapzsh.org/
-* autocomplete https://github.com/zsh-users/zsh-autosuggestions
-* scripting language not portable https://news.ycombinator.com/item?id=18778681
-* trailing percent sign thing https://unix.stackexchange.com/a/167600
-* startup speed https://news.ycombinator.com/item?id=33580350
-
-FISH 📜 https://fishshell.com/
-* design: pgcli inspired by fish https://news.ycombinator.com/item?id=23957325 https://news.ycombinator.com/item?id=15912028
-* install: brew; uninstall https://fishshell.com/docs/current/faq.html#faq-uninstalling
-* plugins https://github.com/jorgebucaran/fisher
-* prompt https://github.com/IlanCosman/tide
-* aliases
-> aliases (which are called abbreviations) are actually expanded after typing, so the full command appears in your history. You can also edit the full command before running it https://news.ycombinator.com/item?id=27992073
-* ✅ autocomplete https://news.ycombinator.com/item?id=27992073 https://www.benkuhn.net/autocomplete/ https://ianthehenry.com/posts/sd-my-script-directory/ https://news.ycombinator.com/item?id=18777113 
-* accept autosuggestion: `CTRL f` https://stackoverflow.com/a/58382167/6813490
-* ❌ have to rewrite profile https://news.ycombinator.com/item?id=15913251 https://superuser.com/questions/446925/re-use-profile-for-fish
-* ❌ `!!` doesn't run last cmd https://news.ycombinator.com/item?id=15943070 https://bsago.me/tech-notes https://bsago.me/tech-notes/a-replacement-for-!!-in-fish
-* ❌ Vi mode but apparently doesn't work well https://stackoverflow.com/questions/28444740/how-to-use-vi-mode-in-fish-shell https://news.ycombinator.com/item?id=18778048
-* ❌ scripting language not portable https://news.ycombinator.com/item?id=18778681 https://news.ycombinator.com/item?id=15911216 https://rutar.org/writing/vim-session-management-an-introduction-to-fish/
-* can't run bash scripts = just switch back to bash https://news.ycombinator.com/item?id=18777141 https://jvns.ca/blog/2017/04/23/the-fish-shell-is-awesome/
-
-ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
-* BYO https://www.destroyallsoftware.com/screencasts/catalog
-* _crush_ https://news.ycombinator.com/item?id=24079001
-* _elvish_ https://news.ycombinator.com/item?id=18778681
-* _nushell_: https://www.nushell.sh/
-* _oil_: https://github.com/oilshell/oil
-* _Powershell_: supports some Bash commands but no arguments https://yehudakatz.com/2019/04/24/powershell-lets-get-started
-* good at working with structured text like CSV https://news.ycombinator.com/item?id=28306401
-* multiple versions https://www.youtube.com/watch?v=--c3yNP-hL0 7:30
-* _WSL_: run Linux programs on Windows https://www.youtube.com/watch?v=idW-an99TAM https://blog.jessfraz.com/post/windows-for-linux-nerds/
-* version 2 much faster, using with Neovim https://www.youtube.com/watch?v=--c3yNP-hL0
-* _xonsh_: need to rewrite profile https://xon.sh/xonshrc.html https://xon.sh/bash_to_xsh.html bad w/ virtualenvs https://xon.sh/python_virtual_environments.html https://news.ycombinator.com/item?id=30302955 https://github.com/hauntsaninja/pyp
-
----
-
-* zsh tutorial https://www.youtube.com/watch?v=bTLYiNvRIVI
-* what happens when... https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls
-* TUI for bash https://github.com/charmbracelet/gum
-* design https://www.micahlerner.com/2021/07/14/unix-shell-programming-the-next-50-years.html 🗣 Dan Luu https://borretti.me/article/shells-are-two-things
-* get current shell: `echo $SHELL` https://stackoverflow.com/a/3327022/6813490
-* switch shell: `<shell>` https://fishshell.com/docs/current/tutorial.html#tut_getting_started
-* return to default shell: `exit`
 
 ## terminal (iTerm)
 
@@ -963,21 +997,7 @@ WINDOW MANAGERS
 * `git.md` utils
 * `linux.md` denv
 
-HISTORY
-* `history 0`: see full history in zsh https://unix.stackexchange.com/a/657934
-
 ---
-
-HISTORY https://catonmat.net/the-definitive-guide-to-bash-command-line-history https://martinheinz.dev/blog/110
-* search: `ctrl r`
-* scroll all items that match query: `ctrl r` (again)
-* cancel search: `ctrl c`
-* scroll previous: `ctrl p`
-* scroll next: `ctrl n`
-> same when you're in search mode
-* event designator: `history | rg cd` then go to event w/ `!<event_num>`
-> it can be helpful to stick something like `#useful` or `# description` on the end of a command you expect to need again https://news.ycombinator.com/item?id=13888269
-* https://github.com/cantino/mcfly
 
 MAN PAGES
 * _whereis_: search for executables and man page in system db https://github.com/Idnan/bash-guide#c-whereis

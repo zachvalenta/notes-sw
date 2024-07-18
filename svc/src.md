@@ -21,7 +21,7 @@
 
 🗄️ `databases.md` tooling / code generation
 📙 Masse api rulebook
-🔍 https://github.com/public-apis/public-apis
+🔍 https://github.com/public-apis/public-apis https://rapidapi.com/hub
 
 PAGINATION
 * _paginate_: return subset of records

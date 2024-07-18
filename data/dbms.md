@@ -118,6 +118,8 @@ STORAGE ENGINES 🗄 `design.md` transactions
 * `big-data.md` perf
 * `vim.md` ctags
 
+> When I worked in ads I would often need to debug issues using production logs, and would use Dremel to run a distributed scan of very large amounts of data at interactive speeds. Because queries were relatively rare, an index would have been far more expensive to maintain. https://www.jefftk.com/p/you-dont-always-need-indexes
+
 START HERE
 * https://www.jefftk.com/p/you-dont-always-need-indexes
 * make invisible > delete https://sqlfordevs.com/invisible-index-before-delete

@@ -46,8 +46,11 @@ NEXT 🗄️ `something`
 ## commits
 
 RECENT
-* bin + repos
+* denv
+* dot: atuin install and config
+* ms
 * rm powerline: pipx, config/symlink
+* bin + repos
 
 CLEAN UP
 * broot fix on air22?
@@ -73,6 +76,7 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 
 DENV - GENERAL
 - [x] prompt: oh-my-posh
+- [x] shell: atuin
 - [ ] multiplex: Zellij
 - [ ] Git: lazygit
 - [ ] Neovim: LSP
@@ -124,12 +128,11 @@ INTERVIEWING - SENIOR ENG
 - [ ] personal site
 
 PROJECTS
-* pymus: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/
+* _pymus_: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/ https://rapidapi.com/collection/lyrics-apis
+* _Sk8list_: Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
 * pytest plugin for ward
 * TUI for Websters 1913
 * TUI for BYO dictionary
-* Sk8list
-> Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
 * book notes: Kleppmann, Jeffrey
 > Python, Distributed
 * dataclerk

@@ -8,7 +8,7 @@
 * Dasgupta algorithms
 * MacCormick computed
 * MacCormick nine algorithms
-* Skiena manual https://www.algorist.com/
+* Skiena manual https://www.algorist.com/ https://fabiensanglard.net/algorithms_and_datastructures/index.php
 * Wengrow ds/algos
 
 ## now

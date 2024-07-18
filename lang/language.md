@@ -275,7 +275,7 @@ HISTORY https://increment.com/programming-languages/language-history/
 * books https://news.ycombinator.com/item?id=34556318 https://github.com/plabayo/learn-rust-101/blob/main/README.md
 * CLI https://www.amazon.com/gp/product/1098109430/ref=ox_sc_act_title_1?smid=ATVPDKIKX0DER&psc=1
 * web https://tech.marksblogg.com/poem-rust-web-framework.html https://tech.marksblogg.com/actix-rust-web-framework.html https://tech.marksblogg.com/rocket-rust-web-framework.html https://www.shuttle.rs/blog/2023/09/27/rust-vs-go-comparison
-* TUI https://github.com/gyscos/Cursive https://github.com/fdehau/tui-rs
+* TUI https://github.com/gyscos/Cursive https://github.com/fdehau/tui-rs https://github.com/ratatui-org/ratatui
 * vs. Golang https://news.ycombinator.com/item?id=31205072
 * doesn't have a spec https://drewdevault.com/2019/03/25/Rust-is-not-a-good-C-replacement.html
 * big learning curve https://news.ycombinator.com/item?id=30627667
