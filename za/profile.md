@@ -48,7 +48,6 @@ NEXT 🗄️ `something`
 RECENT
 * denv
 * dot: atuin install and config
-* ms
 * rm powerline: pipx, config/symlink
 * bin + repos
 

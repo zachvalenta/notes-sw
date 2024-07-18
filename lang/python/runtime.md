@@ -859,7 +859,7 @@ CMD
 ```sh
 init -n        # create pyproject.toml
 install        # install deps
-add -D         # add deps to dev
+add $PKG --group $GROUP  # dev https://python-poetry.org/docs/managing-dependencies/#adding-a-dependency-to-a-group
 show --no-dev  # show prod deps
 env info       # show Poetry env and where Poetry is installed (pipx)
 remove -D      # remove dev dep

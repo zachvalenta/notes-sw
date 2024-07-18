@@ -126,6 +126,27 @@ https://lucumr.pocoo.org/2014/1/5/unicode-in-2-and-3/
 * unicode, emoji in the terminal https://news.ycombinator.com/item?id=37047785
 > Since the distinction between string and unicode has been done away with in Python 3, __unicode__ is gone and __bytes__ (which behaves similarly to __str__ and __unicode__ in 2.7) exists for a new built-in for constructing byte arrays. https://rszalski.github.io/magicmethods/#appendix2
 
+## UUID
+
+🔗 https://en.wikipedia.org/wiki/Universally_unique_identifier
+
+VERSIONS https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/
+* version 1: generated from timestamp, monotonic counter, and a MAC address
+> don't use
+* version 2: reserved for security IDs with no known details
+* version 3: generated from MD5 hashes of some data you provide; RFC suggests DNS and URLs among the candidates for data.
+> superseded by version 5
+* version 4: generated from entirely random data; this is probably what most people think of and run into with UUIDs.
+> default
+* version 5: generated from SHA1 hahes of some data you proivde; RFC suggests DNS or URLs as candidates for data.
+> if you have your own data you want in the UUID
+* version 6: generated from timestamp, monotonic counter, and a MAC address; same data as Version 1 but they change the order so that sorting them will sort by creation time.
+> don't use
+* version 7: generated from a timestamp and random data.
+> if you're using in a context where you want to be able to sort e.g. database keys
+* version 8: entirely custom (besides the required version/variant fields that all versions contain).
+> if you have your own data you want in the UUID
+
 # 🗃️ FILE FMT
 
 QUERY TOOLS
