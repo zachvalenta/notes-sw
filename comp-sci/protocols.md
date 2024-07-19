@@ -149,6 +149,8 @@ VERSIONS https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog
 
 # 🗃️ FILE FMT
 
+🗄️ `eng.md` tooling
+
 QUERY TOOLS
 * _qq_: https://github.com/JFryy/qq
 * https://github.com/simonw/sqlite-utils
@@ -191,23 +193,26 @@ YAML
 
 ## CSV
 
----
+SEMANTICS
+* _header line_: line with col names https://miller.readthedocs.io/en/latest/glossary/#header-line
+* header not always first line, detection non-trivial https://news.ycombinator.com/item?id=28299015
+* _data line_: line with data https://miller.readthedocs.io/en/latest/customization/
+* _field_: value, either in header line or data line https://miller.readthedocs.io/en/latest/10min/#handling-field-names-with-spaces
 
-https://csvkit.readthedocs.io/en/latest/
-* query https://news.ycombinator.com/item?id=38889820 https://github.com/jqnatividad/qsv
+DESIGN
+* no firm spec https://peps.python.org/pep-0305/#abstract
 * better for streaming bc each line of file is valid CSV (unlike JSON) https://jfhr.me/consider-using-csv/
+* gaining in popularity https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html#fnref:2 
+* some parsers don't impl escaping rules correctly 📙 Kleppmann 4.145
+* comments: no standard from RFC 4180, parser can set https://stackoverflow.com/a/14428538 https://stackoverflow.com/a/1961018
+* TSV as alternative https://news.ycombinator.com/item?id=40622760
+
+TOOLS
+* query https://news.ycombinator.com/item?id=38889820 https://github.com/jqnatividad/qsv
 * bat https://github.com/YS-L/csvlens
 * editor https://www.moderncsv.com/
 * diff https://github.com/aswinkarthik/csvdiff
 * _DSV_: same as `.dat` https://en.wikipedia.org/wiki/Delimiter-separated_values https://www.thoughtspot.com/blog/csv-vs-delimited-flat-files-how-choose
-* no firm spec https://peps.python.org/pep-0305/#abstract
-* gaining in popularity https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html#fnref:2 
-* some parsers don't impl escaping rules correctly 📙 Kleppmann 4.145
-* comments: no standard from RFC 4180, parser can set https://stackoverflow.com/a/14428538 https://stackoverflow.com/a/1961018
-* _header line_: line with col names https://miller.readthedocs.io/en/latest/glossary/#header-line
-* _data line_: line with data https://miller.readthedocs.io/en/latest/customization/
-* _field_: value, either in header line or data line https://miller.readthedocs.io/en/latest/10min/#handling-field-names-with-spaces
-* header not always first line, detection non-trivial https://news.ycombinator.com/item?id=28299015
 
 ## JSON
 

@@ -685,6 +685,7 @@ TMUX 📜 https://github.com/tmux/tmux 📙 Hogan https://github.com/git-pull/ta
 * video courses https://thoughtbot.com/upcase/tmux https://www.youtube.com/watch?v=GH3kpsbbERo
 > https://www.youtube.com/watch?v=sSOfr2MtRU8 https://www.youtube.com/watch?v=DzNmUNvnB04
 * install: Homebrew
+* floating pane https://www.youtube.com/watch?v=JFipv1_ycqU
 * stacked panes: closest option is hiding panes https://unix.stackexchange.com/questions/145857/how-do-you-hide-a-tmux-pane
 * workspaces via named sessions https://www.youtube.com/watch?v=niuOc02Rvrc&t=482s
 * alternatives: https://www.gnu.org/software/screen/ https://github.com/shell-pool/shpool

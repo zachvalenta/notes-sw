@@ -84,6 +84,7 @@ taxonomy
 DESIGN
 * https://news.ycombinator.com/item?id=40847376
 * https://testdriven.io/blog/fastapi-htmx/
+* https://www.youtube.com/watch?v=kYV8K71pY64
 * hypermedia https://quii.dev/HTMX_is_the_Future https://github.com/PyHAT-stack/awesome-python-htmx
 * creator seems cool https://news.ycombinator.com/item?id=26769809 https://changelog.com/gotime/266
 * vs. alpine, mithril https://news.ycombinator.com/item?id=32011439

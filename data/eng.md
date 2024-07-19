@@ -497,7 +497,8 @@ OLAP
 
 # 🛠️ TOOLING
 
-🗄 `shell.md` munge
+🗄 ️ `protocols.md` file fmt
+
 > Analysis, even SQL-based analysis, isn't like design, where a handful of people create stuff and everyone else is a consumer, with clear lines between them. It's much, much fuzzier. Though analysts were always our first adopters, lots of people—PMs, engineers, marketing managers, executives, support agents, operations leads, and all job titles in between—periodically wrote queries. These people occupied the middle part of the distribution between analysts and non-analysts that we thought would be vacant. Users weren't bimodal like we expected, but continuous. https://benn.substack.com/p/work-like-an-analyst
 
 ZA
@@ -705,6 +706,8 @@ filter
 * https://jsvine.github.io/intro-to-visidata/basics/navigating-visidata/#how-to-move-via-searching https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#via-expressions
 
 ## munge (xsv, et al.)
+
+🗄️ `shell.md` munge
 
 CSVKIT 📜 https://github.com/wireservice/csvkit https://csvkit.readthedocs.io/en/latest/
 ```sh
