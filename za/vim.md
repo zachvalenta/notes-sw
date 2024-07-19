@@ -524,6 +524,7 @@ yank by line number without moving https://vimtricks.com/p/copying-and-pasting-l
 ## registers
 
 UNDO https://github.com/iggredible/Learn-Vim/blob/master/ch10_undo.md
+* https://news.ycombinator.com/item?id=40928893
 * VSCodeVim strangeness for undo bc using an embedded NeoVim? 📙 Neil modern [135]
 * `undofile`: persist undo history btw sessions 📙 Neil modern [6.99]
 * `u`: undo single change

@@ -364,6 +364,7 @@ security https://securityheaders.com/
 > I think a 503 response is usually from the load balancer when it has no downstream to proxy the request to
 > 502-504 all have similar meanings and it ends up being that the service you're trying to reach can't respond to the request
 * _504_: server handling your request is tired of waiting for a downstream
+* _522_: time out; TCP connection btw web server and CDN (bc server is overloaded) https://www.youtube.com/watch?v=axYMNCuL_hE
 
 ## utils
 

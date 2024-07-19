@@ -228,6 +228,8 @@ https://arena.lmsys.org/
 
 ---
 
+https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
+
 > The crux of my raging hatred is not that I hate LLMs or the generative AI craze. I had my fun with Copilot before I decided that it was making me stupider - it's impressive, but not actually suitable for anything more than churning out boilerplate. Nothing wrong with that, but it did not end up being the crazy productivity booster that I thought it would be, because programming is designing and these tools aren't good enough (yet) to assist me with this seriously. https://ludic.mataroa.blog/blog/i-will-fucking-piledrive-you-if-you-mention-ai-again/
 
 https://github.com/leapingio/leaping

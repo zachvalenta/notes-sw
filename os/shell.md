@@ -814,7 +814,7 @@ MODES
 
 ---
 
-to read before you take another swing at using vi mode
+* https://jvns.ca/blog/2024/07/08/readline/
 * https://twobithistory.org/2019/08/22/readline.html
 * https://thoughtbot.com/upcase/videos/readline
 * config https://missing.csail.mit.edu/2020/editors/

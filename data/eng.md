@@ -543,7 +543,7 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 * _sanitize_: validate + filter/escape
 * _parameterize_: sanitization for SQL https://security.stackexchange.com/a/143925
 
-## CLI (dbcli, miller, xsv)
+## CLI (dbcli)
 
 DBCLI 📜 https://litecli.com/ https://www.pgcli.com
 * open with env var: `cli -h`
@@ -564,49 +564,6 @@ DBCLI 📜 https://litecli.com/ https://www.pgcli.com
 * use: `\f <name>`
 * use w/ param: `\f <name> "arg"`
 * rm: `\fd <name>` https://litecli.com/favorites/
-
-XSV 📜 https://github.com/BurntSushi/xsv
-```sh
-count songs.csv # count records
-headers songs.csv # get headers
-split -s <records_per_file> <output-dir> <csv> # split into n files
-select "header" <csv> # all from header
-search -i -s "header" "query" <csv> # search within header (case insensitive)
-stats <table> | xsv table # stats (sum, min, max)
-xsv sample 50 full.csv > sample.csv # get sampled subset
-xsv slice -i 0 csv | xsv flatten # get line of data and display as two columns
-```
-
-MILLER 📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
-```sh
-# BASICS
-cat <csv> # select *
-head -n 5 <csv> # limit
-cut -o -f "col1","col2" <csv> # select col = -o -f col
-cut -x -f "col1","col2" <csv> # ignore col = -x -f co l
-head -n 20 then cut -o -f "id","artist" then sort -f "artist" <csv> # chaining
-
-# PREDICATES, GROUPING
-uniq -g <header> <csv> | wc -l # uniq for header
-most-frequent -f col -n 1000 example.csv # most frequent value by header
-most-frequent -f col -n 1000 example.csv | mlr --opprint sort -f col # most frequent value by header + group by header
---c2p cut -o -f "21.08","21.09" then put '${total} = ${21.08} + ${21.09}' <csv> # put = computed fields; ${field} for fields w/ spaces
-filter '$header == "value"' example.csv # select * where header = val
-filter '$header1 == "value-foo"' && '$header2 == "value-bar"' example.csv
-filter 'is_null($header)' example.csv # https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
-filter '$earnings > 0.0' example.csv
-
-# IO
---icsv    # input csv
---opprint # output pprint
---c2p     # combine --icsv and --opprint https://miller.readthedocs.io/en/latest/keystroke-savers/#short-format-specifiers-including-c2p
---csv     # IO csv
-
-# CONFIG (.mlrrc) https://miller.readthedocs.io/en/latest/customization/
---list-color-names # view colors https://miller.readthedocs.io/en/latest/output-colorization/
-c2p  # --c2p
-allow-ragged-csv-input  # if data line fields > header line, insert empty val instead of err (CSV header/data length mismatch)
-```
 
 ## entry (dataclerk)
 
@@ -647,6 +604,8 @@ SELECT * FROM pragma_foreign_key_list('reading');
 * docs http://visidata.org/docs/
 * guide https://jsvine.github.io/intro-to-visidata/
 * ref https://jsvine.github.io/visidata-cheat-sheet/en/
+
+> file conversion doesn't work, used csvkit instead 🗄️ query-sandbox, capp
 
 ⬇️ ATTR https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
 * search: `/`
@@ -745,7 +704,57 @@ filter
 * _filter on selected_: `"` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#using-frequency-tables-to-select-and-filter-for-multiple-values
 * https://jsvine.github.io/intro-to-visidata/basics/navigating-visidata/#how-to-move-via-searching https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#via-expressions
 
-## UI (harlequin)
+## munge (xsv, et al.)
+
+CSVKIT 📜 https://github.com/wireservice/csvkit https://csvkit.readthedocs.io/en/latest/
+```sh
+in2csv $EXCEL > $CSV
+```
+
+XSV 📜 https://github.com/BurntSushi/xsv
+```sh
+count songs.csv # count records
+headers songs.csv # get headers
+split -s <records_per_file> <output-dir> <csv> # split into n files
+select "header" <csv> # all from header
+search -i -s "header" "query" <csv> # search within header (case insensitive)
+stats <table> | xsv table # stats (sum, min, max)
+xsv sample 50 full.csv > sample.csv # get sampled subset
+xsv slice -i 0 csv | xsv flatten # get line of data and display as two columns
+```
+
+MILLER 📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
+```sh
+# BASICS
+cat <csv> # select *
+head -n 5 <csv> # limit
+cut -o -f "col1","col2" <csv> # select col = -o -f col
+cut -x -f "col1","col2" <csv> # ignore col = -x -f co l
+head -n 20 then cut -o -f "id","artist" then sort -f "artist" <csv> # chaining
+
+# PREDICATES, GROUPING
+uniq -g <header> <csv> | wc -l # uniq for header
+most-frequent -f col -n 1000 example.csv # most frequent value by header
+most-frequent -f col -n 1000 example.csv | mlr --opprint sort -f col # most frequent value by header + group by header
+--c2p cut -o -f "21.08","21.09" then put '${total} = ${21.08} + ${21.09}' <csv> # put = computed fields; ${field} for fields w/ spaces
+filter '$header == "value"' example.csv # select * where header = val
+filter '$header1 == "value-foo"' && '$header2 == "value-bar"' example.csv
+filter 'is_null($header)' example.csv # https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
+filter '$earnings > 0.0' example.csv
+
+# IO
+--icsv    # input csv
+--opprint # output pprint
+--c2p     # combine --icsv and --opprint https://miller.readthedocs.io/en/latest/keystroke-savers/#short-format-specifiers-including-c2p
+--csv     # IO csv
+
+# CONFIG (.mlrrc) https://miller.readthedocs.io/en/latest/customization/
+--list-color-names # view colors https://miller.readthedocs.io/en/latest/output-colorization/
+c2p  # --c2p
+allow-ragged-csv-input  # if data line fields > header line, insert empty val instead of err (CSV header/data length mismatch)
+```
+
+## TUI (harlequin)
 
 TUI
 * _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w

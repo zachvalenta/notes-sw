@@ -639,6 +639,7 @@ ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
 * _Netlify_: 
 * _Render_: 
 * _Platform.sh_:
+* _Tau_: https://github.com/taubyte/tau
 * _Vercel_: 
 
 > With something like Heroku, you can have multiple VM's in staging and production, w/ a deployment pipeline that supports rollbacks, monitoring, alerting, autoscaling, all in a managed environment w/ a managed, highly available Postgres setup, with very little effort and 0 maintenance. This is what I've setup at my current startup. My last company was on K8's and I loved it -- but this is nearly as good and requires literally no maintenance and far less expertise / setup. - https://news.ycombinator.com/item?id=22493873 
