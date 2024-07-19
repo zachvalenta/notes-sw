@@ -602,14 +602,19 @@ SELECT * FROM pragma_foreign_key_list('reading');
 
 🔍 https://stackoverflow.com/questions/tagged/visidata
 📜
-* docs http://visidata.org/docs/
+* repo https://github.com/saulpw/visidata
+* docs https://www.visidata.org/man/
 * guide https://jsvine.github.io/intro-to-visidata/
 * ref https://jsvine.github.io/visidata-cheat-sheet/en/
 
-> file conversion doesn't work, used csvkit instead 🗄️ query-sandbox, capp
+META
+* undo: `U`
+* 🚧 file conversion doesn't work, used csvkit instead 🗄️ query-sandbox, capp
+> due to `vd` not being callable? https://github.com/saulpw/visidata/issues/1406
 
 ⬇️ ATTR https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
-* search: `/`
+* goto: `c $COL_REGEX`
+* search records: `/`
 * nav: `hl`, `gh/gl`
 * rename: `^`
 * mv: `H/L`
@@ -625,6 +630,7 @@ SELECT * FROM pragma_foreign_key_list('reading');
 * sort: `[]`
 * page: `ctrl b/f`
 * select: `s/u` (single) `gs/gu` (all)
+* rm: `d` (doesn't work for selected)
 * goto: `zr <num>`
 > can use Vim https://www.youtube.com/watch?v=yhunJc8Nu4g
 * edit: `e` https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#editing-row-cells
@@ -655,9 +661,14 @@ SELECT * FROM pragma_foreign_key_list('reading');
 * rm: `d`
 * view deleted `gS`
 
+⚙️ CONFIG
+* fs: `~/.visidatarc` https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata/
+* cache: `~/.visidata`
+
 ---
 
-* visidata config: default to col full expansion
+* conf: default to col full expansion
+
 * dealing with large files https://jsvine.github.io/intro-to-visidata/intermediate/large-files/
 * plugin for get duplicates https://jsvine.github.io/intro-to-visidata/advanced/extending-visidata/?highlight=duplicate
 * pass cells to function https://www.youtube.com/watch?v=yhunJc8Nu4g 5:00

@@ -50,6 +50,7 @@ RECENT
 * dot: atuin install and config
 * rm powerline: pipx, config/symlink
 * bin + repos
+* visidata ticket
 
 CLEAN UP
 * broot fix on air22?
