@@ -586,11 +586,19 @@ id(counter)  # 4304845312
 
 ## pointers
 
+🔗 https://en.wikipedia.org/wiki/Pointer_(computer_programming)
+
 * a memory address https://nullprogram.com/blog/2019/06/30/
 * _thin pointer_: takes up space of one unsigned int https://users.rust-lang.org/t/thin-pointers-fat-pointers-alignment-oh-my/50261
 * _fat pointer_: takes up space of two unsigned ints, extra int stores length (e.g. Go slice) https://nullprogram.com/blog/2019/06/30/ https://stackoverflow.com/a/57754902
 
 ---
+
+https://pythonbytes.fm/episodes/show/375/pointing-at-countries
+
+null https://www.youtube.com/watch?v=XIhQYRNBAYs
+
+dereference https://stackoverflow.com/questions/4007268/what-exactly-is-meant-by-de-referencing-a-null-pointer https://stackoverflow.com/questions/14224831/meaning-of-referencing-and-dereferencing-in-c
 
 obj storing a memory address https://nullprogram.com/blog/2019/06/30/ https://boredzo.org/pointers/#definition https://www.alexedwards.net/blog/a-gentle-introduction-to-pointers
 

@@ -618,7 +618,7 @@ ALTERNATIVES
 
 ---
 
-example repo, awful $proj_name/src/proj_name duped dir thing https://github.com/brohrer/pacemaker https://github.com/darrenburns/posting
+example repo, awful $proj_name/src/proj_name duped dir thing https://github.com/brohrer/pacemaker https://github.com/darrenburns/posting https://stackoverflow.com/questions/50090341/is-there-a-naming-convention-for-django-project-configuration-directory
 structure https://www.pythonpapers.com/p/how-to-publish-a-python-package-to
 
 history

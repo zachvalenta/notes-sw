@@ -267,6 +267,9 @@ https://www.youtube.com/watch?v=dkV01hBdhZE
 
 PROJECTS
 * get familiar https://simonwillison.net/2024/Apr/17/ai-for-data-journalism/
+* https://www.freecodecamp.org/news/customer-segmentation-python-machine-learning/
+* https://archive.vn/073bS
+* https://news.ycombinator.com/item?id=40877136
 * BYO https://www.saaspegasus.com/guides/django-websockets-chatgpt-channels-htmx
 * train model on dickens, cowen
 * https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn

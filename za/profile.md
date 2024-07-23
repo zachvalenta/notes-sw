@@ -79,7 +79,6 @@ DENV - GENERAL
 - [x] shell: atuin
 - [ ] multiplex: Zellij
 - [ ] Git: lazygit
-- [ ] Neovim: LSP
 - [ ] keyboard: retry nuphy | order backup
 
 DENV - PYTHON
@@ -90,20 +89,11 @@ DENV - PYTHON
 - [ ] feedback: REPL - iPython
 - [ ] feedback: REPL - util
 - [ ] feedback: debugger (algos sandbox) +️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
+- [ ] Neovim: LSP
 - [x] editor: VS Code interpreter selection for Poetry
 - [ ] stdlib: doctest
 - [ ] stdlib: lint
 - [ ] stdlib: ward
-
-INTERVIEWING - CODE MONKEY
-- [ ] Python: collections 📙 Ramalho ch. 2-3, 18
-- [ ] Python: functions 📙 Ramalho ch. 7, 9-10
-> decorator, lambda, generator https://roadmap.sh/python
-- [ ] Python: classes 📙 Ramalho ch. 1, 5, 11-14, 16, 22-24
-- [ ] Python: obj 📙 Ramalho ch. 6
-- [ ] algos: rf notes
-- [ ] algos: rf fs
-- [ ] algos: repo/core 🗄️ `sandbox/src` miscellaneous, thirty
 
 DENV - DATA
 - [x] tooling in general
@@ -126,6 +116,16 @@ INTERVIEWING - SENIOR ENG
 - [x] fix existing webcam
 - [ ] setup better webcam
 - [ ] personal site
+
+INTERVIEWING - CODE MONKEY
+- [ ] Python: collections 📙 Ramalho ch. 2-3, 18
+- [ ] Python: functions 📙 Ramalho ch. 7, 9-10
+> decorator, lambda, generator https://roadmap.sh/python
+- [ ] Python: classes 📙 Ramalho ch. 1, 5, 11-14, 16, 22-24
+- [ ] Python: obj 📙 Ramalho ch. 6
+- [ ] algos: rf notes
+- [ ] algos: rf fs
+- [ ] algos: repo/core 🗄️ `sandbox/src` miscellaneous, thirty
 
 PROJECTS
 * _pymus_: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/ https://rapidapi.com/collection/lyrics-apis

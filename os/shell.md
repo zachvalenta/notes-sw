@@ -792,6 +792,8 @@ ZA
 
 ---
 
+replace atuin for scrolling commands https://www.youtube.com/watch?v=uOnL4fEnldA [10:45]
+
 * search: `ctrl r`
 * scroll all items that match query: `ctrl r` (again)
 * cancel search: `ctrl c`
@@ -899,7 +901,7 @@ OPTIONS
 
 ## terminal (iTerm)
 
-FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/
+FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/ https://news.ycombinator.com/item?id=35125442
 * Unicode support: emojis, prompts https://darrenburns.net/posts/emoji-in-the-terminal/
 * tabs/profiles
 * viz: background color/image, transparency, themes e.g. gruvbox https://www.youtube.com/watch?v=h509rn2xIyU
@@ -943,13 +945,14 @@ https://news.ycombinator.com/item?id=35126280
 
 ALTERNATIVES
 > UX also isn't something that can really be competed on for a terminal app as the UX is typically dictated by the shell, tool, tmux, etc. https://news.ycombinator.com/item?id=35125295
-* _Alacritty_: no native global hotkey https://github.com/alacritty/alacritty/issues/3313 but workarounds available (Hammerspoon, Karabiner) https://github.com/alacritty/alacritty/issues/862
+* _Alacritty_: 🎯 TOML config, cross-platform
+* no global hotkey https://github.com/alacritty/alacritty/issues/3313 but workarounds available (Hammerspoon, Karabiner) https://github.com/alacritty/alacritty/issues/862
 * _Hyper_: Electron https://hyper.is/
 * _kitty_: can preview images in broot https://sw.kovidgoyal.net/kitty/
 * _sshx_: real-time collaboration https://github.com/ekzhang/sshx
-* _Tabby_: memory hog https://news.ycombinator.com/item?id=35111397
-* _Warp_: launch configurations 类似 iterm profiles, need to login w/ Github https://news.ycombinator.com/item?id=30926360
-* _Wezterm_: immature https://wezfurlong.org/wezterm/index.html
+* _Tabby_: Electron https://news.ycombinator.com/item?id=35111397 https://github.com/Eugeny/tabby?tab=readme-ov-file#what-tabby-is-and-isnt
+* _Warp_: ❌ launch configurations 类似 iterm profiles, need to login w/ Github https://news.ycombinator.com/item?id=30926360
+* _Wezterm_: immature https://wezfurlong.org/wezterm/index.html no global hotkey https://github.com/wez/wezterm/issues/1751
 
 ## windows
 

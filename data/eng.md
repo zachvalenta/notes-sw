@@ -12,6 +12,7 @@
 ## 进步
 
 https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb
+https://www.dataengineeringpodcast.com/episodepage/six-year-retrospective-episode-361
 
 ---
 
@@ -396,6 +397,9 @@ TOOLS
 
 ## query engines
 
+> is Spark a query engine? seems like query engine + streaming + a bunch other stuff i.e. a congeries
+> Spark: data manipulation for ML model training https://www.reddit.com/r/apachespark/comments/16zzabh/distributed_sql_query_engine_apache_spark_vs/?rdt=45095
+
 * _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
 * beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
 
@@ -425,6 +429,7 @@ ALTERNATIVES
 * _Snowflake_: users/investors like them https://news.ycombinator.com/item?id=24265041 https://dataschool.com/sql-optimization/snowflake/ https://www.youtube.com/watch?v=xojAXXRo_S0 OSS https://news.ycombinator.com/item?id=38038239
 * apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
 * can build dashboards off queries
+* _Trino_: https://github.com/trinodb/trino
 
 TOOLS
 * just use CLIs https://news.ycombinator.com/item?id=39136472
@@ -441,7 +446,7 @@ TOOLS
 * _HDFS_: distributed file system http://aosabook.org/en/hdfs.html
 * pools all disks from cluster
 * files replicated across nodes (not all nodes; two additional copies)
-* _pyspark_: Python API to Spark https://www.youtube.com/watch?v=XrpSRCwISdk
+* _pyspark_: Python API to Spark https://www.youtube.com/watch?v=XrpSRCwISdk https://spark.apache.org/docs/latest/api/python/index.html
 * _Spark_: Pandas + distributed
 * _Databricks_: Spark aaS from creators of Spark
 * _RDD_: collection of obj https://www.youtube.com/watch?v=XrpSRCwISdk [3:30]
@@ -610,7 +615,7 @@ SELECT * FROM pragma_foreign_key_list('reading');
 META
 * undo: `U`
 * 🚧 file conversion doesn't work, used csvkit instead 🗄️ query-sandbox, capp
-> due to `vd` not being callable? https://github.com/saulpw/visidata/issues/1406
+> due to `vd` not being callable? https://github.com/saulpw/visidata/issues/1406 `sh: /Users/zach/.local/bin/vd: bad interpreter: /Users/zach/Library/Application: no such file or directory`
 
 ⬇️ ATTR https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
 * goto: `c $COL_REGEX`
@@ -740,11 +745,13 @@ xsv slice -i 0 csv | xsv flatten # get line of data and display as two columns
 MILLER 📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
 ```sh
 # BASICS
-cat <csv> # select *
-head -n 5 <csv> # limit
-cut -o -f "col1","col2" <csv> # select col = -o -f col
-cut -x -f "col1","col2" <csv> # ignore col = -x -f co l
-head -n 20 then cut -o -f "id","artist" then sort -f "artist" <csv> # chaining
+cat $FILE # select *
+head -n 5 $FILE # limit
+sort -f $COL $FILE  # sort on col
+cut -o -f "col1","col2" $FILE # select col = -o -f col
+cut -x -f "col1","col2" $FILE # ignore col = -x -f co l
+put '$COL1 = "foo"' then put '$COL2 = "bar"' $FILE_CURRENT > $FILE_CURRENT  # add col
+head -n 20 then cut -o -f "id","artist" then sort -f "artist" $FILE # chaining
 
 # PREDICATES, GROUPING
 uniq -g <header> <csv> | wc -l # uniq for header
@@ -758,6 +765,7 @@ filter '$earnings > 0.0' example.csv
 
 # IO
 --icsv    # input csv
+--tsv     # input tsv
 --opprint # output pprint
 --c2p     # combine --icsv and --opprint https://miller.readthedocs.io/en/latest/keystroke-savers/#short-format-specifiers-including-c2p
 --csv     # IO csv

@@ -435,46 +435,13 @@ SUBSTITUTE 📙 Neil practical ch. 14
 * show newline, invisible char http://vimcasts.org/episodes/show-invisibles/
 * lists: quickfixlist, arglist https://vimtricks.substack.com/p/vimtrick-copy-from-quickfix-to-the 📙 Neil modern ch. 4 https://vimtricks.substack.com/p/vimtricks-help-powerup
 
-## normal
-
-JUMPS https://github.com/folke/flash.nvim https://github.com/phaazon/hop.nvim https://github.com/ggandor/leap.nvim sneak https://www.youtube.com/watch?v=HkY3LoQqKVA https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-jump2d.md
-* _jump_: mv btw buffers; can think of as long-range motions 📙 Neil practical [9.135-6]
-* separate per window 📙 Neil practical [9.136]
-* `gf`: jump to filename 📙 Neil practical [9.136,139]
-> seems like more trouble than its worth compared to ctags
-* _jumplist_: list of recent jumps (move btw files, long-range motions) 📙 Neil practical [9.56]
-* `CTRL i/o`: forward/back 📙 Neil practical [9.136]
-* `:jumps`: list
+## motions
 
 ---
 
-* `gj/k`: mv visual line
-* `j/k`: mv real line
-* run on every line https://www.getrevue.co/profile/vim_tricks/issues/operate-on-every-line-1181574
-* `g_` mv to last normal char in line (vs. new line) https://stackoverflow.com/a/105734
-* _case_: lower `gu` upper `gU` https://vimtricks.com/p/change-character-case/
+> clean up normal mode header first
 
-📙 Neil practical 2.12
-🔗 `:h motion.txt`
-> clean these up
-
-rf
-* region selection https://vimtricks.substack.com/p/vimtrick-region-expanding
-🎗 all motion are either inclusive or exclusive [`:h exclusive`]
-
-* `]m`: next method https://vimtricks.substack.com/p/vimtrick-jump-to-next-method
-* `H/M/L`: mv to new cursor line at top/mid/btm of viewport 📙 Neil practical [9.136]
-* `$NUM G`: goto line 📙 Neil practical [9.136]
-* _motion_: mv w/in buffer 📙 Neil practical [113,9.135]
-* vs. jumps as long-range motions 📙 Neil practical [9.136]
-
----
-
-* motion https://news.ycombinator.com/item?id=33136190
-* wrap: `gw`  https://vimtricks.substack.com/p/vimtrick-tidy-paragraphs
-https://github.com/easymotion/vim-easymotion
-
- 📍 operate until https://vimtricks.substack.com/p/vimtrick-operate-until-pattern
+* https://news.ycombinator.com/item?id=33136190
 
 char
 * _find by_: `t` (incl) `f` (ex); `;` (next) `,` (previous); for current line, cap for backwards
@@ -499,6 +466,45 @@ word
 * _forward to end_: `e` ('append')
 * _back to start_: `b`
 * _back to end_: `ge`
+
+## normal
+
+JUMPS https://github.com/folke/flash.nvim https://github.com/phaazon/hop.nvim https://github.com/ggandor/leap.nvim sneak https://www.youtube.com/watch?v=HkY3LoQqKVA https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-jump2d.md
+* _jump_: mv btw buffers; can think of as long-range motions 📙 Neil practical [9.135-6]
+* separate per window 📙 Neil practical [9.136]
+* `gf`: jump to filename 📙 Neil practical [9.136,139]
+> seems like more trouble than its worth compared to ctags
+* _jumplist_: list of recent jumps (move btw files, long-range motions) 📙 Neil practical [9.56]
+* `CTRL i/o`: forward/back 📙 Neil practical [9.136]
+* `:jumps`: list
+
+---
+
+* `gj/k`: mv visual line
+* `j/k`: mv real line
+* run on every line https://www.getrevue.co/profile/vim_tricks/issues/operate-on-every-line-1181574
+* `g_` mv to last normal char in line (vs. new line) https://stackoverflow.com/a/105734
+* _case_: lower `gu` upper `gU` https://vimtricks.com/p/change-character-case/
+
+📙 Neil practical 2.12
+🔗 `:h motion.txt`
+
+rf
+* region selection https://vimtricks.substack.com/p/vimtrick-region-expanding
+🎗 all motion are either inclusive or exclusive [`:h exclusive`]
+
+* `]m`: next method https://vimtricks.substack.com/p/vimtrick-jump-to-next-method
+* `H/M/L`: mv to new cursor line at top/mid/btm of viewport 📙 Neil practical [9.136]
+* `$NUM G`: goto line 📙 Neil practical [9.136]
+* _motion_: mv w/in buffer 📙 Neil practical [113,9.135]
+* vs. jumps as long-range motions 📙 Neil practical [9.136]
+
+---
+
+* wrap: `gw`  https://vimtricks.substack.com/p/vimtrick-tidy-paragraphs
+https://github.com/easymotion/vim-easymotion
+
+ 📍 operate until https://vimtricks.substack.com/p/vimtrick-operate-until-pattern
 
 ## operators
 
