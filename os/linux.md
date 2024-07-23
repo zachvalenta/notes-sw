@@ -101,6 +101,15 @@ MAKE 📙 Meckleberg gnu make
 * directories https://github.com/zachvalenta/query-sandbox
 * _phony_: target that is name for a recipe vs. file name https://stackoverflow.com/a/3931814/6813490
 * snippets
+* escape dollar signs bc Make assumes you are referencing a Make variable otherwise (vs. shell variable or string literal) https://til.hashrocket.com/posts/k3kjqxtppx-escape-dollar-sign-on-makefiles
+```sh
+for i in *; do echo "i=$i"; done
+```
+```makefile
+my-files:
+	for i in *; do echo "i=$$i"; done
+```
+
 ```makefile
 #
 # VARAIABLES 📙 Conery [410]
