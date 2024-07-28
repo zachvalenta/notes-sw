@@ -47,7 +47,7 @@ review data structures
 * linked list https://www.youtube.com/watch?v=odW9FU8jPRQ https://news.ycombinator.com/item?id=33473497 https://docs.python.org/3/glossary.html#term-list
 * stack https://www.youtube.com/watch?v=I5lq6sCuABE
 * queue https://www.youtube.com/watch?v=mDCi1lXd9hc
-* probabilistic https://www.youtube.com/watch?v=VjFS-_H10bw @ 15:00
+* probabilistic https://www.youtube.com/watch?v=VjFS-_H10bw @ 15:00 https://pypi.org/project/datasketch/
 
 INTERVIEWS
 * reverse array in place w/ space compexity O(n) 🗄 `python.md` copy

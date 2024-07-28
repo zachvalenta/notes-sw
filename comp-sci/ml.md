@@ -6,6 +6,7 @@
 * https://ai.stackexchange.com/
 * https://datascience.stackexchange.com/
 📚
+* Anathaswamy https://www.amazon.com/gp/product/0593185749
 * Ferguson game of go
 * Perrota programming ML https://www.amazon.com/Programming-Machine-Learning-Zero-Deep/dp/1680506609/ref=sr_1_1
 * Trask grok deep learning https://github.com/iamtrask/Grokking-Deep-Learning
@@ -273,6 +274,8 @@ PROJECTS
 * BYO https://www.saaspegasus.com/guides/django-websockets-chatgpt-channels-htmx
 * train model on dickens, cowen
 * https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
+
+https://www.nbcnews.com/tech/internet/hunting-ai-bots-four-words-trick-rcna161318
 
 https://softwareengineeringdaily.com/2024/05/14/llms-for-data-queries-with-sarah-nagy/
 

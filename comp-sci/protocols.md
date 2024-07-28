@@ -447,16 +447,6 @@ BINARY
 * sustainable? https://github.com/capnproto/capnproto/issues/2067
 * _MessagePack_: like BSON https://msgpack.org/ https://neovim.io/ 📙 Kleppmann [4.116]
 
-ARROW
-* in-memory format https://news.ycombinator.com/item?id=29010103 https://github.com/adriangb/pgpq
-> This question comes up quite often. Parquet is a _file_ format, Arrow is a language-independent _in-memory_ format. You can e.g. read a parquet file into a typed Arrow buffer backed by shared memory, allowing code written in Java, Python, or C++ (and many more!) to read from it in a performant way (i.e. without copies). https://news.ycombinator.com/item?id=29010103
-* emerged from Pandas
-> We needed to create a way to represent data that was not tied to a specific programming language. And that could be used for a very efficient interchange between components. And the idea is that you would have this immutable, this kind of constant data structure, which is like it's the same in every programming language. And then you can use that as the basis for writing all of your algorithms. So as long as it's arrow, you have these reusable algorithms that process arrow data. https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
-> Pandas historically persisted string columns as objects, which was wildly inefficient. The new string[pyarrow] column type is around 3.5 times more efficient from what I've seen. https://news.ycombinator.com/item?id=34968769
-* decoupled Panas from numpy
-> While NumPy has been good enough to make pandas the popular library it is, it was never built as a backend for dataframe libraries, and it has some important limitations. https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i
-* used by Polars https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
-
 AVRO
 * serialization format https://avro.apache.org/docs/current/
 * better than CSV bc handles typing, cells missing data

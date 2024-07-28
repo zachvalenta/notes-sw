@@ -205,7 +205,11 @@ TOOLS
 > Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
 * _Superset_: popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset
 
-## dataframe (Ibis)
+## dataframe (?)
+
+---
+
+https://calpaterson.com/bank-python.html
 
 📚
 * McKinney https://wesmckinney.com/book/
@@ -217,31 +221,87 @@ ZA
 * Dataframe Interchange Protocol, Dataframe API Standard https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/ https://pythonspeed.com/articles/polars-pandas-interopability/
 * _series_: rows from a single column https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://pandas.pydata.org/docs/user_guide/10min.html#getting
 
-🦢 IBIS https://ibis-project.org/
-* design: dataframe API that can use Polars/Pandas query engine or transpile to SQL and run against relational dbms https://talkpython.fm/episodes/show/462/pandas-and-beyond-with-wes-mckinney
+### 🏹 Arrow
 
-🐻‍❄️ POLARS
+📜 https://arrow.apache.org/
+🗄️ `protocols.md` file fmt / serialization
+
+* in-memory format for columnar data https://news.ycombinator.com/item?id=29010103 https://github.com/adriangb/pgpq
+> This question comes up quite often. Parquet is a _file_ format, Arrow is a language-independent _in-memory_ format. You can e.g. read a parquet file into a typed Arrow buffer backed by shared memory, allowing code written in Java, Python, or C++ (and many more!) to read from it in a performant way (i.e. without copies). https://news.ycombinator.com/item?id=29010103
+* also includes algos for querying
+>  But the Arrow project contains more than just the format: The Arrow C++ library, which is accessible in Python, R, and Ruby via bindings, has additional features that allow you to compute efficiently on datasets. https://duckdb.org/2021/12/03/duck-arrow.html
+* emerged from Pandas
+> We needed to create a way to represent data that was not tied to a specific programming language. And that could be used for a very efficient interchange between components. And the idea is that you would have this immutable, this kind of constant data structure, which is like it's the same in every programming language. And then you can use that as the basis for writing all of your algorithms. So as long as it's arrow, you have these reusable algorithms that process arrow data. https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
+> Pandas historically persisted string columns as objects, which was wildly inefficient. The new string[pyarrow] column type is around 3.5 times more efficient from what I've seen. https://news.ycombinator.com/item?id=34968769
+* decoupled Pandas from numpy
+> While NumPy has been good enough to make pandas the popular library it is, it was never built as a backend for dataframe libraries, and it has some important limitations. https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i
+* used by Polars https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
+* can query using DuckDB https://duckdb.org/2021/12/03/duck-arrow.html
+
+### 🦢 Ibis
+
+📜 https://ibis-project.org/
+
+* dataframe API
+* transpiles to SQL i.e. works with SQL-based query engines (BigQuery, Clickhouse, Postgres, Snowflake)
+* compiles to Python i. e
+* dataframe API that can use Polars/Pandas query engine or transpile to SQL and run against relational dbms https://talkpython.fm/episodes/show/462/pandas-and-beyond-with-wes-mckinney
+
+### 🐻‍❄️ Polars
+
+📜 https://docs.pola.rs/
+
+* faster than Pandas https://pola.rs/posts/benchmarks/
+
+---
+
+* design vs. Pandas https://news.ycombinator.com/item?id=35429555
 * guide https://realpython.com/polars-python/
 * design: query engine with dataframe frontend https://pola.rs/posts/polars_birds_eye_view/ https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/
-* can't use Parquet https://www.confessionsofadataguy.com/replacing-pandas-with-polars-a-practical-guide/
 * can use some Pandas libraries https://pythonspeed.com/articles/polars-pandas-interopability/
 * better than Pandas: query in Python or SQL, no dependencies, sensible pip install (vs. conda) https://github.com/pola-rs/polars better perf https://pola.rs/posts/benchmarks/ less memory usage https://pythonspeed.com/articles/polars-memory-pandas/
 * worse than Pandas: not meant for Excel-like operations
-> andas was originally written to replace excel in financial/econometric modeling, not as a replacement for sql. Models written solely in the long relational style are near unmaintainable for constantly evolving models with hundreds of data sources and thousands of interactions being developed and tuned by teams of analysts and engineers. https://news.ycombinator.com/item?id=35429555
+> Pandas was originally written to replace excel in financial/econometric modeling, not as a replacement for sql. Models written solely in the long relational style are near unmaintainable for constantly evolving models with hundreds of data sources and thousands of interactions being developed and tuned by teams of analysts and engineers. https://news.ycombinator.com/item?id=35429555
 
-🐼 PANDAS https://pandas.pydata.org/docs/
-* howto https://github.com/jvns/pandas-cookbook https://github.com/kxzk/an-embarrassment-of-pandas https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
-* guide https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS
-* design https://web.archive.org/web/20230127194856/https://scribe.citizen4.eu/pandas-illustrated-the-definitive-visual-guide-to-pandas-c31fa921a43
-* perf https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance https://pythonspeed.com/memory
-* graph https://github.com/lux-org/lux
-* style: method chaining https://github.com/pyjanitor-devs/pyjanitor
-* impl: built on NumPy https://en.wikipedia.org/wiki/Pandas_(software)
+### 🐼 Pandas
+
+> 📍 https://github.com/lux-org/lux
+📜 https://pandas.pydata.org/docs/
+📙 McKinney data analysis https://wesmckinney.com/book/
+🔍 howto https://github.com/jvns/pandas-cookbook https://github.com/kxzk/an-embarrassment-of-pandas https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
+📹 guide https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS
+
+BASICS
 ```python
 # LOAD
 import pandas as pd
-df = pd.DataFrame(pd.read_csv("filename.csv"))  # https://kadekillary.work/posts/csvs-pandas/
+df = pd.DataFrame(pd.read_csv($FILE))
 
+# SELECT
+df.col   # get col https://pandas.pydata.org/docs/user_guide/10min.html#getting
+df[0:3]  # get row
+df.col.isin(myl) # bool for each row
+df.index[df.col.isin(myl)] # row index for True bool
+df.drop(df.index[df.col.isin(myl)]) # drop row indexes for rows matching list el
+df.columns # all col
+df[["col1", "col2"]] # n col
+df.iloc[3] # get row by row index
+df.iloc[3, 17] # get row by row index + col index e.g. row 3 col 17
+df.iloc[[3, 42]] # get n row by row index e.g. rows 3 and 42
+```
+
+---
+
+DESIGN
+> Pandas was originally written to replace excel in financial/econometric modeling, not as a replacement for SQL. https://news.ycombinator.com/item?id=35429555
+* https://web.archive.org/web/20230127194856/https://scribe.citizen4.eu/pandas-illustrated-the-definitive-visual-guide-to-pandas-c31fa921a43
+* perf https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance https://pythonspeed.com/memory https://realpython.com/fast-flexible-pandas
+* style: method chaining https://github.com/pyjanitor-devs/pyjanitor
+* impl: built on NumPy arrays i.e. core operations carried out in C https://en.wikipedia.org/wiki/Pandas_(software) https://realpython.com/fast-flexible-pandas/#but-i-heard-that-pandas-is-slow
+
+---
+
+```python
 # ITERATION https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas https://stackoverflow.com/questions/50267185/iterate-over-pandas-series don't iterate https://realpython.com/pandas-iterate-over-rows/
 for series in df.iterrows():
 
@@ -271,18 +331,6 @@ myl = [foo, bar]
 # SHAPE https://stackoverflow.com/a/35523946
 df.shape[0]  # count rows
 df.shape[1]  # count col
-
-# SELECT
-df.col   # get col https://pandas.pydata.org/docs/user_guide/10min.html#getting
-df[0:3]  # get row
-df.col.isin(myl) # bool for each row
-df.index[df.col.isin(myl)] # row index for True bool
-df.drop(df.index[df.col.isin(myl)]) # drop row indexes for rows matching list el
-df.columns # all col
-df[["col1", "col2"]] # n col
-df.iloc[3] # get row by row index
-df.iloc[3, 17] # get row by row index + col index e.g. row 3 col 17
-df.iloc[[3, 42]] # get n row by row index e.g. rows 3 and 42
 
 # PERSIST FOO W/ VALID BAR
 verified = df.drop(df.index[df.foo.isin(invalid)])
@@ -333,8 +381,12 @@ ALTERNATIVES
 
 ## techniques
 
-HOWTO 🗄️ `math.md` stat/distributions
-> can you do any of this in visidata
+---
+
+🗄️ `math.md` stat/distributions
+
+* https://ibis-project.org/tutorials/ibis-for-sql-users#top-k-operations
+> can you do any of this in visidata?
 * https://hakibenita.com/sql-for-data-analysis#descriptive-statistics
 * https://medium.com/epfl-extension-school/advanced-exploratory-data-analysis-eda-with-python-536fa83c578a `EDA.pdf`
 * https://realpython.com/python-for-data-analysis/
@@ -349,9 +401,37 @@ HOWTO 🗄️ `math.md` stat/distributions
 
 # 🏗️ ENG
 
+* _Databricks_: platform incl. notebooks
+* built on Spark
+
 ## pipelines
 
+TOOLS
+* _GX (Great Expectations)_: assert against schema https://github.com/great-expectations/great_expectations https://softwareengineeringdaily.com/2020/02/17/great-expectations-data-pipeline-testing-with-abe-gong/
+* alternatives https://github.com/socialpoint-labs/sqlbucket https://github.com/sodadata/soda-core
+```python
+validator.expect_column_values_to_not_be_null(column="passenger_count")
+validator.expect_column_values_to_be_between(column="congestion_surcharge", min_value=0, max_value=1000)
+```
+
 ---
+
+* compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
+
+SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data `python/core.md` typing
+* _validation_: compare against rules
+* Cerberus https://github.com/pyeve/cerberus https://hector.dev/2020/12/29/validating-data-in-python-with-cerberus.html
+* BYO https://realpython.com/primer-on-python-decorators/#more-real-world-examples https://blog.drewolson.org/declarative-validation
+* clean/munge https://github.com/pyjanitor-devs/pyjanitor
+* _filter_: rm validation violations
+* _escape_: convert validation violations
+* _sanitize_: validate + filter/escape
+* _parameterize_: sanitization for SQL https://security.stackexchange.com/a/143925
+* anonymize/differential privacy https://www.youtube.com/watch?v=PC0bF5tstvI
+
+* Pandera https://endjin.com/blog/2023/03/a-look-into-pandera-and-great-expectations-for-data-validation https://www.peterbaumgartner.com/blog/testing-for-data-science/
+* _petl_: transforms https://petl.readthedocs.io/en/stable/
+* if petl can only handle thousands of records, why not just use Pandas? https://www.youtube.com/watch?v=llRLh8cM7QI 9:30 25:00 https://petl.readthedocs.io/en/stable/
 
 SCHEMAS
 * _star schema_: fact table at center
@@ -387,12 +467,6 @@ TOOLS
 * metrics https://news.ycombinator.com/item?id=30938109
 * why does everyone love it so much? https://highgrowthengineering.substack.com/p/why-is-dbt-so-important-
 > Fivetran as the best-in-class E and L, and dbt as the corresponding T. https://luttig.substack.com/p/dont-forget-microsoft
-* _GX (Great Expectations)_: https://github.com/great-expectations/great_expectations https://softwareengineeringdaily.com/2020/02/17/great-expectations-data-pipeline-testing-with-abe-gong/ https://github.com/socialpoint-labs/sqlbucket
-* alternative https://github.com/sodadata/soda-core https://www.thoughtworks.com/radar/tools?blipid=202210008
-> Great Expectations is a framework that allows you to craft built-in controls that flag anomalies or quality issues in data pipelines. 
-* Pandera https://endjin.com/blog/2023/03/a-look-into-pandera-and-great-expectations-for-data-validation https://www.peterbaumgartner.com/blog/testing-for-data-science/
-* _petl_: transforms https://petl.readthedocs.io/en/stable/
-* if petl can only handle thousands of records, why not just use Pandas? https://www.youtube.com/watch?v=llRLh8cM7QI 9:30 25:00 https://petl.readthedocs.io/en/stable/
 * _Zingg_: entity resolution i.e. fix data integrity problems https://github.com/zinggAI/zingg
 
 ## query engines
@@ -474,6 +548,8 @@ https://duckdb.org/
 
 📙 Kleppmann [90-95]
 
+---
+
 * _data source_: where you're getting the data https://dataschool.com/data-governance
 * _lakehouse_: https://softwareengineeringdaily.com/2022/08/25/lakehouse-data-stack-with-raj-bains-2/ https://www.databricks.com/
 * _lake_: 类似 file system https://www.youtube.com/watch?v=V0GvZ_KAI70 https://news.ycombinator.com/item?id=32336977
@@ -515,13 +591,9 @@ OLAP
 
 # 🛠️ TOOLING
 
-🗄 ️ `protocols.md` file fmt
+🗄️ `protocols.md` file fmt
 
 > Analysis, even SQL-based analysis, isn't like design, where a handful of people create stuff and everyone else is a consumer, with clear lines between them. It's much, much fuzzier. Though analysts were always our first adopters, lots of people—PMs, engineers, marketing managers, executives, support agents, operations leads, and all job titles in between—periodically wrote queries. These people occupied the middle part of the distribution between analysts and non-analysts that we thought would be vacant. Users weren't bimodal like we expected, but continuous. https://benn.substack.com/p/work-like-an-analyst
-
-ZA
-* compare queries across dbms https://github.com/rickbergfalk/sqlpad
-* compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
 
 API / CODE GENERATION 🗄️ `src.md` API
 * https://github.com/directus/directus
@@ -551,38 +623,6 @@ LINTING
 * https://github.com/purcell/sqlint
 * https://github.com/darold/pgFormatter
 * https://sqlfum.pt/
-
-SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data `python/core.md` typing
-* _validation_: compare against rules
-* Cerberus https://github.com/pyeve/cerberus https://hector.dev/2020/12/29/validating-data-in-python-with-cerberus.html
-* BYO https://realpython.com/primer-on-python-decorators/#more-real-world-examples https://blog.drewolson.org/declarative-validation
-* clean/munge https://github.com/pyjanitor-devs/pyjanitor
-* _filter_: rm validation violations 
-* _escape_: convert validation violations
-* _sanitize_: validate + filter/escape
-* _parameterize_: sanitization for SQL https://security.stackexchange.com/a/143925
-
-## CLI (dbcli)
-
-DBCLI 📜 https://litecli.com/ https://www.pgcli.com
-* open with env var: `cli -h`
-* exit: `exit`, `\q`
-* list tables: `\dt`
-* help: `\?`
-* autocomplete: `ctrl e`
-* autocomplete: `ctrl e`
-* clear screen: `ctrl l`
-* _metacommand_: preceded w/ backslash https://www.pgcli.com/commands
-* set pager to bat: `pager = less -SRXF` https://www.pgcli.com/docs
-* _named query_: snippet, saved query https://www.pgcli.com/named_queries.md
-* syntax: `f` (litecli) `n` (pgcli)
-* list: `\f` https://github.com/dbcli/pgcli/issues/1236
-* save: `\fs <name> <query>` https://github.com/dbcli/pgcli/issues/938
-* save w/ param: `\fs <name> <query where foo = $1>` https://github.com/dbcli/pgcli/issues/938
-> broken in sandbox: could be pager, Python version, config (try default config installed in $HOME) https://github.com/dbcli/pgcli/search?q=codec&type=issues
-* use: `\f <name>`
-* use w/ param: `\f <name> "arg"`
-* rm: `\fd <name>` https://litecli.com/favorites/
 
 ## entry (dataclerk)
 
@@ -745,8 +785,9 @@ in2csv $EXCEL > $CSV
 
 XSV 📜 https://github.com/BurntSushi/xsv
 ```sh
+fmt $TSV > $CSV  # Capp
 count songs.csv # count records
-headers songs.csv # get headers
+headers -j $CSV # get headers
 split -s <records_per_file> <output-dir> <csv> # split into n files
 select "header" <csv> # all from header
 search -i -s "header" "query" <csv> # search within header (case insensitive)
@@ -763,7 +804,7 @@ head -n 5 $FILE # limit
 sort -f $COL $FILE  # sort on col
 cut -o -f "col1","col2" $FILE # select col = -o -f col
 cut -x -f "col1","col2" $FILE # ignore col = -x -f co l
-put '$COL1 = "foo"' then put '$COL2 = "bar"' $FILE_CURRENT > $FILE_CURRENT  # add col
+put '$COL1 = "foo"' then put '$COL2 = "bar"' $FILE_CURRENT > $FILE_UPDATED  # add col
 head -n 20 then cut -o -f "id","artist" then sort -f "artist" $FILE # chaining
 
 # PREDICATES, GROUPING
@@ -788,6 +829,28 @@ filter '$earnings > 0.0' example.csv
 c2p  # --c2p
 allow-ragged-csv-input  # if data line fields > header line, insert empty val instead of err (CSV header/data length mismatch)
 ```
+
+## REPL (dbcli)
+
+DBCLI 📜 https://litecli.com/ https://www.pgcli.com
+* open with env var: `cli -h`
+* exit: `exit`, `\q`
+* list tables: `\dt`
+* help: `\?`
+* autocomplete: `ctrl e`
+* autocomplete: `ctrl e`
+* clear screen: `ctrl l`
+* _metacommand_: preceded w/ backslash https://www.pgcli.com/commands
+* set pager to bat: `pager = less -SRXF` https://www.pgcli.com/docs
+* _named query_: snippet, saved query https://www.pgcli.com/named_queries.md
+* syntax: `f` (litecli) `n` (pgcli)
+* list: `\f` https://github.com/dbcli/pgcli/issues/1236
+* save: `\fs <name> <query>` https://github.com/dbcli/pgcli/issues/938
+* save w/ param: `\fs <name> <query where foo = $1>` https://github.com/dbcli/pgcli/issues/938
+> broken in sandbox: could be pager, Python version, config (try default config installed in $HOME) https://github.com/dbcli/pgcli/search?q=codec&type=issues
+* use: `\f <name>`
+* use w/ param: `\f <name> "arg"`
+* rm: `\fd <name>` https://litecli.com/favorites/
 
 ## TUI (harlequin)
 
@@ -815,6 +878,8 @@ FEATURES
 * _results viewer_: result set
 
 ---
+
+* compare queries across dbms https://github.com/rickbergfalk/sqlpad
 
 HARLEQUIN 📜 https://harlequin.sh
 > need to first fix the visidata command in Makefile to generate SQLite db from CSV
