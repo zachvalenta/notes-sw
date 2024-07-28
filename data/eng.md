@@ -397,43 +397,30 @@ TOOLS
 
 ## query engines
 
-> is Spark a query engine? seems like query engine + streaming + a bunch other stuff i.e. a congeries
+---
+
+SEMANTICS
+> Ibis is a dataframe frontend to query engines https://ibis-project.org/
+> read all his posts https://maximilianmichels.com/page/4/ https://apache.org/index.html#projects-list
+> is Spark a query engine? seems like query engine + streaming + a bunch other stuff i.e. a congeries https://ibis-project.org/install
 > Spark: data manipulation for ML model training https://www.reddit.com/r/apachespark/comments/16zzabh/distributed_sql_query_engine_apache_spark_vs/?rdt=45095
-
-* _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
-* beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
-
-🦆 DUCKDB https://duckdb.org/
-* embedded
-* role in ecosystem https://wesmckinney.com/blog/looking-back-15-years/
-* for analytics https://news.ycombinator.com/item?id=24531085 https://news.ycombinator.com/item?id=23287278
-* own flavor of SQL https://duckdb.org/2022/05/04/friendlier-sql.html
-* https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/
-* https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf
-* https://kadekillary.work/note/duckdb/
-* https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html
-* interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html
-* https://news.ycombinator.com/item?id=39141652
-* https://www.nikolasgoebel.com/2024/05/28/duckdb-doesnt-need-data.html
 
 ALTERNATIVES
 * cloud: petabytes in single query and comes back in seconds/minutes e.g. Snowflake 📻 Macey 32:20
-> I hear people arguing "a dataset can fit in memory". RAM capacity, even on the Cloud, has grown a lot recently. There are EC2 instances with 2 TB of RAM. RAM can typically be used at 12-25 GB/s depending on the architecture of your setup. Using RAM alone won't provide any failure recovery if the machine suffers a power failure. To add to this, the cost per GB will is tremendous compared to using disks. https://tech.marksblogg.com/is-hadoop-dead.html
-* can always use Postgres https://brandur.org/warehouse https://tech.marksblogg.com/billion-nyc-taxi-rides-postgresql.html https://news.ycombinator.com/item?id=27109960
-> I've also heard arguments that row-oriented systems like MySQL and PostgreSQL can fit the needs of analytical workloads as well as their traditional transactional workloads. Both of these offerings can do analytics and if you're looking at less than 20 GB of data it's probably not worth the effort of having multiple pieces of software running your data platform. https://tech.marksblogg.com/is-hadoop-dead.html
 * _Clickhouse_: https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html
 * _BigQuery_: really fast https://tech.marksblogg.com/billion-nyc-taxi-rides-bigquery.html https://dataschool.com/sql-optimization/bigquery-optimization
 * _Hydra_: use Postgres https://github.com/hydradatabase/hydra
 * _Orc_: https://tech.marksblogg.com/faster-csv-to-orc-conversions.html
-* _Postgres_: https://news.ycombinator.com/item?id=39263760
+* _Postgres_: https://news.ycombinator.com/item?id=39263760 https://brandur.org/warehouse https://tech.marksblogg.com/billion-nyc-taxi-rides-postgresql.html https://news.ycombinator.com/item?id=27109960
+> I've also heard arguments that row-oriented systems like MySQL and PostgreSQL can fit the needs of analytical workloads as well as their traditional transactional workloads. Both of these offerings can do analytics and if you're looking at less than 20 GB of data it's probably not worth the effort of having multiple pieces of software running your data platform. https://tech.marksblogg.com/is-hadoop-dead.html
 * _Snowflake_: users/investors like them https://news.ycombinator.com/item?id=24265041 https://dataschool.com/sql-optimization/snowflake/ https://www.youtube.com/watch?v=xojAXXRo_S0 OSS https://news.ycombinator.com/item?id=38038239
 * apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
 * can build dashboards off queries
-* _Trino_: https://github.com/trinodb/trino
+* _Trino_: https://github.com/trinodb/trino https://ibis-project.org/
 
 TOOLS
 * just use CLIs https://news.ycombinator.com/item?id=39136472
-* _Hadoop_: parallelization for large data 🗄 `infra.md` EMR
+* _Hadoop_: parallelization for large data 🗄 `infra.md` EMR https://aosabook.org/en/v1/hdfs.html
 * no one uses anymore? https://news.ycombinator.com/item?id=30595026 https://tech.marksblogg.com/architecting-modern-data-platforms-book-review.html https://tech.marksblogg.com/is-hadoop-dead.html
 > Whereas Hadoop and big data targeted analytics applications, often in the data warehousing space, the low latency nature of Kafka makes it applicable for the kind of core applications that directly power a business 📙 Narkhede kafka 
 * setup https://tech.marksblogg.com/hadoop-up-and-running.html
@@ -446,6 +433,32 @@ TOOLS
 * _HDFS_: distributed file system http://aosabook.org/en/hdfs.html
 * pools all disks from cluster
 * files replicated across nodes (not all nodes; two additional copies)
+
+### ⦊ Presto
+
+* _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
+* beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
+
+### 🦆 DuckDB
+
+https://duckdb.org/
+
+* https://tech.marksblogg.com/duckdb-1b-taxi-rides.html
+* embedded
+* role in ecosystem https://wesmckinney.com/blog/looking-back-15-years/
+* for analytics https://news.ycombinator.com/item?id=24531085 https://news.ycombinator.com/item?id=23287278
+* own flavor of SQL https://duckdb.org/2022/05/04/friendlier-sql.html
+* https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/
+* https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf
+* https://kadekillary.work/note/duckdb/
+* https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html
+* interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html
+* https://news.ycombinator.com/item?id=39141652
+* https://www.nikolasgoebel.com/2024/05/28/duckdb-doesnt-need-data.html
+
+### ✰ Spark
+
+---
 * _pyspark_: Python API to Spark https://www.youtube.com/watch?v=XrpSRCwISdk https://spark.apache.org/docs/latest/api/python/index.html
 * _Spark_: Pandas + distributed
 * _Databricks_: Spark aaS from creators of Spark
