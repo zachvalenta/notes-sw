@@ -269,6 +269,17 @@ HISTORY https://increment.com/programming-languages/language-history/
 * people like? https://news.ycombinator.com/item?id=40538540
 * multiple compilers https://news.ycombinator.com/item?id=23686297
 
+🔤 R
+* language for stats https://walker-data.com/census-r/index.html
+* _CRAN_: where you download R itself and also (?) R packages https://cran.r-project.org/
+* _packrat_: pkg manager https://rstudio.github.io/packrat/
+* _tidyverse_: https://www.tidyverse.org/index.html
+* clean https://github.com/sfirke/janitor
+* functional https://purrr.tidyverse.org/
+* string pattern match https://stringr.tidyverse.org/
+* plot https://ggplot2.tidyverse.org/
+* dataframes https://tibble.tidyverse.org/
+
 🦀 RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust
 * Neovim https://www.youtube.com/watch?v=mh_EJhH49Ms
 * example project https://github.com/nate-sys/tuime https://github.com/swsnr/mdcat
@@ -301,14 +312,13 @@ HISTORY https://increment.com/programming-languages/language-history/
 ZA
 * _APL_: https://mathspp.com/blog/what-learning-apl-taught-me-about-python
 * _C++_: https://ccc.codes/ https://github.com/green7ea/cpp-compilation http://esr.ibiblio.org/?p=7724 people hate C++ https://news.ycombinator.com/item?id=33436268 https://borretti.me/article/simplicity-and-survival https://news.ycombinator.com/item?id=34588340 https://news.ycombinator.com/item?id=34643530
-* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805
+* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html
 * with Alpine https://news.ycombinator.com/item?id=34365515
 * _Haskell_: https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
 * _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/  https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
 * _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter
-* _R_: great stdlib, good for spatial https://www.tidyverse.org/index.html https://github.com/sfirke/janitor https://walker-data.com/census-r/index.html
 
 ## assembly
 
@@ -790,7 +800,7 @@ compilers
 * _cc_: original compiler https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
 * _gcc_: 
 * _Clang_: 
-* _LLVM_: 
+* _LLVM_: https://aosabook.org/en/v1/llvm.html
 
 compilation
 * _compilers_: gcc, Clang, cl (MS) LLVM (from source to IR, then optimize IR http://aosabook.org/en/llvm.html)
