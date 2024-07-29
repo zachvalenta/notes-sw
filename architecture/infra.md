@@ -200,16 +200,7 @@ PUB/SUB 📙 Narkhede ch. 1
 * semantics 📻 Macey 4:50
 * https://bloomberg.github.io/blazingmq/
 
-WORKFLOW ENGINES
-* _AWS Step Functions_: 
-* _Airflow_: https://news.ycombinator.com/item?id=23349507 https://tech.marksblogg.com/install-and-configure-apache-airflow.html
-* aaS https://www.astronomer.io/managed-airflow-service/
-* _Dagster_: https://github.com/dagster-io/dagster https://www.pythonpodcast.com/dagster-data-orchestration-episode-279/ https://www.dagster.io/blog/dagster-airflow https://news.ycombinator.com/item?id=39217728 https://talkpython.fm/episodes/show/454/data-pipelines-with-dagster
-* _Luigi_: https://github.com/spotify/luigi
-* _Mage_: https://github.com/mage-ai/mage-ai
-* _n8n_: hosted, WSIYWG https://news.ycombinator.com/item?id=37274052
-
-## Kafka
+## event (Kafka)
 
 🗄 `db.md` data eng
 📜 https://kafka.apache.org/documentation/
@@ -262,7 +253,7 @@ za
 * Avro (eventbus README)
 * https://unitedmasters.atlassian.net/wiki/spaces/ENG/pages/322273452/Event+Bus+System
 
-## Rabbit
+## msg (Rabbit)
 
 * queue attributes: durability (keep in mem, write to disk, write to db bc broker can restart, fail) time-to-live (how long to keep in the queue?) security (what consumers have access?) batching (delivery immediately or wait until x messages before allowing consumers to take)
 * msg attributes: id, user/groups id, creation time, reply to, subject https://www.rabbitmq.com/tutorials/amqp-concepts.html
@@ -273,7 +264,7 @@ za
 * _back pressure_: pressure from data source to write new data when streaming system is already holding too much (e.g. bc consumer hasn't ingested) [Macey 39:00]
 * _order_: round robin in RabbitMQ https://www.rabbitmq.com/consumer-priority.html
 
-semantics
+SEMANTICS
 * _entity_: producer, consumer
 * _broker(queue)_: app to send/rec/store msgs conforming to AMQP
 * _exchange_: receives message, routes to queue
@@ -285,11 +276,17 @@ semantics
 * use for all db operations?!? https://www.openmymind.net/Grow-Up-Use-Queues/
 * https://news.ycombinator.com/item?id=22901856 Kleppmann 4.136
 
-## task
+## task (Huey)
 
 🗄 `shell.md` jobs
 🛠 https://taskqueues.com/ aka worker https://news.ycombinator.com/item?id=34940920
 * BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
+
+ZA
+* Postgres https://github.com/procrastinate-org/procrastinate https://brandur.org/river https://github.com/riverqueue/river
+* _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io
+* _Hatchet_: https://github.com/hatchet-dev/hatchet
+* _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey
 
 CELERY
 * https://steve.dignam.xyz/2023/05/20/many-problems-with-celery/
@@ -308,11 +305,15 @@ REDIS QUEUE (RQ)
 * https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/#workflow
 * https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
 
-ALTERNATIVES
-* Postgres https://github.com/procrastinate-org/procrastinate https://brandur.org/river https://github.com/riverqueue/river
-* _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io
-* _Hatchet_: https://github.com/hatchet-dev/hatchet
-* _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey
+## workflow engine (Airflow)
+
+* _AWS Step Functions_: 
+* _Airflow_: https://news.ycombinator.com/item?id=23349507 https://tech.marksblogg.com/install-and-configure-apache-airflow.html
+* aaS https://www.astronomer.io/managed-airflow-service/
+* _Dagster_: https://github.com/dagster-io/dagster https://www.pythonpodcast.com/dagster-data-orchestration-episode-279/ https://www.dagster.io/blog/dagster-airflow https://news.ycombinator.com/item?id=39217728 https://talkpython.fm/episodes/show/454/data-pipelines-with-dagster
+* _Luigi_: https://github.com/spotify/luigi
+* _Mage_: https://github.com/mage-ai/mage-ai
+* _n8n_: hosted, WSIYWG https://news.ycombinator.com/item?id=37274052
 
 # 🤖 SERVERS
 

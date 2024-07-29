@@ -135,7 +135,7 @@ COMPONENTS
 * _IPython Notebook_: IPython + persistence, web browser, visualizations (chart, Markdown); predecessor to contemporary Jupyter
 * _Jupyter_: IPython Notebook + kernels for other languages (R, F#, Java)
 * _kernel_: runtime
-* _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304
+* _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304 https://satyrn.app/
 
 ---
 
@@ -193,7 +193,8 @@ getfile(obj)  # filepath where obj defined
 obj.__class__.__mro__  # view inheriance hierarchy
 ```
 
-STARTUP 📜 https://docs.python.org/3/tutorial/appendix.html#the-interactive-startup-file
+STARTUP 📜 https://docs.python.org/3/tutorial/appendix.html#the-interactive-startup-file 🗄️ imports
+* view module help: `pretty(help(__name__))`
 * startup file: `export PYTHONSTARTUP='$DOT_DIR/python/python_startup.py'` https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://github.com/zachvalenta/algo-sandbox/blob/master/Makefile#L28 https://github.com/zachvalenta/dotfiles-mini23/blob/main/shell/.zprofile#L183
 * list user-defined modules https://github.com/zachvalenta/algo-sandbox/commit/3ab6b3d8b4bcbf1ad7548c14f62958e5f88c75e1 https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
 
@@ -211,6 +212,8 @@ ZA
 * BYO using `code.InteractiveConsole()` https://bernsteinbear.com/blog/simple-python-repl/ https://news.ycombinator.com/item?id=34865421
 
 ---
+
+https://wesmckinney.com/book/ipython
 
 * reload
 * embed
@@ -625,6 +628,7 @@ history
 * https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
 * https://snarky.ca/classifying-python-virtual-environment-workflows/ https://news.ycombinator.com/item?id=35131357
 * https://pradyunsg.me/blog/2023/01/21/thoughts-on-python-packaging https://news.ycombinator.com/item?id=34467952
+* https://aosabook.org/en/v1/packaging.html
 
 https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.html
 
@@ -979,6 +983,7 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 
 start here https://www.youtube.com/watch?v=ftmdDlwMwwQ https://www.youtube.com/watch?v=X7vBbelRXn0
 coroutine https://docs.python.org/3/glossary.html#term-coroutine-function
+https://calpaterson.com/async-python-is-not-faster.html
 https://martinheinz.dev/blog/97
 https://higherorderco.com/
 https://www.amazon.com/gp/product/1492055026
@@ -1050,7 +1055,6 @@ event loops https://questions.wizardzines.com/event-loops.html
 changing would break C code https://old.reddit.com/r/Python/comments/sy369l/your_python_4_dream_list/
 parallel https://towardsdatascience.com/parallelizing-python-code-3eb3c8e5f9cd
 async https://www.youtube.com/watch?v=olT7ejlv0uE&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=43
-https://calpaterson.com/async-python-is-not-faster.html
 https://snarky.ca/unravelling-async-and-await/
 https://www.encode.io/articles/python-async-frameworks-beyond-developer-tribalism
 https://pythonbytes.fm/episodes/show/184/too-many-ways-to-wait-with-await
@@ -1110,6 +1114,11 @@ ZA
 * pkgutil https://docs.python.org/3/library/pkgutil.html https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
 
 ----
+
+> When a Python module or package is imported, __name__ is set to the module's name. Usually, this is the name of the Python file itself without the .py extension: `import configparser; configparser.__name__` https://docs.python.org/3/library/__main__.html
+> __main__ is the name of the environment where top-level code is run. "Top-level code" is the first user-specified Python module that starts running. It's "top-level" because it imports all other modules that the program needs. Sometimes "top-level code" is called an entry point to the application. https://docs.python.org/3/library/__main__.html
+
+* happened to me when I was trying to import pandas in a dir named `to-csv` https://stackoverflow.com/a/36250354
 
 https://nedbatchelder.com/blog/202405/one_way_to_fix_python_circular_imports.html
 https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/

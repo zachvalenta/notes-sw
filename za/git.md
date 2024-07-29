@@ -583,6 +583,7 @@ SEARCH https://docs.github.com/en/github/searching-for-information-on-github/sea
 
 ---
 
+* all forks are public https://news.ycombinator.com/item?id=41060102
 * https://github.com/pwntester/octo.nvim
 * draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
 * Mermaid support https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/ 

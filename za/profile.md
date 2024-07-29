@@ -47,7 +47,7 @@ NEXT 🗄️ `something`
 
 RECENT
 * denv
-* dot: atuin install and config
+* dot
 * rm powerline: pipx, config/symlink
 * bin + repos
 * visidata ticket
@@ -128,7 +128,7 @@ INTERVIEWING - CODE MONKEY
 - [ ] algos: repo/core 🗄️ `sandbox/src` miscellaneous, thirty
 
 PROJECTS
-* _pymus_: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/ https://rapidapi.com/collection/lyrics-apis
+* _pymus_: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/ https://rapidapi.com/collection/lyrics-apis https://aosabook.org/en/v1/audacity.html
 * _Sk8list_: Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
 * pytest plugin for ward
 * TUI for Websters 1913

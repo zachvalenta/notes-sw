@@ -129,7 +129,7 @@ ANDROID
 * language: word reference, easy voice, vlc, libby, overdrive, translate, pleco
 * chess/golf: drive, camera, video frame player, chess clock, chess, lichess
 * util: clock, interval timer, youtube, play tube, latch, monzo, labcoat, google home, google authenticate
-* file manager https://github.com/zhanghai/MaterialFiles
+* files: Podcast Addict https://github.com/zhanghai/MaterialFiles
 
 ---
 
@@ -612,6 +612,7 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 TODO
 > 📍 clean up DS files `fd -HI DS`
 * yin: rock/blues, roots/dylan, country/singles, mayra andrade
+* rm mckinney book
 
 SEMANTICS
 * _transfer_: mv data from A to B

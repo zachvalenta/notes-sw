@@ -14,6 +14,7 @@ OH-MY-POSH
 * put cursor on same line cwd
 * fix Git segment
 
+* _24_: oh-my-posh, atuin, vi mode
 * _23_: big rf, Conery unix chapter, research Zellij
 * _22_: Fira Mono for iTerm font/icons, try starship, try/fail vi mode for readline, organize utils
 * _21_: line editor, fzf for bash history https://hacker-tools.github.io/lectures/
@@ -25,6 +26,7 @@ OH-MY-POSH
 
 🔗
 * https://github.com/dylanaraps/pure-bash-bible
+* https://aosabook.org/en/v1/bash.html
 * http://aosabook.org/en/bash.html
 * https://github.com/anordal/shellharden/blob/master/how_to_do_things_safely_in_bash.md https://jvns.ca/blog/2023/08/08/what-helps-people-get-comfortable-on-the-command-line-/
 * https://leanpub.com/learnbashthehardway
@@ -1379,14 +1381,14 @@ cdf() {
 
 ### munge (awk, sed)
 
-🗄 `databased.md` tooling
+🗄 `eng.md` munge
 
 COLUMNAR
 * _cut_: rm columns https://blog.balthazar-rouberol.com/text-processing-in-the-shell#cut https://kadekillary.work/posts/cli-4-ds/ https://github.com/theryangeary/choose https://github.com/ibraheemdev/modern-unix
 ```sh
 # todo
 ```
-* _awk_: process columnar data https://kadekillary.work/note/awk/ https://benhoyt.com/writings/goawk/ https://kadekillary.work/post/cli-4-ds/ https://neowaylabs.github.io/programming/unix-shell-for-data-scientists/ 📙 Kernighan https://github.com/thewhitetulip/awk-anti-textbook/ https://en.wikipedia.org/wiki/The_AWK_Programming_Language https://blog.jpalardy.com/posts/why-learn-awk/ https://gregable.com/2010/09/why-you-should-know-just-little-awk.html http://www.grymoire.com/Unix/Awk.html
+* _awk_: process columnar data https://missing.csail.mit.edu/2020/data-wrangling/ https://kadekillary.work/note/awk/ https://benhoyt.com/writings/goawk/ https://kadekillary.work/post/cli-4-ds/ https://neowaylabs.github.io/programming/unix-shell-for-data-scientists/ 📙 Kernighan https://github.com/thewhitetulip/awk-anti-textbook/ https://en.wikipedia.org/wiki/The_AWK_Programming_Language https://blog.jpalardy.com/posts/why-learn-awk/ https://gregable.com/2010/09/why-you-should-know-just-little-awk.html http://www.grymoire.com/Unix/Awk.html
 * avoid by parsing stdout to JSON then using JSON query tool e.g jq https://github.com/kellyjonbrazil/jc https://www.thoughtworks.com/radar/tools?blipid=202203056
 * versions: `awk- W version` (doesn't work on macOS) ; mawk (Ubuntu, Debian) gawk (other distro incl macOS)
 * rm blank lines: `"NF"` https://stackoverflow.com/a/29549497
@@ -1395,6 +1397,9 @@ COLUMNAR
 * get last word in line https://stackoverflow.com/a/16617037
 * sum series of numbers https://stackoverflow.com/a/28926450
 ```sh
+# RM TRAILING N CHARS https://chatgpt.com/share/2575c4e4-94d8-4006-8cab-829142e787b2
+echo 'eid,b_line,p_line,full_description,' | awk '{print substr($0, 1, length($0)-1)}'
+
 # use awk 'control file' against input file
 awk -f my_script.awk /etc/ntp.conf
 # set delimiter
@@ -1429,7 +1434,13 @@ sed '' BSD  # no cmd i.e. just send to stdout
 * print range: `sed -n '1,5p' bsd.txt` (specific) `sed -n '1,5p' bsd.txt` (relative)
 
 ZA
+* _tail_: `tail -n +42 $FILE` view file starting from 42 line https://askubuntu.com/a/410207
 * _tr_: string edit e.g. case, add newline https://github.com/Idnan/bash-guide#k-tr https://shapeshed.com/unix-tr/ https://blog.balthazar-rouberol.com/text-processing-in-the-shell#tr
+```sh
+cat example.txt | tr 'a-z' 'A-Z'  # uppercase
+cat example.txt | tr ' ' '\n'  # replace spaces with newlines
+cat example.txt | tr '\n' ','  # concat n lines into single comma-delineated line
+```
 * _join_: SQL join on files https://kadekillary.work/posts/cli-4-ds/
 * _paste_: merge sorted files https://kadekillary.work/posts/cli-4-ds/ https://blog.balthazar-rouberol.com/text-processing-in-the-shell#paste
 ```sh

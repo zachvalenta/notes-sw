@@ -137,6 +137,7 @@ OPTIONS
 * _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
 * _timeit_: https://www.pythonmorsels.com/cli-tools/
 
+ebpf https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
 https://www.pythonmorsels.com/cli-tools/
 
 py-spy, speedscope, Valgrind https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
@@ -1005,6 +1006,7 @@ ASGI
 * _ASGI_: async alternative to WSGI
 * frameworks: Django (Channels) Quart (Flask on async) Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
 * servers: uvicorn, Daphne
+* FastAPI https://github.com/pomponchik/cbfa
 * sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
 
 RSGI

@@ -8,6 +8,7 @@
 📚
 * https://www.saaspegasus.com/
 * Vincent beginners
+> new edition
 * Vincent professionals
 * Layman https://www.mattlayman.com/understand-django/
 

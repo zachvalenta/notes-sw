@@ -229,6 +229,8 @@ VIRTUAL https://questions.wizardzines.com/virtual-memory.html
 
 ---
 
+* _zero-copy_: op in which data not copied to another memory area https://en.wikipedia.org/wiki/Zero-copy
+
 bits
 * _bit depth_: [Franz 38, 226] bounce (mv from one bit depth to another) [Franz 226] https://reverb.com/news/home-recording-basics-ii-choosing-your-first-audio-interface-and-daw https://www.youtube.com/watch?v=JTtSihQ8QX0 2:45
 * _word_: data unit used by architecture, aka digital word [Franz 38] registers and memory are word-sized e.g. 32-bit (90s, x86) 64-bit (00s, ARM64) https://stackoverflow.com/a/9287273 https://www.youtube.com/watch?v=IknbgnJLSRY 1:05 Upton raspberry pi 149 people still use 32-bit on 64-bit https://gankra.github.io/blah/c-isnt-a-language/ https://news.ycombinator.com/item?id=30704642 byte, word https://jvns.ca/blog/2023/03/06/possible-reasons-8-bit-bytes/

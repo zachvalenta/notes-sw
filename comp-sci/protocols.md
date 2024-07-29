@@ -294,6 +294,7 @@ cat more-subs.json | jq '.[]|select(.num_receipts>0)|select(.is_migrated == true
 ---
 
 * https://pythonspeed.com/articles/best-file-format-for-pandas/
+* https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 * _Parquet_: column-oriented file format, like CSV https://www.youtube.com/watch?v=H_dLfHETO0g https://news.ycombinator.com/item?id=35418933 https://news.ycombinator.com/item?id=29010103
 * easier to use now vs. CSV https://news.ycombinator.com/item?id=30595026
 * use to build no-code API https://tech.marksblogg.com/roapi-rust-data-api.html

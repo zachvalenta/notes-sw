@@ -236,6 +236,7 @@ FILE
 * https://www.lastweekinaws.com/blog/s3-intelligent-tiering-breaking-even-on-cost/
 * https://www.lastweekinaws.com/blog/s3-encryption-at-rest-does-not-solve-for-bucket-negligence/
 * _S3_: obj storage
+* not as file system https://calpaterson.com/s3.html
 * S3 bucket viewer https://terminaltrove.com/stree/ https://github.com/juftin/browsr https://github.com/lusingander/stu
 * file client https://news.ycombinator.com/item?id=35155944
 * Backblaze as alternative https://news.ycombinator.com/item?id=26427333
@@ -302,7 +303,7 @@ DEPLOYMENT
 MOBILE SVC
 * _Cognito_: OAuth
 * _Device Farm_: mobile testing across device types
-* _SNS_: Twilio (send notifications/SMS)
+* _SNS_: Twilio (send notifications/SMS) https://github.com/nikoksr/notify
 
 ## certification 
 

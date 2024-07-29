@@ -266,15 +266,6 @@ https://www.youtube.com/watch?v=dkV01hBdhZE
 
 ---
 
-PROJECTS
-* get familiar https://simonwillison.net/2024/Apr/17/ai-for-data-journalism/
-* https://www.freecodecamp.org/news/customer-segmentation-python-machine-learning/
-* https://archive.vn/073bS
-* https://news.ycombinator.com/item?id=40877136
-* BYO https://www.saaspegasus.com/guides/django-websockets-chatgpt-channels-htmx
-* train model on dickens, cowen
-* https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
-
 https://www.nbcnews.com/tech/internet/hunting-ai-bots-four-words-trick-rcna161318
 
 https://softwareengineeringdaily.com/2024/05/14/llms-for-data-queries-with-sarah-nagy/
@@ -404,3 +395,20 @@ SEMANTICS
 * quants can't code, coders can't quant https://news.ycombinator.com/item?id=23941075
 * 90% of the job is munging data, models are implemented by people w/ PhDs https://towardsdatascience.com/the-cold-start-problem-how-to-build-your-machine-learning-portfolio-6718b4ae83e9 https://spectrum.ieee.org/view-from-the-valley/artificial-intelligence/machine-learning/andrew-ng-xrays-the-ai-hype more on job market https://evjang.com/2022/04/25/rome.html
 * https://www.youtube.com/watch?v=JLTYNPoK7nw https://www.youtube.com/watch?v=pvaIi0l1GME https://softwareengineeringdaily.com/2019/06/13/stripe-machine-learning-infrastructure-with-rob-story-and-kelley-rivoire/
+
+## projects
+
+* Iris dataset https://www.youtube.com/results?search_query=iris+dataset
+* get familiar https://simonwillison.net/2024/Apr/17/ai-for-data-journalism/
+* https://www.freecodecamp.org/news/customer-segmentation-python-machine-learning/
+* https://archive.vn/073bS
+* https://news.ycombinator.com/item?id=40877136
+* BYO https://www.saaspegasus.com/guides/django-websockets-chatgpt-channels-htmx
+* train model on dickens, cowen
+* https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
+
+## uses
+
+* to synthesize all comments on a product into a blurb https://blog.untrod.com/2024/04/llm-chatgpt-powered-django-admin-fields.html
+* copyedit a novel https://blog.untrod.com/2023/06/copy-editing-a-novel-with-chatgpt.html
+* audio prompt + voice cloning for answer https://blog.untrod.com/2023/11/robot-dad.html https://elevenlabs.io/

@@ -175,7 +175,9 @@ encryption https://danielmiessler.com/study/encoding-encryption-hashing-obfuscat
 * _encrypt_: text to code 📙 Sweigart 1.2 🗄`classic-compsci` https://robertheaton.com/2019/08/12/programming-projects-for-advanced-beginners-user-logins/ https://github.com/FiloSottile/age
 * _decrypt_: code to text 📙 Sweigart 1.2
 * _hash_: 🗄 `python.md` hashable
-* _nonce_: random number used in crypto to prevent replay attack https://en.wikipedia.org/wiki/Cryptographic_nonce#Authentication
+* _nonce_: number used once
+* used in crypto to prevent replay attack https://en.wikipedia.org/wiki/Cryptographic_nonce#Authentication
+* used in web to prevent user cook hijacking https://developer.wordpress.org/apis/security/nonces/
 * _obfuscate_: 
 
 https://github.com/FiloSottile/age

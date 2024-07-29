@@ -121,13 +121,13 @@ STORAGE ENGINES 🗄 `design.md` transactions
 > When I worked in ads I would often need to debug issues using production logs, and would use Dremel to run a distributed scan of very large amounts of data at interactive speeds. Because queries were relatively rare, an index would have been far more expensive to maintain. https://www.jefftk.com/p/you-dont-always-need-indexes
 
 START HERE
+* https://calpaterson.com/how-a-sql-database-works.html
 * https://www.jefftk.com/p/you-dont-always-need-indexes
 * make invisible > delete https://sqlfordevs.com/invisible-index-before-delete
 * https://news.ycombinator.com/item?id=35978757&utm_term=comment
 * Postgres has partial indexes
 * notes for Karwin chapter 13
 > mention of caching? https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
-* https://calpaterson.com/how-a-sql-database-works.html
 * https://dataschool.com/sql-optimization/how-indexing-works/
 * BRIN https://hakibenita.com/sql-tricks-application-dba#index-columns-with-high-correlation-using-brin https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/ https://en.wikipedia.org/wiki/Block_Range_Index https://hakibenita.com/postgresql-correlation-brin-multi-minmax
 * https://www.youtube.com/watch?v=HubezKbFL7E
@@ -720,9 +720,11 @@ libs
 dbms
 * _Influx_: https://softwareengineeringdaily.com/2019/08/21/time-series-databases-with-rob-skillington/ https://softwareengineeringdaily.com/2021/08/19/influxdata-time-series-data-with-russ-savage/
 * _Husky_: event store https://www.datadoghq.com/blog/engineering/husky-deep-dive/
+* _Lin_: https://github.com/lindb/lindb
 * _Timescale_: built on Postgres https://blog.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/ https://softwareengineeringdaily.com/2021/06/28/timescale-time-series-databases-with-mike-freedman/
 * _tstorage_: embedded https://github.com/nakabonne/tstorage BYO https://nakabonne.dev/posts/write-tsdb-from-scratch/ https://news.ycombinator.com/item?id=27730854
 * _Whisper_: embedded db for Graphite https://github.com/graphite-project/whisper
+
 # 🐘 POSTGRES
 
 📙 Suzuki postgres internals https://www.interdb.jp/pg/

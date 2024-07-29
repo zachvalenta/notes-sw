@@ -273,6 +273,7 @@ HISTORY https://increment.com/programming-languages/language-history/
 * language for stats https://walker-data.com/census-r/index.html
 * _CRAN_: where you download R itself and also (?) R packages https://cran.r-project.org/
 * _packrat_: pkg manager https://rstudio.github.io/packrat/
+* _RStudio_: IDE
 * _tidyverse_: https://www.tidyverse.org/index.html
 * clean https://github.com/sfirke/janitor
 * functional https://purrr.tidyverse.org/
