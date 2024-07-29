@@ -310,12 +310,12 @@ REDIS QUEUE (RQ)
 * _AWS Step Functions_: 
 * _Airflow_: https://news.ycombinator.com/item?id=23349507 https://tech.marksblogg.com/install-and-configure-apache-airflow.html
 * aaS https://www.astronomer.io/managed-airflow-service/
-* _Dagster_: https://github.com/dagster-io/dagster https://www.pythonpodcast.com/dagster-data-orchestration-episode-279/ https://www.dagster.io/blog/dagster-airflow https://news.ycombinator.com/item?id=39217728 https://talkpython.fm/episodes/show/454/data-pipelines-with-dagster
+* _Dagster_: https://github.com/dagster-io/dagster https://www.pythonpodcast.com/dagster-data-orchestration-episode-279/ https://www.dagster.io/blog/dagster-airflow https://news.ycombinator.com/item?id=39217728 https://talkpython.fm/episodes/show/454/data-pipelines-with-dagster https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
 * _Luigi_: https://github.com/spotify/luigi
 * _Mage_: https://github.com/mage-ai/mage-ai
 * _n8n_: hosted, WSIYWG https://news.ycombinator.com/item?id=37274052
 
-# 🤖 SERVERS
+# 🤖 WEB SERVERS
 
 * benchmark: https://httpd.apache.org/docs/2.4/programs/ab.html https://github.com/wg/wrk https://github.com/giltene/wrk2 https://github.com/rakyll/hey https://github.com/encode/starlette#performance https://falconframework.org/#sectionBenchmarks https://www.webpagetest.org/ https://www.golang.dk/articles/benchmarking-sqlite-performance-in-go
 * BYO https://github.com/codecrafters-io/build-your-own-x#build-your-own-web-server

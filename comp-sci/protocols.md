@@ -293,6 +293,9 @@ cat more-subs.json | jq '.[]|select(.num_receipts>0)|select(.is_migrated == true
 
 ---
 
+* https://csvbase.com/blog/3
+* https://r4ds.hadley.nz/arrow#sec-parquet
+* partition elimination https://duckdb.org/2021/12/03/duck-arrow.html
 * https://pythonspeed.com/articles/best-file-format-for-pandas/
 * https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
 * _Parquet_: column-oriented file format, like CSV https://www.youtube.com/watch?v=H_dLfHETO0g https://news.ycombinator.com/item?id=35418933 https://news.ycombinator.com/item?id=29010103

@@ -229,7 +229,7 @@ VIRTUAL https://questions.wizardzines.com/virtual-memory.html
 
 ---
 
-* _zero-copy_: op in which data not copied to another memory area https://en.wikipedia.org/wiki/Zero-copy
+* _zero-copy_: op in which data not copied to another memory area https://en.wikipedia.org/wiki/Zero-copy https://duckdb.org/2021/12/03/duck-arrow.html
 
 bits
 * _bit depth_: [Franz 38, 226] bounce (mv from one bit depth to another) [Franz 226] https://reverb.com/news/home-recording-basics-ii-choosing-your-first-audio-interface-and-daw https://www.youtube.com/watch?v=JTtSihQ8QX0 2:45

@@ -11,8 +11,11 @@
 
 ## 进步
 
-https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb
-https://www.dataengineeringpodcast.com/episodepage/six-year-retrospective-episode-361
+* Iceberg
+* Arrow partitioning https://r4ds.hadley.nz/arrow#partitioning
+* NYC taxi dataset, Parquet https://duckdb.org/2021/12/03/duck-arrow.html https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page https://tech.marksblogg.com/billion-nyc-taxi-rides-redshift.html https://iceberg.apache.org/spark-quickstart/#creating-a-table
+* 📻 Macey https://softwareengineeringdaily.com/2019/07/23/data-engineering-with-tobias-macey/ https://www.dataengineeringpodcast.com/six-year-retrospective-episode-361
+* course https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb
 
 ---
 
@@ -25,9 +28,8 @@ https://www.dataengineeringpodcast.com/episodepage/six-year-retrospective-episod
 > read on sports better, stats
 * steampipe https://news.ycombinator.com/item?id=40343131
 * https://news.ycombinator.com/item?id=39338626
-* data eng https://news.ycombinator.com/item?id=37222191
+* https://news.ycombinator.com/item?id=37222191
 * https://news.ycombinator.com/item?id=35478240
-* 📻 Macey https://softwareengineeringdaily.com/2019/07/23/data-engineering-with-tobias-macey/ https://www.dataengineeringpodcast.com/six-year-retrospective-episode-361
 
 * _24_: try harlequin
 * _22_: basic xsv/miller/Pandas
@@ -165,7 +167,9 @@ https://www.timescale.com/blog/13-tips-to-improve-postgresql-insert-performance/
 
 # 🧮 ANALYTICS
 
-🗄 `telemetry.md` analytics
+🗄
+* `protocols.md` file fmt
+* `telemetry.md` analytics
 
 DATASETS
 * general: https://ourworldindata.org/ https://www.wikidata.org/ https://datasetsearch.research.google.com/ https://www.kaggle.com/datasets https://datausa.io/ https://www.splitgraph.com/
@@ -210,6 +214,7 @@ TOOLS
 ---
 
 https://calpaterson.com/bank-python.html
+https://tibble.tidyverse.org/
 
 📚
 * McKinney https://wesmckinney.com/book/
@@ -236,7 +241,7 @@ ZA
 * decoupled Pandas from numpy
 > While NumPy has been good enough to make pandas the popular library it is, it was never built as a backend for dataframe libraries, and it has some important limitations. https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i
 * used by Polars https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
-* can query using DuckDB https://duckdb.org/2021/12/03/duck-arrow.html
+* can query using DuckDB bc Duck's  https://duckdb.org/2021/12/03/duck-arrow.html https://news.ycombinator.com/item?id=35426155
 
 ### 🦢 Ibis
 
@@ -244,7 +249,7 @@ ZA
 
 * dataframe API
 * transpiles to SQL i.e. works with SQL-based query engines (BigQuery, Clickhouse, Postgres, Snowflake)
-* compiles to Python i. e
+* compiles to Python i. e https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
 * dataframe API that can use Polars/Pandas query engine or transpile to SQL and run against relational dbms https://talkpython.fm/episodes/show/462/pandas-and-beyond-with-wes-mckinney
 
 ### 🐻‍❄️ Polars
@@ -381,6 +386,9 @@ ALTERNATIVES
 
 ## techniques
 
+* _predicate pushdown_: filter out via where clause https://stackoverflow.com/a/58235274/6813490
+* _projection pushdown_: having a small select clause (i.e. don't `select *`) = minimize columns read https://duckdb.org/2021/12/03/duck-arrow.html
+
 ---
 
 🗄️ `math.md` stat/distributions
@@ -394,9 +402,9 @@ ALTERNATIVES
 * view missing https://github.com/ResidentMario/missingno
 * https://hakibenita.com/sql-for-data-analysis#descriptive-statistics
 * https://hakibenita.com/sql-for-data-analysis#sampling
-* reservoir sampling https://en.wikipedia.org/wiki/Reservoir_sampling https://github.com/BurntSushi/xsv
 * stats https://github.com/capitalone/dataprofiler
 * can use R from command line https://missing.csail.mit.edu/2020/data-wrangling/ https://www.r-project.org/
+* _reservoir sampling_: https://en.wikipedia.org/wiki/Reservoir_sampling https://github.com/BurntSushi/xsv
 * _facet_: https://datasette.io/for/exploratory-analysis https://stackoverflow.com/questions/5321595/what-is-faceted-search
 
 # 🏗️ ENG
@@ -406,42 +414,8 @@ ALTERNATIVES
 
 ## pipelines
 
-TOOLS
-* _GX (Great Expectations)_: assert against schema https://github.com/great-expectations/great_expectations https://softwareengineeringdaily.com/2020/02/17/great-expectations-data-pipeline-testing-with-abe-gong/
-* alternatives https://github.com/socialpoint-labs/sqlbucket https://github.com/sodadata/soda-core
-```python
-validator.expect_column_values_to_not_be_null(column="passenger_count")
-validator.expect_column_values_to_be_between(column="congestion_surcharge", min_value=0, max_value=1000)
-```
-
 ---
 
-* compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
-
-SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data `python/core.md` typing
-* _validation_: compare against rules
-* Cerberus https://github.com/pyeve/cerberus https://hector.dev/2020/12/29/validating-data-in-python-with-cerberus.html
-* BYO https://realpython.com/primer-on-python-decorators/#more-real-world-examples https://blog.drewolson.org/declarative-validation
-* clean/munge https://github.com/pyjanitor-devs/pyjanitor
-* _filter_: rm validation violations
-* _escape_: convert validation violations
-* _sanitize_: validate + filter/escape
-* _parameterize_: sanitization for SQL https://security.stackexchange.com/a/143925
-* anonymize/differential privacy https://www.youtube.com/watch?v=PC0bF5tstvI
-
-* Pandera https://endjin.com/blog/2023/03/a-look-into-pandera-and-great-expectations-for-data-validation https://www.peterbaumgartner.com/blog/testing-for-data-science/
-* _petl_: transforms https://petl.readthedocs.io/en/stable/
-* if petl can only handle thousands of records, why not just use Pandas? https://www.youtube.com/watch?v=llRLh8cM7QI 9:30 25:00 https://petl.readthedocs.io/en/stable/
-
-SCHEMAS
-* _star schema_: fact table at center
-* _snowflake schema_: like star schema but more normalized
-* less popular bc harder to query 📙 Kleppmann 95
-* _fact table_: transactions 📙 Kleppmann 93
-* w/ many FK to other dimensions 📙 Kleppmann 95
-* _dimension_: non-transactional tables 📙 Kleppmann 94 https://tech.marksblogg.com/data-fluent-for-postgresql.html
-
-PIPELINES
 * https://sre.google/sre-book/table-of-contents/ chapter 26
 * clean up https://news.ycombinator.com/item?id=34578324 https://en.wikipedia.org/wiki/Instruction_pipelining https://joblib.readthedocs.io/en/latest/index.html https://news.ycombinator.com/item?id=34578324 https://arpit.substack.com/p/how-grab-stores-and-processes-millions https://news.ycombinator.com/item?id=34483402 visidata https://www.visidata.org/blog/2020/ten/
 * mv/copy from one db to another https://news.ycombinator.com/item?id=39525071 https://github.com/bruin-data/ingestr
@@ -460,14 +434,44 @@ TOOLS
 * plain text vs. crappy GUI tools for analysts https://www.youtube.com/watch?v=M8oi7nSaWps 5:45 https://www.youtube.com/watch?v=qqlbYDfqeI4 9:40
 * _amphi_: https://news.ycombinator.com/item?id=40723356
 * _DLT_: https://github.com/dlt-hub/dlt
-* _DBT_: tool for transforms https://www.youtube.com/watch?v=l48zwwRSGeA 6:15 https://news.ycombinator.com/item?id=33846087
+* _DBT_: tool for transforms https://www.youtube.com/watch?v=l48zwwRSGeA 6:15
+* why: schema introspection, testing https://highgrowthengineering.substack.com/p/why-is-dbt-so-important- https://news.ycombinator.com/item?id=33846087
+> modern data stack of Fivetran + dbt + Snowflake https://luttig.substack.com/p/dont-forget-microsoft
 * create views via ETL in Snowflake (at UM)
 * data ingestion from Snowflake using Snowpipe https://docs.snowflake.com/en/user-guide/data-load-snowpipe-intro.html
 * util https://github.com/dbt-labs/dbt-utils
 * metrics https://news.ycombinator.com/item?id=30938109
-* why does everyone love it so much? https://highgrowthengineering.substack.com/p/why-is-dbt-so-important-
-> Fivetran as the best-in-class E and L, and dbt as the corresponding T. https://luttig.substack.com/p/dont-forget-microsoft
+* _petl_: transforms https://petl.readthedocs.io/en/stable/
+* if petl can only handle thousands of records, why not just use Pandas? https://www.youtube.com/watch?v=llRLh8cM7QI 9:30 25:00
+
+### clean
+
+---
+
+* anonymize/differential privacy https://www.youtube.com/watch?v=PC0bF5tstvI
 * _Zingg_: entity resolution i.e. fix data integrity problems https://github.com/zinggAI/zingg
+
+SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data
+* https://developer.wordpress.org/apis/security/sanitizing/ https://developer.wordpress.org/apis/security/data-validation/ https://developer.wordpress.org/apis/security/escaping/
+* _validation_: compare against rules
+* Cerberus https://github.com/pyeve/cerberus https://hector.dev/2020/12/29/validating-data-in-python-with-cerberus.html
+* BYO https://realpython.com/primer-on-python-decorators/#more-real-world-examples https://blog.drewolson.org/declarative-validation
+* clean/munge https://github.com/pyjanitor-devs/pyjanitor
+* _filter_: rm validation violations
+* _escape_: convert validation violations
+* _sanitize_: validate + filter/escape
+* _parameterize_: sanitization for SQL https://security.stackexchange.com/a/143925
+
+### test
+
+* compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
+* _Pandera_: type checking for dataframes https://endjin.com/blog/2023/03/a-look-into-pandera-and-great-expectations-for-data-validation https://www.peterbaumgartner.com/blog/testing-for-data-science/ https://www.union.ai/blog-post/pandera-joins-union-ai
+* _GX (Great Expectations)_: assert against schema https://github.com/great-expectations/great_expectations https://softwareengineeringdaily.com/2020/02/17/great-expectations-data-pipeline-testing-with-abe-gong/
+* alternatives https://github.com/socialpoint-labs/sqlbucket https://github.com/sodadata/soda-core
+```python
+validator.expect_column_values_to_not_be_null(column="passenger_count")
+validator.expect_column_values_to_be_between(column="congestion_surcharge", min_value=0, max_value=1000)
+```
 
 ## query engines
 
@@ -481,6 +485,7 @@ SEMANTICS
 
 ALTERNATIVES
 * cloud: petabytes in single query and comes back in seconds/minutes e.g. Snowflake 📻 Macey 32:20
+* just use CLIs https://news.ycombinator.com/item?id=39136472
 * _Clickhouse_: https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html
 * _BigQuery_: really fast https://tech.marksblogg.com/billion-nyc-taxi-rides-bigquery.html https://dataschool.com/sql-optimization/bigquery-optimization
 * _Hydra_: use Postgres https://github.com/hydradatabase/hydra
@@ -490,30 +495,22 @@ ALTERNATIVES
 * _Snowflake_: users/investors like them https://news.ycombinator.com/item?id=24265041 https://dataschool.com/sql-optimization/snowflake/ https://www.youtube.com/watch?v=xojAXXRo_S0 OSS https://news.ycombinator.com/item?id=38038239
 * apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
 * can build dashboards off queries
-* _Trino_: https://github.com/trinodb/trino https://ibis-project.org/
-
-TOOLS
-* just use CLIs https://news.ycombinator.com/item?id=39136472
-* _Hadoop_: parallelization for large data 🗄 `infra.md` EMR https://aosabook.org/en/v1/hdfs.html
-* no one uses anymore? https://news.ycombinator.com/item?id=30595026 https://tech.marksblogg.com/architecting-modern-data-platforms-book-review.html https://tech.marksblogg.com/is-hadoop-dead.html
-> Whereas Hadoop and big data targeted analytics applications, often in the data warehousing space, the low latency nature of Kafka makes it applicable for the kind of core applications that directly power a business 📙 Narkhede kafka 
-* setup https://tech.marksblogg.com/hadoop-up-and-running.html
-* you probably don't need it https://www.benkuhn.net/hard/
-* relationship to other projects like Presto, Clickhouse https://tech.marksblogg.com/is-hadoop-dead.html
-* _MapReduce_: map (split query into chunks, execute in parallel) reduce (merge results) 📙 Kleppmann 46
-* map (match) reduce (group) https://www.practical-mongodb-aggregations.com/intro/history.html
-* also a query language 📙 Kleppmann 46
-* PRQL = alternative query language https://news.ycombinator.com/item?id=30060784
-* _HDFS_: distributed file system http://aosabook.org/en/hdfs.html
-* pools all disks from cluster
-* files replicated across nodes (not all nodes; two additional copies)
+* _Trino_: https://github.com/trinodb/trino https://ibis-project.org/ https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
 
 ### ⦊ Presto
+
+---
 
 * _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
 * beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
 
 ### 🦆 DuckDB
+
+---
+
+> DuckDB is a single file SQL database. https://csvbase.com/blog/6
+
+> DuckDB is a new analytical data management system that is designed to run complex SQL queries within other processes. DuckDB has bindings for R and Python, among others. DuckDB can query Arrow datasets directly and stream query results back to Arrow. This integration allows users to query Arrow data using DuckDB's SQL Interface and API, while taking advantage of DuckDB's parallel vectorized execution engine, without requiring any extra data copying. Additionally, this integration takes full advantage of Arrow's predicate and filter pushdown while scanning datasets. https://duckdb.org/2021/12/03/duck-arrow.html
 
 https://duckdb.org/
 
@@ -533,16 +530,33 @@ https://duckdb.org/
 ### ✰ Spark
 
 ---
-* _pyspark_: Python API to Spark https://www.youtube.com/watch?v=XrpSRCwISdk https://spark.apache.org/docs/latest/api/python/index.html
+
+BASICS
 * _Spark_: Pandas + distributed
-* _Databricks_: Spark aaS from creators of Spark
-* _RDD_: collection of obj https://www.youtube.com/watch?v=XrpSRCwISdk [3:30]
-* _dataframe_: table https://www.youtube.com/watch?v=XrpSRCwISdk [3:30]
-* architecture: driver/lib -> executor -> operates on data https://www.youtube.com/watch?v=XrpSRCwISdk [5:10]
+* RDD = collection of obj https://www.youtube.com/watch?v=XrpSRCwISdk [3:30]
+* dataframe = table https://www.youtube.com/watch?v=XrpSRCwISdk [3:30]
 * similar interface as Pandas https://www.youtube.com/watch?v=XrpSRCwISdk [10:20]
+* architecture: driver/lib -> executor -> operates on data https://www.youtube.com/watch?v=XrpSRCwISdk [5:10]
 * used for ML https://tech.marksblogg.com/is-hadoop-dead.html
-* kinda part of Hadoop, kinda not https://tech.marksblogg.com/is-hadoop-dead.html
-> At some point, the Spark community tried to distance itself from the Hadoop ecosystem. They didn't want to be seen as built on legacy software nor as some sort of "add-on" for Hadoop. Given the level of integration, Spark has with the rest of the Hadoop ecosystem and given the 100s of libraries from other Hadoop projects being used by Spark I don't subscribe to the belief that Spark is its own thing.
+* _pyspark_: Python API to Spark https://www.youtube.com/watch?v=XrpSRCwISdk https://spark.apache.org/docs/latest/api/python/index.html
+* _Databricks_: Spark aaS from creators of Spark
+
+HADOOP
+* _Hadoop_: parallelization for large data 🗄 `infra.md` EMR https://aosabook.org/en/v1/hdfs.html
+* kinda part of Spark, kinda not
+> At some point, the Spark community tried to distance itself from the Hadoop ecosystem. They didn't want to be seen as built on legacy software nor as some sort of "add-on" for Hadoop. Given the level of integration Spark has with the rest of the Hadoop ecosystem and given the 100s of libraries from other Hadoop projects being used by Spark I don't subscribe to the belief that Spark is its own thing. https://tech.marksblogg.com/is-hadoop-dead.html
+* no one uses anymore? https://news.ycombinator.com/item?id=30595026 https://tech.marksblogg.com/architecting-modern-data-platforms-book-review.html https://tech.marksblogg.com/is-hadoop-dead.html
+> Whereas Hadoop and big data targeted analytics applications, often in the data warehousing space, the low latency nature of Kafka makes it applicable for the kind of core applications that directly power a business 📙 Narkhede kafka 
+* setup https://tech.marksblogg.com/hadoop-up-and-running.html
+* you probably don't need it https://www.benkuhn.net/hard/
+* relationship to other projects like Presto, Clickhouse https://tech.marksblogg.com/is-hadoop-dead.html
+* _HDFS_: distributed file system http://aosabook.org/en/hdfs.html
+* pools all disks from cluster
+* files replicated across nodes (not all nodes; two additional copies)
+* _MapReduce_: map (split query into chunks, execute in parallel) reduce (merge results) 📙 Kleppmann 46
+* map (match) reduce (group) https://www.practical-mongodb-aggregations.com/intro/history.html
+* also a query language 📙 Kleppmann 46
+* PRQL = alternative query language https://news.ycombinator.com/item?id=30060784
 
 ## warehouse
 
@@ -550,11 +564,37 @@ https://duckdb.org/
 
 ---
 
+* _Iceberg_: SQL for table formats https://iceberg.apache.org/ https://www.thoughtworks.com/radar/platforms?blipid=202203012 https://news.ycombinator.com/item?id=34342190
+> Table formats have slowly been stealing the spotlight across the big data space as projects like Apache Hudi, Delta Lake and Apache Iceberg mature and disrupt the tried-and-tested legacy data lake technologies in use at most companies worldwide. https://medium.com/expedia-group-tech/a-short-introduction-to-apache-iceberg-d34f628b6799
+
+DATA TYPES
+* _hot storage_: in-mem
+* _cold storage_: analytics, archives https://github.com/tembo-io/pg_tier
+* _data tiering_: moving cold data to (cheaper) cold storage https://github.com/tembo-io/pg_tier
+
+DATA SIZE
+* MB = Excel, nGB-1TB = Postgres, >5TB = Hadoop https://www.chrisstucchio.com/blog/2013/hadoop_hatred.html
+* typical dbms can fit 100M records in single table https://news.ycombinator.com/item?id=36038321
+* _big data_: can't fit into normal dbms
+* _small data_: can fit on a phone (so, half a terabyte) https://simonwillison.net/2021/Jul/22/small-data/
+* complete works of Shakespeare only 5.5 MB 📙 Conery [345]
+* ways of thinking about data sizes: 1MB vs. 1M seconds (12 days) 1GB vs. 1B seconds (31 years) 1TB vs. 1T seconds (317 centuries) 📙 Conery [345]
+> the term Big Data is so over-used and under-defined that it is not useful in a serious engineering discussion. 📙 Kleppmann 1.9
+> There are diminishing returns to the amount of information you can extract from data. The tenth gigabyte is worth much less than the second gigabyte. https://www.evanmiller.org/small-data.html
+
+SCHEMAS
+* _star schema_: fact table at center
+* _snowflake schema_: like star schema but more normalized
+* less popular bc harder to query 📙 Kleppmann 95
+* _fact table_: transactions 📙 Kleppmann 93
+* w/ many FK to other dimensions 📙 Kleppmann 95
+* _dimension_: non-transactional tables 📙 Kleppmann 94 https://tech.marksblogg.com/data-fluent-for-postgresql.html
+
+TYPES https://news.ycombinator.com/item?id=34342190
 * _data source_: where you're getting the data https://dataschool.com/data-governance
 * _lakehouse_: https://softwareengineeringdaily.com/2022/08/25/lakehouse-data-stack-with-raj-bains-2/ https://www.databricks.com/
 * _lake_: 类似 file system https://www.youtube.com/watch?v=V0GvZ_KAI70 https://news.ycombinator.com/item?id=32336977
-* table format = structure of files (Parquet) that make up lake https://medium.com/expedia-group-tech/a-short-introduction-to-apache-iceberg-d34f628b6799
-* Iceberg = SQL for table formats https://iceberg.apache.org/ https://www.thoughtworks.com/radar/platforms?blipid=202203012
+* table format = structure of files (Parquet) that make up lake https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
 * slower to access, has metadata (when was it produced, who owns it), batch writes, most reads will be humans doing analysis or exploration
 * less expensive bc optimizing for large volume i.e. can use slower object storage 📻 Macey 31:30
 * _warehouse_: analytics db e.g. Redshift
@@ -628,6 +668,7 @@ LINTING
 
 ---
 
+* schema introspection https://highgrowthengineering.substack.com/p/why-is-dbt-so-important-
 * https://github.com/centerofci/mathesar 🗄 dataclerk
 * repos that need: golf, bookcase
 
@@ -907,7 +948,7 @@ ROLES
 
 STREAMING / BLOCKING 🗄 `computation.md` serialization
 * https://www.scattered-thoughts.net/
-* https://github.com/ynqa/sig?ref=terminaltrove
+* https://github.com/ynqa/sig
 * blocking
 * https://ossinsight.io/blog/why-we-choose-tidb-to-support-ossinsight/
 * async https://www.b-list.org/weblog/2022/aug/16/async https://www.youtube.com/watch?v=bw1qeMoFBmw https://www.youtube.com/watch?v=0z74b3c63GA
@@ -917,7 +958,7 @@ STREAMING / BLOCKING 🗄 `computation.md` serialization
 * https://simonwillison.net/2021/Jul/1/pagnis/ https://news.ycombinator.com/item?id=38167423
 * forum software in 500 lines or less https://news.ycombinator.com/item?id=33153152
 > what is the relationship bte Kafka and faust? https://www.youtube.com/watch?v=Ik1PBbCWcTc
-> is flink streaming or batch? https://github.com/apache/flink
+> is flink streaming or batch? https://github.com/apache/flink https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
 > what is windowing? https://www.scattered-thoughts.net/writing/against-sql
 batch vs. streaming https://robertheaton.com/2020/02/08/pfab9-batch-vs-stream-processing/ 📙 Kleppmann section 3 🗄 `application.md` WebSocket
 > 📍 batch to ETL, streaming to where?
@@ -944,20 +985,3 @@ File.open("samplelog.txt").each_line do |l|
   stats = add_message_to_stats(message, stats)
 end
 ```
-
-## taxonomy
-
-DATA TYPES
-* _hot storage_: in-mem
-* _cold storage_: analytics, archives https://github.com/tembo-io/pg_tier
-* _data tiering_: moving cold data to (cheaper) cold storage https://github.com/tembo-io/pg_tier
-
-DATA SIZE
-* MB = Excel, nGB-1TB = Postgres, >5TB = Hadoop https://www.chrisstucchio.com/blog/2013/hadoop_hatred.html
-* typical dbms can fit 100M records in single table https://news.ycombinator.com/item?id=36038321
-* _big data_: can't fit into normal dbms
-* _small data_: can fit on a phone (so, half a terabyte) https://simonwillison.net/2021/Jul/22/small-data/
-* complete works of Shakespeare only 5.5 MB 📙 Conery [345]
-* ways of thinking about data sizes: 1MB vs. 1M seconds (12 days) 1GB vs. 1B seconds (31 years) 1TB vs. 1T seconds (317 centuries) 📙 Conery [345]
-> the term Big Data is so over-used and under-defined that it is not useful in a serious engineering discussion. 📙 Kleppmann 1.9
-> There are diminishing returns to the amount of information you can extract from data. The tenth gigabyte is worth much less than the second gigabyte. https://www.evanmiller.org/small-data.html
