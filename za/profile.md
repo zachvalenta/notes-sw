@@ -36,6 +36,106 @@ NEXT 🗄️ `something`
 * _16_: Zipcode, offers (JPMC, WSFS)
 * _15_: start, CSS hell, Buy Buy China consulting
 
+# 🛣️ ROADMAP
+
+PROJECTS
+* _pymus_: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/ https://rapidapi.com/collection/lyrics-apis https://aosabook.org/en/v1/audacity.html
+* _Sk8list_: Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
+* pytest plugin for ward
+* TUI for Websters 1913
+* TUI for BYO dictionary
+* searchable: CWT, PG
+* book notes: Kleppmann, Jeffrey
+> Python, Distributed
+* dataclerk
+* sports betting
+* city data https://www.youtube.com/watch?v=fHsMZ3cuMhU
+* Piedmont https://datasette.io/for/exploratory-analysis
+
+## ️ denv
+
+### general
+
+- [x] prompt: oh-my-posh
+- [x] readline: vi mode
+- [x] shell: atuin
+- [ ] autojump
+- [ ] superfile
+- [ ] Git: lazygit
+- [ ] keyboard: retry nuphy | order backup
+
+ZELLIJ
+- [x] recreate iterm home layout
+
+### code
+
+FEEDBACK
+> 📍 port in commit msg when you get to this
+- [x] feedback: think through notebook usage
+> yes: Ramalho + notes + REPL | repo + doctest https://github.com/fluentpython/example-code-2e/tree/master/01-data-model
+> no: org mode (adoption time) notebooks (dont need visualizations, wordiness of notes needs density of editor)
+- [ ] feedback: REPL - iPython
+- [ ] feedback: REPL - util
+- [ ] feedback: debugger (algos sandbox) +️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
+
+EDITOR
+- [x] editor: VS Code interpreter selection for Poetry
+- [ ] Neovim: LSP
+
+STDLIB
+- [x] ward
+- [x] ruff
+- [ ] doctest
+
+### data
+
+- [x] tooling in general
+- [x] research BI
+- [x] rf dataframes: Ibis/Polars + Arrow
+- [x] rf eng (eng/admin/analytics)
+- [x] miller put columns
+- [x] csvkit
+- [x] dataframes, import Arrow from protocols.md
+- [x] query engines
+- [x] research R
+- [x] start Polars
+- [ ] sandbox: sandbox
+> dataset repo, pick single dataset, rf `sql.md` + use case for notebooks + chance to learn Pandas/Polars/Ibis?
+- [ ] tooling: dbcli
+- [ ] tooling: evaluate harlequin
+- [ ] Spark
+
+## interviewing
+
+### Python
+
+- [ ] collections 📙 Ramalho ch. 2-3, 18
+- [ ] functions 📙 Ramalho ch. 7, 9-10
+> decorator, lambda, generator https://roadmap.sh/python
+- [ ] classes 📙 Ramalho ch. 1, 5, 11-14, 16, 22-24
+- [ ] obj 📙 Ramalho ch. 6
+
+### algos
+
+- [ ] rf notes
+- [ ] rf fs
+- [ ] repo/core 🗄️ `sandbox/src` miscellaneous, thirty
+
+### senior eng
+
+- [ ] roadmap.sh
+- [ ] architecture/system.md
+- [ ] svc/src.md
+- [ ] svc/test.md
+- [ ] AWS SA
+- [ ] AWS ML
+- [ ] AWS data eng
+
+COMMS
+- [x] fix existing webcam
+- [ ] setup better webcam
+- [ ] personal site
+
 # 💰 JOB MARKET
 
 🗄
@@ -46,6 +146,7 @@ NEXT 🗄️ `something`
 ## commits
 
 RECENT
+* logs
 * denv
 * dot
 * rm powerline: pipx, config/symlink
@@ -70,79 +171,14 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 * https://github.com/Canop/broot/issues/86#issuecomment-573197384
 * https://dystroy.org/broot/install-br/
 
-## skills
-
-> get to composer 2025
-
-DENV - GENERAL
-- [x] prompt: oh-my-posh
-- [x] shell: atuin
-- [ ] multiplex: Zellij
-- [ ] Git: lazygit
-- [ ] keyboard: retry nuphy | order backup
-
-DENV - PYTHON
-> 📍 port in commit msg when you get to this
-- [x] feedback: think through notebook usage
-> yes: Ramalho + notes + REPL | repo + doctest https://github.com/fluentpython/example-code-2e/tree/master/01-data-model
-> no: org mode (adoption time) notebooks (dont need visualizations, wordiness of notes needs density of editor)
-- [ ] feedback: REPL - iPython
-- [ ] feedback: REPL - util
-- [ ] feedback: debugger (algos sandbox) +️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
-- [ ] Neovim: LSP
-- [x] editor: VS Code interpreter selection for Poetry
-- [ ] stdlib: doctest
-- [ ] stdlib: lint
-- [ ] stdlib: ward
-
-DENV - DATA
-- [x] tooling in general
-- [x] research BI
-- [x] rf dataframes: Ibis/Polars + Arrow
-- [x] rf eng (eng/admin/analytics)
-- [ ] sandbox: sandbox
-> dataset repo, pick single dataset, rf `sql.md` + use case for notebooks + chance to learn Pandas/Polars/Ibis?
-- [ ] tooling: dbcli
-- [ ] tooling: evaluate harlequin
-- [ ] BI: distributions
-- [ ] Spark
-
-INTERVIEWING - SENIOR ENG
-- [ ] roadmap.sh
-- [ ] architecture/system.md
-- [ ] svc/src.md
-- [ ] AWS SA
-- [ ] AWS ML
-- [x] fix existing webcam
-- [ ] setup better webcam
-- [ ] personal site
-
-INTERVIEWING - CODE MONKEY
-- [ ] Python: collections 📙 Ramalho ch. 2-3, 18
-- [ ] Python: functions 📙 Ramalho ch. 7, 9-10
-> decorator, lambda, generator https://roadmap.sh/python
-- [ ] Python: classes 📙 Ramalho ch. 1, 5, 11-14, 16, 22-24
-- [ ] Python: obj 📙 Ramalho ch. 6
-- [ ] algos: rf notes
-- [ ] algos: rf fs
-- [ ] algos: repo/core 🗄️ `sandbox/src` miscellaneous, thirty
-
-PROJECTS
-* _pymus_: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/ https://rapidapi.com/collection/lyrics-apis https://aosabook.org/en/v1/audacity.html
-* _Sk8list_: Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
-* pytest plugin for ward
-* TUI for Websters 1913
-* TUI for BYO dictionary
-* book notes: Kleppmann, Jeffrey
-> Python, Distributed
-* dataclerk
-* sports betting
-* city data https://www.youtube.com/watch?v=fHsMZ3cuMhU
-* Piedmont https://datasette.io/for/exploratory-analysis
-
 ## leads
 
 🗄 `sjk/jobs`
+
+COMPANIES
+- [ ] steady: Capp USA
+- [ ] reach: Composer
+> who else?
 
 NETWORK
 * LinkedIn contacts
