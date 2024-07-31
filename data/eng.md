@@ -254,9 +254,40 @@ ZA
 
 ### 🐻‍❄️ Polars
 
-📜 https://docs.pola.rs/
+📜 https://docs.pola.rs/ https://docs.pola.rs/api/python/stable/reference/index.html
 
 * faster than Pandas https://pola.rs/posts/benchmarks/
+
+COOKBOOK
+* za
+```python
+# IO
+pl.read_csv(path/to/csv, ignore_errors=True)
+pl.write_csv(path/to/csv, ignore_errors=True)
+
+# MALFORMATTED COLUMN HEADERS
+no_whitespace_or_period_delimit = r"^[^\s.-]+$"
+violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
+assert len(violations) > 0
+
+# REGEX
+df.filter(pl.col(COL).str.contains(REGEX).alias('regex'))
+```
+* null/empty col
+```python
+# EMPTY COLUMNS
+null_col_df = [col for col in df.columns if df[col].null_count() == df.height]
+assert bool(null_col_df) is True
+
+# NULLS
+df.filter(pl.col(COL).is_null())
+
+# VALUE NOT PRESENT IN COLUMN
+assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == 0
+
+# VALUE PRESENT IN EVERY COLUMN RECORD
+assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == lines_set.height
+```
 
 ---
 
@@ -466,7 +497,9 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 
 * compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
 * _Pandera_: type checking for dataframes https://endjin.com/blog/2023/03/a-look-into-pandera-and-great-expectations-for-data-validation https://www.peterbaumgartner.com/blog/testing-for-data-science/ https://www.union.ai/blog-post/pandera-joins-union-ai
+> From there, I create v2 of the schema, which adds Checks to the columns. Checks are information we gain after exploring the data - for example, whether a column should always be positive, whether the column name should be formatted a certain way, or whether a column should only contain certain values (e.g. a bool represented as a 0/1 int). https://www.peterbaumgartner.com/blog/testing-for-data-science/
 * _GX (Great Expectations)_: assert against schema https://github.com/great-expectations/great_expectations https://softwareengineeringdaily.com/2020/02/17/great-expectations-data-pipeline-testing-with-abe-gong/
+> If we're expecting to repetedly read in new data, I would recommend exploring Great Expectations. The killer feature of Great Expectations is that it will generate a template of tests for the data based on a sample set of data we give it, like pandera's `infer_schema` on steroids. Again, this is only a starting point for adding in future tests (or expectations), but can be really helpful in generating basic things to test. https://www.peterbaumgartner.com/blog/testing-for-data-science/
 * alternatives https://github.com/socialpoint-labs/sqlbucket https://github.com/sodadata/soda-core
 ```python
 validator.expect_column_values_to_not_be_null(column="passenger_count")
@@ -478,6 +511,7 @@ validator.expect_column_values_to_be_between(column="congestion_surcharge", min_
 ---
 
 SEMANTICS
+> https://github.com/pola-rs/polars
 > Ibis is a dataframe frontend to query engines https://ibis-project.org/
 > read all his posts https://maximilianmichels.com/page/4/ https://apache.org/index.html#projects-list
 > is Spark a query engine? seems like query engine + streaming + a bunch other stuff i.e. a congeries https://ibis-project.org/install
@@ -718,7 +752,7 @@ META
 * rename: `^`
 * mv: `H/L`
 * create blank: `za` https://jsvine.github.io/intro-to-visidata/intermediate/creating-new-columns
-* hide/remove: `-` / `gv`
+* hide/unhide: `-` / `gv`
 * expand width to fit text: `_` (single) `g_` (all)
 * shrink by 1/2: `z-`
 * expand json: `()`
