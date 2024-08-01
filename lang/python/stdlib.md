@@ -1506,6 +1506,22 @@ PROCESS EXEC https://martinheinz.dev/blog/98 🗄️ `infra.md` IaC / remote exe
 * _suby_: https://github.com/pomponchik/suby
 * _Sultan_: https://github.com/aeroxis/sultan https://stackoverflow.com/a/56842257/6813490
 
+PATHLIB
+* https://realpython.com/python-pathlib/
+* https://treyhunner.com/2018/12/why-you-should-be-using-pathlib/
+* https://treyhunner.com/2019/01/no-really-pathlib-is-great/
+```python
+# ACCESS
+Path.cwd()
+Path.cwd().parent
+Path.cwd().parent / 'subdir'
+
+# ASSERTIONS
+Path.exists(Path.cwd())
+Path.is_dir(Path.cwd() / 'sub1' / 'sub2')
+Path.is_file(Path.cwd() / 'sub1' / 'sub2' / 'foo.csv')
+```
+
 ----
 
 ```python
@@ -1517,7 +1533,6 @@ os.mkdir(os.path.join(os.getcwd(), dir_name))
 * _path-like object_: https://docs.python.org/3/glossary.html#term-path-based-finder
 
 * _check Python version from script_: `sys.version` https://stackoverflow.com/a/1093331/6813490
-* _sink_: https://realpython.com/python-pathlib/ https://treyhunner.com/2018/12/why-you-should-be-using-pathlib/ https://treyhunner.com/2019/01/no-really-pathlib-is-great/
 * _why path libs are useful_: avoid dealing with different directory delimiters per OS [Sweigart automate 8.174]
 * _how to represent paths_: Python can represent paths as strings (like os) https://realpython.com/python-pathlib/#the-problem-with-python-file-path-handling but Pathlib doesn't https://snarky.ca/why-pathlib-path-doesn-t-inherit-from-str/ in Python 2 binary and textual data were implicitly compatible and that caused problems https://snarky.ca/why-pathlib-path-doesn-t-inherit-from-str/
 * _Pathlib_: most functionality in `path`
