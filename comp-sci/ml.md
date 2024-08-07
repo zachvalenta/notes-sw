@@ -13,7 +13,18 @@
 
 ## 进步
 
+REPOS
+https://www.freecodecamp.org/news/get-started-with-hugging-face/
+https://huggingface.co/stabilityai/stable-diffusion-3-medium
+https://realpython.com/huggingface-transformers/
+
+RAG, vector https://news.ycombinator.com/item?id=41105130
+
+* _24_: start using for dev (regex, stdlib)
+
 # 🧪 TECHNIQUES
+
+🔗 https://github.com/ritchie46/vanilla-machine-learning
 
 ## KNN
 
@@ -186,6 +197,8 @@ https://stratechery.com/2023/ai-and-the-big-five/
 ## chat
 
 OPTIONS
+* benchmark https://arena.lmsys.org/
+* _ChatGPT_: need to ugrade macOS to get access to desktop app
 * code: https://ollama.com/blog/python-javascript-libraries
 * _Gemma_: https://ai.google.dev/gemma
 * _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model)
@@ -199,14 +212,17 @@ PROMPTS https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sim
 
 ---
 
+https://treyhunner.com/2024/07/chatgpt-and-claude-from-your-browser-url-bar/
 building into projects https://news.ycombinator.com/item?id=40857589
 
 LOCAL
+https://github.com/ggozad/oterm
 * https://llm.datasette.io/en/stable/
 * https://github.com/khoj-ai/khoj
 * https://github.com/darrenburns/elia
 * https://github.com/sigoden/aichat
 * https://datasette.io/tools/llm
+* https://github.com/aandrew-me/tgpt
 * llamafile https://news.ycombinator.com/item?id=40424519
 * BYO https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset
 
@@ -219,15 +235,11 @@ ZA
 * customization prompt https://news.ycombinator.com/item?id=40474716
 * telemetry https://github.com/dagworks-inc/burr?tab=readme-ov-file
 
-REPOS
-https://www.freecodecamp.org/news/get-started-with-hugging-face/
-https://huggingface.co/stabilityai/stable-diffusion-3-medium
-https://github.com/ggozad/oterm
-https://arena.lmsys.org/
-
 ## code assist
 
 ---
+
+https://github.com/guywaldman/magic-cli https://news.ycombinator.com/item?id=40980715
 
 wilder, vimgpt https://www.youtube.com/watch?v=WeulqMMJgrs
 
@@ -263,6 +275,8 @@ https://www.youtube.com/watch?v=dkV01hBdhZE
 * Suno https://www.garbageday.email/p/suno-just-raised-lot-money
 
 # 🟨️ ZA
+
+* _OCR_: image to text https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194
 
 ---
 
@@ -398,7 +412,7 @@ SEMANTICS
 
 ## projects
 
-* Iris dataset https://www.youtube.com/results?search_query=iris+dataset
+* Iris dataset https://www.youtube.com/results?search_query=iris+dataset https://docs.pola.rs/user-guide/misc/visualization/#altair
 * get familiar https://simonwillison.net/2024/Apr/17/ai-for-data-journalism/
 * https://www.freecodecamp.org/news/customer-segmentation-python-machine-learning/
 * https://archive.vn/073bS
@@ -412,3 +426,6 @@ SEMANTICS
 * to synthesize all comments on a product into a blurb https://blog.untrod.com/2024/04/llm-chatgpt-powered-django-admin-fields.html
 * copyedit a novel https://blog.untrod.com/2023/06/copy-editing-a-novel-with-chatgpt.html
 * audio prompt + voice cloning for answer https://blog.untrod.com/2023/11/robot-dad.html https://elevenlabs.io/
+* vocals https://audimee.com/
+* analyze research papers https://elicit.com/
+* IFTTT https://news.ycombinator.com/item?id=41059821 https://en.wikipedia.org/wiki/IFTTT

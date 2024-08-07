@@ -234,6 +234,7 @@ services:
 
 ---
 
+* alternative https://github.com/F1bonacc1/process-compose
 * _lifecycle hook_: hook on container status https://github.com/afroisalreadyinu/miniboss
 * running multiple instances of single service, restart policy https://www.youtube.com/watch?v=aetqo2nkQcA 1:40 https://github.com/willfarrell/docker-autoheal
 * read this https://nickjanetakis.com/blog/best-practices-around-production-ready-web-apps-with-docker-compose

@@ -741,6 +741,7 @@ za
 
 * app stores are a pain https://news.ycombinator.com/item?id=33632468
 * automate app submission https://github.com/fastlane/fastlane
+* Android has bad dev experience https://news.ycombinator.com/item?id=41062292
 
 Apple ID
 * tied to user/device

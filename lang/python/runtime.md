@@ -176,7 +176,7 @@ ZA
 * reproducibility https://jvns.ca/blog/2017/11/12/binder--an-awesome-tool-for-hosting-jupyter-notebooks/ https://news.ycombinator.com/item?id=24943962
 * to Markdown https://github.com/mwouts/jupytext
 * alternatives https://zeppelin.apache.org/ https://github.com/ottomatica/docable-notebooks https://marimo.io/
-* design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch
+* design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch https://news.ycombinator.com/item?id=41045834
 
 ## REPL (iPython)
 
@@ -187,6 +187,7 @@ MAGIC
 
 INSPECT 📜 https://docs.python.org/3/library/inspect.html
 * rich vs. iypthon's `obj?` https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#exploring-your-objects
+* wat https://github.com/igrek51/wat
 ```python
 getsource(obj)  # view src code https://stackoverflow.com/a/1562795
 getfile(obj)  # filepath where obj defined
@@ -204,8 +205,15 @@ ZA (IPYTHON)
 * bad: no docstrong in autocomplete for `PYTHONSTARTUP` function
 * good: numbered prompts, pretty traceback, magic cmd, auto indent, autocomplete
 
+FEATURES
+* block-level history https://treyhunner.com/2024/05/my-favorite-python-3-dot-13-feature/
+* paste https://treyhunner.com/2024/05/my-favorite-python-3-dot-13-feature/
+* autocomplete
+* syntax highlighting
+* obj explorer
+* readline https://docs.python.org/3/tutorial/interactive.html#alternatives-to-the-interactive-interpreter
+
 ZA
-* features: autocomplete, syntax highlighting, obj explorer, readline https://docs.python.org/3/tutorial/interactive.html#alternatives-to-the-interactive-interpreter
 * 📍 load module: `$REPL -i $MODULE` https://stackoverflow.com/a/14244342 https://stackoverflow.com/a/56844640
 * silence version info: `python -q`
 * reload https://news.ycombinator.com/item?id=34865421
@@ -378,6 +386,7 @@ python $MODULE  # exec module https://realpython.com/run-python-scripts
 python -i $MODULE  # enter pdb after exec https://docs.python.org/3/using/cmdline.html#cmdoption-i
 python -m $LIB $CMD  # exec lib cmd https://docs.python.org/3/using/cmdline.html#cmdoption-m
 python -c "import $MOD; $MOD.$METHOD()"  # exec inline https://docs.python.org/3/using/cmdline.html#cmdoption-c
+python -c "from home import foo; foo.bye()"  # exec module w/in dir
 ```
 
 CALLABLE FROM TERMINAL
@@ -983,6 +992,7 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 
 start here https://www.youtube.com/watch?v=ftmdDlwMwwQ https://www.youtube.com/watch?v=X7vBbelRXn0
 coroutine https://docs.python.org/3/glossary.html#term-coroutine-function
+https://superfastpython.com/asyncio-event-loop-separate-thread/
 https://calpaterson.com/async-python-is-not-faster.html
 https://martinheinz.dev/blog/97
 https://higherorderco.com/
@@ -990,6 +1000,7 @@ https://www.amazon.com/gp/product/1492055026
 https://roadmap.sh/python
 https://hakibenita.com/django-concurrency
 https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sync-vs-async-in-python-tools-benchmarks-and-asgiwsgi-explained
+https://news.ycombinator.com/item?id=41001951
 
 * https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#overcoming-gil-with-subinterpreters-and-immutability
 * JIT https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#building-a-jit-compiler-for-cpython

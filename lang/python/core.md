@@ -21,6 +21,7 @@
 
 # 📍 CLEAN UP
 
+* https://treyhunner.com/2022/03/variables-objects-and-pointers-in-python/
 * https://realpython.com/python-lazy-evaluation/
 * https://www.pythonmorsels.com/cli-tools/
 * initialize vs. construct, __init__, __new__ https://www.fluentpython.com/lingo/#initializer https://www.fluentpython.com/lingo/#constructor

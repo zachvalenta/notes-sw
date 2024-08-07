@@ -183,6 +183,7 @@ DATASETS
 * music: https://musicbrainz.org/ https://www.kaggle.com/datasets/nolanbconaway/24169-pitchfork-reviews/data https://pudding.cool/2024/03/greatest-music/
 * population: https://simplemaps.com/data
 * scientific: https://news.ycombinator.com/item?id=27365755
+* weather https://github.com/blaylockbk/Herbie
 
 ## BI
 
@@ -208,6 +209,7 @@ TOOLS
 * _SQL Explorer_: 🎯 https://github.com/explorerhq/django-sql-explorer
 > Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
 * _Superset_: popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset
+* _Taipy_: https://github.com/Avaiga/taipy
 
 ## dataframe (?)
 
@@ -270,7 +272,8 @@ no_whitespace_or_period_delimit = r"^[^\s.-]+$"
 violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
 assert len(violations) > 0
 
-# REGEX
+# PREDICATES
+df.filter(pl.col(COL) == VAL)
 df.filter(pl.col(COL).str.contains(REGEX).alias('regex'))
 ```
 * null/empty col
@@ -444,6 +447,8 @@ ALTERNATIVES
 * built on Spark
 
 ## pipelines
+
+* `data/sql.md` migrations
 
 ---
 

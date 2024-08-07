@@ -101,6 +101,8 @@ COLOR
 * _named_: https://css-tricks.com/nerds-guide-color-web/
 
 INSPIRATION 🗄️ `sw/lang/html-css/design`
+* https://allaboutberlin.com/
+* https://lock.cmpxchg8b.com/watch.html
 * https://borretti.me/
 * https://maxlangenkamp.me/
 * https://anthonyhobday.com/sideprojects/saferules/
@@ -387,6 +389,7 @@ forms
 * `type`: text, file, submit; submit is only useful for input elements (button el default to submit anyway https://stackoverflow.com/a/10079197/6813490)
 * encrypt/password protect HTML https://github.com/robinmoisson/staticrypt
 * EME encrypted media extensions https://stackoverflow.com/questions/46212264/example-encrypted-media-extensions-encryption/46374671#46374671
+* email is hard https://news.ycombinator.com/item?id=41007403
 
 ## Markdown
 

@@ -1,26 +1,20 @@
-# 开
+# ⛩️
 
 ## 参考
 
 📙 Eloquent Javascript
 
-## now
+## 进步
 
-## next
-
----
-
-https://roadmap.sh/nodejs
+* https://roadmap.sh/nodejs
 * https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
 * perf https://hpbn.co/primer-on-web-performance/
-
-## done
 
 * _19_: Vue for Test Runner
 * _18_: Vue for Dark Canary demo app
 * _17_: Angular 1 for Case
 
-# FRAMEWORKS
+# 🪑 FRAMEWORKS
 
 * Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer
 
@@ -80,6 +74,8 @@ taxonomy
 * `system.md` API / approaches
 
 ---
+
+https://github.com/AnswerDotAI/fasthtml
 
 DESIGN
 * https://news.ycombinator.com/item?id=40847376
@@ -182,7 +178,7 @@ var app = new Vue({
 	el: '#root',
 ```
 
-# ZA
+# 🟨 ZA
 
 STATE
 * HTML over websockets https://news.ycombinator.com/item?id=26265999

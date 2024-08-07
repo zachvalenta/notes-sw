@@ -1,4 +1,4 @@
-# 开
+# ⛩️
 
 ## 参考
 
@@ -11,11 +11,7 @@
 * Skiena manual https://www.algorist.com/ https://fabiensanglard.net/algorithms_and_datastructures/index.php
 * Wengrow ds/algos
 
-## now
-
-## next
-
----
+## 进步
 
 fizz buzz
 fibonacci
@@ -122,8 +118,6 @@ print(get_config_value(configs, "prod"))
 * https://interviewing.io/
 * TripleByte
 
-## done
-
 * _21_: 📙 Trask chapters 1-3
 * _20_: 📙 Bhargava grokking
 * _19_: regex basics
@@ -204,6 +198,8 @@ ZA
 
 ---
 
+* semantic https://news.ycombinator.com/item?id=41088273 https://github.com/arunsupe/semantic-grep https://blog.elicit.com/semantic-search/
+* shazam https://github.com/cgzirim/seek-tune https://news.ycombinator.com/item?id=41127726
 * https://www.alexmolas.com/2024/02/05/a-search-engine-in-80-lines.html
 * _A*_: https://www.redblobgames.com/pathfinding/a-star/introduction.html 
 * _Bellman-Ford_: Dijkstra for negative-weighted [7.130]
@@ -211,6 +207,89 @@ ZA
 * _Dijkstra_: 🗄 `/algos` https://medium.com/basecs/finding-the-shortest-path-with-a-little-help-from-dijkstra-613149fbdc8e https://en.wikipedia.org/wiki/Dynamic_programming#Dijkstra's_algorithm_for_the_shortest_path_problem
 * _optimal stopping_: related to dynamic programming, Bellman 📙 Christian chapter 1 https://en.wikipedia.org/wiki/Optimal_stopping
 * _traveling salesperson(TSP)_: Bhargava 8.157 https://medium.com/basecs/the-trials-and-tribulations-of-the-traveling-salesman-56048d6709d seems like genetic algorithms are popular for this https://www.youtube.com/watch?v=9zfeTw-uFCw https://towardsdatascience.com/evolution-of-a-salesman-a-complete-genetic-algorithm-tutorial-for-python-6fe5d2b3ca35 https://www.quantamagazine.org/computer-scientists-break-traveling-salesperson-record-20201008/ https://news.ycombinator.com/item?id=24761105 https://joseprupi.github.io/misc/2023/08/19/playing_with_genetic_algorithms_in_python.html 📙 Christian chapter 8
+
+ENGINE 🗄 `za/search-engine` (port data to query sandbox)
+* BYO https://news.ycombinator.com/item?id=39293050 https://www.alexmolas.com/2024/02/05/a-search-engine-in-80-lines.html
+* _robots.txt_: file that tells crawlers what files to ignore https://adamj.eu/tech/2020/02/10/robots-tx https://pythonbytes.fm/episodes/show/376/every-dunder-method-in-a-python-lockbox
+* _PageRank_: ranking algo that weights on number of incoming links (and their popularity)
+* _instant answer_: display text from top result in overall results https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html
+* _indexer_: writes/updates keys https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html
+* _full text search (FTS)_: search all text https://en.wikipedia.org/wiki/Full-text_search 📙 Karwin ch 17
+* via db (Postgres) or specialized server (elasticsearch) https://news.ycombinator.com/item?id=27973497
+* BYO https://artem.krylysov.com/blog/2020/07/28/lets-build-a-full-text-search-engine/ https://bart.degoe.de/building-a-full-text-search-engine-150-lines-of-code/ https://github.com/codecrafters-io/build-your-own-x#build-your-own-search-engine
+* _meta search_: search metadata https://calpaterson.com/metadata.html
+* _index_: subset of terms http://jsomers.net/blog/allusion
+* Google has appox 60B documents indexed https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
+* usage in scholarship https://news.ycombinator.com/item?id=30407460
+```txt
+apple  - pg 3, 42
+banana - pg 27, 113
+```
+* _inverted index_: map w/ K as topic and V as pages (whether book or web) 📙 MacCormick 12, Bhargava 11.207 🗄 `db.md` indexing ❓ different than index?
+* _concordance_: all terms + snippet/full text from page https://www.opensourceshakespeare.org/concordance/
+```txt
+Wilt thou ever be a foul-mouthed and calumnious knave
+Virtue itself scopes not calumnious strokes.
+Theres none stands under more calumnious tongues
+```
+* _query_: what you're searching for
+* _page_: where you're looking; aka document https://0x65.dev/blog/2019-12-05/a-new-search-engine.html
+* _match_: page containing query 📙 MacCormick 11
+* _lexical match_: exact e.g. query 'eggplant' only matches 'eggplant'https://github.blog/2018-09-18-towards-natural-language-semantic-code-search/ 
+>  It was merely capable of answering queries that were an exact match to the queries we had in our query logs. Yes, that meant we didn’t have a "real" search-engine, but a glorified cache. https://0x65.dev/blog/2019-12-05/a-new-search-engine.html
+* _semantic match_: smart e.g. query 'eggplant' matches 'eggplant' and 'aubergine' https://0x65.dev/blog/2019-12-05/a-new-search-engine.html
+* anchor text from link tags a good way to get around document noise https://0x65.dev/blog/2019-12-05/a-new-search-engine.html#fn2
+> Anchor text, curated by humans, serves as a mini summary of the content of a page. By building an inverted index based on it rather than the entire content, one can achieve a significantly smaller and more importantly, less noisy index.
+```txt
+# noisy documents
+# query:	eggplant dishes
+
+* document:	Popular Youtuber eggplant dishes out a severe attack against the whole music industry
+* document:	I am not a fan of eggplant, but here are some zucchini dishes...
+* document:	Did you know that eggplant dishes cannot be refrigerated?
+```
+* _relevance_: order matches 📙 MacCormick 11
+* algos https://simonwillison.net/2020/Dec/19/dogsheep-beta/ 🗄 `algos.md` Levenshtein
+* aka ranking, content match https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
+* _query logs_: map of query to URL clicked e.g. query 'boxing' URL 'espn.com/boxing' https://0x65.dev/blog/2019-12-05/a-new-search-engine.html
+> Ranking is where it gets controversial. When you rank, you pick winners and losers. https://news.ycombinator.com/item?id=20286953
+> The big problem with all the off-the-shelf search solutions (RDBMS full-text search, ES, Algolia) is that search ranking is a complicated and subtle problem, and frequently depends on signals that are not in the document itself. Google's big insight is that how other people talk about a website is more important than how the website talks about itself, and its ranking algorithm weights accordingly. https://news.ycombinator.com/item?id=27978505
+* user feedback plays a part
+> we would need real users to measure changes in search relevance in order to be competitive https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
+* https://news.ycombinator.com/item?id=28558884 https://news.ycombinator.com/item?id=33051393
+```text
+# page 1
+# the dog stood at the mat
+# 1   2   3     4  5   6
+
+# page 2
+# the cat sat   at the mat
+# 1   2   3     4  5   6
+
+* the: 1, 2
+* dog: 1
+* stood: 1
+* at: 1, 2
+* mat: 1, 2
+* cat: 2
+* sat: 2
+```
+* _phrase query_: match on entire phrase vs. single words e.g. page must have 'Jesus Christ' and not just 'Jesus' and 'Christ"  📙 MacCormick 14
+* _word location_: location of word on page
+* enables phrase query 📙 MacCormick 15
+* _near query_: match on entire phrase within given proximity e.g. 'Jesus Christ' where 'Jesus' within n words of 'Christ' 📙 MacCormick 17
+* enables ranking 📙 MacCormick 18
+```text
+# e.g. query "cat sat" returns 2-2, 2-3
+
+* the: 1-1, 1-5, 2-1, 2-5
+* dog: 1-2
+* stood: 1-3
+* at: 1-4, 2-4
+* mat: 1-6, 2-6
+* cat: 2-2
+* sat: 2-3
+```
 
 ## sort
 
@@ -691,7 +770,7 @@ queue.append('alice')  # push aka queue
 queue.popleft()  # shift aka enque
 ```
 
-# ZA
+# 🟨 ZA
 
 * _y combinator_: https://news.ycombinator.com/item?id=27673177
 * cellular automaton, Conway's game of life https://en.wikipedia.org/wiki/Cellular_automaton https://robertheaton.com/2018/07/20/project-2-game-of-life/
@@ -757,89 +836,6 @@ Stockfish 10 at its top strength (without any level set) has a rating of about 3
 * impl: neural net + MCTS, learned only from the rules
 * OSS https://github.com/leela-zero/leela-zero https://github.com/LeelaChessZero/lc0
 * _AlphaZero_: OSS AlphaGoZero https://github.com/suragnair/alpha-zero-general
-
-SEARCH ENGINE 🗄 `za/search-engine` (port data to query sandbox)
-* BYO https://news.ycombinator.com/item?id=39293050 https://www.alexmolas.com/2024/02/05/a-search-engine-in-80-lines.html
-* _robots.txt_: file that tells crawlers what files to ignore https://adamj.eu/tech/2020/02/10/robots-tx https://pythonbytes.fm/episodes/show/376/every-dunder-method-in-a-python-lockbox
-* _PageRank_: ranking algo that weights on number of incoming links (and their popularity)
-* _instant answer_: display text from top result in overall results https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html
-* _indexer_: writes/updates keys https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html
-* _full text search (FTS)_: search all text https://en.wikipedia.org/wiki/Full-text_search 📙 Karwin ch 17
-* via db (Postgres) or specialized server (elasticsearch) https://news.ycombinator.com/item?id=27973497
-* BYO https://artem.krylysov.com/blog/2020/07/28/lets-build-a-full-text-search-engine/ https://bart.degoe.de/building-a-full-text-search-engine-150-lines-of-code/ https://github.com/codecrafters-io/build-your-own-x#build-your-own-search-engine
-* _meta search_: search metadata https://calpaterson.com/metadata.html
-* _index_: subset of terms http://jsomers.net/blog/allusion
-* Google has appox 60B documents indexed https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
-* usage in scholarship https://news.ycombinator.com/item?id=30407460
-```txt
-apple  - pg 3, 42
-banana - pg 27, 113
-```
-* _inverted index_: map w/ K as topic and V as pages (whether book or web) 📙 MacCormick 12, Bhargava 11.207 🗄 `db.md` indexing ❓ different than index?
-* _concordance_: all terms + snippet/full text from page https://www.opensourceshakespeare.org/concordance/
-```txt
-Wilt thou ever be a foul-mouthed and calumnious knave
-Virtue itself scopes not calumnious strokes.
-Theres none stands under more calumnious tongues
-```
-* _query_: what you're searching for
-* _page_: where you're looking; aka document https://0x65.dev/blog/2019-12-05/a-new-search-engine.html
-* _match_: page containing query 📙 MacCormick 11
-* _lexical match_: exact e.g. query 'eggplant' only matches 'eggplant'https://github.blog/2018-09-18-towards-natural-language-semantic-code-search/ 
->  It was merely capable of answering queries that were an exact match to the queries we had in our query logs. Yes, that meant we didn’t have a "real" search-engine, but a glorified cache. https://0x65.dev/blog/2019-12-05/a-new-search-engine.html
-* _semantic match_: smart e.g. query 'eggplant' matches 'eggplant' and 'aubergine' https://0x65.dev/blog/2019-12-05/a-new-search-engine.html
-* anchor text from link tags a good way to get around document noise https://0x65.dev/blog/2019-12-05/a-new-search-engine.html#fn2
-> Anchor text, curated by humans, serves as a mini summary of the content of a page. By building an inverted index based on it rather than the entire content, one can achieve a significantly smaller and more importantly, less noisy index.
-```txt
-# noisy documents
-# query:	eggplant dishes
-
-* document:	Popular Youtuber eggplant dishes out a severe attack against the whole music industry
-* document:	I am not a fan of eggplant, but here are some zucchini dishes...
-* document:	Did you know that eggplant dishes cannot be refrigerated?
-```
-* _relevance_: order matches 📙 MacCormick 11
-* algos https://simonwillison.net/2020/Dec/19/dogsheep-beta/ 🗄 `algos.md` Levenshtein
-* aka ranking, content match https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
-* _query logs_: map of query to URL clicked e.g. query 'boxing' URL 'espn.com/boxing' https://0x65.dev/blog/2019-12-05/a-new-search-engine.html
-> Ranking is where it gets controversial. When you rank, you pick winners and losers. https://news.ycombinator.com/item?id=20286953
-> The big problem with all the off-the-shelf search solutions (RDBMS full-text search, ES, Algolia) is that search ranking is a complicated and subtle problem, and frequently depends on signals that are not in the document itself. Google's big insight is that how other people talk about a website is more important than how the website talks about itself, and its ranking algorithm weights accordingly. https://news.ycombinator.com/item?id=27978505
-* user feedback plays a part
-> we would need real users to measure changes in search relevance in order to be competitive https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
-* https://news.ycombinator.com/item?id=28558884 https://news.ycombinator.com/item?id=33051393
-```text
-# page 1
-# the dog stood at the mat
-# 1   2   3     4  5   6
-
-# page 2
-# the cat sat   at the mat
-# 1   2   3     4  5   6
-
-* the: 1, 2
-* dog: 1
-* stood: 1
-* at: 1, 2
-* mat: 1, 2
-* cat: 2
-* sat: 2
-```
-* _phrase query_: match on entire phrase vs. single words e.g. page must have 'Jesus Christ' and not just 'Jesus' and 'Christ"  📙 MacCormick 14
-* _word location_: location of word on page
-* enables phrase query 📙 MacCormick 15
-* _near query_: match on entire phrase within given proximity e.g. 'Jesus Christ' where 'Jesus' within n words of 'Christ' 📙 MacCormick 17
-* enables ranking 📙 MacCormick 18
-```text
-# e.g. query "cat sat" returns 2-2, 2-3
-
-* the: 1-1, 1-5, 2-1, 2-5
-* dog: 1-2
-* stood: 1-3
-* at: 1-4, 2-4
-* mat: 1-6, 2-6
-* cat: 2-2
-* sat: 2-3
-```
 
 ## recursion
 

@@ -197,6 +197,8 @@ edit
 
 🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
 
+dev containers https://github.com/michidk/vscli
+
 THINGS I'M NOTICING ABOUT VSC
 * autocomplete works for any word in the workspace
 * prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421

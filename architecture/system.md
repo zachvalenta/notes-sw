@@ -10,6 +10,10 @@
 
 ---
 
+FACTORS
+* throughput, availability
+* data immutable (events, analytics)
+
 * db per tentant https://news.ycombinator.com/item?id=39004963
 * db per user https://news.ycombinator.com/item?id=38171322
 * https://maheshba.bitbucket.io/blog/2023/07/12/Design.html
@@ -544,7 +548,7 @@ in general
 * `aesthetics.md` design
 * `math.md` graphs
 
-TYPES
+TYPES https://news.ycombinator.com/item?id=41080189
 * _concept map_: https://cmap.ihmc.us/docs/learn.php
 * _DAG_: https://arthursonzogni.com/Diagon/#GraphDAG
 * _ERD_: syntax https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ 📙 Karwin [7] 🗄 `sql.md` utils

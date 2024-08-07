@@ -1067,14 +1067,14 @@ db files
 
 📜 https://sqlite.org/quirks.html
 
-components
+COMPONENTS
 * _SQLite_: library https://tech.marksblogg.com/sqlite3-tutorial-and-guide.html
 * Go port https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
 * plumbing https://jvns.ca/blog/2014/09/27/how-does-sqlite-work-part-1-pages/ https://jvns.ca/blog/2014/10/02/how-does-sqlite-work-part-2-btrees/
 * _sqlite3_: CLI
 * _sqlite3_: also the name of the Python lib/driver https://github.com/zachvalenta/sqlite3-demo https://github.com/zachvalenta/bookcase-sjk https://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html
 
-strong points https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html
+STRONG POINTS https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html
 * dbms in a C library
 * ACID-compliant
 * multithreaded https://sqlite.org/threadsafe.html
@@ -1083,8 +1083,9 @@ strong points https://unixsheikh.com/articles/sqlite-the-only-database-you-will-
 > This means that writers queue up. Each application does its database work quickly and moves on, and no lock lasts for more than a few milliseconds
 * file-based/serverless = good for unreliable network (smartphone, airplane)
 * db files can deal w/ TB https://news.ycombinator.com/item?id=24178013
+* faster than filesystem https://news.ycombinator.com/item?id=41085376
 
-limitations
+LIMITATIONS
 * auth https://news.ycombinator.com/item?id=36922518
 * files https://news.ycombinator.com/item?id=32146245
 * schema changes require downtime, PRAGMA https://news.ycombinator.com/item?id=31152490
@@ -1099,7 +1100,7 @@ EXTENSIONS
 * _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ https://www.philipotoole.com/building-a-highly-available-search-engine-using-sqlite/ 🗄 `algos.md` FTS
 * JSON https://dba.stackexchange.com/questions/122198/is-it-possible-to-store-and-query-json-in-sqlite https://news.ycombinator.com/item?id=30486052
 
-types
+TYPES
 * types: text, blob, null, int (whole num) real (decimal)
 * _class_: type for cell https://stackoverflow.com/a/3388158
 * _affinity_: type for attr

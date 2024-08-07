@@ -22,7 +22,7 @@ OPENTELEMETRY
 * https://andydote.co.uk/2023/09/19/tracing-is-better/
 
 UPTIME / HEALTHCHECK / HEARTBEAT
-* baseline
+* baseline https://healthchecks.io/
 * db connection https://www.youtube.com/watch?v=GT9WmExDbXQ
 * downstream services
 * aaS: UptimeRobot, Checkly, lcurl https://www.youtube.com/watch?v=um24VlkkqGo https://github.com/brotandgames/ciao
@@ -303,6 +303,7 @@ ZA
 * https://danluu.com/metrics-analytics/ https://www.kalzumeus.com/greatest-hits/ https://danluu.com/web-bloat https://thoughtbot.com/upcase/analytics-for-developers 
 
 CLICKHOUSE
+* https://github.com/azat/chdig
 * https://posthog.com/handbook/engineering/clickhouse
 * CLI https://clickhouse.com/docs/en/operations/utilities/clickhouse-local/ https://news.ycombinator.com/item?id=34071918
 * local https://clickhouse.com/blog/extracting-converting-querying-local-files-with-sql-clickhouse-local

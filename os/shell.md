@@ -10,11 +10,7 @@
 
 ## 进步
 
-OH-MY-POSH
-* put cursor on same line cwd
-* fix Git segment
-
-* _24_: oh-my-posh, atuin, vi mode
+* _24_: oh-my-posh, atuin, readline vi mode
 * _23_: big rf, Conery unix chapter, research Zellij
 * _22_: Fira Mono for iTerm font/icons, try starship, try/fail vi mode for readline, organize utils
 * _21_: line editor, fzf for bash history https://hacker-tools.github.io/lectures/
@@ -772,7 +768,7 @@ ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 ### history (atuin)
 
 LIBS
-* _atuin_: better UI https://github.com/atuinsh/atuin
+* _atuin_: better UI https://github.com/atuinsh/atuin https://docs.atuin.sh/
 * enter: `ctrl r`|up arrow
 * `ctrl r`: change search context (global, host, session, directory) https://www.youtube.com/watch?v=WB7qojkkVVU [7:45]
 * import will give everything a timestamp from moment of import https://www.youtube.com/watch?v=WB7qojkkVVU [4:40]
@@ -791,6 +787,7 @@ ZA
 * search, rm entries https://catonmat.net/the-definitive-guide-to-bash-command-line-history
 * dedupe, fmt https://martinheinz.dev/blog/110
 * in bash https://www.jefftk.com/p/logging-shell-history-in-zsh
+* comment for easier search https://news.ycombinator.com/item?id=41031837
 
 ---
 
@@ -913,6 +910,7 @@ FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/ https://news.yco
 
 ITERM 📜 https://iterm2.com/documentation.html
 https://news.ycombinator.com/item?id=35126280
+* can edit tab title
 * conf: `$HOME/.config/iterm2/AppSupport -> /Users/zach/Library/Application Support/iTerm2`
 * allow file access: security > full disk access
 * getting help https://gitlab.com/gnachman/iterm2/-/issues/7517
@@ -1081,6 +1079,7 @@ MONITORING
 SNIPPETS
 * live log view `tail -f foo.log`
 
+* clipboard manager https://github.com/Slackadays/Clipboard
 * copy output to clipboard : `<cmd> | pbcopy` https://github.com/Slackadays/Clipboard
 * copy file to clipboard: `pbcopy < ~/.ssh/id_rsa.pub`
 
@@ -1256,10 +1255,10 @@ ALTERNATIVES
 
 * `.bash_profile` aliases
 * BYO https://news.ycombinator.com/item?id=22853119
-* _autojump_: mature https://github.com/wting/autojump
+* _autojump_: 🎯 mature https://github.com/wting/autojump
 * _wd_: manually add https://github.com/mfaerevaag/wd
 * _z_: https://github.com/rupa/z
-* _zoxide_: tried out and init in zsh didn't work, requires fzf https://github.com/ajeetdsouza/zoxide
+* _zoxide_: ❌ tried out and init in zsh didn't work, requires fzf https://github.com/ajeetdsouza/zoxide
 
 ### list (exa)
 

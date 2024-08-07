@@ -67,6 +67,7 @@ ZA
 
 KEYBOARDS https://shifthappens.site/#story-of-a-photo
 * keychron https://archive.vn/pjhjh
+* happy hacking https://duarteocarmo.com/blog/happy-hacking-keyboard-review
 * tray https://www.amazon.com/VIVO-Computer-Keyboard-Platform-MOUNT-KB05E/dp/B07HFDJCSL
 * mechanical https://www.youtube.com/results?search_query=mechanical+keyboard+for+macos https://www.reddit.com/r/MechanicalKeyboards/comments/89fbk4/whats_all_the_hype_about_mechanical_keyboards_im/?rdt=56069
 * mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 try this one https://nuphy.com/products/halo75?variant=40300388941933 https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/

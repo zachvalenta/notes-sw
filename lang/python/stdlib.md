@@ -136,7 +136,9 @@ OPTIONS
 * _phlare_: https://martinheinz.dev/blog/89
 * _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
 * _timeit_: https://www.pythonmorsels.com/cli-tools/
+* _instruments_: https://registerspill.thorstenball.com/p/did-you-know-about-instruments
 
+performance tests https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
 ebpf https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
 https://www.pythonmorsels.com/cli-tools/
 
@@ -499,7 +501,9 @@ def test_foo():
 ## tox
 
 * test against multiple Python versions
-* _nox_: https://sethmlarson.dev/nox-pyenv-all-python-versions https://github.com/wntrblm/nox https://hynek.me/articles/why-i-like-nox
+* https://github.com/maelstrom-software/maelstrom
+* https://hynek.me/articles/turbo-charge-tox/
+* _nox_: https://sethmlarson.dev/nox-pyenv-all-python-versions https://github.com/wntrblm/nox https://hynek.me/articles/why-i-like-nox https://hynek.me/articles/why-i-like-nox/
 * parallelize https://blog.sentry.io/2022/11/14/how-we-run-our-python-tests-in-hundreds-of-environments-really-fast/ split list https://realpython.com/how-to-split-a-python-list-into-chunks/
 * https://realpython.com/python-testing/#testing-in-multiple-environments https://www.andreagrandi.it/2019/02/21/skipping-tests-depending-python-version/ https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/
 ```sh

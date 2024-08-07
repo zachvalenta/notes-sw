@@ -401,6 +401,7 @@ echo '{ "user": { "name": "john", "age": 10 } }' | http httpbin.org/post
 
 CURL
 * https://github.com/rs/curlie
+* https://martinheinz.dev/blog/113
 * guide https://catonmat.net/cookbooks/curl https://everything.curl.dev/
 ```sh
 # basic
@@ -466,6 +467,27 @@ WWW
 
 ## email
 
+PROTCOLS https://news.ycombinator.com/item?id=22989186 https://valyent.substack.com/p/build-your-own-smtp-server-in-go
+* _mbox_: Gmail export fmt; most clients support if they support IMAP https://www.quora.com/How-can-one-open-mbox-files-on-Mac viewer https://softwarerecs.stackexchange.com/q/11177
+* _SMTP_: used for sending and receiving emails between mail servers https://nullprogram.com/blog/2017/06/15/ https://jetmore.org/john/code/swaks/
+* _IMAP_: allows users to read and manage emails directly from the server
+* _POP3_: downloads emails from the server to the local device, typically removing them from the server
+* _JMAP_: email protocol https://fastmail.blog/2018/12/27/jmap-is-on-the-home-straight/ https://news.ycombinator.com/item?id=36127703
+
+GMAIL ALTERNATIVES 🗄 `security.md` privacy
+* don't bikeshed https://news.ycombinator.com/item?id=23423548 bc accounts tied to email are hard to move https://news.ycombinator.com/item?id=24245817
+* howto: try out new service with some newsletters and the zjayv.com domain
+> eventually: clean out Gmail, export business/personal to separate accounts, and then can continually export personal to local mbox viewer
+* why: search ('in:sent label:personal' doesn't show recent emails w/ YQ or Ellen but 'in:sent' shows)
+* why: lose account https://news.ycombinator.com/item?id=24791357 https://news.ycombinator.com/item?id=34581090
+* why not: works well, only marginal return for time invested, apparently Gmail search is better than others https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/
+* _Hey_: https://www.hey.com/
+* _Fastmail_: https://news.ycombinator.com/item?id=24245817
+
+---
+
+* _Maddy_: send email https://blog.healthchecks.io/2023/08/notes-on-self-hosted-transactional-email/
+
 SPF, DKIM, and DMARC https://news.ycombinator.com/item?id=40708476
 * content/templates https://news.ycombinator.com/item?id=40280490
 * archive: Mailstore https://news.ycombinator.com/item?id=34070957 sync https://news.ycombinator.com/item?id=27446156
@@ -477,18 +499,6 @@ SPF, DKIM, and DMARC https://news.ycombinator.com/item?id=40708476
 for SMB
 * https://myemma.com/
 * https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
-
-Gmail alternatives 🗄 `security.md` privacy
-* don't bikeshed https://news.ycombinator.com/item?id=23423548 bc accounts tied to email are hard to move https://news.ycombinator.com/item?id=24245817
-* howto: try out new service with some newsletters and the zjayv.com domain
-> eventually: clean out Gmail, export business/personal to separate accounts, and then can continually export personal to local mbox viewer
-* why: search ('in:sent label:personal' doesn't show recent emails w/ YQ or Ellen but 'in:sent' shows)
-* why: lose account https://news.ycombinator.com/item?id=24791357 https://news.ycombinator.com/item?id=34581090
-* why not: works well, only marginal return for time invested, apparently Gmail search is better than others https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/
-* _Hey_: https://www.hey.com/
-* _Fastmail_: https://news.ycombinator.com/item?id=24245817
-
----
 
 https://github.com/charmbracelet/pop
 
@@ -509,12 +519,6 @@ backup
 * _manual_: Gmail export
 * _automated_: https://news.ycombinator.com/item?id=22846851
 * _reading old email_: periodic export from Gmail, `neomutt -f <file>.mbox` https://askubuntu.com/a/114083 can also just read old email and convert to docs like `hu-xiaodi.md`
-
-protcols https://news.ycombinator.com/item?id=22989186
-* _mbox_: Gmail export fmt; most clients support if they support IMAP https://www.quora.com/How-can-one-open-mbox-files-on-Mac viewer https://softwarerecs.stackexchange.com/q/11177
-* _SMTP_: https://nullprogram.com/blog/2017/06/15/ https://jetmore.org/john/code/swaks/
-* _IMAP_: 
-* _JMAP_: email protocol https://fastmail.blog/2018/12/27/jmap-is-on-the-home-straight/ https://news.ycombinator.com/item?id=36127703
 
 components https://www.youtube.com/watch?v=obY1um6ehDM https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/
 * _client_: CLI (mutt, neomutt, aerc) native (macOS, Thunderbird requires extension https://askubuntu.com/a/912985) -> neomutt seems like only viable option https://www.youtube.com/watch?v=2U3vRbF7v5A Emacs https://www.erichgrunewald.com/posts/setting-up-gmail-in-doom-emacs-using-mbsync-and-mu4e/

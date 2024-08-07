@@ -67,7 +67,7 @@ void main() {
 * characterization, snapshot, golden-master https://news.ycombinator.com/item?id=23268911
 
 TLA+
-* https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2 https://nchammas.com/writing/how-not-to-die-hard-with-hypothesis hypothesis testing https://github.com/pandera-dev/pandera https://pandera.readthedocs.io/en/stable/hypothesis.html#hypothesis Pact, contract testing https://www.thoughtworks.com/radar/tools?blipid=202110074 Jepsen https://news.ycombinator.com/item?id=38525968&utm_term=comment https://tratt.net/laurie/blog/2024/what_factors_explain_the_nature_of_software.html
+* https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2 Pact, contract testing https://www.thoughtworks.com/radar/tools?blipid=202110074 Jepsen https://news.ycombinator.com/item?id=38525968&utm_term=comment https://tratt.net/laurie/blog/2024/what_factors_explain_the_nature_of_software.html
 
 ## fuzz
 
@@ -100,6 +100,10 @@ def test_addOne(_input):
 ```
 
 ZA
+> If we have a function that operates on data and have a hard time figuring out what to test, hypothesis is a great library that can help. Rather than explicitly state the exact objects you want to run through a test, hypothesis generates examples of inputs that follow certain properties you define. https://www.peterbaumgartner.com/blog/testing-for-data-science/
+* https://nchammas.com/writing/how-not-to-die-hard-with-hypothesis
+* https://github.com/pandera-dev/pandera
+* https://pandera.readthedocs.io/en/stable/hypothesis.html#hypothesis 
 * https://pandera.readthedocs.io/en/stable/hypothesis.html#hypothesis
 * https://increment.com/testing/in-praise-of-property-based-testing/
 * https://datascience.blog.wzb.eu/2019/11/08/property-based-testing-for-scientific-code-in-python/

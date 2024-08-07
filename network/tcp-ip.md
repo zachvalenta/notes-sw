@@ -99,6 +99,7 @@ tools - capture
 * _netcat_: https://stackoverflow.com/a/4777309/6813490 https://blog.ikuamike.io/posts/2021/netcat/ https://www.youtube.com/watch?v=CHVcVNb5rP4
 * _socat_: https://stackoverflow.com/a/4777309/6813490 https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * _nmap_: check if anything listening on port
+* port scanner https://github.com/RustScan/RustScan
 * _sink_: https://github.com/imsnif/bandwhich https://robertheaton.com/2020/02/05/wacom-drawing-tablets-track-name-of-every-application-you-open/ https://github.com/rhaidiz/broxy https://news.ycombinator.com/item?id=22394708
 
 # ZA

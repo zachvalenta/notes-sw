@@ -109,6 +109,7 @@ STDLIB
 
 ### Python
 
+- [ ] iterators
 - [ ] collections 📙 Ramalho ch. 2-3, 18
 - [ ] functions 📙 Ramalho ch. 7, 9-10
 > decorator, lambda, generator https://roadmap.sh/python
@@ -147,7 +148,6 @@ COMMS
 
 RECENT
 * logs
-* denv
 * dot
 * rm powerline: pipx, config/symlink
 * bin + repos

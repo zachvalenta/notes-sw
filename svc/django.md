@@ -789,6 +789,7 @@ ps aux | head --lines=1 && ps aux | grep 'manage.py runserver' | kill
 https://learndjango.com/tutorials/essential-django-3rd-party-packages
 https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-django
 
+* reports https://github.com/RamezIssac/django-slick-reporting
 * _3rd-party apps_: anything installed by adding to `settings.py/INSTALLED_APPS` https://djangopackages.org https://realpython.com/installable-django-app/
 * _analytics_: https://github.com/jazzband/django-analytical
 * _backups_: https://github.com/django-dbbackup/django-dbbackup
