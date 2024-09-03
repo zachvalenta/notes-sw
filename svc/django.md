@@ -540,6 +540,7 @@ migrate <app> <num>  # rollback
 migrate <app>        # reapply
 ```
 clean up
+* https://github.com/kennethlove/django-migrator
 * https://www.youtube.com/watch?v=mnr_fJhbMzc
 * https://django-migration-zero.readthedocs.io/en/latest/
 * https://docs.djangoproject.com/en/3.0/howto/initial-data/
@@ -812,7 +813,7 @@ https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-djan
 * _perf_: https://openfolder.sh/django-faster-speed-tutorial
 * _rate limiting_: https://github.com/jsocol/django-ratelimit
 * _search_: https://findwork.dev/blog/optimizing-postgres-full-text-search-django/ https://www.youtube.com/watch?v=is3R8d420D4 https://youtu.be/is3R8d420D4 https://jamesturk.net/posts/websearch-in-django-31 https://www.youtube.com/watch?v=kOKwEDHeBX4 https://github.com/ivelum/djangoql https://pganalyze.com/blog/full-text-search-django-postgres Haystack https://django-q.readthedocs.io/en/latest/examples.html https://github.com/etianen/django-watson https://www.paulox.net/2017/12/22/full-text-search-in-django-with-postgresql https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ sort https://rednafi.com/python/sort_by_a_custom_sequence_in_django/ https://www.photondesigner.com/articles/database-search-django-htmx
-* _secrets_: https://github.com/LeeHanYeong/django-secrets-manager
+* _secrets_: https://github.com/LeeHanYeong/django-secrets-manager https://adamj.eu/tech/2024/08/30/django-rotate-secret-key/
 * _SEO_: https://github.com/kapt-labs/django-check-seo https://github.com/kapt-labs/django-check-seo https://learndjango.com/tutorials/django-sitemap-tutorial
 * _sessions_: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Sessions https://www.youtube.com/watch?v=SMRaHSZiwWE https://eli.thegreenplace.net/2011/06/24/how-django-sessions-work-introduction/
 * _Swagger_: https://github.com/axnsan12/drf-yasg
@@ -866,6 +867,7 @@ INSTALLED_APPS = [
 
 ## templates
 
+* components https://github.com/wrabit/django-cotton
 * https://django-formset.fly.dev/
 * https://girlthatlovestocode.com/django-template-tags
 * charting https://www.youtube.com/watch?v=B4Vmm3yZPgc
@@ -938,6 +940,7 @@ python3 manage.py test app.tests.tests.mod.cls:my_method  # method
 
 🗄 `security.md` users
 
+* email https://github.com/carltongibson/django-unique-user-email
 * https://github.com/zsoldosp/django-currentuser
 * custom user model https://brntn.me/blog/six-things-i-do-every-time-i-start-a-django-project/
 * https://simpleisbetterthancomplex.com/article/2021/07/08/what-you-should-know-about-the-django-user-model.html

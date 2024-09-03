@@ -250,11 +250,13 @@ HISTORY https://increment.com/programming-languages/language-history/
 * _1957_: Fortran (IBM); still the best for math https://news.ycombinator.com/item?id=14498904 Python better? https://cerfacs.fr/coop/fortran-vs-python role in Python https://labs.quansight.org/blog/building-scipy-with-flang
 * _1958_: Lisp (MIT)
 * _1959_: Cobol; process transactions
+* _1963_: BASIC https://en.wikipedia.org/wiki/BASIC https://en.wikipedia.org/wiki/Pick_operating_system
 * _1972_: C (Bell Labs) Smalltalk (Xerox Parc) 
 * _1985_: C++ (Bell Labs)
 * _1990_: Python
 * _1993_: Lua
 * _1995_: Java (Sun) JS (Netscape) Ruby (Matz) https://twobithistory.org/2017/11/19/the-ruby-story.html
+* _1996_: OCaml https://ocaml.org/ https://crmarsh.com/intro-to-ocaml/ https://crmarsh.com/ocaml-dev-environment/
 * _2015_: Rust
 * _2016_: Zig
 
@@ -285,12 +287,13 @@ HISTORY https://increment.com/programming-languages/language-history/
 * dataframes https://tibble.tidyverse.org/
 
 🦀 RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust
+* desktop framework https://github.com/tauri-apps/tauri https://blog.gitbutler.com/open-source-pledge-2024/
 * Neovim https://www.youtube.com/watch?v=mh_EJhH49Ms
 * example project https://github.com/nate-sys/tuime https://github.com/swsnr/mdcat
 * books https://news.ycombinator.com/item?id=34556318 https://github.com/plabayo/learn-rust-101/blob/main/README.md
 * CLI https://www.amazon.com/gp/product/1098109430/ref=ox_sc_act_title_1?smid=ATVPDKIKX0DER&psc=1
 * web https://tech.marksblogg.com/poem-rust-web-framework.html https://tech.marksblogg.com/actix-rust-web-framework.html https://tech.marksblogg.com/rocket-rust-web-framework.html https://www.shuttle.rs/blog/2023/09/27/rust-vs-go-comparison
-* TUI https://github.com/gyscos/Cursive https://github.com/fdehau/tui-rs https://github.com/ratatui-org/ratatui
+* TUI https://github.com/gyscos/Cursive https://github.com/fdehau/tui-rs https://github.com/ratatui-org/ratatui https://github.com/lusingander/stu
 * vs. Golang https://news.ycombinator.com/item?id=31205072
 * doesn't have a spec https://drewdevault.com/2019/03/25/Rust-is-not-a-good-C-replacement.html
 * big learning curve https://news.ycombinator.com/item?id=30627667
@@ -651,8 +654,6 @@ int y = x;  // 0x7ffee4c114f4
 
 ## stacks
 
-https://pythontutor.com/
-
 * _stack frame_: instance of function execution
 * vars, args, metadata (location in call stack, return address)
 * _call stack_: all frames in state of execution 📙 Bhargava [42]
@@ -674,6 +675,9 @@ PLACE 🗄 `algos.md` complexity
 * funny example from unit tests that requires you to swap elements https://www.interviewcake.com/question/python3/reverse-string-in-place
 
 ---
+
+https://pythontutor.com/
+call graph https://github.com/chanhx/crabviz
 
 * ❓ relationship to space complexity https://www.interviewcake.com/concept/python3/in-place https://en.wikipedia.org/wiki/In-place_algorithm#Examples
 ```python

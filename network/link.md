@@ -3,6 +3,7 @@
 ## 参考
 
 🔍 https://networkengineering.stackexchange.com/
+📹 https://www.youtube.com/watch?v=qiQR5rTSshw https://www.youtube.com/watch?v=3QhU9jd03a0
 📚
 * https://intronetworks.cs.luc.edu/
 * Kozierok tcp-ip guide

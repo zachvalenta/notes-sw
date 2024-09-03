@@ -32,7 +32,7 @@ things to know https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * how DNS works - inspect query
 * _SNI(server name indication)_: first HTTP message in connection, client tells server who it wants to connect to https://www.agwa.name/blog/post/writing_an_sni_proxy_in_go https://jvns.ca/blog/2016/07/14/whats-sni/
 
-what happens when 📙 `evans-networking-ack.pdf`
+what happens when 📙 `evans-networking-ack.pdf` https://www.youtube.com/watch?v=AlkDbnbv7dk
 * https://github.com/reorx/httpstat
 * _request flow_: browser cache, hosts file (`/private/etc/hosts` on macOS) router [`evans-tcpdump.pdf`], DNS cache, DNS server (local ISP, then eventually if you're unlucky to a root server, who point your query to the .coms or .govs or what have you)
 * https://eater.net/inet
@@ -187,7 +187,7 @@ misc
 * do not track: sites just ignore https://lwn.net/Articles/826575/
 * _Allow_: what verbs applicable for endpoint
 * _Location_: for 301 or 3xx 🗄 `book-db`
-* _User-Agent_: info on client
+* _User-Agent_: info on client 🗄️ crawlers
 * _Keep-Alive_: keeps the underlying TCP connection open for period of time
 * normally this would close after each request https://lob.com/blog/use-http-keep-alive
 
@@ -196,25 +196,27 @@ misc
 📜 https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
 🗄 `system.md` REST
 
-* _semantics_: not very clear https://changelog.com/podcast/189 argument that GET and POST should suffice https://www.freecodecamp.org/news/rest-is-the-new-soap-97ff6c09896d/
-
-non-mutative
+IDEMPOTENT
 * _GET_: retrieve; should not handle the body https://stackoverflow.com/a/983458
 * _OPTIONS_: see what verbs allowed for resource i.e. prompt `Allow` header https://stackoverflow.com/a/47602072
 * _HEAD_: GET sans body; useful for seeing size of resource, last update https://stackoverflow.com/a/6660062 just use GET though https://www.jefftk.com/p/debug-headers-with-get
+* _QUERY_: proposed https://www.ietf.org/archive/id/draft-ietf-httpbis-safe-method-w-body-05.html
 
-mutative
+MUTATIVE
 * _PUT_: idempotent (`x = 5`) create/update specific resource (`PUT /expense-report/10929`) https://stackoverflow.com/a/2691891
 * _POST_: not idempotent (`x++`) ask for create/update from resource 'factory' (`POST /expense-report`)
 * _PATCH_: updates only part of resource
 * _DELETE_: rm
-
 ```makefile
 patch:
 	poetry run http PATCH $(api_url)/1/ team="$(team)"
 put:
 	poetry run http PUT $(api_url)/1/ team="$(team)" playbook="$(play)"
 ```
+
+DESIGN
+* unclear https://changelog.com/podcast/189
+* GET and POST sufficient https://www.freecodecamp.org/news/rest-is-the-new-soap-97ff6c09896d/
 
 ## security
 
@@ -231,7 +233,7 @@ security https://securityheaders.com/
 
 ## status codes
 
-🔗 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+🔗 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status https://en.wikipedia.org/wiki/List_of_HTTP_status_codes https://www.youtube.com/watch?v=_qKgO8BPHWc
 
 * _100s_: info
 
@@ -270,6 +272,7 @@ security https://securityheaders.com/
 
 https://github.com/dnaeon/go-vcr
 postman alternative https://github.com/darrenburns/posting
+https://readme.com/
 https://github.com/ducaale/xh
 https://github.com/Julien-cpsn/ATAC
 https://github.com/qustavo/httplab
@@ -412,13 +415,13 @@ ZA
 
 ---
 
+* https://www.youtube.com/watch?v=27r4Bzuj5NQ
 * https://jvns.ca/blog/2024/08/19/migrating-mess-with-dns-to-use-powerdns/
 * https://github.com/mr-karan/doggo
 * https://news.ycombinator.com/item?id=37531801&utm_term=comment
 * DNS, ints/floats https://jvns.ca/blog/2023/06/23/new-zine--how-integers-and-floats-work/
 * TLD https://textslashplain.com/2023/05/13/new-tlds-not-bad-actually/
 * client https://github.com/natesales/q
-* https://um-t.slack.com/archives/CC11T8R3L/p1675973945113409
 * https://www.netmeister.org/blog/nsauth-diversity.html
 * use in Python + ICMP https://news.ycombinator.com/item?id=33494386
 * is a DNS service like Route53 serving anything or is this just loose semantics? https://vickiboykis.com/2022/01/08/migrating-to-hugo/
@@ -637,7 +640,7 @@ TIME
 * _sink_: https://zachholman.com/talk/utc-is-enough-for-everyone-right https://alexwlchan.net/2019/05/falsehoods-programmers-believe-about-unix-time/ https://app.pluralsight.com/library/courses/date-time-fundamentals/table-of-contents https://news.ycombinator.com/item?id=24746836 timezones https://pyvideo.org/pycon-us-2019/working-with-time-zones-everything-you-wish-you-didnt-need-to-know.html
 
 SPACE
-* _GIS_: ESRI (SaaS) Postgres https://news.ycombinator.com/item?id=23361794 geocode https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code https://www.wired.com/story/geocode-address-puerto-rico-hurricane-maria/ https://github.com/giswqs/leafmap https://www.paulox.net/2021/07/19/maps-with-django-part-2-geodjango-postgis-and-leaflet/ https://github.com/marceloprates/prettymaps https://softwareengineeringdaily.com/2021/04/26/makepath-geospatial-technology-with-brendan-collins/ https://gis.stackexchange.com/ isochrones https://tech.marksblogg.com/valhalla-isochrones.html https://tech.marksblogg.com/pretty-maps-in-python.html satellite https://github.com/plant99/felicette https://realpython.com/python-folium-web-maps-from-data/ https://github.com/geoserver/geoserver https://walker-data.com/posts/lodes-commutes/ https://walker-data.com/census-r/index.html https://walker-data.com/posts/proximity-analysis/  https://news.ycombinator.com/item?id=40052172 tiny map https://github.com/tinyworldmap/tiny-world-map Open Street Map https://pybit.es/articles/openstreetmaps-overpass-api-and-python/
+* _GIS_: ESRI (SaaS) Postgres https://news.ycombinator.com/item?id=23361794 geocode https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code https://www.wired.com/story/geocode-address-puerto-rico-hurricane-maria/ https://github.com/giswqs/leafmap https://www.paulox.net/2021/07/19/maps-with-django-part-2-geodjango-postgis-and-leaflet/ https://github.com/marceloprates/prettymaps https://softwareengineeringdaily.com/2021/04/26/makepath-geospatial-technology-with-brendan-collins/ https://gis.stackexchange.com/ isochrones https://tech.marksblogg.com/valhalla-isochrones.html https://tech.marksblogg.com/pretty-maps-in-python.html satellite https://github.com/plant99/felicette https://realpython.com/python-folium-web-maps-from-data/ https://github.com/geoserver/geoserver https://walker-data.com/posts/lodes-commutes/ https://walker-data.com/census-r/index.html https://walker-data.com/posts/proximity-analysis/  https://news.ycombinator.com/item?id=40052172 tiny map https://github.com/tinyworldmap/tiny-world-map Open Street Map https://pybit.es/articles/openstreetmaps-overpass-api-and-python/ https://news.ycombinator.com/item?id=41424373 ArcGis https://storymaps.arcgis.com/stories/41d4bd6029044afbb1b9ad805a4731d8
 * maps https://storymaps.arcgis.com/stories/1e7f582d478a4b99bd0c70fffeac4c8b
 * _GPS_: https://news.ycombinator.com/item?id=29981188 https://ciechanow.ski/gps/
 * _sink_: https://www.bloomberg.com/news/features/2018-07-25/the-world-economy-runs-on-gps-it-needs-a-backup-plan https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code
@@ -751,7 +754,8 @@ ValueError: unsupported hash type md5
 
 🗄 `system.md` servers
 
-* _WebSocket_: protocol to send msg to client outside req-res cycle e.g. pub-sub to push data to frontend i.e. way to do full duplex
+* _WebSockets_: protocol to send msg to client outside req-res cycle e.g. pub-sub to push data to frontend i.e. way to do full duplex
+* next gen alternative https://www.thoughtworks.com/radar/platforms/webtransport
 
 ---
 

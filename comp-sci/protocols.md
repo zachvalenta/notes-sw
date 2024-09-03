@@ -118,6 +118,9 @@ https://docs.python.org/2/howto/unicode.html
 https://docs.python.org/3/howto/unicode.html
 https://mcilloni.ovh/2023/07/23/unicode-is-hard/
 https://lucumr.pocoo.org/2014/1/5/unicode-in-2-and-3/
+https://codepoints.net/
+https://pyatl.dev/2024/09/01/bitten-by-unicode/
+https://text.makeup/about/
 📍 utf-8 vs. unicode https://youtu.be/SM9gJv08dm0 2:30 https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode https://nbviewer.org/gist/guocheng/1ae6c2d76461a66cfc5ec6009b5791d1 https://docs.python.org/3/howto/unicode.html
 * emoji, kanji https://www.fluentpython.com/extra/multi-character-emojis/ https://www.textualize.io/blog/posts/7-things-about-terminals
 
@@ -194,6 +197,8 @@ YAML
 
 ## CSV
 
+🛠️ sample data https://www.noahpinion.blog/p/why-cant-the-us-build-ships
+
 SEMANTICS
 * _header line_: line with col names https://miller.readthedocs.io/en/latest/glossary/#header-line
 * header not always first line, detection non-trivial https://news.ycombinator.com/item?id=28299015
@@ -217,24 +222,24 @@ TOOLS
 
 ## JSON
 
+🗄️ `algos.md` tree
+🛠 https://github.com/burningtree/awesome-json
+
+OPERATIONS
+* fmt: `python3 -m json.tool music-lib.json > music-lib-fmt.json` https://orbifold.xyz/check-in-json.html
+* _dasel_: edit https://github.com/TomWright/dasel
+* _graphtage_: diff https://github.com/trailofbits/graphtage
+* _jo_: 🎯 generate https://github.com/jpmens/jo
+* _jsoncrack_: 🎯 visualize https://github.com/AykutSarac/jsoncrack.com
+
+### design
+
 📜 http://www.json.org/
+🗄️ `telemetry.md` logging / JSONL
 
----
-
-https://seriot.ch/projects/parsing_json.html https://github.com/burningtree/awesome-json
-* benefits: readable, tooling, mindshare 📙 Jeffrey distributed [4]
-* objs: colloquially (start/end w/ braces) https://youtu.be/SM9gJv08dm0 0:30 literally (doesn't exist) http://benalman.com/news/2010/03/theres-no-such-thing-as-a-json/
-* typing: str, bool, array, num (int/float considered the same, which can be problem w/ large numbers) 📙 Kleppmann [144]
-* no comments https://stackoverflow.com/a/4183018
-* no binary strings 📙 Kleppmann [144]
-* history https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html
-* as output for Unix utils https://blog.kellybrazil.com/2019/11/26/bringing-the-unix-philosophy-to-the-21st-century/ https://github.com/kellyjonbrazil/jc https://news.ycombinator.com/item?id=22608045 https://kellyjonbrazil.github.io/jc/
-* for sharing logic btw frontend/backend https://news.ycombinator.com/item?id=27306263
 ```json
-// one-liner
 {"a": "b"}
 
-// full
 {
     "topLevel": "val",
     "myList": [1,2,3],
@@ -243,52 +248,69 @@ https://seriot.ch/projects/parsing_json.html https://github.com/burningtree/awes
     }
 }
 ```
-* fmt: `python3 -m json.tool music-lib.json > music-lib-fmt.json` https://orbifold.xyz/check-in-json.html
-* query: jq https://github.com/stedolan/jq using duckdb https://www.pgrs.net/2024/03/21/duckdb-as-the-new-jq/ https://news.ycombinator.com/item?id=35009612 jnv https://github.com/ynqa/jnv clones https://github.com/01mf02/jaq mistql https://www.mistql.com/ duckdb https://duckdb.org/2023/03/03/json.html jsoncrack https://github.com/AykutSarac/jsoncrack.com 🗄 `db.md` SQLite / CLI https://terminaltrove.com/jnv/
+
+---
+
+* https://seriot.ch/projects/parsing_json.html
+* benefits: readable, tooling, mindshare 📙 Jeffrey distributed [4]
+* objs: colloquially (start/end w/ braces) https://youtu.be/SM9gJv08dm0 0:30 literally (doesn't exist) http://benalman.com/news/2010/03/theres-no-such-thing-as-a-json/
+* typing: str, bool, array, num (int/float considered the same, which can be problem w/ large numbers) 📙 Kleppmann [144]
+* no comments https://stackoverflow.com/a/4183018
+* no binary strings 📙 Kleppmann [144]
+* history https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html
+* as output for Unix utils https://blog.kellybrazil.com/2019/11/26/bringing-the-unix-philosophy-to-the-21st-century/ https://github.com/kellyjonbrazil/jc https://news.ycombinator.com/item?id=22608045 https://kellyjonbrazil.github.io/jc/
+* for sharing logic btw frontend/backend https://news.ycombinator.com/item?id=27306263
+
+### query (jq)
+
+JQ 📜 https://stedolan.github.io/jq/manual 
+* TUI https://github.com/noahgorstein/jqp 
+* intro https://earthly.dev/blog/jq-select/
+* guide https://sequoia.makes.software/parsing-json-at-the-cli-a-practical-introduction-to-jq-and-more
 ```sh
-# 📜 https://stedolan.github.io/jq/manual
-# 🔍 https://github.com/noahgorstein/jqp 
-# https://earthly.dev/blog/jq-select/ https://sequoia.makes.software/parsing-json-at-the-cli-a-practical-introduction-to-jq-and-more
+# test dats
+curl https://api.github.com/repos/stedolan/jq/issues?per_page=5 | jq
+cat foo.json | jq
 
-# PRETTY PRINT
-cat foo.json | jq .
-
-# UNQUOTED/RAW OUTPUT
-jq -r  # https://stackoverflow.com/a/44656583
-
-# GET EL IN ARRAY
-curl https://api.github.com/repos/stedolan/jq/issues?per_page=5 | jq '.[4]'
-
-# GET KEY
-cat foo.json | jq ' .key'
-cat foo.json | jq ' .key.subkey'
-
-# GET KEY FROM EL IN ARRAY
-curl https://api.github.com/repos/stedolan/jq/issues?per_page=5 | jq '.[4].title'
-
-# GET KEY FROM EVERY EL IN ARRAY
-curl https://api.github.com/repos/stedolan/jq/issues?per_page=5 | jq '.[].title'
-# GET KEY FROM STREAMS OF OBJ
-curl https://api.github.com/repos/stedolan/jq/issues?per_page=5 | jq '.title'
-
-# FILTER
-curl https://api.github.com/repos/stedolan/jq/issues?per_page=200 | jq '.[].reactions|select(.total_count>8)'
-cat more-subs.json | jq '.[]|select(.num_receipts>0)|select(.is_migrated == true)|.artist_id'
+jq .  # pretty print
+jq -r  # unquoted/raw output https://stackoverflow.com/a/44656583
+jq '.[4]'  # get el in array
+cat foo.json | jq ' .key.subkey'  # get key
+jq '.[4].title'  # get key from el in array
+jq '.[].title'  # get key from every el in array
+jq '.title'  # get key from streams of obj
+jq '.[].reactions|select(.total_count>8)'  # filter
+jq '.[]|select(.num_receipts>0)|select(.is_migrated == true)|.artist_id'  # filter
 ```
-* viewer: jless https://jless.io/ https://github.com/gulyasm/jsonui
-```sh
-# goto: H parent g top gg btm
-# collapse: SPACE/h
-# collapse all: c
-# expand: SPACE/l
-# scroll: j/k (children) J/K (parents)
-# page: CTRL d/u
-# center: zz
-```
-* generate: https://github.com/jpmens/jo https://github.com/jazzband/tablib
-* diff: graphtage https://github.com/trailofbits/graphtage
-* edit: dasel https://github.com/TomWright/dasel deepdiff https://news.ycombinator.com/item?id=33136351
-* convert: rq https://github.com/dflemstr/rq
+
+---
+
+* duckdb https://www.pgrs.net/2024/03/21/duckdb-as-the-new-jq/ https://news.ycombinator.com/item?id=35009612 https://duckdb.org/2023/03/03/json.html 
+* jnv https://github.com/ynqa/jnv
+* clones https://github.com/01mf02/jaq
+* mistql https://www.mistql.com/
+* 🗄 `db.md` SQLite / CLI
+
+### view (jless)
+
+💡 drilldown as a general category (fs, JSON, trees) https://github.com/xgi/castero
+
+JLESS 📜 https://jless.io/
+* goto parent: H
+* goto top: g
+* goto btm: gg
+* collapse: SPACE/h
+* collapse all: c
+* expand: SPACE/l
+* scroll: j/k (children) J/K (parents)
+* page: CTRL d/u
+* center: zz
+
+---
+
+* _JSON Viewer_: browser syntax highlighting https://chromewebstore.google.com/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
+* https://github.com/fioncat/otree
+* https://github.com/gulyasm/jsonui
 
 ## Parquet
 
@@ -461,7 +483,8 @@ AVRO
 * Python tutorial https://avro.apache.org/docs/current/gettingstartedpython.html
 * https://www.youtube.com/watch?v=kq_JCVcHJLE
 
-PROTOCOL BUFFERS
+PROTOCOL BUFFERS (PROTOBUF)
+* convert/query https://github.com/dflemstr/rq
 * like BSON https://bsonspec.org/ https://github.com/bufbuild/buf
 * https://vincent.bernat.ch/en/blog/2023-dynamic-protobuf-golang
 * https://news.ycombinator.com/item?id=36798824

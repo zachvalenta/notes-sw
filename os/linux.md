@@ -76,16 +76,17 @@ requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
 TOOLS
 * BYO http://aosabook.org/en/500L/contingent-a-fully-dynamic-build-system.html
 * _Bazel_: Make for FANG https://eng.uber.com/go-monorepo-bazel/ https://github.com/bazelbuild/bazel https://testdriven.io/blog/bazel-builds/ https://www.youtube.com/watch?v=zaymCO1A1dM
-* _cmake_: cross-platform buildfiles https://stackoverflow.com/a/25790020 http://aosabook.org/en/cmake.html
-* _Nx_: https://github.com/nrwl/nx
-* _just_: 🎯 https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529
-* _make_: ✅ still awesome https://news.ycombinator.com/item?id=19900955 better than Bash script bc more declarative, dep tree https://stackoverflow.com/a/3798664
-* _ninja_: https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/
-* _Pants_: https://rdrn.me/postmodern-python/
-* _pypyr_: Python https://pypyr.io/
-* _redo_: Make for the Linux nerd's Linux nerd https://fzakaria.com/2020/06/08/my-love-letter-to-redo.html
-* _Task_: https://github.com/go-task/task
-* _Xc_: markdown task runner https://news.ycombinator.com/item?id=34911216 https://news.ycombinator.com/item?id=34911216
+* _cmake_: 不明觉厉 https://stackoverflow.com/a/25790020 http://aosabook.org/en/cmake.html
+* _just_: 🎯 https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529 https://github.com/pls-rs/pls/blob/main/justfile
+* _make_: ✅ https://github.com/casey/just?tab=readme-ov-file#what-are-the-idiosyncrasies-of-make-that-just-avoids https://news.ycombinator.com/item?id=19900955 https://stackoverflow.com/a/3798664
+* _mise_: 🎯 https://github.com/jdx/mise
+* _ninja_: https://github.com/ninja-build/ninja https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/
+* _Nx_: monorepos https://github.com/nrwl/nx
+* _Pants_: https://github.com/pantsbuild/pants https://rdrn.me/postmodern-python/
+* _pypyr_: https://pypyr.io/
+* _redo_: https://github.com/apenwarr/redo https://fzakaria.com/2020/06/08/my-love-letter-to-redo.html
+* _Task_: 🎯 https://github.com/go-task/task
+* _Xc_: Markdown https://github.com/joerdav/xc https://news.ycombinator.com/item?id=34911216 https://news.ycombinator.com/item?id=34911216
 
 MAKE 📙 Meckleberg gnu make
 * `all`, `clean`, `.PHONY`, `install` 📙 Conery [405]
@@ -159,6 +160,7 @@ cmd:
 * `python.md` packaging
 
 SEMVER https://stackoverflow.com/a/22345808
+> what fmt is this? https://zed.dev/releases/stable/0.149.3
 * _patch_: update all patches w/out changing minor e.g. `~1.3.7` gets everything up to `1.4.0`
 * _minor_: update all patch + minor w/out changing major e.g. `^1.3.7` gets everything up to `2.0.0`
 * definitions fuzzy e.g. what does "major" actually mean e.g. breaking change? for what percentage of users? https://gist.github.com/jashkenas/cbd2b088e20279ae2c8e https://snarky.ca/why-i-dont-like-semver/
@@ -166,6 +168,8 @@ SEMVER https://stackoverflow.com/a/22345808
 * contradictory interpretations? https://poetry.eustace.io/docs/basic-usage/#version-constraints https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept https://poetry.eustace.io/docs/versions/ https://research.swtch.com/deps
 
 ---
+
+* db of deps across org https://dmd.tanna.dev/
 
 > years ago websites were made of files; now they are made of dependencies https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/
 
@@ -198,6 +202,10 @@ problems
 * _boolean satisfiability problem (SAT)_: dependency resolution, basically https://codingnest.com/modern-sat-solvers-fast-neat-underused-part-1-of-n/ NP complete https://en.wikipedia.org/wiki/Boolean_satisfiability_problem https://stackoverflow.com/a/9378268/6813490 used by Composer https://stackoverflow.com/q/37818396 https://news.ycombinator.com/item?id=14508546 https://jix.one/the-assembly-language-of-satisfiability/
 
 ## manager (Homebrew)
+
+🗄️ `python/runtime.md` packaging / mgmt
+
+💡 pkg manager = network, disk, standards, resolution https://talkpython.fm/episodes/transcript/476/unified-python-packaging-with-uv
 
 HOMEBREW 📜 https://docs.brew.sh/Manpage
 * un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew
@@ -321,7 +329,7 @@ creation
 * _inheritance_: process created when parent calls `fork()`
 * child inherits UID/GID and stack, heap, data [LPI 2.7]
 * `execute()`: child gets their own stack, heap, data [LPI 2.7] 
-* _termination_: process calls `exit()` or killed by a signal [LPI 2.7] if parent process killed transitively kill child process
+* _termination_: process calls `exit()` or killed by a signal [LPI 2.7] if parent process killed transitively kill child process https://github.com/jacek-kurlit/pik
 
 communcation
 * _signals_: restart `-HUP/-1` terminate (sent to process) `-TERM/-15` terminate/sigterm (sent to kernel) `kill -KILL/-9 <pid>`
@@ -494,7 +502,8 @@ daemons
 * preceded by Upstart https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04 https://christine.website/talks/systemd-the-good-parts-2021-05-16 https://unixsheikh.com/articles/systemd-isnt-safe-to-run-anywhere.html
 > To configure services, you pretty much have to interact with systemd these days, for better or for worse. Most services on your system will have a systemd service file that defines a systemd unit. These files define what command to run when that services is started, how to stop it, where to log things, etc. They’re usually not too bad to read, and you can find most of them in /usr/lib/systemd/system/. You can also define your own in /etc/systemd/system . Once you have a systemd service in mind, you use the systemctl command to interact with it. systemctl enable UNIT will set the service to start on boot (disable removes it again), and start, stop, and restart will do what you expect. If something goes wrong, systemd will let you know, and you can use journalctl -u UNIT to see the application’s log. You can also use systemctl status to see how all your system services are doing. If your boot feels slow, it’s probably due to a couple of slow services, and you can use systemd-analyze (try it with blame) to figure out which ones. https://hacker-tools.github.io/machine-introspection/
 
-boot
+BOOT
+* https://www.youtube.com/watch?v=XpFsMB6FoOs
 * _bootloader_: loads os e.g. GRUB
 * _BIOS_: first step when powering on i.e. before bootloader
 * https://utcc.utoronto.ca/~cks/space/blog/linux/LinuxBootOverview?
@@ -567,6 +576,11 @@ SHELL UTILS 🗄 `shell.md`
 📙
 * Galvin dinosaur 18-20
 * Kerrisk 1
+
+* _arch_: 
+* _omakub_: https://github.com/basecamp/omakub https://omakub.org/ https://www.youtube.com/watch?v=g2vcIRavtqY
+
+---
 
 * non-C operating systems e.g. SerenityOS https://news.ycombinator.com/item?id=30851955
 * _DOS (disk os)_: os that came after punch cards and magnetic drums i.e. computers 1980s to mid 90s

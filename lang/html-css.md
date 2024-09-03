@@ -9,7 +9,25 @@
 
 ## 进步
 
+* consolidate Zola notes
+* try Markdoc
+
+---
+
+fonts, css, images https://github.com/yorickpeterse/yorickpeterse.com/blob/main/source/fonts/icons.woff2
+
+* _Zola_: 🎯 no assumptions regarding the structure of your site
+
+ZOLA 📜 https://github.com/getzola/zola
+* requirements: hot reload, 
+* example https://github.com/ChevyRay/chevyray.dev
+* themes https://www.getzola.org/themes/zola-easydocs-theme/ https://www.getzola.org/themes/dinkleberg/ https://www.getzola.org/themes/hook/ https://www.getzola.org/themes/zola-386/
+* used by https://haskellbook.com/
+
+* https://chevyray.dev/ask/ https://chat.openai.com/c/25d8a905-4ff4-4905-b63f-126f60ec9c75
+
 * rf blog/design/features
+> topics should go as drafts for site
 * try Zola
 * learn CSS for site redesign https://web.dev/learn/css/ https://wizardzines.com/zines/css/
 
@@ -56,6 +74,8 @@ https://moderncss.dev/12-modern-css-one-line-upgrades/
 * blocks https://thesephist.github.io/blocks.css/
 * _animation_: https://animejs.com/ https://fluca1978.github.io/2020/01/30/PostgreSQL_pgcatcheck.html https://www.youtube.com/watch?v=0-DY8J_skZ0 https://roughnotation.com/ https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://github.com/greensock/GSAP hover https://bsago.me/blog https://animejs.com/ https://sobolevn.me/2020/06/how-async-should-have-been https://github.com/jh3y/whirl/tree/dist
 
+* _SASS_: features not in CSS; transpiles to CSS https://sass-lang.com/guide/
+
 * _CSS-in-JS_: exactly what it sounds like; more composable, apparently https://frontarm.com/james-k-nelson/css-in-js-static-rendering/
 * _debug_: https://github.com/lucagez/Debucsser https://www.youtube.com/watch?v=Sp9ZfSvpf7A
 * _feature detection_: `@supports` https://www.youtube.com/watch?v=QG8Zv_doPOM 4:45
@@ -93,7 +113,9 @@ VARIABLES
 
 ## layout
 
-📜 https://every-layout.dev/ https://css-tricks.com/guides/layout/ https://github.com/phuoc-ng/csslayout https://github.com/f-prime/Blunt https://web.dev/one-line-layouts/ https://news.ycombinator.com/item?id=24818485
+---
+
+📜 https://gridbyexample.com/ https://every-layout.dev/ https://css-tricks.com/guides/layout/ https://github.com/phuoc-ng/csslayout https://github.com/f-prime/Blunt https://web.dev/one-line-layouts/ https://news.ycombinator.com/item?id=24818485
 > * Pure https://github.com/pure-css/pure/
 https://chriscoyier.net/2022/12/21/things-css-could-still-use-heading-into-2023/
 
@@ -200,7 +222,9 @@ FONTS https://www.nerdfonts.com/
 * taxonomy http://www.designishistory.com/1450/type-classification/
 * recs https://practicaltypography.com/font-recommendations.html https://practicaltypography.com/free-fonts.html
 * _Alegreya_: https://cotonoha.io/en.html
+* _Berkley mono_: Capp https://berkeleygraphics.com/typefaces/
 * _Clarendon_: used for newspaper in the 19th century https://www.typotheque.com/articles/brief_history_of_webfonts
+* _Comic Mono_: https://dtinth.github.io/comic-mono-font/
 * _Computer Modern_: Donald Knuth https://czep.net/about/
 * _Concourse_: popular w/ software people https://practicaltypography.com/concourse.html https://wsvincent.com/site-design/ https://danielmiessler.com/colophon/
 * _Departure Mono_: https://news.ycombinator.com/item?id=41379985
@@ -211,6 +235,7 @@ FONTS https://www.nerdfonts.com/
 * _Litera_: https://quarchive.com/getting-started
 * _London TFL_: https://github.com/petykowski/London-Underground-Dot-Matrix-Typeface
 * _Recursive_: warm https://github.com/arrowtype/recursive/
+* _Routed gothic_: https://webonastick.com/fonts/routed-gothic/
 * _Signifier_: https://klim.co.nz/retail-fonts/signifier/
 
 DESIGN
@@ -284,11 +309,15 @@ FILE FMT https://practicaltypography.com/triplicate.html
 
 # 📑 SITES
 
----
-
 ## blog
 
+> There are a surprising number of things that are underserved by other writers online (who would have thought!) https://entropicthoughts.com/two-wrongs-is-now-entropic-thoughts
+
 * book of lyrics for Luambo, Rochereau, Mulatu, Francis Bebey, Cesaria Evora, Amalia Rodrigues
+* history of thought https://www.amazon.com/Ideas-History-Thought-Invention-Freud/dp/0060935642 https://www.amazon.com/Ideas-History-Thought-Invention-Freud/dp/0060935642 https://www.amazon.com/Brief-History-Thought-Philosophical-Learning/dp/0062074245 https://www.amazon.com/History-Knowledge-Past-Present-Future/dp/0345373162
+
+DEV JOURNAL
+* https://www.peterbaumgartner.com/blog/wrapping-a-rust-crate-in-a-python-package/
 
 HOW I CODE
 * profiling
@@ -303,13 +332,15 @@ HOW I CODE
 
 HOW THINGS WORK
 * where movies shoot https://www.theringer.com/2024/8/21/24225522/the-arms-race-behind-where-movies-shoot
-* sports betting https://archive.vn/rfPo4 https://www.theringer.com/2024/8/5/24213559/the-state-of-sports-gambling-with-todd-fuhrman
+* sports betting https://archive.vn/rfPo4 https://www.theringer.com/2024/8/5/24213559/the-state-of-sports-gambling-with-todd-fuhrman https://archive.vn/lZw1l
 
 ## design
 
 ---
 
 📙 https://www.refactoringui.com/
+
+https://govukvue.org/
 
 COLOR
 * https://anthonyhobday.com/sideprojects/saferules/
@@ -340,6 +371,15 @@ INSPIRATION 🗄️ `sw/lang/html-css/design` https://shreyans.org/
 * _TOC_: https://www.murilopereira.com/how-to-open-a-file-in-emacs
 
 ---
+
+webring https://en.wikipedia.org/wiki/IndieWeb https://xn--sr8hvo.ws/ https://www.jvt.me/
+webmentions https://indieweb.org/static_site
+
+blogroll https://claytonerrington.com/
+
+https://yorickpeterse.com/resume/
+
+https://linkpreview.xyz/
 
 pictures https://mazzo.li/posts/fast-pipes.html#fn1
 
@@ -389,6 +429,7 @@ USABILITY
 
 ## HTML
 
+🗄 `stdlib.com` UI / IO (rich)
 📜 https://htmlreference.io/
 
 ---
@@ -410,12 +451,13 @@ howto
 * image - Youtube preview thumbnail: https://stackoverflow.com/a/18681824/6813490
 * dropdown/collapsible https://news.ycombinator.com/item?id=29669812 🗄 `personal-site` nested
 
-forms
+FORMS
 ```html
 <form method="post">
     <input type="text">
 </form>
 ```
+* using Markdown https://news.ycombinator.com/item?id=41407993
 * dates https://uglyduck.ca/basic-form-styling/
 * `action`: URL to send data
 * `enctype`: HTML parlance for media type for forms https://developer.mozilla.org/en-US/docs/Web/API/HTMLFormElement/enctype 🗄 `4-application.md`
@@ -432,19 +474,24 @@ forms
 
 FLAVORS
 * _CommonMark_: https://meta.stackexchange.com/q/348746
-* _Github-flavored_: https://github.com/github/markup/issues/498#issuecomment-158257453 
+* _GFM_: https://github.com/github/markup/issues/498#issuecomment-158257453 
 * _MyST_: https://github.com/executablebooks/MyST-Parser
 
 PARSERS
+* _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/
 * _markdown-it-py_: https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
 * _commonmark_: https://github.com/readthedocs/commonmark.py https://github.com/Textualize/rich/pull/2439/files
 * _goldmark_: https://github.com/yuin/goldmark
 * HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown
 
 RENDER
-* mdcat
+* mdcat https://github.com/swsnr/mdcat
 * rich https://rich.readthedocs.io/en/latest/markdown.html
 * https://github.com/Textualize/frogmouth
+* glow https://github.com/charmbracelet/bubbletea
+
+EDITOR
+* https://simplemde.com/ https://tunalog.org/en-us/index.html
 
 ---
 
@@ -474,7 +521,6 @@ lrwxr-xr-x    69 zach  7 Oct  2019 -- m2h -> /Users/zach/Desktop/zvmac/materials
 * [diff](https://stackoverflow.com/a/40883538)
 * table fmt: Jira, Markdown/RST, Latex https://jsvine.github.io/intro-to-visidata/basics/saving-sheets/
 * Markdown for Google Docs https://www.theverge.com/2022/3/29/23002138/google-docs-markdown-support-formatting-update
-* https://markdoc.dev/
 
 conversion to HTML
 * https://github.com/susam/texme
@@ -494,6 +540,7 @@ add styles
 
 FEATURES
 > https://twitter.com/danluu/status/1244051446313574402 https://meridian.mercury.com/dwarkesh-patel
+* template engine: Jinja, Tera https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola
 * search: Stork https://stork-search.net/ TinySearch https://github.com/tinysearch/tinysearch https://news.ycombinator.com/item?id=23474134 DDG https://vadosware.io/ https://ddg.patdryburgh.com/ lunr.js https://github.com/olivernn/lunr.js https://brainbaking.com/search/?q=database example https://clearerthinkingpodcast.com/#episodes
 * RSS generation
 * tags: https://github.com/erwald/blog/blob/master/_data/series.json https://www.erichgrunewald.com/posts/the-kingdom-of-tamego/ https://github.com/jeffkaufman/webscripts/blob/e1c8a399536bb92e3f09886eea9fb925e710c981/intros.json https://www.jefftk.com/news/money
@@ -515,25 +562,25 @@ SSGs
 * BYO https://www.youtube.com/watch?v=Ph7oJDR71Jc https://github.com/mitsuhiko/rstblog https://til.simonwillison.net/django/building-a-blog-in-django dynamic https://realpython.com/build-a-blog-from-scratch-django/ https://dev.to/chasefleming/building-a-go-static-site-generator-using-elem-go-3fhh
 * me: run m2h, move all html from content to src, open any html files from src with modified Git status
 * https://fabiensanglard.net/html/index.html
-* _Astro micro_: https://drew.silcock.dev/about/ https://github.com/drewsilcock/silcock-dev https://astro.build/themes/details/astro-micro/ https://astro-nano-demo.vercel.app/
+* _Astro micro_: 🎯 https://drew.silcock.dev/about/ https://github.com/drewsilcock/silcock-dev https://astro.build/themes/details/astro-micro/ https://astro-nano-demo.vercel.app/ https://www.bytedrum.com/about/
 * _aurora_: 🎯 https://github.com/capjamesg/aurora
 * _Bearclaw_: https://github.com/donuts-are-good/bearclaw
 * _Eleventy_: https://www.11ty.dev/ https://www.erichgrunewald.com/ https://news.ycombinator.com/item?id=31293971 https://angeliqueweger.com/
 * _Lanyon_: server, same guy that did termgraph https://github.com/mkaz/lanyon
-* _Hugo_: popular https://blog.golang.org/8years bad docs https://yawpitchroll.com/posts/hugo-probably-is-not-for-you/ https://twitter.com/danluu/status/1244024025019342851
+* _Hugo_: https://www.peterbaumgartner.com popular https://blog.golang.org/8years bad docs https://yawpitchroll.com/posts/hugo-probably-is-not-for-you/ https://twitter.com/danluu/status/1244024025019342851
 * _Lektor_: Python https://www.getlektor.com/ https://lucumr.pocoo.org/2015/12/21/introducing-lektor/
 * _Lume_: https://lume.land/
 * _Makesite_: 🎯 https://github.com/sunainapai/makesite
 * _Markata_: Python https://github.com/WaylonWalker/markata
+* _Markdoc_: 🎯 https://markdoc.dev/ https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe
 * _Metalsmith_: Javascript https://github.com/metalsmith/metalsmith
-* _Nikola_: 🎯 https://getnikola.com/ not a blog https://getnikola.com/creating-a-site-not-a-blog-with-nikola.html
-* _Pelican_: 🎯 no TOC, blog-oriented https://pirsquared.org/blog/pelican-transition.html https://pirsquared.org/blog/pelican-tags-vs-categories.html https://chat.openai.com/c/25d8a905-4ff4-4905-b63f-126f60ec9c75
+* _Nikola_: https://getnikola.com/ not a blog https://getnikola.com/creating-a-site-not-a-blog-with-nikola.html
+* _Pelican_: 🎯 no TOC, blog-oriented https://pirsquared.org/blog/pelican-transition.html https://pirsquared.org/blog/pelican-tags-vs-categories.html
 * _Shite_: Bash https://github.com/adityaathalye/shite
-* _Zola_: 🎯 Rust; no assumptions regarding the structure of your site https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola https://haskellbook.com/ https://chevyray.dev/ask/
 
 CMS
 * _website builder_: optimized for non-dev e.g. Wix, SquareSpace https://news.ycombinator.com/item?id=41337356
-* _CMS_: client-server, content creation via UI, requires some dev e.g. Wordpress https://kevq.uk/the-case-for-wordpress https://blot.im/how
+* _CMS_: client-server, content creation via UI, requires some dev e.g. Wordpress https://kevq.uk/the-case-for-wordpress https://blot.im/how https://bearblog.dev/ https://tunalog.org/en-us/index.html
 * _headless CMS_: SPA gets content via API https://softwareengineeringdaily.com/2020/04/30/jamstack-content-management-with-scott-gallant-jordan-patterson-and-nolan-phillips/
 * Ghost: hosting, newsletters, Stripe, membership https://softwareengineeringdaily.com/2018/07/26/ghost-open-source-publishing-platform-with-john-onolan/
 * Netlify, Wagtail, Django, Perch

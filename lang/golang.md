@@ -303,7 +303,7 @@ var myInt // 0
 
 ## CLI
 
-* frameworks https://github.com/charmbracelet/bubbletea https://github.com/noahgorstein/jqp https://www.youtube.com/watch?v=ZA93qgdLUzM https://github.com/rivo/tview/ https://github.com/jroimartin/gocui 
+* frameworks https://github.com/charmbracelet/bubbletea https://leg100.github.io/en/posts/building-bubbletea-programs/ https://github.com/noahgorstein/jqp https://www.youtube.com/watch?v=ZA93qgdLUzM https://github.com/rivo/tview/ https://github.com/jroimartin/gocui 
 * color https://github.com/fatih/color
 * tables https://github.com/jedib0t/go-pretty
 * Markdown render https://github.com/charmbracelet/glamour https://miller.readthedocs.io/en/latest/file-formats/#markdown-tabular

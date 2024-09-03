@@ -102,7 +102,7 @@ nc -l 8080  # run server locally on port 8080 https://blog.sylver.dev/build-a-we
 ```
 * _socat_: https://stackoverflow.com/a/4777309/6813490 https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * _nmap_: check if anything listening on port
-* port scanner https://github.com/RustScan/RustScan
+* LAN port scanner https://github.com/RustScan/RustScan https://github.com/aceberg/WatchYourLAN
 * _sink_: https://github.com/imsnif/bandwhich https://robertheaton.com/2020/02/05/wacom-drawing-tablets-track-name-of-every-application-you-open/ https://github.com/rhaidiz/broxy https://news.ycombinator.com/item?id=22394708
 
 # ZA
@@ -138,3 +138,17 @@ models
 * _connection settings_: https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * _sink_: https://robertovitillo.com/what-every-developer-should-know-about-tcp/ https://blog.erratasec.com/2019/02/a-basic-question-about-tcp.html#.XHaBq1NKgWo https://robertheaton.com/2018/08/31/how-to-build-a-tcp-proxy-1/ https://hpbn.co/building-blocks-of-tcp/
 > If you’re sending the same data from one machine to 30 others, with normal unicast connections like TCP you’d need to send 30 copies. This takes quite a lot of bandwidth. With multicast you can send just one copy of the data, no matter how many machines you’re sending to. - 搜 Itamar Turner-Trauring, 'software clown'
+
+## VPN
+
+---
+
+* https://computer.rip/2024-09-08-private-lines.html
+* https://news.ycombinator.com/item?id=27939039
+* _VPN_: encrypted connection to VPS to proxy traffic https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn/
+* VPN https://mullvad.net/en/blog/2022/7/26/mullvad-is-now-available-on-amazon-us-se/
+* _managed_: Private Internet Access https://kevq.uk/about/ Encrypt.me https://adamwathan.me/uses/
+* _self-managed_: https://github.com/jar-o/rotvpn https://changelog.com/podcast/377 Wireguard, OpenVPN https://drewdevault.com/2019/04/19/Your-VPN-is-a-serious-choice.html https://arstechnica.com/gadgets/2018/08/wireguard-vpn-review-fast-connections-amaze-but-windows-support-needs-to-happen/
+* _sink_: https://news.ycombinator.com/item?id=22183506 https://news.ycombinator.com/item?id=18160618 https://news.ycombinator.com/item?id=19242058 https://news.ycombinator.com/item?id=26645876
+* _Tor_: not anonymous https://news.ycombinator.com/item?id=34412080
+* https://drewdevault.com/2019/04/19/Your-VPN-is-a-serious-choice.html https://hacker-tools.github.io/security/

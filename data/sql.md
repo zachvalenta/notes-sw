@@ -222,7 +222,7 @@ Flyway https://flywaydb.org/documentation/ https://github.com/zachvalenta/flyway
 🔍 https://drawsql.app/templates
 📙 Kent data/reality https://www.amazon.com/Data-Reality-Perspective-Perceiving-Information/dp/1935504215
 
-* enum > FK https://um-t.slack.com/archives/C037G1E0EF2/p1686167018278999
+* enum > FK
 * modeling payments https://news.ycombinator.com/item?id=36775098
 * https://news.ycombinator.com/item?id=41146239&utm_term=comment
 
@@ -230,8 +230,7 @@ ACCESS PATTERNS
 * _access pattern_: how you have to query based on schema https://calpaterson.com/non-relational-beartraps.html
 * what you're prioritizing e.g. read/write vs. aggregations 📻 Macey 6:10
 * _upsert_: insert or update 📙 Bradshaw [46]
-* _get-or-create_: `get_or_create()` in Django
-* aka find_create_find https://um-t.slack.com/archives/C037G1E0EF2/p1668542221060969
+* _get-or-create_: `get_or_create()` in Django, aka find_create_find
 
 RELATIONS
 * _relationship_: what ties tables together https://twobithistory.org/2017/12/29/codd-relational-model.html
@@ -253,6 +252,7 @@ RELATIONS
 * = sole ownership
 * impl: attr, separate table https://support.airtable.com/hc/en-us/articles/218734758#onetoone
 * example: person-SSN, country-capital https://stackoverflow.com/a/15037461
+* less common than you'd think https://www.b-list.org/weblog/2024/aug/27/highlander-problem/
 
 1-M
 * = ownership
@@ -343,6 +343,7 @@ IT103    |   2009-2   | 120      | Web Design   |
 📙 Beaulieu chapter 7
 
 TYPES
+* money https://www.youtube.com/watch?v=lxVzLAHnPOE
 * _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
 * _varchar_: variable 📙 Beaulieu [21]
 * _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485

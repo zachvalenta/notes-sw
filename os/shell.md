@@ -10,7 +10,7 @@
 
 ## 进步
 
-* _24_: oh-my-posh, atuin, readline vi mode
+* _24_: oh-my-posh, atuin, readline vi mode, eza, vivid
 * _23_: big rf, Conery unix chapter, research Zellij
 * _22_: Fira Mono for iTerm font/icons, try starship, try/fail vi mode for readline, organize utils
 * _21_: line editor, fzf for bash history https://hacker-tools.github.io/lectures/
@@ -38,6 +38,7 @@ GLOBBING
 * `[]`: range; case-sensitive `cp [a-f]*.png` `rm 02[3-7].mp3`
 
 DESIGN
+* use other languages (like Golang) https://blog.kowalczyk.info/article/4b1f9201181340099b698246857ea98d/using-go-instead-of-bash-for-scripts.html
 * downsides: not great for scripting other than universality (which is great); crappy syntax, hard to test, limited data structures https://medium.com/capital-one-developers/bashing-the-bash-replacing-shell-scripts-with-python-d8d201bc0989 doesn't do autosuggestion, syntax highlighting https://danyspin97.org/blog/colorize-your-cli/
 > The opposite of "it's like riding a bike" is "it's like programming in bash". A phrase which means that no matter how many times you do something, you will have to re-learn it every single time. https://twitter.com/JakeWharton/status/1334177665356587008
 * mischief https://news.ycombinator.com/item?id=18902830
@@ -268,6 +269,37 @@ nvim/lua/zv  # Neovim conf: user, plugins
 powerline-shell/config.json -> /Users/zach/Documents/zvroot/materials/stem/dev/os/denv/dotfiles/powerline-shell.json
 ```
 
+## env var
+
+🗄
+* `security.md` users/ passwords
+* `src.md` deployment / secrets
+
+DIRENV 📜 https://github.com/direnv/direnv
+* load env var based on dir
+* alternative https://github.com/jdx/mise
+* usage https://www.youtube.com/watch?v=udezempDBVQ
+* use case https://jamey.thesharps.us/2019/05/29/per-project-postgres/
+
+CMDS
+```sh
+export FOO="val"      # set
+DEBUG=true npm start  # set tmp to run cmd
+echo $FOO             # read
+env                   # list all
+unset $FOO            # unset
+```
+
+---
+
+* 🗄 `broot.log` https://unix.stackexchange.com/a/106606/331460 https://github.com/thoughtbot/til/blob/master/bash/bash_profile_vs_bashrc.md
+* _envsubst_: sub env var into fmt strings https://nickjanetakis.com/blog/using-envsubst-to-merge-environment-variables-into-config-files
+```sh
+foo.sh  # echo $LOGNAME 
+./foo.sh           # stdout: $LOGNAME
+envsubst < foo.sh  # stdout: zach
+```
+
 ## execution
 
 EXEC
@@ -449,6 +481,7 @@ ZSH https://unix.stackexchange.com/a/71258
 * `.zshrc`: src for interactive shells
 
 ALIASES
+* `alias`: list all
 * _alias_: evaluated when shell loads profile
 * view: `type <alias>` https://www.youtube.com/watch?v=aLMepxvUj4s 4:15
 * use unaliased: `\cd` https://stackoverflow.com/a/11056541
@@ -467,23 +500,6 @@ SHELL TYPES https://github.com/nushell/nushell/issues/8169
 * _non-interactive_: process spawned when script run 📙 LPI 2.2 https://unix.stackexchange.com/questions/43385/what-do-you-mean-by-interactive-shell/43389#43389 
 * _login_: reads profiles and env var 
 * _non-login_: cron jobs https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell/46856#46856 https://www.quora.com/What-are-the-differences-between-a-login-shell-and-a-non-login-shell/answer/Rod-Nussbaumer-1?srid=ebCJ
-
-ENV VAR 🗄 `infra.md` config mgmt `security.md` secrets mgmt
-```sh
-export FOO="val"      # set
-DEBUG=true npm start  # set tmp to run cmd
-echo $FOO             # read
-env                   # list all
-unset $FOO            # unset
-```
-* _envsubst_: sub env var into fmt strings https://nickjanetakis.com/blog/using-envsubst-to-merge-environment-variables-into-config-files
-```sh
-foo.sh  # echo $LOGNAME 
-./foo.sh           # stdout: $LOGNAME
-envsubst < foo.sh  # stdout: zach
-```
-* clean up: 🗄 `broot.log` https://unix.stackexchange.com/a/106606/331460 https://github.com/thoughtbot/til/blob/master/bash/bash_profile_vs_bashrc.md
-* _direnv_: load env var based on dir https://jamey.thesharps.us/2019/05/29/per-project-postgres/ https://github.com/direnv/direnv alternative https://github.com/jdx/mise https://www.youtube.com/watch?v=udezempDBVQ
 
 ---
 
@@ -745,7 +761,7 @@ FISH 📜 https://fishshell.com/
 ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 * typical to write a scripting language to go along with your shell https://news.ycombinator.com/item?id=24079001
 * BYO https://www.destroyallsoftware.com/screencasts/catalog https://github.com/elves/elvish
-* _elvish_: https://news.ycombinator.com/item?id=18778681
+* _elvish_: https://news.ycombinator.com/item?id=18778681 https://news.ycombinator.com/item?id=41401463
 * _nushell_: structured data https://www.nushell.sh/
 * _oil_: https://github.com/oilshell/oil
 * _Powershell_: supports some Bash commands but no arguments https://yehudakatz.com/2019/04/24/powershell-lets-get-started
@@ -908,7 +924,6 @@ FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/ https://news.yco
 * the killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
 * options: AutoHotKey https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ Hammerspoon, Keyboard Maestro https://news.ycombinator.com/item?id=34070951 Karabiner https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934 Alfred https://www.alfredapp.com/ BetterTouchTool https://switowski.com/blog/favorite-mac-tools/
 
-
 ITERM 📜 https://iterm2.com/documentation.html
 https://news.ycombinator.com/item?id=35126280
 * can edit tab title
@@ -944,14 +959,15 @@ https://news.ycombinator.com/item?id=35126280
 * how to open custom arrangement in new window w/ keyboard shortcut? https://gitlab.com/gnachman/iterm2/issues/5739 https://github.com/gnachman/iTerm2 https://stackoverflow.com/questions/tagged/iterm2 https://stackoverflow.com/a/29464585/6813490 https://apple.stackexchange.com/a/25084
 > I would like to open an arrangement in a new window after starting up iTerm. I already have configured iTerm to open a specific arrangements of profiles (start `cmus`, cd into my `code` directory, etc.) on startup.
 
-ALTERNATIVES
+ALTERNATIVES https://www.youtube.com/watch?v=WxzYtdIcHnQ
 > UX also isn't something that can really be competed on for a terminal app as the UX is typically dictated by the shell, tool, tmux, etc. https://news.ycombinator.com/item?id=35125295
 * _Alacritty_: 🎯 TOML config, cross-platform
 * no global hotkey https://github.com/alacritty/alacritty/issues/3313 but workarounds available (Hammerspoon, Karabiner) https://github.com/alacritty/alacritty/issues/862
-* _Hyper_: Electron https://hyper.is/
+* _ghostty_: https://www.youtube.com/watch?v=RGlj4dcdWgM https://mitchellh.com/ghostty
+* _Hyper_: ❌ Electron https://hyper.is/
 * _kitty_: can preview images in broot https://sw.kovidgoyal.net/kitty/ maintainer is a jerk https://news.ycombinator.com/item?id=41223934
 * _sshx_: real-time collaboration https://github.com/ekzhang/sshx
-* _Tabby_: Electron https://news.ycombinator.com/item?id=35111397 https://github.com/Eugeny/tabby?tab=readme-ov-file#what-tabby-is-and-isnt
+* _Tabby_: ❌ Electron https://news.ycombinator.com/item?id=35111397 https://github.com/Eugeny/tabby?tab=readme-ov-file#what-tabby-is-and-isnt
 * _Warp_: ❌ launch configurations 类似 iterm profiles, need to login w/ Github https://news.ycombinator.com/item?id=30926360
 * _Wezterm_: immature https://wezfurlong.org/wezterm/index.html no global hotkey https://github.com/wez/wezterm/issues/1751
 
@@ -962,7 +978,7 @@ ALTERNATIVES
 SEMANTICS
 * _window system_: server that displays graphics
 * protocols: x11 https://unix.stackexchange.com/q/517 Wayland, pipewire https://www.youtube.com/watch?v=jFxwPJpUwl0 https://github.com/sharkdp/pastel#get-a-list-of-all-x11--css-color-names https://en.wikipedia.org/wiki/Wayland_(display_server_protocol) https://en.wikipedia.org/wiki/X_Window_System
-* _window manager_: control windows displayed by window system https://en.wikipedia.org/wiki/Window_manager https://news.ycombinator.com/item?id=34591661 https://news.ycombinator.com/item?id=36880235
+* _window manager_: control windows displayed by window system https://en.wikipedia.org/wiki/Window_manager https://news.ycombinator.com/item?id=34591661 https://news.ycombinator.com/item?id=36880235 https://www.youtube.com/watch?v=xWIDvnNFl5I
 * _tiling window manager_: keyboard-driven arrangement of and switching btw windows
 > https://www.youtube.com/watch?v=bdumjiHabhQ on i3 convinced me that this was potentially worthwhile just to not have to scroll for VS Code (and break dependency on iTerm auto hotkey)
 * _desktop environment_: mouse-driven GUI riding on top of window system https://askubuntu.com/a/20435
@@ -980,6 +996,7 @@ WINDOW MANAGERS
 * for Windows https://news.ycombinator.com/item?id=33168263
 * for macOS https://magnet.crowdcafe.com/ https://news.ycombinator.com/item?id=22852157 https://faun.pub/yabai-macos-tile-window-manager-833ce1be396a?gi=132df1bca0e1 https://github.com/koekeishiya/yabai https://news.ycombinator.com/item?id=36368990
 * AlwaysOnTop https://www.youtube.com/watch?v=6IxRlaTWsoQ
+* _alt-tab_: https://alt-tab-macos.netlify.app/
 * _Amethyst_: macOS https://github.com/ianyh/Amethyst https://www.reddit.com/r/xmonad/comments/3j4tnt/is_it_possible_to_use_xmonad_on_os_x/ https://switowski.com/blog/favorite-mac-tools/
 * _dwm_: https://dwm.suckless.org/
 * _i3_: tiling + hotkeys https://www.youtube.com/watch?v=bdumjiHabhQ 3:30 https://www.youtube.com/watch?v=bdumjiHabhQ 1:30
@@ -987,7 +1004,7 @@ WINDOW MANAGERS
 * _PaperWM_: https://jvns.ca/blog/2020/01/05/paperwm/
 * _Slate_: unmaintained https://github.com/jigish/slate
 * _Sway_: https://swaywm.org/
-* _Rectangle_: macOS https://rectangleapp.com/ https://switowski.com/blog/favorite-mac-tools/
+* _Rectangle_: macOS https://rectangleapp.com/ https://switowski.com/blog/favorite-mac-tools/ https://github.com/rxhanson/Rectangle
 * _X.org_: https://www.x.org/wiki/
 * _XQuartz_: port of X.org for macOS https://www.xquartz.org/
 * _xmonad_: x11, no macOS https://news.ycombinator.com/item?id=30402358 https://xmonad.org/
@@ -1074,6 +1091,7 @@ DASHBOARDS 🗄 `python.md` TUI
 
 MONITORING
 * directory size: du, ncdu https://github.com/bootandy/dust `du -sh -- * | sort -r` https://unix.stackexchange.com/a/185777 https://github.com/muesli/duf https://github.com/imsnif/diskonaut https://github.com/KSXGitHub/parallel-disk-usage
+> ncdu config fs `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
 * disk space: view of mounts; `df -h`; colorize https://danyspin97.org/blog/colorize-your-cli/
 * memory: free (UNIX) top (macos) gotop https://github.com/xxxserxxx/gotop/issues/50 ytop https://github.com/cjbassi/ytop htop https://tech.marksblogg.com/top-htop-glances.html below https://github.com/facebookincubator/below https://github.com/bvaisvil/zenith
 * network: https://github.com/imsnif/bandwhich
@@ -1089,6 +1107,43 @@ TUI
 * https://news.ycombinator.com/item?id=40273177
 * _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
 * _ncurses_: Linux https://github.com/jesseduffield/lazydocker https://github.com/NerdyPepper/dijo
+
+## color
+
+THEMES
+* _catppuccin_: 
+* _solarized_: https://ethanschoonover.com/solarized/
+
+PASTEL 📜 https://github.com/sharkdp/pastel
+```sh
+# CONVERT
+pastel format name fff3cd   # hex -> name
+pastel format hex cornsilk  # name -> hex
+
+# COMPLEMENT 🗄 `.bash_profile/label`
+pastel color gold | pastel complement  # palette https://www.tints.dev/blue/3B82F6
+pastel textcolor hotpink  # background color
+
+# ZA
+pastel color $COLOR  # PRINT
+pastel mix $COLOR1 $COLOR2  # MIX
+PASTEL list  # x11 colors
+pastel paint $COLOR1 --on $COLOR2 " INFORMATION " --bold  # adhoc
+```
+
+---
+
+* https://www.youtube.com/watch?v=RGlj4dcdWgM [5:30]
+* colorize https://danyspin97.org/blog/colorize-your-cli/ solarized https://news.ycombinator.com/item?id=33400822
+* color output: `tput` https://stackoverflow.com/a/20983251/6813490
+* 256 color codes https://github.com/trapd00r/LS_COLORS https://github.com/search?q=exa_colors&type=Code https://www.howtogeek.com/307899/how-to-change-the-colors-of-directories-and-files-in-the-ls-command/
+* solarized https://news.ycombinator.com/item?id=33400822
+* `LS_COLORS`: var that controls output of ls, tree https://github.com/sharkdp/vivid https://github.com/chriskempson/base16-shell
+> broot doesn't support LS_COLORS which isn't available on all systems and is limited to 16 system dependent colors. https://dystroy.org/broot/conf_file/
+* no color https://news.ycombinator.com/item?id=30483417
+* color https://news.ycombinator.com/item?id=33407620 https://fishshell.com/
+* vivid https://github.com/sharkdp/vivid https://github.com/zachvalenta/dotfiles-capp/commit/fe6fe34ff3aaafcaa1e52de4257663b334622b9f
+* use vivid with exa_colors https://github.com/mimame/.dotfiles/blob/b097b3dba50dc4ed7ff26886678392aa6926bed7/zsh/.zshrc#L152
 
 ## cron
 
@@ -1242,16 +1297,16 @@ INSTALL
 ALTERNATIVES
 * _file explorer_: TUI for file system e.g. Finder (mv, rm, preview)
 * aka file browser, file manager
-* _fff_: https://github.com/dylanaraps/fff/issues/135 
-* _lf_: https://www.youtube.com/c/BrodieRobertson/search?query=lf
+* _fff_: 💀 https://github.com/dylanaraps/fff/issues/135 
+* _lf_: https://github.com/gokcehan/lf https://www.youtube.com/c/BrodieRobertson/search?query=lf
 * _mini_: 🎯 https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
 * _nnn_: https://github.com/jarun/nnn
 * _telescope_: 🎯 https://github.com/nvim-telescope/telescope.nvim https://www.youtube.com/watch?v=OhnLevLpGB4 https://www.youtube.com/watch?v=indguFY7wJ0
-* _superfile_: no way to enter directory you've navigated to https://github.com/MHNightCat/superfile https://news.ycombinator.com/item?id=40323101
+* _superfile_: ❌ no way to enter directory you've navigated to https://github.com/MHNightCat/superfile https://news.ycombinator.com/item?id=40323101
 * _vifm_: https://github.com/vifm/vifm https://www.youtube.com/watch?v=RGOsE3UWqhI https://www.youtube.com/watch?v=6eyFXcyosu8
-* _walk_: no way to enter directory you've navigated to https://github.com/antonmedv/walk
-* _xlpr_: https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020
-* _yazi_: https://github.com/sxyazi/yazi
+* _walk_: ❌ no way to enter directory you've navigated to https://github.com/antonmedv/walk
+* _xlpr_: 🎯 https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020
+* _yazi_: 🎯 https://github.com/sxyazi/yazi
 
 ### jump
 
@@ -1262,29 +1317,20 @@ ALTERNATIVES
 * _z_: https://github.com/rupa/z
 * _zoxide_: ❌ tried out and init in zsh didn't work, requires fzf https://github.com/ajeetdsouza/zoxide
 
-### list (exa)
+### list (eza)
 
-📜 https://github.com/ogham/exa https://the.exa.website/
-> replaced? https://github.com/eza-community/eza https://github.com/lsd-rs/lsd
-
-exa
-* conf https://the.exa.website/docs/environment-variables
-* no Git in grid view https://github.com/ogham/exa/issues/927
-* grid-details aka long grid https://the.exa.website/features/long-view#long-grid
-* long view without metadata https://the.exa.website/features/grid-view
-* icons from nerd font https://the.exa.website/features/icons
-> only work with more recent version of exa i.e. not available on mbp14
-
-ls
-* colorize https://danyspin97.org/blog/colorize-your-cli/ solarized https://news.ycombinator.com/item?id=33400822
-* https://github.com/Yash-Handa/logo-ls
-* list number of dir/files in $CWD/subs: `tree | tail -1`
-> so tree gives some output stats that exa's tree mode doesn't?
+* icons https://the.exa.website/features/icons
+* _exa_: ✅ https://github.com/ogham/exa https://the.exa.website/
+* _eza_: ✅ Makefile icon broken, absentee maintainers? https://github.com/eza-community/eza/pull/554 https://github.com/eza-community/eza 
+* _logols_: https://github.com/Yash-Handa/logo-ls
+* _lsd_:  https://github.com/lsd-rs/lsd
+* _pls_: 🎯 https://github.com/pls-rs/pls
 
 ---
 
 * `ls`: a (hidden files) l (perms) F (file type) S (size) t (sort on write timestamp); if there's a tenth character in the column `@` it’s something to do w/ ACL (access control list) on the file https://linux-audit.com/plus-sign-ls-output/
 * _tree_: ignore multiple https://unix.stackexchange.com/a/47806/331460 https://superuser.com/questions/772567/how-to-get-tree-a-to-ignore-git-directories
+* Rust alternative https://github.com/dduan/tre
 ```sh
 # https://superuser.com/a/595699/728972
 tree -if | grep <query>
@@ -1297,23 +1343,8 @@ tree -if | grep <query>
 .rw-r--r--@ 2.5k zv_mac 16 Feb 07:57 N- onboarding.md
 .rw-r--r--@ 9.4k zv_mac 16 Feb 09:28 N- payments.md
 ```
-* solarized https://news.ycombinator.com/item?id=33400822
-* `LS_COLORS`: var that controls output of ls, tree https://github.com/sharkdp/vivid https://github.com/chriskempson/base16-shell
-* no color https://news.ycombinator.com/item?id=30483417
-* color https://news.ycombinator.com/item?id=33407620 https://fishshell.com/
-* vivid https://github.com/sharkdp/vivid
-use vivid with exa_colors https://github.com/mimame/.dotfiles/blob/b097b3dba50dc4ed7ff26886678392aa6926bed7/zsh/.zshrc#L152
 🎗 `exa` already handles a bunch of filetypes for you https://the.exa.website/features/colours
 * `exa` w/ `.gitignore`: smart enough to ignore everything in `.gitignore` if it's in the root directory, but `exa --tree` won't, so you have to add `.DS_Store` et al. via `exa -I`   https://github.com/ogham/exa/issues/136 https://github.com/ogham/exa/issues/408
-256 color codes https://github.com/trapd00r/LS_COLORS https://github.com/search?q=exa_colors&type=Code https://www.howtogeek.com/307899/how-to-change-the-colors-of-directories-and-files-in-the-ls-command/
-
-rf your bash profile https://github.com/search?q=exa_colors&type=Code
-* color symlinks (or just use default purple)
-* show .gitignored env files
-* background - white: `export LS_COLORS="*.py=38;5;114;47"`
-* foreground - pink: `38;5;213`
-* foreground - coral: `38;5;114`
-
 `fd`: doesn't need but could use exa if you wanted to https://github.com/sharkdp/fd/issues/222
 `ls`: exa - color config https://the.exa.website/docs/colour-themes
 `tree`: 1) use vivid https://github.com/sharkdp/vivid/issues/25 2) use exa's tree functionality https://the.exa.website/features/tree-view + exa color config https://the.exa.website/docs/colour-themes 
@@ -1324,8 +1355,6 @@ pyclean () {
         find . -type d -name "__pycache__" -delete
 }
 ```
-
-color output: `tput` https://stackoverflow.com/a/20983251/6813490
 
 ## text
 
@@ -1496,6 +1525,7 @@ bat --line-range 227:236 $NOTES_DIR/sw/za/algos.md
 ### search (ripgrep)
 
 🗄 `vim.md` code completion
+🛠️ grep PDF https://github.com/phiresky/ripgrep-all
 
 RG 📜 https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
 * `I`: don't output filename

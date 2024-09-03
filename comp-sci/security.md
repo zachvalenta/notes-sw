@@ -1,15 +1,11 @@
-# 开
+# ⛩️
 
 ## 参考
 
 🔍 https://security.stackexchange.com/
 🗣 https://www.latacora.com/blog/ https://krebsonsecurity.com/ https://twitter.com/badthingsdaily
 
-## now
-
-## next
-
----
+## 进步
 
 * https://roadmap.sh/cyber-security
 * https://www.freecodecamp.org/learn/information-security/
@@ -48,8 +44,7 @@ roles https://www.netmeister.org/blog/infosec-skillsets.html
 * w/ Django https://www.youtube.com/watch?v=bvLJTNRpnt8
 * ad blocking https://blog.codinghorror.com/an-exercise-program-for-the-fat-web/ https://news.ycombinator.com/item?id=23521399 https://blog.maskys.com/my-best-chrome-extensions/ https://hacker-tools.github.io/web/ https://hacker-tools.github.io/security/
 
-## done
-
+DONE
 * _22_: switch to Brave
 * _20_: second pass at auth
 * _19_: first path at auth
@@ -77,7 +72,7 @@ roles https://www.netmeister.org/blog/infosec-skillsets.html
 * _sim swap_: convince telco to assign number to new phone https://www.wsj.com/articles/the-teenager-behind-the-twitter-hack-and-how-he-did-it-11596563449
 * _worm_: self-propagating sw [`tcp-ip-illustrated.pdf` 18.1]
 
-* _packet sniffing_: if packets are sent in unencrypted fashion, can see session info
+* _packet sniffing_: if packets are sent in unencrypted fashion, can see session info https://github.com/pythops/oryx
 * _sensitive data_: https://github.com/hisxo/gitGraber https://github.com/trufflesecurity/trufflehog
 * _tmi_: passwords in your repo, `debug!=true` in PROD https://github.com/6IX7ine/djangohunter
 * _CSRF_: take login credentials and send to 3rd party site [Flask Web Dev 37] https://docs.djangoproject.com/en/2.1/ref/csrf/ https://www.fullstackpython.com/cross-site-request-forgery-csrf.html https://flask.palletsprojects.com/en/1.1.x/security/#cross-site-request-forgery-csrf https://testdriven.io/blog/csrf-flask/ https://www.better-simple.com/django/2023/11/04/debugging-csrf-error-in-production/
@@ -245,6 +240,8 @@ pass
 
 # 👽 USERS
 
+🗄 `django.md` users
+
 ## auth
 
 🗄 `application.md` security
@@ -262,7 +259,7 @@ https://ntietz.com/blog/lets-say-instead-of-auth/
 * _role-based access control (RBAC)_: principle of least privilege
 * role-based e.g. dba has full access to all fields to db but app dev will not see any personally identifiable info e.g. in Postgres can set permissions at the column level https://softwareengineeringdaily.com/2020/07/28/access-control-management-with-fouad-matin-and-dan-gillespie/
 
-OAuth https://www.youtube.com/watch?v=xHFzhBjnMPI https://news.ycombinator.com/item?id=35713518&utm_term=comment
+OAuth https://www.youtube.com/watch?v=xHFzhBjnMPI https://news.ycombinator.com/item?id=35713518&utm_term=comment https://www.youtube.com/watch?v=ZV5yTm4pT8g
 * OPenID https://www.youtube.com/watch?app=desktop&v=996OiexHze0
 * is now Okta? https://www.okta.com/okta-and-auth0/
 * allow 3rd party to use data from service (e.g. Github) w/out exposing user creds from service to 3rd party https://stackoverflow.com/a/33704657
@@ -287,6 +284,7 @@ dn: CN=Alice, OU=sysadmin
 * _OpenID Connect_: newer version of OpenID that uses OAuth https://security.stackexchange.com/a/182083 https://security.stackexchange.com/a/130411 📍 https://www.youtube.com/watch?v=xHFzhBjnMPI https://stackoverflow.com/questions/1087031/whats-the-difference-between-openid-and-oauth
 * _OpenID_: dead https://www.wired.com/2011/01/openid-the-webs-most-successful-failure/
 * _Zanzibar_: https://github.com/warrant-dev/warrant
+* _Zitadel_: https://github.com/zitadel/zitadel
 
 Kerberos https://www.roguelynn.com/words/explain-like-im-5-kerberos/ https://web.mit.edu/kerberos/krb5-1.12/doc/index.html https://web.mit.edu/kerberos/www/dialogue.html
 * single sign-on (SSO) for corporate networks https://stackoverflow.com/a/46188971
@@ -385,10 +383,14 @@ tracking w/ cookies
 
 ## passwords
 
-🗄 `django.md` users
+🗄
+* `shell.md` env var
+* `src.md` deployment / secrets
 
 ---
 
+* salt https://www.youtube.com/watch?v=zt8Cocdy15c
+https://news.ycombinator.com/item?id=41417659
 generate https://github.com/oleiade/motus
 
 workflow https://robertheaton.com/2019/08/12/programming-projects-for-advanced-beginners-user-logins/
@@ -400,7 +402,8 @@ workflow https://robertheaton.com/2019/08/12/programming-projects-for-advanced-b
 * GPG https://www.youtube.com/watch?v=1vVIpIvboSg
 * pwgen https://www.youtube.com/watch?v=G3aH2WYJxGA
 
-password manager
+PASSWORD MANAGER
+* CLI https://www.youtube.com/watch?v=FhwsfH2TpFA
 * https://rutar.org/writing/some-tricks-with-unix-pass/
 * https://rutar.org/writing/managing-secrets-from-the-command-line/
 
@@ -462,7 +465,7 @@ JWT
 > Keeping up with the latest in security research, including new exploitation techniques, vulnerability classes, and impactful CVEs by following conferences (e.g., Black Hat, DEF CON, OWASP), prominent researchers (e.g., James Kettle, Samy Kamkar), social media (e.g., r/netsec) or newsletters (e.g., tl;dr sec, Unsupervised Learning). https://jacobian.org/2021/jan/11/security-ci-cd/
 
 * podcasts https://danielmiessler.com/blog/comparing-top-four-security-podcasts-newsletters
-* _certification_: CEH/OSCP https://news.ycombinator.com/item?id=15152957 https://systemoverlord.com/2017/10/24/building-a-home-lab-for-offensive-security-basics.html CompTIA https://www.wsj.com/articles/its-a-good-time-to-find-a-cybersecurity-job-1527646081 CISSP [Jed]
+* _certification_: CEH/OSCP https://news.ycombinator.com/item?id=15152957 https://systemoverlord.com/2017/10/24/building-a-home-lab-for-offensive-security-basics.html CompTIA https://www.wsj.com/articles/its-a-good-time-to-find-a-cybersecurity-job-1527646081 CISSP [Jed] CySA https://www.comptia.org/certifications/cybersecurity-analyst
 * job market https://marginalrevolution.com/marginalrevolution/2021/05/tuesday-assorted-links-315.html
 * _companies_: Latacora, Hacker One https://news.ycombinator.com/item?id=14871686
 * _conferences_: Defcon, Black Hat, HOPE
@@ -503,16 +506,6 @@ pgcli postgres://postgres:pw@127.0.0.1:9998/db
 ```
 
 ## privacy
-
-VPN
-* https://news.ycombinator.com/item?id=27939039
-* _VPN_: encrypted connection to VPS to proxy traffic https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn/
-* VPN https://mullvad.net/en/blog/2022/7/26/mullvad-is-now-available-on-amazon-us-se/
-* _managed_: Private Internet Access https://kevq.uk/about/ Encrypt.me https://adamwathan.me/uses/
-* _self-managed_: https://github.com/jar-o/rotvpn https://changelog.com/podcast/377 Wireguard, OpenVPN https://drewdevault.com/2019/04/19/Your-VPN-is-a-serious-choice.html https://arstechnica.com/gadgets/2018/08/wireguard-vpn-review-fast-connections-amaze-but-windows-support-needs-to-happen/
-* _sink_: https://news.ycombinator.com/item?id=22183506 https://news.ycombinator.com/item?id=18160618 https://news.ycombinator.com/item?id=19242058 https://news.ycombinator.com/item?id=26645876
-* _Tor_: not anonymous https://news.ycombinator.com/item?id=34412080
-* https://drewdevault.com/2019/04/19/Your-VPN-is-a-serious-choice.html https://hacker-tools.github.io/security/
 
 * get away from Google, email providers, Obsidian https://news.ycombinator.com/item?id=30855065
 > post on Facebook and redirect to your site, put your email, too

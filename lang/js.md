@@ -3,12 +3,9 @@
 ## 参考
 
 📙 Eloquent Javascript
+🛣️ https://roadmap.sh/nodejs
 
 ## 进步
-
-* https://roadmap.sh/nodejs
-* https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
-* perf https://hpbn.co/primer-on-web-performance/
 
 * _19_: Vue for Test Runner
 * _18_: Vue for Dark Canary demo app
@@ -16,16 +13,16 @@
 
 # 🪑 FRAMEWORKS
 
-* Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer
-
 ## design
 
-TAXONOMY
+TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
+* components https://github.com/wrabit/django-cotton
+* Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer
 * _CRUD-and-forms_: Django https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/ 
 * _vanilla_: https://github.com/bradtraversy/vanillawebprojects https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies
 * _HTML-only_: htmx
 * _jQuery-esque_: https://arp242.net/jquery.html Alpine https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/#building-interactive-interfaces-in-your-django-pages-with-alpinejs https://news.ycombinator.com/item?id=36697366 https://news.ycombinator.com/item?id=39580843
-* _React-esque_: Vue, Angular
+* _React-esque_: Vue, Angular, Remix
 * _React-lite_: Mithril https://mithril.js.org https://news.ycombinator.com/item?id=24368689 Svelte https://svelte.dev/ https://news.ycombinator.com/item?id=24363261
 * _full-stack_: Next, Redwood, sock-puppet https://macwright.com/2020/10/28/if-not-spas.html
 * _server side state_: do everything from the server w/ websockets https://macwright.com/2020/10/28/if-not-spas.html
@@ -59,7 +56,7 @@ taxonomy
 * BYO https://nolanlawson.com/2023/12/02/lets-learn-how-modern-javascript-frameworks-work-by-building-one/
 * https://github.com/redwoodjs/redwood https://news.ycombinator.com/item?id=34069527
 * for Deno https://alephjs.org/
-* Astro https://docs.astro.build/en/concepts/why-astro/
+* Astro https://docs.astro.build/en/concepts/why-astro/ https://morizbuesing.com/blog/astro-from-next/
 > It's hard to believe, but in 2022, the developer community continues to pump out interesting new frameworks for building web applications. Astro is a recent, open-source, multi-page application framework that renders HTML on the server and minimizes the amount of JavaScript sent over the wire. Astro seems particularly well-suited to content-oriented websites that pull from many different sources. We like the fact that although Astro encourages sending only HTML, it still supports — when appropriate — select active components written in the front-end JavaScript framework of your choice. It does this through its island architecture. Islands are regions of interactivity within a single page where the necessary JavaScript is downloaded only when needed. Astro is relatively new but seems to support a growing ecosystem of developers and code. It's one to watch as it develops. https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202210057
 
 ## htmx
@@ -115,6 +112,8 @@ replace your React https://htmx.org/essays/a-real-world-react-to-htmx-port/
 * download src https://testdriven.io/blog/flask-htmx-tailwind/#live-search-example
 
 ## React
+
+---
 
 📙 https://www.amazon.com/Road-learn-React-pragmatic-React-js/dp/172004399X/
 https://roadmap.sh/react
@@ -182,6 +181,7 @@ var app = new Vue({
 
 STATE
 * HTML over websockets https://news.ycombinator.com/item?id=26265999
+* Vuex, Pinia, Redux https://www.thoughtworks.com/radar/languages-and-frameworks/pinia
 * _reactive_: update app to frequent state changes w/out reload
 * _rendering - client-side_: initial req gets html/css/js, second req gets content as JSON and generates HTML https://www.openmymind.net/2012/5/30/Client-Side-vs-Server-Side-Rendering/
 * _rendering - server-side_: initial req gets html/css/js + content https://www.openmymind.net/2012/5/30/Client-Side-vs-Server-Side-Rendering/ https://macwright.com/2020/05/10/spa-fatigue.html https://github.com/PyHAT-stack/awesome-python-htmx
@@ -229,11 +229,11 @@ SPECS
 * `it.md` macos/app
 * `security.md` privacy
 
-> But as browsers proliferated and the Web grew from a document-delivery platform into a software-delivery platform, JavaScript became, arguably, the most widely deployed language runtime in the world. - Ford what is code?
+> But as browsers proliferated and the Web grew from a document-delivery platform into a software-delivery platform, JavaScript became, arguably, the most widely deployed language runtime in the world. 📰 Ford what is code?
 
-state
-> Speaking of data, there’s a lot more data a website has to deal with that doesn’t come from a database or an API. Which tab is active right now? Is this modal dialog open or closed? https://increment.com/frontend/when-frontend-means-full-stack/
-* _storage_: `window.localStorage` way to save state in browser https://www.w3schools.com/html/html5_webstorage.asp https://news.ycombinator.com/item?id=20855275
+STATE
+> Speaking of data, there's a lot more data a website has to deal with that doesn't come from a database or an API. Which tab is active right now? Is this modal dialog open or closed? https://increment.com/frontend/when-frontend-means-full-stack/
+* `window.localStorage` way to save state in browser https://www.w3schools.com/html/html5_webstorage.asp https://news.ycombinator.com/item?id=20855275
 * _session_: only saved while tab open
 * _cookie_: less than web storage (4k); sent to server on each request
 * _web/DOM storage_: save data on per origin, available for different pages/tabs or even after restarting machine; isn't sent to server
@@ -247,7 +247,7 @@ state
 * text-based: lynx, browsh https://www.youtube.com/watch?v=sC9JH-Sr_2Q
 * text-only mode: https://merabheja.com/12-text-only-browsers-for-browsing-in-slow-internet-connections/
 * put script at end of body or in head using async https://stackoverflow.com/a/24070373
-* archive whole site w/ wget https://stackoverflow.com/a/4769497 https://stackoverflow.com/a/10564190/6813490 https://news.ycombinator.com/item?id=16557439 https://www.npmjs.com/package/archive.is every version of single page in Wayback Machine https://github.com/jsvine/waybackpack
+* archive whole site w/ wget https://stackoverflow.com/a/4769497 https://stackoverflow.com/a/10564190/6813490 https://news.ycombinator.com/item?id=16557439 every version of single page in Wayback Machine https://github.com/jsvine/waybackpack
 * archive single page https://github.com/gildas-lormeau/SingleFile
 * extensino for wayback machine https://news.ycombinator.com/item?id=27173185&utm_term=comment
 * nyxt https://news.ycombinator.com/item?id=27219646
@@ -278,8 +278,11 @@ state
 
 ## lang
 
+---
+
 🔗 https://github.com/30-seconds/30-seconds-of-code
 
+* lint https://github.com/biomejs/biome https://astral.sh/about
 * _variables_: `var` don't use `let` like var but not in global scope `const` like it sounds
 * object: collection of properties
 * property: KV pair
@@ -308,18 +311,39 @@ let alice = {score: 5, name: 'Alice'};
 let bob = Object.assign({}, player, {score: 3});
 ```
 
-## Node
+## runtimes
 
----
-
+* _bun_: 🎯 runtime + tooling (bundle, transpile, pkg mgmt) https://bun.sh/
+* impl: in Zig, using WebKit JavaScriptCore (instead Chromes V8 engine)
+* _Deno_: Node replacement https://softwareengineeringdaily.com/2020/09/28/deno-and-typescript-with-elio-rivero/
 * _Node_: libuv (IO library) + V8 (JS engine) https://neovim.io/charter/
 * don't install from OpenJS https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-* _Deno_: Node replacement https://softwareengineeringdaily.com/2020/09/28/deno-and-typescript-with-elio-rivero/
-* _bun_: runtime + tooling (bundle, transpile) https://bun.sh/
+* previous problem due to installing as root at Zipcode
 
-NODENV https://github.com/nodenv/nodenv
-> this is what you're using currently
-* alternatives: nvm https://github.com/creationix/nvm#important-notes asdf https://github.com/asdf-vm/asdf volta https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039 fnm https://github.com/Schniz/fnm mise https://github.com/jdx/mise https://github.com/carderne/carderne.github.io
+## packaging
+
+* _package_: anything w/ `package.json`
+* _npm_: manager + registry https://www.npmjs.com/
+* _yarn_: manager https://yarnpkg.com/
+* `yarn install --ignore-engines` https://stackoverflow.com/a/45088032
+
+NPM
+* `package.json`: dependency manifest
+* `.npm`: cache https://docs.npmjs.com/files/folders
+* `prune`: rm pkg in `node_modules` but not in `package.json`
+* scopes: local (`./node_modules` of current pkg root; use for `require()`) global (`/usr/local` or wherever node is installed; use for CLI) https://stackoverflow.com/a/47284674
+
+## version mgmt
+
+ALTERNATIVES
+* _asdf_: https://github.com/asdf-vm/asdf
+* _fnm_: https://github.com/Schniz/fnm
+* _pkgx_: https://www.youtube.com/watch?v=S9oHESiZyr0
+* _mise_: 🎯 https://github.com/jdx/mise
+* _nvm_: https://github.com/creationix/nvm#important-notes
+* _volta_: https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039
+
+NODENV 📜 https://github.com/nodenv/nodenv
 * rm version: find fs location `nodenv prefix <ver>` and then just rm dir https://github.com/nodenv/nodenv#uninstalling-node-versions
 * _shim_: intercepts cmd and passes to specific version https://medium.com/@ujjawal.dixit/what-is-a-shim-72d9ac5d8620
 * e.g. when you run `npm`, nodenv will find `npm` on `$PATH` in which Node version you're using and pass cmd to that binary use whatever
@@ -352,105 +376,4 @@ init
 if command -v nodenv 1>/dev/null 2>&1; then
     eval "$(nodenv init --path)"
 fi
-```
-
-MBP14
-* _previous problem install_: `EACCES error` --> installed Node as root which made NPM’s permissions also root -> `ls -l /usr/local/lib/node_modules/npm/bin` +  https://stackoverflow.com/a/16151707/6813490 -> based on notes, current Node puts pkgs to `/usr/local/lib/node_modules` but `which node` gives `/usr/local/bin/node` and `brew list` shows Node 🗄 `20190230-xargs-brew-upgrade-2` 🗄 `installs/npm`
-* _fix yet?_ not yet; only JS needs are Vue, which you can use over CDN
-* _fix how?_: brew uninstall, rm some dir https://stackoverflow.com/q/11177954/6813490 install nvm
-* _double check_: does anything else on your system depend on Node/NPM
-```txt
-how to read /etc/group [https://www.cyberciti.biz/faq/understanding-etcgroup-file/]
-how to read -l flag for ls cmd [Linux Cookbook 6.3.]1
-list all members in a group: grep <query> /etc/group [https://www.cyberciti.biz/faq/linux-list-all-members-of-a-group/]
-how to tell if file is executable? file <file> [https://stackoverflow.com/a/567782]
-what is wheel group? group of users that can use sudo [https://en.wikipedia.org/wiki/Wheel_(Unix_term)]
-
-have you tried adding yourself to the group that owns that directory? 
-as you can see from the output of the ls -l you don't have permission to write to that dir 
-option 1. you could add yourself to the wheel group 
-option 2. you could chmod that dir to 777 
-those are probably both ugly solutions but they might work
-option 3. sudo 
-re: adding user to wheel, somewhat confusing. wheel group (my understanding): group for users that can use 'sudo' cmd. based on 
-based on 'grep wheel /etc/group', my user is not in that group.
-and yet, I can still use command
-
-also, re: chmod to 777, I don't think that would work. it *should* work, but I haven't seen it floated elsewhere as a solution, making me think other permissions need to change in other places, that everything is a bit tangled somehow.
-What I would do is delete EVERYTHING. npm, modules, homebrew, etc. 
-Re-install homebrew and install npm from there. At that point you should have no conflicts. 
-
-yeah, I mean honestly I'm going to be installing everything locally unless I find some compelling reason not to, NPM scripts seem to obviate need for global installs anyway
-my guess is you installed node and npm. then you installed home brew. you probably have some sort of conflict somewhere. 
-but feel like, if I've got a juicy problem, might as well get clarity and earn some Stack Overflow credit for doing it
-well like the create-react-app tool, it makes no sense to install that locally to a project. those type of tools you want to be global. 
-that's the other reason: feel like 99% of packages should be local, but figured might need some global. so if I can get answer to this without uninstalling Node, NPM, Homebrew, I'll take that
-esp. bc uninstall seems a potential rabbit hole in its own right
-https://stackoverflow.com/a/11178106/6813490 
-if re-install was supposed to be easy and ended up here, even more reason to avoid something that advertises itself as difficult
-```
-```log
-🈚️ ☞☞☞ node --version
-v6.9.2
-🈚️ ☞☞☞ which node
-/usr/local/bin/node
-🈚️ ☞☞☞ npm --version 
-3.10.9
-🈚️ ☞☞☞ which npm
-/usr/local/bin/npm
-
-🈚️ ☞☞☞ brew install node
-==> Installing node
-Error: The `brew link` step did not complete successfully
-The formula built, but is not symlinked into /usr/local
-Could not symlink bin/node
-Target /usr/local/bin/node
-already exists. You may want to remove it:
-  rm '/usr/local/bin/node'
-To force the link and overwrite all conflicting files:
-  brew link --overwrite node
-To list all files that would be deleted:
-  brew link --overwrite --dry-run node
-Possible conflicting files are:
-/usr/local/bin/node
-/usr/local/include/node/android-ifaddrs.h
-/usr/local/include/node/common.gypi
-/usr/local/include/node/config.gypi
-...........................
-Warning: The post-install step did not complete successfully
-You can try again using `brew postinstall node`
-==> Caveats
-
-🈚️ ☞☞☞ node --version
-v6.9.2
-🈚️ ☞☞☞ npm --version
-3.10.9
-🈚️ ☞☞☞ which node
-/usr/local/bin/node
-🈚️ ☞☞☞ which npm
-/usr/local/bin/npm
-```
-
-## packagaing
-
-* _package_: anything w/ `package.json`
-* _npm_: manager + registry https://www.npmjs.com/
-* _yarn_: manager https://yarnpkg.com/
-* `yarn install --ignore-engines` https://stackoverflow.com/a/45088032
-
-NPM
-* `package.json`: dependency manifest
-* `.npm`: cache https://docs.npmjs.com/files/folders
-* `prune`: rm pkg in `node_modules` but not in `package.json`
-* scopes: local (`./node_modules` of current pkg root; use for `require()`) global (`/usr/local` or wherever node is installed; use for CLI) https://stackoverflow.com/a/47284674
-* hacked together
-```log
-🈚️ ☞☞☞ history
-  400  npm install --save lodash
-  505  npm install create-react-app --save
-  514  npm install gulp --save
-  517  ls node_modules/.bin/
-  518  ./node_modules/.bin/create-react-app zv-test
-  520  cd zv-test/
-  525  npm start
 ```

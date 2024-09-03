@@ -2,9 +2,9 @@
 
 ## 参考
 
-## 进步
+📙 https://sre.google/sre-book/table-of-contents/
 
-https://rdrn.me/observability/
+## 进步
 
 * _23_: Datadog with CRD
 * _17_: Google SRE book first 20 chapters
@@ -15,7 +15,24 @@ https://rdrn.me/observability/
 
 ---
 
-* https://sre.google/sre-book/table-of-contents/
+TAXONOMY
+* user sessions https://news.ycombinator.com/item?id=40318542 https://jam.dev/ https://trackjs.com/
+* tracing
+
+PROVIDERS https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services
+> taxonomy from Sentry and this https://rdrn.me/observability/
+* _Grafana_: visualize metrics https://www.youtube.com/watch?v=9TJx7QTrTyo [14:00] https://www.reddit.com/r/devops/comments/sevtqs/whats_your_monitoring_stack/
+* replace with Textual? https://textual.textualize.io/
+* _HyperDX_: 🎯 https://github.com/hyperdxio/hyperdx
+> HyperDX is an open-source observability platform that unifies all three pillars of observability: logs, metrics and tracing. With it, you can correlate end-to-end and go from browser session replay to logs and traces in just a few clicks. The platform leverages ClickHouse as a central data store for all telemetry data, and it scales to aggregate log patterns and condense billions of events into distinctive clusters. Although you can choose from several observability platforms, we want to highlight HyperDX for its unified developer experience. https://www.thoughtworks.com/radar/platforms/hyperdx
+* _Jam_: error reporting https://jam.dev/ https://news.ycombinator.com/item?id=40318542 🗄️ `test.md` friction logs
+* _Prometheus_: time-series db as metrics store https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services/ https://prometheus.io/docs/introduction/overview/ https://github.com/yolossn/Prometheus-Basics https://softwareengineeringdaily.com/2020/07/09/chronosphere-scalable-metrics-database-with-rob-skillington/ https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://monzo.com/blog/2018/07/27/how-we-monitor-monzo/ https://www.youtube.com/watch?v=9TJx7QTrTyo [13:00]
+* _Moderato_: 🎯 https://github.com/moderato-app/live-pprof
+* _New Relic_: 
+* _Rollbar_: https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you 
+* _Sentry_: suspected commit behind break
+
+https://www.thediff.co/archive/the-data-business-at-three-resolutions/
 
 OPENTELEMETRY
 * https://opentelemetry.io/ 
@@ -24,6 +41,7 @@ OPENTELEMETRY
 * https://andydote.co.uk/2023/09/19/tracing-is-better/
 
 UPTIME / HEALTHCHECK / HEARTBEAT
+* https://news.ycombinator.com/item?id=41452339
 * https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
 * baseline https://healthchecks.io/
 * db connection https://www.youtube.com/watch?v=GT9WmExDbXQ
@@ -46,8 +64,6 @@ https://www.ryancheley.com/2023/10/29/error-culture/
 * users online https://analytics.usa.gov/
 * uptime https://news.ycombinator.com/item?id=25553445 depends on system component https://www.openmymind.net/Im-Not-Sold-On-High-Availability/
 * _dead man's switch_: cease operation in absence of human operator e.g. carts at airport [Conery 6; think his usage wrong]
-
-* Prometheus https://prometheus.io/docs/introduction/overview/ https://github.com/yolossn/Prometheus-Basics https://softwareengineeringdaily.com/2020/07/09/chronosphere-scalable-metrics-database-with-rob-skillington/
 
 🗄 `link.md` speed
 > rf `link.md` then this section
@@ -94,7 +110,7 @@ white box
 
 🔍 QUERY
 ```sh
-# FUNCTION: have to add func name to logs https://um-t.slack.com/archives/D034KAZ13L6/p1694710729674579
+# FUNCTION: have to add func name to logs
 service:bread-internal upsert_artist_split 
 
 # ARTIST ID + STRING https://app.datadoghq.com/logs?query=apNjkATwdFGD%20withdrawal
@@ -106,7 +122,7 @@ service: t3.util.split_payments.batch_send_invites  # https://app.datadoghq.com/
 
 # CONSUMER
 *eventbus.consumers* *bread* service:bread_split_consumer 
-service:bread_cashout_consumer  # https://um-t.slack.com/archives/C04DN9EV24E/p1687956864496889
+service:bread_cashout_consumer
 
 # RESOURCE
 env:prod AND resource_name:"POST /api/v1/split-payments/payees/<payee_ref_fktype>/<payee_ref_fid>/invites/<invite_code>/accept"
@@ -154,7 +170,7 @@ service:t3.services.split_payments resource_name:services.split_payments.service
 * only retained for 15 days
 * has log ingestion svc that UM used to add context to traces
 * `log.info` ingested https://github.com/tommyboytech/t3/pull/12912/files
-* ingestion from Cloudwatch https://um-t.slack.com/archives/CC11T8R3L/p1659138271124939
+* ingestion from Cloudwatch
 * there has got to be a better way than Hungarian notation i.e. putting `SPX` in each log line
 * _retention_: how long DD stores logs
 * _indexed_: DD collects https://www.datadoghq.com/blog/logging-without-limits/
@@ -203,7 +219,7 @@ SEMANTICS https://www.datadoghq.com/ebook/monitoring-modern-infrastructure/
 * _event_: change to system e.g. build, release, add/substract host/container, alert going off
 * _metric_: value from system at a particlar point in time
 * _throughput_: amount of work per unit of time e.g. RPS
-* _latency_: time required to complete unit of work e.g. % of requests returns with X time e.g. 99% of requests return w/in 0.2 ms
+* _latency_: time required to complete unit of work e.g. % of requests returns with X time e.g. 99% of requests return w/in 0.2 ms https://www.youtube.com/watch?v=FqR5vESuKe0
 * metrics: success rate, error rate
 * _utilization_: % of time resource is busy
 * _saturation_: amount of work resource cannot yet service i.e. how much stuff is queued up waiting
@@ -280,6 +296,7 @@ PROVIDERS
 * _Braze_: 
 * _Chartbeat_: publishing
 > The most influential is Chartbeat, which shows you every article on your site, indicates the number of people on each article at any given second, and colors the dots representing those people to tell you how they found the article. Green dots mean they found you through a search engine. Purple dots mean they came from a social network, usually Facebook, Twitter, or Reddit. It’s pure pleasure to watch the display for an article you worked hard on fill with dots. https://www.vox.com/2020/1/28/21077888/why-were-polarized-media-book-ezra-news
+* _Clickhouse_: https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html https://github.com/azat/chdig https://posthog.com/handbook/engineering/clickhouse https://clickhouse.com/docs/en/operations/utilities/clickhouse-local/ https://news.ycombinator.com/item?id=34071918 https://clickhouse.com/blog/extracting-converting-querying-local-files-with-sql-clickhouse-local https://news.ycombinator.com/item?id=24696149 https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://softwareengineeringdaily.com/2021/05/17/clickhouse-data-warehousing-with-robert-hodges/ https://softwareengineeringdaily.com/2022/09/12/serverless-clickhouse-for-developers/ https://tech.marksblogg.com/billion-taxi-rides-doublecloud-clickhouse.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/clickhouse-prometheus-grafana.html
 * _Hotjar_: https://www.hotjar.com/
 * _GoatCounter_: Visidata uses https://www.goatcounter.com/ alternative https://github.com/ihucos/counter.dev https://news.ycombinator.com/item?id=26379569 https://simpleanalytics.com/ https://newcss.net/
 * _Google Analytics_: https://satchel.com/web-analytics/ alternatives https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
@@ -299,19 +316,8 @@ PROVIDERS
 
 ---
 
-https://www.thediff.co/archive/the-data-business-at-three-resolutions/
-* _Prometheus_: store metrics https://www.youtube.com/watch?v=9TJx7QTrTyo 13:00
-* _Grafana_: visualize metrics https://www.youtube.com/watch?v=9TJx7QTrTyo 14:00
-
 ZA
 * https://danluu.com/metrics-analytics/ https://www.kalzumeus.com/greatest-hits/ https://danluu.com/web-bloat https://thoughtbot.com/upcase/analytics-for-developers 
-
-CLICKHOUSE
-* https://github.com/azat/chdig
-* https://posthog.com/handbook/engineering/clickhouse
-* CLI https://clickhouse.com/docs/en/operations/utilities/clickhouse-local/ https://news.ycombinator.com/item?id=34071918
-* local https://clickhouse.com/blog/extracting-converting-querying-local-files-with-sql-clickhouse-local
-* https://news.ycombinator.com/item?id=24696149 https://tech.marksblogg.com/clickhouse-prometheus-grafana.html  https://softwareengineeringdaily.com/2021/05/17/clickhouse-data-warehousing-with-robert-hodges/ https://softwareengineeringdaily.com/2022/09/12/serverless-clickhouse-for-developers/ https://tech.marksblogg.com/billion-taxi-rides-doublecloud-clickhouse.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/clickhouse-prometheus-grafana.html
 
 ## logging
 
@@ -320,8 +326,15 @@ CLICKHOUSE
 LOG STORES
 * _parseable_: https://github.com/parseablehq/parseable
 
+FORMAT
+* _JSONL_: https://github.com/textualize/toolong
+
+TOOLING
+* _toolong_: 🎯 https://github.com/textualize/toolong
+
 ---
 
+* https://github.com/pamburus/hl
 * https://github.com/ptmcg/logmerger
 * https://github.com/ReagentX/Logria
 * https://github.com/tstack/lnav
@@ -346,7 +359,7 @@ https://news.ycombinator.com/item?id=30394152
 * _sources_: clickstream, proxy, web server, app server
 * event streams https://apenwarr.ca/log/20190216
 * _formats_: CLF, Amazon, Nginx https://github.com/allinurl/goaccess common log format https://vicki.substack.com/p/logs-were-our-lifeblood-now-theyre https://brandur.org/logfmt https://medium.com/hiredscore-engineering/logging-lets-do-it-right-41d568d3bfcd
-* _tools_: Logstash, Fluentd https://github.com/itamarst/eliot https://news.ycombinator.com/item?id=21461617 https://github.com/rcoh/angle-grinder https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-log-analyzers https://github.com/allinurl/goaccess psutil (get system info like CPU, mem, users) Honeycomb https://www.honeycomb.io/blog/tell-me-more-nginx/ Prometheus https://monzo.com/blog/2018/07/27/how-we-monitor-monzo/ Rollbar https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you Sentry https://hynek.me/talks/beyond-grep/ others (Datadog, New Relic, Prometheus https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services/)
+* _tools_: Logstash, Fluentd https://github.com/itamarst/eliot https://news.ycombinator.com/item?id=21461617 https://github.com/rcoh/angle-grinder https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-log-analyzers https://github.com/allinurl/goaccess psutil (get system info like CPU, mem, users) Honeycomb https://www.honeycomb.io/blog/tell-me-more-nginx/ https://hynek.me/talks/beyond-grep/
 * _sink_: log growth roughly linear https://www.youtube.com/watch?v=-6Hk9rcgM94 https://stripe.com/gb/blog/canonical-log-lines
 
 ## perf

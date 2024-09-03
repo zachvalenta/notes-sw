@@ -21,7 +21,10 @@
 
 ## 进步
 
+https://www.youtube.com/watch?v=lX4CrbXMsNQ
 https://github.com/hackclub/RAM-a-thon
+https://www.youtube.com/playlist?list=PL77441A2ED0D0B6A8
+https://www.youtube.com/playlist?list=PLH2l6uzC4UEW0s7-KewFLBC1D0l6XRfye
 
 * _14_: 📙 Gleick the information
 * _11_: 📙 Hillis pattern in the stone
@@ -81,7 +84,6 @@ ENTROPY
 * Shibuya microprocessors ch. 1
 
 todo
-* Crash Course computer science https://www.youtube.com/playlist?list=PLH2l6uzC4UEW0s7-KewFLBC1D0l6XRfye @ 4 6:45
 * https://reasonablypolymorphic.com/book/preface
 * Ben Eater https://eater.net/8bit + 📚 Petzold code 17
 
@@ -192,7 +194,7 @@ materials https://www.youtube.com/watch?v=LN0ucKNX0hc
 
 timeline
 * _1830_: Babbage analytical engine https://www.youtube.com/watch?v=O5nskjZ_GoI 8:45 differential analyzer https://twobithistory.org/2020/04/06/differential-analyzer.html
-* _1890_: Hollerith machine (punch cards) for US census (https://en.wikipedia.org/wiki/Domesday_Book) -> became IBM in 1924 https://www.youtube.com/watch?v=O5nskjZ_GoI 10:55 https://www.thediff.co/archive/longreads-open-thread-85/
+* _1890_: Hollerith machine (punch cards) for US census (https://en.wikipedia.org/wiki/Domesday_Book https://pase.ac.uk/) -> became IBM in 1924 https://www.youtube.com/watch?v=O5nskjZ_GoI 10:55 https://www.thediff.co/archive/longreads-open-thread-85/
 * _1945_: Colussus - first programmable (configured w/ plugs) https://www.youtube.com/watch?v=LN0ucKNX0hc 6:10
 * _1946_: ENIAC https://www.youtube.com/watch?v=LN0ucKNX0hc 6:45
 * _1950_: IBM mainframes
@@ -283,7 +285,7 @@ ISA 📙 Bryant ch. 4 https://en.wikipedia.org/wiki/Instruction_set_architecture
 scheduling 🗄 `linux.md` processes
 * https://wizardzines.com/comics/cpu-scheduling/
 
-* _processor_: aka CPU; can have n cores (i.e. parallelism) https://stackoverflow.com/q/19225859 can only add and subtract [Manga 1.15]
+* _processor_: aka CPU; can have n cores (i.e. parallelism) https://stackoverflow.com/q/19225859 can only add and subtract [Manga 1.15] https://www.righto.com/2024/08/pentium-navajo-fairchild-shiprock.html
 * _core_: main component that reads from memory, maintains execution order and state, and uses ALU to perform operations https://stackoverflow.com/a/19314303 https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
 * _core types_: physical (what it sounds like) logical (abstraction to facilitate hyperthreading) https://stackoverflow.com/q/1715580 https://forums.tomshardware.com/threads/what-is-the-difference-between-physical-core-and-logical-core.1534416/
 * _hyperthreading_: single core that can execute n instructions simultaneously

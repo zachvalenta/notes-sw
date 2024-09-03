@@ -13,6 +13,8 @@
 
 ## 进步
 
+https://www.youtube.com/watch?v=Ud7Npgi6x8E
+https://news.ycombinator.com/item?id=38913425
 https://github.com/robertpsoane/ducker
 https://github.com/mrjackwills/oxker
 * making things actually reproducible https://pythonspeed.com/articles/reproducible-docker-builds-python/
@@ -170,7 +172,7 @@ context canceled
 basics
 * `docker-compose.yml`: run n processes w/ single command, all logs to single terminal
 * when Dockerfile's `RUN` not enough https://stackoverflow.com/a/45549372
-* alternatives: Foreman, Honcho https://www.mattlayman.com/blog/2019/web-development-environments/ Colima https://www.thoughtworks.com/radar/platforms?blipid=202203015
+* alternatives: Foreman, Honcho https://www.mattlayman.com/blog/2019/web-development-environments/ Colima https://www.thoughtworks.com/radar/platforms?blipid=202203015 Orbstack https://news.ycombinator.com/item?id=41421846 Podman https://news.ycombinator.com/item?id=38981844
 * _service_: container https://www.youtube.com/watch?v=aetqo2nkQcA 1:30
 
 multi-env https://docs.docker.com/compose/extends/
@@ -557,6 +559,7 @@ VMWARE
 
 https://roadmap.sh/kubernetes
 https://github.com/ghik/kubernetes-the-harder-way https://news.ycombinator.com/item?id=41393160
+* _dstack_: OSS alternative https://github.com/dstackai/dstack https://www.youtube.com/watch?v=Kqp_LI85qVQ
 
 🗄 `system.md` distributed
 🔍 https://ramitsurana.github.io/awesome-kubernetes/
@@ -624,6 +627,7 @@ ZA
 
 ## Python
 
+* https://hynek.me/articles/docker-virtualenv/
 * can install Poetry into the container and use it to install deps (vs. export deps from Poetry to `reqs.txt` bc Poetry doesn't current have a way to export only prod deps) https://jacobian.org/2019/nov/11/python-environment-2020/
 * avoid deps reinstall https://stackoverflow.com/a/25307587/6813490 https://wsvincent.com/beginners-guide-to-docker/ 
 * use venv for deps https://hynek.me/articles/python-app-deps-2018/ 

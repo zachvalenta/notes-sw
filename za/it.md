@@ -21,7 +21,7 @@ TABLET
 * music production: GarageBand, Koala
 * courses from Khan Academy https://github.com/rand-net/khan-dl
 
-## manufacturers
+## Apple vs. Linux
 
 considerations
 * ✅ Mac: familiarity, hardware
@@ -44,7 +44,7 @@ LINUX https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=3418050
 * lack of support for Ableton, might not have audio interface drivers https://news.ycombinator.com/item?id=20745072
 * _Chromebook_: Linux beta https://uglyduck.ca/chromebook-web-development/
 * _Dell_: https://cfenollosa.com/blog/fed-up-with-the-mac-i-spent-six-months-with-a-linux-laptop-the-grass-is-not-greener-on-the-other-side.html break all the time https://news.ycombinator.com/item?id=32632720
-* _Framework_: https://frame.work/ broken https://news.ycombinator.com/item?id=33322143 https://news.ycombinator.com/item?id=28606962 https://news.ycombinator.com/item?id=27926425
+* _Framework_: https://frame.work/ broken https://news.ycombinator.com/item?id=33322143 https://news.ycombinator.com/item?id=28606962 https://news.ycombinator.com/item?id=27926425 better now? https://frame.work/products/laptop13-diy-intel-ultra-1 https://omakub.org/
 * _System76_: https://system76.com/ https://news.ycombinator.com/item?id=34599094 https://news.ycombinator.com/item?id=34599094
 * _Thinkpad_: https://news.ycombinator.com/item?id=30241960 x200 https://drewdevault.com/2021/05/14/Pinebook-Pro-review.html beware machines after 2012, X60 can only deal w/ 32-bit os, X200/X220/X230 are popular https://www.youtube.com/watch?v=mxA9Gyyu6Rg 9:45 12:40 13:15
 * Linux laptops https://news.ycombinator.com/item?id=35355494
@@ -54,10 +54,15 @@ LINUX https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=3418050
 🗄️ `aesthetics.md` home design
 
 KEYBOARDS 📙 https://shifthappens.site/#story-of-a-photo
+* features: 80% layout, func (volume, brightness), numbers, arrows, page up/down
+> plastic vs. metal? https://www.reddit.com/r/NuPhy/comments/13kc4xm/team_nuphy_vs_team_keychron_fight/
+* Lofree is cool https://www.lofree.co/
+* _Keychron k2_: https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard
 * _Keychron q1 pro_: $225 https://www.amazon.com/dp/B0BLZ1ZN3H
+* _Keychron q3_: $185 https://www.keychron.com/products/keychron-q3-qmk-custom-mechanical-keyboard?variant=39773518626905 https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard
 * _Lofree flow84_: $175  https://www.amazon.com/dp/B0CJTV8P4Z https://www.imore.com/best-mechanical-keyboards-mac
-* _Nuphy air75 v2_: ✅ $125
-* can do wired https://www.reddit.com/r/NuPhy/comments/zt6qkt/wired_mode_does_not_work_75_air/
+* _Nuphy air75 v2_: $125; bad customer service, slow shipping (but next time you can just buy from Amazon?), can do wired? https://www.reddit.com/r/NuPhy/comments/zt6qkt/wired_mode_does_not_work_75_air/
+* _System76_: https://system76.com/accessories/launch
 
 ---
 
@@ -82,14 +87,16 @@ KEYBOARDS
 
 MONITOR https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
 * config on macOS https://news.ycombinator.com/item?id=34487066
+* OLED = most accurate, best for viewing from non-direct angle https://www.tomsguide.com/us/what-is-oled,news-25120.html
 * webcam https://www.nytimes.com/wirecutter/reviews/the-best-webcams/
 * https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/ https://www.nytimes.com/wirecutter/reviews/best-monitors/
 * 1080p vs. 4k for readability https://news.ycombinator.com/item?id=23551983 
 * https://www.apple.com/mac-mini/specs/
+* _BenQ_: $600 https://www.youtube.com/watch?v=784pFXYBqsg
 * _Dell S2318HN_: ✅ $175, 23", 1080p
 * _Dell U3223QE_: $725, 32", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding
 * _Dell S2722QC_: $225, 27", 4k https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding
-* _OLED_: most accurate, best for viewing from non-direct angle https://www.tomsguide.com/us/what-is-oled,news-25120.html
+* _Spectrum black_: $750 https://www.dough.tech/pages/monitors
 
 KVM
 * _KVM switch_: switch keyboard/video/mouse between computers https://www.pcmag.com/how-to/how-to-control-multiple-computers-with-one-keyboard-and-mouse https://www.pcmag.com/picks/best-kvm-switches
@@ -307,12 +314,14 @@ BRAVE
 
 ---
 
+alternate browser https://zen-browser.app/ https://www.youtube.com/watch?v=VshptkoKfQo
+keypress sim https://github.com/cjerrington/wakey
 system register https://github.com/TermiT/Flycut
 
 Chrome 🗄 `js.md` browser
 * set default browser: system preferences > general
 * settings: zoom to 110, font fize large, downloads to desktop, switch search to DuckDuckGo, startup to open previous tabs
-* extensions: Vimium, Mercury Reader, EditThisCookie, JSON Viewer, Instant Data Scraper https://news.ycombinator.com/item?id=34069680
+* extensions: Vimium, Mercury Reader, EditThisCookie, PocketTube
 * Gmail: have to opt into keyboard shortcuts
 * Youtube_: shortcuts `?` skip to % `<num>` list all video titles in playst `youtube-dl --get-filename https://www.youtube.com/playlist?list=PLIiejGE6XOgm_iInCjfVc2Rd0ghl5zJAV > sampling.txt`
 * _archive.vn_: https://chromewebstore.google.com/detail/archive-page/gcaimhkfmliahedmeklebabdgagipbia?pli=1
@@ -334,18 +343,18 @@ VIMIUM
 * page - search: `/`
 * restore tab: `X`
 
-Spotlight
+SPOTLIGHT
 * access: `CMD SPACE`
 * folders to search: apps, calculator, definition, documents, folder, music, pdf documents, system preferences
 * NLP = can no longer turn off web search https://forums.macrumors.com/threads/spotlight-how-to-remove-web-search-from-results.2271616/
 * alternatives https://news.ycombinator.com/item?id=22849208 Alfred https://switowski.com/blog/favorite-mac-tools/
 
-coloration
+COLORATION
 * dark mode: set from terminal https://stefan.sofa-rockers.org/2018/10/23/macos-dark-mode-terminal-vim/
 * Flux https://justgetflux.com/ https://news.ycombinator.com/item?id=30626803
 * NightShift https://shifty.natethompson.io/en/
 
-Preview
+PREVIEW
 * alternative https://getpolarized.io/
 * ToC: CMD ALT 3
 * higlights: CMD ALT 4
@@ -464,8 +473,12 @@ USE CASES
 
 ## keybindings
 
+EMOJI
+* https://matthewpalmer.net/rocket/
+* picker: `CTRL CMD SPACE`
+* disable suggestions: `sudo defaults write /Library/Preferences/FeatureFlags/Domain/UIKit.plist emoji_enhancements -dict-add Enabled -bool NO` https://www.reddit.com/r/MacOS/comments/16wzdk9/is_there_a_way_to_turn_off_the_new_emoji
+
 system
-* emoji: CTRL CMD SPACE emoji picker https://matthewpalmer.net/rocket/
 * screenshot - whole: CMD SHIFT 3
 * screenshot - portion: CMD SHIFT 4
 * window - hide: CMD h
@@ -607,17 +620,31 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 | email         | google   | 22.02 |            | mini23        |
 | mini23        | -        |       | fs         |               |
 | air22         | -        | ----- | mini23     |               |
-| `ExFatMain`   | desk     | 24.02 | mini23     |               |
+| `ExFatMain`   | desk     | 24.09 | mini23     |               |
 | `WD1`         | safe     | 24.06 | mini23     |               |
 | `WD2`         | lockbox  | 20.02 | mini23     |               |
 | `music-usb`   | desk     | ----- | `yin`      |               |
 | `music-usb-2` | desk     | 24.02 | `yin`      |               |
 
-TODO
+### mini23 ➡️ exfatmain
+
 > 📍 clean up DS files `fd -HI DS`
-* yin: rock/blues, roots/dylan, country/singles, mayra andrade, stax, dehd, sinatra
 * rm mckinney book
 * 23 taxes
+* golf
+* music: francis harris
+
+### air-capp ➡️ mini23
+
+* dance/dark: nicolaas jaar, roisin murphy, pantha du prince
+* electronic: we-as-is
+* rock/80s: war on drugs, the police
+* rock/indie: camera obscura
+* rnb: al green (belle)
+* punks/60s
+* rm police from rock/singles
+
+### clean up
 
 SEMANTICS
 * _transfer_: mv data from A to B
@@ -686,13 +713,13 @@ physical storage
 * preventing file corruption https://duckduckgo.com/?q=how+do+hard+drives+get+corrupted&atb=v161-1&ia=web
 * defrag?
 
-Backblaze https://wesbos.com/uses
+BACKBLAZE https://wesbos.com/uses
 📙 Shotts command line ch. 18
 * ❓ versioned backups to prevent data corruption? https://hacker-tools.github.io/backups/
 * 📍 extra consideration to code (dupe to Gitlab), digits, email https://hacker-tools.github.io/backups/ https://kevq.uk/i-nearly-lost-all-of-my-data/ 
 * weird files on backup drives http://blog.hostilefork.com/trashes-fseventsd-and-spotlight-v100/
 
-Time Machine
+TIME MACHINE
 * backup https://support.apple.com/en-us/HT201250
 * restore https://support.apple.com/en-us/HT203981
 * slow?

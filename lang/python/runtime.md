@@ -25,12 +25,55 @@ TAXONOMY https://en.wikipedia.org/wiki/Exploratory_programming
 * _notebook_: REPL + presentation layer + persistent data
 * _spreadsheet_: proprietary notebook https://www.youtube.com/watch?v=llgTl9BDuKw
 
-## debugger (pdb)
+## 🐛 debugger
 
-🗄 iPython
-📙
+📚
 * Beazley ch. 14
 * Seitz grey hat ch. 2
+
+---
+
+INTERNALS / DESIGN https://www.youtube.com/watch?v=QU158nGABxI https://www.youtube.com/watch?v=3UbVs18SBzo https://www.youtube.com/watch?v=COa-JHYuW3M
+* `sys.settrace` registers callback on interpreter for function call, LOC executed, func return value, exceptions raised [3:45]
+```python
+def simple_tracer(frame, event):  # 4:30
+```
+* trickier with multithreading [10:00]
+* BYO w/ bdb [11:45]
+* BYO https://www.timdbg.com/posts/writing-a-debugger-from-scratch-part-5/
+* https://werat.dev/blog/what-a-good-debugger-can-do/
+
+### alternatives
+
+---
+
+IPYTHON
+* https://switowski.com/blog/ipython-debugging/
+* https://adamj.eu/tech/2021/02/21/improve-your-django-experience-with-ipython/
+```python
+from IPython import embed; embed()
+```
+
+ALTERNATIVES
+* https://www.youtube.com/watch?v=3UbVs18SBzo
+> tmux send-keys https://news.ycombinator.com/item?id=37172711 https://www.reddit.com/r/zellij/comments/13zqggd/sending_keys_to_another_terminal/ https://www.youtube.com/results?search_query=send-keys+tmux
+* _pudb_: 🎯 https://github.com/inducer/pudb https://realpython.com/python-packages/#pudb-for-visual-debugging
+* _ipdb_: 🎯 https://stackoverflow.com/a/15976544/6813490 https://adamj.eu/tech/2021/02/21/improve-your-django-experience-with-ipython/
+* _bdb_: level down from pdb https://stackoverflow.com/a/10302538/6813490
+* _gdb_: deep bad things https://wiki.python.org/moin/DebuggingWithGdb
+* `print()`: if you don't know how to use a debugger https://twitter.com/raymondh/status/1266668437020897280 https://github.com/gruns/icecream https://github.com/cool-RR/PySnooper
+> It takes less time to decide where to put print statements than to single-step to the critical section of code https://news.ycombinator.com/item?id=26928696
+* _pdb++_: 🎯 https://github.com/pdbpp/pdbpp
+* main reason to use seem to be syntax highlighting and tab completion https://github.com/pdbpp/pdbpp#what-is-it
+* pytest workaround https://github.com/pdbpp/pdbpp/issues/392 https://github.com/zachvalenta/algos/blob/master/Makefile#L43
+* overrides pdb breakpoint https://github.com/pdbpp/pdbpp/issues/281
+* `track`: (requires pypy)
+* `display`: (couldn't figure out how this worked first time around)
+* _nvim-dap_: 🎯 https://github.com/mfussenegger/nvim-dap https://www.youtube.com/watch?v=4BnVeOUeZxc
+* _rewind_: 🎯 https://www.youtube.com/watch?v=ex9draKAP3c
+
+### pdb
+
 📜
 * `help pdb`
 * https://docs.python.org/3/library/pdb.html
@@ -41,7 +84,7 @@ CONTEXT
 * `p <obj>`: print obj https://docs.python.org/3/library/pdb.html#pdbcommand-p 🗄 `.pdbrc`
 * `i <obj>`: print obj attr 🗄 `.pdbrc`
 * `loc`: print obj in scope 🗄 `.pdbrc`
-* `pp <expresion>`: same but pprint
+* `pp <expresion>`: same but pprint https://hamatti.org/posts/improved-print-readability-with-pprint/
 * `__return__`: view return val from function https://stackoverflow.com/a/18674516
 * `whatis`: = `type()`
 * `interact`: start REPL w/ local var in context
@@ -87,81 +130,61 @@ python -m pdb -c continue myscript.py  # https://stackoverflow.com/a/2438834/681
 
 ---
 
-ALTERNATIVES
-> tmux send-keys https://news.ycombinator.com/item?id=37172711 https://www.reddit.com/r/zellij/comments/13zqggd/sending_keys_to_another_terminal/ https://www.youtube.com/results?search_query=send-keys+tmux
-* _pudb_: 🎯 https://github.com/inducer/pudb https://realpython.com/python-packages/#pudb-for-visual-debugging
-* _ipdb_: 🎯 https://stackoverflow.com/a/15976544/6813490 https://adamj.eu/tech/2021/02/21/improve-your-django-experience-with-ipython/
-* _bdb_: level down from pdb https://stackoverflow.com/a/10302538/6813490
-* _gdb_: deep bad things https://wiki.python.org/moin/DebuggingWithGdb
-* `print()`: if you don't know how to use a debugger https://twitter.com/raymondh/status/1266668437020897280 https://github.com/gruns/icecream https://github.com/cool-RR/PySnooper
-> It takes less time to decide where to put print statements than to single-step to the critical section of code https://news.ycombinator.com/item?id=26928696
-* _pdb++_: 🎯 https://github.com/pdbpp/pdbpp
-* main reason to use seem to be syntax highlighting and tab completion https://github.com/pdbpp/pdbpp#what-is-it
-* pytest workaround https://github.com/pdbpp/pdbpp/issues/392 https://github.com/zachvalenta/algos/blob/master/Makefile#L43
-* overrides pdb breakpoint https://github.com/pdbpp/pdbpp/issues/281
-* `track`: (requires pypy)
-* `display`: (couldn't figure out how this worked first time around)
-* _nvim-dap_: 🎯 https://github.com/mfussenegger/nvim-dap https://www.youtube.com/watch?v=4BnVeOUeZxc
-
-BYO https://www.timdbg.com/posts/writing-a-debugger-from-scratch-part-5/
-https://werat.dev/blog/what-a-good-debugger-can-do/
-https://github.com/cansarigol/pdbr
-
 todo
 * `h`
 * `r`
 * `u / d`
 * `interact`
 
-config
+CONFIG
+* use Rich for output https://github.com/cansarigol/pdbr
 * `.pdbrc`: `$HOME` is default file location https://docs.python.org/3/library/pdb.html?highlight=pdbrc#debugger-commands
 > should be sources if present in $CWD but so far only sourced if in $HOME https://docs.python.org/3/library/pdb.html?highlight=pdbrc#debugger-commands
 * aliases https://docs.python.org/3.2/library/pdb.html#pdbcommand-alias
 * comments https://nedbatchelder.com/blog/200704/my_pdbrc.html https://www.youtube.com/watch?v=_kCKBXtA2jQ
 * command history buggy w/ readline incompatability https://stackoverflow.com/questions/6348034/python-pdb-command-history-not-working-on-windows
 
-internals https://www.youtube.com/watch?v=QU158nGABxI
-* `settrace` registers callback on interpreter for function call, LOC executed, func return value, exceptions raised [3:45]
-```python
-def simple_tracer(frame, event):  # 4:30
-```
-* trickier with multithreading [10:00]
-* BYO w/ bdb [11:45]
+## 📔 notebook
 
-## notebook
+🗄 `km.md` notes
 
-COMPONENTS
-* _iPython_: REPL + syntax highlighting, access to Bash cmd, Jupyter kernel
-* _IPython Notebook_: IPython + persistence, web browser, visualizations (chart, Markdown); predecessor to contemporary Jupyter
-* _Jupyter_: IPython Notebook + kernels for other languages (R, F#, Java)
-* _kernel_: runtime
-* _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304 https://satyrn.app/
+ALTERNATIVES
+* VS Code https://news.ycombinator.com/item?id=40899242
+* Zed https://zed.dev/blog/repl
 
 ---
 
-* non-Python: Elixir Livebook, Typescript Srcbook https://news.ycombinator.com/item?id=41291700
-TUI https://mastodon.top/@davidbrochart/111926774648199625
-https://www.reddit.com/r/Python/comments/6hwa22/what_is_the_point_of_jupyter/ https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.html
-https://www.hytradboi.com/2022/percival-a-reactive-language-for-exploratory-data-analysis-and-visualization
+ALTERNATIVES
+* org mode https://dualpower.supply/
+* https://github.com/Bycelium/PyFlow
+* in Vim https://www.maxwellrules.com/misc/nvim_jupyter.html
+* Elixir livebook https://livebook.dev/
+* Typescript Srcbook https://news.ycombinator.com/item?id=41291700
+* https://zeppelin.apache.org/
+* https://github.com/ottomatica/docable-notebooks
+* aaS https://www.youtube.com/watch?v=EVSJxMnXoJk
+* https://www.hytradboi.com/2022/percival-a-reactive-language-for-exploratory-data-analysis-and-visualization
+* TUI https://mastodon.top/@davidbrochart/111926774648199625
 
-MARIMO 📻 https://github.com/marimo-team/marimo
-* design https://marimo.io/blog/lessons-learned https://pythonbytes.fm/episodes/show/393/dare-enter-the-bash-dungeon
-> no ToC
-```bash
-poetry init -n
-poetry add marimo
-poetry run python marimo tutorial intro
-```
+### design
 
-> other ways to show your work: zine (Julia Evans), book (Gitbook, https://quarto.org/ uses Pandoc), org mode https://dualpower.supply/
+---
 
-JUPYTER 📜 https://jupyter.readthedocs.io/en/latest/index.html https://realpython.com/jupyter-notebook-introduction/
-* everyone just uses VS Code now? https://news.ycombinator.com/item?id=40899242
+* https://www.reddit.com/r/Python/comments/6hwa22/what_is_the_point_of_jupyter/ https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.html
+* notebooks as articles https://news.ycombinator.com/item?id=27367948 as books https://executablebooks.org/en/latest/ https://jupyterbook.org/en/stable/intro.html
+* reproducibility https://jvns.ca/blog/2017/11/12/binder--an-awesome-tool-for-hosting-jupyter-notebooks/ https://news.ycombinator.com/item?id=24943962
+* design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch https://news.ycombinator.com/item?id=41045834
+* https://www.singlestore.com/blog/how-we-made-notebooks-load-10-times-faster/
 
-ToC
-* https://jupyterlab.readthedocs.io/en/stable/user/toc.html
-* https://jupyterbook.org/en/stable/intro.html
-* https://github.com/fluentpython/example-code-2e/blob/master/01-data-model/data-model.ipynb
+### Jupyter
+
+📜 https://jupyter.readthedocs.io/en/latest/index.html https://realpython.com/jupyter-notebook-introduction/
+
+FEATURES
+* run SQL https://github.com/ploomber/jupysql https://www.youtube.com/watch?v=xuASJwVBhvc
+* testing https://github.com/ploomber/nbsnapshot https://www.youtube.com/watch?v=8wpBd-jfUTU
+* Markdown https://github.com/mwouts/jupytext
+* TOC https://jupyterlab.readthedocs.io/en/stable/user/toc.html https://jupyterbook.org/en/stable/intro.html https://github.com/fluentpython/example-code-2e/blob/master/01-data-model/data-model.ipynb
 
 INSTALL
 * Conda recommended https://jupyter.readthedocs.io/en/latest/install.html#id3
@@ -170,42 +193,31 @@ INSTALL
 
 ZA
 * `.ipynb_checkpoints`: most recent state of `<file>.ipynb` https://stackoverflow.com/a/46422176/6813490 ignore in version control https://stackoverflow.com/a/39997938/6813490
-* libraries https://github.com/twosigma/beakerx 
-* _kernel_: interpreter
-* alternatives: https://github.com/Bycelium/PyFlow in Vim https://www.maxwellrules.com/misc/nvim_jupyter.html https://livebook.dev/
-* notebooks as articles https://news.ycombinator.com/item?id=27367948 as books https://executablebooks.org/en/latest/ https://jupyterbook.org/en/stable/intro.html
-* reproducibility https://jvns.ca/blog/2017/11/12/binder--an-awesome-tool-for-hosting-jupyter-notebooks/ https://news.ycombinator.com/item?id=24943962
-* to Markdown https://github.com/mwouts/jupytext
-* alternatives https://zeppelin.apache.org/ https://github.com/ottomatica/docable-notebooks https://marimo.io/
-* design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch https://news.ycombinator.com/item?id=41045834
+* libraries https://github.com/twosigma/beakerx
 
-## REPL (iPython)
+COMPONENTS
+* _iPython_: REPL + syntax highlighting, access to Bash cmd, Jupyter kernel
+* _IPython Notebook_: IPython + persistence, web browser, visualizations (chart, Markdown); predecessor to contemporary Jupyter
+* _Jupyter_: IPython Notebook + kernels for other languages (R, F#, Java)
+* _kernel_: runtime
+* _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304 https://satyrn.app/
 
-📜 https://github.com/ipython/ipython
+### Marimo
 
----
+📻 https://github.com/marimo-team/marimo
 
-https://switowski.com/blog/ipython-debugging/
-
-INSPECT 📜 https://docs.python.org/3/library/inspect.html https://www.youtube.com/watch?v=NIyljVEcJKw
-* rich vs. iypthon's `obj?` https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#exploring-your-objects
-* wat https://github.com/igrek51/wat
-```python
-getsource(obj)  # view src code https://stackoverflow.com/a/1562795
-getfile(obj)  # filepath where obj defined
-obj.__class__.__mro__  # view inheriance hierarchy
+* no ToC
+* design https://marimo.io/blog/lessons-learned https://pythonbytes.fm/episodes/show/393/dare-enter-the-bash-dungeon
+* commands
+```bash
+poetry init -n
+poetry add marimo
+poetry run python marimo tutorial intro
 ```
 
-STARTUP 📜 https://docs.python.org/3/tutorial/appendix.html#the-interactive-startup-file 🗄️ imports
-* view module help: `pretty(help(__name__))`
-* startup file: `export PYTHONSTARTUP='$DOT_DIR/python/python_startup.py'` https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://github.com/zachvalenta/algo-sandbox/blob/master/Makefile#L28 https://github.com/zachvalenta/dotfiles-mini23/blob/main/shell/.zprofile#L183
-* list user-defined modules https://github.com/zachvalenta/algo-sandbox/commit/3ab6b3d8b4bcbf1ad7548c14f62958e5f88c75e1 https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
+## 👾 REPL
 
-ZA (IPYTHON)
-* install: using pip into global pyenv interpreter
-* 📍 fix theme (try monokai)
-* bad: no docstrong in autocomplete for `PYTHONSTARTUP` function
-* good: numbered prompts, pretty traceback, magic cmd, auto indent, autocomplete
+🗄 `vim.md` Zed
 
 FEATURES
 * block-level history https://treyhunner.com/2024/05/my-favorite-python-3-dot-13-feature/
@@ -215,17 +227,9 @@ FEATURES
 * obj explorer
 * readline https://docs.python.org/3/tutorial/interactive.html#alternatives-to-the-interactive-interpreter
 
-ZA
-* 📍 load module: `$REPL -i $MODULE` https://stackoverflow.com/a/14244342 https://stackoverflow.com/a/56844640
-* silence version info: `python -q`
-* reload https://news.ycombinator.com/item?id=34865421
-* BYO using `code.InteractiveConsole()` https://bernsteinbear.com/blog/simple-python-repl/ https://news.ycombinator.com/item?id=34865421
-* CTRL arrows on macOS https://mathspp.com/blog/til/ctrl-left-and-ctrl-right-not-working-in-the-python-repl-on-macos
-
 ---
 
-MAGIC
-* alias https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-alias_magic
+https://switowski.com/blog/ipython-debugging/
 
 https://github.com/igrek51/wat
 rich for repl https://rich.readthedocs.io/en/latest/introduction.html#ipython-extension https://rich.readthedocs.io/en/latest/introduction.html#rich-in-the-repl https://rich.readthedocs.io/en/latest/pretty.html#rich-repr-protocol
@@ -236,10 +240,44 @@ https://github.com/gotcha/ipdb
 * embed
 * profiles https://ipython.readthedocs.io/en/stable/config/options/terminal.html#configtrait-BaseIPythonApplication.profile
 
-IPYTHON 📜 `ipython.py` https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html https://realpython.com/ipython-interactive-python-shell/
+ZA
+* https://github.com/sloria/konch
+* track state https://github.com/saurabh0719/constable
+* `locals`, `globals`, `dir` https://stackoverflow.com/a/21961813/6813490
+* inspect https://news.ycombinator.com/item?id=29947891 https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/
+* pyclbr https://www.pythonmorsels.com/cli-tools/
+* 🗄️ `stdlib.md` IO
+
+STACK TRACES 🗄️ stdlib/profiling
+* stackprinter https://martinheinz.dev/blog/96
+* hide https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
+* fmt https://martinheinz.dev/blog/96
+* traceback https://martinheinz.dev/blog/66 https://docs.python.org/3/library/inspect.html#inspect.istraceback
+* https://docs.python.org/3/library/inspect.html#the-interpreter-stack
+* history https://stackoverflow.com/a/4289945
+
+### iPython
+
+📜
+* https://github.com/ipython/ipython
+* `ipython.py`
+* https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html
+* https://realpython.com/ipython-interactive-python-shell/
+
+ZA
+* install: using pip into global pyenv interpreter
+* 📍 fix theme (try monokai)
+* bad: no docstrong in autocomplete for `PYTHONSTARTUP` function
+* good: numbered prompts, pretty traceback, magic cmd, auto indent, autocomplete
+
+---
+
+MAGIC
+* alias https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-alias_magic
+
 * why: 📍 Rich integration, ipdb, magic func https://realpython.com/ptpython-shell/#highlighting-code-syntax
 * https://ipython.readthedocs.io/en/stable/config/options/terminal.html#configtrait-InteractiveShellApp.pylab
-* catpuccin for theme https://github.com/catppuccin/python/issues/22 https://github.com/ipython/ipython/blob/a499dbd507a92ea0087eca0f53e550fc838f0580/IPython/terminal/interactiveshell.py#L683 https://github.com/catppuccin/python?tab=readme-ov-file#ipython https://github.com/catppuccin/python/issues/3 https://github.com/catppuccin/python/issues/4
+* catppuccin for theme https://github.com/catppuccin/python/issues/22 https://github.com/ipython/ipython/blob/a499dbd507a92ea0087eca0f53e550fc838f0580/IPython/terminal/interactiveshell.py#L683 https://github.com/catppuccin/python?tab=readme-ov-file#ipython https://github.com/catppuccin/python/issues/3 https://github.com/catppuccin/python/issues/4
 * command
 ```python
 # run iPython and debug at site of error https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/ https://stackoverflow.com/a/21508070
@@ -265,27 +303,41 @@ pp
 * _automagic_: don't need prefex for line magic
 * relationship to shell https://jakevdp.github.io/PythonDataScienceHandbook/01.05-ipython-and-shell-commands.html
 
-STARTUP
+### inspect
+
+📜 https://docs.python.org/3/library/inspect.html https://www.youtube.com/watch?v=NIyljVEcJKw
+
+---
+
+* rich vs. iypthon's `obj?` https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#exploring-your-objects
+* wat https://github.com/igrek51/wat
+```python
+getsource(obj)  # view src code https://stackoverflow.com/a/1562795
+getfile(obj)  # filepath where obj defined
+obj.__class__.__mro__  # view inheriance hierarchy
+```
+
+### startup
+
+📜 https://docs.python.org/3/tutorial/appendix.html#the-interactive-startup-file 🗄️ imports
+
+* view module help: `pretty(help(__name__))`
+* startup file: `export PYTHONSTARTUP='$DOT_DIR/python/python_startup.py'` https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://github.com/zachvalenta/algo-sandbox/blob/master/Makefile#L28 https://github.com/zachvalenta/dotfiles-mini23/blob/main/shell/.zprofile#L183
+* list user-defined modules https://github.com/zachvalenta/algo-sandbox/commit/3ab6b3d8b4bcbf1ad7548c14f62958e5f88c75e1 https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
+
+---
+
 * sink https://arpitbhayani.me/blogs/python-prompts https://github.com/bpython/bpython/blob/ae4a502a443e024bd82ed1a7b88adf8be2068a2c/doc/sphinx/source/django.rst https://github.com/bpython/bpython/search?q=PYTHONSTARTUP&unscoped_q=PYTHONSTARTUP https://stackoverflow.com/a/14244310 https://stackoverflow.com/a/34774703
 * reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged https://switowski.com/blog/ipython-autoreload/
 * reload src: point is to avoid continual exit/rerun https://news.ycombinator.com/item?id=23793054 https://mikelevins.github.io/posts/2020-12-18-repl-driven/
 * history: save https://stackoverflow.com/a/33880964 readline error manifests in garbled cmd history (have only seen when setting breakpoint in Flask) https://stackoverflow.com/a/3486617
 
 ZA
-* https://github.com/sloria/konch
-* track state https://github.com/saurabh0719/constable
-* `locals`, `globals`, `dir` https://stackoverflow.com/a/21961813/6813490
-* inspect https://news.ycombinator.com/item?id=29947891 https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/
-* pyclbr https://www.pythonmorsels.com/cli-tools/
-* 🗄️ `stdlib.md` IO
-
-STACK TRACES 🗄️ stdlib/profiling
-* stackprinter https://martinheinz.dev/blog/96
-* hide https://www.bitecode.dev/p/why-and-how-to-hide-the-python-stack
-* fmt https://martinheinz.dev/blog/96
-* traceback https://martinheinz.dev/blog/66 https://docs.python.org/3/library/inspect.html#inspect.istraceback
-* https://docs.python.org/3/library/inspect.html#the-interpreter-stack
-* history https://stackoverflow.com/a/4289945
+* 📍 load module: `$REPL -i $MODULE` https://stackoverflow.com/a/14244342 https://stackoverflow.com/a/56844640
+* silence version info: `python -q`
+* reload https://news.ycombinator.com/item?id=34865421
+* BYO using `code.InteractiveConsole()` https://bernsteinbear.com/blog/simple-python-repl/ https://news.ycombinator.com/item?id=34865421
+* CTRL arrows on macOS https://mathspp.com/blog/til/ctrl-left-and-ctrl-right-not-working-in-the-python-repl-on-macos
 
 # 🤖 INTERPRETER
 
@@ -340,6 +392,7 @@ STAGES https://www.youtube.com/watch?v=QU158nGABxI 25:30
 
 AST
 * https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+* https://github.com/PyO3/pyo3 https://www.youtube.com/watch?v=UilujdubqVU
 * https://ward.readthedocs.io/en/latest/guide/writing_tests.html#using-assert-statements
 * https://www.youtube.com/watch?v=OjPT15y2EpE
 * inspect https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
@@ -509,6 +562,7 @@ get algos project working and align Python versions btw pyenv python and pipx py
 
 ANACONDA
 * just some random company https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/ https://paulromer.net/escaping-from-anaconda/
+* replaced? https://github.com/mamba-org/mamba
 * big in corporate envs bc built their own userland that handles python version + packaging https://news.ycombinator.com/item?id=39390246
 * _conda_: pkg manager + Python version (400 MB)
 * install via `miniconda`
@@ -641,6 +695,8 @@ ALTERNATIVES
 
 ---
 
+STRUCTURE
+* https://github.com/MatteoGuadrini/psp
 * example repo, awful $proj_name/src/proj_name duped dir thing https://github.com/brohrer/pacemaker https://github.com/darrenburns/posting https://stackoverflow.com/questions/50090341/is-there-a-naming-convention-for-django-project-configuration-directory
 * structure https://www.pythonpapers.com/p/how-to-publish-a-python-package-to
 * lockfile https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
@@ -704,6 +760,8 @@ ZA
 
 ## mgmt
 
+🗄️ `linux.md` packaging / manager
+
 ALTERNATIVES
 * too many tools https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/#tooling-proliferation-and-the-python-package-authority
 * _hatch_: https://github.com/pypa/hatch
@@ -713,7 +771,6 @@ ALTERNATIVES
 * _pdm_: smart people like https://github.com/pdm-project/pdm
 * _pipenv_: Reitz problem https://github.com/pypa/pipenv/commit/9ba23242
 * _piptools_: https://www.pythonpodcast.com/devops-in-python-episode-244/
-* _uv_: early days, took over Rye, from creators of ruff https://rdrn.me/postmodern-python/ https://astral.sh/blog/uv https://news.ycombinator.com/item?id=39387641 https://lucumr.pocoo.org/2024/2/4/rye-a-vision/ https://www.youtube.com/watch?v=_FdjW47Au30 https://simonwillison.net/2024/Aug/20/uv-unified-python-packaging/ https://github.com/astral-sh/uv/releases/tag/0.4.0 Docker https://hynek.me/articles/docker-uv/ still not there yet https://pythonbytes.fm/episodes/show/396/uv-ing-your-way-to-python
 
 ---
 
@@ -853,7 +910,11 @@ pipx list --include-injected  # view injected pkg
 pipx list --short  # view top-level pkg https://github.com/pipxproject/pipx/issues/390
 ```
 * install into tmp env (like Nix) https://pipx.pypa.io/stable/#walkthrough-running-an-application-in-a-temporary-virtual-environment
-* _inject_: add lib to CLI's env `pipx inject visidata psycopg2` https://jacobian.org/2019/nov/11/python-environment-2020/ https://pipxproject.github.io/pipx/examples/#pipx-inject-example 🗄 `html-css/drafts/dev/pipx-psycopg2.md`
+* tmp/ephemeral: https://pipx.pypa.io/stable/#walkthrough-running-an-application-in-a-temporary-virtual-environment
+```sh
+pipx run pycowsay moo
+```
+* _inject_: add lib to CLI's env `pipx inject visidata psycopg2` https://jacobian.org/2019/nov/11/python-environment-2020/ https://pipx.pypa.io/stable/#inject-a-package 🗄 `html-css/drafts/dev/pipx-psycopg2.md`
 ```sh
 pipx install visidata
 pipx inject visidata psycopg2
@@ -883,6 +944,10 @@ FS
 * config file: `~/Library/Application Support/pypoetry/config.toml`
 * venvs: local (`$PROJ/.venv`) global (`~/Library/Caches/pypoetry/virtualenvs`)
 > specify in VS Code https://stackoverflow.com/questions/59882884/vscode-doesnt-show-poetry-virtualenvs-in-select-interpreter-option https://code.visualstudio.com/docs/python/environments
+```json
+// https://github.com/zachvalenta/dotfiles-mini23/blob/main/vs-code/settings.json#L42
+"python.defaultInterpreterPath": "path/to/.venv"
+```
 
 CMD
 ```sh
@@ -951,7 +1016,7 @@ format
 | run dep   |            | run <dep>     |
 
 https://github.com/python-poetry/poetry/pull/7415
-using inside docker https://ashishb.net/all/using-python-poetry-inside-docker/
+using inside docker https://ashishb.net/all/using-python-poetry-inside-docker/ https://codemageddon.me/post/poetry-docker/
 * debug: `<cmd> -vvv`
 * gotcha: project directory can't have same name as a dependency used by project https://github.com/python-poetry/poetry/issues/3438
 * VS Code support https://github.com/microsoft/vscode-python/wiki/Support-poetry-virtual-environments
@@ -984,6 +1049,49 @@ poetry run flask
 * list dep tree: `pipdeptree` --- poetry show --tree`
 * can install a C compiler with pip https://news.ycombinator.com/item?id=31776873
 
+### uv
+
+📜 https://docs.astral.sh/uv/ https://github.com/astral-sh/uv
+
+VERSION MGMT
+* via Python Build Standalone https://github.com/indygreg/python-build-standalone
+* cross-platform https://astral.sh/blog/uv-unified-python-packaging
+* inject https://github.com/astral-sh/uv/issues/7312
+* builds https://developers.home-assistant.io/blog/2024/04/03/build-images-with-uv/
+* tmp/ephemeral
+```sh
+uvx posting
+# won't work where install name diff than cmd name e.g. csvkit vs. in2csv https://github.com/wireservice/csvkit
+```
+
+DESIGN
+* origins in Rye https://lucumr.pocoo.org/2024/2/15/rye-grows-with-uv/
+
+---
+
+> They leverage years and years of work that went into migrating the Python ecosystems from setup.py files to eggs and finally wheels. From not having a metadata standard to having one. From coupled to decoupled build systems. Much of what makes Rye so enjoyable were individuals that worked towards making redistributable and downloadable Python binaries a possibility. There was a lot of work that was put into building out an amazing ecosystem of Rust crates and Python libraries needed to make these tools work. All of that brought us to that point where we are today. https://lucumr.pocoo.org/2024/8/21/harvest-season/
+
+> read transcript https://talkpython.fm/episodes/transcript/476/unified-python-packaging-with-uv https://simonwillison.net/2024/Aug/20/uv-unified-python-packaging/
+
+* https://bluesock.org/~willkg/blog/dev/switch_pyenv_to_uv.html
+* https://simonwillison.net/2024/Sep/8/uv-under-discussion-on-mastodon/
+* Docker https://mkennedy.codes/posts/python-docker-images-using-uv-s-new-python-features/?featured_on=pythonbytes
+* https://news.ycombinator.com/item?id=41309072
+* https://blog.glyph.im/2024/09/python-macos-framework-builds.html
+* https://news.ycombinator.com/item?id=41302475
+* project leadership https://github.com/astral-sh/rye/discussions/1342
+* _uv_: early days, took over Rye, from creators of ruff https://rdrn.me/postmodern-python/
+* https://astral.sh/blog/uv
+* https://news.ycombinator.com/item?id=39387641
+* https://lucumr.pocoo.org/2024/2/4/rye-a-vision/
+* https://www.youtube.com/watch?v=_FdjW47Au30
+* https://github.com/astral-sh/uv/releases/tag/0.4.0 
+* Docker https://hynek.me/articles/docker-uv/
+* still not there yet https://pythonbytes.fm/episodes/show/396/uv-ing-your-way-to-python
+* https://talkpython.fm/episodes/show/476/unified-python-packaging-with-uv
+* https://www.youtube.com/watch?v=zE-RigeEODM
+* in Django https://blog.pecar.me/uv-with-django
+
 # 🟨 ZA
 
 ## concurrency
@@ -1006,6 +1114,7 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 
 ---
 
+BYO event loop https://www.youtube.com/watch?v=8I9Rc2Zaos4
 https://www.amazon.com/gp/product/1492055026
 start here https://www.youtube.com/watch?v=ftmdDlwMwwQ https://www.youtube.com/watch?v=X7vBbelRXn0
 coroutine https://docs.python.org/3/glossary.html#term-coroutine-function
@@ -1033,6 +1142,7 @@ https://realpython.com/python-concurrency/
 https://realpython.com/python-async-features/
 https://realpython.com/intro-to-python-threading/
 https://jacobpadilla.com/articles/recreating-asyncio https://news.ycombinator.com/item?id=40281139
+https://www.youtube.com/watch?v=Wvh5C3NbQtA
 
 * https://blog.wilsonl.in/hackerverse/
 * https://news.ycombinator.com/item?id=39812969
@@ -1143,6 +1253,8 @@ ZA
 * pkgutil https://docs.python.org/3/library/pkgutil.html https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
 
 ----
+
+🎗️ start here for semantics https://lucumr.pocoo.org/2024/9/9/multiversion-python/
 
 `__all__` https://www.gauge.sh/blog/the-trouble-with-all https://github.com/gauge-sh/tach
 

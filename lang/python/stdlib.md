@@ -76,7 +76,6 @@ check --fix  # fix lint err
 
 ZA
 * custom via AST e.g. enforce docs https://docs.python.org/3/library/inspect.html#retrieving-source-code
-* lint natural language https://vale.sh/
 * lint exceptions https://github.com/guilatrova/tryceratops
 * fmt code blocks in doc files https://github.com/asottile/blacken-docs
 * fmt based on recent changes https://github.com/akaihola/darker
@@ -111,6 +110,7 @@ per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
 
 ---
 
+https://rednafi.com/python/no_hijack_root_logger/
 icecream for print debugging https://github.com/gruns/icecream
 * people don't use format/f-strings in logging
 * https://monadical.com/posts/ins-and-outs-of-logging-in-python-part-one.html
@@ -144,6 +144,7 @@ OPTIONS
 performance tests https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
 ebpf https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
 https://www.pythonmorsels.com/cli-tools/
+https://www.youtube.com/watch?v=CjG_Ub_gCL4
 
 py-spy, speedscope, Valgrind https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
 
@@ -156,7 +157,10 @@ https://github.com/nakabonne/gosivy https://github.com/nakabonne/ali/releases/ta
 
 https://textual.textualize.io/blog/2024/02/20/remote-memory-profiling-with-memray/
 
-Sentry
+Zig ttps://www.youtube.com/watch?v=ug-KuDlMTYw
+
+`sys.settrace` https://github.com/plasma-umass/slipcover https://nedbatchelder.com/blog
+
 https://www.youtube.com/watch?v=bGAVrtb_tFs https://www.brendangregg.com/
 https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html
 https://www.freecodecamp.org/news/python-debugging-handbook/
@@ -316,6 +320,7 @@ def step_impl(context):  # function identifier identical; must take `context` as
 
 📜 https://coverage.readthedocs.io/
 
+* alternative https://www.youtube.com/watch?v=X9aXWeLC_C0 https://github.com/plasma-umass/slipcover
 * design https://nedbatchelder.com/blog/202406/coverage_at_a_crossroads.html
 * `.coverage`: result files; read by `coverage report` and `coverage html`
 * pytest-cov` also has `--cov-fail-under=MIN` arg you could pass as a normal pipeline step https://github.com/pytest-dev/pytest-cov
@@ -692,6 +697,7 @@ def main(in_path, out_file):
 ## IO (rich)
 
 RICH 📜 https://github.com/Textualize/rich https://github.com/zachvalenta/dotfiles-mini23/blob/main/python/python_startup.py
+* html https://github.com/willmcgugan/willmcgugan/blob/master/willmcgugan.py
 * to try: repr for obj https://rich.readthedocs.io/en/latest/pretty.html#rich-repr-protocol
 https://rich.readthedocs.io/en/latest/introduction.html#ipython-extension
 ```python
@@ -718,11 +724,11 @@ INPUT 🗄 `security.md` sanitization
 * take input: basic (`ur_in = input()`)
 * basic: 
 * autocomplete / fuzzy finder: used by dbcli https://github.com/amjith/fuzzyfinder https://github.com/darrenburns/textual-autocomplete
-* REPL https://github.com/Mckinsey666/bullet https://github.com/tmbo/questionary
+* REPL https://github.com/Mckinsey666/bullet https://github.com/tmbo/questionary https://github.com/zachvalenta/capp-prod-cat/blob/link-nodes/cli.py https://github.com/zachvalenta/bookcase-sjk/blob/34433935a55eeb421b30d9012f422b03c55d48a2/cli.py#L4 https://github.com/zachvalenta/news/blob/3901f28ff59c035d353127e3c279ec9e7d3f90d4/news/main.py#L5
 * _prompt-toolkit_: used by pgcli, http-prompt https://github.com/j-bennet/wharfee/blob/master/setup.py https://github.com/wasi-master/fastero
 
 OUTPUT
-* animation https://github.com/ChrisBuilds/terminaltexteffects https://realpython.com/python-rich-package/
+* animation 🎯 https://github.com/ChrisBuilds/terminaltexteffects https://realpython.com/python-rich-package/
 * colors https://github.com/timofurrer/colorful https://github.com/erikrose/blessings
 * syntax highlighting https://github.com/pygments/pygments
 * tables https://github.com/astanin/python-tabulate https://realpython.com/python-rich-package/
@@ -734,6 +740,8 @@ if i % 100 == 0:
 ```
 
 ## TUI (Textual)
+
+* run in browser https://github.com/Textualize/textual-web
 
 ---
 
@@ -873,7 +881,7 @@ Selenium
 
 📜 https://requests.readthedocs.io/en/latest/
 
-* alternatives: https://github.com/search?utf8=%E2%9C%93&q=aiohttp https://github.com/encode/httpx single-file https://github.com/slingamn/mureq https://github.com/jawah/niquests
+* alternatives: https://www.speakeasy.com/post/python-http-clients-requests-vs-httpx-vs-aiohttp https://github.com/search?utf8=%E2%9C%93&q=aiohttp https://github.com/encode/httpx single-file https://github.com/slingamn/mureq https://github.com/jawah/niquests
 ```python
 # data = dict(form), json.dumps(string) https://stackoverflow.com/a/42121407 https://requests.readthedocs.io/en/latest/api/#requests.request
 # json = dict(json) https://requests.readthedocs.io/en/latest/user/quickstart https://stackoverflow.com/a/26344315
@@ -1097,6 +1105,10 @@ TypeError: choice() got an unexpected keyword argument 'k'
 * _zip/tar_: https://github.com/BuzonIO/zipfly
 
 ## datetime
+
+🛠️ https://github.com/python-humanize/humanize
+
+---
 
 📙 Beazley ch. 3
 https://pypi.org/project/pytz/ https://blog.ganssle.io/articles/2018/03/pytz-fastest-footgun.html https://github.com/crsmithdev/arrow https://github.com/timofurrer/maya https://github.com/sdispater/pendulum https://github.com/dateutil/dateutil parser https://github.com/wanasit/chrono
@@ -1400,6 +1412,7 @@ repo.git.ls_remote("--heads", "origin", "master")
 
 📙 Beazley ch. 3
 🔗 https://github.com/cosmologicon/pywat
+🛠️ https://github.com/python-humanize/humanize
 
 sum https://jcarlosroldan.com/post/329/my-latest-tils-about-python
 

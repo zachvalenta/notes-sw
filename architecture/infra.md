@@ -6,6 +6,9 @@
 
 ## 进步
 
+https://www.youtube.com/watch?v=x4k1XEjNzYQ
+workflow engine or task queue https://news.ycombinator.com/item?id=34163888 https://www.reddit.com/r/golang/comments/1as23yb/when_to_use_a_workflow_tool_temporal_vs_a_job/ https://www.inngest.com/blog/how-durable-workflow-engines-work https://www.reddit.com/r/golang/comments/xa25ed/workflow_engine_vs_task_queue/
+
 * _20_: Heroku (simple Django app), gunicorn, uWSGI
 * _19_: https://github.com/zachvalenta/nginx-wsgi
 * _18_: Cloud Foundry and AMQP/Spring for Dark Canary
@@ -240,7 +243,7 @@ PROTOCOL https://kafka.apache.org/0100/protocol.html
 
 ALTERNATIVES
 * _AWS SQS_: https://cheesecakelabs.com/blog/asynchronous-task-queue-django-celery-aws-sqs
-* _Pulsar_: Kafka alternative
+* _Pulsar_: Kafka alternative https://www.youtube.com/watch?v=x4k1XEjNzYQ
 * _Rabbit_: comes w/ own db https://stackoverflow.com/q/38444425
 * vs. Kafka https://aws.amazon.com/msk/what-is-kafka/
 * _ZeroMQ_: http://aosabook.org/en/zeromq.html
@@ -279,13 +282,15 @@ SEMANTICS
 
 ## task
 
-🗄 `shell.md` jobs
 🛠 https://taskqueues.com/ aka worker https://news.ycombinator.com/item?id=34940920
-* BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
+🗄
+* `eng.md` pipelines
+* `shell.md` jobs
 
 ZA
 * chron jobs https://github.com/Nukesor/pueue
 * Postgres https://github.com/procrastinate-org/procrastinate https://brandur.org/river https://github.com/riverqueue/river https://news.ycombinator.com/item?id=41284703
+* BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
 * _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io
 * _Hatchet_: https://github.com/hatchet-dev/hatchet
 * _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey
@@ -310,12 +315,17 @@ REDIS QUEUE (RQ)
 
 ## workflow engine (Airflow)
 
+🗄 `eng.md` pipelines
+
+---
+
 * _AWS Step Functions_: 
-* _Airflow_: https://news.ycombinator.com/item?id=23349507 https://tech.marksblogg.com/install-and-configure-apache-airflow.html
+* _Airflow_: https://news.ycombinator.com/item?id=23349507 https://tech.marksblogg.com/install-and-configure-apache-airflow.html https://www.youtube.com/watch?v=7YCEydBUnjg
 * aaS https://www.astronomer.io/managed-airflow-service/
+* local https://www.youtube.com/watch?v=A1p5LQ0zzaQ
 * _Dagster_: https://github.com/dagster-io/dagster https://www.pythonpodcast.com/dagster-data-orchestration-episode-279/ https://www.dagster.io/blog/dagster-airflow https://news.ycombinator.com/item?id=39217728 https://talkpython.fm/episodes/show/454/data-pipelines-with-dagster https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
 * _Luigi_: https://github.com/spotify/luigi
-* _Mage_: https://github.com/mage-ai/mage-ai
+* _Mage_: https://github.com/mage-ai/mage-ai https://www.youtube.com/watch?v=y5sWD1yWi70
 * _n8n_: hosted, WSIYWG https://news.ycombinator.com/item?id=37274052
 
 # 🤖 WEB SERVERS
@@ -644,6 +654,7 @@ ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
 * _Google App Engine_:
 * _Kamal_: https://kamal-deploy.org/
 * _Netlify_: 
+* _Pikku_: https://github.com/piku/piku
 * _Render_: 
 * _Platform.sh_:
 * _Tau_: https://github.com/taubyte/tau

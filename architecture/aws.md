@@ -213,6 +213,7 @@ data transfer https://www.lastweekinaws.com/blog/aws-data-transfer-charges-ingre
 
 💡 FTP server
 
+* TUI viewer https://github.com/lusingander/stu
 * you used to get charged for 400 requests https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1 https://aws.amazon.com/about-aws/whats-new/2024/05/amazon-s3-no-charge-http-error-codes/
 > So, if I were to open my terminal now and type: `aws s3 cp ./file.txt s3://your-bucket-name/random_key` I would receive an AccessDenied error, but you would be the one to pay for that request. And I don't even need an AWS account to do so.
 * logging: none by default but can do with CloudTrail or S3 Server Access Logging https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1
@@ -345,10 +346,13 @@ ZA
 
 ---
 
+https://focus.finops.org/
+> Cloud and SaaS billing data can be complex, inconsistent among providers and difficult to understand. The FinOps Open Cost and Usage Specification (FOCUS) aims to reduce this friction with a spec containing a set of terminologies (aligned with the FinOps framework), a schema and a minimum set of requirements for billing data. The spec is intended to support use cases common to a variety of FinOps practitioners. Although still in the early stages of development and adoption, it’s worth watching because, with growing industry adoption, FOCUS will make it easier for platforms and end users to get a holistic view of cloud spend across a long tail of cloud and SaaS providers. https://www.thoughtworks.com/radar/platforms/focus
+
 https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 * rightsizing https://softwareengineeringdaily.com/2021/01/12/kubecost-with-webb-brown/
 * on-prem: need to integrate w/ legacy systems inside firewall, regulatory, cheaper, you can still make the consumption of your data center feel like a public cloud (CF, HPE)
-* _capacity planning_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/
+* _capacity planning_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/ https://www.youtube.com/watch?v=UC5xf8FbdJc
 
 * free tier https://www.lastweekinaws.com/blog/an-aws-free-tier-bill-shock-your-next-steps/
 > Exercise: Pick an infrastructure service that your team operates and calculate how many hours/month you work to maintain the solution. https://cloudonaut.io/my-mental-model-of-aws/

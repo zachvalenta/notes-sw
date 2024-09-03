@@ -23,6 +23,8 @@
 
 ---
 
+ACID https://www.youtube.com/watch?v=GAe5oB742dw
+
 CMU https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi https://www.youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O
 
 https://supabase.com/blog/postgres-bloat
@@ -53,7 +55,7 @@ BYO 📙 Dibernardo, Kleppmann
 
 ## connections
 
-* _wire protocol_: protocol for db client-server https://datastation.multiprocess.io/blog/2022-02-08-the-world-of-postgresql-wire-compatibility.html
+* _wire protocol_: protocol for db client-server https://datastation.multiprocess.io/blog/2022-02-08-the-world-of-postgresql-wire-compatibility.html https://github.com/crate/crate
 * e.g. can translate Mongo protocol to SQL and store in Postgres https://github.com/FerretDB/FerretDB https://pythonbytes.fm/episodes/show/318/gil-how-we-will-miss-you
 
 order
@@ -207,9 +209,6 @@ TYPES
 * PyMongo https://pymongo.readthedocs.io/en/stable/tutorial.html
 
 ---
-
-* `skip` https://github.com/tommyboytech/t3/pull/14059 monitoring https://um-t.slack.com/archives/CC11T8R3L/p1683919099438149
-* analyzing Mongo queries https://um-t.slack.com/archives/CC11T8R3L/p1679613455293999
 
 lookups
 > workaround for $$ notation just eliminate aliasing?
@@ -535,6 +534,7 @@ show collections  # view collections
 
 # 🗺️ NON-RELATIONAL
 
+🗄 `science.md` data structure
 📙 Kleppmann ch. 2
 
 > There are data stores that are also used as message queues (Redis), and there are message queues with database-like durability guarantees (Kafka), so the boundaries between the categories are becoming blurred 📙 Kleppmann [12]
@@ -543,7 +543,7 @@ show collections  # view collections
 
 ---
 
-* _vector_: for recommendation systems, NLP https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/ https://github.com/asg017/sqlite-vec
+* _vector_: for recommendation systems, NLP https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/ https://github.com/asg017/sqlite-vec https://github.com/qdrant/qdrant https://www.youtube.com/watch?v=awIm3rQOBxE
 * Datomic (Hickey), datalog/prolog https://news.ycombinator.com/item?id=21742222 https://kevinlynagh.com/newsletter/2022_04_on_datalog_application_databases/ https://news.ycombinator.com/item?id=31154039 https://news.ycombinator.com/item?id=35094017 https://news.ycombinator.com/item?id=35727967 https://clojure.org/news/2023/08/04/next-rich https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need
 * can be a problem is you need to change the PK https://calpaterson.com/non-relational-beartraps.html
 > Changing the primary key of a table is a surprisingly common activity. In truth, it's pretty easy to pick something that initially looks like it will be unique but which later turns out to not be unique...Unfortunately, in many non-relational database systems the primary key is "special". For example, Dynamo-style systems will use the primary key to decide which of the partitions the record will go on.
@@ -664,6 +664,8 @@ QUERY LANGUAGES
 
 REDIS 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
 > just use postgres https://martinheinz.dev/blog/105
+* https://www.youtube.com/watch?v=WQ61RL1GpEE
+* https://www.youtube.com/watch?v=5TRFpFBccQM
 * implementation http://aosabook.org/en/nosql.html
 * https://github.com/dragonflydb/dragonfly
 * test/mock https://github.com/cunla/fakeredis-py
@@ -743,6 +745,7 @@ dbms
 * design https://news.ycombinator.com/item?id=35599118 Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf
 
 HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https://news.ycombinator.com/item?id=39273954
+* monitor / metrics https://github.com/CrunchyData/pgmonitor-extension
 * duckdb extension https://motherduck.com/blog/pg_duckdb-postgresql-extension-for-duckdb-motherduck/ https://github.com/duckdb/pg_duckdb
 * copy btw tables https://ongres.com/blog/fastest_way_copy_data_between_postgres_tables/
 * embed https://github.com/electric-sql/pglite

@@ -121,6 +121,9 @@ ZA
 
 ## API
 
+---
+
+* https://www.youtube.com/watch?v=qquIJ1Ivusg
 * synthetic https://docs.datadoghq.com/synthetics/
 * mocking API = faster test runs but highe chance of rot; tooling (json-server, duckrails) https://github.com/SpectoLabs/hoverfly
 * replay: https://github.com/kevin1024/vcrpy https://github.com/hiredscorelabs/cornell
@@ -149,6 +152,8 @@ class HelloWorldUser(HttpUser):
 ```
 
 ## browser
+
+* friction logs https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe
 
 ---
 
@@ -185,7 +190,7 @@ approaches
 * clone https://github.com/postgres-ai/database-lab-engine
 * db as normal and eat the speed costs https://changelog.com/podcast/145 https://corecursive.com/045-david-heinemeier-hansson-software-contrarian/ 48:00
 * speed up by disabling `fsync` (system call to write to disk) bc you don't care if the data is actually written to disk https://pythonspeed.com/articles/faster-db-tests/ http://aosabook.org/en/nosql.html https://www.mongodb.com/docs/manual/reference/glossary/#std-term-fsync
-* db in container https://github.com/orlangure/gnomock https://www.dudley.codes/posts/2020.10.02-golang-docker-integration-tests/ https://github.com/testcontainers https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=201911027
+* db in container https://github.com/orlangure/gnomock https://www.dudley.codes/posts/2020.10.02-golang-docker-integration-tests/ https://github.com/testcontainers https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=201911027 https://www.youtube.com/watch?v=sNg0bnMF_qY
 > Imagine you have some application code that opens a connection to a Postgres database and queries some customer data. The customary way to test this code would be to create a test database and populate it with test customer data. However, what if application code modifies rows in the database, like removing customers? If the above code runs on a modified database, it may not return the expected customer. Therefore, it's important to reset the state of the database between test cases so that tests behave predictably. But connecting to a database is slow. Running queries is slow. And resetting the state of an entire database between every test is really slow. Various mocking libraries are another alternative to using a test database. These libraries intercept calls at some layer of the application or data access stack, and return canned responses without needing to touch the database. The problem with many of these libraries is that they require the developer to manually construct the canned responses, which is time-consuming and fragile when application changes occur. copyist includes a Go sql package driver that records the low-level SQL calls made by application and test code. When a Go test using copyist is invoked with the "-record" command-line flag, then the copyist driver will record all SQL calls. When the test completes, copyist will generate a custom text file that contains the recorded SQL calls. The Go test can then be run again without the "-record" flag. This time the copyist driver will play back the recorded calls, without needing to access the database. The Go test is none the wiser, and runs as if it was using the database. https://github.com/cockroachdb/copyist
 * testing writes http://eradman.com/posts/database-test-isolation.html
 * broken connection https://neilkakkar.com/test-database-connection-django.html
@@ -215,7 +220,7 @@ TEST TYPES
 
 ---
 
-* use actual deps instead of mocks https://testcontainers.com/ https://news.ycombinator.com/item?id=39531536
+* use actual deps instead of mocks https://testcontainers.com/ https://news.ycombinator.com/item?id=39531536 microcontainers https://github.com/maelstrom-software/maelstrom
 
 * spin up db in docker, run migrations, run integration tests; alternately, use CTEs https://news.ycombinator.com/item?id=34603691 https://news.ycombinator.com/item?id=34603244
 
@@ -225,7 +230,6 @@ TEST TYPES
 https://pythonspeed.com/articles/faster-db-tests/
 
 * _mock_: override method so you can test; `unittest.mock` vs. `pytest.monkeypatch` https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/ mock vs. magicmock https://stackoverflow.com/questions/17181687/mock-vs-magicmock https://realpython.com/python-mock-library/ https://joshpeak.net/posts/2019-06-18-Advanced-python-testing.html env var https://adamj.eu/tech/2020/10/13/how-to-mock-environment-variables-with-pytest https://www.b-list.org/weblog/2023/dec/08/mock-python-httpx/
-> https://um-t.slack.com/archives/G01LATMU4M6/p1684432308547779
 * mocks https://github.com/tommyboytech/t3/pull/11146/files https://testing.googleblog.com/2013/05/testing-on-toilet-dont-overuse-mocks.html
 * _testing external resources_: use real thing, use Docker version https://github.com/schireson/pytest-mock-resources/ https://yanglinzhao.com/posts/test-elasticsearch-in-django
 * https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html

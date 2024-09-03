@@ -459,6 +459,13 @@ raise EarthquakError(place)
 
 ## matching
 
+```python
+match result[0]:
+    case "foo":
+    case "bar":
+    case "baz":
+```
+
 ---
 
 * https://www.youtube.com/watch?v=ASRqxDGutpA
@@ -504,7 +511,7 @@ except Exception as err:
 
 📙 Beazley ch. 7
 
-BUILT-IN 📜 https://docs.python.org/3/library/functions.html https://www.youtube.com/watch?v=7Qu_KXc7xSI
+BUILT-IN 📜 https://docs.python.org/3/library/functions.html https://www.youtube.com/watch?v=7Qu_KXc7xSI https://www.mattlayman.com/blog/2024/layman-guide-python-built-in-functions/
 * _all_: return True if iterable empty or all el true
 * _dir_: list obj attr
 * _next_: call `__next__`
@@ -875,6 +882,7 @@ BASICS
 * _name_: way to refer to obj
 * aka object reference https://nedbatchelder.com/text/names.html
 * _aliasing_: multiple names bind to same obj https://docs.python.org/dev/tutorial/classes.html#a-word-about-names-and-objects see shallow copy https://www.fluentpython.com/lingo/#deep_copy https://www.fluentpython.com/lingo/#alias https://www.fluentpython.com/lingo/#aliasing
+> better explanation https://chatgpt.com/share/66e87aa9-bd44-8004-ad6b-79a7e73853d7
 ```python
 def view_obj(obj):
     print(id(obj))
@@ -1124,6 +1132,7 @@ USAGE 💡 second-best for everything
 * architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * GPU simulation https://news.ycombinator.com/item?id=40680737
 * game engine https://github.com/kitao/pyxel https://github.com/Broderick-Westrope/tetrigo
+* browser https://www.youtube.com/watch?v=Vh77_2-Z0vc
 
 GOVERNANCE
 * corporate: internal language team at Google https://news.ycombinator.com/item?id=40176338

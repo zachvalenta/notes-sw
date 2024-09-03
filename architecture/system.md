@@ -8,12 +8,20 @@
 
 ## 进步
 
+SEMANTICS
+* application boundaries https://morizbuesing.com/blog/greppability-code-metric/
+
 ---
+
+* algos https://www.youtube.com/watch?v=xbgzl2maQUU
 
 FACTORS
 * throughput, availability
 * data immutable (events, analytics)
 
+* Discord msgs https://www.youtube.com/watch?v=O3PwuzCvAjI
+* Stackoverflow https://www.youtube.com/watch?v=fKc050dvNIE
+* perf https://hpbn.co/primer-on-web-performance/
 * https://www.fractionalarchitect.io/books/mastering-strategic-ddd
 * https://www.fractionalarchitect.io/books/master-software-architecture
 * db per tentant https://news.ycombinator.com/item?id=39004963
@@ -106,6 +114,8 @@ WALKTHROUGHS
 
 ---
 
+https://www.youtube.com/watch?v=f6zXyq4VPP8
+
 KLEPPMANN
 * _reliability_: works even if hw/sw failure [6]
 * _scalability_: able to deal w/ growth (data, traffic, complexity)
@@ -126,11 +136,13 @@ TAXONOMY
 * _DOA (data oriented)_: n services, single data store https://blog.eyas.sh/2020/03/data-oriented-architecture/ https://changelog.com/podcast/522
 
 ZA
+* _SOLID_: https://www.youtube.com/watch?v=ywDxJbULcdM
 * layered architecture https://blog.europython.eu/kraken-technologies-how-we-organize-our-very-large-pythonmonolith/
+> As a general rule of thumb, each layer uses the directly underlying layer to access and interact with the data. As an example, the commands package will not directly use the bug or repository package. It will request the data from the cache layer and go from there. Of course, the commands package will ultimately use types defined in the lower level package like Bug, but retrieving and changing the data has to go through the cache layer to ensure that bugs are properly deduplicated in memory. https://github.com/git-bug/git-bug
 * modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
 > A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
 * beware theologians https://news.ycombinator.com/item?id=26492798
-* _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749
+* _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749 https://www.youtube.com/watch?v=I5c7fBgvkNY
 * _resiliency_: perform job through failure https://leanpub.com/systemdesignmanual/read_sample
 * Lisp, database inside codebase https://news.ycombinator.com/item?id=26160186 https://feifan.blog/posts/the-database-inside-your-codebase
 * _kill switch_: force upgrade mobile app https://simonwillison.net/2021/Jul/1/pagnis/
@@ -246,12 +258,23 @@ ZA
 
 ## no code
 
-* _retool_: https://retool.com/ https://www.youtube.com/watch?v=4xuBT3BbsYU https://www.youtube.com/watch?v=ChTGbmR2NeM
-* wrap and connect APIs https://softwareengineeringdaily.com/2019/12/19/no-code-with-shawn-wang/ aka workflow automation https://github.com/n8n-io/n8n https://news.ycombinator.com/item?id=24648960
-* _automatisch_: Zapier alternative https://github.com/automatisch/automatisch https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
-* _Zapier_ https://softwareengineeringdaily.com/2020/02/27/makerpad-low-code-tools-with-ben-tossell/ https://softwareengineeringdaily.com/2020/02/26/parabola-no-code-data-workflows-with-alex-yaseen/ https://github.com/mkjt2/lockbox
-* Honey Comb https://news.ycombinator.com/item?id=23633110 https://www.alexhudson.com/2020/01/13/the-no-code-delusion/ https://www.makerpad.co/ WebFlow https://news.ycombinator.com/item?id=27421408
+🗄 `eng.md` BI
+
+DESIGN
+* replaced by AI? https://news.ycombinator.com/item?id=37255363
+* provider dependent https://news.ycombinator.com/item?id=37254915
+* need off ramp to real source code / runtime https://news.ycombinator.com/item?id=37255299
+
+---
+
 * https://news.ycombinator.com/item?id=28984955
+* _automatisch_: Zapier alternative https://github.com/automatisch/automatisch https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
+* _retool_: https://retool.com/ https://www.youtube.com/watch?v=4xuBT3BbsYU https://www.youtube.com/watch?v=ChTGbmR2NeM
+* e.g. build admin panels https://retool.com/blog/building-an-admin-panel-for-your-data-warehouse-in-retool
+* wrap and connect APIs https://softwareengineeringdaily.com/2019/12/19/no-code-with-shawn-wang/ aka workflow automation https://github.com/n8n-io/n8n https://news.ycombinator.com/item?id=24648960
+* _Tooljet_: https://news.ycombinator.com/item?id=27421408
+* _Zapier_ https://softwareengineeringdaily.com/2020/02/27/makerpad-low-code-tools-with-ben-tossell/ https://softwareengineeringdaily.com/2020/02/26/parabola-no-code-data-workflows-with-alex-yaseen/ https://github.com/mkjt2/lockbox
+* _Makerpad_: https://makerpad.zapier.com/
 
 ## serverless
 
@@ -328,8 +351,13 @@ Petrov ch. 11
 
 ## consensus
 
+---
+
+https://www.youtube.com/watch?v=nH4qjmP2KEE
+
 📙 Kleppmann ch. 8-9
 
+* https://jamesg.blog/2024/08/18/consensus-modeling-python/
 * https://sre.google/sre-book/table-of-contents/ chapter 23
 * _leader election_: Raft algorithm https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html Paxos https://news.ycombinator.com/item?id=24906225
 
@@ -338,8 +366,6 @@ Raft https://raft.github.io/
 * BYO https://eli.thegreenplace.net/2020/implementing-raft-part-1-elections/ https://github.com/streed/simpleRaft https://github.com/bbbilibili/raft-1----python https://github.com/erewok/raft-py https://github.com/xwhan/Raft-python
 * https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html https://www.micahlerner.com/2020/05/09/understanding-raft-consensus-part-2.html
 * https://www.confluent.io/blog/why-replace-zookeeper-with-kafka-raft-the-log-of-all-logs/
-
----
 
 CONFLICT RESOLUTION
 * _operational transform_: funnel changes through central server, this is what Google Docs uses, a bunch of algorithms have been applied and found to fail
@@ -356,6 +382,7 @@ foo-conflict-20240705-0981234.md
 * syncing with CRDT https://tonsky.me/blog/crdt-filesync/
 > We can solve conflicts by opening both files, merging states, and saving back to the original file.
 * BYO https://github.com/tonsky/crdt-filesync https://automerge.org/
+* https://www.thoughtworks.com/radar/languages-and-frameworks/electric
 
 more crdt
 * https://softwareengineeringdaily.com/2017/12/08/decentralized-objects-with-martin-kleppman/ https://www.inkandswitch.com/local-first.html https://github.com/xi-editor/xi-editor/issues/1187#issuecomment-491473599 https://news.ycombinator.com/item?id=37764581 https://martin.Kleppmann.com/2020/07/06/crdt-hard-parts-hydra.html https://caolan.uk/articles/inside-a-collaborative-text-editor/ vs OT (operational transformations) https://news.ycombinator.com/item?id=24176455 https://news.ycombinator.com/item?id=24617542 https://news.ycombinator.com/item?id=24790170 https://www.youtube.com/watch?v=Paau_t0aZKw https://automerge.org/ https://vlcn.io/blog/gentle-intro-to-crdts.html https://github.com/alangibson/awesome-crdt
@@ -479,11 +506,18 @@ SEARCH
 * proxy
 * `http.md` caching
 
+---
+
+https://www.youtube.com/watch?v=dGAgxozNWFE
+
 semantics
+* https://www.youtube.com/watch?v=wh98s0XhMmQ
+* design https://www.youtube.com/watch?v=bFf-A27Rc9s
 * _cache_: tmp storage for read; e.g. browser (SQLite) network (CDN) db (connection pool); can cache to either memory or disk https://danielmiessler.com/blog/nginx-caching-tempfs/
 * _buffer_: tmp storage for write
 > Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so. https://stackoverflow.com/questions/10019456/usage-of-sys-stdout-flush-method
 * flush buffer https://stackoverflow.com/questions/3167494/how-often-does-python-flush-to-a-file https://stackoverflow.com/questions/29712445/what-is-the-use-of-buffering-in-pythons-built-in-open-function
+* _contention free_: https://github.com/maypok86/otter
 
 * e.g. Python writerow
 * _flush_: write buffer to disk https://stackoverflow.com/a/15042890
@@ -554,10 +588,20 @@ in general
 * `aesthetics.md` design
 * `math.md` graphs
 
+PROVIDERS 🔍 https://xosh.org/text-to-diagram/
+* _D2_: 🎯 https://github.com/terrastruct/d2
+* _Typograms_: https://github.com/google/typograms
+* _Icepanel_: C4 model, zoom, flows, states (as-is vs. to-be), user-defined classifications https://icepanel.io/ https://www.thoughtworks.com/radar/platforms/icepanel
+* _Markdeep_: https://casual-effects.com/markdeep/
+* _Mermaid_: 🎯 https://mermaid.live/ https://news.ycombinator.com/item?id=34906378 no current Hombrew version https://github.com/mermaid-js/mermaid-cli https://github.com/mermaid-js/mermaid-cli/issues/25 Github support https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/ 
+* _Monodraw_: 🎯 https://monodraw.helftone.com/
+* _Structurizr_: https://structurizr.com/
+
 TYPES https://news.ycombinator.com/item?id=41080189
+* ascii to SVG https://github.com/ivanceras/svgbob http://asciiflow.com/
 * _concept map_: https://cmap.ihmc.us/docs/learn.php
 * _DAG_: https://arthursonzogni.com/Diagon/#GraphDAG
-* _ERD_: syntax https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ 📙 Karwin [7] 🗄 `sql.md` utils
+* _ERD_: DrawSQL https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://databasediagram.com/app https://app.quickdatabasediagrams.com/#/ 📙 Karwin [7] 🗄 `sql.md` utils https://github.com/BurntSushi/erd https://sketchviz.com/graphviz-examples https://excalidraw.com/ https://gist.github.com/zachvalenta/f4c2226b991b69d129fe7d1d40119f43 https://drawsql.app/me-195/diagrams/testing123
 * _flow_: https://news.ycombinator.com/item?id=26303784
 * _infrastructure_: https://github.com/mingrammer/diagrams 
 * _mind map_: https://github.com/nadrad/h-m-m https://markmap.js.org/ https://news.ycombinator.com/item?id=24132631 https://news.ycombinator.com/item?id=27614912 https://strlen.com/treesheets/ https://news.ycombinator.com/item?id=34184993 https://blog.dornea.nu/2015/09/17/organizing-and-visualizing-knowledge/ https://www.dendron.so/ https://switowski.com/blog/favorite-mac-tools/
@@ -565,33 +609,9 @@ TYPES https://news.ycombinator.com/item?id=41080189
 * _treemap_: https://github.com/niyue/skillmap https://github.com/nikolaydubina/go-cover-treemap
 * _sequence_: msg passing https://sequencediagram.org https://gist.github.com/zachvalenta/2aeac1f945c5848c79087b2481cb187a https://arthursonzogni.com/Diagon/#Sequence https://switowski.com/blog/web-automation/
 * https://jessems.com/posts/2023-07-22-the-unreasonable-effectiveness-of-sequence-diagrams-in-mermaidjs
-* _UML_: aka class diagram https://www.amazon.com/UML-Distilled-Standard-Modeling-Language/dp/0321193687
+* _UML_: aka class diagram; PlantUML https://www.amazon.com/UML-Distilled-Standard-Modeling-Language/dp/0321193687 https://yuml.me/diagram/scruffy/class/draw
 * alternative syntax 📙 Evans domain-driven [42]
 * can be used for ERD in Mongo https://stackoverflow.com/q/11323841 https://stackoverflow.com/q/6010408
-
-| provider   | types             |   notes                                                                         |
-|------------|-------------------|---------------------------------------------------------------------------------|
-| D2         | ERD, sequence     | https://play.d2lang.com/                                                        |
-| DrawSQL    | ERD               | https://drawsql.app/me-195/diagrams/testing123                                  |
-
-PROVIDERS 🔍 https://xosh.org/text-to-diagram/
-* ascii to SVG https://github.com/ivanceras/svgbob http://asciiflow.com/
-* _DrawSQL_: ERD
-* _Excalidraw_: https://excalidraw.com/ https://gist.github.com/zachvalenta/f4c2226b991b69d129fe7d1d40119f43
-* _GraphViz_: https://sketchviz.com/graphviz-examples https://github.com/BurntSushi/erd
-* _Mermaid_: editor https://mermaid.live/ no current Hombrew version https://github.com/mermaid-js/mermaid-cli https://github.com/mermaid-js/mermaid-cli/issues/25
-* mermaid https://news.ycombinator.com/item?id=34906378
-* _Monodraw_: https://monodraw.helftone.com/
-* _PlantUML_: UML `.puml`
-
-## ERP
-
----
-
-* way to share info among LOBs https://retool.com/blog/erp-for-engineers/ https://github.com/frappe/erpnext SAPhttps://calpaterson.com/s3.html
-* Netsuite, Odoo https://steersman.works/ Odoo in Hacker News
-* https://www.google.com/search?hl=en&q=what%20erp%20does%20costco%20use
-> 10 years’ programming experience with IBM iSeries, CL, RPG (including IV and Free-Format), ILE, MQ and SQL. Data analysis skills, particularly with iSeries Database files and fields.
 
 ## proxy
 
@@ -624,7 +644,7 @@ CONNECTIONS
 
 TYPES
 * _proxy_: layer between requester and responder
-* _reverse proxy_: closer to servers; less of a need given a cloud environment where a load balancer is already built-in https://pythonspeed.com/articles/gunicorn-in-docker/ https://testdriven.io/blog/django-docker-traefik/ https://www.artur-rodrigues.com/tech/2023/03/12/reverse-proxy-with-dynamic-backend-selection.html
+* _reverse proxy_: closer to servers; less of a need given a cloud environment where a load balancer is already built-in https://pythonspeed.com/articles/gunicorn-in-docker/ https://testdriven.io/blog/django-docker-traefik/ https://www.artur-rodrigues.com/tech/2023/03/12/reverse-proxy-with-dynamic-backend-selection.html https://www.youtube.com/watch?v=RqfaTIWc3LQ https://www.youtube.com/watch?v=4NB0NDtOwIQ
 * _forward proxy_: closer to users; way for users to access resources outside network https://www.linuxbabe.com/it-knowledge/differences-between-forward-proxy-and-reverse-proxy https://github.com/mkjt2/lockbox
 * _sidecar proxy_: https://caddyserver.com/docs/
 
@@ -651,6 +671,7 @@ CDN
 * _sink_: https://serversforhackers.com/t/proxies https://www.maxcdn.com/one/visual-glossary/proxy-caching/ reverse cache https://msdn.microsoft.com/en-us/library/windows/desktop/dd892097%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396 https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236
 
 LOAD BALANCING
+* algos https://www.youtube.com/watch?v=dBmxNsS3BGE
 * https://news.ycombinator.com/item?id=35588797
 * https://www.youtube.com/watch?v=galcDRNd5Ow
 * _ALB_: protocols (HTTP, gRPC) algo (round robin based on HTTP headers or session ID) https://aws.amazon.com/compare/the-difference-between-the-difference-between-application-network-and-gateway-load-balancing/

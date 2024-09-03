@@ -18,6 +18,108 @@
 * _18_: PR workflow
 * _17_: desultory corporate usage, tutorial w/ Roberto
 
+# 🐙 GITHUB
+
+🔗 https://github.com/github/roadmap
+
+SHORTCUTS https://darrenburns.net/posts/github-tips
+* `t`: file search in repo
+* `t`: jump to symbol in code review
+* `b`: blame view in file
+
+TOOLS
+* dashboard for PR/issues https://github.com/dlvhdr/gh-dash https://github.com/pwntester/octo.nvim
+* repo stats https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
+* heat map https://github.com/jmforsythe/Git-Heat-Map
+
+FEATURES
+* stars https://github.com/github/feedback/discussions/8293 https://webapps.stackexchange.com/a/41800
+* feedback https://github.com/isaacs/github/issues/6 https://github.com/orgs/community/discussions
+* all forks are public https://news.ycombinator.com/item?id=41060102
+* _repo language_: https://github.com/github/linguist#overrides
+* _repo config_: branch protections http://blog.jaredsinclair.com/post/183676881105/think-twice-before-downgrading-to-a-free-github owners https://blog.github.com/2017-07-06-introducing-code-owners/
+
+## CLI
+
+---
+
+* https://github.com/donnemartin/gitsome
+* https://github.com/github/hub
+* https://github.com/cli/cli
+
+```sh
+# alias https://cli.github.com/manual/gh_alias
+gh alias set --shell prl "gh pr list --author zachvalenta --repo tommyboytech/t3"  # get PR number
+gh alias set --shell prv 'gh pr view "$1" --repo tommyboytech/t3 -w'               # view PR in browser
+
+##################3
+
+# get PRs
+gh pr list --author zachvalenta --repo tommyboytech/t3
+
+# ❌ reviews requested
+gh pr list --search "user-review-requested:zachvalenta" --repo tommyboytech/t3
+gh pr list --search "user-review-requested:@me" --repo tommyboytech/t3
+gh pr list --search "review-requested:zachvalenta" --repo tommyboytech/t3
+
+# get PR number
+gh pr list --author zachvalenta --repo tommyboytech/t3 | rg "\d" | awk '{ print $1 }'
+
+# view PR
+gh pr view 9985 --repo tommyboytech/t3 
+gh pr view 9985 --repo tommyboytech/t3 -w
+gh pr view 9985 --repo tommyboytech/t3 --comments
+
+# view PR in browser
+gh pr list --author zachvalenta --repo tommyboytech/t3 | rg '\d' | awk '{ print $1 }' | xargs gh pr view --repo tommyboytech/t3 -w
+
+# ❌ awk needs single quotes to work but Github CLI removes column parameter
+gh alias set --shell prv "gh pr list --author zachvalenta --repo tommyboytech/t3 | rg '\d' | awk '{ print $1 }' | xargs gh pr view --repo tommyboytech/t3 -w"
+gh alias list
+# prl:  !gh pr list --author zachvalenta --repo tommyboytech/t3
+# prv:  !gh pr list --author zachvalenta --repo tommyboytech/t3 | rg '\d' | awk '{ print  }' | xargs gh pr view --repo tommyboytech/t3 -w
+```
+
+## Markdown
+
+---
+
+https://github.com/cosimameyer
+* _images_: https://github.com/textualize/toolong
+* _profile README_: create repo with same name as user, add README https://github.com/willmcgugan/willmcgugan
+* _video_: https://github.com/textualize/toolong
+
+## pm (Actions)
+
+---
+
+* linking https://blog.github.com/2011-10-12-introducing-issue-mentions/
+* draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
+* run locally https://github.com/nektos/act
+* https://github.com/termkit/gama
+* https://hynek.me/articles/python-github-actions/
+* https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow
+* https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml
+* https://github.com/github/super-linter
+* https://www.youtube.com/watch?v=E1OunoCyuhY
+* https://news.ycombinator.com/item?id=30060765
+* https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a
+* python https://brntn.me/blog/open-source-python-ci/
+* https://github.com/carderne/postmodern-python/blob/main/.github/workflows/pr.yml
+
+## search
+
+---
+https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github
+* https://github.blog/2021-12-08-improving-github-code-search/ https://github.com/features/code-search 🗄 `vim.md` code completion
+* files in repo: `t`
+* filters: `org:freeCodeCamp language:python filename:.tigrc user:zachvalenta extension:py` https://stackoverflow.com/a/28347129 https://stackoverflow.com/a/42418887
+> doesn't seem to work for hidden files
+> doesn't seem to work for exact searches e.g. `[behave]`
+* can use regex https://news.ycombinator.com/item?id=22396824
+* file with text inside: `callback_whitelist filename:ansible.cfg`
+* issues you created `author:zachvalenta`
+
 # 🔬️ INTERNALS
 
 🙂 punk rock https://xkcd.com/1597/
@@ -60,7 +162,7 @@ sections https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 ## design
 
 * future https://blog.waleedkhan.name/git-ui-features/
-* monorepo perf https://www.git-tower.com/blog/git-performance/ https://monadical.com/posts/from-chaos-to-cohesion.html
+* monorepo: https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe perf https://www.git-tower.com/blog/git-performance/ https://monadical.com/posts/from-chaos-to-cohesion.html
 * distributed: less network latency than centralized https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 * full version of repo history https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 * reversible: Git database onlys adds data so it's hard to do something that's not reversible https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
@@ -78,7 +180,7 @@ remote: warning: File data/housing.csv is 66.34 MB; this is larger than GitHub's
 HISTORY https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 * _version control_: stores content and tracks changes to content https://medium.com/@willhayjr/the-architecture-and-history-of-git-a-distributed-version-control-system-62b17dd37742
 * _first generation_: SCCS
-* _second generation_: 2000 - centralized - CVS, SVN/Subversion, Perforce, Bitkeeper https://twobithistory.org/2018/07/07/cvs.html
+* _second generation_: 2000 - centralized - CVS, SVN/Subversion, Perforce, Bitkeeper https://twobithistory.org/2018/07/07/cvs.html https://blog.gitbutler.com/why-github-actually-won/
 * _third generation_: 2005 - distributed - Git (dominance such Stack Overflow dev survery no longer asks about VCS and people even use as a client to other VCS https://git-scm.com/book/en/v2/Git-and-Other-Systems-Git-as-a-Client) alternatives (FB uses Mercurial http://aosabook.org/en/mercurial.html SQLite uses Fossil)
 * Git for everything https://news.ycombinator.com/item?id=30522175
 
@@ -162,12 +264,18 @@ MESSAGE
 * _COMMIT EDITMSG_: tmp file storing commit msg
 * fmt: subject 50 col, desc 72 col https://drewdevault.com/2019/02/25/Using-git-with-discipline.html automate https://github.com/commitizen/cz-cli
 * `shortlog` should tell a story https://news.ycombinator.com/item?id=22518813
-* labels: func/test/dx/dep; lowers cognitive overhead, which matters w/ frequent commits https://github.com/commitizen/cz-cli
 * how to https://drewdevault.com/2021/08/05/In-praise-of-Postgres.html
 * prepopulate
 ```sh
 # https://stackoverflow.com/a/53804934
 git config commit.template <template_file.txt>
+```
+* labels: lowers cognitive overhead = enables more frequent commits https://github.com/commitizen/cz-cli https://github.com/zachvalenta/interview-capp/commits/main/
+```sh
+src: func/rf
+test
+dep
+doc
 ```
 
 ---
@@ -226,6 +334,31 @@ tags
 * all commits that touched LOC: `log -Lstart,end:path/to/file` https://stackoverflow.com/a/27108677
 * overview of commits: `shortlog -sne`
 * color fmt https://stackoverflow.com/questions/5889878/color-in-git-log https://git-scm.com/docs/git-config#Documentation/git-config.txt-color https://github.com/zachvalenta/bin-mini23/commit/5fba7f8e3d24a449e18287ba884619571340bea0
+
+SEARCH https://www.youtube.com/watch?v=BaBKBy2vHmM
+* `-- <file>` (commits that touched file)
+```sh
+# src
+log --S $QUERY
+
+# regex
+log --S $REGEX
+
+# all Markdown
+log --S $QUERY -- **/*.md
+
+# src across all branches
+log --S $QUERY --all
+
+# header
+log --oneline | grep PATTERN
+
+# header + message
+log --grep $QUERY
+
+# header + message + patches
+log --grep $QUERY -p
+```
 
 ---
 
@@ -326,6 +459,9 @@ squash c211c5b third
 
 📜 https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
 
+---
+
+https://stackoverflow.com/a/2432799
 ```sh
 # CREATE
 remote add $NAME $URL  # defaults to `origin`
@@ -389,6 +525,7 @@ USE https://dev.to/srebalaji/useful-tricks-you-might-not-know-about-git-stash-11
 
 * undo local commit: `git reset HEAD~` https://stackoverflow.com/a/927386
 * restore deleted file: `git checkout HEAD <filename>`
+* find deleted file https://devblogs.microsoft.com/oldnewthing/20240909-00
 * rm tracked file: `rm --cached $FILE` 📙 Chacon [2.56-57] 
 
 repository
@@ -414,6 +551,11 @@ the past
 https://news.ycombinator.com/item?id=27579701
 * revert to previous commit (if unpublished) `reset --hard <hash>` https://stackabuse.com/git-revert-to-a-previous-commit/
 * reset modified files to working directory: `git checkout`
+
+notas post-mortem
+* outcome: messed up looking git log
+* cause: `commit --amend --no-edit` on feature branch (`sprint`) and then merged to main
+* work around: forked repo, then realized I could just create new `main` in existing repo bc `sprint` and `master` had always been aligned (my workflow was squashing `sprint` at week's end and merging that to `master`). so, spent a week working in a new repo and moving those file changes to old repo, and then at week's end, once I confirmed the git log looked better, just replaced new repo w/ old repo.
 
 ## workflow
 
@@ -476,219 +618,7 @@ git push origin :crd/my-feature-branch
 git branch -d crd/my-feature-branch
 ```
 
-# 📡 SERVER
-
-* bug tracking: https://github.com/MichaelMure/git-bug https://www.youtube.com/watch?v=6Q4Lac0MCL0
-* https://gemini.nytpu.com/gemlog/2021-03-07.gmi
-* https://github.com/charmbracelet/soft-serve
-* admin setup: create bare repository, scp to server with Git installed, if devs on your team have ssh access to server you're set https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a-Server
-* user setup: add public key
-
-* _bare repository_: only git data (`.git`) with no working directory i.e. no actual files https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols
-* _snippets_: Gist, pastebin https://softwareengineeringdaily.com/2020/06/08/tilt-kubernetes-tooling-with-dan-bentley/ 46:45
-
-HOSTING
-* aaS: Github (no default to fuzzy search), Gitlab EE, SourceHut
-* https://github.com/honza/smithy https://codeberg.org/
-* _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965
-* _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717
-* now for-profit and licensing issues https://news.ycombinator.com/item?id=34011581
-* _Gitweb_: built-in GUI for server https://git-scm.com/book/en/v2/Git-on-the-Server-GitWeb
-* _Gogs_: https://gogs.io/
-
-## auth
-
-* identity: https://www.micah.soy/posts/setting-up-git-identities/
-* store credentials using macos Keychain https://gist.github.com/nepsilon/0fd0c779f76d7172f12477ba9d71bb66 https://github.com/thoughtbot/til/blob/master/git/osx-keychain.md
-
-protocols for data transfer https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration
-* _local_: use own machine (or NFS mount) as remote
-* _http_: smart version uses auth and allows writes, dumb version read-only and no auth; can cache user/pass using macos Keychain
-* _ssh_: non-anonymous, need to futz with keys
-* _Git_: daemon that comes packaged with Git, hard to set up, for reads only
-
-* no auth: this is server dependent e.g. work servers prompt user/pw for public repos but Github/lab do not
-```sh
-# PUBLIC REPOS
-git clone https://gitlab.com/zachvalenta/pre-commit-test  # ✅ yours
-git clone https://gitlab.com/esr/microjson.git  # ✅ others
-
-# PRIVATE REPOS
-# error msg ("No such device or address") suggests resource doesn't exist (bc it doesn't, for your user)
-git clone https://gitlab.com/zachvalenta/dummy-repo.git  # ❌ yours
-git clone https://gitlab.com/pulphead/film-censorship.git  # ❌ others
-```
-
-## Github
-
-🔗 https://github.com/github/roadmap
-
-CLI
-* dashboard https://github.com/dlvhdr/gh-dash
-```sh
-# alias https://cli.github.com/manual/gh_alias
-gh alias set --shell prl "gh pr list --author zachvalenta --repo tommyboytech/t3"  # get PR number
-gh alias set --shell prv 'gh pr view "$1" --repo tommyboytech/t3 -w'               # view PR in browser
-
-##################3
-
-# get PRs
-gh pr list --author zachvalenta --repo tommyboytech/t3
-
-# ❌ reviews requested
-gh pr list --search "user-review-requested:zachvalenta" --repo tommyboytech/t3
-gh pr list --search "user-review-requested:@me" --repo tommyboytech/t3
-gh pr list --search "review-requested:zachvalenta" --repo tommyboytech/t3
-
-# get PR number
-gh pr list --author zachvalenta --repo tommyboytech/t3 | rg "\d" | awk '{ print $1 }'
-
-# view PR
-gh pr view 9985 --repo tommyboytech/t3 
-gh pr view 9985 --repo tommyboytech/t3 -w
-gh pr view 9985 --repo tommyboytech/t3 --comments
-
-# view PR in browser
-gh pr list --author zachvalenta --repo tommyboytech/t3 | rg '\d' | awk '{ print $1 }' | xargs gh pr view --repo tommyboytech/t3 -w
-
-# ❌ awk needs single quotes to work but Github CLI removes column parameter
-gh alias set --shell prv "gh pr list --author zachvalenta --repo tommyboytech/t3 | rg '\d' | awk '{ print $1 }' | xargs gh pr view --repo tommyboytech/t3 -w"
-gh alias list
-# prl:  !gh pr list --author zachvalenta --repo tommyboytech/t3
-# prv:  !gh pr list --author zachvalenta --repo tommyboytech/t3 | rg '\d' | awk '{ print  }' | xargs gh pr view --repo tommyboytech/t3 -w
-```
-
-adding org
-* add org email address to personal account but keep personal email as primary https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-user-account/managing-email-preferences/adding-an-email-address-to-your-github-account
-* send notifications to org w/ 'custom routing' https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#customizing-email-routes-per-organization
-```txt
-If you have two-factor authentication enabled or not
-Your public profile information
-Certain activity within this organization
-Country of request origin
-Your access level to repositories within the organization
-Your IP address
-Opt out of future invitations from this organization.
-```
-
-SEARCH https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github
-* https://github.blog/2021-12-08-improving-github-code-search/ https://github.com/features/code-search 🗄 `vim.md` code completion
-* files in repo: `t`
-* filters: `org:freeCodeCamp language:python filename:.tigrc user:zachvalenta extension:py` https://stackoverflow.com/a/28347129 https://stackoverflow.com/a/42418887
-> doesn't seem to work for hidden files
-> doesn't seem to work for exact searches e.g. `[behave]`
-* can use regex https://news.ycombinator.com/item?id=22396824
-* file with text inside: `callback_whitelist filename:ansible.cfg`
-* issues you created `author:zachvalenta`
-
----
-
-* all forks are public https://news.ycombinator.com/item?id=41060102
-* https://github.com/pwntester/octo.nvim
-* draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
-* Mermaid support https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/ 
-* feedback https://github.com/github/feedback/discussions/8293 https://support.github.com/ticket/personal/0/1530410
-* _Actions_: https://github.com/nektos/act https://hynek.me/articles/python-github-actions/ https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml https://github.com/github/super-linter https://www.youtube.com/watch?v=E1OunoCyuhY https://github.com/nektos/act https://news.ycombinator.com/item?id=30060765 https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a python https://brntn.me/blog/open-source-python-ci/ run locally https://github.com/nektos/act local https://github.com/nektos/act CICD https://github.com/carderne/postmodern-python/blob/main/.github/workflows/pr.yml
-* _analytics_: watchers `<URL>/watchers` stars `<URL>/stargazers` https://webapps.stackexchange.com/a/41800 profile views https://rushter.com/blog/github-profile-markdown/ 3rd party analytics around your commit history https://sourcerer.io/elena
-* _CLI_: https://github.com/cli/cli
-* _dependency graph/tree_: https://github.com/zachvalenta/create-python-app/network/dependencies
-* _CLI_: https://github.com/donnemartin/gitsome https://github.com/github/hub
-* _issues_: 😮 https://github.com/isaacs/github/issues/6
-* _linking_ https://blog.github.com/2011-10-12-introducing-issue-mentions/
-* _metrics_: https://www.gitprime.com/ https://github.com/treyhunner/django-simple-history -> Code Climate https://rushter.com/blog/github-profile-markdown/
-* _profile README_: create repo with same name as user, add README
-* _repo language_: https://github.com/github/linguist#overrides
-* _repo config_: branch protections http://blog.jaredsinclair.com/post/183676881105/think-twice-before-downgrading-to-a-free-github owners https://blog.github.com/2017-07-06-introducing-code-owners/
-* _shortcuts_: file search in repo `t` jump to symbol in code review `t` blame in file `b` https://darrenburns.net/posts/github-tips 
-
-## Gitlab
-
----
-
-https://simonwillison.net/2022/Feb/10/github-burndown/
-
-🔐 tokens and keys https://gist.github.com/zachvalenta/d7187130c63c75aa7ea86465e82198ec 🗄 `gitlab-deploy-token.md` `python.md` libs/Git
-|  type        | protocol | ownership     | scope | actions           | notes
-| ------------ | -------- | ------------- | ----- | ---------------   | --------------
-| access token | https    | user          | ?     | API, read, write  | https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#limiting-scopes-of-a-personal-access-token
-| deploy token | https    | project/group | ?     | read              | https://docs.gitlab.com/ee/user/project/deploy_tokens/
-| deploy key   | ssh      | service       | ?     | read, write       | https://docs.gitlab.com/ee/user/project/deploy_keys
-
-* docs: https://docs.gitlab.com/ee/user/project/deploy_keys/#differences-between-deploy-keys-and-deploy-tokens
-* deploy tokens belong to a project/group and also *seem* like they're only able to interact with the project/group to which they belong
-|  type        | actions     | protocol | scoped to        | used for                                                           |
-| ------------ | ----------- | -------- | ---------------- | ------------------------------------------------------------------ |
-| deploy key   | read, write | ssh      | service          | clone repo to run build in CICD pipeline, merge feature branch     |
-| deploy token | read        | https    | project or group | clone repo to run build in CICD pipeline                           |
-| access token | read        | https    | user             | hit Gitlab API (get info on repo/group, download repo as tarball)  |
-
----
-
-* CE used to only have deploy keys
-* EE used to not have deploy token
-```sh
-# ACCESS TOKEN (personal, project)
-# clone - needs to be enabled on server (e.g. didnt' work on corporate network)
-git clone https://user_name:access_token@gitlab.com/zachvalenta/dummy-repo.git
-# API - get repo stats https://stackoverflow.com/a/54383282
-curl --header "PRIVATE-TOKEN: <access_token>" https://gitlab.com/api/v4/users/zachvalenta/projects
-
-# DEPLOY TOKEN
-git clone https://token_name:token@gitlab.com/zachvalenta/dummy-repo.git
-```
-
-general
-* _version_: https://gitlab.com/help
-* _account will be deleted if inactive_: https://news.ycombinator.com/item?id=23827772
-* test pipelines locally https://news.ycombinator.com/item?id=26236677
-
-CICD https://gitlab.com/zachvalenta/pre-commit-test.git https://docs.gitlab.com/ee/ci/yaml/ https://docs.gitlab.com/ https://docs.gitlab.com/runner/
-* _job_: declarative series of steps
-* _stage_: grouping mechanism for jobs e.g. test, deploy
-* _pipeline_: collection of stages; can force manual interaction https://docs.gitlab.com/ee/ci/pipelines/index.html#add-manual-interaction-to-your-pipeline to run without, toggle off in project (visibility and merge requests)
-* conditionals https://docs.gitlab.com/ee/ci/yaml/#rulesif
-* _artifact_: static files produced by pipeline e.g. coverage report from tests
-* generate report: `pytest --junitxml=report.xml` https://docs.gitlab.com/ee/ci/unit_test_reports.html#python-example
-```yaml
-# basic
-unit_tests:
-  image: python:3.7
-  script:
-    - "pip install -r requirements.txt"
-    - "ln -sf .env.dev .env"
-    - "pytest -v app_test.py"
-
-# ref env var set via GL instance
-ax2: "${ax2}"
-```
-
 # 🟨 ZA
-
-SEARCH https://www.youtube.com/watch?v=BaBKBy2vHmM
-```sh
-# src
-log --S $QUERY
-
-# regex
-log --S $REGEX
-
-# all Markdown
-log --S $QUERY -- **/*.md
-
-# src across all branches
-log --S $QUERY --all
-
-# header
-log --oneline | grep PATTERN
-
-# header + message
-log --grep $QUERY
-
-# header + message + patches
-log --grep $QUERY -p
-```
-
-* `-- <file>` (commits that touched file)
 
 ---
 
@@ -721,6 +651,8 @@ za
 * _worktree_: check out separate branch into separate directory https://stackoverflow.com/a/31951225 https://huonw.github.io/blog/2020/04/worktrees-and-pyenv/
 * can't add empty dir https://git.wiki.kernel.org/index.php/Git_FAQ#Can_I_add_empty_directories.3F don't deploy `.git` to PROD https://slashcrypto.org/2018/11/28/eBay-source-code-leak/
 
+## config
+
 INSTALLATION https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 * macOS: 10.9 onwards handled by Command Line Tools https://github.com/creationix/nvm#important-notes ❓ Homebrew install being used?
 * Linux: `git-all`
@@ -746,48 +678,76 @@ GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Rep
 * this works recursively; [all subdirectories are affected as well](http://qr.ae/TU1tsk) i.e. any `logs` deeper inside `app/logs` will also be ignored
 * `logs`, on the other hand, will ignore anything in *any* `logs` directory located *anywhere* in your project
 
-notas post-mortem
-* outcome: messed up looking git log
-* cause: `commit --amend --no-edit` on feature branch (`sprint`) and then merged to main
-* work around: forked repo, then realized I could just create new `main` in existing repo bc `sprint` and `master` had always been aligned (my workflow was squashing `sprint` at week's end and merging that to `master`). so, spent a week working in a new repo and moving those file changes to old repo, and then at week's end, once I confirmed the git log looked better, just replaced new repo w/ old repo.
+## server
 
-## hooks
+* https://gemini.nytpu.com/gemlog/2021-03-07.gmi
+* https://github.com/charmbracelet/soft-serve
+* admin setup: create bare repository, scp to server with Git installed, if devs on your team have ssh access to server you're set https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a-Server
+* user setup: add public key
 
-📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks https://githooks.com/
+* _bare repository_: only git data (`.git`) with no working directory i.e. no actual files https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols
+* _snippets_: Gist, pastebin https://softwareengineeringdaily.com/2020/06/08/tilt-kubernetes-tooling-with-dan-bentley/ 46:45
+
+HOSTING
+* aaS: Github (no default to fuzzy search), Gitlab EE, SourceHut
+* https://github.com/honza/smithy https://codeberg.org/
+* _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965
+* _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717
+* now for-profit and licensing issues https://news.ycombinator.com/item?id=34011581
+* _Gitweb_: built-in GUI for server https://git-scm.com/book/en/v2/Git-on-the-Server-GitWeb
+* _Gogs_: https://gogs.io/
 
 ---
 
-https://rdrn.me/postmodern-python/
+AUTH
+* identity: https://www.micah.soy/posts/setting-up-git-identities/
+* store credentials using macos Keychain https://gist.github.com/nepsilon/0fd0c779f76d7172f12477ba9d71bb66 https://github.com/thoughtbot/til/blob/master/git/osx-keychain.md
 
-* actions: client-side (commit, merge) server (push)
-* file-system location: `.git/hooks` 
-* ignore failed hooks w/ `git commit --no-verify` http://omerkatz.com/blog/2013/2/15/git-hooks-part-1-the-basics
+protocols for data transfer https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration
+* _local_: use own machine (or NFS mount) as remote
+* _http_: smart version uses auth and allows writes, dumb version read-only and no auth; can cache user/pass using macos Keychain
+* _ssh_: non-anonymous, need to futz with keys
+* _Git_: daemon that comes packaged with Git, hard to set up, for reads only
 
-PRE-COMMIT https://pre-commit.com https://github.com/pre-commit/pre-commit/issues https://gitlab.com/zachvalenta/pre-commit-test https://learndjango.com/tutorials/pre-commit-django
-* set: `pre-commit install -t pre-commit; pre-commit install -t pre-push` (i.e. copy Python scripts in place of Git samples) https://pre-commit.com/#3-install-the-git-hook-scripts https://pre-commit.com/#pre-commit-install
-* skip: `SKIP=<stage> git commit -m "foo"`
-* uninstall: `pre-commit uninstall -t <action>`
-* conf: `.pre-commit-config.yaml`
-* run in parallel, can cause random failures, run in serial using `require_serial = true` https://pre-commit.com/#hooks-require_serial
-* official hooks: black handles `trailing-whitespace` and `end-of-file-fixer` https://github.com/pre-commit/pre-commit-hooks/tree/master/pre_commit_hooks https://www.youtube.com/watch?v=BzC3ft8rm4c
-* pylint is a pain https://github.com/pre-commit/pre-commit/issues/266#issuecomment-399682269 black https://github.com/pre-commit/pre-commit-hooks/issues/356 https://github.com/psf/black#version-control-integration pytest 
+* no auth: this is server dependent e.g. work servers prompt user/pw for public repos but Github/lab do not
+```sh
+# PUBLIC REPOS
+git clone https://gitlab.com/zachvalenta/pre-commit-test  # ✅ yours
+git clone https://gitlab.com/esr/microjson.git  # ✅ others
 
-```yaml
----
-- repo: local  #  https://pre-commit.com/#repository-local-hooks https://github.com/pre-commit/pre-commit/issues/1245
-  hooks:
-  - id: lint
-    stages: [commit]
-    name: run lint
-    entry: make lint
-    language: system
-    types: [python]
-  - id: test
-    stages: [push]
-    name: run test
-    entry: make test
-    language: system
-    types: [python]
+# PRIVATE REPOS
+# error msg ("No such device or address") suggests resource doesn't exist (bc it doesn't, for your user)
+git clone https://gitlab.com/zachvalenta/dummy-repo.git  # ❌ yours
+git clone https://gitlab.com/pulphead/film-censorship.git  # ❌ others
+```
+
+GITLAB
+🔐 tokens and keys https://gist.github.com/zachvalenta/d7187130c63c75aa7ea86465e82198ec 🗄 `gitlab-deploy-token.md` `python.md` libs/Git
+|  type        | protocol | ownership     | scope | actions           | notes
+| ------------ | -------- | ------------- | ----- | ---------------   | --------------
+| access token | https    | user          | ?     | API, read, write  | https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#limiting-scopes-of-a-personal-access-token
+| deploy token | https    | project/group | ?     | read              | https://docs.gitlab.com/ee/user/project/deploy_tokens/
+| deploy key   | ssh      | service       | ?     | read, write       | https://docs.gitlab.com/ee/user/project/deploy_keys
+
+* docs: https://docs.gitlab.com/ee/user/project/deploy_keys/#differences-between-deploy-keys-and-deploy-tokens
+* deploy tokens belong to a project/group and also *seem* like they're only able to interact with the project/group to which they belong
+|  type        | actions     | protocol | scoped to        | used for                                                           |
+| ------------ | ----------- | -------- | ---------------- | ------------------------------------------------------------------ |
+| deploy key   | read, write | ssh      | service          | clone repo to run build in CICD pipeline, merge feature branch     |
+| deploy token | read        | https    | project or group | clone repo to run build in CICD pipeline                           |
+| access token | read        | https    | user             | hit Gitlab API (get info on repo/group, download repo as tarball)  |
+
+* CE used to only have deploy keys
+* EE used to not have deploy token
+```sh
+# ACCESS TOKEN (personal, project)
+# clone - needs to be enabled on server (e.g. didnt' work on corporate network)
+git clone https://user_name:access_token@gitlab.com/zachvalenta/dummy-repo.git
+# API - get repo stats https://stackoverflow.com/a/54383282
+curl --header "PRIVATE-TOKEN: <access_token>" https://gitlab.com/api/v4/users/zachvalenta/projects
+
+# DEPLOY TOKEN
+git clone https://token_name:token@gitlab.com/zachvalenta/dummy-repo.git
 ```
 
 ## utils
@@ -812,24 +772,21 @@ PAGER / DIFFVIEW
 PORCELAIN
 * _bit_: autcomplete https://github.com/chriswalz/bit
 * _forgit_: good UI, clunky install https://github.com/wfxr/forgit#-features
+* _gitbutler_: https://github.com/gitbutlerapp/gitbutler https://blog.gitbutler.com/
 * _gitsigns_: 🎯 Neovim, similiar to vim-fugitive, catppuccin integration https://github.com/lewis6991/gitsigns.nvim
-* _lazygit_: popular, good UI https://github.com/jesseduffield/lazygit https://github.com/catppuccin/lazygit https://www.youtube.com/watch?v=Ihg37znaiBo
+* _lazygit_: 🎯 popular, good UI https://github.com/jesseduffield/lazygit https://github.com/catppuccin/lazygit https://www.youtube.com/watch?v=Ihg37znaiBo
 * _magit_: looks great, Emacs-only https://github.com/magit/magit https://github.com/dandavison/delta/issues/194#issuecomment-636001812 https://emacsair.me/2017/09/01/magit-walk-through/
 * _Neogit_: 🎯 magit port https://github.com/NeogitOrg/neogit
 * _vim-fugitive_: 🎯 https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI
 * _vimagit_: https://github.com/jreybert/vimagit
 
 REPO BROWSER
-* alternatives https://github.com/rgburke/grv https://git-scm.com/docs/gitk https://github.com/isacikgoz/gitin
+* _gitk_: https://git-scm.com/docs/gitk
+* _grv_: https://github.com/rgburke/grv
+* _serie_: https://github.com/lusingander/serie
 * _Tig_: ✅ https://github.com/jonas/tig https://jonas.github.io/tig/doc/manual.html
 * modes: main `m` diff `d` log `l` blame `b`; main view with message body https://github.com/jonas/tig/issues/1032
 * all commits: `tig` in repo 
 * file history: `tig path/to/file`
 * blame: `tig blame path/to/file` https://stackoverflow.com/q/15304804 or tree view `t` then `b`
 > binding to view full file https://www.youtube.com/watch?v=goNodOWENEg
-
-ZA
-* bug tracker https://github.com/MichaelMure/git-bug 🗄 `econ.md` documentation / issue tracking
-* repo stats https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
-* Github-specific https://github.com/dlvhdr/gh-dash
-* heat map https://github.com/jmforsythe/Git-Heat-Map

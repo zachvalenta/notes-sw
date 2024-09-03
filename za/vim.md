@@ -33,6 +33,8 @@ https://stevedylan.dev/posts/leaving-neovim-for-zed/
 
 ---
 
+for markdown https://www.youtube.com/watch?v=DgKI4hZ4EEI
+
 LSP
 * https://www.youtube.com/watch?v=puWgHa7k3SY
 * https://www.youtube.com/watch?v=Ku-m7eEbWas
@@ -311,6 +313,7 @@ ln -sf "/Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/keybindings.json" 
 
 # path/to/Code/User/snippets
 ln -sf "/Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/markdown.json" "/Users/zach/Library/Application Support/Code/User/snippets/markdown.json"
+# python https://github.com/zachvalenta/dotfiles-capp/commit/7114f4f25ef73b22a38386aad90006781b386f20
 ```
 
 install specific version
@@ -346,21 +349,22 @@ keybindings
 
 📜 https://zed.dev/
 
-PLUS / MINUS
-* no document outline
-> in progress https://github.com/zed-industries/zed/discussions/13421
-* makes itself default editor (broot)
-* fast
-* just works with Poetry
-
-THINGS TO TRY
-* integrated GPT
-* team tools for pairing
-
-ZA
-* design https://zed.dev/blog/between-editors-and-ides https://zed.dev/blog/we-have-to-start-over 
-* Vim mode https://zed.dev/blog/zed-decoded-vim
+FEATURES
+* basics: very fast, runs on macOS and Linux https://zed.dev/releases/stable/0.143.6
+* document outline https://github.com/zed-industries/zed/discussions/13421 https://zed.dev/releases/stable/0.141.2
+* feedback: notebooks, REPL https://zed.dev/releases/stable/0.146.3
+* GPT built-in https://zed.dev/releases/stable/0.147.2 https://zed.dev/releases/stable/0.149.3
+* pairing tools
+* pkg mgmt: just works with Poetry
+* remote dev https://zed.dev/releases/stable/0.145.1
+* search https://zed.dev/releases/stable/0.152.3
 * themes https://zed.dev/blog/user-themes-now-in-preview
+* Vim emulation https://zed.dev/blog/zed-decoded-vim
+* ❌ makes itself default editor (broot)
+
+DESIGN
+* https://zed.dev/blog/between-editors-and-ides
+* https://zed.dev/blog/we-have-to-start-over 
 
 # ✏️ EDIT
 
@@ -392,6 +396,7 @@ SEMANTICS https://github.com/iggredible/Learn-Vim/blob/master/ch04_vim_grammar.m
 * _syntax_: operator + count + motion; order can change e.g. `3dd` for delete 3 lines [VT 2.6]
 * _change_: anything from any mode that modifies text in document [PV 2.8]
 * _macro_: save series of commands as single cmd https://hacker-tools.github.io/editors/ https://www.youtube.com/watch?v=futay9NjOac 📙 Neil practical ch. 11 https://github.com/iggredible/Learn-Vim/blob/master/ch09_macros.md https://stackoverflow.com/questions/8745514/concept-of-index-in-vim
+> need macro to `zt` on nav motions
 * _word_: char, num, underscore [Neil pv 8.119]
 * _WORD_: word but incl. delimiters [Neil pv 8.119]
 
@@ -712,6 +717,12 @@ WORKSPACES
 
 ## code intel
 
+### LSP
+
+### ctags
+
+---
+
 📍 todo LSP plugins
 * _ALE_: real-time linting via LSP https://github.com/dense-analysis/ale
 * use individual linters behind the scenes e.g. jslint for project X and eshint for project Y 📙 Neil modern [118]
@@ -727,7 +738,7 @@ LSP https://www.youtube.com/playlist?list=WL
 * enables: analysis, completion, navigation, linting https://www.youtube.com/watch?v=3a1PCir_aHs 0:40
 * _pylance_: closed source, uses pyright https://github.com/microsoft/pylance-release/issues/4
 * _pyright_: type checker https://github.com/microsoft/pyright
-* _pylyzer_: pyright but better? https://github.com/mtshiba/pylyzer
+* _pylyzer_: pyright but better? https://github.com/mtshiba/pylyzer https://news.ycombinator.com/item?id=41305941
 * _vanilla_: OSS https://github.com/microsoft/python-language-server
 * _jedi_: https://github.com/davidhalter/jedi https://www.pythonpodcast.com/episode-113-jedi-code-completion-with-david-halter/ 
 * _LSP_: protocol for language servers and editors https://en.wikipedia.org/wiki/Language_Server_Protocol 📙 Neil modern [127]
@@ -736,6 +747,7 @@ LSP https://www.youtube.com/playlist?list=WL
 * used as a synonym for language server https://www.youtube.com/watch?v=OhnLevLpGB4 2:35
 * JetBrains has their own version of this https://news.ycombinator.com/item?id=33211373 https://blog.jetbrains.com/platform/2023/07/lsp-for-plugin-developers/
 * Sourcegraph LSP https://sourcegraph.com/blog/the-self-driving-ide-is-coming
+* BYO https://www.youtube.com/watch?v=jo3IChyh09U&list=WL
 * _lsp-zero_: ✅ wrapper around `nvim-lspconfig`, `nvim-cmp`, and `mason` https://github.com/VonHeikemen/lsp-zero.nvim https://www.youtube.com/watch?v=3a1PCir_aHs 2:15
 * keybindings: things that don't work so far are `gd` but maybe this is because poetry build broken https://github.com/VonHeikemen/lsp-zero.nvim?tab=readme-ov-file#keybindings
 * install: for some reason pyright needs `npm`, installed with `nodenv` and then ran `nodenv init` (need to restart terminal) https://github.com/VonHeikemen/lsp-zero.nvim/issues/91#issuecomment-1364608056

@@ -17,6 +17,17 @@ fizz buzz
 fibonacci
 > look up the ten algorithms you have to know, rosetta code, project euler
 
+RANKING https://bearblog.dev/discover/
+```txt
+This page is ranked according to the following algorithm: score = log10(U) + (S / D * 86,400)
+
+U = Upvotes of a post
+S = Seconds since Jan 1st, 2020
+D = Days modifier (currently at 14)
+
+D values is used to modify the effect of time on the score. The higher D, the more time gravity influences post score.
+```
+
 https://roadmap.sh/datastructures-and-algorithms https://roadmap.sh/python
 https://www.softwaredesign.ing/blog/ai-is-the-reason-interviews-are-harder-now
 https://realpython.com/python-hash-table/
@@ -40,7 +51,7 @@ za
 review data structures
 * Python collections https://www.30secondsofcode.org/python/p/1 https://realpython.com/python-data-structures/
 * array https://www.youtube.com/watch?v=QJNwK2uJyGs
-* linked list https://www.youtube.com/watch?v=odW9FU8jPRQ https://news.ycombinator.com/item?id=33473497 https://docs.python.org/3/glossary.html#term-list
+* linked list https://www.youtube.com/watch?v=odW9FU8jPRQ https://news.ycombinator.com/item?id=33473497 https://docs.python.org/3/glossary.html#term-list https://nullprogram.com/blog/2024/07/31/
 * stack https://www.youtube.com/watch?v=I5lq6sCuABE
 * queue https://www.youtube.com/watch?v=mDCi1lXd9hc
 * probabilistic https://www.youtube.com/watch?v=VjFS-_H10bw @ 15:00 https://pypi.org/project/datasketch/
@@ -199,6 +210,7 @@ ZA
 
 ---
 
+* index https://jamesg.blog/2024/07/16/build-a-search-index/
 * semantic https://news.ycombinator.com/item?id=41088273 https://github.com/arunsupe/semantic-grep https://blog.elicit.com/semantic-search/
 * shazam https://github.com/cgzirim/seek-tune https://news.ycombinator.com/item?id=41127726
 * https://www.alexmolas.com/2024/02/05/a-search-engine-in-80-lines.html
@@ -212,7 +224,13 @@ ZA
 ENGINE 🗄 `za/search-engine` (port data to query sandbox)
 * BYO https://news.ycombinator.com/item?id=39293050 https://www.alexmolas.com/2024/02/05/a-search-engine-in-80-lines.html
 * _robots.txt_: file that tells crawlers what files to ignore https://adamj.eu/tech/2020/02/10/robots-tx https://pythonbytes.fm/episodes/show/376/every-dunder-method-in-a-python-lockbox
+* don't crawl https://unitedmasters.xyz/robots.txt https://searchfacts.com/robots-txt-allow-disallow-all/
+```txt
+User-agent: *
+Disallow: /
+```
 * _PageRank_: ranking algo that weights on number of incoming links (and their popularity)
+* _TF-IDF_: ranking  https://jamesg.blog/2024/08/17/tf-idf-python/
 * _instant answer_: display text from top result in overall results https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html
 * _indexer_: writes/updates keys https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html
 * _full text search (FTS)_: search all text https://en.wikipedia.org/wiki/Full-text_search 📙 Karwin ch 17
@@ -536,7 +554,7 @@ def set_covering(states_needed, stations):
 
 # 🏺 DATA STRUCTURES
 
-> Bad programmers worry about the code. Good programmers worry about data structures and their relationships. https://softwareengineering.stackexchange.com/q/163185
+> Good programmers worry about data structures. https://softwareengineering.stackexchange.com/q/163185
 🔗 https://www.interviewcake.com/data-structures-reference
 📙 Conery ch. 7
 🗄
@@ -612,6 +630,7 @@ SEMANTICS
 * _graph_: nodes + edges
 * _node_: obj in graph
 * aka vertex, point📙 Bhargava 6.99 
+* _triplet_: https://github.com/getzep/graphiti
 * _edge_: conection btw obj
 * aka line, branch (in a tree)
 * _root_: starting or topmost node in graph/tree
@@ -671,7 +690,7 @@ hash tables 🗄 `security.md` `python.md`
 * aka map, dictionary, associative array https://docs.python.org/3/glossary.html#term-dictionary
 * alternatives incl. BST, skip list https://stackoverflow.com/a/301822 📙 Skiena 12.1
 
-bloom filter https://www.youtube.com/watch?v=qZNJTh2NEiU
+bloom filter https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pzxngeLqw
 * _bloom filter_: like a hash table except takes up a lot less space and false positives are possible
 * use case is to see whether item already part of a very large set e.g. whether a key exists in a database 📙 11.210-11
 * https://vprusso.github.io/blog/2017/bloom-filters-and-pokemon/ 📙 Kleppmann 79 https://onatm.dev/2020/08/10/let-s-implement-a-bloom-filter/ http://aosabook.org/en/posa/working-with-big-data-in-bioinformatics.html https://luminousmen.com/post/building-a-bloom-filter
@@ -683,24 +702,53 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 
 ## tree
 
+🗄️ `science.md` metascience / categories
+🔗 https://en.wikipedia.org/wiki/Tree_(data_structure)
+🛠️ https://github.com/c0fec0de/anytree 🗄️ `protocols.md` JSON / jless
+
+BASIC
+```sh
+├── actuator  # parent
+│   └── damper
+│   └──── fire safety  # leaf
+```
+* _node_: element of tree
+* _root_: node w/out parent
+* _parent_: node w/ children
+* _leaf_: node with no children
+
+RELATIONS
+```sh
+├── actuator  # parent to damper, grandparent to fire safety
+│   └── damper  # child to actuator, parent to fire safety
+│   └──── fire safety  # child to damper, grandchild to actuator
+```
+* _child_: node directly below parent
+* _grandchild_: node two levels below parent
+* _grandparent_: node two levels above parent
+
+ZA
+* _height_: distance from root to given leaf measured in levels
+* _subtree_: tree nested w/in root tree
+* _traversal_: movement through the tree
+
 ---
 
-🛠 https://github.com/joowani/binarytree
+🛠 https://github.com/joowani/binarytree https://github.com/queelius/AlgoTree
 🔗 https://en.wikipedia.org/wiki/Phylogenetic_tree
 > trees are easy to deal with and understand, but graphs are more "open" with what you can do https://news.ycombinator.com/item?id=27662089
 
-semantics
+SEMANTICS
 * _tree_: type of graph 📙 Bhargava 6.113
 * _parent_: node w/ children
-* _leaf_: node with no children https://www.youtube.com/watch?v=5cU1ILGy6dM @ 0:30
-* _height_: distance from root to leaf https://www.youtube.com/watch?v=Aagf3RyK3Lw @ 0:15
-* measured in levels https://www.youtube.com/watch?v=dM_JHpfFITs @ 1:10
+* _leaf_: node with no children https://www.youtube.com/watch?v=5cU1ILGy6dM [0:30]
+* _height_: distance from root to given leaf measured in levels https://www.youtube.com/watch?v=Aagf3RyK3Lw [0:15] https://www.youtube.com/watch?v=dM_JHpfFITs [1:10]
 * _subtree_: tree nested w/ root tree https://www.youtube.com/watch?v=5cU1ILGy6dM
 * _completeness_: know how many elements in each layer except the last one https://realpython.com/python-heapq-module/#heaps-as-lists-in-the-python-heapq-module
-* _treemap_ https://news.ycombinator.com/item?id=36868940
+* _treemap_ https://news.ycombinator.com/item?id=36868940 https://en.wikipedia.org/wiki/Treemapping
 
-types
-* _b-tree_: two branches for each node https://stackoverflow.com/a/6380314 🗄 `db.md` indexing https://avi.im/blag/ https://build-your-own.org/ https://build-your-own.org/database/04_btree_code_1
+TYPES
+* _b-tree_: two branches for each node https://stackoverflow.com/a/6380314 🗄 `db.md` indexing https://avi.im/blag/ https://build-your-own.org/ https://build-your-own.org/database/04_btree_code_1 https://planetscale.com/blog/btrees-and-database-indexes
 * balanced = min height and max height differ by 1 (at most) https://www.youtube.com/watch?v=Aagf3RyK3Lw @ 0:50
 ```sh
   1

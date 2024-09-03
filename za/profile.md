@@ -38,30 +38,68 @@ NEXT 🗄️ `something`
 
 # 🟥 CAPP
 
-💡 AWS, data eng, ERP
+WHAT IS THIS JOB?
+* understand how the ERP works i.e. understand usage by sales, warehouse, accounting
+* how the world works e.g. PCI compliance, accounting, purchasing, warehouse
+* internal tooling: build infra, build tools
+* data eng: build infra, analysis
 
 ## infra
 
 🔗 https://rdrn.me/postmodern-python/
 
-* monitoring: uptime, OpemTelemetry
-* CICD: Github actions
+DENV
+- [ ] dotenvx
+- [ ] CICD
+- [ ] uv
+- [ ] tooling https://zed.dev/blog/repl
+- [ ] remote dev https://zed.dev/releases/stable/0.145.1 https://www.youtube.com/watch?v=F9sQPpVVLeQ
 
----
+CLOUD
+- [ ] AWS
+- [ ] IaC
+- [ ] monitoring: uptime, OpenTelemetry
 
-* https://news.ycombinator.com/item?id=41337899
-* https://news.ycombinator.com/item?id=41379097
-* https://news.ycombinator.com/item?id=41161315
-* https://news.ycombinator.com/item?id=41236273
-* https://jamesg.blog/2024/08/18/consensus-modeling-python/
-* https://jamesg.blog/2024/07/16/build-a-search-index/ https://jamesg.blog/2024/08/17/tf-idf-python/
+## operations
+
+* warehouse
+* sales
+
+CODEBASE
+* doc dataflow
+> Google docs supports Markdown import https://x.com/rseroter/status/1813580024538337784
+* diagram dataflow w/ Mermaid
+* Jupyter server https://docs.google.com/document/d/1x-fkEwuNwKTW9Pf-8R-znTkBCVJthZQRge6lrSzkNfI/edit
+* changelog
+* ADR
+
+`product-workflow` 🗄️ `08.26` Riley meeting
+* docs
+* run locally
+* diagram
 
 ## shujuku
 
+🗄️ `src.md` checklist
+
+> components: BI, workflow engine, notebooks
+
+❓
+* workflow engine vs. task queue
+* dbt for Capp fmt
+* Instant Data Scraper https://news.ycombinator.com/item?id=34069680
+
 ENG
-* read-replica for analytics
-* query Google Sheets with SQL https://github.com/julien040/anyquery
-* replace Drive
+- [ ] Cleanlab, Autolabel
+- [ ] BI: dashboards 🗄️ `math.md` graphs
+- [ ] BI: replace Looker Studio https://pola.rs/posts/lightweight_plotting/
+- [ ] data governance/provenance
+- [ ] dataframes: swap in Polars
+- [ ] BI: alerting for failed jobs
+- [ ] BI: read-replica
+- [ ] query Google Sheets with SQL https://github.com/julien040/anyquery
+- [ ] warehouse: replace Drive
+- [ ] warehouse: dvc
 
 ANALYSIS
 * MRR https://news.ycombinator.com/item?id=41350468
@@ -163,7 +201,7 @@ STDLIB
 
 ## 💵 freedom
 
-💡 teaching golf
+💡 teaching golf https://news.ycombinator.com/item?id=41428523
 
 ### architecture
 
@@ -191,8 +229,10 @@ STDLIB
 
 RECENT
 * logs
+* lj
 * ms
-* shu
+* denv: polars
+* air22: denv, dot
 * ren
 * rm powerline: pipx, config/symlink
 * bin + repos
@@ -322,6 +362,11 @@ PREFERENCES
 * How many teams do you need to work with ship a user-facing feature? https://twitter.com/hkarthik/status/1544873379483697152
 
 ## resume
+
+---
+
+https://ashfurrow.com/about
+https://cleaningtheglass.com/about/
 
 > Did royalties for United Masters. Worked at both JP Morgan (CRM for HNW clients, feature flagging system for entire consumer bank) and BNY (infrastructure automation). Ran consultancy focused on consumer-facing brands in China and Chinese consumer behavior; consulted at C-suite level.
 

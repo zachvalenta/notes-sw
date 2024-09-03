@@ -13,16 +13,33 @@
 
 ## 进步
 
+* rule-based https://www.youtube.com/watch?v=CeukwyUdaz8
+* supervised https://www.youtube.com/watch?v=j9kcEuGcC2Y
+* CRISP-DM https://www.youtube.com/watch?v=dCa3JvmJbr0
+* model selection https://www.youtube.com/watch?v=OH_R0Sl9neM
+
+BYO
+* https://www.youtube.com/watch?v=kCc8FmEb1nY
+* https://news.ycombinator.com/item?id=41412256&utm_term=comment
+* https://spreadsheets-are-all-you-need.ai/index.html
+* https://iamjoshknox.com/2023/12/06/econeats-an-ai-dining-guide/
+* https://www.saaspegasus.com/guides/django-websockets-chatgpt-channels-htmx
+* https://github.com/langgenius/dify
+* https://github.com/BerriAI/litellm
+
+> https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse
+https://www.thoughtworks.com/radar/languages-and-frameworks/langchain
+
 https://karpathy.ai/zero-to-hero.html
 https://www.youtube.com/watch?v=fuMKrKlaku4
 https://writings.stephenwolfram.com/2024/08/whats-really-going-on-in-machine-learning-some-minimal-models/
 
 REPOS
-https://www.freecodecamp.org/news/get-started-with-hugging-face/
+https://www.freecodecamp.org/news/get-started-with-hugging-face/ https://pola.rs/posts/polars-hugging-face/ https://github.com/huggingface/transformers https://astral.sh/blog/uv-unified-python-packaging
 https://huggingface.co/stabilityai/stable-diffusion-3-medium
 https://realpython.com/huggingface-transformers/
 
-RAG, vector https://news.ycombinator.com/item?id=41105130
+RAG, vector https://news.ycombinator.com/item?id=41105130 https://en.wikipedia.org/wiki/Retrieval-augmented_generation https://retool.com/blog/retrieval-augmented-generation https://www.youtube.com/watch?v=Q75JgLEXMsM
 
 https://www.amazon.com/gp/product/1098107969
 
@@ -153,8 +170,6 @@ dot([1,2,3], [4,5,6])
 
 * AI friend https://x.com/deedydas/status/1804550284552949771
 * Devin https://news.ycombinator.com/item?id=40008109
-* BYO https://spreadsheets-are-all-you-need.ai/index.html
-* BYO flavor https://iamjoshknox.com/2023/12/06/econeats-an-ai-dining-guide/
 * https://github.com/minimaxir/simpleaichat/blob/main/examples/notebooks/schema_ttrpg.ipynb
 * hacks: offer to tip https://twitter.com/emollick/status/1730742277792813517 change date https://twitter.com/venturetwins/status/1710321733184667985 get instructions https://twitter.com/fabianstelzer/status/1709562237310878122
 * use when coding https://realpython.com/chatgpt-coding-mentor-python/
@@ -173,7 +188,6 @@ dot([1,2,3], [4,5,6])
 * how it works https://www.jonstokes.com/p/chatgpt-explained-a-guide-for-normies
 * LLM https://news.ycombinator.com/item?id=34726115 https://marginalrevolution.com/marginalrevolution/2023/11/the-single-best-introduction-to-llms.html
 > Using AI-assisted code changes our work from writing code to proofreading code. https://buttondown.email/hillelwayne/archive/programming-ais-worry-me/
-* BYO https://www.youtube.com/watch?v=kCc8FmEb1nY
 * howto use https://marginalrevolution.com/marginalrevolution/2023/02/how-should-you-talk-to-chatgpt-a-users-guide.html https://marginalrevolution.com/marginalrevolution/2023/03/what-is-the-single-best-way-of-improving-your-gpt-prompts.html https://simonwillison.net/2023/Aug/6/annotated-presentations/ https://realpython.com/practical-prompt-engineering/ https://news.ycombinator.com/item?id=41395921
 > Ask ChatGPT "What is Marxism?" for example, and you will get a passable answer, probably no better than what you would get by using Wikipedia or Google. Instead, make the question more specific: "Which were the important developments in French Marxism in the second half of the 19th century?" ChatGPT will do much better - and it's also the kind of question it's hard to use Google and Wikipedia to answer.
 > ChatGPT will do better yet if you ask it sequential questions along an evolving line of inquiry. Ask it about the specific French Marxists it cites, what they did, and how they differed from their German counterparts.
@@ -222,6 +236,7 @@ PROMPTS https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sim
 
 ---
 
+https://github.com/charmbracelet/mods
 https://treyhunner.com/2024/07/chatgpt-and-claude-from-your-browser-url-bar/
 building into projects https://news.ycombinator.com/item?id=40857589
 
@@ -250,7 +265,9 @@ ZA
 
 ---
 
-https://aider.chat/
+* legacy codebases https://bloop.ai/ https://www.driverai.com/
+
+https://aider.chat/ https://news.ycombinator.com/item?id=41453237
 
 https://github.com/guywaldman/magic-cli https://news.ycombinator.com/item?id=40980715
 
@@ -430,12 +447,15 @@ SEMANTICS
 * https://www.freecodecamp.org/news/customer-segmentation-python-machine-learning/
 * https://archive.vn/073bS
 * https://news.ycombinator.com/item?id=40877136
-* BYO https://www.saaspegasus.com/guides/django-websockets-chatgpt-channels-htmx
 * train model on dickens, cowen
 * https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
 
 ## uses
 
+---
+
+* text to SQL https://github.com/vanna-ai/vanna
+* chat with your docs https://github.com/Cinnamon/kotaemon
 * to synthesize all comments on a product into a blurb https://blog.untrod.com/2024/04/llm-chatgpt-powered-django-admin-fields.html
 * copyedit a novel https://blog.untrod.com/2023/06/copy-editing-a-novel-with-chatgpt.html
 * audio prompt + voice cloning for answer https://blog.untrod.com/2023/11/robot-dad.html https://elevenlabs.io/

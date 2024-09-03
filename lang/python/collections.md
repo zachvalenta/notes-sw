@@ -355,6 +355,89 @@ sorted(musicians, key=attrgetter('instrument', 'genre'))  # nas in front of mick
 
 # 🦜 TYPES
 
+SEMANTICS
+* _collection_: data structures in which items can be accessed individually https://www.fluentpython.com/lingo/#collection
+* _container_: holds ref to other objs e.g. list, tuple, dict https://www.fluentpython.com/lingo/#container
+* _flat sequence_: physically stores the values of its items, and not references to other objects e.g. str, bytes, array https://www.fluentpython.com/lingo/#flat_sequence
+* _binary sequence_: sequence + byte e.g. byte, bytearray, memoryview https://www.fluentpython.com/lingo/#binary_sequence https://docs.python.org/3/glossary.html#term-bytes-like-object
+* `bytearray`: used for HTTP response, passing files around
+
+MUTABLE
+* can be altered i.e. updated values still use same obj/ID https://docs.python.org/3/glossary.html#term-mutable
+* vs. updated values using new obj/ID https://docs.python.org/3/glossary.html#term-immutable
+```python
+# MUTABLE
+foo = list()
+id(foo)  # 4339427648
+foo.append("hey")
+id(foo)  # 4339427648
+
+# IMMUTABLE
+bar = "hi"
+bar[0] = "b"  # TypeError: 'str' object does not support item assignment
+id(bar)  # 4440141744
+bar = "hey"
+id(bar)  # 4458076080
+```
+
+---
+
+https://www.b-list.org/weblog/2023/dec/24/python-container-types/
+
+* _sequence_: https://www.fluentpython.com/lingo/#sequence https://docs.python.org/3/glossary.html#term-sequence
+* _trailing commas_: for last el in collection https://docs.python.org/3/faq/design.html#why-does-python-allow-commas-at-the-end-of-lists-and-tuples https://www.python.org/dev/peps/pep-0008/#when-to-use-trailing-commas
+
+| CLASS   | TYPE    | MUTABLE | HASHABLE       | SUBSCRIPTABLE |  NOTES              |
+|---------|---------|---------|----------------|---------------|---------------------|
+| list    | seq     | yes     | no             | byes          | for iteration       |
+| tuple   | seq     | no      | if el hashable | yes           | list + immutable    |
+| string  | seq     | no      | yes            | yes           | tuple + for text    |
+| dict    | mapping | yes     | no             | yes           | place for ur stuff  |
+| set     | set     | yes     | no             | no            | for set operations  |
+
+SUBSCRIPTABLE
+* read by key or index (indexing)
+* impl via `__getitem__` https://stackoverflow.com/a/216980
+```python
+myd = dict(magic=32, larry=33)
+myd["magic"]
+```
+```python
+from enum import Enum
+
+class Color(Enum):
+    GREEN = "green"
+
+Color.GREEN[0]  # TypeError: 'Color' object is not subscriptable
+```
+
+HASHABLE
+* hash value never changes (`__hash__`) and can be compared to other objects (`__eq__`) https://docs.python.org/3/glossary.html#term-hashable
+* https://stackoverflow.com/questions/1957396/why-dict-objects-are-unhashable-in-python
+* https://realpython.com/python-hash-table/
+* impl `__eq__` and `__hash__` (immutable) https://www.fluentpython.com/lingo/#hashable 📍📙 Ramalho [84,415]
+* if `a == b` + also `hash(a) and hash(b)`
+```python
+from enum import Enum
+class Color(Enum):
+    GREEN = 1
+    BLUE = 2
+# hashable
+hash(Color.BLUE) == hash(Color.BLUE)  # True
+Color.BLUE == Color.BLUE              # True
+# not hashable
+[2] == [2]                            # True
+hash([2]) == hash([2])                # TypeError: unhashable type: 'list'
+```
+* all immutable are hashable but not vice versa https://realpython.com/lessons/immutable-vs-hashable/
+* hashable: immutable + immutable collections w/ hashable el (tuples, frozenset) https://www.fluentpython.com/lingo/#hashable https://docs.python.org/3/glossary.html#term-hashable
+* unhashable: mutable collections https://docs.python.org/3/glossary.html#term-hashable
+```python
+# unhashable collections still need hashable el e.g. set https://www.youtube.com/watch?v=opijuVoq3Kk 1:10
+{[1,2,3], [42,13,7]}  # TypeError: unhashable type: 'list'
+{"hey", "hi"}         # ok
+```
+
 ## dict
 
 ---
@@ -671,91 +754,4 @@ stevie = SimpleNamespace(name="stevie", instrument="piano")
 stevie.instrument  # 'piano'
 stevie.instrument = "guitar"
 stevie.instrument  # 'guitar'
-```
-
-# 🟨 ZA
-
-SEMANTICS
-* _collection_: data structures in which items can be accessed individually https://www.fluentpython.com/lingo/#collection
-* _container_: holds ref to other objs e.g. list, tuple, dict https://www.fluentpython.com/lingo/#container
-* _flat sequence_: physically stores the values of its items, and not references to other objects e.g. str, bytes, array https://www.fluentpython.com/lingo/#flat_sequence
-* _binary sequence_: sequence + byte e.g. byte, bytearray, memoryview https://www.fluentpython.com/lingo/#binary_sequence https://docs.python.org/3/glossary.html#term-bytes-like-object
-* `bytearray`: used for HTTP response, passing files around
-
----
-
-* _sequence_: https://www.fluentpython.com/lingo/#sequence https://docs.python.org/3/glossary.html#term-sequence
-* _trailing commas_: for last el in collection https://docs.python.org/3/faq/design.html#why-does-python-allow-commas-at-the-end-of-lists-and-tuples https://www.python.org/dev/peps/pep-0008/#when-to-use-trailing-commas
-
-## taxonomy
-
-MUTABLE
-* can be altered i.e. updated values still use same obj/ID https://docs.python.org/3/glossary.html#term-mutable
-* vs. updated values using new obj/ID https://docs.python.org/3/glossary.html#term-immutable
-```python
-# MUTABLE
-foo = list()
-id(foo)  # 4339427648
-foo.append("hey")
-id(foo)  # 4339427648
-
-# IMMUTABLE
-bar = "hi"
-bar[0] = "b"  # TypeError: 'str' object does not support item assignment
-id(bar)  # 4440141744
-bar = "hey"
-id(bar)  # 4458076080
-```
-
----
-
-| CLASS   | TYPE    | MUTABLE | HASHABLE       | SUBSCRIPTABLE |  NOTES              |
-|---------|---------|---------|----------------|---------------|---------------------|
-| list    | seq     | yes     | no             | byes          | for iteration       |
-| tuple   | seq     | no      | if el hashable | yes           | list + immutable    |
-| string  | seq     | no      | yes            | yes           | tuple + for text    |
-| dict    | mapping | yes     | no             | yes           | place for ur stuff  |
-| set     | set     | yes     | no             | no            | for set operations  |
-
-SUBSCRIPTABLE
-* read by key or index (indexing)
-* impl via `__getitem__` https://stackoverflow.com/a/216980
-```python
-myd = dict(magic=32, larry=33)
-myd["magic"]
-```
-```python
-from enum import Enum
-
-class Color(Enum):
-    GREEN = "green"
-
-Color.GREEN[0]  # TypeError: 'Color' object is not subscriptable
-```
-
-HASHABLE
-* hash value never changes (`__hash__`) and can be compared to other objects (`__eq__`) https://docs.python.org/3/glossary.html#term-hashable
-* https://stackoverflow.com/questions/1957396/why-dict-objects-are-unhashable-in-python
-* https://realpython.com/python-hash-table/
-* impl `__eq__` and `__hash__` (immutable) https://www.fluentpython.com/lingo/#hashable 📍📙 Ramalho [84,415]
-* if `a == b` + also `hash(a) and hash(b)`
-```python
-from enum import Enum
-class Color(Enum):
-    GREEN = 1
-    BLUE = 2
-# hashable
-hash(Color.BLUE) == hash(Color.BLUE)  # True
-Color.BLUE == Color.BLUE              # True
-# not hashable
-[2] == [2]                            # True
-hash([2]) == hash([2])                # TypeError: unhashable type: 'list'
-```
-* all immutable are hashable but not vice versa https://realpython.com/lessons/immutable-vs-hashable/
-* hashable: immutable + immutable collections w/ hashable el (tuples, frozenset) https://www.fluentpython.com/lingo/#hashable https://docs.python.org/3/glossary.html#term-hashable
-* unhashable: mutable collections https://docs.python.org/3/glossary.html#term-hashable
-```python
-# unhashable collections still need hashable el e.g. set https://www.youtube.com/watch?v=opijuVoq3Kk 1:10
-{[1,2,3], [42,13,7]}  # TypeError: unhashable type: 'list'
-{"hey", "hi"}         # ok
 ```
