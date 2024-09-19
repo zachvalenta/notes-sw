@@ -223,7 +223,7 @@ ZA
 
 ENGINE 🗄 `za/search-engine` (port data to query sandbox)
 * BYO https://news.ycombinator.com/item?id=39293050 https://www.alexmolas.com/2024/02/05/a-search-engine-in-80-lines.html
-* _robots.txt_: file that tells crawlers what files to ignore https://adamj.eu/tech/2020/02/10/robots-tx https://pythonbytes.fm/episodes/show/376/every-dunder-method-in-a-python-lockbox
+* _robots.txt_: file that tells crawlers what files to ignore https://adamj.eu/tech/2020/02/10/robots-tx https://pythonbytes.fm/episodes/show/376/every-dunder-method-in-a-python-lockbox https://x.com/didaoh/status/1814341975195492378
 * don't crawl https://unitedmasters.xyz/robots.txt https://searchfacts.com/robots-txt-allow-disallow-all/
 ```txt
 User-agent: *
@@ -558,8 +558,12 @@ def set_covering(states_needed, stations):
 🔗 https://www.interviewcake.com/data-structures-reference
 📙 Conery ch. 7
 🗄
+* `dbms.md` non-relational
+* `dbms.md` internals / datastructure
+* `eng.md` store / schemas
 * `education.md` design / information design
-* `databases.md` data structures
+* `science.md` metascience / categories
+* `sql.md` modeling
 
 OPERATIONS https://github.com/jamiebuilds/itsy-bitsy-data-structures https://www.interviewcake.com/concept/python3/array
 * _lookup_: read
@@ -702,37 +706,46 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 
 ## tree
 
-🗄️ `science.md` metascience / categories
 🔗 https://en.wikipedia.org/wiki/Tree_(data_structure)
-🛠️ https://github.com/c0fec0de/anytree 🗄️ `protocols.md` JSON / jless
+🛠️ https://github.com/c0fec0de/anytree
+🗄️
+*️ `language.md` compilers
+*️ `protocols.md` JSON / jless
+* `science.md` metascience / categories
 
-BASIC
+SEMANTICS
+* _node_: element of tree
+* _root_: node w/out parent
+* _parent_: node w/ children
+* _leaf_: node with no children
 ```sh
 ├── actuator  # parent
 │   └── damper
 │   └──── fire safety  # leaf
 ```
-* _node_: element of tree
-* _root_: node w/out parent
-* _parent_: node w/ children
-* _leaf_: node with no children
-
-RELATIONS
+* _child_: node directly below parent
+* _grandchild_: node two levels below parent
+* _grandparent_: node two levels above parent
 ```sh
 ├── actuator  # parent to damper, grandparent to fire safety
 │   └── damper  # child to actuator, parent to fire safety
 │   └──── fire safety  # child to damper, grandchild to actuator
 ```
-* _child_: node directly below parent
-* _grandchild_: node two levels below parent
-* _grandparent_: node two levels above parent
-
-ZA
 * _height_: distance from root to given leaf measured in levels
 * _subtree_: tree nested w/in root tree
 * _traversal_: movement through the tree
 
 ---
+
+https://buttondown.com/hillelwayne/archive/maybe-software-engineers-could-learn-something/ https://en.wikipedia.org/wiki/Hypernymy_and_hyponymy
+
+WALKING
+* BYO https://realpython.com/directory-tree-generator-python/
+* _frangipanni_: https://github.com/birchb1024/frangipanni
+* doesn't work yet for m1 macOS https://github.com/birchb1024/frangipanni/issues/21
+* install https://github.com/birchb1024/frangipanni/issues/22
+* _snapdiff_: snapshot https://www.jotaen.net/iE3XC/snapdiff-compare-directory-trees-on-CLI/
+* _walkdir_: https://github.com/BurntSushi/walkdir
 
 🛠 https://github.com/joowani/binarytree https://github.com/queelius/AlgoTree
 🔗 https://en.wikipedia.org/wiki/Phylogenetic_tree
@@ -778,7 +791,7 @@ adit       manning
  /     \
 4       6
 ```
-* _trie (prefix tree)_: typically used to store words https://www.youtube.com/watch?v=7XmS8McW_1U https://medium.com/basecs/trying-to-understand-tries-3ec6bede0014
+* _trie (prefix tree)_: typically used to store words https://www.youtube.com/watch?v=7XmS8McW_1U https://medium.com/basecs/trying-to-understand-tries-3ec6bede0014 https://blog.cloudflare.com/pingora-saving-compute-1-percent-at-a-time/ https://news.ycombinator.com/item?id=41501496
 * _BPS tree_: formed from binary space partitioning https://twobithistory.org/2019/11/06/doom-bsp.html
 * _minimum spanning tree (MST)_: edges to connect every node in weight graph while minimizing edge weight 📙 Christian chapter 8
 * _red-black tree_: BST that keeps itself balanced 📙 Bhargava 11.206

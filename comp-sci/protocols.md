@@ -17,7 +17,7 @@ https://www.youtube.com/watch?v=DntKZ9xJ1sM
 * _ASCII_: maps character to bit e.g. `A` -> 1000001 (65)
 * _Unicode_: maps character to code point e.g. `A` -> U+0041
 * _code point_: hex repr character
-* _UTF-8_: maps Unicode code point to byte sequence
+* _UTF-8_: maps Unicode code point to byte sequence https://csvbase.com/blog/9
 * variable length = can use single byte for `A` but more bytes (up to 4) if necessary
 
 ---

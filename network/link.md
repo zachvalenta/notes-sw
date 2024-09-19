@@ -1,4 +1,4 @@
-# TODO
+# ⛩️
 
 ## 参考
 
@@ -9,13 +9,9 @@
 * Kozierok tcp-ip guide
 * Ross network know-how
 
-## current
+## 进步
 
-## queue
-
-## done
-
-# ZA
+# 🟨️ ZA
 
 * _network partition_: when two nodes can no longer talk i.e. nodes within a db cluster
 * find wifi speeds for geographies https://news.ycombinator.com/item?id=24478149

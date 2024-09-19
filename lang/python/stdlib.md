@@ -724,7 +724,7 @@ INPUT 🗄 `security.md` sanitization
 * take input: basic (`ur_in = input()`)
 * basic: 
 * autocomplete / fuzzy finder: used by dbcli https://github.com/amjith/fuzzyfinder https://github.com/darrenburns/textual-autocomplete
-* REPL https://github.com/Mckinsey666/bullet https://github.com/tmbo/questionary https://github.com/zachvalenta/capp-prod-cat/blob/link-nodes/cli.py https://github.com/zachvalenta/bookcase-sjk/blob/34433935a55eeb421b30d9012f422b03c55d48a2/cli.py#L4 https://github.com/zachvalenta/news/blob/3901f28ff59c035d353127e3c279ec9e7d3f90d4/news/main.py#L5
+* REPL https://github.com/Mckinsey666/bullet bullet control flow https://github.com/shkey/killurp/blob/141d411d353ab46edf362ff6a33bfe9c5a5ad211/killurp.py#L8 https://github.com/tmbo/questionary https://github.com/zachvalenta/capp-prod-cat/blob/link-nodes/cli.py https://github.com/zachvalenta/bookcase-sjk/blob/34433935a55eeb421b30d9012f422b03c55d48a2/cli.py#L4 https://github.com/zachvalenta/news/blob/3901f28ff59c035d353127e3c279ec9e7d3f90d4/news/main.py#L5
 * _prompt-toolkit_: used by pgcli, http-prompt https://github.com/j-bennet/wharfee/blob/master/setup.py https://github.com/wasi-master/fastero
 
 OUTPUT
@@ -760,7 +760,7 @@ FRAMEWORKS
 > Web development is often broad, not deep - problems span many domains. https://docs.djangoproject.com/en/2.0/intro/whatsnext/
 > A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
 * components: HTTP, routes, ORM
-* BYO https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/
+* BYO https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/ https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/
 
 ## HTML
 

@@ -21,7 +21,6 @@ FACTORS
 
 * Discord msgs https://www.youtube.com/watch?v=O3PwuzCvAjI
 * Stackoverflow https://www.youtube.com/watch?v=fKc050dvNIE
-* perf https://hpbn.co/primer-on-web-performance/
 * https://www.fractionalarchitect.io/books/mastering-strategic-ddd
 * https://www.fractionalarchitect.io/books/master-software-architecture
 * db per tentant https://news.ycombinator.com/item?id=39004963
@@ -237,6 +236,7 @@ ZA
 * _benefits_: devs (specialization, experimentation) ergonomics (easier to grok)
 * _drawbacks_: no joins (favor document db) outside single process (slower, flaky network) devs (easy code, complex infrastructure) hard to integration test https://aadrake.com/posts/2017-05-20-enough-with-the-microservices.html https://thoughtbot.com/blog/services-are-not-a-silver-bullet
 * _communcation_: mq, pub-sub, RPC/REST https://testdriven.io/courses/microservices-with-docker-flask-and-react/part-one-microservices/
+* microservices https://entropicthoughts.com/getting-used-to-microservices https://entropicthoughts.com/benefits-of-microservices
 
 ## monolith
 
@@ -353,6 +353,7 @@ Petrov ch. 11
 
 ---
 
+* https://entropicthoughts.com/data-consistency-is-overrated
 https://www.youtube.com/watch?v=nH4qjmP2KEE
 
 📙 Kleppmann ch. 8-9
@@ -508,6 +509,7 @@ SEARCH
 
 ---
 
+https://csvbase.com/blog/8
 https://www.youtube.com/watch?v=dGAgxozNWFE
 
 semantics
@@ -665,6 +667,7 @@ CDN
 📍 https://www.youtube.com/watch?v=-W9F__D3oY4
 * _OpenResty_: Nginx + script some more logic in with Lua https://www.dataengineeringpodcast.com/linode-object-storage-service-episode-125/ 10:00
 * _firewall_: impl rules for server in/egress (e.g. iptables)
+* https://entropicthoughts.com/basic-firewall-configuration-iptables
 * UFW https://github.com/peltho/tufw
 * phoning home, open snitch https://news.ycombinator.com/item?id=33506576
 * https://softwareengineeringdaily.com/2021/08/10/fly-io-geographic-app-deployment-with-kurt-mackey/

@@ -534,7 +534,7 @@ show collections  # view collections
 
 # 🗺️ NON-RELATIONAL
 
-🗄 `science.md` data structure
+🗄️ `algos.md` data structures
 📙 Kleppmann ch. 2
 
 > There are data stores that are also used as message queues (Redis), and there are message queues with database-like durability guarantees (Kafka), so the boundaries between the categories are becoming blurred 📙 Kleppmann [12]
@@ -1021,7 +1021,7 @@ HOWTO
 * tuning https://news.ycombinator.com/item?id=35547819 https://news.ycombinator.com/item?id=39955288
 * config (journal, wal, timeout) https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html https://avi.im/blag/2021/fast-sqlite-inserts/
 * migrations: https://news.ycombinator.com/item?id=22367104
-* perf https://news.ycombinator.com/item?id=26103776 https://kerkour.com/sqlite-for-servers
+* perf https://news.ycombinator.com/item?id=26103776 https://kerkour.com/sqlite-for-servers https://fractaledmind.github.io/2024/04/15/sqlite-on-rails-the-how-and-why-of-optimal-performance/
 * diff databases https://news.ycombinator.com/item?id=31256704
 * corrupt a database https://news.ycombinator.com/item?id=31214131
 

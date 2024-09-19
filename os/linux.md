@@ -85,6 +85,7 @@ TOOLS
 * _Pants_: https://github.com/pantsbuild/pants https://rdrn.me/postmodern-python/
 * _pypyr_: https://pypyr.io/
 * _redo_: https://github.com/apenwarr/redo https://fzakaria.com/2020/06/08/my-love-letter-to-redo.html
+* _run.sh_: 🎯 https://github.com/jotaen/klog
 * _Task_: 🎯 https://github.com/go-task/task
 * _Xc_: Markdown https://github.com/joerdav/xc https://news.ycombinator.com/item?id=34911216 https://news.ycombinator.com/item?id=34911216
 
@@ -524,6 +525,7 @@ man pages
 * `km.md` file system
 * `shell.md` profiles / dotfiles
 * `shell.md` userland
+* `src.md` denv
 
 ENV SETUP ORDER
 * Homebrew
@@ -538,8 +540,8 @@ ENV SETUP ORDER
 │   └──────── jb
 │   └──────── jbc
 │   └──────── kcm
-│   └──────── m2h  # symlink to Python repo
-│   └──────── qing # symlink to Python repo
+│   └──────── news  # symlink
+│   └───────────── repos/news/main.py
 │   └──────── this-week
 │   └──────── upper-structures
 │   └──────── vimv

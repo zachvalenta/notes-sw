@@ -15,6 +15,8 @@
 
 ---
 
+* https://en.wikipedia.org/wiki/Seven_basic_tools_of_quality
+
 TAXONOMY
 * user sessions https://news.ycombinator.com/item?id=40318542 https://jam.dev/ https://trackjs.com/
 * tracing
@@ -39,6 +41,8 @@ OPENTELEMETRY
 * https://github.blog/2021-05-26-why-and-how-github-is-adopting-opentelemetry/
 * https://news.ycombinator.com/item?id=37559506
 * https://andydote.co.uk/2023/09/19/tracing-is-better/
+* https://news.ycombinator.com/item?id=41570163
+* https://betterstack.com/community/guides/observability/opentelemetry-collector/
 
 UPTIME / HEALTHCHECK / HEARTBEAT
 * https://news.ycombinator.com/item?id=41452339
@@ -214,6 +218,9 @@ ZA
 ---
 
 * _frecency_: frequency + recency https://missing.csail.mit.edu/2020/shell-tools/ https://github.com/rupa/z
+
+* utilization, system metrics https://entropicthoughts.com/predicting-resource-usage-from-increased-traffic https://entropicthoughts.com/response-time-is-the-system-talking
+* latency throughput https://entropicthoughts.com/typing-fast-is-about-latency-not-throughput
 
 SEMANTICS https://www.datadoghq.com/ebook/monitoring-modern-infrastructure/
 * _event_: change to system e.g. build, release, add/substract host/container, alert going off

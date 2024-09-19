@@ -170,6 +170,7 @@ ALTERNATIVES
 
 ---
 
+* https://news.ycombinator.com/item?id=41580166
 * https://www.reddit.com/r/Python/comments/6hwa22/what_is_the_point_of_jupyter/ https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.html
 * notebooks as articles https://news.ycombinator.com/item?id=27367948 as books https://executablebooks.org/en/latest/ https://jupyterbook.org/en/stable/intro.html
 * reproducibility https://jvns.ca/blog/2017/11/12/binder--an-awesome-tool-for-hosting-jupyter-notebooks/ https://news.ycombinator.com/item?id=24943962
@@ -458,7 +459,7 @@ CALLABLE FROM TERMINAL
 ```sh
 #!/usr/bin/env python3 https://docs.python.org/3/tutorial/appendix.html#executable-python-scripts
 ```
-* third-party: symlink from bin to Python repo + shebang to local venv https://github.com/zachvalenta/bin/blob/master/m2h https://github.com/zachvalenta/markdown-2-html/blob/master/converter.py#L1
+* third-party: symlink from bin to Python repo + shebang to local venv e.g. m2h https://github.com/zachvalenta/bin-mbp14
 ```sh
 .gitignore  # ignore repos
 huan  # bash script
@@ -700,6 +701,8 @@ STRUCTURE
 * example repo, awful $proj_name/src/proj_name duped dir thing https://github.com/brohrer/pacemaker https://github.com/darrenburns/posting https://stackoverflow.com/questions/50090341/is-there-a-naming-convention-for-django-project-configuration-directory
 * structure https://www.pythonpapers.com/p/how-to-publish-a-python-package-to
 * lockfile https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
+* https://www.youtube.com/watch?v=niMybnzmzqc
+* https://www.youtube.com/watch?v=dlCcnJdh4c4
 
 HISTORY
 * https://rdrn.me/postmodern-python/
@@ -820,7 +823,6 @@ pip3 download -r /Users/zach/Desktop/zvmac/materials/sw/lang/python/create-pytho
 # use index for new project
 pip3 install --no-index --find-links=~/Desktop/pypi-local coverage
 ```
-* m2h
 ```make
 @echo "📦 DEPENDENCIES"
 @echo
@@ -1128,6 +1130,7 @@ https://hakibenita.com/django-concurrency
 https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sync-vs-async-in-python-tools-benchmarks-and-asgiwsgi-explained
 https://news.ycombinator.com/item?id=41001951
 https://realpython.com/python-async-iterators/
+https://sobolevn.me/2020/06/how-async-should-have-been
 
 * https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#overcoming-gil-with-subinterpreters-and-immutability
 * JIT https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#building-a-jit-compiler-for-cpython

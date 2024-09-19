@@ -54,15 +54,13 @@ LINUX https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=3418050
 🗄️ `aesthetics.md` home design
 
 KEYBOARDS 📙 https://shifthappens.site/#story-of-a-photo
-* features: 80% layout, func (volume, brightness), numbers, arrows, page up/down
+* features: 80% layout, func (volume, brightness)
 > plastic vs. metal? https://www.reddit.com/r/NuPhy/comments/13kc4xm/team_nuphy_vs_team_keychron_fight/
-* Lofree is cool https://www.lofree.co/
 * _Keychron k2_: https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard
+* _Keychron k8_: 🎯 too tall? turn off lights? https://www.keychron.com/products/keychron-k8-tenkeyless-wireless-mechanical-keyboard
 * _Keychron q1 pro_: $225 https://www.amazon.com/dp/B0BLZ1ZN3H
 * _Keychron q3_: $185 https://www.keychron.com/products/keychron-q3-qmk-custom-mechanical-keyboard?variant=39773518626905 https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard
-* _Lofree flow84_: $175  https://www.amazon.com/dp/B0CJTV8P4Z https://www.imore.com/best-mechanical-keyboards-mac
-* _Nuphy air75 v2_: $125; bad customer service, slow shipping (but next time you can just buy from Amazon?), can do wired? https://www.reddit.com/r/NuPhy/comments/zt6qkt/wired_mode_does_not_work_75_air/
-* _System76_: https://system76.com/accessories/launch
+* _Nuphy air75 v2_: ✅ $125; bad customer service, slow shipping (but next time you can just buy from Amazon?) https://nuphy.com/products/air75-v2
 
 ---
 
@@ -632,7 +630,8 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 * rm mckinney book
 * 23 taxes
 * golf
-* music: francis harris
+* music: francis harris, christian scott
+* photos: nirvana
 
 ### air-capp ➡️ mini23
 

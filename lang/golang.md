@@ -11,6 +11,7 @@
 ## 进步
 
 BASICS 📙 Ball
+* BYO taskwarrior https://www.youtube.com/watch?v=yiFhQGJeRJk
 * https://www.youtube.com/watch?v=un6ZyFkqFKo
 * https://www.youtube.com/watch?v=8uiZC0l4Ajw
 * https://go.dev/tour/list
@@ -452,6 +453,32 @@ start here
 * workspaces https://dev.to/gophers/what-are-go-workspaces-and-how-do-i-use-them-1643
 * 📙 Jeffrey distributed [5]
 * distribution https://www.kosli.com/blog/how-to-publish-your-golang-binaries-with-goreleaser/
+
+previous article
+```txt
+Ok, here are some preliminary thoughts after approx. 5 hours of reading about and tinkering with dependency management in Golang:
+
+`$GOPATH` IS NOT DEAD
+* In the past all Go code lived at `$GOPATH`. Your project's source code, its dependencies, everything. Putting your code somewhere else was possible but irksome.
+* Now you can put your _source_ code somewhere else.
+* But: you still need `$GOPATH` to exist on your machine, in part because [that's where project dependencies are still downloaded to](https://dave.cheney.net/2018/07/14/taking-go-modules-for-a-spin). Your dependencies are per-project and I assume there's a way to inspect deps in `$GOPATH` to figure out which belong to which project, but it's less clear that Python virtual environments, either done with `venv` ("here's a folder in your project with all your deps") or Poetry (`poetry env info`).
+
+PYTHON DEVS HAVE IT WORSE
+
+If only because Golang is further along its trajectory of packaging solutions
+
+* __initial attempt__: Go had `go get` and `$GOPATH`, Python has `pip`, things work ok but there's room for improvement
+* __candidate solutions__: Go had `dep` and Glide, Python has `venv` and Poetry and pipenv and pip-tools and dephell (forgetting anyone?)
+* __winner emerges__: Go has modules now, but Python is still tbd as the above candidates continue to fight it out.
+
+So, at least Golang devs are all speaking the same language when it comes to packaging.
+
+GOLANG IS CONTRA-CONSENSUS ON PACKAGING IN GENERAL
+
+* Gooooo slooooooow: Library development moves much more slowly, for the better (more stable packages?) but possibly for the worse as well (less new, shiny things?). Read more here: [link](https://benjamincongdon.me/blog/2019/11/11/The-Value-in-Gos-Simplicity).
+* Anti-dependency dependency mgmt: The community seems somewhat akin to Clojure insofar as it doesn't especially encourage using a ton of dependencies. Python appears to be going to the other direction, to judge by the [dead batteries debate](https://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html). Other popular languages feel just as library-dependent than Python. But in the Golang documentation on their packaging tool, they include [an admonition to beware using packages](https://blog.golang.org/using-go-modules):
+> Note that while the go command makes adding a new dependency quick and easy, it is not without cost. Your module now literally depends on the new dependency in critical areas such as correctness, security, and proper licensing, just to name a few. -
+```
 
 workflow
 * _add deps_: import dependency in your module's source and then try to execute your code in some way (build, test) and go will grab the deps https://blog.golang.org/using-go-modules can use `go download` but don't need to (cf. `go help mod download`); `go get -u ./...` https://engineering.kablamo.com.au/posts/2018/just-tell-me-how-to-use-go-modules

@@ -1139,6 +1139,7 @@ GOVERNANCE
 * quasi-official: PyPA, PyCQA
 * people: Donald Stuft (PyPA) Raymond Hettinger (core) Tim Peters (Zen of Python `import this`, Timsort) Armin Ronacher (Flask) Brett Cannon (core) Nick Coghlan (core) Eli Bendersky (Google, buddies w/ Coghlan) https://mail.python.org/pipermail/python-committers/2019-February/006520.html
 * _Steering Council_: https://mail.python.org/pipermail/python-committers/2019-February/006520.html
+* _PSF_: https://simonwillison.net/2024/Sep/18/board-of-the-python-software-foundation/
 
 STDLIB
 * new batteries in Rust https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust

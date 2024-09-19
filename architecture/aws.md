@@ -352,7 +352,7 @@ https://focus.finops.org/
 https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 * rightsizing https://softwareengineeringdaily.com/2021/01/12/kubecost-with-webb-brown/
 * on-prem: need to integrate w/ legacy systems inside firewall, regulatory, cheaper, you can still make the consumption of your data center feel like a public cloud (CF, HPE)
-* _capacity planning_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/ https://www.youtube.com/watch?v=UC5xf8FbdJc
+* _capacity planning / demand forecasting_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/ https://www.youtube.com/watch?v=UC5xf8FbdJc https://www.youtube.com/watch?v=ov7xhNdrsDM
 
 * free tier https://www.lastweekinaws.com/blog/an-aws-free-tier-bill-shock-your-next-steps/
 > Exercise: Pick an infrastructure service that your team operates and calculate how many hours/month you work to maintain the solution. https://cloudonaut.io/my-mental-model-of-aws/

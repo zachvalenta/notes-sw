@@ -35,10 +35,6 @@ INTERVIEWING
 
 # 🚧 DDL
 
-🗄
-* `db.md` modeling
-* `db.md` utils
-
 COMMANDS
 ```sql
 -- DB/TABLE
@@ -219,6 +215,7 @@ Flyway https://flywaydb.org/documentation/ https://github.com/zachvalenta/flyway
 
 ## modeling
 
+🗄️ `algos.md` data structures
 🔍 https://drawsql.app/templates
 📙 Kent data/reality https://www.amazon.com/Data-Reality-Perspective-Perceiving-Information/dp/1935504215
 
@@ -889,7 +886,7 @@ FROM cd.facilities;
 
 DESIGN 🗄️ `eng.md` dataframe
 * boring and durable https://josephg.com/blog/databases-have-failed-the-web
-* outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188
+* outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/
 > The relational data model enables those things. None of them require the language to be SQL...LINQ, spark, flink, kafka streams, pandas, dataframes are all widely used examples of an expression-based language-embedded approach to relational queries. https://www.scattered-thoughts.net/writing/against-sql
 > SQL is the most popular to communicate with databases but isn't always the easiest to write. I've been writing SQL statements since the 1990s and even in 2024, I can find myself needing to refer to documentation and spending 30 minutes or more getting more complex statements to run as I wish. https://tech.marksblogg.com/heavyiq-faa-ai-llm-gpu-database.html
 * ISO, ANSI standard 📙 Beaulieu [86-87]

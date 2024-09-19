@@ -289,7 +289,7 @@ STATE
 * _array_: obj whose K is an int and whose V is a string; inherit from `Array.prototype` instead of `Object.prototype`
 * _function statement/declaration_: `var test123 = function(){}`
 * _function expression_: `var test123 = function(){}`; use this one bc avoids hoisting
-* _hoisting_: defined immediately, even before execution reaches actual declaration https://stackoverflow.com/a/336868/6813490
+* _hoisting_: defined immediately, even before execution reaches actual declaration https://stackoverflow.com/a/336868/6813490 https://adamj.eu/tech/2024/09/08/django-repeated-decorators/
 * _arrow function_: same as function expression minus 'function', braces, ‘return'
 * _IIFE (immediately invoked function expression)_: keeps variable names out of global scope
 * this https://dev.to/ycmjason/let-me-explain-to-you-what-is-this-javascript-44ja

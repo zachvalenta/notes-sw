@@ -286,7 +286,7 @@ HISTORY https://increment.com/programming-languages/language-history/
 * plot https://ggplot2.tidyverse.org/ grammar of graphics https://plotnine.org/
 * dataframes https://tibble.tidyverse.org/
 
-🦀 RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust
+🦀 RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust https://www.ntietz.com/projects/
 * desktop framework https://github.com/tauri-apps/tauri https://blog.gitbutler.com/open-source-pledge-2024/
 * Neovim https://www.youtube.com/watch?v=mh_EJhH49Ms
 * example project https://github.com/nate-sys/tuime https://github.com/swsnr/mdcat
@@ -305,7 +305,7 @@ HISTORY https://increment.com/programming-languages/language-history/
 > [invariant violation] At point A, there's some assumption, and way over there at point B, that assumption is violated... Type systems prevent some invariant violations. Because that works, there are ongoing attempts to extend type systems to prevent still more invariant violations. That creates another layer of confusing abstraction. Some invariants are not well represented as types, and trying makes for a bad fit. What you're really trying to do is to substitute manual specification of attributes for global analysis. The Rust borrow checker is an invariant enforcer. It explicitly does automatic global analysis, and reports explicitly that what's going on at point B is inconsistent with what point A needs. This is real progress in programming language design, and is Rust's main contribution. https://news.ycombinator.com/item?id=29996240
 
 ↯ ZIG
-* overview https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203010
+* overview https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203010 https://kristoff.it/blog/maintain-it-with-zig/
 * tutorial https://gist.github.com/ityonemo/769532c2017ed9143f3571e5ac104e50
 * BYO ls https://stackoverflow.com/questions/13554150/implementing-the-ls-al-command-in-c
 * getting popular https://macwright.com/2020/08/01/recently.html
@@ -334,6 +334,7 @@ ZA
 * Petzold code (24)
 * Nisan nand2tetris (4, 6)
 
+* https://shikaan.github.io/assembly/x86/guide/2024/09/08/x86-64-introduction-hello.html
 * ARM https://www.youtube.com/watch?v=gfmRrPjnEw4
 * compiler explorer https://godbolt.org/
 * _assembly_: shorthand for whatever binary the CPU understands 📙 `evans-linux.pdf` 1
@@ -534,6 +535,7 @@ ZA
 
 LISPS
 * _Clojure_: https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792
+* https://github.com/damn/core
 * _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
 * _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
 * _Racket_: based off Scheme, async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=19952714 https://news.ycombinator.com/item?id=23132621 https://news.ycombinator.com/item?id=8206038 https://news.ycombinator.com/item?id=13881535 https://news.ycombinator.com/item?id=32723784
@@ -764,6 +766,7 @@ when you really love your favorite language 💜
 
 🔗 https://en.wikipedia.org/wiki/Execution_(computing)
 🔍 https://softwareengineering.stackexchange.com/questions/tagged/compiler
+🗄️ `algos.md` data structures / tree
 📚
 * Ball interpreter https://vgel.me/posts/c500/
 * Nystrom crafting https://craftinginterpreters.com

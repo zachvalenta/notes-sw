@@ -318,6 +318,21 @@ PRE-COMMIT https://pre-commit.com https://github.com/pre-commit/pre-commit/issue
     types: [python]
 ```
 
+## denv
+
+🗄 `linux.md` denv
+
+CLOUD
+* https://www.lastweekinaws.com/blog/the-real-reason-cloud-ide-adoption-is-lagging/
+* _Coder_: https://github.com/coder/coder
+* _Daytona_: https://www.daytona.io/
+* _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053
+* _Gitpod_: https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15
+
+---
+
+* db: not a silver bullet (Postgres in your Docker container will have some differences to db server you're connecting to in prod)
+
 ## release
 
 ---
@@ -403,8 +418,6 @@ envs 🗄 `shell.md` env var
 * don't use prod data outside of prod https://www.thoughtworks.com/radar/techniques/production-data-in-test-environments
 * you don't need staging https://news.ycombinator.com/item?id=30899362
 * _parity_: aka isomorphism 🗄 `testing.md` db
-* db: not a silver bullet (Postgres in your Docker container will have some differences to db server you're connecting to in prod)
-* codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://github.com/features/codespaces alternative https://www.daytona.io/ https://www.lastweekinaws.com/blog/the-real-reason-cloud-ide-adoption-is-lagging/
 
 config in general
 * _config_: everything that varies between deployment envs https://12factor.net/config 
@@ -415,7 +428,6 @@ config in general
 * https://www.youtube.com/watch?v=omhJrT90lXU&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=39
 * CLI https://smallstep.com/blog/command-line-secrets/
 * store enums w/ versions https://martinfowler.com/articles/patterns-of-distributed-systems/versioned-value.html
-* remote dev env https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15 https://github.com/coder/coder
 
 my current approach
 * Makefile rule to sym link canonical env file into place from either `.env.dev` or `env.prod` [Osborn 14.106] export secrets from shell and document in README https://12factor.net/config downside is duplication btw files, this config class inheritance would pay off
@@ -470,7 +482,7 @@ toggle=
 
 SEMANTICS
 * _code path_: branch through codebase
-* _cohesion_: put like with like 📙 Conery [270] Evans [109]
+* _cohesion_: put like with like 📙 Conery [270] Evans [109] https://entropicthoughts.com/event-sourcing-and-microservices-unix-style
 * _coupling_: "there should be low coupling btw modules and high cohesion within them" 📙 Evans [109]
 * _encapsulation_: modularity via objects/method https://www.youtube.com/watch?v=QyJZzq0v7Z4 24:00
 ```python
@@ -564,6 +576,7 @@ BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 
 ---
 
+* async IO https://registerspill.thorstenball.com/p/joy-and-curiosity-7
 * _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
 * clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep
 * _callback_: another func to call after func finishes execution 🗄 `application.md` webhook
@@ -589,7 +602,7 @@ BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 * https://softwareengineering.stackexchange.com/questions/tagged/design-patterns
 📙 Conery ch. 11,12
 
-* Gang of Four: composition over inheritance https://en.wikipedia.org/wiki/Design_Patterns
+* Gang of Four: composition over inheritance https://en.wikipedia.org/wiki/Design_Patterns https://buttondown.com/hillelwayne/archive/when-to-prefer-inheritance-to-composition/
 > They warn that the implementation of a subclass can become so bound up with the implementation of its parent class that any change in the parent's implementation will force the subclass to change. Furthermore, they claim that a way to avoid this is to inherit only from abstract classes—but then, they point out that there is minimal code reuse.
 > Using inheritance is recommended mainly when adding to the functionality of existing components, reusing most of the old code and adding relatively small amounts of new code.
 
@@ -598,7 +611,7 @@ BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 https://github.com/DovAmir/awesome-design-patterns
 * fanout https://www.better-simple.com/django/2023/12/06/fanout-pattern-explained/
 * the big ball of mud https://news.ycombinator.com/item?id=35481309
-* _strangler_: you run the old code and new code live, in production, side-by-side, checking that the new code behaves exactly the same as the old code. Once you are confident it does, you retire the old code https://www.kosli.com/blog/how-to-strangle-old-code-using-python-decorators/
+* _strangler fig_: you run the old code and new code live, in production, side-by-side, checking that the new code behaves exactly the same as the old code. Once you are confident it does, you retire the old code https://www.kosli.com/blog/how-to-strangle-old-code-using-python-decorators/ https://news.ycombinator.com/item?id=41423421
 
 http://gameprogrammingpatterns.com/contents.html
 
@@ -653,6 +666,8 @@ as red flag https://news.ycombinator.com/item?id=30675182
 📚 Lopes exercises in programming style
 
 ---
+
+* hoisting
 
 > When in doubt, don't model it. Just get the code written, make forward progress. Don't let yourself get bogged down with the details of modeling a helper class that you're creating for documentation purposes. - http://steve-yegge.blogspot.com/2008/02/portrait-of-n00b.html
 

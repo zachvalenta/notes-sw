@@ -32,7 +32,7 @@ TOOLS
 * repo stats https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
 * heat map https://github.com/jmforsythe/Git-Heat-Map
 
-FEATURES
+FEATURES https://buttondown.com/hillelwayne/archive/github-has-too-many-hidden-features/
 * stars https://github.com/github/feedback/discussions/8293 https://webapps.stackexchange.com/a/41800
 * feedback https://github.com/isaacs/github/issues/6 https://github.com/orgs/community/discussions
 * all forks are public https://news.ycombinator.com/item?id=41060102
@@ -84,6 +84,7 @@ gh alias list
 
 ---
 
+* project logos https://github.com/PaulJuliusMartinez/jless https://chatgpt.com/share/66eb331c-04e4-8004-9b25-b7bb5d5a5b78
 https://github.com/cosimameyer
 * _images_: https://github.com/textualize/toolong
 * _profile README_: create repo with same name as user, add README https://github.com/willmcgugan/willmcgugan
@@ -110,6 +111,7 @@ https://github.com/cosimameyer
 ## search
 
 ---
+https://buttondown.com/hillelwayne/archive/github-search-for-research-and-learning/
 https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github
 * https://github.blog/2021-12-08-improving-github-code-search/ https://github.com/features/code-search 🗄 `vim.md` code completion
 * files in repo: `t`
@@ -131,6 +133,27 @@ https://wizardzines.com/zines/git/
 * _reference_: human-readable name acting as point to commit SHA-1
 
 ---
+
+* explain to non-user
+```
+working tree = current state of the files
+
+sprint so far = commits so far
+
+think of a commit as a named save. could be updates to single file or many, and then you save the current state of the file system and write a message e.g. "learn about string theory".
+
+"sprint" is just the name of a branch.
+
+think of a branch as a version.
+
+for example, you have a bundle of notes for a novel. your branch is called "chanels-big-novel".
+
+you get chantel to provide feedback. she makes a branch for herself, "chantels-edits".
+
+she can then edit away and it won't touch your work.
+
+she can propose merging the two branches i.e. her edits would become part of "chanels-big-novel."
+```
 
 * https://jvns.ca/blog/2024/01/26/inside-git/
 * https://jvns.ca/blog/2023/11/23/branches-intuition-reality/
@@ -750,7 +773,7 @@ curl --header "PRIVATE-TOKEN: <access_token>" https://gitlab.com/api/v4/users/za
 git clone https://token_name:token@gitlab.com/zachvalenta/dummy-repo.git
 ```
 
-## utils
+## tooling
 
 🗄 `km.md` kanban
 
@@ -775,7 +798,7 @@ PORCELAIN
 * _gitbutler_: https://github.com/gitbutlerapp/gitbutler https://blog.gitbutler.com/
 * _gitsigns_: 🎯 Neovim, similiar to vim-fugitive, catppuccin integration https://github.com/lewis6991/gitsigns.nvim
 * _lazygit_: 🎯 popular, good UI https://github.com/jesseduffield/lazygit https://github.com/catppuccin/lazygit https://www.youtube.com/watch?v=Ihg37znaiBo
-* _magit_: looks great, Emacs-only https://github.com/magit/magit https://github.com/dandavison/delta/issues/194#issuecomment-636001812 https://emacsair.me/2017/09/01/magit-walk-through/
+* _magit_: looks great, Emacs-only https://github.com/magit/magit https://emacsair.me/2017/09/01/magit-walk-through/ https://github.com/dandavison/delta/issues/194
 * _Neogit_: 🎯 magit port https://github.com/NeogitOrg/neogit
 * _vim-fugitive_: 🎯 https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI
 * _vimagit_: https://github.com/jreybert/vimagit

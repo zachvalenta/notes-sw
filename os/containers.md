@@ -13,6 +13,7 @@
 
 ## 进步
 
+https://www.youtube.com/watch?v=3e8J_pv-xJI
 https://www.youtube.com/watch?v=Ud7Npgi6x8E
 https://news.ycombinator.com/item?id=38913425
 https://github.com/robertpsoane/ducker
@@ -172,7 +173,7 @@ context canceled
 basics
 * `docker-compose.yml`: run n processes w/ single command, all logs to single terminal
 * when Dockerfile's `RUN` not enough https://stackoverflow.com/a/45549372
-* alternatives: Foreman, Honcho https://www.mattlayman.com/blog/2019/web-development-environments/ Colima https://www.thoughtworks.com/radar/platforms?blipid=202203015 Orbstack https://news.ycombinator.com/item?id=41421846 Podman https://news.ycombinator.com/item?id=38981844
+* alternatives: Foreman, Honcho https://www.mattlayman.com/blog/2019/web-development-environments/ Colima https://www.thoughtworks.com/radar/platforms?blipid=202203015 Orbstack https://news.ycombinator.com/item?id=41421846 Podman https://news.ycombinator.com/item?id=38981844 https://container-desktop.com/
 * _service_: container https://www.youtube.com/watch?v=aetqo2nkQcA 1:30
 
 multi-env https://docs.docker.com/compose/extends/

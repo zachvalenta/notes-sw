@@ -154,6 +154,8 @@ za
 
 ---
 
+* `Accept-Language` https://news.ycombinator.com/item?id=41497139
+
 req
 ```yaml
 Host: examplecat.com  # req destination
@@ -415,6 +417,8 @@ ZA
 
 ---
 
+* DNS https://entropicthoughts.com/secure-dns-on-a-laptop-with-debian
+* whitelist/blacklist https://github.com/plutov/ultrafocus
 * https://www.youtube.com/watch?v=27r4Bzuj5NQ
 * https://jvns.ca/blog/2024/08/19/migrating-mess-with-dns-to-use-powerdns/
 * https://github.com/mr-karan/doggo
@@ -627,6 +631,7 @@ process https://help.ubuntu.com/community/SSH/OpenSSH/Keys
 > Time is nature's way to keep everything from happening all at once - John Wheeler https://lwn.net/Articles/827180/
 
 TIME
+* https://buttondown.com/hillelwayne/archive/time-zones-are-hard-because-people-are-hard/
 * YYYY-MM-DD is the only correct answer https://twitter.com/VitalikButerin/status/1547161382373756928
 * https://www.libertysys.com.au/2024/05/aws-microsecond-accurate-time-second-look/?ck_subscriber_id=512830619
 * _Internet Time Service_: current time as provided by NIST https://news.ycombinator.com/item?id=37778496

@@ -6,18 +6,8 @@
 * Arpaci
 * Bryant
 * Galvin
-* ✅ Gleick information
-* ✅ Hillis pattern in the stone
 * Hyde great code
-* Matthews dive https://diveintosystems.org/
-* MacCormick computed
-* MacCormick nine algorithms
-* Nisan elements https://github.com/zachvalenta/nand2tetris
-* Petzold annotated turing https://www.amazon.com/gp/product/1400075998
-* Petzold code
-* Shibuya microprocessors
 * Tanenbaum
-* Upton rapsberry pi
 
 ## 进步
 
@@ -31,7 +21,16 @@ https://www.youtube.com/playlist?list=PLH2l6uzC4UEW0s7-KewFLBC1D0l6XRfye
 
 # 🪨 FOUNDATIONS
 
-📙 Conery ch. 1-4
+📚
+* Conery ch. 1-4
+* ✅ Gleick information
+* ✅ Hillis pattern in the stone
+* MacCormick computed
+* MacCormick nine algorithms
+* Nisan elements https://github.com/zachvalenta/nand2tetris
+* Petzold code
+* Petzold annotated turing https://www.amazon.com/gp/product/1400075998
+* Wayne logic for programmers
 
 > A computer is a clock with benefits. They all work the same, doing second-grade math, one step at a time - Ford what is code?
 > Everything ultimately has to get down to things in little boxes pointing to each other. That's just how things work. - Ford what is code?
@@ -66,14 +65,12 @@ COMPRESSION
 * video streaming https://news.ycombinator.com/item?id=40408515
 
 ENTROPY
+* entropy per word https://entropicthoughts.com/reading-slightly-more-incrementally
 > got here from "how to create session ID in Python?" 🗄 `http.md` https://stackoverflow.com/questions/817882/unique-session-id-in-python https://unix.stackexchange.com/a/361789
 * https://victorzhou.com/blog/information-gain/
 * https://aatishb.com/entropy/
 * https://www.youtube.com/results?search_query=khan+academy+entropy
-* _entropy_: 
 * used to build decision trees https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
-* _information gain_: 
-* _decision tree_: 
 
 ## logic gates
 
@@ -144,6 +141,7 @@ STATE MACHINE
 📚
 * Matthews dive https://diveintosystems.org/
 * Shibuya microprocessors
+* Upton rapsberry pi
 * Upton rapsberry pi
 
 firmware

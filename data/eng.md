@@ -26,10 +26,11 @@
 * datagolf https://datagolf.com/tour-standings https://datagolf.com/field-updates https://datagolf.com/datagolf-rankings https://datagolf.com/api-access
 > https://www.linkedin.com/in/matthew-courchene-2a19587b/ https://www.globalgolfpost.com/featured/data-gold/ https://www.sloansportsconference.com/people/matthew-courchene https://golf.com/news/features/data-golf-analytics-new-level-pay-attention-gamblers/ https://twitter.com/DataGolf/status/1779890636537094231
 > read on sports better, stats
-* steampipe https://news.ycombinator.com/item?id=40343131
+* steampipe https://news.ycombinator.com/item?id=40343131 OS metrics queryable from SQL https://github.com/osquery/osquery
 * https://news.ycombinator.com/item?id=39338626
 * https://news.ycombinator.com/item?id=37222191
 * https://news.ycombinator.com/item?id=35478240
+* https://www.ssp.sh/brain/data-engineering/
 
 * _24_: try harlequin
 * _22_: basic xsv/miller/Pandas
@@ -217,6 +218,7 @@ SPORTS
 TOOLS
 * text to SQL https://github.com/vanna-ai/vanna
 * _Blazer_: https://github.com/ankane/blazer
+* _csvbase_: 🎯 https://csvbase.com/ https://csvbase.com/blog/10
 * _Dash_: 🎯 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE
 * _Dataherald_: query using natural language via LLM https://github.com/Dataherald/dataherald
 * _Datalens_: Docker https://news.ycombinator.com/item?id=37657772
@@ -426,7 +428,7 @@ PRO / CON
 * good REPL for single table https://www.ultorg.com/
 * bad at n tables
 > Whether in finance, engineering, operations, or the life sciences, you are likely working with tables of data in spreadsheets, CSV files, or an external database. Spreadsheets are excellent tools for managing a single table of data. They are a poor fit for database tasks, however, where data must be combined and queried in many different ways. https://www.ultorg.com/
-* bad at UX, hence Airtable https://luttig.substack.com/p/dont-forget-microsoft Airtable is bad? https://news.ycombinator.com/item?id=26448985 Airtable let's you attach images, documents https://github.com/nocodb/nocodb https://news.ycombinator.com/item?id=34127804 https://gitlab.com/baserow/baserow more Airtable https://teable.io/ https://www.hytradboi.com/2022/why-airtable-is-easy-to-learn-and-hard-to-outgrow
+* bad at UX, hence Airtable https://luttig.substack.com/p/dont-forget-microsoft Airtable is bad? https://news.ycombinator.com/item?id=26448985 Airtable let's you attach images, documents https://github.com/nocodb/nocodb https://news.ycombinator.com/item?id=41503251 https://news.ycombinator.com/item?id=34127804 https://gitlab.com/baserow/baserow more Airtable https://teable.io/ https://www.hytradboi.com/2022/why-airtable-is-easy-to-learn-and-hard-to-outgrow
 * bad at collaboration, hence Google Sheets https://luttig.substack.com/p/dont-forget-microsoft
 * criticism https://betonit.substack.com/p/spreadsheets-letters-from-a-quant https://www.natemeyvis.com/writing/on-bryan-caplans-spreadsheets/
 
@@ -463,6 +465,7 @@ ALTERNATIVES
 ## techniques
 
 🗄️
+* `aws.md` cost control / demand forecasting
 * `math.md` graphs
 * `math.md` stat/distributions
 
@@ -652,6 +655,7 @@ SCHEMAS
 
 #### options
 
+* _csvbase_: 🎯 https://csvbase.com/ https://csvbase.com/blog/10
 * _Deltalake_: lakehouse https://news.ycombinator.com/item?id=34345408
 * _Hudi_: lakehouse https://news.ycombinator.com/item?id=34345408
 * _Iceberg_: lakehouse https://news.ycombinator.com/item?id=34345408
@@ -968,6 +972,7 @@ filter
 
 ---
 
+* Airtable?
 * schema introspection https://highgrowthengineering.substack.com/p/why-is-dbt-so-important-
 * https://github.com/centerofci/mathesar 🗄 dataclerk
 * repos that need: golf, bookcase

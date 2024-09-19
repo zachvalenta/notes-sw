@@ -81,25 +81,6 @@ function tz(){
 }
 ```
 
-SNIPPETS
-```sh
-# new line
-echo -e "foo bar \n"
-echo -en "\n"
-
-# get file type info https://www.youtube.com/watch?v=hrbV5WGxxdY
-file $FILE
-
-# debug mode https://github.com/Idnan/bash-guide#4-debugging https://wizardzines.com/comics/bash-debugging/
-#!/usr/bin/env bash - x
-
-# strict mode http://redsymbol.net/articles/unofficial-bash-strict-mode/ https://www.youtube.com/watch?v=kEJzqMfxZVI
-set -euo pipefail
-IFS=$'\n\t'
-
-# generate random string https://unix.stackexchange.com/a/230710/331460
-```
-
 ## args
 
 ```sh
@@ -136,33 +117,11 @@ if [[ "$var" =~ ^-?[0-9]+[.,]?[0-9]*$ ]]
 
 📜 https://ss64.com/bash/if.html
 
+* iteration
 ```sh
-# CHECK FILE EXISTS
-test -f ~/.netrc && echo "~/.netrc already exists"
-
-# CHECK FILE DOESN'T EXIST https://stackoverflow.com/a/638980
-if [ ! -f /tmp/foo.txt ]; then  # test can also be written as braces e.g. [ ! -f /tmp/foo.txt ]
-    echo "File not found!"
-fi
-
-# CHECK PORT IN USE https://stackoverflow.com/a/50108745
-bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; npm start'
-
-# CHECK CMD EXISTS
-if ! type -f fswatch >/dev/null ; then
-  echo "fswatch not installed: install with `brew install fswatch`" >&2
-  exit 2
-fi
-```
-
-```sh
-###
-# ITERATION
-###
-
 my_array=(item1 item2 item3)
 
-# for
+# FOR
 for FILE in *; do echo $FILE; done  # files in dir https://www.digitalocean.com/community/tutorials/workflow-loop-through-files-in-a-directory
 for var in "$@"  # all args
 for var in "${arr[@]}"  # all arr el
@@ -170,35 +129,35 @@ do
     git add "$var"
 done
 
-# while
+# WHILE
 while [ -z "$ur_var" ]; do
     thing
 done
 
-# until
+# UNTIL
 until [ -z "$ur_var" ]; do
     thing
 done
+```
 
-###
-# CONDITIONALS
-###
-
-# if
+* conditional
+> ternaryhttps://run.jotaen.net/
+```sh
+# IF
 if [ -z "$ur_var" ]; then
     echo "hey"
 else
     echo "hi"
 fi
 
-# if else
+# IF ELSE
 if [ -z "$ur_var" ]; then
     echo "hey"
 else
     echo "hi"
 fi
 
-# if elif else
+# IF ELIF ELSE
 if [ ]; then
     echo "hey"
 elif [ ]
@@ -207,11 +166,10 @@ then
 else
     echo "hello"
 fi
+```
 
-###
-# BOOLEAN OPERATORS
-###
-
+* boolean operators
+```sh
 A && B # if A then B
 A ; B # A then B (regardless of A exit code)
 A || B # if not A then B
@@ -525,6 +483,52 @@ declare -f
 # view all function names (regex = line starts with lower case characters)
 declare -f | grep '^[a-z]'
 ```
+
+## snippets
+
+* modes
+```sh
+# DEBUG https://github.com/Idnan/bash-guide#4-debugging https://wizardzines.com/comics/bash-debugging/
+#!/usr/bin/env bash - x
+
+# STRICT http://redsymbol.net/articles/unofficial-bash-strict-mode/ https://www.youtube.com/watch?v=kEJzqMfxZVI
+set -euo pipefail
+IFS=$'\n\t'
+```
+
+```sh
+# NEW LINE
+echo -e "foo bar \n"
+echo -en "\n"
+```
+
+* checks
+```sh
+# GET TYPE INFO https://www.youtube.com/watch?v=hrbV5WGxxdY
+file $FILE
+
+# CHECK FILE EXISTS
+test -f ~/.netrc && echo "~/.netrc already exists"
+
+# CHECK FILE DOESN'T EXIST https://stackoverflow.com/a/638980
+if [ ! -f /tmp/foo.txt ]; then  # test can also be written as braces e.g. [ ! -f /tmp/foo.txt ]
+    echo "File not found!"
+fi
+
+# CHECK PORT IN USE https://stackoverflow.com/a/50108745
+bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; npm start'
+
+# CHECK CMD EXISTS
+if ! type -f fswatch >/dev/null ; then
+  echo "fswatch not installed: install with `brew install fswatch`" >&2
+  exit 2
+fi
+```
+
+---
+
+* generate random string https://unix.stackexchange.com/a/230710/331460
+* fallback value https://run.jotaen.net/
 
 ## standards
 
@@ -1133,6 +1137,11 @@ pastel paint $COLOR1 --on $COLOR2 " INFORMATION " --bold  # adhoc
 
 ---
 
+* _HSL_: https://designsystem.digital.gov/design-tokens/color/overview/
+* _hex_: https://css-tricks.com/nerds-guide-color-web/
+* _named_: https://css-tricks.com/nerds-guide-color-web/
+
+* config https://github.com/guedesfelipe/pls-cli
 * https://www.youtube.com/watch?v=RGlj4dcdWgM [5:30]
 * colorize https://danyspin97.org/blog/colorize-your-cli/ solarized https://news.ycombinator.com/item?id=33400822
 * color output: `tput` https://stackoverflow.com/a/20983251/6813490

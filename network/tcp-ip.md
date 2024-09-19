@@ -1,4 +1,4 @@
-# TODO
+# ⛩️
 
 # 参考
 
@@ -10,7 +10,7 @@ https://en.wikipedia.org/wiki/Internet_protocol_suite
 
 🔍 https://networkengineering.stackexchange.com/
 
-## standing
+## 进步
 
 traceroute https://terminaltrove.com/trippy/ asn https://terminaltrove.com/asn/
 
@@ -37,11 +37,7 @@ foundational
 * https://eater.net/inet
 * https://wizardzines.com/zines/bite-size-networking/
 
-## queue
-
-## done
-
-# IP
+# 📡 IP
 
 📙 Sanders packet analysis (ch 6)
 
@@ -105,7 +101,7 @@ nc -l 8080  # run server locally on port 8080 https://blog.sylver.dev/build-a-we
 * LAN port scanner https://github.com/RustScan/RustScan https://github.com/aceberg/WatchYourLAN
 * _sink_: https://github.com/imsnif/bandwhich https://robertheaton.com/2020/02/05/wacom-drawing-tablets-track-name-of-every-application-you-open/ https://github.com/rhaidiz/broxy https://news.ycombinator.com/item?id=22394708
 
-# ZA
+# 🟨️ ZA
 
 models
 * _OSI_: lost irl https://security.stackexchange.com/a/93338 📙 TCP-IP Ilustrated 1.2.1

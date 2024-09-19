@@ -371,6 +371,9 @@ how to
 
 ## admin
 
+---
+
+* TUI https://github.com/valberg/django-admin-tui
 * https://github.com/cuducos/django-public-admin
 * https://github.com/simonw/django-sql-dashboard
 * https://roman.pt/posts/django-admin-and-service-layer/
@@ -867,6 +870,9 @@ INSTALLED_APPS = [
 
 ## templates
 
+---
+
+* forms https://kodare.net/2024/09/11/why-we-wrote-a-new-form-library-for-django.html
 * components https://github.com/wrabit/django-cotton
 * https://django-formset.fly.dev/
 * https://girlthatlovestocode.com/django-template-tags

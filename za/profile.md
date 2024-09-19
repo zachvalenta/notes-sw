@@ -10,21 +10,6 @@
 
 ## 进步
 
-Caught your post on HN and just wanted to drop a line. Thanks for the time! Bit more about me:
-
-https://news.ycombinator.com/item?id=40224990
-
-personal site
-Github
-LinkedIn
-
-NEXT 🗄️ `something`
-* AWS SA -> JPM, Judge + https://boards.greenhouse.io/updater/jobs/5912519 https://www.linkedin.com/in/elliottribner/
-* new resume https://www.open-resume.com/ https://rxresu.me/ https://jsonresume.org/ https://news.ycombinator.com/item?id=34519268
-* AWS data eng -> BlackRock, Zillow https://www.shopify.com/careers#Jobs https://www.linkedin.com/jobs/view/3913971927/ https://www.linkedin.com/jobs/view/3917972855/
-* Python prep https://www.linkedin.com/jobs/view/3873189773 https://app.dataannotation.tech/workers/projects https://www.dataannotation.tech/ https://news.ycombinator.com/item?id=39904515 https://news.ycombinator.com/item?id=39919618 https://jobs.lever.co/close.io/163446a3-2f3d-4f4a-9aec-cb1c87c179e9 https://www.linkedin.com/jobs/view/3903630863/
-* directed
-
 * _24_: nothing in winter, job hunt in spring
 * _23_: UM layoff
 * _22_: offers (JP, RackN, United Masters)
@@ -214,6 +199,8 @@ STDLIB
 
 ### SRE
 
+> I tell non-technical people that the site reliability engineer job is about creating automation to do what a system administrator would otherwise do. https://entropicthoughts.com/the-reinforcing-nature-of-toil
+
 - [ ] AWS SA
 - [ ] AWS ML
 - [ ] AWS data eng
@@ -228,17 +215,17 @@ STDLIB
 ## commits
 
 RECENT
-* logs
-* lj
+* logs * 2
 * ms
-* denv: polars
+* site/drafts
+* lj
 * air22: denv, dot
 * ren
-* rm powerline: pipx, config/symlink
-* bin + repos
-* visidata ticket
+* shu
 
 CLEAN UP
+* rm powerline: pipx, config/symlink
+* visidata ticket
 * broot fix on air22?
 * jrnl
 * air22 dot
@@ -367,6 +354,10 @@ PREFERENCES
 
 https://ashfurrow.com/about
 https://cleaningtheglass.com/about/
+https://www.open-resume.com/
+https://rxresu.me/
+https://jsonresume.org/
+https://news.ycombinator.com/item?id=34519268
 
 > Did royalties for United Masters. Worked at both JP Morgan (CRM for HNW clients, feature flagging system for entire consumer bank) and BNY (infrastructure automation). Ran consultancy focused on consumer-facing brands in China and Chinese consumer behavior; consulted at C-suite level.
 

@@ -280,7 +280,7 @@ SEMANTICS
 * use for all db operations?!? https://www.openmymind.net/Grow-Up-Use-Queues/
 * https://news.ycombinator.com/item?id=22901856 Kleppmann 4.136
 
-## task
+## task (Celery)
 
 🛠 https://taskqueues.com/ aka worker https://news.ycombinator.com/item?id=34940920
 🗄
@@ -299,6 +299,7 @@ CELERY
 * chron job
 * https://steve.dignam.xyz/2023/05/20/many-problems-with-celery/
 * Redis as db for Celery jobs https://ljvmiranda921.github.io/notebook/2019/11/08/flask-redis-celery-mcdo/
+* https://www.youtube.com/watch?v=v7LOVlPq7ds
 * _Flower_: monitor Celery https://github.com/mher/flower https://testdriven.io/blog/flower-nginx/
 *  https://www.agiliq.com/blog/2015/07/getting-started-with-celery-and-redis/
 *  https://djangostars.com/blog/the-python-celery-cookbook-small-tool-big-possibilities/
@@ -713,6 +714,7 @@ STATIC SITE
 
 ---
 
+* self-hosting https://www.jotaen.net/anA6o/self-hosting-guide-docker-haproxy-lets-encrypt/ https://knhash.in/gentle-guide-to-self-hosting/
 * hosting https://news.ycombinator.com/item?id=34860655 https://news.ycombinator.com/item?id=34867314
 * Cloudflare https://rutar.org/writing/how-to-build-a-personal-webpage-from-scratch/ https://rutar.org/writing/previewing-a-development-branch-on-cloudflare-pages/ https://news.ycombinator.com/item?id=34639212
 * https://adamj.eu/colophon/

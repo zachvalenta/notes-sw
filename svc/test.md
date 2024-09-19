@@ -38,6 +38,19 @@ Then I should see a welcome message
 
 ## formal methods (TLA+)
 
+---
+
+https://buttondown.com/hillelwayne/archive/the-seven-specification-ur-languages/
+https://buttondown.com/hillelwayne/archive/what-could-be-added-to-tla/
+https://buttondown.com/hillelwayne/archive/an-idea-for-teaching-formal-methods-better/
+https://buttondown.com/hillelwayne/archive/what-if-the-spec-doesnt-match-the-code/
+https://buttondown.com/hillelwayne/archive/strings-do-too-many-things/
+https://buttondown.com/hillelwayne/archive/planning-vs-model-checking/
+https://buttondown.com/hillelwayne/archive/what-does-tla-mean-anyway/
+https://buttondown.com/hillelwayne/archive/some-thoughts-on-good-spec-properties/
+https://buttondown.com/hillelwayne/archive/formal-methods-cant-fix-everything-and-thats-okay/
+https://buttondown.com/hillelwayne/archive/the-best-model-checker-is-your-head/
+
 https://en.wikipedia.org/wiki/TLA%2B
 https://nchammas.com/writing/how-not-to-die-hard-with-hypothesis
 https://en.wikipedia.org/wiki/Automated_theorem_proving
@@ -157,6 +170,7 @@ class HelloWorldUser(HttpUser):
 
 ---
 
+* perf https://hpbn.co/primer-on-web-performance/ https://1mb.club/ https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-performance https://www.webpagetest.org/ https://webhint.io https://developers.google.com/speed/pagespeed/insights/
 * visual diff https://css-tricks.com/video-screencasts/178-percy-catches-visual-changes-in-any-workflow/
 * view user flow, Chrome recorder panel https://developer.chrome.com/docs/devtools/recorder/ https://www.thoughtworks.com/radar/tools?blipid=202203004
 * capture disappearing element https://stackoverflow.com/a/38783090/6813490

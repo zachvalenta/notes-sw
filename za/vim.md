@@ -16,6 +16,10 @@
 
 ## 进步
 
+note-taking in Markdown https://www.youtube.com/watch?v=DgKI4hZ4EEI
+basic setup https://www.youtube.com/watch?v=VljhZ0e9zGE
+https://www.youtube.com/watch?v=zHTeCSVAFNY
+
 * while you're stil on VS Code https://switowski.com/blog/plugins-for-python-in-vscode/
 
 https://stevedylan.dev/posts/leaving-neovim-for-zed/
@@ -32,8 +36,6 @@ https://stevedylan.dev/posts/leaving-neovim-for-zed/
 * _15_: Sublime
 
 ---
-
-for markdown https://www.youtube.com/watch?v=DgKI4hZ4EEI
 
 LSP
 * https://www.youtube.com/watch?v=puWgHa7k3SY
@@ -121,6 +123,7 @@ VIM PORTS
 
 ---
 
+* https://entropicthoughts.com/why-you-should-buy-into-the-emacs-platform
 * https://www.youtube.com/@SystemCrafters/videos
 * https://lwn.net/Articles/832429/
 * https://two-wrongs.com/why-you-should-buy-into-the-emacs-platform

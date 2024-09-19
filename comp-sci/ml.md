@@ -13,6 +13,7 @@
 
 ## 进步
 
+* try it out https://github.com/taylorai/aiq
 * rule-based https://www.youtube.com/watch?v=CeukwyUdaz8
 * supervised https://www.youtube.com/watch?v=j9kcEuGcC2Y
 * CRISP-DM https://www.youtube.com/watch?v=dCa3JvmJbr0
@@ -39,7 +40,7 @@ https://www.freecodecamp.org/news/get-started-with-hugging-face/ https://pola.rs
 https://huggingface.co/stabilityai/stable-diffusion-3-medium
 https://realpython.com/huggingface-transformers/
 
-RAG, vector https://news.ycombinator.com/item?id=41105130 https://en.wikipedia.org/wiki/Retrieval-augmented_generation https://retool.com/blog/retrieval-augmented-generation https://www.youtube.com/watch?v=Q75JgLEXMsM
+RAG, vector https://news.ycombinator.com/item?id=41105130 https://en.wikipedia.org/wiki/Retrieval-augmented_generation https://retool.com/blog/retrieval-augmented-generation https://www.youtube.com/watch?v=Q75JgLEXMsM https://www.youtube.com/watch?v=PJaqp5Kdwz0
 
 https://www.amazon.com/gp/product/1098107969
 
@@ -77,7 +78,7 @@ https://www.amazon.com/gp/product/1098107969
 * https://explainextended.com/2023/12/31/happy-new-year-15/ https://news.ycombinator.com/item?id=40378499
 * https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math
 * how to teach https://news.ycombinator.com/item?id=38759877
-* embeddings https://simonwillison.net/2023/Oct/23/embeddings/ https://blog.wilsonl.in/hackerverse/
+* _embeddings_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings/ https://blog.wilsonl.in/hackerverse/ https://www.youtube.com/watch?v=zzY64Qu8HHc https://news.ycombinator.com/item?id=41473518
 * with notes https://github.com/reorproject/reor
 
 ## Monte Carlo
@@ -395,6 +396,7 @@ OVERRATED
 
 ## NLP
 
+🛠️ https://spacy.io/ https://training.talkpython.fm/courses/build-an-audio-ai-app-with-python-and-assemblyai
 🗄
 * `literature.md` distant reading
 * `psychology.md` reading
@@ -410,6 +412,7 @@ BASICS
 * _word cloud_: https://dataanalysis.substack.com/p/generating-a-word-cloud-in-python?s=r
 * clean up https://nostarch.com/NLPPython https://codewords.recurse.com/issues/seven/data-driven-literary-analysis https://www.fast.ai/2019/07/08/fastai-nlp/ https://speakerdeck.com/pycon2015/adam-palay-words-words-words-reading-shakespeare-with-python https://victorzhou.com/blog/better-profanity-detection-with-scikit-learn/
 * word2vec, byte-pair encoding, LSTM https://arpit.substack.com/p/how-zomato-improved-its-search-using https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm 
+* https://github.com/rspeer/wordfreq
 
 SEMANTICS
 * _tokenize_: break into words or subsets of words
@@ -454,6 +457,7 @@ SEMANTICS
 
 ---
 
+* image recognition https://www.youtube.com/watch?v=XPA213k8G_U
 * text to SQL https://github.com/vanna-ai/vanna
 * chat with your docs https://github.com/Cinnamon/kotaemon
 * to synthesize all comments on a product into a blurb https://blog.untrod.com/2024/04/llm-chatgpt-powered-django-admin-fields.html
