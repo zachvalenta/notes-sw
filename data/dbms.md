@@ -23,6 +23,8 @@
 
 ---
 
+SQL engines https://chatgpt.com/share/6706c793-1428-8004-af11-613cff56c5af https://news.ycombinator.com/item?id=34189422
+
 ACID https://www.youtube.com/watch?v=GAe5oB742dw
 
 CMU https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi https://www.youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O
@@ -104,6 +106,7 @@ STORAGE ENGINES 🗄 `design.md` transactions
 * _storage engine_: handle transactions, maintain index https://stackoverflow.com/a/39204302
 * row-oriented vs. column-oriented 📙 Kleppmann 586
 * log-structured (Riak Bitcask) 📙 Kleppmann 72
+> RocksDB uses a log structured database engine, written entirely in C++, for maximum performance. Keys and values are just arbitrarily-sized byte streams. https://rocksdb.org/
 * page-oriented 📙 Kleppmann 70 https://sirupsen.com/napkin/problem-6 https://news.ycombinator.com/item?id=32250426
 * _Berkeley DB_: https://corecursive.com/066-sqlite-with-richard-hipp/
 * _InnoDB_: MySQL; locks table row during transaction
@@ -544,7 +547,7 @@ show collections  # view collections
 ---
 
 * _vector_: for recommendation systems, NLP https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/ https://github.com/asg017/sqlite-vec https://github.com/qdrant/qdrant https://www.youtube.com/watch?v=awIm3rQOBxE
-* Datomic (Hickey), datalog/prolog https://news.ycombinator.com/item?id=21742222 https://kevinlynagh.com/newsletter/2022_04_on_datalog_application_databases/ https://news.ycombinator.com/item?id=31154039 https://news.ycombinator.com/item?id=35094017 https://news.ycombinator.com/item?id=35727967 https://clojure.org/news/2023/08/04/next-rich https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need
+* Datomic (Hickey), datalog/prolog https://news.ycombinator.com/item?id=21742222 https://kevinlynagh.com/newsletter/2022_04_on_datalog_application_databases/ https://news.ycombinator.com/item?id=31154039 https://news.ycombinator.com/item?id=35094017 https://news.ycombinator.com/item?id=35727967 https://clojure.org/news/2023/08/04/next-rich https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need https://news.ycombinator.com/item?id=41642969
 * can be a problem is you need to change the PK https://calpaterson.com/non-relational-beartraps.html
 > Changing the primary key of a table is a surprisingly common activity. In truth, it's pretty easy to pick something that initially looks like it will be unique but which later turns out to not be unique...Unfortunately, in many non-relational database systems the primary key is "special". For example, Dynamo-style systems will use the primary key to decide which of the partitions the record will go on.
 * _polyglot persistence_: using multiple types of data stores 📙 Kleppmann 2.29 because choosing just one is no fun :) https://old.reddit.com/r/learnpython/comments/glbuog/whats_is_your_decision_process_between_csv_json/
@@ -600,19 +603,16 @@ design
 * easy to have dupes 📙 Kleppmann 2.33
 * hands off processing to application, so it's both slower in dev time and execution time 📙 Bradshaw [8]
 
-dbms
-* BYO https://notes.eatonphil.com/documentdb.html https://github.com/marsupialtail/quokka https://news.ycombinator.com/item?id=34189422
+DBMS
+* BYO https://notes.eatonphil.com/documentdb.html
 * _CouchDB_: good at replication https://www.dataengineeringpodcast.com/couchdb-document-database-episode-124/ 7:15 
+* _Dante_: 🎯 embedded https://github.com/senko/dante
+* _Lungo_: 🎯 embedded, Mongo compatible Golang impl https://github.com/256dpi/lungo
 * _Mongo_: OSS alternative https://github.com/FerretDB/FerretDB https://pythonbytes.fm/episodes/show/318/gil-how-we-will-miss-you
+* _Polo_: embedded https://github.com/vincentdchan/PoloDB
 * _Postgres_: JSON
 * _TinyDB_: 🎯 embedded https://github.com/msiemens/tinydb
-* alternatives https://github.com/256dpi/lungo https://github.com/vincentdchan/PoloDB
 * not atomic but potential workaround https://tinydb.readthedocs.io/en/latest/extensions.html#tinyrecord
-```python
-from tinydb import TinyDB, Query
-db = TinyDB("/path/to/db.json")
-q = Query()
-```
 
 HIERARCHICAL
 * _hierarchical database_: document store + tree structure i.e. child only has one parent 📙 Takahashi [39] Beaulieu [2]
@@ -818,6 +818,7 @@ misc
 * _audit_: https://github.com/pgaudit/pgaudit https://supabase.com/blog/2022/03/08/audit https://news.ycombinator.com/item?id=36004925&utm_term=comment https://news.ycombinator.com/item?id=30615470 https://blog.sequin.io/all-the-ways-to-capture-changes-in-postgres/ change data capture (CDC) https://news.ycombinator.com/item?id=40276768
 * _backup_: https://www.crunchydata.com/blog/introduction-to-postgres-backups https://github.com/2ndquadrant-it/barman/ https://github.com/ankane/pgsync https://github.com/postgrespro/pg_probackup https://pgbackrest.org/index.html https://github.com/aiven/pghoard https://github.com/orgrim/pg_back https://www.youtube.com/watch?v=kbCytSYPh0E https://github.com/EnterpriseDB/barman https://github.com/pgmoneta/pgmoneta
 * _benchmarking_: https://github.com/ankane/pghero https://blog.codeship.com/tuning-postgresql-with-pgbench/ https://softwareengineeringdaily.com/2022/09/22/automatic-database-tuning/
+> Benchmarking is a dark art of deceiving yourself with highly precise numbers. And benchmarketing datastores is even more fraught. Every single flipping database benchmark I've ever seen has been covered in a layer of asterisks and qualifications, and the comments on HN are full of "if you'd just set this flag when compiling it, you'd get 3% more speed out of reads, and the fact that the people running this didn't do this is proof that they were paid off and that they actively sell shady NFT scams of deranged yacht rock Harambe memes. https://wafris.org/blog/rearchitecting-for-sqlite
 * _diagram_: https://pgmodeler.io/ https://github.com/akarki15/dbdot
 * _extensions_: https://news.ycombinator.com/item?id=23821112 https://github.com/zombodb/pgx https://tech.marksblogg.com/postgresql-extension-rust.html distributed https://github.com/citusdata/citus ydb https://news.ycombinator.com/item?id=31081272 https://tech.marksblogg.com/postgresql-extension-rust.html https://github.com/tcdi/pgx
 * _GUI_: pgadmin https://retool.com/blog/best-postgresql-guis-in-2020/
@@ -1003,6 +1004,12 @@ web_1  | ModuleNotFoundError: No module named 'psycopg2'
 🛠 https://github.com/simonw/sqlite-utils
 🔗 https://tech.marksblogg.com/sqlite3-tutorial-and-guide.html
 
+USAGE
+* atuin
+* iPython
+
+---
+
 ZA
 * vector https://github.com/asg017/sqlite-vec
 * https://news.ycombinator.com/item?id=40637303
@@ -1089,7 +1096,7 @@ COMPONENTS
 * _sqlite3_: CLI
 * _sqlite3_: also the name of the Python lib/driver https://github.com/zachvalenta/sqlite3-demo https://github.com/zachvalenta/bookcase-sjk https://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html
 
-STRONG POINTS https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html
+STRONG POINTS https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html https://www.sqlite.org/whentouse.html
 * stability https://news.ycombinator.com/item?id=41347188
 * dbms in a C library
 * ACID-compliant

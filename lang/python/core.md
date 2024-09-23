@@ -162,6 +162,7 @@ https://www.youtube.com/watch?v=vBH6GRJ1REM
 
 ---
 
+https://mathspp.com/blog/case-insensitive-string-class
 https://www.pythonmorsels.com/every-dunder-method/
 
 * `__getattr__`: https://docs.python.org/3/glossary.html#term-attribute 

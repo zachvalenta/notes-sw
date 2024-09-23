@@ -222,6 +222,28 @@ Flyway https://flywaydb.org/documentation/ https://github.com/zachvalenta/flyway
 * enum > FK
 * modeling payments https://news.ycombinator.com/item?id=36775098
 * https://news.ycombinator.com/item?id=41146239&utm_term=comment
+* JSON schema validation
+```sql
+ALTER TABLE products ADD CONSTRAINT data_is_valid CHECK(
+  validate_json_schema('{
+    "type": "object", "properties": {
+       "tags": {
+          "type": "array", "items": { "type": "string" }
+       }
+    }
+  }',  attributes)
+);
+
+INSERT INTO products (attributes) VALUES ('{}');
+-- Result: OK
+INSERT INTO products (attributes) VALUES ('{ "tags":[] }');
+-- Result: OK
+INSERT INTO products (attributes) VALUES ('{ "tags":["test"] }');
+-- Result: OK
+INSERT INTO products (attributes) VALUES ('{ "tags":[2] }');
+-- ERROR: new row for relation "products" violates check constraint "data_is_valid"
+-- DETAIL: Failing row contains ({"tags": [2]}).
+```
 
 ACCESS PATTERNS
 * _access pattern_: how you have to query based on schema https://calpaterson.com/non-relational-beartraps.html
@@ -340,7 +362,7 @@ IT103    |   2009-2   | 120      | Web Design   |
 📙 Beaulieu chapter 7
 
 TYPES
-* money https://www.youtube.com/watch?v=lxVzLAHnPOE
+* money https://www.youtube.com/watch?v=lxVzLAHnPOE https://news.ycombinator.com/item?id=41776878
 * _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
 * _varchar_: variable 📙 Beaulieu [21]
 * _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485
@@ -886,7 +908,7 @@ FROM cd.facilities;
 
 DESIGN 🗄️ `eng.md` dataframe
 * boring and durable https://josephg.com/blog/databases-have-failed-the-web
-* outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/
+* outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/ sq https://github.com/neilotoole/sq https://news.ycombinator.com/item?id=41760697 
 > The relational data model enables those things. None of them require the language to be SQL...LINQ, spark, flink, kafka streams, pandas, dataframes are all widely used examples of an expression-based language-embedded approach to relational queries. https://www.scattered-thoughts.net/writing/against-sql
 > SQL is the most popular to communicate with databases but isn't always the easiest to write. I've been writing SQL statements since the 1990s and even in 2024, I can find myself needing to refer to documentation and spending 30 minutes or more getting more complex statements to run as I wish. https://tech.marksblogg.com/heavyiq-faa-ai-llm-gpu-database.html
 * ISO, ANSI standard 📙 Beaulieu [86-87]

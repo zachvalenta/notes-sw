@@ -6,11 +6,6 @@
 
 https://borretti.me/article/language-pragmatics
 
-LANGUAGES TO LEARN
-* Golang: Ball compiler book, PocketBase
-* Zig/C: systems
-* Lisp/Lua: paradigms
-
 DONE
 * _19-present_: Python, SQL
 * _18_: Python, Spring Boot, Django/DRM
@@ -179,9 +174,10 @@ class Player:
 
 ## typing
 
-🗄 `python.md` typing
 🔗 https://en.wikipedia.org/wiki/Type_system
-> types add value and they add cost https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
+🗄
+* `algos.md` data structures
+* `python.md` typing
 
 SEMANTICS
 * _nominative typing_: obj type explicitly declared https://en.wikipedia.org/wiki/Nominal_type_system
@@ -191,6 +187,7 @@ SEMANTICS
 
 ---
 
+> types add value and they add cost https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
 https://langdev.stackexchange.com/questions/2692/how-should-i-read-type-system-notation
 https://news.ycombinator.com/item?id=36775644
 
@@ -257,6 +254,7 @@ HISTORY https://increment.com/programming-languages/language-history/
 * _1993_: Lua
 * _1995_: Java (Sun) JS (Netscape) Ruby (Matz) https://twobithistory.org/2017/11/19/the-ruby-story.html
 * _1996_: OCaml https://ocaml.org/ https://crmarsh.com/intro-to-ocaml/ https://crmarsh.com/ocaml-dev-environment/
+> part of ML family tree, related to F# https://en.wikipedia.org/wiki/ML_(programming_language)
 * _2015_: Rust
 * _2016_: Zig
 
@@ -287,6 +285,11 @@ HISTORY https://increment.com/programming-languages/language-history/
 * dataframes https://tibble.tidyverse.org/
 
 🦀 RUST https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust https://www.ntietz.com/projects/
+* vs. Golang https://registerspill.thorstenball.com/p/glad-i-did-it-in-go
+> This blog post, Rewriting Rust, was very interesting. “I swear, it took more effort to learn pinning in rust than it took me to learn the entire Go programming language.” Some day (in the far future) I might write more about my feelings on Rust, but while reading this post I kept waiting for the paragraph in which they say what they would remove from the language. That paragraph never came and I think that’s one of the biggest sources of friction between me and Rust. https://registerspill.thorstenball.com/p/joy-and-curiosity-9
+* incomplete bc no BDFL https://news.ycombinator.com/item?id=41656463 https://doc.rust-lang.org/unstable-book/the-unstable-book.html
+> Maybe this is by design. Good languages are stable languages. It might be time to think of rust as a fully baked language - warts and all. Python 2.7 for life. https://josephg.com/blog/rewriting-rust/
+* release, editions https://blog.rust-lang.org/2014/10/30/Stability.html https://doc.rust-lang.org/edition-guide/editions/
 * desktop framework https://github.com/tauri-apps/tauri https://blog.gitbutler.com/open-source-pledge-2024/
 * Neovim https://www.youtube.com/watch?v=mh_EJhH49Ms
 * example project https://github.com/nate-sys/tuime https://github.com/swsnr/mdcat
@@ -313,7 +316,7 @@ HISTORY https://increment.com/programming-languages/language-history/
 * seems way easier than Rust https://scattered-thoughts.net/writing/assorted-thoughts-on-zig-and-rust/ https://kevinlynagh.com/rust-zig/
 * smart users https://github.com/jamii
 * current state of affairs https://news.ycombinator.com/item?id=36149462
-* use as compiler https://jakstys.lt/2022/how-uber-uses-zig/
+* use as compiler https://jakstys.lt/2022/how-uber-uses-zig/ https://mitchellh.com/writing/zig-comptime-tagged-union-subset
 * as a teaching language https://news.ycombinator.com/item?id=32752383
 
 ZA
@@ -321,10 +324,11 @@ ZA
 * _C++_: https://ccc.codes/ https://github.com/green7ea/cpp-compilation http://esr.ibiblio.org/?p=7724 people hate C++ https://news.ycombinator.com/item?id=33436268 https://borretti.me/article/simplicity-and-survival https://news.ycombinator.com/item?id=34588340 https://news.ycombinator.com/item?id=34643530
 * _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html
 * with Alpine https://news.ycombinator.com/item?id=34365515
-* _Haskell_: https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
+* _Haskell_: https://learnyouahaskell.com/ https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
 * _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/  https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
+* _Prolog_: https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/
 * _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter
 
 ## assembly
@@ -727,7 +731,23 @@ class Clock:
        return self.__class__(str(hour) + ':' + str(min))
 ```
 
-za
+HOISTING
+* variable/func declaration moved to top of containing scope during compilation and therefore you can reference at LOC higher the declaration LOC https://chatgpt.com/c/6709656d-5ea4-8004-90c0-46226937e4aa
+* more on the matter re: Javascript https://stackoverflow.com/a/336868/6813490
+* also synonym for moving declaration to higher LOC https://adamj.eu/tech/2024/09/08/django-repeated-decorators/
+```python
+# NameError: name 'greet' is not defined
+greet()
+def greet():
+    print('hi there')
+```
+```js
+console.log(hey); // undefined
+var hey = 'hi zjv'
+console.log(hey); // hi zjv
+```
+
+ZA
 * _embedded_: language runs in same process as another language i.e. you need to impl interpreter and stdlib for embedded lang within host lang runtime?
 * Jython being built in Java means it's easy to embed bc it will run anywhere that has a JVM https://softwareengineering.stackexchange.com/a/403915
 * Lua good at embedding bc small stdlib, used in game dev https://news.ycombinator.com/item?id=3534746 howto https://news.ycombinator.com/item?id=36107315
@@ -771,6 +791,7 @@ when you really love your favorite language 💜
 * Ball interpreter https://vgel.me/posts/c500/
 * Nystrom crafting https://craftinginterpreters.com
 * Eloquent Javascript
+* https://keleshev.com/compiling-to-assembly-from-scratch/
 
 SEMANTICS
 * _compiler_: src code -> machine code https://www.youtube.com/watch?v=QdnxjYj1pS0

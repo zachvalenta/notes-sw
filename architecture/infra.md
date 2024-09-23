@@ -114,6 +114,8 @@ localhost | SUCCESS => {
 
 ## Terraform
 
+🛣️ https://roadmap.sh/terraform
+
 SEMANTICS
 > generates a dependency graph of resources, runs against provider, walks resource graph and ensures that resources are configured
 * _provider_: AWS, Azure, et al.
@@ -331,11 +333,13 @@ REDIS QUEUE (RQ)
 
 # 🤖 WEB SERVERS
 
-🗄️ `application.md` HTTP
+🗄️
+* `application.md` HTTP
+* `stdlib.md` web / frameworks
 
 > Parsing the request is just a matter of splitting the request string into lines. The first line contains the method, path and protocol separated by spaces. The following lines contain the headers, followed by an empty line. https://blog.sylver.dev/build-a-web-server-with-rust-and-tokio-part-0-a-simple-get-handler
 * benchmark: https://httpd.apache.org/docs/2.4/programs/ab.html https://github.com/wg/wrk https://github.com/giltene/wrk2 https://github.com/rakyll/hey https://github.com/encode/starlette#performance https://falconframework.org/#sectionBenchmarks https://www.webpagetest.org/ https://www.golang.dk/articles/benchmarking-sqlite-performance-in-go
-* BYO https://github.com/codecrafters-io/build-your-own-x#build-your-own-web-server
+* BYO https://github.com/codecrafters-io/build-your-own-x#build-your-own-web-server https://news.ycombinator.com/item?id=41642151 https://doc.rust-lang.org/book/ch20-00-final-project-a-web-server.html
 * mock server: https://smocker.dev/
 * URL for dev server: ngrok https://news.ycombinator.com/item?id=40355744 https://github.com/andydunstall/piko
 * comment server: Disqus, isso https://avi.im/blag/about/ https://posativ.org/isso/docs/
@@ -343,12 +347,46 @@ REDIS QUEUE (RQ)
 * _CGI_: process per req (vs. connection) cannot keep db connection over multiple
 * _redbean_: small https://justine.lol/redbean/index.html https://news.ycombinator.com/item?id=27431910
 
+💀 UWSGI
+* in maintenance mode https://pythonbytes.fm/episodes/show/401/we-must-replace-uwsgi-with-something-else
+* run options https://blog.ionelmc.ro/2022/03/14/how-to-run-uwsgi/
+* docs are a mess, scroll past 42 changelogs for the README, and commercial support in Italian https://github.com/unbit/uwsgi-docs#commercial-support
+* install
+* commands https://github.com/zachvalenta/flask-skeleton/commit/435517e5e1353eaa875d16e91ea96e47300b35dc
+```sh
+# https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#deploy-it-on-http-port-9090
+uwsgi --http :9090 --wsgi-file foobar.py
+
+# https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04
+# https://github.com/zachvalenta/flask-uwsgi-scaffold
+uwsgi --socket 0.0.0.0:8000 --protocol=http -w wsgi
+
+# expects app obj to be named `application` https://riptutorial.com/flask/example/16286/using-uwsgi-to-run-a-flask-application
+# rename w/ `callable` https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#deploying-flask
+# https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#deploying-flask
+uwsgi --http :5002 --wsgi-file app.py --callable app
+
+# https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#adding-concurrency-and-monitoring
+uwsgi --http :9090 --wsgi-file foobar.py --master --processes 4 --threads 2
+uwsgi --http :9090 --wsgi-file foobar.py --master --processes 4 --threads 2 --stats 127.0.0.1:9191
+```
+* can also point to app obj via `uwsgi.py` or `uwsgi.ini` https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04 https://www.youtube.com/watch?v=lnFMKAIHRcA
+```sh
+uwsgi --socket 0.0.0.0:8000 --protocol=http -w wsgi --callable
+```
+```python
+from myproject import application
+if __name__ == "__main__":
+    application.run()
+```
+
 ## Caddy
 
 📜 https://github.com/caddyserver/caddy
 
 ---
 
+https://github.com/abiosoft/caddy-exec
 https://caddyserver.com/docs/getting-started https://caddyserver.com/docs/quick-starts
 
 * license https://news.ycombinator.com/item?id=24434709
@@ -374,6 +412,12 @@ conf
 * security lint https://github.com/yandex/gixy 
 * location (Linux `/etc/nginx/nginx.conf` macOS `/usr/local/etc/nginx/nginx.conf`) 
 * language: Nginx's own thing despite looking like JSON https://carrot.is/coding/nginx_introduction
+
+## Granian
+
+---
+* https://github.com/emmett-framework/granian
+* https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server
 
 ## Gunicorn
 
@@ -504,42 +548,6 @@ cmds
 * _stop_: `-s quit` (will wait for workers serving req to finish)
 * _reload conf_: `-s reload`
 
-## uWSGI
-
-* run options https://blog.ionelmc.ro/2022/03/14/how-to-run-uwsgi/
-* _docs_: good God; scroll past 42 changelogs for the README, and commercial support in Italian https://github.com/unbit/uwsgi-docs#commercial-support
-* _multilanguage_: e.g. Ruby support, although have never heard of its usage outside Python
-
-* install
-* shell command https://github.com/zachvalenta/flask-skeleton/commit/435517e5e1353eaa875d16e91ea96e47300b35dc
-```sh
-# https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#deploy-it-on-http-port-9090
-uwsgi --http :9090 --wsgi-file foobar.py
-
-# https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04
-# https://github.com/zachvalenta/flask-uwsgi-scaffold
-uwsgi --socket 0.0.0.0:8000 --protocol=http -w wsgi
-
-# expects app obj to be named `application` https://riptutorial.com/flask/example/16286/using-uwsgi-to-run-a-flask-application
-# rename w/ `callable` https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#deploying-flask
-# https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#deploying-flask
-uwsgi --http :5002 --wsgi-file app.py --callable app
-
-# https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#adding-concurrency-and-monitoring
-uwsgi --http :9090 --wsgi-file foobar.py --master --processes 4 --threads 2
-uwsgi --http :9090 --wsgi-file foobar.py --master --processes 4 --threads 2 --stats 127.0.0.1:9191
-```
-
-* can also point to app obj via `uwsgi.py` or `uwsgi.ini` https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04 https://www.youtube.com/watch?v=lnFMKAIHRcA
-```sh
-uwsgi --socket 0.0.0.0:8000 --protocol=http -w wsgi --callable
-```
-```python
-from myproject import application
-if __name__ == "__main__":
-    application.run()
-```
-
 # 🟨 ZA
 
 ## Cloud Foundry
@@ -658,6 +666,7 @@ ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
 * _Pikku_: https://github.com/piku/piku
 * _Render_: 
 * _Platform.sh_:
+* _Sidekick_: 🎯 https://github.com/MightyMoud/sidekick https://news.ycombinator.com/item?id=41591018
 * _Tau_: https://github.com/taubyte/tau
 * _Vercel_: 
 

@@ -13,14 +13,16 @@
 
 # 🪪 ENCODING
 
-https://www.youtube.com/watch?v=DntKZ9xJ1sM
+🔍 https://bestasciitable.com/
+
+---
+
+OVERVIEW https://www.youtube.com/watch?v=DntKZ9xJ1sM
 * _ASCII_: maps character to bit e.g. `A` -> 1000001 (65)
 * _Unicode_: maps character to code point e.g. `A` -> U+0041
 * _code point_: hex repr character
 * _UTF-8_: maps Unicode code point to byte sequence https://csvbase.com/blog/9
 * variable length = can use single byte for `A` but more bytes (up to 4) if necessary
-
----
 
 https://en.wikipedia.org/wiki/Character_encoding
 
@@ -105,15 +107,22 @@ https://github.com/abhimanyu003/sttr
 
 ## ascii
 
+🗄️ `info.md` diagrams
+
+TOOLS
+* editor https://monodraw.helftone.com/
+* art https://www.asciiart.eu/
+* to SVG https://code.sgo.to/2022/06/20/typographic-diagrams.html https://github.com/ivanceras/svgbob https://github.com/google/typograms https://ditaa.sourceforge.net/ https://casual-effects.com/markdeep/features.md.html#basicformatting/diagrams http://asciiflow.com/ https://github.com/ArthurSonzogni/Diagon
+
 ---
 
-* _ASCII_: mapping from number to glyph (char) 📍 Petzold 15.181, computerphile 📚 Petzold code ch. 20 https://www.youtube.com/watch?v=XaGXPObx2Gs from pre 8-bit era; `man ascii` https://increment.com/programming-languages/unplain-text-primer-on-non-latin/ can use hex as repr https://github.com/GNOME/ghex
-* https://bestasciitable.com/
+* _ASCII_: mapping from number to glyph (char) 📍 Petzold 15.181, computerphile 📚 Petzold code ch. 20 https://www.youtube.com/watch?v=XaGXPObx2Gs from pre 8-bit era; `man ascii` https://increment.com/programming-languages/unplain-text-primer-on-non-latin/
 
 ## Unicode
 
 ---
 
+https://crates.io/crates/ucd-trie
 https://docs.python.org/2/howto/unicode.html
 https://docs.python.org/3/howto/unicode.html
 https://mcilloni.ovh/2023/07/23/unicode-is-hard/
@@ -176,7 +185,6 @@ XML
 * _XSLT_: CSS for XML
 * _XPath_: CSS selector for XML
 * comments: same as HTML
-* good for trees (like JSON) https://engineering.instawork.com/when-xml-beats-json-ui-layouts-53c7f1d3fdb7
 * previously more popular 📙 Beaulieu 2.34
 
 YAML
@@ -197,7 +205,12 @@ YAML
 
 ## CSV
 
-🛠️ sample data https://www.noahpinion.blog/p/why-cant-the-us-build-ships
+TOOLS
+* query https://news.ycombinator.com/item?id=38889820 https://github.com/jqnatividad/qsv https://github.com/neilotoole/sq
+* editor https://www.moderncsv.com/
+* _csvdiff_: ✅ diff https://github.com/aswinkarthik/csvdiff
+* _csview_: ✅ cat https://github.com/wfxr/csview
+* _csvlens_: ✅ less page https://github.com/YS-L/csvlens
 
 SEMANTICS
 * _header line_: line with col names https://miller.readthedocs.io/en/latest/glossary/#header-line
@@ -211,14 +224,8 @@ DESIGN
 * gaining in popularity https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html#fnref:2 
 * some parsers don't impl escaping rules correctly 📙 Kleppmann 4.145
 * comments: no standard from RFC 4180, parser can set https://stackoverflow.com/a/14428538 https://stackoverflow.com/a/1961018
-* TSV as alternative https://news.ycombinator.com/item?id=40622760
-
-TOOLS
-* query https://news.ycombinator.com/item?id=38889820 https://github.com/jqnatividad/qsv
-* bat https://github.com/YS-L/csvlens
-* editor https://www.moderncsv.com/
-* diff https://github.com/aswinkarthik/csvdiff
 * _DSV_: same as `.dat` https://en.wikipedia.org/wiki/Delimiter-separated_values https://www.thoughtspot.com/blog/csv-vs-delimited-flat-files-how-choose
+* _TSV_: https://news.ycombinator.com/item?id=40622760
 
 ## JSON
 
@@ -228,9 +235,8 @@ TOOLS
 OPERATIONS
 * fmt: `python3 -m json.tool music-lib.json > music-lib-fmt.json` https://orbifold.xyz/check-in-json.html
 * _dasel_: edit https://github.com/TomWright/dasel
-* _graphtage_: diff https://github.com/trailofbits/graphtage
-* _jo_: 🎯 generate https://github.com/jpmens/jo
-* _jsoncrack_: 🎯 visualize https://github.com/AykutSarac/jsoncrack.com
+* _jo_: ✅ generate https://github.com/jpmens/jo
+* _graphtage_: ❌ diff https://github.com/trailofbits/graphtage broken https://github.com/trailofbits/graphtage/issues/91 🗄️ `shell.md` file / diff
 
 ### design
 
@@ -263,8 +269,16 @@ OPERATIONS
 
 ### query (jq)
 
+ALTERNATIVES
+* SQLite CLI
+* DuckDB https://www.pgrs.net/2024/03/21/duckdb-as-the-new-jq/ https://news.ycombinator.com/item?id=35009612 https://duckdb.org/2023/03/03/json.html 
+* _jaq_: rewrite https://github.com/01mf02/jaq
+* _jnv_: 🎯 interactive https://github.com/ynqa/jnv
+* _jqp_: TUI https://github.com/noahgorstein/jqp 
+* _mistql_: Python and CLI https://www.mistql.com/
+* _sq_: https://news.ycombinator.com/item?id=41760697
+
 JQ 📜 https://stedolan.github.io/jq/manual 
-* TUI https://github.com/noahgorstein/jqp 
 * intro https://earthly.dev/blog/jq-select/
 * guide https://sequoia.makes.software/parsing-json-at-the-cli-a-practical-introduction-to-jq-and-more
 ```sh
@@ -275,7 +289,7 @@ cat foo.json | jq
 jq .  # pretty print
 jq -r  # unquoted/raw output https://stackoverflow.com/a/44656583
 jq '.[4]'  # get el in array
-cat foo.json | jq ' .key.subkey'  # get key
+jq ' .key.subkey'  # get key
 jq '.[4].title'  # get key from el in array
 jq '.[].title'  # get key from every el in array
 jq '.title'  # get key from streams of obj
@@ -283,34 +297,38 @@ jq '.[].reactions|select(.total_count>8)'  # filter
 jq '.[]|select(.num_receipts>0)|select(.is_migrated == true)|.artist_id'  # filter
 ```
 
----
-
-* duckdb https://www.pgrs.net/2024/03/21/duckdb-as-the-new-jq/ https://news.ycombinator.com/item?id=35009612 https://duckdb.org/2023/03/03/json.html 
-* jnv https://github.com/ynqa/jnv
-* clones https://github.com/01mf02/jaq
-* mistql https://www.mistql.com/
-* 🗄 `db.md` SQLite / CLI
-
 ### view (jless)
 
 💡 drilldown as a general category (fs, JSON, trees) https://github.com/xgi/castero
 
 JLESS 📜 https://jless.io/
-* goto parent: H
-* goto top: g
-* goto btm: gg
-* collapse: SPACE/h
-* collapse all: c
-* expand: SPACE/l
-* scroll: j/k (children) J/K (parents)
-* page: CTRL d/u
-* center: zz
+* theme https://github.com/PaulJuliusMartinez/jless/issues/4
+* commands
+```sh
+# GOTO
+H    # parent
+g    # top
+gg   # bottom
+
+# NAV
+j/k  # scroll children
+J/K  # scroll parents
+CTRL d/u  # page
+
+# DISPLAY
+space | h/l  # collapse/expand
+c  # collapse all
+pp  ## print
+zz  # center
+```
 
 ---
 
-* _JSON Viewer_: browser syntax highlighting https://chromewebstore.google.com/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
 * https://github.com/fioncat/otree
 * https://github.com/gulyasm/jsonui
+* _JSON Viewer_: browser syntax highlighting https://chromewebstore.google.com/detail/json-viewer/gbmdgpbipfallnflgajpaliibnhdgobh
+* _JSON crack_: visualize https://github.com/AykutSarac/jsoncrack.com https://jsoncrack.com/
+* _json4u_: jsoncrack clone https://news.ycombinator.com/item?id=41634356
 
 ## Parquet
 
@@ -397,6 +415,12 @@ f"{val:.{4}}"  # 13.5
 * _editor_: online https://hexed.it/ macOS https://ridiculousfish.com/hexfiend/ hexedit https://news.ycombinator.com/item?id=23762626 https://github.com/thetacom/hexabyte
 
 # 🟨 ZA
+
+CASE
+* snake case: `hello_world`
+* kebab case: `hello-world`
+* camel case: `helloWorld`
+* Pascal case: `HelloWorld`
 
 ---
 

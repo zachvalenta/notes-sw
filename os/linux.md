@@ -77,7 +77,7 @@ TOOLS
 * BYO http://aosabook.org/en/500L/contingent-a-fully-dynamic-build-system.html
 * _Bazel_: Make for FANG https://eng.uber.com/go-monorepo-bazel/ https://github.com/bazelbuild/bazel https://testdriven.io/blog/bazel-builds/ https://www.youtube.com/watch?v=zaymCO1A1dM
 * _cmake_: 不明觉厉 https://stackoverflow.com/a/25790020 http://aosabook.org/en/cmake.html
-* _just_: 🎯 https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529 https://github.com/pls-rs/pls/blob/main/justfile
+* _just_: 🎯 https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529 https://github.com/pls-rs/pls/blob/main/justfile https://github.com/pls-rs/pls/blob/main/docs/justfile
 * _make_: ✅ https://github.com/casey/just?tab=readme-ov-file#what-are-the-idiosyncrasies-of-make-that-just-avoids https://news.ycombinator.com/item?id=19900955 https://stackoverflow.com/a/3798664
 * _mise_: 🎯 https://github.com/jdx/mise
 * _ninja_: https://github.com/ninja-build/ninja https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/
@@ -219,7 +219,7 @@ HOMEBREW 📜 https://docs.brew.sh/Manpage
 * switch to different installed version: `switch` https://github.com/thoughtbot/til/blob/master/homebrew/using_different_homebrew_formula_versions.md
 > `link` does the same? https://stackoverflow.com/a/54175781
 * _formulae_: Ruby class that manages install; create your own https://www.youtube.com/watch?v=fbyrLo6yx8M
-* _tap_: repo of formulae not maintained by Homebrew https://stackoverflow.com/a/37973017/6813490
+* _tap_: repo of formulae not maintained by Homebrew https://stackoverflow.com/a/37973017/6813490 🗄️ terrastruct
 * _bottle_: pre-compiled i.e. you don't need to download and build, just download i.e. faster
 * _services_: integrates w/ MacOS launchctl to start program on OS boot
 ```sh
@@ -228,6 +228,7 @@ install # curls URL, compares download against checksum
 install -- prefix  # specific install location
 uninstall -s # uninstall + rm from cache
 upgrade # update; there's another cmd called `update` (akin to git fetch?)
+export HOMEBREW_NO_AUTO_UPDATE=1  # toggle off auto-update
 brew outdated | xargs brew upgrade  # updated all outdated
 
 # INFO
@@ -446,6 +447,7 @@ DATA TRANSFER https://github.com/veeso/termscp
 * server GUI https://github.com/mickael-kerjean/filestash https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2
 * _SFTP_: FTP + security https://github.com/drakkan/sftpgo https://goteleport.com/blog/scp-familiar-simple-insecure-slow/
 * magic wormhole https://www.youtube.com/watch?v=oFrTqQw0_3c
+* client: CyberDuck
 * _scp_: https://en.wikipedia.org/wiki/Secure_copy
 * need to create dir first w/ `ssh` https://stackoverflow.com/a/25157693
 ```sh
@@ -735,9 +737,11 @@ system calls
 
 ## users / groups
 
+---
+
 🔗 https://jvns.ca/blog/2017/11/20/groups/ https://terminaltrove.com/ugm
 
-users
+USERS
 * _UID_: user id; `root` is 0
 * _GID_: group id
 * logged in: `w`
@@ -748,13 +752,18 @@ users
 * create user: `adduser` 
 * give user sudo privilege: `visudo` (I think just opens `/etc/sudoers`)
 
-groups
+GROUPS
 * _GID_: group ID 
 * groups for user: `groups <user>` (or just `groups` for yourself)
 * `wheel`: users who can `sudo` https://en.wikipedia.org/wiki/Wheel_(computing) 📘
 * `/etc/group`: lists group name, pass, GID, users in group [LPI 26]
 
-permissions 🗄 `installs/terraform/tf-path.log`
+PERMISSIONS 🗄 `installs/terraform/tf-path.log`
+* macoS extended attributes https://serverfault.com/questions/151997/what-does-the-symbol-mean-in-a-files-permission-settings https://stackoverflow.com/questions/4833052/how-do-i-remove-the-extended-attributes-on-a-file-in-mac-os-x
+```sh
+# RW for owner
+find path/to/dir -type f -exec chmod 600 {} \;
+```
 * _categories_: u (user/owner) g (group) o (other) a (all)
 * _alphabetic notation_: `chmod o=rwx` (all perms to other) `chmod +x` (singl perm to all) `chmod o+x` (add perm) `chmod o-x` (rm perm) https://www.guru99.com/file-permissions.html
 * _octal_: actually binary! [`evans-linux.pdf` 16]

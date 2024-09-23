@@ -37,10 +37,11 @@ DENV
 - [ ] dotenvx
 - [ ] CICD
 - [ ] uv
-- [ ] tooling https://zed.dev/blog/repl
+- [ ] tooling https://zed.dev/blog/replhttps://zed.dev/blog/zed-ai
 - [ ] remote dev https://zed.dev/releases/stable/0.145.1 https://www.youtube.com/watch?v=F9sQPpVVLeQ
 
 CLOUD
+> just use a Heroku alternative?
 - [ ] AWS
 - [ ] IaC
 - [ ] monitoring: uptime, OpenTelemetry
@@ -91,6 +92,24 @@ ANALYSIS
 * plot https://nrennie.rbind.io/blog/plotnine-annotated-area-chart/
 
 # 🛣️ ROADMAP
+
+AUTUMN DEV FUN
+* git diff
+* git porcelain
+* GPT locally https://github.com/darrenburns/elia
+* category theory + clean up `math.md`
+> Yes - the value of functional programming isn't that working in OCAML, or F#, or Haskell is 10x as productive as other languages. But that it can teach you worthwhile lessens about designing software that apply equally to imperative languages. Modelling the business domain, reasoning and managing side effects, avoiding common imperative bugs, these are all valuable skills to develop. https://news.ycombinator.com/item?id=40702146
+* `algos.md` data modeling
+* FP&A
+> money term
+* basilk
+* ERP
+* Zellij
+* Neovim
+* iPad
+* PIM
+
+> A number of companies (large crossover funds, startups, etc.) in The Diff network are looking for data scientists that love wrangling and analyzing alt. data to help inform investment decisions. (Remote) https://www.thediff.co/archive/longreads-open-thread-96/
 
 PROJECTS
 * _pymus_: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/ https://rapidapi.com/collection/lyrics-apis https://aosabook.org/en/v1/audacity.html
@@ -181,8 +200,8 @@ STDLIB
 ### comms
 
 - [x] fix existing webcam
-- [ ] setup better webcam
-- [ ] personal site
+- [ ] personal site https://news.ycombinator.com/item?id=41656015
+- [ ] setup better webcam https://www.nytimes.com/wirecutter/reviews/the-best-webcams/
 
 ## 💵 freedom
 
@@ -191,6 +210,7 @@ STDLIB
 ### architecture
 
 > https://news.ycombinator.com/item?id=41338939
+https://roadmap.sh/best-practices/backend-performance
 
 - [ ] roadmap.sh
 - [ ] architecture/system.md
@@ -215,13 +235,11 @@ STDLIB
 ## commits
 
 RECENT
-* logs * 2
-* ms
-* site/drafts
-* lj
-* air22: denv, dot
-* ren
 * shu
+* ml
+* air22: logs, dot
+* air-capp: logs
+* ms: pull capp repos into ms
 
 CLEAN UP
 * rm powerline: pipx, config/symlink
@@ -352,6 +370,27 @@ PREFERENCES
 
 ---
 
+LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER)
+* _Haskell_: learned pursuant a general interest in category theory / data modeling / type systems
+* Golang: learned in order to write a compiler and play around with a web framework (Pocketbase) 📙 Ball
+* _Javascript_: I'm a total punk rock user. I've used Angular professionally back when that was more popular. I've kept reasonable track of the ecosystem and think the htmx/hypermedia approach is preferable for the majority of websites i.e. 90% of sites don't need a SPA.
+* _Lisp_: learned in order to read SICP and general interest in programming languages
+> learn using Python https://github.com/hylang/hy https://news.ycombinator.com/item?id=41617431
+* _Lua_: learned pursuant Neovim
+* _Python_: have used professionally since 2018, the language I know best, would be considered a Pythonista
+* _SQL_: https://github.com/zachvalenta/query-sandbox
+* _Rust_: learned in order to port a tast mgmt system I liked (Basilk) into Python
+* _Zig_: learned to learn more about C and assembly
+
+CAPP BRAG SHEET SO FAR
+* tree builder
+* doc/rf monorepo
+* Capp Uni
+* restock algo
+* pricing algo
+
+https://koaning.io/ go through blog as well
+https://lyra.horse/blog/
 https://ashfurrow.com/about
 https://cleaningtheglass.com/about/
 https://www.open-resume.com/

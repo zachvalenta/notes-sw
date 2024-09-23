@@ -7,11 +7,28 @@
 
 ## 进步
 
-* _20_: TLS (openssl, debug openssl)
-* _17_: 📙 Ross network know how
+DNS 🗄 `html-css.md` Zola deployment
+* go through books
+* maybe buy other Evans zines https://wizardzines.com/zines/bite-size-networking/ https://wizardzines.com/zines/dns/
+* clean up below
 
----
+THINGS TO KNOW https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
+* what HTTP request looks like
+* send HTTP request from scratch - netcat https://jvns.ca/blog/2016/07/14/whats-sni/
+* how to inspect network packet
+* how TCP works - inspect packet, BYO
+* how DNS works - inspect query
+* _SNI(server name indication)_: first HTTP message in connection, client tells server who it wants to connect to https://www.agwa.name/blog/post/writing_an_sni_proxy_in_go https://jvns.ca/blog/2016/07/14/whats-sni/
 
+WHAT HAPPENS WHEN 📙 `evans-networking-ack.pdf` https://www.youtube.com/watch?v=AlkDbnbv7dk
+* https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls
+* https://github.com/reorx/httpstat
+* _request flow_: browser cache, hosts file (`/private/etc/hosts` on macOS) router [`evans-tcpdump.pdf`], DNS cache, DNS server (local ISP, then eventually if you're unlucky to a root server, who point your query to the .coms or .govs or what have you)
+* https://eater.net/inet
+* https://wsvincent.com/what-happens-when-url/ DNS, req, res, render HTML, go get further (css, img, js), async as necessary
+* https://wsvincent.com/how-does-the-internet-work/ https://wsvincent.com/how-the-web-works/ 
+
+CLEAN UP
 * https://www.youtube.com/watch?v=j9QmMEWmcfo
 * https://softwareengineeringdaily.com/2023/10/11/the-future-of-http/
 * https://www.charlesproxy.com/
@@ -24,20 +41,8 @@
 * das protocols https://explained-from-first-principles.com/internet
 * https://news.ycombinator.com/item?id=31509523
 
-things to know https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
-* what HTTP request looks like
-* send HTTP request from scratch - netcat https://jvns.ca/blog/2016/07/14/whats-sni/
-* how to inspect network packet
-* how TCP works - inspect packet, BYO
-* how DNS works - inspect query
-* _SNI(server name indication)_: first HTTP message in connection, client tells server who it wants to connect to https://www.agwa.name/blog/post/writing_an_sni_proxy_in_go https://jvns.ca/blog/2016/07/14/whats-sni/
-
-what happens when 📙 `evans-networking-ack.pdf` https://www.youtube.com/watch?v=AlkDbnbv7dk
-* https://github.com/reorx/httpstat
-* _request flow_: browser cache, hosts file (`/private/etc/hosts` on macOS) router [`evans-tcpdump.pdf`], DNS cache, DNS server (local ISP, then eventually if you're unlucky to a root server, who point your query to the .coms or .govs or what have you)
-* https://eater.net/inet
-* https://wsvincent.com/what-happens-when-url/ DNS, req, res, render HTML, go get further (css, img, js), async as necessary
-* https://wsvincent.com/how-does-the-internet-work/ https://wsvincent.com/how-the-web-works/ 
+* _20_: TLS (openssl, debug openssl)
+* _17_: 📙 Ross network know how
 
 # 📡 HTTP
 
@@ -268,12 +273,13 @@ security https://securityheaders.com/
 * _504_: server handling your request is tired of waiting for a downstream
 * _522_: time out; TCP connection btw web server and CDN (bc server is overloaded) https://www.youtube.com/watch?v=axYMNCuL_hE
 
-## utils
+## tooling
 
 🗄 `shell.md` userland
 
+https://news.ycombinator.com/item?id=41650905
 https://github.com/dnaeon/go-vcr
-postman alternative https://github.com/darrenburns/posting
+postman alternative https://github.com/darrenburns/posting https://github.com/Julien-cpsn/ATAC
 https://readme.com/
 https://github.com/ducaale/xh
 https://github.com/Julien-cpsn/ATAC
@@ -371,7 +377,7 @@ WWW
 
 ## DNS
 
-🗄 `infra.md` aws/route53
+🗄 `aws.md` Route53
 🛠 https://jvns.ca/blog/2021/12/15/mess-with-dns/ https://messwithdns.net/
 🔗 https://news.ycombinator.com/item?id=36909427
 📚
@@ -417,6 +423,7 @@ ZA
 
 ---
 
+* dig, whois https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command https://jvns.ca/blog/2021/12/04/how-to-use-dig/
 * DNS https://entropicthoughts.com/secure-dns-on-a-laptop-with-debian
 * whitelist/blacklist https://github.com/plutov/ultrafocus
 * https://www.youtube.com/watch?v=27r4Bzuj5NQ
@@ -433,7 +440,6 @@ ZA
 * https://www.youtube.com/watch?v=Wj0od2ag5sk
 * https://www.youtube.com/watch?v=7lxgpKh_fRY
 * https://www.nslookup.io/learning/the-life-of-a-dns-query-in-kubernetes/
-* dig, whois
 * resolver https://jvns.ca/blog/2022/02/01/a-dns-resolver-in-80-lines-of-go/
 * https://github.com/resyncgg/ripgen
 * https://cuddly-octo-palm-tree.com/posts/2021-10-17-dns/
@@ -597,7 +603,7 @@ za
 * update private key to not use password: `ssh-keygen -p`
 * can run cmd directly e.g. `ssh foobar@server ls` https://hacker-tools.github.io/remote-machines/
 > It works with pipes, so ssh foobar@server ls | grep PATTERN will grep locally the remote output of ls and ls | ssh foobar@server grep PATTERN will grep remotely the local output of ls.
-* tunneling https://news.ycombinator.com/item?id=29946144
+* tunneling https://news.ycombinator.com/item?id=29946144 https://ittavern.com/visual-guide-to-ssh-tunneling-and-port-forwarding/
 * _mosh_: deal more gracefully with the shutdowns/lag that come w/ ssh, doesn't do port forwarding https://hacker-tools.github.io/remote-machines/
 * mount remote fs w/ `sshfs` https://hacker-tools.github.io/remote-machines/
 
@@ -645,7 +651,7 @@ TIME
 * _sink_: https://zachholman.com/talk/utc-is-enough-for-everyone-right https://alexwlchan.net/2019/05/falsehoods-programmers-believe-about-unix-time/ https://app.pluralsight.com/library/courses/date-time-fundamentals/table-of-contents https://news.ycombinator.com/item?id=24746836 timezones https://pyvideo.org/pycon-us-2019/working-with-time-zones-everything-you-wish-you-didnt-need-to-know.html
 
 SPACE
-* _GIS_: ESRI (SaaS) Postgres https://news.ycombinator.com/item?id=23361794 geocode https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code https://www.wired.com/story/geocode-address-puerto-rico-hurricane-maria/ https://github.com/giswqs/leafmap https://www.paulox.net/2021/07/19/maps-with-django-part-2-geodjango-postgis-and-leaflet/ https://github.com/marceloprates/prettymaps https://softwareengineeringdaily.com/2021/04/26/makepath-geospatial-technology-with-brendan-collins/ https://gis.stackexchange.com/ isochrones https://tech.marksblogg.com/valhalla-isochrones.html https://tech.marksblogg.com/pretty-maps-in-python.html satellite https://github.com/plant99/felicette https://realpython.com/python-folium-web-maps-from-data/ https://github.com/geoserver/geoserver https://walker-data.com/posts/lodes-commutes/ https://walker-data.com/census-r/index.html https://walker-data.com/posts/proximity-analysis/  https://news.ycombinator.com/item?id=40052172 tiny map https://github.com/tinyworldmap/tiny-world-map Open Street Map https://pybit.es/articles/openstreetmaps-overpass-api-and-python/ https://news.ycombinator.com/item?id=41424373 ArcGis https://storymaps.arcgis.com/stories/41d4bd6029044afbb1b9ad805a4731d8
+* _GIS_: ESRI (SaaS) Postgres https://news.ycombinator.com/item?id=23361794 geocode https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code https://www.wired.com/story/geocode-address-puerto-rico-hurricane-maria/ https://github.com/giswqs/leafmap https://www.paulox.net/2021/07/19/maps-with-django-part-2-geodjango-postgis-and-leaflet/ https://github.com/marceloprates/prettymaps https://softwareengineeringdaily.com/2021/04/26/makepath-geospatial-technology-with-brendan-collins/ https://gis.stackexchange.com/ isochrones https://tech.marksblogg.com/valhalla-isochrones.html https://tech.marksblogg.com/pretty-maps-in-python.html satellite https://github.com/plant99/felicette https://realpython.com/python-folium-web-maps-from-data/ https://github.com/geoserver/geoserver https://walker-data.com/posts/lodes-commutes/ https://walker-data.com/census-r/index.html https://walker-data.com/posts/proximity-analysis/  https://news.ycombinator.com/item?id=40052172 tiny map https://github.com/tinyworldmap/tiny-world-map Open Street Map https://pybit.es/articles/openstreetmaps-overpass-api-and-python/ https://news.ycombinator.com/item?id=41424373 ArcGis https://storymaps.arcgis.com/stories/41d4bd6029044afbb1b9ad805a4731d8 display map on website https://news.ycombinator.com/item?id=41635592 https://openfreemap.org/
 * maps https://storymaps.arcgis.com/stories/1e7f582d478a4b99bd0c70fffeac4c8b
 * _GPS_: https://news.ycombinator.com/item?id=29981188 https://ciechanow.ski/gps/
 * _sink_: https://www.bloomberg.com/news/features/2018-07-25/the-world-economy-runs-on-gps-it-needs-a-backup-plan https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code
@@ -765,6 +771,7 @@ ValueError: unsupported hash type md5
 ---
 
 * https://gotify.net/
+* https://discord.com/blog/how-discord-reduced-websocket-traffic-by-40-percent
 * Sendgrid (send emails to customers) Braze (Sendgrid++?)
 * IETF RFC 6455 and browser API https://hpbn.co/websocket/
 * compared to `Keep-Alive` https://stackoverflow.com/questions/7620620/whats-the-behavioral-difference-between-http-stay-alive-and-websockets

@@ -40,6 +40,7 @@ Then I should see a welcome message
 
 ---
 
+https://buttondown.com/hillelwayne/archive/how-to-convince-engineers-that-formal-methods-is/
 https://buttondown.com/hillelwayne/archive/the-seven-specification-ur-languages/
 https://buttondown.com/hillelwayne/archive/what-could-be-added-to-tla/
 https://buttondown.com/hillelwayne/archive/an-idea-for-teaching-formal-methods-better/
@@ -82,7 +83,7 @@ void main() {
 * characterization, snapshot, golden-master https://news.ycombinator.com/item?id=23268911
 
 TLA+
-* https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2 Pact, contract testing https://www.thoughtworks.com/radar/tools?blipid=202110074 Jepsen https://news.ycombinator.com/item?id=38525968&utm_term=comment https://tratt.net/laurie/blog/2024/what_factors_explain_the_nature_of_software.html
+* https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2 Pact, contract testing https://www.thoughtworks.com/radar/tools?blipid=202110074 https://colorsofcode.ghost.io/counting-sheeps-with-contracts-in-python/ Jepsen https://news.ycombinator.com/item?id=38525968&utm_term=comment https://tratt.net/laurie/blog/2024/what_factors_explain_the_nature_of_software.html
 
 ## fuzz
 
@@ -146,6 +147,7 @@ ZA
 LOAD TESTING
 * _load testing_: send many requests at system
 * https://github.com/hatoo/oha https://github.com/nakabonne/ali https://github.com/tsenart/vegeta https://github.com/wg/wrk https://github.com/giltene/wrk2 https://news.ycombinator.com/item?id=35781728 https://github.com/grafana/k6 https://github.com/fcsonline/drill
+* https://github.com/wfxr/rlt
 * _locust_: 📜 https://docs.locust.io/en/stable/ CLI + via code https://github.com/locustio/locust https://github.com/rednafi/stress-test-locust 🗄 `htmx-demo`
 * alternatives
 * config: num concurrent users, spawn rate (new users per second)
@@ -180,7 +182,7 @@ BROWSER AUTOMATION
 * _Cypress_: https://github.com/cypress-io/cypress
 * _Puppeteer_: https://github.com/puppeteer/puppeteer https://switowski.com/blog/web-automation/
 * _Selenium_: https://github.com/SeleniumHQ/selenium
-* _Playwright_: https://github.com/microsoft/playwright-python https://talkpython.fm/episodes/show/368/end-to-end-web-testing-with-playwright
+* _Playwright_: https://github.com/microsoft/playwright-python https://talkpython.fm/episodes/show/368/end-to-end-web-testing-with-playwright https://www.sakisv.net/2024/08/tracking-supermarket-prices-playwright/
 
 ## db
 
@@ -191,6 +193,7 @@ BROWSER AUTOMATION
 
 ---
 
+https://jackevans.bearblog.dev/auto-rollback-database-transactions-with-flask-sqlalchemy-and-pytest/
 * _dummy data_: fake/seed data for development https://github.com/zachvalenta/flask-CRUD/blob/master/db_seed.py https://github.com/joke2k/faker#providers https://mimesis.name/ https://mockaroo.com/ https://github.com/Qovery/replibyte
 * _synthetic data_: real data but anonymized https://softwareengineeringdaily.com/2021/02/16/synthetic-data-with-ian-coe-andrew-colombi-and-adam-kamor/ https://gretel.ai/blog/what-is-synthetic-data https://github.com/GreenmaskIO/greenmask
 
@@ -234,7 +237,7 @@ TEST TYPES
 
 ---
 
-* use actual deps instead of mocks https://testcontainers.com/ https://news.ycombinator.com/item?id=39531536 microcontainers https://github.com/maelstrom-software/maelstrom
+* use actual deps instead of mocks https://testcontainers.com/ https://news.ycombinator.com/item?id=39531536 microcontainers https://github.com/maelstrom-software/maelstrom https://github.com/maelstrom-software/maelstrom
 
 * spin up db in docker, run migrations, run integration tests; alternately, use CTEs https://news.ycombinator.com/item?id=34603691 https://news.ycombinator.com/item?id=34603244
 

@@ -75,16 +75,14 @@ check --fix  # fix lint err
 ```
 
 ZA
+* ignore line: `# NOQA` https://flake8.pycqa.org/en/2.6.0/config.html#per-code-line 
 * custom via AST e.g. enforce docs https://docs.python.org/3/library/inspect.html#retrieving-source-code
 * lint exceptions https://github.com/guilatrova/tryceratops
+
+ALTERNATIVES
 * fmt code blocks in doc files https://github.com/asottile/blacken-docs
 * fmt based on recent changes https://github.com/akaihola/darker
-* _pycodestyle_: style rules; used in ruff https://github.com/PyCQA/pycodestyle https://406.ch/writing/how-ruff-changed-my-python-programming-habits/
-* _pyflakes_: style rules; used in ruff https://github.com/PyCQA/pyflakes
-* _pyupgrade_: upgrade syntax for future Python versions https://github.com/asottile/pyupgrade
-
-FLAKE 📜 https://flake8.pycqa.org/
-* ignore line: `# NOQA` https://flake8.pycqa.org/en/2.6.0/config.html#per-code-line 
+* _flake8_: https://flake8.pycqa.org/
 ```sh
 flake8 src test # lint multiple dir 🗄️ algos
 flake8 exclude = */__init__.py  # all __init__
@@ -101,6 +99,9 @@ ignore =  # http://flake8.pycqa.org/en/latest/user/configuration.html
 per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
     db_shell.py:F401  # give user access to all models from REPL
 ```
+* _pycodestyle_: style rules; used in ruff https://github.com/PyCQA/pycodestyle https://406.ch/writing/how-ruff-changed-my-python-programming-habits/
+* _pyflakes_: style rules; used in ruff https://github.com/PyCQA/pyflakes
+* _pyupgrade_: upgrade syntax for future Python versions https://github.com/asottile/pyupgrade
 
 ## logging
 
@@ -139,7 +140,10 @@ OPTIONS
 * _phlare_: https://martinheinz.dev/blog/89
 * _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
 * _timeit_: https://www.pythonmorsels.com/cli-tools/
+* _tracy_: https://github.com/wolfpld/tracy
 * _instruments_: https://registerspill.thorstenball.com/p/did-you-know-about-instruments
+* _Sciagraph_: https://news.ycombinator.com/item?id=31826872
+
 
 performance tests https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
 ebpf https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
@@ -183,6 +187,7 @@ time $CMD  # https://news.ycombinator.com/item?id=30224063
 https://github.com/DataDog/go-profiler-notes
 
 EBPF
+* https://github.com/ZingerLittleBee/netop
 * https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06
 * https://news.ycombinator.com/item?id=27435081
 * https://www.brendangregg.com/blog/2022-04-15/netflix-farewell-1.html
@@ -256,6 +261,323 @@ if __name__=='__main__':
     timeit_ms(cast_to_timer(lookup_set, names_set))
 ```
 
+
+# 🤖 OS
+
+📙 Beazley ch. 13
+
+STDOUT
+* `print()`: implicitly adds `\n` under the hood; workaround is `print('hello zv', end="")`
+* `stderr.flush()`
+> Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so.
+
+---
+
+```python
+# check Python version from script https://stackoverflow.com/a/1093331/6813490
+sys.version
+
+# mkdir in cwd
+os.mkdir(os.path.join(os.getcwd(), dir_name))
+
+# get filenames https://stackoverflow.com/a/50876889/6813490
+
+#########
+
+# env
+os.environ  # get all
+os.environ[]  # get 1 - throws err
+os.environ.get()  # get 1 - no err
+os.getenv("target", "default")  # get 1 - defaults if target not found
+
+# misc
+shutil.make_archive(root_dir=dir_to_tar, base_name=tarball_name, format='zip')  # make zip
+tarballs = [os.base.pathname(x) for x in glob(f"{Path.cwd().joinpath('foo')}/*.tar.gz")] # grab file names sans full path https://stackoverflow.com/a/55439309/6813490 https://stackoverflow.com/a/20384686/6813490
+```
+
+* _exit code_: `sys.exit(0)` or `os._exit(0)` https://stackoverflow.com/a/49950466/6813490
+* _create temp dir/file_: dir (`dir` here specifies location, not sure how to name) `tempfile.mkdtemp(dir='.')` put file in temp dir `tempfile.mkstemp(dir='mytempdir')`
+* iterate
+```python
+with open('foo.txt') as f:
+    for line in f.readlines():
+        print(line)
+```
+* iterate and update https://stackoverflow.com/a/20593644/6813490
+```python
+import fileinput
+
+with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
+    for line in file:
+        print(line.replace(text_to_search, replacement_text), end='')
+```
+
+## files
+
+📙 Beazley ch. 5
+https://www.fluentpython.com/lingo/#file-like_object
+
+* _file obj_: obj exposing a file-oriented API (`read()`, `write()`) https://docs.python.org/dev/glossary.html#term-file-object
+* aka file-like obj, stream
+```python
+f = open("hey.md")
+# read flushes some sort of buffer
+f.read()  # 'hey zjv\n'
+f.read()  # ''
+
+# seek https://calpaterson.com/s3.html https://docs.python.org/dev/library/io.html#io.TextIOWrapper.seek https://chatgpt.com/c/6709235d-dbf8-8004-a0bb-0a6c7ce5b7b6
+```
+
+CSV
+```python
+# READ
+with open("input.csv", mode="r") as f:
+    reader = csv.reader(f)
+    for row in reader:
+        pass
+
+# WRITE
+with open("output.csv", mode="w") as f:
+    writer = csv.writer(f)
+    writer.writerow(["foo", "bar"])  # headers
+    writer.writerows(myl)
+```
+
+---
+
+
+```python
+os.path.isfile(f)  # check if file
+os.path.exists(f)  # check if file exists
+os.listdir()  # list files in dir
+
+open(path, mode).read()  # read - modes include w (write) r (read)
+open('ur-file.txt', 'w').close()  # create empty
+print(open(path, mode).read())  # print
+open(path, mode).read().split(" ")  # tokenize https://stackoverflow.com/a/55723307/6813490
+f.readline()   # first line https://stackoverflow.com/a/19044550
+
+###
+# CONTEXT MANAGER https://www.fluentpython.com/lingo/#context_manager https://www.pythonmorsels.com/creating-a-context-manager/
+# clean up unmanaged resources (like file streams)
+# simple way to wrap a try/except/finally block in a reusable function https://tuckerchapman.com/til/python-context-manager/
+# r (read; default) b (binary) w (create new) w+ (create new if doesn't exist https://stackoverflow.com/a/2967249
+# BYO https://rednafi.github.io/digressions/python/2020/03/26/python-contextmanager.html
+###
+with open('data.txt', 'w') as f:
+    data = 'some data to be written to the file'
+    f.write(data)
+```
+
+* _zip/tar_: https://github.com/BuzonIO/zipfly
+* DictWriter expects a list of dictionaries
+```python
+# ❌
+artists_1371 = artists_1025 - artists_1124
+with open("03-artists-1371.csv", "w") as csv_1371:
+    writer = csv.DictWriter(csv_1371, fieldnames=["artist"])
+    writer.writeheader()
+    for el in foo:
+        writer.writerow(el)
+    
+# ✅
+artists_1371 = artists_1025 - artists_1124
+artists = [dict(artist=x) for x in artists_1371]
+with open("03-artists-1371.csv", "w") as csv_1371:
+    writer = csv.DictWriter(csv_1371, fieldnames=["artist"])
+    writer.writeheader()
+    for el in artists:
+        writer.writerow(el)
+
+# ❌ how to write string to single header vs. iterate string across n headers?
+with open("03-artists-1371.csv", "w") as csv_1371:
+    writer = csv.writer(csv_1371)
+    writer.writerow(["artist"])
+    for el in artists_1371:
+        print(type(el))
+        writer.writerow(el)
+        
+# ✅ write list of strings
+with open("um_only.csv", mode="w") as f:
+    writer = csv.writer(f)
+    writer.writerow(["isrc"])  # takes iterable
+    for dl in um_only:
+        writer.writerow([dl])  # takes iterable
+```
+* parse Click file
+```python
+def parse_click_file(f):
+    return [
+        {"foo": row["FOO"], "bar": row["BAR"], "baz": row["BAZ"]}
+        for row in csv.DictReader(f)
+    ]
+```
+* CSV
+```python
+# read
+with open(file_path, mode="r", encoding="utf-8-sig") as f:
+    reader = csv.DictReader(f)
+    headers = reader.fieldnames
+    for row in reader:
+        do_something(row[header])
+
+# write
+with open(file_path, "w") as f: 
+    headers = ["SKU", "name", "earnings"]
+    writer = csv.DictWriter(f, fieldnames=headers) 
+    writer.writeheader()
+    for dl in data_lines:
+        writer.writerow(dl)
+
+# read from + write to
+with open(file_path, "w") as csv_out: 
+    with open(file_path, mode="r") as csv_in:
+        reader = csv.DictReader(csv_in)
+        writer = csv.DictWriter(csv_out, fieldnames=reader.headers + ["header_for_out"]) 
+        writer.writeheader()
+        for row in reader:
+            data_line = OrderedDict(do_something(row))
+            writer.writerow(data_line)
+
+# write list of dict to file
+with open(file_path, "w") as f: 
+    headers = ["SKU", "name", "earnings"]
+    writer = csv.DictWriter(f, fieldnames=headers) 
+    writer.writeheader()
+    for dl in data_lines:
+        writer.writerow(dl)
+
+# create output headers and link to input headers
+def generate_headers(headers):
+    headers_IO = od()
+    for header in headers:
+        if "TOTAL AMOUNT" in header:
+            mmyy = "ta_{}".format("_".join(header.split(" ")[2:]).lower())
+            headers_IO[mmyy] = header
+    return headers_IO
+
+# create output headers based on date range and link to input headers
+def generate_headers(year, month, day):
+    headers = od()
+    month_start = dt.date(year, month, day)
+    month_previous_dt = dt.datetime.utcnow().replace(day=1) - delta(days=1)
+    month_previous = month_previous_dt.date()
+    while month_start <= month_previous:
+        k = "out_{}".format(month_start.strftime("%Y%m")[2:])
+        v = "in {}".format(month_start.strftime("%b %Y").upper())
+        headers[k] = v
+        month_start += delta(months=1)
+    return headers
+
+# add generated headers to hard-coded
+generated = generate_headers(reader.fieldnames)
+writer = csv.DictWriter(csv_out, fieldnames=get_headers(generated=generated.keys()))
+def get_headers(generated):
+    return [
+        "foo",
+        "bar",
+    ] + generated
+
+# sum across generated headers
+gen_rows, total = sum_gen(gen=generated, row=row)
+def sum_gen(gen, row):
+    total = 0
+    rows = od()
+    # k = output header, v = input header
+    # e.g. "out_nov_21" : "IN NOV 21"
+    for k, v in gen.items():
+        # row = "id":"id", "IN NOV 21": "42", "IN DEC 21": "7"
+        rows[k] = row[v]  # out_nov_21: 42
+        if row[v] != "":
+            total += float(row[v])
+    return rows, round(total, 2)
+```
+
+* HTTP
+```python
+# write response
+res = requests.get(url)
+with open(file_name, mode="wb") as f:
+    f.write(res.content)
+
+# read IO https://stackoverflow.com/a/21843713
+byte = io.BytesIO(res.content).read()
+text = byte.decode("utf-8-sig")
+string_obj = io.StringIO(text)
+reader = csv.DictReader(string_obj)
+for row in reader:
+```
+
+## pathlib
+
+📜 https://docs.python.org/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
+
+* _path-like object_: https://docs.python.org/3/glossary.html#term-path-like-object
+
+```python
+# ACCESS
+Path.cwd()
+Path.cwd().parent
+Path.cwd().parent / 'subdir'
+
+# ASSERTIONS
+Path.exists(Path.cwd())
+Path.is_dir(Path.cwd() / 'sub1' / 'sub2')
+Path.is_file(Path.cwd() / 'sub1' / 'sub2' / 'foo.csv')
+```
+
+---
+
+* https://realpython.com/python-pathlib/
+* https://treyhunner.com/2018/12/why-you-should-be-using-pathlib/
+* https://treyhunner.com/2019/01/no-really-pathlib-is-great/
+
+* _why path libs are useful_: avoid dealing with different directory delimiters per OS [Sweigart automate 8.174]
+* _how to represent paths_: Python can represent paths as strings (like os) https://realpython.com/python-pathlib/#the-problem-with-python-file-path-handling but Pathlib doesn't https://snarky.ca/why-pathlib-path-doesn-t-inherit-from-str/ in Python 2 binary and textual data were implicitly compatible and that caused problems https://snarky.ca/why-pathlib-path-doesn-t-inherit-from-str/
+* _Pathlib_: most functionality in `path`
+
+```python
+from pathlib import Path
+
+cwd = Path.cwd()  # get cwd
+file_names = [x.name for x in cwd.glob("**/*.csv")]  # get CSV filenames https://docs.python.org/3/library/pathlib.html#basic-use
+
+# dir
+Path.cwd()  # $CWD
+Path.home()  # ~
+os.listdir()  # ls
+
+basepath = path.dirname(__file__)
+austen = path.abspath(path.join(basepath, "..", "austen.json"))  # file from parent dir https://stackoverflow.com/a/4381638
+
+austen = os.path.join(os.path.dirname(__file__), "austen.json")  # file from CWD - can occlude but flaky if open w/ just `open(file)`, although doesn't seem like it should be, maybe not a problem w/ pathlib https://stackoverflow.com/a/1315401 
+with open(austen) as f:
+    return json.load(f)
+
+Path.cwd().joinpath('foo').mkdir()  # mkdir named 'foo'
+Path.cwd().joinpath('foo').mkdir(exist_ok=True)  # mkdir - don't err out if already exists (won't overwrite, just won't do anything)
+Path.cwd().joinpath('foo').mkdir(parents=True)  # mkdir - make all necessary subdirectories
+
+Path.home().joinpath("Desktop").exists()  # check if dir exists
+Path.home().joinpath("Desktop").joinpath("foo.txt").is_dir()  # check if file is dir
+path_to_file.rename(path_to_new_location.joinpath('file-name-at-new-location.txt'))  # mv
+
+Path.unlink(path_to_file)  # rm file
+Path.rmdir(path_to_dir)  # rmdir - empty https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir 
+shutil.rmtree(path)  # rmdir - not empty https://stackoverflow.com/a/303225/6813490 https://stackoverflow.com/a/25172642/6813490
+```
+
+## process exec
+
+🔗 https://martinheinz.dev/blog/98
+🗄️ `infra.md` IaC / remote execution
+
+OPTIONS
+* `os.system`
+* `subprocess`
+* _sh_: https://github.com/amoffat/sh https://martinheinz.dev/blog/96
+* _suby_: https://github.com/pomponchik/suby
+* _Sultan_: https://github.com/aeroxis/sultan https://stackoverflow.com/a/56842257/6813490
 
 # 🔬 TEST
 
@@ -343,6 +665,7 @@ coverage html && coverage htmlcov/index.html
 
 ---
 
+https://hamatti.org/posts/document-intended-usage-through-tests-with-doctest/
 * https://rdrn.me/postmodern-python/
 * `ELLIPSIS` 📙 Ramalho [7]
 * _doctest_: docstring + test https://www.fluentpython.com/lingo/#doctest
@@ -510,7 +833,6 @@ def test_foo():
 ## tox
 
 * test against multiple Python versions
-* https://github.com/maelstrom-software/maelstrom
 * https://hynek.me/articles/turbo-charge-tox/
 * _nox_: https://sethmlarson.dev/nox-pyenv-all-python-versions https://github.com/wntrblm/nox https://hynek.me/articles/why-i-like-nox https://hynek.me/articles/why-i-like-nox/
 * parallelize https://blog.sentry.io/2022/11/14/how-we-run-our-python-tests-in-hundreds-of-environments-really-fast/ split list https://realpython.com/how-to-split-a-python-list-into-chunks/
@@ -582,10 +904,15 @@ self.assertEqual(x.exception.code, 1)
 
 🗄
 * `golang.md` CLI
-* `shell.md` CLI design
+* `shell.md` design
 
-* control mouse/keyboard https://github.com/asweigart/pyautogui
-* GUI: tkinter https://www.youtube.com/watch?v=xqDonHEYPgA Kivy, pyqt https://build-system.fman.io/pyqt5-tutorial https://github.com/PySimpleGUI/PySimpleGUI https://github.com/chriskiehl/Gooey
+GUI
+* _Gooey_: https://github.com/chriskiehl/Gooey
+* _Kivy_: https://github.com/kivy/kivy
+* _pyautogui_: control mouse/keyboard https://github.com/asweigart/pyautogui
+* _pyqt_: https://build-system.fman.io/pyqt5-tutorial
+* _PySimpleGUI_:  https://github.com/PySimpleGUI/PySimpleGUI
+* _tkinter_: https://www.youtube.com/watch?v=xqDonHEYPgA
 
 ## CLI (Click)
 
@@ -721,10 +1048,14 @@ except Exception:
 ```
 
 INPUT 🗄 `security.md` sanitization
-* take input: basic (`ur_in = input()`)
-* basic: 
-* autocomplete / fuzzy finder: used by dbcli https://github.com/amjith/fuzzyfinder https://github.com/darrenburns/textual-autocomplete
-* REPL https://github.com/Mckinsey666/bullet bullet control flow https://github.com/shkey/killurp/blob/141d411d353ab46edf362ff6a33bfe9c5a5ad211/killurp.py#L8 https://github.com/tmbo/questionary https://github.com/zachvalenta/capp-prod-cat/blob/link-nodes/cli.py https://github.com/zachvalenta/bookcase-sjk/blob/34433935a55eeb421b30d9012f422b03c55d48a2/cli.py#L4 https://github.com/zachvalenta/news/blob/3901f28ff59c035d353127e3c279ec9e7d3f90d4/news/main.py#L5
+```python
+ur_in = input()
+```
+* Textual https://github.com/darrenburns/textual-autocomplete
+* _bullet_: https://github.com/Mckinsey666/bullet
+* repos https://github.com/zachvalenta/news https://github.com/zachvalenta/capp-prod-cat/blob/link-nodes/tree_viz.py 🗄️ `git.md` Github / search
+* control flow https://github.com/shkey/killurp/blob/141d411d353ab46edf362ff6a33bfe9c5a5ad211/killurp.py#L8 https://github.com/chroma-core/chroma-migrate/blob/2a6e61ee7f2d717281075512b308c40616033189/chroma_migrate/cli.py#L2
+* _questionary_: https://github.com/tmbo/questionary 
 * _prompt-toolkit_: used by pgcli, http-prompt https://github.com/j-bennet/wharfee/blob/master/setup.py https://github.com/wasi-master/fastero
 
 OUTPUT
@@ -741,10 +1072,17 @@ if i % 100 == 0:
 
 ## TUI (Textual)
 
-* run in browser https://github.com/Textualize/textual-web
+* publish to web https://github.com/Textualize/textual-web
+* run examples
+```sh
+python -m pip install --user textual
+cd /Users/zvalenta/Desktop/textual/examples
+python json_tree.py
+```
 
 ---
 
+* https://realpython.com/contact-book-python-textual/
 * functionality: tables, color, layout
 * frameworks https://github.com/willmcgugan/textual https://github.com/bczsalba/pytermgui https://github.com/peterbrittain/asciimatics https://github.com/jquast/blessed pudb uses http://urwid.org/
 * _Textual_: complaints https://news.ycombinator.com/item?id=35123383 animation https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#demonstrating-animation dropdown https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#dropdown-autocompletion-menu file manager https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#a-file-manager-powered-by-textual graphics https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#pixel-art layout https://textual.textualize.io/blog/2022/12/11/version-060/#placeholder tabs https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#tabs-with-animated-underline testing https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#developer-console https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#snapshot-testing-for-terminal-apps example https://github.com/learnbyexample/TUI-apps/tree/main/CLI-Exercises https://www.blog.pythonlibrary.org/2024/02/06/creating-a-modal-dialog-for-your-tuis-in-textual/
@@ -756,19 +1094,39 @@ if i % 100 == 0:
 * `application.md` utils
 * `language.md` frameworks
 
+## frameworks
+
 FRAMEWORKS
 > Web development is often broad, not deep - problems span many domains. https://docs.djangoproject.com/en/2.0/intro/whatsnext/
 > A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
 * components: HTTP, routes, ORM
-* BYO https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/ https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/
+* BYO https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/ https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/ https://github.com/itsthejoker/spiderweb/ https://github.com/iklobato/LightAPI
 
-## HTML
+WSGI
+* interface btw app server and framework bc pre-WSGI which framework you picked determined which web server you could use https://www.pythonpodcast.com/episode-43-wsgi-2/ [8:00]
+> The Web Server Gateway Interface (or "WSGI" for short) is a standard interface between web servers and Python web application frameworks. By standardizing behavior and communication between web servers and Python web frameworks, WSGI makes it possible to write portable Python web code that can be deployed in any WSGI-compliant web server. WSGI is documented in PEP 3333. https://docs.python-guide.org/scenarios/web/#wsgi
+* _interface_: contract e.g. "app server will do these things in this way as specified by WSGI and app framework will hook into them in this way as specified by WSGI and that way gunicorn will work with any WSGI-compliant app framework and Flask will work with any-WSGI compliant app server"
+* _constraints_: single-threaded https://stackoverflow.com/a/32217701 doesn't do async or WebSockets https://pythonbytes.fm/episodes/show/48/garbage-collection-and-memory-management-in-python https://www.pythonpodcast.com/episode-43-wsgi-2/ @ 18:00
+* _supported by_: servers (gunicorn, uWSGI, mod_wsgi) frameworks (Flask, Django, Falcon, Pyramid)
+* https://stackoverflow.com/a/38685758/6813490 https://talkpython.fm/episodes/show/13/flask-web-framework-and-much-much-more @ 30:00 https://djangodeconstructed.com/2018/02/15/how-a-request-becomes-a-response-diving-deeper-into-wsgi
+
+ASGI
+* _ASGI_: async alternative to WSGI
+* frameworks: Django (Channels) Quart (Flask on async) Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
+* servers: uvicorn, Daphne
+* FastAPI https://github.com/pomponchik/cbfa
+* sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
+
+RSGI
+* _RSGI_: for Rust https://github.com/emmett-framework/granian/blob/master/docs/spec/RSGI.md 🗄️ `infra.md` granian
+
+## HTML (scrapy)
 
 🗄 `html-css.md`
 
 ---
 
-* _playwright_ https://github.com/microsoft/playwright https://www.sakisv.net/2024/08/tracking-supermarket-prices-playwright/
+https://github.com/blacknon/pydork
 
 https://github.com/MechanicalSoup/MechanicalSoup
 * follow redirects
@@ -877,7 +1235,7 @@ Selenium
 * finding binary https://stackoverflow.com/a/22130211/6813490
 * tutorial https://intoli.com/blog/running-selenium-with-headless-chrome/
 
-## requests
+## HTTP (requests)
 
 📜 https://requests.readthedocs.io/en/latest/
 
@@ -925,7 +1283,7 @@ requests.post(url, files=my_file)  # PUT also works fine
 res = requests.delete(url, auth=(user, pw))
 ```
 
-## serialization
+## serialization (Marshmallow)
 
 📙 Beazley ch. 6
 🗄 `system.md` serialization
@@ -1009,32 +1367,20 @@ artist_schema = ArtistSchema(only=("name", "songs"))  # subset
 # validate https://www.cameronmacleod.com/blog/better-validation-flask-marshmallow https://medium.com/bitproject/recently-i-created-a-restful-api-with-flask-where-my-models-had-many-parameters-75da1db870b7
 ```
 
-## SGI
-
-WSGI
-* interface btw app server and framework bc pre-WSGI which framework you picked determined which web server you could use https://www.pythonpodcast.com/episode-43-wsgi-2/ [8:00]
-> The Web Server Gateway Interface (or "WSGI" for short) is a standard interface between web servers and Python web application frameworks. By standardizing behavior and communication between web servers and Python web frameworks, WSGI makes it possible to write portable Python web code that can be deployed in any WSGI-compliant web server. WSGI is documented in PEP 3333. https://docs.python-guide.org/scenarios/web/#wsgi
-* _interface_: contract e.g. "app server will do these things in this way as specified by WSGI and app framework will hook into them in this way as specified by WSGI and that way gunicorn will work with any WSGI-compliant app framework and Flask will work with any-WSGI compliant app server"
-* _constraints_: single-threaded https://stackoverflow.com/a/32217701 doesn't do async or WebSockets https://pythonbytes.fm/episodes/show/48/garbage-collection-and-memory-management-in-python https://www.pythonpodcast.com/episode-43-wsgi-2/ @ 18:00
-* _supported by_: servers (gunicorn, uWSGI, mod_wsgi) frameworks (Flask, Django, Falcon, Pyramid)
-* https://stackoverflow.com/a/38685758/6813490 https://talkpython.fm/episodes/show/13/flask-web-framework-and-much-much-more @ 30:00 https://djangodeconstructed.com/2018/02/15/how-a-request-becomes-a-response-diving-deeper-into-wsgi
-
-ASGI
-* _ASGI_: async alternative to WSGI
-* frameworks: Django (Channels) Quart (Flask on async) Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
-* servers: uvicorn, Daphne
-* FastAPI https://github.com/pomponchik/cbfa
-* sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
-
-RSGI
-* _RSGI_: for Rust https://github.com/emmett-framework/granian/blob/master/docs/spec/RSGI.md
-* https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server https://github.com/emmett-framework/granian
-
 # 🟨 ZA
 
-* country data (language, currency) https://github.com/pycountry/pycountry
-* validation (email, IP address) https://martinheinz.dev/blog/96
+* auth: https://authlib.org/
+* browser: `webbrowser` https://dev.to/dmahely/one-bash-command-to-start-the-day-2fni
+* config/env var: https://github.com/theskumar/python-dotenv https://github.com/sloria/environs https://github.com/facebookresearch/hydra https://rednafi.github.io/digressions/python/2020/06/03/python-configs.html less popular cousin https://github.com/sloria/environs
+```python
+import os
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())  # if `.env` present in project
+os.getenv("FOO_VAR")
+```
+* cron / scheduling / daemon: https://github.com/zachvalenta/pypub https://github.com/maxhumber/hickory https://docs.python.org/3/library/sched.html https://github.com/dbader/schedule https://github.com/dbader/schedule https://schedule.readthedocs.io/en/stable/faq.html#how-to-continuously-run-the-scheduler-without-blocking-the-main-thread https://towardsdatascience.com/scheduling-all-kinds-of-recurring-jobs-with-python-b8784c74d5dc
 * URL: urllib, urlparse https://github.com/gruns/furl
+* validation (email, IP address) https://martinheinz.dev/blog/96
 
 ---
 
@@ -1042,20 +1388,6 @@ RSGI
 
 * rise of 3rd-party packages, dead batteries http://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html https://www.python.org/dev/peps/pep-0594/ provisional API https://docs.python.org/3/glossary.html#term-provisional-API
 
-* _auth_: https://authlib.org/
-* browser: `webbrowser` https://dev.to/dmahely/one-bash-command-to-start-the-day-2fni
-
-* _config/env var_: https://github.com/theskumar/python-dotenv https://github.com/sloria/environs https://github.com/facebookresearch/hydra https://rednafi.github.io/digressions/python/2020/06/03/python-configs.html less popular cousin https://github.com/sloria/environs
-```python
-import os
-from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv())  # if `.env` present in project
-os.getenv("FOO_VAR")
-```
-
-* _cron_: https://github.com/zachvalenta/pypub https://github.com/maxhumber/hickory 🗄 `shell.md`
-* _daemon_: https://github.com/dbader/schedule https://schedule.readthedocs.io/en/stable/faq.html#how-to-continuously-run-the-scheduler-without-blocking-the-main-thread https://towardsdatascience.com/scheduling-all-kinds-of-recurring-jobs-with-python-b8784c74d5dc
-* _ETL_: bonobo https://www.bonobo-project.org/ https://www.pythonpodcast.com/bonobo-with-romain-dorgueil-episode-143/
 * _hashing_: passlib https://passlib.readthedocs.io/en/stable/ https://pythonbytes.fm/episodes/show/21/python-has-a-new-star-framework-for-restful-apis
 ```python
 # https://pythonbytes.fm/episodes/show/21/python-has-a-new-star-framework-for-restful-apis
@@ -1064,45 +1396,11 @@ sha = hl.sha256()
 sha.update(b'hey')
 sha.hexdigest()  # 'fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba62591204'
 ```
-
 * _markdown_: https://pypi.org/project/markdown2/ used this one for `m2h` https://github.com/Python-Markdown/markdown had issues with ampersands in URLs, see repo commit `43e` https://stackoverflow.com/a/20593644/6813490 https://stackoverflow.com/questions/39086/search-and-replace-a-line-in-a-file-in-python
 * _networking_: Scapy https://www.youtube.com/watch?v=EnuF9ZR6MVc psutil https://matt.sh/netmatt#_what-if-we-replaced-90s-c-netstat-with-python
 * _notifications_: https://github.com/notifiers/notifiers
 * _photos_: https://github.com/sedthh/pyxelate 
 * _PDF_: https://realpython.com/pdf-python/ https://github.com/Halolegend94/pdf4py
-
-* _random_: https://realpython.com/courses/generating-random-data-python/ https://eli.thegreenplace.net/2010/01/22/weighted-random-generation-in-python
-```python
-from random import choice, randint, sample
-
-choice([True, False])  # pick one
-choice([True, False])  # pick one
-randint(1, 10)  # pick one from range
-sample(["hey", "hi", "hello", "hiya"], 2)  # pick n
-''.join([choice(string.ascii_letters + string.digits) for n in range(32)])  # random string
-```
-```python
-import string
-from random import choices, choice
-
-char = string.ascii_letters + string.digits  # 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
-
-# choices - return subset https://www.youtube.com/watch?v=rGQKHpjMn_M @ 13:15
-choices(char, k=3)  # ['F', 'g', 'z']
-''.join(choices(char, k=3))  # '1d3'
-
-# choice - return single el
-choice(char)  # 'z'
-choice(char, k=3)
-Traceback (most recent call last):
-  File "<input>", line 1, in <module>
-    choice(char, k=3)
-TypeError: choice() got an unexpected keyword argument 'k'
-```
-
-* _scheduling_: https://docs.python.org/3/library/sched.html https://github.com/dbader/schedule
-* _unit conversion_: https://pint.readthedocs.io/en/0.10.1/
-* _zip/tar_: https://github.com/BuzonIO/zipfly
 
 ## datetime
 
@@ -1187,166 +1485,6 @@ diff = now - task
 diff.seconds
 ```
 
-## files
-
-📙 Beazley ch. 5
-https://www.fluentpython.com/lingo/#file-like_object
-
-* basics
-```python
-# read
-with open("input.csv", mode="r") as f:
-    reader = csv.reader(f)
-    for row in reader:
-        pass
-
-# write
-with open("output.csv", mode="w") as f:
-    writer = csv.writer(f)
-    writer.writerow(["foo", "bar"])  # headers
-    writer.writerows(myl)
-```
-
----
-
-* DictWriter expects a list of dictionaries
-```python
-# ❌
-artists_1371 = artists_1025 - artists_1124
-with open("03-artists-1371.csv", "w") as csv_1371:
-    writer = csv.DictWriter(csv_1371, fieldnames=["artist"])
-    writer.writeheader()
-    for el in foo:
-        writer.writerow(el)
-    
-# ✅
-artists_1371 = artists_1025 - artists_1124
-artists = [dict(artist=x) for x in artists_1371]
-with open("03-artists-1371.csv", "w") as csv_1371:
-    writer = csv.DictWriter(csv_1371, fieldnames=["artist"])
-    writer.writeheader()
-    for el in artists:
-        writer.writerow(el)
-
-# ❌ how to write string to single header vs. iterate string across n headers?
-with open("03-artists-1371.csv", "w") as csv_1371:
-    writer = csv.writer(csv_1371)
-    writer.writerow(["artist"])
-    for el in artists_1371:
-        print(type(el))
-        writer.writerow(el)
-        
-# ✅ write list of strings
-with open("um_only.csv", mode="w") as f:
-    writer = csv.writer(f)
-    writer.writerow(["isrc"])  # takes iterable
-    for dl in um_only:
-        writer.writerow([dl])  # takes iterable
-```
-* parse Click file
-```python
-def parse_click_file(f):
-    return [
-        {"foo": row["FOO"], "bar": row["BAR"], "baz": row["BAZ"]}
-        for row in csv.DictReader(f)
-    ]
-```
-* CSV
-```python
-# read
-with open(file_path, mode="r", encoding="utf-8-sig") as f:
-    reader = csv.DictReader(f)
-    headers = reader.fieldnames
-    for row in reader:
-        do_something(row[header])
-
-# write
-with open(file_path, "w") as f: 
-    headers = ["SKU", "name", "earnings"]
-    writer = csv.DictWriter(f, fieldnames=headers) 
-    writer.writeheader()
-    for dl in data_lines:
-        writer.writerow(dl)
-
-# read from + write to
-with open(file_path, "w") as csv_out: 
-    with open(file_path, mode="r") as csv_in:
-        reader = csv.DictReader(csv_in)
-        writer = csv.DictWriter(csv_out, fieldnames=reader.headers + ["header_for_out"]) 
-        writer.writeheader()
-        for row in reader:
-            data_line = OrderedDict(do_something(row))
-            writer.writerow(data_line)
-
-# write list of dict to file
-with open(file_path, "w") as f: 
-    headers = ["SKU", "name", "earnings"]
-    writer = csv.DictWriter(f, fieldnames=headers) 
-    writer.writeheader()
-    for dl in data_lines:
-        writer.writerow(dl)
-
-# create output headers and link to input headers
-def generate_headers(headers):
-    headers_IO = od()
-    for header in headers:
-        if "TOTAL AMOUNT" in header:
-            mmyy = "ta_{}".format("_".join(header.split(" ")[2:]).lower())
-            headers_IO[mmyy] = header
-    return headers_IO
-
-# create output headers based on date range and link to input headers
-def generate_headers(year, month, day):
-    headers = od()
-    month_start = dt.date(year, month, day)
-    month_previous_dt = dt.datetime.utcnow().replace(day=1) - delta(days=1)
-    month_previous = month_previous_dt.date()
-    while month_start <= month_previous:
-        k = "out_{}".format(month_start.strftime("%Y%m")[2:])
-        v = "in {}".format(month_start.strftime("%b %Y").upper())
-        headers[k] = v
-        month_start += delta(months=1)
-    return headers
-
-# add generated headers to hard-coded
-generated = generate_headers(reader.fieldnames)
-writer = csv.DictWriter(csv_out, fieldnames=get_headers(generated=generated.keys()))
-def get_headers(generated):
-    return [
-        "foo",
-        "bar",
-    ] + generated
-
-# sum across generated headers
-gen_rows, total = sum_gen(gen=generated, row=row)
-def sum_gen(gen, row):
-    total = 0
-    rows = od()
-    # k = output header, v = input header
-    # e.g. "out_nov_21" : "IN NOV 21"
-    for k, v in gen.items():
-        # row = "id":"id", "IN NOV 21": "42", "IN DEC 21": "7"
-        rows[k] = row[v]  # out_nov_21: 42
-        if row[v] != "":
-            total += float(row[v])
-    return rows, round(total, 2)
-```
-
-* HTTP
-```python
-# write response
-res = requests.get(url)
-with open(file_name, mode="wb") as f:
-    f.write(res.content)
-
-# read IO https://stackoverflow.com/a/21843713
-byte = io.BytesIO(res.content).read()
-text = byte.decode("utf-8-sig")
-string_obj = io.StringIO(text)
-reader = csv.DictReader(string_obj)
-for row in reader:
-```
-
 ## git
 
 📜 https://gitpython.readthedocs.io/en/stable/tutorial.html https://github.com/gitpython-developers/GitPython
@@ -1414,7 +1552,43 @@ repo.git.ls_remote("--heads", "origin", "master")
 🔗 https://github.com/cosmologicon/pywat
 🛠️ https://github.com/python-humanize/humanize
 
+---
+
+* currency: https://github.com/pycountry/pycountry
+* unit conversion: https://pint.readthedocs.io/en/0.10.1/
+
 sum https://jcarlosroldan.com/post/329/my-latest-tils-about-python
+
+RANDOM
+* https://realpython.com/courses/generating-random-data-python/
+* https://eli.thegreenplace.net/2010/01/22/weighted-random-generation-in-python
+```python
+from random import choice, randint, sample
+
+choice([True, False])  # pick one
+choice([True, False])  # pick one
+randint(1, 10)  # pick one from range
+sample(["hey", "hi", "hello", "hiya"], 2)  # pick n
+''.join([choice(string.ascii_letters + string.digits) for n in range(32)])  # random string
+```
+```python
+import string
+from random import choices, choice
+
+char = string.ascii_letters + string.digits  # 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+
+# choices - return subset https://www.youtube.com/watch?v=rGQKHpjMn_M @ 13:15
+choices(char, k=3)  # ['F', 'g', 'z']
+''.join(choices(char, k=3))  # '1d3'
+
+# choice - return single el
+choice(char)  # 'z'
+choice(char, k=3)
+Traceback (most recent call last):
+  File "<input>", line 1, in <module>
+    choice(char, k=3)
+TypeError: choice() got an unexpected keyword argument 'k'
+```
 
 FLOATING POINT ARITHMETIC 📙 Van Rossum ch. 15
 * comparing floats: `math.isclose(0.1 + 0.2, 0.3)` https://davidamos.dev/the-right-way-to-compare-floats-in-python/
@@ -1509,139 +1683,6 @@ python -c 'print(5 / 10)'             # 0
 
 # workaround
 python -c 'print(float(15) / float(365))'  # 0.041095890411
-```
-
-## os
-
-📙 Beazley ch. 13
-🔗 https://docs.python.org/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
-
-STDOUT
-* `stderr.flush()`
-> Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so.
-* `print()`: implicitly adds `\n` under the hood; workaround is `print('hello zv', end="")`
-
-PROCESS EXEC https://martinheinz.dev/blog/98 🗄️ `infra.md` IaC / remote execution
-* `os.system`
-* `subprocess`
-* _sh_: https://github.com/amoffat/sh https://martinheinz.dev/blog/96
-* _suby_: https://github.com/pomponchik/suby
-* _Sultan_: https://github.com/aeroxis/sultan https://stackoverflow.com/a/56842257/6813490
-
-PATHLIB
-* https://realpython.com/python-pathlib/
-* https://treyhunner.com/2018/12/why-you-should-be-using-pathlib/
-* https://treyhunner.com/2019/01/no-really-pathlib-is-great/
-```python
-# ACCESS
-Path.cwd()
-Path.cwd().parent
-Path.cwd().parent / 'subdir'
-
-# ASSERTIONS
-Path.exists(Path.cwd())
-Path.is_dir(Path.cwd() / 'sub1' / 'sub2')
-Path.is_file(Path.cwd() / 'sub1' / 'sub2' / 'foo.csv')
-```
-
-----
-
-```python
-# mkdir in cwd
-os.mkdir(os.path.join(os.getcwd(), dir_name))
-```
-
-* run shell commands https://martinheinz.dev/blog/98
-* _path-like object_: https://docs.python.org/3/glossary.html#term-path-based-finder
-
-* _check Python version from script_: `sys.version` https://stackoverflow.com/a/1093331/6813490
-* _why path libs are useful_: avoid dealing with different directory delimiters per OS [Sweigart automate 8.174]
-* _how to represent paths_: Python can represent paths as strings (like os) https://realpython.com/python-pathlib/#the-problem-with-python-file-path-handling but Pathlib doesn't https://snarky.ca/why-pathlib-path-doesn-t-inherit-from-str/ in Python 2 binary and textual data were implicitly compatible and that caused problems https://snarky.ca/why-pathlib-path-doesn-t-inherit-from-str/
-* _Pathlib_: most functionality in `path`
-
-* recipes
-```python
-from pathlib import Path
-
-cwd = Path.cwd()  # get cwd
-file_names = [x.name for x in cwd.glob("**/*.csv")]  # get CSV filenames https://docs.python.org/3/library/pathlib.html#basic-use
-
-# get filenames https://stackoverflow.com/a/50876889/6813490
-
-#########
-
-# env
-os.environ  # get all
-os.environ[]  # get 1 - throws err
-os.environ.get()  # get 1 - no err
-os.getenv("target", "default")  # get 1 - defaults if target not found
-
-# dir
-Path.cwd()  # $CWD
-Path.home()  # ~
-os.listdir()  # ls
-
-basepath = path.dirname(__file__)
-austen = path.abspath(path.join(basepath, "..", "austen.json"))  # file from parent dir https://stackoverflow.com/a/4381638
-
-austen = os.path.join(os.path.dirname(__file__), "austen.json")  # file from CWD - can occlude but flaky if open w/ just `open(file)`, although doesn't seem like it should be, maybe not a problem w/ pathlib https://stackoverflow.com/a/1315401 
-with open(austen) as f:
-    return json.load(f)
-
-Path.cwd().joinpath('foo').mkdir()  # mkdir named 'foo'
-Path.cwd().joinpath('foo').mkdir(exist_ok=True)  # mkdir - don't err out if already exists (won't overwrite, just won't do anything)
-Path.cwd().joinpath('foo').mkdir(parents=True)  # mkdir - make all necessary subdirectories
-
-Path.home().joinpath("Desktop").exists()  # check if dir exists
-Path.home().joinpath("Desktop").joinpath("foo.txt").is_dir()  # check if file is dir
-path_to_file.rename(path_to_new_location.joinpath('file-name-at-new-location.txt'))  # mv
-
-Path.unlink(path_to_file)  # rm file
-Path.rmdir(path_to_dir)  # rmdir - empty https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir 
-shutil.rmtree(path)  # rmdir - not empty https://stackoverflow.com/a/303225/6813490 https://stackoverflow.com/a/25172642/6813490
-
-# files
-os.path.isfile(f)  # check if file
-os.path.exists(f)  # check if file exists
-os.listdir()  # list files in dir
-
-open(path, mode).read()  # read - modes include w (write) r (read)
-open('ur-file.txt', 'w').close()  # create empty
-print(open(path, mode).read())  # print
-open(path, mode).read().split(" ")  # tokenize https://stackoverflow.com/a/55723307/6813490
-f.readline()   # first line https://stackoverflow.com/a/19044550
-
-###
-# CONTEXT MANAGER https://www.fluentpython.com/lingo/#context_manager https://www.pythonmorsels.com/creating-a-context-manager/
-# clean up unmanaged resources (like file streams)
-# simple way to wrap a try/except/finally block in a reusable function https://tuckerchapman.com/til/python-context-manager/
-# r (read; default) b (binary) w (create new) w+ (create new if doesn't exist https://stackoverflow.com/a/2967249
-# BYO https://rednafi.github.io/digressions/python/2020/03/26/python-contextmanager.html
-###
-with open('data.txt', 'w') as f:
-    data = 'some data to be written to the file'
-    f.write(data)
-
-# misc
-shutil.make_archive(root_dir=dir_to_tar, base_name=tarball_name, format='zip')  # make zip
-tarballs = [os.base.pathname(x) for x in glob(f"{Path.cwd().joinpath('foo')}/*.tar.gz")] # grab file names sans full path https://stackoverflow.com/a/55439309/6813490 https://stackoverflow.com/a/20384686/6813490
-```
-
-* _exit code_: `sys.exit(0)` or `os._exit(0)` https://stackoverflow.com/a/49950466/6813490
-* _create temp dir/file_: dir (`dir` here specifies location, not sure how to name) `tempfile.mkdtemp(dir='.')` put file in temp dir `tempfile.mkstemp(dir='mytempdir')`
-* iterate
-```python
-with open('foo.txt') as f:
-    for line in f.readlines():
-        print(line)
-```
-* iterate and update https://stackoverflow.com/a/20593644/6813490
-```python
-import fileinput
-
-with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
-    for line in file:
-        print(line.replace(text_to_search, replacement_text), end='')
 ```
 
 ## regex

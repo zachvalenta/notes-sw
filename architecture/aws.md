@@ -2,6 +2,7 @@
 
 ## 参考
 
+🛣️ https://roadmap.sh/aws
 📊 https://console.aws.amazon.com/console/home
 🩻 https://health.aws.amazon.com/health/status
 📜 https://aws.amazon.com/documentation/ https://github.com/awsdocs
@@ -12,6 +13,7 @@
 
 ## 进步
 
+* https://roadmap.sh/best-practices/aws
 * Brown ccp @ 2:15:00
 * https://www.aws.training/
 * https://cloudonaut.io/my-mental-model-of-aws/ @ storage
@@ -122,12 +124,10 @@ REGIONS
 * _ACM_: certificates
 * _GovCloud_: regions for gov https://www.lastweekinaws.com/blog/its-extremely-likely-you-should-not-use-govcloud/
 
-* WAF, SSRF https://ejj.io/blog/capital-one https://news.ycombinator.com/item?id=20560594
+* WAF, SSRF https://ejj.io/blog/capital-one https://news.ycombinator.com/item?id=20560594 https://wafris.org/
 * egress, Cloudfare https://news.ycombinator.com/item?id=28707317
 
 ## Route53
-
-💡 DNS setup
 
 ---
 
@@ -212,6 +212,7 @@ data transfer https://www.lastweekinaws.com/blog/aws-data-transfer-charges-ingre
 ## S3
 
 💡 FTP server
+> Objects were popular at the time and S3 was labelled an object store, but everyone really knows that S3 is for files. S3 is a cloud filesystem, not an object-whatever. https://calpaterson.com/s3.html
 
 * TUI viewer https://github.com/lusingander/stu
 * you used to get charged for 400 requests https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1 https://aws.amazon.com/about-aws/whats-new/2024/05/amazon-s3-no-charge-http-error-codes/

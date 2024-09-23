@@ -16,6 +16,7 @@
 
 ## 进步
 
+https://news.ycombinator.com/item?id=41637286
 note-taking in Markdown https://www.youtube.com/watch?v=DgKI4hZ4EEI
 basic setup https://www.youtube.com/watch?v=VljhZ0e9zGE
 https://www.youtube.com/watch?v=zHTeCSVAFNY
@@ -207,6 +208,7 @@ edit
 🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
 
 dev containers https://github.com/michidk/vscli
+color themes https://realpython.com/courses/custom-vs-code-color-themes/
 
 THINGS I'M NOTICING ABOUT VSC
 * autocomplete works for any word in the workspace
@@ -368,6 +370,8 @@ FEATURES
 DESIGN
 * https://zed.dev/blog/between-editors-and-ides
 * https://zed.dev/blog/we-have-to-start-over 
+* https://registerspill.thorstenball.com/p/from-vim-to-zed
+* https://jackevans.bearblog.dev/trying-out-zed/
 
 # ✏️ EDIT
 
@@ -620,6 +624,7 @@ BUFFERS https://github.com/romgrk/barbar.nvim/issues/279
 * similar to how other editors/browsers do tabs http://vimcasts.org/episodes/how-to-use-tabs/ [0:45]
 * _argument list_: buffer group to run batch cmd against 📙 Neil practical [6.86,89] https://vimtricks.substack.com/p/vimtrick-open-all-files-in-a-directory 
 * _minimap_: sidebar showing compressed version of buffer
+* lib to generate https://github.com/wfxr/code-minimap
 * requires another library https://github.com/wfxr/minimap.vim
 * doesn't render correctly https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-map.md
 * _outliner_: display buffers ctags in order of definition
@@ -719,6 +724,16 @@ WORKSPACES
 * `telescope-project`: allows jump btw dir, doesn't allow putting dirs into single workspace https://github.com/nvim-telescope/telescope-project.nvim
 
 ## code intel
+
+### git
+
+🗄️ `git.md` tooling
+
+---
+
+DECORATIONS
+* _gitgutter_: https://github.com/airblade/vim-gitgutter
+* _gitsigns_: catppuccin integration https://github.com/lewis6991/gitsigns.nvim
 
 ### LSP
 

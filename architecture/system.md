@@ -2,9 +2,10 @@
 
 ## 参考
 
-🗄 `databases.md` perf
 📙 Bueno mature optimization https://carlos.bueno.org/optimization/
-> The notes on benchmark performance graphs often read "higher is better" and performance improvements are even called "optimisations". But the truth is, at least as a user, once performance reaches a satisfactory level - enough for your own data analysis to complete in a reasonable about of time - there is no further benefit from increased speed. Instead of being called "performance optimisation" it should probably be called "performance satisfaction" as once it is satisfactory you have finished. Usability is different. The whole point of computers is as an aid to productivity so user-friendliness is actually the bit you want to optimise. Unlike speed, being easier to use is always better and there is very little limit to that. So it's "usability improvements" that should be called "optimisations" but perhaps the relevant ships on all of these terms have sailed. https://csvbase.com/blog/6
+🗄
+* `databases.md` perf
+* `info.md` documentation / system
 
 ## 进步
 
@@ -12,6 +13,8 @@ SEMANTICS
 * application boundaries https://morizbuesing.com/blog/greppability-code-metric/
 
 ---
+
+> The notes on benchmark performance graphs often read "higher is better" and performance improvements are even called "optimisations". But the truth is, at least as a user, once performance reaches a satisfactory level - enough for your own data analysis to complete in a reasonable about of time - there is no further benefit from increased speed. Instead of being called "performance optimisation" it should probably be called "performance satisfaction" as once it is satisfactory you have finished. Usability is different. The whole point of computers is as an aid to productivity so user-friendliness is actually the bit you want to optimise. Unlike speed, being easier to use is always better and there is very little limit to that. So it's "usability improvements" that should be called "optimisations" but perhaps the relevant ships on all of these terms have sailed. https://csvbase.com/blog/6
 
 * algos https://www.youtube.com/watch?v=xbgzl2maQUU
 
@@ -41,6 +44,7 @@ FACTORS
 * https://news.ycombinator.com/item?id=32319147
 * https://www.youtube.com/channel/UCDankIVMXJEkhtjv5yLSN4g/videos
 * do with the Golang microservices book https://news.ycombinator.com/item?id=34572263
+* https://wafris.org/blog/rearchitecting-for-sqlite https://news.ycombinator.com/item?id=41646775
 * https://news.ycombinator.com/item?id=34612919
 * https://www.youtube.com/@AsliEngineering/videos
 * things you need in an app https://www.amazon.com/Become-Awesome-Software-Architect-Foundation/dp/1697271065
@@ -167,7 +171,7 @@ ZA
 * aka flat data https://news.ycombinator.com/item?id=27197950
 * sql.js https://github.com/sql-js/sql.js/ https://selectstarsql.com/frontmatter.html#technicals https://jvns.ca/blog/2019/09/30/notes-on-building-sql-exercises/ https://news.ycombinator.com/item?id=27016630
 * query SQLite over HTTP https://github.com/psanford/sqlite3vfshttp
-* with pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/
+* with pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html
 
 ## event-driven 
 
@@ -208,8 +212,6 @@ ZA
 * one dev's edge cases are another's entire project 📙 Kleppmann 491
 * listen to Knuth -> fast code matters less than you think https://www.youtube.com/watch?v=PhUb7y9WZGs
 > We should forget about small efficiencies, say about 97% of the time; premature optimization is the root of all evil. - Donald Knuth
-* write code that's easy to throw away
-> Write code to be changed and/or deleted. This comes from someone who's worked in startups for the past 5 years. We often overestimate how long code =is supposed to live. We as programmers often exaggerate with our DRY and stuff, we do not want to repeat ourselves, we want to find another abstraction...we want to find some general that can help us abstract stuff away. My piece of advice is that, step back and consider for a moment that this code is not going to stay in, so maybe only try and find the abstraction layer once you really sure that this is how it's going to be. - Thorsten Ball https://developeronfire.com/podcast/episode-373-thorsten-ball-interpreters-compilers-and-writing
 > To be attractive to hackers, a language must be good for writing the kinds of programs they want to write. And that means, perhaps surprisingly, that it has to be good for writing throwaway programs. - http://paulgraham.com/popular.html
 * don't cargo cult 'best practices'
 > Sophisticated design principles can make your code faster, more flexible, more modular, and all of the other positive adjectives that people use to describe high-quality software. But they also make it more complex. `AbstractSyntaxRenderers` and `DoubleBackflipDatabaseTransmogrophiers` do make some programs clearer and easier to understand, especially large ones. But they can also be the equivalent of using a metrics-oriented, fully agile, stakeholder-prioritized development flow for working on a jigsaw puzzle with your dad. Sure you’re following best practices, but you probably didn’t need to, and now your dad thinks you’re a Scientologist. - https://robertheaton.com/2018/12/02/programming-project-5-snake/
@@ -584,37 +586,6 @@ in general
 * http://danluu.com/2choices-eviction/
 * https://www.digitalocean.com/community/tutorials/web-caching-basics-terminology-http-headers-and-caching-strategies
 
-## diagrams
-
-🗄
-* `aesthetics.md` design
-* `math.md` graphs
-
-PROVIDERS 🔍 https://xosh.org/text-to-diagram/
-* _D2_: 🎯 https://github.com/terrastruct/d2
-* _Typograms_: https://github.com/google/typograms
-* _Icepanel_: C4 model, zoom, flows, states (as-is vs. to-be), user-defined classifications https://icepanel.io/ https://www.thoughtworks.com/radar/platforms/icepanel
-* _Markdeep_: https://casual-effects.com/markdeep/
-* _Mermaid_: 🎯 https://mermaid.live/ https://news.ycombinator.com/item?id=34906378 no current Hombrew version https://github.com/mermaid-js/mermaid-cli https://github.com/mermaid-js/mermaid-cli/issues/25 Github support https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/ 
-* _Monodraw_: 🎯 https://monodraw.helftone.com/
-* _Structurizr_: https://structurizr.com/
-
-TYPES https://news.ycombinator.com/item?id=41080189
-* ascii to SVG https://github.com/ivanceras/svgbob http://asciiflow.com/
-* _concept map_: https://cmap.ihmc.us/docs/learn.php
-* _DAG_: https://arthursonzogni.com/Diagon/#GraphDAG
-* _ERD_: DrawSQL https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://databasediagram.com/app https://app.quickdatabasediagrams.com/#/ 📙 Karwin [7] 🗄 `sql.md` utils https://github.com/BurntSushi/erd https://sketchviz.com/graphviz-examples https://excalidraw.com/ https://gist.github.com/zachvalenta/f4c2226b991b69d129fe7d1d40119f43 https://drawsql.app/me-195/diagrams/testing123
-* _flow_: https://news.ycombinator.com/item?id=26303784
-* _infrastructure_: https://github.com/mingrammer/diagrams 
-* _mind map_: https://github.com/nadrad/h-m-m https://markmap.js.org/ https://news.ycombinator.com/item?id=24132631 https://news.ycombinator.com/item?id=27614912 https://strlen.com/treesheets/ https://news.ycombinator.com/item?id=34184993 https://blog.dornea.nu/2015/09/17/organizing-and-visualizing-knowledge/ https://www.dendron.so/ https://switowski.com/blog/favorite-mac-tools/
-* _state_: https://github.com/statecharts/statecharts.github.io/issues/44 https://en.wikipedia.org/wiki/State_diagram
-* _treemap_: https://github.com/niyue/skillmap https://github.com/nikolaydubina/go-cover-treemap
-* _sequence_: msg passing https://sequencediagram.org https://gist.github.com/zachvalenta/2aeac1f945c5848c79087b2481cb187a https://arthursonzogni.com/Diagon/#Sequence https://switowski.com/blog/web-automation/
-* https://jessems.com/posts/2023-07-22-the-unreasonable-effectiveness-of-sequence-diagrams-in-mermaidjs
-* _UML_: aka class diagram; PlantUML https://www.amazon.com/UML-Distilled-Standard-Modeling-Language/dp/0321193687 https://yuml.me/diagram/scruffy/class/draw
-* alternative syntax 📙 Evans domain-driven [42]
-* can be used for ERD in Mongo https://stackoverflow.com/q/11323841 https://stackoverflow.com/q/6010408
-
 ## proxy
 
 🗄
@@ -646,13 +617,16 @@ CONNECTIONS
 
 TYPES
 * _proxy_: layer between requester and responder
-* _reverse proxy_: closer to servers; less of a need given a cloud environment where a load balancer is already built-in https://pythonspeed.com/articles/gunicorn-in-docker/ https://testdriven.io/blog/django-docker-traefik/ https://www.artur-rodrigues.com/tech/2023/03/12/reverse-proxy-with-dynamic-backend-selection.html https://www.youtube.com/watch?v=RqfaTIWc3LQ https://www.youtube.com/watch?v=4NB0NDtOwIQ
+* _reverse proxy_: closer to servers
+* often unecessary https://news.ycombinator.com/item?id=41642151 
+* less of a need given a cloud environment where a load balancer is already built-in?
+* https://pythonspeed.com/articles/gunicorn-in-docker/ https://testdriven.io/blog/django-docker-traefik/ https://www.artur-rodrigues.com/tech/2023/03/12/reverse-proxy-with-dynamic-backend-selection.html https://www.youtube.com/watch?v=RqfaTIWc3LQ https://www.youtube.com/watch?v=4NB0NDtOwIQ
 * _forward proxy_: closer to users; way for users to access resources outside network https://www.linuxbabe.com/it-knowledge/differences-between-forward-proxy-and-reverse-proxy https://github.com/mkjt2/lockbox
 * _sidecar proxy_: https://caddyserver.com/docs/
 
 CDN
 > Caching reverse proxies that you self-host, like Varnish and Apache Traffic Server, can use non-standard PUSH and PURGE verbs that let you explicitly control the cache contents. If you can invalidate explicitly you can use strategies #2 and #3 [update-on-write]. If you have the file on hand, why not also populate your reverse proxy's cache? The nice thing overall about caching at the HTTP level is that it takes work off the applications server's plate. https://calpaterson.com/ttl-hell.html
-* BYO https://github.com/leandromoreira/cdn-up-and-running
+* BYO https://github.com/leandromoreira/cdn-up-and-running https://news.ycombinator.com/item?id=41731720
 * https://jvns.ca/blog/2016/04/29/cdns-arent-just-for-caching/
 * https://css-tricks.com/adding-a-cdn-to-your-website/
 * Google/Facebook CDNs are blocked in China https://www.freecodecamp.org/news/devblog-launch-your-developer-blog-own-domain/

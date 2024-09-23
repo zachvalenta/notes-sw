@@ -21,6 +21,11 @@ TAXONOMY
 * user sessions https://news.ycombinator.com/item?id=40318542 https://jam.dev/ https://trackjs.com/
 * tracing
 
+DASHBOARDS
+* https://github.com/wtfutil/wtf
+* https://github.com/Phantas0s/devdash
+* https://github.com/gizak/termui
+
 PROVIDERS https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services
 > taxonomy from Sentry and this https://rdrn.me/observability/
 * _Grafana_: visualize metrics https://www.youtube.com/watch?v=9TJx7QTrTyo [14:00] https://www.reddit.com/r/devops/comments/sevtqs/whats_your_monitoring_stack/
@@ -96,7 +101,8 @@ https://news.ycombinator.com/item?id=24006697
 * _statsd_: https://github.com/jsocol/pystatsd https://www.youtube.com/watch?v=-6Hk9rcgM94 https://www.datadoghq.com/blog/statsd/ https://docs.datadoghq.com/developers/dogstatsd/ https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd https://www.youtube.com/watch?v=R4kMwckrUlg Graphite visualization tool for statsd https://www.digitalocean.com/community/tutorials/how-to-configure-statsd-to-collect-arbitrary-stats-for-graphite-on-ubuntu-14-04
 
 how to start
-* _get metrics_: point Uptime Robot at a URL https://www.youtube.com/watch?v=o9ekAeoBXDs https://statusgator.com/ Lighthouse https://forgeperf.org/ https://www.thoughtworks.com/radar/tools?blipid=1158
+* status page https://github.com/harsxv/tinystatus https://statusgator.com/
+* _get metrics_: point Uptime Robot at a URL https://www.youtube.com/watch?v=o9ekAeoBXDs Lighthouse https://forgeperf.org/ https://www.thoughtworks.com/radar/tools?blipid=1158
 * _measure metrics_: https://news.ycombinator.com/item?id=23360794
 * _sink_: https://serversforhackers.com/s/process-monitoring https://blog.appoptics.com/the-four-golden-signals-for-monitoring-distributed-systems/ https://infrequently.org/2018/09/the-developer-experience-bait-and-switch/ https://3perf.com/talks/web-perf-101/ https://medium.baqend.com/web-performance-made-simple-fc61d81d0c0e http://mediatemple.net/blog/tips/low-hanging-fruit-web-performance/ https://medium.com/observability/want-to-debug-latency-7aa48ecbe8f7 https://ferdychristant.com/amp-the-missing-controversy-3b424031047 https://medium.freecodecamp.org/a-beginners-guide-to-website-optimization-2185edca0b72 https://panic.com/blog/mystery-of-the-slow-downloads/ https://github.com/monitoror/monitoror
 
@@ -273,6 +279,8 @@ za
 
 # 🟨 ZA
 
+> And there's actually this new feature that we had added to our help Slack channel. There's a channel that's just alerting us when a person logs into the tool. And we get their username, and we can easily find where they are in the office, and we can go up and talk to them. One of the engineers on the team added a very rough estimation of how close they are to you. So, it'll tell you, "Oh, this person's right around the corner. This person is 54 meters away from you, or this person is two floors above you." And so, I don't know, even just knowing where they're located and having an awareness of, "Oh, I just walked by," there is a lot of connection you can build. And I feel like the design itself becomes just stronger by having that constant iteration that is informed by these discussions with real users. https://signalsandthreads.com/from-the-lab-to-the-trading-floor/
+
 ## analytics
 
 🗄
@@ -340,6 +348,8 @@ TOOLING
 * _toolong_: 🎯 https://github.com/textualize/toolong
 
 ---
+
+* live log view `tail -f foo.log`
 
 * https://github.com/pamburus/hl
 * https://github.com/ptmcg/logmerger

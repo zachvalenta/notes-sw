@@ -12,89 +12,191 @@
 * _23_: mbp14 battery starts dying, buy mini23, port to mini23
 * _22_: port from `linux.md`, buy air22
 
+# 🖲️ BACKUP
+
+🗄 `eng.md` admin / backup
+
+|  ITEM         | LOCATION | DATE  | CONTENTS   | TO            |
+|---------------|----------|-------|------------|---------------|
+| digits        | mini23   | 19.07 | pw         | safe, lockbox |
+| calendar      | google   | 24.02 |            | mini23        |
+| email         | google   | 22.02 |            | mini23        |
+| mini23        | -        |       | fs         |               |
+| air22         | -        | ----- | mini23     |               |
+| `ExFatMain`   | desk     | 24.09 | mini23     |               |
+| `WD1`         | safe     | 24.06 | mini23     |               |
+| `WD2`         | lockbox  | 20.02 | mini23     |               |
+| `music-usb`   | desk     | ----- | `yin`      |               |
+| `music-usb-2` | desk     | 24.02 | `yin`      |               |
+
+SEMANTICS
+* _transfer_: mv data from A to B
+* _sync_: scheduled transfer https://kevq.uk/building-my-home-server
+* _backup_: adhoc transfer
+* _dump_: "create a script that would allow me to recreate this database"
+* _load_: "use script to create database"
+
+---
+
+https://github.com/paperless-ngx/paperless-ngx
+https://yourdigitalrights.org/ https://news.ycombinator.com/item?id=34358622
+
+potential new config
+> same price as Dropbox but with incremental for local files
+* $7.50 - Tarsnap for `zvmac` https://www.tiltedwindmillpress.com/product/tarsnap-mastery-online-backups-for-the-truly-paranoid/ https://www.kalzumeus.com/2014/04/03/fantasy-tarsnap/
+* $3.00 - Google Drive for music
+* $0.00 - personal drives
+
+🎗 now that you're copying music files btw work machine and music-usb
+* backup music-usb to exfat-main
+> 22.02.10
+* backup exfat-main non music files to new hard drive
+* backup exfat-main music files to other drives and Dropbox
+* now you can transfer work machine music files back
+* this way if your work machine corrupts the files somehow you have physical and cloud backups of everything before that
+
+recently updated
+> 🎗 use music-lib for easier backups!
+> do mac journal
+* digits
+* moved to ExFatMain: comedy, training
+
+physical storage
+* keys: office desk
+* safe: HD, passport, personal
+* lockbox: HD, personal
+
+---
+
+* don't backup project deps e.g. `.node_modules` https://bsago.me/posts/lessons-learned-when-my-ssd-died
+* regularize email export https://news.ycombinator.com/item?id=29978099
+* https://hacker-tools.github.io/backups/
+* https://unixsheikh.com/articles/how-i-store-my-files-and-why-you-should-not-rely-on-fancy-tools-for-backup.html
+* export addresses from Amazon
+* preventing file corruption https://duckduckgo.com/?q=how+do+hard+drives+get+corrupted&atb=v161-1&ia=web
+* defrag?
+
+BACKBLAZE https://wesbos.com/uses
+📙 Shotts command line ch. 18
+* ❓ versioned backups to prevent data corruption? https://hacker-tools.github.io/backups/
+* 📍 extra consideration to code (dupe to Gitlab), digits, email https://hacker-tools.github.io/backups/ https://kevq.uk/i-nearly-lost-all-of-my-data/ 
+* weird files on backup drives http://blog.hostilefork.com/trashes-fseventsd-and-spotlight-v100/
+
+TIME MACHINE
+* backup https://support.apple.com/en-us/HT201250
+* restore https://support.apple.com/en-us/HT203981
+* slow?
+> There are only a few issues I can think of with Time Machine: first, it can slow things down on older, less powerful Macs. Five to ten years ago, it was common for my consulting clients to refuse to use Time Machine because they were tired of watching it slow down their machines. The other issue? Time Machine backups aren’t bootable — in other words, you can’t just select the backup drive during bootup and use it to bring a machine with a dead primary drive back to life. You can, however, boot from the Mac recovery partition and attempt to restore your machine with the backup. - https://blog.macsales.com/29785-backup-month-a-look-at-time-machine-carbon-copy-cloner-superduper
+* deletion: should be automatically purged as they age and as the drive space dips; can do manually https://www.macworld.com/article/3260635/macs/how-to-delete-time-machine-snapshots-on-your-mac.html https://www.youtube.com/watch?v=GYXOuP6_PSQ
+* list: `tmutil listlocalsnapshotdates` https://forums.macrumors.com/threads/how-to-delete-time-machine-local-backups-on-high-sierra.2073998/
+* filepath: on my machine stored in `Volums/.com.apple.TimeMachine.localsnapshots` https://robservatory.com/disable-local-time-machine-backups-on-laptops/
+* can always disable TM backups from System Preferences, which will start clearing out local backups
+
+### mini23 ➡️ exfatmain
+
+> 📍 clean up DS files `fd -HI DS`
+* rm mckinney book
+* 23 taxes
+* golf
+* music: francis harris, christian scott, jamie xx, beatles, everything from sui generis
+* photos: nirvana
+
+### air-capp ➡️ mini23
+
+* dance/dark: nicolaas jaar, roisin murphy, pantha du prince
+* electronic: we-as-is
+* rock/80s: war on drugs, the police
+* rock/indie: camera obscura
+* rnb: al green (belle)
+* punk/60s
+* rm police from rock/singles
+
+## reimage
+
+SEMANTICS
+* _image_: OS
+* _bootable disk_: disk from which OS can boot https://pc.net/helpcenter/answers/startup_disk_vs_bootable_disk `install macOS Mojave` 🎗 in large safe 🗄 versions
+* _startup disk_: disk from which OS actually does boot https://pc.net/helpcenter/answers/startup_disk_vs_bootable_disk
+* _SD card_: non-volatile memory i.e. really fast storage
+* _flash_: write OS image (to SD card) https://www.raspberrypi.org/forums/viewtopic.php?f=91&t=24621 https://uglyduck.ca/linux-mint-macbook-air/
+
+factory reset
+* aka "Erase all contents and Settings"
+> iOS where instead of going through this process it will just wipe everything and put a clean copy of macOS just like a fresh install just without the hassle of booting from drive etc. https://www.youtube.com/watch?v=rgHyvj_nWCU
+* hardware: M1, T2 from 2017
+* available from System Preferences
+* _system partition_: os https://www.youtube.com/watch?v=O882iWxtZyo 2:50
+* _data partition_: user files, settings
+* after reset leave at Activate Mac screen otherwise will save your wifi to settings https://www.youtube.com/watch?v=O882iWxtZyo 3:15
+* after Activate Mac, just reset to Setup Assistant
+
+create image https://www.youtube.com/watch?v=rgHyvj_nWCU
+* download OS version in App Store
+* quit out of install
+* format drive using Disk Utility to "Mac OS Extended Journaled"
+
+test reimage
+* create image
+* add couple of apps/files
+* reimage
+* verify only apps/files from basic set up
+
+---
+
+* _storage cleanup_: https://www.macworld.com/article/2030221/macs/our-favorite-mac-cleanup-tips.html https://macpaw.com/cleanmymac https://macpaw.com/gemini https://daisydiskapp.com/ https://macpaw.com/cleanmymac newer macOS versions have 'Reduce Clutter' tool https://github.com/docker/for-mac/issues/2297
+* file security https://hacker-tools.github.io/security/
+
+prereqs
+* [machine compatibility](https://support.apple.com/en-us/HT201475) 
+* [space for install](https://blog.macsales.com/45780-get-ready-for-macos-mojave) 
+* [run First Aid on startup drive](https://blog.macsales.com/45780-get-ready-for-macos-mojave)
+* can't remove standard apps https://apple.stackexchange.com/a/65175/328389
+
+bootable disk https://aaronchall.github.io/#sec-6-2 https://support.apple.com/en-us/HT201372
+* disk should be at 16GB
+* download OS but don't proceed with install
+* grab OS from `Applications`
+* https://www.youtube.com/watch?v=Y0NKkOOI9Ew
+
+install from bootable disk
+* adjust Energy Saver, plug in power source, `media/video/za` to phone, write down instructions
+* insert bootable disk, power on holding `ALT`, folllow video
+* troubleshoot https://support.apple.com/en-us/HT201475 + [potential issues](https://blog.macsales.com/45723-mac-installation-errors-you-may-encounter-and-how-to-fix-them)
+* load user files
+## sync
+
+---
+
+* is hard https://sirupsen.com/napkin/problem-14-using-checksums-to-verify
+* https://news.ycombinator.com/item?id=26902422 https://github.com/rclone/rclone
+* https://github.com/sahib/brig
+* rclone https://news.ycombinator.com/item?id=22082585 http://www.cis.upenn.edu/~bcpierce/unison/ https://news.ycombinator.com/item?id=22791036
+* Perkeep/Camlistore https://news.ycombinator.com/item?id=23676350
+* Own Cloud, Amazon Glacier, BackBlaze, Arq https://github.com/kahun/awesome-sysadmin#backups https://github.com/rclone/rclone
+* https://github.com/kimono-koans/httm
+* _syncthing_: https://tonsky.me/blog/syncthing/
+* _BackupPC_: https://backuppc.github.io/backuppc/
+* _Dropbox_: https://superuser.com/q/351169/728972
+* _Restic_: local https://github.com/restic/restic 
+* _Borg_: https://www.borgbackup.org/ https://news.ycombinator.com/item?id=13694079 https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
+* _Backblaze_: Terraform provider https://news.ycombinator.com/item?id=26426489
+* _rsync_: https://goteleport.com/blog/scp-familiar-simple-insecure-slow/ https://missing.csail.mit.edu/2019/remote-machines/ impl https://news.ycombinator.com/item?id=31958536 `rsync -rv --exclude=.git <dir> <path/to>` https://stackoverflow.com/a/3672584/6813490 https://michael.stapelberg.ch/posts/2022-07-02-rsync-how-does-it-work/
+```sh
+# sync local to remote
+rsync --rsync-path 'sudo -u app rsync' -arvR --exclude '.*' --exclude '*~' .  ${DEST_HOST}:/opt/t3  # start
+fswatch --recursive --one-per-batch . | xargs -L1 -II rsync --rsync-path 'sudo -u app rsync' -arvR --exclude '.*' --exclude '*~' .  ${DEST_HOST}:/opt/t3 # on file change
+```
+
 # 💻 HARDWARE
 
 🔍 models https://support.apple.com/en-us/HT201300
 
-TABLET
-* notes: Gitlab web IDE
-* music production: GarageBand, Koala
-* courses from Khan Academy https://github.com/rand-net/khan-dl
-
-## Apple vs. Linux
-
-considerations
-* ✅ Mac: familiarity, hardware
-* ❌ Windows: pyenv is second-class citizen, WSL just something else to debug, unused to keybindings
-* ❌ Linux: no Ableton, hardware, apps
-
-APPLE
-* cleaning dust https://quanticdev.com/articles/cleaning-macbook-after-16800-hours-of-use/
-* https://cfenollosa.com/blog/the-m1-macbook-air-one-year-later.html
-* can't upgrade battery or drives since 2015 https://www.youtube.com/watch?v=Q1u2tA9dgCQ
-* used: vendors will list year of OS vs. machine production year, ignore photos (might not even be of the same machine), processor (make sure exact type is listed, that they're quoting base speed, beware if year unlisted) https://www.youtube.com/watch?v=JF1EsYfxwhM
-* use 'sold items' to gauge prices https://www.youtube.com/watch?v=b-ltpMVA7BI 6:10
-* 2011 unibody: avoid these https://www.youtube.com/watch?v=8jM1brvJhzg 11:45
-* 2012 Pro unibody (last pre-retina, easy to add hard drive) https://www.youtube.com/watch?v=8jM1brvJhzg 
-* 2015 Pro https://www.youtube.com/watch?v=8jM1brvJhzg 3:20
-
-LINUX https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=34180508
-* not ready https://cfenollosa.com/blog/fed-up-with-the-mac-i-spent-six-months-with-a-linux-laptop-the-grass-is-not-greener-on-the-other-side.html
-* script install https://blog.jessfraz.com/post/windows-for-linux-nerds/
-* lack of support for Ableton, might not have audio interface drivers https://news.ycombinator.com/item?id=20745072
-* _Chromebook_: Linux beta https://uglyduck.ca/chromebook-web-development/
-* _Dell_: https://cfenollosa.com/blog/fed-up-with-the-mac-i-spent-six-months-with-a-linux-laptop-the-grass-is-not-greener-on-the-other-side.html break all the time https://news.ycombinator.com/item?id=32632720
-* _Framework_: https://frame.work/ broken https://news.ycombinator.com/item?id=33322143 https://news.ycombinator.com/item?id=28606962 https://news.ycombinator.com/item?id=27926425 better now? https://frame.work/products/laptop13-diy-intel-ultra-1 https://omakub.org/
-* _System76_: https://system76.com/ https://news.ycombinator.com/item?id=34599094 https://news.ycombinator.com/item?id=34599094
-* _Thinkpad_: https://news.ycombinator.com/item?id=30241960 x200 https://drewdevault.com/2021/05/14/Pinebook-Pro-review.html beware machines after 2012, X60 can only deal w/ 32-bit os, X200/X220/X230 are popular https://www.youtube.com/watch?v=mxA9Gyyu6Rg 9:45 12:40 13:15
-* Linux laptops https://news.ycombinator.com/item?id=35355494
-
-## peripherals
-
-🗄️ `aesthetics.md` home design
-
-KEYBOARDS 📙 https://shifthappens.site/#story-of-a-photo
-* features: 80% layout, func (volume, brightness)
-> plastic vs. metal? https://www.reddit.com/r/NuPhy/comments/13kc4xm/team_nuphy_vs_team_keychron_fight/
-* _Keychron k2_: https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard
-* _Keychron k8_: 🎯 too tall? turn off lights? https://www.keychron.com/products/keychron-k8-tenkeyless-wireless-mechanical-keyboard
-* _Keychron q1 pro_: $225 https://www.amazon.com/dp/B0BLZ1ZN3H
-* _Keychron q3_: $185 https://www.keychron.com/products/keychron-q3-qmk-custom-mechanical-keyboard?variant=39773518626905 https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard
-* _Nuphy air75 v2_: ✅ $125; bad customer service, slow shipping (but next time you can just buy from Amazon?) https://nuphy.com/products/air75-v2
-
 ---
 
-ZA
+MICE
 * mouse: magic mouse, keychron m3 https://www.keychron.com/products/keychron-m3-wireless-mouse https://www.nytimes.com/wirecutter/reviews/best-wireless-mouse/
 * cooling pad for mbp2014 https://www.amazon.com/gp/product/B00NNMB3KS
 * keep Teams active :) https://news.ycombinator.com/item?id=34273107
-
-KEYBOARDS
-* happy hacking https://duarteocarmo.com/blog/happy-hacking-keyboard-review
-* tray https://www.amazon.com/VIVO-Computer-Keyboard-Platform-MOUNT-KB05E/dp/B07HFDJCSL
-* mechanical https://www.youtube.com/results?search_query=mechanical+keyboard+for+macos https://www.reddit.com/r/MechanicalKeyboards/comments/89fbk4/whats_all_the_hype_about_mechanical_keyboards_im/?rdt=56069
-* mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 try this one https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/
-* layers https://news.ycombinator.com/item?id=34069927
-* wrist rest https://news.ycombinator.com/item?id=34276226
-* Linux vs. Macos https://www.youtube.com/watch?v=GKoz7mm2tNI
-* chicklet https://www.youtube.com/watch?v=8jM1brvJhzg 5:20 butterfly started with 2015 12' Macbook https://www.theverge.com/2020/5/4/21246223/macbook-keyboard-butterfly-magic-pro-apple-design https://support.apple.com/keyboard-service-program-for-mac-notebooks returned to normal scissor keyboard (aka 'magic') with 2020 16' Macbook Pro https://www.wsj.com/articles/apple-updates-ipad-macbook-air-with-new-keyboard-11584538891
-* remapping https://missing.csail.mit.edu/2019/os-customization/
-* stenography for transcription https://www.openstenoproject.org/plover/
-* _Moonlander_: https://news.ycombinator.com/item?id=34070425
-* _Keychron_ https://archive.vn/pjhjh https://www.youtube.com/watch?v=gpcmimZyMlo https://www.keychron.com/products/keychron-k8-tenkeyless-wireless-mechanical-keyboard?variant=39515069612121
-
-MONITOR https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
-* config on macOS https://news.ycombinator.com/item?id=34487066
-* OLED = most accurate, best for viewing from non-direct angle https://www.tomsguide.com/us/what-is-oled,news-25120.html
-* webcam https://www.nytimes.com/wirecutter/reviews/the-best-webcams/
-* https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/ https://www.nytimes.com/wirecutter/reviews/best-monitors/
-* 1080p vs. 4k for readability https://news.ycombinator.com/item?id=23551983 
-* https://www.apple.com/mac-mini/specs/
-* _BenQ_: $600 https://www.youtube.com/watch?v=784pFXYBqsg
-* _Dell S2318HN_: ✅ $175, 23", 1080p
-* _Dell U3223QE_: $725, 32", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding
-* _Dell S2722QC_: $225, 27", 4k https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding
-* _Spectrum black_: $750 https://www.dough.tech/pages/monitors
 
 KVM
 * _KVM switch_: switch keyboard/video/mouse between computers https://www.pcmag.com/how-to/how-to-control-multiple-computers-with-one-keyboard-and-mouse https://www.pcmag.com/picks/best-kvm-switches
@@ -122,6 +224,210 @@ USB https://en.wikipedia.org/wiki/USB
 * _Thunderbolt_: https://www.pcmag.com/news/thunderbolt-3-vs-usb-c-whats-the-difference
 * works w/ USB-C https://www.youtube.com/watch?v=H4Z67HfHkN4 6:00
 
+## iPad
+
+🔗 versions https://en.wikipedia.org/wiki/IPad#iPad
+
+| IPAD   | USED | NEW | DISPLAY | STORAGE | PENCIL |
+|--------|------|-----|---------|---------|--------|
+| mini   | 120  | 500 | 8       |  64     | ?      |
+| reg    | 170  | 350 | 11      |  64     | ?      |
+| air    | ---  | --- | 11      |  --     | ?      |
+| pro    | ---  | --- | --      |  --     | ?      |
+
+---
+
+ROUGH PLAN
+* buy used mini for golf ($150)
+* buy used reg for procreate ($170 + pencil $80)
+
+TABLET
+* notes: Gitlab web IDE
+* music production: GarageBand, Koala
+* courses from Khan Academy https://github.com/rand-net/khan-dl
+
+https://buyersguide.macrumors.com/#iPad-Air
+https://www.amazon.com/dp/B09G9FPHY6 
+https://www.ebay.com/itm/144379058448?itmmeta=01HYK52QFWFVWA6GQWZJ4QHAPJ
+https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=guaranteecellular&store_cat=0&store_name=guaranteecellular&_oac=1&_nkw=mini
+
+PENCIL
+* can just buy on amazon https://www.youtube.com/watch?v=MQnejB-SLWw [5:15]
+* https://www.amazon.com/Apple-Pencil-1st-Generation-Adapter/dp/B0BJLG69QR
+* https://support.apple.com/en-us/108937
+* https://en.wikipedia.org/wiki/Apple_Pencil
+* https://www.lifewire.com/apple-pencil-compatibility-with-ipad-5189841
+
+> procreate/garageband storage needs
+> any special reqs for recording guitar?
+
+* reg: $425 11" (with pencil) 64GB
+* air: $725 11" 128GB; $800 13"
+
+USE CASES
+* procreate https://www.creativebloq.com/buying-guides/best-ipad-for-procreate
+* golf https://apps.apple.com/us/app/onform-video-analysis-app/id1490334045 https://apps.apple.com/us/app/swing-profile-golf-analyzer/id1039981052 https://apps.apple.com/us/app/v1-golf-golf-swing-analyzer/id349715369
+* skate
+* garageband
+
+## keyboards
+
+📙 https://shifthappens.site/#story-of-a-photo
+🗄️ `aesthetics.md` home design
+
+MODELS 📹 https://www.youtube.com/playlist?list=PLGj5nRqy15j93TD0iReqfLL9lU1lZFEs6 https://novelkeys.com/ https://www.keychron.com/blogs/archived/keyboard-buying-guide  https://www.youtube.com/@calmcode-io
+> low profile https://www.keychron.com/collections/low-profile-keyboard-collection?sort_by=created-descending&filter.p.tag=80%25+Layout
+* layout: 80/TKL (func keys, arrow/edit keys separate) 65 (no func keys) https://www.keychron.com/blogs/archived/keyboard-buying-guide
+* connection: usb-c is faster https://www.keychron.com/blogs/news/solid-wireless-connection-type-c-connection
+* rotary knob typically used for volume, page up/down https://www.reddit.com/r/MechanicalKeyboards/comments/12nfiqg/what_are_you_using_the_knob_for/?rdt=47962
+* programmable w/ QMK or VIA https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard
+* _Apple wired_: profile 2.3mm (or is that Apple magic keyboard?) https://www.amazon.com/dp/B07K7V1FWC
+* _Keychron k2_: https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard
+* _Keychron k8_: 🎯 too tall? turn off lights? https://www.keychron.com/products/keychron-k8-tenkeyless-wireless-mechanical-keyboard
+* _Keychron q1_: $180 https://www.keychron.com/products/keychron-q1?variant=39898909245529
+* _Keychron q1 pro_: $225 https://www.amazon.com/dp/B0BLZ1ZN3H
+* _Keychron q3_: $185 https://www.keychron.com/products/keychron-q3-qmk-custom-mechanical-keyboard?variant=39773518626905 https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard
+* _Keychron v3 max_: 🎯 https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/
+* _Moonlander_: https://news.ycombinator.com/item?id=34070425 
+* _Glove 80_: https://www.youtube.com/watch?v=QLb3ewK8R2Y https://www.moergo.com/
+* _Nuphy air75 v2_: ✅ $125; bad customer service, slow shipping (but next time you can just buy from Amazon?) https://nuphy.com/products/air75-v2
+* _Nuphy gem 80_: 🎯 https://nuphy.com/collections/keyboards/products/gem80?_pos=1&_fid=005c5f83c&_ss=c
+
+KEYCAPS 🔍 https://novelkeys.com/collections/keycaps https://www.keychron.com/collections/all-keycaps
+* size
+> Keycap sizes are described in terms of a "u. width. For example, 1u is the size of each of the number and alphabet keys on a keyboard. A 2u key, like Backspace, is twice the size of those 1u keys...compact keyboards often have a 1.75u right Shift key in place of the standard 2.75u right Shift key as well as 1u modifiers in the bottom row. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
+* _legend_: character on key; double-shot (more expensive) dye-sub (PBT only, non-transparent)
+* _profile_: height * shape https://thekeeblog.com/overview-of-different-keycap-profiles/
+* _PBT_: more durable
+* _ABS_: less durable
+
+SWITCHES 🔍 https://milktooth.com/products/switches https://switches.mx/
+> One other small detail to keep an eye out for is north or south-facing switches. North-facing switches have the LED cutout facing toward the top of the keyboard - they're better at illuminating shine-through legends, but aren't compatible with common Cherry-profile keycaps. South-facing switches have the LED cutout facing toward the front of the keyboard, and they are compatible with Cherry-profile keycaps. Some keyboards have both north  and south-facing switches, so make sure to double-check before buying a new set of keycaps. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
+* it goes deep https://www.theremingoat.com/ https://keyboardsexpert.com/what-is-a-frankenswitch-keyboard-switch/
+> If you don't already have a preference, we recommend Brown switches made by Gateron, Kailh, or Cherry because they're popular, readily available tactile switches that are good for most tasks and quiet enough for most offices...Clicky switches—like Blues and Kailh Box Whites—provide fun, typewriter-esque feedback. But they’re not ideal if you work or game in a shared space because they're very noisy...Optical switches use a laser to determine when you actuate a key. Manufacturers claim they work faster than mechanical switches, but in our experience, a light linear option like the common Red switch or the gaming-focused Cherry MX Speed Silver is plenty fast. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
+* tester https://drop.com/buy/kbdfans-all-in-one-72-switch-tester?defaultSelectionIds=973206#signupv2 https://kineticlabs.com/switches/kinetic/keyboard-switch-sample-packs
+* for low profile https://www.howtogeek.com/339502/low-profile-switches-are-coming-to-shrink-your-mechanical-keyboards/
+* creamy https://kineticlabs.com/switches/hmx/hmx-latte-switches
+* Topre: https://duarteocarmo.com/blog/happy-hacking-keyboard-review https://gizmodo.com/this-is-the-perfect-keyboard-1845258727
+> ALPS switches have been considered by enthusiasts to be one of the rarest type key switches. They are not as popular as mechanical switches, membrane switches, and even Topre switches. In fact, they can only be seen in vintage keyboards that were produced before the rise of membrane keyboards in the 1990s.  https://keyboardsexpert.com/what-are-alps-switches/
+> Switch makers also make low-profile switches, which aren’t as tall and have less travel. You can also find other, completely different types of switches, such as Topre, buckling spring, and Alps clones. None of these switch types are compatible with the wide pool of keycaps designed for MX stems, but they all have their own unique appeal. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
+* _linear_: smooth
+* _tactile_: bump halfway through keypress
+* _clicky_: tactile + click
+* _hot-swappable_: don't need to solder in new switch
+
+ZA
+* tray for desk https://www.amazon.com/VIVO-Computer-Keyboard-Platform-MOUNT-KB05E/dp/B07HFDJCSL
+* touch typing https://www.keybr.com/#!game
+
+---
+
+* mechanical https://www.youtube.com/results?search_query=mechanical+keyboard+for+macos https://www.reddit.com/r/MechanicalKeyboards/comments/89fbk4/whats_all_the_hype_about_mechanical_keyboards_im/?rdt=56069
+* mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 try this one https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/
+* layers https://news.ycombinator.com/item?id=34069927
+* wrist rest https://news.ycombinator.com/item?id=34276226
+* Linux vs. Macos https://www.youtube.com/watch?v=GKoz7mm2tNI
+* chicklet https://www.youtube.com/watch?v=8jM1brvJhzg 5:20 butterfly started with 2015 12' Macbook https://www.theverge.com/2020/5/4/21246223/macbook-keyboard-butterfly-magic-pro-apple-design https://support.apple.com/keyboard-service-program-for-mac-notebooks returned to normal scissor keyboard (aka 'magic') with 2020 16' Macbook Pro https://www.wsj.com/articles/apple-updates-ipad-macbook-air-with-new-keyboard-11584538891
+* remapping https://missing.csail.mit.edu/2019/os-customization/
+* stenography for transcription https://www.openstenoproject.org/plover/
+
+## machines
+
+MBP14 🗄 `python-3.10-youtube-ffmpeg.md`
+* left behind: Ableton, Human Japanese
+* no room to update to Big Sur = no Homebrew support = no Brave/Chrome updates & broken exa, sqlite3, difftastic, neovim
+* MacBook Pro (Retina, 13-inch, Mid 2014)
+```sh
+processor: 2.6 GHz Intel Core i5
+Number of Processors:	1
+Total Number of Cores:	2
+memory: 8 GB 1600 MHz DDR3
+graphics/GPU: Intel Iris 1536 MB
+serial number: C02P2GD4G3QH
+Hardware UUID:	8297AD35-7359-5F1C-B99F-B8C71A0B4D2B
+
+neofetch
+
+                    'c.          zach@zachs-mbp.lan
+                 ,xNMM.          ------------------
+               .OMMMMo           OS: macOS Mojave 10.14.6 18G103 x86_64
+               OMMM0,            Uptime: 5 days, 9 hours, 22 mins
+     .;loddo:' loolloddol;.      Resolution: 1920x1080@2x
+   cKMMMMMMMMMMNWMMMMMMMMMM0:    CPU: Intel i5-4278U (4) @ 2.60GHz
+ .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Memory: 5001MiB / 8192MiB
+ XMMMMMMMMMMMMMMMMMMMMMMMX.      CPU Usage: 11%
+;MMMMMMMMMMMMMMMMMMMMMMMM:       Disk (/): 105G / 113G (95%)
+:MMMMMMMMMMMMMMMMMMMMMMMM:       Local IP: 192.168.86.33
+.MMMMMMMMMMMMMMMMMMMMMMMMX.      Public IP: 76.124.80.235
+ kMMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 187 (brew)
+ .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Shell: bash 3.2.57
+  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   Terminal: iTerm2
+    kMMMMMMMMMMMMMMMMMMMMMMd     Terminal Font: FiraMonoNerdFontComplete-Regular 15
+     ;KMMMMMMMWXXWMMMMMMMk.
+```
+
+## manufacturers
+
+CONSIDERATIONS
+* ✅ Mac: familiarity, hardware
+* ❌ Windows: pyenv is second-class citizen, WSL just something else to debug, unused to keybindings
+* ❌ Linux: no Ableton, hardware, apps
+
+🍎 APPLE
+* cleaning dust https://quanticdev.com/articles/cleaning-macbook-after-16800-hours-of-use/
+* https://cfenollosa.com/blog/the-m1-macbook-air-one-year-later.html
+* can't upgrade battery or drives since 2015 https://www.youtube.com/watch?v=Q1u2tA9dgCQ
+* used: vendors will list year of OS vs. machine production year, ignore photos (might not even be of the same machine), processor (make sure exact type is listed, that they're quoting base speed, beware if year unlisted) https://www.youtube.com/watch?v=JF1EsYfxwhM
+* use 'sold items' to gauge prices https://www.youtube.com/watch?v=b-ltpMVA7BI 6:10
+* 2011 unibody: avoid these https://www.youtube.com/watch?v=8jM1brvJhzg 11:45
+* 2012 Pro unibody (last pre-retina, easy to add hard drive) https://www.youtube.com/watch?v=8jM1brvJhzg 
+* 2015 Pro https://www.youtube.com/watch?v=8jM1brvJhzg 3:20
+
+🐧 LINUX https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=34180508
+* not ready https://cfenollosa.com/blog/fed-up-with-the-mac-i-spent-six-months-with-a-linux-laptop-the-grass-is-not-greener-on-the-other-side.html
+* script install https://blog.jessfraz.com/post/windows-for-linux-nerds/
+* lack of support for Ableton, might not have audio interface drivers https://news.ycombinator.com/item?id=20745072
+* _Chromebook_: Linux beta https://uglyduck.ca/chromebook-web-development/
+* _Dell_: https://cfenollosa.com/blog/fed-up-with-the-mac-i-spent-six-months-with-a-linux-laptop-the-grass-is-not-greener-on-the-other-side.html break all the time https://news.ycombinator.com/item?id=32632720
+* _Framework_: https://frame.work/ broken https://news.ycombinator.com/item?id=33322143 https://news.ycombinator.com/item?id=28606962 https://news.ycombinator.com/item?id=27926425 better now? https://frame.work/products/laptop13-diy-intel-ultra-1 https://omakub.org/
+* _System76_: https://system76.com/ https://news.ycombinator.com/item?id=34599094 https://news.ycombinator.com/item?id=34599094
+* _Thinkpad_: https://news.ycombinator.com/item?id=30241960 x200 https://drewdevault.com/2021/05/14/Pinebook-Pro-review.html beware machines after 2012, X60 can only deal w/ 32-bit os, X200/X220/X230 are popular https://www.youtube.com/watch?v=mxA9Gyyu6Rg 9:45 12:40 13:15
+* Linux laptops https://news.ycombinator.com/item?id=35355494
+
+🪟 WINDOWS
+* https://news.ycombinator.com/item?id=25534258
+* https://news.ycombinator.com/item?id=22852878
+* not MS cares about serving existing customers w/ whatever os it can, not Windows itself https://stratechery.com/2021/intel-problems/
+* _remote control_: SSH for Windows
+* `-whatif` show results if the command had actually executed!
+* _grep_: `dir | find “query”` (quotes required)
+* to open a file, just enter full name
+* `ls -r`: `dir/s`
+* `ls -a`: `Get-ChildItem –Hidden`
+* _touch_: `New-Item c:\Users\F618838\Desktop\restOfPath\newFileName.txt -type file`
+* copy output to clipboard: `<cmd> | clip`
+
+## monitors
+
+🔗 https://www.apple.com/mac-mini/specs/
+
+---
+
+* https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
+* config on macOS https://news.ycombinator.com/item?id=34487066
+* 1080p vs. 4k for readability https://news.ycombinator.com/item?id=23551983 
+* _OLED_: most accurate, best for viewing from non-direct angle https://www.tomsguide.com/us/what-is-oled,news-25120.html
+
+MODELS
+* _Asus pa278cgv_: https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/ https://www.nytimes.com/wirecutter/reviews/best-monitors/
+* _BenQ_: $600 https://www.youtube.com/watch?v=784pFXYBqsg
+* _Dell S2318HN_: ✅ $175, 23", 1080p
+* _Dell S2722QC_: $225, 27", 4k https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding
+* _Dell U2515H_: $250 https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
+* _Dell U2723QE_: $600 https://www.nytimes.com/wirecutter/reviews/best-monitors/
+* _Dell U3223QE_: $600, 32", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/
+* _Spectrum black_: $750 https://www.dough.tech/pages/monitors
+
 ## phone
 
 🗄️ `km.md` music
@@ -139,6 +445,8 @@ ANDROID
 
 ---
 
+* alternatives to Google Play https://news.ycombinator.com/item?id=41770193
+* iPhone 1TB storage https://news.ycombinator.com/item?id=41631130
 * iPhone keyboard https://www.clicks.tech/
 * dumb https://news.ycombinator.com/item?id=34415704
 * Pine64, Librem, Power, RISC-V ISA https://news.ycombinator.com/item?id=26396582 https://news.ycombinator.com/item?id=30760883
@@ -179,95 +487,7 @@ __WhatsApp__ 🗓 summer 2018
 * https://stackpointer.io/security/decrypt-whatsapp-crypt8-database-messages/419/
 * https://stackpointer.io/security/decrypt-whatsapp-crypt12-database-messages/559/
 
-## mbp14
-
-🗄 `python-3.10-youtube-ffmpeg.md`
-
-* potential breakage: Ableton, Sound Source, Human Japanese
-
-| component    | symptom                                        | cause                                                             |
-|--------------|------------------------------------------------|-------------------------------------------------------------------|
-| Homebrew     | broken/outdated pkg (newsboat, exa [no icons], neovim, grv, difftastic, youplot, sqlite3)    | macOS (no Mojave support)                                         |
-| pipx         | fixed -> repoint to Homebrew Python 3.10       |                                                                   |
-| Python       | fixed -> repoint to Homebrew Python 3.10       | no version mgmt (PSF for 3.6, Homebrew problem = can't get pyenv) |
-| macOS        | outdated                                       | no room for Big Sur bc needs 30GB                                 |
-> can't get updates for Brave/Chrome
-
-| type   | GB (90/120)  | notes                                                         |
-|--------|--------------|---------------------------------------------------------------|
-| os     | 55           | Library (5 GB for app caches, poetry/pip)                      |
-| files  | 30           | zvmac, Pictures, Spitfire                                     |
-| apps   | 10           | iTerm, Brave, VS-Code, Ableton, flux, VLC, AppCleaner, GitUp  |
-
-`system_profiler`
-* Model Identifier: MacBookPro11,1
-* MacBook Pro (Retina, 13-inch, Mid 2014)
-* processor: 2.6 GHz Intel Core i5
-* memory: 8 GB 1600 MHz DDR3
-* graphics/GPU: Intel Iris 1536 MB
-* serial number: C02P2GD4G3QH
-
-about this mac > system report
-* Model Name:	MacBook Pro
-* Model Identifier:	MacBookPro11,1
-* Processor Name:	Intel Core i5
-* Processor Speed:	2.6 GHz
-* Number of Processors:	1
-* Total Number of Cores:	2
-* L2 Cache (per Core):	256 KB
-* L3 Cache:	3 MB
-* Hyper-Threading Technology:	Enabled
-* Memory:	8 GB
-* Boot ROM Version:	156.0.0.0.0
-* SMC Version (system):	2.16f68
-* Serial Number (system):	C02P2GD4G3QH
-* Hardware UUID:	8297AD35-7359-5F1C-B99F-B8C71A0B4D2B
-
-neofetch
-
-                    'c.          zach@zachs-mbp.lan
-                 ,xNMM.          ------------------
-               .OMMMMo           OS: macOS Mojave 10.14.6 18G103 x86_64
-               OMMM0,            Uptime: 5 days, 9 hours, 22 mins
-     .;loddo:' loolloddol;.      Resolution: 1920x1080@2x
-   cKMMMMMMMMMMNWMMMMMMMMMM0:    CPU: Intel i5-4278U (4) @ 2.60GHz
- .KMMMMMMMMMMMMMMMMMMMMMMMWd.    Memory: 5001MiB / 8192MiB
- XMMMMMMMMMMMMMMMMMMMMMMMX.      CPU Usage: 11%
-;MMMMMMMMMMMMMMMMMMMMMMMM:       Disk (/): 105G / 113G (95%)
-:MMMMMMMMMMMMMMMMMMMMMMMM:       Local IP: 192.168.86.33
-.MMMMMMMMMMMMMMMMMMMMMMMMX.      Public IP: 76.124.80.235
- kMMMMMMMMMMMMMMMMMMMMMMMMWd.    Packages: 187 (brew)
- .XMMMMMMMMMMMMMMMMMMMMMMMMMMk   Shell: bash 3.2.57
-  .XMMMMMMMMMMMMMMMMMMMMMMMMK.   Terminal: iTerm2
-    kMMMMMMMMMMMMMMMMMMMMMMd     Terminal Font: FiraMonoNerdFontComplete-Regular 15
-     ;KMMMMMMMWXXWMMMMMMMk.
-
-## air22
-
-why
-* have a laptop again (work on the couch, Tara's, cafes, parents)
-* set up new machine w/ time to experiment (vs. rush of DR)
-
-potential roadblocks
-* sync: can use `music-library` to note any files change on mbp2022 that you need to propagate elsewhere
-* port for peripherals: don't think I'll need this if 500GB HD
-
-questions
-* ports 🗄 peripherals
-
-todo
-* user files @ `~/zvmac`
-* further note rf, esp. version mgmt
-
-setup
-* `ACCOUNT_UNAVAILABLE` for Apple ID
-* ls `/Applications` doesn't list everything e.g. iMovie only shows up in Finder
-
-## mini23
-
-todo
-
-# 🍎 MAC
+# 🍎 MACOS
 
 🗄 `linux.md` denv
 🔍
@@ -396,7 +616,7 @@ arch  # i386 w/ Rosetta
 arch  # arm64 w/out Rosetta
 ```
 
-Command Line Tools
+COMMAND LINE TOOLS
 * _XCode_: IDE for macOS dev
 * _Command Line Tools_: compilers from XCode
 * _OSX-GCC installer_: don't install this alongside Command Line Tools https://docs.python-guide.org/starting/install3/osx/
@@ -428,47 +648,6 @@ Update them from Software Update in System Preferences or run:
   softwareupdate --all --install --force
 ```
 
-## iPad
-
-🔗 versions https://en.wikipedia.org/wiki/IPad#iPad
-
-| IPAD   | USED | NEW | DISPLAY | STORAGE | PENCIL |
-|--------|------|-----|---------|---------|--------|
-| mini   | 120  | 500 | 8       |  64     | ?      |
-| reg    | 170  | 350 | 11      |  64     | ?      |
-| air    | ---  | --- | 11      |  --     | ?      |
-| pro    | ---  | --- | --      |  --     | ?      |
-
----
-
-ROUGH PLAN
-* buy used mini for golf ($150)
-* buy used reg for procreate ($170 + pencil $80)
-
-https://buyersguide.macrumors.com/#iPad-Air
-https://www.amazon.com/dp/B09G9FPHY6 
-https://www.ebay.com/itm/144379058448?itmmeta=01HYK52QFWFVWA6GQWZJ4QHAPJ
-https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=guaranteecellular&store_cat=0&store_name=guaranteecellular&_oac=1&_nkw=mini
-
-PENCIL
-* can just buy on amazon https://www.youtube.com/watch?v=MQnejB-SLWw [5:15]
-* https://www.amazon.com/Apple-Pencil-1st-Generation-Adapter/dp/B0BJLG69QR
-* https://support.apple.com/en-us/108937
-* https://en.wikipedia.org/wiki/Apple_Pencil
-* https://www.lifewire.com/apple-pencil-compatibility-with-ipad-5189841
-
-> procreate/garageband storage needs
-> any special reqs for recording guitar?
-
-* reg: $425 11" (with pencil) 64GB
-* air: $725 11" 128GB; $800 13"
-
-USE CASES
-* procreate https://www.creativebloq.com/buying-guides/best-ipad-for-procreate
-* golf https://apps.apple.com/us/app/onform-video-analysis-app/id1490334045 https://apps.apple.com/us/app/swing-profile-golf-analyzer/id1039981052 https://apps.apple.com/us/app/v1-golf-golf-swing-analyzer/id349715369
-* skate
-* garageband
-
 ## keybindings
 
 EMOJI
@@ -476,12 +655,12 @@ EMOJI
 * picker: `CTRL CMD SPACE`
 * disable suggestions: `sudo defaults write /Library/Preferences/FeatureFlags/Domain/UIKit.plist emoji_enhancements -dict-add Enabled -bool NO` https://www.reddit.com/r/MacOS/comments/16wzdk9/is_there_a_way_to_turn_off_the_new_emoji
 
-system
+SYSTEM
 * screenshot - whole: CMD SHIFT 3
 * screenshot - portion: CMD SHIFT 4
 * window - hide: CMD h
 
-symbols
+SYMBOLS
 * keyboard viewer https://setapp.com/how-to/type-math-symbols-on-mac
 * _copyright_: `alt g`
 * _trademark_: `alt 2`
@@ -568,6 +747,8 @@ $ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 ## versions
 
+---
+
 COMPATIBILITY https://en.wikipedia.org/wiki/MacOS_version_history#Releases
 * current version: v10.14 (Mojave)
 * v11 (Big Sur) works for mbp2014 https://support.apple.com/en-us/HT211238
@@ -607,127 +788,6 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 * keystroke visualizer https://github.com/keycastr/keycastr https://switowski.com/blog/favorite-mac-tools/
 * screen capture https://switowski.com/blog/favorite-mac-tools/
 
-## backups
-
-🗄 `db.md` data eng, Postgres, SQLite
-
-|  ITEM         | LOCATION | DATE  | CONTENTS   | TO            |
-|---------------|----------|-------|------------|---------------|
-| digits        | mini23   | 19.07 | pw         | safe, lockbox |
-| calendar      | google   | 24.02 |            | mini23        |
-| email         | google   | 22.02 |            | mini23        |
-| mini23        | -        |       | fs         |               |
-| air22         | -        | ----- | mini23     |               |
-| `ExFatMain`   | desk     | 24.09 | mini23     |               |
-| `WD1`         | safe     | 24.06 | mini23     |               |
-| `WD2`         | lockbox  | 20.02 | mini23     |               |
-| `music-usb`   | desk     | ----- | `yin`      |               |
-| `music-usb-2` | desk     | 24.02 | `yin`      |               |
-
-### mini23 ➡️ exfatmain
-
-> 📍 clean up DS files `fd -HI DS`
-* rm mckinney book
-* 23 taxes
-* golf
-* music: francis harris, christian scott
-* photos: nirvana
-
-### air-capp ➡️ mini23
-
-* dance/dark: nicolaas jaar, roisin murphy, pantha du prince
-* electronic: we-as-is
-* rock/80s: war on drugs, the police
-* rock/indie: camera obscura
-* rnb: al green (belle)
-* punks/60s
-* rm police from rock/singles
-
-### clean up
-
-SEMANTICS
-* _transfer_: mv data from A to B
-* _sync_: scheduled transfer https://kevq.uk/building-my-home-server
-* _backup_: adhoc transfer
-* _dump_: "create a script that would allow me to recreate this database"
-* _load_: "use script to create database"
-
-SYNC
-* is hard https://sirupsen.com/napkin/problem-14-using-checksums-to-verify
-* https://news.ycombinator.com/item?id=26902422 https://github.com/rclone/rclone
-* https://github.com/sahib/brig
-* rclone https://news.ycombinator.com/item?id=22082585 http://www.cis.upenn.edu/~bcpierce/unison/ https://news.ycombinator.com/item?id=22791036
-* Perkeep/Camlistore https://news.ycombinator.com/item?id=23676350
-* Own Cloud, Amazon Glacier, BackBlaze, Arq https://github.com/kahun/awesome-sysadmin#backups https://github.com/rclone/rclone
-* _syncthing_: https://tonsky.me/blog/syncthing/
-* _BackupPC_: https://backuppc.github.io/backuppc/
-* _Dropbox_: https://superuser.com/q/351169/728972
-* _Restic_: local https://github.com/restic/restic 
-* _Borg_: https://www.borgbackup.org/ https://news.ycombinator.com/item?id=13694079 https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
-* _Backblaze_: Terraform provider https://news.ycombinator.com/item?id=26426489
-* _rsync_: https://goteleport.com/blog/scp-familiar-simple-insecure-slow/ https://missing.csail.mit.edu/2019/remote-machines/ impl https://news.ycombinator.com/item?id=31958536 `rsync -rv --exclude=.git <dir> <path/to>` https://stackoverflow.com/a/3672584/6813490 https://michael.stapelberg.ch/posts/2022-07-02-rsync-how-does-it-work/
-```sh
-# sync local to remote
-rsync --rsync-path 'sudo -u app rsync' -arvR --exclude '.*' --exclude '*~' .  ${DEST_HOST}:/opt/t3  # start
-fswatch --recursive --one-per-batch . | xargs -L1 -II rsync --rsync-path 'sudo -u app rsync' -arvR --exclude '.*' --exclude '*~' .  ${DEST_HOST}:/opt/t3 # on file change
-```
-
----
-
-https://github.com/paperless-ngx/paperless-ngx
-https://yourdigitalrights.org/ https://news.ycombinator.com/item?id=34358622
-
-potential new config
-> same price as Dropbox but with incremental for local files
-* $7.50 - Tarsnap for `zvmac` https://www.tiltedwindmillpress.com/product/tarsnap-mastery-online-backups-for-the-truly-paranoid/ https://www.kalzumeus.com/2014/04/03/fantasy-tarsnap/
-* $3.00 - Google Drive for music
-* $0.00 - personal drives
-
-🎗 now that you're copying music files btw work machine and music-usb
-* backup music-usb to exfat-main
-> 22.02.10
-* backup exfat-main non music files to new hard drive
-* backup exfat-main music files to other drives and Dropbox
-* now you can transfer work machine music files back
-* this way if your work machine corrupts the files somehow you have physical and cloud backups of everything before that
-
-recently updated
-> 🎗 use music-lib for easier backups!
-> do mac journal
-* digits
-* moved to ExFatMain: comedy, training
-
-physical storage
-* keys: office desk
-* safe: HD, passport, personal
-* lockbox: HD, personal
-
----
-
-* don't backup project deps e.g. `.node_modules` https://bsago.me/posts/lessons-learned-when-my-ssd-died
-* regularize email export https://news.ycombinator.com/item?id=29978099
-* https://hacker-tools.github.io/backups/
-* https://unixsheikh.com/articles/how-i-store-my-files-and-why-you-should-not-rely-on-fancy-tools-for-backup.html
-* export addresses from Amazon
-* preventing file corruption https://duckduckgo.com/?q=how+do+hard+drives+get+corrupted&atb=v161-1&ia=web
-* defrag?
-
-BACKBLAZE https://wesbos.com/uses
-📙 Shotts command line ch. 18
-* ❓ versioned backups to prevent data corruption? https://hacker-tools.github.io/backups/
-* 📍 extra consideration to code (dupe to Gitlab), digits, email https://hacker-tools.github.io/backups/ https://kevq.uk/i-nearly-lost-all-of-my-data/ 
-* weird files on backup drives http://blog.hostilefork.com/trashes-fseventsd-and-spotlight-v100/
-
-TIME MACHINE
-* backup https://support.apple.com/en-us/HT201250
-* restore https://support.apple.com/en-us/HT203981
-* slow?
-> There are only a few issues I can think of with Time Machine: first, it can slow things down on older, less powerful Macs. Five to ten years ago, it was common for my consulting clients to refuse to use Time Machine because they were tired of watching it slow down their machines. The other issue? Time Machine backups aren’t bootable — in other words, you can’t just select the backup drive during bootup and use it to bring a machine with a dead primary drive back to life. You can, however, boot from the Mac recovery partition and attempt to restore your machine with the backup. - https://blog.macsales.com/29785-backup-month-a-look-at-time-machine-carbon-copy-cloner-superduper
-* deletion: should be automatically purged as they age and as the drive space dips; can do manually https://www.macworld.com/article/3260635/macs/how-to-delete-time-machine-snapshots-on-your-mac.html https://www.youtube.com/watch?v=GYXOuP6_PSQ
-* list: `tmutil listlocalsnapshotdates` https://forums.macrumors.com/threads/how-to-delete-time-machine-local-backups-on-high-sierra.2073998/
-* filepath: on my machine stored in `Volums/.com.apple.TimeMachine.localsnapshots` https://robservatory.com/disable-local-time-machine-backups-on-laptops/
-* can always disable TM backups from System Preferences, which will start clearing out local backups
-
 ## PDF
 
 ---
@@ -753,70 +813,3 @@ https://news.ycombinator.com/item?id=26691626
 * https://github.com/burtonator/polar-bookshelf https://pwmt.org/projects/zathura/ https://goodreader.com/
 * mobile: [Joplin](https://github.com/laurent22/joplin), IAWriter
 * https://www.pdfa.org/a-technical-and-cultural-assessment-of-the-mueller-report-pdf/
-
-## reimage
-
-SEMANTICS
-* _image_: OS
-* _bootable disk_: disk from which OS can boot https://pc.net/helpcenter/answers/startup_disk_vs_bootable_disk `install macOS Mojave` 🎗 in large safe 🗄 versions
-* _startup disk_: disk from which OS actually does boot https://pc.net/helpcenter/answers/startup_disk_vs_bootable_disk
-* _SD card_: non-volatile memory i.e. really fast storage
-* _flash_: write OS image (to SD card) https://www.raspberrypi.org/forums/viewtopic.php?f=91&t=24621 https://uglyduck.ca/linux-mint-macbook-air/
-
-factory reset
-* aka "Erase all contents and Settings"
-> iOS where instead of going through this process it will just wipe everything and put a clean copy of macOS just like a fresh install just without the hassle of booting from drive etc. https://www.youtube.com/watch?v=rgHyvj_nWCU
-* hardware: M1, T2 from 2017
-* available from System Preferences
-* _system partition_: os https://www.youtube.com/watch?v=O882iWxtZyo 2:50
-* _data partition_: user files, settings
-* after reset leave at Activate Mac screen otherwise will save your wifi to settings https://www.youtube.com/watch?v=O882iWxtZyo 3:15
-* after Activate Mac, just reset to Setup Assistant
-
-create image https://www.youtube.com/watch?v=rgHyvj_nWCU
-* download OS version in App Store
-* quit out of install
-* format drive using Disk Utility to "Mac OS Extended Journaled"
-
-test reimage
-* create image
-* add couple of apps/files
-* reimage
-* verify only apps/files from basic set up
-
----
-
-* _storage cleanup_: https://www.macworld.com/article/2030221/macs/our-favorite-mac-cleanup-tips.html https://macpaw.com/cleanmymac https://macpaw.com/gemini https://daisydiskapp.com/ https://macpaw.com/cleanmymac newer macOS versions have 'Reduce Clutter' tool https://github.com/docker/for-mac/issues/2297
-* file security https://hacker-tools.github.io/security/
-
-prereqs
-* [machine compatibility](https://support.apple.com/en-us/HT201475) 
-* [space for install](https://blog.macsales.com/45780-get-ready-for-macos-mojave) 
-* [run First Aid on startup drive](https://blog.macsales.com/45780-get-ready-for-macos-mojave)
-* can't remove standard apps https://apple.stackexchange.com/a/65175/328389
-
-bootable disk https://aaronchall.github.io/#sec-6-2 https://support.apple.com/en-us/HT201372
-* disk should be at 16GB
-* download OS but don't proceed with install
-* grab OS from `Applications`
-* https://www.youtube.com/watch?v=Y0NKkOOI9Ew
-
-install from bootable disk
-* adjust Energy Saver, plug in power source, `media/video/za` to phone, write down instructions
-* insert bootable disk, power on holding `ALT`, folllow video
-* troubleshoot https://support.apple.com/en-us/HT201475 + [potential issues](https://blog.macsales.com/45723-mac-installation-errors-you-may-encounter-and-how-to-fix-them)
-* load user files
-
-## Windows
-
-* https://news.ycombinator.com/item?id=25534258
-* https://news.ycombinator.com/item?id=22852878
-* not MS cares about serving existing customers w/ whatever os it can, not Windows itself https://stratechery.com/2021/intel-problems/
-* _remote control_: SSH for Windows
-* `-whatif` show results if the command had actually executed!
-* _grep_: `dir | find “query”` (quotes required)
-* to open a file, just enter full name
-* `ls -r`: `dir/s`
-* `ls -a`: `Get-ChildItem –Hidden`
-* _touch_: `New-Item c:\Users\F618838\Desktop\restOfPath\newFileName.txt -type file`
-* copy output to clipboard: `<cmd> | clip`

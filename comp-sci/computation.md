@@ -65,6 +65,7 @@ COMPRESSION
 * video streaming https://news.ycombinator.com/item?id=40408515
 
 ENTROPY
+* https://math.ucr.edu/home/baez/what_is_entropy.pdf https://johncarlosbaez.wordpress.com/2024/07/20/what-is-entropy/
 * entropy per word https://entropicthoughts.com/reading-slightly-more-incrementally
 > got here from "how to create session ID in Python?" 🗄 `http.md` https://stackoverflow.com/questions/817882/unique-session-id-in-python https://unix.stackexchange.com/a/361789
 * https://victorzhou.com/blog/information-gain/
@@ -117,6 +118,7 @@ ZA
 
 TURING MACHINE
 * https://snarky.ca/mvpy-minimum-viable-python/
+* https://news.ycombinator.com/item?id=41633551
 * _Turing complete_: functional parity w/ Turing machine https://www.youtube.com/watch?v=dNRDvLACg5Q
 ```python
 if state == state359 and current_tape_location == 1:
@@ -129,6 +131,7 @@ else state == done:
 ```
 
 STATE MACHINE
+* diagrams https://github.com/statecharts/statecharts.github.io/issues/44 https://en.wikipedia.org/wiki/State_diagram
 * _finite state machine (FSM)_: machine w/ fixed set of possible states 📙 Conery 66 https://nullprogram.com/blog/2020/12/31/ https://arpitbhayani.me/blogs/fsm
 * input not idempotent e.g. ball point pen https://www.youtube.com/watch?v=4rNYAvsSkwk https://arpitbhayani.me/blogs/fsm https://www.youtube.com/watch?v=nG_ZsNxRz0o
 * Jira ticket stages would be another example https://news.ycombinator.com/item?id=24409556 https://github.com/alysivji/finite-state-machine https://github.com/statelyai/xstate

@@ -2,6 +2,7 @@
 
 ## 参考
 
+🛣️ https://roadmap.sh/datastructures-and-algorithms https://roadmap.sh/computer-science
 📚
 * ✅ Bhargava grokking algorithms
 * Christian algorithms to live by
@@ -12,6 +13,12 @@
 * Wengrow ds/algos
 
 ## 进步
+
+https://chatgpt.com/share/67069a06-24cc-8004-9a88-108d568d211a
+* extract data structures
+* combine algos and ML
+
+---
 
 fizz buzz
 fibonacci
@@ -559,9 +566,10 @@ def set_covering(states_needed, stations):
 📙 Conery ch. 7
 🗄
 * `dbms.md` non-relational
-* `dbms.md` internals / datastructure
+* `dbms.md` internals / datastructures
 * `eng.md` store / schemas
 * `education.md` design / information design
+* `languages.md` typing
 * `science.md` metascience / categories
 * `sql.md` modeling
 
@@ -624,11 +632,29 @@ za
 * _backing store_: free space in dynamic array https://danluu.com/algorithms-interviews/
 * _array slice_: use array subset to form new array; example of out-of-place 🗄 `language.md` memory/stack; O(n) in both time and space https://www.interviewcake.com/concept/python3/slice
 
+## category theory / graph theory
+
+---
+
+* https://www.amazon.com/How-Bake-Pi-Exploration-Mathematics/dp/0465097677
+https://chatgpt.com/c/670933eb-bfe0-8004-aca0-fb048ba5ede0
+https://chatgpt.com/c/6709358b-4070-8004-8df9-cd6180a0e70b
+https://www.reddit.com/r/math/comments/hqyynh/category_theory_for_programmers/
+https://www.reddit.com/r/math/comments/140cbu6/why_are_computer_scientists_good_at_category/
+https://bartoszmilewski.com/2014/10/28/category-theory-for-programmers-the-preface/
+https://www.reddit.com/r/haskell/comments/1evw5qo/ive_read_through_category_theory_for_programmers/
+https://www.blurb.com/b/9621951-category-theory-for-programmers-new-edition-hardco
+https://github.com/hmemcpy/milewski-ctfp-pdf
+* _category theory_: subset of graph theory https://news.ycombinator.com/item?id=26011025 https://en.wikipedia.org/wiki/Category_theory
+https://www.amazon.com/How-Bake-Pi-Exploration-Mathematics/dp/0465097677
+* graph theory http://think-like-a-git.net/
+* useful math for software: combinatorics, probability, linear algebra, graph theory, statistics https://buttondown.email/hillelwayne/archive/how-knowing-math-helps-you-write-better-software/
+
 ## graph
 
-🛠 https://github.com/networkx/networkx https://github.com/dominikbraun/graph/ https://news.ycombinator.com/item?id=38834780 https://www.hytradboi.com/2022/how-to-query-almost-everything
+🗄 `info.md` diagrams
 📙 Kun ch. 6 https://en.wikipedia.org/wiki/Graph_theory
-🔍 examples https://www.python-graph-gallery.com/
+🛠 https://github.com/networkx/networkx https://github.com/dominikbraun/graph/ https://news.ycombinator.com/item?id=38834780 https://www.hytradboi.com/2022/how-to-query-almost-everything
 
 SEMANTICS
 * _graph_: nodes + edges
@@ -649,7 +675,7 @@ SEMANTICS
 * category theory https://news.ycombinator.com/item?id=28953155 https://www.amazon.com/Joy-Abstraction-Exploration-Category-Theory/dp/1108477224
 * doesn't add much value irl https://markusstrasser.org/p/bcd8bded-7136-4bb4-8f97-e8a3a7b6d926/
 * graph of blogs https://astralcodexten.substack.com/p/links-for-april-644
-* _DAG_: https://github.com/pyjanitor-devs/pyjanitor dependency graphs, build systems https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
+* _DAG_: https://github.com/pyjanitor-devs/pyjanitor dependency graphs, build systems https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/ https://en.wikipedia.org/wiki/Technology_tree
 * _cycle_: https://endcrawl.com/credits-ordering/
 ```python
 # UNWEIGHTED
@@ -668,6 +694,9 @@ network['root']['sean'] = 6
 ## map
 
 ---
+
+* mind map https://en.wikipedia.org/wiki/Mind_map
+* concept map https://en.wikipedia.org/wiki/Concept_map https://cmap.ihmc.us/docs/learn.php
 
 hash tables
 * https://realpython.com/python-hash-table/
@@ -707,11 +736,27 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 ## tree
 
 🔗 https://en.wikipedia.org/wiki/Tree_(data_structure)
-🛠️ https://github.com/c0fec0de/anytree
 🗄️
-*️ `language.md` compilers
+*️ `km.md` notes / tooling
+*️ `language.md` compiler
 *️ `protocols.md` JSON / jless
 * `science.md` metascience / categories
+
+TREE BUILDERS 🗄️ `html-css.md` SSG `protocols.md` JSON `km.md` notes / tooling
+* features: dynamic creation via TUI, hot reload viz, tree merge, Vim traversal, symlink nodes
+* BYO https://realpython.com/directory-tree-generator-python/
+* _anytree_: ✅ https://github.com/c0fec0de/anytree
+* repos https://github.com/zachvalenta/capp-prod-cat https://github.com/zachvalenta/capp-prod-cat-alt
+* symlink node https://anytree.readthedocs.io/en/stable/api/anytree.node.html#anytree.node.symlinknode.SymlinkNode https://github.com/c0fec0de/anytree/pull/189 https://github.com/zachvalenta/anytree/blob/main/anytree/exporter/dictexporter.py 🗄️ `runtime.md` pip
+* multi-dimensional https://anytree.readthedocs.io/en/stable/tricks/multidim.html https://en.wikipedia.org/wiki/MultiValue_database
+* dict export https://anytree.readthedocs.io/en/stable/exporter/dictexporter.html
+* json export https://anytree.readthedocs.io/en/stable/exporter/jsonexporter.html
+* _basilk_: https://github.com/GabAlpha/basilk
+* _Haystack_: 🎯 tree follower https://news.ycombinator.com/item?id=41648564
+* _hmm_: ✅ https://github.com/nadrad/h-m-m https://github.com/zachvalenta/capp-prod-cat-markmap
+* _markmap_: ✅ Markdowm https://github.com/markmap/markmap
+* _Leo_: 🎯 strange beast https://news.ycombinator.com/item?id=27615225 https://github.com/leo-editor/leo-editor
+* _treebuilder_: 🎯 https://github.com/fdieulle/treebuilder
 
 SEMANTICS
 * _node_: element of tree
@@ -737,6 +782,7 @@ SEMANTICS
 
 ---
 
+* _treemap_: https://github.com/niyue/skillmap https://github.com/nikolaydubina/go-cover-treemap
 https://buttondown.com/hillelwayne/archive/maybe-software-engineers-could-learn-something/ https://en.wikipedia.org/wiki/Hypernymy_and_hyponymy
 
 WALKING
@@ -808,7 +854,7 @@ QUEUES
 
 ---
 
-* _dequeue_: *FO; either; push to each pop from each https://stackoverflow.com/a/38812944/6813490
+* _dequeue_: *FO; either; push to each pop from each https://stackoverflow.com/a/38812944/6813490 https://hamatti.org/posts/rotating-turn-order-with-deque/
 ```python
 pass
 ```

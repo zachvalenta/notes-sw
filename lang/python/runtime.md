@@ -154,6 +154,8 @@ ALTERNATIVES
 
 ---
 
+* https://blog.jetbrains.com/pycharm/2024/09/7-ways-to-use-jupyter-notebooks-inside-pycharm/
+
 ALTERNATIVES
 * org mode https://dualpower.supply/
 * https://github.com/Bycelium/PyFlow
@@ -265,20 +267,40 @@ STACK TRACES 🗄️ stdlib/profiling
 * https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html
 * https://realpython.com/ipython-interactive-python-shell/
 
-ZA
-* install: using pip into global pyenv interpreter
-* 📍 fix theme (try monokai)
+CONFIG
+* install: using pip into global pyenv interpreter https://github.com/zachvalenta/logs-capp/commit/4b6eca22fac0422406e5df5f0fb40dcc581d7341
+* vi for readline https://gist.github.com/sstirlin/c3c207b1052b613ab9554b4ebdfc3f35
+* color theme: rich in PYTHONSTARTUP + catppuccin/pygments https://github.com/catppuccin/python#ipython https://github.com/catppuccin/python/issues/22
+* fs
+```sh
+├── .ipython
+│   └── profile_default
+│   └──── history.sqlite  # command history
+│   └──── ipython_config.py  # generature with `ipython profile create` 
+│   └──── startup  # modules executed prior to startup?
+│   └────── 00-first.py
+│   └────── 00-last.py
+```
+
+DESIGN
 * bad: no docstrong in autocomplete for `PYTHONSTARTUP` function
 * good: numbered prompts, pretty traceback, magic cmd, auto indent, autocomplete
 
+ALTERNATIVES
+* built-in https://realpython.com/python313-repl/
+* _bpython_:
+* _pypython_:
+
 ---
+
+* 📍 fix theme (try monokai)
+separte startup files in addition to `PYTHON_STARTUP` https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#startup-files
 
 MAGIC
 * alias https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-alias_magic
 
 * why: 📍 Rich integration, ipdb, magic func https://realpython.com/ptpython-shell/#highlighting-code-syntax
 * https://ipython.readthedocs.io/en/stable/config/options/terminal.html#configtrait-InteractiveShellApp.pylab
-* catppuccin for theme https://github.com/catppuccin/python/issues/22 https://github.com/ipython/ipython/blob/a499dbd507a92ea0087eca0f53e550fc838f0580/IPython/terminal/interactiveshell.py#L683 https://github.com/catppuccin/python?tab=readme-ov-file#ipython https://github.com/catppuccin/python/issues/3 https://github.com/catppuccin/python/issues/4
 * command
 ```python
 # run iPython and debug at site of error https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/ https://stackoverflow.com/a/21508070
@@ -322,8 +344,13 @@ obj.__class__.__mro__  # view inheriance hierarchy
 
 📜 https://docs.python.org/3/tutorial/appendix.html#the-interactive-startup-file 🗄️ imports
 
+PYTHONSTARTUP
+* `PYTHONSTARTUP`: module executed and loaded on REPL startup, module in same namespace as interactive cmds i.e. all module symbols available for use https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP
+* set in shell: `export PYTHONSTARTUP='$DOT_DIR/python/python_startup.py'`
+* using per project: https://github.com/zachvalenta/algo-sandbox/blob/master/Makefile#L28
+
+FUNCTIONALITY
 * view module help: `pretty(help(__name__))`
-* startup file: `export PYTHONSTARTUP='$DOT_DIR/python/python_startup.py'` https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://github.com/zachvalenta/algo-sandbox/blob/master/Makefile#L28 https://github.com/zachvalenta/dotfiles-mini23/blob/main/shell/.zprofile#L183
 * list user-defined modules https://github.com/zachvalenta/algo-sandbox/commit/3ab6b3d8b4bcbf1ad7548c14f62958e5f88c75e1 https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
 
 ---
@@ -344,6 +371,11 @@ ZA
 
 ---
 
+GIL, JIT https://news.ycombinator.com/item?id=41677131
+
+auditing hooks https://stackoverflow.com/questions/63350394/how-to-set-up-and-use-python-audit-hooks https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://chatgpt.com/c/67094688-4dac-8004-88e8-4eadd79a1d0e
+
+* free threaded https://github.com/astral-sh/uv/issues/7193
 * `__pycache__`: holds bytecode in the form of `.pyc` https://stackoverflow.com/a/28365204/6813490 speeds up module loading https://docs.python.org/3/tutorial/modules.html#compiled-python-files suppress creation of with `export PYTHONDONTWRITEBYTECODE=1` more on bytecode https://blog.jse.li/posts/pyc/ https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md
 
 VERSIONS https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com/text/which-py.html https://www.nicholashairs.com/posts/major-changes-between-python-versions/
@@ -371,6 +403,7 @@ VERSIONS https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com
 
 ---
 
+GIL, JIT, free thread https://realpython.com/python313-free-threading-jit/ https://drew.silcock.dev/blog/everything-you-need-to-know-about-python-3-13/ https://blog.changs.co.uk/free-threaded-python-with-asyncio.html
 AST is slow https://www.gauge.sh/blog/python-extensions-should-be-lazy
 preprocessor https://pydong.org/posts/PythonsPreprocessor/
 https://snarky.ca/unravelling-attribute-access-in-python/
@@ -404,7 +437,7 @@ AST
 C EXTENSIONS 📙 Beazley ch. 15
 * howto https://kenschutte.com/python-swap-ints/
 * simplistic interpreter = C extensions = Python for datascience https://lucumr.pocoo.org/2018/7/13/python/
-* can write extensions in Rust https://towardsdatascience.com/nine-rules-for-writing-python-extensions-in-rust-d35ea3a4ec29 https://github.com/RustPython/RustPython https://blog.jerrycodes.com/python-trends-in-2023/ https://www.peterbaumgartner.com/blog/wrapping-a-rust-crate-in-a-python-package/ https://github.com/fulcrum-so/ziggy-pydust
+* can write extensions in Rust https://towardsdatascience.com/nine-rules-for-writing-python-extensions-in-rust-d35ea3a4ec29 https://github.com/RustPython/RustPython https://blog.jerrycodes.com/python-trends-in-2023/ https://www.peterbaumgartner.com/blog/wrapping-a-rust-crate-in-a-python-package/ https://github.com/fulcrum-so/ziggy-pydust https://pythonspeed.com/articles/intro-rust-python-extensions https://pythonspeed.com/articles/intro-rust-python-extensions/
 
 * Rust https://rustpython.github.io/
 * actually compiled https://realpython.com/build-a-blog-from-scratch-django/
@@ -440,6 +473,151 @@ CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-g
 * compiler execution flow: Python src to bytecode, VM runs bytecode https://eli.thegreenplace.net/2012/03/23/python-internals-how-callables-work https://eli.thegreenplace.net/2010/06/30/python-internals-adding-a-new-statement-to-python/
 > CPython bytecode is evaluated by the the mammoth function PyEval_EvalFrameEx in Python/ceval.c. The function is scary but it's nothing more than a fancy dispatcher of opcodes.
 
+## concurrency
+
+📙 Beazley ch. 12
+🗄
+* `linux.md` processes
+* `src.md` concurrency
+
+BIG PICTURE
+* Python as a language spec supports multiple threads
+* CPython cannot execute threads in parallel https://stackoverflow.com/a/3086582
+* Python is good at concurrency (IO intensive e.g. networking) https://news.ycombinator.com/item?id=22907891
+* Python is bad at parallelism (CPU intensive e.g. search) http://esr.ibiblio.org/?p=8161
+
+LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
+* `multithreading`: actually parallel bc spawns own process i.e. heavier
+* `asyncio`: single process; pre-emptive multi-tasking (OS interrupts itself); lighter than threads
+* `threading`: single process; cooperative multi-tasking (code tells OS when to interrupt)
+
+---
+
+BYO event loop https://www.youtube.com/watch?v=8I9Rc2Zaos4
+https://www.amazon.com/gp/product/1492055026
+start here https://www.youtube.com/watch?v=ftmdDlwMwwQ https://www.youtube.com/watch?v=X7vBbelRXn0
+coroutine https://docs.python.org/3/glossary.html#term-coroutine-function
+https://superfastpython.com/asyncio-event-loop-separate-thread/
+https://calpaterson.com/async-python-is-not-faster.html
+https://martinheinz.dev/blog/97
+https://higherorderco.com/
+https://www.amazon.com/gp/product/1492055026
+https://roadmap.sh/python
+https://hakibenita.com/django-concurrency
+https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sync-vs-async-in-python-tools-benchmarks-and-asgiwsgi-explained
+https://news.ycombinator.com/item?id=41001951
+https://realpython.com/python-async-iterators/
+https://sobolevn.me/2020/06/how-async-should-have-been
+
+* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#overcoming-gil-with-subinterpreters-and-immutability
+* JIT https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#building-a-jit-compiler-for-cpython
+* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#unlocking-the-parallel-universe-subinterpreters-and-free-threading-in-python-313
+
+SEMANTICS https://python.hamel.dev/concurrency/
+* thread
+* process
+* _coroutine_ https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/ https://www.fluentpython.com/extra/classic-coroutines/ prime https://www.fluentpython.com/lingo https://www.fluentpython.com/lingo/#coroutine https://docs.python.org/3/glossary.html#term-coroutine-function https://docs.python.org/3/glossary.html#term-coroutine https://news.ycombinator.com/item?id=40097681&utm_term=comment
+
+https://realpython.com/python-concurrency/
+https://realpython.com/python-async-features/
+https://realpython.com/intro-to-python-threading/
+https://jacobpadilla.com/articles/recreating-asyncio https://news.ycombinator.com/item?id=40281139
+https://www.youtube.com/watch?v=Wvh5C3NbQtA
+
+* https://blog.wilsonl.in/hackerverse/
+* https://news.ycombinator.com/item?id=39812969
+* https://pythonspeed.com/articles/cpu-thread-pool-size
+* https://www.photondesigner.com/articles/instant-messenger
+* https://pythonspeed.com/articles/gpu-vs-cpu/
+* https://charlesleifer.com/blog/asyncio/
+* https://tonybaloney.github.io/posts/sub-interpreter-web-workers.html
+* thead pools https://pythonspeed.com/articles/two-thread-pools/
+* https://pythonspeed.com/articles/optimizing-dithering/
+* https://news.ycombinator.com/item?id=37505553
+* https://www.bitecode.dev/p/asyncio-twisted-tornado-gevent-walk
+* semaphore https://death.andgravity.com/limit-concurrency
+* async https://textual.textualize.io/blog/2023/03/15/no-async-async-with-python/
+https://news.ycombinator.com/item?id=35073136
+* https://superfastpython.com/asyncio-coroutine-methods/
+* _async iterator_: https://docs.python.org/3/glossary.html#term-asynchronous-iterator
+* _async generator_: https://docs.python.org/3/glossary.html#term-asynchronous-generator
+* _async iteratable_: https://docs.python.org/3/glossary.html#term-asynchronous-iterable
+* _async generator iterator_: https://docs.python.org/3/glossary.html#term-asynchronous-generator-iterator
+* _awaitable_: https://docs.python.org/3/glossary.html#term-awaitable
+* _callback_: https://docs.python.org/3/glossary.html#term-callback
+* _context variable_: https://docs.python.org/3/glossary.html#term-context-variable
+* https://news.ycombinator.com/item?id=34483294
+* https://news.ycombinator.com/item?id=33547323
+* https://nullprogram.com/blog/2020/07/30/
+* https://superfastpython.com/multiprocessing-race-condition-python/
+* https://superfastpython.com/parallel-nested-for-loops-in-python/
+* https://superfastpython.com/python-asyncio/
+* liveness https://www.fluentpython.com/lingo/#liveness https://en.wikipedia.org/wiki/Safety_and_liveness_properties
+* task groups https://realpython.com/python311-new-features/#nicer-syntax-for-asynchronous-tasks
+* parallelism https://github.com/taichi-dev/taichi
+* threading https://news.ycombinator.com/item?id=22514004
+* https://www.erichgrunewald.com/posts/gradually-migrating-python-code-to-asyncio/
+* https://superfastpython.com/threading-in-python/
+* functools.partial for actual parallelization?
+* https://www.amazon.com/dp/1937785653
+* https://github.com/rednafi/think-async
+* https://talkpython.fm/episodes/show/389/18-awesome-asyncio-packages-in-python https://github.com/agronholm/anyio
+* parallelism https://pythonspeed.com/articles/concurrency-control/
+
+event loops https://questions.wizardzines.com/event-loops.html
+* _event loop_: wrapper around OS service that tells you about network traffic https://www.pythonpodcast.com/episode-40-ben-darnell-on-tornado/
+* also used in aeronautics https://news.ycombinator.com/item?id=27115372
+* just a for loop https://softwareengineering.stackexchange.com/q/214889/322090
+
+* https://lwn.net/Articles/872869/
+* _GIL_: https://pythonspeed.com/articles/python-gil/ https://pythonbytes.fm/episodes/show/23/can-you-grok-the-gil http://python-notes.curiousefficiency.org/en/latest/python3/multicore_python.html https://www.youtube.com/watch?v=7RlqbHCCVyc http://www.dabeaz.com/python/UnderstandingGIL.pdf https://simonwillison.net/2021/Sep/29/the-gil-and-its-effects-on-python-multithreading/ https://docs.python.org/3/glossary.html#term-global-interpreter-lock
+changing would break C code https://old.reddit.com/r/Python/comments/sy369l/your_python_4_dream_list/
+parallel https://towardsdatascience.com/parallelizing-python-code-3eb3c8e5f9cd
+async https://www.youtube.com/watch?v=olT7ejlv0uE&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=43
+https://snarky.ca/unravelling-async-and-await/
+https://www.encode.io/articles/python-async-frameworks-beyond-developer-tribalism
+https://pythonbytes.fm/episodes/show/184/too-many-ways-to-wait-with-await
+https://nullprogram.com/blog/2020/05/24/
+https://whatisjasongoldstein.com/writing/im-too-stupid-for-asyncio/
+https://news.ycombinator.com/item?id=22901856
+📍 define 'asynchronous', 'concurrent', 'parallel' https://pythonbytes.fm/episodes/show/161/sloppy-python-can-mean-fast-answers
+https://www.cloudcity.io/blog/2019/02/27/things-i-wish-they-told-me-about-multiprocessing-in-python/ https://github.com/sybrenjansen/mpire what does multiprocessing mean exactly? https://news.ycombinator.com/item?id=25220674
+multiprocessing https://github.com/spotify/pedalboard
+https://realpython.com/intro-to-python-threading/
+https://realpython.com/python-concurrency/
+* _sink_: 搜 Gmail 'maestro system design'
+https://realpython.com/python-async-features/
+https://news.ycombinator.com/item?id=22396740
+https://lucumr.pocoo.org/2020/1/1/async-pressure/
+https://news.ycombinator.com/item?id=22514004
+* http://aosabook.org/en/posa/working-with-big-data-in-bioinformatics.html
+* https://news.ycombinator.com/item?id=23243237
+* `py-concurrency.pdf` https://www.youtube.com/watch?v=iG6fr81xHKA 'Flask for web dev' chapter 2 https://testdriven.io/blog/building-a-concurrent-web-scraper-with-python-and-selenium/ https://stackabuse.com/overview-of-async-io-in-python-3-7/ https://pyvideo.org/pygotham-2018/how-i-learned-to-stop-worrying-and-love-atomic-banking-blunders-and-concurrency-challenges.html https://realpython.com/quizzes/python-concurrency/
+* _asyncio_: stdlib async lib; came in w/ 3.4 https://www.roguelynn.com/archives/
+* _uvloop_: faster replacement for asyncio; impl using Cython and libuv (C lib for async)
+* _Twisted/Tornado_: Python 2 era event loops, used in Scrapy http://masnun.rocks/2016/11/17/exploring-asyncio-uvloop-sanic-motor/ Tornado is also an app framework https://www.pythonpodcast.com/twisted-with-moshe-zadka-episode-170/ https://glyph.twistedmatrix.com/2019/06/kernel-python.html http://aosabook.org/en/twisted.html
+* _gevent_: something to do w/ greenlet http://www.gevent.org/ http://flask.pocoo.org/docs/1.0/design/#thread-locals used by Grinberg in Flask sockets https://blog.miguelgrinberg.com/post/easy-websockets-with-flask-and-gevent
+* https://tonybaloney.github.io/posts/async-test-patterns-for-pytest-and-unittest.html
+* _thread locals_: exists for duration of thread, seems globally available to your src but are actually copied for each thread https://stackoverflow.com/a/11984017 ❓ why are they typically a bad idea? http://flask.pocoo.org/docs/1.0/design/#thread-locals
+* enable isolation amid multi-tentancy (i.e. multiple users) https://blog.sentry.io/2018/11/14/how-to-build-saas-application
+* https://stackoverflow.com/questions/1408171/thread-local-storage-in-python
+* https://stackoverflow.com/questions/104983/what-is-thread-local-storage-in-python-and-why-do-i-need-it
+* 📺 https://training.talkpython.fm/courses/explore_async_python/async-in-python-with-threading-and-multiprocessing
+* https://www.youtube.com/watch?v=OxzVApXKWYM
+* https://medium.com/@anthonypjshaw/9440d28fa93d
+* https://www.youtube.com/watch?v=MCs5OvhV9S4&t=4s
+* https://www.youtube.com/watch?v=5dMOYf0b_20
+* https://www.youtube.com/watch?v=w2nKIGhXPAM
+* https://realpython.com/python-concurrency/
+* https://realpython.com/intro-to-python-threading/
+* https://www.youtube.com/watch?v=bckD_GK80oY
+* https://realpython.com/courses/python-3-concurrency-asyncio-module/
+* https://www.youtube.com/watch?v=9zinZmE3Ogk
+* https://www.youtube.com/watch?v=MCs5OvhV9S4
+* https://bytes.yingw787.com/posts/2019/01/12/concurrency_with_python_threads_and_locks/
+* https://bytes.yingw787.com/posts/2019/01/11/concurrency_with_python_why/
+* requests have async plugin now https://github.com/encode/requests-async
+
 ## exec
 
 📜 https://docs.python.org/3/using/cmdline.html
@@ -473,6 +651,243 @@ news -> repos/news/main.py  # sym link to subrepo
 
 https://pythonbytes.fm/episodes/show/367/a-new-cloud-computing-paradigm-at-python-bytes https://peps.python.org/pep-0723/
 
+## imports
+
+📙 Beazley ch. 10
+📜 https://docs.python.org/3/reference/import.html https://docs.python.org/3/library/imp.html
+
+NAMING
+* _classes_: camel case
+* _modules_: start w/ letter or underscore
+* _pkg_: all seem to use hyphens instead of underscores https://stackoverflow.com/a/36611371
+* case is significant https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles
+
+ZA
+* pkgutil https://docs.python.org/3/library/pkgutil.html https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
+
+----
+
+🎗️ start here for semantics https://lucumr.pocoo.org/2024/9/9/multiversion-python/
+
+`__all__` https://www.gauge.sh/blog/the-trouble-with-all https://github.com/gauge-sh/tach
+
+> When a Python module or package is imported, __name__ is set to the module's name. Usually, this is the name of the Python file itself without the .py extension: `import configparser; configparser.__name__` https://docs.python.org/3/library/__main__.html
+> __main__ is the name of the environment where top-level code is run. "Top-level code" is the first user-specified Python module that starts running. It's "top-level" because it imports all other modules that the program needs. Sometimes "top-level code" is called an entry point to the application. https://docs.python.org/3/library/__main__.html
+
+* happened to me when I was trying to import pandas in a dir named `to-csv` https://stackoverflow.com/a/36250354
+
+https://nedbatchelder.com/blog/202405/one_way_to_fix_python_circular_imports.html
+https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
+* https://news.ycombinator.com/item?id=34727287
+* _import_: https://docs.python.org/3/glossary.html#term-importing
+* _import path_: https://docs.python.org/3/glossary.html#term-import-path
+* _importer_: https://docs.python.org/3/glossary.html#term-importer
+* _finder_: https://docs.python.org/3/glossary.html#term-importer
+* _loader_: https://docs.python.org/3/glossary.html#term-importer
+* _module spec_: https://docs.python.org/3/glossary.html#term-module-spec 
+* _namespace_: https://docs.python.org/3/glossary.html#term-namespace
+* _namespace package_: https://docs.python.org/3/glossary.html#term-namespace-package https://realpython.com/python-namespace-package/
+* _path entry_: https://docs.python.org/3/glossary.html#term-path-entry
+* _meta path finder_: https://docs.python.org/3/glossary.html#term-meta-path-finder
+* _path based finder_: https://docs.python.org/3/glossary.html#term-path-based-finder
+* _qualified name_: https://docs.python.org/3/glossary.html#term-qualified-name
+* _import time_: https://www.fluentpython.com/lingo/#import_time
+
+modules https://blog.nicholdav.info/four-tips-structuring-research-python/
+lazy https://lwn.net/Articles/917280/
+https://twitter.com/bbelderbos/status/1598663617506734080
+lazy https://talkpython.fm/episodes/show/369/getting-lazy-with-python-imports-and-pep-690
+
+`py-repetitive-paths.md`
+
+* types https://realpython.com/absolute-vs-relative-python-imports
+```python
+# relative = dot notation to specify location
+from ..pkg import func
+
+# absolute = 
+# circular = 
+```
+
+* _absolute_: import from `sys.path`
+* _relative_: specify location of module being imported relative to module doing the importing https://realpython.com/absolute-vs-relative-python-imports/ https://stackoverflow.com/q/1918539/6813490 https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time
+* explicit vs. implicit https://realpython.com/absolute-vs-relative-python-imports/#relative-imports
+❓ when do we need `.` for modules in same dir? https://www.youtube.com/watch?v=rGQKHpjMn_M @ 7:30
+* _circular_: https://www.pythoninsight.com/2018/04/how-import-works-differently-in-python-3-5/ https://realpython.com/courses/python-imports-101/ https://seddonym.me/2019/05/20/meet-import-linter/
+
+---
+
+* https://rednafi.github.io/reflections/how-not-to-run-a-script-in-python.html
+* people know they suck https://lucumr.pocoo.org/2018/7/13/python/
+* speed up imports https://rednafi.github.io/reflections/caching-connection-objects-in-python.html
+* _tldr_: most advice about import and project structure are for libraries (vs. apps or executables) https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:30
+* _multiline_: use parens
+* import from module in same dir: `from .module import SomeClass`
+* get names defined in module: `dir(sys.modules[__name__])` https://stackoverflow.com/a/991158 🗄 `algos`
+
+symbol table
+* _private_: all obj in module 
+* _public_: obj in mod avaiable when import mod https://realpython.com/python-modules-packages/#the-import-statement https://docs.python.org/3/library/functions.html#locals
+* `locals()`: local symbol table https://docs.python.org/3/library/functions.html#locals
+* `globals()`: global symbol table
+* `dir()`: locals() w/ out values https://stackoverflow.com/a/21961813 https://realpython.com/python-modules-packages/#the-dir-function
+
+---
+
+https://tenthousandmeters.com/blog/python-behind-the-scenes-11-how-the-python-import-system-works/
+* _sink_: https://realpython.com/python-modules-packages https://docs.python.org/3/tutorial/modules.html#packages
+
+__people know that the import system sucks__
+
+http://lucumr.pocoo.org/2018/7/13/python/
+
+> The fact that most methods of invoking Python code from the command line break when that code is inside a package, and the two that do work are highly sensitive to the current working directory is all thoroughly confusing for a beginner. I personally believe it is one of the key factors leading to the perception that Python packages are complicated and hard to get right. http://python-notes.curiousefficiency.org/en/latest/python_concepts/import_traps.html Nick Coghlan (CPython dev)
+
+> The problem is that where on your system you need to put a Python library module in order so that a Python main program (or other library) can see it and load it varies in only semi-predictable ways. By version, yes, but there’s also an obscure distinction between site-packages, dist-packages, and what for want of any better term I’ll call root-level modules (no subdirectory under the version directory) that different distributions and even different application packages seem to interpret in different and incompatible ways. The root of the problem seems to be that good practice is under-specified by the Python dev team. - http://esr.ibiblio.org/?p=8161 Eric Raymond
+
+__namespaces__
+
+* `import foo` binds module obj `foo` to name `foo` in current namespace [Smallshire 1 @ 5.7 0:20]
+* `import f` binds module obj `foo` to name `f` in current namespace
+* `import mod`: place module itself into caller's symbol table; doesn't place `mod` private symbol table into the caller i.e. need to use dot notation to drill down to symbol table `mod.obj1` https://realpython.com/python-modules-packages/#the-import-statement
+* `from <mod> import <obj>`: place obj from module into caller's symbol table https://realpython.com/python-modules-packages/#the-import-statement
+
+https://realpython.com/python-namespaces-scope/
+https://learndjango.com/tutorials/django-best-practices-imports
+https://realpython.com/python-import/
+https://github.com/dabeaz-course/practical-python/blob/master/Notes/Contents.md
+* _import module from same directory_: `from .views import TemplateView` https://djangoforbeginners.com/pages-app/
+* _import obj from module in sibling directory_: pkg.mod.Obj https://djangoforbeginners.com/hello-world/
+
+* https://www.youtube.com/watch?v=rGYbrIf-y58
+cool project https://github.com/dandavison/optimistic-reload
+https://github.com/benawad/destiny
+* https://github.com/ankur-gupta/rain
+* https://github.com/Mckinsey666/bullet/blob/master/bullet/client.py
+🔗 https://github.com/zachvalenta/python-imports
+* FastAPI: imports, app structure, ASGI, Stack Overflow https://stackoverflow.com/questions/tagged/fastapi?tab=votes&pagesize=50 https://developer.mongodb.com/how-to/FARM-Stack-FastAPI-React-MongoDB
+* Python imports
+```sh
+├── dir
+│   └── __init__.py
+│   └── foo.py
+│   └── bar.py
+```
+```python
+# __init__.py https://github.com/Mckinsey666/bullet/blob/master/bullet/__init__.py
+from .foo import obj_bar
+from .bar import obj_bar
+
+# application code https://github.com/Mckinsey666/bullet/blob/master/DOCUMENTATION.md#using-bullet-objects-
+from dir import Bullet, Check, YesNo, Input
+```
+
+* https://nedbatchelder.com/text/test3/test3.html#21
+* https://fastapi.tiangolo.com/tutorial/sql-databases/ https://testdriven.io/courses/tdd-fastapi/ https://testdriven.io/blog/moving-from-flask-to-fastapi/
+* https://github.com/dinsaw/kines/blob/master/tests/test_metrics.py
+* https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/
+* https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html
+* clean up create-python-app https://testandcode.com/80 https://testandcode.com/81
+* the origin of digging into imports again --> works for pytest...
+```sh
+drwxr-xr-x     - adcbtb9 17 Dec 14:03 .
+.rw-r--r--@   28 adcbtb9 17 Dec 14:03 ├── .gitignore
+.rw-r--r--@   30 adcbtb9 17 Dec 13:55 ├── array.py
+.rw-r--r--  1.3k adcbtb9 17 Dec 14:03 ├── Makefile
+.rw-r--r--   187 adcbtb9 17 Dec 13:55 ├── requirements.txt
+.rw-r--r--@   74 adcbtb9 17 Dec 13:55 └── test_array.py
+```
+```python
+# array.py
+def say_hi():
+    return "hi"
+
+# test_array.py
+from array import say_hi
+
+def test_say_hi():
+    assert say_hi() == "hi"
+```
+```Makefile
+test:
+	pytest -v test_array.py
+```
+
+* ...not for coverage https://coverage.readthedocs.io/en/coverage-5.0/ coverage changes `sys.path` https://github.com/pytest-dev/pytest-cov
+```Makefile
+test:
+	coverage run -m pytest -v test_array.py
+```
+```sh
+ImportError while importing test module '/Users/adcbtb9/Desktop/death-by-imports/test_array.py'.
+Hint: make sure your test modules/packages have valid Python names.
+
+Traceback:
+test_array.py:1: in <module>
+    from array import say_hi
+    ImportError: cannot import name 'say_hi' from 'array' (Python.framework/Versions/3.7/lib/python3.7/lib-dynload/array.cpython-37m-darwin.so)
+```
+
+* write an article on this and ask Brian Okken https://testandcode.com/52
+* modules are only executed once, at import @ 2.11 0:25
+* `__init__.py` executed when pkg imported 📍 useful to put module attr into higher namespace @ 2.12 1:15
+* seems like there's only direction for pkg structure for distro (lib, exec) and not app (web, daemon) and not the-as-of-yet unnamed third category (scripts with tests?)
+* execute module `python3 -m <mod>`@ 2.12 1:20
+* _relative imports_: import mod from pkg w/out specifying the full module path, have to use syntax `from .mod import name`, not supposed to use @ 2.12 1:30
+* `__all__`: list of attr to export when `from mod import *` is used @ 2.12 2:10
+* _regular pkg_: pkg as defined before introduction of namespace pkg https://www.python.org/dev/peps/pep-0420/#terminology
+* _namespace pkg_: don't use `__init__.py`, exist when dir on `PYTHONPATH` matches import and no normal pkg does, "across multiple directories" seems to mean "filepath to pkg" https://www.python.org/dev/peps/pep-0420/#abstract @ 2.12 2:20
+* _executable directory_: has `__main__.py`
+
+MODULES 📙 Van Rossum ch. 6
+* _module_: file containing Python [tutorial 6.0] https://docs.python.org/3/glossary.html#term-module
+* _impl_: can be written in Python or C (`re`, mathematical libs) https://realpython.com/python-modules-packages/#python-modules-overview
+* _types_: user-defined, third-party, stdlib (`itertools`) https://realpython.com/python-modules-packages/#python-modules-overview
+* _script_: module meant to be directly executed https://realpython.com/run-python-scripts/#scripts-vs-modules
+* _import time_: when the interpreter loads module [Fluent Python 7.185] once per interpreter session https://realpython.com/python-modules-packages/#reloading-a-module on module load the entire module is executed, not only the object imported https://www.youtube.com/watch?v=44PvX0Yv368 @ 3:15
+
+ATTRIBUTES
+* `__file__`: location from which file is imported https://realpython.com/python-modules-packages/#the-module-search-path
+* `__name__`: evaluates at runtime to either module name (if imported) or `__main__` (if run as script)
+* `__main__.py`: module required to make pkg callable (think `pytest`) https://alex.dzyoba.com/blog/python-import/
+* `__path__`: shows where pkg looks for submodules [Smallshire structure 2.2 @ 1:45]
+* `__all__`: kinda like `exports` in Node; Cookbook 10.2 https://realpython.com/python-modules-packages/#importing-from-a-package
+```python
+def foo(): pass
+def bar(): pass
+__all__ = ['bar']  # only export 'bar'
+```
+
+PACKAGES
+* _package_: collection of modules https://docs.python.org/3/tutorial/modules.html#packages
+* module that can contain other modules https://docs.python.org/3/reference/import.html#packages
+* project w/ `setup.py` (PEP 517) https://github.com/pipxproject/pipx/issues/279#issuecomment-555254281 setup.py https://news.ycombinator.com/item?id=38067822
+* project w/ `pyproject.toml` (PEP 518) https://github.com/pipxproject/pipx/issues/279#issuecomment-555254281
+
+module search path https://docs.python.org/3/tutorial/modules.html#the-module-search-path
+* 1 - stdlib: `sys.path`, PYTHONHOME https://docs.python.org/3/using/cmdline.html#envvar-PYTHONHOME
+* 2 - CWD
+* 3 - PYTHONPATH: exact dir vary per installation
+* 4 - site-packages
+
+__types__
+
+* _regular pkg_: pkg w/ `__init__.py`
+* _namespace pkg_: pkg w/out `__init__.py`; since Python 3.3
+* `__init__.py`: still recommended bc more explicit; useful for initialization logic
+
+> When a package is imported, Python runs all of the code in the package’s `__init__.py` file, if such a file exists. All of the objects defined in the module or the package’s `__init__.py` file are made available to the importer.
+
+> You can set up this `__init__.py` file in a way that enables you to import classes and methods from the package as a whole, instead of knowing the internal module structure and importing from `helloworld.helloworld` or `helloworld.helpers` https://realpython.com/python-application-layouts/#one-off-script
+
+__get Python to find your pkg (here be dragons)__
+
+* put your pkg in dir contained in `sys.path` [https://realpython.com/python-modules-packages/#the-module-search-path, Smallshire structure 3.1 @ 1:30] 
+* ⚠️ edit `sys.path` at runtime https://realpython.com/python-modules-packages/#the-module-search-path 
+* ⚠️ edit env var https://orbifold.xyz/pythonpath.html
+* `context.py` file inside test suite https://docs.python-guide.org/writing/structure/#test-suite
+* um, avoid it? https://alex.dzyoba.com/blog/python-import/ https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html#case-4-importing-from-parent-directory 
+
 ## version mgmt (pyenv)
 
 🗄 it / mpb 2014
@@ -504,6 +919,11 @@ pip install -r requirements.txt
 ```
 
 ---
+
+Linux distros https://pythonspeed.com/articles/stop-using-python-3.8/
+
+how to upgrade
+> Luckily, Python 3 releases are fairly backwards compatible. So what you really want to do is: Upgrade to 3.9. Fix any bugs you find. Upgrade to 3.10, fix any bugs. Repeat until you hit Python 3.12, or perhaps even 3.13. https://pythonspeed.com/articles/stop-using-python-3.8/
 
 NON-TRIVIAL
 * new versions have syntax/features unsupported by other tools https://pythonspeed.com/articles/major-python-release/
@@ -553,7 +973,7 @@ VERSION INHERITANCE
 * Homebrew
 * pipx: installed by Homebrew but can/will have different Python version as dependency
 * Poetry: inherits from pipx
-* project: inherits from Poetry (e.g. qing/send2track)
+* project: inherits from Poetry (e.g. qing/send2trash)
 ```txt
 get algos project working and align Python versions btw pyenv python and pipx python
 * use pip to install poetry
@@ -587,47 +1007,13 @@ SEMANTICS
 
 ---
 
-https://outlore.dev/blog/python-dev-2024/
-https://burakku.com/blog/rye-test-and-python-tools/
-
-
-https://chriswarrick.com/blog/2024/01/15/python-packaging-one-year-later/
+compare to Golang and Rust https://crates.io/crates/basilk https://pypistats.org/packages/__all__
 
 VENV
 * _venv_: use `bin` to make https://stackoverflow.com/questions/45293436/how-to-specify-python-version-used-to-create-virtual-2
 * _virtual environment_: Python installation + pkgs [tutorial 12.1, Grinberg 4]
 * _Docker_: shouldn't just use whole container as env https://hynek.me/articles/python-app-deps-2018/
 * _history_: `venv` and `virtualenv` are not the same  ️https://docs.python.org/3/installing/index.html https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/#tools-and-management https://stackoverflow.com/a/49967371/6813490
-* _PEP 517_: build backend https://github.com/pdm-project/pdm
-* _PEP 582_: https://medium.com/@grassfedcode/goodbye-virtual-environments-b9f8115bc2b6 https://pythonbytes.fm/episodes/show/117/is-this-the-end-of-python-virtual-environments https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
-* _PEP 621_: how metadata should be represented in `pyproject.toml` https://github.com/pdm-project/pdm
-* _location_: per project or all in `~`
-* _sink_: using a Makefile https://github.com/sio/Makefile.venv https://realpython.com/python-virtual-environments-a-primer/
-
-📜 https://docs.python.org/3/installing/index.html
-
-https://upcycled-code.com/blog/the-broken-version-breakdown/
-
-pain points
-* _transitive - resolution_: i.e. "is there (will there be if I bump this pkg) a transitive dep conflict?" https://docs.python-guide.org/starting/install3/osx/#pipenv-virtual-environments 
-* _transitive - rm_: no porcelain to remove deps of deps https://github.com/invl/pip-autoremove ❓ does Poetry `remove` handle this?
-* _split dev and prod_: https://github.com/algolia/algoliasearch-client-python/commit/33ff7a9ad39e5a0459795f171cf3424c815a7304  🗄 'Poetry'
-* _figure out missing_: https://blog.piwheels.org/how-to-work-out-the-missing-dependencies-for-a-python-package/
-* _uninstall unfrozen_: currently solving w/ Makefile `freeze` https://stackoverflow.com/q/13176968/6813490
-* _no n versions of same pkg_: Ruby can do this https://pythonbytes.fm/episodes/show/127/that-python-code-is-on-fire @ 13:30
-
-https://news.ycombinator.com/item?id=32258783
-https://venthur.de/2021-06-26-python-packaging.html
-https://pythonspeed.com/articles/distributing-software/ https://pgjones.dev/blog/trusted-plublishing-2023/
-
-🗄 `list-of-python-pkg-terminology.md`
-
-* _sink_: http://andrewsforge.com/article/python-new-package-landscape/ http://aosabook.org/en/packaging.html  https://chriswarrick.com/blog/2018/07/17/pipenv-promises-a-lot-delivers-very-little/#id11 https://realpython.com/pipenv-guide/ https://www.reddit.com/r/Python/comments/aox5ah/moving_away_from_pipenv/ https://medium.com/@grassfedcode/five-myths-about-pipenv-698c5f198e4b https://medium.com/@DJetelina/pipenv-review-after-using-in-production-a05e7176f3f0 https://jacobian.org/2019/nov/11/python-environment-2020/ https://packaging.python.org/glossary/ https://manikos.github.io/a-tour-on-python-packaging#pip http://aosabook.org/en/packaging.html 
-
-* _tldr_: dep mgmt and distro are intermingled cf. `setuptools`; even with things outside either cf. `setup.cfg` https://www.b-list.org/weblog/2020/jan/05/packaging/ ❓ should all apps also be packages from a 'this makes working with other Python constructs easier?' https://hynek.me/articles/python-app-deps-2018/
-
-* `pyproject.toml` does both distro (replaces `setup.py`) and dep mgmt (`requirements.txt`, `Pipfile`, which is backend by the PyPA); tricky w/ Heroku https://jacobian.org/2019/nov/11/python-environment-2020/ https://snarky.ca/what-the-heck-is-pyproject-toml https://github.com/carlosperate/awesome-pyproject https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/ projects that use https://github.com/carlosperate/awesome-pyproject
-* `distutils`: initial approach to packaging and foundation for current tools (pip); mailing list for packaging https://docs.python.org/3/installing/index.html deprecated https://towardsdatascience.com/all-the-important-features-and-changes-in-python-3-10-e3d1fe542fbf
 
 ## executable
 
@@ -687,7 +1073,7 @@ ALTERNATIVES
 
 ## library
 
-📙 https://pypackages.com/ https://www.pybitespodcast.com/1501156/12592983-110-dane-hillard-on-python-packaging-and-effective-developer-tooling
+📙 https://pypackages.com/
 📜 https://docs.python.org/3/distributing/index.html
 📊 stats https://pepy.tech/
 🧀
@@ -695,44 +1081,6 @@ ALTERNATIVES
 * https://test.pypi.org/
 
 ---
-
-STRUCTURE
-* https://github.com/MatteoGuadrini/psp
-* example repo, awful $proj_name/src/proj_name duped dir thing https://github.com/brohrer/pacemaker https://github.com/darrenburns/posting https://stackoverflow.com/questions/50090341/is-there-a-naming-convention-for-django-project-configuration-directory
-* structure https://www.pythonpapers.com/p/how-to-publish-a-python-package-to
-* lockfile https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
-* https://www.youtube.com/watch?v=niMybnzmzqc
-* https://www.youtube.com/watch?v=dlCcnJdh4c4
-
-HISTORY
-* https://rdrn.me/postmodern-python/
-* https://blog.glyph.im/2016/08/python-packaging.html
-* https://dev.to/astrojuanlu/python-packaging-is-great-now-uv-is-all-you-need-4i2d
-* https://www.bitecode.dev/p/whats-the-deal-with-setuptools-setuppy
-* https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
-* https://snarky.ca/classifying-python-virtual-environment-workflows/ https://news.ycombinator.com/item?id=35131357
-* https://pradyunsg.me/blog/2023/01/21/thoughts-on-python-packaging https://news.ycombinator.com/item?id=34467952
-* https://aosabook.org/en/v1/packaging.html
-
-https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.html
-
-PAST
-* `setuptools`: uses `setup.py` to create distribution https://manikos.github.io/a-tour-on-python-packaging#mod_setuptools https://testandcode.com/52 @ 29:00 commonly thought of as distro tool but CLI (`easy_install`) was used for dep mtmt before `pip` https://dubroy.com/blog/so-you-want-to-install-a-python-package/ https://stackoverflow.com/questions/24727709/do-python-projects-need-a-manifest-in-and-what-should-be-in-it#24727824 for libraries https://github.com/pdm-project/pdm
-* `setup.py`: specify what parts of library to expose to consumers for `distutils` https://www.pythoncheatsheet.org/#setup.py https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/
-* `setup.cfg`: hairer version of `setup.py` https://docs.python.org/3/distutils/configfile.html also used for app config https://github.com/pallets/flask/blob/master/setup.cfg
-
-PRESENT
-* _PEP 517_: API for build tools https://testandcode.com/52 @ 15:00
-* _PEP 518_: https://testandcode.com/52 @ 14:00
-* `pyproject.toml`: spec for using something other than `setup.py`; used by Poetry, Flit https://realpython.com/courses/packaging-with-pyproject-toml/ https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/
-* _publish_: Flit, Poetry, Twine https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:00
-
-FORMATS
-* _wheel_: binary https://pythonspeed.com/articles/upgrade-python-3.11/
-* _Wheel_: `.whl`; current fmt, built by pip https://testandcode.com/52 @ 16:00 https://www.youtube.com/watch?v=02aAZ8u3wEQ https://realpython.com/python-wheels/ https://pythonwheels.com/
-> also a package? see termgraph
-* _sdist_: `tar.gz`; ❓ does PyPI need this along with `.whl` and why? https://poetry.eustace.io
-* _egg_: `.egg` https://packaging.python.org/discussions/wheel-vs-egg/ https://pythonwheels.com/
 
 GET NAMESPACE FOR DATACLERK
 * PSF https://packaging.python.org/en/latest/tutorials/packaging-projects/
@@ -756,10 +1104,101 @@ ZA
 * find old versions https://pypi-browser.org/
 * warnings, PYTHONWARNINGS https://www.reddit.com/r/learnpython/comments/a14ow5/psa_when_developing_set_pythonwarnings/ https://docs.python.org/3/using/cmdline.html#cmdoption-w https://www.youtube.com/watch?v=X0AjcpicNOM&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=35
 
+### structure
+
+---
+
+* https://github.com/fpgmaas/cookiecutter-uv
+* _publish_: Flit, Poetry, Twine https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:00
+
+https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.html
+
 * rm support for previous Python version https://adamj.eu/tech/2022/01/11/removing-python-3.6-support-from-my-packages
 * _library_: archived package for others to consume as dependency https://docs.python-guide.org/shipping/packaging/ https://pythonwheels.com/
 * _history_: https://stackoverflow.com/a/14753678/6813490 https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 7:40
 * _project structure_: `src`: https://blog.ganssle.io/articles/2019/08/test-as-installed.html https://pythonbytes.fm/episodes/show/159/brian-s-pr-is-merged-the-src-will-flow https://github.com/taktluyver/flit/pull/260/commits https://bskinn.github.io/My-How-Why-Pyproject-Src/ https://github.com/takluyver/flit/pull/260 https://bskinn.github.io/My-How-Why-Pyproject-Src/ repetitive paths https://github.com/zachvalenta/site-content/commit/7e6b5f66ffd9f6b3b13b19669050289b26d8925b
+
+* https://github.com/MatteoGuadrini/psp
+* example repo, awful $proj_name/src/proj_name duped dir thing https://github.com/brohrer/pacemaker https://github.com/darrenburns/posting https://stackoverflow.com/questions/50090341/is-there-a-naming-convention-for-django-project-configuration-directory
+* structure https://www.pythonpapers.com/p/how-to-publish-a-python-package-to
+* https://www.pybitespodcast.com/1501156/12592983-110-dane-hillard-on-python-packaging-and-effective-developer-tooling
+* lockfile https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
+* https://www.youtube.com/watch?v=niMybnzmzqc
+* https://www.youtube.com/watch?v=dlCcnJdh4c4
+
+### history / standards
+
+📜 https://docs.python.org/3/installing/index.html
+
+ZA
+* large packages e.g. Tensorflow 12TB https://news.ycombinator.com/item?id=41633567
+* _wheel_: prebuilt binary
+> The reason for the exponential nature of that growth is simple: prebuilt binaries must be created for every combination of CPU architecture, OS, and sometimes also other things, like interpreter version. https://kristoff.it/blog/python-training-wheels/ https://news.ycombinator.com/item?id=41635441
+
+DISTUTILS
+* deprecated https://stackoverflow.com/a/77233866
+* name of mailing list
+> distutils is the original build and distribution system first added to the Python standard library in 1998. While direct use of distutils is being phased out, it still laid the foundation for the current packaging and distribution infrastructure, and it not only remains part of the standard library, but its name lives on in other ways (such as the name of the mailing list used to coordinate Python packaging standards development). https://docs.python.org/3/installing/index.html#key-terms
+
+---
+
+https://outlore.dev/blog/python-dev-2024/
+https://burakku.com/blog/rye-test-and-python-tools/
+https://chriswarrick.com/blog/2024/01/15/python-packaging-one-year-later/
+
+* https://rdrn.me/postmodern-python/
+* https://blog.glyph.im/2016/08/python-packaging.html
+* https://dev.to/astrojuanlu/python-packaging-is-great-now-uv-is-all-you-need-4i2d
+* https://www.bitecode.dev/p/whats-the-deal-with-setuptools-setuppy
+* https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
+* https://snarky.ca/classifying-python-virtual-environment-workflows/ https://news.ycombinator.com/item?id=35131357
+* https://pradyunsg.me/blog/2023/01/21/thoughts-on-python-packaging https://news.ycombinator.com/item?id=34467952
+* https://aosabook.org/en/v1/packaging.html
+
+PAST
+* `setuptools`: uses `setup.py` to create distribution https://manikos.github.io/a-tour-on-python-packaging#mod_setuptools https://testandcode.com/52 @ 29:00 commonly thought of as distro tool but CLI (`easy_install`) was used for dep mtmt before `pip` https://dubroy.com/blog/so-you-want-to-install-a-python-package/ https://stackoverflow.com/questions/24727709/do-python-projects-need-a-manifest-in-and-what-should-be-in-it#24727824 for libraries https://github.com/pdm-project/pdm
+* `setup.py`: specify what parts of library to expose to consumers for `distutils` https://www.pythoncheatsheet.org/#setup.py https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/
+* `setup.cfg`: hairer version of `setup.py` https://docs.python.org/3/distutils/configfile.html also used for app config https://github.com/pallets/flask/blob/master/setup.cfg
+
+PRESENT
+* _PEP 517_: API for build tools https://testandcode.com/52 @ 15:00
+* _PEP 518_: https://testandcode.com/52 @ 14:00
+* `pyproject.toml`: spec for using something other than `setup.py`; used by Poetry, Flit https://realpython.com/courses/packaging-with-pyproject-toml/ https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/
+
+FORMATS
+* _wheel_: binary https://pythonspeed.com/articles/upgrade-python-3.11/
+* _Wheel_: `.whl`; current fmt, built by pip https://testandcode.com/52 @ 16:00 https://www.youtube.com/watch?v=02aAZ8u3wEQ https://realpython.com/python-wheels/ https://pythonwheels.com/
+> also a package? see termgraph
+* _sdist_: `tar.gz`; ❓ does PyPI need this along with `.whl` and why? https://poetry.eustace.io
+* _egg_: `.egg` https://packaging.python.org/discussions/wheel-vs-egg/ https://pythonwheels.com/
+
+* _PEP 517_: build backend https://github.com/pdm-project/pdm
+* _PEP 582_: https://medium.com/@grassfedcode/goodbye-virtual-environments-b9f8115bc2b6 https://pythonbytes.fm/episodes/show/117/is-this-the-end-of-python-virtual-environments https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
+* _PEP 621_: how metadata should be represented in `pyproject.toml` https://github.com/pdm-project/pdm
+* _location_: per project or all in `~`
+* _sink_: using a Makefile https://github.com/sio/Makefile.venv https://realpython.com/python-virtual-environments-a-primer/
+
+https://upcycled-code.com/blog/the-broken-version-breakdown/
+
+pain points
+* _transitive - resolution_: i.e. "is there (will there be if I bump this pkg) a transitive dep conflict?" https://docs.python-guide.org/starting/install3/osx/#pipenv-virtual-environments 
+* _transitive - rm_: no porcelain to remove deps of deps https://github.com/invl/pip-autoremove ❓ does Poetry `remove` handle this?
+* _split dev and prod_: https://github.com/algolia/algoliasearch-client-python/commit/33ff7a9ad39e5a0459795f171cf3424c815a7304  🗄 'Poetry'
+* _figure out missing_: https://blog.piwheels.org/how-to-work-out-the-missing-dependencies-for-a-python-package/
+* _uninstall unfrozen_: currently solving w/ Makefile `freeze` https://stackoverflow.com/q/13176968/6813490
+* _no n versions of same pkg_: Ruby can do this https://pythonbytes.fm/episodes/show/127/that-python-code-is-on-fire @ 13:30
+
+https://news.ycombinator.com/item?id=32258783
+https://venthur.de/2021-06-26-python-packaging.html
+https://pythonspeed.com/articles/distributing-software/ https://pgjones.dev/blog/trusted-plublishing-2023/
+
+🗄 `list-of-python-pkg-terminology.md`
+
+* _sink_: http://andrewsforge.com/article/python-new-package-landscape/ http://aosabook.org/en/packaging.html  https://chriswarrick.com/blog/2018/07/17/pipenv-promises-a-lot-delivers-very-little/#id11 https://realpython.com/pipenv-guide/ https://www.reddit.com/r/Python/comments/aox5ah/moving_away_from_pipenv/ https://medium.com/@grassfedcode/five-myths-about-pipenv-698c5f198e4b https://medium.com/@DJetelina/pipenv-review-after-using-in-production-a05e7176f3f0 https://jacobian.org/2019/nov/11/python-environment-2020/ https://packaging.python.org/glossary/ https://manikos.github.io/a-tour-on-python-packaging#pip http://aosabook.org/en/packaging.html 
+
+* _tldr_: dep mgmt and distro are intermingled cf. `setuptools`; even with things outside either cf. `setup.cfg` https://www.b-list.org/weblog/2020/jan/05/packaging/ ❓ should all apps also be packages from a 'this makes working with other Python constructs easier?' https://hynek.me/articles/python-app-deps-2018/
+
+* `pyproject.toml` does both distro (replaces `setup.py`) and dep mgmt (`requirements.txt`, `Pipfile`, which is backend by the PyPA); tricky w/ Heroku https://jacobian.org/2019/nov/11/python-environment-2020/ https://snarky.ca/what-the-heck-is-pyproject-toml https://github.com/carlosperate/awesome-pyproject https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/ projects that use https://github.com/carlosperate/awesome-pyproject
 
 ## mgmt
 
@@ -803,6 +1242,7 @@ list --user  # per user
 freeze > $FILE  # global
 freeze --user > $FILE  # per user
 ```
+* install from forked branch https://stackoverflow.com/questions/20101834/pip-install-from-git-repo-branch
 
 ---
 
@@ -1058,7 +1498,7 @@ poetry run flask
 VERSION MGMT
 * via Python Build Standalone https://github.com/indygreg/python-build-standalone
 * cross-platform https://astral.sh/blog/uv-unified-python-packaging
-* inject https://github.com/astral-sh/uv/issues/7312
+* inject https://github.com/astral-sh/uv/issues/7312 into shell scripts https://koaning.io/til/pyperclip/
 * builds https://developers.home-assistant.io/blog/2024/04/03/build-images-with-uv/
 * tmp/ephemeral
 ```sh
@@ -1071,10 +1511,13 @@ DESIGN
 
 ---
 
+* https://github.com/fpgmaas/cookiecutter-uv
+
 > They leverage years and years of work that went into migrating the Python ecosystems from setup.py files to eggs and finally wheels. From not having a metadata standard to having one. From coupled to decoupled build systems. Much of what makes Rye so enjoyable were individuals that worked towards making redistributable and downloadable Python binaries a possibility. There was a lot of work that was put into building out an amazing ecosystem of Rust crates and Python libraries needed to make these tools work. All of that brought us to that point where we are today. https://lucumr.pocoo.org/2024/8/21/harvest-season/
 
 > read transcript https://talkpython.fm/episodes/transcript/476/unified-python-packaging-with-uv https://simonwillison.net/2024/Aug/20/uv-unified-python-packaging/
 
+* controversial? https://pythonbytes.fm/episodes/show/403/a-machine-learning-algorithm-walks-into-a-bar
 * https://bluesock.org/~willkg/blog/dev/switch_pyenv_to_uv.html
 * https://simonwillison.net/2024/Sep/8/uv-under-discussion-on-mastodon/
 * Docker https://mkennedy.codes/posts/python-docker-images-using-uv-s-new-python-features/?featured_on=pythonbytes
@@ -1093,387 +1536,3 @@ DESIGN
 * https://talkpython.fm/episodes/show/476/unified-python-packaging-with-uv
 * https://www.youtube.com/watch?v=zE-RigeEODM
 * in Django https://blog.pecar.me/uv-with-django
-
-# 🟨 ZA
-
-## concurrency
-
-📙 Beazley ch. 12
-🗄
-* `linux.md` processes
-* `src.md` concurrency
-
-BIG PICTURE
-* Python as a language spec supports multiple threads
-* CPython cannot execute threads in parallel https://stackoverflow.com/a/3086582
-* Python is good at concurrency (IO intensive e.g. networking) https://news.ycombinator.com/item?id=22907891
-* Python is bad at parallelism (CPU intensive e.g. search) http://esr.ibiblio.org/?p=8161
-
-LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
-* `multithreading`: actually parallel bc spawns own process i.e. heavier
-* `asyncio`: single process; pre-emptive multi-tasking (OS interrupts itself); lighter than threads
-* `threading`: single process; cooperative multi-tasking (code tells OS when to interrupt)
-
----
-
-BYO event loop https://www.youtube.com/watch?v=8I9Rc2Zaos4
-https://www.amazon.com/gp/product/1492055026
-start here https://www.youtube.com/watch?v=ftmdDlwMwwQ https://www.youtube.com/watch?v=X7vBbelRXn0
-coroutine https://docs.python.org/3/glossary.html#term-coroutine-function
-https://superfastpython.com/asyncio-event-loop-separate-thread/
-https://calpaterson.com/async-python-is-not-faster.html
-https://martinheinz.dev/blog/97
-https://higherorderco.com/
-https://www.amazon.com/gp/product/1492055026
-https://roadmap.sh/python
-https://hakibenita.com/django-concurrency
-https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sync-vs-async-in-python-tools-benchmarks-and-asgiwsgi-explained
-https://news.ycombinator.com/item?id=41001951
-https://realpython.com/python-async-iterators/
-https://sobolevn.me/2020/06/how-async-should-have-been
-
-* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#overcoming-gil-with-subinterpreters-and-immutability
-* JIT https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#building-a-jit-compiler-for-cpython
-* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#unlocking-the-parallel-universe-subinterpreters-and-free-threading-in-python-313
-
-SEMANTICS https://python.hamel.dev/concurrency/
-* thread
-* process
-* _coroutine_ https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/ https://www.fluentpython.com/extra/classic-coroutines/ prime https://www.fluentpython.com/lingo https://www.fluentpython.com/lingo/#coroutine https://docs.python.org/3/glossary.html#term-coroutine-function https://docs.python.org/3/glossary.html#term-coroutine https://news.ycombinator.com/item?id=40097681&utm_term=comment
-
-https://realpython.com/python-concurrency/
-https://realpython.com/python-async-features/
-https://realpython.com/intro-to-python-threading/
-https://jacobpadilla.com/articles/recreating-asyncio https://news.ycombinator.com/item?id=40281139
-https://www.youtube.com/watch?v=Wvh5C3NbQtA
-
-* https://blog.wilsonl.in/hackerverse/
-* https://news.ycombinator.com/item?id=39812969
-* https://pythonspeed.com/articles/cpu-thread-pool-size
-* https://www.photondesigner.com/articles/instant-messenger
-* https://pythonspeed.com/articles/gpu-vs-cpu/
-* https://charlesleifer.com/blog/asyncio/
-* https://tonybaloney.github.io/posts/sub-interpreter-web-workers.html
-* thead pools https://pythonspeed.com/articles/two-thread-pools/
-* https://pythonspeed.com/articles/optimizing-dithering/
-* https://news.ycombinator.com/item?id=37505553
-* https://www.bitecode.dev/p/asyncio-twisted-tornado-gevent-walk
-* semaphore https://death.andgravity.com/limit-concurrency
-* async https://textual.textualize.io/blog/2023/03/15/no-async-async-with-python/
-https://news.ycombinator.com/item?id=35073136
-* https://superfastpython.com/asyncio-coroutine-methods/
-* _async iterator_: https://docs.python.org/3/glossary.html#term-asynchronous-iterator
-* _async generator_: https://docs.python.org/3/glossary.html#term-asynchronous-generator
-* _async iteratable_: https://docs.python.org/3/glossary.html#term-asynchronous-iterable
-* _async generator iterator_: https://docs.python.org/3/glossary.html#term-asynchronous-generator-iterator
-* _awaitable_: https://docs.python.org/3/glossary.html#term-awaitable
-* _callback_: https://docs.python.org/3/glossary.html#term-callback
-* _context variable_: https://docs.python.org/3/glossary.html#term-context-variable
-* https://news.ycombinator.com/item?id=34483294
-* https://news.ycombinator.com/item?id=33547323
-* https://nullprogram.com/blog/2020/07/30/
-* https://superfastpython.com/multiprocessing-race-condition-python/
-* https://superfastpython.com/parallel-nested-for-loops-in-python/
-* https://superfastpython.com/python-asyncio/
-* liveness https://www.fluentpython.com/lingo/#liveness https://en.wikipedia.org/wiki/Safety_and_liveness_properties
-* task groups https://realpython.com/python311-new-features/#nicer-syntax-for-asynchronous-tasks
-* parallelism https://github.com/taichi-dev/taichi
-* threading https://news.ycombinator.com/item?id=22514004
-* https://www.erichgrunewald.com/posts/gradually-migrating-python-code-to-asyncio/
-* https://superfastpython.com/threading-in-python/
-* functools.partial for actual parallelization?
-* https://www.amazon.com/dp/1937785653
-* https://github.com/rednafi/think-async
-* https://talkpython.fm/episodes/show/389/18-awesome-asyncio-packages-in-python https://github.com/agronholm/anyio
-* parallelism https://pythonspeed.com/articles/concurrency-control/
-
-event loops https://questions.wizardzines.com/event-loops.html
-* _event loop_: wrapper around OS service that tells you about network traffic https://www.pythonpodcast.com/episode-40-ben-darnell-on-tornado/
-* also used in aeronautics https://news.ycombinator.com/item?id=27115372
-* just a for loop https://softwareengineering.stackexchange.com/q/214889/322090
-
-* https://lwn.net/Articles/872869/
-* _GIL_: https://pythonspeed.com/articles/python-gil/ https://pythonbytes.fm/episodes/show/23/can-you-grok-the-gil http://python-notes.curiousefficiency.org/en/latest/python3/multicore_python.html https://www.youtube.com/watch?v=7RlqbHCCVyc http://www.dabeaz.com/python/UnderstandingGIL.pdf https://simonwillison.net/2021/Sep/29/the-gil-and-its-effects-on-python-multithreading/ https://docs.python.org/3/glossary.html#term-global-interpreter-lock
-changing would break C code https://old.reddit.com/r/Python/comments/sy369l/your_python_4_dream_list/
-parallel https://towardsdatascience.com/parallelizing-python-code-3eb3c8e5f9cd
-async https://www.youtube.com/watch?v=olT7ejlv0uE&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=43
-https://snarky.ca/unravelling-async-and-await/
-https://www.encode.io/articles/python-async-frameworks-beyond-developer-tribalism
-https://pythonbytes.fm/episodes/show/184/too-many-ways-to-wait-with-await
-https://nullprogram.com/blog/2020/05/24/
-https://whatisjasongoldstein.com/writing/im-too-stupid-for-asyncio/
-https://news.ycombinator.com/item?id=22901856
-📍 define 'asynchronous', 'concurrent', 'parallel' https://pythonbytes.fm/episodes/show/161/sloppy-python-can-mean-fast-answers
-https://www.cloudcity.io/blog/2019/02/27/things-i-wish-they-told-me-about-multiprocessing-in-python/ https://github.com/sybrenjansen/mpire what does multiprocessing mean exactly? https://news.ycombinator.com/item?id=25220674
-multiprocessing https://github.com/spotify/pedalboard
-https://realpython.com/intro-to-python-threading/
-https://realpython.com/python-concurrency/
-* _sink_: 搜 Gmail 'maestro system design'
-https://realpython.com/python-async-features/
-https://news.ycombinator.com/item?id=22396740
-https://lucumr.pocoo.org/2020/1/1/async-pressure/
-https://news.ycombinator.com/item?id=22514004
-* http://aosabook.org/en/posa/working-with-big-data-in-bioinformatics.html
-* https://news.ycombinator.com/item?id=23243237
-* `py-concurrency.pdf` https://www.youtube.com/watch?v=iG6fr81xHKA 'Flask for web dev' chapter 2 https://testdriven.io/blog/building-a-concurrent-web-scraper-with-python-and-selenium/ https://stackabuse.com/overview-of-async-io-in-python-3-7/ https://pyvideo.org/pygotham-2018/how-i-learned-to-stop-worrying-and-love-atomic-banking-blunders-and-concurrency-challenges.html https://realpython.com/quizzes/python-concurrency/
-* _asyncio_: stdlib async lib; came in w/ 3.4 https://www.roguelynn.com/archives/
-* _uvloop_: faster replacement for asyncio; impl using Cython and libuv (C lib for async)
-* _Twisted/Tornado_: Python 2 era event loops, used in Scrapy http://masnun.rocks/2016/11/17/exploring-asyncio-uvloop-sanic-motor/ Tornado is also an app framework https://www.pythonpodcast.com/twisted-with-moshe-zadka-episode-170/ https://glyph.twistedmatrix.com/2019/06/kernel-python.html http://aosabook.org/en/twisted.html
-* _gevent_: something to do w/ greenlet http://www.gevent.org/ http://flask.pocoo.org/docs/1.0/design/#thread-locals used by Grinberg in Flask sockets https://blog.miguelgrinberg.com/post/easy-websockets-with-flask-and-gevent
-* https://tonybaloney.github.io/posts/async-test-patterns-for-pytest-and-unittest.html
-* _thread locals_: exists for duration of thread, seems globally available to your src but are actually copied for each thread https://stackoverflow.com/a/11984017 ❓ why are they typically a bad idea? http://flask.pocoo.org/docs/1.0/design/#thread-locals
-* enable isolation amid multi-tentancy (i.e. multiple users) https://blog.sentry.io/2018/11/14/how-to-build-saas-application
-* https://stackoverflow.com/questions/1408171/thread-local-storage-in-python
-* https://stackoverflow.com/questions/104983/what-is-thread-local-storage-in-python-and-why-do-i-need-it
-* 📺 https://training.talkpython.fm/courses/explore_async_python/async-in-python-with-threading-and-multiprocessing
-* https://www.youtube.com/watch?v=OxzVApXKWYM
-* https://medium.com/@anthonypjshaw/9440d28fa93d
-* https://www.youtube.com/watch?v=MCs5OvhV9S4&t=4s
-* https://www.youtube.com/watch?v=5dMOYf0b_20
-* https://www.youtube.com/watch?v=w2nKIGhXPAM
-* https://realpython.com/python-concurrency/
-* https://realpython.com/intro-to-python-threading/
-* https://www.youtube.com/watch?v=bckD_GK80oY
-* https://realpython.com/courses/python-3-concurrency-asyncio-module/
-* https://www.youtube.com/watch?v=9zinZmE3Ogk
-* https://www.youtube.com/watch?v=MCs5OvhV9S4
-* https://bytes.yingw787.com/posts/2019/01/12/concurrency_with_python_threads_and_locks/
-* https://bytes.yingw787.com/posts/2019/01/11/concurrency_with_python_why/
-* requests have async plugin now https://github.com/encode/requests-async
-
-## imports
-
-📙 Beazley ch. 10
-📜 https://docs.python.org/3/reference/import.html https://docs.python.org/3/library/imp.html
-
-NAMING
-* _classes_: camel case
-* _modules_: start w/ letter or underscore
-* _pkg_: all seem to use hyphens instead of underscores https://stackoverflow.com/a/36611371
-* case is significant https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles
-
-ZA
-* pkgutil https://docs.python.org/3/library/pkgutil.html https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
-
-----
-
-🎗️ start here for semantics https://lucumr.pocoo.org/2024/9/9/multiversion-python/
-
-`__all__` https://www.gauge.sh/blog/the-trouble-with-all https://github.com/gauge-sh/tach
-
-> When a Python module or package is imported, __name__ is set to the module's name. Usually, this is the name of the Python file itself without the .py extension: `import configparser; configparser.__name__` https://docs.python.org/3/library/__main__.html
-> __main__ is the name of the environment where top-level code is run. "Top-level code" is the first user-specified Python module that starts running. It's "top-level" because it imports all other modules that the program needs. Sometimes "top-level code" is called an entry point to the application. https://docs.python.org/3/library/__main__.html
-
-* happened to me when I was trying to import pandas in a dir named `to-csv` https://stackoverflow.com/a/36250354
-
-https://nedbatchelder.com/blog/202405/one_way_to_fix_python_circular_imports.html
-https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
-* https://news.ycombinator.com/item?id=34727287
-* _import_: https://docs.python.org/3/glossary.html#term-importing
-* _import path_: https://docs.python.org/3/glossary.html#term-import-path
-* _importer_: https://docs.python.org/3/glossary.html#term-importer
-* _finder_: https://docs.python.org/3/glossary.html#term-importer
-* _loader_: https://docs.python.org/3/glossary.html#term-importer
-* _module spec_: https://docs.python.org/3/glossary.html#term-module-spec 
-* _namespace_: https://docs.python.org/3/glossary.html#term-namespace
-* _namespace package_: https://docs.python.org/3/glossary.html#term-namespace-package https://realpython.com/python-namespace-package/
-* _path entry_: https://docs.python.org/3/glossary.html#term-path-entry
-* _meta path finder_: https://docs.python.org/3/glossary.html#term-meta-path-finder
-* _path based finder_: https://docs.python.org/3/glossary.html#term-path-based-finder
-* _qualified name_: https://docs.python.org/3/glossary.html#term-qualified-name
-* _import time_: https://www.fluentpython.com/lingo/#import_time
-
-modules https://blog.nicholdav.info/four-tips-structuring-research-python/
-lazy https://lwn.net/Articles/917280/
-https://twitter.com/bbelderbos/status/1598663617506734080
-lazy https://talkpython.fm/episodes/show/369/getting-lazy-with-python-imports-and-pep-690
-
-`py-repetitive-paths.md`
-
-* types https://realpython.com/absolute-vs-relative-python-imports
-```python
-# relative = dot notation to specify location
-from ..pkg import func
-
-# absolute = 
-# circular = 
-```
-
-* _absolute_: import from `sys.path`
-* _relative_: specify location of module being imported relative to module doing the importing https://realpython.com/absolute-vs-relative-python-imports/ https://stackoverflow.com/q/1918539/6813490 https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time
-* explicit vs. implicit https://realpython.com/absolute-vs-relative-python-imports/#relative-imports
-❓ when do we need `.` for modules in same dir? https://www.youtube.com/watch?v=rGQKHpjMn_M @ 7:30
-* _circular_: https://www.pythoninsight.com/2018/04/how-import-works-differently-in-python-3-5/ https://realpython.com/courses/python-imports-101/ https://seddonym.me/2019/05/20/meet-import-linter/
-
----
-
-* https://rednafi.github.io/reflections/how-not-to-run-a-script-in-python.html
-* people know they suck https://lucumr.pocoo.org/2018/7/13/python/
-* speed up imports https://rednafi.github.io/reflections/caching-connection-objects-in-python.html
-* _tldr_: most advice about import and project structure are for libraries (vs. apps or executables) https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:30
-* _multiline_: use parens
-* import from module in same dir: `from .module import SomeClass`
-* get names defined in module: `dir(sys.modules[__name__])` https://stackoverflow.com/a/991158 🗄 `algos`
-
-symbol table
-* _private_: all obj in module 
-* _public_: obj in mod avaiable when import mod https://realpython.com/python-modules-packages/#the-import-statement https://docs.python.org/3/library/functions.html#locals
-* `locals()`: local symbol table https://docs.python.org/3/library/functions.html#locals
-* `globals()`: global symbol table
-* `dir()`: locals() w/ out values https://stackoverflow.com/a/21961813 https://realpython.com/python-modules-packages/#the-dir-function
-
----
-
-https://tenthousandmeters.com/blog/python-behind-the-scenes-11-how-the-python-import-system-works/
-* _sink_: https://realpython.com/python-modules-packages https://docs.python.org/3/tutorial/modules.html#packages
-
-__people know that the import system sucks__
-
-http://lucumr.pocoo.org/2018/7/13/python/
-
-> The fact that most methods of invoking Python code from the command line break when that code is inside a package, and the two that do work are highly sensitive to the current working directory is all thoroughly confusing for a beginner. I personally believe it is one of the key factors leading to the perception that Python packages are complicated and hard to get right. http://python-notes.curiousefficiency.org/en/latest/python_concepts/import_traps.html Nick Coghlan (CPython dev)
-
-> The problem is that where on your system you need to put a Python library module in order so that a Python main program (or other library) can see it and load it varies in only semi-predictable ways. By version, yes, but there’s also an obscure distinction between site-packages, dist-packages, and what for want of any better term I’ll call root-level modules (no subdirectory under the version directory) that different distributions and even different application packages seem to interpret in different and incompatible ways. The root of the problem seems to be that good practice is under-specified by the Python dev team. - http://esr.ibiblio.org/?p=8161 Eric Raymond
-
-__namespaces__
-
-* `import foo` binds module obj `foo` to name `foo` in current namespace [Smallshire 1 @ 5.7 0:20]
-* `import f` binds module obj `foo` to name `f` in current namespace
-* `import mod`: place module itself into caller's symbol table; doesn't place `mod` private symbol table into the caller i.e. need to use dot notation to drill down to symbol table `mod.obj1` https://realpython.com/python-modules-packages/#the-import-statement
-* `from <mod> import <obj>`: place obj from module into caller's symbol table https://realpython.com/python-modules-packages/#the-import-statement
-
-https://realpython.com/python-namespaces-scope/
-https://learndjango.com/tutorials/django-best-practices-imports
-https://realpython.com/python-import/
-https://github.com/dabeaz-course/practical-python/blob/master/Notes/Contents.md
-* _import module from same directory_: `from .views import TemplateView` https://djangoforbeginners.com/pages-app/
-* _import obj from module in sibling directory_: pkg.mod.Obj https://djangoforbeginners.com/hello-world/
-
-* https://www.youtube.com/watch?v=rGYbrIf-y58
-cool project https://github.com/dandavison/optimistic-reload
-https://github.com/benawad/destiny
-* https://github.com/ankur-gupta/rain
-* https://github.com/Mckinsey666/bullet/blob/master/bullet/client.py
-🔗 https://github.com/zachvalenta/python-imports
-* FastAPI: imports, app structure, ASGI, Stack Overflow https://stackoverflow.com/questions/tagged/fastapi?tab=votes&pagesize=50 https://developer.mongodb.com/how-to/FARM-Stack-FastAPI-React-MongoDB
-* Python imports
-```sh
-├── dir
-│   └── __init__.py
-│   └── foo.py
-│   └── bar.py
-```
-```python
-# __init__.py https://github.com/Mckinsey666/bullet/blob/master/bullet/__init__.py
-from .foo import obj_bar
-from .bar import obj_bar
-
-# application code https://github.com/Mckinsey666/bullet/blob/master/DOCUMENTATION.md#using-bullet-objects-
-from dir import Bullet, Check, YesNo, Input
-```
-
-* https://nedbatchelder.com/text/test3/test3.html#21
-* https://fastapi.tiangolo.com/tutorial/sql-databases/ https://testdriven.io/courses/tdd-fastapi/ https://testdriven.io/blog/moving-from-flask-to-fastapi/
-* https://github.com/dinsaw/kines/blob/master/tests/test_metrics.py
-* https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/
-* https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html
-* clean up create-python-app https://testandcode.com/80 https://testandcode.com/81
-* the origin of digging into imports again --> works for pytest...
-```sh
-drwxr-xr-x     - adcbtb9 17 Dec 14:03 .
-.rw-r--r--@   28 adcbtb9 17 Dec 14:03 ├── .gitignore
-.rw-r--r--@   30 adcbtb9 17 Dec 13:55 ├── array.py
-.rw-r--r--  1.3k adcbtb9 17 Dec 14:03 ├── Makefile
-.rw-r--r--   187 adcbtb9 17 Dec 13:55 ├── requirements.txt
-.rw-r--r--@   74 adcbtb9 17 Dec 13:55 └── test_array.py
-```
-```python
-# array.py
-def say_hi():
-    return "hi"
-
-# test_array.py
-from array import say_hi
-
-def test_say_hi():
-    assert say_hi() == "hi"
-```
-```Makefile
-test:
-	pytest -v test_array.py
-```
-
-* ...not for coverage https://coverage.readthedocs.io/en/coverage-5.0/ coverage changes `sys.path` https://github.com/pytest-dev/pytest-cov
-```Makefile
-test:
-	coverage run -m pytest -v test_array.py
-```
-```sh
-ImportError while importing test module '/Users/adcbtb9/Desktop/death-by-imports/test_array.py'.
-Hint: make sure your test modules/packages have valid Python names.
-
-Traceback:
-test_array.py:1: in <module>
-    from array import say_hi
-    ImportError: cannot import name 'say_hi' from 'array' (Python.framework/Versions/3.7/lib/python3.7/lib-dynload/array.cpython-37m-darwin.so)
-```
-
-* write an article on this and ask Brian Okken https://testandcode.com/52
-* modules are only executed once, at import @ 2.11 0:25
-* `__init__.py` executed when pkg imported 📍 useful to put module attr into higher namespace @ 2.12 1:15
-* seems like there's only direction for pkg structure for distro (lib, exec) and not app (web, daemon) and not the-as-of-yet unnamed third category (scripts with tests?)
-* execute module `python3 -m <mod>`@ 2.12 1:20
-* _relative imports_: import mod from pkg w/out specifying the full module path, have to use syntax `from .mod import name`, not supposed to use @ 2.12 1:30
-* `__all__`: list of attr to export when `from mod import *` is used @ 2.12 2:10
-* _regular pkg_: pkg as defined before introduction of namespace pkg https://www.python.org/dev/peps/pep-0420/#terminology
-* _namespace pkg_: don't use `__init__.py`, exist when dir on `PYTHONPATH` matches import and no normal pkg does, "across multiple directories" seems to mean "filepath to pkg" https://www.python.org/dev/peps/pep-0420/#abstract @ 2.12 2:20
-* _executable directory_: has `__main__.py`
-
-MODULES 📙 Van Rossum ch. 6
-* _module_: file containing Python [tutorial 6.0] https://docs.python.org/3/glossary.html#term-module
-* _impl_: can be written in Python or C (`re`, mathematical libs) https://realpython.com/python-modules-packages/#python-modules-overview
-* _types_: user-defined, third-party, stdlib (`itertools`) https://realpython.com/python-modules-packages/#python-modules-overview
-* _script_: module meant to be directly executed https://realpython.com/run-python-scripts/#scripts-vs-modules
-* _import time_: when the interpreter loads module [Fluent Python 7.185] once per interpreter session https://realpython.com/python-modules-packages/#reloading-a-module on module load the entire module is executed, not only the object imported https://www.youtube.com/watch?v=44PvX0Yv368 @ 3:15
-
-ATTRIBUTES
-* `__file__`: location from which file is imported https://realpython.com/python-modules-packages/#the-module-search-path
-* `__name__`: evaluates at runtime to either module name (if imported) or `__main__` (if run as script)
-* `__main__.py`: module required to make pkg callable (think `pytest`) https://alex.dzyoba.com/blog/python-import/
-* `__path__`: shows where pkg looks for submodules [Smallshire structure 2.2 @ 1:45]
-* `__all__`: kinda like `exports` in Node; Cookbook 10.2 https://realpython.com/python-modules-packages/#importing-from-a-package
-```python
-def foo(): pass
-def bar(): pass
-__all__ = ['bar']  # only export 'bar'
-```
-
-PACKAGES
-* _package_: collection of modules https://docs.python.org/3/tutorial/modules.html#packages
-* module that can contain other modules https://docs.python.org/3/reference/import.html#packages
-* project w/ `setup.py` (PEP 517) https://github.com/pipxproject/pipx/issues/279#issuecomment-555254281 setup.py https://news.ycombinator.com/item?id=38067822
-* project w/ `pyproject.toml` (PEP 518) https://github.com/pipxproject/pipx/issues/279#issuecomment-555254281
-
-module search path https://docs.python.org/3/tutorial/modules.html#the-module-search-path
-* 1 - stdlib: `sys.path`, PYTHONHOME https://docs.python.org/3/using/cmdline.html#envvar-PYTHONHOME
-* 2 - CWD
-* 3 - PYTHONPATH: exact dir vary per installation
-* 4 - site-packages
-
-__types__
-
-* _regular pkg_: pkg w/ `__init__.py`
-* _namespace pkg_: pkg w/out `__init__.py`; since Python 3.3
-* `__init__.py`: still recommended bc more explicit; useful for initialization logic
-
-> When a package is imported, Python runs all of the code in the package’s `__init__.py` file, if such a file exists. All of the objects defined in the module or the package’s `__init__.py` file are made available to the importer.
-
-> You can set up this `__init__.py` file in a way that enables you to import classes and methods from the package as a whole, instead of knowing the internal module structure and importing from `helloworld.helloworld` or `helloworld.helpers` https://realpython.com/python-application-layouts/#one-off-script
-
-__get Python to find your pkg (here be dragons)__
-
-* put your pkg in dir contained in `sys.path` [https://realpython.com/python-modules-packages/#the-module-search-path, Smallshire structure 3.1 @ 1:30] 
-* ⚠️ edit `sys.path` at runtime https://realpython.com/python-modules-packages/#the-module-search-path 
-* ⚠️ edit env var https://orbifold.xyz/pythonpath.html
-* `context.py` file inside test suite https://docs.python-guide.org/writing/structure/#test-suite
-* um, avoid it? https://alex.dzyoba.com/blog/python-import/ https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html#case-4-importing-from-parent-directory 

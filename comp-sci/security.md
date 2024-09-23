@@ -7,6 +7,8 @@
 
 ## 进步
 
+* https://pythonspeed.com/articles/stop-using-python-3.8/
+* https://cryptography101.ca/
 * https://roadmap.sh/cyber-security
 * https://www.freecodecamp.org/learn/information-security/
 * https://news.ycombinator.com/item?id=38332222
@@ -163,6 +165,7 @@ elliptic curve cryptography
 
 https://news.ycombinator.com/item?id=34217862
 encrypt/password protect HTML https://github.com/robinmoisson/staticrypt
+clickjacking https://lyra.horse/blog/2024/09/using-youtube-to-steal-your-files/
 
 encryption https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/
 * _code_: public protocol
@@ -248,6 +251,7 @@ pass
 
 https://roadmap.sh/backend
 https://github.com/goauthentik/authentik
+https://github.com/lucia-auth/lucia/discussions/1707 https://news.ycombinator.com/item?id=41801883
 
 vocab
 https://ntietz.com/blog/lets-say-instead-of-auth/

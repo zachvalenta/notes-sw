@@ -4,7 +4,12 @@
 
 ## 进步
 
-NEXT
+DEPLOYMENT
+* DNS tools to diff `zachvalenta.com` vs. `zjayv.com`
+* learn Github actions
+* specify `index.html` for GH Pages: `publish_dir` https://chatgpt.com/share/66f4a7c1-ea3c-8004-8327-46a9840bf1d5 https://github.com/shalzz/zola-deploy-action/blob/master/README.md#custom-domain symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying https://stackoverflow.com/questions/42941170/how-to-set-up-github-pages-to-look-for-index-html-in-a-different-location https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository or Cloudflare https://chevyray.dev/blog/how-this-site-is-made/ or Netlify https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/
+
+NEXT https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 * tags
 * RSS
 * search
@@ -12,7 +17,6 @@ NEXT
 * template inheritance
 * SSoT for book notes
 > complication: some things you don't want to publish e.g. Austen notes
-* deployment: symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying
 
 * _24_: big rf, port site to Zola and rm old dirs for content/drafts
 * _22_: rf fs, try Pelican, redesign
@@ -147,12 +151,14 @@ FORMS
 🔗 https://www.markdownguide.org/
 
 FLAVORS
+* _Djot_: https://djot.net/ https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 * _CommonMark_: https://meta.stackexchange.com/q/348746
 * _GFM_: https://github.com/github/markup/issues/498#issuecomment-158257453 
 * _MyST_: https://github.com/executablebooks/MyST-Parser
 
 PARSERS
 * _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/
+* time suck https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
 * _markdown-it-py_: https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
 * _commonmark_: https://github.com/readthedocs/commonmark.py https://github.com/Textualize/rich/pull/2439/files
 * _goldmark_: https://github.com/yuin/goldmark
@@ -214,6 +220,10 @@ add styles
 
 ---
 
+just a normal dev blog https://www.jonashietala.se/blog/tags/neovim/
+https://gwern.net/matt-levine
+https://gwern.net/book-writing
+
 collections https://buttondown.com/hillelwayne/archive/in-defense-of/
 
 CONTENT
@@ -235,6 +245,7 @@ DEV JOURNAL
 * https://www.peterbaumgartner.com/blog/wrapping-a-rust-crate-in-a-python-package/
 
 HOW I CODE
+> changing stuff and seeing what happens https://orlybooks.com/
 * profiling
 * test
 * docs
@@ -250,7 +261,7 @@ FAVORITES
 * blogroll https://claytonerrington.com/
 
 HOW THINGS WORK
-* where movies shoot https://www.theringer.com/2024/8/21/24225522/the-arms-race-behind-where-movies-shoot
+* movies https://www.theringer.com/2024/8/21/24225522/the-arms-race-behind-where-movies-shoot https://www.theringer.com/2024/9/23/24252627/biggest-takeaways-netflix-data-dump-2024-streaming https://www.theringer.com/2024/9/25/24253629/how-to-make-your-own-tv-show-and-get-netflix-to-buy-it-mark-duplass-penelope-netflix https://www.theringer.com/2024/9/30/24258856/how-should-movie-and-tv-stars-be-paid
 * sports betting https://archive.vn/rfPo4 https://www.theringer.com/2024/8/5/24213559/the-state-of-sports-gambling-with-todd-fuhrman https://archive.vn/lZw1l
 
 ## design
@@ -276,8 +287,10 @@ MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
 
 UNIQUE
 * https://shreyans.org/
-* blocks https://www.ntietz.com/
+* blocks https://www.ntietz.com/ https://thisisimportant.net/
 * https://borretti.me/
+* https://robinrendle.com/
+* https://kaiwenwang.com/stack
 
 ZA
 * squares https://allaboutberlin.com/
@@ -293,7 +306,7 @@ LAYOUT 🔗  https://github.com/arp242/hello-css/
 * sidebar: https://www.goatcounter.com/help/start https://litchipi.github.io/infosec/2023/01/24/git-code-audit-viewed-as-rust-programmer.html
 * sidenote: https://goodwill.awardwinninghuman.com/ https://www.w3.org/Style/CSS20/history.html https://pomb.us/build-your-own-react/ https://bsago.me/posts/waltzing-with-wireshark https://www.micahlerner.com/2021/05/23/reflecting-on-2020.html https://github.com/mlerner/mlerner.github.io/blob/master/_plugins/sidenote.rbhttps://danilafe.com/blog/blog_microfeatures/
 
-PICTURES
+PICTURES https://robinrendle.com/essays/
 * in post 🗄️ `grunewald post picture.png`
 * next to posts https://www.jotaen.net/blog/
 * on homepage https://spwhitton.name/ 🗄️ `nirvana`
@@ -304,7 +317,7 @@ PICTURES
 LINKS
 * linkable header https://danilafe.com/blog/blog_microfeatures/
 * preview https://linkpreview.xyz/
-* checker checker https://bernard.app/
+* link checker https://github.com/lycheeverse/lychee https://bernard.app/
 * underline https://danilafe.com/blog/blog_microfeatures/
 * highlight on hover https://man7.org/linux/man-pages/dir_by_project.html#man-pages--man7
 * highlight on selection `::selection` https://css-tricks.com/overriding-the-default-text-selection-color-with-css/
@@ -316,11 +329,11 @@ SEARCH
 * _TinySearch_: https://github.com/tinysearch/tinysearch https://news.ycombinator.com/item?id=23474134
 
 MAIN PAGE
-* audio https://mally.stanford.edu/index.html
+* audio / voice note https://mally.stanford.edu/index.html https://news.ycombinator.com/item?id=41582539
 * hand-written note http://worrydream.com/July2023/
 
 SOCIAL
-* newsletter: https://www.scattered-thoughts.net/ https://www.erichgrunewald.com/newsletter/ https://www.benkuhn.net/ https://www.ntietz.com/newsletter/
+* newsletter: https://www.scattered-thoughts.net/ https://www.erichgrunewald.com/newsletter/ https://www.benkuhn.net/ https://www.ntietz.com/newsletter/ https://thisisimportant.net/topics/newsletter/
 > Congratulations, you are now on the list. Look out for an email sometime in the indefinite future.
 > You've been sent a verification email with a link that you need to click, because that's how this always works. Check your inbox for a message from me@computer.rip. If you still haven't received it after an appropriate seeming amount of time, cross your fingers and try again
 > In the future, you will be permitted (but not encouraged) to unsubscribe using a link at the end of each message.
@@ -340,7 +353,9 @@ ZOLA 📜 https://github.com/getzola/zola
 
 FEATURES
 * hot reload
+* index of all pages https://otterwiki.com/-/index
 * _metadata_: title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/ linking https://github.com/erwald/blog/blob/master/_data/series.json https://danilafe.com/blog/blog_microfeatures/
+* advanced metadata https://gwern.net/metadata/annotation/backlink/https%253A%252F%252Fpublicdomainreview.org%252Fessay%252Four-masterpiece-is-the-private-life-in-pursuit-of-the-real-chateaubriand%252F.html
 * _template engine_: page structure e.g. Jinja, Tera https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola
 * _HTML preprocessor_: turn Markdown in HTML e.g. Nunjucks https://css-tricks.com/killer-features-of-nunjucks/ https://github.com/erwald/blog
 ```sh
@@ -355,16 +370,18 @@ FEATURES
     └── rss.xml
 ```
 
-SSGs
+SSGs 🗄️ `algos.md` tree / treebuilders
 * Emacs org mode
 * just HTML https://fabiensanglard.net/html/index.html
-* BYO https://www.youtube.com/watch?v=Ph7oJDR71Jc https://github.com/mitsuhiko/rstblog https://til.simonwillison.net/django/building-a-blog-in-django dynamic https://realpython.com/build-a-blog-from-scratch-django/ https://dev.to/chasefleming/building-a-go-static-site-generator-using-elem-go-3fhh https://github.com/jeffkaufman/webscripts
+* BYO https://www.youtube.com/watch?v=Ph7oJDR71Jc https://github.com/mitsuhiko/rstblog https://til.simonwillison.net/django/building-a-blog-in-django dynamic https://realpython.com/build-a-blog-from-scratch-django/ https://dev.to/chasefleming/building-a-go-static-site-generator-using-elem-go-3fhh https://github.com/jeffkaufman/webscripts https://github.com/PaulJuliusMartinez/jless/tree/website
 * _Astro micro_: 🎯 https://drew.silcock.dev/about/ https://github.com/drewsilcock/silcock-dev https://astro.build/themes/details/astro-micro/ https://astro-nano-demo.vercel.app/ https://www.bytedrum.com/about/
 * _aurora_: 🎯 https://github.com/capjamesg/aurora
 * _Bearclaw_: https://github.com/donuts-are-good/bearclaw
 * _Eleventy_: https://www.11ty.dev/ https://www.erichgrunewald.com/ https://news.ycombinator.com/item?id=31293971 https://angeliqueweger.com/
 * _Lanyon_: server, same guy that did termgraph https://github.com/mkaz/lanyon
-* _Hugo_: https://www.peterbaumgartner.com popular https://blog.golang.org/8years bad docs https://yawpitchroll.com/posts/hugo-probably-is-not-for-you/ https://twitter.com/danluu/status/1244024025019342851
+* _Hugo_: https://gitlab.com/gitlab-com/content-sites/handbook
+* popular https://blog.golang.org/8years
+* bad docs https://yawpitchroll.com/posts/hugo-probably-is-not-for-you/ https://twitter.com/danluu/status/1244024025019342851
 * _Lektor_: Python https://www.getlektor.com/ https://lucumr.pocoo.org/2015/12/21/introducing-lektor/
 * _Lume_: https://lume.land/
 * _m2h_: exec + move html from `content` to `src` https://github.com/zachvalenta/markdown-2-html

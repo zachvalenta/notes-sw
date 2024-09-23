@@ -13,6 +13,9 @@
 
 ## 进步
 
+* learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
+* tokens, read whole thing https://stratechery.com/2024/enterprise-philosophy-and-the-first-wave-of-ai/
+> The big challenge for traditional LLMs is that they are path-dependent; while they can consider the puzzle as a whole, as soon as they commit to a particular guess they are locked in, and doomed to failure. This is a fundamental weakness of what are known as “auto-regressive large language models”, which to date, is all of them. To grossly simplify, a large language model generates a token (usually a word, or part of a word) based on all of the tokens that preceded the token being generated; the specific token is the most statistically likely next possible token derived from the model’s training (this also gets complicated, as the “temperature” of the output determines what level of randomness goes into choosing from the best possible options; a low temperature chooses the most likely next token, while a higher temperature is more “creative”). The key thing to understand, though, is that this is a serial process: once a token is generated it influences what token is generated next.
 * try it out https://github.com/taylorai/aiq
 * rule-based https://www.youtube.com/watch?v=CeukwyUdaz8
 * supervised https://www.youtube.com/watch?v=j9kcEuGcC2Y
@@ -189,7 +192,7 @@ dot([1,2,3], [4,5,6])
 * how it works https://www.jonstokes.com/p/chatgpt-explained-a-guide-for-normies
 * LLM https://news.ycombinator.com/item?id=34726115 https://marginalrevolution.com/marginalrevolution/2023/11/the-single-best-introduction-to-llms.html
 > Using AI-assisted code changes our work from writing code to proofreading code. https://buttondown.email/hillelwayne/archive/programming-ais-worry-me/
-* howto use https://marginalrevolution.com/marginalrevolution/2023/02/how-should-you-talk-to-chatgpt-a-users-guide.html https://marginalrevolution.com/marginalrevolution/2023/03/what-is-the-single-best-way-of-improving-your-gpt-prompts.html https://simonwillison.net/2023/Aug/6/annotated-presentations/ https://realpython.com/practical-prompt-engineering/ https://news.ycombinator.com/item?id=41395921
+* howto use https://marginalrevolution.com/marginalrevolution/2023/02/how-should-you-talk-to-chatgpt-a-users-guide.html https://marginalrevolution.com/marginalrevolution/2023/03/what-is-the-single-best-way-of-improving-your-gpt-prompts.html https://simonwillison.net/2023/Aug/6/annotated-presentations/ https://realpython.com/practical-prompt-engineering/ https://news.ycombinator.com/item?id=41395921 https://roadmap.sh/prompt-engineering
 > Ask ChatGPT "What is Marxism?" for example, and you will get a passable answer, probably no better than what you would get by using Wikipedia or Google. Instead, make the question more specific: "Which were the important developments in French Marxism in the second half of the 19th century?" ChatGPT will do much better - and it's also the kind of question it's hard to use Google and Wikipedia to answer.
 > ChatGPT will do better yet if you ask it sequential questions along an evolving line of inquiry. Ask it about the specific French Marxists it cites, what they did, and how they differed from their German counterparts.
 > Another way to hone ChatGPT's capabilities is to ask it for responses in the voice of a third person. Ask, "What are the costs of inflation?" and you might get answers that aren't wrong exactly, but neither are they impressive. Instead, try this: "What are the costs of inflation? Please answer using the ideas of Milton Friedman." By mentioning Friedman, you have pointed it to a more intelligent corner of the ideas universe.
@@ -243,6 +246,7 @@ building into projects https://news.ycombinator.com/item?id=40857589
 
 LOCAL
 https://github.com/ggozad/oterm
+* https://news.ycombinator.com/item?id=41732634
 * https://llm.datasette.io/en/stable/
 * https://github.com/khoj-ai/khoj
 * https://github.com/darrenburns/elia
@@ -265,6 +269,10 @@ ZA
 ## code assist
 
 ---
+
+> It’s worth noting that AI tools are intimately familiar with Next.js and not so much with htmx, due to the lack of open-source training data. This is similar to the issue Rails faces. While not a dealbreaker, it did impact our development speed and the ease of finding solutions to problems. When we encountered issues, the wealth of resources available for React/Next.js made troubleshooting much faster. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
+
+https://news.ycombinator.com/item?id=41563958
 
 * legacy codebases https://bloop.ai/ https://www.driverai.com/
 
@@ -296,6 +304,7 @@ https://www.youtube.com/watch?v=dkV01hBdhZE
 
 ## img
 
+* https://github.com/GabAlpha/basilk https://perchance.org/ai-pixel-art-generator
 * Midjourney https://midlibrary.io/styles
 * DALL-E
 * Stable Diffusion
@@ -430,6 +439,8 @@ SEMANTICS
 
 ## operationalizing
 
+🛣️ https://roadmap.sh/mlops
+
 * gradient-boosted trees better for audit than neural nets
 * https://roadmap.sh/mlops
 * https://news.ycombinator.com/item?id=35438192
@@ -453,10 +464,14 @@ SEMANTICS
 * train model on dickens, cowen
 * https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
 
-## uses
+## usage
 
 ---
 
+* ingest all your notes https://news.ycombinator.com/item?id=41732634
+* image search https://tembo.io/blog/image-search
+* voice clone https://www.jeffgeerling.com/blog/2024/elecrow-responded-apologized-ai-voice-cloning
+* speech to text https://github.com/kyutai-labs/moshi
 * image recognition https://www.youtube.com/watch?v=XPA213k8G_U
 * text to SQL https://github.com/vanna-ai/vanna
 * chat with your docs https://github.com/Cinnamon/kotaemon

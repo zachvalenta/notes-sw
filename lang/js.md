@@ -7,6 +7,8 @@
 
 ## 进步
 
+https://roadmap.sh/best-practices/frontend-performance
+
 * _19_: Vue for Test Runner
 * _18_: Vue for Dark Canary demo app
 * _17_: Angular 1 for Case
@@ -22,7 +24,7 @@ TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-develop
 * _vanilla_: https://github.com/bradtraversy/vanillawebprojects https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies
 * _HTML-only_: htmx
 * _jQuery-esque_: https://arp242.net/jquery.html Alpine https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/#building-interactive-interfaces-in-your-django-pages-with-alpinejs https://news.ycombinator.com/item?id=36697366 https://news.ycombinator.com/item?id=39580843
-* _React-esque_: Vue, Angular, Remix
+* _React-esque_: Vue, Angular, Remix https://remix.run/
 * _React-lite_: Mithril https://mithril.js.org https://news.ycombinator.com/item?id=24368689 Svelte https://svelte.dev/ https://news.ycombinator.com/item?id=24363261
 * _full-stack_: Next, Redwood, sock-puppet https://macwright.com/2020/10/28/if-not-spas.html
 * _server side state_: do everything from the server w/ websockets https://macwright.com/2020/10/28/if-not-spas.html
@@ -75,6 +77,8 @@ taxonomy
 https://github.com/AnswerDotAI/fasthtml
 
 DESIGN
+> Hotwire / htmx are about server-side rendering and making that work more smoothly with the client. eg fewer page navigations, more rapid update of the client, etc. But it's still, through and through, server render with server state. It works well as long as the server is always the source of truth. The things that it isn't good at, such as drag and drop or complex, multi-state forms on the client side, are basically because you temporarily have a split source of truth: the client is the source of truth with complex state. https://news.ycombinator.com/item?id=41733625
+> The React/Next.js ecosystem is vast and mature, offering solutions to almost any problem we encountered. With htmx, we often found ourselves reinventing the wheel or compromising on functionality. This became particularly evident when we needed to integrate third-party services and libraries, which often had React bindings but no htmx equivalents...the complex, stateful nature of Helper’s interface made React and Next.js a better fit. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
 * https://news.ycombinator.com/item?id=40847376
 * https://testdriven.io/blog/fastapi-htmx/
 * https://www.youtube.com/watch?v=kYV8K71pY64
@@ -118,6 +122,7 @@ replace your React https://htmx.org/essays/a-real-world-react-to-htmx-port/
 📙 https://www.amazon.com/Road-learn-React-pragmatic-React-js/dp/172004399X/
 https://roadmap.sh/react
 
+* _Next_: framework https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
 * just a bit, Parcel https://mkaz.blog/code/add-react-to-existing-page
 * solid.js https://typeofnan.dev/solid-js-feels-like-what-i-always-wanted-react-to-be/ https://github.com/solidjs/solid
 * testing, Storybook, Ladle https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202210060
@@ -197,7 +202,7 @@ SEMANTICS
 * _polyfill_: replacement for Web API
 * _sourcemap_: map from minified code to source for purpose of debugging
 * _tree shaking_: remove dead code
-* _WASM_: compilation target for browsers that supports non-JS languages https://words.steveklabnik.com/is-webassembly-the-return-of-java-applets-flash https://sqlite.org/wasm/doc/tip/about.md
+* _WASM_: compilation target for browsers that supports non-JS languages https://words.steveklabnik.com/is-webassembly-the-return-of-java-applets-flash https://sqlite.org/wasm/doc/tip/about.md https://rsms.me/wasm-intro
 * _WebRTC_: browser-to-browser communication (for high-speed A/V) https://hpbn.co/webrtc/
 * _Webpack_: creates bundle (all libs in single file); preceded by Browserify, succeeded by Snowpack
 * editors: Code Mirror, Monaco (what repl.it used before Code Mirror)
@@ -289,7 +294,6 @@ STATE
 * _array_: obj whose K is an int and whose V is a string; inherit from `Array.prototype` instead of `Object.prototype`
 * _function statement/declaration_: `var test123 = function(){}`
 * _function expression_: `var test123 = function(){}`; use this one bc avoids hoisting
-* _hoisting_: defined immediately, even before execution reaches actual declaration https://stackoverflow.com/a/336868/6813490 https://adamj.eu/tech/2024/09/08/django-repeated-decorators/
 * _arrow function_: same as function expression minus 'function', braces, ‘return'
 * _IIFE (immediately invoked function expression)_: keeps variable names out of global scope
 * this https://dev.to/ycmjason/let-me-explain-to-you-what-is-this-javascript-44ja
@@ -313,8 +317,8 @@ let bob = Object.assign({}, player, {score: 3});
 
 ## runtimes
 
-* _bun_: 🎯 runtime + tooling (bundle, transpile, pkg mgmt) https://bun.sh/
-* impl: in Zig, using WebKit JavaScriptCore (instead Chromes V8 engine)
+* _bun_: ✅ runtime + tooling (bundle, transpile, pkg mgmt) https://bun.sh/
+* impl: in Zig, using WebKit JavaScriptCore (instead Chromes V8 engine) https://news.ycombinator.com/item?id=31993556
 * _Deno_: Node replacement https://softwareengineeringdaily.com/2020/09/28/deno-and-typescript-with-elio-rivero/
 * _Node_: libuv (IO library) + V8 (JS engine) https://neovim.io/charter/
 * don't install from OpenJS https://docs.npmjs.com/downloading-and-installing-node-js-and-npm

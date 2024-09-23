@@ -13,12 +13,16 @@
 
 ## 进步
 
+https://github.com/bcicen/ctop
+* https://roadmap.sh/docker
+https://github.com/pommee/Pocker
 https://www.youtube.com/watch?v=3e8J_pv-xJI
 https://www.youtube.com/watch?v=Ud7Npgi6x8E
 https://news.ycombinator.com/item?id=38913425
 https://github.com/robertpsoane/ducker
 https://github.com/mrjackwills/oxker
 * making things actually reproducible https://pythonspeed.com/articles/reproducible-docker-builds-python/
+* https://github.com/deluan/zsh-in-docker https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog
 
 IMPROVE WORKLOW
 * hot reload https://www.youtube.com/watch?v=YFl2mCHdv24 8:30
@@ -558,6 +562,7 @@ VMWARE
 
 ## Kubernetes
 
+https://github.com/vladimirvivien/ktop
 https://roadmap.sh/kubernetes
 https://github.com/ghik/kubernetes-the-harder-way https://news.ycombinator.com/item?id=41393160
 * _dstack_: OSS alternative https://github.com/dstackai/dstack https://www.youtube.com/watch?v=Kqp_LI85qVQ

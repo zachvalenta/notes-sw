@@ -348,6 +348,7 @@ var myInt // 0
 ## web
 
 * start here https://www.youtube.com/watch?v=F9H6vYelYyU
+* https://github.com/mikestefanello/pagoda
 * https://github.com/nikolaydubina/go-recipes
 * https://pocketbase.io/ 
 * https://github.com/livebud/bud

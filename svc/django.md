@@ -626,6 +626,8 @@ SIGNALS https://docs.djangoproject.com/en/5.0/topics/signals/
 
 ---
 
+> Django's leaky battery is its recommendation that you create a custom user model. Auth is so central and so standard that, into the high-nines (99.99%?), the vast majority of projects should never need to customise the central auth model. This is a battery that Django should very much provide. There's a complexity tax from exposing the auth model. There's a performance tax as the auth model becomes a generic dumping ground for User related data that has nothing to do with authentication. There's a learning tax as users hit the custom user model, and the (frankly, misplaced) warnings about it's importance. https://github.com/carltongibson/django-unique-user-email
+
 https://github.com/jazzband/django-axes
 * auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas https://testdriven.io/blog/django-rest-authjs/
 * keep track of failed logins https://github.com/jazzband/django-axes
@@ -796,6 +798,7 @@ ps aux | head --lines=1 && ps aux | grep 'manage.py runserver' | kill
 https://learndjango.com/tutorials/essential-django-3rd-party-packages
 https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-django
 
+* https://github.com/adamspd/django-appointment
 * reports https://github.com/RamezIssac/django-slick-reporting
 * _3rd-party apps_: anything installed by adding to `settings.py/INSTALLED_APPS` https://djangopackages.org https://realpython.com/installable-django-app/
 * _analytics_: https://github.com/jazzband/django-analytical

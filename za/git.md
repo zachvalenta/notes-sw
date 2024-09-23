@@ -11,6 +11,7 @@
 
 * https://martinheinz.dev/blog/109
 * https://jvns.ca/blog/2024/02/16/popular-git-config-options/
+* https://jackevans.bearblog.dev/some-notes-on-git/
 
 * _21_: prepopulate commit msg
 * _20_: stash commands, 📙 Chacon ch 1-2, Gitlab as secondary remote for notes, auth for BNY (Gitlab token types, server protocols and set up, lots of debugging)
@@ -20,6 +21,7 @@
 
 # 🐙 GITHUB
 
+📜 https://docs.github.com/en
 🔗 https://github.com/github/roadmap
 
 SHORTCUTS https://darrenburns.net/posts/github-tips
@@ -29,15 +31,68 @@ SHORTCUTS https://darrenburns.net/posts/github-tips
 
 TOOLS
 * dashboard for PR/issues https://github.com/dlvhdr/gh-dash https://github.com/pwntester/octo.nvim
+* browse releases https://github.com/rubysolo/brows
 * repo stats https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
 * heat map https://github.com/jmforsythe/Git-Heat-Map
 
 FEATURES https://buttondown.com/hillelwayne/archive/github-has-too-many-hidden-features/
+* README for org: `.github-private` repo w/ `profile/README.md` https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme
 * stars https://github.com/github/feedback/discussions/8293 https://webapps.stackexchange.com/a/41800
+* contributions: won't count unless user pushing them using same email tied to account in `.gitconfig`
 * feedback https://github.com/isaacs/github/issues/6 https://github.com/orgs/community/discussions
 * all forks are public https://news.ycombinator.com/item?id=41060102
 * _repo language_: https://github.com/github/linguist#overrides
 * _repo config_: branch protections http://blog.jaredsinclair.com/post/183676881105/think-twice-before-downgrading-to-a-free-github owners https://blog.github.com/2017-07-06-introducing-code-owners/
+
+## Actions
+
+🗄️ `src.md` deployment / CICD
+📜 https://docs.github.com/en/actions
+
+SEMANTICS https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
+* _workflow_: collection of jobs
+* triggered by event, chron, API
+* defined in `.github/workflows`
+* e.g. test PR, deployment, add labels when issue opened
+* _job_: collection of step
+* _step_: user-defined (script) or action
+> Steps are executed in order and are dependent on each other. Since each step is executed on the same runner, you can share data from one step to another. For example, you can have a step that builds your application followed by a step that tests the application that was built.
+* _action_: GH-defined extension
+> An action is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task. Use an action to help reduce the amount of repetitive code that you write in your workflow files. An action can pull your Git repository from GitHub, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
+* _runner_: container in which steps are run
+> A runner is a server that runs your workflows when they're triggered. Each runner can run a single job at a time.
+
+EVENT PROPERTIES
+* id
+* type
+* payload
+* _actor_: user triggering event
+* _repo_: where the event occurred
+
+EVENT TYPES https://docs.github.com/en/rest/using-the-rest-api/github-event-types
+> yet more? https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
+* `CreateEvent`: branch|tag created
+* `GollumEvent`: wiki page created|updated
+* `IssueCommentEvent`: comment on issue|PR
+* `IssuesEvent`: opened, edited, closed, assigned, labeled
+* `PullRequestEvent`: opened, edited, closed, review_requested
+* `PushEvent`: commits pushed to branch
+
+---
+
+* linking https://blog.github.com/2011-10-12-introducing-issue-mentions/
+* draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
+* run locally https://github.com/nektos/act
+* https://github.com/termkit/gama
+* https://hynek.me/articles/python-github-actions/
+* https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow
+* https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml
+* https://github.com/github/super-linter
+* https://www.youtube.com/watch?v=E1OunoCyuhY
+* https://news.ycombinator.com/item?id=30060765
+* https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a
+* python https://brntn.me/blog/open-source-python-ci/
+* https://github.com/carderne/postmodern-python/blob/main/.github/workflows/pr.yml
 
 ## CLI
 
@@ -82,35 +137,21 @@ gh alias list
 
 ## Markdown
 
+* use SVG https://github.com/zachvalenta/capp-prod-cat-alt
+
 ---
 
-* project logos https://github.com/PaulJuliusMartinez/jless https://chatgpt.com/share/66eb331c-04e4-8004-9b25-b7bb5d5a5b78
-https://github.com/cosimameyer
-* _images_: https://github.com/textualize/toolong
+* project logos https://github.com/PaulJuliusMartinez/jless https://chatgpt.com/share/66eb331c-04e4-8004-9b25-b7bb5d5a5b78 https://github.com/lambda-fairy/maud https://github.com/cosimameyer
+* how to link to images outside of repo https://github.com/textualize/toolong
 * _profile README_: create repo with same name as user, add README https://github.com/willmcgugan/willmcgugan
 * _video_: https://github.com/textualize/toolong
 
-## pm (Actions)
-
----
-
-* linking https://blog.github.com/2011-10-12-introducing-issue-mentions/
-* draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
-* run locally https://github.com/nektos/act
-* https://github.com/termkit/gama
-* https://hynek.me/articles/python-github-actions/
-* https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow
-* https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml
-* https://github.com/github/super-linter
-* https://www.youtube.com/watch?v=E1OunoCyuhY
-* https://news.ycombinator.com/item?id=30060765
-* https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a
-* python https://brntn.me/blog/open-source-python-ci/
-* https://github.com/carderne/postmodern-python/blob/main/.github/workflows/pr.yml
-
 ## search
 
+* doesn't search non-main branches https://github.com/search?q=owner%3Azachvalenta+bullet+language%3APython&type=code&l=Python https://github.com/zachvalenta/capp-prod-cat/blob/link-nodes/tree_viz.py 🗄️ `stdlib.md` UI / IO / input / bullet
+
 ---
+
 https://buttondown.com/hillelwayne/archive/github-search-for-research-and-learning/
 https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github
 * https://github.blog/2021-12-08-improving-github-code-search/ https://github.com/features/code-search 🗄 `vim.md` code completion
@@ -164,7 +205,7 @@ she can propose merging the two branches i.e. her edits would become part of "ch
 * https://xosh.org/explain-git-in-simple-words/
 plumbing - clean up notas history
 * https://www.leshenko.net/p/ugit
-* https://smusamashah.github.io/explain-git-in-simple-words http://www-cs-students.stanford.edu/~blynn/gitmagic/ https://thoughtbot.com/upcase/mastering-git https://news.ycombinator.com/item?id=22200222 https://betterexplained.com/articles/aha-moments-when-learning-git/ https://rachelcarmena.github.io/2018/12/12/how-to-teach-git.html design http://aosabook.org/en/git.html graph theory http://think-like-a-git.net/ write your own https://wyag.thb.lt/ https://benhoyt.com/writings/pygit/ Recurse Center article https://codewords.recurse.com/issues/two/git-from-the-inside-out Stanford https://www.kenneth-truyers.net/2016/10/13/git-nosql-database/ https://thoughtbot.com/upcase/mastering-git https://zwischenzugs.com/2018/05/14/beyond-punk-rock-git-in-eleven-steps/
+* https://smusamashah.github.io/explain-git-in-simple-words http://www-cs-students.stanford.edu/~blynn/gitmagic/ https://thoughtbot.com/upcase/mastering-git https://news.ycombinator.com/item?id=22200222 https://betterexplained.com/articles/aha-moments-when-learning-git/ https://rachelcarmena.github.io/2018/12/12/how-to-teach-git.html design http://aosabook.org/en/git.html write your own https://wyag.thb.lt/ https://benhoyt.com/writings/pygit/ Recurse Center article https://codewords.recurse.com/issues/two/git-from-the-inside-out Stanford https://www.kenneth-truyers.net/2016/10/13/git-nosql-database/ https://thoughtbot.com/upcase/mastering-git https://zwischenzugs.com/2018/05/14/beyond-punk-rock-git-in-eleven-steps/
 * Perrota https://app.pluralsight.com/library/courses/how-git-works/table-of-contents https://www.pluralsight.com/courses/master-git
 > do w/ his ML course
 * https://github.com/github/git-sizer
@@ -185,7 +226,7 @@ sections https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 ## design
 
 * future https://blog.waleedkhan.name/git-ui-features/
-* monorepo: https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe perf https://www.git-tower.com/blog/git-performance/ https://monadical.com/posts/from-chaos-to-cohesion.html
+* monorepo: https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe perf https://www.git-tower.com/blog/git-performance/ https://monadical.com/posts/from-chaos-to-cohesion.html https://jackevans.bearblog.dev/python-monorepo-tooling-with-pants/
 * distributed: less network latency than centralized https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 * full version of repo history https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 * reversible: Git database onlys adds data so it's hard to do something that's not reversible https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
@@ -204,7 +245,11 @@ HISTORY https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 * _version control_: stores content and tracks changes to content https://medium.com/@willhayjr/the-architecture-and-history-of-git-a-distributed-version-control-system-62b17dd37742
 * _first generation_: SCCS
 * _second generation_: 2000 - centralized - CVS, SVN/Subversion, Perforce, Bitkeeper https://twobithistory.org/2018/07/07/cvs.html https://blog.gitbutler.com/why-github-actually-won/
-* _third generation_: 2005 - distributed - Git (dominance such Stack Overflow dev survery no longer asks about VCS and people even use as a client to other VCS https://git-scm.com/book/en/v2/Git-and-Other-Systems-Git-as-a-Client) alternatives (FB uses Mercurial http://aosabook.org/en/mercurial.html SQLite uses Fossil)
+* _third generation_: 2005 - distributed - Git (dominance such Stack Overflow dev survery no longer asks about VCS and people even use as a client to other VCS https://git-scm.com/book/en/v2/Git-and-Other-Systems-Git-as-a-Client) https://blog.gitbutler.com/why-github-actually-won/ alternatives (FB uses Mercurial http://aosabook.org/en/mercurial.html SQLite uses Fossil)
+> absorb Mercurial https://news.ycombinator.com/item?id=41653191
+> people like revsets https://news.ycombinator.com/item?id=10968135
+> used by Facebook, Unity https://news.ycombinator.com/item?id=20745393
+> Mercurial design https://news.ycombinator.com/item?id=18029498
 * Git for everything https://news.ycombinator.com/item?id=30522175
 
 LINKABLE LIBRARIES 🗄 `python.md` Git
@@ -222,10 +267,65 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * _HEAD_: most recent commit of current branch; `.git/ref/head/<current_branch>`
 * compressed https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 
-# 🔮 PORCELAIN
+# 🛠️ TOOLING
+
+🗄️ `vim.md` utils / code intel / git
+
+## GUI
+
+* _GitUP_: ✅ https://github.com/git-up/GitUp
+* good for granular stages
+* switch views `cmd #`
+* open commit into quick view `space`
+
+---
+
+* alternatives https://git-scm.com/downloads/guis/ https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Graphical-Interfaces
+
+## pager / diffview
+
+* set to use external tool via `git difftool -help` 📙 Chacon [2.54]
+* _diff-so-fancy_: ✅ https://github.com/so-fancy/diff-so-fancy
+* _delta_: diffs/filenames were too dark https://github.com/dandavison/delta
+* _difftastic_: 🎯 https://github.com/Wilfred/difftastic
+* _diffnav_: 🎯 https://github.com/dlvhdr/diffnav
+* _diffview_: 🎯 neovim https://github.com/sindrets/diffview.nvim https://www.youtube.com/watch?v=aJikrPnTOtI
+* _dunk_: https://github.com/darrenburns/dunk
+* _git split diffs_: node version https://news.ycombinator.com/item?id=27007844
+
+## porcelain
+
+* _bit_: ❌ unmaintained, autcomplete https://github.com/chriswalz/bit
+* _forgit_: good UI https://github.com/wfxr/forgit#-features
+* _gitbutler_: 🎯 不明觉厉 https://github.com/gitbutlerapp/gitbutler https://blog.gitbutler.com/
+* _gitu_: 🎯 https://github.com/altsem/gitu
+* _GitKraken_: ❌ corporate https://www.gitkraken.com/
+* _magit_: looks great, Emacs-only https://github.com/magit/magit https://emacsair.me/2017/09/01/magit-walk-through/ https://github.com/dandavison/delta/issues/194
+* _vimagit_: inspired by magit https://github.com/jreybert/vimagit
+
+---
+
+* _lazygit_: 🎯 popular, good UI https://github.com/jesseduffield/lazygit https://github.com/catppuccin/lazygit https://www.youtube.com/watch?v=Ihg37znaiBo
+* _Neogit_: 🎯 magit port https://github.com/NeogitOrg/neogit
+* _vim-fugitive_: 🎯 https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI
+
+## repo browser
+
+* _gitk_: https://git-scm.com/docs/gitk
+* _grv_: https://github.com/rgburke/grv
+* _serie_: https://github.com/lusingander/serie
+* _Tig_: ✅ https://github.com/jonas/tig https://jonas.github.io/tig/doc/manual.html
+* modes: main `m` diff `d` log `l` blame `b`; main view with message body https://github.com/jonas/tig/issues/1032
+* all commits: `tig` in repo 
+* file history: `tig path/to/file`
+* blame: `tig blame path/to/file` https://stackoverflow.com/q/15304804 or tree view `t` then `b`
+> binding to view full file https://www.youtube.com/watch?v=goNodOWENEg
+
+# 🏗️ WORKFLOW
+
+---
 
 📜 cmd https://git-scm.com/book/en/v2/Appendix-C%3A-Git-Commands-Setup-and-Config
-
 * _add - chunks_: `add -p`
 
 ## branch
@@ -280,8 +380,6 @@ new things https://adamj.eu/tech/2023/10/04/boost-your-git-dx-out-now/
 
 ## commit
 
-🗄 undo
-
 MESSAGE
 * msg components: subject/header, description
 * _COMMIT EDITMSG_: tmp file storing commit msg
@@ -295,7 +393,7 @@ git config commit.template <template_file.txt>
 ```
 * labels: lowers cognitive overhead = enables more frequent commits https://github.com/commitizen/cz-cli https://github.com/zachvalenta/interview-capp/commits/main/
 ```sh
-src: func/rf
+src: func|fix|rf
 test
 dep
 doc
@@ -498,6 +596,7 @@ $NAME/$BRANCH  # reference non-origin remote
 # UPDATE
 remote rename $OLD_NAME $NEW_NAME  # name
 remote set-url $NAME git@$PROVIDER.com:$USER/$PROJECT.git  # URL
+git remote set-url origin git@github.com:cappusa/product-categories.git
 remote rm $NAME
 
 git remote set-url origin git@github.com:zachvalenta/logs.git
@@ -544,25 +643,28 @@ USE https://dev.to/srebalaji/useful-tricks-you-might-not-know-about-git-stash-11
 
 ## undo
 
+* undo local commit: `git reset HEAD~` https://stackoverflow.com/a/927386
+
+---
+
 🔗 https://wizardzines.com/zines/oh-shit-git/ https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things#_undoing https://git-scm.com/book/en/v2/Git-Internals-Maintenance-and-Data-Recovery#_data_recovery
 
-* undo local commit: `git reset HEAD~` https://stackoverflow.com/a/927386
 * restore deleted file: `git checkout HEAD <filename>`
 * find deleted file https://devblogs.microsoft.com/oldnewthing/20240909-00
 * rm tracked file: `rm --cached $FILE` 📙 Chacon [2.56-57] 
 
-repository
+REPOSITORY
 * ?: `reset --hard HEAD`
 * rm most recent commit: `reset --hard HEAD~1`
 * rm most recent commit from remote: `git push origin +HEAD` https://stackoverflow.com/a/8225166/6813490
 * mv most recent commit to index: `reset --soft HEAD~1`
 
-staging area
+STAGING AREA
 * unstage single file: `reset HEAD <file>` https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things
 * unstage all files: `reset` https://michaelsoolee.com/git-unstage-all/
 * `git add .` is a bug magnet https://www.semicolonandsons.com/episode/how-to-make-less-mistakes-when-programming 2:20
 
-the past
+THE PAST
 * _blame_: https://github.com/casperdcl/git-fame
 * _bisect_: search for bug https://drewdevault.com/2019/02/25/Using-git-with-discipline.html https://lchsk.com/debugging-with-git-bisect.html remove secrets from commit https://startcodingnow.com/removing-secrets-from-django-project-in-docke https://news.ycombinator.com/item?id=26567969
 * _reflog_: find stuff you've deleted e.g. reset back a few commits but need something from one of the commits you've skipped past, reflog will help you find it http://gitready.com/intermediate/2009/02/09/reflog-your-safety-net.html ❓ so Git doesn't rm stuff it sends to a trash can https://news.ycombinator.com/item?id=34487201
@@ -772,44 +874,3 @@ curl --header "PRIVATE-TOKEN: <access_token>" https://gitlab.com/api/v4/users/za
 # DEPLOY TOKEN
 git clone https://token_name:token@gitlab.com/zachvalenta/dummy-repo.git
 ```
-
-## tooling
-
-🗄 `km.md` kanban
-
-GUI
-* alternatives https://git-scm.com/downloads/guis/ https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Graphical-Interfaces
-* _GitUP_: ✅ https://github.com/git-up/GitUp
-* good for granular stages
-* switch views `cmd #`
-* open commit into quick view `space`
-
-PAGER / DIFFVIEW
-* set to use external tool via `git difftool -help` 📙 Chacon [2.54]
-* _diff-so-fancy_: ✅ https://github.com/so-fancy/diff-so-fancy
-* _delta_: diffs/filenames were too dark https://github.com/dandavison/delta node version https://news.ycombinator.com/item?id=27007844
-* _difftastic_: 🎯 https://github.com/Wilfred/difftastic
-* _diffview_: 🎯 neovim https://github.com/sindrets/diffview.nvim https://www.youtube.com/watch?v=aJikrPnTOtI
-* _dunk_: https://github.com/darrenburns/dunk
-
-PORCELAIN
-* _bit_: autcomplete https://github.com/chriswalz/bit
-* _forgit_: good UI, clunky install https://github.com/wfxr/forgit#-features
-* _gitbutler_: https://github.com/gitbutlerapp/gitbutler https://blog.gitbutler.com/
-* _gitsigns_: 🎯 Neovim, similiar to vim-fugitive, catppuccin integration https://github.com/lewis6991/gitsigns.nvim
-* _lazygit_: 🎯 popular, good UI https://github.com/jesseduffield/lazygit https://github.com/catppuccin/lazygit https://www.youtube.com/watch?v=Ihg37znaiBo
-* _magit_: looks great, Emacs-only https://github.com/magit/magit https://emacsair.me/2017/09/01/magit-walk-through/ https://github.com/dandavison/delta/issues/194
-* _Neogit_: 🎯 magit port https://github.com/NeogitOrg/neogit
-* _vim-fugitive_: 🎯 https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI
-* _vimagit_: https://github.com/jreybert/vimagit
-
-REPO BROWSER
-* _gitk_: https://git-scm.com/docs/gitk
-* _grv_: https://github.com/rgburke/grv
-* _serie_: https://github.com/lusingander/serie
-* _Tig_: ✅ https://github.com/jonas/tig https://jonas.github.io/tig/doc/manual.html
-* modes: main `m` diff `d` log `l` blame `b`; main view with message body https://github.com/jonas/tig/issues/1032
-* all commits: `tig` in repo 
-* file history: `tig path/to/file`
-* blame: `tig blame path/to/file` https://stackoverflow.com/q/15304804 or tree view `t` then `b`
-> binding to view full file https://www.youtube.com/watch?v=goNodOWENEg

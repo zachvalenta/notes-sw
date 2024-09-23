@@ -7,7 +7,7 @@
 * Buelta python architecture
 * Dibernardo 500 lines or less http://aosabook.org/en/index.html
 * ✅ Evans domain-driven design
-* Fowler refactoring https://www.amazon.com/dp/0134757599/
+* Fowler refactoring https://www.amazon.com/dp/0134757599/ https://registerspill.thorstenball.com/p/skin-shedding-code
 * Martin clean code https://qntm.org/clean
 * McConnell code complete
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
@@ -19,6 +19,7 @@
 
 # 🛰️ API
 
+🛣️ https://roadmap.sh/best-practices/api-security
 🗄️ `databases.md` tooling / code generation
 📙 Masse api rulebook
 🔍 https://github.com/public-apis/public-apis https://rapidapi.com/hub
@@ -250,11 +251,9 @@ https://github.com/piku/piku
 
 ## CICD
 
-🗄️ `git.md` Github / actions
+🗄️ `git.md` Github / Actions
 
 ---
-
-run locally https://news.ycombinator.com/item?id=26236677
 
 * taxonomy: yolo (edit on server) FTP (edit on local, push to server) SCM (SSH to sever and pull repo, maybe use cron) CICD (triggered by repo hook https://dagger.io/) https://css-tricks.com/deployment/
 * pipelines: fetch (clone from repo) build (install deps, compile) test (run unit tests) deploy (put artifact somewhere so CD can pick it up and run it)
@@ -324,6 +323,7 @@ PRE-COMMIT https://pre-commit.com https://github.com/pre-commit/pre-commit/issue
 
 CLOUD
 * https://www.lastweekinaws.com/blog/the-real-reason-cloud-ide-adoption-is-lagging/
+* switching locally: macOS spaces https://github.com/dandavison/wormhole
 * _Coder_: https://github.com/coder/coder
 * _Daytona_: https://www.daytona.io/
 * _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053
@@ -664,6 +664,10 @@ as red flag https://news.ycombinator.com/item?id=30675182
 ## 🎭 paradigms
 
 📚 Lopes exercises in programming style
+
+* use greppable names https://registerspill.thorstenball.com/p/use-data-that-looks-like-data
+* write code that's easy to throw away
+> Write code to be changed and/or deleted. This comes from someone who's worked in startups for the past 5 years. We often overestimate how long code =is supposed to live. We as programmers often exaggerate with our DRY and stuff, we do not want to repeat ourselves, we want to find another abstraction...we want to find some general that can help us abstract stuff away. My piece of advice is that, step back and consider for a moment that this code is not going to stay in, so maybe only try and find the abstraction layer once you really sure that this is how it's going to be. - Thorsten Ball https://developeronfire.com/podcast/episode-373-thorsten-ball-interpreters-compilers-and-writing
 
 ---
 

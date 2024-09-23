@@ -10,6 +10,24 @@
 
 ## 进步
 
+ICON/FONT/COLOR INTERPLAY
+* eza/exa use different icons (setup screenshots on air22)
+> can you byo your icons in eza?
+* iterm version on mini22 can't display icon for music files correctly with both exa&eza but mini23 can
+> I thought this was something that couldn't be patched in iTerm?
+
+CLEAN UP
+* _ffmpeg_: video encoding, file format conversion https://www.youtube.com/watch?v=MPV7JXTWPWI https://ffmpeg.guide/ https://img.ly/blog/ultimate-guide-to-ffmpeg/
+* _imgcat_: render img in terminal https://news.ycombinator.com/item?id=23319272
+* get file duration https://www.youtube.com/watch?v=s6DXMf_yj64
+* _gotty_: term as web app https://github.com/yudai/gotty
+* _neofetch_: system info https://github.com/Dr-Noob/cpufetch
+* _tee_: view output https://www.youtube.com/watch?v=NsAUBict1Aw
+* _tsukae_: view most commonly used commands https://github.com/irevenko/tsukae
+* _try_: view files that command touches https://github.com/binpash/try
+* weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/
+* Wikipedia https://github.com/yashsinghcodes/wik
+
 * _24_: oh-my-posh, atuin, readline vi mode, eza, vivid
 * _23_: big rf, Conery unix chapter, research Zellij
 * _22_: Fira Mono for iTerm font/icons, try starship, try/fail vi mode for readline, organize utils
@@ -778,20 +796,28 @@ ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 ---
 
 * zsh tutorial https://www.youtube.com/watch?v=bTLYiNvRIVI
-* what happens when... https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls
-* TUI for bash https://github.com/charmbracelet/gum
-* design https://www.micahlerner.com/2021/07/14/unix-shell-programming-the-next-50-years.html 🗣 Dan Luu https://borretti.me/article/shells-are-two-things
 * get current shell: `echo $SHELL` https://stackoverflow.com/a/3327022/6813490
 * switch shell: `<shell>` https://fishshell.com/docs/current/tutorial.html#tut_getting_started
 * return to default shell: `exit`
 
 ### history (atuin)
 
-LIBS
-* _atuin_: better UI https://github.com/atuinsh/atuin https://docs.atuin.sh/
-* enter: `ctrl r`|up arrow
-* `ctrl r`: change search context (global, host, session, directory) https://www.youtube.com/watch?v=WB7qojkkVVU [7:45]
-* import will give everything a timestamp from moment of import https://www.youtube.com/watch?v=WB7qojkkVVU [4:40]
+ATUIN 📜 https://github.com/atuinsh/atuin https://docs.atuin.sh/
+* cmd
+```sh
+CTRL r  # change search context (global, host, session, directory) https://www.youtube.com/watch?v=WB7qojkkVVU [7:45]
+CTRL o  # inspect cmd
+CTRL d  # rm cmd
+```
+* design: import will give everything a timestamp from moment of import https://www.youtube.com/watch?v=WB7qojkkVVU [4:40]
+* creates own `.bash_profile` and `.bashrc`
+```sh
+. "$HOME/.atuin/bin/env"
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
+```
+
+ALTERNATIVES
 * _history-sync_: zsh plugin https://martinheinz.dev/blog/110
 * _hishtory_: https://github.com/ddworken/hishtory
 * _marker_: uses tldr https://github.com/pindexis/marker
@@ -921,6 +947,7 @@ OPTIONS
 ## terminal (iTerm)
 
 FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/ https://news.ycombinator.com/item?id=35125442
+* silence `last login` msg: add `.hushlogin` to $HOME
 * Unicode support: emojis, prompts https://darrenburns.net/posts/emoji-in-the-terminal/
 * tabs/profiles
 * viz: background color/image, transparency, themes e.g. gruvbox https://www.youtube.com/watch?v=h509rn2xIyU
@@ -1028,14 +1055,19 @@ WINDOW MANAGERS
 
 ---
 
-MAN PAGES
-* _whereis_: search for executables and man page in system db https://github.com/Idnan/bash-guide#c-whereis
-* _tldr_: cheatsheets https://github.com/tldr-pages/tldr/tree/master/pages https://github.com/dbrgn/tealdeer https://github.com/chubin/cheat.sh https://github.com/denisidoro/navi
-* offline documentations https://devdocs.io/
-> you can download plaintext of Python docs
-* man (UNIX) vs. info (GNU) https://askubuntu.com/a/9332 man pages for systems calls as well (`sendfile`) [`evans-linux.pdf` 11]
-* help: `man`, `info`, `whatis`, `man 2 <cmd>` (for system calls)
-* man pages: following links (like at bottom of cmus manpage) https://unix.stackexchange.com/a/18161/331460 set pager `export MANPAGER=bat` https://askubuntu.com/a/679058
+MONITORING
+* directory size: ncdu, du, ncdu https://github.com/bootandy/dust `du -sh -- * | sort -r` https://unix.stackexchange.com/a/185777 https://github.com/muesli/duf https://github.com/imsnif/diskonaut https://github.com/KSXGitHub/parallel-disk-usage
+> ncdu config fs `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
+* disk: view of mounts; `df -h`; colorize https://danyspin97.org/blog/colorize-your-cli/
+* memory: btop https://github.com/aristocratos/btop free (UNIX) top (macos) gotop https://github.com/xxxserxxx/gotop/issues/50 ytop https://github.com/cjbassi/ytop htop https://tech.marksblogg.com/top-htop-glances.html below https://github.com/facebookincubator/below https://github.com/bvaisvil/zenith https://github.com/ClementTsang/bottom
+> config btop
+> looks pretty good https://github.com/MrRio/vtop https://github.com/nschloe/tiptop
+* network: https://github.com/imsnif/bandwhich
+
+CLIPBOARD
+* manager https://github.com/Slackadays/Clipboard
+* copy output: `<cmd> | pbcopy` https://github.com/Slackadays/Clipboard
+* copy file: `pbcopy < ~/.ssh/id_rsa.pub`
 
 CORE
 * versions: Linux uses GNU, macOS uses BSD (get w/ `brew install coreutils`) 📙 Evans shell [4]
@@ -1046,25 +1078,10 @@ CORE
 * _bc_: do math on stdin https://missing.csail.mit.edu/2020/data-wrangling/
 * _head_: 类似 SQL `limit` e.g. `ls <query> | head -4` or `kaiff` (`ls | sort -f | head -1 | xargs open`) https://stackoverflow.com/a/14510257/6813490
 * _which_: search for executables on $PATH https://github.com/Idnan/bash-guide#d-which full path https://nil.wallyjones.com/what-shell-am-i-using/
-* _rm_: send to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives https://github.com/nivekuil/rip https://github.com/arsenetar/send2trash/issues https://github.com/arsenetar/send2trash/issues/56 https://hacker-tools.github.io/command-line/
+* _rm_: send to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives https://github.com/nivekuil/rip https://github.com/arsenetar/send2trash/issues https://github.com/arsenetar/send2trash/issues/56 https://hacker-tools.github.io/command-line/ https://github.com/umlx5h/gtrash
 * _tar_: https://switowski.com/blog/favorite-mac-tools/
 * _w_: who is logged in and what they're doing https://rachelbythebay.com/w/2018/03/26/w/
 * _watch_: https://github.com/sachaos/viddy
-
-MODERN
-* _asciicinema_: terminal recording https://darrenburns.net/posts/tools/ https://github.com/nbedos/termtosvg https://github.com/cytopia/ffscreencast https://github.com/charmbracelet/vhs
-> vhs as alternative https://github.com/charmbracelet/vhs/ https://github.com/TypicalAM/goread
-* _ffmpeg_: video encoding, file format conversion https://www.youtube.com/watch?v=MPV7JXTWPWI https://ffmpeg.guide/ https://img.ly/blog/ultimate-guide-to-ffmpeg/
-* _imgcat_: render img in terminal https://news.ycombinator.com/item?id=23319272
-* get file duration https://www.youtube.com/watch?v=s6DXMf_yj64
-* _gotty_: term as web app https://github.com/yudai/gotty
-* _neofetch_: system info https://github.com/Dr-Noob/cpufetch
-* _pdfgrep_: https://pdfgrep.org/ alternative
-* _tee_: view output https://www.youtube.com/watch?v=NsAUBict1Aw
-* _tsukae_: view most commonly used commands https://github.com/irevenko/tsukae
-* _try_: view files that command touches https://github.com/binpash/try
-* weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/
-* Wikipedia https://github.com/yashsinghcodes/wik
 
 COREUTILS
 * _coreutils_: ls, rm, cat, et al. https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands
@@ -1072,45 +1089,19 @@ COREUTILS
 * aka "modern UNIX" https://www.thoughtworks.com/radar/tools/modern-unix-commands
 * Rust rewrite https://news.ycombinator.com/item?id=26396798 https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/ https://github.com/ibraheemdev/modern-Unix
 
-CLI IMPL LANGUAGE 🗄 `information.md` serialization `python.md` CLI
-> use Rust for CLI and Python for business logic? https://github.com/chubin/wttr.in
-* tracking user info https://www.visidata.org/blog/2021/usage-graphs/
-> build modern CLI applications without worrying about user accounts, data storage and encryption https://github.com/charmbracelet/charm#charm-kv
-* fuzzy find https://github.com/denisidoro/navi
-* C: ✅ fast ❌ development speed
-* Nim: ✅ distribution ❌ maturity https://ssalewski.de/nimprogramming.html
-* Python: ✅ exploratory ❌ distribution
-* Go: ✅ distribution, fast startup https://news.ycombinator.com/item?id=23319684 ❌ stdlib lib lib not good
-* Rust: ✅ speed, Clap library https://news.ycombinator.com/item?id=23320411 better for cross platform https://cuchi.me/posts/go-vs-rust ❌ language itself
-
 CP
 * dir: `cp -r <dir> <path/to>`
 * dir but exclude `.git`_: `cmd --exclude=.git <source> <target>` https://stackoverflow.com/a/3672584
 * dir contents: `cp -r <dir>/ <path/to>`
 
-DASHBOARDS 🗄 `python.md` TUI
-* https://github.com/wtfutil/wtf
-* https://github.com/Phantas0s/devdash
-* https://github.com/gizak/termui
-
-MONITORING
-* directory size: du, ncdu https://github.com/bootandy/dust `du -sh -- * | sort -r` https://unix.stackexchange.com/a/185777 https://github.com/muesli/duf https://github.com/imsnif/diskonaut https://github.com/KSXGitHub/parallel-disk-usage
-> ncdu config fs `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
-* disk space: view of mounts; `df -h`; colorize https://danyspin97.org/blog/colorize-your-cli/
-* memory: free (UNIX) top (macos) gotop https://github.com/xxxserxxx/gotop/issues/50 ytop https://github.com/cjbassi/ytop htop https://tech.marksblogg.com/top-htop-glances.html below https://github.com/facebookincubator/below https://github.com/bvaisvil/zenith
-* network: https://github.com/imsnif/bandwhich
-
-SNIPPETS
-* live log view `tail -f foo.log`
-
-* clipboard manager https://github.com/Slackadays/Clipboard
-* copy output to clipboard : `<cmd> | pbcopy` https://github.com/Slackadays/Clipboard
-* copy file to clipboard: `pbcopy < ~/.ssh/id_rsa.pub`
-
-TUI
-* https://news.ycombinator.com/item?id=40273177
-* _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
-* _ncurses_: Linux https://github.com/jesseduffield/lazydocker https://github.com/NerdyPepper/dijo
+MAN PAGES
+* _whereis_: search for executables and man page in system db https://github.com/Idnan/bash-guide#c-whereis
+* _tldr_: cheatsheets https://github.com/tldr-pages/tldr/tree/master/pages https://github.com/dbrgn/tealdeer https://github.com/chubin/cheat.sh https://github.com/denisidoro/navi
+* offline documentations https://devdocs.io/
+> you can download plaintext of Python docs
+* man (UNIX) vs. info (GNU) https://askubuntu.com/a/9332 man pages for systems calls as well (`sendfile`) [`evans-linux.pdf` 11]
+* help: `man`, `info`, `whatis`, `man 2 <cmd>` (for system calls)
+* man pages: following links (like at bottom of cmus manpage) https://unix.stackexchange.com/a/18161/331460 set pager `export MANPAGER=bat` https://askubuntu.com/a/679058
 
 ## color
 
@@ -1136,6 +1127,10 @@ pastel paint $COLOR1 --on $COLOR2 " INFORMATION " --bold  # adhoc
 ```
 
 ---
+
+https://news.ycombinator.com/item?id=41727971 https://jvns.ca/blog/2024/10/01/terminal-colours/
+
+> The default terminal app is limited to 256 colors. We recommend installing a newer terminal such as iterm2, Kitty, or WezTerm. https://textual.textualize.io/getting_started/#macos
 
 * _HSL_: https://designsystem.digital.gov/design-tokens/color/overview/
 * _hex_: https://css-tricks.com/nerds-guide-color-web/
@@ -1210,12 +1205,40 @@ $ fq  # look at output without stopping the build
 5 * * * *  # 5th minute of every hour, every day of month, every month, every day of week
 ```
 
-## file
+## design
 
-FILE/DIR DIFF
+🗄
+* `protocols.md` serialization
+* `python.md` UI
+
+---
+
+TUI
+* https://news.ycombinator.com/item?id=40273177
+* _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
+* _ncurses_: Linux https://github.com/jesseduffield/lazydocker https://github.com/NerdyPepper/dijo
+
+* https://news.ycombinator.com/item?id=37418424
+* TUI for bash https://github.com/charmbracelet/gum
+* design https://www.micahlerner.com/2021/07/14/unix-shell-programming-the-next-50-years.html 🗣 Dan Luu https://borretti.me/article/shells-are-two-things
+
+CLI IMPL LANGUAGE
+> use Rust for CLI and Python for business logic? https://github.com/chubin/wttr.in
+* tracking user info https://www.visidata.org/blog/2021/usage-graphs/
+> build modern CLI applications without worrying about user accounts, data storage and encryption https://github.com/charmbracelet/charm#charm-kv
+* fuzzy find https://github.com/denisidoro/navi
+* C: ✅ fast ❌ development speed
+* Nim: ✅ distribution ❌ maturity https://ssalewski.de/nimprogramming.html
+* Python: ✅ exploratory ❌ distribution
+* Go: ✅ distribution, fast startup https://news.ycombinator.com/item?id=23319684 ❌ stdlib lib lib not good
+* Rust: ✅ speed, Clap library https://news.ycombinator.com/item?id=23320411 better for cross platform https://cuchi.me/posts/go-vs-rust ❌ language itself
+
+## 📄 file
+
+FILE/DIR DIFF 🗄️ `protocols.md` JSON
 * _vimdiff_: `vim -d <file1> <file2>` https://stackoverflow.com/a/113328/6813490
 * wraps Vim's diff mode for use in other tools, notably Git's mergetool https://vi.stackexchange.com/a/626 https://www.youtube.com/watch?v=kFVjoIish0E
-* _diff_: https://danyspin97.org/blog/colorize-your-cli/ diffing trees https://github.com/trailofbits/graphtage
+* _diff_: https://danyspin97.org/blog/colorize-your-cli/
 * BeyondCompare https://scootersoftware.com/ https://news.ycombinator.com/item?id=22850711
 * _difftastic_: diff + syntax https://github.com/Wilfred/difftastic https://www.nathaniel.ai/myers-diff
 
@@ -1230,10 +1253,10 @@ FILE WATCHERS
 * Golang impl https://github.com/cespare/reflex https://github.com/cortesi/modd
 * exec code in response to fs change https://github.com/wtetsu/gaze https://github.com/watchexec/watchexec
 * application code in Python https://github.com/gorakhargosh/watchdog
-* _entr_: https://github.com/eradman/entr https://jvns.ca/blog/2020/06/28/entr/ https://github.com/eradman/entr/issues/45 http://eradman.com/posts/repeatable-workspaces.html
-* _fswatch_: https://github.com/emcrisostomo/fswatch https://slack.engineering/development-environments-at-slack/
-* _watch_: https://www.youtube.com/watch?v=bB2TmCfJiX8
-* _watchman_: https://facebook.github.io/watchman/ https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman
+* _entr_: bad install https://github.com/eradman/entr https://jvns.ca/blog/2020/06/28/entr/ https://github.com/eradman/entr/issues/45 http://eradman.com/posts/repeatable-workspaces.html
+* _fswatch_: bad install https://github.com/emcrisostomo/fswatch https://slack.engineering/development-environments-at-slack/
+* _watch_: built-in https://linux.die.net/man/1/watch https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command
+* _watchman_: shaky install https://facebook.github.io/watchman/ https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman
 * _hwatch_: https://github.com/blacknon/hwatch
 
 ### find (fd)
@@ -1328,11 +1351,12 @@ ALTERNATIVES
 
 ### list (eza)
 
-* icons https://the.exa.website/features/icons
+* features: icons, dimming, link related
+* features I should be using more: highlight outliers (size, last accessed)
 * _exa_: ✅ https://github.com/ogham/exa https://the.exa.website/
 * _eza_: ✅ Makefile icon broken, absentee maintainers? https://github.com/eza-community/eza/pull/554 https://github.com/eza-community/eza 
-* _logols_: https://github.com/Yash-Handa/logo-ls
-* _lsd_:  https://github.com/lsd-rs/lsd
+* _logols_: 💀 https://github.com/Yash-Handa/logo-ls
+* _lsd_: 🎯 https://github.com/lsd-rs/lsd
 * _pls_: 🎯 https://github.com/pls-rs/pls
 
 ---
@@ -1365,7 +1389,7 @@ pyclean () {
 }
 ```
 
-## text
+## ✏️ text
 
 ### fuzzy find (fzf)
 
@@ -1381,6 +1405,7 @@ USES https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-d
 
 ---
 
+* used by dbcli https://github.com/amjith/fuzzyfinder
 https://github.com/peco/peco
 https://www.youtube.com/watch?v=MvLQor1Ck3M
 * https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
@@ -1534,7 +1559,7 @@ bat --line-range 227:236 $NOTES_DIR/sw/za/algos.md
 ### search (ripgrep)
 
 🗄 `vim.md` code completion
-🛠️ grep PDF https://github.com/phiresky/ripgrep-all
+🛠️ grep PDF https://github.com/phiresky/ripgrep-all https://pdfgrep.org/
 
 RG 📜 https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
 * `I`: don't output filename
