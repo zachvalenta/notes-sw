@@ -17,10 +17,204 @@
 https://roadmap.sh/linux
 
 * _24_: combine Homebrew and other managers
+* _23_: Conery unix chapter
 * _22_: denv
-* _21_: macOS (failed upgrade to Big Sur)
-* _19_: backups (Dropbox as placeholder until Tarsnap) macOS (upgrade to Mojave) 📙 `evans-random.pdf`
-* _18_: phone (switch to new number, 'unknown number' problem, WhatsApp debacle)
+* _19_: symlink dotfiles
+* _18_: scripts (`fne`, `qing`, `ding`, `qiu`, `jb`)
+
+# 🪐 DENV
+
+🗄
+* `it.md` macos
+* `km.md` file system
+* `shell.md` profiles / dotfiles
+* `shell.md` userland
+* `src.md` denv
+
+ENV SETUP ORDER
+* Homebrew
+* git
+* pyenv
+* nvm
+
+## dotfiles
+
+🗄 `linux.md` denv
+
+* `XDG_CONFIG_HOME`: typically `$HOME/.config` https://github.com/lusingander/serie/issues/25 https://github.com/kraanzu/dooit/issues/195
+> On macOS, `$XDG_CONFIG_HOME` maps to $HOME/.config. Another popular path for config files is `/Users/USER/Library/Application\ Support`. Does this file path have a env var name in the way that $XDG_CONFIG_HOME does?
+* write script to do symlinks https://news.ycombinator.com/item?id=34304694
+* prefer programs that store config as text
+* keep under version control and symlink into place with script https://hacker-tools.github.io/dotfiles/ advanced mgmt https://github.com/twpayne/chezmoi https://news.ycombinator.com/item?id=32632533 https://github.com/atuinsh/atuin
+> There are two basic approaches: version your entire home directory or symbolically link your dotfiles into place from a stand-alone repository. The first approach is straightforward but has a number of issues that make it a poor choice. https://nullprogram.com/blog/2012/06/23/
+* install script https://www.youtube.com/watch?v=hXU54axdjJc https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
+* mgmt: GNU Stow https://www.youtube.com/watch?v=90xMTKml9O0 https://github.com/bbkane/fling
+* mbp14
+```sh
+# /Users/zach
+.bash_profile -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/.bash_profile
+.bashrc -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/.bashrc
+.gitconfig -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/.gitconfig
+.mlrrc -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/.mlrrc
+.pdbrc -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/python/.pdbrc
+.pdbrc.py -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/python/.pdbrc.py
+.psqlrc -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/db/.psqlrc
+.sqliterc -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/db/.sqliterc
+.tmux.conf -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/tmux.conf
+.vimrc -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/.vimrc
+.visidatarc -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/db/.visidatarc
+.zprofile -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/.zprofile
+.sh -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/git-prompt.sh
+
+# /Users/zach/.config
+http-prompt/config.py -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/http-prompt-config.py
+iterm2/AppSupport -> /Users/zach/Library/Application Support/iTerm2
+litecli/config -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/db/litecli.conf
+neofetch/config.conf -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/neofetch.conf
+pgcli/config -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/db/pgcli.conf
+powerline-shell/config.json -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/powerline-shell.json
+starship.toml -> /Users/zach/Desktop/zvmac/materials/sw/os/za/dotfiles/starship.toml
+```
+* air22
+```sh
+# /Users/zach
+.gitconfig -> /Users/zach/Documents/zvroot/materials/stem/dev/os/denv/dotfiles/.gitconfig
+.vimrc -> /Users/zach/Documents/zvroot/materials/stem/dev/os/denv/dotfiles/.vimrc
+.zprofile -> /Users/zach/Documents/zvroot/materials/stem/dev/os/denv/dotfiles/.zprofile
+.zshrc -> /Users/zach/Documents/zvroot/materials/stem/dev/os/denv/dotfiles/.zshrc
+
+# /Users/zach/.config
+broot/conf.toml -> /Users/zach/Documents/zvroot/materials/stem/dev/os/denv/dotfiles/broot-conf.toml
+nvim/init.vim -> /Users/zach/Documents/zvroot/materials/stem/dev/os/denv/dotfiles/init.vim
+nvim/lua/zv  # Neovim conf: user, plugins
+powerline-shell/config.json -> /Users/zach/Documents/zvroot/materials/stem/dev/os/denv/dotfiles/powerline-shell.json
+```
+
+## env var
+
+🗄
+* `security.md` users/ passwords
+* `src.md` deployment / secrets
+
+DIRENV 📜 https://github.com/direnv/direnv
+* load env var based on dir
+* alternative https://github.com/jdx/mise
+* usage https://www.youtube.com/watch?v=udezempDBVQ
+* use case https://jamey.thesharps.us/2019/05/29/per-project-postgres/
+
+CMDS
+```sh
+export FOO="val"      # set
+DEBUG=true npm start  # set tmp to run cmd
+echo $FOO             # read
+env                   # list all
+unset $FOO            # unset
+```
+
+---
+
+* https://github.com/zed-industries/zed/blob/main/docs/src/environment.md
+* 🗄 `broot.log` https://unix.stackexchange.com/a/106606/331460 https://github.com/thoughtbot/til/blob/master/bash/bash_profile_vs_bashrc.md
+* _envsubst_: sub env var into fmt strings https://nickjanetakis.com/blog/using-envsubst-to-merge-environment-variables-into-config-files
+```sh
+foo.sh  # echo $LOGNAME 
+./foo.sh           # stdout: $LOGNAME
+envsubst < foo.sh  # stdout: zach
+```
+
+## fs
+
+```sh
+├── /Users/zach/Documents/materials/stem/dev/os/denv
+│   └── bin
+│   └──────── fr
+│   └──────── jb
+│   └──────── jbc
+│   └──────── kcm
+│   └──────── news  # symlink
+│   └───────────── repos/news/main.py
+│   └──────── this-week
+│   └──────── upper-structures
+│   └──────── vimv
+│   └── dotfiles  # mv pkg to logs
+│   └──────── db  # psqlrc, sqliterc, visidatarc, litecli.conf, pgcli.conf
+│   └──────── editors  # vimrc, settings, keybindings, markdown
+│   └──────── poetry  # pdb, Poetry
+│   └──────── shell  # bash/zh (profile, rc), powerline/starship/git-prompt
+│   └── fonts
+│   └──────── fira-mono-regular.otf
+│   └──────── fira-mono-regular-windows-compatible.otf
+│   └── logs
+│   └──────── brew
+│   └──────── nodenv
+│   └──────── pip
+│   └──────── pipx
+│   └──────── pyenv
+│   └──────── za
+```
+
+## path
+
+TOOLS
+* _has_: check tool (python, java) on PATH https://github.com/kdabir/has
+* _justpath_: edit https://github.com/epogrebnyak/justpath
+* _pathos_: edit https://terminaltrove.com/pathos/
+
+---
+
+* https://blog.izissise.net/posts/env-path/
+* `$PATH`: list of directories that the shell should search when looking for programs corresponding to commands entered by the user [LPI 2.7]
+* change precedence: https://apple.stackexchange.com/a/49961
+* _default_: `/bin`, `usr/bin`
+* _global_: `/etc/paths`
+* _user_: `.bash_profile`
+
+## profiles
+
+---
+
+ZSH https://unix.stackexchange.com/a/71258
+* `.zshenv`: src for all shells
+> often contains exported variables that should be available to other programs. For example, $PATH, $EDITOR, and $PAGER are often set in .zshenv. Also, you can set $ZDOTDIR in .zshenv to specify an alternative location for the rest of your zsh configuration.
+* `.zprofile`: src for login shells, src before `.zshrc`
+* `.zshrc`: src for interactive shells
+
+ALIASES
+* `alias`: list all
+* _alias_: evaluated when shell loads profile
+* view: `type <alias>` https://www.youtube.com/watch?v=aLMepxvUj4s 4:15
+* use unaliased: `\cd` https://stackoverflow.com/a/11056541
+
+SHELL TYPES https://github.com/nushell/nushell/issues/8169
+* _interactive_: normal
+* _non-interactive_: process spawned when script run 📙 LPI 2.2 https://unix.stackexchange.com/questions/43385/what-do-you-mean-by-interactive-shell/43389#43389 
+* _login_: reads profiles and env var 
+* _non-login_: cron jobs https://unix.stackexchange.com/questions/38175/difference-between-login-shell-and-non-login-shell/46856#46856 https://www.quora.com/What-are-the-differences-between-a-login-shell-and-a-non-login-shell/answer/Rod-Nussbaumer-1?srid=ebCJ
+
+---
+
+* https://shreevatsa.wordpress.com/2008/03/30/zshbash-startup-files-loading-order-bashrc-zshrc-etc/
+* macOS execution order: `.bash_profile`, `.bash_login`, `.profile`
+
+---
+
+* bash automatically sources `.bash_profile`
+
+* _system_: `/etc/profile` `/etc/bashrc` https://bencane.com/2013/09/16/understanding-a-little-more-about-etcprofile-and-etcbashrc/
+* _login_: `~/.bash_profile` 
+* _non-login_: `~/.bashrc` https://unix.stackexchange.com/a/3469/331460 https://en.wikipedia.org/wiki/Run_commands
+* _rc file_: startup script 📙 Conery [382]
+
+```sh
+# view single function def from `.bash_profile`
+declare -f <name>
+
+# view all function def
+declare -f
+
+# view all function names (regex = line starts with lower case characters)
+declare -f | grep '^[a-z]'
+```
 
 # 📦 PACKAGING
 
@@ -75,6 +269,7 @@ requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
 
 TOOLS
 * BYO http://aosabook.org/en/500L/contingent-a-fully-dynamic-build-system.html
+* Markdown https://github.com/tzador/makedown
 * _Bazel_: Make for FANG https://eng.uber.com/go-monorepo-bazel/ https://github.com/bazelbuild/bazel https://testdriven.io/blog/bazel-builds/ https://www.youtube.com/watch?v=zaymCO1A1dM
 * _cmake_: 不明觉厉 https://stackoverflow.com/a/25790020 http://aosabook.org/en/cmake.html
 * _just_: 🎯 https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529 https://github.com/pls-rs/pls/blob/main/justfile https://github.com/pls-rs/pls/blob/main/docs/justfile
@@ -284,6 +479,13 @@ apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythons
 * Kerrisk lpi 2.7
 * Galvin dinosaur ch. 3-5
 
+TAXONOMY https://stackoverflow.com/a/47824267 https://pthorpe92.dev/programming/systems/threads-async-runtimes-part0/
+* _thread_: instance of executing program
+* incl: stack, heap, text (src) data (var)
+* _process_: group of threads [LPI 2.7] https://www.youtube.com/watch?v=4rLW7zg21gI
+* _job_: group of processes [LPI 2.13]
+
+ZA
 * _segmentation fault_: process tries to use inaccessible memory https://corecursive.com/066-sqlite-with-richard-hipp/
 * e.g. indexing array OOB, writing to memory address belonging to another process, dereferencing null pointer https://www.youtube.com/watch?v=XIhQYRNBAYs
 
@@ -294,12 +496,6 @@ visualize https://github.com/joknarf/pgtree
 https://thorstenball.com/blog/2014/06/13/where-did-fork-go/
 > Every process running on a Unix system started out as a call to fork(2) followed by a call to execve(2). Well, not every process, since the first process, the init process, the one that starts up the rest of the operating system, didn’t. But every process that came after. The idea is rather simple: fork(2) creates a new process and execve(2) turns the new process into the kind of process you want it to be.
 > Let’s say you’re a shell and your user wants to start his productivity utility vimwonderhorse. Now, the first thing you’ve got to do is to start a new process. The reason for that is simple: when the user quits vimwonderhorse you should still be there and wait for the user’s input again. If you, as the shell, would have changed into vimwonderhorse and the user quit, well, then you would be gone, too. So you start a new process with fork(2).
-
-TAXONOMY
-* _thread_: instance of executing program
-* incl: stack, heap, text (src) data (var)
-* _process_: group of threads https://stackoverflow.com/a/47824267 [LPI 2.7] https://www.youtube.com/watch?v=4rLW7zg21gI
-* _job_: group of processes [LPI 2.13]
 
 types
 * _privileged_: any process started by root
@@ -439,29 +635,6 @@ https://events.linuxfoundation.org/wp-content/uploads/2022/10/elena-zannoni-trac
 
 # 🟨 ZA
 
-DATA TRANSFER https://github.com/veeso/termscp
-* alternative file transfer https://github.com/abdfnx/tran cyberduck https://fabiensanglard.net/html/index.html https://github.com/SpatiumPortae/portal
-* https://github.com/schollz/croc
-* _FTP_: sends binary instead of metadata
-* FileZilla (client) VSFTPD (server)
-* server GUI https://github.com/mickael-kerjean/filestash https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2
-* _SFTP_: FTP + security https://github.com/drakkan/sftpgo https://goteleport.com/blog/scp-familiar-simple-insecure-slow/
-* magic wormhole https://www.youtube.com/watch?v=oFrTqQw0_3c
-* client: CyberDuck
-* _scp_: https://en.wikipedia.org/wiki/Secure_copy
-* need to create dir first w/ `ssh` https://stackoverflow.com/a/25157693
-```sh
-ssh user@ftpserver.com "mkdir -p /data/install/somefolder"
-scp -r /data/install/somefolder user@ftpserver.com:/data/install/somefolder
-```
-* insecure?  https://goteleport.com/blog/scp-familiar-simple-insecure-slow/
-```sh
-# to remote https://haydenjames.io/linux-securely-copy-files-using-scp/
-scp /local/file.txt user@host:/src
-# from remote
-scp user@host:/src/file.txt /local/
-```
-
 ---
 
 * Unix timestamp https://news.ycombinator.com/item?id=33341652
@@ -520,60 +693,36 @@ man pages
 * with bat https://github.com/sharkdp/bat#man https://github.com/eth-p/bat-extras
 * how to make one for your own program: https://github.com/bootandy/dust/issues/45 https://github.com/sharkdp/bat/blob/master/assets/manual/bat.1.in https://github.com/Canop/broot/blob/master/man/page `man bat -w` https://unix.stackexchange.com/a/6892/331460 http://www.tldp.org/HOWTO/Man-Page/
 
-## denv
+## date/time
 
-🗄
-* `it.md` macos
-* `km.md` file system
-* `shell.md` profiles / dotfiles
-* `shell.md` userland
-* `src.md` denv
-
-ENV SETUP ORDER
-* Homebrew
-* git
-* pyenv
-* nvm
-
+* https://github.com/jarun/pdd
+* backup w/ timestamp: `touch "$(date +%Y%m%d_%H%M%S).bak"` https://unix.stackexchange.com/a/96383/331460
+* _touch_: make new file or update timestamp
+* create dir with current date
 ```sh
-├── /Users/zach/Documents/materials/stem/dev/os/denv
-│   └── bin
-│   └──────── fr
-│   └──────── jb
-│   └──────── jbc
-│   └──────── kcm
-│   └──────── news  # symlink
-│   └───────────── repos/news/main.py
-│   └──────── this-week
-│   └──────── upper-structures
-│   └──────── vimv
-│   └── dotfiles  # mv pkg to logs
-│   └──────── db  # psqlrc, sqliterc, visidatarc, litecli.conf, pgcli.conf
-│   └──────── editors  # vimrc, settings, keybindings, markdown
-│   └──────── poetry  # pdb, Poetry
-│   └──────── shell  # bash/zh (profile, rc), powerline/starship/git-prompt
-│   └── fonts
-│   └──────── fira-mono-regular.otf
-│   └──────── fira-mono-regular-windows-compatible.otf
-│   └── logs
-│   └──────── brew
-│   └──────── nodenv
-│   └──────── pip
-│   └──────── pipx
-│   └──────── pyenv
-│   └──────── za
+today="$(date +'%Y-%m')"
+hour_min="$(date +'%H-%M-%S')"
+\cd $HOME/Documents
+dir="my-dir-$today-$hour_min"
+mkdir "$dir"
 ```
-
-SHELL UTILS 🗄 `shell.md`
-* file find: fd
-* file explorer: broot
-* file list: exa
-* pager: bat
-* text search: ripgrep
-* git: diff-so-fancy, tig
-* prompt: powerline-shell (pipx)
-* sql/munge: csv, miller, visidata (pipx)
-* Python: black, flake8, poetry (pipx)
+```sh
+# https://news.ycombinator.com/item?id=31575076
+function tz(){
+    cal -3
+    echo
+    echo -n "Local:       "
+    date --rfc-3339=s
+    echo -n "UTC:         "
+    date -u --rfc-3339=s
+    echo -n "New York     "
+    TZ='America/New_York' date --rfc-3339=s
+    echo -n "London:      "
+    TZ='Europe/London' date --rfc-3339=s
+    echo -n "New Zealand: "
+    TZ='Pacific/Auckland' date --rfc-3339=s
+}
+```
 
 ## distros
 
@@ -641,10 +790,14 @@ LINKS
 * still works if original deleted (不明觉厉) https://hacker-tools.github.io/backups/
 * doesn't take up file space https://www.lifewire.com/create-symbolic-links-ln-command-4059723
 
-za
-* file name sorting https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
+FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace
+* way to mount Google Drive / Dropbox / iCloud to local filesytem
+* behind this as well https://github.com/azuline/rose
+* howto https://gwolf.org/2024/10/started-a-guide-to-writing-fuse-filesystems-in-python.html
+
+ZA
+* file name sorting, `chr()`, `LC_COLLATE` https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
 * trailing slash in path https://tookmund.com/2022/04/importance-of-the-trailing-slash
-* file/directory name linter https://github.com/loeffel-io/ls-lint
 
 ---
 
@@ -708,6 +861,164 @@ FILE SYSTEM
 * _alternate data stream_: hidden data embedded in file; similar to extended attributes in EXT https://www.youtube.com/watch?v=rF4sIxDIhEk
 * _Autopsy_: forensics tool for Windows * forensics https://news.ycombinator.com/item?id=26271735
 
+## execution
+
+EXIT CODES
+* _0_: success 
+* _1_: err 
+* _2_: "misuse of shell built-ins" (e.g. "no such file" err) https://askubuntu.com/a/892605 
+* _?_: var for last cmd's exit code e.g. `echo "hi"; echo $?  #0` https://askubuntu.com/a/892607
+* _127_: you use a command in your script that the shell doesn't know about
+* _130_: termination via CTRL c
+* _137_: script faile (128) and then received sig kill (9) from OOM killer https://stackoverflow.com/a/1041309
+* cleanup on exit https://github.com/Idnan/bash-guide#exit-traps
+* are less clear than you think https://news.ycombinator.com/item?id=24267155
+* get exit code of last command: `$?` https://www.freecodecamp.org/news/docker-exec-how-to-run-a-command-inside-a-docker-image-or-container/
+* `exit`: close shell
+* `return`: exit script
+* _sink_: http://www.tldp.org/LDP/abs/html/exitcodes.html https://en.wikipedia.org/wiki/Exit_status#Shell_and_scripts https://bencane.com/2014/09/02/understanding-exit-codes-and-how-to-use-them-in-bash-scripts/
+```sh
+~/Desktop/zvmac/materials/sw/algos/algos (master *)$ rg austen  # no results
+~/Desktop/zvmac/materials/sw/algos/algos (master *)$ echo "$?"  # 1
+```
+
+---
+
+https://github.com/sachaos/viddy
+* file operators: exists `-e` is a regular file not dir `-f` https://ss64.com/bash/syntax-file-operators.html
+
+* _eval_: use str as cmd https://www.youtube.com/watch?v=0A4Kjr8ThJA 1:45
+```sh
+x="date"
+echo $x  # date
+eval $x  # Tue Feb 22 18:33:49 EST 2022
+
+# use to set multiple exports at once
+eval "$(brew shellenv)"
+```
+
+* sudo https://bsago.me/tech-notes/sudo-with-aliases-in-fish
+* keep script from consuming too many resources: `nice myscript`
+* add location: `./myscript` doesn't need to be on $PATH
+* as a cmd: `myscript` (script need shebang and perm to exec)
+* using bash: `bash myscript` (doesn't need shebang or perm to exec, can debug this way using `bash -x myscript`)
+```sh
+$ foo
+-bash: zv/bin/foo: Permission denied
+$ l
+-rw-r--r-- foo # no perm
+
+$ bash foo
+hi zjv # can still exec w/ `bash`
+```
+
+```sh
+# 📍 'Automate' appendix B
+
+# as .py
+`python script.py`
+# with shebang
+`./script.py`  # apparently this only works if file is executable, where `bash script.sh` always works
+```
+
+📍 re: `suan` https://stackoverflow.com/questions/874452/change-the-current-directory-from-a-bash-script
+
+* __call script directly__: `<script>`
+* __dot command__: . `<script>`
+* __dot + forward slash__: . `<script>`
+* __sh command__: sh `<script>` 
+* __bash command__: bash `<script>`
+
+[source vs. execute](https://superuser.com/a/795838)
+
+* put on $PATH
+* make executable `chmod u+x script.sh`
+* if bash, remove `.sh` (`script.sh` ➡️ `script`) and call (`script`)
+* if python, keep `.py` and call (`script.py`)
+
+📝 get tab completion from terminal if put on $PATH
+
+__dot command__: `. fooScript.sh`
+
+```sh
+# diff btw `source` and `./` 
+# ➡️ https://stackoverflow.com/a/9640736/6813490
+
+# use `exit`
+🈚️ ☞☞☞ ./git-hooks/test_zv.sh
+
+# use `return`
+🈚️ ☞☞☞ source git-hooks/test_zv.sh
+```
+
+❓ diff btw this and all the other ways 😄
+❓ why does Python script require `./script.py`
+
+```sh
+code
+<script>
+. <script>
+./ <script>
+sh <script> 
+bash <script>
+```
+
+## globbing
+
+* _glob_: pattern for matching groups of files 📙 Neil practical [6.88]
+* filename completion (vs. regex i.e. search text https://www.linuxjournal.com/content/globbing-and-regex-so-similar-so-different) [LPI 25] 
+* aka wildcards
+* `*`: anything 
+* `?`: single char 
+* `[]`: range; case-sensitive `cp [a-f]*.png` `rm 02[3-7].mp3`
+## IO
+
+OPERATORS
+> https://unix.stackexchange.com/a/170573
+* `1`: stdout
+* `2`: stderr
+* `&`: stdout + stderr
+* `>`: overwrite
+* `>>`: append
+* `<`: use file as input
+* e.g. `sqlite3 local.db < schema.sql`
+* _pipe (|)_: directs stdout to stdin
+```sh
+# stdout           | takes stdin
+echo "training 20" | termgraph
+```
+
+---
+
+redirects
+
+* _xargs_: construct list of args for cmd (bc some cmds only take args, not stdin) https://thorstenball.com/blog/2012/10/24/command-line-ride/ https://www.oilshell.org/blog/2021/08/xargs.html
+> can also just input `./myscript.py < somefile.txt` (semantics for operator names) https://stackoverflow.com/a/11853307
+```sh
+LOGS_DIR/20 $ fd tracking | tail -n 3 | xargs bat  # open 3 most recent tracking files
+ls | sort -f | head -1 | xargs open  # kaiff - open first file in directory; used to open Youtube talks downloaded as pods
+fd tracking | xargs rg music  # from logs/20 -> get tracking info for music
+```
+
+* _fold_: https://blog.balthazar-rouberol.com/text-processing-in-the-shell#fold
+* _fmt_: fmt stdout https://github.com/Idnan/bash-guide#f-fmt
+
+* stdout, stderr
+```sh
+# stderr to file
+cmd &> file.log
+
+# capture cmd output
+OUTPUT="$(ls -1)"
+echo "${OUTPUT}"
+
+# redirect stderr to stdout
+2>&1  # `&` marks `1` as a file descriptor vs. a file name https://stackoverflow.com/a/818284
+
+# redirect stderr to null
+cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
+```
+
 ## kernel
 
 🗄 `languages.md` 'C'
@@ -735,7 +1046,81 @@ system calls
 * actually pretty tricky, hence most common sys calls being wrapped by glibc
 > Why does glibc do that? Why call clone(2) instead of fork(2)? And why does it wrap system calls in library functions? After digging around a bit I found out that making a system call is actually harder than just calling fork() somewhere in my code. I’d need to know the unique number of system call I was about to make, set up registers, call a special instruction (which varies on different machine architectures) to switch to kernel mode and then handle the results when I’m back in user space. By providing a wrapper around certain system calls glibc makes it a lot easier and portable for developers to use system calls. There is still the possibility to use syscall(2) to call system calls somewhat more directly. - https://thorstenball.com/blog/2014/06/13/where-did-fork-go/
 
-## users / groups
+## scripts
+
+🔗 http://gnu.ist.utl.pt/prep/standards/html_node/Command_002dLine-Interfaces.html
+
+DESIGN 🗄 `protocols.md` serialization `python.md` UI
+
+TUI
+* https://news.ycombinator.com/item?id=40273177
+* _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
+* _ncurses_: Linux https://github.com/jesseduffield/lazydocker https://github.com/NerdyPepper/dijo
+
+* https://news.ycombinator.com/item?id=37418424
+* TUI for bash https://github.com/charmbracelet/gum
+* design https://www.micahlerner.com/2021/07/14/unix-shell-programming-the-next-50-years.html 🗣 Dan Luu https://borretti.me/article/shells-are-two-things
+
+CLI IMPL LANGUAGE
+> use Rust for CLI and Python for business logic? https://github.com/chubin/wttr.in
+* tracking user info https://www.visidata.org/blog/2021/usage-graphs/
+> build modern CLI applications without worrying about user accounts, data storage and encryption https://github.com/charmbracelet/charm#charm-kv
+* fuzzy find https://github.com/denisidoro/navi
+* C: ✅ fast ❌ development speed
+* Nim: ✅ distribution ❌ maturity https://ssalewski.de/nimprogramming.html
+* Python: ✅ exploratory ❌ distribution
+* Go: ✅ distribution, fast startup https://news.ycombinator.com/item?id=23319684 ❌ stdlib lib lib not good
+* Rust: ✅ speed, Clap library https://news.ycombinator.com/item?id=23320411 better for cross platform https://cuchi.me/posts/go-vs-rust ❌ language itself
+
+EXEC
+* specify interpreter from shell e.g. `python $SCRIPT` 📙 Conery [390]
+* file extensions don't matter to program execution https://askubuntu.com/a/764126
+* _shebang line_: specific interpreter from script `./ $SCRIPT` 📙 Conery [391]
+```sh
+# BASH
+#!/usr/bin/env bash
+
+# Python https://realpython.com/python-shebang/
+#!/usr/bin/env python3  # $PATH
+#!/usr/bin/python3.6    # absolute path
+```
+* _source_: load/export variable/script to current shell's env 📙 Conery [401]
+* `source` = `.` https://stackoverflow.com/a/16619261
+
+WHERE TO PUT SHELL SCRIPTS
+* `/usr/local/bin` [Linux Cookbook A.3.4]
+* `~/bin`
+* `fooDir` --> `~/bin`
+
+INPUT https://news.ycombinator.com/item?id=31293032
+* https://nullprogram.com/blog/2020/08/01/
+* _flag_: hyphen e.g. `cmd --from here --to there`
+* letter (`-h`) word (`--help`) https://www.youtube.com/watch?v=FOQHGz__OLs
+* _arg_: no hypen `cmd here there`; less clear than flags bc have to remember which is src and which is target https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46
+
+ZA
+> all executables should have the `execute` bits set i.e. `chmod a+x foo-bar`; git tracks the executable bit, and sets it during checkout
+* _shebang line_: how os knows how to run your program
+* fmt: `#!/usr/bin/env INTERPRETER` e.g. `#!/usr/bin/env python`
+> The program `/usr/bin/env` locates the environment using the `PATH` variable like any other command. This lets us control which interpreter gets chosen in a given environment by manipulating `PATH` e.g. using a python virtualenv instead of the system python.
+
+NAMING
+* scripts: lowercase + snakecase e.g. `foo`, `foo-bar`, `foo-bar-baz`
+* no file extension bc reimpl = rename in every place of usage, update doc links
+* everything but env var is lowercase https://stackoverflow.com/a/673940
+
+OPTIONS 🔗 http://www.catb.org/~esr/writings/taoup/html/ch10s05.html
+* _short option_: single dash prefix + single letter e.g. `-y`
+* _option set_: n short options e.g. `-baz` = `-b`, `a`, `z`
+* _long option_: double dash prefix + word e.g. `--foo-bar`
+* options with a value are separated by their option by a space or an `=`
+* `--`: ends option processing.
+
+LOCATION
+* `tools/PROJECT/YOUR-TOOL` for project related tools
+* `bin/YOUR-TOOL` for things that are useful to have accessible at all times
+
+## user / group / perms
 
 ---
 

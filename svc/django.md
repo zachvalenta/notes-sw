@@ -14,6 +14,9 @@
 
 ## 进步
 
+TUI commands https://github.com/anze3db/django-tui
+TUI admin https://github.com/valberg/django-admin-tui
+
 * _24_: rf
 * _21_: rf, DML
 * _20_: basics - CRUD (ORM, serialization, repl) env (conf, Docker) CQ (testing); DRF (views, nested serializers, testing, read_only) basic middleware to 403 req based on IP addr; tutorials https://wsvincent.com/django-rest-framework-tutorial/ https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api
@@ -821,7 +824,7 @@ https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-djan
 * _search_: https://findwork.dev/blog/optimizing-postgres-full-text-search-django/ https://www.youtube.com/watch?v=is3R8d420D4 https://youtu.be/is3R8d420D4 https://jamesturk.net/posts/websearch-in-django-31 https://www.youtube.com/watch?v=kOKwEDHeBX4 https://github.com/ivelum/djangoql https://pganalyze.com/blog/full-text-search-django-postgres Haystack https://django-q.readthedocs.io/en/latest/examples.html https://github.com/etianen/django-watson https://www.paulox.net/2017/12/22/full-text-search-in-django-with-postgresql https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ sort https://rednafi.com/python/sort_by_a_custom_sequence_in_django/ https://www.photondesigner.com/articles/database-search-django-htmx
 * _secrets_: https://github.com/LeeHanYeong/django-secrets-manager https://adamj.eu/tech/2024/08/30/django-rotate-secret-key/
 * _SEO_: https://github.com/kapt-labs/django-check-seo https://github.com/kapt-labs/django-check-seo https://learndjango.com/tutorials/django-sitemap-tutorial
-* _sessions_: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Sessions https://www.youtube.com/watch?v=SMRaHSZiwWE https://eli.thegreenplace.net/2011/06/24/how-django-sessions-work-introduction/
+* _sessions_: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Sessions https://www.youtube.com/watch?v=SMRaHSZiwWE https://eli.thegreenplace.net/2011/06/24/how-django-sessions-work-introduction/ for user anlytics https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/
 * _Swagger_: https://github.com/axnsan12/drf-yasg
 * _taxes_: https://github.com/lowercase-app/django-taxtea
 * _tracing_: https://github.com/dabapps/django-log-request-id

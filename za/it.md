@@ -11,6 +11,11 @@
 * _24_: port media/admin from Dropbox to mini23 and backup mini23
 * _23_: mbp14 battery starts dying, buy mini23, port to mini23
 * _22_: port from `linux.md`, buy air22
+* _21_: macOS (failed upgrade to Big Sur) music (version control library)
+* _19_: backups (Dropbox as placeholder until Tarsnap) macOS (upgrade to Mojave) 📙 `evans-random.pdf`
+* _18_: phone (switch to new number, 'unknown number' problem, WhatsApp debacle)
+* _17_: music (youtube-dl, `fne`)
+* _16_: music (cmus)
 
 # 🖲️ BACKUP
 
@@ -98,8 +103,20 @@ TIME MACHINE
 * rm mckinney book
 * 23 taxes
 * golf
-* music: francis harris, christian scott, jamie xx, beatles, everything from sui generis
 * photos: nirvana
+* parking tickets
+
+MUSIC
+* francis harris
+* christian scott
+* jamie xx
+* beatles
+* everything from sui generis
+* alice coltrane
+* bill frisell
+* Aster Aweke
+* bob seger
+* mark kozelek
 
 ### air-capp ➡️ mini23
 
@@ -107,6 +124,7 @@ TIME MACHINE
 * electronic: we-as-is
 * rock/80s: war on drugs, the police
 * rock/indie: camera obscura
+* rock/shoegaze: cocteau twins
 * rnb: al green (belle)
 * punk/60s
 * rm police from rock/singles
@@ -187,6 +205,209 @@ rsync --rsync-path 'sudo -u app rsync' -arvR --exclude '.*' --exclude '*~' .  ${
 fswatch --recursive --one-per-batch . | xargs -L1 -II rsync --rsync-path 'sudo -u app rsync' -arvR --exclude '.*' --exclude '*~' .  ${DEST_HOST}:/opt/t3 # on file change
 ```
 
+# 🗂 FILE MGMT
+
+MOVIES
+* Handbrake https://superuser.com/a/12779/728972 https://unix.stackexchange.com/questions/224277/is-it-better-to-use-cat-dd-pv-or-another-procedure-to-copy-a-cd-dvd and `libdvdcss` (made by people behind VLC, has Homebrew install) https://www.howtogeek.com/102886/how-to-decrypt-dvds-with-hardbrake-so-you-can-rip-them/ which allows Handbrake to decrypt and then transcode (i.e. take DRM fmt and output OSS codec)
+
+## fs
+
+🗄
+* notebook [83,86]
+* `git.md` submodules
+* `linux.md` denv
+
+```sh
+# /Users/zach/Documents
+├── denv
+├── telescope-workspace
+├── zv
+│   └── 🗄️ ADMIN
+│   └──── healthcare
+│   └──── real estate
+│   └──── taxes
+│   └── 💽 AV
+│   └──── film
+│   └──── lit
+│   └──── yin
+│   └── 🔍 MATERIALS
+│   └──── art
+│   └──── music
+│   └──── sw
+│   └──── za
+│   └── 📝 NOTES
+│   └──── bookcase   # 📦
+│   └──── domains    # 📦
+│   └──── sw         # 📦
+│   └── 🏡 PERSONAL
+│   └──── logs       # 📦
+│   └──── people     # 📦
+│   └──── photos
+│   └──── tracking   # 📦
+```
+
+## music
+
+---
+
+* get song duration https://www.youtube.com/watch?v=s6DXMf_yj64
+
+TRACKING
+* poc: `mlib` `os.walk()` https://unix.stackexchange.com/questions/90115/convert-output-of-tree-command-to-json-format/ regex to strip and kebab https://github.com/30-seconds/30-seconds-of-python#kebab https://www.robertchristgau.com/get_gl.php?g=A%2B store library song info as db
+```sh
+alias mlib="cd /Volumes/MUSIC-LIB && t > ~/Desktop/music-lib-$(date +"%Y%m%d").log"
+```
+```sh
+fd 194[0-9] | wc -l
+fd 194[0-9]
+fd -t d 194[0-9]
+```
+
+PYDUB
+* https://github.com/jiaaro/pydub https://realpython.com/playing-and-recording-sound-python/
+```python
+from pydub import AudioSegment
+song = AudioSegment.from_mp3("song.mp3")
+first_10_seconds = song[:10000]
+repeated = first_10_seconds * 2
+repeated.export("mashup.mp3", format="mp3")
+```
+
+### cmus
+
+* install: homebrew
+* alternatives: https://github.com/clangen/musikcube https://github.com/tramhao/termusic https://github.com/issadarkthing/gomu BYO https://www.reddit.com/r/rust/comments/ipjijo/how_to_make_a_tui_music_player/
+> write your own https://x.com/_darrenburns/status/1803836046213357792/photo/1
+* _pymus_: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/ https://rapidapi.com/collection/lyrics-apis https://aosabook.org/en/v1/audacity.html
+* file nav: opens to most recent dir, can cd to music dir and then if you need to return scroll command history
+* playlists https://unix.stackexchange.com/q/593727 /Users/zach/Documents/zv/materials/music/za/music-library/playlists
+```sh
+:pl-create $NAME  # create
+SPACE  # select playlist
+y  # add song
+D  # rm song
+:pl-export /path/to/file.txt  # export
+```
+* _continue_: play next song after current finishes; `f` (browser view)
+
+---
+
+CMUS
+* _command mode_: `:`
+* mv dir: `:cd <path>`
+> be nice if you could use fzf or env var ($MUSIC_DIR)
+* listen to an album shuffled: add to playlist `y` toggle shuffle `s`
+* listen to an artist shuffled: only works in first view?
+queue
+* mv down: `p`
+* mv down: `P`
+* prepend: `E`
+* append: `e`
+* rm: `D`
+* rm all: `P`
+* to shuffle through everything from artist, cfrs
+> this doesn't work but one time when everything from artists was shuffling these were the settings
+* Funkwhale https://news.ycombinator.com/item?id=25067701 https://news.ycombinator.com/item?id=25148623 https://news.ycombinator.com/item?id=25860094 Ampache https://www.youtube.com/watch?v=0dBcKNoJAso
+* I wish there was history file
+* _config_: `~/.config/cmus`
+* _docs_: https://github.com/cmus/cmus/blob/master/Doc/cmus-tutorial.txt bad and won't get better because project not maintained https://github.com/cmus/cmus/issues/856
+> There are more commands and features not covered here like loading and saving playlists, controlling cmus remotely with `cmus-remote`, etc.
+* _features_: playlist from plain text
+* _mark_: for bulk operations; `space`
+nav
+* _up/down_: Vim
+* _top/bottom_: Vim
+* _enter/leave_: `RETURN / DELETE`
+* _search_: Vim
+play
+* _play/pause_: `c`
+* _restart_: `x`
+* _skip - back/forward_: `z/b`
+* _skip - seconds - back/forward_: `:seek +/-<num>` 
+* _repeat current_: `ctrl r`
+* _continue_: `C`
+* _shuffle_: `s`
+* _play from_: `m`
+* _toggle play from library or playlist_: `M`
+views
+* _library - clear_: `:clear`
+* _playlist - add_: `y`
+* _update_: `u`
+config
+* _add music_: `a` in browser view on dir to add https://github.com/cmus/cmus/issues/233#issuecomment-399426415
+* _display - time remaining in song_: settings - 'show_remaining_time'
+* _display - hidden files_: `i`
+
+### metadata
+
+* https://github.com/azuline/rose
+* music brainz, picard, discogs https://community.metabrainz.org/
+* https://tedium.co/2016/09/20/allmusic-database-historic-importance/?utm_source=substack&utm_medium=email
+* seems like a pain https://bitheap.org/dnuos/ http://oidua.suxbad.com/ https://www.theverge.com/2019/5/29/18531476/music-industry-song-royalties-metadata-credit-problems http://richardmavis.info/tagging-files https://dustri.org/b/horrible-edge-cases-to-consider-when-dealing-with-music.html
+* tools: http://beets.io/ + Meta ('Benjamin Jaeger' 🗄 `Applications/Meta`) https://github.com/beetbox/mediafile https://musicbrainz.org/
+
+### youtube-dl
+
+📜 https://github.com/yt-dlp/yt-dlp 🗄 `python-3.10-youtube-ffmpeg.md`
+
+* conf: `${XDG_CONFIG_HOME}/yt-dlp/config` https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#configuration
+* quotes issue https://apple.stackexchange.com/questions/254014/zsh-no-matches-found
+* alternative https://github.com/yt-dlp/yt-dlp https://github.com/soimort/you-get https://news.ycombinator.com/item?id=24904676
+* makes Hombrew responsible for ingesting latest version https://github.com/ytdl-org/youtube-dl/issues/20553 
+* if 403 run `--rm-cache-dir` https://github.com/ytdl-org/youtube-dl/issues/23638
+* _alternatives_: https://github.com/Miserlou/SoundScrape https://git hub.com/Marethyu12/gotube https://github.com/topics/youtube-downloader
+
+## media server
+
+* ❌ _headunit_: wedded to vehicle, can't rely on this being around much longer https://www.youtube.com/watch?v=AEm2WbSwRIA https://www.amazon.com/KENWOOD-KDC-BT282U-Car-Stereo-Illumination/dp/B09GWC9QYZ models https://www.youtube.com/watch?v=P7pUT0gbZZQ speakers https://www.youtube.com/watch?v=ADFOAAN9SIA
+* ❌ _home media server_: not oriented around file structure, streaming vs. on-device
+* ✅ Android: enough storage with microSD, good app https://fi.google.com/about/phones/moto-g-5g microSDs fail frequently https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
+> needs headphone jack and expandable memory e.g. Song xperia 10 IV https://www.androidcentral.com/best-android-phones-expandable-storage https://www.androidcentral.com/best-android-phone-headphone-jack
+> I might not need an SD card bc current phone only has 32GB capacity and os/fs using 30GB, SD using 185GB. Music fs down to 150GB should fit me on to 
+
+* cd ripping https://news.ycombinator.com/item?id=33499646
+
+Spotify client https://github.com/Rigellute/spotify-tui https://github.com/hrkfdn/ncspot
+https://github.com/hajimehoshi/oto
+
+HOME MEDIA SERVERS
+* _Emby_: https://www.youtube.com/watch?v=lgY97D5nCek
+* _Jellyfin_: https://www.youtube.com/watch?v=lgY97D5nCek
+* _Plex_: https://plexamp.com/
+* _Navidrome_: https://github.com/navidrome/navidrome too expensive to run on cloud https://www.youtube.com/watch?v=RSIvuyLDuvk 2:15
+* BYO https://www.youtube.com/watch?v=jf_5FaVFnrU
+
+* fselect provides useful functionailty for music files 🗄 `shell.md` finder
+
+SELF-HOSTED STREAMING
+* _NAS (network attached storage)_: aka 'home media server' 🗄 `network-know-how.pdf`
+* https://nicolasbouliane.com/projects/home-server
+* aka home server https://www.youtube.com/watch?v=yFuTAKq_j3Q
+* options (Plex, cmus remote) https://www.youtube.com/results?search_query=cmus+remote&page=&utm_source=opensearch https://www.youtube.com/watch?v=UJw9YU_SBzo https://blog.dave.tf/post/building-nas-1/ https://www.youtube.com/results?search_query=build+a+nas https://www.youtube.com/results?search_query=buy+a+nas https://kevq.uk/my-home-server-2-months-on/
+* https://selfhostedsource.tech/category/self-hosted/audio-streaming
+> all this work just to stream music doesn't make sense, just keep rolling w/ backups and your $60 thumb drive
+* https://news.ycombinator.com/item?id=30118273
+
+## photos
+
+---
+
+* viewer https://github.com/karlch/vimiv-qt
+* https://news.ycombinator.com/item?id=37670756
+* https://www.jefftk.com/pictures/
+* https://news.ycombinator.com/item?id=34716924 https://www.photoprism.app/
+* https://github.com/immich-app/immich
+* get metadata https://will-keleher.com/about.html https://jimpl.com/
+* http://johnkerl.org/misc/jks.html
+* https://news.ycombinator.com/item?id=33046281&utm_term=comment
+* need mgmt for tagging
+* checkout macOS storage mgmt, archived versions of iPhotos library: `Library.migratedphotolibrary/` `Library.photoslibrary/`
+* pillow https://realpython.com/image-processing-with-the-python-pillow-library/
+* photos: personal, site design
+* https://news.ycombinator.com/item?id=26000113
+* site: https://github.com/maxvoltar/photo-stream https://github.com/saimn/sigal
+* mgmt: https://github.com/electerious/Lychee https://github.com/hooram/ownphotos https://github.com/photoprism/photoprism
+
 # 💻 HARDWARE
 
 🔍 models https://support.apple.com/en-us/HT201300
@@ -199,6 +420,8 @@ MICE
 * keep Teams active :) https://news.ycombinator.com/item?id=34273107
 
 KVM
+> could just use Thunderbolt dock https://www.nytimes.com/wirecutter/reviews/best-thunderbolt-dock/
+> https://www.nytimes.com/wirecutter/blog/kvm-switch-to-declutter-desk/
 * _KVM switch_: switch keyboard/video/mouse between computers https://www.pcmag.com/how-to/how-to-control-multiple-computers-with-one-keyboard-and-mouse https://www.pcmag.com/picks/best-kvm-switches
 > not sure how this would work with audio
 * wiring https://www.youtube.com/watch?v=S9YhQ8e9Q0o https://news.ycombinator.com/item?id=34275847
@@ -272,32 +495,44 @@ USE CASES
 
 ## keyboards
 
+🗄️ `built.md` homes / studio
 📙 https://shifthappens.site/#story-of-a-photo
-🗄️ `aesthetics.md` home design
 
-MODELS 📹 https://www.youtube.com/playlist?list=PLGj5nRqy15j93TD0iReqfLL9lU1lZFEs6 https://novelkeys.com/ https://www.keychron.com/blogs/archived/keyboard-buying-guide  https://www.youtube.com/@calmcode-io
-> low profile https://www.keychron.com/collections/low-profile-keyboard-collection?sort_by=created-descending&filter.p.tag=80%25+Layout
-* layout: 80/TKL (func keys, arrow/edit keys separate) 65 (no func keys) https://www.keychron.com/blogs/archived/keyboard-buying-guide
+WHAT I WANT
+* layout: TKL
+> although halo75 looks less scrunched than layout for air75
+* connection: wired
+* no lights
+* don't care about programmable or rotary knob
+
+FEATURES
 * connection: usb-c is faster https://www.keychron.com/blogs/news/solid-wireless-connection-type-c-connection
-* rotary knob typically used for volume, page up/down https://www.reddit.com/r/MechanicalKeyboards/comments/12nfiqg/what_are_you_using_the_knob_for/?rdt=47962
-* programmable w/ QMK or VIA https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard
-* _Apple wired_: profile 2.3mm (or is that Apple magic keyboard?) https://www.amazon.com/dp/B07K7V1FWC
-* _Keychron k2_: https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard
-* _Keychron k8_: 🎯 too tall? turn off lights? https://www.keychron.com/products/keychron-k8-tenkeyless-wireless-mechanical-keyboard
-* _Keychron q1_: $180 https://www.keychron.com/products/keychron-q1?variant=39898909245529
-* _Keychron q1 pro_: $225 https://www.amazon.com/dp/B0BLZ1ZN3H
-* _Keychron q3_: $185 https://www.keychron.com/products/keychron-q3-qmk-custom-mechanical-keyboard?variant=39773518626905 https://www.keychron.com/products/keychron-k2-max-qmk-wireless-mechanical-keyboard
-* _Keychron v3 max_: 🎯 https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/
-* _Moonlander_: https://news.ycombinator.com/item?id=34070425 
-* _Glove 80_: https://www.youtube.com/watch?v=QLb3ewK8R2Y https://www.moergo.com/
-* _Nuphy air75 v2_: ✅ $125; bad customer service, slow shipping (but next time you can just buy from Amazon?) https://nuphy.com/products/air75-v2
-* _Nuphy gem 80_: 🎯 https://nuphy.com/collections/keyboards/products/gem80?_pos=1&_fid=005c5f83c&_ss=c
+* layout: TKL https://www.keychron.com/blogs/archived/keyboard-buying-guide
+* lights
+* rotary knob: typically used for volume, page up/down https://www.reddit.com/r/MechanicalKeyboards/comments/12nfiqg/what_are_you_using_the_knob_for/?rdt=47962
+* programmable: QMK|VIA https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard https://www.youtube.com/watch?v=EWiOIVnrmMs
+
+MODELS
+* shops https://novelkeys.com/
+* split https://www.youtube.com/@calmcode-io/videos
+* only low-profile from keychron either don't have brown switches or do have ISO https://www.keychron.com/collections/low-profile-keyboard-collection/products/keychron-k1-max-qmk-via-wireless-custom-mechanical-keyboard
+* _Apple wired_: ✅ $60 layout (100) profile (low - 2.3mm) https://www.amazon.com/dp/B07K7V1FWC
+* _Keychron c1_: 🎯 https://www.keychron.com/products/keychron-c1-pro-qmk-via-wired-mechanical-keyboard?variant=40615797391449
+* _Keychron k1_: out of stock https://www.reddit.com/r/NuPhy/comments/1brdzgy/will_there_ever_be_low_profile_tkl_80_layout/
+* _Keychron v3_: 🎯 $110 layout (80/TKL) profile (normal) https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/ https://www.amazon.com/dp/B0CW5B5KL8
+* _Logitech mx mini_: https://www.logitech.com/en-us/products/keyboards/mx-keys-mini.920-010475.html
+* _Nuphy air75 v2_: ✅ $125 layout (75) profile (low - 2.3mm) https://nuphy.com/products/air75-v2
+* slow shipping (but next time you can just buy from Amazon?)
+* layout too scrunched
+* _Nuphy gem 80_: $150 layout (80/TKL) profile (normal) https://nuphy.com/collections/keyboards/products/gem80
+* _Varmilo mac_: https://varmilo.com/products/mac?variant=45350805405915 keycaps https://varmilo.com/products/shurikey-gear-keycaps-sets-167-keys?pr_prod_strat=jac&pr_rec_id=c6579d995&pr_rec_pid=7642777518299&pr_ref_pid=8195613425883&pr_seq=uniform
 
 KEYCAPS 🔍 https://novelkeys.com/collections/keycaps https://www.keychron.com/collections/all-keycaps
 * size
 > Keycap sizes are described in terms of a "u. width. For example, 1u is the size of each of the number and alphabet keys on a keyboard. A 2u key, like Backspace, is twice the size of those 1u keys...compact keyboards often have a 1.75u right Shift key in place of the standard 2.75u right Shift key as well as 1u modifiers in the bottom row. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
 * _legend_: character on key; double-shot (more expensive) dye-sub (PBT only, non-transparent)
 * _profile_: height * shape https://thekeeblog.com/overview-of-different-keycap-profiles/
+* less options for low profile https://www.youtube.com/watch?v=BWQFUPm6XE0
 * _PBT_: more durable
 * _ABS_: less durable
 
@@ -318,10 +553,11 @@ SWITCHES 🔍 https://milktooth.com/products/switches https://switches.mx/
 
 ZA
 * tray for desk https://www.amazon.com/VIVO-Computer-Keyboard-Platform-MOUNT-KB05E/dp/B07HFDJCSL
-* touch typing https://www.keybr.com/#!game
+* touch typing https://www.keybr.com/#!game https://github.com/kraanzu/smassh
 
 ---
 
+* can you use Windows keyboards for macOS? https://www.durgod.com/product/s230-dracula/
 * mechanical https://www.youtube.com/results?search_query=mechanical+keyboard+for+macos https://www.reddit.com/r/MechanicalKeyboards/comments/89fbk4/whats_all_the_hype_about_mechanical_keyboards_im/?rdt=56069
 * mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 try this one https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/
 * layers https://news.ycombinator.com/item?id=34069927
@@ -813,3 +1049,42 @@ https://news.ycombinator.com/item?id=26691626
 * https://github.com/burtonator/polar-bookshelf https://pwmt.org/projects/zathura/ https://goodreader.com/
 * mobile: [Joplin](https://github.com/laurent22/joplin), IAWriter
 * https://www.pdfa.org/a-technical-and-cultural-assessment-of-the-mueller-report-pdf/
+
+## window systems
+
+🔗 https://en.wikipedia.org/wiki/Windowing_system
+
+SEMANTICS
+* _window system_: server that displays graphics
+* protocols: x11 https://unix.stackexchange.com/q/517 Wayland, pipewire https://www.youtube.com/watch?v=jFxwPJpUwl0 https://github.com/sharkdp/pastel#get-a-list-of-all-x11--css-color-names https://en.wikipedia.org/wiki/Wayland_(display_server_protocol) https://en.wikipedia.org/wiki/X_Window_System
+* _window manager_: control windows displayed by window system https://en.wikipedia.org/wiki/Window_manager https://news.ycombinator.com/item?id=34591661 https://news.ycombinator.com/item?id=36880235 https://www.youtube.com/watch?v=xWIDvnNFl5I
+* _tiling window manager_: keyboard-driven arrangement of and switching btw windows
+> https://www.youtube.com/watch?v=bdumjiHabhQ on i3 convinced me that this was potentially worthwhile just to not have to scroll for VS Code (and break dependency on iTerm auto hotkey)
+* _desktop environment_: mouse-driven GUI riding on top of window system https://askubuntu.com/a/20435
+* _display server_: ❓ e.g. Quartz Compositor (aka WindowServer) https://en.wikipedia.org/wiki/Quartz_Compositor https://unix.stackexchange.com/a/1016
+
+DESKTOP ENV
+* _GNOME_: https://blog.edfloreshz.dev/articles/linux/system76/rust-based-desktop-environment/
+* _Material Shell_: https://news.ycombinator.com/item?id=24491091
+* _Cinnamon_: https://news.ycombinator.com/item?id=24491091
+
+---
+
+WINDOW MANAGERS
+* window manager https://news.ycombinator.com/item?id=34591661
+* for Windows https://news.ycombinator.com/item?id=33168263
+* for macOS https://magnet.crowdcafe.com/ https://news.ycombinator.com/item?id=22852157 https://faun.pub/yabai-macos-tile-window-manager-833ce1be396a?gi=132df1bca0e1 https://github.com/koekeishiya/yabai https://news.ycombinator.com/item?id=36368990
+* AlwaysOnTop https://www.youtube.com/watch?v=6IxRlaTWsoQ
+* _alt-tab_: https://alt-tab-macos.netlify.app/
+* _Amethyst_: macOS https://github.com/ianyh/Amethyst https://www.reddit.com/r/xmonad/comments/3j4tnt/is_it_possible_to_use_xmonad_on_os_x/ https://switowski.com/blog/favorite-mac-tools/
+* _dwm_: https://dwm.suckless.org/
+* _i3_: tiling + hotkeys https://www.youtube.com/watch?v=bdumjiHabhQ 3:30 https://www.youtube.com/watch?v=bdumjiHabhQ 1:30
+* _Magnet_: https://switowski.com/blog/favorite-mac-tools/
+* _PaperWM_: https://jvns.ca/blog/2020/01/05/paperwm/
+* _Slate_: unmaintained https://github.com/jigish/slate
+* _Sway_: https://swaywm.org/
+* _Rectangle_: macOS https://rectangleapp.com/ https://switowski.com/blog/favorite-mac-tools/ https://github.com/rxhanson/Rectangle
+* _X.org_: https://www.x.org/wiki/
+* _XQuartz_: port of X.org for macOS https://www.xquartz.org/
+* _xmonad_: x11, no macOS https://news.ycombinator.com/item?id=30402358 https://xmonad.org/
+> I've mellowed as I've aged, but still fondly remember the thrill of the XMonad tiling window manager on multiple monitors — in particular, its responsiveness. With a few fast keyboard shortcuts, I could throw windows between monitors, arrange windows side-by-side, and immediately move focus to exactly the window I had in mind. XMonad also supports "virtual desktops", which I used to organize windows by task. For example, when working on a web app I'd put a terminal window, Emacs window, two web browsers (one for my app, the other for looking up documentation) all on the same virtual desktop. Then, when I wanted to do something else, I could switch to an empty virtual desktop, effectively saving my previous one "away for later". https://kevinlynagh.com/newsletter/2020_04_keyboards_rethinking_desktops/

@@ -3,6 +3,7 @@
 ## 参考
 
 🛣️ https://roadmap.sh/data-analyst
+> A number of companies (large crossover funds, startups, etc.) in The Diff network are looking for data scientists that love wrangling and analyzing alt. data to help inform investment decisions. (Remote) https://www.thediff.co/archive/longreads-open-thread-96/
 🗄
 * `protocols.md` file fmt
 * `telemetry.md` analytics
@@ -196,18 +197,10 @@ verified.to_csv(os.path.join(os.getcwd(), out_file))
 
 🗄️ `protocols.md` file fmt
 
-> Analysis, even SQL-based analysis, isn't like design, where a handful of people create stuff and everyone else is a consumer, with clear lines between them. It's much, much fuzzier. Though analysts were always our first adopters, lots of people—PMs, engineers, marketing managers, executives, support agents, operations leads, and all job titles in between—periodically wrote queries. These people occupied the middle part of the distribution between analysts and non-analysts that we thought would be vacant. Users weren't bimodal like we expected, but continuous. https://benn.substack.com/p/work-like-an-analyst
-
-API / CODE GENERATION 🗄️ `src.md` API
-* https://github.com/directus/directus
-* Postgrest https://github.com/PostgREST/postgrest https://news.ycombinator.com/item?id=30132947 https://github.com/prest/prest
-* GraphQL https://www.graphile.org/postgraphile/ 
-* query SQLite over HTTP https://news.ycombinator.com/item?id=30636796
-* ROAPI https://github.com/roapi/roapi https://tech.marksblogg.com/roapi-rust-data-api.html
-* Datasette https://www.youtube.com/watch?v=pTr1uLQTJNE https://www.hytradboi.com/2022/datasette-a-big-bag-of-tricks-for-solving-interesting-problems-using-sqlite
-* DBCore https://github.com/eatonphil/dbcore https://notes.eatonphil.com/generating-a-rest-api-from-a-database.html
-* Octo https://github.com/octoproject/octo-cli
-* https://github.com/thevahidal/soul
+SQL FROM SHELL
+* _dsq_: https://github.com/multiprocessio/dsq
+* _q_: https://github.com/harelba/q
+* _sq_ https://github.com/neilotoole/sq https://news.ycombinator.com/item?id=41760697 
 
 CONVERSION / GENERATION
 * tabular to JSON https://github.com/jazzband/tablib
@@ -231,17 +224,20 @@ LINTING
 
 ## EDA (visidata)
 
----
-
-https://cosimameyer.com/post/2024-09-05-pythonistr-a-match-made-in-data-heaven/
-https://github.com/cosimameyer/overviewpy
-
-🔍 https://stackoverflow.com/questions/tagged/visidata
+🗄️ `protocols.md` CSV
 📜
 * repo https://github.com/saulpw/visidata
 * docs https://www.visidata.org
 * guide https://jsvine.github.io/intro-to-visidata/
 * ref https://jsvine.github.io/visidata-cheat-sheet/en/
+
+---
+
+ https://datasette.io/for/exploratory-analysis
+https://cosimameyer.com/post/2024-09-05-pythonistr-a-match-made-in-data-heaven/
+https://github.com/cosimameyer/overviewpy
+
+🔍 https://stackoverflow.com/questions/tagged/visidata
 
 META
 * undo: `U`
@@ -377,6 +373,7 @@ filter
 
 ---
 
+* https://realpython.com/contact-book-python-textual/
 * Airtable?
 * schema introspection https://highgrowthengineering.substack.com/p/why-is-dbt-so-important-
 * https://github.com/centerofci/mathesar 🗄 dataclerk
@@ -535,6 +532,10 @@ HARLEQUIN 📜 https://harlequin.sh
 * `info.md` viz
 * `math.md` stat / distributions
 * `system.md` no code
+
+> Analysis, even SQL-based analysis, isn't like design, where a handful of people create stuff and everyone else is a consumer, with clear lines between them. It's much, much fuzzier. Though analysts were always our first adopters, lots of people - PMs, engineers, marketing managers, executives, support agents, operations leads, and all job titles in between - periodically wrote queries. These people occupied the middle part of the distribution between analysts and non-analysts that we thought would be vacant. Users weren't bimodal like we expected, but continuous. https://benn.substack.com/p/work-like-an-analyst
+
+---
 
 * _business intelligence (BI)_: explorer (for non-devs) + graphs
 * SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/

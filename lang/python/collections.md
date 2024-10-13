@@ -7,6 +7,7 @@
 💻 https://github.com/python/cpython/tree/main/Include
 📚
 * Beazley ch. 1
+* Ramalho ch. 2-3, 18
 * Van Rossum ch. 5
 
 ## 进步
@@ -87,6 +88,7 @@ list_of_dict = [
 
 ---
 
+streaming https://github.com/ebonnal/streamable
 https://realpython.com/python-iterators-iterables/ https://www.youtube.com/watch?v=DcCt0dA6q1Q
 
 ITERABLE

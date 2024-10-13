@@ -7,6 +7,7 @@
 
 ## 进步
 
+* encrypt file https://github.com/70sh1/eddy
 * https://pythonspeed.com/articles/stop-using-python-3.8/
 * https://cryptography101.ca/
 * https://roadmap.sh/cyber-security
@@ -393,9 +394,19 @@ tracking w/ cookies
 
 ---
 
+PASSWORD MANAGER
+* _Bitwarden_: has a CLI
+* _gopass_: pass fork
+* _keyring_: https://rutar.org/writing/managing-secrets-from-the-command-line/
+* _pass_: https://www.youtube.com/watch?v=w34xAnNdliE https://rutar.org/writing/some-tricks-with-unix-pass/ https://www.youtube.com/watch?v=FhwsfH2TpFA
+* _Vault_: Hashicorp
+
+one time password https://git.sr.ht/~shulhan/gotp
+read password: `getpass` (Python) https://github.com/conradkleinespel/rpassword
+
 * salt https://www.youtube.com/watch?v=zt8Cocdy15c
 https://news.ycombinator.com/item?id=41417659
-generate https://github.com/oleiade/motus
+generate https://github.com/oleiade/motus https://github.com/70sh1/eddy
 
 workflow https://robertheaton.com/2019/08/12/programming-projects-for-advanced-beginners-user-logins/
 * how to validate registration: to prevent the waste of maintaining empty accounts https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/ to prevent someone from accidentally reigstering wrong email and inadvertently giving someone access to their account [email - 'new feedback message']
@@ -405,11 +416,6 @@ workflow https://robertheaton.com/2019/08/12/programming-projects-for-advanced-b
 
 * GPG https://www.youtube.com/watch?v=1vVIpIvboSg
 * pwgen https://www.youtube.com/watch?v=G3aH2WYJxGA
-
-PASSWORD MANAGER
-* CLI https://www.youtube.com/watch?v=FhwsfH2TpFA
-* https://rutar.org/writing/some-tricks-with-unix-pass/
-* https://rutar.org/writing/managing-secrets-from-the-command-line/
 
 password protected files
 * current: pw protection via Pages (on HD not pw-protected themselves) and plain text on pw-protected HD https://security.stackexchange.com/a/128495/160351

@@ -197,6 +197,7 @@ SEMANTICS
 * _code splitting_: load separate bundles of js per page; typically need index bundle before you can start doing anything = 2 req/res minimum https://macwright.com/2020/05/10/spa-fatigue.html
 >  The JS bundle alone is more than 7x the weight of the rendered page, can’t be called until the first HTTP request completes, and still has to make an API call. https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/
 * _deep link_: opens to view inside native app
+* _media player_: https://www.media-chrome.org/ https://player.style/
 * _microfrontend_: micro service for frontend https://www.thoughtworks.com/radar/techniques/micro-frontends
 * _minify_: https://glama.ai/blog/2024-08-29-reverse-engineering-minified-code-using-openai
 * _polyfill_: replacement for Web API
@@ -252,9 +253,7 @@ STATE
 * text-based: lynx, browsh https://www.youtube.com/watch?v=sC9JH-Sr_2Q
 * text-only mode: https://merabheja.com/12-text-only-browsers-for-browsing-in-slow-internet-connections/
 * put script at end of body or in head using async https://stackoverflow.com/a/24070373
-* archive whole site w/ wget https://stackoverflow.com/a/4769497 https://stackoverflow.com/a/10564190/6813490 https://news.ycombinator.com/item?id=16557439 every version of single page in Wayback Machine https://github.com/jsvine/waybackpack
-* archive single page https://github.com/gildas-lormeau/SingleFile
-* extensino for wayback machine https://news.ycombinator.com/item?id=27173185&utm_term=comment
+* extension for wayback machine https://news.ycombinator.com/item?id=27173185&utm_term=comment
 * nyxt https://news.ycombinator.com/item?id=27219646
 * _Web API_: document, window, Event, XMLHttpRequest, fetch https://www.vrk.dev/2019/07/11/why-is-modern-web-development-so-complicated-a-long-yet-hasty-explanation-part-1/
 * prefetch https://www.jefftk.com/p/why-prefetch-is-broken
@@ -328,6 +327,7 @@ let bob = Object.assign({}, player, {score: 3});
 
 * _package_: anything w/ `package.json`
 * _npm_: manager + registry https://www.npmjs.com/
+* _jsr_: Deno registry https://www.youtube.com/watch?v=8IHhvkaVqVE [5:15]
 * _yarn_: manager https://yarnpkg.com/
 * `yarn install --ignore-engines` https://stackoverflow.com/a/45088032
 

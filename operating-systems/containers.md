@@ -13,6 +13,8 @@
 
 ## 进步
 
+next-gen images https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/
+https://github.com/moncho/dry
 https://github.com/bcicen/ctop
 * https://roadmap.sh/docker
 https://github.com/pommee/Pocker
@@ -249,6 +251,9 @@ services:
 
 ## debug
 
+---
+
+https://www.youtube.com/watch?v=YRt1aB0iAlM
 * _sink_: `docker info`, attach to container process https://stackoverflow.com/q/19688314
 
 * run shell in container: `docker exec -it <name> bash` https://stackoverflow.com/a/30173220

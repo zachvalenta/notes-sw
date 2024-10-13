@@ -11,6 +11,97 @@
 * _22_: protocol (encoding, serialization)
 * _21_: prefix code
 
+# 🟪️ EDI
+
+🔗 https://en.wikipedia.org/wiki/Electronic_data_interchange
+
+TRANSFER https://chatgpt.com/share/9b405f7d-4879-4985-be22-39fc267349f7
+* can just do over SFTP
+* _AS2_: HTTPS EDI
+* _VAN_: third-party that provides message tracking
+
+---
+
+TO READ
+* https://www.lambdafunctions.com/articles/racing-sed-with-rust
+* https://news.ycombinator.com/item?id=31840852
+* https://chatgpt.com/c/670d4d6e-c8c4-8004-91d1-052b4c33c416
+
+## document lists
+
+* _document list (DL)_: type of x12 document https://en.wikipedia.org/wiki/X12_Document_List
+* each company picks a subset that they want to work with https://static.fishersci.com/cmsassets/downloads/segment/Scientific/pdf/WebServices/EDIspecGuideCust832.pdf
+* file extension: `.edi`, `.x12` or txt
+* _832_: DL for catalog
+* _850_: DL purchase order
+* _855_: DL purchase order (= HTTP 200)
+* _997_: DL for ack
+
+## semantics
+
+* _EDI_: fmt for business transactions (purchases orders, sales)
+* used by GSA, B2B (healthcare, manufacturing, railroad frieight) https://www.remedi.com/blog/edi-for-railway-freight
+* _ASC x12_: US standards body for x12 https://en.wikipedia.org/wiki/ASC_X12
+* _x12_: USA EDI spec
+* _EDIFACT_: EU EDI spec https://en.wikipedia.org/wiki/EDIFACT
+> For those who haven't had the pleasure, X12 is an ANSI standard for "electronic data interchange." It could be considered a very distant spiritual ancestor of XML; it was designed to meet the same kind of need, but way back in days of yore when individual bytes were valuable things to be cherished. The standards committee was originally chartered back in 1979. https://www.lambdafunctions.com/articles/racing-sed-with-rust
+* _SPS_: does EDI for ERPs (Odoo) https://www.spscommerce.com/
+* _Kleinschmidt_: used by Steersman
+
+## spec
+
+```sh
+# ISA (Interchange Control Header): sender, receiver
+ISA*00*          *00*          *ZZ*SENDERID       *ZZ*RECEIVERID     *200710*1253*U*00401*000000905*0*T*>
+# ?
+GS*PO*SENDERID*RECEIVERID*20200710*1253*1*X*004010
+ST*850*0001
+BEG*00*SA*1234567890**20200710
+REF*DP*038
+PER*BD*John Doe*TE*555-123-4567
+N1*BT*BUYER NAME
+N3*1234 Buyer St
+N4*Buyertown*CA*94005
+N1*ST*SHIP TO NAME
+N3*5678 Ship St
+N4*Shiptown*CA*94006
+PO1*1*10*EA*15.00**CB*123456*VP*ABC123
+PO1*2*20*EA*45.00**CB*654321*VP*XYZ789
+CTT*2
+AMT*TT*1200.00
+SE*14*0001
+GE*1*1
+IEA*1*000000905
+```
+
+## tooling
+
+* _sezna_: https://news.ycombinator.com/item?id=23786634
+* _Stedi inspector_: analysis https://www.stedi.com/edi/inspector
+
+---
+
+https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
+
+* https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
+* https://github.com/freestream/pyedi
+* https://stackoverflow.com/questions/26033239/list-of-objects-to-json-with-python
+* https://en.wikipedia.org/wiki/Electronic_data_interchange
+* bots https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
+* https://github.com/azoner/pyx12 https://pypi.org/project/pyx12/
+* https://www.npmjs.com/package/x12-parser
+* https://github.com/dev0088/pyedi830
+* https://github.com/copyleftdev/x12-edi-tools
+
+XML
+* https://cxml.org/
+* https://www.smooks.org/
+
+AWS
+* https://docs.aws.amazon.com/b2bi/
+* https://docs.aws.amazon.com/b2bi/latest/userguide/what-is-b2bi.html
+* https://aws.amazon.com/blogs/aws/introducing-aws-b2b-data-interchange-simplified-connections-with-your-trading-partners/
+
 # 🪪 ENCODING
 
 🔍 https://bestasciitable.com/
@@ -163,18 +254,16 @@ VERSIONS https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog
 
 🗄️ `eng.md` munge
 
+---
+
 QUERY TOOLS
 * https://github.com/julien040/anyquery
 * _qq_: https://github.com/JFryy/qq
 * https://github.com/simonw/sqlite-utils
-* https://github.com/harelba/q
-* https://github.com/multiprocessio/dsq
 * https://github.com/datafold/data-diff
 * https://github.com/mithrandie/csvq
 * https://github.com/dinedal/textql
 * https://github.com/noborus/trdsql
-
----
 
 https://kdl.dev/ https://zellij.dev/documentation/layouts
 > this is what started me to split protocols into own file apart from `computation.md`
@@ -186,10 +275,6 @@ XML
 * _XPath_: CSS selector for XML
 * comments: same as HTML
 * previously more popular 📙 Beaulieu 2.34
-
-YAML
-* query https://github.com/mikefarah/yq
-* _CUE_: https://cuelang.org/ https://news.ycombinator.com/item?id=34074386 alternative https://dagger.io/ CI https://news.ycombinator.com/item?id=30857012
 
 📙 Kleppmann ch. 4
 🗄
@@ -206,11 +291,15 @@ YAML
 ## CSV
 
 TOOLS
-* query https://news.ycombinator.com/item?id=38889820 https://github.com/jqnatividad/qsv https://github.com/neilotoole/sq
-* editor https://www.moderncsv.com/
+* _moderncsv_: editor https://www.moderncsv.com/ 🗄️ `data/analytics.md` visidata
 * _csvdiff_: ✅ diff https://github.com/aswinkarthik/csvdiff
 * _csview_: ✅ cat https://github.com/wfxr/csview
-* _csvlens_: ✅ less page https://github.com/YS-L/csvlens
+* _csvlens_: ✅ less/pager https://github.com/YS-L/csvlens https://news.ycombinator.com/item?id=38889820
+
+QUERY
+* _qsv_: https://github.com/jqnatividad/qsv
+* _sq_: query with SQL https://github.com/neilotoole/sq
+* _textql_: query with SQL https://github.com/dinedal/textql
 
 SEMANTICS
 * _header line_: line with col names https://miller.readthedocs.io/en/latest/glossary/#header-line
@@ -226,6 +315,32 @@ DESIGN
 * comments: no standard from RFC 4180, parser can set https://stackoverflow.com/a/14428538 https://stackoverflow.com/a/1961018
 * _DSV_: same as `.dat` https://en.wikipedia.org/wiki/Delimiter-separated_values https://www.thoughtspot.com/blog/csv-vs-delimited-flat-files-how-choose
 * _TSV_: https://news.ycombinator.com/item?id=40622760
+
+## Cuelang
+
+📜 https://cuelang.org/
+
+* use cases https://news.ycombinator.com/item?id=34074386 https://chatgpt.com/c/670d7768-62c8-8004-89e2-fd5a876700d7
+* not supported by VS Code's Markdown syntax highlighting https://stackoverflow.com/a/70456058/6813490 https://highlightjs.readthedocs.io/en/latest/language-requests.html
+```json
+// Define a schema for a person
+person: {
+    name: string & len(name) > 1 // Name must be a string and at least 2 characters long
+    age:  int & >= 0             // Age must be an integer and at least 0
+    email: string & =~ "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$" // Valid email format
+}
+
+// Instance of a valid person
+person: {
+    name:  "John Doe"
+    age:   30
+    email: "johndoe@example.com"
+}
+```
+```sh
+# validate
+cue vet person.cue
+```
 
 ## JSON
 
@@ -343,6 +458,68 @@ zz  # center
 * easier to use now vs. CSV https://news.ycombinator.com/item?id=30595026
 * use to build no-code API https://tech.marksblogg.com/roapi-rust-data-api.html
 * pyarrow https://www.blog.pythonlibrary.org/2024/05/06/how-to-read-and-write-parquet-files-with-python/
+
+## YAML
+
+📜 https://yaml.org/
+🔍 query https://github.com/mikefarah/yq
+
+* scalars
+```yaml
+name: John Doe                # string
+age: 30                       # int
+height: 1.75                  # floating-point
+is_employee: true             # boolean
+nickname: null                # null
+```
+* list/map
+```yaml
+# SEQUENCE/LIST
+languages:
+  - Python
+  - JavaScript
+  - Go
+
+# MAP/DICTIONARY
+address:
+  street: 123 Main St
+  city: Sampleville
+  zip_code: 12345
+
+# NESTED
+projects:
+  - name: Project Alpha
+    team:
+    completed: false
+      - name: Alice
+        role: dev
+      - name: Bob
+        role: design
+  - name: Project Beta
+    completed: true
+    team:
+      - name: Carol
+        role: pm
+      - name: Dave
+        role: dev
+```
+* anchors
+```yaml
+default_user: &default_user
+  name: John Doe
+  email: johndoe@example.com
+  roles:
+    - user
+    - editor
+
+users:
+  - <<: *default_user  # use anchor
+    id: 1001
+  - <<: *default_user  # use anchor + override
+    id: 1002
+    name: Alice Doe
+    email: alicedoe@example.com
+```
 
 # 🧮 NUMBERS
 

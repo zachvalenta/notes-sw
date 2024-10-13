@@ -91,140 +91,6 @@ ANALYSIS
 * MRR https://news.ycombinator.com/item?id=41350468
 * plot https://nrennie.rbind.io/blog/plotnine-annotated-area-chart/
 
-# 🛣️ ROADMAP
-
-AUTUMN DEV FUN
-* git diff
-* git porcelain
-* GPT locally https://github.com/darrenburns/elia
-* category theory + clean up `math.md`
-> Yes - the value of functional programming isn't that working in OCAML, or F#, or Haskell is 10x as productive as other languages. But that it can teach you worthwhile lessens about designing software that apply equally to imperative languages. Modelling the business domain, reasoning and managing side effects, avoiding common imperative bugs, these are all valuable skills to develop. https://news.ycombinator.com/item?id=40702146
-* `algos.md` data modeling
-* FP&A
-> money term
-* basilk
-* ERP
-* Zellij
-* Neovim
-* iPad
-* PIM
-
-> A number of companies (large crossover funds, startups, etc.) in The Diff network are looking for data scientists that love wrangling and analyzing alt. data to help inform investment decisions. (Remote) https://www.thediff.co/archive/longreads-open-thread-96/
-
-PROJECTS
-* _pymus_: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/ https://rapidapi.com/collection/lyrics-apis https://aosabook.org/en/v1/audacity.html
-* _Sk8list_: Django, Celery, Kafka, Caddy, htmx, Datadog, AWS (ACM, Route53, KMS, IAM, EC2, Cloudfront, RDS + Terraform), user analytics (Django sessions https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/) https://djangochat.com/episodes/michael-kennedy
-* pytest plugin for ward
-* TUI for Websters 1913
-* TUI for BYO dictionary
-* searchable: CWT, PG
-* book notes: Kleppmann, Jeffrey
-> Python, Distributed
-* dataclerk
-* sports betting
-* city data https://www.youtube.com/watch?v=fHsMZ3cuMhU
-* Piedmont https://datasette.io/for/exploratory-analysis
-
-## ️💻 denv
-
-### general
-
-- [x] prompt: oh-my-posh
-- [x] readline: vi mode
-- [x] shell: atuin
-- [ ] autojump
-- [ ] superfile
-- [ ] Git: lazygit
-- [ ] keyboard: retry nuphy | order backup
-
-ZELLIJ
-- [x] recreate iterm home layout
-
-### code
-
-FEEDBACK
-> 📍 port in commit msg when you get to this
-- [x] feedback: think through notebook usage
-> yes: Ramalho + notes + REPL | repo + doctest https://github.com/fluentpython/example-code-2e/tree/master/01-data-model
-> no: org mode (adoption time) notebooks (dont need visualizations, wordiness of notes needs density of editor)
-- [ ] feedback: REPL - iPython
-- [ ] feedback: REPL - util
-- [ ] feedback: debugger (algos sandbox) +️ Evans debug guide https://wizardzines.com/zines/debugging-guide/
-
-EDITOR
-- [x] editor: VS Code interpreter selection for Poetry
-- [ ] Neovim: LSP
-
-STDLIB
-- [x] ward
-- [x] ruff
-- [ ] doctest
-
-### data
-
-> financial modeling with Nate
-
-- [x] tooling in general
-- [x] research BI
-- [x] rf dataframes: Ibis/Polars + Arrow
-- [x] rf eng (eng/admin/analytics)
-- [x] miller put columns
-- [x] csvkit
-- [x] dataframes, import Arrow from protocols.md
-- [x] query engines
-- [x] research R
-- [x] start Polars
-- [ ] sandbox: sandbox
-> dataset repo, pick single dataset, rf `sql.md` + use case for notebooks + chance to learn Pandas/Polars/Ibis?
-- [ ] tooling: dbcli
-- [ ] tooling: evaluate harlequin
-- [ ] Spark
-
-## 📝 interviewing
-
-### Python
-
-- [ ] iterators
-- [ ] collections 📙 Ramalho ch. 2-3, 18
-- [ ] functions 📙 Ramalho ch. 7, 9-10
-> decorator, lambda, generator https://roadmap.sh/python
-- [ ] classes 📙 Ramalho ch. 1, 5, 11-14, 16, 22-24
-- [ ] obj 📙 Ramalho ch. 6
-
-### algos
-
-- [ ] rf notes
-- [ ] rf fs
-- [ ] repo/core 🗄️ `sandbox/src` miscellaneous, thirty
-
-### comms
-
-- [x] fix existing webcam
-- [ ] personal site https://news.ycombinator.com/item?id=41656015
-- [ ] setup better webcam https://www.nytimes.com/wirecutter/reviews/the-best-webcams/
-
-## 💵 freedom
-
-💡 teaching golf https://news.ycombinator.com/item?id=41428523
-
-### architecture
-
-> https://news.ycombinator.com/item?id=41338939
-https://roadmap.sh/best-practices/backend-performance
-
-- [ ] roadmap.sh
-- [ ] architecture/system.md
-- [ ] svc/src.md
-- [ ] svc/test.md
-
-### SRE
-
-> I tell non-technical people that the site reliability engineer job is about creating automation to do what a system administrator would otherwise do. https://entropicthoughts.com/the-reinforcing-nature-of-toil
-
-- [ ] AWS SA
-- [ ] AWS ML
-- [ ] AWS data eng
-
 # 🏢 JOB MARKET
 
 🗄
@@ -235,8 +101,11 @@ https://roadmap.sh/best-practices/backend-performance
 ## commits
 
 RECENT
+* caplan, farnsworth port to site
+* logs
 * shu
 * ml
+* basilk
 * air22: logs, dot
 * air-capp: logs
 * ms: pull capp repos into ms
@@ -271,6 +140,7 @@ COMPANIES
 > who else?
 
 NETWORK
+* Jonathan Magen https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/ https://pod.link/1602572955/episode/12fe9e0c14dab3b5e9780ffc13412136 https://www.linkedin.com/in/jonathan-magen-9848711b/ https://yonkeltron.com/
 * LinkedIn contacts
 * China: Dror, Eva
 * Zip Code: Josh, Kurt, Roberto, Jocelyn
@@ -371,6 +241,7 @@ PREFERENCES
 ---
 
 LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER)
+> Scala?
 * _Haskell_: learned pursuant a general interest in category theory / data modeling / type systems
 * Golang: learned in order to write a compiler and play around with a web framework (Pocketbase) 📙 Ball
 * _Javascript_: I'm a total punk rock user. I've used Angular professionally back when that was more popular. I've kept reasonable track of the ecosystem and think the htmx/hypermedia approach is preferable for the majority of websites i.e. 90% of sites don't need a SPA.

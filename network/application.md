@@ -47,6 +47,7 @@ CLEAN UP
 # 📡 HTTP
 
 🗄️ `infra.md` web servers
+🛠️ debug requests https://github.com/cle-b/httpdbg
 📜 https://httpwg.org/specs/
 🔍 dummy endpoints https://example.org/ https://http.cat/ https://httpstat.us https://httpbin.org/ https://dogapi.dog/ https://news.ycombinator.com/item?id=41371170
 📚
@@ -159,6 +160,7 @@ za
 
 ---
 
+* security headers https://github.com/TypeError/secure
 * `Accept-Language` https://news.ycombinator.com/item?id=41497139
 
 req
@@ -240,7 +242,11 @@ security https://securityheaders.com/
 
 ## status codes
 
-🔗 https://developer.mozilla.org/en-US/docs/Web/HTTP/Status https://en.wikipedia.org/wiki/List_of_HTTP_status_codes https://www.youtube.com/watch?v=_qKgO8BPHWc
+🔗
+* https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
+* https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+* https://www.youtube.com/watch?v=_qKgO8BPHWc
+* https://wompa.land/articles/http-status-codes
 
 * _100s_: info
 
@@ -423,7 +429,10 @@ ZA
 
 ---
 
-* dig, whois https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command https://jvns.ca/blog/2021/12/04/how-to-use-dig/
+TOOLS
+* _dig_: https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command https://jvns.ca/blog/2021/12/04/how-to-use-dig/
+* _dog_: https://github.com/ogham/dog
+
 * DNS https://entropicthoughts.com/secure-dns-on-a-laptop-with-debian
 * whitelist/blacklist https://github.com/plutov/ultrafocus
 * https://www.youtube.com/watch?v=27r4Bzuj5NQ
@@ -444,7 +453,6 @@ ZA
 * https://github.com/resyncgg/ripgen
 * https://cuddly-octo-palm-tree.com/posts/2021-10-17-dns/
 * Namecheap https://news.ycombinator.com/item?id=30504812
-* https://github.com/ogham/dog
 * https://news.ycombinator.com/item?id=29812736&utm_term=comment
 * https://news.ycombinator.com/item?id=34485815
 * https://jvns.ca/blog/2021/11/04/how-do-you-tell-if-a-problem-is-caused-by-dns/
@@ -548,6 +556,36 @@ https://kevq.uk/how-to-host-email-with-your-own-domain/
 * search: notmuch https://www.reddit.com/r/commandline/comments/ddkyap/can_some_give_me_the_dummies_guide_to_properly/ http://richardmavis.info/so-long-macbook-hello-again-linux
 > I wish Gmail had better search re: links. I think other people solve this by using things like Pinboard https://pinboard.in/
 mbsync https://www.c0ffee.net/blog/mail-server-guide/
+
+## FTP
+
+---
+
+file download https://github.com/aria2/aria2
+
+DATA TRANSFER https://github.com/veeso/termscp
+* alternative file transfer https://github.com/abdfnx/tran cyberduck https://fabiensanglard.net/html/index.html https://github.com/SpatiumPortae/portal
+* https://github.com/schollz/croc
+* _croc_: https://github.com/schollz/croc
+* _FTP_: sends binary instead of metadata
+* FileZilla (client) VSFTPD (server)
+* server GUI https://github.com/mickael-kerjean/filestash https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2
+* _SFTP_: FTP + security https://github.com/drakkan/sftpgo https://goteleport.com/blog/scp-familiar-simple-insecure-slow/
+* magic wormhole https://www.youtube.com/watch?v=oFrTqQw0_3c
+* client: CyberDuck
+* _scp_: https://en.wikipedia.org/wiki/Secure_copy
+* need to create dir first w/ `ssh` https://stackoverflow.com/a/25157693
+```sh
+ssh user@ftpserver.com "mkdir -p /data/install/somefolder"
+scp -r /data/install/somefolder user@ftpserver.com:/data/install/somefolder
+```
+* insecure?  https://goteleport.com/blog/scp-familiar-simple-insecure-slow/
+```sh
+# to remote https://haydenjames.io/linux-securely-copy-files-using-scp/
+scp /local/file.txt user@host:/src
+# from remote
+scp user@host:/src/file.txt /local/
+```
 
 ## IRC
 

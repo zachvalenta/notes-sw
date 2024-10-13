@@ -8,7 +8,8 @@
 * https://www.youtube.com/@mCoding
 📚
 * Beazley cookbook
-* Ramalho fluent
+* Ramalho fluent https://github.com/fluentpython/example-code-2e/tree/master/01-data-model
+> how to work through book: notebook | REPL + repo doctest
 * Van Rossum tutorial
 
 ## 进步
@@ -55,6 +56,7 @@ attributes
 🗄 `language.md` object-oriented
 📚
 * Beazley ch. 7
+* Ramalho ch. 1, 5, 11-14, 16, 22-24
 * Van Rossum ch. 9 https://docs.python.org/dev/tutorial/classes.html
 
 ---
@@ -510,7 +512,9 @@ except Exception as err:
 
 # 🤖 FUNCTIONS
 
-📙 Beazley ch. 7
+📚
+* Beazley ch. 7
+* Ramalho ch. 7, 9-10
 
 BUILT-IN 📜 https://docs.python.org/3/library/functions.html https://www.youtube.com/watch?v=7Qu_KXc7xSI https://www.mattlayman.com/blog/2024/layman-guide-python-built-in-functions/
 * _all_: return True if iterable empty or all el true
@@ -783,6 +787,8 @@ def use_decorator():
 ```
 
 # 🕉 OBJECTS
+
+📙 Ramalho ch. 6
 
 * _object_: https://docs.python.org/3/glossary.html#term-object
 * _object model_: everything inherits from `object` as of Python 2.2 https://www.youtube.com/watch?v=vvuYPUbwAO0 2:30 https://docs.python.org/3/reference/datamodel.html
@@ -1139,6 +1145,7 @@ GOVERNANCE
 * corporate: internal language team at Google https://news.ycombinator.com/item?id=40176338
 * quasi-official: PyPA, PyCQA
 * people: Donald Stuft (PyPA) Raymond Hettinger (core) Tim Peters (Zen of Python `import this`, Timsort) Armin Ronacher (Flask) Brett Cannon (core) Nick Coghlan (core) Eli Bendersky (Google, buddies w/ Coghlan) https://mail.python.org/pipermail/python-committers/2019-February/006520.html
+* core contributor https://mariatta.ca/posts/perks-of-python-core/
 * _Steering Council_: https://mail.python.org/pipermail/python-committers/2019-February/006520.html
 * _PSF_: https://simonwillison.net/2024/Sep/18/board-of-the-python-software-foundation/
 

@@ -307,6 +307,7 @@ SEMANTICS
 
 PROVIDERS
 * howto: server logs (GoAccess), CSS https://herman.bearblog.dev/how-bear-does-analytics-with-css/
+* Django sessions
 * _Amplitude_: https://satchel.com/web-analytics/
 * _Braze_: 
 * _Chartbeat_: publishing
@@ -345,13 +346,13 @@ FORMAT
 * _JSONL_: https://github.com/textualize/toolong
 
 TOOLING
-* _toolong_: 🎯 https://github.com/textualize/toolong
+* _hl_: https://github.com/pamburus/hl
+* _toolong_: https://github.com/textualize/toolong
 
 ---
 
 * live log view `tail -f foo.log`
 
-* https://github.com/pamburus/hl
 * https://github.com/ptmcg/logmerger
 * https://github.com/ReagentX/Logria
 * https://github.com/tstack/lnav

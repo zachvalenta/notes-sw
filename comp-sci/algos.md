@@ -18,6 +18,8 @@ https://chatgpt.com/share/67069a06-24cc-8004-9a88-108d568d211a
 * extract data structures
 * combine algos and ML
 
++ category theory
+
 ---
 
 fizz buzz
@@ -636,6 +638,7 @@ za
 
 ---
 
+> Yes - the value of functional programming isn't that working in OCAML, or F#, or Haskell is 10x as productive as other languages. But that it can teach you worthwhile lessens about designing software that apply equally to imperative languages. Modelling the business domain, reasoning and managing side effects, avoiding common imperative bugs, these are all valuable skills to develop. https://news.ycombinator.com/item?id=40702146
 * https://www.amazon.com/How-Bake-Pi-Exploration-Mathematics/dp/0465097677
 https://chatgpt.com/c/670933eb-bfe0-8004-aca0-fb048ba5ede0
 https://chatgpt.com/c/6709358b-4070-8004-8df9-cd6180a0e70b
@@ -735,7 +738,9 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 
 ## tree
 
-🔗 https://en.wikipedia.org/wiki/Tree_(data_structure)
+🔗
+* https://en.wikipedia.org/wiki/Tree_(data_structure)
+* HDF5 https://en.wikipedia.org/wiki/Hierarchical_Data_Format https://github.com/rhuygen/hdf5_ui
 🗄️
 *️ `km.md` notes / tooling
 *️ `language.md` compiler
@@ -782,7 +787,7 @@ SEMANTICS
 
 ---
 
-* _treemap_: https://github.com/niyue/skillmap https://github.com/nikolaydubina/go-cover-treemap
+* _treemap_: https://github.com/niyue/skillmap https://github.com/nikolaydubina/go-cover-treemap https://github.com/imsnif/diskonaut
 https://buttondown.com/hillelwayne/archive/maybe-software-engineers-could-learn-something/ https://en.wikipedia.org/wiki/Hypernymy_and_hyponymy
 
 WALKING

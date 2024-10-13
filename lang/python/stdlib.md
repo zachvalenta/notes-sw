@@ -12,6 +12,7 @@
 * https://cjolowicz.github.io/posts/hypermodern-python-01-setup/ https://talkpython.fm/episodes/show/362/hypermodern-python-projects
 * https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/ https://www.b-list.org/weblog/2022/dec/19/boring-python-code-quality/
 * https://talkpython.fm/episodes/show/327/little-automation-tools-in-python
+* https://github.com/nickolaj-jepsen/fnug
 
 * _24_: split from `python.md`, lib (ward)
 * _21_: rf pdb, doctest basics
@@ -173,6 +174,7 @@ https://superfastpython.com/benchmark-execution-time/
 https://stackabuse.com/why-does-python-code-run-faster-in-a-function/
 https://realpython.com/python-profiling/
 https://adamj.eu/tech/2023/07/23/python-profile-section-cprofile/
+https://github.com/sile/erldash
 * https://realpython.com/python312-perf-profiler/
 * https://functiontrace.com/
 * Rust, Cython https://pythonspeed.com/articles/faster-text-processing/ https://www.equalto.com/blog/rust-in-anger-high-performance-web-applications
@@ -1095,6 +1097,8 @@ python json_tree.py
 * `language.md` frameworks
 
 ## frameworks
+
+🛠️ debug HTTP requests https://github.com/cle-b/httpdbg
 
 FRAMEWORKS
 > Web development is often broad, not deep - problems span many domains. https://docs.djangoproject.com/en/2.0/intro/whatsnext/

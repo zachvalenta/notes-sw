@@ -118,6 +118,7 @@ ZA
 * `stdlib.com` HTML
 
 HOWTO
+* real-time editor https://github.com/urin/vscode-web-visual-editor
 * footnotes https://stackoverflow.com/a/29384216/6813490 
 * dropdown/collapsible https://news.ycombinator.com/item?id=29669812 🗄 `personal-site` nested
 * link as button https://stackoverflow.com/q/2906582/6813490
@@ -125,6 +126,7 @@ HOWTO
 * password protect a page https://github.com/robinmoisson/staticrypt
 * understand `head` https://www.matuzo.at/blog/html-boilerplate/
 * in email https://news.ycombinator.com/item?id=41007403
+* archive: archive single page https://github.com/Y2Z/monolith https://github.com/gildas-lormeau/SingleFile whole site w/ wget https://stackoverflow.com/a/4769497 https://stackoverflow.com/a/10564190/6813490 https://news.ycombinator.com/item?id=16557439 every version of single page in Wayback Machine https://github.com/jsvine/waybackpack
 
 SEMANTICS
 * _attribute_: metadata
@@ -220,6 +222,7 @@ add styles
 
 ---
 
+https://kaiwenwang.com/stack
 just a normal dev blog https://www.jonashietala.se/blog/tags/neovim/
 https://gwern.net/matt-levine
 https://gwern.net/book-writing
@@ -266,6 +269,7 @@ HOW THINGS WORK
 
 ## design
 
+🔗 https://github.com/zachvalenta/web-design
 🇬🇧 UK design system https://govukvue.org/
 🗄
 * `viz.md`
@@ -281,7 +285,6 @@ MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
 * https://himitsustore.org/
 * https://stevenvanbael.com/
 * https://maxlangenkamp.me/posts/tech_not_inevitable
-* https://sriramk.com/
 * https://www.oilshell.org/
 * https://yossarian.net/
 
@@ -291,6 +294,7 @@ UNIQUE
 * https://borretti.me/
 * https://robinrendle.com/
 * https://kaiwenwang.com/stack
+* https://abundance.institute/
 
 ZA
 * squares https://allaboutberlin.com/
@@ -301,6 +305,7 @@ ZA
 LAYOUT 🔗  https://github.com/arp242/hello-css/
 - [x] TOC https://www.murilopereira.com/how-to-open-a-file-in-emacs https://www.oilshell.org/blog/2021/08/xargs.html dynamic https://danilafe.com/blog/blog_microfeatures/ https://lock.cmpxchg8b.com/
 - [x] paragraph titles https://fabiensanglard.net/
+* paragraphs https://shreyans.org/airbnb https://sriramk.com/group-chats-rule-the-world
 * tags
 * header/footer: https://www.erichgrunewald.com/ https://bastian.rieck.me/outreach/ https://borretti.me/article/languages-not-ecosystems
 * sidebar: https://www.goatcounter.com/help/start https://litchipi.github.io/infosec/2023/01/24/git-code-audit-viewed-as-rust-programmer.html

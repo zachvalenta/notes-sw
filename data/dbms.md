@@ -123,7 +123,6 @@ STORAGE ENGINES 🗄 `design.md` transactions
 * https://sqlfordevs.com/ebooks/indexing
 🗄
 * `algos.md` search engine
-* `big-data.md` perf
 * `vim.md` ctags
 
 > When I worked in ads I would often need to debug issues using production logs, and would use Dremel to run a distributed scan of very large amounts of data at interactive speeds. Because queries were relatively rare, an index would have been far more expensive to maintain. https://www.jefftk.com/p/you-dont-always-need-indexes
@@ -176,10 +175,65 @@ TYPES https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/
 TYPES
 * _command log_: log commands to change state but not incremental changes
 * _append-only log_: immutability at the db level; conflict w/ GDPR https://www.bloorresearch.com/2018/02/append-databases-gdpr-conundrum/
-* _write-ahead log (WAL)_: log changes in state before update so you can recover if failure (power, OS, hw) https://softwareengineeringdaily.com/wp-content/uploads/2018/06/SED613-Database-Reliability-Engineering.pdf BYO https://github.com/khonsulabs/okaywal logical decoding messages https://www.infoq.com/articles/wonders-of-postgres-logical-decoding-messages/ https://pgdash.io/blog/taming-postgresql-wal-file-growth.html
+* _write-ahead log (WAL)_: log changes in state before update so you can recover if failure (power, OS, hw) https://softwareengineeringdaily.com/wp-content/uploads/2018/06/SED613-Database-Reliability-Engineering.pdf BYO https://github.com/khonsulabs/okaywal logical decoding messages https://www.infoq.com/articles/wonders-of-postgres-logical-decoding-messages/ https://pgdash.io/blog/taming-postgresql-wal-file-growth.html https://news.ycombinator.com/item?id=41851051 https://simonwillison.net/2022/Oct/23/datasette-gunicorn
 * used in b-tree 📙 Kleppmann 84
 * individual entries known as frames https://news.ycombinator.com/item?id=26583558
 * turn off if you're just doing a transformation https://hakibenita.com/sql-tricks-application-dba#use-unlogged-tables-for-intermediate-data
+
+## perf
+
+📙 Winand sql perf https://use-the-index-luke.com/
+🗄️
+* `dbms.md` indexing
+* `telemetry.md` perf
+
+METRICS
+* CPU utilization
+* QPS (queries per second)
+
+TACTICS
+* use larger instance (lower CPU utilization) https://www.figma.com/blog/how-figma-scaled-to-multiple-databases/
+* read replica (higher QPS) https://www.figma.com/blog/how-figma-scaled-to-multiple-databases/
+
+---
+
+* Postgres
+> When modeling a Postgres database, you probably don’t give much thought to the order of columns in your tables. After all, it seems like the kind of thing that wouldn’t affect storage or performance. But what if I told you that simply reordering your columns could reduce the size of your tables and indexes by 20%? This isn’t some obscure database trick — it’s a direct result of how Postgres aligns data on disk.
+
+* https://www.crunchydata.com/blog/is-your-postgres-ready-for-production
+@ https://www.figma.com/blog/how-figma-scaled-to-multiple-databases/
+* should `explain analyze` be here?
+
+EXPLAIN
+* plan hints https://news.ycombinator.com/item?id=35963572
+> In some circumstances, you have knowledge of your data that the optimizer does not have, or cannot have. You might be able to improve the performance of a query by providing additional information to the optimizer https://hakibenita.com/sql-dos-and-donts#add-faux-predicates
+* `explain`: view preflight execution plan  https://thoughtbot.com/blog/reading-an-explain-analyze-query-plan https://dataschool.com/sql-optimization/optimization-using-explain/ "returns the steps a database will take to execute a query" https://render.com/blog/postgresql-slow-query-to-fast-via-stats
+* how to interpret https://render.com/blog/postgresql-slow-query-to-fast-via-stats
+* adds overhead caused by the Volcano model https://www.ongres.com/blog/explain_analyze_may_be_lying_to_you/
+* `analyze`: update table stats after bulk index https://sqlfordevs.com/table-maintenance-bulk-modification
+* `explain analyze`: view postflight analysis 📙 Evans 25 https://jaywhy13.hashnode.dev/that-time-postgresql-said-no-thanks-i-dont-need-your-index
+* `seq scan`:  query plan doesn't use an index 📙 Evans 25
+* aka full table scan https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
+* making sense of Postgres output https://www.pgmustard.com/docs/explain https://explain.depesz.com/
+* more precision yields faster query plan
+> The query fetches sales that were modified before 2019. There is no index on this field, so the optimizer generates an execution plan to scan the entire table. Let's say you have another field in this table with the time the sale was created. Since it's not possible for a sale to be modified before it was created, adding a similar condition on the created field won't change the result of the query. However, the optimizer might use this information to generate a better execution plan https://hakibenita.com/sql-dos-and-donts#add-faux-predicates
+```diff
+FROM sale
+WHERE modified < '2019-01-01 asia/tel_aviv'
++ AND created < '2019-01-01 asia/tel_aviv'
+```
+
+https://www.timescale.com/blog/13-tips-to-improve-postgresql-insert-performance/
+
+* queries: avoid `distinct`, `having`, subqueries, `*` https://dataschool.com/sql-optimization/optimize-your-sql-query/
+* query plan
+* use indexes
+* https://github.com/ankane/pghero
+* https://klotzandrew.com/blog/quickly-debugging-postgres-problems
+* _QPS (queries per second)_: https://www.youtube.com/watch?v=kEShMV4VfWE
+* https://stackoverflow.com/a/11275107/6813490/ 
+* https://numeracy.co/blog/life-of-a-sql-query
+* https://www.digitalocean.com/community/tutorials/how-to-use-mysql-query-profiling
 
 ## query engine
 
@@ -1015,7 +1069,6 @@ ZA
 * https://news.ycombinator.com/item?id=40637303
 * single-tenant i.e each user gets own db https://news.ycombinator.com/item?id=38171322
 * transactions for perf https://news.ycombinator.com/item?id=36583317
-* WAL https://simonwillison.net/2022/Oct/23/datasette-gunicorn
 * _APSW_: alternative to Python's sqlite3 https://github.com/litements/s3sqlite
 * db file extension incl. `.db` and `.sqlite` https://www.visidata.org/ https://sqlite.org/fileformat.html
 * can do blob https://stackoverflow.com/q/29008721/6813490 https://www.youtube.com/watch?v=TLgVEBuQURA

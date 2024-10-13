@@ -41,6 +41,7 @@ foundational
 
 📙 Sanders packet analysis (ch 6)
 
+https://github.com/bschaatsbergen/cidr
 * https://tech.marksblogg.com/where-are-ip-addresses-ipinfo.html https://tech.marksblogg.com/fast-ip-to-hostname-clickhouse-postgresql.html
 * ASN, last mile https://chown.me/blog/getting-my-own-asn
 * anonymization https://news.ycombinator.com/item?id=30002882
@@ -99,6 +100,7 @@ nc -l 8080  # run server locally on port 8080 https://blog.sylver.dev/build-a-we
 * _socat_: https://stackoverflow.com/a/4777309/6813490 https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * _nmap_: check if anything listening on port
 * LAN port scanner https://github.com/RustScan/RustScan https://github.com/aceberg/WatchYourLAN
+* port scanner https://github.com/mrjackwills/havn
 * _sink_: https://github.com/imsnif/bandwhich https://robertheaton.com/2020/02/05/wacom-drawing-tablets-track-name-of-every-application-you-open/ https://github.com/rhaidiz/broxy https://news.ycombinator.com/item?id=22394708
 
 # 🟨️ ZA

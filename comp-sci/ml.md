@@ -13,6 +13,13 @@
 
 ## 进步
 
+* _24_: usage (regex, stdlib, EDI) tooling (clients)
+
+* contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
+
+---
+
+* BYO https://medium.com/@msouza.os/llm-from-scratch-with-pytorch-9f21808c6319 https://youtu.be/kCc8FmEb1nY
 * learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
 * tokens, read whole thing https://stratechery.com/2024/enterprise-philosophy-and-the-first-wave-of-ai/
 > The big challenge for traditional LLMs is that they are path-dependent; while they can consider the puzzle as a whole, as soon as they commit to a particular guess they are locked in, and doomed to failure. This is a fundamental weakness of what are known as “auto-regressive large language models”, which to date, is all of them. To grossly simplify, a large language model generates a token (usually a word, or part of a word) based on all of the tokens that preceded the token being generated; the specific token is the most statistically likely next possible token derived from the model’s training (this also gets complicated, as the “temperature” of the output determines what level of randomness goes into choosing from the best possible options; a low temperature chooses the most likely next token, while a higher temperature is more “creative”). The key thing to understand, though, is that this is a serial process: once a token is generated it influences what token is generated next.
@@ -47,8 +54,6 @@ RAG, vector https://news.ycombinator.com/item?id=41105130 https://en.wikipedia.o
 
 https://www.amazon.com/gp/product/1098107969
 
-* _24_: start using for dev (regex, stdlib)
-
 # 🧪 TECHNIQUES
 
 🔗 https://github.com/ritchie46/vanilla-machine-learning
@@ -77,6 +82,7 @@ https://www.amazon.com/gp/product/1098107969
 
 ---
 
+* running locally, llamafile https://news.ycombinator.com/item?id=40424519
 * https://news.ycombinator.com/item?id=40416362
 * https://explainextended.com/2023/12/31/happy-new-year-15/ https://news.ycombinator.com/item?id=40378499
 * https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math
@@ -244,19 +250,6 @@ https://github.com/charmbracelet/mods
 https://treyhunner.com/2024/07/chatgpt-and-claude-from-your-browser-url-bar/
 building into projects https://news.ycombinator.com/item?id=40857589
 
-LOCAL
-https://github.com/ggozad/oterm
-* https://news.ycombinator.com/item?id=41732634
-* https://llm.datasette.io/en/stable/
-* https://github.com/khoj-ai/khoj
-* https://github.com/darrenburns/elia
-* https://github.com/sigoden/aichat
-* https://github.com/simonmysun/ell
-* https://datasette.io/tools/llm
-* https://github.com/aandrew-me/tgpt
-* llamafile https://news.ycombinator.com/item?id=40424519
-* BYO https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset
-
 ZA
 * structured output https://news.ycombinator.com/item?id=40713952
 * https://notebooklm.google/
@@ -264,12 +257,35 @@ ZA
 * https://news.ycombinator.com/item?id=40441945
 * custom GPT https://talkpython.fm/episodes/show/456/building-gpt-actions-with-fastapi-and-pydantic
 * customization prompt https://news.ycombinator.com/item?id=40474716
-* telemetry https://github.com/dagworks-inc/burr?tab=readme-ov-file
+* telemetry https://github.com/dagworks-inc/burr
+
+## clients
+
+* in Bash https://github.com/simonmysun/ell
+* _aichat_: ❌ https://github.com/sigoden/aichat/issues/924
+* doesn't work https://github.com/sigoden/aichat 
+* _elia_: 🎯 https://github.com/darrenburns/elia
+* problems with API keys https://github.com/darrenburns/elia/issues/73
+* have to expose API as env var 🗄️ `src.md` secrets
+> fix https://github.com/darrenburns/elia/issues/52
+> open a PR to document this
+```txt
+Say you have a CLI program that needs a secret (e.g. an API key). The secret needs to be exposed as a Linux environment variable. You don't want to store the secret in your .bash_profile because:
+* you have your environment variables version controlled
+* the secret would be exposed to all other programs running on your machine
+```
+* _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm
+* _khoj_: https://github.com/khoj-ai/khoj
+* _oterm_: for Ollama https://github.com/ggozad/oterm
+* _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
 
 ## code assist
 
+> Right now most engineers aren’t trying to get AI assistants to write large chunks of software at once – rather, they’re feeding them requests for one function at a time, or relying on a kind of high-grade autocomplete native to their coding environment. There are companies like Cognition.ai out there aiming to change this, to build coding AIs able to execute complex engineering tasks, and if we get to that point, the way we think about software specification, and the amount of time we spend doing it, will most likely change. But for now, today’s function-level assistants won’t change the way humans relate to the work of planning what they want software to do. https://www.thediff.co/archive/offshoring-and-ai-agents/
+
 ---
 
+* https://news.ycombinator.com/item?id=41732634
 > It’s worth noting that AI tools are intimately familiar with Next.js and not so much with htmx, due to the lack of open-source training data. This is similar to the issue Rails faces. While not a dealbreaker, it did impact our development speed and the ease of finding solutions to problems. When we encountered issues, the wealth of resources available for React/Next.js made troubleshooting much faster. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
 
 https://news.ycombinator.com/item?id=41563958

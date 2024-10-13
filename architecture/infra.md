@@ -208,7 +208,7 @@ PUB/SUB 📙 Narkhede ch. 1
 
 ## event (Kafka)
 
-🗄 `db.md` data eng
+🗄 `data/eng.md` streaming
 📜 https://kafka.apache.org/documentation/
 📙 Narkhede guide
 📹
@@ -252,7 +252,6 @@ ALTERNATIVES
 
 za
 * tooling https://github.com/batchcorp/plumber https://github.com/sauljabin/kaskade
-* streaming architecture https://news.ycombinator.com/item?id=31421004
 * BYO https://github.com/travisjeffery/jocko
 * https://developer.confluent.io/what-is-apache-kafka/#intro-to-ak
 * https://www.confluent.io/blog/author/martin-kleppmann/
@@ -284,6 +283,8 @@ SEMANTICS
 
 ## task (Celery)
 
+---
+
 🛠 https://taskqueues.com/ aka worker https://news.ycombinator.com/item?id=34940920
 🗄
 * `eng.md` pipelines
@@ -297,7 +298,7 @@ ZA
 * _Hatchet_: https://github.com/hatchet-dev/hatchet
 * _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey
 
-CELERY
+CELERY 📹 https://www.youtube.com/@NickJanetakis/search?query=celery
 * chron job
 * https://steve.dignam.xyz/2023/05/20/many-problems-with-celery/
 * Redis as db for Celery jobs https://ljvmiranda921.github.io/notebook/2019/11/08/flask-redis-celery-mcdo/

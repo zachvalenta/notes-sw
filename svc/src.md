@@ -251,7 +251,9 @@ https://github.com/piku/piku
 
 ## CICD
 
-🗄️ `git.md` Github / Actions
+OPTIONS
+* _Dagger_: created by the guy who created Docker, used Cuelang https://github.com/dagger/dagger https://news.ycombinator.com/item?id=30857012
+* _Github Actions_: 🗄️ `git.md` Github / Actions
 
 ---
 
@@ -387,6 +389,7 @@ bat my-secrets.yaml
 
 ---
 
+https://archive.vn/zyWMC
 * https://www.youtube.com/watch?v=G6Qbnitlwjk
 > what's the python stdlib for this?
 * env files: https://snarky.ca/use-toml-for-env-files/
@@ -595,6 +598,23 @@ BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 * most (web) things are bound by network, not CPU https://talkpython.fm/episodes/show/225/can-subinterpreters-free-us-from-python-s-gil
 * concurrency is a bad thing https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
 
+## dependency injection (DI)
+
+* https://github.com/uber-go/fx
+* https://www.youtube.com/watch?v=uWTvMCra-_Y
+* https://www.youtube.com/watch?v=0yc2UANSDiw
+* _dependency injection_: passing args [Conery 282]
+* why?: loose coupling http://kc.my-junk.info/di-ioc-dip https://www.youtube.com/watch?v=sD94szvFqGw
+* https://blog.thea.codes/my-python-testing-style-guide/
+* https://testdriven.io/blog/python-dependency-injection
+* https://github.com/ZechCodes/Bevy
+* https://hakibenita.com/python-dependency-injection
+* https://romantomjak.com/posts/testing-python-code-that-makes-http-requests.html
+* https://docs.pytest.org/en/latest/fixture.html#fixture
+* in Python https://io.made.com/dependency-injection-with-type-signatures-in-python/ + https://moltenframework.com/v0.7.3/index.html + https://github.com/ekiro/haps + https://github.com/Dobiasd/enterprython/blob/master/why_you_want_formal_dependency_injection_in_python_too.md https://pythonbytes.fm/episodes/show/112/don-t-use-the-greater-than-sign-in-programming
+* _inversion of control(IoC)_: you're not in charge of app control flow, only hooking into it https://www.baeldung.com/running-setup-logic-on-startup-in-spring example of IoC https://seddonym.me/2019/08/03/ioc-techniques/ https://softwareengineering.stackexchange.com/questions/205681/why-is-inversion-of-control-named-that-way https://stackoverflow.com/questions/3058/what-is-inversion-of-control https://engineering.snagajob.com/dont-like-dependency-injection-898de93dc8d3 https://stackoverflow.com/a/2465052/6813490 https://stackoverflow.com/a/51117857/6813490 https://stackoverflow.com/a/140655/6813490 https://www.objc.io/issues/11-android/dependency-injection-in-java/ https://www.youtube.com/playlist?list=PLVmRRBrc2pRAEgzxUIJc_7LLABdg_58hJ ❓ pull in class deps all in one place [Conery 287]
+> What is the glue that holds Django together? As a beginner entering, there really is no obvious central object to inspect, extend, or modify. https://www.reddit.com/r/Python/comments/olech/is_django_considered_pythonic_now/
+
 ## 🍥 design patterns
 
 🔍
@@ -700,21 +720,6 @@ def obj_args(obj):
     do_foo(obj.foo)
     do_bar(obj.bar)
 ```
-
-DEPENDENCY INJECTION (DI)
-https://www.youtube.com/watch?v=uWTvMCra-_Y
-https://www.youtube.com/watch?v=0yc2UANSDiw
-* _dependency injection_: passing args [Conery 282]
-* why?: loose coupling http://kc.my-junk.info/di-ioc-dip https://www.youtube.com/watch?v=sD94szvFqGw
-* https://blog.thea.codes/my-python-testing-style-guide/
-https://testdriven.io/blog/python-dependency-injection
-https://github.com/ZechCodes/Bevy
-https://hakibenita.com/python-dependency-injection
-https://romantomjak.com/posts/testing-python-code-that-makes-http-requests.html
-* https://docs.pytest.org/en/latest/fixture.html#fixture
-* in Python https://io.made.com/dependency-injection-with-type-signatures-in-python/ + https://moltenframework.com/v0.7.3/index.html + https://github.com/ekiro/haps + https://github.com/Dobiasd/enterprython/blob/master/why_you_want_formal_dependency_injection_in_python_too.md https://pythonbytes.fm/episodes/show/112/don-t-use-the-greater-than-sign-in-programming
-* _inversion of control(IoC)_: you're not in charge of app control flow, only hooking into it https://www.baeldung.com/running-setup-logic-on-startup-in-spring example of IoC https://seddonym.me/2019/08/03/ioc-techniques/ https://softwareengineering.stackexchange.com/questions/205681/why-is-inversion-of-control-named-that-way https://stackoverflow.com/questions/3058/what-is-inversion-of-control https://engineering.snagajob.com/dont-like-dependency-injection-898de93dc8d3 https://stackoverflow.com/a/2465052/6813490 https://stackoverflow.com/a/51117857/6813490 https://stackoverflow.com/a/140655/6813490 https://www.objc.io/issues/11-android/dependency-injection-in-java/ https://www.youtube.com/playlist?list=PLVmRRBrc2pRAEgzxUIJc_7LLABdg_58hJ ❓ pull in class deps all in one place [Conery 287]
-> What is the glue that holds Django together? As a beginner entering, there really is no obvious central object to inspect, extend, or modify. https://www.reddit.com/r/Python/comments/olech/is_django_considered_pythonic_now/
 
 ---
 

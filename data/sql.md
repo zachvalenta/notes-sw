@@ -904,132 +904,9 @@ SELECT NAME,
 FROM cd.facilities;  
 ```
 
-# 🟨️ ZA
+# ⭕️ ORM
 
-DESIGN 🗄️ `eng.md` dataframe
-* boring and durable https://josephg.com/blog/databases-have-failed-the-web
-* outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/ sq https://github.com/neilotoole/sq https://news.ycombinator.com/item?id=41760697 
-> The relational data model enables those things. None of them require the language to be SQL...LINQ, spark, flink, kafka streams, pandas, dataframes are all widely used examples of an expression-based language-embedded approach to relational queries. https://www.scattered-thoughts.net/writing/against-sql
-> SQL is the most popular to communicate with databases but isn't always the easiest to write. I've been writing SQL statements since the 1990s and even in 2024, I can find myself needing to refer to documentation and spending 30 minutes or more getting more complex statements to run as I wish. https://tech.marksblogg.com/heavyiq-faa-ai-llm-gpu-database.html
-* ISO, ANSI standard 📙 Beaulieu [86-87]
-* SQL92 📙 Beaulieu [91]
-* SQL2023 http://peter.eisentraut.org/blog/2023/04/04/sql-2023-is-finished-here-is-whats-new
-
-SEMANTICS
-* _object_: anything e.g. table, user, trigger https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements007.htm https://github.com/jOOQ/sakila/blob/ee1a637656aec2d82183ab451c56a3845315e761/mysql-sakila-db/mysql-sakila-drop-objects.sql ownership model https://www.red-gate.com/simple-talk/uncategorized/postgresql-basics-object-ownership-and-default-privileges/
-* _collation_: order in which char in character set are sorted 📙 Beaulieu [77]
-* _enumeration attack_: https://sqlfordevs.com/uuid-prevent-enumeration-attack
-* _fuzzy matching_: merging n datasets that don't have a common UUID e.g. merging contacts based on name https://pbpython.com/record-linking.html
-* _deterministic matching_: https://github.com/zinggAI/zingg
-* _virtual column_: https://news.ycombinator.com/item?id=31396578
-
-STYLE 📜 https://www.sqlstyle.guide/
-* ✅ constraints next to the attr they constrain https://www.sqlstyle.guide/#layout-and-order
-> this seems to violate parsing rules for SQLite 🗄 `golf`
-* ✅ suffixes https://www.sqlstyle.guide/#uniform-suffixes
-* ✅ uppercase keywords https://www.sqlstyle.guide/#reserved-words
-* indentation along root keywords (select, from, where) https://www.sqlstyle.guide/#indentation https://www.sqlstyle.guide/#spaces
-* white space / tabs not significant
-* ✅ ubiquitous language ❌ but no Hungarian notation https://news.ycombinator.com/item?id=24403236 
-* ✅ starts w/ char, use underscores where you'd use a space in natural language https://www.sqlstyle.guide/#naming-conventions
-* ❌ _Hungarian notation_: type in signature https://www.sqlstyle.guide/#tables https://news.ycombinator.com/item?id=24403236
-* ❌ through table as concatentation of its constituents https://www.sqlstyle.guide/#tables
-* ❌ `id` as PK https://www.sqlstyle.guide/#columns https://github.com/jOOQ/jOOQ/tree/master/jOOQ-examples/Sakila
-* ✅ singular for attr https://www.sqlstyle.guide/#columns
-
-DCL
-* _get current user_: `select current_user;` or `select user();`
-* _create user_: `CREATE USER alice WITH PASSWORD '1234';` `CREATE USER '<name>'@'localhost';
-* scope reads to currrent user https://news.ycombinator.com/item?id=23308945
-* give user perms to db
-```sql
-GRANT ALL PRIVILEGES ON <dbName>.* to '<userName>'@'localhost' WITH GRANT OPTION; 
-FLUSH PRIVILEGES;
-```
-* test user privileges
-```sql
-mysql -u user_name
-USE db_name;
-CREATE TABLE test_table (c CHAR(20));
-INSERT INTO test_table(name, age) values('zach', 31);
-SELECT * FROM test_table;
-DROP TABLE test_table;
-```
-
-## commands
-
-SEMANTICS 🗄 `language.md` semantics
-* _command_: keyword + identifier
-* _keyword_: part of SQL lang spec; not case sensitive
-* _identifier_: value (cell, attribute); case-sensitive
-* quotes: single for value, double for attr https://stackoverflow.com/q/1992314
-```sql
-SELECT "from" FROM foo WHERE something = 'val';
-```
-* _query_: `SELECT` command 📙 Karwin [6]
-* _statement_: non-`SELECT` commands 📙 Karwin [6]
-
-TYPES
-* _DCL_: control; user perms https://stackoverflow.com/a/44898661
-* _DDL_: definition; table structure and inter-table relationships https://stackoverflow.com/a/2578207
-* _DML_: manipulation; CRUD
-
-KEYWORDS https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html https://www.sqlstyle.guide/#reserved-keyword-reference
-* _reserved_: word that cannot use as identifier e.g. `create`
-* _non-reserved_: word that you can use as identifier but should use backtickets for e.g. `assertion`, `name`
-* _keyword_: reserved + non-reserved; case-insensitive
-> As a general rule, if you get spurious parser errors for commands that contain any of the listed key words as an identifier you should try to quote the identifier to see if the problem goes away. - https://www.postgresql.org/docs/8.1/static/sql-keywords-appendix.html
-
-## pedagogy
-
-* tldr: better at SQL if data 1) local 2) interesting
-* small databases https://news.ycombinator.com/item?id=34558054
-* example databases: Spanish, Sakila https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql 📙 Beaulieau [41]
-
-CONNECT TO ACTUAL SERVER
-* https://data.stackexchange.com/help
-* https://sqlpd.com/
-* https://news.ycombinator.com/item?id=30631477
-
-PLAYGROUNDS
-* PG exercises https://github.com/zachvalenta/pg-exercises
-* https://jvns.ca/blog/2023/04/17/a-list-of-programming-playgrounds/
-
-BAKED DATA
-* Datasette https://csvbase.com/ fetching https://github.com/fatiando/pooch
-* SQL.js https://selectstarsql.com/frontmatter.html#technicals https://github.com/sql-js/sql.js https://github.com/NUKnightLab/sql-mysteries
-* https://news.ycombinator.com/item?id=34558054 https://news.ycombinator.com/item?id=34630153
-* https://sqlbolt.com/
-* https://dataschool.com/learn-sql/basic-practice/
-* https://sql-playground.wizardzines.com/
-
-GET DATA
-* general https://github.com/awesomedata/awesome-public-datasets https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks https://corgis-edu.github.io/corgis/csv/ https://www.data-is-plural.com/archive/ https://redis.com/blog/datasets-for-test-databases/
-* JSON https://github.com/jdorfman/awesome-json-datasets
-* csv https://github.com/secretGeek/awesomecsv#data
-* 📍 more in 🗄 `ml.md`? put these there? Paul Swanson videos?
-> put in ML
-* PG Exercises https://pgexercises.com/gettingstarted.html https://github.com/AlisdairO/pgexercises/issues/28
-* executions https://selectstarsql.com/frontmatter.html#dataset
-* housing https://www.zillow.com/research/data/
-* music https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks
-* shootings https://catalog.data.gov/dataset/nypd-shooting-incident-data-historic
-* verbos https://github.com/ghidinelli/fred-jehle-spanish-verbs
-* HN https://github.com/dogsheep/hacker-news-to-sqlite https://news.ycombinator.com/submitted?id=luu
-* movies https://simonwillison.net/2019/Feb/25/sqlite-utils/ https://github.com/jdorfman/awesome-json-datasets
-* music https://corgis-edu.github.io/corgis/csv/music/ 
-
-## SQLAlchemy
-
-📜 https://docs.sqlalchemy.org/en/20/
-🗄 `django.md` db
-
-* https://aosabook.org/en/v2/sqlalchemy.html
-* overly complex https://news.ycombinator.com/item?id=34541452
-* people hate the docs https://news.ycombinator.com/item?id=34540251 https://news.ycombinator.com/item?id=34542075 https://news.ycombinator.com/item?id=34578772 https://news.ycombinator.com/item?id=34540960
-* migrations: Alembic https://news.ycombinator.com/item?id=34549578
-
-ORMS
+DESIGN
 * _ORM (object-relational mapper)_: obj as frontend to relational data store
 * why: dbms portability, terseness, getting data into obj https://monadical.com/posts/why-use-orm.html https://news.ycombinator.com/item?id=37118633
 * why not: SQL is more durable, more help on SO, easier for complicated relationships https://news.ycombinator.com/item?id=21961214 https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://sirupsen.com/stop-relying-on-your-orm-and-learn-sql https://news.ycombinator.com/item?id=36497613
@@ -1043,7 +920,30 @@ ORMS
 * _impedance mismatch_: difficulty of object-relational mapping [Kleppmann 1.33] multiple ways to aproach http://blogs.tedneward.com/post/the-vietnam-of-computer-science/
 > In the database community it has been conventional wisdom for nearly half a century now (basically since the invention of the relational model) that in designing your database schema you should be careful to avoid any kind of redundancy. That's what database normalization theory is all about. For some unfathomable reason, the same kind of thinking is never (or almost never) applied to software construction, even though it would be as beneficial (possibly even more so) as it is for databases. So, before we countinue our discussion, it's a good idea to talk a bit about redundancy, and to explain what's so harmful about it. https://www.cell-lang.net/relations.html
 
-QUERY BUILDERS
+OPTIONS
+* _dataset_: lightweight https://dataset.readthedocs.io/en/latest/index.html 
+* _orator_: from the guy who did Poetry https://github.com/sdispater/orator
+* _Peewee_: https://github.com/coleifer/peewee not for async https://fastapi.tiangolo.com/advanced/sql-databases-peewee/
+* _SQLmodel_: SQLAlchemy wrapper https://github.com/tiangolo/sqlmodel
+* _sqlc_: https://github.com/sqlc-dev/sqlc
+* _Tortoise_: async https://github.com/tortoise/tortoise-orm
+
+## API / code gen
+
+🗄️ `src.md` API
+
+* https://github.com/directus/directus
+* Postgrest https://github.com/PostgREST/postgrest https://news.ycombinator.com/item?id=30132947 https://github.com/prest/prest
+* GraphQL https://www.graphile.org/postgraphile/ 
+* query SQLite over HTTP https://news.ycombinator.com/item?id=30636796
+* ROAPI https://github.com/roapi/roapi https://tech.marksblogg.com/roapi-rust-data-api.html
+* Datasette https://www.youtube.com/watch?v=pTr1uLQTJNE https://www.hytradboi.com/2022/datasette-a-big-bag-of-tricks-for-solving-interesting-problems-using-sqlite
+* DBCore https://github.com/eatonphil/dbcore https://notes.eatonphil.com/generating-a-rest-api-from-a-database.html
+* Octo https://github.com/octoproject/octo-cli
+* https://github.com/thevahidal/soul
+
+## query builders
+
 * reverse query builder https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203030 https://github.com/kyleconroy/sqlc https://preslav.me/2023/03/07/reasons-against-sqlc/
 * _query builder_: what it sounds like i.e. cares about physical tables, doesn't care about objects i.e. not an ORM https://github.com/stephenafamo/bob
 * BYO https://death.andgravity.com/query-builder-how
@@ -1054,12 +954,15 @@ QUERY BUILDERS
 * _records_: just write SQL https://github.com/kennethreitz/records
 * _spyql_: https://github.com/dcmoura/spyql https://news.ycombinator.com/item?id=30074787
 
-ALTERNATIVES
-* _dataset_: lightweight https://dataset.readthedocs.io/en/latest/index.html 
-* _orator_: from the guy who did Poetry https://github.com/sdispater/orator
-* _Peewee_: https://github.com/coleifer/peewee not for async https://fastapi.tiangolo.com/advanced/sql-databases-peewee/
-* _SQLmodel_: SQLAlchemy wrapper https://github.com/tiangolo/sqlmodel
-* _Tortoise_: async https://github.com/tortoise/tortoise-orm
+## SQLAlchemy
+
+📜 https://docs.sqlalchemy.org/en/20/
+🗄 `django.md` db
+
+* https://aosabook.org/en/v2/sqlalchemy.html
+* overly complex https://news.ycombinator.com/item?id=34541452
+* people hate the docs https://news.ycombinator.com/item?id=34540251 https://news.ycombinator.com/item?id=34542075 https://news.ycombinator.com/item?id=34578772 https://news.ycombinator.com/item?id=34540960
+* migrations: Alembic https://news.ycombinator.com/item?id=34549578
 
 ----
 
@@ -1225,6 +1128,124 @@ new thing [id 1 name thing1 desc thing-1-desc]
 >>> Thing.query.all()
 []
 ```
+
+# 🟨️ ZA
+
+SEMANTICS
+* _object_: anything e.g. table, user, trigger https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements007.htm https://github.com/jOOQ/sakila/blob/ee1a637656aec2d82183ab451c56a3845315e761/mysql-sakila-db/mysql-sakila-drop-objects.sql ownership model https://www.red-gate.com/simple-talk/uncategorized/postgresql-basics-object-ownership-and-default-privileges/
+* _collation_: order in which char in character set are sorted 📙 Beaulieu [77]
+* _enumeration attack_: https://sqlfordevs.com/uuid-prevent-enumeration-attack
+* _fuzzy matching_: merging n datasets that don't have a common UUID e.g. merging contacts based on name https://pbpython.com/record-linking.html
+* _deterministic matching_: https://github.com/zinggAI/zingg
+* _virtual column_: https://news.ycombinator.com/item?id=31396578
+
+STYLE 📜 https://www.sqlstyle.guide/
+* ✅ constraints next to the attr they constrain https://www.sqlstyle.guide/#layout-and-order
+> this seems to violate parsing rules for SQLite 🗄 `golf`
+* ✅ suffixes https://www.sqlstyle.guide/#uniform-suffixes
+* ✅ uppercase keywords https://www.sqlstyle.guide/#reserved-words
+* indentation along root keywords (select, from, where) https://www.sqlstyle.guide/#indentation https://www.sqlstyle.guide/#spaces
+* white space / tabs not significant
+* ✅ ubiquitous language ❌ but no Hungarian notation https://news.ycombinator.com/item?id=24403236 
+* ✅ starts w/ char, use underscores where you'd use a space in natural language https://www.sqlstyle.guide/#naming-conventions
+* ❌ _Hungarian notation_: type in signature https://www.sqlstyle.guide/#tables https://news.ycombinator.com/item?id=24403236
+* ❌ through table as concatentation of its constituents https://www.sqlstyle.guide/#tables
+* ❌ `id` as PK https://www.sqlstyle.guide/#columns https://github.com/jOOQ/jOOQ/tree/master/jOOQ-examples/Sakila
+* ✅ singular for attr https://www.sqlstyle.guide/#columns
+
+DCL
+* _get current user_: `select current_user;` or `select user();`
+* _create user_: `CREATE USER alice WITH PASSWORD '1234';` `CREATE USER '<name>'@'localhost';
+* scope reads to currrent user https://news.ycombinator.com/item?id=23308945
+* give user perms to db
+```sql
+GRANT ALL PRIVILEGES ON <dbName>.* to '<userName>'@'localhost' WITH GRANT OPTION; 
+FLUSH PRIVILEGES;
+```
+* test user privileges
+```sql
+mysql -u user_name
+USE db_name;
+CREATE TABLE test_table (c CHAR(20));
+INSERT INTO test_table(name, age) values('zach', 31);
+SELECT * FROM test_table;
+DROP TABLE test_table;
+```
+
+## commands
+
+SEMANTICS 🗄 `language.md` semantics
+* _command_: keyword + identifier
+* _keyword_: part of SQL lang spec; not case sensitive
+* _identifier_: value (cell, attribute); case-sensitive
+* quotes: single for value, double for attr https://stackoverflow.com/q/1992314
+```sql
+SELECT "from" FROM foo WHERE something = 'val';
+```
+* _query_: `SELECT` command 📙 Karwin [6]
+* _statement_: non-`SELECT` commands 📙 Karwin [6]
+
+TYPES
+* _DCL_: control; user perms https://stackoverflow.com/a/44898661
+* _DDL_: definition; table structure and inter-table relationships https://stackoverflow.com/a/2578207
+* _DML_: manipulation; CRUD
+
+KEYWORDS https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html https://www.sqlstyle.guide/#reserved-keyword-reference
+* _reserved_: word that cannot use as identifier e.g. `create`
+* _non-reserved_: word that you can use as identifier but should use backtickets for e.g. `assertion`, `name`
+* _keyword_: reserved + non-reserved; case-insensitive
+> As a general rule, if you get spurious parser errors for commands that contain any of the listed key words as an identifier you should try to quote the identifier to see if the problem goes away. - https://www.postgresql.org/docs/8.1/static/sql-keywords-appendix.html
+
+## design
+
+🗄️ `eng.md` dataframes
+
+* boring and durable https://josephg.com/blog/databases-have-failed-the-web
+* outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/
+> The relational data model enables those things. None of them require the language to be SQL...LINQ, spark, flink, kafka streams, pandas, dataframes are all widely used examples of an expression-based language-embedded approach to relational queries. https://www.scattered-thoughts.net/writing/against-sql
+> SQL is the most popular to communicate with databases but isn't always the easiest to write. I've been writing SQL statements since the 1990s and even in 2024, I can find myself needing to refer to documentation and spending 30 minutes or more getting more complex statements to run as I wish. https://tech.marksblogg.com/heavyiq-faa-ai-llm-gpu-database.html
+* ISO, ANSI standard 📙 Beaulieu [86-87]
+* SQL92 📙 Beaulieu [91]
+* SQL2023 http://peter.eisentraut.org/blog/2023/04/04/sql-2023-is-finished-here-is-whats-new
+
+## pedagogy
+
+* tldr: better at SQL if data 1) local 2) interesting
+* small databases https://news.ycombinator.com/item?id=34558054
+* example databases: Spanish, Sakila https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql 📙 Beaulieau [41]
+
+CONNECT TO ACTUAL SERVER
+* https://data.stackexchange.com/help
+* https://sqlpd.com/
+* https://news.ycombinator.com/item?id=30631477
+
+PLAYGROUNDS
+* PG exercises https://github.com/zachvalenta/pg-exercises
+* https://jvns.ca/blog/2023/04/17/a-list-of-programming-playgrounds/
+
+BAKED DATA
+* Datasette https://csvbase.com/ fetching https://github.com/fatiando/pooch
+* SQL.js https://selectstarsql.com/frontmatter.html#technicals https://github.com/sql-js/sql.js https://github.com/NUKnightLab/sql-mysteries
+* https://news.ycombinator.com/item?id=34558054 https://news.ycombinator.com/item?id=34630153
+* https://sqlbolt.com/
+* https://dataschool.com/learn-sql/basic-practice/
+* https://sql-playground.wizardzines.com/
+
+GET DATA
+* general https://github.com/awesomedata/awesome-public-datasets https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks https://corgis-edu.github.io/corgis/csv/ https://www.data-is-plural.com/archive/ https://redis.com/blog/datasets-for-test-databases/
+* JSON https://github.com/jdorfman/awesome-json-datasets
+* csv https://github.com/secretGeek/awesomecsv#data
+* 📍 more in 🗄 `ml.md`? put these there? Paul Swanson videos?
+> put in ML
+* PG Exercises https://pgexercises.com/gettingstarted.html https://github.com/AlisdairO/pgexercises/issues/28
+* executions https://selectstarsql.com/frontmatter.html#dataset
+* housing https://www.zillow.com/research/data/
+* music https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks
+* shootings https://catalog.data.gov/dataset/nypd-shooting-incident-data-historic
+* verbos https://github.com/ghidinelli/fred-jehle-spanish-verbs
+* HN https://github.com/dogsheep/hacker-news-to-sqlite https://news.ycombinator.com/submitted?id=luu
+* movies https://simonwillison.net/2019/Feb/25/sqlite-utils/ https://github.com/jdorfman/awesome-json-datasets
+* music https://corgis-edu.github.io/corgis/csv/music/ 
 
 ## tables
 

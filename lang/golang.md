@@ -146,105 +146,6 @@ func multi(num int) (x, y int) {
 }
 ```
 
-## project structure
-
-> I wish there was a good place to learn “the other parts” of C++, the build systems, using static analyzers, testing, dependency management, etc. https://news.ycombinator.com/item?id=34229802
-
-https://github.com/bbkane/shovel
-https://go.dev/blog/gonew
-https://go.dev/doc/modules/layout
-https://golangweekly.com/link/146368/web
-https://avivcarmi.com/finding-the-best-go-project-structure-part-1/
-https://boyter.org/posts/how-to-start-go-project-2023/
-https://github.com/create-go-app/cli
-https://autostrada.dev/
-
-* project structure for CLI and testing https://github.com/quii/learn-go-with-tests https://eli.thegreenplace.net/2022/file-driven-testing-in-go/ https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MTM2Nw==
-* https://lets-go.alexedwards.net/
-* https://gist.github.com/candlerb/3cb11576b2d73800b58f3b548dc2ba4a
-
-https://appliedgo.com/blog/go-project-layout
-
-https://github.com/mikestefanello/pagoda
-https://autostrada.dev/
-
-https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/ https://github.com/golang-standards/project-layout/issues/117 https://github.com/golang/go/issues/45861
-https://christine.website/blog/within-go-repo-layout-2020-09-07 https://github.com/golang-standards/project-layout https://commandercoriander.net/blog/2017/12/31/writing-go/ https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/ https://bencane.com/stories/2020/07/06/how-i-structure-go-packages/#/3 simple https://github.com/healeycodes/conways-game-of-life  https://bencane.com/2020/12/29/how-to-structure-a-golang-cli-project/ https://adhoc.team/2021/03/29/simple-web-app-in-golang/
-
-```sh
-# MAIN
-├── cmd/  #  python my_script.py
-├── internal/  #  _internal 
-├── pkg/  #  code that code also be used by other projects; 类似 Django app https://commandercoriander.net/blog/2017/12/31/writing-go/
-├── vendor/  #  venv
-
-# ANCILLARY
-├── api/  #  Swagger
-├── build/  #  Dockerfile, .gitlab-conf.yaml
-├── config/  #  conf files I guess
-├── init/  #  systemd
-├── web/  #   js
-```
-
-* start here https://blog.ultirequiem.com/chigo#heading-starting-the-project
-```sh
-mkdir chigo
-go mod init github.com/UltiRequiem/chigo
-mkdir internal pkg cmd
-touch pkg/root.go internal/root.go cmd/root.go
-tree
-├── cmd        # main
-│   └── root.go
-├── go.mod
-├── internal   # business logic
-│   └── root.go
-└── pkg        # util
-    └── root.go
-```
-```golang
-// sketch of pkg
-
-from "internal" import printFromStdin, printWithColors
-
-help, fileArguments, files = parametersAndFlags()
-
-if help {
-   printHelp()
-   exit()
-}
-
-if fileArguments {
-   filesText = joinFiles(files)
-   printWitColors(filesText)
-   exit()
-}
-
-printFromStdin()
-```
-```golang
-// take list of files and get text from them
-package internal
-
-import "os"
-
-func JoinFiles(files []string) (string, error) {
-    text := ""
-
-    for _, file := range files {
-        fileText, err := os.ReadFile(file)
-
-        if err != nil {
-            return "", err
-        }
-
-        text += string(fileText) + "\n"
-    }
-
-    return text, nil
-}
-
-```
-
 ## variables
 
 * declare: `var x int` https://go.dev/tour/basics/8
@@ -404,7 +305,18 @@ CMDS
 
 * toolchain https://go.dev/doc/toolchain
 
-DESIGN
+* commands https://github.com/nikolaydubina/go-recipes
+* _documentation_: https://blog.golang.org/go.dev https://blog.golang.org/pkg.go.dev-2020
+* _gotchas_: http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/
+* _memory allocation_: https://blog.learngoprogramming.com/a-visual-guide-to-golang-memory-allocator-from-ground-up-e132258453ed https://notes.eatonphil.com/implementing-a-jq-clone-in-go.html
+* _OO_: http://patshaughnessy.net/2015/9/25/what-do-perl-and-go-have-in-common
+* _Python_: https://news.ycombinator.com/item?id=22304131
+* _style_: https://github.com/golang/go/wiki/CodeReviewComments
+* plugins https://eli.thegreenplace.net/2021/plugins-in-go/
+
+## design
+
+* governance https://changelog.com/gotime/333
 * https://commandcenter.blogspot.com/2024/01/what-we-got-right-what-we-got-wrong.html
 * governance: controlled by Google https://news.ycombinator.com/item?id=27610108 https://drewdevault.com/2022/05/25/Google-has-been-DDoSing-sourcehut.html * https://sourcehut.org/blog/2023-01-09-gomodulemirror/
 > If you must read the rest of this document to understand the behavior of your program, you are being too clever. https://go.dev/ref/mem
@@ -428,15 +340,6 @@ DESIGN
 > I will finally note that Ken Thompson has a history of designs that look like minimal solutions to near problems but turn out to have an amazing quality of openness to the future, the capability to be improved. Unix is like this, of course. It makes me very cautious about supposing that any of the obvious annoyances in Go that look like future-blockers to me (like, say, the lack of generics) actually are. Because for that to be true, I’d have to be smarter than Ken, which is not an easy thing to believe. - http://esr.ibiblio.org/?p=7745
 * Ken Thompson has been wrong
 > To be clear, I'm not saying that I or anyone else could have done better with the knowledge available in the 70s in terms of making a system that was practically useful at the time that would be elegant today. It's easy to look back and find issues with the benefit of hindsight. What I disagree with are comments from Unix mavens speaking today; comments like McIlroy's, which imply that we just forgot or don't understand the value of simplicity, or Ken Thompson saying that C is as safe a language as any and if we don't want bugs we should just write bug-free code. These kinds of comments imply that there's not much to learn from hindsight; in the 70s, we were building systems as effectively as anyone can today; five decades of collective experience, tens of millions of person-years, have taught us nothing; if we just go back to building systems like the original Unix mavens did, all will be well. I respectfully disagree. https://danluu.com/cli-complexity/#maven
-
-* commands https://github.com/nikolaydubina/go-recipes
-* _documentation_: https://blog.golang.org/go.dev https://blog.golang.org/pkg.go.dev-2020
-* _gotchas_: http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/
-* _memory allocation_: https://blog.learngoprogramming.com/a-visual-guide-to-golang-memory-allocator-from-ground-up-e132258453ed https://notes.eatonphil.com/implementing-a-jq-clone-in-go.html
-* _OO_: http://patshaughnessy.net/2015/9/25/what-do-perl-and-go-have-in-common
-* _Python_: https://news.ycombinator.com/item?id=22304131
-* _style_: https://github.com/golang/go/wiki/CodeReviewComments
-* plugins https://eli.thegreenplace.net/2021/plugins-in-go/
 
 ## packaging
 
@@ -540,6 +443,107 @@ design, legacy
 
 * _semantic import versioning_: what would be a new major version of same package in semver becomes a new module https://research.swtch.com/vgo-import 'adding a dependency on a new major version'
 > At the same time, allowing different major versions of a module (because they have different paths) gives module consumers the ability to upgrade to a new major version incrementally. In this example, we wanted to use quote.Concurrency from rsc/quote/v3 v3.1.0 but are not yet ready to migrate our uses of rsc.io/quote v1.5.2. The ability to migrate incrementally is especially important in a large program or codebase. - https://blog.golang.org/using-go-modules
+
+## project structure
+
+> I wish there was a good place to learn “the other parts” of C++, the build systems, using static analyzers, testing, dependency management, etc. https://news.ycombinator.com/item?id=34229802
+
+https://docs.go-blueprint.dev/
+
+https://github.com/bbkane/shovel
+https://go.dev/blog/gonew
+https://go.dev/doc/modules/layout
+https://golangweekly.com/link/146368/web
+https://avivcarmi.com/finding-the-best-go-project-structure-part-1/
+https://boyter.org/posts/how-to-start-go-project-2023/
+https://github.com/create-go-app/cli
+https://autostrada.dev/
+
+* project structure for CLI and testing https://github.com/quii/learn-go-with-tests https://eli.thegreenplace.net/2022/file-driven-testing-in-go/ https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MTM2Nw==
+* https://lets-go.alexedwards.net/
+* https://gist.github.com/candlerb/3cb11576b2d73800b58f3b548dc2ba4a
+
+https://appliedgo.com/blog/go-project-layout
+
+https://github.com/mikestefanello/pagoda
+https://autostrada.dev/
+
+https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/ https://github.com/golang-standards/project-layout/issues/117 https://github.com/golang/go/issues/45861
+https://christine.website/blog/within-go-repo-layout-2020-09-07 https://github.com/golang-standards/project-layout https://commandercoriander.net/blog/2017/12/31/writing-go/ https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/ https://bencane.com/stories/2020/07/06/how-i-structure-go-packages/#/3 simple https://github.com/healeycodes/conways-game-of-life  https://bencane.com/2020/12/29/how-to-structure-a-golang-cli-project/ https://adhoc.team/2021/03/29/simple-web-app-in-golang/
+
+```sh
+# MAIN
+├── cmd/  #  python my_script.py
+├── internal/  #  _internal 
+├── pkg/  #  code that code also be used by other projects; 类似 Django app https://commandercoriander.net/blog/2017/12/31/writing-go/
+├── vendor/  #  venv
+
+# ANCILLARY
+├── api/  #  Swagger
+├── build/  #  Dockerfile, .gitlab-conf.yaml
+├── config/  #  conf files I guess
+├── init/  #  systemd
+├── web/  #   js
+```
+
+* start here https://blog.ultirequiem.com/chigo#heading-starting-the-project
+```sh
+mkdir chigo
+go mod init github.com/UltiRequiem/chigo
+mkdir internal pkg cmd
+touch pkg/root.go internal/root.go cmd/root.go
+tree
+├── cmd        # main
+│   └── root.go
+├── go.mod
+├── internal   # business logic
+│   └── root.go
+└── pkg        # util
+    └── root.go
+```
+```golang
+// sketch of pkg
+
+from "internal" import printFromStdin, printWithColors
+
+help, fileArguments, files = parametersAndFlags()
+
+if help {
+   printHelp()
+   exit()
+}
+
+if fileArguments {
+   filesText = joinFiles(files)
+   printWitColors(filesText)
+   exit()
+}
+
+printFromStdin()
+```
+```golang
+// take list of files and get text from them
+package internal
+
+import "os"
+
+func JoinFiles(files []string) (string, error) {
+    text := ""
+
+    for _, file := range files {
+        fileText, err := os.ReadFile(file)
+
+        if err != nil {
+            return "", err
+        }
+
+        text += string(fileText) + "\n"
+    }
+
+    return text, nil
+}
+
+```
 
 ## version mgmt
 

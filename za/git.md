@@ -9,13 +9,11 @@
 
 ## 进步
 
-* https://martinheinz.dev/blog/109
-* https://jvns.ca/blog/2024/02/16/popular-git-config-options/
-* https://jackevans.bearblog.dev/some-notes-on-git/
-
+* _24_: pager (delta, difftastic)
 * _21_: prepopulate commit msg
+> no memory of doing this, nor knowledge of how to do now
 * _20_: stash commands, 📙 Chacon ch 1-2, Gitlab as secondary remote for notes, auth for BNY (Gitlab token types, server protocols and set up, lots of debugging)
-* _19_: hooks (pre-commit) branches (another pass at merge squash rebase) tooling (GitUp, Tig)
+* _19_: hooks (pre-commit) branches (another pass at merge squash rebase) tooling (GitUp, Tig, diff-so-fancy for pager)
 * _18_: PR workflow
 * _17_: desultory corporate usage, tutorial w/ Roberto
 
@@ -29,13 +27,17 @@ SHORTCUTS https://darrenburns.net/posts/github-tips
 * `t`: jump to symbol in code review
 * `b`: blame view in file
 
+ISSUES
+* dashboard https://github.com/dlvhdr/gh-dash https://github.com/pwntester/octo.nvim
+* templates https://github.com/GabAlpha/basilk/tree/master/.github/ISSUE_TEMPLATE
+
 TOOLS
-* dashboard for PR/issues https://github.com/dlvhdr/gh-dash https://github.com/pwntester/octo.nvim
 * browse releases https://github.com/rubysolo/brows
 * repo stats https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
 * heat map https://github.com/jmforsythe/Git-Heat-Map
 
 FEATURES https://buttondown.com/hillelwayne/archive/github-has-too-many-hidden-features/
+* wiki: not searchable https://stackoverflow.com/questions/12535602/search-for-a-keyword-within-a-github-wiki can't find out how to edit project names https://github.com/kraanzu/dooit/wiki
 * README for org: `.github-private` repo w/ `profile/README.md` https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme
 * stars https://github.com/github/feedback/discussions/8293 https://webapps.stackexchange.com/a/41800
 * contributions: won't count unless user pushing them using same email tied to account in `.gitconfig`
@@ -80,10 +82,12 @@ EVENT TYPES https://docs.github.com/en/rest/using-the-rest-api/github-event-type
 
 ---
 
+TOOLING
+* _act_: run locally https://github.com/nektos/act
+* _gama_: https://github.com/termkit/gama
+
 * linking https://blog.github.com/2011-10-12-introducing-issue-mentions/
 * draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
-* run locally https://github.com/nektos/act
-* https://github.com/termkit/gama
 * https://hynek.me/articles/python-github-actions/
 * https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow
 * https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml
@@ -138,6 +142,7 @@ gh alias list
 ## Markdown
 
 * use SVG https://github.com/zachvalenta/capp-prod-cat-alt
+* use HTML https://github.com/catppuccin/delta/blame/main/README.md
 
 ---
 
@@ -171,6 +176,7 @@ https://wizardzines.com/zines/git/
 
 * _snapshot_: files at particular time e.g. a commit https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
 * `checkout`: will move rm changes to file in working tree e.g. if file is updated and staged, then updated again, checkout will only rm most recently updates i.e. changes in staging area won't be affected
+> use switch instead https://martinheinz.dev/blog/109 https://adamj.eu/tech/2023/10/04/boost-your-git-dx-out-now/
 * _reference_: human-readable name acting as point to commit SHA-1
 
 ---
@@ -209,6 +215,7 @@ plumbing - clean up notas history
 * Perrota https://app.pluralsight.com/library/courses/how-git-works/table-of-contents https://www.pluralsight.com/courses/master-git
 > do w/ his ML course
 * https://github.com/github/git-sizer
+* https://jvns.ca/blog/2024/02/16/popular-git-config-options/#core-pager-delta
 
 ## states
 
@@ -226,7 +233,6 @@ sections https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 ## design
 
 * future https://blog.waleedkhan.name/git-ui-features/
-* monorepo: https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe perf https://www.git-tower.com/blog/git-performance/ https://monadical.com/posts/from-chaos-to-cohesion.html https://jackevans.bearblog.dev/python-monorepo-tooling-with-pants/
 * distributed: less network latency than centralized https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 * full version of repo history https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 * reversible: Git database onlys adds data so it's hard to do something that's not reversible https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
@@ -245,7 +251,7 @@ HISTORY https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 * _version control_: stores content and tracks changes to content https://medium.com/@willhayjr/the-architecture-and-history-of-git-a-distributed-version-control-system-62b17dd37742
 * _first generation_: SCCS
 * _second generation_: 2000 - centralized - CVS, SVN/Subversion, Perforce, Bitkeeper https://twobithistory.org/2018/07/07/cvs.html https://blog.gitbutler.com/why-github-actually-won/
-* _third generation_: 2005 - distributed - Git (dominance such Stack Overflow dev survery no longer asks about VCS and people even use as a client to other VCS https://git-scm.com/book/en/v2/Git-and-Other-Systems-Git-as-a-Client) https://blog.gitbutler.com/why-github-actually-won/ alternatives (FB uses Mercurial http://aosabook.org/en/mercurial.html SQLite uses Fossil)
+* _third generation_: 2005 - distributed - Git (dominance such Stack Overflow dev survery no longer asks about VCS and people even use as a client to other VCS https://git-scm.com/book/en/v2/Git-and-Other-Systems-Git-as-a-Client) https://blog.gitbutler.com/why-github-actually-won/ alternatives (FB uses Mercurial http://aosabook.org/en/mercurial.html SQLite uses Fossil https://fnc.bsdbox.org/index)
 > absorb Mercurial https://news.ycombinator.com/item?id=41653191
 > people like revsets https://news.ycombinator.com/item?id=10968135
 > used by Facebook, Unity https://news.ycombinator.com/item?id=20745393
@@ -284,21 +290,26 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 
 ## pager / diffview
 
+🗄️ `os/tools.md` pager
+
 * set to use external tool via `git difftool -help` 📙 Chacon [2.54]
 * _diff-so-fancy_: ✅ https://github.com/so-fancy/diff-so-fancy
-* _delta_: diffs/filenames were too dark https://github.com/dandavison/delta
-* _difftastic_: 🎯 https://github.com/Wilfred/difftastic
+* _delta_: ✅ https://github.com/dandavison/delta
+* themes file https://dandavison.github.io/delta/custom-themes.html https://github.com/dandavison/delta/blob/main/themes.gitconfig
+> don't understand why catpuccin relies on their bat theme https://github.com/catppuccin/delta can you just use straight from repo? https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
+* _difftastic_: ✅ https://github.com/Wilfred/difftastic
 * _diffnav_: 🎯 https://github.com/dlvhdr/diffnav
 * _diffview_: 🎯 neovim https://github.com/sindrets/diffview.nvim https://www.youtube.com/watch?v=aJikrPnTOtI
-* _dunk_: https://github.com/darrenburns/dunk
-* _git split diffs_: node version https://news.ycombinator.com/item?id=27007844
+* _dunk_: 🎯 https://github.com/darrenburns/dunk
+* _git split diffs_: 🎯 node version https://github.com/banga/git-split-diffs https://news.ycombinator.com/item?id=27007844
 
 ## porcelain
 
 * _bit_: ❌ unmaintained, autcomplete https://github.com/chriswalz/bit
 * _forgit_: good UI https://github.com/wfxr/forgit#-features
-* _gitbutler_: 🎯 不明觉厉 https://github.com/gitbutlerapp/gitbutler https://blog.gitbutler.com/
+* _gitbutler_: 🎯 不明觉厉 https://github.com/gitbutlerapp/gitbutler https://blog.gitbutler.com/ https://jackevans.bearblog.dev/some-notes-on-git/
 * _gitu_: 🎯 https://github.com/altsem/gitu
+* _gitui_: 🎯 https://github.com/extrawurst/gitui
 * _GitKraken_: ❌ corporate https://www.gitkraken.com/
 * _magit_: looks great, Emacs-only https://github.com/magit/magit https://emacsair.me/2017/09/01/magit-walk-through/ https://github.com/dandavison/delta/issues/194
 * _vimagit_: inspired by magit https://github.com/jreybert/vimagit
@@ -311,9 +322,13 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 
 ## repo browser
 
-* _gitk_: https://git-scm.com/docs/gitk
-* _grv_: https://github.com/rgburke/grv
-* _serie_: https://github.com/lusingander/serie
+* _gitk_: can come with git but if not `brew install git-gui` https://git-scm.com/docs/gitk
+* _grv_: 💀 unmaintained, no brew formula https://github.com/rgburke/grv https://github.com/rgburke/grv/issues/109
+* _serie_: ✅ better UI than Tig https://github.com/lusingander/serie
+* no date in commit description
+* no diff in commit detail https://github.com/lusingander/serie/issues/53
+* config fs: `.config/serie/config.toml` https://github.com/lusingander/serie?tab=readme-ov-file#config
+* example config https://github.com/lusingander/serie?tab=readme-ov-file#config-file-format
 * _Tig_: ✅ https://github.com/jonas/tig https://jonas.github.io/tig/doc/manual.html
 * modes: main `m` diff `d` log `l` blame `b`; main view with message body https://github.com/jonas/tig/issues/1032
 * all commits: `tig` in repo 
@@ -365,11 +380,6 @@ strategies
 
 ---
 
-new things https://adamj.eu/tech/2023/10/04/boost-your-git-dx-out-now/
-* switch
-* restore
-* worktree https://www.youtube.com/watch?v=IK_mjDqGUYE
-
 * _everything on branch not on other branch_: `git cherry -v develop mybranch` https://stackoverflow.com/a/24668421 to master `git cherry -v master`
 * _checkout previous_: `git checkout -`
 * _switch to different commit on same branch_: `checkout <hash>`
@@ -379,6 +389,10 @@ new things https://adamj.eu/tech/2023/10/04/boost-your-git-dx-out-now/
 * _sink_: https://learngitbranching.js.org/
 
 ## commit
+
+> https://github.com/SKalt/git-cc/
+> https://github.com/muandane/goji
+> https://gitmoji.dev/ https://github.com/juftin/browsr
 
 MESSAGE
 * msg components: subject/header, description
@@ -641,15 +655,21 @@ USE https://dev.to/srebalaji/useful-tricks-you-might-not-know-about-git-stash-11
 * _drop_: rm from stack; specific `drop stash@{index}` all `stash clear`
 * undo bad stash apply: `git checkout -f` https://stackoverflow.com/a/40446387
 
+---
+
+* worktree as alternative https://www.youtube.com/watch?v=IK_mjDqGUYE https://adamj.eu/tech/2023/10/04/boost-your-git-dx-out-now/ https://martinheinz.dev/blog/109
+
 ## undo
 
 * undo local commit: `git reset HEAD~` https://stackoverflow.com/a/927386
 
 ---
 
+restore https://martinheinz.dev/blog/109 https://adamj.eu/tech/2023/10/04/boost-your-git-dx-out-now/
+* restore deleted file: `git checkout HEAD <filename>`
+
 🔗 https://wizardzines.com/zines/oh-shit-git/ https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things#_undoing https://git-scm.com/book/en/v2/Git-Internals-Maintenance-and-Data-Recovery#_data_recovery
 
-* restore deleted file: `git checkout HEAD <filename>`
 * find deleted file https://devblogs.microsoft.com/oldnewthing/20240909-00
 * rm tracked file: `rm --cached $FILE` 📙 Chacon [2.56-57] 
 
@@ -783,6 +803,7 @@ INSTALLATION https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 * Linux: `git-all`
 
 CONFIG https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
+* uses INI fmt
 * aliases split btw `.gitconfig` and `.bash_profile` 
 * set based on repo https://utf9k.net/blog/conditional-gitconfig/
 * _list_: `git config --list --show-origin` https://stackoverflow.com/a/2115116 might see dupes bc Git reads from all config files, with most local (e.g. repo-level) taking precedence
@@ -803,6 +824,15 @@ GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Rep
 * this works recursively; [all subdirectories are affected as well](http://qr.ae/TU1tsk) i.e. any `logs` deeper inside `app/logs` will also be ignored
 * `logs`, on the other hand, will ignore anything in *any* `logs` directory located *anywhere* in your project
 
+## monorepo
+
+* https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe
+* perf https://www.git-tower.com/blog/git-performance/
+* https://monadical.com/posts/from-chaos-to-cohesion.html
+* https://jackevans.bearblog.dev/python-monorepo-tooling-with-pants/
+* sparse checkout https://martinheinz.dev/blog/109
+* Deno https://docs.deno.com/runtime/fundamentals/workspaces/
+
 ## server
 
 * https://gemini.nytpu.com/gemlog/2021-03-07.gmi
@@ -814,7 +844,7 @@ GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Rep
 * _snippets_: Gist, pastebin https://softwareengineeringdaily.com/2020/06/08/tilt-kubernetes-tooling-with-dan-bentley/ 46:45
 
 HOSTING
-* aaS: Github (no default to fuzzy search), Gitlab EE, SourceHut
+* aaS: Github (no default to fuzzy search), Gitlab EE, SourceHut https://git.sr.ht/~shulhan/gotp
 * https://github.com/honza/smithy https://codeberg.org/
 * _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965
 * _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717
