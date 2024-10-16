@@ -120,7 +120,11 @@ class SomeView(BaseView):
 
 ## dataclass
 
-https://www.youtube.com/watch?v=vBH6GRJ1REM
+---
+
+* alternative + serde https://github.com/python-attrs/attrs
+* serde https://github.com/lidatong/dataclasses-json
+* https://www.youtube.com/watch?v=vBH6GRJ1REM
 * vs. defined https://www.youtube.com/watch?v=1S2h11XronA
 > the most useful purpose is adding a certain degree of formalization to a group of values that need to be passed around. https://www.revsys.com/tidbits/dataclasses-and-attrs-when-and-why/
 * `__repr__` and `__eq__` for free https://realpython.com/python-data-classes/
@@ -1029,12 +1033,25 @@ foo  # [42, 2, 3]
 ## typing
 
 🗄 `language.md` typing
+> You probably know my skepticism towards Python typing. This stems from the syntax's complexity, the sluggishness of mypy, the overall cumbersome nature of its implementation and awkwardness of interactions with it...in a way in some areas we are creating the new Java. We became the people we originally displaced. Just that when we are not careful we are on a path to the world's worst Java. We put typing on a language that does not support it, our interpreter is slow, it has a GIL. We need to be careful not to forget that our roots are somewhere else. We should not collectively throw away the benefits we had. https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
 
 * _exhaustiveness check_: check that functions handle newly-added attributes on their args https://news.ycombinator.com/item?id=25428583
 * _type narrowing_: issue warning if src tries to operate on type that args cannot be passed on blocks's previous code https://hakibenita.com/python-mypy-exhaustive-checking
 
 ---
 
+OPTIONS
+* _MonkeyType_: Instagram i.e. Python 3 https://github.com/Instagram/MonkeyType https://www.pythonpodcast.com/monkeytype-with-carl-meyer-and-matt-page-episode-146/
+* _mypy_: PSF
+* _pyannotate_: Dropbox i.e. Python 2 https://github.com/dropbox/pyannotate
+* _pyre_: Facebook https://pyre-check.org/
+* _PyRight_: Microsoft https://github.com/Microsoft/pyright
+
+ANNOTATIONS
+* _annotation_: https://docs.python.org/3/glossary.html#term-annotation
+* _function annotation_: https://docs.python.org/3/glossary.html#term-function-annotation
+* _variable annotation_: https://docs.python.org/3/glossary.html#term-variable-annotation
+* _generic type_: https://docs.python.org/3/glossary.html#term-generic-type
 * _type annotation_: Python 3, PEP 484 https://blog.zulip.org/2016/10/13/static-types-in-python-oh-mypy/
 ```python
 def greeting(name: str) -> str:
@@ -1054,29 +1071,10 @@ func.__annotations__
 # {}
 ```
 
----
-
-PYDANTIC
-* throw err if typing mismatch https://hackernoon.com/pydantic-what-it-is-and-why-its-useful https://talkpython.fm/episodes/show/466/pydantic-performance-tips
-* https://realpython.com/python-pydantic/
-* https://fastapi.tiangolo.com/python-types/
-* https://www.pythonpodcast.com/pydantic-data-validation-episode-263/
-* https://github.com/shopnilsazal/validus
-* https://blog.couchbase.com/validate-json-documents-in-python-using-pydantic/
-* https://talkpython.fm/episodes/show/466/pydantic-performance-tips
-
-> you probably know my skepticism towards Python typing. This stems from the syntax's complexity, the sluggishness of mypy, the overall cumbersome nature of its implementation and awkwardness of interactions with it...in a way in some areas we are creating the new Java. We became the people we originally displaced. Just that when we are not careful we are on a path to the world's worst Java. We put typing on a language that does not support it, our interpreter is slow, it has a GIL. We need to be careful not to forget that our roots are somewhere else. We should not collectively throw away the benefits we had. https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
-
 multiple returns https://realpython.com/python-type-hints-multiple-types/
 https://realpython.com/python-type-self/
 https://lukeplant.me.uk/blog/posts/the-different-uses-of-python-type-hints/
 
-ANNOTATIONS
-* _annotation_: https://docs.python.org/3/glossary.html#term-annotation
-* _function annotation_: https://docs.python.org/3/glossary.html#term-function-annotation
-* _variable annotation_: https://docs.python.org/3/glossary.html#term-variable-annotation
-
-* _generic type_: https://docs.python.org/3/glossary.html#term-generic-type
 * https://terokarvinen.com/2022/python-dotted-dictionary/
 * https://realpython.com/python311-new-features/#improved-type-variables
 * history https://www.fluentpython.com/lingo/#type
@@ -1085,11 +1083,16 @@ ANNOTATIONS
 * _dummy version_: `isinstance`
 * type hints introduced in PEP 484 https://www.python.org/dev/peps/pep-0484/
 * mypy vs. pyright https://news.ycombinator.com/item?id=37914146 https://rdrn.me/postmodern-python/
-* _libs_: mpypy (PSF) PyRight (Microsoft) https://github.com/Microsoft/pyright pyre (Facebook) https://pyre-check.org/ pyannotate (Dropbox i.e. Python 2) https://github.com/dropbox/pyannotate MonkeyType (Instagram i.e. Python 3 https://github.com/Instagram/MonkeyType https://www.pythonpodcast.com/monkeytype-with-carl-meyer-and-matt-page-episode-146/
 * _sink_: https://talkpython.fm/episodes/show/151/gradual-typing-of-production-applications https://www.youtube.com/watch?v=mh9jQSxzv0c https://inventwithpython.com/blog/2019/11/24/type-hints-for-busy-python-programmers/ https://veekaybee.github.io/2019/07/08/python-type-hints/ https://blog.petrzemek.net/2019/02/22/even-feature-that-you-do-not-use-can-bite-you/
 
+### 🟦 mypy
 
-mypy https://mypy.readthedocs.io/en/stable/getting_started.html#installing-mypy
+📜 https://www.mypy-lang.org/
+
+---
+
+https://www.mypy-lang.org/
+https://mypy.readthedocs.io/en/stable/getting_started.html#installing-mypy
 * _impl_: looks at AST, doesn't run src
 * changes versions too frequently https://news.ycombinator.com/item?id=26814919
 * trade-offs: write a bit more code but read a lot less; more code but simpler (vs. Java tower of abstractions in type graph); prevents drift btw method sig and impl (esp. after refactor); seems easier/better to use at the start of a project (although, gradual typing given as a main use case; tbh, idk)
@@ -1101,6 +1104,31 @@ mypy https://mypy.readthedocs.io/en/stable/getting_started.html#installing-mypy
 def get_config_value(key: str): Optional[str]:
     # Either return the config value, or None if it's not present
 ```
+
+### 🔺 pydantic
+
+📜 https://docs.pydantic.dev/latest/ https://pydantic.dev/
+🗄
+* `eng.md` clean
+* `python/stdlib.md` serde
+
+---
+
+DESIGN
+* https://chatgpt.com/c/67115402-236c-8004-b283-04e97eb8c541
+* https://chatgpt.com/c/6711674f-be44-8004-be07-0236079e05c6
+
+* throw err if typing mismatch https://hackernoon.com/pydantic-what-it-is-and-why-its-useful https://talkpython.fm/episodes/show/466/pydantic-performance-tips
+* https://realpython.com/python-pydantic/
+* https://fastapi.tiangolo.com/python-types/
+* https://www.pythonpodcast.com/pydantic-data-validation-episode-263/
+* https://github.com/shopnilsazal/validus
+* https://blog.couchbase.com/validate-json-documents-in-python-using-pydantic/
+* https://talkpython.fm/episodes/show/466/pydantic-performance-tips
+
+ALTERNATIVES
+* BYO https://realpython.com/primer-on-python-decorators/#more-real-world-examples https://blog.drewolson.org/declarative-validation
+* _cerberus_: https://github.com/pyeve/cerberus https://hector.dev/2020/12/29/validating-data-in-python-with-cerberus.html
 
 # 🟨 ZA
 
@@ -1158,6 +1186,276 @@ PEPS https://peps.python.org/
 * _8_: style guide
 * _20_: Zen of Python
 * _387_: no promise of backwards comptability https://news.ycombinator.com/item?id=26826158
+
+## exec
+
+📜 https://docs.python.org/3/using/cmdline.html
+📰 https://www.pythonmorsels.com/cli-tools/
+
+COMMAND LINE
+```sh
+python $MODULE  # exec module https://realpython.com/run-python-scripts
+python -i $MODULE  # enter pdb after exec https://docs.python.org/3/using/cmdline.html#cmdoption-i
+python -m $LIB $CMD  # exec lib cmd https://docs.python.org/3/using/cmdline.html#cmdoption-m
+python -c "import $MOD; $MOD.$METHOD()"  # exec inline https://docs.python.org/3/using/cmdline.html#cmdoption-c
+python -c "from home import foo; foo.bye()"  # exec module w/in dir
+```
+
+CALLABLE FROM TERMINAL
+* standard
+```sh
+#!/usr/bin/env python3 https://docs.python.org/3/tutorial/appendix.html#executable-python-scripts
+```
+* third-party: symlink from bin to Python repo + shebang to local venv e.g. m2h https://github.com/zachvalenta/bin-mbp14
+```sh
+.gitignore  # ignore repos
+huan  # bash script
+news -> repos/news/main.py  # sym link to subrepo
+```
+```python
+#!/Users/zach/Documents/denv/bin/repos/news/.venv/bin/python
+```
+
+---
+
+https://pythonbytes.fm/episodes/show/367/a-new-cloud-computing-paradigm-at-python-bytes https://peps.python.org/pep-0723/
+
+## imports
+
+📙 Beazley ch. 10
+📜 https://docs.python.org/3/reference/import.html https://docs.python.org/3/library/imp.html
+
+NAMING
+* _classes_: camel case
+* _modules_: start w/ letter or underscore
+* _pkg_: all seem to use hyphens instead of underscores https://stackoverflow.com/a/36611371
+* case is significant https://www.python.org/dev/peps/pep-0008/#descriptive-naming-styles
+
+ZA
+* pkgutil https://docs.python.org/3/library/pkgutil.html https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
+
+----
+
+🎗️ start here for semantics https://lucumr.pocoo.org/2024/9/9/multiversion-python/
+
+`__all__` https://www.gauge.sh/blog/the-trouble-with-all https://github.com/gauge-sh/tach
+
+> When a Python module or package is imported, __name__ is set to the module's name. Usually, this is the name of the Python file itself without the .py extension: `import configparser; configparser.__name__` https://docs.python.org/3/library/__main__.html
+> __main__ is the name of the environment where top-level code is run. "Top-level code" is the first user-specified Python module that starts running. It's "top-level" because it imports all other modules that the program needs. Sometimes "top-level code" is called an entry point to the application. https://docs.python.org/3/library/__main__.html
+
+* happened to me when I was trying to import pandas in a dir named `to-csv` https://stackoverflow.com/a/36250354
+
+https://nedbatchelder.com/blog/202405/one_way_to_fix_python_circular_imports.html
+https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
+* https://news.ycombinator.com/item?id=34727287
+* _import_: https://docs.python.org/3/glossary.html#term-importing
+* _import path_: https://docs.python.org/3/glossary.html#term-import-path
+* _importer_: https://docs.python.org/3/glossary.html#term-importer
+* _finder_: https://docs.python.org/3/glossary.html#term-importer
+* _loader_: https://docs.python.org/3/glossary.html#term-importer
+* _module spec_: https://docs.python.org/3/glossary.html#term-module-spec 
+* _namespace_: https://docs.python.org/3/glossary.html#term-namespace
+* _namespace package_: https://docs.python.org/3/glossary.html#term-namespace-package https://realpython.com/python-namespace-package/
+* _path entry_: https://docs.python.org/3/glossary.html#term-path-entry
+* _meta path finder_: https://docs.python.org/3/glossary.html#term-meta-path-finder
+* _path based finder_: https://docs.python.org/3/glossary.html#term-path-based-finder
+* _qualified name_: https://docs.python.org/3/glossary.html#term-qualified-name
+* _import time_: https://www.fluentpython.com/lingo/#import_time
+
+modules https://blog.nicholdav.info/four-tips-structuring-research-python/
+lazy https://lwn.net/Articles/917280/
+https://twitter.com/bbelderbos/status/1598663617506734080
+lazy https://talkpython.fm/episodes/show/369/getting-lazy-with-python-imports-and-pep-690
+
+`py-repetitive-paths.md`
+
+* types https://realpython.com/absolute-vs-relative-python-imports
+```python
+# relative = dot notation to specify location
+from ..pkg import func
+
+# absolute = 
+# circular = 
+```
+
+* _absolute_: import from `sys.path`
+* _relative_: specify location of module being imported relative to module doing the importing https://realpython.com/absolute-vs-relative-python-imports/ https://stackoverflow.com/q/1918539/6813490 https://stackoverflow.com/questions/14132789/relative-imports-for-the-billionth-time
+* explicit vs. implicit https://realpython.com/absolute-vs-relative-python-imports/#relative-imports
+❓ when do we need `.` for modules in same dir? https://www.youtube.com/watch?v=rGQKHpjMn_M @ 7:30
+* _circular_: https://www.pythoninsight.com/2018/04/how-import-works-differently-in-python-3-5/ https://realpython.com/courses/python-imports-101/ https://seddonym.me/2019/05/20/meet-import-linter/
+
+---
+
+* https://rednafi.github.io/reflections/how-not-to-run-a-script-in-python.html
+* people know they suck https://lucumr.pocoo.org/2018/7/13/python/
+* speed up imports https://rednafi.github.io/reflections/caching-connection-objects-in-python.html
+* _tldr_: most advice about import and project structure are for libraries (vs. apps or executables) https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:30
+* _multiline_: use parens
+* import from module in same dir: `from .module import SomeClass`
+* get names defined in module: `dir(sys.modules[__name__])` https://stackoverflow.com/a/991158 🗄 `algos`
+
+symbol table
+* _private_: all obj in module 
+* _public_: obj in mod avaiable when import mod https://realpython.com/python-modules-packages/#the-import-statement https://docs.python.org/3/library/functions.html#locals
+* `locals()`: local symbol table https://docs.python.org/3/library/functions.html#locals
+* `globals()`: global symbol table
+* `dir()`: locals() w/ out values https://stackoverflow.com/a/21961813 https://realpython.com/python-modules-packages/#the-dir-function
+
+---
+
+https://tenthousandmeters.com/blog/python-behind-the-scenes-11-how-the-python-import-system-works/
+* _sink_: https://realpython.com/python-modules-packages https://docs.python.org/3/tutorial/modules.html#packages
+
+__people know that the import system sucks__
+
+http://lucumr.pocoo.org/2018/7/13/python/
+
+> The fact that most methods of invoking Python code from the command line break when that code is inside a package, and the two that do work are highly sensitive to the current working directory is all thoroughly confusing for a beginner. I personally believe it is one of the key factors leading to the perception that Python packages are complicated and hard to get right. http://python-notes.curiousefficiency.org/en/latest/python_concepts/import_traps.html Nick Coghlan (CPython dev)
+
+> The problem is that where on your system you need to put a Python library module in order so that a Python main program (or other library) can see it and load it varies in only semi-predictable ways. By version, yes, but there’s also an obscure distinction between site-packages, dist-packages, and what for want of any better term I’ll call root-level modules (no subdirectory under the version directory) that different distributions and even different application packages seem to interpret in different and incompatible ways. The root of the problem seems to be that good practice is under-specified by the Python dev team. - http://esr.ibiblio.org/?p=8161 Eric Raymond
+
+__namespaces__
+
+* `import foo` binds module obj `foo` to name `foo` in current namespace [Smallshire 1 @ 5.7 0:20]
+* `import f` binds module obj `foo` to name `f` in current namespace
+* `import mod`: place module itself into caller's symbol table; doesn't place `mod` private symbol table into the caller i.e. need to use dot notation to drill down to symbol table `mod.obj1` https://realpython.com/python-modules-packages/#the-import-statement
+* `from <mod> import <obj>`: place obj from module into caller's symbol table https://realpython.com/python-modules-packages/#the-import-statement
+
+https://realpython.com/python-namespaces-scope/
+https://learndjango.com/tutorials/django-best-practices-imports
+https://realpython.com/python-import/
+https://github.com/dabeaz-course/practical-python/blob/master/Notes/Contents.md
+* _import module from same directory_: `from .views import TemplateView` https://djangoforbeginners.com/pages-app/
+* _import obj from module in sibling directory_: pkg.mod.Obj https://djangoforbeginners.com/hello-world/
+
+* https://www.youtube.com/watch?v=rGYbrIf-y58
+cool project https://github.com/dandavison/optimistic-reload
+https://github.com/benawad/destiny
+* https://github.com/ankur-gupta/rain
+* https://github.com/Mckinsey666/bullet/blob/master/bullet/client.py
+🔗 https://github.com/zachvalenta/python-imports
+* FastAPI: imports, app structure, ASGI, Stack Overflow https://stackoverflow.com/questions/tagged/fastapi?tab=votes&pagesize=50 https://developer.mongodb.com/how-to/FARM-Stack-FastAPI-React-MongoDB
+* Python imports
+```sh
+├── dir
+│   └── __init__.py
+│   └── foo.py
+│   └── bar.py
+```
+```python
+# __init__.py https://github.com/Mckinsey666/bullet/blob/master/bullet/__init__.py
+from .foo import obj_bar
+from .bar import obj_bar
+
+# application code https://github.com/Mckinsey666/bullet/blob/master/DOCUMENTATION.md#using-bullet-objects-
+from dir import Bullet, Check, YesNo, Input
+```
+
+* https://nedbatchelder.com/text/test3/test3.html#21
+* https://fastapi.tiangolo.com/tutorial/sql-databases/ https://testdriven.io/courses/tdd-fastapi/ https://testdriven.io/blog/moving-from-flask-to-fastapi/
+* https://github.com/dinsaw/kines/blob/master/tests/test_metrics.py
+* https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/
+* https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html
+* clean up create-python-app https://testandcode.com/80 https://testandcode.com/81
+* the origin of digging into imports again --> works for pytest...
+```sh
+drwxr-xr-x     - adcbtb9 17 Dec 14:03 .
+.rw-r--r--@   28 adcbtb9 17 Dec 14:03 ├── .gitignore
+.rw-r--r--@   30 adcbtb9 17 Dec 13:55 ├── array.py
+.rw-r--r--  1.3k adcbtb9 17 Dec 14:03 ├── Makefile
+.rw-r--r--   187 adcbtb9 17 Dec 13:55 ├── requirements.txt
+.rw-r--r--@   74 adcbtb9 17 Dec 13:55 └── test_array.py
+```
+```python
+# array.py
+def say_hi():
+    return "hi"
+
+# test_array.py
+from array import say_hi
+
+def test_say_hi():
+    assert say_hi() == "hi"
+```
+```Makefile
+test:
+	pytest -v test_array.py
+```
+
+* ...not for coverage https://coverage.readthedocs.io/en/coverage-5.0/ coverage changes `sys.path` https://github.com/pytest-dev/pytest-cov
+```Makefile
+test:
+	coverage run -m pytest -v test_array.py
+```
+```sh
+ImportError while importing test module '/Users/adcbtb9/Desktop/death-by-imports/test_array.py'.
+Hint: make sure your test modules/packages have valid Python names.
+
+Traceback:
+test_array.py:1: in <module>
+    from array import say_hi
+    ImportError: cannot import name 'say_hi' from 'array' (Python.framework/Versions/3.7/lib/python3.7/lib-dynload/array.cpython-37m-darwin.so)
+```
+
+* write an article on this and ask Brian Okken https://testandcode.com/52
+* modules are only executed once, at import @ 2.11 0:25
+* `__init__.py` executed when pkg imported 📍 useful to put module attr into higher namespace @ 2.12 1:15
+* seems like there's only direction for pkg structure for distro (lib, exec) and not app (web, daemon) and not the-as-of-yet unnamed third category (scripts with tests?)
+* execute module `python3 -m <mod>`@ 2.12 1:20
+* _relative imports_: import mod from pkg w/out specifying the full module path, have to use syntax `from .mod import name`, not supposed to use @ 2.12 1:30
+* `__all__`: list of attr to export when `from mod import *` is used @ 2.12 2:10
+* _regular pkg_: pkg as defined before introduction of namespace pkg https://www.python.org/dev/peps/pep-0420/#terminology
+* _namespace pkg_: don't use `__init__.py`, exist when dir on `PYTHONPATH` matches import and no normal pkg does, "across multiple directories" seems to mean "filepath to pkg" https://www.python.org/dev/peps/pep-0420/#abstract @ 2.12 2:20
+* _executable directory_: has `__main__.py`
+
+MODULES 📙 Van Rossum ch. 6
+* _module_: file containing Python [tutorial 6.0] https://docs.python.org/3/glossary.html#term-module
+* _impl_: can be written in Python or C (`re`, mathematical libs) https://realpython.com/python-modules-packages/#python-modules-overview
+* _types_: user-defined, third-party, stdlib (`itertools`) https://realpython.com/python-modules-packages/#python-modules-overview
+* _script_: module meant to be directly executed https://realpython.com/run-python-scripts/#scripts-vs-modules
+* _import time_: when the interpreter loads module [Fluent Python 7.185] once per interpreter session https://realpython.com/python-modules-packages/#reloading-a-module on module load the entire module is executed, not only the object imported https://www.youtube.com/watch?v=44PvX0Yv368 @ 3:15
+
+ATTRIBUTES
+* `__file__`: location from which file is imported https://realpython.com/python-modules-packages/#the-module-search-path
+* `__name__`: evaluates at runtime to either module name (if imported) or `__main__` (if run as script)
+* `__main__.py`: module required to make pkg callable (think `pytest`) https://alex.dzyoba.com/blog/python-import/
+* `__path__`: shows where pkg looks for submodules [Smallshire structure 2.2 @ 1:45]
+* `__all__`: kinda like `exports` in Node; Cookbook 10.2 https://realpython.com/python-modules-packages/#importing-from-a-package
+```python
+def foo(): pass
+def bar(): pass
+__all__ = ['bar']  # only export 'bar'
+```
+
+PACKAGES
+* _package_: collection of modules https://docs.python.org/3/tutorial/modules.html#packages
+* module that can contain other modules https://docs.python.org/3/reference/import.html#packages
+* project w/ `setup.py` (PEP 517) https://github.com/pipxproject/pipx/issues/279#issuecomment-555254281 setup.py https://news.ycombinator.com/item?id=38067822
+* project w/ `pyproject.toml` (PEP 518) https://github.com/pipxproject/pipx/issues/279#issuecomment-555254281
+
+module search path https://docs.python.org/3/tutorial/modules.html#the-module-search-path
+* 1 - stdlib: `sys.path`, PYTHONHOME https://docs.python.org/3/using/cmdline.html#envvar-PYTHONHOME
+* 2 - CWD
+* 3 - PYTHONPATH: exact dir vary per installation
+* 4 - site-packages
+
+__types__
+
+* _regular pkg_: pkg w/ `__init__.py`
+* _namespace pkg_: pkg w/out `__init__.py`; since Python 3.3
+* `__init__.py`: still recommended bc more explicit; useful for initialization logic
+
+> When a package is imported, Python runs all of the code in the package’s `__init__.py` file, if such a file exists. All of the objects defined in the module or the package’s `__init__.py` file are made available to the importer.
+
+> You can set up this `__init__.py` file in a way that enables you to import classes and methods from the package as a whole, instead of knowing the internal module structure and importing from `helloworld.helloworld` or `helloworld.helpers` https://realpython.com/python-application-layouts/#one-off-script
+
+__get Python to find your pkg (here be dragons)__
+
+* put your pkg in dir contained in `sys.path` [https://realpython.com/python-modules-packages/#the-module-search-path, Smallshire structure 3.1 @ 1:30] 
+* ⚠️ edit `sys.path` at runtime https://realpython.com/python-modules-packages/#the-module-search-path 
+* ⚠️ edit env var https://orbifold.xyz/pythonpath.html
+* `context.py` file inside test suite https://docs.python-guide.org/writing/structure/#test-suite
+* um, avoid it? https://alex.dzyoba.com/blog/python-import/ https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html#case-4-importing-from-parent-directory 
 
 ## operators
 
@@ -1292,3 +1590,25 @@ foo  # global foo untouched
 * line length http://jakevdp.github.io/blog/2017/11/09/exploring-line-lengths-in-python-packages/
 * https://nickjanetakis.com/blog/80-characters-per-line-is-a-standard-worth-sticking-to-even-today
 * blank lines: 2 after imports, 2 before functions, 1 before methods https://www.python.org/dev/peps/pep-0008/#blank-lines
+
+## versions
+
+---
+
+https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com/text/which-py.html https://www.nicholashairs.com/posts/major-changes-between-python-versions/
+* major https://en.wikipedia.org/wiki/History_of_Python#Table_of_versions
+* minor/patch https://blog.python.org/
+* switch to latest minor version after subsequent patch release https://www.b-list.org/weblog/2022/nov/08/python-311-gotcha/ https://pythonspeed.com/articles/upgrade-python-3.11/
+* _89_: initial
+* _00_: Python2
+* _08_: Python3 https://nedbatchelder.com/blog/201803/whats_in_which_python_3436.html
+* can't test Python2 code using Python3 if you're using parts of stdlib that have been deprecated between releases (urllib2, xrange)
+* Tauthon to backport Python3 features to Python2 https://www.pythonpodcast.com/tauthon-python-2-fork-episode-265/
+* 2to3 https://news.ycombinator.com/item?id=24461157
+* _18_: 3.7
+* _19_: 3.8 https://realpython.com/courses/cool-new-features-python-38/
+* _20_: Python 2 EoL
+* _3.11_: specializing adaptive interpreter https://peps.python.org/pep-0659/
+* _3.13_: JIT https://tonybaloney.github.io/posts/python-gets-a-jit.html
+
+* using other language in Python e.g. Julia https://www.peterbaumgartner.com/blog/incorporating-julia-into-python-programs/

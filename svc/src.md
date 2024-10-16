@@ -24,12 +24,102 @@
 📙 Masse api rulebook
 🔍 https://github.com/public-apis/public-apis https://rapidapi.com/hub
 
-PAGINATION
+---
+
+📚
+* Kleppmann ch. 3
+* Masse api rulebook
+* https://roadmap.sh/api-design https://roadmap.sh/backend
+* https://news.ycombinator.com/item?id=41432101
+
+* styles https://www.youtube.com/watch?v=4vLxWqE94l4
+* gateway https://www.youtube.com/watch?v=6ULyxuHKxg8
+* protocols https://www.youtube.com/watch?v=zY2DMpCUfCg
+
+ZA
+* just give folks everything and let them drill down vs. trying to predetermine what they need https://simonwillison.net/2020/Nov/14/personal-data-warehouses/ 38:00
+* if API truly agnostic from frontend each page will end up making a bunch of calls instead of one call per page https://macwright.com/2020/05/10/spa-fatigue.html
+* standards at national level https://increment.com/apis/introduction-apis-egovernment/
+* _streaming_: server pushes to client https://2.python-requests.org/en/master/user/advanced/#streaming-requests
+* _idempotent_: same req n times = no additional side effects after first req e.g. after initial req creates record, further requests won't create dupe https://stripe.com/blog/idempotency
+* provide map of endpoints https://brandur.org/accessible-apis#programmatic-maps
+* limit the number of req to get actionable info on resource https://www.dataengineeringpodcast.com/linode-object-storage-service-episode-125/ 25:00 JSON over REST and even higher level than that https://josephg.com/blog/api-for-changes/ https://josephg.com/blog/databases-have-failed-the-web/ https://josephg.com/blog/composing-databases/
+
+## approaches
+
+* KISS: if data is static, use web server like Nginx, don't even need a backend https://blog.pecar.me/faster-api
+
+### GraphQL
+
+---
+
+https://softwareengineeringdaily.com/2024/10/16/the-end-of-graphql-matt-bessey/
+📹 https://www.youtube.com/watch?v=QJhiMSUFgDM
+* https://roadmap.sh/graphql
+* https://www.youtube.com/watch?v=yWzKJPw_VzM
+* https://news.ycombinator.com/item?id=40521518
+* https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/
+* spec + query language for API
+* componenents: client (Apollo) server (Graphene)
+* code generation https://hasura.io/
+* _document_: request; what client sends to GraphQL server; can be sent over HTTP, sockets, SSH i.e. doesn’t depend on HTTP verbs
+* operations: query (read) mutation (write)
+* use case: avoid over-fetching, combine data from two services, better versioning 🗄 'design'
+* design https://news.ycombinator.com/item?id=32366759
+* better metrics?
+> In a REST API, an API provider must assume that for any given API resource, every field is in use by every user because they have no insight at all into which ones they’re actually using. https://brandur.org/graphql#explicitness
+* _sink_: https://retool.com/blog/a-beginners-guide-to-the-graphql-ecosystem/ https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/ https://www.howtographql.com/ https://graphql.org/learn/ https://pganalyze.com/blog/efficient-graphql-queries-in-ruby-on-rails-and-postgres https://brandur.org/api-paradigms https://brandur.org/graphql https://news.ycombinator.com/item?id=23758367 https://news.ycombinator.com/item?id=25432233 https://scattered-thoughts.net/writing/against-sql 
+
+### JSON:API
+
+📜  https://jsonapi.org
+
+---
+
+* req/res data fmt + more precise HTTP semantics https://changelog.com/podcast/189 46:30
+* helps client not make unnecessary requests https://news.ycombinator.com/item?id=5654390
+* the name is an annoying land grab https://news.ycombinator.com/item?id=5654375 
+* other projects that aim for the same thing https://news.ycombinator.com/item?id=5653976
+* ❓ diverges from OpenAPI https://phil.tech/api/2018/03/30/openapi-and-json-schema-divergence/
+* _alternatives_: HAL https://jsonapi.org/faq/
+
+### REST
+
+* hypermedia is REST https://htmx.org/essays/
+* _REST_: architectural style, not protocol [Kleppmann 4.133] nowadays means JSON over HTTP i.e. there are few to-the-letter RESTful APIs https://news.ycombinator.com/item?id=15939552 backend supports n clients (web, mobile) https://wsvincent.com/rest-a-definition/ https://codewords.recurse.com/issues/five/what-restful-actually-means https://www.youtube.com/watch?v=pZYRC8IbCwk
+* definition https://news.ycombinator.com/item?id=32141027
+* _Fielding paper_: not specific to HTTP; guided tour; no reference implementation http://mickadoo.github.io/rest/2016/09/26/what-is-rest.html https://codewords.recurse.com/issues/five/what-restful-actually-means https://stackoverflow.com/a/983458/6813490 https://twobithistory.org/2020/06/28/rest.html https://news.ycombinator.com/item?id=24384048
+* _HATEOAS_: navigate API via links btw endpoints https://htmx.org/docs/#introduction https://stackoverflow.com/questions/2239405/hateoas-absolute-or-relative-urls https://stackoverflow.com/questions/1139095/actual-examples-for-hateoas-rest-architecture https://www.django-rest-framework.org/topics/rest-hypermedia-hateoas/ https://htmx.org/essays/hateoas/
+> RESTful API design consequently suffers the same problems as Active Record ORMs. The problem is most severe when fundamentalist RESTafarians get involved, as they advocate using hypertext-style links between API endpoints - HATEOAS ("Hypermedia As The Engine Of Application State"). Under HATEOAS, applications "browse" the API, moving from link to link to accomplish their goal. https://calpaterson.com/activerecord.html
+
+### RPC
+
+---
+
+* https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/
+* https://www.youtube.com/watch?v=gnchfOojMk4
+* https://www.youtube.com/watch?v=_4TPM6clQjM
+* https://kmcd.dev/posts/grpc-the-good-parts/
+* akin to intra-process communcation (more tightly coupled)
+* apparently a bad idea 📙 Kleppmann [4.134]
+* only used inside your own data center 📙 Kleppmann [4.136]
+* argument for is no bikeshedding on HTTP semantics https://news.ycombinator.com/item?id=9597030
+* https://etherealbits.com/2012/12/debunking-the-myths-of-rpc-rest/ https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/ https://apihandyman.io/do-you-really-know-why-you-prefer-rest-over-rpc/ https://stackoverflow.com/questions/15056878/rest-vs-json-rpc https://stackoverflow.com/a/26831221 https://github.com/fullstorydev/grpcurl https://realpython.com/python-microservices-grpc/ https://github.com/tomerfiliba-org/rpyc
+
+SOAP
+* tangled set of protocols
+* API schema described using language called WSDL 📙 Kleppmann [4.133]
+* tighter coupling btw client/server http://keithba.net/simplicity-and-utility-or-why-soap-lost
+* typically uses XML 📙 Kleppmann [4.132]
+
+## pagination
+
 * _paginate_: return subset of records
 * why: server (reduced load) client (more granular query)
 * howto: req `api/widgets?page=42` res can return header `x-total-count=<num>` https://slack.engineering/evolving-api-pagination-at-slack-1c1f644f8e12 https://www.reverb-api.com/docs#section-pagination
 
-RATE LIMITING
+## rate limiting
+
 * _rate limit_: increase cost of fetching resource
 * why: defense against DDoS, general protection against overload
 * how: increase latency, serve error code
@@ -51,98 +141,6 @@ def rate_limit?(bucket)
 end
 ```
 
----
-
-* styles https://www.youtube.com/watch?v=4vLxWqE94l4
-* gateway https://www.youtube.com/watch?v=6ULyxuHKxg8
-* protocols https://www.youtube.com/watch?v=zY2DMpCUfCg
-
-REPRESENTING INDIVIDUAL RESOURCES IN URL
-https://news.ycombinator.com/item?id=41243992&utm_term=comment
-* PK (bad) 
-* UUID (unwieldy) https://news.ycombinator.com/item?id=31715119
-* short uuid (better https://0of1.com/blog/posts/django-staples/)
-* _slug_: short repr for resource https://learndjango.com/tutorials/django-slug-tutorial
-
-* _slug_: human readable addendum to URL resource id https://learndjango.com/tutorials/django-slug-tutorial
-* typically hyphenated 🗄 `tfr.csv` https://github.com/un33k/python-slugify
-
-* _slug_: to preserve URLs for external links, auto-generated slugs won't change when attr used for generation update [Osborn 1 9.57, 61]
-```sh
-https://stackoverflow.com/questions/427102/what-is-a-slug-in-django
-```
-
-ZA
-* just give folks everything and let them drill down vs. trying to predetermine what they need https://simonwillison.net/2020/Nov/14/personal-data-warehouses/ 38:00
-* if API truly agnostic from frontend each page will end up making a bunch of calls instead of one call per page https://macwright.com/2020/05/10/spa-fatigue.html
-* standards at national level https://increment.com/apis/introduction-apis-egovernment/
-* _streaming_: server pushes to client https://2.python-requests.org/en/master/user/advanced/#streaming-requests
-* _idempotent_: same req n times = no additional side effects after first req e.g. after initial req creates record, further requests won't create dupe https://stripe.com/blog/idempotency
-* provide map of endpoints https://brandur.org/accessible-apis#programmatic-maps
-* limit the number of req to get actionable info on resource https://www.dataengineeringpodcast.com/linode-object-storage-service-episode-125/ 25:00 JSON over REST and even higher level than that https://josephg.com/blog/api-for-changes/ https://josephg.com/blog/databases-have-failed-the-web/ https://josephg.com/blog/composing-databases/
-
-## approaches
-
-📚
-* Kleppmann ch. 3
-* Masse api rulebook
-* https://roadmap.sh/api-design https://roadmap.sh/backend
-
----
-
-https://news.ycombinator.com/item?id=41432101
-
-KISS: if data is static, use web server like Nginx, don't even need a backend https://blog.pecar.me/faster-api
-
-REST
-* hypermedia is REST https://htmx.org/essays/
-* _REST_: architectural style, not protocol [Kleppmann 4.133] nowadays means JSON over HTTP i.e. there are few to-the-letter RESTful APIs https://news.ycombinator.com/item?id=15939552 backend supports n clients (web, mobile) https://wsvincent.com/rest-a-definition/ https://codewords.recurse.com/issues/five/what-restful-actually-means https://www.youtube.com/watch?v=pZYRC8IbCwk
-* definition https://news.ycombinator.com/item?id=32141027
-* _Fielding paper_: not specific to HTTP; guided tour; no reference implementation http://mickadoo.github.io/rest/2016/09/26/what-is-rest.html https://codewords.recurse.com/issues/five/what-restful-actually-means https://stackoverflow.com/a/983458/6813490 https://twobithistory.org/2020/06/28/rest.html https://news.ycombinator.com/item?id=24384048
-* _HATEOAS_: navigate API via links btw endpoints https://htmx.org/docs/#introduction https://stackoverflow.com/questions/2239405/hateoas-absolute-or-relative-urls https://stackoverflow.com/questions/1139095/actual-examples-for-hateoas-rest-architecture https://www.django-rest-framework.org/topics/rest-hypermedia-hateoas/ https://htmx.org/essays/hateoas/
-> RESTful API design consequently suffers the same problems as Active Record ORMs. The problem is most severe when fundamentalist RESTafarians get involved, as they advocate using hypertext-style links between API endpoints - HATEOAS ("Hypermedia As The Engine Of Application State"). Under HATEOAS, applications "browse" the API, moving from link to link to accomplish their goal. https://calpaterson.com/activerecord.html
-
-JSON:API https://jsonapi.org
-* req/res data fmt + more precise HTTP semantics https://changelog.com/podcast/189 46:30
-* helps client not make unnecessary requests https://news.ycombinator.com/item?id=5654390
-* the name is an annoying land grab https://news.ycombinator.com/item?id=5654375 
-* other projects that aim for the same thing https://news.ycombinator.com/item?id=5653976
-* ❓ diverges from OpenAPI https://phil.tech/api/2018/03/30/openapi-and-json-schema-divergence/
-* _alternatives_: HAL https://jsonapi.org/faq/
-
-SOAP
-* tangled set of protocols
-* API schema described using language called WSDL 📙 Kleppmann [4.133]
-* tighter coupling btw client/server http://keithba.net/simplicity-and-utility-or-why-soap-lost
-* typically uses XML 📙 Kleppmann [4.132]
-
-RPC
-* https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/
-* https://www.youtube.com/watch?v=gnchfOojMk4
-* https://www.youtube.com/watch?v=_4TPM6clQjM
-* https://kmcd.dev/posts/grpc-the-good-parts/
-* akin to intra-process communcation (more tightly coupled)
-* apparently a bad idea 📙 Kleppmann [4.134]
-* only used inside your own data center 📙 Kleppmann [4.136]
-* argument for is no bikeshedding on HTTP semantics https://news.ycombinator.com/item?id=9597030
-* https://etherealbits.com/2012/12/debunking-the-myths-of-rpc-rest/ https://www.smashingmagazine.com/2016/09/understanding-rest-and-rpc-for-http-apis/ https://apihandyman.io/do-you-really-know-why-you-prefer-rest-over-rpc/ https://stackoverflow.com/questions/15056878/rest-vs-json-rpc https://stackoverflow.com/a/26831221 https://github.com/fullstorydev/grpcurl https://realpython.com/python-microservices-grpc/ https://github.com/tomerfiliba-org/rpyc
-
-GRAPHQL 📹 https://www.youtube.com/watch?v=QJhiMSUFgDM
-* https://roadmap.sh/graphql
-* https://www.youtube.com/watch?v=yWzKJPw_VzM
-* https://news.ycombinator.com/item?id=40521518
-* https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/
-* spec + query language for API
-* componenents: client (Apollo) server (Graphene)
-* code generation https://hasura.io/
-* _document_: request; what client sends to GraphQL server; can be sent over HTTP, sockets, SSH i.e. doesn’t depend on HTTP verbs
-* operations: query (read) mutation (write)
-* use case: avoid over-fetching, combine data from two services, better versioning 🗄 'design'
-* design https://news.ycombinator.com/item?id=32366759
-* better metrics?
-> In a REST API, an API provider must assume that for any given API resource, every field is in use by every user because they have no insight at all into which ones they’re actually using. https://brandur.org/graphql#explicitness
-* _sink_: https://retool.com/blog/a-beginners-guide-to-the-graphql-ecosystem/ https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/ https://www.howtographql.com/ https://graphql.org/learn/ https://pganalyze.com/blog/efficient-graphql-queries-in-ruby-on-rails-and-postgres https://brandur.org/api-paradigms https://brandur.org/graphql https://news.ycombinator.com/item?id=23758367 https://news.ycombinator.com/item?id=25432233 https://scattered-thoughts.net/writing/against-sql 
-
 ## schema
 
 ---
@@ -151,7 +149,35 @@ GRAPHQL 📹 https://www.youtube.com/watch?v=QJhiMSUFgDM
 * _spec_: doc explaining schema https://www.youtube.com/watch?v=1lo7idI7uq8
 * generate spec from API and vice versa https://www.youtube.com/watch?v=1lo7idI7uq8 3:00
 
-JSON SCHEMA https://json-schema.org/
+### JSON Schema
+
+📜 https://json-schema.org/
+
+TOOLS https://json-schema.org/tools
+* _fastjsonschema_: https://github.com/horejsek/python-fastjsonschema https://horejsek.github.io/python-fastjsonschema/
+* _jschon_: https://github.com/marksparkza/jschon
+
+USAGE
+* validation in dbms https://github.com/supabase/pg_jsonschema
+```sql
+ALTER TABLE products ADD CONSTRAINT data_is_valid CHECK(
+  validate_json_schema('{
+    "type": "object", "properties": {
+       "tags": {
+          "type": "array", "items": { "type": "string" }
+       }
+    }
+  }',  attributes)
+);
+INSERT INTO products (attributes) VALUES ('{}');  -- ok
+INSERT INTO products (attributes) VALUES ('{ "tags":[] }');  -- ok
+INSERT INTO products (attributes) VALUES ('{ "tags":["test"] }');  -- ok
+INSERT INTO products (attributes) VALUES ('{ "tags":[2] }'); -- ERROR: new row for relation "products" violates check constraint "data_is_valid". Failing row contains ({"tags": [2]}).
+```
+
+
+---
+
 * validate incoming requests via decorator https://apisyouwonthate.com/blog/json-api-openapi-and-json-schema-working-in-harmony https://stoplight.io/blog/openapi-json-schema/
 ```python
 # decorator to validate req
@@ -187,7 +213,10 @@ def endpoint():
     return res
 ```
 
-OPENAPI
+### OPEN API
+
+---
+
 * https://github.com/marshmallow-code/apispec
 * https://github.com/zaghaghi/openapi-tui
 * code generation https://github.com/oapi-codegen/oapi-codegen
@@ -203,7 +232,7 @@ OPENAPI
 * _alternatives_: https://brandur.org/elegant-apis https://blog.heroku.com/json_schema_for_heroku_platform_api https://json-schema.org/
 * _sink_: https://instagram-engineering.com/types-for-python-http-apis-an-instagram-story-d3c3a207fdb7 https://news.ycombinator.com/item?id=14035936 https://stackoverflow.com/questions/36634281/list-of-swagger-ui-alternatives https://www.youtube.com/results?search_query=openapi+pycon&page=&utm_source=opensearch https://github.com/kiwicom/schemathesis
 
-API STAR https://github.com/zachvalenta/flask-openapi
+API STAR 📜 https://docs.apistar.com/ https://github.com/zachvalenta/flask-openapi
 * build docs for OpenAPI service
 * _history_: began as a project to bring DRF browsable dev docs to Flask https://github.com/flask-api/flask-api/commit/b99c8d26e335cef696b931dde783ca80ca4ab798 then became a framework https://pythonbytes.fm/episodes/show/21/python-has-a-new-star-framework-for-restful-apis and now is a toolkit to add OpenAPI stuff to any framework
 * `apistar validate`: lint schema
@@ -212,6 +241,25 @@ API STAR https://github.com/zachvalenta/flask-openapi
 * ❓ able to build static or have to run server?
 * ❓ run alongside prod?
 * ❓ no hot reload https://github.com/encode/apistar/issues/637 from when it was a framework? https://github.com/encode/apistar/issues/40 https://github.com/encode/apistar/pull/57
+
+## slugs
+
+---
+
+REPRESENTING INDIVIDUAL RESOURCES IN URL
+https://news.ycombinator.com/item?id=41243992&utm_term=comment
+* PK (bad) 
+* UUID (unwieldy) https://news.ycombinator.com/item?id=31715119
+* short uuid (better https://0of1.com/blog/posts/django-staples/)
+* _slug_: short repr for resource https://learndjango.com/tutorials/django-slug-tutorial
+
+* _slug_: human readable addendum to URL resource id https://learndjango.com/tutorials/django-slug-tutorial
+* typically hyphenated 🗄 `tfr.csv` https://github.com/un33k/python-slugify
+
+* _slug_: to preserve URLs for external links, auto-generated slugs won't change when attr used for generation update [Osborn 1 9.57, 61]
+```sh
+https://stackoverflow.com/questions/427102/what-is-a-slug-in-django
+```
 
 ## versioning
 
@@ -328,7 +376,7 @@ CLOUD
 * switching locally: macOS spaces https://github.com/dandavison/wormhole
 * _Coder_: https://github.com/coder/coder
 * _Daytona_: https://www.daytona.io/
-* _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053
+* _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://cli.github.com/manual/gh_codespace
 * _Gitpod_: https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15
 
 ---
@@ -690,6 +738,8 @@ as red flag https://news.ycombinator.com/item?id=30675182
 > Write code to be changed and/or deleted. This comes from someone who's worked in startups for the past 5 years. We often overestimate how long code =is supposed to live. We as programmers often exaggerate with our DRY and stuff, we do not want to repeat ourselves, we want to find another abstraction...we want to find some general that can help us abstract stuff away. My piece of advice is that, step back and consider for a moment that this code is not going to stay in, so maybe only try and find the abstraction layer once you really sure that this is how it's going to be. - Thorsten Ball https://developeronfire.com/podcast/episode-373-thorsten-ball-interpreters-compilers-and-writing
 
 ---
+
+https://drewdevault.com/2019/04/29/Shut-up-and-get-back-to-work-style.html
 
 * hoisting
 

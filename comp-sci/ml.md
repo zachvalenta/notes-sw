@@ -15,44 +15,198 @@
 
 * _24_: usage (regex, stdlib, EDI) tooling (clients)
 
-* contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
+# ☄️ GEN AI
+
+GREAT ANSWERS
+* computer eng https://chatgpt.com/c/671121b1-633c-8004-88ee-bcc142ac24f5
+* Python packaging history https://chatgpt.com/c/67111dbc-0964-8004-9e50-41fa41875da8
 
 ---
 
-* BYO https://medium.com/@msouza.os/llm-from-scratch-with-pytorch-9f21808c6319 https://youtu.be/kCc8FmEb1nY
-* learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
-* tokens, read whole thing https://stratechery.com/2024/enterprise-philosophy-and-the-first-wave-of-ai/
-> The big challenge for traditional LLMs is that they are path-dependent; while they can consider the puzzle as a whole, as soon as they commit to a particular guess they are locked in, and doomed to failure. This is a fundamental weakness of what are known as “auto-regressive large language models”, which to date, is all of them. To grossly simplify, a large language model generates a token (usually a word, or part of a word) based on all of the tokens that preceded the token being generated; the specific token is the most statistically likely next possible token derived from the model’s training (this also gets complicated, as the “temperature” of the output determines what level of randomness goes into choosing from the best possible options; a low temperature chooses the most likely next token, while a higher temperature is more “creative”). The key thing to understand, though, is that this is a serial process: once a token is generated it influences what token is generated next.
-* try it out https://github.com/taylorai/aiq
-* rule-based https://www.youtube.com/watch?v=CeukwyUdaz8
-* supervised https://www.youtube.com/watch?v=j9kcEuGcC2Y
-* CRISP-DM https://www.youtube.com/watch?v=dCa3JvmJbr0
-* model selection https://www.youtube.com/watch?v=OH_R0Sl9neM
+https://treyhunner.com/2024/07/chatgpt-and-claude-from-your-browser-url-bar/
+building into projects https://news.ycombinator.com/item?id=40857589
 
-BYO
-* https://www.youtube.com/watch?v=kCc8FmEb1nY
-* https://news.ycombinator.com/item?id=41412256&utm_term=comment
-* https://spreadsheets-are-all-you-need.ai/index.html
-* https://iamjoshknox.com/2023/12/06/econeats-an-ai-dining-guide/
-* https://www.saaspegasus.com/guides/django-websockets-chatgpt-channels-htmx
-* https://github.com/langgenius/dify
-* https://github.com/BerriAI/litellm
+ZA
+* structured output https://news.ycombinator.com/item?id=40713952
+* https://notebooklm.google/
+* Claude https://www.anthropic.com/ https://x.com/AnthropicAI/status/1803790681971859473
+* https://news.ycombinator.com/item?id=40441945
+* custom GPT https://talkpython.fm/episodes/show/456/building-gpt-actions-with-fastapi-and-pydantic
+* customization prompt https://news.ycombinator.com/item?id=40474716
+* telemetry https://github.com/dagworks-inc/burr
 
-> https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse
-https://www.thoughtworks.com/radar/languages-and-frameworks/langchain
+🔗 https://a16z.com/100-gen-ai-apps-3/
 
-https://karpathy.ai/zero-to-hero.html
-https://www.youtube.com/watch?v=fuMKrKlaku4
-https://writings.stephenwolfram.com/2024/08/whats-really-going-on-in-machine-learning-some-minimal-models/
+* AI friend https://x.com/deedydas/status/1804550284552949771
+* Devin https://news.ycombinator.com/item?id=40008109
+* https://github.com/minimaxir/simpleaichat/blob/main/examples/notebooks/schema_ttrpg.ipynb
+* hacks: offer to tip https://twitter.com/emollick/status/1730742277792813517 change date https://twitter.com/venturetwins/status/1710321733184667985 get instructions https://twitter.com/fabianstelzer/status/1709562237310878122
+* use when coding https://realpython.com/chatgpt-coding-mentor-python/
+* use when reading https://www.reddit.com/r/ChatGPT/comments/17p968u/leaving_chatgpt_voice_on_while_reading_a_book_is/?rdt=52836 https://marginalrevolution.com/marginalrevolution/2023/11/the-early-days.html
+* https://twitter.com/patio11/status/1728018125398978659/photo/1
+* run locally https://github.com/Mozilla-Ocho/llamafile
+* training on literature https://news.ycombinator.com/item?id=25607809 https://news.ycombinator.com/item?id=24884789 
+* _agent_: give it a dataset, it writes the paper https://www.oneusefulthing.org/p/almost-an-agent-what-gpts-can-do
+* respond to social pressure https://twitter.com/AndrewCurran_/status/1720177766283505724
+* run locally https://github.com/getumbrel/llama-gpt
+* use to study math https://news.ycombinator.com/item?id=37963453
+* pretty transparent https://twitter.com/zoink/status/1599281052115034113
+* tooling https://github.com/eth-sri/lmql
+* _constitution_: heuristic for LLM https://www.anthropic.com/index/claudes-constitution
+* impact on software dev https://about.sourcegraph.com/blog/cheating-is-all-you-need https://github.com/jiggy-ai/pair https://news.ycombinator.com/item?id=35470915&utm_term=comment ChatGPT https://kadekillary.work/posts/1000x-eng/ https://news.ycombinator.com/item?id=35385019 https://news.ycombinator.com/item?id=35493631 https://news.ycombinator.com/item?id=35612494 https://news.ycombinator.com/item?id=35638552  https://www.phind.com/
+* how it works https://www.jonstokes.com/p/chatgpt-explained-a-guide-for-normies
+* LLM https://news.ycombinator.com/item?id=34726115 https://marginalrevolution.com/marginalrevolution/2023/11/the-single-best-introduction-to-llms.html
+> Using AI-assisted code changes our work from writing code to proofreading code. https://buttondown.email/hillelwayne/archive/programming-ais-worry-me/
+* howto use https://marginalrevolution.com/marginalrevolution/2023/02/how-should-you-talk-to-chatgpt-a-users-guide.html https://marginalrevolution.com/marginalrevolution/2023/03/what-is-the-single-best-way-of-improving-your-gpt-prompts.html https://simonwillison.net/2023/Aug/6/annotated-presentations/ https://realpython.com/practical-prompt-engineering/ https://news.ycombinator.com/item?id=41395921 https://roadmap.sh/prompt-engineering
+> Ask ChatGPT "What is Marxism?" for example, and you will get a passable answer, probably no better than what you would get by using Wikipedia or Google. Instead, make the question more specific: "Which were the important developments in French Marxism in the second half of the 19th century?" ChatGPT will do much better - and it's also the kind of question it's hard to use Google and Wikipedia to answer.
+> ChatGPT will do better yet if you ask it sequential questions along an evolving line of inquiry. Ask it about the specific French Marxists it cites, what they did, and how they differed from their German counterparts.
+> Another way to hone ChatGPT's capabilities is to ask it for responses in the voice of a third person. Ask, "What are the costs of inflation?" and you might get answers that aren't wrong exactly, but neither are they impressive. Instead, try this: "What are the costs of inflation? Please answer using the ideas of Milton Friedman." By mentioning Friedman, you have pointed it to a more intelligent corner of the ideas universe.
+* hallucination https://twitter.com/dsmerdon/status/1618816703923912704
+* Pynchon https://marginalrevolution.com/marginalrevolution/2023/01/signs-of-encroaching-gpt-dom.html
+* music https://google-research.github.io/seanet/musiclm/examples/ https://twitter.com/bleedingedgeai/status/1619081383477137408
+* impact on art https://www.drorpoleg.com/ai-and-the-long-tail/
+* https://en.wikipedia.org/wiki/ChatGPT
+* prompts https://writings.stephenwolfram.com/2023/01/wolframalpha-as-the-way-to-bring-computational-knowledge-superpowers-to-chatgpt/
+* impl https://github.com/karpathy/nanoGPT https://hut.pm/nanogpt.html
+* good at application vs. theory https://marginalrevolution.com/marginalrevolution/2023/01/the-differential-impact-of-gpt.html
+* 2022 was crazy https://twitter.com/DrJimFan/status/1607746957753057280
+https://stratechery.com/2023/ai-and-the-big-five/
+> The story of 2022 was the emergence of AI, first with image generation models, including DALL-E, MidJourney, and the open source Stable Diffusion, and then ChatGPT, the first text-generation model to break through in a major way. It seems clear to me that this is a new epoch in technology.
+> Stable Diffusion is remarkable not simply because it is open source, but also because the model is surprisingly small: when it was released it could already run on some consumer graphics cards; within a matter of weeks it had been optimized to the point where it could run on an iPhone.
+> Google invented the transformer, the key technology undergirding the latest AI models. Google is rumored to have a conversation chat product that is far superior to ChatGPT. Google claims that its image generation capabilities are better than Dall-E or anyone else on the market. And yet, these claims are just that: claims, because there aren’t any actual products on the market.
+* https://marginalrevolution.com/marginalrevolution/2022/12/one-look-at-our-future.html
+* more ChatGPT https://marginalrevolution.com/marginalrevolution/2022/12/chatgpt-does-a-thomas-schelling-poem.html https://davidrozado.substack.com/p/the-political-orientation-of-the how to use https://twitter.com/omarsar0/status/1600149116369051649 https://substack.com/inbox/post/88017506 https://astralcodexten.substack.com/p/perhaps-it-is-a-bad-thing-that-the AI will corrupt the corpus of the internet https://news.ycombinator.com/item?id=33864276
+* journaling to ChatGPT https://marginalrevolution.com/marginalrevolution/2022/12/chatting-with-yourself.html
+* politics of LLMs https://twitter.com/DavidRozado/status/1606249231185981440 https://cactus.substack.com/p/openais-woke-catechism-part-1
+* politics of LLM research https://twitter.com/RamaswmySridhar/status/1606031588789088256 https://twitter.com/pmarca/status/1611229226765783041 https://twitter.com/pmarca/status/1611237679496331265
+* effect on trust https://marginalrevolution.com/marginalrevolution/2022/12/ben-thompson-interview-with-daniel-gross-and-nat-friedman.html
+* Spielberg https://marginalrevolution.com/marginalrevolution/2022/12/rewatching-a-i-minor-spoilers.html
+* alternatives https://twitter.com/goodside/status/1606611869661384706
+* https://twitter.com/peterwildeford/status/1602521505279184897
+* Christian alignment problem https://news.ycombinator.com/item?id=34185488 https://richardhanania.substack.com/p/can-a-paperclip-maximizer-overthrow
+* ethics vs. alignment https://scottaaronson.blog/?p=7042 ethics as red herring https://blog.cerebralab.com/AI_alarmism_and_the_misinformed_position https://news.ycombinator.com/item?id=35146676
+* success and failures https://marginalrevolution.com/marginalrevolution/2023/01/chatgpt-and-the-revenge-of-history.html
 
-REPOS
-https://www.freecodecamp.org/news/get-started-with-hugging-face/ https://pola.rs/posts/polars-hugging-face/ https://github.com/huggingface/transformers https://astral.sh/blog/uv-unified-python-packaging
-https://huggingface.co/stabilityai/stable-diffusion-3-medium
-https://realpython.com/huggingface-transformers/
+## code assist
 
-RAG, vector https://news.ycombinator.com/item?id=41105130 https://en.wikipedia.org/wiki/Retrieval-augmented_generation https://retool.com/blog/retrieval-augmented-generation https://www.youtube.com/watch?v=Q75JgLEXMsM https://www.youtube.com/watch?v=PJaqp5Kdwz0
+---
 
-https://www.amazon.com/gp/product/1098107969
+https://www.thediff.co/archive/offshoring-and-ai-agents/
+
+* https://news.ycombinator.com/item?id=41732634
+> It’s worth noting that AI tools are intimately familiar with Next.js and not so much with htmx, due to the lack of open-source training data. This is similar to the issue Rails faces. While not a dealbreaker, it did impact our development speed and the ease of finding solutions to problems. When we encountered issues, the wealth of resources available for React/Next.js made troubleshooting much faster. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
+
+https://news.ycombinator.com/item?id=41563958
+
+* legacy codebases https://bloop.ai/ https://www.driverai.com/
+
+https://aider.chat/ https://news.ycombinator.com/item?id=41453237
+
+https://github.com/guywaldman/magic-cli https://news.ycombinator.com/item?id=40980715
+
+wilder, vimgpt https://www.youtube.com/watch?v=WeulqMMJgrs
+
+https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
+
+> The crux of my raging hatred is not that I hate LLMs or the generative AI craze. I had my fun with Copilot before I decided that it was making me stupider - it's impressive, but not actually suitable for anything more than churning out boilerplate. Nothing wrong with that, but it did not end up being the crazy productivity booster that I thought it would be, because programming is designing and these tools aren't good enough (yet) to assist me with this seriously. https://ludic.mataroa.blog/blog/i-will-fucking-piledrive-you-if-you-mention-ai-again/
+
+https://github.com/leapingio/leaping
+https://visualstudiomagazine.com/articles/2024/01/25/copilot-research.aspx
+https://www.youtube.com/watch?v=MzFr7iXsESs
+https://www.youtube.com/watch?v=dkV01hBdhZE
+
+> LLMs are good at explaining code. Give it code in a language you don't understand and it will explain it with 90% accuracy. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
+
+* code prompt: https://ollama.com/blog/how-to-prompt-code-llama https://ollama.com/blog/run-code-llama-locally Codestral https://ollama.com/blog/continue-code-assistant
+* math: https://ollama.com/blog/wizardmath-examples
+* Copilot
+* Cody https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
+* https://stratechery.com/2024/gemini-1-5-and-googles-nature/
+* https://news.ycombinator.com/item?id=37940572
+* https://www.youtube.com/watch?v=MzFr7iXsESs
+* https://simonwillison.net/2023/Dec/31/ai-in-2023/
+
+## clients
+
+FILE FMT
+> 📍 building a context window by feeding in docs https://simonw.substack.com/p/video-scraping-using-google-gemini
+* JSON: Superpower ChatGPT
+* Markdown: https://simonw.substack.com/p/video-scraping-using-google-gemini?utm_source=post-email-title&publication_id=1173386&post_id=150425423&utm_campaign=email-post-title&isFreemail=true&r=5hxmz&triedRedirect=true&utm_medium=email
+* XML: https://github.com/simonw/files-to-prompt
+
+OPTIONS
+* in Bash https://github.com/simonmysun/ell
+* _aichat_: ❌ https://github.com/sigoden/aichat/issues/924
+* doesn't work https://github.com/sigoden/aichat 
+* _Easy Folders_: ❌ didn't work in Brave https://chromewebstore.google.com/detail/chatgpt-folders-search-pr/gdocioajfidpnaejbgmbnkflgmppibfe
+* _khoj_: https://github.com/khoj-ai/khoj
+* _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm https://simonw.substack.com/p/video-scraping-using-google-gemini
+* _mods_: 🎯 https://github.com/charmbracelet/mods
+* _oterm_: for Ollama https://github.com/ggozad/oterm
+* _Superpower ChatGPT_: folders mostly broken but JSON export seems to work https://spchatgpt.com/ https://chromewebstore.google.com/detail/Superpower%20ChatGPT/amhmeenmapldpjdedekalnfifgnpfnkc 
+* _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
+
+ELIA 📜 https://github.com/darrenburns/elia
+* config fs: `$HOME/.config`
+* design: slow startup
+* themes https://github.com/darrenburns/elia/issues/72
+* available models https://github.com/darrenburns/elia/blob/main/elia_chat/config.py
+* export/import: JSON https://github.com/darrenburns/elia/pull/70 https://github.com/darrenburns/elia?tab=readme-ov-file#import-from-chatgpt
+> ❌ no way to do this through the UI https://chatgpt.com/c/67106b06-8884-8004-ab78-84e5bce7dea9
+> how does this work under the hood? https://github.com/darrenburns/elia?tab=readme-ov-file#wiping-the-database
+
+---
+
+ELIA API KEY
+> open a PR to document this
+* https://github.com/darrenburns/elia/issues/52
+* https://github.com/darrenburns/elia/issues/73
+* 🗄️ `src.md` secrets
+```txt
+Say you have a CLI program that needs a secret (e.g. an API key). The secret needs to be exposed as a Linux environment variable. You don't want to store the secret in your .bash_profile because:
+* you have your environment variables version controlled
+* the secret would be exposed to all other programs running on your machine
+```
+
+https://github.com/nomic-ai/gpt4all
+
+## features
+
+* folders: ❓ does anyone offer? https://chatgpt.com/c/67108642-c0cc-8004-b985-28773a5764fb
+* search: ❓ does anyone offer?
+* export: 🗄️ Elia
+
+## models
+
+* benchmark https://arena.lmsys.org/
+* _ChatGPT_: need to ugrade macOS to get access to desktop app
+* code: https://ollama.com/blog/python-javascript-libraries
+* _Gemma_: https://ai.google.dev/gemma
+* _Gemini_: https://simonw.substack.com/p/video-scraping-using-google-gemini
+* _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model)
+* uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
+* _Mistral_: https://en.wikipedia.org/wiki/Mistral_AI
+
+---
+
+* https://realpython.com/chatgpt-coding-mentor-python/ https://chat.openai.com/chat https://marginalrevolution.com/marginalrevolution/2023/05/how-to-use-gpt-4-plus-web-browsing.html https://bard.google.com/chat https://grok.x.ai/ https://notebooklm.google.com/
+* _NotebookLM_: https://notebooklm.google.com/ https://simonw.substack.com/p/video-scraping-using-google-gemini
+
+## prompts
+
+🗄️
+* `psychology.md` interviewing
+* `work.md` industry > Stack Overflow
+
+---
+
+https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
+
+* _prompt injection_: getting model to do something its creators don't want
+> Ask it to give options (it's more likely to give a better answer)
+> It will rarely get the answer right. Ask it to "do better."
+* _system message_: hidden instruction that defines the behavior/goals/tone of the model https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b
+> "You are a helpful assistant named Elia."
 
 # 🧪 TECHNIQUES
 
@@ -174,167 +328,48 @@ def dot(v1, v2):  # vectors
 dot([1,2,3], [4,5,6])
 ```
 
-# 🛠️ TOOLING
-
-🔗 https://a16z.com/100-gen-ai-apps-3/
-
-* AI friend https://x.com/deedydas/status/1804550284552949771
-* Devin https://news.ycombinator.com/item?id=40008109
-* https://github.com/minimaxir/simpleaichat/blob/main/examples/notebooks/schema_ttrpg.ipynb
-* hacks: offer to tip https://twitter.com/emollick/status/1730742277792813517 change date https://twitter.com/venturetwins/status/1710321733184667985 get instructions https://twitter.com/fabianstelzer/status/1709562237310878122
-* use when coding https://realpython.com/chatgpt-coding-mentor-python/
-* use when reading https://www.reddit.com/r/ChatGPT/comments/17p968u/leaving_chatgpt_voice_on_while_reading_a_book_is/?rdt=52836 https://marginalrevolution.com/marginalrevolution/2023/11/the-early-days.html
-* https://twitter.com/patio11/status/1728018125398978659/photo/1
-* run locally https://github.com/Mozilla-Ocho/llamafile
-* training on literature https://news.ycombinator.com/item?id=25607809 https://news.ycombinator.com/item?id=24884789 
-* _agent_: give it a dataset, it writes the paper https://www.oneusefulthing.org/p/almost-an-agent-what-gpts-can-do
-* respond to social pressure https://twitter.com/AndrewCurran_/status/1720177766283505724
-* run locally https://github.com/getumbrel/llama-gpt
-* use to study math https://news.ycombinator.com/item?id=37963453
-* pretty transparent https://twitter.com/zoink/status/1599281052115034113
-* tooling https://github.com/eth-sri/lmql
-* _constitution_: heuristic for LLM https://www.anthropic.com/index/claudes-constitution
-* impact on software dev https://about.sourcegraph.com/blog/cheating-is-all-you-need https://github.com/jiggy-ai/pair https://news.ycombinator.com/item?id=35470915&utm_term=comment ChatGPT https://kadekillary.work/posts/1000x-eng/ https://news.ycombinator.com/item?id=35385019 https://news.ycombinator.com/item?id=35493631 https://news.ycombinator.com/item?id=35612494 https://news.ycombinator.com/item?id=35638552  https://www.phind.com/
-* how it works https://www.jonstokes.com/p/chatgpt-explained-a-guide-for-normies
-* LLM https://news.ycombinator.com/item?id=34726115 https://marginalrevolution.com/marginalrevolution/2023/11/the-single-best-introduction-to-llms.html
-> Using AI-assisted code changes our work from writing code to proofreading code. https://buttondown.email/hillelwayne/archive/programming-ais-worry-me/
-* howto use https://marginalrevolution.com/marginalrevolution/2023/02/how-should-you-talk-to-chatgpt-a-users-guide.html https://marginalrevolution.com/marginalrevolution/2023/03/what-is-the-single-best-way-of-improving-your-gpt-prompts.html https://simonwillison.net/2023/Aug/6/annotated-presentations/ https://realpython.com/practical-prompt-engineering/ https://news.ycombinator.com/item?id=41395921 https://roadmap.sh/prompt-engineering
-> Ask ChatGPT "What is Marxism?" for example, and you will get a passable answer, probably no better than what you would get by using Wikipedia or Google. Instead, make the question more specific: "Which were the important developments in French Marxism in the second half of the 19th century?" ChatGPT will do much better - and it's also the kind of question it's hard to use Google and Wikipedia to answer.
-> ChatGPT will do better yet if you ask it sequential questions along an evolving line of inquiry. Ask it about the specific French Marxists it cites, what they did, and how they differed from their German counterparts.
-> Another way to hone ChatGPT's capabilities is to ask it for responses in the voice of a third person. Ask, "What are the costs of inflation?" and you might get answers that aren't wrong exactly, but neither are they impressive. Instead, try this: "What are the costs of inflation? Please answer using the ideas of Milton Friedman." By mentioning Friedman, you have pointed it to a more intelligent corner of the ideas universe.
-* hallucination https://twitter.com/dsmerdon/status/1618816703923912704
-* Pynchon https://marginalrevolution.com/marginalrevolution/2023/01/signs-of-encroaching-gpt-dom.html
-* music https://google-research.github.io/seanet/musiclm/examples/ https://twitter.com/bleedingedgeai/status/1619081383477137408
-* impact on art https://www.drorpoleg.com/ai-and-the-long-tail/
-* https://en.wikipedia.org/wiki/ChatGPT
-* prompts https://writings.stephenwolfram.com/2023/01/wolframalpha-as-the-way-to-bring-computational-knowledge-superpowers-to-chatgpt/
-* impl https://github.com/karpathy/nanoGPT https://hut.pm/nanogpt.html
-* good at application vs. theory https://marginalrevolution.com/marginalrevolution/2023/01/the-differential-impact-of-gpt.html
-* 2022 was crazy https://twitter.com/DrJimFan/status/1607746957753057280
-https://stratechery.com/2023/ai-and-the-big-five/
-> The story of 2022 was the emergence of AI, first with image generation models, including DALL-E, MidJourney, and the open source Stable Diffusion, and then ChatGPT, the first text-generation model to break through in a major way. It seems clear to me that this is a new epoch in technology.
-> Stable Diffusion is remarkable not simply because it is open source, but also because the model is surprisingly small: when it was released it could already run on some consumer graphics cards; within a matter of weeks it had been optimized to the point where it could run on an iPhone.
-> Google invented the transformer, the key technology undergirding the latest AI models. Google is rumored to have a conversation chat product that is far superior to ChatGPT. Google claims that its image generation capabilities are better than Dall-E or anyone else on the market. And yet, these claims are just that: claims, because there aren’t any actual products on the market.
-* https://marginalrevolution.com/marginalrevolution/2022/12/one-look-at-our-future.html
-* more ChatGPT https://marginalrevolution.com/marginalrevolution/2022/12/chatgpt-does-a-thomas-schelling-poem.html https://davidrozado.substack.com/p/the-political-orientation-of-the how to use https://twitter.com/omarsar0/status/1600149116369051649 https://substack.com/inbox/post/88017506 https://astralcodexten.substack.com/p/perhaps-it-is-a-bad-thing-that-the AI will corrupt the corpus of the internet https://news.ycombinator.com/item?id=33864276
-* journaling to ChatGPT https://marginalrevolution.com/marginalrevolution/2022/12/chatting-with-yourself.html
-* politics of LLMs https://twitter.com/DavidRozado/status/1606249231185981440 https://cactus.substack.com/p/openais-woke-catechism-part-1
-* politics of LLM research https://twitter.com/RamaswmySridhar/status/1606031588789088256 https://twitter.com/pmarca/status/1611229226765783041 https://twitter.com/pmarca/status/1611237679496331265
-* effect on trust https://marginalrevolution.com/marginalrevolution/2022/12/ben-thompson-interview-with-daniel-gross-and-nat-friedman.html
-* Spielberg https://marginalrevolution.com/marginalrevolution/2022/12/rewatching-a-i-minor-spoilers.html
-* alternatives https://twitter.com/goodside/status/1606611869661384706
-* https://twitter.com/peterwildeford/status/1602521505279184897
-* Christian alignment problem https://news.ycombinator.com/item?id=34185488 https://richardhanania.substack.com/p/can-a-paperclip-maximizer-overthrow
-* ethics vs. alignment https://scottaaronson.blog/?p=7042 ethics as red herring https://blog.cerebralab.com/AI_alarmism_and_the_misinformed_position https://news.ycombinator.com/item?id=35146676
-* success and failures https://marginalrevolution.com/marginalrevolution/2023/01/chatgpt-and-the-revenge-of-history.html
-
-## chat
-
-OPTIONS
-* benchmark https://arena.lmsys.org/
-* _ChatGPT_: need to ugrade macOS to get access to desktop app
-* code: https://ollama.com/blog/python-javascript-libraries
-* _Gemma_: https://ai.google.dev/gemma
-* _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model)
-* uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
-* _Mistral_: https://en.wikipedia.org/wiki/Mistral_AI
-
-PROMPTS https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
-* _prompt injection_: getting model to do something its creators don't want
-> Ask it to give options (it's more likely to give a better answer)
-> It will rarely get the answer right. Ask it to "do better."
-
----
-
-https://github.com/charmbracelet/mods
-https://treyhunner.com/2024/07/chatgpt-and-claude-from-your-browser-url-bar/
-building into projects https://news.ycombinator.com/item?id=40857589
-
-ZA
-* structured output https://news.ycombinator.com/item?id=40713952
-* https://notebooklm.google/
-* Claude https://www.anthropic.com/ https://x.com/AnthropicAI/status/1803790681971859473
-* https://news.ycombinator.com/item?id=40441945
-* custom GPT https://talkpython.fm/episodes/show/456/building-gpt-actions-with-fastapi-and-pydantic
-* customization prompt https://news.ycombinator.com/item?id=40474716
-* telemetry https://github.com/dagworks-inc/burr
-
-## clients
-
-* in Bash https://github.com/simonmysun/ell
-* _aichat_: ❌ https://github.com/sigoden/aichat/issues/924
-* doesn't work https://github.com/sigoden/aichat 
-* _elia_: 🎯 https://github.com/darrenburns/elia
-* problems with API keys https://github.com/darrenburns/elia/issues/73
-* have to expose API as env var 🗄️ `src.md` secrets
-> fix https://github.com/darrenburns/elia/issues/52
-> open a PR to document this
-```txt
-Say you have a CLI program that needs a secret (e.g. an API key). The secret needs to be exposed as a Linux environment variable. You don't want to store the secret in your .bash_profile because:
-* you have your environment variables version controlled
-* the secret would be exposed to all other programs running on your machine
-```
-* _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm
-* _khoj_: https://github.com/khoj-ai/khoj
-* _oterm_: for Ollama https://github.com/ggozad/oterm
-* _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
-
-## code assist
-
-> Right now most engineers aren’t trying to get AI assistants to write large chunks of software at once – rather, they’re feeding them requests for one function at a time, or relying on a kind of high-grade autocomplete native to their coding environment. There are companies like Cognition.ai out there aiming to change this, to build coding AIs able to execute complex engineering tasks, and if we get to that point, the way we think about software specification, and the amount of time we spend doing it, will most likely change. But for now, today’s function-level assistants won’t change the way humans relate to the work of planning what they want software to do. https://www.thediff.co/archive/offshoring-and-ai-agents/
-
----
-
-* https://news.ycombinator.com/item?id=41732634
-> It’s worth noting that AI tools are intimately familiar with Next.js and not so much with htmx, due to the lack of open-source training data. This is similar to the issue Rails faces. While not a dealbreaker, it did impact our development speed and the ease of finding solutions to problems. When we encountered issues, the wealth of resources available for React/Next.js made troubleshooting much faster. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
-
-https://news.ycombinator.com/item?id=41563958
-
-* legacy codebases https://bloop.ai/ https://www.driverai.com/
-
-https://aider.chat/ https://news.ycombinator.com/item?id=41453237
-
-https://github.com/guywaldman/magic-cli https://news.ycombinator.com/item?id=40980715
-
-wilder, vimgpt https://www.youtube.com/watch?v=WeulqMMJgrs
-
-https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
-
-> The crux of my raging hatred is not that I hate LLMs or the generative AI craze. I had my fun with Copilot before I decided that it was making me stupider - it's impressive, but not actually suitable for anything more than churning out boilerplate. Nothing wrong with that, but it did not end up being the crazy productivity booster that I thought it would be, because programming is designing and these tools aren't good enough (yet) to assist me with this seriously. https://ludic.mataroa.blog/blog/i-will-fucking-piledrive-you-if-you-mention-ai-again/
-
-https://github.com/leapingio/leaping
-https://visualstudiomagazine.com/articles/2024/01/25/copilot-research.aspx
-https://www.youtube.com/watch?v=MzFr7iXsESs
-https://www.youtube.com/watch?v=dkV01hBdhZE
-
-> LLMs are good at explaining code. Give it code in a language you don't understand and it will explain it with 90% accuracy. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
-
-* code prompt: https://ollama.com/blog/how-to-prompt-code-llama https://ollama.com/blog/run-code-llama-locally Codestral https://ollama.com/blog/continue-code-assistant
-* math: https://ollama.com/blog/wizardmath-examples
-* Copilot
-* Cody https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
-* https://stratechery.com/2024/gemini-1-5-and-googles-nature/
-* https://news.ycombinator.com/item?id=37940572
-* https://www.youtube.com/watch?v=MzFr7iXsESs
-* https://simonwillison.net/2023/Dec/31/ai-in-2023/
-
-## img
-
-* https://github.com/GabAlpha/basilk https://perchance.org/ai-pixel-art-generator
-* Midjourney https://midlibrary.io/styles
-* DALL-E
-* Stable Diffusion
-* https://news.ycombinator.com/item?id=40437641
-
-## music
-
-* Suno https://www.garbageday.email/p/suno-just-raised-lot-money
-
 # 🟨️ ZA
 
 * _OCR_: image to text https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194
 
 ---
+
+* try it out https://github.com/taylorai/aiq
+* contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
+* BYO https://medium.com/@msouza.os/llm-from-scratch-with-pytorch-9f21808c6319 https://youtu.be/kCc8FmEb1nY
+* learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
+* tokens, read whole thing
+> The big challenge for traditional LLMs is that they are path-dependent; while they can consider the puzzle as a whole, as soon as they commit to a particular guess they are locked in, and doomed to failure. This is a fundamental weakness of what are known as “auto-regressive large language models”, which to date, is all of them. To grossly simplify, a large language model generates a token (usually a word, or part of a word) based on all of the tokens that preceded the token being generated; the specific token is the most statistically likely next possible token derived from the model’s training (this also gets complicated, as the “temperature” of the output determines what level of randomness goes into choosing from the best possible options; a low temperature chooses the most likely next token, while a higher temperature is more “creative”). The key thing to understand, though, is that this is a serial process: once a token is generated it influences what token is generated next. https://stratechery.com/2024/enterprise-philosophy-and-the-first-wave-of-ai/
+> These new models are also available through Mistral's la Plateforme API, priced at $0.1/million tokens (input and output) for the 8B and $0.04/million tokens for the 3B. https://simonw.substack.com/p/video-scraping-using-google-gemini
+* rule-based https://www.youtube.com/watch?v=CeukwyUdaz8
+* supervised https://www.youtube.com/watch?v=j9kcEuGcC2Y
+* CRISP-DM https://www.youtube.com/watch?v=dCa3JvmJbr0
+* model selection https://www.youtube.com/watch?v=OH_R0Sl9neM
+
+BYO
+* https://www.youtube.com/watch?v=kCc8FmEb1nY
+* https://news.ycombinator.com/item?id=41412256&utm_term=comment
+* https://spreadsheets-are-all-you-need.ai/index.html
+* https://iamjoshknox.com/2023/12/06/econeats-an-ai-dining-guide/
+* https://www.saaspegasus.com/guides/django-websockets-chatgpt-channels-htmx
+* https://github.com/langgenius/dify
+* https://github.com/BerriAI/litellm
+
+> https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse
+https://www.thoughtworks.com/radar/languages-and-frameworks/langchain
+
+https://karpathy.ai/zero-to-hero.html
+https://www.youtube.com/watch?v=fuMKrKlaku4
+https://writings.stephenwolfram.com/2024/08/whats-really-going-on-in-machine-learning-some-minimal-models/
+
+REPOS
+https://www.freecodecamp.org/news/get-started-with-hugging-face/ https://pola.rs/posts/polars-hugging-face/ https://github.com/huggingface/transformers https://astral.sh/blog/uv-unified-python-packaging
+https://huggingface.co/stabilityai/stable-diffusion-3-medium
+https://realpython.com/huggingface-transformers/
+
+RAG, vector https://news.ycombinator.com/item?id=41105130 https://en.wikipedia.org/wiki/Retrieval-augmented_generation https://retool.com/blog/retrieval-augmented-generation https://www.youtube.com/watch?v=Q75JgLEXMsM https://www.youtube.com/watch?v=PJaqp5Kdwz0
+
+https://www.amazon.com/gp/product/1098107969
 
 https://www.nbcnews.com/tech/internet/hunting-ai-bots-four-words-trick-rcna161318
 
@@ -357,7 +392,7 @@ https://zed.dev/blog/between-editors-and-ides
 WAYS OF LEARNING https://danielmiessler.com/blog/machine-learning-new-statistics/
 * event-based: no model + datum
 * stat: fixed model + data
-* transformers https://e2eml.school/transformers.html https://jalammar.github.io/illustrated-transformer/ https://news.ycombinator.com/item?id=37774676 https://news.ycombinator.com/item?id=39898221 https://news.ycombinator.com/item?id=41378806
+* transformers https://e2eml.school/transformers.html https://jalammar.github.io/illustrated-transformer/ https://news.ycombinator.com/item?id=37774676 https://news.ycombinator.com/item?id=39898221 https://news.ycombinator.com/item?id=41378806 https://x.com/fchollet/status/1846263128801378616
 * AI: fluid model + data [Ferguson 7] https://blog.cerebralab.com/Replacing_statistics_with_modern_predictive_models
 
 rf
@@ -381,6 +416,11 @@ models
 * _model_: machine impl algo (vs. human impl) https://github.com/minimaxir/automl-gs
 * serialize https://onnx.ai/
 * _gradient descent_: https://www.youtube.com/watch?v=IHZwWFHWa-w
+
+LABELS
+* https://calmcode.io/datasets/clinc
+* https://calmcode.io/labs/doubtlab
+* https://labelerrors.com/
 
 TYPES
 * _supervised_: labeled data during training, unlabeled during predication [Trask 2.11]
@@ -418,6 +458,9 @@ OVERRATED
 > Well, in the past, if a software engineer wanted to create a system to recognise something, they would write logical steps (‘rules’). To recognise a cat in a picture, you would write rules to find edges, fur, legs, eyes, pointed ears and so on, and bolt them all together and hope it worked. The trouble was that though this works in theory, in practice it’s rather like trying to make a mechanical horse - it’s theoretically possible, but the decree of complexity required is impractical. We can’t actually describe all of the logical steps we use to walk, or to recognise a cat. With machine learning, instead of writing rules, you give examples (lots of examples) to a statistical engine, and that engine generates a model that can tell the difference. You give it 100,000 pictures labelled ‘cat’ and 100,000 labelled ‘no cat’ and the machine works out the difference. ML replaces hand-written logical steps with automatically determined patterns in data, and works much better for a very broad class of question - https://www.ben-evans.com/benedictevans/2018/12/19/does-ai-make-strong-tech-companies-stronger
 * need data specific to problem
 > First, though you need a lot of data for machine learning, the data you use is very specific to the problem that you’re trying to solve. GE has lots of telemetry data from gas turbines, Google has lots of search data, and Amex has lots of credit card fraud data. You can’t use the turbine data as examples to spot fraudulent transactions, and you can’t use web searches to spot gas turbines that are about to fail. https://www.ben-evans.com/benedictevans/2018/12/19/does-ai-make-strong-tech-companies-stronger
+
+SCIKIT
+* https://calmcode.io/labs/scikit-partial
 
 ## NLP
 
@@ -484,6 +527,8 @@ SEMANTICS
 
 ---
 
+* video scraping https://simonw.substack.com/p/video-scraping-using-google-gemini
+* generative music https://www.garbageday.email/p/suno-just-raised-lot-money
 * ingest all your notes https://news.ycombinator.com/item?id=41732634
 * image search https://tembo.io/blog/image-search
 * voice clone https://www.jeffgeerling.com/blog/2024/elecrow-responded-apologized-ai-voice-cloning
@@ -499,3 +544,10 @@ SEMANTICS
 * IFTTT https://news.ycombinator.com/item?id=41059821 https://en.wikipedia.org/wiki/IFTTT
 * audio transcription https://news.ycombinator.com/item?id=41199567
 * deep fakes https://github.com/hacksider/Deep-Live-Cam
+
+IMG
+* https://github.com/GabAlpha/basilk https://perchance.org/ai-pixel-art-generator
+* Midjourney https://midlibrary.io/styles
+* DALL-E
+* Stable Diffusion
+* https://news.ycombinator.com/item?id=40437641

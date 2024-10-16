@@ -461,7 +461,7 @@ $QUERY $PATH
 ---
 
 CLEAN UP
-* _ffmpeg_: video encoding, file format conversion https://www.youtube.com/watch?v=MPV7JXTWPWI https://ffmpeg.guide/ https://img.ly/blog/ultimate-guide-to-ffmpeg/
+* _ffmpeg_: video encoding, file format conversion https://www.youtube.com/watch?v=MPV7JXTWPWI https://ffmpeg.guide/ https://img.ly/blog/ultimate-guide-to-ffmpeg/ https://drewdevault.com/2022/10/12/In-praise-of-ffmpeg.html
 * _imgcat_: render img in terminal https://news.ycombinator.com/item?id=23319272
 * _gotty_: term as web app https://github.com/yudai/gotty
 * _neofetch_: system info https://github.com/Dr-Noob/cpufetch
@@ -572,6 +572,14 @@ $ fq  # look at output without stopping the build
 
 ## monitoring
 
+OPTIONS
+* _tiptop_: 🐍 https://github.com/nschloe/tiptop
+
+STATS
+> why is air-capp slow? Google Drive? age (2020 machine)? 🗄️ `tcp-ip.md` network monitor
+* iTerm: 15%
+* VS Code: 10%
+
 ---
 
 * https://wompa.land/articles/iterm-status-bar
@@ -580,5 +588,5 @@ $ fq  # look at output without stopping the build
 * disk: view of mounts; `df -h`; colorize https://danyspin97.org/blog/colorize-your-cli/
 * memory: btop https://github.com/aristocratos/btop free (UNIX) top (macos) gotop https://github.com/xxxserxxx/gotop/issues/50 ytop https://github.com/cjbassi/ytop htop https://tech.marksblogg.com/top-htop-glances.html below https://github.com/facebookincubator/below https://github.com/bvaisvil/zenith https://github.com/ClementTsang/bottom
 > config btop
-> looks pretty good https://github.com/MrRio/vtop https://github.com/nschloe/tiptop
+> looks pretty good https://github.com/MrRio/vtop
 * network: https://github.com/imsnif/bandwhich

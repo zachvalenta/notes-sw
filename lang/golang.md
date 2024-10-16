@@ -10,6 +10,8 @@
 
 ## 进步
 
+building binary for your own archictecture (and fix frangipanni) https://github.com/jpbruinsslot/slack-term/issues/282
+
 BASICS 📙 Ball
 * BYO taskwarrior https://www.youtube.com/watch?v=yiFhQGJeRJk
 * https://www.youtube.com/watch?v=un6ZyFkqFKo
@@ -316,6 +318,10 @@ CMDS
 
 ## design
 
+---
+
+https://drewdevault.com/2021/04/02/Go-is-a-great-language.html
+* https://drewdevault.com/2018/10/08/Go-1.11.html
 * governance https://changelog.com/gotime/333
 * https://commandcenter.blogspot.com/2024/01/what-we-got-right-what-we-got-wrong.html
 * governance: controlled by Google https://news.ycombinator.com/item?id=27610108 https://drewdevault.com/2022/05/25/Google-has-been-DDoSing-sourcehut.html * https://sourcehut.org/blog/2023-01-09-gomodulemirror/

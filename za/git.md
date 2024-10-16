@@ -9,6 +9,15 @@
 
 ## 进步
 
+use Github CLI to perform faster repo sustainability assessment:
+> https://json-schema.org/tools
+> do existing repo browsers offer?
+* stars
+* recent commits
+* open issues vs. closed issues
+* most recent closed issue
+* first commit, commit frequency
+
 * _24_: pager (delta, difftastic)
 * _21_: prepopulate commit msg
 > no memory of doing this, nor knowledge of how to do now
@@ -82,6 +91,8 @@ EVENT TYPES https://docs.github.com/en/rest/using-the-rest-api/github-event-type
 
 ---
 
+can manipulate tags, create releases in repo using CLI https://cli.github.com/manual/gh_release
+
 TOOLING
 * _act_: run locally https://github.com/nektos/act
 * _gama_: https://github.com/termkit/gama
@@ -102,6 +113,7 @@ TOOLING
 
 ---
 
+* https://github.com/mislav/hub https://hub.github.com/#developer
 * https://github.com/donnemartin/gitsome
 * https://github.com/github/hub
 * https://github.com/cli/cli
@@ -143,6 +155,8 @@ gh alias list
 
 * use SVG https://github.com/zachvalenta/capp-prod-cat-alt
 * use HTML https://github.com/catppuccin/delta/blame/main/README.md
+* "try without installing!" https://zellij.dev/
+* directory tree https://github.com/koaning
 
 ---
 
@@ -708,6 +722,10 @@ notas post-mortem
 
 ---
 
+https://drewdevault.com/2019/02/25/Using-git-with-discipline.html
+https://drewdevault.com/2020/04/06/My-weird-branchless-git-workflow.html
+https://registerspill.thorstenball.com/p/how-i-use-git
+
 🗄
 * merge
 * `di`: one-step add and commit for single file 
@@ -802,8 +820,8 @@ INSTALLATION https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 * macOS: 10.9 onwards handled by Command Line Tools https://github.com/creationix/nvm#important-notes ❓ Homebrew install being used?
 * Linux: `git-all`
 
-CONFIG https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
-* uses INI fmt
+CONFIG 📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup 🗄️ `protocols.md` INI
+> aliases in gitconfig or zprofile? https://github.com/zachvalenta/dotfiles-mini23/commit/ddecff7a70e14d7a545e4d9fc72837e1a378b203
 * aliases split btw `.gitconfig` and `.bash_profile` 
 * set based on repo https://utf9k.net/blog/conditional-gitconfig/
 * _list_: `git config --list --show-origin` https://stackoverflow.com/a/2115116 might see dupes bc Git reads from all config files, with most local (e.g. repo-level) taking precedence
@@ -844,7 +862,7 @@ GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Rep
 * _snippets_: Gist, pastebin https://softwareengineeringdaily.com/2020/06/08/tilt-kubernetes-tooling-with-dan-bentley/ 46:45
 
 HOSTING
-* aaS: Github (no default to fuzzy search), Gitlab EE, SourceHut https://git.sr.ht/~shulhan/gotp
+* aaS: Github (no default to fuzzy search), Gitlab EE, SourceHut https://git.sr.ht/~shulhan/gotp https://drewdevault.com/2018/06/05/Should-you-move-to-sr.ht.html
 * https://github.com/honza/smithy https://codeberg.org/
 * _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965
 * _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717

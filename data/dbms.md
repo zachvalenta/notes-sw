@@ -197,6 +197,7 @@ TACTICS
 
 ---
 
+* https://terrastruct.com/blog/post/practical-intermediate-database-tips/
 * Postgres
 > When modeling a Postgres database, you probably don’t give much thought to the order of columns in your tables. After all, it seems like the kind of thing that wouldn’t affect storage or performance. But what if I told you that simply reordering your columns could reduce the size of your tables and indexes by 20%? This isn’t some obscure database trick — it’s a direct result of how Postgres aligns data on disk.
 
@@ -678,6 +679,9 @@ HIERARCHICAL
 
 ## graph
 
+🗄 `algos.md` graph
+
+* https://calmcode.io/datasets/dependencies
 * _EdgeDB_: graph-relational = no impedance mismatch but still relational https://news.ycombinator.com/item?id=30290225
 * written in Python on top of Postgres https://talkpython.fm/episodes/show/355/edgedb-building-a-database-in-python
 * _network database_: similar to graph https://stackoverflow.com/a/52325525 📙 Takahashi [2.39]
@@ -796,7 +800,7 @@ dbms
 * general https://www.postgresql.org/docs/current/index.html
 * guide http://postgresguide.com/
 * wiki https://wiki.postgresql.org/wiki/Main_Page
-* design https://news.ycombinator.com/item?id=35599118 Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf
+* design https://news.ycombinator.com/item?id=35599118 Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf https://drewdevault.com/2021/08/05/In-praise-of-Postgres.html
 
 HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https://news.ycombinator.com/item?id=39273954
 * monitor / metrics https://github.com/CrunchyData/pgmonitor-extension
@@ -836,7 +840,6 @@ SEMANTICS
 * _cluster_: server instance managing n databases https://www.postgresql.org/docs/12/tutorial-concepts.html https://www.crunchydata.com/blog/postgres-databases-and-schemas
 * _foreign data wrapper_: access data from another data store e.g. document store for a relational db https://github.com/pgspider/sqlite_fdw
 * `json`: text field; slow to search
-* JSON schema https://github.com/supabase/pg_jsonschema
 * `jsonb`: binary; slower writes, faster reads https://pganalyze.com/blog/postgres-jsonb-django-python
 ```sql
 -- all keys for json obj
@@ -1061,6 +1064,7 @@ web_1  | ModuleNotFoundError: No module named 'psycopg2'
 USAGE
 * atuin
 * iPython
+* prod! https://simonw.substack.com/p/video-scraping-using-google-gemini
 
 ---
 
@@ -1076,7 +1080,6 @@ ZA
 * backups https://github.com/benbjohnson/litestream https://news.ycombinator.com/item?id=34517474 https://github.com/maxpert/marmot https://litestream.io/alternatives/cron/ https://news.ycombinator.com/item?id=31152490 https://news.ycombinator.com/item?id=31318708
 
 HOWTO
-* ERD https://github.com/Dicklesworthstone/sqlalchemy_data_model_visualizer https://gitlab.com/Screwtapello/sqlite-schema-diagram
 * diff changes / changelog https://news.ycombinator.com/item?id=38110286&utm_term=comment
 * tuning https://news.ycombinator.com/item?id=35547819 https://news.ycombinator.com/item?id=39955288
 * config (journal, wal, timeout) https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html https://avi.im/blag/2021/fast-sqlite-inserts/

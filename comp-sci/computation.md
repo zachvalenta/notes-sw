@@ -40,7 +40,7 @@ def computation():
     return human_significance(data=hw_automate_math_op(num_sys, logic_gate), encoding)
 ```
 
-* _lambda calculus_: Conery chapter 3 https://www.youtube.com/watch?v=pkCLMl0e_0k https://news.ycombinator.com/item?id=27648871 https://www.youtube.com/watch?v=QuXJ3kXUCiU
+* _lambda calculus_: Conery chapter 3 https://www.youtube.com/watch?v=pkCLMl0e_0k https://news.ycombinator.com/item?id=27648871 https://www.youtube.com/watch?v=QuXJ3kXUCiU https://www.youtube.com/watch?v=ViPNHMSUcog
 * _non-determinism_: https://ahelwer.ca/post/2020-04-15-probabilistic-distsys/
 
 ## information theory
@@ -141,6 +141,7 @@ STATE MACHINE
 # 💻 HARDWARE
 
 🗄 `science.md` electricity
+🎓 computer engineering https://chatgpt.com/c/671121b1-633c-8004-88ee-bcc142ac24f5
 📚
 * Matthews dive https://diveintosystems.org/
 * Shibuya microprocessors
@@ -225,7 +226,7 @@ RAM
 > Swapfile is just bigger-but-slower RAM. https://news.ycombinator.com/item?id=25056588
 
 VIRTUAL https://questions.wizardzines.com/virtual-memory.html
-* _virtual memory_: disk used as memory when you run out of actual memory 📙 Evans linux [24] 📙 Bryant [9] https://questions.wizardzines.com/virtual-memory.html
+* _virtual memory_: disk used as memory when you run out of actual memory 📙 Evans linux [24] 📙 Bryant [9] https://questions.wizardzines.com/virtual-memory.html https://drewdevault.com/2018/10/29/How-does-virtual-memory-work.html
 * _page_: chunk of virtual memory
 * _page table_: map of page to physical address
 * every process has its own 📙 Evans linux [16]
@@ -290,6 +291,7 @@ scheduling 🗄 `linux.md` processes
 * _core_: main component that reads from memory, maintains execution order and state, and uses ALU to perform operations https://stackoverflow.com/a/19314303 https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
 * _core types_: physical (what it sounds like) logical (abstraction to facilitate hyperthreading) https://stackoverflow.com/q/1715580 https://forums.tomshardware.com/threads/what-is-the-difference-between-physical-core-and-logical-core.1534416/
 * _hyperthreading_: single core that can execute n instructions simultaneously
+* _NPU_: good for lower power consumption? https://news.ycombinator.com/item?id=41863460
 * _GPU_: https://news.ycombinator.com/item?id=23986925 https://lwn.net/Articles/827596/ https://codeconfessions.substack.com/p/gpu-computing https://codeconfessions.substack.com/p/gpu-computing
 > GPUs are much less complex than CPUs; that means they can execute instructions much more quickly, but those instructions have to be much simpler. At the same time, you can run a lot of them at the same time to achieve outsized results. Graphics is, unsurprisingly, the most obvious example: every "shader" - the primary processing component of a GPU - calculates what will be displayed on a single portion of the screen; the size of the portion is a function of how many shaders you have available. If you have 1,024 shaders, each shader draws 1/1,024 of the screen. Ergo, if you have 2,048 shaders, you can draw the screen twice as fast. Graphics performance is "embarrassingly parallel", which is to say it scales with the number of processors you apply to the problem. https://stratechery.com/2023/china-chips-and-moores-law/
 * _Apple silicon_: processor that uses ARM64

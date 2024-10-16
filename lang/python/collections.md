@@ -498,7 +498,6 @@ recipes
 * _check in key present_: `<key> in <dict>`
 * _get all keys_: cast to list `list({'name': 'alice'})` https://docs.python.org/3/tutorial/datastructures.html#dictionaries
 * _merge_: `{**dict1, **dict2}` https://realpython.com/iterate-through-dictionary-python/#using-the-dictionary-unpacking-operator https://treyhunner.com/2016/02/how-to-merge-dictionaries-in-python/
-* _pretty print_: `print(json.dumps(item, indent=4, sort_keys=True))` only works when keys are primitives https://stackoverflow.com/a/47007417
 * _sort_: `sorted(ur_dict.items(), key=lambda x: x[1])` (sorts by V) https://jeffknupp.com/blog/2018/12/13/how-to-do-just-about-anything-with-python-lists/
 
 * read
@@ -590,16 +589,6 @@ l = list ()  # empty (`list[]` is invalid)
 
 " ".join(str(x) for x in L)  # to string
 print(*ur_list, sep="\n")  # https://stackoverflow.com/a/22695369
-print(json.dumps(item, indent=4, sort_keys=True))  # https://stackoverflow.com/a/55179673/6813490
-"""
-{
-    "first": 123,
-    "second": 456,
-    "third": {
-        "1": 1,
-        "2": 2
-    }
-}
 """
 ```
 * 📍 https://docs.python.org/3/tutorial/stdlib2.html#tools-for-working-with-lists flatten https://realpython.com/python-flatten-list/
@@ -658,6 +647,7 @@ fruit | veg   # avocado, banana, tomato, beet, carrot
 
 ---
 
+parse https://realpython.com/python-packages/#parse-for-matching-strings
 * https://www.youtube.com/watch?v=EimoZHDcQMA
 * textwrap https://martinheinz.dev/blog/108
 * f-strings https://martinheinz.dev/blog/103 https://martinheinz.dev/blog/70

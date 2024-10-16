@@ -21,6 +21,7 @@ THINGS TO KNOW https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * _SNI(server name indication)_: first HTTP message in connection, client tells server who it wants to connect to https://www.agwa.name/blog/post/writing_an_sni_proxy_in_go https://jvns.ca/blog/2016/07/14/whats-sni/
 
 WHAT HAPPENS WHEN 📙 `evans-networking-ack.pdf` https://www.youtube.com/watch?v=AlkDbnbv7dk
+* https://drewdevault.com/2016/12/06/A-broad-intro-to-networking.html
 * https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls
 * https://github.com/reorx/httpstat
 * _request flow_: browser cache, hosts file (`/private/etc/hosts` on macOS) router [`evans-tcpdump.pdf`], DNS cache, DNS server (local ISP, then eventually if you're unlucky to a root server, who point your query to the .coms or .govs or what have you)
@@ -190,7 +191,7 @@ accept-language https://borretti.me/article/uselessness-accept-language-header
 * https://www.twilio.com/blog/a-http-headers-for-the-responsible-developer https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers https://www.fastly.com/blog/headers-we-dont-want
 
 * _media type_: serialization; json `application/json` form `application/x-www-form-urlencoded` file `multipart/form-data` https://github.com/zachvalenta/pacific-flask/blob/master/templates/index.html#L22 
-* _mime type_: old name for media type https://stackoverflow.com/a/9277778 https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+* _MIME type_: old name for media type https://stackoverflow.com/a/9277778 https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types https://drewdevault.com/2022/01/28/Implementing-mime-in-xxxx.html
 
 misc
 * do not track: sites just ignore https://lwn.net/Articles/826575/
@@ -493,6 +494,7 @@ PROTCOLS https://news.ycombinator.com/item?id=22989186 https://valyent.substack.
 * _JMAP_: email protocol https://fastmail.blog/2018/12/27/jmap-is-on-the-home-straight/ https://news.ycombinator.com/item?id=36127703
 
 GMAIL ALTERNATIVES 🗄 `security.md` privacy
+* https://drewdevault.com/2020/06/19/Mail-service-provider-recommendations.html
 * don't bikeshed https://news.ycombinator.com/item?id=23423548 bc accounts tied to email are hard to move https://news.ycombinator.com/item?id=24245817
 * howto: try out new service with some newsletters and the zjayv.com domain
 > eventually: clean out Gmail, export business/personal to separate accounts, and then can continually export personal to local mbox viewer
@@ -589,6 +591,11 @@ scp user@host:/src/file.txt /local/
 
 ## IRC
 
+🗄️ `info.md` chat
+
+---
+
+https://drewdevault.com/2021/03/29/The-worlds-dumbest-IRC-bot.html
 https://webchat.freenode.net/#sr.ht
 * channels https://news.ycombinator.com/item?id=7161436
 * clients: irssi https://weechat.org/ Textual
@@ -655,7 +662,7 @@ client config https://news.ycombinator.com/item?id=23027833
 * https://github.com/charmbracelet/wish
 https://stackoverflow.com/a/33243564/6813490
 process https://help.ubuntu.com/community/SSH/OpenSSH/Keys
-* _agent_: https://smallstep.com/blog/ssh-agent-explained/
+* _agent_: https://smallstep.com/blog/ssh-agent-explained/ https://drewdevault.com/2022/05/09/hare-ssh.html
 * _debug_: https://unix.stackexchange.com/a/229432/331460
 * _keys_: private (held on client) public (held on server, incl all text in file) use them bc user/pw can be brute force; generate new w/ `ssh-keygen`
 * _port_: defaults to 22
@@ -730,6 +737,7 @@ TLS
 * config https://hacker-tools.github.io/security/ https://mattsegal.dev/simple-django-deployment.html https://testdriven.io/blog/django-lets-encrypt testing https://hacker-tools.github.io/security/
 * _HSTS_: tells browser to use HTTPS https://really-simple-ssl.com/knowledge-base/what-does-hsts-mean/ https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security
 * if site uses HTTPS then embedded content must be as well, apparently this conflicts w/ adverts which is why many news sites aren't https://robertheaton.com/2014/03/27/how-does-https-actually-work/ https://howhttps.works/episodes/ https://whydoesaptnotusehttps.com/ https://stackoverflow.com/a/187685/6813490
+* Let's Encrypt https://drewdevault.com/2018/06/27/My-lets-encrypt-setup.html
 
 OpenSSL
 * generate self-signed cert for local dev

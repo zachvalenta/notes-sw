@@ -12,6 +12,186 @@
 * _17_: PHP, SQL
 * _16_: JavaScript, Java
 
+# 🦠 COMPILERS
+
+🔗 https://en.wikipedia.org/wiki/Execution_(computing)
+🔍 https://softwareengineering.stackexchange.com/questions/tagged/compiler
+🗄️ `algos.md` data structures / tree
+📚
+* Ball interpreter https://vgel.me/posts/c500/
+* Nystrom crafting https://craftinginterpreters.com
+* Eloquent Javascript
+* https://keleshev.com/compiling-to-assembly-from-scratch/
+
+---
+
+TYPES OF COMPILATION
+* _just-in-time (JIT)_: https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction
+* _ahead-of-time (AOT)_: https://news.ycombinator.com/item?id=22346540
+* _adaptive_: quickening https://realpython.com/python311-new-features/#faster-code-execution https://github.com/brandtbucher/specialist
+
+TYPES OF CODE 📙 Bryant computer systems (3)
+* _machine code_: binary; handled by compiler's backend https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ via `objdump` 📙 Erickson hacking [21]
+* _instuction set_: pattern of bits/int/char that map to cmd https://en.wikipedia.org/wiki/Machine_code#Instruction_set https://steveklabnik.com/writing/is-webassembly-the-return-of-java-applets-flash
+* _intermediate representation (IR)_: final step before machine code; handled by compiler's front end https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
+* _instruction_: individual line of machine code https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
+* _bytecode_: step after src but before IR? uses hex? https://www.youtube.com/watch?v=QU158nGABxI 23:55 🗄 `python.md` interpreter https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md injection https://stackoverflow.com/questions/3470949/what-is-java-bytecode-injection https://github.com/yiblet/inquest  https://docs.python.org/3/glossary.html#term-bytecode
+
+COMPILERS
+* _cc_: original compiler https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
+* _cl_: Microsoft
+* _Clang_: 
+* _gcc_: 
+* _LLVM_: from source to IR, then optimize IR https://aosabook.org/en/v1/llvm.html
+
+SEMANTICS
+* _compiler_: src code -> machine code https://www.youtube.com/watch?v=QdnxjYj1pS0
+* _transpile_: convert from one HLA to another http://coconut-lang.org/
+* in JS world, to previous ECMAScript spec for older browser e.g. Babel https://www.vrk.dev/2019/07/11/why-is-modern-web-development-so-complicated-a-long-yet-hasty-explanation-part-1/
+* _hot reload_: change program while it runs http://www.jakubkonka.com/2022/03/16/hcs-zig.html
+* _inline cache_: https://en.wikipedia.org/wiki/Inline_caching https://bernsteinbear.com/blog/inline-caches-in-skybison/
+
+| impl    | target  | link                                   |
+|---------|---------|----------------------------------------|
+| C       | C       | https://github.com/DoctorWkt/acwj      |
+
+* _compilation target_: compilation fmt e.g. another lang (JS https://www.youtube.com/watch?v=3LWgbjVWLug 3:00) or binary (WASM) https://steveklabnik.com/writing/is-webassembly-the-return-of-java-applets-flash
+
+times https://stackoverflow.com/q/846103
+* _compile time_: compile code; err on static err (syntax, typing)
+* _run time_: exec code; err on dynamic err (zero division, run out of mem)
+* _import time_: exec code; leads to suble errors
+> In Java, import foo means "I depend on the `foo` module; please have the virtual machine link me to it when I run." In Python, import `foo` means "look for `foo.py` in the path, execute it, store local variables in a module object, and assign that module to the `foo` variable in my scope." The difference is that the Python version can run essentially arbitrary code, including importing other modules which then import other modules in turn. https://www.benkuhn.net/importtime/
+
+* linker https://news.ycombinator.com/item?id=27444647 https://gankra.github.io/blah/swift-abi/ 📙 Bryant (7)
+https://web.eecs.utk.edu/~azh/blog/teenytinycompiler1.html
+
+🗣 people to ask for help https://github.com/yiblet https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html
+🔗 https://news.ycombinator.com/item?id=24066570
+🔗 start here https://www.destroyallsoftware.com/screencasts/catalog
+* hosted language: language using 3rd-party compiler (as Clojure uses JVM)
+https://keleshev.com/compiling-to-assembly-from-scratch/ https://news.ycombinator.com/item?id=24609774
+
+translators https://en.wikipedia.org/wiki/Symbol_table https://stackoverflow.com/a/3434252
+* _assembler_: transform assembly to something less abstract, sometimes machine code and sometimes something a few levels up https://stackoverflow.com/questions/3434202/what-is-the-difference-between-native-code-machine-code-and-assembly-code/3434252#comment25665803_3434252
+* _interpreter_: 
+* _compiler_: transform high-level language to IR; 'self-hosting' is written in language it's compiling https://robertheaton.com/2017/10/24/what-is-a-self-hosting-compiler/
+
+instructions
+> where do virtual machines fit in this taxonomy? https://www.capitalone.com/tech/software-engineering/go-is-boring/
+* _symbol table_: map of idenifiers (aka symbol) to type and scope https://en.wikipedia.org/wiki/Symbol_table#Example https://eli.thegreenplace.net/2010/09/18/python-internals-symbol-tables-part-1 https://drewdevault.com/2021/03/19/A-new-systems-language.html
+
+implementations https://github.com/marcpaq/b1fipl
+* make a Lisp https://news.ycombinator.com/item?id=21670442
+* _JS_: https://github.com/jamiebuilds/the-super-tiny-compiler
+* _Ruby_: Ruby Under a Microscope https://codon.com/compilers-for-free from Python https://www.ruby-lang.org/en/documentation/ruby-from-other-languages/to-ruby-from-python/
+* _Python_: https://bernsteinbear.com/blog/bytecode-interpreters/ https://ruslanspivak.com/lsbasi-part1/ http://www.aosabook.org/en/500L/a-python-interpreter-written-in-python.html http://www.thedigitalcatonline.com/blog/2017/05/09/a-game-of-tokens-write-an-interpreter-in-python-with-tdd-part-1/ https://github.com/danistefanovic/build-your-own-x#build-your-own-programming-language http://aosabook.org/en/500L/a-python-interpreter-written-in-python.html https://codewords.recurse.com/issues/seven/dragon-taming-with-tailbiter-a-bytecode-compiler http://www.trevorblackwell.com/#faq https://blog.miguelgrinberg.com/post/building-a-toy-programming-language-in-python https://mathspp.com/blog/building-a-python-compiler-and-interpreter
+* _general_: https://www.youtube.com/watch?v=wSdV1M7n4gQ&t=157s + https://increment.com/programming-languages/crash-course-in-compilers/ + https://blog.wesleyac.com/posts/language-todos + https://blog.felixangell.com/compilers-brief-and-brisk + https://medium.com/basecs
+* _Jit_ https://www.youtube.com/watch?v=2BB39q6cqPQ https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction
+* _Ball_: src not in repo https://www.reddit.com/r/golang/comments/5eiiw6/writing_an_interpreter_in_go_now_available/ user impl https://github.com/mmyoji/go-monkey https://github.com/skatsuta/monkey-interpreter https://github.com/ELD/monkey-lang-go https://github.com/dnutiu/monkeyInterpreter
+* _SQL_: http://aosabook.org/en/sqlalchemy.html
+
+clean up
+* mojo https://www.fast.ai/posts/2023-05-03-mojo-launch.html
+* _compiled_: src type checked, then run
+* _reference implementation_: primary implementation of language (CPython) as compared to other alternate implementations (PyPy, Jython)
+* need to have same errors
+> We crashed Oracle, including commercial versions of Oracle. We crashed DB2. Anything we could get our hands on, we tried it and we managed to crash it, but the point was that we wanted to make sure that SQLite got the same answers for all of these queries, or equivalent answers, because a lot of these queries, they’re indeterminate and the rows might come out in a different order because you [crosstalk 00:25:10] order by clause, so we wanted to make sure that all the database engines got equivalent answers. Mostly, we wanted to make sure that SQLite was getting the same answers everybody else is. https://corecursive.com/066-sqlite-with-richard-hipp/
+* syntax trees https://eli.thegreenplace.net/2009/02/16/abstract-vs-concrete-syntax-trees https://www.pythonpodcast.com/episode-113-jedi-code-completion-with-david-halter/
+* _interpreted_: src code run straight away
+* _JIT_: normal interpreter but will compile hot paths https://carolchen.me/blog/jits-impls/
+* _output_: assembly (for GCC) https://cs.stackexchange.com/questions/14749/why-do-compilers-produce-assembly-code
+* writing language compiler in that language https://stackoverflow.com/questions/18247888/how-can-a-c-compiler-be-written-in-c
+* _grammar_: syntax for programming language https://blog.robertelder.org/computer-science-for-engineers/
+* https://github.com/aalhour/awesome-compilers http://steve-yegge.blogspot.com/2007/06/rich-programmer-food.html https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript https://medium.com/basecs https://ruslanspivak.com/lsbasi-part1/ https://nicoleorchard.com/blog/compilers https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/README.md http://aosabook.org/en/500L/static-analysis.html https://increment.com/programming-languages/crash-course-in-compilers/ https://corecursive.com/037-thorsten-ball-compilers/ https://news.ycombinator.com/item?id=22731505 https://www.pythoninsight.com/2018/09/python-basics-bytecode 
+
+BNF https://realpython.com/python-bnf-notation/
+BYO JSON parser https://news.ycombinator.com/item?id=38150833
+
+* JIT https://tonybaloney.github.io/posts/python-gets-a-jit.html
+* Bryant (5)
+* Nisan nand2tetris (4, 6-11)
+
+* Conery ch. 10
+* bytecode, control flow graphs (CFG) https://bernsteinbear.com/blog/discovering-basic-blocks/
+
+compilation
+* _output_: machine code ['Go in Practice' 18]
+* _CLI options_: `Wall` warn all `-o` choose own name instead of a.out `std` spec
+```sh
+gcc foo.c -Wall -o my_program m -std='c99'
+./my_program
+```
+* `.a`: lib whose code is embedded into your library
+* `.so`: lib whose code is referenced by your library https://stackoverflow.com/a/9809250
+* _header file_: imports
+
+* https://drewdevault.com/2017/02/22/cozy-devnotes-machine-specs.html
+* _bootstrapping_: wrote core of compiler in another language and then use that core to build the rest of the compiler in the source language i.e. self-compilation https://softwareengineering.stackexchange.com/a/76640 https://stackoverflow.com/a/18126181
+* _executable_: runtime + binary compatible with user os architecture
+* for user's machine vs. your server https://testandcode.com/52 @ 29:00
+* aka freeze in Python land https://docs.python-guide.org/shipping/freezing/
+
+## AST
+
+---
+
+> D2 has an API built on top of its AST for programmatically creating diagrams in Go. This package is d2/d2oracle.  https://d2lang.com/tour/api
+
+* _parser_: generates AST from src https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html https://astral.sh/blog/ruff-v0.4.0 https://drewdevault.com/2021/04/22/Our-self-hosted-parser-design.html
+* _AST_: src as tree https://sadh.life/post/ast/ https://d2lang.com/tour/api
+* translate AST from c to Golang src https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
+```python
+def area_of_circle(radius):
+    pi = 3.14
+    return pi * radius * radius
+
+area_of_circle(5)
+
+                 (program)
+                /         \
+  (area_of_circle r)      (main)
+  /           |             |
+define    calculate        run area_of_circle
+  pi        area             with r = 5
+           /   |
+     multiply  (pi, r, r)
+```
+* _grammar_: rules for language's AST https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework#parsing-the-code
+* FFI parser https://scottlocklin.wordpress.com/2021/04/01/obvious-and-possible-software-innovations-nobody-does/
+* FFI, JNI https://news.ycombinator.com/item?id=31353740
+
+## spec
+
+https://drewdevault.com/2021/12/30/Language-design-considerations.html
+https://www.paulgraham.com/arc.html
+https://drewdevault.com/2021/08/11/Debugging-your-new-PL.html
+
+## steps
+
+* 📙 Conery 216
+* _assemble_: convert from HLA to assembly
+* _disassemble_: show assembly for HLA https://realpython.com/python311-new-features/#faster-code-execution https://florian-dahlitz.de/blog/disassemble-your-python-code 
+```python
+import dis
+dis.dis(fn)
+```
+* _lex_: tokenize [Conery 218] https://www.aaronraff.dev/blog/how-to-write-a-lexer-in-go
+* why it's split from parse https://news.ycombinator.com/item?id=35798829
+* _lexical analysis_: https://docs.python.org/3/reference/lexical_analysis.html
+* _parse_: 
+* _semantic analysis_: 
+* _optimization_: most of diff btw compilers is here [Conery 216] https://signalsandthreads.com/compiler-optimization/
+* _code generation_: 
+* _token_: atomic unit of significance
+```python
+tokens = {
+    "variable": "foo",
+    "operator": "=",
+    "number": 10
+}
+```
+
 # 📚 LANGUAGES
 
 > an algorithm management system 📰 Ford what is code?
@@ -104,11 +284,8 @@ https://wizardzines.com/comics/assembly/
 * courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
 * more books http://fabiensanglard.net/c/index.php
 
-## STDLIB
-
-* builtin: hot reload, lint, fmt, http https://www.youtube.com/watch?v=8IHhvkaVqVE
-* things people don't like and replacements https://news.ycombinator.com/item?id=25125034
-* _libc_: POSIX spec for os stdlib; used by higher-levels languages for everything from networking to memory management https://wizardzines.com/comics/libc/
+STDLIB
+* _libc_: POSIX spec for os stdlib; used by higher-levels languages for everything from networking to memory management https://wizardzines.com/comics/libc/ https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
 * _glibc_: most common impl of libc https://stackoverflow.com/a/11373143
 * _musl_: used by Alpine https://www.musl-libc.org/ https://news.ycombinator.com/item?id=23819500 https://www.etalabs.net/compare_libcs.html cleaner? https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
 
@@ -120,6 +297,8 @@ DESIGN
 > Libraries written in C are callable from any programming language. https://sqlite.org/whyc.html
 > The Linux kernel is written in C. The software that connects your printer to your computer could be in C. The Web servers that serve up your Web pages are often written in C. It’s also a good language for writing other languages - Python, PHP, and Perl are written in C, as are many others. C is a language you use for building systems; it has the same role in computing that Latin did among Renaissance academics. - Ford what is code?
 * example code: Redis, SQlite https://news.ycombinator.com/item?id=30753428
+* https://drewdevault.com/2017/03/15/How-I-learned-to-stop-worrying-and-love-C.html
+* https://drewdevault.com/2017/01/30/Lessons-to-learn-from-C.html
 
 HISTORY
 * _1972_: created https://www.bell-labs.com/usr/dmr/www/chist.html
@@ -270,6 +449,7 @@ ZA
 📙 SICP https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
 
 ZA
+* Hofstadter https://gist.github.com/jackrusher/5139396
 * declarative? 📙 Karwin [2]
 * _history_: self-perpetuating failure https://news.ycombinator.com/item?id=13143282 Lisp was more awesome in a world w/out Java, Python?
 * https://twobithistory.org/2018/10/14/lisp.html
@@ -282,6 +462,7 @@ ZA
 * https://news.ycombinator.com/item?id=33600941
 * https://news.ycombinator.com/item?id=40335608
 * https://www.fosskers.ca/en/blog/rounds-of-lisp
+* https://gitlab.com/lockie/cl-fast-ecs/-/wikis/tutorial-2 https://news.ycombinator.com/item?id=41869460
 
 LISPS
 * _Clojure_: https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792
@@ -301,7 +482,16 @@ LANGUAGE https://tryclojure.org/
 
 ---
 
+* not so hard to read after all https://github.com/raphlinus/font-rs/blob/master/src/accumulate.rs
+
+STDLIB
+* GUI https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html
+
+https://simonwillison.net/tags/rust/
 https://chrisdone.com/posts/rust/
+https://drewdevault.com/2024/08/30/2024-08-30-Rust-in-Linux-revisited.html
+https://drewdevault.com/2022/10/03/Does-Rust-belong-in-Linux.html
+https://drewdevault.com/2019/03/25/Rust-is-not-a-good-C-replacement.html
 https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust https://www.ntietz.com/projects/
 * vs. Golang https://registerspill.thorstenball.com/p/glad-i-did-it-in-go
 > This blog post, Rewriting Rust, was very interesting. “I swear, it took more effort to learn pinning in rust than it took me to learn the entire Go programming language.” Some day (in the far future) I might write more about my feelings on Rust, but while reading this post I kept waiting for the paragraph in which they say what they would remove from the language. That paragraph never came and I think that’s one of the biggest sources of friction between me and Rust. https://registerspill.thorstenball.com/p/joy-and-curiosity-9
@@ -531,13 +721,13 @@ HOWTO
 * increases headcount, not total users https://news.ycombinator.com/item?id=34567237
 > Second, C has a tendency to be conservative, changing and growing very slowly. This is a feature, and one that is often undervalued by developers. (In fact, I’d personally like to see a future revision that makes the C language specification smaller and simpler, rather than accumulate more features.) - https://nullprogram.com/blog/2018/11/21/
 
-
 SYSTEMS PROGRAMMING
 * languages: C, C++, Rust
-* things people write with: dbms, web server, compiler, shell https://drewdevault.com/2021/05/30/Come-build-your-project.html https://drewdevault.com/2021/02/21/On-the-traits-of-good-replacements.html
+* things people write with: dbms, web server, compiler, shell https://drewdevault.com/2021/05/30/Come-build-your-project.html
 * fuzzy definition http://willcrichton.net/notes/systems-programming/ https://news.ycombinator.com/item?id=35092049
 * memory management now in favor http://esr.ibiblio.org/?p=7804
 * is easy :) https://news.ycombinator.com/item?id=34566918
+* https://drewdevault.com/2021/03/19/A-new-systems-language.html
 
 ## functional
 
@@ -719,6 +909,8 @@ turns into metadata addiction
 
 # 🟨 ZA
 
+https://drewdevault.com/2021/10/05/Reflection.html
+
 OVERLOADING
 * _function overloading_: same method name, different sig (i.e. diff params)
 * some people don't like https://news.ycombinator.com/item?id=22347007
@@ -801,172 +993,6 @@ learn a few languages well
 
 when you really love your favorite language 💜
 > My favorite programming language is C. It’s fast, simple, and compiles very quickly. Unlike many other languages, it’s quite reasonable for an individual to have a comprehensive understanding of the entire language. C is my default choice unless something else is particularly better suited (Python, shell script, etc.). There’s also a special place in my heart for Emacs Lisp, a venerable goofball language that’s so much fun to discuss. https://nullprogram.com/about/
-
-## compilers
-
-🔗 https://en.wikipedia.org/wiki/Execution_(computing)
-🔍 https://softwareengineering.stackexchange.com/questions/tagged/compiler
-🗄️ `algos.md` data structures / tree
-📚
-* Ball interpreter https://vgel.me/posts/c500/
-* Nystrom crafting https://craftinginterpreters.com
-* Eloquent Javascript
-* https://keleshev.com/compiling-to-assembly-from-scratch/
-
-SEMANTICS
-* _compiler_: src code -> machine code https://www.youtube.com/watch?v=QdnxjYj1pS0
-* _transpile_: convert from one HLA to another http://coconut-lang.org/
-* in JS world, to previous ECMAScript spec for older browser e.g. Babel https://www.vrk.dev/2019/07/11/why-is-modern-web-development-so-complicated-a-long-yet-hasty-explanation-part-1/
-* _hot reload_: change program while it runs http://www.jakubkonka.com/2022/03/16/hcs-zig.html
-* _inline cache_: https://en.wikipedia.org/wiki/Inline_caching https://bernsteinbear.com/blog/inline-caches-in-skybison/
-
-| impl    | target  | link                                   |
-|---------|---------|----------------------------------------|
-| C       | C       | https://github.com/DoctorWkt/acwj      |
-
----
-
-BNF https://realpython.com/python-bnf-notation/
-BYO JSON parser https://news.ycombinator.com/item?id=38150833
-
-* JIT https://tonybaloney.github.io/posts/python-gets-a-jit.html
-* Bryant (5)
-* Nisan nand2tetris (4, 6-11)
-
-types of code 📙 Bryant computer systems (3)
-* _machine code_: binary; handled by compiler's backend https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ via `objdump` 📙 Erickson hacking [21]
-* _instuction set_: pattern of bits/int/char that map to cmd https://en.wikipedia.org/wiki/Machine_code#Instruction_set https://steveklabnik.com/writing/is-webassembly-the-return-of-java-applets-flash
-* _intermediate representation (IR)_: final step before machine code; handled by compiler's front end https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
-* _instruction_: individual line of machine code https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
-* _bytecode_: step after src but before IR? uses hex? https://www.youtube.com/watch?v=QU158nGABxI 23:55 🗄 `python.md` interpreter https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md injection https://stackoverflow.com/questions/3470949/what-is-java-bytecode-injection https://github.com/yiblet/inquest  https://docs.python.org/3/glossary.html#term-bytecode
-
-* Conery ch. 10
-* bytecode, control flow graphs (CFG) https://bernsteinbear.com/blog/discovering-basic-blocks/
-
-types of compilation
-* _just-in-time (JIT)_: https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction
-* _ahead-of-time (AOT)_: https://news.ycombinator.com/item?id=22346540
-* _adaptive_: quickening https://realpython.com/python311-new-features/#faster-code-execution https://github.com/brandtbucher/specialist
-
-compilers
-* _cc_: original compiler https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
-* _gcc_: 
-* _Clang_: 
-* _LLVM_: https://aosabook.org/en/v1/llvm.html
-
-compilation
-* _compilers_: gcc, Clang, cl (MS) LLVM (from source to IR, then optimize IR http://aosabook.org/en/llvm.html)
-* _output_: machine code ['Go in Practice' 18]
-* _CLI options_: `Wall` warn all `-o` choose own name instead of a.out `std` spec
-```sh
-gcc foo.c -Wall -o my_program m -std='c99'
-./my_program
-```
-* `.a`: lib whose code is embedded into your library
-* `.so`: lib whose code is referenced by your library https://stackoverflow.com/a/9809250
-* _header file_: imports
-
-* _bootstrapping_: wrote core of compiler in another language and then use that core to build the rest of the compiler in the source language i.e. self-compilation https://softwareengineering.stackexchange.com/a/76640 https://stackoverflow.com/a/18126181
-* _executable_: runtime + binary compatible with user os architecture
-* for user's machine vs. your server https://testandcode.com/52 @ 29:00
-* aka freeze in Python land https://docs.python-guide.org/shipping/freezing/
-
-don't have good topic name for this yet
-* _parser_: generates AST from src https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html https://astral.sh/blog/ruff-v0.4.0
-* _AST_: src as tree https://sadh.life/post/ast/
-* translate AST from c to Golang src https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
-```python
-def area_of_circle(radius):
-    pi = 3.14
-    return pi * radius * radius
-
-area_of_circle(5)
-
-                 (program)
-                /         \
-  (area_of_circle r)      (main)
-  /           |             |
-define    calculate        run area_of_circle
-  pi        area             with r = 5
-           /   |
-     multiply  (pi, r, r)
-```
-* _grammar_: rules for language's AST https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework#parsing-the-code
-* FFI parser https://scottlocklin.wordpress.com/2021/04/01/obvious-and-possible-software-innovations-nobody-does/
-* FFI, JNI https://news.ycombinator.com/item?id=31353740
-* _compilation target_: compilation fmt e.g. another lang (JS https://www.youtube.com/watch?v=3LWgbjVWLug 3:00) or binary (WASM) https://steveklabnik.com/writing/is-webassembly-the-return-of-java-applets-flash
-
-times https://stackoverflow.com/q/846103
-* _compile time_: compile code; err on static err (syntax, typing)
-* _run time_: exec code; err on dynamic err (zero division, run out of mem)
-* _import time_: exec code; leads to suble errors
-> In Java, import foo means "I depend on the `foo` module; please have the virtual machine link me to it when I run." In Python, import `foo` means "look for `foo.py` in the path, execute it, store local variables in a module object, and assign that module to the `foo` variable in my scope." The difference is that the Python version can run essentially arbitrary code, including importing other modules which then import other modules in turn. https://www.benkuhn.net/importtime/
-
-* linker https://news.ycombinator.com/item?id=27444647 https://gankra.github.io/blah/swift-abi/ 📙 Bryant (7)
-https://web.eecs.utk.edu/~azh/blog/teenytinycompiler1.html
-
-🗣 people to ask for help https://github.com/yiblet https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html
-🔗 https://news.ycombinator.com/item?id=24066570
-🔗 start here https://www.destroyallsoftware.com/screencasts/catalog
-* hosted language: language using 3rd-party compiler (as Clojure uses JVM)
-https://keleshev.com/compiling-to-assembly-from-scratch/ https://news.ycombinator.com/item?id=24609774
-
-translators https://en.wikipedia.org/wiki/Symbol_table https://stackoverflow.com/a/3434252
-* _assembler_: transform assembly to something less abstract, sometimes machine code and sometimes something a few levels up https://stackoverflow.com/questions/3434202/what-is-the-difference-between-native-code-machine-code-and-assembly-code/3434252#comment25665803_3434252
-* _interpreter_: 
-* _compiler_: transform high-level language to IR; 'self-hosting' is written in language it's compiling https://robertheaton.com/2017/10/24/what-is-a-self-hosting-compiler/
-
-instructions
-> where do virtual machines fit in this taxonomy? https://www.capitalone.com/tech/software-engineering/go-is-boring/
-* _symbol table_: map of idenifiers (aka symbol) to type and scope https://en.wikipedia.org/wiki/Symbol_table#Example https://eli.thegreenplace.net/2010/09/18/python-internals-symbol-tables-part-1 https://drewdevault.com/2021/03/19/A-new-systems-language.html
-
-implementations https://github.com/marcpaq/b1fipl
-* make a Lisp https://news.ycombinator.com/item?id=21670442
-* _JS_: https://github.com/jamiebuilds/the-super-tiny-compiler
-* _Ruby_: Ruby Under a Microscope https://codon.com/compilers-for-free from Python https://www.ruby-lang.org/en/documentation/ruby-from-other-languages/to-ruby-from-python/
-* _Python_: https://bernsteinbear.com/blog/bytecode-interpreters/ https://ruslanspivak.com/lsbasi-part1/ http://www.aosabook.org/en/500L/a-python-interpreter-written-in-python.html http://www.thedigitalcatonline.com/blog/2017/05/09/a-game-of-tokens-write-an-interpreter-in-python-with-tdd-part-1/ https://github.com/danistefanovic/build-your-own-x#build-your-own-programming-language http://aosabook.org/en/500L/a-python-interpreter-written-in-python.html https://codewords.recurse.com/issues/seven/dragon-taming-with-tailbiter-a-bytecode-compiler http://www.trevorblackwell.com/#faq https://blog.miguelgrinberg.com/post/building-a-toy-programming-language-in-python https://mathspp.com/blog/building-a-python-compiler-and-interpreter
-* _general_: https://www.youtube.com/watch?v=wSdV1M7n4gQ&t=157s + https://increment.com/programming-languages/crash-course-in-compilers/ + https://blog.wesleyac.com/posts/language-todos + https://blog.felixangell.com/compilers-brief-and-brisk + https://medium.com/basecs
-* _Jit_ https://www.youtube.com/watch?v=2BB39q6cqPQ https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction
-* _Ball_: src not in repo https://www.reddit.com/r/golang/comments/5eiiw6/writing_an_interpreter_in_go_now_available/ user impl https://github.com/mmyoji/go-monkey https://github.com/skatsuta/monkey-interpreter https://github.com/ELD/monkey-lang-go https://github.com/dnutiu/monkeyInterpreter
-* _SQL_: http://aosabook.org/en/sqlalchemy.html
-
-clean up
-* mojo https://www.fast.ai/posts/2023-05-03-mojo-launch.html
-* _compiled_: src type checked, then run
-* _reference implementation_: primary implementation of language (CPython) as compared to other alternate implementations (PyPy, Jython)
-* need to have same errors
-> We crashed Oracle, including commercial versions of Oracle. We crashed DB2. Anything we could get our hands on, we tried it and we managed to crash it, but the point was that we wanted to make sure that SQLite got the same answers for all of these queries, or equivalent answers, because a lot of these queries, they’re indeterminate and the rows might come out in a different order because you [crosstalk 00:25:10] order by clause, so we wanted to make sure that all the database engines got equivalent answers. Mostly, we wanted to make sure that SQLite was getting the same answers everybody else is. https://corecursive.com/066-sqlite-with-richard-hipp/
-* syntax trees https://eli.thegreenplace.net/2009/02/16/abstract-vs-concrete-syntax-trees https://www.pythonpodcast.com/episode-113-jedi-code-completion-with-david-halter/
-* _interpreted_: src code run straight away
-* _JIT_: normal interpreter but will compile hot paths https://carolchen.me/blog/jits-impls/
-* _output_: assembly (for GCC) https://cs.stackexchange.com/questions/14749/why-do-compilers-produce-assembly-code
-* writing language compiler in that language https://stackoverflow.com/questions/18247888/how-can-a-c-compiler-be-written-in-c
-* _grammar_: syntax for programming language https://blog.robertelder.org/computer-science-for-engineers/
-* https://github.com/aalhour/awesome-compilers http://steve-yegge.blogspot.com/2007/06/rich-programmer-food.html https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript https://medium.com/basecs https://ruslanspivak.com/lsbasi-part1/ https://nicoleorchard.com/blog/compilers https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/README.md http://aosabook.org/en/500L/static-analysis.html https://increment.com/programming-languages/crash-course-in-compilers/ https://corecursive.com/037-thorsten-ball-compilers/ https://news.ycombinator.com/item?id=22731505 https://www.pythoninsight.com/2018/09/python-basics-bytecode 
-
-STEPS
-* 📙 Conery 216
-* _assemble_: convert from HLA to assembly
-* _disassemble_: show assembly for HLA https://realpython.com/python311-new-features/#faster-code-execution https://florian-dahlitz.de/blog/disassemble-your-python-code 
-```python
-import dis
-dis.dis(fn)
-```
-* _lex_: tokenize [Conery 218] https://www.aaronraff.dev/blog/how-to-write-a-lexer-in-go
-* why it's split from parse https://news.ycombinator.com/item?id=35798829
-* _lexical analysis_: https://docs.python.org/3/reference/lexical_analysis.html
-* _parse_: 
-* _semantic analysis_: 
-* _optimization_: most of diff btw compilers is here [Conery 216] https://signalsandthreads.com/compiler-optimization/
-* _code generation_: 
-* _token_: atomic unit of significance
-```python
-tokens = {
-    "variable": "foo",
-    "operator": "=",
-    "number": 10
-}
-```
 
 ## control flow
 
@@ -1056,3 +1082,8 @@ ARITHMATIC
 * _increment_: `++`
 * _infix_: multiplication `*` exponentiation `**` https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/ 🗄 `python.md`
 * += https://stackoverflow.com/a/7456548
+
+## stdlib
+
+* builtin: hot reload, lint, fmt, http https://www.youtube.com/watch?v=8IHhvkaVqVE
+* things people don't like and replacements https://news.ycombinator.com/item?id=25125034

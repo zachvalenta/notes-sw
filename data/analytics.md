@@ -509,7 +509,7 @@ FEATURES
 * autocomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
 * follow FKs https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
 * data catalog https://harlequin.sh
-* ERD https://databasediagram.com/ https://drawdb.vercel.app/
+* ERD 🗄 `info.md` viz / entities / ERD
 * _query editor_: save, autocomplete
 * _results viewer_: result set
 
@@ -567,6 +567,7 @@ TOOLS
 
 ## datasets
 
+🛠️ BYO https://calmcode.io/labs/drawdata
 🌱 https://www.noahpinion.blog/p/why-cant-the-us-build-ships https://github.com/trailofbits/graphtage/graphs/contributors
 🔍 https://ourworldindata.org/ https://www.wikidata.org/ https://datasetsearch.research.google.com/ https://www.kaggle.com/datasets https://datausa.io/ https://www.splitgraph.com/
 
@@ -577,7 +578,7 @@ ART
 * literature: ratings http://fastml.com/goodbooks-10k-a-new-dataset-for-book-recommendations/ https://github.com/zygmuntz/goodbooks-10k https://bookbrainz.org/ text http://www.jessamyn.com/barth/index.html https://en.wikisource.org/ https://news.ycombinator.com/item?id=1394077
 
 ECON
-* finance https://github.com/ranaroussi/yfinance
+* finance https://github.com/ranaroussi/yfinance https://calmcode.io/datasets
 * housing https://www.zillow.com/research/data/
 * India https://www.dataforindia.com/
 
@@ -591,6 +592,7 @@ NATURAL WORLD
 * weather https://github.com/blaylockbk/Herbie
 
 SPORTS
+* diet, sleep https://calmcode.io/datasets
 * baseball https://jamesrledoux.com/projects/open-source/introducing-pybaseball/ https://www.thedrummeyangle.com/post/an-introduction-to-pybaseball-using-python-to-analyze-baseball-data https://www.datacamp.com/tutorial/scikit-learn-tutorial-baseball-1
 * basketball https://craftednba.com/ https://cleaningtheglass.com/ https://cleaningtheglass.com/stats/player/4231/onoff#tab-team_efficiency https://sportradar.com/ https://www.youtube.com/watch?v=boct75srdbE
 * football https://x.com/theStevenRuiz/status/1838644108685963386

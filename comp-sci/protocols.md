@@ -4,10 +4,7 @@
 
 ## 进步
 
-* ❓ how is BSON more binary than JSON itself? https://stackoverflow.com/questions/3554325/why-is-it-called-bson 📙 Kleppmann ch. 4
-* https://wizardzines.com/zines/integers-floats/
-
-* _24_: split into own file
+* _24_: split into own file, file fmts (Cuelang, INI, KDL, YAML, EDI)
 * _22_: protocol (encoding, serialization)
 * _21_: prefix code
 
@@ -31,24 +28,35 @@ TO READ
 
 * _document list (DL)_: type of x12 document https://en.wikipedia.org/wiki/X12_Document_List
 * each company picks a subset that they want to work with https://static.fishersci.com/cmsassets/downloads/segment/Scientific/pdf/WebServices/EDIspecGuideCust832.pdf
-* file extension: `.edi`, `.x12` or txt
+* file extension: `.edi`, `.x12`, `.dat`, `.txt`
 * _832_: DL for catalog
 * _850_: DL purchase order
 * _855_: DL purchase order (= HTTP 200)
-* _997_: DL for ack
+* _997_: DL for ack https://github.com/azoner/pyx12
+* _999_: ? https://github.com/azoner/pyx12
 
 ## semantics
 
+SPEC
 * _EDI_: fmt for business transactions (purchases orders, sales)
 * used by GSA, B2B (healthcare, manufacturing, railroad frieight) https://www.remedi.com/blog/edi-for-railway-freight
 * _ASC x12_: US standards body for x12 https://en.wikipedia.org/wiki/ASC_X12
 * _x12_: USA EDI spec
 * _EDIFACT_: EU EDI spec https://en.wikipedia.org/wiki/EDIFACT
 > For those who haven't had the pleasure, X12 is an ANSI standard for "electronic data interchange." It could be considered a very distant spiritual ancestor of XML; it was designed to meet the same kind of need, but way back in days of yore when individual bytes were valuable things to be cherished. The standards committee was originally chartered back in 1979. https://www.lambdafunctions.com/articles/racing-sed-with-rust
+
+PROVIDERS
 * _SPS_: does EDI for ERPs (Odoo) https://www.spscommerce.com/
-* _Kleinschmidt_: used by Steersman
+* _Kleinschmidt_: does EDI for Steersman
+
+---
+
+* _envelope_: collection of documents of a type
+* _mailbag_: collection of envelopes
 
 ## spec
+
+segment types https://github.com/sezna/edi
 
 ```sh
 # ISA (Interchange Control Header): sender, receiver
@@ -76,25 +84,33 @@ IEA*1*000000905
 
 ## tooling
 
-* _sezna_: https://news.ycombinator.com/item?id=23786634
-* _Stedi inspector_: analysis https://www.stedi.com/edi/inspector
+🔬 https://www.stedi.com/edi/inspector
+
+> can either of these do JSON to x12?
+* _bots_: bad docs https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
+* _pyedi_: ✅ parse x12 to JSON https://github.com/freestream/pyedi 💻 https://github.com/zachvalenta/capp-pyedi
+* not on PyPI; fork and publish? https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
+```python
+import json
+from pyedi import parse_file
+from pyedi.settings import Settings
+ts = parse_file('./edi.txt', Settings())
+with open("data.json", "w") as f:
+    json.dump(ts, f)
+# fmt -> python -m json.tool data.json
+```
+* _pyx12_: https://github.com/azoner/pyx12
+* _sezna_: parse x12 to JSON https://github.com/sezna/edi https://news.ycombinator.com/item?id=23786634
+* _x12-edi-tools_: 🐍 Python to x12 https://github.com/copyleftdev/x12-edi-tools https://pypi.org/project/x12-edi-tools/
 
 ---
 
-https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
-
-* https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
-* https://github.com/freestream/pyedi
-* https://stackoverflow.com/questions/26033239/list-of-objects-to-json-with-python
-* https://en.wikipedia.org/wiki/Electronic_data_interchange
-* bots https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
-* https://github.com/azoner/pyx12 https://pypi.org/project/pyx12/
+* https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
 * https://www.npmjs.com/package/x12-parser
 * https://github.com/dev0088/pyedi830
-* https://github.com/copyleftdev/x12-edi-tools
 
 XML
-* https://cxml.org/
+* https://cxml.org/ https://github.com/simonw/files-to-prompt
 * https://www.smooks.org/
 
 AWS
@@ -222,7 +238,7 @@ https://codepoints.net/
 https://pyatl.dev/2024/09/01/bitten-by-unicode/
 https://text.makeup/about/
 📍 utf-8 vs. unicode https://youtu.be/SM9gJv08dm0 2:30 https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode https://nbviewer.org/gist/guocheng/1ae6c2d76461a66cfc5ec6009b5791d1 https://docs.python.org/3/howto/unicode.html
-* emoji, kanji https://www.fluentpython.com/extra/multi-character-emojis/ https://www.textualize.io/blog/posts/7-things-about-terminals
+* emoji, kanji https://www.fluentpython.com/extra/multi-character-emojis/ https://www.textualize.io/blog/posts/7-things-about-terminals how emojis make it into the standard https://www.unicode.org/emoji/proposals.html#frequency-evidence https://news.ycombinator.com/item?id=41844624
 
 * _UTF8_: multi-byte i.e. characters outside of English just get more bytes thrown at them https://sethmlarson.dev/blog/utf-8 https://news.ycombinator.com/item?id=30259097 https://viralinstruction.com/posts/utf8/
 * _Unicode_: char set https://stackoverflow.com/a/13212528/6813490 https://github.com/arp242/uni https://www.youtube.com/watch?v=MijmeoH9LT4 https://rentafounder.com/how-to-count-unicode-string-characters/ https://www.dampfkraft.com/ghost-characters.html code point, glyph, octal, hex https://realpython.com/courses/python-unicode/ `unicode-standard.pdf` https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/ https://en.wikipedia.org/wiki/Code_point CLI tool https://github.com/arp242/uni/ in Python https://blog.phylum.io/malicious-actors-use-unicode-support-in-python-to-evade-detection https://news.ycombinator.com/item?id=37735801 https://realpython.com/python-sort-unicode-strings/
@@ -252,9 +268,12 @@ VERSIONS https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog
 
 # 🗃️ FILE FMT
 
-🗄️ `eng.md` munge
+📙 Kleppmann ch. 4
+🗄 `eng.md` clean
 
 ---
+
+https://drewdevault.com/2021/07/28/The-next-YAML.html
 
 QUERY TOOLS
 * https://github.com/julien040/anyquery
@@ -264,29 +283,6 @@ QUERY TOOLS
 * https://github.com/mithrandie/csvq
 * https://github.com/dinedal/textql
 * https://github.com/noborus/trdsql
-
-https://kdl.dev/ https://zellij.dev/documentation/layouts
-> this is what started me to split protocols into own file apart from `computation.md`
-
-XML
-* https://news.ycombinator.com/item?id=35467711
-* element types: prolog, root node/element, child node/elements
-* _XSLT_: CSS for XML
-* _XPath_: CSS selector for XML
-* comments: same as HTML
-* previously more popular 📙 Beaulieu 2.34
-
-📙 Kleppmann ch. 4
-🗄
-* `python.md` serialization
-* `shell.md` design
-* `sql.md` munge/sanitization
-
-* _serialize_: convert obj to interchange fmt
-* _deserialize_: convert interchange fmt to obj
-* _schema_: mapping of obj to interchange fmt structure
-* you typically want to specify
-> Pickles are implicit: they serialize everything in your objects, even data you didn’t want to serialize. For example, you might have an attribute that is a cache of computation that you don’t want serialized. Pickle doesn’t have a convenient way to skip that attribute. https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html
 
 ## CSV
 
@@ -342,10 +338,17 @@ person: {
 cue vet person.cue
 ```
 
+## INI
+
+* used by `.gitconfig`
+* comments: `;`, hash (for Git at least)
+
 ## JSON
 
-🗄️ `algos.md` tree
 🛠 https://github.com/burningtree/awesome-json
+🗄️
+* `algos.md` tree
+* `python/stdlib.md` serde
 
 OPERATIONS
 * fmt: `python3 -m json.tool music-lib.json > music-lib-fmt.json` https://orbifold.xyz/check-in-json.html
@@ -358,6 +361,7 @@ OPERATIONS
 📜 http://www.json.org/
 🗄️ `telemetry.md` logging / JSONL
 
+* basic
 ```json
 {"a": "b"}
 
@@ -369,6 +373,13 @@ OPERATIONS
     }
 }
 ```
+
+NUMBERS https://chatgpt.com/c/671266a2-7fa4-8004-b1d3-c43acb773f7d
+* types: int, floating point, exponential notation
+* use strings to represent monetary amounts
+* use strings for big ints
+* no leading zeros
+* largest safe int `2^53 - 1` (`9007199254740991`) 📜 IEEE-754 double-precision floating-point
 
 ---
 
@@ -390,6 +401,7 @@ ALTERNATIVES
 * _jaq_: rewrite https://github.com/01mf02/jaq
 * _jnv_: 🎯 interactive https://github.com/ynqa/jnv
 * _jqp_: TUI https://github.com/noahgorstein/jqp 
+* _jsonata_: https://jsonata.org/
 * _mistql_: Python and CLI https://www.mistql.com/
 * _sq_: https://news.ycombinator.com/item?id=41760697
 
@@ -445,6 +457,11 @@ zz  # center
 * _JSON crack_: visualize https://github.com/AykutSarac/jsoncrack.com https://jsoncrack.com/
 * _json4u_: jsoncrack clone https://news.ycombinator.com/item?id=41634356
 
+## KDL
+
+https://kdl.dev/ https://zellij.dev/documentation/layouts
+> this is what started me to split protocols into own file apart from `computation.md`
+
 ## Parquet
 
 ---
@@ -458,6 +475,21 @@ zz  # center
 * easier to use now vs. CSV https://news.ycombinator.com/item?id=30595026
 * use to build no-code API https://tech.marksblogg.com/roapi-rust-data-api.html
 * pyarrow https://www.blog.pythonlibrary.org/2024/05/06/how-to-read-and-write-parquet-files-with-python/
+
+## XML
+
+🗄️ `algos.md` tree
+
+* usage: EDI, Maven
+* element types: prolog, root node/element, child node/elements, comments (same as HTML)
+* _XSLT_: CSS for XML
+* _XPath_: CSS selector for XML
+
+---
+
+HISTORY
+* https://news.ycombinator.com/item?id=35467711
+* previously more popular 📙 Beaulieu 2.34
 
 ## YAML
 
@@ -551,6 +583,8 @@ SEMANTICS
 📚 Petzold code 3, 9, 12-13
 
 ---
+
+* https://wizardzines.com/zines/integers-floats/
 
 * _bit_: binary digit; aka 'flag' [Kozierok 4.63]
 * _bitmask_: toggling bit https://www.arp242.net/bitmask.html set (to 1) reset/clear (to 0) [Kozierok 4.63]
@@ -658,11 +692,86 @@ semantics
 * _encoding_: spec for conversion https://en.wikipedia.org/wiki/Code
 * e.g. mp3 spec for how to encode audio 📙 Sweigart 1.3
 
-## serialization
+## Markdown
+
+🔗 https://www.markdownguide.org/
+
+FLAVORS
+* _Djot_: https://djot.net/ https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
+* _CommonMark_: https://meta.stackexchange.com/q/348746
+* _GFM_: https://github.com/github/markup/issues/498#issuecomment-158257453 
+* _MyST_: https://github.com/executablebooks/MyST-Parser
+
+PARSERS
+* _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/
+* time suck https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
+* _markdown-it-py_: https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
+* _commonmark_: https://github.com/readthedocs/commonmark.py https://github.com/Textualize/rich/pull/2439/files
+* _goldmark_: https://github.com/yuin/goldmark
+* HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown
+
+RENDER
+* mdcat https://github.com/swsnr/mdcat
+* rich https://rich.readthedocs.io/en/latest/markdown.html
+* https://github.com/Textualize/frogmouth
+* glow https://github.com/charmbracelet/bubbletea
+
+EDITOR
+* https://simplemde.com/ https://tunalog.org/en-us/index.html
 
 ---
 
+* vs. RST https://buttondown.com/hillelwayne/archive/why-i-prefer-rst-to-markdown/
+* use image (w/ Github renderer) https://github.com/catppuccin/python/blob/main/README.md
+
+* links https://jordanelver.co.uk/blog/2021/03/13/til-about-markdown-reference-style-links/
+* convert to HTML with Vim http://vimcasts.org/episodes/converting-markdown-to-structured-html-with-a-macro/
+* Github https://docs.github.com/en/issues/tracking-your-work-with-issues/about-slash-commands
+* RENDERME https://news.ycombinator.com/item?id=30336703
+* metadata https://github.com/blacksmithgu/obsidian-dataview
+* spec https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/
+* asciidoc vs. Markdown https://news.ycombinator.com/item?id=27744509
+* href https://github.com/pemistahl/grex
+* linting https://mkaz.blog/code/linting-markdown-syntax/
+* Latex http://www.danielallington.net/2016/09/the-latex-fetish/ https://increment.com/open-source/the-lingua-franca-of-latex/ alternative https://sile-typesetter.org/ https://news.ycombinator.com/item?id=35242299 https://news.ycombinator.com/item?id=35250210 Typst https://www.youtube.com/watch?v=sWmlbMh3ol8 Overleaf, Markdown https://brainbaking.com/post/2021/02/writing-academic-papers-in-markdown/
+* formal spec https://githubengineering.com/a-formal-spec-for-github-markdown/
+* code syntax support https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
+* Pandoc has their own version of Markdown? https://yihui.name/en/2018/09/target-blank/
+* Markdown to PowerPoint https://yhatt.github.io/marp https://www.youtube.com/watch?v=CkIweDviGH8
+* HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown
+* [dropdowns!](https://raw.githubusercontent.com/30-seconds/30-seconds-of-code/master/README.md)
+* [diff](https://stackoverflow.com/a/40883538)
+* table fmt: Jira, Markdown/RST, Latex https://jsvine.github.io/intro-to-visidata/basics/saving-sheets/
+* Markdown for Google Docs https://www.theverge.com/2022/3/29/23002138/google-docs-markdown-support-formatting-update
+
+conversion to HTML
+* https://github.com/susam/texme
+* Markdown to HTML w/ Python CLI https://python-markdown.github.io/cli/ `python -m markdown 1997-graham-hackers-painters.md > pg.html` -> doesn't handle quotes, output is vanilla would need to figure way to add CSS
+* _mistune_: https://github.com/lepture/mistune
+* _markdown_: `python -m markdown rn.md > rn.html` https://python-markdown.github.io/cli/ used in MkDocs https://github.com/mkdocs/mkdocs/blob/master/requirements/project.txt
+* _markdown2_: https://github.com/trentm/python-markdown2 supports (maybe) ghfm https://github.com/mkdocs/mkdocs/issues/263#issuecomment-65362418
+```sh
+python -m markdown2 --extras fenced-code-blocks my-debug-checklist.md > debug.html
+```
+
+add styles
+* `water.css` w/ Beatiful Soup in script https://stackoverflow.com/a/19123463/6813490 
+* more advanced https://github.com/cburmeister/cburmeister.github.io/blob/master/Makefile pandoc https://serverless.pub/lambda-utility-layers/ https://github.com/kickstartcoding/cheatsheets
+
+## serde
+
+🗄 `python/stdlib.md` serde
+
+---
+
+* _serialize_: convert obj to interchange fmt
+* _deserialize_: convert interchange fmt to obj
+* _schema_: mapping of obj to interchange fmt structure
+* you typically want to specify
+> Pickles are implicit: they serialize everything in your objects, even data you didn’t want to serialize. For example, you might have an attribute that is a cache of computation that you don’t want serialized. Pickle doesn’t have a convenient way to skip that attribute. https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html
+
 BINARY
+> ❓ how is BSON more binary than JSON itself? https://stackoverflow.com/questions/3554325/why-is-it-called-bson 📙 Kleppmann ch. 4
 * e.g. HTTP/2 https://news.ycombinator.com/item?id=27431998
 * used more for internal services 📙 Jeffrey distributed [5]
 * db res in binary which is parsed by language-specific API 📙 Kleppmann 4.128

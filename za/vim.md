@@ -16,6 +16,7 @@
 
 ## 进步
 
+https://www.youtube.com/watch?v=VljhZ0e9zGE
 https://news.ycombinator.com/item?id=41637286
 note-taking in Markdown https://www.youtube.com/watch?v=DgKI4hZ4EEI
 basic setup https://www.youtube.com/watch?v=VljhZ0e9zGE
@@ -107,7 +108,7 @@ HISTORY
 * 2006: Vim 7.0
 * 2013: Vim 8.0 📙 PV [5.27]
 * 2015: Neovim
-* 2020s: Zed, Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
+* 2020s: Zed, Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 https://www.youtube.com/watch?v=tGYvUXYN-c0 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
 > select + action and space mode makes me think helix is worth learning https://www.youtube.com/watch?v=xHebvTGOdH8 https://www.youtube.com/watch?v=5WLlLxU2EZE
 
 ## Emacs
@@ -208,7 +209,6 @@ edit
 🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
 
 dev containers https://github.com/michidk/vscli
-color themes https://realpython.com/courses/custom-vs-code-color-themes/
 
 THINGS I'M NOTICING ABOUT VSC
 * autocomplete works for any word in the workspace
@@ -919,22 +919,6 @@ let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim']
 ```
 - [ ] list: separate colors for angle bracket https://neovim.io/doc/user/usr_27.html#usr_27.txt https://regex101.com/r/8EPiOR/1 https://stackoverflow.com/questions/19193251/regex-to-get-the-words-after-matching-string https://stackoverflow.com/questions/13542950/support-of-k-in-regex https://regexone.com/lesson/wildcards_dot?
 - [ ] comment: separate colors for asterisk
-
-THEMES
-* _colorizer_: generate colors from hex w/in editor https://github.com/norcalli/nvim-colorizer.lua https://github.com/NvChad/nvim-colorizer.lua
-* fs location: `$VIMRUNTIME/.vim/colors` http://vimcasts.org/episodes/creating-colorschemes-for-vim/ 0:45
-* use same theme across terminal, multiplexer, Vim https://www.youtube.com/watch?v=h509rn2xIyU 🗄 `shell.md` terminal / features
-* BYO https://vi.stackexchange.com/questions/2782/how-can-i-create-my-own-colorscheme http://vimcasts.org/episodes/creating-colorschemes-for-vim/ https://alvinalexander.com/linux/vi-vim-editor-color-scheme-syntax/ https://github.com/martinsione/darkplus.nvim/blob/main/lua/darkplus/theme.lua https://github.com/Rigellute/rigel/blob/master/colors/rigel.vim https://gist.github.com/romainl/5cd2f4ec222805f49eca https://github.com/flazz/vim-colorschemes/blob/master/colors/256_noir.vim https://github.com/lukas-reineke/onedark.nvim/blob/master/lua/onedark.lua#L16 https://www.youtube.com/watch?v=EJLrssH1ip0
-* pack https://github.com/flazz/vim-colorschemes/tree/master
-* _catppuccin_: ✅ https://github.com/catppuccin/nvim
-* _gruvbox_: https://github.com/morhetz/gruvbox
-* _highlite_: BYO https://github.com/Iron-E/nvim-highlite
-* _Lush_: BYO https://github.com/rktjmp/lush.nvim
-* _mini_: BYO https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-colors.md https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hues.md
-* _Material_: https://github.com/kaicataldo/material.vim
-* _Noctis_: ✅ https://github.com/kartikp10/noctis.nvim https://github.com/liviuschera/noctis 🗄 `sw/vim/vs-code-colorscheme.png`
-* _osaka_: https://github.com/craftzdog/solarized-osaka.nvim
-* _Rigel_: https://rigel.netlify.app/#terminal
 
 ZA
 * devicons ✅ https://github.com/nvim-tree/nvim-web-devicons

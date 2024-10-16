@@ -394,9 +394,12 @@ tracking w/ cookies
 
 ---
 
+* _passkey_: https://world.hey.com/dhh/passwords-have-problems-but-passkeys-have-more-95285df9
+
 PASSWORD MANAGER
 * _Bitwarden_: has a CLI
 * _gopass_: pass fork
+* _himitsu_: https://drewdevault.com/2022/06/20/Himitsu.html
 * _keyring_: https://rutar.org/writing/managing-secrets-from-the-command-line/
 * _pass_: https://www.youtube.com/watch?v=w34xAnNdliE https://rutar.org/writing/some-tricks-with-unix-pass/ https://www.youtube.com/watch?v=FhwsfH2TpFA
 * _Vault_: Hashicorp

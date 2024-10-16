@@ -15,6 +15,9 @@ SEMANTICS
 ---
 
 testing https://www.thediff.co/archive/antithesis-debugging-debugging/ https://antithesis.com/ https://www.thediff.co/archive/offshoring-and-ai-agents/
+https://drewdevault.com/2021/10/17/Reliability.html
+https://drewdevault.com/2020/10/09/Four-principles-of-software-engineering.html
+https://drewdevault.com/2020/11/06/Utility-vs-usability.html
 
 https://roadmap.sh/best-practices/backend-performance
 
@@ -26,6 +29,7 @@ FACTORS
 * throughput, availability
 * data immutable (events, analytics)
 
+* https://www.youtube.com/watch?v=HruBoinmPBA
 * Discord msgs https://www.youtube.com/watch?v=O3PwuzCvAjI
 * Stackoverflow https://www.youtube.com/watch?v=fKc050dvNIE
 * https://www.fractionalarchitect.io/books/mastering-strategic-ddd

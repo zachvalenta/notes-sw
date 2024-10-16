@@ -15,6 +15,12 @@
 
 ---
 
+HOW TO START
+* status page https://github.com/harsxv/tinystatus https://statusgator.com/
+* _get metrics_: point Uptime Robot at a URL https://www.youtube.com/watch?v=o9ekAeoBXDs Lighthouse https://forgeperf.org/ https://www.thoughtworks.com/radar/tools?blipid=1158
+* _measure metrics_: https://news.ycombinator.com/item?id=23360794
+* _sink_: https://serversforhackers.com/s/process-monitoring https://blog.appoptics.com/the-four-golden-signals-for-monitoring-distributed-systems/ https://infrequently.org/2018/09/the-developer-experience-bait-and-switch/ https://3perf.com/talks/web-perf-101/ https://medium.baqend.com/web-performance-made-simple-fc61d81d0c0e http://mediatemple.net/blog/tips/low-hanging-fruit-web-performance/ https://medium.com/observability/want-to-debug-latency-7aa48ecbe8f7 https://ferdychristant.com/amp-the-missing-controversy-3b424031047 https://medium.freecodecamp.org/a-beginners-guide-to-website-optimization-2185edca0b72 https://panic.com/blog/mystery-of-the-slow-downloads/ https://github.com/monitoror/monitoror
+
 * https://en.wikipedia.org/wiki/Seven_basic_tools_of_quality
 
 TAXONOMY
@@ -32,6 +38,7 @@ PROVIDERS https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services
 * replace with Textual? https://textual.textualize.io/
 * _HyperDX_: 🎯 https://github.com/hyperdxio/hyperdx
 > HyperDX is an open-source observability platform that unifies all three pillars of observability: logs, metrics and tracing. With it, you can correlate end-to-end and go from browser session replay to logs and traces in just a few clicks. The platform leverages ClickHouse as a central data store for all telemetry data, and it scales to aggregate log patterns and condense billions of events into distinctive clusters. Although you can choose from several observability platforms, we want to highlight HyperDX for its unified developer experience. https://www.thoughtworks.com/radar/platforms/hyperdx
+* _Logfire_: https://pydantic.dev/logfire https://pydantic.dev/articles/logfire-announcement
 * _Jam_: error reporting https://jam.dev/ https://news.ycombinator.com/item?id=40318542 🗄️ `test.md` friction logs
 * _Prometheus_: time-series db as metrics store https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services/ https://prometheus.io/docs/introduction/overview/ https://github.com/yolossn/Prometheus-Basics https://softwareengineeringdaily.com/2020/07/09/chronosphere-scalable-metrics-database-with-rob-skillington/ https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://monzo.com/blog/2018/07/27/how-we-monitor-monzo/ https://www.youtube.com/watch?v=9TJx7QTrTyo [13:00]
 * _Moderato_: 🎯 https://github.com/moderato-app/live-pprof
@@ -40,25 +47,6 @@ PROVIDERS https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services
 * _Sentry_: suspected commit behind break
 
 https://www.thediff.co/archive/the-data-business-at-three-resolutions/
-
-OPENTELEMETRY
-* https://opentelemetry.io/ 
-* https://github.blog/2021-05-26-why-and-how-github-is-adopting-opentelemetry/
-* https://news.ycombinator.com/item?id=37559506
-* https://andydote.co.uk/2023/09/19/tracing-is-better/
-* https://news.ycombinator.com/item?id=41570163
-* https://betterstack.com/community/guides/observability/opentelemetry-collector/
-
-UPTIME / HEALTHCHECK / HEARTBEAT
-* https://news.ycombinator.com/item?id=41452339
-* https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
-* baseline https://healthchecks.io/
-* db connection https://www.youtube.com/watch?v=GT9WmExDbXQ
-* downstream services
-* aaS: UptimeRobot, Checkly, lcurl https://www.youtube.com/watch?v=um24VlkkqGo https://github.com/brotandgames/ciao
-> I setup a 3rd party service to monitor the heartbeats and the return code to validate they are up and properly returning what I expect, notify me if not. I don't have to do sophisticated response processing at the 3rd party service because I can just use http return codes 99% of the time. The detailed response checking is done at the heartbeat level, then a response code generated. https://news.ycombinator.com/item?id=22823230
-* https://updown.io/
-* https://github.com/megaease/easeprobe
 
 * _chaos engineering_: trigger fault to see if it causes a failure https://github.com/powerfulseal/powerfulseal
 * https://news.ycombinator.com/item?id=40573790&utm_term=comment
@@ -87,24 +75,9 @@ https://www.semicolonandsons.com/episode/error-tracking-and-monitoring
 * https://hodovi.ch/blog/monitoring-django-applications
 * _path_: heuristic for thinking about what to optimize i.e. 99% of your app's execution branches can probably be pretty slow https://blog.phusion.nl/2018/09/18/migrating-passenger-from-cxx-to-go/
 
-load parameters
-* _load parameter_: metric; way to describe load on system [Kleppmann 11]
-* _node_: CPU, mem, storage 
-* _service_: req volume (RPS https://stackexchange.com/performance), simultaneously active users, error rate (5xx per M req), uptime (five nines https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/)
-* _db_: queries per req (statsd) https://www.youtube.com/watch?v=-6Hk9rcgM94 ratio of reads to write, hit rate on cache [Kleppmann 11]
-
-* _percentiles_: p50 (median) p90 (worst case); mean doesn't tell you how many nodes/users
-* _skew_: uneven distibution re: load across worker processes [Kleppmann 20] what prevents run time of batch job being data divided by throughput
-
 https://news.ycombinator.com/item?id=24006697
 
 * _statsd_: https://github.com/jsocol/pystatsd https://www.youtube.com/watch?v=-6Hk9rcgM94 https://www.datadoghq.com/blog/statsd/ https://docs.datadoghq.com/developers/dogstatsd/ https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd https://www.youtube.com/watch?v=R4kMwckrUlg Graphite visualization tool for statsd https://www.digitalocean.com/community/tutorials/how-to-configure-statsd-to-collect-arbitrary-stats-for-graphite-on-ubuntu-14-04
-
-how to start
-* status page https://github.com/harsxv/tinystatus https://statusgator.com/
-* _get metrics_: point Uptime Robot at a URL https://www.youtube.com/watch?v=o9ekAeoBXDs Lighthouse https://forgeperf.org/ https://www.thoughtworks.com/radar/tools?blipid=1158
-* _measure metrics_: https://news.ycombinator.com/item?id=23360794
-* _sink_: https://serversforhackers.com/s/process-monitoring https://blog.appoptics.com/the-four-golden-signals-for-monitoring-distributed-systems/ https://infrequently.org/2018/09/the-developer-experience-bait-and-switch/ https://3perf.com/talks/web-perf-101/ https://medium.baqend.com/web-performance-made-simple-fc61d81d0c0e http://mediatemple.net/blog/tips/low-hanging-fruit-web-performance/ https://medium.com/observability/want-to-debug-latency-7aa48ecbe8f7 https://ferdychristant.com/amp-the-missing-controversy-3b424031047 https://medium.freecodecamp.org/a-beginners-guide-to-website-optimization-2185edca0b72 https://panic.com/blog/mystery-of-the-slow-downloads/ https://github.com/monitoror/monitoror
 
 black box
 * _black box_: user-facing; symptom-oriented
@@ -223,6 +196,15 @@ ZA
 
 ---
 
+LOAD PARAMETERS
+* _load parameter_: metric; way to describe load on system [Kleppmann 11]
+* _node_: CPU, mem, storage 
+* _service_: req volume (RPS https://stackexchange.com/performance), simultaneously active users, error rate (5xx per M req), uptime (five nines https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/)
+* _db_: queries per req (statsd) https://www.youtube.com/watch?v=-6Hk9rcgM94 ratio of reads to write, hit rate on cache [Kleppmann 11]
+
+* _percentiles_: p50 (median) p90 (worst case); mean doesn't tell you how many nodes/users
+* _skew_: uneven distibution re: load across worker processes [Kleppmann 20] what prevents run time of batch job being data divided by throughput
+
 * _frecency_: frequency + recency https://missing.csail.mit.edu/2020/shell-tools/ https://github.com/rupa/z
 
 * utilization, system metrics https://entropicthoughts.com/predicting-resource-usage-from-increased-traffic https://entropicthoughts.com/response-time-is-the-system-talking
@@ -248,6 +230,17 @@ SEMANTICS https://www.datadoghq.com/ebook/monitoring-modern-infrastructure/
 ```
 * _QPS (queries per second)_: https://www.youtube.com/watch?v=kEShMV4VfWE
 * _RPS_: 
+
+## OpenTelemetry
+
+---
+
+* https://opentelemetry.io/ 
+* https://github.blog/2021-05-26-why-and-how-github-is-adopting-opentelemetry/
+* https://news.ycombinator.com/item?id=37559506
+* https://andydote.co.uk/2023/09/19/tracing-is-better/
+* https://news.ycombinator.com/item?id=41570163
+* https://betterstack.com/community/guides/observability/opentelemetry-collector/
 
 ## tracing
 
@@ -276,6 +269,22 @@ za
 * https://github.com/JonasKs/django-guid
 * https://danluu.com/tracing-analytics/
 * https://netflixtechblog.com/building-netflixs-distributed-tracing-infrastructure-bb856c319304
+
+## uptime / healthcheck
+
+---
+
+UPTIME / HEALTHCHECK / HEARTBEAT
+* https://status.calmcode.io/
+* https://news.ycombinator.com/item?id=41452339
+* https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
+* baseline https://healthchecks.io/
+* db connection https://www.youtube.com/watch?v=GT9WmExDbXQ
+* downstream services
+* aaS: UptimeRobot, Checkly, lcurl https://www.youtube.com/watch?v=um24VlkkqGo https://github.com/brotandgames/ciao
+> I setup a 3rd party service to monitor the heartbeats and the return code to validate they are up and properly returning what I expect, notify me if not. I don't have to do sophisticated response processing at the 3rd party service because I can just use http return codes 99% of the time. The detailed response checking is done at the heartbeat level, then a response code generated. https://news.ycombinator.com/item?id=22823230
+* https://updown.io/
+* https://github.com/megaease/easeprobe
 
 # 🟨 ZA
 
@@ -327,7 +336,9 @@ PROVIDERS
 * _Highlight_: https://news.ycombinator.com/item?id=34897645
 * _LogRocket_: https://news.ycombinator.com/item?id=34897645
 * _Mixpanel_: https://satchel.com/web-analytics/ https://news.ycombinator.com/item?id=40432213
+* _Plausible_: https://plausible.io/calmcode.io
 * _Posthog_: https://github.com/posthog/posthog https://www.pythonpodcast.com/posthog-product-analytics-episode-266/
+* _Spindl_: https://www.spindl.xyz/
 * _Umami_: https://github.com/umami-software/umami
 
 ---

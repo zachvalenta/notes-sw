@@ -4,6 +4,8 @@
 
 ## 进步
 
+literate testing, literate programming https://simonw.substack.com/p/video-scraping-using-google-gemini
+
 * _24_: rf + approaches (fuzz, mutation, property-based)
 * _20_: pre-commit for Git hooks, behave for bdd
 * _19_: switch to pytest
@@ -40,6 +42,7 @@ Then I should see a welcome message
 
 ---
 
+https://news.ycombinator.com/item?id=41866752
 https://buttondown.com/hillelwayne/archive/how-to-convince-engineers-that-formal-methods-is/
 https://buttondown.com/hillelwayne/archive/the-seven-specification-ur-languages/
 https://buttondown.com/hillelwayne/archive/what-could-be-added-to-tla/
@@ -132,6 +135,8 @@ ZA
 * https://github.com/flyingmutant/rapid
 
 # 🕳️ INTEGRATION
+
+* functional? https://terrastruct.com/blog/post/functional-testing-with-your-database-in-go/
 
 ## API
 

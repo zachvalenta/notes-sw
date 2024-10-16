@@ -66,7 +66,11 @@ TIMEZONES
 * `it.md` backup
 * `system.md` distributed
 
-* short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00
+* short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00 https://simonwillison.net/about/#subscribe
+
+---
+
+* https://drewdevault.com/2019/01/13/Backups-and-redundancy-at-sr.ht.html
 * https://github.com/eduardolat/pgbackweb
 * hard drive health: 2% annual fail rate https://drewdevault.com/2020/04/22/How-to-store-data-forever.html DriveDX https://binaryfruit.com/drivedx/usb-drive-support Wear_Leveling_Count https://superuser.com/q/1037644 SMART https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology https://news.ycombinator.com/item?id=11110902
 * version control data: DVC https://github.com/iterative/dvc https://realpython.com/python-data-version-control/ Dolt https://github.com/dolthub/dolt https://www.youtube.com/watch?v=ITvSs23lTQE
@@ -164,7 +168,9 @@ TOOLS
 
 ## clean
 
-🗄️ `languages.md` R / tidyverse
+🗄️
+* `languages.md` R / tidyverse
+* `python/core.md` pydantic
 
 * _Autolabel_: https://github.com/refuel-ai/autolabel https://www.youtube.com/watch?v=TjzeaHjmiGM
 * _Cleanlab_: https://github.com/cleanlab/cleanlab https://www.youtube.com/watch?v=QHaT_AiUljw
@@ -177,10 +183,8 @@ TOOLS
 
 SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data
 * https://developer.wordpress.org/apis/security/sanitizing/ https://developer.wordpress.org/apis/security/data-validation/ https://developer.wordpress.org/apis/security/escaping/
-* _validation_: compare against rules
-* Cerberus https://github.com/pyeve/cerberus https://hector.dev/2020/12/29/validating-data-in-python-with-cerberus.html
-* BYO https://realpython.com/primer-on-python-decorators/#more-real-world-examples https://blog.drewolson.org/declarative-validation
 * https://github.com/pyjanitor-devs/pyjanitor
+* _validation_: compare against rules
 * _filter_: rm validation violations
 * _escape_: convert validation violations
 * _sanitize_: validate + filter/escape

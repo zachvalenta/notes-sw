@@ -22,7 +22,7 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 * typical to write a scripting language to go along with your shell https://news.ycombinator.com/item?id=24079001
 * BYO https://www.destroyallsoftware.com/screencasts/catalog https://github.com/elves/elvish
-* POSIX compatability https://www.youtube.com/watch?v=Yva_nTXzTTw
+* POSIX compatability https://www.youtube.com/watch?v=Yva_nTXzTTw https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html https://drewdevault.com/2017/11/13/Portability-matters.html
 * _elvish_: https://news.ycombinator.com/item?id=18778681 https://news.ycombinator.com/item?id=41401463
 * _nushell_: structured data https://www.nushell.sh/
 * _oil_: https://github.com/oilshell/oil
@@ -39,7 +39,10 @@ ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 * get current shell: `echo $SHELL` https://stackoverflow.com/a/3327022/6813490
 * switch shell: `<shell>` https://fishshell.com/docs/current/tutorial.html#tut_getting_started
 * return to default shell: `exit`
+* https://drewdevault.com/2020/12/12/Shell-literacy.html
 
+SEMANTICS
+* https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html
 * _subshell_: ? https://github.com/Canop/broot/issues/115#issuecomment-573183294
 * _teletype (TTY)_: https://bas.codes/posts/python-asterisks https://the.exa.website/introduction https://en.wikipedia.org/wiki/Tty_(Unix) https://en.wikipedia.org/wiki/Tty_(Unix) https://the.exa.website/introduction https://jvns.ca/blog/2022/08/30/a-way-to-categorize-debugging-skills/ https://news.ycombinator.com/item?id=34146212 https://en.wikipedia.org/wiki/Teleprinter
 * https://bestasciitable.com/
@@ -453,28 +456,31 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 * multiplexers w/out sessions e.g. dvtm
 * sessions w/out window mgmt e.g. abduco https://www.youtube.com/watch?v=GbZFwpmr230 0:45
 
-FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/ https://news.ycombinator.com/item?id=35125442
-* image rendering https://github.com/lusingander/serie?tab=readme-ov-file#supported-terminals https://iterm2.com/documentation-images.html https://sw.kovidgoyal.net/kitty/graphics-protocol/
-* silence `last login` msg: add `.hushlogin` to $HOME
-* Unicode support: emojis, prompts https://darrenburns.net/posts/emoji-in-the-terminal/
-* tabs/profiles
-* viz: background color/image, transparency, themes e.g. gruvbox https://www.youtube.com/watch?v=h509rn2xIyU
-* _hotkey_: keypress handled by listening program even if another program is active
-* the killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
-* options: AutoHotKey https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ Hammerspoon, Keyboard Maestro https://news.ycombinator.com/item?id=34070951 Karabiner https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934 Alfred https://www.alfredapp.com/ BetterTouchTool https://switowski.com/blog/favorite-mac-tools/
+## alternatives
 
-ALTERNATIVES https://www.youtube.com/watch?v=WxzYtdIcHnQ
-> UX also isn't something that can really be competed on for a terminal app as the UX is typically dictated by the shell, tool, tmux, etc. https://news.ycombinator.com/item?id=35125295
 * _Alacritty_: 🎯 TOML config, cross-platform, no global hotkey but Hammerspoon/Karabiner workaround https://github.com/alacritty/alacritty/issues/3313 https://github.com/alacritty/alacritty/issues/862
 * _ghostty_: 🎯 private beta, written in Zig https://mitchellh.com/ghostty https://www.youtube.com/watch?v=7Jon_cAK_to
 * _Hyper_: ❌ Electron https://hyper.is/
 * _kitty_: can preview images in broot https://sw.kovidgoyal.net/kitty/ maintainer is a jerk https://news.ycombinator.com/item?id=41223934
 * _sshx_: real-time collaboration https://github.com/ekzhang/sshx
 * _Tabby_: ❌ Electron https://news.ycombinator.com/item?id=35111397 https://github.com/Eugeny/tabby?tab=readme-ov-file#what-tabby-is-and-isnt
-* _Warp_: ❌ launch configurations 类似 iterm profiles, need to login w/ Github https://news.ycombinator.com/item?id=30926360
-* _Wezterm_: immature, no global hotkey https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751
+* _Warp_: ❌ https://www.warp.dev/
+* good community? https://news.ycombinator.com/item?id=30926360
+* you need to login?!? https://app.warp.dev/login/
+* trying to move gen AI to shell https://www.warp.dev/ai
+* trying to move docs into a walled garden https://www.warp.dev/warp-drive
+* autocomplete is cool, esp. Git branches https://www.warp.dev/modern-terminal
+* terminal block is interesting https://www.warp.dev/modern-terminal
+* launch configurations 类似 iterm profiles
+* _Wezterm_: 🎯 immature, no global hotkey https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751
+
+---
+
+https://www.youtube.com/watch?v=WxzYtdIcHnQ
 
 ## color
+
+🗄 `viz.md` color
 
 ICON/FONT/COLOR INTERPLAY
 * eza/exa use different icons (setup screenshots on air22)
@@ -482,28 +488,9 @@ ICON/FONT/COLOR INTERPLAY
 * iterm version on mini22 can't display icon for music files correctly with both exa&eza but mini23 can
 > I thought this was something that couldn't be patched in iTerm?
 
-THEMES
-* _catppuccin_: 
-* _solarized_: https://ethanschoonover.com/solarized/
-
-PASTEL 📜 https://github.com/sharkdp/pastel
-```sh
-# CONVERT
-pastel format name fff3cd   # hex -> name
-pastel format hex cornsilk  # name -> hex
-
-# COMPLEMENT 🗄 `.bash_profile/label`
-pastel color gold | pastel complement  # palette https://www.tints.dev/blue/3B82F6
-pastel textcolor hotpink  # background color
-
-# ZA
-pastel color $COLOR  # PRINT
-pastel mix $COLOR1 $COLOR2  # MIX
-PASTEL list  # x11 colors
-pastel paint $COLOR1 --on $COLOR2 " INFORMATION " --bold  # adhoc
-```
-
 ---
+
+color themes https://realpython.com/courses/custom-vs-code-color-themes/
 
 https://news.ycombinator.com/item?id=41727971 https://jvns.ca/blog/2024/10/01/terminal-colours/
 
@@ -526,7 +513,38 @@ https://news.ycombinator.com/item?id=41727971 https://jvns.ca/blog/2024/10/01/te
 * vivid https://github.com/sharkdp/vivid https://github.com/zachvalenta/dotfiles-capp/commit/fe6fe34ff3aaafcaa1e52de4257663b334622b9f
 * use vivid with exa_colors https://github.com/mimame/.dotfiles/blob/b097b3dba50dc4ed7ff26886678392aa6926bed7/zsh/.zshrc#L152
 
-## iTerm
+## features
+
+* compute: iTerm uses ~15% CPU on air-capp, Alacritty is supposed to be good https://chatgpt.com/c/671149f9-6ff4-8004-a834-78d1cbfdd46b
+
+---
+
+> UX also isn't something that can really be competed on for a terminal app as the UX is typically dictated by the shell, tool, tmux, etc. https://news.ycombinator.com/item?id=35125295
+
+https://anarc.at/blog/2018-04-12-terminal-emulators-1/ https://news.ycombinator.com/item?id=35125442
+
+* silence `last login` msg: add `.hushlogin` to $HOME
+* Unicode support: emojis, prompts https://darrenburns.net/posts/emoji-in-the-terminal/
+* tabs/profiles
+
+VIZ
+* background color/image
+* transparency
+* themes e.g. gruvbox https://www.youtube.com/watch?v=h509rn2xIyU
+* image rendering https://github.com/lusingander/serie?tab=readme-ov-file#supported-terminals https://iterm2.com/documentation-images.html https://sw.kovidgoyal.net/kitty/graphics-protocol/
+
+HOTKEY
+* = keypress handled by listening program even if another program is active
+* killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
+> Google Drive for Desktop also uses
+* _AutoHotKey_: https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ 
+* _Alfred_ https://www.alfredapp.com/ https://wesbos.com/uses
+* _BetterTouchTool_: https://switowski.com/blog/favorite-mac-tools/
+* _Hammerspoon_: Keyboard Maestro https://news.ycombinator.com/item?id=34070951
+* _Karabiner_: https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934
+* _Raycast_: https://wesbos.com/uses
+
+## 🍎 iTerm
 
 📜 https://iterm2.com/documentation.html
 
@@ -584,7 +602,7 @@ WORKFLOW
 * _layout_: tab + start cmd
 * _session_: https://www.youtube.com/watch?v=bdumjiHabhQ 5:00
 
-### tmux
+### 🟩 tmux
 
 📜 https://github.com/tmux/tmux
 📙 Hogan https://github.com/git-pull/tao-of-tmux https://willvaughn.org/articles/the-tmux-manual-review/
@@ -620,7 +638,7 @@ ls  # list sessions
 a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/videos/tmux-navigation
 ```
 
-### Zellij
+### 🧩 Zellij
 
 📜 https://zellij.dev/documentation/
 

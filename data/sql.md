@@ -222,28 +222,6 @@ Flyway https://flywaydb.org/documentation/ https://github.com/zachvalenta/flyway
 * enum > FK
 * modeling payments https://news.ycombinator.com/item?id=36775098
 * https://news.ycombinator.com/item?id=41146239&utm_term=comment
-* JSON schema validation
-```sql
-ALTER TABLE products ADD CONSTRAINT data_is_valid CHECK(
-  validate_json_schema('{
-    "type": "object", "properties": {
-       "tags": {
-          "type": "array", "items": { "type": "string" }
-       }
-    }
-  }',  attributes)
-);
-
-INSERT INTO products (attributes) VALUES ('{}');
--- Result: OK
-INSERT INTO products (attributes) VALUES ('{ "tags":[] }');
--- Result: OK
-INSERT INTO products (attributes) VALUES ('{ "tags":["test"] }');
--- Result: OK
-INSERT INTO products (attributes) VALUES ('{ "tags":[2] }');
--- ERROR: new row for relation "products" violates check constraint "data_is_valid"
--- DETAIL: Failing row contains ({"tags": [2]}).
-```
 
 ACCESS PATTERNS
 * _access pattern_: how you have to query based on schema https://calpaterson.com/non-relational-beartraps.html
@@ -363,6 +341,7 @@ IT103    |   2009-2   | 120      | Web Design   |
 
 TYPES
 * money https://www.youtube.com/watch?v=lxVzLAHnPOE https://news.ycombinator.com/item?id=41776878
+* SKU: K8P-G3 https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?variant=39755425349721
 * _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
 * _varchar_: variable 📙 Beaulieu [21]
 * _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485

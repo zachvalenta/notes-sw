@@ -15,6 +15,7 @@
 ## 进步
 
 https://roadmap.sh/linux
+BYO linux https://drewdevault.com/2024/05/24/2024-05-24-Bunnix.html
 
 * _24_: combine Homebrew and other managers
 * _23_: Conery unix chapter
@@ -48,7 +49,7 @@ ENV SETUP ORDER
 * keep under version control and symlink into place with script https://hacker-tools.github.io/dotfiles/ advanced mgmt https://github.com/twpayne/chezmoi https://news.ycombinator.com/item?id=32632533 https://github.com/atuinsh/atuin
 > There are two basic approaches: version your entire home directory or symbolically link your dotfiles into place from a stand-alone repository. The first approach is straightforward but has a number of issues that make it a poor choice. https://nullprogram.com/blog/2012/06/23/
 * install script https://www.youtube.com/watch?v=hXU54axdjJc https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
-* mgmt: GNU Stow https://www.youtube.com/watch?v=90xMTKml9O0 https://github.com/bbkane/fling
+* mgmt: GNU Stow https://www.youtube.com/watch?v=90xMTKml9O0 https://github.com/bbkane/fling https://drewdevault.com/2019/12/30/dotfiles.html
 * mbp14
 ```sh
 # /Users/zach
@@ -162,6 +163,7 @@ TOOLS
 
 ---
 
+* https://wizardzines.com/comics/path-tips/ https://simonw.substack.com/p/video-scraping-using-google-gemini
 * https://blog.izissise.net/posts/env-path/
 * `$PATH`: list of directories that the shell should search when looking for programs corresponding to commands entered by the user [LPI 2.7]
 * change precedence: https://apple.stackexchange.com/a/49961
@@ -365,6 +367,7 @@ SEMVER https://stackoverflow.com/a/22345808
 
 ---
 
+* https://calmcode.io/datasets/dependencies
 * db of deps across org https://dmd.tanna.dev/
 
 > years ago websites were made of files; now they are made of dependencies https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/
@@ -438,6 +441,8 @@ deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/32
 ```
 
 ALTERNATIVES
+* https://drewdevault.com/2021/09/27/Let-distros-do-their-job.html
+* https://drewdevault.com/2018/01/10/Learn-your-package-manager.html
 * _apk_: Alpine
 * _apt_: used by Debian, Ubuntu, Mint
 ```sh
@@ -613,12 +618,28 @@ single-threaded + multicast https://signalsandthreads.com/multicast-and-the-mark
 * Evans strace
 * Evans tracing
 
-vocab
-* _monitor_: continuous; track errors
-* _trace_: ad-hoc; explore errors
-* _profile_: ad-hoc; hunt optimization
+VOCAB
+* _monitor_: track errors; continuous
+* _trace_: explore errors; ad hoc
+* _profile_: measure perf (which LOC exec + exec time); ad hoc
+
+TOOLS
+* _beetrace_: 🐍 https://github.com/furkanonder/beetrace
 
 ---
+
+EBPF
+* https://github.com/ZingerLittleBee/netop
+* https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06
+* https://news.ycombinator.com/item?id=27435081
+* https://www.brendangregg.com/blog/2022-04-15/netflix-farewell-1.html
+* https://ebpf.io/what-is-ebpf/ https://softwareengineeringdaily.com/2023/03/06/ebpf-with-thomas-graf/
+* https://www.polarsignals.com/blog/posts/2023/10/04/profiling-python-and-ruby-with-ebpf
+* https://about.gitlab.com/blog/2022/11/28/how-we-diagnosed-and-resolved-redis-latency-spikes/
+* https://softwareengineeringdaily.com/2022/07/15/continuous-profiling-using-ebpf-with-frederic-branczyk/
+* https://github.com/keyval-dev/odigos
+* https://github.com/google/gops
+* https://thume.ca/2023/12/02/tracing-methods/
 
 flamegraph https://github.com/laixintao/flameshow
 https://events.linuxfoundation.org/wp-content/uploads/2022/10/elena-zannoni-tracing-tutorial-LF-2021.pdf
@@ -730,14 +751,19 @@ function tz(){
 * Galvin dinosaur 18-20
 * Kerrisk 1
 
+* _alpine_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html https://drewdevault.com/2021/05/06/Praise-for-Alpine-Linux.html
 * _arch_: 
+* _mint_: https://drewdevault.com/2021/12/14/Linux-Mint-and-elementary-OS.html
 * _omakub_: https://github.com/basecamp/omakub https://omakub.org/ https://www.youtube.com/watch?v=g2vcIRavtqY
+* _Red Hat_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html
 
 ---
 
+* https://drewdevault.com/2017/05/05/Building-a-real-Linux-distro.html
+* desktop https://drewdevault.com/2021/12/05/What-desktop-Linux-needs.html
 * non-C operating systems e.g. SerenityOS https://news.ycombinator.com/item?id=30851955
 * _DOS (disk os)_: os that came after punch cards and magnetic drums i.e. computers 1980s to mid 90s
-* _Plan9_: os from Bell Labs after UNIX https://seh.dev/go-legacy/
+* _Plan9_: os from Bell Labs after UNIX https://seh.dev/go-legacy/ https://drewdevault.com/2022/11/12/In-praise-of-Plan-9.html
 * [Rob Pike talk](https://www.youtube.com/watch?v=_2NI6t2r_Hs&t=1105s)
 * The Open Group, an industry consortium (IBM Huawei DoD) controls UNIX name and compliance; no Linux distro qualifies [LPI 1, 1.3.3, 1.3.8]
 * how to keep Linux distros consistent? The Linux Standard Base [LPI 1.3.8]
@@ -1027,6 +1053,7 @@ cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
 
 📦 https://git.kernel.org/
 
+* microkernel https://drewdevault.com/2022/06/13/helios.html
 * _info_: `sysctl -n hw.ncpu` (number of cores) should be file `/etc/<distro>-release` (although of course not on macOS)
 * _user space_: shell, user processes
 * _kernel space_: stuff kernel controls
