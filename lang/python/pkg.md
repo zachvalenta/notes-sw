@@ -580,7 +580,7 @@ pyenv which <library> # list library version https://realpython.com/intro-to-pye
 * how it works: wrapper that passes cmd to appropriate version http://akbaribrahim.com/managing-multiple-python-versions-with-pyenv/#how-pyenv-works https://rutar.org/writing/managing-python-versions-with-pyenv/
 * Windows is a second-class citizen https://github.com/pyenv/pyenv#windows
 * can use different interpreter (PyPy, Jython) https://realpython.com/intro-to-pyenv/
-* install: Homebrew https://jacobian.org/2019/nov/11/python-environment-2020/ Linux https://mitelman.engineering/blog/python-best-practice/automating-python-best-practices-for-a-new-project/
+* install: Homebrew https://jacobian.org/2019/nov/11/python-environment-2020/ Linux https://mitelman.engineering/blog/python-best-practice/automating-python-best-practices-for-a-new-project/ https://drewdevault.com/2021/11/16/Python-stop-screwing-distros-over.html
 * fs: `~/.pyenv/versions`
 * setup
 ```sh

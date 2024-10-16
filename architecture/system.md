@@ -15,6 +15,7 @@ SEMANTICS
 ---
 
 testing https://www.thediff.co/archive/antithesis-debugging-debugging/ https://antithesis.com/ https://www.thediff.co/archive/offshoring-and-ai-agents/
+https://drewdevault.com/2021/10/17/Reliability.html
 
 https://roadmap.sh/best-practices/backend-performance
 

@@ -302,6 +302,9 @@ LANGUAGE https://tryclojure.org/
 ---
 
 https://chrisdone.com/posts/rust/
+https://drewdevault.com/2024/08/30/2024-08-30-Rust-in-Linux-revisited.html
+https://drewdevault.com/2022/10/03/Does-Rust-belong-in-Linux.html
+https://drewdevault.com/2019/03/25/Rust-is-not-a-good-C-replacement.html
 https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust https://www.ntietz.com/projects/
 * vs. Golang https://registerspill.thorstenball.com/p/glad-i-did-it-in-go
 > This blog post, Rewriting Rust, was very interesting. “I swear, it took more effort to learn pinning in rust than it took me to learn the entire Go programming language.” Some day (in the far future) I might write more about my feelings on Rust, but while reading this post I kept waiting for the paragraph in which they say what they would remove from the language. That paragraph never came and I think that’s one of the biggest sources of friction between me and Rust. https://registerspill.thorstenball.com/p/joy-and-curiosity-9
@@ -719,6 +722,8 @@ turns into metadata addiction
 
 # 🟨 ZA
 
+https://drewdevault.com/2021/10/05/Reflection.html
+
 OVERLOADING
 * _function overloading_: same method name, different sig (i.e. diff params)
 * some people don't like https://news.ycombinator.com/item?id=22347007
@@ -1018,6 +1023,12 @@ evaluation https://en.wikipedia.org/wiki/Evaluation_strategy
 * _eager_: eval expression during assignment
 * _lazy_: don't eval until necessary 🗄 `django.md` db
 * _thunk_: way to do lazy evaluation https://en.wikipedia.org/wiki/Thunk
+
+## spec
+
+https://drewdevault.com/2021/12/30/Language-design-considerations.html
+https://www.paulgraham.com/arc.html
+https://drewdevault.com/2021/08/11/Debugging-your-new-PL.html
 
 ## semantics
 

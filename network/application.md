@@ -190,7 +190,7 @@ accept-language https://borretti.me/article/uselessness-accept-language-header
 * https://www.twilio.com/blog/a-http-headers-for-the-responsible-developer https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers https://www.fastly.com/blog/headers-we-dont-want
 
 * _media type_: serialization; json `application/json` form `application/x-www-form-urlencoded` file `multipart/form-data` https://github.com/zachvalenta/pacific-flask/blob/master/templates/index.html#L22 
-* _mime type_: old name for media type https://stackoverflow.com/a/9277778 https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+* _MIME type_: old name for media type https://stackoverflow.com/a/9277778 https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types https://drewdevault.com/2022/01/28/Implementing-mime-in-xxxx.html
 
 misc
 * do not track: sites just ignore https://lwn.net/Articles/826575/
@@ -655,7 +655,7 @@ client config https://news.ycombinator.com/item?id=23027833
 * https://github.com/charmbracelet/wish
 https://stackoverflow.com/a/33243564/6813490
 process https://help.ubuntu.com/community/SSH/OpenSSH/Keys
-* _agent_: https://smallstep.com/blog/ssh-agent-explained/
+* _agent_: https://smallstep.com/blog/ssh-agent-explained/ https://drewdevault.com/2022/05/09/hare-ssh.html
 * _debug_: https://unix.stackexchange.com/a/229432/331460
 * _keys_: private (held on client) public (held on server, incl all text in file) use them bc user/pw can be brute force; generate new w/ `ssh-keygen`
 * _port_: defaults to 22

@@ -256,6 +256,8 @@ VERSIONS https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog
 
 ---
 
+https://drewdevault.com/2021/07/28/The-next-YAML.html
+
 QUERY TOOLS
 * https://github.com/julien040/anyquery
 * _qq_: https://github.com/JFryy/qq

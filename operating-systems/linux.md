@@ -15,6 +15,7 @@
 ## 进步
 
 https://roadmap.sh/linux
+BYO linux https://drewdevault.com/2024/05/24/2024-05-24-Bunnix.html
 
 * _24_: combine Homebrew and other managers
 * _23_: Conery unix chapter
@@ -438,6 +439,7 @@ deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/32
 ```
 
 ALTERNATIVES
+* https://drewdevault.com/2021/09/27/Let-distros-do-their-job.html
 * _apk_: Alpine
 * _apt_: used by Debian, Ubuntu, Mint
 ```sh
@@ -730,14 +732,18 @@ function tz(){
 * Galvin dinosaur 18-20
 * Kerrisk 1
 
+* _alpine_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html
 * _arch_: 
+* _mint_: https://drewdevault.com/2021/12/14/Linux-Mint-and-elementary-OS.html
 * _omakub_: https://github.com/basecamp/omakub https://omakub.org/ https://www.youtube.com/watch?v=g2vcIRavtqY
+* _Red Hat_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html
 
 ---
 
+* desktop https://drewdevault.com/2021/12/05/What-desktop-Linux-needs.html
 * non-C operating systems e.g. SerenityOS https://news.ycombinator.com/item?id=30851955
 * _DOS (disk os)_: os that came after punch cards and magnetic drums i.e. computers 1980s to mid 90s
-* _Plan9_: os from Bell Labs after UNIX https://seh.dev/go-legacy/
+* _Plan9_: os from Bell Labs after UNIX https://seh.dev/go-legacy/ https://drewdevault.com/2022/11/12/In-praise-of-Plan-9.html
 * [Rob Pike talk](https://www.youtube.com/watch?v=_2NI6t2r_Hs&t=1105s)
 * The Open Group, an industry consortium (IBM Huawei DoD) controls UNIX name and compliance; no Linux distro qualifies [LPI 1, 1.3.3, 1.3.8]
 * how to keep Linux distros consistent? The Linux Standard Base [LPI 1.3.8]
@@ -1027,6 +1033,7 @@ cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
 
 📦 https://git.kernel.org/
 
+* microkernel https://drewdevault.com/2022/06/13/helios.html
 * _info_: `sysctl -n hw.ncpu` (number of cores) should be file `/etc/<distro>-release` (although of course not on macOS)
 * _user space_: shell, user processes
 * _kernel space_: stuff kernel controls

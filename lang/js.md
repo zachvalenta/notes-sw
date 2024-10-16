@@ -327,6 +327,7 @@ let bob = Object.assign({}, player, {score: 3});
 
 * _package_: anything w/ `package.json`
 * _npm_: manager + registry https://www.npmjs.com/
+* https://drewdevault.com/2021/11/16/Cash-for-leftpad.html
 * _jsr_: Deno registry https://www.youtube.com/watch?v=8IHhvkaVqVE [5:15]
 * _yarn_: manager https://yarnpkg.com/
 * `yarn install --ignore-engines` https://stackoverflow.com/a/45088032
