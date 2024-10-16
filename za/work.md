@@ -313,6 +313,195 @@ EDUCATION
 * _2010.09-2012.08_: Dalian University of Technology (Chinese language study)
 * _2006.08-2010.08_: Penn State - honors college (BA - English)
 
+# ☄️ INDUSTRY
+
+📚
+* Eghbal working in public https://www.amazon.com/gp/product/0578675862 https://drewdevault.com/2024/07/16/2024-07-16-So-you-want-to-compete-with-FOSS.html https://drewdevault.com/2023/12/26/2023-12-26-Prusa-is-floundering.html
+> what happened to exa i.e. just bc it wasn't receiving updates why did it get booted from Homebrew? -> also, eza install from Homebrew takes forever
+> how to make money: popularize lib, sell support | managed env https://pola.rs/our-services/
+* Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/
+* Seibel coders at work
+
+---
+
+MGMT https://jacobian.org/posts/
+* references
+* work samples
+* status updates https://jacobian.org/2021/mar/5/exec-status-update/ briefs https://jacobian.org/2021/jan/30/soccr/
+* estimates + https://jacobian.org/2021/oct/20/simple-pm-tricks/ https://entropicthoughts.com/estimating-work-lag https://entropicthoughts.com/statistical-process-control-a-practitioners-guide
+> even people who should know better https://x.com/danluu/status/1244051446313574402
+* DORA https://jacobian.org/2022/jun/17/dora-metrics/
+
+* in-house https://news.ycombinator.com/item?id=41161315
+* freelance: https://www.racketracer.com/2019/07/11/why-data-scientists-should-never-use-upwork https://andyadams.org/everything-i-know-about-freelancing https://news.ycombinator.com/item?id=19455224 https://github.com/engineerapart/TheRemoteFreelancer https://plainfreelancecontract.com/ https://news.ycombinator.com/item?id=18945658 contracting https://ochagavia.nl/blog/becoming-a-contractor
+* pair programming: https://news.ycombinator.com/item?id=2050552 http://mwilden.blogspot.com/2010/12/why-i-love-solo-programming-and-why-i.html http://mwilden.blogspot.com/2009/11/why-i-dont-like-pair-programming-and.html https://codeburst.io/pair-programming-is-hard-a5da3449b67a https://gitduck.com/ https://tuple.app/
+* refactoring: people would rather change stacks https://news.ycombinator.com/item?id=26274375
+* technical debt: https://news.ycombinator.com/item?id=25009258
+* _hacking_: creative reuse https://macwright.com/2021/07/24/hacking-is-the-opposite-of-marketing.html
+* _comp sci_: catchall for hardware (electrical engineering) boolean logic (math) computation (math, linguistics); kinda like web development; 类似 home building
+* 40 year growth timeline for IC vs. management https://softwareengineeringdaily.com/2020/03/09/dbt-data-build-tool-with-tristan-handy/ aka staff engineer https://softwareengineeringdaily.com/2020/10/29/staff-engineering-with-will-larson/ https://twitter.com/ProducerCities/status/1622743532543873024
+* on not networking https://news.ycombinator.com/item?id=24931148
+* compensation: high due to immigration restrictions, bust-era crash in CS enrollment https://danluu.com/bimodal-compensation/ https://news.ycombinator.com/item?id=22887777 https://news.ycombinator.com/item?id=23768682
+> The problem I keep seeing in startups is that a lot of startup tech founders and employees don't see a startup as an embryonic business that will grow over the long term into a money-making venture requiring calculated risks and priorities, but rather as a personal playground to do all the fun things they were not allowed to do at their old BigCorp. Use cool framework or language X? Use Kubernetes? Microservices? Lambdas? No-SQL? Two fingers to BigCorp, I'm CTO/tech employee #1 at a new startup and I get to do whatever I want. If and when it goes down in flames, I now have these skills on my resume I can leverage into a better opportunity. https://news.ycombinator.com/item?id=31798063
+
+* lie at exit interviews https://jacobian.org/2022/apr/4/exit-interviews-are-a-trap/
+* roles: IC, manager, line manager https://jacobian.org/2022/oct/12/role-title-terminology/
+* things you learn at work: the general wiring together of things (servers, frontend/backend, caches, databases), how the development lifecycle works, more than you ever wanted to know about the business logic of whatever applications you're working on, ad hoc peeks into deeper domains as the need arises, the general lay of the lay
+* things you don't learn at work: general computation, networking, algorithms, systems programming, compilers.
+
+* Tim Peters https://lwn.net/Articles/988894/ https://news.ycombinator.com/item?id=41515766
+* Hacker News https://news.ycombinator.com/item?id=41539125
+* corporate dev https://news.ycombinator.com/item?id=41581687
+
+DEV TYPES https://josephg.com/blog/3-tribes
+* _jobs_: employee, mgmt, founder, solo; impl (do the work) middle mgmt (make sure work gets done) upper mgmt (decide what work to do) https://news.ycombinator.com/item?id=16553253
+* dark mattter https://veekaybee.github.io/2019/05/10/java8/ https://www.hanselman.com/blog/DarkMatterDevelopersTheUnseen99.aspx
+* https://jacobian.org/2020/feb/18/innovation-execution/ https://blog.codinghorror.com/the-magpie-developer/ https://news.ycombinator.com/item?id=23542156 https://news.ycombinator.com/item?id=24266127
+* generalists https://news.ycombinator.com/item?id=18813455 https://angel.co/blog/what-skeptics-get-wrong-about-full-stack-engineers-and-why-we-need-them https://news.ycombinator.com/item?id=24634939 `operations.md`
+* enterprise https://www.technologyreview.com/2021/01/30/1017086/cdc-44-million-vaccine-data-vams-problems/
+> Unlike engineers, engineering managers have no natural source of power. In previous lives many of them ran the machines themselves, but there came a time when they've traded their role as craftsmen for the management track...they can no longer fix the machines. Their power has to come from elsewhere. https://www.spakhm.com/p/parallel-tracks
+> I try to seriously think about whether it’s something I want to do, or something I want to have done. https://news.ycombinator.com/item?id=24871093
+
+FIRMS
+* _startups_: https://jatins.gitlab.io/me/why-startup https://danluu.com/startup-tradeoffs/ entertainment model of labor https://capiche.com/q/does-venture-act-in-the-same-way-as-entertainment
+* _government_: https://twitter.com/patio11/status/1284644858582335488 https://federalnewsnetwork.com/tom-temin-commentary/2020/01/irs-programming-mystery-continues/?mc_cid=aba7fea3bb&mc_eid=85dafbe485 GSA https://news.ycombinator.com/item?id=24789070 https://marginalrevolution.com/marginalrevolution/2020/10/should-government-improve-the-quality-of-its-software.html
+* _academia_: https://chadaustin.me/2017/05/writing-a-really-really-fast-json-parser/ https://swtch.com/~rsc/ http://terri.zone12.com/me/resume/ https://news.ycombinator.com/item?id=23891838 https://lwn.net/Articles/827180/ 'ecosystem literacy' https://missing.csail.mit.edu/about/
+
+> This is depressing for project creators. Early on, they have the triumphant experience of building exactly what they want, and solving their nagging problem. And the result is that they’re cleaning up after a bunch of requests from people who are either annoyed that it doesn’t work for them or have unsolicited feedback on how it ought to work. No wonder Linus Torvalds gets so mad. Running a successful open source project is just Good Will Hunting in reverse, where you start out as a respected genius and end up being a janitor who gets into fights. https://diff.substack.com/p/working-in-public-and-the-economics
+
+ZA
+* https://www.opensourcealternative.to/
+* what maintainers do https://davidism.com/maintainer-notes/
+* it's all kinda magic https://thorstenball.com/blog/2020/09/08/how-can-you-not-be-romantic-about-programming/
+* incentivizing participation doesn't work https://drewdevault.com/2020/08/10/How-to-contribute-to-FOSS.html Drew DeVault is slipping https://news.ycombinator.com/item?id=24024557
+* if you want to get paid for code you need to make products and not projects https://news.ycombinator.com/item?id=25038165
+> write libraries not services https://news.ycombinator.com/item?id=26398960
+> Example: my A/Bingo was once probably the best option for Rails A/B testing, by dint of being the only serious option for Rails A/B testing. It is a little old in the tooth now, but being The A/B Testing Guy got me several consulting gigs. The effort to make e.g. documentation, a quickstart guide, a logo, and a branded web presence beats the heck out of having a junior engineer at a potential client just git clone my Github URL and never have my work exposed to a decisionmaker there at all. https://training.kalzumeus.com/newsletters/archive/do-not-end-the-week-with-nothing
+
+STANDARDS BODIES
+* how RFCs work https://stackoverflow.com/a/1961018
+> There are standards track documents and non-standard track (informational) documents. The entire process, including descriptions, processes and rules for IETF issued documents is defined by RFC2026 with some follow on amendments. Every RFC will specify at the beginning which track it is on. https://datatracker.ietf.org/doc/html/rfc2026
+> RFC is an acronym that stands for "Request For Comments," meaning it is intended on gathering feedback from the community. That being said, almost the entire internet runs on unratified RFCs, or less. The CSV "standard" itself is essentially undefined without RFC4180. It is the most definitive model we have although it might change someday. As it stands, RFC4180 has no provisions for inserting comments. If you add your own commenting mechanism to the format, don't expect interoperability with other reader/writers that follow RFC4180. https://datatracker.ietf.org/doc/html/rfc4180
+* "technical committees, international standards organizations, and government agencies that manage the Internet" - Network Know-How [36]
+* why USSR didn't invent the internet http://web.mit.edu/slava/homepage/articles/Gerovitch-InterNyet.pdf
+* _sink_: https://en.wikipedia.org/wiki/Internet_Society RFCs https://tangentsoft.net/rfcs/by-tla.html
+* _IETF_: HTTP https://tools.ietf.org/html/rfc7617
+* _ANSI (American National Standards Institute)_: SQL; used to do C [Beaulieu 5.86] escape codes https://notes.burke.libbey.me/ansi-escape-codes/
+* _ISO (International Standards Org)_: does C now, created OSI, does C++ https://www.iso.org/standard/68564.html
+* _IEEE (Institute for Electrical Electronic Engineers)_: POSIX (standard for UNIX-like OS, C, Bash) [LPI 1.3.2]
+* _Open Group_: controls UNIX (which is just a spec; Solaris, macOS); IBM Huawei DoD Nasa that controls; no Linux distro qualifies [LPI 1, 1.3.3]
+* https://diff.substack.com/p/sharing-and-owning-standards
+* [Cloud Native Computing Foundation](https://changelog.com/podcast/314)
+* [how to read an RFC](https://www.mnot.net/blog/2018/07/31/read_rfc)
+* https://wiki.creativecommons.org/wiki/Case_Studies/StackOverflow.com
+* http://www.ieee802.org/3/ --> people that do work for the IEEE work for semiconductor companies
+* http://yehudakatz.com/about/
+* http://yehudakatz.com/podcasts/
+* https://softwareengineeringdaily.com/host/
+* https://blogs.windows.com/msedgedev/2017/10/18/documenting-web-together-mdn-web-docs/
+* Linux Programming Interface: chapter 1
+
+## funding
+
+---
+
+* https://blog.gitbutler.com/open-source-pledge-2024/
+* tidelift https://blog.glyph.im/2024/03/software-needs-to-be-more-expensive.html
+* open collective https://harelang.org/
+* Sciagraph https://www.sciagraph.com/
+* consortium, Mozilla, SQLite https://corecursive.com/066-sqlite-with-richard-hipp/
+* https://en.wikipedia.org/wiki/Embrace,_extend,_and_extinguish
+* funding https://wsvincent.com/how-django-works-behind-the-scenes/
+* Tide Lift https://github.com/gnebbia/kb https://xscode.com/ https://polite.technology/preview
+* NumFocus is a industry consortium that sponsors projects that benefit finance https://numfocus.org/sponsored-projects https://news.ycombinator.com/item?id=25538454
+
+## licenses
+
+https://csvbase.com/blog/14 🗄 `musicology.md` copyright
+
+* CLA https://drewdevault.com/2023/07/04/Dont-sign-a-CLA-2.html
+* https://drewdevault.com/2023/06/19/Reforming-the-free-software-message.html
+* https://drewdevault.com/2022/09/16/Open-source-matters.html
+* https://drewdevault.com/2022/03/01/Open-source-is-defined-by-the-OSD.html
+* https://drewdevault.com/2024/04/19/2024-04-19-Copyleft-is-not-restrictive.html
+* _open core_: https://en.wikipedia.org/wiki/Odoo
+* _source available_: https://news.ycombinator.com/item?id=41648564
+* _MIT_: modifications can be redistributed under different terms w/ out source
+* _GPL_: copyleft i.e. all derivates also must use GPL https://news.ycombinator.com/item?id=34011581
+* _Open Usage Commons_: Google (Angular, Gerrit, Istio) https://news.ycombinator.com/item?id=23777705 https://lwn.net/Articles/825548/
+* _SSPL_: Mongo https://github.com/FerretDB/FerretDB
+
+## Hacker News
+
+> "did you win the Putnam?" / "yes, I did" - Percival https://news.ycombinator.com/item?id=35079
+> I wouldn't be a hacker at heart if I wasn't willing to spend a few hours automating a task that takes 3 extra seconds. https://eli.thegreenplace.net/2018/command-line-autocomplete-for-go-documentation/
+
+* https://xkcd.com/378/ https://xkcd.com/386/ https://xkcd.com/2030/
+* brainfuck https://news.ycombinator.com/item?id=41620198
+* poll https://news.ycombinator.com/item?id=34180508
+* joke https://news.ycombinator.com/item?id=35368019
+* HNers https://news.ycombinator.com/item?id=35135053
+* HN is the best https://news.ycombinator.com/item?id=33971377
+* people outsource their comments to HN https://nullprogram.com/blog/2021/09/15/ https://www.jefftk.com/p/designing-low-upkeep-software https://www.arp242.net/
+* exposure to people who know much, much more than you https://news.ycombinator.com/item?id=30671979 https://nullprogram.com/
+* reader https://github.com/bensadeh/circumflex
+* HNers https://news.ycombinator.com/item?id=24723388
+* Joel to Patrick https://news.ycombinator.com/item?id=31439985
+* content moderation: optimize for intellectual curiosity, no notifications https://news.ycombinator.com/item?id=30373171 https://news.ycombinator.com/item?id=30374040
+* ostensibly a forum for software developers, there's just a lot of smart people hanging around, and so threads about different translations of the Odyssey get 100+ comments, many of which have some substance https://news.ycombinator.com/item?id=24352463
+* "I don't care if this succeeds" https://news.ycombinator.com/item?id=30283264
+* first deployed Python at a bank https://news.ycombinator.com/item?id=29104401
+* longshoremen https://news.ycombinator.com/item?id=28973399
+* chess champs https://news.ycombinator.com/item?id=24390723 https://news.ycombinator.com/item?id=28788540
+* well moderated https://news.ycombinator.com/item?id=27991050
+* https://news.ycombinator.com/item?id=27419954
+> Hacker News is great bc all sorts of weird people find it. In some sense it's become the ur-blog of the now mostly dead blogosphere.
+* can go there for lots of stuff e.g. guitar pickups https://news.ycombinator.com/item?id=27017176
+* https://news.ycombinator.com/item?id=27249082
+* https://news.ycombinator.com/item?id=27212334
+* https://news.ycombinator.com/item?id=27126317
+* I am not the poster but might as well be. And, also, I already have this job! https://news.ycombinator.com/item?id=26721951
+* still the best community https://news.ycombinator.com/item?id=25419340
+* still needs more thoughtful people https://twitter.com/danluu/status/1344463139673264128
+* how to not work https://news.ycombinator.com/item?id=26721951
+* https://news.ycombinator.com/item?id=24088582
+* https://news.ycombinator.com/item?id=24397272
+* https://twitter.com/paulg/status/1315204246460076037
+* https://news.ycombinator.com/item?id=24900522
+* https://news.ycombinator.com/item?id=25047838
+* soon™️ https://the.exa.website/
+* https://x.com/jimmyechan/status/1817405679742996638
+
+## Stack Overflow
+
+MY PROMPTS
+> Can you include any errors/output generated by your code?
+> Check out this short guide https://stackoverflow.com/help/minimal-reproducible-example most questions that garner helpful answers use its advice in some way or another.
+
+ASKING QUESTIONS
+> Our general rule is that if the correct length of an answer is a whole book you are asking too much. - https://www.joelonsoftware.com/2018/04/23/strange-and-maddening-rules/
+* minimal, complete, verifiable https://stackoverflow.com/help/mcve if not, you're being inconsiderate https://github.com/mkdocs/mkdocs/issues/243#issuecomment-64760836
+* async https://capnfabs.net/posts/ask-questions-well-asynchronously/
+* artifacts, not questions https://blog.codinghorror.com/what-does-stack-overflow-want-to-be-when-it-grows-up/
+* anti patterns https://dontasktoask.com/ https://josh.works/better-questions
+* dupes are a hard problem to solve https://blog.codinghorror.com/what-does-stack-overflow-want-to-be-when-it-grows-up/
+* people still do not understand that Stack Overflow is about building artifacts https://news.ycombinator.com/item?id=26491454
+
+NOTABLE QUESTIONS
+* Russia embargo https://news.ycombinator.com/item?id=30504812 https://meta.stackexchange.com/questions/376743/stack-exchange-qa-access-will-not-be-restricted-in-russia
+* https://news.ycombinator.com/item?id=25624044
+* https://stackoverflow.com/a/9288128/6813490
+* standards low on some other Stack Exchange sites https://money.stackexchange.com/questions/99235/why-do-people-save-so-much/99239#99239 although some strange ones on SO as well https://stackoverflow.com/questions/5009324/node-js-nginx-what-now
+* math from prison https://mathoverflow.net/questions/382003/need-advice-or-assistance-for-son-who-is-in-prison-his-interest-is-scattering-t
+
+MISC
+* closing jobs feature https://meta.stackoverflow.com/questions/415293/sunsetting-jobs-developer-story
+* sites: SO (programming) Server Fault (sysadmin) Super User (IT) Software Engineering (system design, SDLC)
+* export your data https://meta.stackexchange.com/a/336743/434172
+* trends https://insights.stackoverflow.com/trends?tags=
+* mind blowing to other professions https://talkpython.fm/episodes/show/190/teaching-django @ 31:00
+* Quora sucks https://waxy.org/2018/12/why-you-should-never-ever-use-quora/
+* moderation https://chat.stackoverflow.com/rooms/41570/so-close-vote-reviewers https://news.ycombinator.com/item?id=25710665
 # 🚨 INTERVIEWING
 
 ## answers
