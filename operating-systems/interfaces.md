@@ -492,18 +492,18 @@ THEMES
 PASTEL 📜 https://github.com/sharkdp/pastel
 ```sh
 # CONVERT
-pastel format name fff3cd   # hex -> name
-pastel format hex cornsilk  # name -> hex
+format name fff3cd   # hex -> name
+format hex cornsilk  # name -> hex
 
 # COMPLEMENT 🗄 `.bash_profile/label`
-pastel color gold | pastel complement  # palette https://www.tints.dev/blue/3B82F6
-pastel textcolor hotpink  # background color
+color gold | pastel complement  # palette https://www.tints.dev/blue/3B82F6
+textcolor hotpink  # background color
 
 # ZA
-pastel color $COLOR  # PRINT
-pastel mix $COLOR1 $COLOR2  # MIX
-PASTEL list  # x11 colors
-pastel paint $COLOR1 --on $COLOR2 " INFORMATION " --bold  # adhoc
+color $COLOR  # PRINT
+mix $COLOR1 $COLOR2  # MIX
+list  # x11 colors
+paint $COLOR1 --on $COLOR2 " INFORMATION " --bold  # adhoc
 ```
 
 ---

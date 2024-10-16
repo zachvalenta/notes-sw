@@ -362,7 +362,6 @@ TRANSACTIONS 🗄 `db.md` consistency
 > QuerySets are lazy – the act of creating a QuerySet doesn’t involve any database activity. You can stack filters together all day long, and Django won’t actually run the query until the QuerySet is evaluated. https://docs.djangoproject.com/en/3.1/topics/db/queries/#querysets-are-lazy
 how to
 * http://blog.abedmaatalla.me/2020/12/django-orm-optimization-tips.html
-* ERD https://github.com/pikhovkin/django-schema-viewer
 * ❓ implicit queries https://news.ycombinator.com/item?id=34936023
 * GeneratedField https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/
 * catch dirty model instances https://github.com/romgar/django-dirtyfields

@@ -1076,7 +1076,6 @@ ZA
 * backups https://github.com/benbjohnson/litestream https://news.ycombinator.com/item?id=34517474 https://github.com/maxpert/marmot https://litestream.io/alternatives/cron/ https://news.ycombinator.com/item?id=31152490 https://news.ycombinator.com/item?id=31318708
 
 HOWTO
-* ERD https://github.com/Dicklesworthstone/sqlalchemy_data_model_visualizer https://gitlab.com/Screwtapello/sqlite-schema-diagram
 * diff changes / changelog https://news.ycombinator.com/item?id=38110286&utm_term=comment
 * tuning https://news.ycombinator.com/item?id=35547819 https://news.ycombinator.com/item?id=39955288
 * config (journal, wal, timeout) https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html https://avi.im/blag/2021/fast-sqlite-inserts/

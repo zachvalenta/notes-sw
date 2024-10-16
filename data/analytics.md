@@ -509,7 +509,7 @@ FEATURES
 * autocomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
 * follow FKs https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
 * data catalog https://harlequin.sh
-* ERD https://databasediagram.com/ https://drawdb.vercel.app/
+* ERD 🗄 `info.md` viz / entities / ERD
 * _query editor_: save, autocomplete
 * _results viewer_: result set
 
