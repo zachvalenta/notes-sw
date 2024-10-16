@@ -225,7 +225,7 @@ RAM
 > Swapfile is just bigger-but-slower RAM. https://news.ycombinator.com/item?id=25056588
 
 VIRTUAL https://questions.wizardzines.com/virtual-memory.html
-* _virtual memory_: disk used as memory when you run out of actual memory 📙 Evans linux [24] 📙 Bryant [9] https://questions.wizardzines.com/virtual-memory.html
+* _virtual memory_: disk used as memory when you run out of actual memory 📙 Evans linux [24] 📙 Bryant [9] https://questions.wizardzines.com/virtual-memory.html https://drewdevault.com/2018/10/29/How-does-virtual-memory-work.html
 * _page_: chunk of virtual memory
 * _page table_: map of page to physical address
 * every process has its own 📙 Evans linux [16]

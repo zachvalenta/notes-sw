@@ -265,7 +265,6 @@ FAVORITES
 
 HOW THINGS WORK
 * movies https://www.theringer.com/2024/8/21/24225522/the-arms-race-behind-where-movies-shoot https://www.theringer.com/2024/9/23/24252627/biggest-takeaways-netflix-data-dump-2024-streaming https://www.theringer.com/2024/9/25/24253629/how-to-make-your-own-tv-show-and-get-netflix-to-buy-it-mark-duplass-penelope-netflix https://www.theringer.com/2024/9/30/24258856/how-should-movie-and-tv-stars-be-paid
-* sports betting https://archive.vn/rfPo4 https://www.theringer.com/2024/8/5/24213559/the-state-of-sports-gambling-with-todd-fuhrman https://archive.vn/lZw1l
 
 ## design
 
@@ -279,6 +278,7 @@ HOW THINGS WORK
 * https://anthonyhobday.com/sideprojects/saferules/
 * https://macwright.com/2016/12/28/what-little-i-know-about-design.html
 * https://jamesg.blog/2024/08/16/content-layout-design/
+* https://drewdevault.com/2019/03/04/sourcehut-design.html
 
 MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
 * https://news.ycombinator.com/login?goto=news

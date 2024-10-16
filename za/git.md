@@ -708,6 +708,9 @@ notas post-mortem
 
 ---
 
+https://drewdevault.com/2019/02/25/Using-git-with-discipline.html
+https://drewdevault.com/2020/04/06/My-weird-branchless-git-workflow.html
+
 🗄
 * merge
 * `di`: one-step add and commit for single file 
@@ -844,7 +847,7 @@ GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Rep
 * _snippets_: Gist, pastebin https://softwareengineeringdaily.com/2020/06/08/tilt-kubernetes-tooling-with-dan-bentley/ 46:45
 
 HOSTING
-* aaS: Github (no default to fuzzy search), Gitlab EE, SourceHut https://git.sr.ht/~shulhan/gotp
+* aaS: Github (no default to fuzzy search), Gitlab EE, SourceHut https://git.sr.ht/~shulhan/gotp https://drewdevault.com/2018/06/05/Should-you-move-to-sr.ht.html
 * https://github.com/honza/smithy https://codeberg.org/
 * _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965
 * _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717

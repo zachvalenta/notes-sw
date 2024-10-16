@@ -22,7 +22,7 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 * typical to write a scripting language to go along with your shell https://news.ycombinator.com/item?id=24079001
 * BYO https://www.destroyallsoftware.com/screencasts/catalog https://github.com/elves/elvish
-* POSIX compatability https://www.youtube.com/watch?v=Yva_nTXzTTw
+* POSIX compatability https://www.youtube.com/watch?v=Yva_nTXzTTw https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html https://drewdevault.com/2017/11/13/Portability-matters.html
 * _elvish_: https://news.ycombinator.com/item?id=18778681 https://news.ycombinator.com/item?id=41401463
 * _nushell_: structured data https://www.nushell.sh/
 * _oil_: https://github.com/oilshell/oil
@@ -39,7 +39,10 @@ ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 * get current shell: `echo $SHELL` https://stackoverflow.com/a/3327022/6813490
 * switch shell: `<shell>` https://fishshell.com/docs/current/tutorial.html#tut_getting_started
 * return to default shell: `exit`
+* https://drewdevault.com/2020/12/12/Shell-literacy.html
 
+SEMANTICS
+* https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html
 * _subshell_: ? https://github.com/Canop/broot/issues/115#issuecomment-573183294
 * _teletype (TTY)_: https://bas.codes/posts/python-asterisks https://the.exa.website/introduction https://en.wikipedia.org/wiki/Tty_(Unix) https://en.wikipedia.org/wiki/Tty_(Unix) https://the.exa.website/introduction https://jvns.ca/blog/2022/08/30/a-way-to-categorize-debugging-skills/ https://news.ycombinator.com/item?id=34146212 https://en.wikipedia.org/wiki/Teleprinter
 * https://bestasciitable.com/

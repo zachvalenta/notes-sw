@@ -23,7 +23,7 @@ TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-develop
 * _CRUD-and-forms_: Django https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/ 
 * _vanilla_: https://github.com/bradtraversy/vanillawebprojects https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies
 * _HTML-only_: htmx
-* _jQuery-esque_: https://arp242.net/jquery.html Alpine https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/#building-interactive-interfaces-in-your-django-pages-with-alpinejs https://news.ycombinator.com/item?id=36697366 https://news.ycombinator.com/item?id=39580843
+* _jQuery-esque_: https://arp242.net/jquery.html Alpine https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/#building-interactive-interfaces-in-your-django-pages-with-alpinejs https://news.ycombinator.com/item?id=36697366 https://news.ycombinator.com/item?id=39580843 https://drewdevault.com/2013/08/19/You-dont-need-jQuery.html
 * _React-esque_: Vue, Angular, Remix https://remix.run/
 * _React-lite_: Mithril https://mithril.js.org https://news.ycombinator.com/item?id=24368689 Svelte https://svelte.dev/ https://news.ycombinator.com/item?id=24363261
 * _full-stack_: Next, Redwood, sock-puppet https://macwright.com/2020/10/28/if-not-spas.html
@@ -87,6 +87,7 @@ DESIGN
 * vs. alpine, mithril https://news.ycombinator.com/item?id=32011439
 * internals https://www.youtube.com/watch?v=javGxN-h9VQ
 * htmz https://news.ycombinator.com/item?id=40709769
+* https://drewdevault.com/2018/09/04/Conservative-web-development.html
 
 DJANGO
 > For my rewrite of the client, I’m going to skip the drama and just use htmx. Render Django templates server-side, include a single JS script, thrown in some HTML attributes, distinguish between full page requests vs. requests for a partial with updated data, and call it a day. No TypeScript, no Webpack, none of that nonsense. If I need special interactivity I can throw in some hyperscript. https://news.ycombinator.com/item?id=38517099

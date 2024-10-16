@@ -691,6 +691,8 @@ as red flag https://news.ycombinator.com/item?id=30675182
 
 ---
 
+https://drewdevault.com/2019/04/29/Shut-up-and-get-back-to-work-style.html
+
 * hoisting
 
 > When in doubt, don't model it. Just get the code written, make forward progress. Don't let yourself get bogged down with the details of modeling a helper class that you're creating for documentation purposes. - http://steve-yegge.blogspot.com/2008/02/portrait-of-n00b.html

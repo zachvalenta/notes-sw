@@ -405,6 +405,7 @@ STANDARDS BODIES
 
 ---
 
+* https://drewdevault.com/2020/11/20/A-few-ways-to-make-money-in-FOSS.html
 * https://blog.gitbutler.com/open-source-pledge-2024/
 * tidelift https://blog.glyph.im/2024/03/software-needs-to-be-more-expensive.html
 * open collective https://harelang.org/
@@ -417,8 +418,18 @@ STANDARDS BODIES
 
 ## licenses
 
-https://csvbase.com/blog/14 🗄 `musicology.md` copyright
+🗄 `industry.md` copyright
 
+---
+
+https://drewdevault.com/2021/01/19/Elasticsearch-does-not-belong-to-Elastic.html
+https://drewdevault.com/2021/03/03/To-make-money-in-FOSS-build-a-business.html
+https://lichess.org/@/lichess/blog/why-lichess-will-always-be-free/YF-ZORQA
+https://drewdevault.com/2020/07/27/Anti-AGPL-propaganda.html
+https://drewdevault.com/2018/10/30/Its-not-okay-to-pretend-youre-open-source.html
+https://csvbase.com/blog/14
+https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
+* https://drewdevault.com/2021/07/04/Is-GitHub-a-derivative-work.html
 * CLA https://drewdevault.com/2023/07/04/Dont-sign-a-CLA-2.html
 * https://drewdevault.com/2023/06/19/Reforming-the-free-software-message.html
 * https://drewdevault.com/2022/09/16/Open-source-matters.html
@@ -427,7 +438,7 @@ https://csvbase.com/blog/14 🗄 `musicology.md` copyright
 * _open core_: https://en.wikipedia.org/wiki/Odoo
 * _source available_: https://news.ycombinator.com/item?id=41648564
 * _MIT_: modifications can be redistributed under different terms w/ out source
-* _GPL_: copyleft i.e. all derivates also must use GPL https://news.ycombinator.com/item?id=34011581
+* _GPL_: copyleft i.e. all derivates also must use GPL https://news.ycombinator.com/item?id=34011581 https://drewdevault.com/2019/06/13/My-journey-from-MIT-to-GPL.html
 * _Open Usage Commons_: Google (Angular, Gerrit, Istio) https://news.ycombinator.com/item?id=23777705 https://lwn.net/Articles/825548/
 * _SSPL_: Mongo https://github.com/FerretDB/FerretDB
 

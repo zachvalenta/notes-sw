@@ -359,6 +359,7 @@ config
 
 ## media server
 
+https://drewdevault.com/2013/08/24/Music-syncing-on-Android.html
 * ❌ _headunit_: wedded to vehicle, can't rely on this being around much longer https://www.youtube.com/watch?v=AEm2WbSwRIA https://www.amazon.com/KENWOOD-KDC-BT282U-Car-Stereo-Illumination/dp/B09GWC9QYZ models https://www.youtube.com/watch?v=P7pUT0gbZZQ speakers https://www.youtube.com/watch?v=ADFOAAN9SIA
 * ❌ _home media server_: not oriented around file structure, streaming vs. on-device
 * ✅ Android: enough storage with microSD, good app https://fi.google.com/about/phones/moto-g-5g microSDs fail frequently https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
@@ -500,7 +501,6 @@ USE CASES
 
 WHAT I WANT
 * layout: TKL
-> although halo75 looks less scrunched than layout for air75
 * connection: wired
 * no lights
 * don't care about programmable or rotary knob
@@ -521,6 +521,7 @@ MODELS
 * _Keychron k1_: out of stock https://www.reddit.com/r/NuPhy/comments/1brdzgy/will_there_ever_be_low_profile_tkl_80_layout/
 * _Keychron v3_: 🎯 $110 layout (80/TKL) profile (normal) https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/ https://www.amazon.com/dp/B0CW5B5KL8
 * _Logitech mx mini_: https://www.logitech.com/en-us/products/keyboards/mx-keys-mini.920-010475.html
+* _Nuphy halo75_: less scrunched than air75 layout? 🎯 https://www.amazon.com/nuphy-Mechancial-Kyeboard-Swappable-Bluetooth/dp/B0D5Q891F1
 * _Nuphy air75 v2_: ✅ $125 layout (75) profile (low - 2.3mm) https://nuphy.com/products/air75-v2
 * slow shipping (but next time you can just buy from Amazon?)
 * layout too scrunched
@@ -604,6 +605,8 @@ neofetch
 
 ## manufacturers
 
+https://drewdevault.com/2020/02/18/Fucking-laptops.html
+
 CONSIDERATIONS
 * ✅ Mac: familiarity, hardware
 * ❌ Windows: pyenv is second-class citizen, WSL just something else to debug, unused to keybindings
@@ -681,6 +684,8 @@ ANDROID
 
 ---
 
+* https://drewdevault.com/2019/12/18/PinePhone-review.html 
+* https://drewdevault.com/2017/11/24/Phone-maintenance.html
 * alternatives to Google Play https://news.ycombinator.com/item?id=41770193
 * iPhone 1TB storage https://news.ycombinator.com/item?id=41631130
 * iPhone keyboard https://www.clicks.tech/

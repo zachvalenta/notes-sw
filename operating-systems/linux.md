@@ -49,7 +49,7 @@ ENV SETUP ORDER
 * keep under version control and symlink into place with script https://hacker-tools.github.io/dotfiles/ advanced mgmt https://github.com/twpayne/chezmoi https://news.ycombinator.com/item?id=32632533 https://github.com/atuinsh/atuin
 > There are two basic approaches: version your entire home directory or symbolically link your dotfiles into place from a stand-alone repository. The first approach is straightforward but has a number of issues that make it a poor choice. https://nullprogram.com/blog/2012/06/23/
 * install script https://www.youtube.com/watch?v=hXU54axdjJc https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
-* mgmt: GNU Stow https://www.youtube.com/watch?v=90xMTKml9O0 https://github.com/bbkane/fling
+* mgmt: GNU Stow https://www.youtube.com/watch?v=90xMTKml9O0 https://github.com/bbkane/fling https://drewdevault.com/2019/12/30/dotfiles.html
 * mbp14
 ```sh
 # /Users/zach
@@ -440,6 +440,7 @@ deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/32
 
 ALTERNATIVES
 * https://drewdevault.com/2021/09/27/Let-distros-do-their-job.html
+* https://drewdevault.com/2018/01/10/Learn-your-package-manager.html
 * _apk_: Alpine
 * _apt_: used by Debian, Ubuntu, Mint
 ```sh
@@ -732,7 +733,7 @@ function tz(){
 * Galvin dinosaur 18-20
 * Kerrisk 1
 
-* _alpine_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html
+* _alpine_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html https://drewdevault.com/2021/05/06/Praise-for-Alpine-Linux.html
 * _arch_: 
 * _mint_: https://drewdevault.com/2021/12/14/Linux-Mint-and-elementary-OS.html
 * _omakub_: https://github.com/basecamp/omakub https://omakub.org/ https://www.youtube.com/watch?v=g2vcIRavtqY
@@ -740,6 +741,7 @@ function tz(){
 
 ---
 
+* https://drewdevault.com/2017/05/05/Building-a-real-Linux-distro.html
 * desktop https://drewdevault.com/2021/12/05/What-desktop-Linux-needs.html
 * non-C operating systems e.g. SerenityOS https://news.ycombinator.com/item?id=30851955
 * _DOS (disk os)_: os that came after punch cards and magnetic drums i.e. computers 1980s to mid 90s

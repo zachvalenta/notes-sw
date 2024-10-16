@@ -104,11 +104,8 @@ https://wizardzines.com/comics/assembly/
 * courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
 * more books http://fabiensanglard.net/c/index.php
 
-## STDLIB
-
-* builtin: hot reload, lint, fmt, http https://www.youtube.com/watch?v=8IHhvkaVqVE
-* things people don't like and replacements https://news.ycombinator.com/item?id=25125034
-* _libc_: POSIX spec for os stdlib; used by higher-levels languages for everything from networking to memory management https://wizardzines.com/comics/libc/
+STDLIB
+* _libc_: POSIX spec for os stdlib; used by higher-levels languages for everything from networking to memory management https://wizardzines.com/comics/libc/ https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
 * _glibc_: most common impl of libc https://stackoverflow.com/a/11373143
 * _musl_: used by Alpine https://www.musl-libc.org/ https://news.ycombinator.com/item?id=23819500 https://www.etalabs.net/compare_libcs.html cleaner? https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
 
@@ -120,6 +117,8 @@ DESIGN
 > Libraries written in C are callable from any programming language. https://sqlite.org/whyc.html
 > The Linux kernel is written in C. The software that connects your printer to your computer could be in C. The Web servers that serve up your Web pages are often written in C. It’s also a good language for writing other languages - Python, PHP, and Perl are written in C, as are many others. C is a language you use for building systems; it has the same role in computing that Latin did among Renaissance academics. - Ford what is code?
 * example code: Redis, SQlite https://news.ycombinator.com/item?id=30753428
+* https://drewdevault.com/2017/03/15/How-I-learned-to-stop-worrying-and-love-C.html
+* https://drewdevault.com/2017/01/30/Lessons-to-learn-from-C.html
 
 HISTORY
 * _1972_: created https://www.bell-labs.com/usr/dmr/www/chist.html
@@ -534,13 +533,13 @@ HOWTO
 * increases headcount, not total users https://news.ycombinator.com/item?id=34567237
 > Second, C has a tendency to be conservative, changing and growing very slowly. This is a feature, and one that is often undervalued by developers. (In fact, I’d personally like to see a future revision that makes the C language specification smaller and simpler, rather than accumulate more features.) - https://nullprogram.com/blog/2018/11/21/
 
-
 SYSTEMS PROGRAMMING
 * languages: C, C++, Rust
-* things people write with: dbms, web server, compiler, shell https://drewdevault.com/2021/05/30/Come-build-your-project.html https://drewdevault.com/2021/02/21/On-the-traits-of-good-replacements.html
+* things people write with: dbms, web server, compiler, shell https://drewdevault.com/2021/05/30/Come-build-your-project.html
 * fuzzy definition http://willcrichton.net/notes/systems-programming/ https://news.ycombinator.com/item?id=35092049
 * memory management now in favor http://esr.ibiblio.org/?p=7804
 * is easy :) https://news.ycombinator.com/item?id=34566918
+* https://drewdevault.com/2021/03/19/A-new-systems-language.html
 
 ## functional
 
@@ -871,13 +870,14 @@ gcc foo.c -Wall -o my_program m -std='c99'
 * `.so`: lib whose code is referenced by your library https://stackoverflow.com/a/9809250
 * _header file_: imports
 
+* https://drewdevault.com/2017/02/22/cozy-devnotes-machine-specs.html
 * _bootstrapping_: wrote core of compiler in another language and then use that core to build the rest of the compiler in the source language i.e. self-compilation https://softwareengineering.stackexchange.com/a/76640 https://stackoverflow.com/a/18126181
 * _executable_: runtime + binary compatible with user os architecture
 * for user's machine vs. your server https://testandcode.com/52 @ 29:00
 * aka freeze in Python land https://docs.python-guide.org/shipping/freezing/
 
 don't have good topic name for this yet
-* _parser_: generates AST from src https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html https://astral.sh/blog/ruff-v0.4.0
+* _parser_: generates AST from src https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html https://astral.sh/blog/ruff-v0.4.0 https://drewdevault.com/2021/04/22/Our-self-hosted-parser-design.html
 * _AST_: src as tree https://sadh.life/post/ast/
 * translate AST from c to Golang src https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
 ```python
@@ -1067,3 +1067,8 @@ ARITHMATIC
 * _increment_: `++`
 * _infix_: multiplication `*` exponentiation `**` https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/ 🗄 `python.md`
 * += https://stackoverflow.com/a/7456548
+
+## stdlib
+
+* builtin: hot reload, lint, fmt, http https://www.youtube.com/watch?v=8IHhvkaVqVE
+* things people don't like and replacements https://news.ycombinator.com/item?id=25125034

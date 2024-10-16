@@ -1010,6 +1010,7 @@ SEMANTICS
 
 ---
 
+https://drewdevault.com/2017/08/13/When-not-to-use-a-regex.html
 https://news.ycombinator.com/item?id=39763750
 * https://github.com/learnbyexample/py_regular_expressions/tree/master/interactive_exercises
 * impl https://perl.plover.com/Regex/article.html

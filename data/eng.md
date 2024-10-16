@@ -67,6 +67,10 @@ TIMEZONES
 * `system.md` distributed
 
 * short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00
+
+---
+
+* https://drewdevault.com/2019/01/13/Backups-and-redundancy-at-sr.ht.html
 * https://github.com/eduardolat/pgbackweb
 * hard drive health: 2% annual fail rate https://drewdevault.com/2020/04/22/How-to-store-data-forever.html DriveDX https://binaryfruit.com/drivedx/usb-drive-support Wear_Leveling_Count https://superuser.com/q/1037644 SMART https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology https://news.ycombinator.com/item?id=11110902
 * version control data: DVC https://github.com/iterative/dvc https://realpython.com/python-data-version-control/ Dolt https://github.com/dolthub/dolt https://www.youtube.com/watch?v=ITvSs23lTQE
