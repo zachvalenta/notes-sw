@@ -15,7 +15,6 @@
 
 * _24_: usage (regex, stdlib, EDI) tooling (clients)
 
-* organization: folders, search 🗄️ clients
 * contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
 * BYO https://medium.com/@msouza.os/llm-from-scratch-with-pytorch-9f21808c6319 https://youtu.be/kCc8FmEb1nY
 * learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
@@ -264,6 +263,7 @@ ZA
 * in Bash https://github.com/simonmysun/ell
 * _aichat_: ❌ https://github.com/sigoden/aichat/issues/924
 * doesn't work https://github.com/sigoden/aichat 
+* _Easy Folders_: ❌ didn't work in Brave https://chromewebstore.google.com/detail/chatgpt-folders-search-pr/gdocioajfidpnaejbgmbnkflgmppibfe
 * _elia_: 🎯 https://github.com/darrenburns/elia
 * config fs: `$HOME/.config`
 * export/import: JSON https://github.com/darrenburns/elia/pull/70 https://github.com/darrenburns/elia?tab=readme-ov-file#import-from-chatgpt
@@ -283,6 +283,16 @@ Say you have a CLI program that needs a secret (e.g. an API key). The secret nee
 * _oterm_: for Ollama https://github.com/ggozad/oterm
 * _Superpower ChatGPT_: folders mostly broken but JSON export seems to work https://spchatgpt.com/ https://chromewebstore.google.com/detail/Superpower%20ChatGPT/amhmeenmapldpjdedekalnfifgnpfnkc 
 * _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
+
+---
+
+* my kingdom for folders and search https://chatgpt.com/c/67108642-c0cc-8004-b985-28773a5764fb
+
+## local
+
+---
+
+https://github.com/nomic-ai/gpt4all
 
 ## code assist
 
