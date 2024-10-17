@@ -121,14 +121,15 @@ MUSIC
 ### air-capp ➡️ mini23
 
 * dance/dark: nicolaas jaar, roisin murphy, pantha du prince
-* far: jamaica/dub
+* dance/techno: vapourspace
+* far/jamaica/dub: augustus-pablo, gregory-isaacs
 * electronic: we-as-is
 * rock/80s: war on drugs, the police
+> rm police from rock/singles
 * rock/indie: camera obscura
+* rock/punk/60s
 * rock/shoegaze: cocteau twins
 * rnb: al green (belle)
-* punk/60s
-* rm police from rock/singles
 
 ## reimage
 

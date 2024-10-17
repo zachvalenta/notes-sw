@@ -80,6 +80,12 @@ IEA*1*000000905
 
 * _pyedi_: 🐍 https://github.com/freestream/pyedi
 * not on PyPI; fork and publish? https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
+```python
+import json
+from pyedi import parse_file
+from pyedi.settings import Settings
+ts = parse_file('./edi.txt', Settings())
+```
 * _sezna_: 🦀 https://github.com/sezna/edi https://news.ycombinator.com/item?id=23786634
 
 ---
@@ -667,6 +673,8 @@ semantics
 * e.g. mp3 spec for how to encode audio 📙 Sweigart 1.3
 
 ## serde
+
+🗄 `python/stdlib.md` serde
 
 ---
 

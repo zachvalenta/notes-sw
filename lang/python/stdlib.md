@@ -1287,23 +1287,31 @@ requests.post(url, files=my_file)  # PUT also works fine
 res = requests.delete(url, auth=(user, pw))
 ```
 
-## serialization (Marshmallow)
+## serde (Marshmallow)
 
 📙 Beazley ch. 6
-🗄 `system.md` serialization
+🗄 `protocols.md` serde
 
-MARSHMALLOW 📜 https://marshmallow.readthedocs.io/en/stable/ 🗄 https://github.com/zachvalenta/sqla-marshmallow `lang/python/flask/sqla-marshmallow`
-* 
+JSON 📜 https://docs.python.org/3/library/json.html
+* dump = ser, load = de 
+* singular for file write, plural for string
+```python
+# SER
+import json
+data = {"name": "Alice", "age": 25}
+json.dumps(data)  # as string '{"name": "Alice", "age": 25}'
+with open("data.json", "w") as f:
+    json.dump(data, f)  # file write
 
-ZA
-* _pickle_: no one uses any more https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html https://docs.python.org/3/library/persistence.html
-* _dumps_: serialize https://docs.python.org/3/library/json.html
-* _loads_: deserialize
-* singular versions for files (vs. strings) https://stackoverflow.com/a/32911421
-* fmt https://orbifold.xyz/check-in-json.html
-```sh
-python -m json.tool myfile.json > myfile.json.formatted
+# DE
+with open("data.json", "r") as f:
+    data = json.load(f)  # file load
+data = json.loads('{"name": "Alice", "age": 25}')  # as dict
 ```
+
+---
+
+* singular versions for files (vs. strings) https://stackoverflow.com/a/32911421
 ```python
 def test_formatting():
     with open("myfile.json") as fp:
@@ -1313,7 +1321,15 @@ def test_formatting():
     assert raw == redumped
 ```
 
----
+MARSHMALLOW 📜 https://marshmallow.readthedocs.io/en/stable/ 🗄 https://github.com/zachvalenta/sqla-marshmallow `lang/python/flask/sqla-marshmallow`
+* 
+
+ZA
+* _pickle_: no one uses any more https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html https://docs.python.org/3/library/persistence.html
+* fmt https://orbifold.xyz/check-in-json.html
+```sh
+python -m json.tool myfile.json > myfile.json.formatted
+```
 
 * https://github.com/ijl/orjson
 * https://hakibenita.com/django-rest-framework-slow
