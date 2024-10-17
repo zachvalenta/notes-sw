@@ -1292,20 +1292,21 @@ BASICS
 ```python
 # SER
 import json
-data = {"name": "Alice", "age": 25}
-json.dumps(data)  # as string '{"name": "Alice", "age": 25}'
+data = {"name": "Alice", "age": 42}
+json.dumps(data)  # as string '{"name": "Alice", "age": 42}'
 with open("data.json", "w") as f:
     json.dump(data, f)  # file write
 
 # DE
 with open("data.json", "r") as f:
     data = json.load(f)  # file load
-data = json.loads('{"name": "Alice", "age": 25}')  # as dict
+data = json.loads('{"name": "Alice", "age": 42}')  # as dict
 ```
 
 FMT
 ```sh
 # in file https://orbifold.xyz/check-in-json.html
+# ❓ should be able to do this aside from CLI, right?
 python -m json.tool myfile.json > myfile.json.formatted
 ```
 ```python

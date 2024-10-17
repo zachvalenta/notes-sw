@@ -576,6 +576,7 @@ OPTIONS
 * _tiptop_: 🐍 https://github.com/nschloe/tiptop
 
 STATS
+> why is air-capp slow? Google Drive? age (2020 machine)?
 * iTerm: 15%
 * VS Code: 10%
 

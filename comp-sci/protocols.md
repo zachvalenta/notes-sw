@@ -85,6 +85,9 @@ import json
 from pyedi import parse_file
 from pyedi.settings import Settings
 ts = parse_file('./edi.txt', Settings())
+with open("data.json", "w") as f:
+    json.dump(ts, f)
+# fmt -> python -m json.tool data.json
 ```
 * _sezna_: 🦀 https://github.com/sezna/edi https://news.ycombinator.com/item?id=23786634
 
@@ -336,8 +339,10 @@ cue vet person.cue
 
 ## JSON
 
-🗄️ `algos.md` tree
 🛠 https://github.com/burningtree/awesome-json
+🗄️
+* `algos.md` tree
+* `python/stdlib.md` serde
 
 OPERATIONS
 * fmt: `python3 -m json.tool music-lib.json > music-lib-fmt.json` https://orbifold.xyz/check-in-json.html
