@@ -1069,6 +1069,7 @@ SEMANTICS
 * _display server_: ❓ e.g. Quartz Compositor (aka WindowServer) https://en.wikipedia.org/wiki/Quartz_Compositor https://unix.stackexchange.com/a/1016
 
 DESKTOP ENV
+* rainmeter https://modkavartini.github.io/catppuccin/ https://www.rainmeter.net/
 * _GNOME_: https://blog.edfloreshz.dev/articles/linux/system76/rust-based-desktop-environment/
 * _Material Shell_: https://news.ycombinator.com/item?id=24491091
 * _Cinnamon_: https://news.ycombinator.com/item?id=24491091

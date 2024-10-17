@@ -657,7 +657,7 @@ https://www.amazon.com/How-Bake-Pi-Exploration-Mathematics/dp/0465097677
 
 🗄 `info.md` diagrams
 📙 Kun ch. 6 https://en.wikipedia.org/wiki/Graph_theory
-🛠 https://github.com/networkx/networkx https://github.com/dominikbraun/graph/ https://news.ycombinator.com/item?id=38834780 https://www.hytradboi.com/2022/how-to-query-almost-everything
+🛠 https://github.com/networkx/networkx https://github.com/dominikbraun/graph/ https://news.ycombinator.com/item?id=38834780 https://www.hytradboi.com/2022/how-to-query-almost-everything d2 https://chatgpt.com/c/671043db-1354-8004-a127-6b4152994963
 
 SEMANTICS
 * _graph_: nodes + edges
@@ -747,7 +747,7 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 *️ `protocols.md` JSON / jless
 * `science.md` metascience / categories
 
-TREE BUILDERS 🗄️ `html-css.md` SSG `protocols.md` JSON `km.md` notes / tooling
+TREE BUILDERS 🗄️ `html-css.md` SSG `protocols.md` JSON `km.md` notes / tooling `info.md` viz / system
 * features: dynamic creation via TUI, hot reload viz, tree merge, Vim traversal, symlink nodes
 * BYO https://realpython.com/directory-tree-generator-python/
 * _anytree_: ✅ https://github.com/c0fec0de/anytree
@@ -757,6 +757,7 @@ TREE BUILDERS 🗄️ `html-css.md` SSG `protocols.md` JSON `km.md` notes / tool
 * dict export https://anytree.readthedocs.io/en/stable/exporter/dictexporter.html
 * json export https://anytree.readthedocs.io/en/stable/exporter/jsonexporter.html
 * _basilk_: https://github.com/GabAlpha/basilk
+* _d2_: grid diagram https://d2lang.com/tour/grid-diagrams
 * _Haystack_: 🎯 tree follower https://news.ycombinator.com/item?id=41648564
 * _hmm_: ✅ https://github.com/nadrad/h-m-m https://github.com/zachvalenta/capp-prod-cat-markmap
 * _markmap_: ✅ Markdowm https://github.com/markmap/markmap

@@ -269,6 +269,8 @@ ZA
 * have to expose API as env var 🗄️ `src.md` secrets
 > fix https://github.com/darrenburns/elia/issues/52
 > open a PR to document this
+* import https://github.com/darrenburns/elia?tab=readme-ov-file#import-from-chatgpt
+> how does this work under the hood? https://github.com/darrenburns/elia?tab=readme-ov-file#wiping-the-database
 ```txt
 Say you have a CLI program that needs a secret (e.g. an API key). The secret needs to be exposed as a Linux environment variable. You don't want to store the secret in your .bash_profile because:
 * you have your environment variables version controlled

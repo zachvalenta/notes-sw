@@ -479,6 +479,8 @@ ALTERNATIVES https://www.youtube.com/watch?v=WxzYtdIcHnQ
 
 ## color
 
+🗄 `viz.md` color
+
 ICON/FONT/COLOR INTERPLAY
 * eza/exa use different icons (setup screenshots on air22)
 > can you byo your icons in eza?
@@ -486,7 +488,9 @@ ICON/FONT/COLOR INTERPLAY
 > I thought this was something that couldn't be patched in iTerm?
 
 THEMES
-* _catppuccin_: 
+* BYO https://github.com/terrastruct/d2/pull/2065/files
+* _catppuccin_: https://catppuccin.com/
+* _nord_: https://www.nordtheme.com/ https://github.com/terrastruct/d2/pull/2065
 * _solarized_: https://ethanschoonover.com/solarized/
 
 PASTEL 📜 https://github.com/sharkdp/pastel
