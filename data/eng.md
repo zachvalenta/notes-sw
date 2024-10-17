@@ -168,7 +168,9 @@ TOOLS
 
 ## clean
 
-🗄️ `languages.md` R / tidyverse
+🗄️
+* `languages.md` R / tidyverse
+* `python/core.md` pydantic
 
 * _Autolabel_: https://github.com/refuel-ai/autolabel https://www.youtube.com/watch?v=TjzeaHjmiGM
 * _Cleanlab_: https://github.com/cleanlab/cleanlab https://www.youtube.com/watch?v=QHaT_AiUljw
@@ -181,10 +183,8 @@ TOOLS
 
 SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data
 * https://developer.wordpress.org/apis/security/sanitizing/ https://developer.wordpress.org/apis/security/data-validation/ https://developer.wordpress.org/apis/security/escaping/
-* _validation_: compare against rules
-* Cerberus https://github.com/pyeve/cerberus https://hector.dev/2020/12/29/validating-data-in-python-with-cerberus.html
-* BYO https://realpython.com/primer-on-python-decorators/#more-real-world-examples https://blog.drewolson.org/declarative-validation
 * https://github.com/pyjanitor-devs/pyjanitor
+* _validation_: compare against rules
 * _filter_: rm validation violations
 * _escape_: convert validation violations
 * _sanitize_: validate + filter/escape

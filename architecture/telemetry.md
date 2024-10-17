@@ -32,6 +32,7 @@ PROVIDERS https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services
 * replace with Textual? https://textual.textualize.io/
 * _HyperDX_: 🎯 https://github.com/hyperdxio/hyperdx
 > HyperDX is an open-source observability platform that unifies all three pillars of observability: logs, metrics and tracing. With it, you can correlate end-to-end and go from browser session replay to logs and traces in just a few clicks. The platform leverages ClickHouse as a central data store for all telemetry data, and it scales to aggregate log patterns and condense billions of events into distinctive clusters. Although you can choose from several observability platforms, we want to highlight HyperDX for its unified developer experience. https://www.thoughtworks.com/radar/platforms/hyperdx
+* _Logfire_: https://pydantic.dev/logfire https://pydantic.dev/articles/logfire-announcement
 * _Jam_: error reporting https://jam.dev/ https://news.ycombinator.com/item?id=40318542 🗄️ `test.md` friction logs
 * _Prometheus_: time-series db as metrics store https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services/ https://prometheus.io/docs/introduction/overview/ https://github.com/yolossn/Prometheus-Basics https://softwareengineeringdaily.com/2020/07/09/chronosphere-scalable-metrics-database-with-rob-skillington/ https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://monzo.com/blog/2018/07/27/how-we-monitor-monzo/ https://www.youtube.com/watch?v=9TJx7QTrTyo [13:00]
 * _Moderato_: 🎯 https://github.com/moderato-app/live-pprof

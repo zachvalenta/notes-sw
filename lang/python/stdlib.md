@@ -1269,12 +1269,24 @@ requests.post(url, files=my_file)  # PUT also works fine
 res = requests.delete(url, auth=(user, pw))
 ```
 
-## serde (Marshmallow)
+## serde
 
 📙 Beazley ch. 6
-🗄 `protocols.md` serde
+🗄
+* `protocols.md` serde
+* `svc/django.md` DRF
 
-JSON 📜 https://docs.python.org/3/library/json.html
+ALTERNATIVES
+* dataclasses
+* _orjson_: fast https://github.com/ijl/orjson
+* _pickle_: https://docs.python.org/3/library/persistence.html no one uses any more https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html
+* _pydantic_: https://docs.pydantic.dev/latest/concepts/serialization/ https://news.ycombinator.com/item?id=14477434
+
+### JSON
+
+📜 https://docs.python.org/3/library/json.html
+
+BASICS
 * dump = ser, load = de 
 * singular for file write, plural for string
 ```python
@@ -1291,38 +1303,24 @@ with open("data.json", "r") as f:
 data = json.loads('{"name": "Alice", "age": 25}')  # as dict
 ```
 
----
-
-* singular versions for files (vs. strings) https://stackoverflow.com/a/32911421
-```python
-def test_formatting():
-    with open("myfile.json") as fp:
-        raw = fp.read()
-    content = json.loads(raw)
-    redumped = json.dumps(content, indent=4) + "\n"
-    assert raw == redumped
-```
-
-MARSHMALLOW 📜 https://marshmallow.readthedocs.io/en/stable/ 🗄 https://github.com/zachvalenta/sqla-marshmallow `lang/python/flask/sqla-marshmallow`
-* 
-
-ZA
-* _pickle_: no one uses any more https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html https://docs.python.org/3/library/persistence.html
-* fmt https://orbifold.xyz/check-in-json.html
+FMT
 ```sh
+# in file https://orbifold.xyz/check-in-json.html
 python -m json.tool myfile.json > myfile.json.formatted
 ```
+```python
+# stdout
+print(json.dumps(item, indent=4, sort_keys=True))  # only works when keys are primitives https://stackoverflow.com/a/47007417 https://stackoverflow.com/a/55179673
+```
 
-* https://github.com/ijl/orjson
-* https://hakibenita.com/django-rest-framework-slow
+### Marshmallow
+
+📜 https://marshmallow.readthedocs.io/en/stable/
 
 * _1-M_: https://stackoverflow.com/a/37802227/6813490 https://stackoverflow.com/a/44511616/6813490 https://marshmallow.readthedocs.io/en/latest/nesting.html 
 * _filter nested_: https://stackoverflow.com/q/57851811/6813490
 * _sink_: https://www.kimsereylam.com/python/2019/10/25/serialization-with-marshmallow.html https://www.pythonpodcast.com/marshmallow-data-validation-episode-200/
 
-__Marshmallow__
-
-* docs: https://marshmallow.readthedocs.io/en/stable
 * _alternatives_: https://news.ycombinator.com/item?id=14477434 stdlib https://news.ycombinator.com/item?id=14477434
 
 libs for Flask

@@ -120,7 +120,11 @@ class SomeView(BaseView):
 
 ## dataclass
 
-https://www.youtube.com/watch?v=vBH6GRJ1REM
+---
+
+* alternative + serde https://github.com/python-attrs/attrs
+* serde https://github.com/lidatong/dataclasses-json
+* https://www.youtube.com/watch?v=vBH6GRJ1REM
 * vs. defined https://www.youtube.com/watch?v=1S2h11XronA
 > the most useful purpose is adding a certain degree of formalization to a group of values that need to be passed around. https://www.revsys.com/tidbits/dataclasses-and-attrs-when-and-why/
 * `__repr__` and `__eq__` for free https://realpython.com/python-data-classes/
@@ -1029,12 +1033,25 @@ foo  # [42, 2, 3]
 ## typing
 
 🗄 `language.md` typing
+> You probably know my skepticism towards Python typing. This stems from the syntax's complexity, the sluggishness of mypy, the overall cumbersome nature of its implementation and awkwardness of interactions with it...in a way in some areas we are creating the new Java. We became the people we originally displaced. Just that when we are not careful we are on a path to the world's worst Java. We put typing on a language that does not support it, our interpreter is slow, it has a GIL. We need to be careful not to forget that our roots are somewhere else. We should not collectively throw away the benefits we had. https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
 
 * _exhaustiveness check_: check that functions handle newly-added attributes on their args https://news.ycombinator.com/item?id=25428583
 * _type narrowing_: issue warning if src tries to operate on type that args cannot be passed on blocks's previous code https://hakibenita.com/python-mypy-exhaustive-checking
 
 ---
 
+OPTIONS
+* _MonkeyType_: Instagram i.e. Python 3 https://github.com/Instagram/MonkeyType https://www.pythonpodcast.com/monkeytype-with-carl-meyer-and-matt-page-episode-146/
+* _mypy_: PSF
+* _pyannotate_: Dropbox i.e. Python 2 https://github.com/dropbox/pyannotate
+* _pyre_: Facebook https://pyre-check.org/
+* _PyRight_: Microsoft https://github.com/Microsoft/pyright
+
+ANNOTATIONS
+* _annotation_: https://docs.python.org/3/glossary.html#term-annotation
+* _function annotation_: https://docs.python.org/3/glossary.html#term-function-annotation
+* _variable annotation_: https://docs.python.org/3/glossary.html#term-variable-annotation
+* _generic type_: https://docs.python.org/3/glossary.html#term-generic-type
 * _type annotation_: Python 3, PEP 484 https://blog.zulip.org/2016/10/13/static-types-in-python-oh-mypy/
 ```python
 def greeting(name: str) -> str:
@@ -1054,29 +1071,10 @@ func.__annotations__
 # {}
 ```
 
----
-
-PYDANTIC
-* throw err if typing mismatch https://hackernoon.com/pydantic-what-it-is-and-why-its-useful https://talkpython.fm/episodes/show/466/pydantic-performance-tips
-* https://realpython.com/python-pydantic/
-* https://fastapi.tiangolo.com/python-types/
-* https://www.pythonpodcast.com/pydantic-data-validation-episode-263/
-* https://github.com/shopnilsazal/validus
-* https://blog.couchbase.com/validate-json-documents-in-python-using-pydantic/
-* https://talkpython.fm/episodes/show/466/pydantic-performance-tips
-
-> you probably know my skepticism towards Python typing. This stems from the syntax's complexity, the sluggishness of mypy, the overall cumbersome nature of its implementation and awkwardness of interactions with it...in a way in some areas we are creating the new Java. We became the people we originally displaced. Just that when we are not careful we are on a path to the world's worst Java. We put typing on a language that does not support it, our interpreter is slow, it has a GIL. We need to be careful not to forget that our roots are somewhere else. We should not collectively throw away the benefits we had. https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
-
 multiple returns https://realpython.com/python-type-hints-multiple-types/
 https://realpython.com/python-type-self/
 https://lukeplant.me.uk/blog/posts/the-different-uses-of-python-type-hints/
 
-ANNOTATIONS
-* _annotation_: https://docs.python.org/3/glossary.html#term-annotation
-* _function annotation_: https://docs.python.org/3/glossary.html#term-function-annotation
-* _variable annotation_: https://docs.python.org/3/glossary.html#term-variable-annotation
-
-* _generic type_: https://docs.python.org/3/glossary.html#term-generic-type
 * https://terokarvinen.com/2022/python-dotted-dictionary/
 * https://realpython.com/python311-new-features/#improved-type-variables
 * history https://www.fluentpython.com/lingo/#type
@@ -1085,11 +1083,16 @@ ANNOTATIONS
 * _dummy version_: `isinstance`
 * type hints introduced in PEP 484 https://www.python.org/dev/peps/pep-0484/
 * mypy vs. pyright https://news.ycombinator.com/item?id=37914146 https://rdrn.me/postmodern-python/
-* _libs_: mpypy (PSF) PyRight (Microsoft) https://github.com/Microsoft/pyright pyre (Facebook) https://pyre-check.org/ pyannotate (Dropbox i.e. Python 2) https://github.com/dropbox/pyannotate MonkeyType (Instagram i.e. Python 3 https://github.com/Instagram/MonkeyType https://www.pythonpodcast.com/monkeytype-with-carl-meyer-and-matt-page-episode-146/
 * _sink_: https://talkpython.fm/episodes/show/151/gradual-typing-of-production-applications https://www.youtube.com/watch?v=mh9jQSxzv0c https://inventwithpython.com/blog/2019/11/24/type-hints-for-busy-python-programmers/ https://veekaybee.github.io/2019/07/08/python-type-hints/ https://blog.petrzemek.net/2019/02/22/even-feature-that-you-do-not-use-can-bite-you/
 
+### 🟦 mypy
 
-mypy https://mypy.readthedocs.io/en/stable/getting_started.html#installing-mypy
+📜 https://www.mypy-lang.org/
+
+---
+
+https://www.mypy-lang.org/
+https://mypy.readthedocs.io/en/stable/getting_started.html#installing-mypy
 * _impl_: looks at AST, doesn't run src
 * changes versions too frequently https://news.ycombinator.com/item?id=26814919
 * trade-offs: write a bit more code but read a lot less; more code but simpler (vs. Java tower of abstractions in type graph); prevents drift btw method sig and impl (esp. after refactor); seems easier/better to use at the start of a project (although, gradual typing given as a main use case; tbh, idk)
@@ -1101,6 +1104,31 @@ mypy https://mypy.readthedocs.io/en/stable/getting_started.html#installing-mypy
 def get_config_value(key: str): Optional[str]:
     # Either return the config value, or None if it's not present
 ```
+
+### 🔺 pydantic
+
+📜 https://docs.pydantic.dev/latest/ https://pydantic.dev/
+🗄
+* `eng.md` clean
+* `python/stdlib.md` serde
+
+---
+
+DESIGN
+* https://chatgpt.com/c/67115402-236c-8004-b283-04e97eb8c541
+* https://chatgpt.com/c/6711674f-be44-8004-be07-0236079e05c6
+
+* throw err if typing mismatch https://hackernoon.com/pydantic-what-it-is-and-why-its-useful https://talkpython.fm/episodes/show/466/pydantic-performance-tips
+* https://realpython.com/python-pydantic/
+* https://fastapi.tiangolo.com/python-types/
+* https://www.pythonpodcast.com/pydantic-data-validation-episode-263/
+* https://github.com/shopnilsazal/validus
+* https://blog.couchbase.com/validate-json-documents-in-python-using-pydantic/
+* https://talkpython.fm/episodes/show/466/pydantic-performance-tips
+
+ALTERNATIVES
+* BYO https://realpython.com/primer-on-python-decorators/#more-real-world-examples https://blog.drewolson.org/declarative-validation
+* _cerberus_: https://github.com/pyeve/cerberus https://hector.dev/2020/12/29/validating-data-in-python-with-cerberus.html
 
 # 🟨 ZA
 
