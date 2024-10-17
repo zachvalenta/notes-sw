@@ -9,6 +9,12 @@
 
 ## 进步
 
+use Github CLI to perform faster repo sustainability assessment:
+* stars
+* recent commits
+* open issues vs. closed issues
+* most recent closed issue
+
 * _24_: pager (delta, difftastic)
 * _21_: prepopulate commit msg
 > no memory of doing this, nor knowledge of how to do now

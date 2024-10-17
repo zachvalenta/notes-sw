@@ -191,6 +191,7 @@ STANDARDS BODIES
 
 ---
 
+> TRC20 USDT for donations: TSFU6QLMJ4zJQtwnt1YAZBdgZ8qNSLWHJN https://github.com/Andrej730 -> Twin Peaks
 * Unicode fundraiser https://aac.unicode.org/
 * https://drewdevault.com/2020/11/20/A-few-ways-to-make-money-in-FOSS.html
 * https://blog.gitbutler.com/open-source-pledge-2024/
@@ -209,6 +210,7 @@ STANDARDS BODIES
 
 ---
 
+https://github.com/pdbpp/pdbpp/issues/529
 https://drewdevault.com/2021/01/19/Elasticsearch-does-not-belong-to-Elastic.html
 https://drewdevault.com/2021/03/03/To-make-money-in-FOSS-build-a-business.html
 https://lichess.org/@/lichess/blog/why-lichess-will-always-be-free/YF-ZORQA
