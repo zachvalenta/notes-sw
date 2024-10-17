@@ -191,6 +191,7 @@ STANDARDS BODIES
 
 ---
 
+* Unicode fundraiser https://aac.unicode.org/
 * https://drewdevault.com/2020/11/20/A-few-ways-to-make-money-in-FOSS.html
 * https://blog.gitbutler.com/open-source-pledge-2024/
 * tidelift https://blog.glyph.im/2024/03/software-needs-to-be-more-expensive.html
@@ -514,7 +515,7 @@ One thing I think I do well is technical communication. This shows up in:
 ---
 
 LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER)
-> Scala?
+> try Haskell and Lisp for the math https://news.ycombinator.com/item?id=41861304
 * _Haskell_: learned pursuant a general interest in category theory / data modeling / type systems
 * Golang: learned in order to write a compiler and play around with a web framework (Pocketbase) 📙 Ball
 * _Javascript_: I'm a total punk rock user. I've used Angular professionally back when that was more popular. I've kept reasonable track of the ecosystem and think the htmx/hypermedia approach is preferable for the majority of websites i.e. 90% of sites don't need a SPA.
@@ -523,6 +524,7 @@ LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER)
 * _Lua_: learned pursuant Neovim
 * _Python_: have used professionally since 2018, the language I know best, would be considered a Pythonista
 * _SQL_: https://github.com/zachvalenta/query-sandbox
+* _Scala_: liked the syntax
 * _Rust_: learned in order to port a tast mgmt system I liked (Basilk) into Python
 * _Zig_: learned to learn more about C and assembly
 

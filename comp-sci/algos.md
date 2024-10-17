@@ -652,6 +652,7 @@ https://github.com/hmemcpy/milewski-ctfp-pdf
 https://www.amazon.com/How-Bake-Pi-Exploration-Mathematics/dp/0465097677
 * graph theory http://think-like-a-git.net/
 * useful math for software: combinatorics, probability, linear algebra, graph theory, statistics https://buttondown.email/hillelwayne/archive/how-knowing-math-helps-you-write-better-software/
+* relationship to algebra? https://chatgpt.com/c/671147cf-7ca8-8004-97e1-d49dafe49aaa https://news.ycombinator.com/item?id=41863500
 
 ## graph
 

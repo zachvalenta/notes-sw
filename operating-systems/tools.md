@@ -572,6 +572,13 @@ $ fq  # look at output without stopping the build
 
 ## monitoring
 
+OPTIONS
+* _tiptop_: 🐍 https://github.com/nschloe/tiptop
+
+STATS
+* iTerm: 15%
+* VS Code: 10%
+
 ---
 
 * https://wompa.land/articles/iterm-status-bar
@@ -580,5 +587,5 @@ $ fq  # look at output without stopping the build
 * disk: view of mounts; `df -h`; colorize https://danyspin97.org/blog/colorize-your-cli/
 * memory: btop https://github.com/aristocratos/btop free (UNIX) top (macos) gotop https://github.com/xxxserxxx/gotop/issues/50 ytop https://github.com/cjbassi/ytop htop https://tech.marksblogg.com/top-htop-glances.html below https://github.com/facebookincubator/below https://github.com/bvaisvil/zenith https://github.com/ClementTsang/bottom
 > config btop
-> looks pretty good https://github.com/MrRio/vtop https://github.com/nschloe/tiptop
+> looks pretty good https://github.com/MrRio/vtop
 * network: https://github.com/imsnif/bandwhich

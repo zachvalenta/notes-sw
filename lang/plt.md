@@ -449,6 +449,7 @@ ZA
 📙 SICP https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
 
 ZA
+* Hofstadter https://gist.github.com/jackrusher/5139396
 * declarative? 📙 Karwin [2]
 * _history_: self-perpetuating failure https://news.ycombinator.com/item?id=13143282 Lisp was more awesome in a world w/out Java, Python?
 * https://twobithistory.org/2018/10/14/lisp.html
@@ -461,6 +462,7 @@ ZA
 * https://news.ycombinator.com/item?id=33600941
 * https://news.ycombinator.com/item?id=40335608
 * https://www.fosskers.ca/en/blog/rounds-of-lisp
+* https://gitlab.com/lockie/cl-fast-ecs/-/wikis/tutorial-2 https://news.ycombinator.com/item?id=41869460
 
 LISPS
 * _Clojure_: https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792

@@ -146,6 +146,7 @@ gh alias list
 
 * use SVG https://github.com/zachvalenta/capp-prod-cat-alt
 * use HTML https://github.com/catppuccin/delta/blame/main/README.md
+* "try without installing!" https://zellij.dev/
 
 ---
 

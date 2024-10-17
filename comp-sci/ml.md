@@ -181,6 +181,8 @@ https://github.com/nomic-ai/gpt4all
 
 ## prompts
 
+🗄️ `psychology.md` interviewing
+
 ---
 
 https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote

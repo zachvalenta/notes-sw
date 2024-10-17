@@ -40,6 +40,7 @@ Then I should see a welcome message
 
 ---
 
+https://news.ycombinator.com/item?id=41866752
 https://buttondown.com/hillelwayne/archive/how-to-convince-engineers-that-formal-methods-is/
 https://buttondown.com/hillelwayne/archive/the-seven-specification-ur-languages/
 https://buttondown.com/hillelwayne/archive/what-could-be-added-to-tla/

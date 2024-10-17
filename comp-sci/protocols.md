@@ -76,16 +76,16 @@ IEA*1*000000905
 
 ## tooling
 
-* _sezna_: https://news.ycombinator.com/item?id=23786634
-* _Stedi inspector_: analysis https://www.stedi.com/edi/inspector
+🔬 https://www.stedi.com/edi/inspector
 
-* _pyedi_: https://github.com/freestream/pyedi
+* _pyedi_: 🐍 https://github.com/freestream/pyedi
+* not on PyPI; fork and publish? https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
+* _sezna_: 🦀 https://github.com/sezna/edi https://news.ycombinator.com/item?id=23786634
 
 ---
 
 https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
 
-* https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 * https://stackoverflow.com/questions/26033239/list-of-objects-to-json-with-python
 * https://en.wikipedia.org/wiki/Electronic_data_interchange
 * bots https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
@@ -223,7 +223,7 @@ https://codepoints.net/
 https://pyatl.dev/2024/09/01/bitten-by-unicode/
 https://text.makeup/about/
 📍 utf-8 vs. unicode https://youtu.be/SM9gJv08dm0 2:30 https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode https://nbviewer.org/gist/guocheng/1ae6c2d76461a66cfc5ec6009b5791d1 https://docs.python.org/3/howto/unicode.html
-* emoji, kanji https://www.fluentpython.com/extra/multi-character-emojis/ https://www.textualize.io/blog/posts/7-things-about-terminals
+* emoji, kanji https://www.fluentpython.com/extra/multi-character-emojis/ https://www.textualize.io/blog/posts/7-things-about-terminals how emojis make it into the standard https://www.unicode.org/emoji/proposals.html#frequency-evidence https://news.ycombinator.com/item?id=41844624
 
 * _UTF8_: multi-byte i.e. characters outside of English just get more bytes thrown at them https://sethmlarson.dev/blog/utf-8 https://news.ycombinator.com/item?id=30259097 https://viralinstruction.com/posts/utf8/
 * _Unicode_: char set https://stackoverflow.com/a/13212528/6813490 https://github.com/arp242/uni https://www.youtube.com/watch?v=MijmeoH9LT4 https://rentafounder.com/how-to-count-unicode-string-characters/ https://www.dampfkraft.com/ghost-characters.html code point, glyph, octal, hex https://realpython.com/courses/python-unicode/ `unicode-standard.pdf` https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/ https://en.wikipedia.org/wiki/Code_point CLI tool https://github.com/arp242/uni/ in Python https://blog.phylum.io/malicious-actors-use-unicode-support-in-python-to-evade-detection https://news.ycombinator.com/item?id=37735801 https://realpython.com/python-sort-unicode-strings/
@@ -454,11 +454,15 @@ https://kdl.dev/ https://zellij.dev/documentation/layouts
 
 🗄️ `algos.md` tree
 
-* https://news.ycombinator.com/item?id=35467711
-* element types: prolog, root node/element, child node/elements
+* usage: EDI, Maven
+* element types: prolog, root node/element, child node/elements, comments (same as HTML)
 * _XSLT_: CSS for XML
 * _XPath_: CSS selector for XML
-* comments: same as HTML
+
+---
+
+HISTORY
+* https://news.ycombinator.com/item?id=35467711
 * previously more popular 📙 Beaulieu 2.34
 
 ## YAML
@@ -662,7 +666,7 @@ semantics
 * _encoding_: spec for conversion https://en.wikipedia.org/wiki/Code
 * e.g. mp3 spec for how to encode audio 📙 Sweigart 1.3
 
-## serialization
+## serde
 
 ---
 

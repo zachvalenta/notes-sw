@@ -456,18 +456,8 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 * multiplexers w/out sessions e.g. dvtm
 * sessions w/out window mgmt e.g. abduco https://www.youtube.com/watch?v=GbZFwpmr230 0:45
 
-FEATURES https://anarc.at/blog/2018-04-12-terminal-emulators-1/ https://news.ycombinator.com/item?id=35125442
-* image rendering https://github.com/lusingander/serie?tab=readme-ov-file#supported-terminals https://iterm2.com/documentation-images.html https://sw.kovidgoyal.net/kitty/graphics-protocol/
-* silence `last login` msg: add `.hushlogin` to $HOME
-* Unicode support: emojis, prompts https://darrenburns.net/posts/emoji-in-the-terminal/
-* tabs/profiles
-* viz: background color/image, transparency, themes e.g. gruvbox https://www.youtube.com/watch?v=h509rn2xIyU
-* _hotkey_: keypress handled by listening program even if another program is active
-* the killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
-* options: AutoHotKey https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ Hammerspoon, Keyboard Maestro https://news.ycombinator.com/item?id=34070951 Karabiner https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934 Alfred https://www.alfredapp.com/ BetterTouchTool https://switowski.com/blog/favorite-mac-tools/
+## alternatives
 
-ALTERNATIVES https://www.youtube.com/watch?v=WxzYtdIcHnQ
-> UX also isn't something that can really be competed on for a terminal app as the UX is typically dictated by the shell, tool, tmux, etc. https://news.ycombinator.com/item?id=35125295
 * _Alacritty_: 🎯 TOML config, cross-platform, no global hotkey but Hammerspoon/Karabiner workaround https://github.com/alacritty/alacritty/issues/3313 https://github.com/alacritty/alacritty/issues/862
 * _ghostty_: 🎯 private beta, written in Zig https://mitchellh.com/ghostty https://www.youtube.com/watch?v=7Jon_cAK_to
 * _Hyper_: ❌ Electron https://hyper.is/
@@ -475,7 +465,11 @@ ALTERNATIVES https://www.youtube.com/watch?v=WxzYtdIcHnQ
 * _sshx_: real-time collaboration https://github.com/ekzhang/sshx
 * _Tabby_: ❌ Electron https://news.ycombinator.com/item?id=35111397 https://github.com/Eugeny/tabby?tab=readme-ov-file#what-tabby-is-and-isnt
 * _Warp_: ❌ launch configurations 类似 iterm profiles, need to login w/ Github https://news.ycombinator.com/item?id=30926360
-* _Wezterm_: immature, no global hotkey https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751
+* _Wezterm_: 🎯 immature, no global hotkey https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751
+
+---
+
+https://www.youtube.com/watch?v=WxzYtdIcHnQ
 
 ## color
 
@@ -533,7 +527,32 @@ https://news.ycombinator.com/item?id=41727971 https://jvns.ca/blog/2024/10/01/te
 * vivid https://github.com/sharkdp/vivid https://github.com/zachvalenta/dotfiles-capp/commit/fe6fe34ff3aaafcaa1e52de4257663b334622b9f
 * use vivid with exa_colors https://github.com/mimame/.dotfiles/blob/b097b3dba50dc4ed7ff26886678392aa6926bed7/zsh/.zshrc#L152
 
-## iTerm
+## features
+
+* compute: iTerm uses ~15% CPU on air-capp, Alacritty is supposed to be good https://chatgpt.com/c/671149f9-6ff4-8004-a834-78d1cbfdd46b
+
+---
+
+> UX also isn't something that can really be competed on for a terminal app as the UX is typically dictated by the shell, tool, tmux, etc. https://news.ycombinator.com/item?id=35125295
+
+https://anarc.at/blog/2018-04-12-terminal-emulators-1/ https://news.ycombinator.com/item?id=35125442
+
+* silence `last login` msg: add `.hushlogin` to $HOME
+* Unicode support: emojis, prompts https://darrenburns.net/posts/emoji-in-the-terminal/
+* tabs/profiles
+
+VIZ
+* background color/image
+* transparency
+* themes e.g. gruvbox https://www.youtube.com/watch?v=h509rn2xIyU
+* image rendering https://github.com/lusingander/serie?tab=readme-ov-file#supported-terminals https://iterm2.com/documentation-images.html https://sw.kovidgoyal.net/kitty/graphics-protocol/
+
+HOTKEY
+* _hotkey_: keypress handled by listening program even if another program is active
+* the killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
+* options: AutoHotKey https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ Hammerspoon, Keyboard Maestro https://news.ycombinator.com/item?id=34070951 Karabiner https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934 Alfred https://www.alfredapp.com/ BetterTouchTool https://switowski.com/blog/favorite-mac-tools/
+
+## 🍎 iTerm
 
 📜 https://iterm2.com/documentation.html
 
@@ -591,7 +610,7 @@ WORKFLOW
 * _layout_: tab + start cmd
 * _session_: https://www.youtube.com/watch?v=bdumjiHabhQ 5:00
 
-### tmux
+### 🟩 tmux
 
 📜 https://github.com/tmux/tmux
 📙 Hogan https://github.com/git-pull/tao-of-tmux https://willvaughn.org/articles/the-tmux-manual-review/
@@ -627,7 +646,7 @@ ls  # list sessions
 a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/videos/tmux-navigation
 ```
 
-### Zellij
+### 🧩 Zellij
 
 📜 https://zellij.dev/documentation/
 
