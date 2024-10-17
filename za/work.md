@@ -29,6 +29,14 @@ WHAT IS THIS JOB?
 * internal tooling: build infra, build tools
 * data eng: build infra, analysis
 
+BRAG SHEET SO FAR
+- [ ] prod cat: tree builder (many attempts previously and all failed)
+- [ ] EDI: build tooling to maintain 0.5M/year relationship
+- [ ] restock: build algo and ETL
+- [ ] CQ: rf and add documentation system to monorepo (system diagrams, ADR, changelog)
+- [ ] CQ: create Capp Uni
+- [ ] infra: mv from single Azure instance over LAN to AWS (auth so people can connect at home)
+
 ## infra
 
 🔗 https://rdrn.me/postmodern-python/
