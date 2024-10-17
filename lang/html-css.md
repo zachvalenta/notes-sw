@@ -127,7 +127,14 @@ HOWTO
 * password protect a page https://github.com/robinmoisson/staticrypt
 * understand `head` https://www.matuzo.at/blog/html-boilerplate/
 * in email https://news.ycombinator.com/item?id=41007403
-* archive: archive single page https://github.com/Y2Z/monolith https://github.com/gildas-lormeau/SingleFile whole site w/ wget https://stackoverflow.com/a/4769497 https://stackoverflow.com/a/10564190/6813490 https://news.ycombinator.com/item?id=16557439 every version of single page in Wayback Machine https://github.com/jsvine/waybackpack
+
+ARCHIVE
+* _ArchiveBox_: https://archivebox.io/ https://news.ycombinator.com/item?id=41860909
+* _monolith_: ✅ https://github.com/Y2Z/monolith 
+* _SingleFile_: browser extension https://github.com/gildas-lormeau/SingleFile
+* _Wayback Machine_: https://archive.org/
+* _waybackpack_: every version of single page in Wayback Machine https://github.com/jsvine/waybackpack
+* _wget_: https://stackoverflow.com/a/4769497 https://stackoverflow.com/a/10564190/6813490 https://news.ycombinator.com/item?id=16557439
 
 SEMANTICS
 * _attribute_: metadata
