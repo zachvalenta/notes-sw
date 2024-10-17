@@ -28,8 +28,15 @@ TUI admin https://github.com/valberg/django-admin-tui
 ## DRF
 
 📙 Vincent api
+🗄 `python/stdlib.md` serde
 
-* DRF caching https://www.screamingatmyscreen.com/caching-and-django-rest-framework
+---
+
+SPEED
+* caching https://www.screamingatmyscreen.com/caching-and-django-rest-framework
+* read-only fields, `serializers.Serializer` 3x faster than `serializers.ModelSerializer` https://hakibenita.com/django-rest-framework-slow
+
+ZA
 * https://learndjango.com/tutorials/official-django-rest-framework-tutorial-beginners
 * refresh https://learndjango.com/tutorials/official-django-rest-framework-tutorial-beginners
 * https://www.youtube.com/watch?v=06DJBu1zwoY https://www.laceyhenschel.com/blog/2021/2/22/what-you-should-know-about-drf-part-1-modelviewset-attributes-and-methods
