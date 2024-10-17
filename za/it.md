@@ -766,22 +766,26 @@ FINDER
 * suppress creation of `DS_Store` seems like a pain https://stackoverflow.com/questions/18015978/how-to-stop-creating-ds-store-on-mac 
 * show hidden files: `SHIFT CMD .`
 
-BRAVE
-* restore tab: `CMD T`
-* reload: `CMD r`
-* dev tools: `CMD ALT i`
-* bookmarks: `CMD B`
+BROWSERS 🗄 `js.md` browser
+* set default: system preferences > general
+* settings: zoom to 110, font fize large, downloads to desktop, switch search to DuckDuckGo, startup to open previous tabs
+* extensions: Vimium, Mercury Reader, EditThisCookie, PocketTube
+* _Brave_: way less storage hit (150M) than Chrome (1.2GB) 🗄️ `/Users/$USER/Library/Application Support`
+* commands
+```sh
+CMD t  # restore tab
+CMD r  # reload
+CMD ALT i  # dev tools
+CMD b  # bookmarks
+```
+* _Chrome_:
+* _Zen_: https://zen-browser.app/ https://www.youtube.com/watch?v=VshptkoKfQo
 
 ---
 
-alternate browser https://zen-browser.app/ https://www.youtube.com/watch?v=VshptkoKfQo
 keypress sim https://github.com/cjerrington/wakey
 system register https://github.com/TermiT/Flycut
 
-Chrome 🗄 `js.md` browser
-* set default browser: system preferences > general
-* settings: zoom to 110, font fize large, downloads to desktop, switch search to DuckDuckGo, startup to open previous tabs
-* extensions: Vimium, Mercury Reader, EditThisCookie, PocketTube
 * Gmail: have to opt into keyboard shortcuts
 * Youtube_: shortcuts `?` skip to % `<num>` list all video titles in playst `youtube-dl --get-filename https://www.youtube.com/playlist?list=PLIiejGE6XOgm_iInCjfVc2Rd0ghl5zJAV > sampling.txt`
 * _archive.vn_: https://chromewebstore.google.com/detail/archive-page/gcaimhkfmliahedmeklebabdgagipbia?pli=1
