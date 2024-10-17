@@ -167,9 +167,7 @@ misc
 ## commits
 
 RECENT
-* caplan, farnsworth port to site
 * logs
-* shu
 * ml
 * basilk
 * air22: logs, dot

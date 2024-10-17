@@ -39,14 +39,17 @@ TO READ
 
 ## semantics
 
+SPEC
 * _EDI_: fmt for business transactions (purchases orders, sales)
 * used by GSA, B2B (healthcare, manufacturing, railroad frieight) https://www.remedi.com/blog/edi-for-railway-freight
 * _ASC x12_: US standards body for x12 https://en.wikipedia.org/wiki/ASC_X12
 * _x12_: USA EDI spec
 * _EDIFACT_: EU EDI spec https://en.wikipedia.org/wiki/EDIFACT
 > For those who haven't had the pleasure, X12 is an ANSI standard for "electronic data interchange." It could be considered a very distant spiritual ancestor of XML; it was designed to meet the same kind of need, but way back in days of yore when individual bytes were valuable things to be cherished. The standards committee was originally chartered back in 1979. https://www.lambdafunctions.com/articles/racing-sed-with-rust
+
+PROVIDERS
 * _SPS_: does EDI for ERPs (Odoo) https://www.spscommerce.com/
-* _Kleinschmidt_: used by Steersman
+* _Kleinschmidt_: does EDI for Steersman
 
 ## spec
 

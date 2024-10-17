@@ -480,6 +480,7 @@ LANGUAGE https://tryclojure.org/
 
 ---
 
+https://simonwillison.net/tags/rust/
 https://chrisdone.com/posts/rust/
 https://drewdevault.com/2024/08/30/2024-08-30-Rust-in-Linux-revisited.html
 https://drewdevault.com/2022/10/03/Does-Rust-belong-in-Linux.html

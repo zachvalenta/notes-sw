@@ -15,10 +15,8 @@
 
 * _24_: usage (regex, stdlib, EDI) tooling (clients)
 
+* organization: folders, search 🗄️ clients
 * contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
-
----
-
 * BYO https://medium.com/@msouza.os/llm-from-scratch-with-pytorch-9f21808c6319 https://youtu.be/kCc8FmEb1nY
 * learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
 * tokens, read whole thing https://stratechery.com/2024/enterprise-philosophy-and-the-first-wave-of-ai/
@@ -243,6 +241,8 @@ PROMPTS https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sim
 * _prompt injection_: getting model to do something its creators don't want
 > Ask it to give options (it's more likely to give a better answer)
 > It will rarely get the answer right. Ask it to "do better."
+* _system message_: hidden instruction that defines the behavior/goals/tone of the model https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b
+> "You are a helpful assistant named Elia."
 
 ---
 
@@ -265,12 +265,14 @@ ZA
 * _aichat_: ❌ https://github.com/sigoden/aichat/issues/924
 * doesn't work https://github.com/sigoden/aichat 
 * _elia_: 🎯 https://github.com/darrenburns/elia
-* problems with API keys https://github.com/darrenburns/elia/issues/73
-* have to expose API as env var 🗄️ `src.md` secrets
-> fix https://github.com/darrenburns/elia/issues/52
-> open a PR to document this
-* import https://github.com/darrenburns/elia?tab=readme-ov-file#import-from-chatgpt
+* config fs: `$HOME/.config`
+* export/import: JSON https://github.com/darrenburns/elia/pull/70 https://github.com/darrenburns/elia?tab=readme-ov-file#import-from-chatgpt
+> ❌ no way to do this through the UI https://chatgpt.com/c/67106b06-8884-8004-ab78-84e5bce7dea9
 > how does this work under the hood? https://github.com/darrenburns/elia?tab=readme-ov-file#wiping-the-database
+* themes https://github.com/darrenburns/elia/issues/72
+* available models https://github.com/darrenburns/elia/blob/main/elia_chat/config.py
+* API key https://github.com/darrenburns/elia/issues/52 https://github.com/darrenburns/elia/issues/73 🗄️ `src.md` secrets
+> open a PR to document this
 ```txt
 Say you have a CLI program that needs a secret (e.g. an API key). The secret needs to be exposed as a Linux environment variable. You don't want to store the secret in your .bash_profile because:
 * you have your environment variables version controlled
@@ -279,6 +281,7 @@ Say you have a CLI program that needs a secret (e.g. an API key). The secret nee
 * _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm
 * _khoj_: https://github.com/khoj-ai/khoj
 * _oterm_: for Ollama https://github.com/ggozad/oterm
+* _Superpower ChatGPT_: folders mostly broken but JSON export seems to work https://spchatgpt.com/ https://chromewebstore.google.com/detail/Superpower%20ChatGPT/amhmeenmapldpjdedekalnfifgnpfnkc 
 * _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
 
 ## code assist

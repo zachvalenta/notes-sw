@@ -66,7 +66,7 @@ TIMEZONES
 * `it.md` backup
 * `system.md` distributed
 
-* short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00
+* short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00 https://simonwillison.net/about/#subscribe
 
 ---
 
