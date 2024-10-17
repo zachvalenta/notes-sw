@@ -121,6 +121,7 @@ MUSIC
 ### air-capp ➡️ mini23
 
 * dance/dark: nicolaas jaar, roisin murphy, pantha du prince
+* far: jamaica/dub
 * electronic: we-as-is
 * rock/80s: war on drugs, the police
 * rock/indie: camera obscura

@@ -4,10 +4,7 @@
 
 ## 进步
 
-* ❓ how is BSON more binary than JSON itself? https://stackoverflow.com/questions/3554325/why-is-it-called-bson 📙 Kleppmann ch. 4
-* https://wizardzines.com/zines/integers-floats/
-
-* _24_: split into own file
+* _24_: split into own file, file fmts (Cuelang, INI, KDL, YAML, EDI)
 * _22_: protocol (encoding, serialization)
 * _21_: prefix code
 
@@ -255,7 +252,8 @@ VERSIONS https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog
 
 # 🗃️ FILE FMT
 
-🗄️ `eng.md` munge
+📙 Kleppmann ch. 4
+🗄 `eng.md` clean
 
 ---
 
@@ -269,29 +267,6 @@ QUERY TOOLS
 * https://github.com/mithrandie/csvq
 * https://github.com/dinedal/textql
 * https://github.com/noborus/trdsql
-
-https://kdl.dev/ https://zellij.dev/documentation/layouts
-> this is what started me to split protocols into own file apart from `computation.md`
-
-XML
-* https://news.ycombinator.com/item?id=35467711
-* element types: prolog, root node/element, child node/elements
-* _XSLT_: CSS for XML
-* _XPath_: CSS selector for XML
-* comments: same as HTML
-* previously more popular 📙 Beaulieu 2.34
-
-📙 Kleppmann ch. 4
-🗄
-* `python.md` serialization
-* `shell.md` design
-* `sql.md` munge/sanitization
-
-* _serialize_: convert obj to interchange fmt
-* _deserialize_: convert interchange fmt to obj
-* _schema_: mapping of obj to interchange fmt structure
-* you typically want to specify
-> Pickles are implicit: they serialize everything in your objects, even data you didn’t want to serialize. For example, you might have an attribute that is a cache of computation that you don’t want serialized. Pickle doesn’t have a convenient way to skip that attribute. https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html
 
 ## CSV
 
@@ -346,6 +321,11 @@ person: {
 # validate
 cue vet person.cue
 ```
+
+## INI
+
+* used by `.gitconfig`
+* comments: `;`, hash (for Git at least)
 
 ## JSON
 
@@ -450,6 +430,11 @@ zz  # center
 * _JSON crack_: visualize https://github.com/AykutSarac/jsoncrack.com https://jsoncrack.com/
 * _json4u_: jsoncrack clone https://news.ycombinator.com/item?id=41634356
 
+## KDL
+
+https://kdl.dev/ https://zellij.dev/documentation/layouts
+> this is what started me to split protocols into own file apart from `computation.md`
+
 ## Parquet
 
 ---
@@ -463,6 +448,17 @@ zz  # center
 * easier to use now vs. CSV https://news.ycombinator.com/item?id=30595026
 * use to build no-code API https://tech.marksblogg.com/roapi-rust-data-api.html
 * pyarrow https://www.blog.pythonlibrary.org/2024/05/06/how-to-read-and-write-parquet-files-with-python/
+
+## XML
+
+🗄️ `algos.md` tree
+
+* https://news.ycombinator.com/item?id=35467711
+* element types: prolog, root node/element, child node/elements
+* _XSLT_: CSS for XML
+* _XPath_: CSS selector for XML
+* comments: same as HTML
+* previously more popular 📙 Beaulieu 2.34
 
 ## YAML
 
@@ -556,6 +552,8 @@ SEMANTICS
 📚 Petzold code 3, 9, 12-13
 
 ---
+
+* https://wizardzines.com/zines/integers-floats/
 
 * _bit_: binary digit; aka 'flag' [Kozierok 4.63]
 * _bitmask_: toggling bit https://www.arp242.net/bitmask.html set (to 1) reset/clear (to 0) [Kozierok 4.63]
@@ -667,7 +665,14 @@ semantics
 
 ---
 
+* _serialize_: convert obj to interchange fmt
+* _deserialize_: convert interchange fmt to obj
+* _schema_: mapping of obj to interchange fmt structure
+* you typically want to specify
+> Pickles are implicit: they serialize everything in your objects, even data you didn’t want to serialize. For example, you might have an attribute that is a cache of computation that you don’t want serialized. Pickle doesn’t have a convenient way to skip that attribute. https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html
+
 BINARY
+> ❓ how is BSON more binary than JSON itself? https://stackoverflow.com/questions/3554325/why-is-it-called-bson 📙 Kleppmann ch. 4
 * e.g. HTTP/2 https://news.ycombinator.com/item?id=27431998
 * used more for internal services 📙 Jeffrey distributed [5]
 * db res in binary which is parsed by language-specific API 📙 Kleppmann 4.128

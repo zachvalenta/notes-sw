@@ -201,7 +201,7 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 COMPANIES
 - [ ] steady: Capp USA
 - [ ] reach: Composer
-> who else?
+> who else? Palantir https://news.ycombinator.com/item?id=41855006
 
 NETWORK
 * Jonathan Magen https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/ https://pod.link/1602572955/episode/12fe9e0c14dab3b5e9780ffc13412136 https://www.linkedin.com/in/jonathan-magen-9848711b/ https://yonkeltron.com/

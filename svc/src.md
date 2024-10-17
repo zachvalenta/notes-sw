@@ -328,7 +328,7 @@ CLOUD
 * switching locally: macOS spaces https://github.com/dandavison/wormhole
 * _Coder_: https://github.com/coder/coder
 * _Daytona_: https://www.daytona.io/
-* _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053
+* _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://cli.github.com/manual/gh_codespace
 * _Gitpod_: https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15
 
 ---

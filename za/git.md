@@ -82,6 +82,8 @@ EVENT TYPES https://docs.github.com/en/rest/using-the-rest-api/github-event-type
 
 ---
 
+can manipulate tags, create releases in repo using CLI https://cli.github.com/manual/gh_release
+
 TOOLING
 * _act_: run locally https://github.com/nektos/act
 * _gama_: https://github.com/termkit/gama
@@ -102,6 +104,7 @@ TOOLING
 
 ---
 
+* https://github.com/mislav/hub https://hub.github.com/#developer
 * https://github.com/donnemartin/gitsome
 * https://github.com/github/hub
 * https://github.com/cli/cli
@@ -805,8 +808,8 @@ INSTALLATION https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 * macOS: 10.9 onwards handled by Command Line Tools https://github.com/creationix/nvm#important-notes ❓ Homebrew install being used?
 * Linux: `git-all`
 
-CONFIG https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
-* uses INI fmt
+CONFIG 📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup 🗄️ `protocols.md` INI
+> aliases in gitconfig or zprofile? https://github.com/zachvalenta/dotfiles-mini23/commit/ddecff7a70e14d7a545e4d9fc72837e1a378b203
 * aliases split btw `.gitconfig` and `.bash_profile` 
 * set based on repo https://utf9k.net/blog/conditional-gitconfig/
 * _list_: `git config --list --show-origin` https://stackoverflow.com/a/2115116 might see dupes bc Git reads from all config files, with most local (e.g. repo-level) taking precedence

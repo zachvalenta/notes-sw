@@ -744,7 +744,7 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 🗄️
 *️ `km.md` notes / tooling
 *️ `language.md` compiler
-*️ `protocols.md` JSON / jless
+*️ `protocols.md` file fmt
 * `science.md` metascience / categories
 
 TREE BUILDERS 🗄️ `html-css.md` SSG `protocols.md` JSON `km.md` notes / tooling `info.md` viz / system
