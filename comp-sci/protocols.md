@@ -79,12 +79,13 @@ IEA*1*000000905
 * _sezna_: https://news.ycombinator.com/item?id=23786634
 * _Stedi inspector_: analysis https://www.stedi.com/edi/inspector
 
+* _pyedi_: https://github.com/freestream/pyedi
+
 ---
 
 https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
 
 * https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
-* https://github.com/freestream/pyedi
 * https://stackoverflow.com/questions/26033239/list-of-objects-to-json-with-python
 * https://en.wikipedia.org/wiki/Electronic_data_interchange
 * bots https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
