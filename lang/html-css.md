@@ -227,6 +227,12 @@ AI
 * supercharged smart young people
 * the role of web search
 
+JOB BOARDS
+* Github has a job profile?
+* why did Stack Overflow kill their job board? why did they bring it back with Indeed?
+* why aren't there tentpoles in this space akin to Hackernews and Lobste.rs?
+> get set up with RSS btw and use for Lobste.rs
+
 https://kaiwenwang.com/stack
 just a normal dev blog https://www.jonashietala.se/blog/tags/neovim/
 https://gwern.net/matt-levine
