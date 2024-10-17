@@ -141,6 +141,7 @@ STATE MACHINE
 # 💻 HARDWARE
 
 🗄 `science.md` electricity
+🎓 computer engineering https://chatgpt.com/c/671121b1-633c-8004-88ee-bcc142ac24f5
 📚
 * Matthews dive https://diveintosystems.org/
 * Shibuya microprocessors
