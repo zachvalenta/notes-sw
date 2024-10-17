@@ -616,12 +616,28 @@ single-threaded + multicast https://signalsandthreads.com/multicast-and-the-mark
 * Evans strace
 * Evans tracing
 
-vocab
-* _monitor_: continuous; track errors
-* _trace_: ad-hoc; explore errors
-* _profile_: ad-hoc; hunt optimization
+VOCAB
+* _monitor_: track errors; continuous
+* _trace_: explore errors; ad hoc
+* _profile_: measure perf (which LOC exec + exec time); ad hoc
+
+TOOLS
+* _beetrace_: 🐍 https://github.com/furkanonder/beetrace
 
 ---
+
+EBPF
+* https://github.com/ZingerLittleBee/netop
+* https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06
+* https://news.ycombinator.com/item?id=27435081
+* https://www.brendangregg.com/blog/2022-04-15/netflix-farewell-1.html
+* https://ebpf.io/what-is-ebpf/ https://softwareengineeringdaily.com/2023/03/06/ebpf-with-thomas-graf/
+* https://www.polarsignals.com/blog/posts/2023/10/04/profiling-python-and-ruby-with-ebpf
+* https://about.gitlab.com/blog/2022/11/28/how-we-diagnosed-and-resolved-redis-latency-spikes/
+* https://softwareengineeringdaily.com/2022/07/15/continuous-profiling-using-ebpf-with-frederic-branczyk/
+* https://github.com/keyval-dev/odigos
+* https://github.com/google/gops
+* https://thume.ca/2023/12/02/tracing-methods/
 
 flamegraph https://github.com/laixintao/flameshow
 https://events.linuxfoundation.org/wp-content/uploads/2022/10/elena-zannoni-tracing-tutorial-LF-2021.pdf

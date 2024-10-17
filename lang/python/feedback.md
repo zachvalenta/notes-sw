@@ -24,6 +24,8 @@ TAXONOMY https://en.wikipedia.org/wiki/Exploratory_programming
 
 # 🐛 DEBUG
 
+🗄 `stdlib.md` profilng
+📜 https://docs.python.org/3/library/debug.html
 📚
 * Beazley ch. 14
 * Seitz grey hat ch. 2

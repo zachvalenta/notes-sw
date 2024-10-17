@@ -126,8 +126,10 @@ icecream for print debugging https://github.com/gruns/icecream
 ## profiling
 
 📙 Beazley ch. 14
-🗄 `linux.md` tracing
-📜 https://docs.python.org/3/library/debug.html
+🗄
+* `feedback.md` debug
+* `linux.md` tracing
+* `telemetry.md`
 
 PG http://paulgraham.com/popular.html
 > It might be a good idea to have an active profiler - to push performance data to the programmer instead of waiting for him to come asking for it.
@@ -137,103 +139,17 @@ PG http://paulgraham.com/popular.html
 ---
 
 OPTIONS
-* _cprofile_: https://www.pythonmorsels.com/cli-tools/ https://martinheinz.dev/blog/64
+* _cProfile_: 🎯 https://www.pythonmorsels.com/cli-tools/ https://martinheinz.dev/blog/64 https://hakibenita.com/django-rest-framework-slow
+* _fastero_: 🎯 timeit alternative https://github.com/wasi-master/fastero
+* _instruments_: https://registerspill.thorstenball.com/p/did-you-know-about-instruments
+* _memray_: 🎯 hhttps://github.com/bloomberg/memray https://textual.textualize.io/blog/2024/02/20/remote-memory-profiling-with-memray/ https://realpython.com/podcasts/rpp/128/ https://talkpython.fm/episodes/show/425/memray-the-endgame-python-memory-profiler
 * _phlare_: https://martinheinz.dev/blog/89
 * _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
-* _timeit_: https://www.pythonmorsels.com/cli-tools/
 * _tracy_: https://github.com/wolfpld/tracy
-* _instruments_: https://registerspill.thorstenball.com/p/did-you-know-about-instruments
 * _Sciagraph_: https://news.ycombinator.com/item?id=31826872
-
-
-performance tests https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
-ebpf https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
-https://www.pythonmorsels.com/cli-tools/
-https://www.youtube.com/watch?v=CjG_Ub_gCL4
-
-py-spy, speedscope, Valgrind https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
-
-> sort out what needs to be in Linux tracing vs. what needs to be here
-
-https://github.com/nakabonne/gosivy https://github.com/nakabonne/ali/releases/tag/v0.7.0
-
-* _profile_: measure performance i.e. see which lines are executing and how long they take
-* _trace_: https://github.com/furkanonder/beetrace
-
-https://textual.textualize.io/blog/2024/02/20/remote-memory-profiling-with-memray/
-
-Zig ttps://www.youtube.com/watch?v=ug-KuDlMTYw
-
-`sys.settrace` https://github.com/plasma-umass/slipcover https://nedbatchelder.com/blog
-
-https://www.youtube.com/watch?v=bGAVrtb_tFs https://www.brendangregg.com/
-https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html
-https://www.freecodecamp.org/news/python-debugging-handbook/
-https://madebyme.today/blog/python-dict-vs-curly-brackets/
-https://superfastpython.com/benchmark-execution-time/
-https://stackabuse.com/why-does-python-code-run-faster-in-a-function/
-https://realpython.com/python-profiling/
-https://adamj.eu/tech/2023/07/23/python-profile-section-cprofile/
-https://github.com/sile/erldash
-* https://realpython.com/python312-perf-profiler/
-* https://functiontrace.com/
-* Rust, Cython https://pythonspeed.com/articles/faster-text-processing/ https://www.equalto.com/blog/rust-in-anger-high-performance-web-applications
-* https://news.ycombinator.com/item?id=36605730
-* https://www.petermcconnell.com/posts/perf_eng_with_py12/
-* benchmark https://pythonspeed.com/articles/faster-json-library/ https://eli.thegreenplace.net/2023/common-pitfalls-in-go-benchmarking/
-```sh
-time $CMD  # https://news.ycombinator.com/item?id=30224063
-```
-* https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
-* frame stack sampler https://github.com/P403n1x87/austin https://github.com/P403n1x87/austin-tui
-https://github.com/DataDog/go-profiler-notes
-
-EBPF
-* https://github.com/ZingerLittleBee/netop
-* https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06
-* https://news.ycombinator.com/item?id=27435081
-* https://www.brendangregg.com/blog/2022-04-15/netflix-farewell-1.html
-* https://ebpf.io/what-is-ebpf/ https://softwareengineeringdaily.com/2023/03/06/ebpf-with-thomas-graf/
-* https://www.polarsignals.com/blog/posts/2023/10/04/profiling-python-and-ruby-with-ebpf
-* https://about.gitlab.com/blog/2022/11/28/how-we-diagnosed-and-resolved-redis-latency-spikes/
-* https://softwareengineeringdaily.com/2022/07/15/continuous-profiling-using-ebpf-with-frederic-branczyk/
-* https://github.com/keyval-dev/odigos
-* https://github.com/google/gops
-* https://thume.ca/2023/12/02/tracing-methods/
-
-* `py3 -m trace --trace example.py`
-* https://pythonspeed.com/articles/measuring-python-performance/
-* https://switowski.com/blog/how-to-benchmark-python-code/
-* https://github.com/bloomberg/memray https://realpython.com/podcasts/rpp/128/ https://talkpython.fm/episodes/show/425/memray-the-endgame-python-memory-profiler
-* https://codesolid.com/how-do-i-profile-python-code/
-* https://tinkering.xyz/fmo-optimization-story/
-* https://tech.marksblogg.com/faster-python.html https://www.peterbaumgartner.com/blog/intro-to-just-enough-cython-to-be-useful/ https://github.com/tonybaloney/perflint https://rednafi.github.io/reflections/pre-allocated-lists-in-python.html
-* https://github.com/pyroscope-io/pyroscope
-* https://flamegraph.com/ https://github.com/laixintao/flameshow
-* profiling CLI, `time` https://news.ycombinator.com/item?id=30224063
-* profiling async https://github.com/aviramha/capara
-* https://pythonspeed.com/memory/
-* https://github.com/pythonprofilers/memory_profiler https://news.ycombinator.com/item?id=27025829
-* https://github.com/csurfer/pyheat
-* https://github.com/joerick/pyinstrument
-* https://www.youtube.com/watch?v=1EZ8oqjLun0
-* https://medium.com/statch/speeding-up-python-code-with-nim-ec205a8a5d9c
-* https://github.com/joerick/pyinstrument
-* https://hakibenita.com/django-rest-framework-slow
-* https://github.com/brandtbucher/specialist
-* https://github.com/robusta-dev/WhyProfiler
-* `time` https://hacker-tools.github.io/program-introspection/
-* https://github.com/joerick/pyinstrument
-* https://github.com/P403n1x87/austin https://talkpython.fm/episodes/show/265/why-is-python-slow 54:00
-* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions
-* _tools_: PyFlame https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 PySpy https://github.com/benfred/py-spy/ profile CPython https://instagram-engineering.com/profiling-cpython-at-instagram-89d4cbeeb898 https://pythonspeed.com/articles/memory-profiler-data-scientists/ Fil https://pythonspeed.com/products/filmemoryprofiler/ https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
-* sink: https://www.blog.pythonlibrary.org/2020/04/14/an-overview-of-profiling-tools-for-python/ https://www.roguelynn.com/words/tracing-fast-and-slow/ https://pythonspeed.com/articles/blocking-cpu-or-io/ https://pythonspeed.com/articles/custom-python-profiler/ https://pythonspeed.com/articles/live-debugging-python/ https://www.markkeller.dev/2018-07-14-optimize_python/ https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ pyspy https://jvns.ca/blog/2018/12/23/2018--year-in-review/ https://www.youtube.com/watch?v=d5SGUscT2GA https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://github.com/ionelmc/python-hunter https://wsvincent.com/algorithms-binary-search/ https://wsvincent.com/python-optimizations-with-guido/ https://realpython.com/python-f-strings/ https://github.com/airspeed-velocity/asv
-* pyperf, timeit https://medium.com/@martin.heinz/python-cli-tricks-that-dont-require-any-code-whatsoever-e7bdb9409aeb https://log.beshr.com/python-311-speedup-part-1/
-* benchmark: https://github.com/sharkdp/hyperfine https://github.com/egoist/dum
-* can use hyperfine under the hood https://github.com/dandavison/magit-delta https://github.com/sharkdp/hyperfine
-* https://blog.usejournal.com/how-to-create-your-own-timing-context-manager-in-python-a0e944b48cf8 https://martinheinz.dev/blog/13 https://realpython.com/python-timer/
+* _timeit_: 🎯 https://www.pythonmorsels.com/cli-tools/
 ```python
-# try this instead https://github.com/wasi-master/fastero
+# try this instead
 
 # The "timeit" module lets you measure the execution
 # time of small bits of Python code
@@ -263,6 +179,72 @@ if __name__=='__main__':
     timeit_ms(cast_to_timer(lookup_set, names_set))
 ```
 
+performance tests https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
+ebpf https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
+https://www.pythonmorsels.com/cli-tools/
+https://www.youtube.com/watch?v=CjG_Ub_gCL4
+
+py-spy, speedscope, Valgrind https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+
+https://github.com/nakabonne/gosivy https://github.com/nakabonne/ali/releases/tag/v0.7.0
+
+
+Zig ttps://www.youtube.com/watch?v=ug-KuDlMTYw
+
+`sys.settrace` https://github.com/plasma-umass/slipcover https://nedbatchelder.com/blog
+
+https://www.youtube.com/watch?v=bGAVrtb_tFs https://www.brendangregg.com/
+https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html
+https://www.freecodecamp.org/news/python-debugging-handbook/
+https://madebyme.today/blog/python-dict-vs-curly-brackets/
+https://superfastpython.com/benchmark-execution-time/
+https://stackabuse.com/why-does-python-code-run-faster-in-a-function/
+https://realpython.com/python-profiling/
+https://adamj.eu/tech/2023/07/23/python-profile-section-cprofile/
+https://github.com/sile/erldash
+* https://realpython.com/python312-perf-profiler/
+* https://functiontrace.com/
+* Rust, Cython https://pythonspeed.com/articles/faster-text-processing/ https://www.equalto.com/blog/rust-in-anger-high-performance-web-applications
+* https://news.ycombinator.com/item?id=36605730
+* https://www.petermcconnell.com/posts/perf_eng_with_py12/
+* benchmark https://pythonspeed.com/articles/faster-json-library/ https://eli.thegreenplace.net/2023/common-pitfalls-in-go-benchmarking/
+```sh
+time $CMD  # https://news.ycombinator.com/item?id=30224063
+```
+* https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
+* frame stack sampler https://github.com/P403n1x87/austin https://github.com/P403n1x87/austin-tui
+https://github.com/DataDog/go-profiler-notes
+
+* `py3 -m trace --trace example.py`
+* https://pythonspeed.com/articles/measuring-python-performance/
+* https://switowski.com/blog/how-to-benchmark-python-code/
+* https://codesolid.com/how-do-i-profile-python-code/
+* https://tinkering.xyz/fmo-optimization-story/
+* https://tech.marksblogg.com/faster-python.html https://www.peterbaumgartner.com/blog/intro-to-just-enough-cython-to-be-useful/ https://github.com/tonybaloney/perflint https://rednafi.github.io/reflections/pre-allocated-lists-in-python.html
+* https://github.com/pyroscope-io/pyroscope
+* https://flamegraph.com/ https://github.com/laixintao/flameshow
+* profiling CLI, `time` https://news.ycombinator.com/item?id=30224063
+* profiling async https://github.com/aviramha/capara
+* https://pythonspeed.com/memory/
+* https://github.com/pythonprofilers/memory_profiler https://news.ycombinator.com/item?id=27025829
+* https://github.com/csurfer/pyheat
+* https://github.com/joerick/pyinstrument
+* https://www.youtube.com/watch?v=1EZ8oqjLun0
+* https://medium.com/statch/speeding-up-python-code-with-nim-ec205a8a5d9c
+* https://github.com/joerick/pyinstrument
+* https://hakibenita.com/django-rest-framework-slow
+* https://github.com/brandtbucher/specialist
+* https://github.com/robusta-dev/WhyProfiler
+* `time` https://hacker-tools.github.io/program-introspection/
+* https://github.com/joerick/pyinstrument
+* https://github.com/P403n1x87/austin https://talkpython.fm/episodes/show/265/why-is-python-slow 54:00
+* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions
+* _tools_: PyFlame https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 PySpy https://github.com/benfred/py-spy/ profile CPython https://instagram-engineering.com/profiling-cpython-at-instagram-89d4cbeeb898 https://pythonspeed.com/articles/memory-profiler-data-scientists/ Fil https://pythonspeed.com/products/filmemoryprofiler/ https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
+* sink: https://www.blog.pythonlibrary.org/2020/04/14/an-overview-of-profiling-tools-for-python/ https://www.roguelynn.com/words/tracing-fast-and-slow/ https://pythonspeed.com/articles/blocking-cpu-or-io/ https://pythonspeed.com/articles/custom-python-profiler/ https://pythonspeed.com/articles/live-debugging-python/ https://www.markkeller.dev/2018-07-14-optimize_python/ https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ pyspy https://jvns.ca/blog/2018/12/23/2018--year-in-review/ https://www.youtube.com/watch?v=d5SGUscT2GA https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://github.com/ionelmc/python-hunter https://wsvincent.com/algorithms-binary-search/ https://wsvincent.com/python-optimizations-with-guido/ https://realpython.com/python-f-strings/ https://github.com/airspeed-velocity/asv
+* pyperf, timeit https://medium.com/@martin.heinz/python-cli-tricks-that-dont-require-any-code-whatsoever-e7bdb9409aeb https://log.beshr.com/python-311-speedup-part-1/
+* benchmark: https://github.com/sharkdp/hyperfine https://github.com/egoist/dum
+* can use hyperfine under the hood https://github.com/dandavison/magit-delta https://github.com/sharkdp/hyperfine
+* https://blog.usejournal.com/how-to-create-your-own-timing-context-manager-in-python-a0e944b48cf8 https://martinheinz.dev/blog/13 https://realpython.com/python-timer/
 
 # 🤖 OS
 
