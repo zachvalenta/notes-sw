@@ -436,7 +436,6 @@ DESIGN
 
 * https://github.com/fpgmaas/cookiecutter-uv
 
-> They leverage years and years of work that went into migrating the Python ecosystems from setup.py files to eggs and finally wheels. From not having a metadata standard to having one. From coupled to decoupled build systems. Much of what makes Rye so enjoyable were individuals that worked towards making redistributable and downloadable Python binaries a possibility. There was a lot of work that was put into building out an amazing ecosystem of Rust crates and Python libraries needed to make these tools work. All of that brought us to that point where we are today. https://lucumr.pocoo.org/2024/8/21/harvest-season/
 
 > read transcript https://talkpython.fm/episodes/transcript/476/unified-python-packaging-with-uv https://simonwillison.net/2024/Aug/20/uv-unified-python-packaging/
 
@@ -464,6 +463,13 @@ DESIGN
 
 ## history / standards
 
+> They leverage years and years of work that went into migrating the Python ecosystems from setup.py files to eggs and finally wheels. From not having a metadata standard to having one. From coupled to decoupled build systems. Much of what makes Rye so enjoyable were individuals that worked towards making redistributable and downloadable Python binaries a possibility. There was a lot of work that was put into building out an amazing ecosystem of Rust crates and Python libraries needed to make these tools work. All of that brought us to that point where we are today. https://lucumr.pocoo.org/2024/8/21/harvest-season/
+
+PROGRESSION
+* `setup.py`: https://github.com/freestream/pyedi
+* _egg_:
+* _wheel_:
+
 PEPS https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 * _PEP 427_: wheel packaging
 * _PEP 440_: version number parsing
@@ -475,6 +481,15 @@ PEPS https://realpython.com/pypi-publish-python-package/#prepare-your-package-fo
 * _PEP 777_: wheel backwards compatibility (to enable new functionality to be added to wheels) https://peps.python.org/pep-0777/
 
 ---
+
+📍 great answer https://chatgpt.com/c/67111dbc-0964-8004-9e50-41fa41875da8
+
+FORMATS
+* _wheel_: binary https://pythonspeed.com/articles/upgrade-python-3.11/
+* _Wheel_: `.whl`; current fmt, built by pip https://testandcode.com/52 @ 16:00 https://www.youtube.com/watch?v=02aAZ8u3wEQ https://realpython.com/python-wheels/ https://pythonwheels.com/
+> also a package? see termgraph
+* _sdist_: `tar.gz`; ❓ does PyPI need this along with `.whl` and why? https://poetry.eustace.io
+* _egg_: `.egg` https://packaging.python.org/discussions/wheel-vs-egg/ https://pythonwheels.com/
 
 📜 https://docs.python.org/3/installing/index.html
 
@@ -519,13 +534,6 @@ PRESENT
 * _PEP 517_: API for build tools https://testandcode.com/52 @ 15:00
 * _PEP 518_: https://testandcode.com/52 @ 14:00
 * `pyproject.toml`: spec for using something other than `setup.py`; used by Poetry, Flit https://realpython.com/courses/packaging-with-pyproject-toml/ https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/
-
-FORMATS
-* _wheel_: binary https://pythonspeed.com/articles/upgrade-python-3.11/
-* _Wheel_: `.whl`; current fmt, built by pip https://testandcode.com/52 @ 16:00 https://www.youtube.com/watch?v=02aAZ8u3wEQ https://realpython.com/python-wheels/ https://pythonwheels.com/
-> also a package? see termgraph
-* _sdist_: `tar.gz`; ❓ does PyPI need this along with `.whl` and why? https://poetry.eustace.io
-* _egg_: `.egg` https://packaging.python.org/discussions/wheel-vs-egg/ https://pythonwheels.com/
 
 * _PEP 517_: build backend https://github.com/pdm-project/pdm
 * _PEP 582_: https://medium.com/@grassfedcode/goodbye-virtual-environments-b9f8115bc2b6 https://pythonbytes.fm/episodes/show/117/is-this-the-end-of-python-virtual-environments https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/

@@ -223,6 +223,10 @@ add styles
 
 ---
 
+AI
+* supercharged smart young people
+* the role of web search
+
 https://kaiwenwang.com/stack
 just a normal dev blog https://www.jonashietala.se/blog/tags/neovim/
 https://gwern.net/matt-levine
