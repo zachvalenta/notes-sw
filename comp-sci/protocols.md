@@ -28,7 +28,7 @@ TO READ
 
 * _document list (DL)_: type of x12 document https://en.wikipedia.org/wiki/X12_Document_List
 * each company picks a subset that they want to work with https://static.fishersci.com/cmsassets/downloads/segment/Scientific/pdf/WebServices/EDIspecGuideCust832.pdf
-* file extension: `.edi`, `.x12` or txt
+* file extension: `.edi`, `.x12`, `.dat`, `.txt`
 * _832_: DL for catalog
 * _850_: DL purchase order
 * _855_: DL purchase order (= HTTP 200)
@@ -49,6 +49,8 @@ PROVIDERS
 * _Kleinschmidt_: does EDI for Steersman
 
 ## spec
+
+segment types https://github.com/sezna/edi
 
 ```sh
 # ISA (Interchange Control Header): sender, receiver
@@ -78,7 +80,7 @@ IEA*1*000000905
 
 🔬 https://www.stedi.com/edi/inspector
 
-* _pyedi_: 🐍 https://github.com/freestream/pyedi
+* _pyedi_: 🐍 parse x12 to JSON https://github.com/freestream/pyedi
 * not on PyPI; fork and publish? https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 ```python
 import json

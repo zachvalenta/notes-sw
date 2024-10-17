@@ -549,7 +549,8 @@ VIZ
 
 HOTKEY
 * _hotkey_: keypress handled by listening program even if another program is active
-* the killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
+* killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
+* Google Drive for Desktop also uses
 * options: AutoHotKey https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ Hammerspoon, Keyboard Maestro https://news.ycombinator.com/item?id=34070951 Karabiner https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934 Alfred https://www.alfredapp.com/ BetterTouchTool https://switowski.com/blog/favorite-mac-tools/
 
 ## 🍎 iTerm

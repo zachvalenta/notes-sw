@@ -41,7 +41,7 @@ def simple_tracer(frame, event):  # 4:30
 * https://werat.dev/blog/what-a-good-debugger-can-do/
 * https://wizardzines.com/zines/debugging-guide/
 
-### alternatives
+## alternatives
 
 ---
 
@@ -51,26 +51,49 @@ IPYTHON
 ```python
 from IPython import embed; embed()
 ```
+* _ipdb_: https://stackoverflow.com/a/15976544/6813490 https://adamj.eu/tech/2021/02/21/improve-your-django-experience-with-ipython/
 
 ALTERNATIVES
 * https://www.youtube.com/watch?v=3UbVs18SBzo
 > tmux send-keys https://news.ycombinator.com/item?id=37172711 https://www.reddit.com/r/zellij/comments/13zqggd/sending_keys_to_another_terminal/ https://www.youtube.com/results?search_query=send-keys+tmux
-* _pudb_: 🎯 https://github.com/inducer/pudb https://realpython.com/python-packages/#pudb-for-visual-debugging
-* _ipdb_: 🎯 https://stackoverflow.com/a/15976544/6813490 https://adamj.eu/tech/2021/02/21/improve-your-django-experience-with-ipython/
+* _pudb_: 🎯 3k https://github.com/inducer/pudb https://realpython.com/python-packages/#pudb-for-visual-debugging
 * _bdb_: level down from pdb https://stackoverflow.com/a/10302538/6813490
 * _gdb_: deep bad things https://wiki.python.org/moin/DebuggingWithGdb
 * `print()`: if you don't know how to use a debugger https://twitter.com/raymondh/status/1266668437020897280 https://github.com/gruns/icecream https://github.com/cool-RR/PySnooper
 > It takes less time to decide where to put print statements than to single-step to the critical section of code https://news.ycombinator.com/item?id=26928696
-* _pdb++_: 🎯 https://github.com/pdbpp/pdbpp
+* _pdb++_: 🎯 1.5k https://github.com/pdbpp/pdbpp
 * main reason to use seem to be syntax highlighting and tab completion https://github.com/pdbpp/pdbpp#what-is-it
 * pytest workaround https://github.com/pdbpp/pdbpp/issues/392 https://github.com/zachvalenta/algos/blob/master/Makefile#L43
 * overrides pdb breakpoint https://github.com/pdbpp/pdbpp/issues/281
 * `track`: (requires pypy)
 * `display`: (couldn't figure out how this worked first time around)
-* _nvim-dap_: 🎯 https://github.com/mfussenegger/nvim-dap https://www.youtube.com/watch?v=4BnVeOUeZxc
-* _rewind_: 🎯 https://www.youtube.com/watch?v=ex9draKAP3c
+* _pytrace_: 🎯 150 https://github.com/gleb-sevruk/pycrunch-trace https://pytrace.com/
+* _pyrewind_: 🎯 fork of CPython https://www.youtube.com/watch?v=ChoCe1OBhUc unreleased https://github.com/search?utf8=%E2%9C%93&q=pyrewind&type=repositories inspiration https://www.replay.io/
+* _nvim-dap_: 🎯 5.5k https://github.com/mfussenegger/nvim-dap https://www.youtube.com/watch?v=4BnVeOUeZxc
 
-### pdb
+## AST
+
+* https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+* https://github.com/PyO3/pyo3 https://www.youtube.com/watch?v=UilujdubqVU
+* https://ward.readthedocs.io/en/latest/guide/writing_tests.html#using-assert-statements
+* https://www.youtube.com/watch?v=OjPT15y2EpE
+* inspect https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
+* https://www.mattlayman.com/blog/2018/decipher-python-ast/
+* https://talkpython.fm/episodes/show/152/understanding-and-using-python-s-ast
+* get data structure from string `ast.literal_eval(ds_as_str)` https://stackoverflow.com/a/17768535
+
+## inspect
+
+📜 https://docs.python.org/3/library/inspect.html https://www.youtube.com/watch?v=NIyljVEcJKw
+* rich vs. iypthon's `obj?` https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#exploring-your-objects
+* wat https://github.com/igrek51/wat
+```python
+getsource(obj)  # view src code https://stackoverflow.com/a/1562795
+getfile(obj)  # filepath where obj defined
+obj.__class__.__mro__  # view inheriance hierarchy
+```
+
+## pdb
 
 📜
 * `help pdb`
@@ -177,7 +200,7 @@ ALTERNATIVES
 * design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch https://news.ycombinator.com/item?id=41045834
 * https://www.singlestore.com/blog/how-we-made-notebooks-load-10-times-faster/
 
-## Jupyter
+## 🟧 Jupyter
 
 📜 https://jupyter.readthedocs.io/en/latest/index.html https://realpython.com/jupyter-notebook-introduction/
 
@@ -203,7 +226,7 @@ COMPONENTS
 * _kernel_: runtime
 * _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304 https://satyrn.app/
 
-## Marimo
+## 🟩 Marimo
 
 📻 https://github.com/marimo-team/marimo
 
@@ -257,7 +280,7 @@ STACK TRACES 🗄️ stdlib/profiling
 * https://docs.python.org/3/library/inspect.html#the-interpreter-stack
 * history https://stackoverflow.com/a/4289945
 
-## iPython
+## 🟦 iPython
 
 📜
 * https://github.com/ipython/ipython

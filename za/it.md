@@ -121,7 +121,7 @@ MUSIC
 ### air-capp ➡️ mini23
 
 * dance/dark: nicolaas jaar, roisin murphy, pantha du prince
-* dance/techno: vapourspace
+* dance/techno: vapourspace, robert hood, orbital
 * far/jamaica/dub: augustus-pablo, gregory-isaacs
 * electronic: we-as-is
 * rock/80s: war on drugs, the police
@@ -759,15 +759,7 @@ INVENTORY 🗄 `/Applications`
 * util: Android File Transfer, Airdroid https://www.youtube.com/watch?v=D6gE-W9oUz0 AppCleaner, DriveDX, Disk Drill, Monodraw, Flux, Battery Health 2 https://www.youtube.com/watch?v=UGOJmN3Lc2U 4:30
 * za: Human Japanese
 
-FINDER
-* preferences: sidebar items (desktop, documents, hard disks, external disks)
-* set default window size: hold CMD when resizing window, then hold ALT and right click Finder in Dock to relaunch https://apple.stackexchange.com/a/192959 
-* rm default app for opening file https://apple.stackexchange.com/questions/47512/how-to-remove-the-default-application-for-opening-a-file
-* show file extensions: Finder preferences > advanced
-* suppress creation of `DS_Store` seems like a pain https://stackoverflow.com/questions/18015978/how-to-stop-creating-ds-store-on-mac 
-* show hidden files: `SHIFT CMD .`
-
-BROWSERS 🗄 `js.md` browser
+🕸️ BROWSERS 🗄 `js.md` browser
 * set default: system preferences > general
 * settings: zoom to 110, font fize large, downloads to desktop, switch search to DuckDuckGo, startup to open previous tabs
 * extensions: Vimium, Mercury Reader, EditThisCookie, PocketTube
@@ -781,6 +773,17 @@ CMD b  # bookmarks
 ```
 * _Chrome_:
 * _Zen_: https://zen-browser.app/ https://www.youtube.com/watch?v=VshptkoKfQo
+
+🔍 FINDER
+* preferences: sidebar items (desktop, documents, hard disks, external disks)
+* set default window size: hold CMD when resizing window, then hold ALT and right click Finder in Dock to relaunch https://apple.stackexchange.com/a/192959 
+* rm default app for opening file https://apple.stackexchange.com/questions/47512/how-to-remove-the-default-application-for-opening-a-file
+* show file extensions: Finder preferences > advanced
+* suppress creation of `DS_Store` seems like a pain https://stackoverflow.com/questions/18015978/how-to-stop-creating-ds-store-on-mac 
+* show hidden files: `SHIFT CMD .`
+
+GOOGLE DRIVE FOR DESKTOP
+* search: `CMD ALT g` (global hotkey)
 
 ---
 
