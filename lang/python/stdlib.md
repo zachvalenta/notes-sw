@@ -1409,6 +1409,7 @@ sha.hexdigest()  # 'fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba6259
 
 ---
 
+https://realpython.com/python-packages/#dateutil-for-working-with-dates-and-times
 https://drewdevault.com/2014/06/28/Python-datetime-sucks.html
 📙 Beazley ch. 3
 https://pypi.org/project/pytz/ https://blog.ganssle.io/articles/2018/03/pytz-fastest-footgun.html https://github.com/crsmithdev/arrow https://github.com/timofurrer/maya https://github.com/sdispater/pendulum https://github.com/dateutil/dateutil parser https://github.com/wanasit/chrono

@@ -647,6 +647,7 @@ fruit | veg   # avocado, banana, tomato, beet, carrot
 
 ---
 
+parse https://realpython.com/python-packages/#parse-for-matching-strings
 * https://www.youtube.com/watch?v=EimoZHDcQMA
 * textwrap https://martinheinz.dev/blog/108
 * f-strings https://martinheinz.dev/blog/103 https://martinheinz.dev/blog/70

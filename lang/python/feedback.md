@@ -30,8 +30,9 @@ TAXONOMY https://en.wikipedia.org/wiki/Exploratory_programming
 * Beazley ch. 14
 * Seitz grey hat ch. 2
 
-INTERNALS / DESIGN https://www.youtube.com/watch?v=QU158nGABxI https://www.youtube.com/watch?v=3UbVs18SBzo https://www.youtube.com/watch?v=COa-JHYuW3M
+INTERNALS / DESIGN https://www.youtube.com/watch?v=QU158nGABxI https://www.youtube.com/watch?v=COa-JHYuW3M
 * `sys.settrace` registers callback on interpreter for function call, LOC executed, func return value, exceptions raised [3:45]
+* perf https://www.youtube.com/watch?v=3UbVs18SBzo "Tian Gao: What makes a Python debugger possible and how can we make it 100x faster?"
 ```python
 def simple_tracer(frame, event):  # 4:30
 ```
@@ -54,22 +55,20 @@ from IPython import embed; embed()
 * _ipdb_: https://stackoverflow.com/a/15976544/6813490 https://adamj.eu/tech/2021/02/21/improve-your-django-experience-with-ipython/
 
 ALTERNATIVES
-* https://www.youtube.com/watch?v=3UbVs18SBzo
-> tmux send-keys https://news.ycombinator.com/item?id=37172711 https://www.reddit.com/r/zellij/comments/13zqggd/sending_keys_to_another_terminal/ https://www.youtube.com/results?search_query=send-keys+tmux
-* _pudb_: 🎯 3k https://github.com/inducer/pudb https://realpython.com/python-packages/#pudb-for-visual-debugging
-* _bdb_: level down from pdb https://stackoverflow.com/a/10302538/6813490
-* _gdb_: deep bad things https://wiki.python.org/moin/DebuggingWithGdb
 * `print()`: if you don't know how to use a debugger https://twitter.com/raymondh/status/1266668437020897280 https://github.com/gruns/icecream https://github.com/cool-RR/PySnooper
 > It takes less time to decide where to put print statements than to single-step to the critical section of code https://news.ycombinator.com/item?id=26928696
-* _pdb++_: 🎯 1.5k https://github.com/pdbpp/pdbpp
+* tmux send-keys https://news.ycombinator.com/item?id=37172711 https://www.reddit.com/r/zellij/comments/13zqggd/sending_keys_to_another_terminal/ https://www.youtube.com/results?search_query=send-keys+tmux
+* _bdb_: ❌ level down from pdb https://stackoverflow.com/a/10302538/6813490
+* _gdb_: ❌ deep bad things https://wiki.python.org/moin/DebuggingWithGdb
+* _pdb++_: 🎯 1.5k dev has stopped and they might be in legal trouble https://github.com/pdbpp/pdbpp https://github.com/pdbpp/pdbpp/issues/529
 * main reason to use seem to be syntax highlighting and tab completion https://github.com/pdbpp/pdbpp#what-is-it
 * pytest workaround https://github.com/pdbpp/pdbpp/issues/392 https://github.com/zachvalenta/algos/blob/master/Makefile#L43
 * overrides pdb breakpoint https://github.com/pdbpp/pdbpp/issues/281
 * `track`: (requires pypy)
 * `display`: (couldn't figure out how this worked first time around)
-* _pytrace_: 🎯 150 https://github.com/gleb-sevruk/pycrunch-trace https://pytrace.com/
-* _pyrewind_: 🎯 fork of CPython https://www.youtube.com/watch?v=ChoCe1OBhUc unreleased https://github.com/search?utf8=%E2%9C%93&q=pyrewind&type=repositories inspiration https://www.replay.io/
-* _nvim-dap_: 🎯 5.5k https://github.com/mfussenegger/nvim-dap https://www.youtube.com/watch?v=4BnVeOUeZxc
+* _pytrace_: 150 https://github.com/gleb-sevruk/pycrunch-trace https://pytrace.com/
+* _pyrewind_: 🧠 fork of CPython https://www.youtube.com/watch?v=ChoCe1OBhUc unreleased https://github.com/search?utf8=%E2%9C%93&q=pyrewind&type=repositories inspiration https://www.replay.io/
+* _nvim-dap_: 5.5k https://github.com/mfussenegger/nvim-dap https://www.youtube.com/watch?v=4BnVeOUeZxc
 
 ## AST
 
@@ -164,6 +163,14 @@ CONFIG
 * aliases https://docs.python.org/3.2/library/pdb.html#pdbcommand-alias
 * comments https://nedbatchelder.com/blog/200704/my_pdbrc.html https://www.youtube.com/watch?v=_kCKBXtA2jQ
 * command history buggy w/ readline incompatability https://stackoverflow.com/questions/6348034/python-pdb-command-history-not-working-on-windows
+
+## pudb
+
+📜 https://github.com/inducer/pudb
+
+---
+
+https://realpython.com/python-packages/#pudb-for-visual-debugging
 
 # 📔 NOTEBOOK
 
