@@ -138,6 +138,15 @@ print(get_config_value(configs, "prod"))
 * https://interviewing.io/
 * TripleByte
 
+* personalization engine https://news.ycombinator.com/item?id=30778100
+* code formatter https://yorickpeterse.com/articles/how-to-write-a-code-formatter/
+
+SPELL CHECKER
+* https://spylls.readthedocs.io/en/latest/ https://zverok.github.io/blog/2021-05-06-how-to-spellcheck.html
+* https://norvig.com/spell-correct.html
+* https://theautomatic.net/2019/12/10/3-packages-to-build-a-spell-checker-in-python/
+* https://0x65.dev/blog/2019-12-08/how-do-you-spell-boscodictiasaur.html
+
 * _21_: 📙 Trask chapters 1-3
 * _20_: 📙 Bhargava grokking
 * _19_: regex basics
@@ -901,57 +910,6 @@ queue.popleft()  # shift aka enque
 
 * _audio warping_: https://stackoverflow.com/q/9953219/6813490
 * geography https://github.com/jftuga/geodist
-
-## projects
-
-* personalization engine https://news.ycombinator.com/item?id=30778100
-* code formatter https://yorickpeterse.com/articles/how-to-write-a-code-formatter/
-
-SPELL CHECKER
-* https://spylls.readthedocs.io/en/latest/ https://zverok.github.io/blog/2021-05-06-how-to-spellcheck.html
-* https://norvig.com/spell-correct.html
-* https://theautomatic.net/2019/12/10/3-packages-to-build-a-spell-checker-in-python/
-* https://0x65.dev/blog/2019-12-08/how-do-you-spell-boscodictiasaur.html
-
-RECOMMENDATION ENGINE
-> the primary metric for suggesting content still seems to be "stuff other people are reading/watching/playing/listening" https://news.ycombinator.com/item?id=24471525
-* just regression by another name? 📙 Bhargava 10.193-195
-* need linear algebra? https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://github.com/microsoft/recommenders
-* https://github.com/maciejkula/spotlight https://github.com/zygmuntz/goodbooks-10k https://blog.crunchydata.com/blog/recommendation_engine_in_postgres_with_pandas_and_python http://blog.untrod.com/2016/06/simple-similar-products-recommendation-engine-in-python.html https://www.pythonpodcast.com/surprise-with-nicolas-hug-episode-135/ https://stackabuse.com/creating-a-simple-recommender-system-in-python-using-pandas/ https://realpython.com/build-recommendation-engine-collaborative-filtering/ https://github.com/kakao/buffalo https://2020.pygotham.tv/talks/the-album-discoverer-an-album-recommendation-system/ https://pudding.cool/2018/05/similarity/ http://guidetodatamining.com/ https://sirupsen.com/napkin/problem-12-recommendations
-
-CHESS ENGINE
-* https://github.com/thomasahle/sunfish
-* https://zserge.com/posts/carnatus/
-* https://marginalrevolution.com/marginalrevolution/2022/06/alphazero-ideas.html
-* https://www.youtube.com/watch?v=mPY69BJmlbs https://www.youtube.com/watch?v=mhCOlhUBcqw
-* _UCI_: interface for chess engines https://chess.resistant.tech/
-* _bitboard_: data structure used in board games https://en.wikipedia.org/wiki/Bitboard 
-* BYO https://healeycodes.com/building-my-own-chess-engine/ https://github.com/notnil/chess testing https://chess.stackexchange.com/questions/21991/reasonable-engines-to-test-against-not-stockfishtic
-* impl https://stackoverflow.com/q/1148727/ https://github.com/thomasahle/sunfish https://stats.stackexchange.com/q/308777/248351 https://waters.me/trying-to-beat-chess-computers/ https://github.com/CYHSM/chess-surprise-analysis 🗄 `za/cs/ml/deep-learning-w/go.pdf` https://news.ycombinator.com/item?id=20027838 https://www.youtube.com/watch?v=pUyURF1Tqvg FEN/PGN https://www.chess.com/analysis
-* tic tac toe https://robertheaton.com/2018/10/09/programming-projects-for-advanced-beginners-3-a/ https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/rock-paper-scissors game tree https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 1:25 every possible game https://defmacro.substack.com/p/how-to-interview-engineers
-* za https://news.ycombinator.com/item?id=28765183 https://leahneukirchen.org/blog/archive/2019/10/ken-thompson-s-unix-password.html https://www.andreykurenkov.com/writing/ai/a-brief-history-of-game-ai/
-
-ALPHA GO
-* https://www.newyorker.com/science/elements/how-the-artificial-intelligence-program-alphazero-mastered-its-games
-* _AlphaGo_: 2016
-* Go-specific
-* used hard-coded heuristics and learned from master players https://marginalrevolution.com/marginalrevolution/2017/12/the-age-of-the-centaur-is-over.html
-* _Stockfish_: former best chess engine before being surpassed by AlphaZero
-* https://www.quora.com/Is-StockFish-AI-level-5-really-1700-ELO
-```txt
-Level 0 = 1100 ELO rating
-Level 1 = 1165 ELO rating
-Level 2 = 1230 ELO rating
-As you can see the strength is increasing by 65 ELO points for each level, so that;
-Level 20 = 2570 ELO rating.
-However, these are approximate values and its hard to say for sure.
-Stockfish 10 at its top strength (without any level set) has a rating of about 3500 ELO, which would be strong enough to be beat the world champion in almost every game.
-```
-* _AlphaGo Zero_: 2017
-* generalizes to any two-person zero-sum game of perfect information
-* impl: neural net + MCTS, learned only from the rules
-* OSS https://github.com/leela-zero/leela-zero https://github.com/LeelaChessZero/lc0
-* _AlphaZero_: OSS AlphaGoZero https://github.com/suragnair/alpha-zero-general
 
 ## recursion
 
