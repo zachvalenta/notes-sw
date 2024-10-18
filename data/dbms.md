@@ -836,7 +836,6 @@ SEMANTICS
 * _cluster_: server instance managing n databases https://www.postgresql.org/docs/12/tutorial-concepts.html https://www.crunchydata.com/blog/postgres-databases-and-schemas
 * _foreign data wrapper_: access data from another data store e.g. document store for a relational db https://github.com/pgspider/sqlite_fdw
 * `json`: text field; slow to search
-* JSON schema https://github.com/supabase/pg_jsonschema
 * `jsonb`: binary; slower writes, faster reads https://pganalyze.com/blog/postgres-jsonb-django-python
 ```sql
 -- all keys for json obj

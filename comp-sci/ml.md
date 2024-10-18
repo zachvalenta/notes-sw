@@ -181,7 +181,9 @@ https://github.com/nomic-ai/gpt4all
 
 ## prompts
 
-🗄️ `psychology.md` interviewing
+🗄️
+* `psychology.md` interviewing
+* `work.md` industry > Stack Overflow
 
 ---
 

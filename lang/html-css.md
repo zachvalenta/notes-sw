@@ -233,6 +233,7 @@ add styles
 AI
 * supercharged smart young people
 * the role of web search
+* teaching people how to ask better questions
 
 JOB BOARDS
 * Github has a job profile?

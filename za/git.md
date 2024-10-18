@@ -10,6 +10,8 @@
 ## 进步
 
 use Github CLI to perform faster repo sustainability assessment:
+> https://json-schema.org/tools
+> do existing repo browsers offer?
 * stars
 * recent commits
 * open issues vs. closed issues

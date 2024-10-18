@@ -467,6 +467,7 @@ DESIGN
 
 PROGRESSION
 * `setup.py`: https://github.com/freestream/pyedi
+* _setuptools_: https://github.com/azoner/pyx12
 * _egg_:
 * _wheel_:
 

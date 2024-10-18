@@ -32,7 +32,8 @@ TO READ
 * _832_: DL for catalog
 * _850_: DL purchase order
 * _855_: DL purchase order (= HTTP 200)
-* _997_: DL for ack
+* _997_: DL for ack https://github.com/azoner/pyx12
+* _999_: ? https://github.com/azoner/pyx12
 
 ## semantics
 
@@ -47,6 +48,11 @@ SPEC
 PROVIDERS
 * _SPS_: does EDI for ERPs (Odoo) https://www.spscommerce.com/
 * _Kleinschmidt_: does EDI for Steersman
+
+---
+
+* _envelope_: collection of documents of a type
+* _mailbag_: collection of envelopes
 
 ## spec
 
@@ -80,7 +86,9 @@ IEA*1*000000905
 
 🔬 https://www.stedi.com/edi/inspector
 
-* _pyedi_: 🐍 parse x12 to JSON https://github.com/freestream/pyedi
+> can either of these do JSON to x12?
+* _bots_: bad docs https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
+* _pyedi_: ✅ parse x12 to JSON https://github.com/freestream/pyedi 💻 https://github.com/zachvalenta/capp-pyedi
 * not on PyPI; fork and publish? https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 ```python
 import json
@@ -91,19 +99,15 @@ with open("data.json", "w") as f:
     json.dump(ts, f)
 # fmt -> python -m json.tool data.json
 ```
-* _sezna_: 🦀 https://github.com/sezna/edi https://news.ycombinator.com/item?id=23786634
+* _pyx12_: https://github.com/azoner/pyx12
+* _sezna_: parse x12 to JSON https://github.com/sezna/edi https://news.ycombinator.com/item?id=23786634
+* _x12-edi-tools_: 🐍 Python to x12 https://github.com/copyleftdev/x12-edi-tools https://pypi.org/project/x12-edi-tools/
 
 ---
 
-https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
-
-* https://stackoverflow.com/questions/26033239/list-of-objects-to-json-with-python
-* https://en.wikipedia.org/wiki/Electronic_data_interchange
-* bots https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
-* https://github.com/azoner/pyx12 https://pypi.org/project/pyx12/
+* https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
 * https://www.npmjs.com/package/x12-parser
 * https://github.com/dev0088/pyedi830
-* https://github.com/copyleftdev/x12-edi-tools
 
 XML
 * https://cxml.org/
@@ -357,6 +361,7 @@ OPERATIONS
 📜 http://www.json.org/
 🗄️ `telemetry.md` logging / JSONL
 
+* basic
 ```json
 {"a": "b"}
 
@@ -368,6 +373,13 @@ OPERATIONS
     }
 }
 ```
+
+NUMBERS https://chatgpt.com/c/671266a2-7fa4-8004-b1d3-c43acb773f7d
+* types: int, floating point, exponential notation
+* use strings to represent monetary amounts
+* use strings for big ints
+* no leading zeros
+* largest safe int `2^53 - 1` (`9007199254740991`) 📜 IEEE-754 double-precision floating-point
 
 ---
 
@@ -389,6 +401,7 @@ ALTERNATIVES
 * _jaq_: rewrite https://github.com/01mf02/jaq
 * _jnv_: 🎯 interactive https://github.com/ynqa/jnv
 * _jqp_: TUI https://github.com/noahgorstein/jqp 
+* _jsonata_: https://jsonata.org/
 * _mistql_: Python and CLI https://www.mistql.com/
 * _sq_: https://news.ycombinator.com/item?id=41760697
 

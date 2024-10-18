@@ -169,7 +169,12 @@ ALTER TABLE products ADD CONSTRAINT data_is_valid CHECK(
     }
   }',  attributes)
 );
+INSERT INTO products (attributes) VALUES ('{}');  -- ok
+INSERT INTO products (attributes) VALUES ('{ "tags":[] }');  -- ok
+INSERT INTO products (attributes) VALUES ('{ "tags":["test"] }');  -- ok
+INSERT INTO products (attributes) VALUES ('{ "tags":[2] }'); -- ERROR: new row for relation "products" violates check constraint "data_is_valid". Failing row contains ({"tags": [2]}).
 ```
+
 
 ---
 
