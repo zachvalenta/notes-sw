@@ -496,80 +496,6 @@ USE CASES
 * skate
 * garageband
 
-## keyboards
-
-🗄️ `built.md` homes / studio
-📙 https://shifthappens.site/#story-of-a-photo
-
-WHAT I WANT
-* layout: TKL
-* connection: wired
-* no lights
-* don't care about programmable or rotary knob
-
-FEATURES
-* connection: usb-c is faster https://www.keychron.com/blogs/news/solid-wireless-connection-type-c-connection
-* layout: TKL https://www.keychron.com/blogs/archived/keyboard-buying-guide
-* lights
-* rotary knob: typically used for volume, page up/down https://www.reddit.com/r/MechanicalKeyboards/comments/12nfiqg/what_are_you_using_the_knob_for/?rdt=47962
-* programmable: QMK|VIA https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard https://www.youtube.com/watch?v=EWiOIVnrmMs
-
-MODELS
-* shops https://novelkeys.com/
-* split https://www.youtube.com/@calmcode-io/videos
-* only low-profile from keychron either don't have brown switches or do have ISO https://www.keychron.com/collections/low-profile-keyboard-collection/products/keychron-k1-max-qmk-via-wireless-custom-mechanical-keyboard
-* _Apple wired_: ✅ $60 layout (100) profile (low - 2.3mm) https://www.amazon.com/dp/B07K7V1FWC
-* _Keychron c1_: 🎯 https://www.keychron.com/products/keychron-c1-pro-qmk-via-wired-mechanical-keyboard?variant=40615797391449
-* _Keychron k1_: out of stock https://www.reddit.com/r/NuPhy/comments/1brdzgy/will_there_ever_be_low_profile_tkl_80_layout/
-* _Keychron v3_: 🎯 $110 layout (80/TKL) profile (normal) https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/ https://www.amazon.com/dp/B0CW5B5KL8
-* _Logitech mx mini_: https://www.logitech.com/en-us/products/keyboards/mx-keys-mini.920-010475.html
-* _Nuphy halo75_: less scrunched than air75 layout? 🎯 https://www.amazon.com/nuphy-Mechancial-Kyeboard-Swappable-Bluetooth/dp/B0D5Q891F1
-* _Nuphy air75 v2_: ✅ $125 layout (75) profile (low - 2.3mm) https://nuphy.com/products/air75-v2
-* slow shipping (but next time you can just buy from Amazon?)
-* layout too scrunched
-* _Nuphy gem 80_: $150 layout (80/TKL) profile (normal) https://nuphy.com/collections/keyboards/products/gem80
-* _Varmilo mac_: https://varmilo.com/products/mac?variant=45350805405915 keycaps https://varmilo.com/products/shurikey-gear-keycaps-sets-167-keys?pr_prod_strat=jac&pr_rec_id=c6579d995&pr_rec_pid=7642777518299&pr_ref_pid=8195613425883&pr_seq=uniform
-
-KEYCAPS 🔍 https://novelkeys.com/collections/keycaps https://www.keychron.com/collections/all-keycaps
-* size
-> Keycap sizes are described in terms of a "u. width. For example, 1u is the size of each of the number and alphabet keys on a keyboard. A 2u key, like Backspace, is twice the size of those 1u keys...compact keyboards often have a 1.75u right Shift key in place of the standard 2.75u right Shift key as well as 1u modifiers in the bottom row. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
-* _legend_: character on key; double-shot (more expensive) dye-sub (PBT only, non-transparent)
-* _profile_: height * shape https://thekeeblog.com/overview-of-different-keycap-profiles/
-* less options for low profile https://www.youtube.com/watch?v=BWQFUPm6XE0
-* _PBT_: more durable
-* _ABS_: less durable
-
-SWITCHES 🔍 https://milktooth.com/products/switches https://switches.mx/
-> One other small detail to keep an eye out for is north or south-facing switches. North-facing switches have the LED cutout facing toward the top of the keyboard - they're better at illuminating shine-through legends, but aren't compatible with common Cherry-profile keycaps. South-facing switches have the LED cutout facing toward the front of the keyboard, and they are compatible with Cherry-profile keycaps. Some keyboards have both north  and south-facing switches, so make sure to double-check before buying a new set of keycaps. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
-* it goes deep https://www.theremingoat.com/ https://keyboardsexpert.com/what-is-a-frankenswitch-keyboard-switch/
-> If you don't already have a preference, we recommend Brown switches made by Gateron, Kailh, or Cherry because they're popular, readily available tactile switches that are good for most tasks and quiet enough for most offices...Clicky switches—like Blues and Kailh Box Whites—provide fun, typewriter-esque feedback. But they’re not ideal if you work or game in a shared space because they're very noisy...Optical switches use a laser to determine when you actuate a key. Manufacturers claim they work faster than mechanical switches, but in our experience, a light linear option like the common Red switch or the gaming-focused Cherry MX Speed Silver is plenty fast. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
-* tester https://drop.com/buy/kbdfans-all-in-one-72-switch-tester?defaultSelectionIds=973206#signupv2 https://kineticlabs.com/switches/kinetic/keyboard-switch-sample-packs
-* for low profile https://www.howtogeek.com/339502/low-profile-switches-are-coming-to-shrink-your-mechanical-keyboards/
-* creamy https://kineticlabs.com/switches/hmx/hmx-latte-switches
-* Topre: https://duarteocarmo.com/blog/happy-hacking-keyboard-review https://gizmodo.com/this-is-the-perfect-keyboard-1845258727
-> ALPS switches have been considered by enthusiasts to be one of the rarest type key switches. They are not as popular as mechanical switches, membrane switches, and even Topre switches. In fact, they can only be seen in vintage keyboards that were produced before the rise of membrane keyboards in the 1990s.  https://keyboardsexpert.com/what-are-alps-switches/
-> Switch makers also make low-profile switches, which aren’t as tall and have less travel. You can also find other, completely different types of switches, such as Topre, buckling spring, and Alps clones. None of these switch types are compatible with the wide pool of keycaps designed for MX stems, but they all have their own unique appeal. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
-* _linear_: smooth
-* _tactile_: bump halfway through keypress
-* _clicky_: tactile + click
-* _hot-swappable_: don't need to solder in new switch
-
-ZA
-* tray for desk https://www.amazon.com/VIVO-Computer-Keyboard-Platform-MOUNT-KB05E/dp/B07HFDJCSL
-* touch typing https://www.keybr.com/#!game https://github.com/kraanzu/smassh
-
----
-
-* can you use Windows keyboards for macOS? https://www.durgod.com/product/s230-dracula/
-* mechanical https://www.youtube.com/results?search_query=mechanical+keyboard+for+macos https://www.reddit.com/r/MechanicalKeyboards/comments/89fbk4/whats_all_the_hype_about_mechanical_keyboards_im/?rdt=56069
-* mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 try this one https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/
-* layers https://news.ycombinator.com/item?id=34069927
-* wrist rest https://news.ycombinator.com/item?id=34276226
-* Linux vs. Macos https://www.youtube.com/watch?v=GKoz7mm2tNI
-* chicklet https://www.youtube.com/watch?v=8jM1brvJhzg 5:20 butterfly started with 2015 12' Macbook https://www.theverge.com/2020/5/4/21246223/macbook-keyboard-butterfly-magic-pro-apple-design https://support.apple.com/keyboard-service-program-for-mac-notebooks returned to normal scissor keyboard (aka 'magic') with 2020 16' Macbook Pro https://www.wsj.com/articles/apple-updates-ipad-macbook-air-with-new-keyboard-11584538891
-* remapping https://missing.csail.mit.edu/2019/os-customization/
-* stenography for transcription https://www.openstenoproject.org/plover/
-
 ## machines
 
 MBP14 🗄 `python-3.10-youtube-ffmpeg.md`
@@ -730,6 +656,100 @@ __WhatsApp__ 🗓 summer 2018
 * https://stackpointer.io/security/decrypt-whatsapp-crypt8-database-messages/419/
 * https://stackpointer.io/security/decrypt-whatsapp-crypt12-database-messages/559/
 
+# ⌨ MECHANCIAL
+
+🧠 https://chatgpt.com/c/6712bd5e-1484-8004-8dc1-119c4a3b6347
+🗄️ `built.md` homes / studio
+📙 https://shifthappens.site/#story-of-a-photo
+
+## features
+
+WHAT I WANT
+* layout: TKL
+* connection: wired
+* no lights
+* don't care about programmable or rotary knob
+
+FEATURES
+* connection: usb-c is faster https://www.keychron.com/blogs/news/solid-wireless-connection-type-c-connection
+* layout: TKL https://www.keychron.com/blogs/archived/keyboard-buying-guide
+* lights
+* rotary knob: typically used for volume, page up/down https://www.reddit.com/r/MechanicalKeyboards/comments/12nfiqg/what_are_you_using_the_knob_for/?rdt=47962
+* programmable: QMK|VIA https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard https://www.youtube.com/watch?v=EWiOIVnrmMs
+
+---
+
+* plate, PCB https://www.amazon.com/Keychron-Wireless-Mechanical-Hot-Swappable-Programmable/dp/B0B97JZV99
+* tray for desk https://www.amazon.com/VIVO-Computer-Keyboard-Platform-MOUNT-KB05E/dp/B07HFDJCSL
+* touch typing https://www.keybr.com/#!game https://github.com/kraanzu/smassh
+* can you use Windows keyboards for macOS? https://www.durgod.com/product/s230-dracula/
+* mechanical https://www.youtube.com/results?search_query=mechanical+keyboard+for+macos https://www.reddit.com/r/MechanicalKeyboards/comments/89fbk4/whats_all_the_hype_about_mechanical_keyboards_im/?rdt=56069
+* mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 try this one https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/
+* layers https://news.ycombinator.com/item?id=34069927
+* wrist rest https://news.ycombinator.com/item?id=34276226
+* Linux vs. Macos https://www.youtube.com/watch?v=GKoz7mm2tNI
+* chicklet https://www.youtube.com/watch?v=8jM1brvJhzg 5:20 butterfly started with 2015 12' Macbook https://www.theverge.com/2020/5/4/21246223/macbook-keyboard-butterfly-magic-pro-apple-design https://support.apple.com/keyboard-service-program-for-mac-notebooks returned to normal scissor keyboard (aka 'magic') with 2020 16' Macbook Pro https://www.wsj.com/articles/apple-updates-ipad-macbook-air-with-new-keyboard-11584538891
+* remapping https://missing.csail.mit.edu/2019/os-customization/
+* stenography for transcription https://www.openstenoproject.org/plover/
+
+## keycaps
+
+🏪
+* Etsy
+* https://novelkeys.com/collections/keycaps
+* https://pacificparadiseprints.shop/ https://www.youtube.com/@PacificParadisePrints
+
+* size
+> Keycap sizes are described in terms of a "u. width. For example, 1u is the size of each of the number and alphabet keys on a keyboard. A 2u key, like Backspace, is twice the size of those 1u keys...compact keyboards often have a 1.75u right Shift key in place of the standard 2.75u right Shift key as well as 1u modifiers in the bottom row. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
+* _legend_: character on key; double-shot (more expensive) dye-sub (PBT only, non-transparent)
+* _profile_: height * shape https://thekeeblog.com/overview-of-different-keycap-profiles/
+* less options for low profile https://www.youtube.com/watch?v=BWQFUPm6XE0
+* _PBT_: more durable
+* _ABS_: less durable
+
+## models
+
+🏪
+* https://mechanicalkeyboards.com/
+* https://novelkeys.com/
+
+KEYCHRON
+> only low-profile from keychron either don't have brown switches or do have ISO https://www.keychron.com/collections/low-profile-keyboard-collection/products/keychron-k1-max-qmk-via-wireless-custom-mechanical-keyboard
+* _c1_: 🎯 https://www.keychron.com/products/keychron-c1-pro-qmk-via-wired-mechanical-keyboard?variant=40615797391449
+* _k1_: out of stock https://www.reddit.com/r/NuPhy/comments/1brdzgy/will_there_ever_be_low_profile_tkl_80_layout/
+* _v3_: 🎯 $110 layout (80/TKL) profile (normal) https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/ https://www.amazon.com/dp/B0CW5B5KL8
+
+NUPHY
+* _halo75_: less scrunched than air75 layout? 🎯 https://www.amazon.com/nuphy-Mechancial-Kyeboard-Swappable-Bluetooth/dp/B0D5Q891F1
+* _air75 v2_: ✅ $125 layout (75) profile (low - 2.3mm) https://nuphy.com/products/air75-v2
+* slow shipping (but next time you can just buy from Amazon?)
+* layout too scrunched
+* _gem 80_: $150 layout (80/TKL) profile (normal) https://nuphy.com/collections/keyboards/products/gem80
+
+ZA
+* split https://www.youtube.com/@calmcode-io/videos
+* _Apple wired_: ✅ $60 layout (100) profile (low - 2.3mm) https://www.amazon.com/dp/B07K7V1FWC
+* _Logitech mx mini_: https://www.logitech.com/en-us/products/keyboards/mx-keys-mini.920-010475.html
+* _Varmilo mac_: https://varmilo.com/products/mac?variant=45350805405915 keycaps https://varmilo.com/products/shurikey-gear-keycaps-sets-167-keys?pr_prod_strat=jac&pr_rec_id=c6579d995&pr_rec_pid=7642777518299&pr_ref_pid=8195613425883&pr_seq=uniform
+
+## switches
+
+🔍 https://milktooth.com/products/switches https://switches.mx/
+
+> One other small detail to keep an eye out for is north or south-facing switches. North-facing switches have the LED cutout facing toward the top of the keyboard - they're better at illuminating shine-through legends, but aren't compatible with common Cherry-profile keycaps. South-facing switches have the LED cutout facing toward the front of the keyboard, and they are compatible with Cherry-profile keycaps. Some keyboards have both north  and south-facing switches, so make sure to double-check before buying a new set of keycaps. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
+* it goes deep https://www.theremingoat.com/ https://keyboardsexpert.com/what-is-a-frankenswitch-keyboard-switch/
+> If you don't already have a preference, we recommend Brown switches made by Gateron, Kailh, or Cherry because they're popular, readily available tactile switches that are good for most tasks and quiet enough for most offices...Clicky switches—like Blues and Kailh Box Whites—provide fun, typewriter-esque feedback. But they’re not ideal if you work or game in a shared space because they're very noisy...Optical switches use a laser to determine when you actuate a key. Manufacturers claim they work faster than mechanical switches, but in our experience, a light linear option like the common Red switch or the gaming-focused Cherry MX Speed Silver is plenty fast. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
+* tester https://drop.com/buy/kbdfans-all-in-one-72-switch-tester?defaultSelectionIds=973206#signupv2 https://kineticlabs.com/switches/kinetic/keyboard-switch-sample-packs
+* for low profile https://www.howtogeek.com/339502/low-profile-switches-are-coming-to-shrink-your-mechanical-keyboards/
+* creamy https://kineticlabs.com/switches/hmx/hmx-latte-switches
+* Topre: https://duarteocarmo.com/blog/happy-hacking-keyboard-review https://gizmodo.com/this-is-the-perfect-keyboard-1845258727
+> ALPS switches have been considered by enthusiasts to be one of the rarest type key switches. They are not as popular as mechanical switches, membrane switches, and even Topre switches. In fact, they can only be seen in vintage keyboards that were produced before the rise of membrane keyboards in the 1990s.  https://keyboardsexpert.com/what-are-alps-switches/
+> Switch makers also make low-profile switches, which aren’t as tall and have less travel. You can also find other, completely different types of switches, such as Topre, buckling spring, and Alps clones. None of these switch types are compatible with the wide pool of keycaps designed for MX stems, but they all have their own unique appeal. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
+* _linear_: smooth
+* _tactile_: bump halfway through keypress
+* _clicky_: tactile + click
+* _hot-swappable_: don't need to solder in new switch
+
 # 🍎 MACOS
 
 🗄 `linux.md` denv
@@ -848,57 +868,7 @@ VLC 📜 https://wiki.videolan.org/Mac_OS_X/ https://www.maketecheasier.com/mast
 * _playlist_: cmd alt p
 * _jump_: to time (cmd j, then h:m:s) very short () short () mid () long (cmd shift arrow) https://askubuntu.com/a/618391
 
-## dev
-
-PROCESSOR
-* _Rosetta_: gets Intel apps to work on M1 https://news.ycombinator.com/item?id=30799686 https://news.ycombinator.com/item?id=31696447
-* installed on mini23 for Android File Transfer
-* iTerm/Terminal > get info > open using Rosetta
-```sh
-# print architecture
-arch
-uname -p
-
-# print hardware
-uname -m
-
-arch  # i386 w/ Rosetta
-arch  # arm64 w/out Rosetta
-```
-
-COMMAND LINE TOOLS
-* _XCode_: IDE for macOS dev
-* _Command Line Tools_: compilers from XCode
-* _OSX-GCC installer_: don't install this alongside Command Line Tools https://docs.python-guide.org/starting/install3/osx/
-```sh
-# install https://apple.stackexchange.com/a/324598
-xcode-select --install
-
-# switch
-sudo xcode-select --switch /Library/Developer/CommandLineTools
-
-# switch back
-sudo xcode-select --reset
-
-# view SDK
-xcrun --show-sdk-path
-
-# get fs
-xcode-select -p  # /Library/Developer/CommandLineTools
-
-# reintsall
-sudo rm -rf $(xcode-select -print-path) # Enter root password. No output is normal.
-sudo rm -rf /Library/Developer/CommandLineTools # Enter root password.
-sudo xcode-select --reset
-xcode-select --install
-
-# update
-Warning: A newer Command Line Tools release is available.
-Update them from Software Update in System Preferences or run:
-  softwareupdate --all --install --force
-```
-
-## keybindings
+## bindings
 
 EMOJI
 * https://matthewpalmer.net/rocket/
@@ -950,6 +920,56 @@ $ env | rg DYLD
 ```
 Based on Stack Overflow, inability to set this env var is the result of a [macOS security policy](https://stackoverflow.com/search?q=DYLD_LIBRARY_PATH+macos).
 Should the [docs for JSONField using SQLite](https://code.djangoproject.com/wiki/JSON1Extension) be updated? Is there a commonly used workaround to this problem in the Django community?
+
+## command line tools
+
+* _XCode_: IDE for macOS dev
+* _Command Line Tools_: compilers from XCode
+* _OSX-GCC installer_: don't install this alongside Command Line Tools https://docs.python-guide.org/starting/install3/osx/
+```sh
+# install https://apple.stackexchange.com/a/324598
+xcode-select --install
+
+# switch
+sudo xcode-select --switch /Library/Developer/CommandLineTools
+
+# switch back
+sudo xcode-select --reset
+
+# view SDK
+xcrun --show-sdk-path
+
+# get fs
+xcode-select -p  # /Library/Developer/CommandLineTools
+
+# reintsall
+sudo rm -rf $(xcode-select -print-path) # Enter root password. No output is normal.
+sudo rm -rf /Library/Developer/CommandLineTools # Enter root password.
+sudo xcode-select --reset
+xcode-select --install
+
+# update
+Warning: A newer Command Line Tools release is available.
+Update them from Software Update in System Preferences or run:
+  softwareupdate --all --install --force
+```
+
+## rosetta
+
+* _Rosetta_: gets Intel apps to work on M1 https://news.ycombinator.com/item?id=30799686 https://news.ycombinator.com/item?id=31696447
+* installed on mini23 for Android File Transfer
+* iTerm/Terminal > get info > open using Rosetta
+```sh
+# print architecture
+arch
+uname -p
+
+# print hardware
+uname -m
+
+arch  # i386 w/ Rosetta
+arch  # arm64 w/out Rosetta
+```
 
 ## settings
 

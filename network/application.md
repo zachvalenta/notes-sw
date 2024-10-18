@@ -591,6 +591,10 @@ scp user@host:/src/file.txt /local/
 
 ## IRC
 
+🗄️ `info.md` chat
+
+---
+
 https://drewdevault.com/2021/03/29/The-worlds-dumbest-IRC-bot.html
 https://webchat.freenode.net/#sr.ht
 * channels https://news.ycombinator.com/item?id=7161436

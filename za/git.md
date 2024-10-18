@@ -16,6 +16,7 @@ use Github CLI to perform faster repo sustainability assessment:
 * recent commits
 * open issues vs. closed issues
 * most recent closed issue
+* first commit, commit frequency
 
 * _24_: pager (delta, difftastic)
 * _21_: prepopulate commit msg

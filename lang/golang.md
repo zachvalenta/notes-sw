@@ -10,6 +10,8 @@
 
 ## 进步
 
+building binary for your own archictecture (and fix frangipanni) https://github.com/jpbruinsslot/slack-term/issues/282
+
 BASICS 📙 Ball
 * BYO taskwarrior https://www.youtube.com/watch?v=yiFhQGJeRJk
 * https://www.youtube.com/watch?v=un6ZyFkqFKo
