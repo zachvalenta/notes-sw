@@ -312,9 +312,9 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * themes file https://dandavison.github.io/delta/custom-themes.html https://github.com/dandavison/delta/blob/main/themes.gitconfig
 > don't understand why catpuccin relies on their bat theme https://github.com/catppuccin/delta can you just use straight from repo? https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
 * _difftastic_: ✅ https://github.com/Wilfred/difftastic
-* _diffnav_: 🎯 https://github.com/dlvhdr/diffnav
+* _diffnav_: ✅ https://github.com/dlvhdr/diffnav
 * _diffview_: 🎯 neovim https://github.com/sindrets/diffview.nvim https://www.youtube.com/watch?v=aJikrPnTOtI
-* _dunk_: 🎯 https://github.com/darrenburns/dunk
+* _dunk_: similar to delta https://github.com/darrenburns/dunk
 * _git split diffs_: 🎯 node version https://github.com/banga/git-split-diffs https://news.ycombinator.com/item?id=27007844
 
 ## porcelain
@@ -783,6 +783,10 @@ git branch -d crd/my-feature-branch
 
 # 🟨 ZA
 
+VERSION MGMT / INSTALL https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+* macOS: 10.9 onwards handled by Command Line Tools https://github.com/creationix/nvm#important-notes ❓ Homebrew install being used?
+* Linux: `git-all`
+
 ---
 
 `.gitattributes`: specify EOL https://stackoverflow.com/questions/73086622/is-a-gitattributes-file-really-necessary-for-git
@@ -816,24 +820,33 @@ za
 
 ## config
 
-INSTALLATION https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-* macOS: 10.9 onwards handled by Command Line Tools https://github.com/creationix/nvm#important-notes ❓ Homebrew install being used?
-* Linux: `git-all`
+🗄️ `protocols.md` INI
+📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 
-CONFIG 📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup 🗄️ `protocols.md` INI
-> aliases in gitconfig or zprofile? https://github.com/zachvalenta/dotfiles-mini23/commit/ddecff7a70e14d7a545e4d9fc72837e1a378b203
-* aliases split btw `.gitconfig` and `.bash_profile` 
+FILE LOCATION
+> be nice to switch btw using bullet, not as nice to set in zprofile, but I'll settle for symlinks for now
+* `$HOME/.gitconfig`
+* `GIT_CONFIG_GLOBAL`: `export GIT_CONFIG_GLOBAL="/Users/zach/Documents/denv/dotfiles/git/diffnav.ini"`
+* `GIT_CONFIG`
+
+---
+
+https://chatgpt.com/c/67141929-cb80-8004-86dc-201dc864fdad
+
 * set based on repo https://utf9k.net/blog/conditional-gitconfig/
 * _list_: `git config --list --show-origin` https://stackoverflow.com/a/2115116 might see dupes bc Git reads from all config files, with most local (e.g. repo-level) taking precedence
 * _precedence_: repo-level (`.git/config`) user-level/global? (`~/.gitconfig`) system-level (`/etc/gitconfig`; don't touch)
 * _rm attribute from config_: `git config --unset <attr>`
-* aliases https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases
 ```sh
 # update config from shell
 git config           # local ($CWD/.git/config)
 git config --user    # user (~/.gitconfig)
 git config --system  # system
 ```
+
+ALIASES 📜 https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases
+* aliases in gitconfig or zprofile? https://github.com/zachvalenta/dotfiles-mini23/commit/ddecff7a70e14d7a545e4d9fc72837e1a378b203
+* aliases split btw `.gitconfig` and `.bash_profile` 
 
 GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
 * _user_: `~/.config/git/ignore`

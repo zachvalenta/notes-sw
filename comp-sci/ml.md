@@ -13,6 +13,10 @@
 
 ## 进步
 
+CLIENTS
+* aichat issue
+* mods
+
 * _24_: usage (regex, stdlib, EDI) tooling (clients)
 
 # ☄️ GEN AI

@@ -119,6 +119,9 @@ MUSIC
 * bob seger
 * mark kozelek
 * modest mouse
+* grateful dead
+* hendrix blues
+* rock/punk/90s: libertines, no doubt to singles, perfect
 
 ### air-capp ➡️ mini23
 

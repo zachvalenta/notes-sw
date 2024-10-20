@@ -276,7 +276,7 @@ VERSIONS https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog
 https://drewdevault.com/2021/07/28/The-next-YAML.html
 
 QUERY TOOLS
-* https://github.com/julien040/anyquery
+* query Google Sheets with SQL https://github.com/julien040/anyquery
 * _qq_: https://github.com/JFryy/qq
 * https://github.com/simonw/sqlite-utils
 * https://github.com/datafold/data-diff
@@ -342,6 +342,7 @@ cue vet person.cue
 
 * used by `.gitconfig`
 * comments: `;`, hash (for Git at least)
+* _pyinilint_: validate https://pypi.org/project/pyinilint/ https://gitlab.com/danieljrmay/pyinilint alternative https://github.com/Boeing/config-file-validator
 
 ## JSON
 
@@ -495,6 +496,7 @@ HISTORY
 
 📜 https://yaml.org/
 🔍 query https://github.com/mikefarah/yq
+> can validate as well https://chatgpt.com/c/67141929-cb80-8004-86dc-201dc864fdad
 
 * scalars
 ```yaml

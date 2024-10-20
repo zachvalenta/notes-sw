@@ -1119,6 +1119,7 @@ RSGI
 
 ---
 
+* Instant Data Scraper https://news.ycombinator.com/item?id=34069680
 https://github.com/blacknon/pydork
 
 https://github.com/MechanicalSoup/MechanicalSoup

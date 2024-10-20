@@ -889,25 +889,6 @@ FILE SYSTEM
 
 ## execution
 
-EXIT CODES
-* _0_: success 
-* _1_: err 
-* _2_: "misuse of shell built-ins" (e.g. "no such file" err) https://askubuntu.com/a/892605 
-* _?_: var for last cmd's exit code e.g. `echo "hi"; echo $?  #0` https://askubuntu.com/a/892607
-* _127_: you use a command in your script that the shell doesn't know about
-* _130_: termination via CTRL c
-* _137_: script faile (128) and then received sig kill (9) from OOM killer https://stackoverflow.com/a/1041309
-* cleanup on exit https://github.com/Idnan/bash-guide#exit-traps
-* are less clear than you think https://news.ycombinator.com/item?id=24267155
-* get exit code of last command: `$?` https://www.freecodecamp.org/news/docker-exec-how-to-run-a-command-inside-a-docker-image-or-container/
-* `exit`: close shell
-* `return`: exit script
-* _sink_: http://www.tldp.org/LDP/abs/html/exitcodes.html https://en.wikipedia.org/wiki/Exit_status#Shell_and_scripts https://bencane.com/2014/09/02/understanding-exit-codes-and-how-to-use-them-in-bash-scripts/
-```sh
-~/Desktop/zvmac/materials/sw/algos/algos (master *)$ rg austen  # no results
-~/Desktop/zvmac/materials/sw/algos/algos (master *)$ echo "$?"  # 1
-```
-
 ---
 
 https://github.com/sachaos/viddy
@@ -989,6 +970,37 @@ sh <script>
 bash <script>
 ```
 
+## exit codes
+
+---
+
+```sh
+mkdir /some/protected/directory
+if [ $? -ne 0 ]; then
+    echo "Command failed"
+    exit 1
+fi
+echo "Command succeeded"
+```
+
+* _0_: success 
+* _1_: err 
+* _2_: "misuse of shell built-ins" (e.g. "no such file" err) https://askubuntu.com/a/892605 
+* _?_: var for last cmd's exit code e.g. `echo "hi"; echo $?  #0` https://askubuntu.com/a/892607
+* _127_: you use a command in your script that the shell doesn't know about
+* _130_: termination via CTRL c
+* _137_: script faile (128) and then received sig kill (9) from OOM killer https://stackoverflow.com/a/1041309
+* cleanup on exit https://github.com/Idnan/bash-guide#exit-traps
+* are less clear than you think https://news.ycombinator.com/item?id=24267155
+* get exit code of last command: `$?` https://www.freecodecamp.org/news/docker-exec-how-to-run-a-command-inside-a-docker-image-or-container/
+* `exit`: close shell
+* `return`: exit script
+* _sink_: http://www.tldp.org/LDP/abs/html/exitcodes.html https://en.wikipedia.org/wiki/Exit_status#Shell_and_scripts https://bencane.com/2014/09/02/understanding-exit-codes-and-how-to-use-them-in-bash-scripts/
+```sh
+~/Desktop/zvmac/materials/sw/algos/algos (master *)$ rg austen  # no results
+~/Desktop/zvmac/materials/sw/algos/algos (master *)$ echo "$?"  # 1
+```
+
 ## globbing
 
 * _glob_: pattern for matching groups of files 📙 Neil practical [6.88]
@@ -1015,16 +1027,6 @@ echo "training 20" | termgraph
 ```
 
 ---
-
-redirects
-
-* _xargs_: construct list of args for cmd (bc some cmds only take args, not stdin) https://thorstenball.com/blog/2012/10/24/command-line-ride/ https://www.oilshell.org/blog/2021/08/xargs.html
-> can also just input `./myscript.py < somefile.txt` (semantics for operator names) https://stackoverflow.com/a/11853307
-```sh
-LOGS_DIR/20 $ fd tracking | tail -n 3 | xargs bat  # open 3 most recent tracking files
-ls | sort -f | head -1 | xargs open  # kaiff - open first file in directory; used to open Youtube talks downloaded as pods
-fd tracking | xargs rg music  # from logs/20 -> get tracking info for music
-```
 
 * _fold_: https://blog.balthazar-rouberol.com/text-processing-in-the-shell#fold
 * _fmt_: fmt stdout https://github.com/Idnan/bash-guide#f-fmt
@@ -1183,3 +1185,15 @@ find path/to/dir -type f -exec chmod 600 {} \;
 * _unmask_: adjust default permissions https://www.digitalocean.com/community/tutorials/linux-permissions-basics-and-how-to-use-umask-on-a-vps
 * read/write/execute have slightly different meanings when applied to directories [LPI 2.5]
 * https://blog.lizzie.io/linux-containers-in-500-loc.html
+
+## xargs
+
+---
+
+* _xargs_: construct list of args for cmd (bc some cmds only take args, not stdin) https://thorstenball.com/blog/2012/10/24/command-line-ride/ https://www.oilshell.org/blog/2021/08/xargs.html
+> can also just input `./myscript.py < somefile.txt` (semantics for operator names) https://stackoverflow.com/a/11853307
+```sh
+LOGS_DIR/20 $ fd tracking | tail -n 3 | xargs bat  # open 3 most recent tracking files
+ls | sort -f | head -1 | xargs open  # kaiff - open first file in directory; used to open Youtube talks downloaded as pods
+fd tracking | xargs rg music  # from logs/20 -> get tracking info for music
+```

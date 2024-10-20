@@ -358,7 +358,8 @@ FEATURES
 * basics: very fast, runs on macOS and Linux https://zed.dev/releases/stable/0.143.6
 * document outline https://github.com/zed-industries/zed/discussions/13421 https://zed.dev/releases/stable/0.141.2
 * feedback: notebooks, REPL https://zed.dev/releases/stable/0.146.3
-* GPT built-in https://zed.dev/releases/stable/0.147.2 https://zed.dev/releases/stable/0.149.3
+* remote dev 🗄️ `src.md` denv > cloud
+* GPT built-in https://zed.dev/releases/stable/0.147.2 https://zed.dev/releases/stable/0.149.3 https://zed.dev/blog/replhttps://zed.dev/blog/zed-ai
 * pairing tools
 * pkg mgmt: just works with Poetry
 * remote dev https://zed.dev/releases/stable/0.145.1

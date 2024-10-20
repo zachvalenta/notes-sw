@@ -593,6 +593,7 @@ NATURAL WORLD
 
 SPORTS
 * diet, sleep https://calmcode.io/datasets
+* https://www.statmuse.com/
 * baseball https://jamesrledoux.com/projects/open-source/introducing-pybaseball/ https://www.thedrummeyangle.com/post/an-introduction-to-pybaseball-using-python-to-analyze-baseball-data https://www.datacamp.com/tutorial/scikit-learn-tutorial-baseball-1
 * basketball https://craftednba.com/ https://cleaningtheglass.com/ https://cleaningtheglass.com/stats/player/4231/onoff#tab-team_efficiency https://sportradar.com/ https://www.youtube.com/watch?v=boct75srdbE
 * football https://x.com/theStevenRuiz/status/1838644108685963386
