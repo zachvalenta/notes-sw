@@ -23,6 +23,110 @@ BYO linux https://drewdevault.com/2024/05/24/2024-05-24-Bunnix.html
 * _19_: symlink dotfiles
 * _18_: scripts (`fne`, `qing`, `ding`, `qiu`, `jb`)
 
+# 🏗️ BUILD SYSTEMS
+
+🗄
+* `svc/src.md` deployment
+* `algos.md` graphs
+
+* _build system_: build executables (esp. for C, C++) https://signalsandthreads.com/build-systems/
+* aka task runner, command runner https://github.com/casey/just https://en.wikipedia.org/wiki/List_of_build_automation_software https://github.com/go-task/task
+* dependency graphs, build systems https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
+* analyze dependency graph https://github.com/loov/goda
+* faster deploys really save a lot of time https://github.blog/2022-12-08-experiment-the-hidden-costs-of-waiting-on-slow-build-times/
+
+ALTERNATIVES
+* BYO http://aosabook.org/en/500L/contingent-a-fully-dynamic-build-system.html
+* _Bazel_: Make for FANG https://eng.uber.com/go-monorepo-bazel/ https://github.com/bazelbuild/bazel https://testdriven.io/blog/bazel-builds/ https://www.youtube.com/watch?v=zaymCO1A1dM
+* _cmake_: 不明觉厉 https://stackoverflow.com/a/25790020 http://aosabook.org/en/cmake.html
+* _makedown_: Markdown https://github.com/tzador/makedown
+* _mise_: 🎯 https://github.com/jdx/mise
+* _ninja_: https://github.com/ninja-build/ninja https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/
+* _Nx_: monorepos https://github.com/nrwl/nx
+* _Pants_: https://github.com/pantsbuild/pants https://rdrn.me/postmodern-python/
+* _pypyr_: https://pypyr.io/
+* _redo_: https://github.com/apenwarr/redo https://fzakaria.com/2020/06/08/my-love-letter-to-redo.html
+* _run.sh_: 🎯 https://github.com/jotaen/klog
+* _Task_: 🎯 https://github.com/go-task/task
+* _Xc_: Markdown https://github.com/joerdav/xc https://news.ycombinator.com/item?id=34911216 https://news.ycombinator.com/item?id=34911216
+
+## just
+
+---
+
+* _just_: 🎯 https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529 https://github.com/pls-rs/pls/blob/main/justfile https://github.com/pls-rs/pls/blob/main/docs/justfile
+
+## make
+
+📙 Meckleberg gnu make
+
+---
+
+* _make_: ✅ https://github.com/casey/just?tab=readme-ov-file#what-are-the-idiosyncrasies-of-make-that-just-avoids https://news.ycombinator.com/item?id=19900955 https://stackoverflow.com/a/3798664
+* `all`, `clean`, `.PHONY`, `install` 📙 Conery [405]
+> Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
+* docs: `gnu-make.pdf` https://www.gnu.org/software/make/manual/make.html https://tech.davis-hansson.com/p/make/ http://gromnitsky.users.sourceforge.net/articles/notes-for-new-make-users/ https://www.openmymind.net/An-Awful-Introduction-To-Make/ https://makefiletutorial.com/ https://daniel.feldroy.com/posts/autodocumenting-makefiles
+* call from another directory 🗄 music-prompt
+* good for compilation https://www.youtube.com/watch?v=SdmYd5hJISM&lc=UgyBo0rkqGXZgLDmsRZ4AaABAg.9KU4gvKdDyN9KU9XbK1Cyl
+* using shell script to handle more args https://www.youtube.com/watch?v=SdmYd5hJISM
+* lot of blockers if you want it to work on Windows https://carolynvanslyck.com/blog/2021/01/mage-is-my-favorite-make/
+* rules are run in separate shell https://stackoverflow.com/a/49621071
+* control flow https://stackoverflow.com/a/14864888 https://stackoverflow.com/a/5553445 https://nullprogram.com/blog/2017/08/20/
+* documentation at the level of the rule https://www.thapaliya.com/en/writings/well-documented-makefiles/ https://diamantidis.github.io/tips/2020/07/01/list-makefile-targets
+* autocomplete https://stackoverflow.com/questions/4188324/bash-completion-of-makefile-target https://stackoverflow.com/questions/33760647/makefile-autocompletion-on-mac
+* directories https://github.com/zachvalenta/query-sandbox
+* _phony_: target that is name for a recipe vs. file name https://stackoverflow.com/a/3931814/6813490
+* snippets
+* escape dollar signs bc Make assumes you are referencing a Make variable otherwise (vs. shell variable or string literal) https://til.hashrocket.com/posts/k3kjqxtppx-escape-dollar-sign-on-makefiles
+```sh
+for i in *; do echo "i=$i"; done
+```
+```makefile
+my-files:
+	for i in *; do echo "i=$$i"; done
+```
+
+```makefile
+#
+# VARAIABLES 📙 Conery [410]
+#
+
+# reference env var https://stackoverflow.com/questions/28890634/how-to-get-a-shell-environment-variable-in-a-makefile
+${var}
+
+# args https://blog.mindlessness.life/2019/11/17/the-language-agnostic-all-purpose-incredible-makefile.html
+env="dev"  # global
+make deploy env=qa
+deploy:
+	echo $(env)
+
+make bdd-dev,qa
+bdd-%:
+	poetry run behave --tags @${*}
+
+#
+# MISC
+#
+
+# syntax: whole thing called a rule (like CSS) http://gromnitsky.users.sourceforge.net/articles/notes-for-new-make-users/#4b6d995-adhere-to-the-common-terminology
+target: prereq1 prereq2
+    recipe
+
+# points make to target (vs. file of same name) https://krzysztofzuraw.com/blog/2016/makefiles-in-python-projects.html
+.PHONY
+
+# combine rules https://stackoverflow.com/a/3519634
+dummy: target1 target2
+
+# ignore failure i.e. won't stop another recipe from running if it fails https://stackoverflow.com/a/53039783
+ur-recipe:
+    - rm $(file)
+
+# hide cmd output https://stackoverflow.com/a/18105278
+cmd:
+    @poetry run pytest
+```
+
 # 🪐 DENV
 
 🗄
@@ -221,8 +325,12 @@ declare -f | grep '^[a-z]'
 # 📦 PACKAGING
 
 🗄
-* `linux.md` build systems
 * `system.md` deployment
+*️ `python/runtime.md` packaging / mgmt
+
+---
+
+💡 pkg manager = network, disk, standards, resolution https://talkpython.fm/episodes/transcript/476/unified-python-packaging-with-uv
 
 SEMANTICS
 * _app_: runs on your box
@@ -248,6 +356,9 @@ requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
 
 ---
 
+* https://drewdevault.com/2021/09/27/Let-distros-do-their-job.html
+* https://drewdevault.com/2018/01/10/Learn-your-package-manager.html
+
 * BYO package manager https://news.ycombinator.com/item?id=37220953
 🔍 https://repology.org/ https://github.com/ziglang/zig/wiki/Install-Zig-from-a-Package-Manager
 🙂 https://xkcd.com/2347/
@@ -259,97 +370,26 @@ requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
 * never update anything if you can avoid it https://blog.kronis.dev/articles/never-update-anything
 * pkg mgmt https://news.ycombinator.com/item?id=34577844
 
-## build systems (Make)
-
-🗄 `svc/src.md` deployment
-
-* _build system_: build executables (esp. for C, C++) https://signalsandthreads.com/build-systems/
-* aka task runner, command runner https://github.com/casey/just https://en.wikipedia.org/wiki/List_of_build_automation_software https://github.com/go-task/task
-* dependency graphs, build systems https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
-* analyze dependency graph https://github.com/loov/goda
-* faster deploys really save a lot of time https://github.blog/2022-12-08-experiment-the-hidden-costs-of-waiting-on-slow-build-times/
-
-TOOLS
-* BYO http://aosabook.org/en/500L/contingent-a-fully-dynamic-build-system.html
-* Markdown https://github.com/tzador/makedown
-* _Bazel_: Make for FANG https://eng.uber.com/go-monorepo-bazel/ https://github.com/bazelbuild/bazel https://testdriven.io/blog/bazel-builds/ https://www.youtube.com/watch?v=zaymCO1A1dM
-* _cmake_: 不明觉厉 https://stackoverflow.com/a/25790020 http://aosabook.org/en/cmake.html
-* _just_: 🎯 https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529 https://github.com/pls-rs/pls/blob/main/justfile https://github.com/pls-rs/pls/blob/main/docs/justfile
-* _make_: ✅ https://github.com/casey/just?tab=readme-ov-file#what-are-the-idiosyncrasies-of-make-that-just-avoids https://news.ycombinator.com/item?id=19900955 https://stackoverflow.com/a/3798664
-* _mise_: 🎯 https://github.com/jdx/mise
-* _ninja_: https://github.com/ninja-build/ninja https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/
-* _Nx_: monorepos https://github.com/nrwl/nx
-* _Pants_: https://github.com/pantsbuild/pants https://rdrn.me/postmodern-python/
-* _pypyr_: https://pypyr.io/
-* _redo_: https://github.com/apenwarr/redo https://fzakaria.com/2020/06/08/my-love-letter-to-redo.html
-* _run.sh_: 🎯 https://github.com/jotaen/klog
-* _Task_: 🎯 https://github.com/go-task/task
-* _Xc_: Markdown https://github.com/joerdav/xc https://news.ycombinator.com/item?id=34911216 https://news.ycombinator.com/item?id=34911216
-
-MAKE 📙 Meckleberg gnu make
-* `all`, `clean`, `.PHONY`, `install` 📙 Conery [405]
-> Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
-* docs: `gnu-make.pdf` https://www.gnu.org/software/make/manual/make.html https://tech.davis-hansson.com/p/make/ http://gromnitsky.users.sourceforge.net/articles/notes-for-new-make-users/ https://www.openmymind.net/An-Awful-Introduction-To-Make/ https://makefiletutorial.com/ https://daniel.feldroy.com/posts/autodocumenting-makefiles
-* call from another directory 🗄 music-prompt
-* good for compilation https://www.youtube.com/watch?v=SdmYd5hJISM&lc=UgyBo0rkqGXZgLDmsRZ4AaABAg.9KU4gvKdDyN9KU9XbK1Cyl
-* using shell script to handle more args https://www.youtube.com/watch?v=SdmYd5hJISM
-* lot of blockers if you want it to work on Windows https://carolynvanslyck.com/blog/2021/01/mage-is-my-favorite-make/
-* rules are run in separate shell https://stackoverflow.com/a/49621071
-* control flow https://stackoverflow.com/a/14864888 https://stackoverflow.com/a/5553445 https://nullprogram.com/blog/2017/08/20/
-* documentation at the level of the rule https://www.thapaliya.com/en/writings/well-documented-makefiles/ https://diamantidis.github.io/tips/2020/07/01/list-makefile-targets
-* autocomplete https://stackoverflow.com/questions/4188324/bash-completion-of-makefile-target https://stackoverflow.com/questions/33760647/makefile-autocompletion-on-mac
-* directories https://github.com/zachvalenta/query-sandbox
-* _phony_: target that is name for a recipe vs. file name https://stackoverflow.com/a/3931814/6813490
-* snippets
-* escape dollar signs bc Make assumes you are referencing a Make variable otherwise (vs. shell variable or string literal) https://til.hashrocket.com/posts/k3kjqxtppx-escape-dollar-sign-on-makefiles
+MORE MANAGERS
+* _apk_: Alpine
+* _apt_: used by Debian, Ubuntu, Mint
 ```sh
-for i in *; do echo "i=$i"; done
+apt list -installed # list installed
+-y  # yes to interactive prompts `export DEBIAN_FRONTEND=noninteractive``
+apt-get -y update # update package listing so we know what packages exist
+apt-get -y upgrade # grab security updates
+RUN apt-get -y install <pkg> # install https://stackoverflow.com/a/50870967  sometimes have to update/upgrade or pkg won't be found
+apt-get -y install --no-install-recommends <pkg> # don't install subdeps https://pythonspeed.com/articles/system-packages-docker/
+apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythonspeed.com/articles/system-packages-docker/
 ```
-```makefile
-my-files:
-	for i in *; do echo "i=$$i"; done
-```
-
-```makefile
-#
-# VARAIABLES 📙 Conery [410]
-#
-
-# reference env var https://stackoverflow.com/questions/28890634/how-to-get-a-shell-environment-variable-in-a-makefile
-${var}
-
-# args https://blog.mindlessness.life/2019/11/17/the-language-agnostic-all-purpose-incredible-makefile.html
-env="dev"  # global
-make deploy env=qa
-deploy:
-	echo $(env)
-
-make bdd-dev,qa
-bdd-%:
-	poetry run behave --tags @${*}
-
-#
-# MISC
-#
-
-# syntax: whole thing called a rule (like CSS) http://gromnitsky.users.sourceforge.net/articles/notes-for-new-make-users/#4b6d995-adhere-to-the-common-terminology
-target: prereq1 prereq2
-    recipe
-
-# points make to target (vs. file of same name) https://krzysztofzuraw.com/blog/2016/makefiles-in-python-projects.html
-.PHONY
-
-# combine rules https://stackoverflow.com/a/3519634
-dummy: target1 target2
-
-# ignore failure i.e. won't stop another recipe from running if it fails https://stackoverflow.com/a/53039783
-ur-recipe:
-    - rm $(file)
-
-# hide cmd output https://stackoverflow.com/a/18105278
-cmd:
-    @poetry run pytest
-```
+* _dpkg_: alternative to apt just installs pkg, not subdeps https://askubuntu.com/a/309121 list pkgs `dpkg-query -l`
+* _lmod_: pkg + change env https://lmod.readthedocs.io/en/latest/ `module list` (what you have loaded) `module avail` (what you can load)
+* _pixi_: uses conda-forge https://twitter.com/wuoulf/status/1691833538226610355 https://taras.glek.net/post/trying-pixi-modern-python-packaging/ https://github.com/prefix-dev/pixi https://talkpython.fm/episodes/show/439/pixi-a-fast-package-manager https://pythonbytes.fm/episodes/show/386/major-releases-abound
+* _rpm_: pkg format and, confusingly, pkg manager for RHEL https://stackoverflow.com/a/8201051/6813490
+* _Snap_: Ubuntu https://lwn.net/Articles/825005/
+* _Tasksel_: Debian tool to install packages in bundled fashion e.g. LAMP stack
+* _yum_: Red Hat (RHEL, Fedora)
+* _Windows_: Chocolately, Nuget; uses Powershell under the hood
 
 ## dependencies
 
@@ -400,13 +440,12 @@ problems
 * _resolution_: figuring out subdepedencies for a dependency https://github.com/sdispater/mixology https://pyfound.blogspot.com/2020/03/new-pip-resolver-to-roll-out-this-year.html 
 * _boolean satisfiability problem (SAT)_: dependency resolution, basically https://codingnest.com/modern-sat-solvers-fast-neat-underused-part-1-of-n/ NP complete https://en.wikipedia.org/wiki/Boolean_satisfiability_problem https://stackoverflow.com/a/9378268/6813490 used by Composer https://stackoverflow.com/q/37818396 https://news.ycombinator.com/item?id=14508546 https://jix.one/the-assembly-language-of-satisfiability/
 
-## manager (Homebrew)
+## Homebrew
 
-🗄️ `python/runtime.md` packaging / mgmt
+📜 https://docs.brew.sh/Manpage
 
-💡 pkg manager = network, disk, standards, resolution https://talkpython.fm/episodes/transcript/476/unified-python-packaging-with-uv
+---
 
-HOMEBREW 📜 https://docs.brew.sh/Manpage
 * un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew
 * GUI version https://news.ycombinator.com/item?id=37075730
 * fs: Homebrew `/usr/local/Homebrew` installs `/usr/local/Cellar` 🔗 `/usr/local/bin`
@@ -440,22 +479,10 @@ info $PKG  # info on pkg
 deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/322371 https://github.com/martido/homebrew-graph
 ```
 
-ALTERNATIVES
-* https://drewdevault.com/2021/09/27/Let-distros-do-their-job.html
-* https://drewdevault.com/2018/01/10/Learn-your-package-manager.html
-* _apk_: Alpine
-* _apt_: used by Debian, Ubuntu, Mint
-```sh
-apt list -installed # list installed
--y  # yes to interactive prompts `export DEBIAN_FRONTEND=noninteractive``
-apt-get -y update # update package listing so we know what packages exist
-apt-get -y upgrade # grab security updates
-RUN apt-get -y install <pkg> # install https://stackoverflow.com/a/50870967  sometimes have to update/upgrade or pkg won't be found
-apt-get -y install --no-install-recommends <pkg> # don't install subdeps https://pythonspeed.com/articles/system-packages-docker/
-apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythonspeed.com/articles/system-packages-docker/
-```
-* _dpkg_: alternative to apt just installs pkg, not subdeps https://askubuntu.com/a/309121 list pkgs `dpkg-query -l`
-* _lmod_: pkg + change env https://lmod.readthedocs.io/en/latest/ `module list` (what you have loaded) `module avail` (what you can load)
+## nix
+
+---
+
 * _Nix_: 🎯 https://github.com/NixOS/nix
 > The point of nix is just to create completely reproducible builds and package management, including support for multiple versions of packages side-by-size with no issues. It's sort of a next-generation package management system that tries to avoid most of the pitfalls that OS package managers have fumbled with up to this point. https://news.ycombinator.com/item?id=23251754
 * can use in place of Homebrew, provides one-off shell without having to install pkg https://www.youtube.com/watch?v=m4ST2dq10no
@@ -467,13 +494,6 @@ apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythons
 * using w/ Docker https://pythonspeed.com/articles/reproducible-docker-builds-python/
 * advanced usage https://bmcgee.ie/posts/2022/12/setting-up-my-new-laptop-nix-style/
 * macOS: need nix-darwin https://wickedchicken.github.io/post/macos-nix-setup/ installs more isolated than Homebrew https://wickedchicken.github.io/post/macos-nix-setup/ https://www.reddit.com/r/Nix/comments/zdcteb/should_i_migrate_from_homebrew_to_nix/ https://news.ycombinator.com/item?id=29079096
-* _pixi_: uses conda-forge https://twitter.com/wuoulf/status/1691833538226610355 https://taras.glek.net/post/trying-pixi-modern-python-packaging/ https://github.com/prefix-dev/pixi https://talkpython.fm/episodes/show/439/pixi-a-fast-package-manager https://pythonbytes.fm/episodes/show/386/major-releases-abound
-* _rpm_: pkg format and, confusingly, pkg manager for RHEL https://stackoverflow.com/a/8201051/6813490
-* _Snap_: Ubuntu https://lwn.net/Articles/825005/
-* _Tasksel_: Debian tool to install packages in bundled fashion e.g. LAMP stack
-* _yum_: Red Hat (RHEL, Fedora)
-* _Windows_: Chocolately, Nuget; uses Powershell under the hood
-
 # 🧵 PROCESSES
 
 🗄

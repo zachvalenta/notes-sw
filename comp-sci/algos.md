@@ -665,9 +665,12 @@ https://www.amazon.com/How-Bake-Pi-Exploration-Mathematics/dp/0465097677
 
 ## graph
 
-🗄 `info.md` diagrams
 📙 Kun ch. 6 https://en.wikipedia.org/wiki/Graph_theory
 🛠 https://github.com/networkx/networkx https://github.com/dominikbraun/graph/ https://news.ycombinator.com/item?id=38834780 https://www.hytradboi.com/2022/how-to-query-almost-everything d2 https://chatgpt.com/c/671043db-1354-8004-a127-6b4152994963 https://calmcode.io/datasets/dependencies
+> clean these up
+🗄
+* `info.md` diagrams
+* `linux.md` build systems
 
 SEMANTICS
 * _graph_: nodes + edges

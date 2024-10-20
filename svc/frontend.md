@@ -88,6 +88,7 @@ taxonomy
 
 ---
 
+https://news.ycombinator.com/item?id=41781457 https://chrisdone.com/posts/htmx-critique/
 https://github.com/AnswerDotAI/fasthtml
 
 DESIGN
