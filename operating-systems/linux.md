@@ -444,6 +444,32 @@ problems
 
 📜 https://docs.brew.sh/Manpage
 
+TAPS https://chatgpt.com/c/671502a5-99d0-8004-a57c-98b0962fdfc9 https://github.com/Boeing/config-file-validator/issues/184
+* _tap_: repo of formulae not maintained by Homebrew https://stackoverflow.com/a/37973017 🗄️ terrastruct
+* push release tag
+* create tap repo `homebrew-$TAP_NAME`
+* write formula https://github.com/GabAlpha/homebrew-tap/blob/main/Formula/basilk.rb
+```ruby
+class Basilk < Formula
+    desc "A Terminal User Interface (TUI) to manage your tasks with minimal kanban logic"
+    homepage "https://github.com/GabAlpha/basilk"
+    on_macos do
+      on_arm do
+        url "https://github.com/GabAlpha/basilk/releases/download/0.2.0/basilk-aarch64-apple-darwin.tar.gz"
+        sha256 "f073e37f93df22c1e35c576b9bbb10ce4b5e6d6364b28831e7be4cd47f8cb662"
+      end
+      on_intel do
+        url "https://github.com/GabAlpha/basilk/releases/download/0.2.0/basilk-x86_64-apple-darwin.tar.gz"
+        sha256 "1bb16be5c147e08413f6defd810602f3df6d69bba0f7a105396a9c2499a87b12"
+      end
+    end
+    def install
+      bin.install "basilk"
+    end
+  end
+```
+* _formulae_: Ruby class that manages install https://www.youtube.com/watch?v=fbyrLo6yx8M
+
 ---
 
 * un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew
@@ -455,8 +481,6 @@ problems
 > brew cleanup works against this
 * switch to different installed version: `switch` https://github.com/thoughtbot/til/blob/master/homebrew/using_different_homebrew_formula_versions.md
 > `link` does the same? https://stackoverflow.com/a/54175781
-* _formulae_: Ruby class that manages install; create your own https://www.youtube.com/watch?v=fbyrLo6yx8M
-* _tap_: repo of formulae not maintained by Homebrew https://stackoverflow.com/a/37973017/6813490 🗄️ terrastruct
 * _bottle_: pre-compiled i.e. you don't need to download and build, just download i.e. faster
 * _services_: integrates w/ MacOS launchctl to start program on OS boot
 ```sh
