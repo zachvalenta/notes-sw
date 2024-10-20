@@ -10,8 +10,6 @@
 
 ## 进步
 
-grep alternative to LSP https://github.com/alexpovel/srgn
-
 * _24_: forced switch to eza
 * _20_: broot
 * _19_: try out eza, z, fish, tig, fzf, ranger, ripgrep
@@ -103,6 +101,16 @@ ALTERNATIVES
 
 📜 https://dystroy.org/broot/ https://github.com/Canop/broot
 
+THINGS I NEED TO DO
+* file preview
+* file open using $EDITOR
+
+DESIGN
+* ❓ file preview mode
+* ✅ fast
+* ❌ install problems
+* ❌ config problems (iTerm re: `ALT`)
+
 CONFIG https://dystroy.org/broot/conf_file/
 * fs on personal `~/Library/Preferences/org.dystroy.broot`
 * fs on work machines `~/.config/broot/conf.toml`
@@ -128,18 +136,16 @@ INSTALL
 
 📜 https://github.com/juftin/browsr
 
-COMPARED TO BROOT
-* no file pick
-* starts in file preview
-* cloud e.g. can use for Github repos, AWS S3 buckets, SFTP
-
-TO FIX
-* slow loading
-* search
-* Vim keybindings https://github.com/juftin/browsr/issues/15
-> parent directory cmd goes to root instead of parent
-> copy cmd from jless
-* file preview for binary (PDR, Excel)
+DESIGN
+* nice to have: file preview for binary (PDR, Excel)
+* ✅ starts in file preview
+> are you under-using broot in this respect?
+* ❌ doesn't dynamically preview file
+* ✅ cloud e.g. can use for Github repos, AWS S3 buckets, SFTP
+* ❌ no file pick
+* ❌ super slow to load
+* ❌ bad keybindings: parent directory cmd goes to root instead of parent, no jless/VSC-esqe fold all option no Vim https://github.com/juftin/browsr/issues/15
+* ❌ no search
 
 ## jump
 
@@ -155,6 +161,7 @@ TO FIX
 ## list (eza)
 
 FEATURES
+* config e.g. way to avoid repetition of eza commands in `.zprofile`
 * icons
 * file dimming
 * link related files
@@ -388,8 +395,12 @@ bat --line-range 227:236 $NOTES_DIR/sw/za/algos.md
 
 ## search (rg)
 
-🗄 `vim.md` code completion
-🛠️ grep PDF https://github.com/phiresky/ripgrep-all https://pdfgrep.org/
+🗄 `vim.md` utils
+
+ZA
+* _rga_: PDFs, Microsoft Office https://github.com/phiresky/ripgrep-all https://pdfgrep.org/
+* _srgn_: alternative to LSP https://github.com/alexpovel/srgn
+* _symbex_: Python symbols https://github.com/simonw/symbex
 
 RG 📜 https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
 * `I`: don't output filename
@@ -463,10 +474,7 @@ $QUERY $PATH
 CLEAN UP
 * _ffmpeg_: video encoding, file format conversion https://www.youtube.com/watch?v=MPV7JXTWPWI https://ffmpeg.guide/ https://img.ly/blog/ultimate-guide-to-ffmpeg/ https://drewdevault.com/2022/10/12/In-praise-of-ffmpeg.html
 * _imgcat_: render img in terminal https://news.ycombinator.com/item?id=23319272
-* _gotty_: term as web app https://github.com/yudai/gotty
-* _neofetch_: system info https://github.com/Dr-Noob/cpufetch
 * _tee_: view output https://www.youtube.com/watch?v=NsAUBict1Aw
-* _tsukae_: view most commonly used commands https://github.com/irevenko/tsukae
 * _try_: view files that command touches https://github.com/binpash/try
 * weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/
 * Wikipedia https://github.com/yashsinghcodes/wik
@@ -510,7 +518,7 @@ MAN PAGES
 * man pages: following links (like at bottom of cmus manpage) https://unix.stackexchange.com/a/18161/331460 set pager `export MANPAGER=bat` https://askubuntu.com/a/679058
 
 TRASH
-* https://github.com/nivekuil/rip https://hacker-tools.github.io/command-line/ https://github.com/umlx5h/gtrash
+* https://github.com/nivekuil/rip https://hacker-tools.github.io/command-line/ https://github.com/umlx5h/gtrash https://news.ycombinator.com/item?id=41902864
 * _rm_: send to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives
 * _send2trash_: https://github.com/arsenetar/send2trash/issues https://github.com/arsenetar/send2trash/issues/56 
 
@@ -582,6 +590,7 @@ STATS
 
 ---
 
+* _neofetch_: system info https://github.com/Dr-Noob/cpufetch https://github.com/dylanaraps/pfetch
 * https://wompa.land/articles/iterm-status-bar
 * directory size: ncdu, du, ncdu https://github.com/bootandy/dust `du -sh -- * | sort -r` https://unix.stackexchange.com/a/185777 https://github.com/muesli/duf https://github.com/imsnif/diskonaut https://github.com/KSXGitHub/parallel-disk-usage
 > ncdu config fs `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man

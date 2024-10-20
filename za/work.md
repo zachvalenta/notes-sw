@@ -21,94 +21,21 @@
 * _16_: Zipcode, offers (JPMC, WSFS)
 * _15_: start, CSS hell, Buy Buy China consulting
 
-# 🟥 CAPP
-
-WHAT IS THIS JOB?
-* understand how the ERP works i.e. understand usage by sales, warehouse, accounting
-* how the world works e.g. PCI compliance, accounting, purchasing, warehouse
-* internal tooling: build infra, build tools
-* data eng: build infra, analysis
-
-BRAG SHEET SO FAR
-- [ ] prod cat: tree builder (many attempts previously and all failed)
-- [ ] EDI: build tooling to maintain 0.5M/year relationship
-- [ ] restock: build algo and ETL
-- [ ] CQ: rf and add documentation system to monorepo (system diagrams, ADR, changelog)
-- [ ] CQ: create Capp Uni
-- [ ] infra: mv from single Azure instance over LAN to AWS (auth so people can connect at home)
-
-## infra
-
-🔗 https://rdrn.me/postmodern-python/
-
-DENV
-- [ ] dotenvx
-- [ ] CICD
-- [ ] uv
-- [ ] tooling https://zed.dev/blog/replhttps://zed.dev/blog/zed-ai
-- [ ] remote dev https://zed.dev/releases/stable/0.145.1 https://www.youtube.com/watch?v=F9sQPpVVLeQ
-
-CLOUD
-> just use a Heroku alternative?
-- [ ] AWS
-- [ ] IaC
-- [ ] monitoring: uptime, OpenTelemetry
-
-## operations
-
-* warehouse
-* sales
-
-CODEBASE
-* doc dataflow
-> Google docs supports Markdown import https://x.com/rseroter/status/1813580024538337784
-* diagram dataflow w/ Mermaid
-* Jupyter server https://docs.google.com/document/d/1x-fkEwuNwKTW9Pf-8R-znTkBCVJthZQRge6lrSzkNfI/edit
-* changelog
-* ADR
-
-`product-workflow` 🗄️ `08.26` Riley meeting
-* docs
-* run locally
-* diagram
-
-## shujuku
-
-🗄️ `src.md` checklist
-
-> components: BI, workflow engine, notebooks
-
-❓
-* workflow engine vs. task queue
-* dbt for Capp fmt
-* Instant Data Scraper https://news.ycombinator.com/item?id=34069680
-
-ENG
-- [ ] Cleanlab, Autolabel
-- [ ] BI: dashboards 🗄️ `math.md` graphs
-- [ ] BI: replace Looker Studio https://pola.rs/posts/lightweight_plotting/
-- [ ] data governance/provenance
-- [ ] dataframes: swap in Polars
-- [ ] BI: alerting for failed jobs
-- [ ] BI: read-replica
-- [ ] query Google Sheets with SQL https://github.com/julien040/anyquery
-- [ ] warehouse: replace Drive
-- [ ] warehouse: dvc
-
-ANALYSIS
-* MRR https://news.ycombinator.com/item?id=41350468
-* plot https://nrennie.rbind.io/blog/plotnine-annotated-area-chart/
-
 # 🪐️ INDUSTRY
 
-📚
-* Eghbal working in public https://www.amazon.com/gp/product/0578675862 https://drewdevault.com/2024/07/16/2024-07-16-So-you-want-to-compete-with-FOSS.html https://drewdevault.com/2023/12/26/2023-12-26-Prusa-is-floundering.html
-> what happened to exa i.e. just bc it wasn't receiving updates why did it get booted from Homebrew? -> also, eza install from Homebrew takes forever
-> how to make money: popularize lib, sell support | managed env https://pola.rs/our-services/
-* Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/
-* Seibel coders at work
+📙 Seibel coders at work
+
+DEFINING "ENGINEER" 🗄️ `built.md` engineering
+* https://news.ycombinator.com/item?id=41907412
+> In the physical world there are the engineers, and the mechanics. In the software world everybody is a software engineer. https://news.ycombinator.com/item?id=27002281
+* https://news.ycombinator.com/item?id=29998868 https://www.hillelwayne.com/tags/crossover-project/
+* as builders (vs. scientists) https://news.ycombinator.com/item?id=23565429
+* software engineers https://www.hillelwayne.com/post/crossover-project/are-we-really-engineers/ https://chriskiehl.com/article/thoughts-after-6-years
+* https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/
 
 ---
+
+"have taken up farming" https://github.com/dylanaraps
 
 MGMT https://jacobian.org/posts/
 * references
@@ -191,6 +118,7 @@ STANDARDS BODIES
 
 ---
 
+> how to make money: popularize lib, sell support | managed env https://pola.rs/our-services/
 > TRC20 USDT for donations: TSFU6QLMJ4zJQtwnt1YAZBdgZ8qNSLWHJN https://github.com/Andrej730 -> Twin Peaks
 * Unicode fundraiser https://aac.unicode.org/
 * https://drewdevault.com/2020/11/20/A-few-ways-to-make-money-in-FOSS.html
@@ -219,7 +147,7 @@ https://drewdevault.com/2018/10/30/Its-not-okay-to-pretend-youre-open-source.htm
 https://csvbase.com/blog/14
 https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 * https://drewdevault.com/2021/07/04/Is-GitHub-a-derivative-work.html
-* CLA https://drewdevault.com/2023/07/04/Dont-sign-a-CLA-2.html
+* CLA https://drewdevault.com/2023/07/04/Dont-sign-a-CLA-2.html https://odoo-community.org/about/cla https://github.com/odoo/odoo/tree/18.0/doc/cla/corporate
 * https://drewdevault.com/2023/06/19/Reforming-the-free-software-message.html
 * https://drewdevault.com/2022/09/16/Open-source-matters.html
 * https://drewdevault.com/2022/03/01/Open-source-is-defined-by-the-OSD.html
@@ -271,6 +199,18 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 * https://news.ycombinator.com/item?id=25047838
 * soon™️ https://the.exa.website/
 * https://x.com/jimmyechan/status/1817405679742996638
+
+## open source
+
+📚
+* Eghbal working in public https://www.amazon.com/gp/product/0578675862 https://drewdevault.com/2024/07/16/2024-07-16-So-you-want-to-compete-with-FOSS.html https://drewdevault.com/2023/12/26/2023-12-26-Prusa-is-floundering.html
+* Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/
+
+---
+
+* distrust of Microsoft https://news.ycombinator.com/item?id=41907350
+> what happened to exa i.e. just bc it wasn't receiving updates why did it get booted from Homebrew? -> also, eza install from Homebrew takes forever
+* contributing https://github.com/all-contributors/all-contributors https://github.com/Builditluc/wiki-tui
 
 ## Stack Overflow
 
@@ -521,6 +461,8 @@ One thing I think I do well is technical communication. This shows up in:
 
 ---
 
+https://github.com/simonw https://github.com/radiac
+
 LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER)
 > try Haskell and Lisp for the math https://news.ycombinator.com/item?id=41861304
 * _C_: 🎯 to understand Linux better
@@ -578,3 +520,19 @@ EDUCATION
 * _2012.09-2013.08_: Johns Hopkins University (grad cert in Chinese Studies)
 * _2010.09-2012.08_: Dalian University of Technology (Chinese language study)
 * _2006.08-2010.08_: Penn State - honors college (BA - English)
+
+### CAPP
+
+WHAT IS THIS JOB?
+* understand how the ERP works i.e. understand usage by sales, warehouse, accounting
+* how the world works e.g. PCI compliance, accounting, purchasing, warehouse
+* internal tooling: build infra, build tools
+* data eng: build infra, analysis
+
+BRAG SHEET SO FAR
+- [ ] prod cat: tree builder (many attempts previously and all failed)
+- [ ] EDI: build tooling to maintain 0.5M/year relationship
+- [ ] restock: build algo and ETL
+- [ ] CQ: rf and add documentation system to monorepo (system diagrams, ADR, changelog)
+- [ ] CQ: create Capp Uni
+- [ ] infra: mv from single Azure instance over LAN to AWS (auth so people can connect at home)

@@ -151,6 +151,7 @@ for n in Count():
 
 ---
 
+* https://hamatti.org/posts/combinatoric-iterators-from-itertools/
 * https://mathspp.com/blog/module-itertools-overview?featured_on=pythonbytes
 * module for doing stuff with iterables
 * https://www.youtube.com/watch?v=1p7xa_BHYDs

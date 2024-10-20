@@ -13,6 +13,7 @@
 
 ## 进步
 
+https://www.youtube.com/watch?v=jFrGhodqC08
 * https://roadmap.sh/best-practices/aws
 * Brown ccp @ 2:15:00
 * https://www.aws.training/
@@ -214,16 +215,19 @@ data transfer https://www.lastweekinaws.com/blog/aws-data-transfer-charges-ingre
 💡 FTP server
 > Objects were popular at the time and S3 was labelled an object store, but everyone really knows that S3 is for files. S3 is a cloud filesystem, not an object-whatever. https://calpaterson.com/s3.html
 
+TOOLING
+* create creds https://github.com/simonw/s3-credentials
 * TUI viewer https://github.com/lusingander/stu
-* you used to get charged for 400 requests https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1 https://aws.amazon.com/about-aws/whats-new/2024/05/amazon-s3-no-charge-http-error-codes/
-> So, if I were to open my terminal now and type: `aws s3 cp ./file.txt s3://your-bucket-name/random_key` I would receive an AccessDenied error, but you would be the one to pay for that request. And I don't even need an AWS account to do so.
-* logging: none by default but can do with CloudTrail or S3 Server Access Logging https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1
 
 ZA
+* logging: none by default but can do with CloudTrail or S3 Server Access Logging https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1
+* you used to get charged for 400 requests https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1 https://aws.amazon.com/about-aws/whats-new/2024/05/amazon-s3-no-charge-http-error-codes/
+> So, if I were to open my terminal now and type: `aws s3 cp ./file.txt s3://your-bucket-name/random_key` I would receive an AccessDenied error, but you would be the one to pay for that request. And I don't even need an AWS account to do so.
 * _Glacier_: S3 but cheaper in exchange for higher latency
 
 ---
 
+alternative https://pinata.cloud/
 https://github.com/s3tools/s3cmd https://tech.marksblogg.com/website-cdn-with-pelican-and-s3cmd.html
 https://blog.plerion.com/things-you-wish-you-didnt-need-to-know-about-s3/
 
@@ -328,49 +332,6 @@ CERTS
 ZA
 * show on your LinkedIn https://www.linkedin.com/in/joshua-kelley-058b284a/ https://www.linkedin.com/posts/derhabicht_aws-certified-developer-associate-was-issued-activity-7190907898024071169-186-
 * job board https://iq.aws.amazon.com/
-
-## cost control
-
-SVC
-* _Budgets_: set alerts for spend/underusage https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html
-* can also set alarms in CloudWatch 📹 Brown ccp [1:43:30]
-* _Trusted Advisor_: inspect your env, give recs https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html https://us-east-1.console.aws.amazon.com/trustedadvisor
-
-ZA
-* why cloud: metered billing, flexibility, cost
-* free tier available for n months for certain svc
-* some svc default to large node size e.g. ElasticCache 📹 Brown ccp [1:33:00]
-* sometimes get refunded for misspend 📹 Brown ccp [1:34:00]
-* _metered billing_: pay for what you use (vs. fixed costs) 📹 Brown ccp [1:31:15]
-* autoscaling is overrated
-> You won't need it to spin instances up and down based on utilization. Unless your profit margins are as thin as Amazon's, what you need instead is abundant capacity headroom. Permanently. Then you can sleep well at night - unlike Amazon's oncall engineers. https://x.com/dvassallo/status/1154516910265884672
-
----
-
-https://focus.finops.org/
-> Cloud and SaaS billing data can be complex, inconsistent among providers and difficult to understand. The FinOps Open Cost and Usage Specification (FOCUS) aims to reduce this friction with a spec containing a set of terminologies (aligned with the FinOps framework), a schema and a minimum set of requirements for billing data. The spec is intended to support use cases common to a variety of FinOps practitioners. Although still in the early stages of development and adoption, it’s worth watching because, with growing industry adoption, FOCUS will make it easier for platforms and end users to get a holistic view of cloud spend across a long tail of cloud and SaaS providers. https://www.thoughtworks.com/radar/platforms/focus
-
-https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
-* rightsizing https://softwareengineeringdaily.com/2021/01/12/kubecost-with-webb-brown/
-* on-prem: need to integrate w/ legacy systems inside firewall, regulatory, cheaper, you can still make the consumption of your data center feel like a public cloud (CF, HPE)
-* _capacity planning / demand forecasting_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/ https://www.youtube.com/watch?v=UC5xf8FbdJc https://www.youtube.com/watch?v=ov7xhNdrsDM
-
-* free tier https://www.lastweekinaws.com/blog/an-aws-free-tier-bill-shock-your-next-steps/
-> Exercise: Pick an infrastructure service that your team operates and calculate how many hours/month you work to maintain the solution. https://cloudonaut.io/my-mental-model-of-aws/
-* https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
-* https://www.lastweekinaws.com/blog/awss-deprecation-policy-is-like-a-platypus/
-* https://www.lastweekinaws.com/blog/why_amazon_cant_end_the_release_tidal_wave/
-* https://www.lastweekinaws.com/blog/the-feudal-lords-of-amazon/
-* https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
-* AWS is more expensive https://calpaterson.com/amazon-premium.html https://bravenewgeek.com/multi-cloud-is-a-trap/
-* switching https://news.ycombinator.com/item?id=30942698
-* https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
-* buy don't build https://news.ycombinator.com/item?id=25399250
-* if it's not your data center you're not really self-hosting https://news.ycombinator.com/item?id=27674726 https://github.com/khuedoan/homelab
-> But the thing is in most of the companies you don't have full control over the whole stack. Even if you have "full control" over the database, you don't have control over networking, firewall, OS, "security" patching, VMs, Docker, Kubernetes, Load balancers, vendors managing parts of the infra, internet provider, hosting provider ... Not even datacenter team may have control over all of it, but at least that's their job and their area of expertise.
-* _benefits_: cost (sometimes) scalability (most times) geographic DR (nearly always)
-* _consultants_: https://aws.amazon.com/iq/ https://www.gruntwork.io/
-* _cost control_: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ https://www.lastweekinaws.com/ https://github.com/mlabouardy/komiser https://www.infracost.io/
 
 ## IaC
 

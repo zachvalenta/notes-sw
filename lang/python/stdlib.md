@@ -23,9 +23,12 @@
 
 ---
 
-* stats: scc https://github.com/XAMPPRocky/tokei https://github.com/k1LoW/octocov
-* dead code: https://github.com/jendrikseipp/vulture https://github.com/sobolevn/flake8-eradicate  https://github.com/jendrikseipp/vulture
-* security: bandit, https://pyup.io/ (uses same vulnerability db as pipenv) pysa https://github.com/facebook/pyre-check https://news.ycombinator.com/item?id=24083432 https://github.com/DataDog/guarddog
+CODE STATS
+* Python2 https://chatgpt.com/c/6717c005-9560-8004-8240-a612fd00792e
+* stats: https://github.com/boyter/scc https://github.com/XAMPPRocky/tokei https://github.com/k1LoW/octocov
+* dead code: https://github.com/jendrikseipp/vulture https://github.com/sobolevn/flake8-eradicate
+> does ruff do this?
+* security: https://github.com/PyCQA/bandit https://pyup.io/ (uses same vulnerability db as pipenv) pysa https://github.com/facebook/pyre-check https://news.ycombinator.com/item?id=24083432 https://github.com/DataDog/guarddog
 
 ## docs
 
@@ -42,7 +45,8 @@ LIB
 * _pycco_: pretty but don't see use case https://pycco-docs.github.io/pycco/ https://realpython.com/generating-code-documentation-with-pycco/
 * _Sphinx_: `sphinx-apidoc` 缺点 RST, not geared towards APIs https://realpython.com/courses/documenting-python-projects-sphinx-read-the-docs/ can now use Markdown https://www.youtube.com/watch?v=YclYtM56qjo&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=38
 
-DOCSTRING
+DOCSTRING https://github.com/copyleftdev/x12-edi-tools
+* tooling https://switowski.com/blog/plugins-for-python-in-vscode/
 * _triple quoted string (TQS)_: https://docs.python.org/3/glossary.html
 * _doctring_: TQS as first line of class/function https://github.com/econchick/interrogate https://www.fluentpython.com/lingo/#docstring
 * how to read: module (`help("doctest")`) function (`help(my_func)` or `my_func.__doc__`)
@@ -139,14 +143,24 @@ PG http://paulgraham.com/popular.html
 ---
 
 OPTIONS
+* https://github.com/nakabonne/gosivy
+* _austin_: frame stack sampler https://github.com/P403n1x87/austin https://github.com/P403n1x87/austin-tui
 * _cProfile_: 🎯 https://www.pythonmorsels.com/cli-tools/ https://martinheinz.dev/blog/64 https://hakibenita.com/django-rest-framework-slow
 * _fastero_: 🎯 timeit alternative https://github.com/wasi-master/fastero
+* _Fil_: https://pythonspeed.com/products/filmemoryprofiler/ https://pythonspeed.com/articles/memory-profiler-data-scientists/
 * _instruments_: https://registerspill.thorstenball.com/p/did-you-know-about-instruments
-* _memray_: 🎯 hhttps://github.com/bloomberg/memray https://textual.textualize.io/blog/2024/02/20/remote-memory-profiling-with-memray/ https://realpython.com/podcasts/rpp/128/ https://talkpython.fm/episodes/show/425/memray-the-endgame-python-memory-profiler
+* _line profiler_: https://github.com/pyutils/line_profiler https://news.ycombinator.com/item?id=41910590
+* _memray_: 🎯 https://github.com/bloomberg/memray https://textual.textualize.io/blog/2024/02/20/remote-memory-profiling-with-memray/ https://realpython.com/podcasts/rpp/128/ https://talkpython.fm/episodes/show/425/memray-the-endgame-python-memory-profiler https://news.ycombinator.com/item?id=41910590
 * _phlare_: https://martinheinz.dev/blog/89
+* _pyflame_: https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 
+* _pyspy_: https://github.com/benfred/py-spy/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+* _pyinstrument_: https://news.ycombinator.com/item?id=41910590
+* _pyroscope_: https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
 * _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
 * _tracy_: https://github.com/wolfpld/tracy
+* _speedscope_: https://github.com/benfred/py-spy/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
 * _Sciagraph_: https://news.ycombinator.com/item?id=31826872
+* _Valgrind_: https://github.com/benfred/py-spy/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
 * _timeit_: 🎯 https://www.pythonmorsels.com/cli-tools/
 ```python
 # try this instead
@@ -179,29 +193,22 @@ if __name__=='__main__':
     timeit_ms(cast_to_timer(lookup_set, names_set))
 ```
 
-performance tests https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
-ebpf https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
-https://www.pythonmorsels.com/cli-tools/
-https://www.youtube.com/watch?v=CjG_Ub_gCL4
-
-py-spy, speedscope, Valgrind https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
-
-https://github.com/nakabonne/gosivy https://github.com/nakabonne/ali/releases/tag/v0.7.0
-
-
-Zig ttps://www.youtube.com/watch?v=ug-KuDlMTYw
-
-`sys.settrace` https://github.com/plasma-umass/slipcover https://nedbatchelder.com/blog
-
-https://www.youtube.com/watch?v=bGAVrtb_tFs https://www.brendangregg.com/
-https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html
-https://www.freecodecamp.org/news/python-debugging-handbook/
-https://madebyme.today/blog/python-dict-vs-curly-brackets/
-https://superfastpython.com/benchmark-execution-time/
-https://stackabuse.com/why-does-python-code-run-faster-in-a-function/
-https://realpython.com/python-profiling/
-https://adamj.eu/tech/2023/07/23/python-profile-section-cprofile/
-https://github.com/sile/erldash
+* profile CPython https://instagram-engineering.com/profiling-cpython-at-instagram-89d4cbeeb898
+* performance tests https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
+* ebpf https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
+* https://www.pythonmorsels.com/cli-tools/
+* https://www.youtube.com/watch?v=CjG_Ub_gCL4
+* https://github.com/nakabonne/ali/releases/tag/v0.7.0
+* Zig ttps://www.youtube.com/watch?v=ug-KuDlMTYw
+* `sys.settrace` https://github.com/plasma-umass/slipcover https://nedbatchelder.com/blog
+* https://www.youtube.com/watch?v=bGAVrtb_tFs https://www.brendangregg.com/
+* https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html
+* https://www.freecodecamp.org/news/python-debugging-handbook/
+* https://madebyme.today/blog/python-dict-vs-curly-brackets/
+* https://superfastpython.com/benchmark-execution-time/ https://www.bwplotka.dev/2024/go-microbenchmarks-benchstat/
+* https://stackabuse.com/why-does-python-code-run-faster-in-a-function/
+* https://realpython.com/python-profiling/
+* https://adamj.eu/tech/2023/07/23/python-profile-section-cprofile/
 * https://realpython.com/python312-perf-profiler/
 * https://functiontrace.com/
 * Rust, Cython https://pythonspeed.com/articles/faster-text-processing/ https://www.equalto.com/blog/rust-in-anger-high-performance-web-applications
@@ -212,7 +219,6 @@ https://github.com/sile/erldash
 time $CMD  # https://news.ycombinator.com/item?id=30224063
 ```
 * https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
-* frame stack sampler https://github.com/P403n1x87/austin https://github.com/P403n1x87/austin-tui
 https://github.com/DataDog/go-profiler-notes
 
 * `py3 -m trace --trace example.py`
@@ -239,7 +245,6 @@ https://github.com/DataDog/go-profiler-notes
 * https://github.com/joerick/pyinstrument
 * https://github.com/P403n1x87/austin https://talkpython.fm/episodes/show/265/why-is-python-slow 54:00
 * _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions
-* _tools_: PyFlame https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 PySpy https://github.com/benfred/py-spy/ profile CPython https://instagram-engineering.com/profiling-cpython-at-instagram-89d4cbeeb898 https://pythonspeed.com/articles/memory-profiler-data-scientists/ Fil https://pythonspeed.com/products/filmemoryprofiler/ https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
 * sink: https://www.blog.pythonlibrary.org/2020/04/14/an-overview-of-profiling-tools-for-python/ https://www.roguelynn.com/words/tracing-fast-and-slow/ https://pythonspeed.com/articles/blocking-cpu-or-io/ https://pythonspeed.com/articles/custom-python-profiler/ https://pythonspeed.com/articles/live-debugging-python/ https://www.markkeller.dev/2018-07-14-optimize_python/ https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ pyspy https://jvns.ca/blog/2018/12/23/2018--year-in-review/ https://www.youtube.com/watch?v=d5SGUscT2GA https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://github.com/ionelmc/python-hunter https://wsvincent.com/algorithms-binary-search/ https://wsvincent.com/python-optimizations-with-guido/ https://realpython.com/python-f-strings/ https://github.com/airspeed-velocity/asv
 * pyperf, timeit https://medium.com/@martin.heinz/python-cli-tricks-that-dont-require-any-code-whatsoever-e7bdb9409aeb https://log.beshr.com/python-311-speedup-part-1/
 * benchmark: https://github.com/sharkdp/hyperfine https://github.com/egoist/dum
@@ -328,7 +333,6 @@ with open("output.csv", mode="w") as f:
 ```
 
 ---
-
 
 ```python
 os.path.isfile(f)  # check if file
@@ -1058,6 +1062,11 @@ if i % 100 == 0:
 
 ## TUI (Textual)
 
+🗄️
+* `ml.md` clients > Elia
+* `os/tools.md` browsr
+
+HOWTO
 * publish to web https://github.com/Textualize/textual-web
 * run examples
 ```sh
@@ -1065,6 +1074,9 @@ python -m pip install --user textual
 cd /Users/zvalenta/Desktop/textual/examples
 python json_tree.py
 ```
+
+ZA
+* inherently slow? both browsr and elia crawl on open
 
 ALTERNATIVES
 * _blessed_: https://github.com/jquast/blessed
@@ -1093,7 +1105,7 @@ FRAMEWORKS
 > Web development is often broad, not deep - problems span many domains. https://docs.djangoproject.com/en/2.0/intro/whatsnext/
 > A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
 * components: HTTP, routes, ORM
-* BYO https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/ https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/ https://github.com/itsthejoker/spiderweb/ https://github.com/iklobato/LightAPI
+* BYO https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/ https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/ https://github.com/itsthejoker/spiderweb/ https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://dev.to/brunociccarino/how-i-wrote-express-go-in-19-hours-3ndh
 
 WSGI
 * interface btw app server and framework bc pre-WSGI which framework you picked determined which web server you could use https://www.pythonpodcast.com/episode-43-wsgi-2/ [8:00]
@@ -1117,8 +1129,13 @@ RSGI
 
 🗄 `html-css.md`
 
+aaS
+* _ScrapingBee_: https://www.scrapingbee.com/
+* _Zenrows_: https://www.zenrows.com/solutions/scraper-api
+
 ---
 
+* Instant Data Scraper https://news.ycombinator.com/item?id=34069680
 https://github.com/blacknon/pydork
 
 https://github.com/MechanicalSoup/MechanicalSoup
@@ -1412,6 +1429,7 @@ sha.hexdigest()  # 'fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba6259
 
 ## datetime
 
+🗄️ `application.md` NTP
 🛠️ https://github.com/python-humanize/humanize
 
 ---

@@ -31,7 +31,7 @@ ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 * multiple versions https://www.youtube.com/watch?v=--c3yNP-hL0 7:30
 * _WSL_: run Linux programs on Windows https://www.youtube.com/watch?v=idW-an99TAM https://blog.jessfraz.com/post/windows-for-linux-nerds/
 * version 2 much faster, using with Neovim https://www.youtube.com/watch?v=--c3yNP-hL0
-* _xonsh_: need to rewrite profile https://xon.sh/xonshrc.html https://xon.sh/bash_to_xsh.html bad w/ virtualenvs https://xon.sh/python_virtual_environments.html https://news.ycombinator.com/item?id=30302955 https://github.com/hauntsaninja/pyp
+* _xonsh_: need to rewrite profile https://xon.sh/xonshrc.html https://xon.sh/bash_to_xsh.html bad w/ virtualenvs https://xon.sh/python_virtual_environments.html https://news.ycombinator.com/item?id=30302955 https://github.com/hauntsaninja/pyp https://github.com/donnemartin/gitsome
 
 ---
 
@@ -304,6 +304,7 @@ ALTERNATIVES
 * _hishtory_: https://github.com/ddworken/hishtory
 * _marker_: uses tldr https://github.com/pindexis/marker
 * _mcfly_: cmd suggestions https://github.com/cantino/mcfly
+* _tsukae_: 🎯 view most commonly used commands https://github.com/irevenko/tsukae
 * _zsh-histdb_: https://github.com/larkery/zsh-histdb https://www.jefftk.com/p/logging-shell-history-in-zsh
 
 CMD
@@ -344,7 +345,8 @@ MODES
 
 ---
 
-* https://jvns.ca/blog/2024/07/08/readline/
+* everything is a mess https://jvns.ca/blog/2024/07/08/readline/
+> for TUI, some use Vim (Tig `CTRL d` to scroll vs. visidata)
 * https://twobithistory.org/2019/08/22/readline.html
 * https://thoughtbot.com/upcase/videos/readline
 * config https://missing.csail.mit.edu/2020/editors/
@@ -459,6 +461,7 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 ## alternatives
 
 * _Alacritty_: 🎯 TOML config, cross-platform, no global hotkey but Hammerspoon/Karabiner workaround https://github.com/alacritty/alacritty/issues/3313 https://github.com/alacritty/alacritty/issues/862
+* _gotty_: term as web app https://github.com/yudai/gotty
 * _ghostty_: 🎯 private beta, written in Zig https://mitchellh.com/ghostty https://www.youtube.com/watch?v=7Jon_cAK_to
 * _Hyper_: ❌ Electron https://hyper.is/
 * _kitty_: can preview images in broot https://sw.kovidgoyal.net/kitty/ maintainer is a jerk https://news.ycombinator.com/item?id=41223934
@@ -472,7 +475,7 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 * autocomplete is cool, esp. Git branches https://www.warp.dev/modern-terminal
 * terminal block is interesting https://www.warp.dev/modern-terminal
 * launch configurations 类似 iterm profiles
-* _Wezterm_: 🎯 immature, no global hotkey https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751
+* _Wezterm_: 🎯 immature, no global hotkey https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751 https://www.youtube.com/watch?v=TTgQV21X0SQ
 
 ---
 
@@ -536,13 +539,14 @@ VIZ
 HOTKEY
 * = keypress handled by listening program even if another program is active
 * killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
-> Google Drive for Desktop also uses
+* used by: iTerm, Google Drive for Desktop
+> would be great to remap `CMD SPACE` bc I never use Spotlight + less strain on left thumb
 * _AutoHotKey_: https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ 
 * _Alfred_ https://www.alfredapp.com/ https://wesbos.com/uses
 * _BetterTouchTool_: https://switowski.com/blog/favorite-mac-tools/
 * _Hammerspoon_: Keyboard Maestro https://news.ycombinator.com/item?id=34070951
 * _Karabiner_: https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934
-* _Raycast_: https://wesbos.com/uses
+* _Raycast_: https://wesbos.com/uses https://www.youtube.com/watch?v=lhJwEckGi4U
 
 ## 🍎 iTerm
 
@@ -609,6 +613,7 @@ WORKFLOW
 
 * video courses https://thoughtbot.com/upcase/tmux https://www.youtube.com/watch?v=GH3kpsbbERo
 > https://www.youtube.com/watch?v=sSOfr2MtRU8 https://www.youtube.com/watch?v=DzNmUNvnB04
+* https://stevedylan.dev/posts/a-terminal-based-workflow/#neovim-plugins
 * install: Homebrew
 * floating pane https://www.youtube.com/watch?v=JFipv1_ycqU
 * stacked panes: closest option is hiding panes https://unix.stackexchange.com/questions/145857/how-do-you-hide-a-tmux-pane

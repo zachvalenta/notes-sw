@@ -12,7 +12,7 @@ https://en.wikipedia.org/wiki/Internet_protocol_suite
 
 ## 进步
 
-traceroute https://terminaltrove.com/trippy/ asn https://terminaltrove.com/asn/
+traceroute https://terminaltrove.com/trippy/ https://github.com/fujiapple852/trippy asn https://terminaltrove.com/asn/
 
 https://www.youtube.com/watch?v=dV8mjZd1OtU
 https://www.youtube.com/watch?v=F5rni9fr1yE

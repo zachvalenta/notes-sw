@@ -27,25 +27,6 @@ TAXONOMY
 * user sessions https://news.ycombinator.com/item?id=40318542 https://jam.dev/ https://trackjs.com/
 * tracing
 
-DASHBOARDS
-* https://github.com/wtfutil/wtf
-* https://github.com/Phantas0s/devdash
-* https://github.com/gizak/termui
-
-PROVIDERS https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services
-> taxonomy from Sentry and this https://rdrn.me/observability/
-* _Grafana_: visualize metrics https://www.youtube.com/watch?v=9TJx7QTrTyo [14:00] https://www.reddit.com/r/devops/comments/sevtqs/whats_your_monitoring_stack/
-* replace with Textual? https://textual.textualize.io/
-* _HyperDX_: 🎯 https://github.com/hyperdxio/hyperdx
-> HyperDX is an open-source observability platform that unifies all three pillars of observability: logs, metrics and tracing. With it, you can correlate end-to-end and go from browser session replay to logs and traces in just a few clicks. The platform leverages ClickHouse as a central data store for all telemetry data, and it scales to aggregate log patterns and condense billions of events into distinctive clusters. Although you can choose from several observability platforms, we want to highlight HyperDX for its unified developer experience. https://www.thoughtworks.com/radar/platforms/hyperdx
-* _Logfire_: https://pydantic.dev/logfire https://pydantic.dev/articles/logfire-announcement
-* _Jam_: error reporting https://jam.dev/ https://news.ycombinator.com/item?id=40318542 🗄️ `test.md` friction logs
-* _Prometheus_: time-series db as metrics store https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services/ https://prometheus.io/docs/introduction/overview/ https://github.com/yolossn/Prometheus-Basics https://softwareengineeringdaily.com/2020/07/09/chronosphere-scalable-metrics-database-with-rob-skillington/ https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://monzo.com/blog/2018/07/27/how-we-monitor-monzo/ https://www.youtube.com/watch?v=9TJx7QTrTyo [13:00]
-* _Moderato_: 🎯 https://github.com/moderato-app/live-pprof
-* _New Relic_: 
-* _Rollbar_: https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you 
-* _Sentry_: suspected commit behind break
-
 https://www.thediff.co/archive/the-data-business-at-three-resolutions/
 
 * _chaos engineering_: trigger fault to see if it causes a failure https://github.com/powerfulseal/powerfulseal
@@ -357,6 +338,7 @@ FORMAT
 * _JSONL_: https://github.com/textualize/toolong
 
 TOOLING
+* _Axiom_: https://axiom.co/ https://github.com/axiomhq https://repobeats.axiom.co/ cheaper than CloudWatch? https://x.com/AxiomFM/status/1842206872813674807
 * _hl_: https://github.com/pamburus/hl
 * _toolong_: https://github.com/textualize/toolong
 
@@ -404,3 +386,25 @@ https://blog.pecar.me/django-sqlite-dblock
 https://testdriven.io/blog/django-performance-optimization-tips/
 https://www.youtube.com/watch?v=gpbpVheR3gM
 https://blog.pecar.me/django-streaming-responses
+
+## tooling
+
+DASHBOARDS
+* https://github.com/wtfutil/wtf
+* https://github.com/Phantas0s/devdash
+* https://github.com/gizak/termui
+
+PROVIDERS https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services
+> taxonomy from Sentry and this https://rdrn.me/observability/
+* _Grafana_: visualize metrics https://www.youtube.com/watch?v=9TJx7QTrTyo [14:00] https://www.reddit.com/r/devops/comments/sevtqs/whats_your_monitoring_stack/
+* replace with Textual? https://textual.textualize.io/
+* _HyperDX_: 🎯 https://github.com/hyperdxio/hyperdx
+> HyperDX is an open-source observability platform that unifies all three pillars of observability: logs, metrics and tracing. With it, you can correlate end-to-end and go from browser session replay to logs and traces in just a few clicks. The platform leverages ClickHouse as a central data store for all telemetry data, and it scales to aggregate log patterns and condense billions of events into distinctive clusters. Although you can choose from several observability platforms, we want to highlight HyperDX for its unified developer experience. https://www.thoughtworks.com/radar/platforms/hyperdx
+* _Logfire_: https://pydantic.dev/logfire https://pydantic.dev/articles/logfire-announcement
+* _Jam_: error reporting https://jam.dev/ https://news.ycombinator.com/item?id=40318542 🗄️ `test.md` friction logs
+* _Prometheus_: time-series db as metrics store https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services/ https://prometheus.io/docs/introduction/overview/ https://github.com/yolossn/Prometheus-Basics https://softwareengineeringdaily.com/2020/07/09/chronosphere-scalable-metrics-database-with-rob-skillington/ https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://monzo.com/blog/2018/07/27/how-we-monitor-monzo/ https://www.youtube.com/watch?v=9TJx7QTrTyo [13:00]
+* _Moderato_: 🎯 https://github.com/moderato-app/live-pprof
+* _OpenObserve_: https://github.com/openobserve/openobserve https://news.ycombinator.com/item?id=41898910 https://sso.tax/
+* _New Relic_: 
+* _Rollbar_: https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you 
+* _Sentry_: suspected commit behind break

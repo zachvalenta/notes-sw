@@ -15,6 +15,7 @@ https://www.youtube.com/watch?v=lX4CrbXMsNQ
 https://github.com/hackclub/RAM-a-thon
 https://www.youtube.com/playlist?list=PL77441A2ED0D0B6A8
 https://www.youtube.com/playlist?list=PLH2l6uzC4UEW0s7-KewFLBC1D0l6XRfye
+https://github.com/lusingander/enigma
 
 * _14_: 📙 Gleick the information
 * _11_: 📙 Hillis pattern in the stone
@@ -42,6 +43,10 @@ def computation():
 
 * _lambda calculus_: Conery chapter 3 https://www.youtube.com/watch?v=pkCLMl0e_0k https://news.ycombinator.com/item?id=27648871 https://www.youtube.com/watch?v=QuXJ3kXUCiU https://www.youtube.com/watch?v=ViPNHMSUcog
 * _non-determinism_: https://ahelwer.ca/post/2020-04-15-probabilistic-distsys/
+
+TIME
+* 📚 Kleppmann chapter 8 https://www.youtube.com/watch?v=U612mx16j7U
+> Time is nature's way to keep everything from happening all at once - John Wheeler https://lwn.net/Articles/827180/
 
 ## information theory
 

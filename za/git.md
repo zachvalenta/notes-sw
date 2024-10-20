@@ -9,16 +9,9 @@
 
 ## 进步
 
-use Github CLI to perform faster repo sustainability assessment:
-> https://json-schema.org/tools
-> do existing repo browsers offer?
-* stars
-* recent commits
-* open issues vs. closed issues
-* most recent closed issue
-* first commit, commit frequency
+https://www.gitkraken.com/gitlens https://www.youtube.com/watch?v=oJdlGtsbc3U https://switowski.com/blog/plugins-for-python-in-vscode/
 
-* _24_: pager (delta, difftastic)
+* _24_: pager (delta, difftastic, diffnav) porcelain (lazygit)
 * _21_: prepopulate commit msg
 > no memory of doing this, nor knowledge of how to do now
 * _20_: stash commands, 📙 Chacon ch 1-2, Gitlab as secondary remote for notes, auth for BNY (Gitlab token types, server protocols and set up, lots of debugging)
@@ -28,7 +21,7 @@ use Github CLI to perform faster repo sustainability assessment:
 
 # 🐙 GITHUB
 
-📜 https://docs.github.com/en
+📜 https://docs.github.com
 🔗 https://github.com/github/roadmap
 
 SHORTCUTS https://darrenburns.net/posts/github-tips
@@ -36,19 +29,9 @@ SHORTCUTS https://darrenburns.net/posts/github-tips
 * `t`: jump to symbol in code review
 * `b`: blame view in file
 
-ISSUES
-* dashboard https://github.com/dlvhdr/gh-dash https://github.com/pwntester/octo.nvim
-* templates https://github.com/GabAlpha/basilk/tree/master/.github/ISSUE_TEMPLATE
-
-TOOLS
-* browse releases https://github.com/rubysolo/brows
-* repo stats https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
-* heat map https://github.com/jmforsythe/Git-Heat-Map
-
 FEATURES https://buttondown.com/hillelwayne/archive/github-has-too-many-hidden-features/
 * wiki: not searchable https://stackoverflow.com/questions/12535602/search-for-a-keyword-within-a-github-wiki can't find out how to edit project names https://github.com/kraanzu/dooit/wiki
 * README for org: `.github-private` repo w/ `profile/README.md` https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme
-* stars https://github.com/github/feedback/discussions/8293 https://webapps.stackexchange.com/a/41800
 * contributions: won't count unless user pushing them using same email tied to account in `.gitconfig`
 * feedback https://github.com/isaacs/github/issues/6 https://github.com/orgs/community/discussions
 * all forks are public https://news.ycombinator.com/item?id=41060102
@@ -111,15 +94,18 @@ TOOLING
 
 ## CLI
 
+📜 https://cli.github.com/manual/ https://github.com/cli/cli
+
 ---
 
-* https://github.com/mislav/hub https://hub.github.com/#developer
-* https://github.com/donnemartin/gitsome
-* https://github.com/github/hub
-* https://github.com/cli/cli
+EXTENSIONS
+* howto https://docs.github.com/en/github-cli/github-cli/using-github-cli-extensions
+* _hub_: https://hub.github.com/#developer https://github.com/mislav/hub https://mislav.net/2020/01/github-cli/
+> used to work for Github? https://github.com/github/hub
+* _gitsome_: https://github.com/donnemartin/gitsome
 
 ```sh
-# alias https://cli.github.com/manual/gh_alias
+# alias https://cli.github.com/manual/gh_alias https://github.com/zachvalenta/dotfiles-um
 gh alias set --shell prl "gh pr list --author zachvalenta --repo tommyboytech/t3"  # get PR number
 gh alias set --shell prv 'gh pr view "$1" --repo tommyboytech/t3 -w'               # view PR in browser
 
@@ -153,10 +139,20 @@ gh alias list
 
 ## Markdown
 
+📜 https://docs.github.com/en/get-started/writing-on-github
+
 * use SVG https://github.com/zachvalenta/capp-prod-cat-alt
 * use HTML https://github.com/catppuccin/delta/blame/main/README.md
 * "try without installing!" https://zellij.dev/
 * directory tree https://github.com/koaning
+* alerts https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/ https://github.com/orgs/community/discussions/16925
+```txt
+> [!NOTE]
+> [!TIP]
+> [!IMPORTANT]
+> [!WARNING]
+> [!CAUTION]
+```
 
 ---
 
@@ -164,6 +160,39 @@ gh alias list
 * how to link to images outside of repo https://github.com/textualize/toolong
 * _profile README_: create repo with same name as user, add README https://github.com/willmcgugan/willmcgugan
 * _video_: https://github.com/textualize/toolong
+
+## repos
+
+ISSUES
+* dashboard https://github.com/dlvhdr/gh-dash https://github.com/pwntester/octo.nvim
+* templates https://github.com/GabAlpha/basilk/tree/master/.github/ISSUE_TEMPLATE
+
+TOOLS
+* template repo https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository https://github.com/jackyzha0/quartz
+* browse releases https://github.com/rubysolo/brows
+* repo stats https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
+* heat map https://github.com/jmforsythe/Git-Heat-Map
+
+TUI for quick sustainability assessment of Github repo: https://chatgpt.com/c/671692f3-9ca8-8004-8b71-8ae027bdbbad
+> stars https://github.com/github/feedback/discussions/8293 https://github.com/korosuke613/gh-user-stars https://webapps.stackexchange.com/a/41800 https://github.com/maguowei/starred#use-awesome-stars-as-template https://github.com/maguowei/awesome-stars/blob/master/topics.md https://github.com/DaveParr/starpilot https://github.com/den-is/gh-stars-scraper
+> Terminal Trove
+> https://github.com/gitbutlerapp/gitbutler https://repobeats.axiom.co/
+> make this into a meta svc for awesome-$SOFTWARETYPE repos
+> https://json-schema.org/tools
+> do existing repo browsers offer?
+* total stars
+* commits: frequency, rate over time, first & last
+* issues: open vs. closed, most recently closed
+```sh
+# https://github.com/ponyorm/pony
+
+# OVERALL
+gh repo view ponyorm/pony --json stargazerCount,primaryLanguage,createdAt,description,contactLinks,fundingLinks,homepageUrl,isArchived,issues,labels,latestRelease,licenseInfo,milestones,name,openGraphImageUrl,owner,parent,primaryLanguage,pullRequests,pushedAt,repositoryTopics,updatedAt,url,viewerHasStarred,visibility,watchers
+
+# ISSUES
+gh issue list --repo ponyorm/pony --state open --json number --jq 'length'
+gh issue list --repo ponyorm/pony --state closed --json number --jq 'length'
+```
 
 ## search
 
@@ -291,8 +320,10 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 
 🗄️ `vim.md` utils / code intel / git
 
-## GUI
+## GUI (GitUp)
 
+* _gitbutler_: 🎯 不明觉厉 https://github.com/gitbutlerapp/gitbutler https://blog.gitbutler.com/ https://jackevans.bearblog.dev/some-notes-on-git/
+* _GitKraken_: corporate https://www.gitkraken.com/
 * _GitUP_: ✅ https://github.com/git-up/GitUp
 * good for granular stages
 * switch views `cmd #`
@@ -302,7 +333,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 
 * alternatives https://git-scm.com/downloads/guis/ https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Graphical-Interfaces
 
-## pager / diffview
+## pager (delta)
 
 🗄️ `os/tools.md` pager
 
@@ -312,29 +343,42 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * themes file https://dandavison.github.io/delta/custom-themes.html https://github.com/dandavison/delta/blob/main/themes.gitconfig
 > don't understand why catpuccin relies on their bat theme https://github.com/catppuccin/delta can you just use straight from repo? https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
 * _difftastic_: ✅ https://github.com/Wilfred/difftastic
-* _diffnav_: 🎯 https://github.com/dlvhdr/diffnav
+* _diffnav_: ✅ obviated w/ lazygit https://github.com/dlvhdr/diffnav
 * _diffview_: 🎯 neovim https://github.com/sindrets/diffview.nvim https://www.youtube.com/watch?v=aJikrPnTOtI
-* _dunk_: 🎯 https://github.com/darrenburns/dunk
+* _dunk_: similar to delta https://github.com/darrenburns/dunk
 * _git split diffs_: 🎯 node version https://github.com/banga/git-split-diffs https://news.ycombinator.com/item?id=27007844
 
-## porcelain
+## porcelain (lazygit)
 
-* _bit_: ❌ unmaintained, autcomplete https://github.com/chriswalz/bit
-* _forgit_: good UI https://github.com/wfxr/forgit#-features
-* _gitbutler_: 🎯 不明觉厉 https://github.com/gitbutlerapp/gitbutler https://blog.gitbutler.com/ https://jackevans.bearblog.dev/some-notes-on-git/
-* _gitu_: 🎯 https://github.com/altsem/gitu
+LAZYGIT 📜 https://github.com/jesseduffield/lazygit https://git-how.com/
+* sections: side panels + main panel / diffview https://git-how.com/
+* all panel cmds: search `/` scroll `jk|JK` drill `ENTER|ESC` default action `SPACE` commit `c` commit using $EDITOR `C` push `P`
+* main panel: toggle staged|unstage `TAB`
+* stage: line `SPACE` stage hunk `a` stage all `a` (when in side panel) https://git-how.com/basics/staging
+* work with multiple repos: status pain > `ENTER` repos https://github.com/jesseduffield/lazygit/issues/1071
+
+ALTERNATIVES
+* _bit_: 💀 unmaintained, autcomplete https://github.com/chriswalz/bit
+* _forgit_: good UI, for `gai`, no Vim keybindings https://github.com/wfxr/forgit#-features
+* _gitu_: no Vim keybindings https://github.com/altsem/gitu
 * _gitui_: 🎯 https://github.com/extrawurst/gitui
-* _GitKraken_: ❌ corporate https://www.gitkraken.com/
 * _magit_: looks great, Emacs-only https://github.com/magit/magit https://emacsair.me/2017/09/01/magit-walk-through/ https://github.com/dandavison/delta/issues/194
+* _Neogit_: 🎯 magit port https://github.com/NeogitOrg/neogit
 * _vimagit_: inspired by magit https://github.com/jreybert/vimagit
+* _vim-fugitive_: 🎯 https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI
 
 ---
 
-* _lazygit_: 🎯 popular, good UI https://github.com/jesseduffield/lazygit https://github.com/catppuccin/lazygit https://www.youtube.com/watch?v=Ihg37znaiBo
-* _Neogit_: 🎯 magit port https://github.com/NeogitOrg/neogit
-* _vim-fugitive_: 🎯 https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI
+LAZYGIT
+> are people aware that this guy has written the de facto docs? https://git-how.com/
+* config https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+* theme https://github.com/catppuccin/lazygit
+* howto https://git-how.com/ https://www.youtube.com/watch?v=Ihg37znaiBo @ 2:30
+* pager https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
+* use for `git add .` commits, staging lines, nuking work tree https://www.youtube.com/watch?v=CPLdltN7wgE
+* BYO menu https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium
 
-## repo browser
+## repo browser (Tig)
 
 * _gitk_: can come with git but if not `brew install git-gui` https://git-scm.com/docs/gitk
 * _grv_: 💀 unmaintained, no brew formula https://github.com/rgburke/grv https://github.com/rgburke/grv/issues/109
@@ -404,6 +448,9 @@ strategies
 
 ## commit
 
+🗄️ `doc.md` repo
+
+commits as documentation https://mislav.net/2014/02/hidden-documentation/
 > https://github.com/SKalt/git-cc/
 > https://github.com/muandane/goji
 > https://gitmoji.dev/ https://github.com/juftin/browsr
@@ -725,6 +772,7 @@ notas post-mortem
 https://drewdevault.com/2019/02/25/Using-git-with-discipline.html
 https://drewdevault.com/2020/04/06/My-weird-branchless-git-workflow.html
 https://registerspill.thorstenball.com/p/how-i-use-git
+* git flow, github flow, branching stategies https://www.alexhyett.com/git-flow-github-flow/
 
 🗄
 * merge
@@ -783,6 +831,10 @@ git branch -d crd/my-feature-branch
 
 # 🟨 ZA
 
+VERSION MGMT / INSTALL https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+* macOS: 10.9 onwards handled by Command Line Tools https://github.com/creationix/nvm#important-notes ❓ Homebrew install being used?
+* Linux: `git-all`
+
 ---
 
 `.gitattributes`: specify EOL https://stackoverflow.com/questions/73086622/is-a-gitattributes-file-really-necessary-for-git
@@ -816,24 +868,33 @@ za
 
 ## config
 
-INSTALLATION https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
-* macOS: 10.9 onwards handled by Command Line Tools https://github.com/creationix/nvm#important-notes ❓ Homebrew install being used?
-* Linux: `git-all`
+🗄️ `protocols.md` INI
+📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup
 
-CONFIG 📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup 🗄️ `protocols.md` INI
-> aliases in gitconfig or zprofile? https://github.com/zachvalenta/dotfiles-mini23/commit/ddecff7a70e14d7a545e4d9fc72837e1a378b203
-* aliases split btw `.gitconfig` and `.bash_profile` 
+FILE LOCATION
+> be nice to switch btw using bullet, not as nice to set in zprofile, but I'll settle for symlinks for now
+* `$HOME/.gitconfig`
+* `GIT_CONFIG_GLOBAL`: `export GIT_CONFIG_GLOBAL="/Users/zach/Documents/denv/dotfiles/git/diffnav.ini"`
+* `GIT_CONFIG`
+
+---
+
+https://chatgpt.com/c/67141929-cb80-8004-86dc-201dc864fdad
+
 * set based on repo https://utf9k.net/blog/conditional-gitconfig/
 * _list_: `git config --list --show-origin` https://stackoverflow.com/a/2115116 might see dupes bc Git reads from all config files, with most local (e.g. repo-level) taking precedence
 * _precedence_: repo-level (`.git/config`) user-level/global? (`~/.gitconfig`) system-level (`/etc/gitconfig`; don't touch)
 * _rm attribute from config_: `git config --unset <attr>`
-* aliases https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases
 ```sh
 # update config from shell
 git config           # local ($CWD/.git/config)
 git config --user    # user (~/.gitconfig)
 git config --system  # system
 ```
+
+ALIASES 📜 https://git-scm.com/book/en/v2/Git-Basics-Git-Aliases
+* aliases in gitconfig or zprofile? https://github.com/zachvalenta/dotfiles-mini23/commit/ddecff7a70e14d7a545e4d9fc72837e1a378b203
+* aliases split btw `.gitconfig` and `.bash_profile` 
 
 GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
 * _user_: `~/.config/git/ignore`
@@ -844,12 +905,25 @@ GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Rep
 
 ## monorepo
 
+* Odoo as example of Git struggling with big codebases
+* Madge https://blog.codepen.io/2023/01/25/398-devoops/
 * https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe
 * perf https://www.git-tower.com/blog/git-performance/
 * https://monadical.com/posts/from-chaos-to-cohesion.html
 * https://jackevans.bearblog.dev/python-monorepo-tooling-with-pants/
 * sparse checkout https://martinheinz.dev/blog/109
 * Deno https://docs.deno.com/runtime/fundamentals/workspaces/
+
+## review
+
+---
+
+* dates with confidence % https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe
+> this is more about releases
+* https://drewdevault.com/2022/07/25/Code-review-with-aerc.html
+* https://drewdevault.com/2016/04/11/Please-use-text-plain-for-emails.html
+* https://drewdevault.com/2018/07/02/Email-driven-git.html
+* https://drewdevault.com/2022/04/01/git-snail-mail.html
 
 ## server
 

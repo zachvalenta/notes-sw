@@ -23,6 +23,8 @@
 
 ---
 
+json https://news.ycombinator.com/item?id=41914845
+
 SQL engines https://chatgpt.com/share/6706c793-1428-8004-af11-613cff56c5af https://news.ycombinator.com/item?id=34189422
 
 ACID https://www.youtube.com/watch?v=GAe5oB742dw
@@ -197,6 +199,9 @@ TACTICS
 
 ---
 
+* https://substack.com/home/post/p-150506520 https://explain.saby.dev/en/
+* https://nchammas.com/writing/database-access-patterns
+* tuning aaS https://ottertune.com/ https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html
 * https://terrastruct.com/blog/post/practical-intermediate-database-tips/
 * Postgres
 > When modeling a Postgres database, you probably don’t give much thought to the order of columns in your tables. After all, it seems like the kind of thing that wouldn’t affect storage or performance. But what if I told you that simply reordering your columns could reduce the size of your tables and indexes by 20%? This isn’t some obscure database trick — it’s a direct result of how Postgres aligns data on disk.
@@ -809,7 +814,7 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * embed https://github.com/electric-sql/pglite
 * perf, memory https://news.ycombinator.com/item?id=40642803
 * generate `create table` from existing table https://github.com/lacanoid/pgddl
-* Elasticsearch https://github.com/paradedb/paradedb
+* Elasticsearch https://github.com/paradedb/paradedb https://github.com/pgroonga/pgroonga
 * serverless https://neon.tech/ https://news.ycombinator.com/item?id=31536827
 * embedded for testing https://github.com/electric-sql/pglite https://news.ycombinator.com/item?id=39960537
 * sharding https://github.com/postgresml/pgcat

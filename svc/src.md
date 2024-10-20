@@ -217,6 +217,7 @@ def endpoint():
 
 ---
 
+* code gen https://github.com/ogen-go/ogen
 * https://github.com/marshmallow-code/apispec
 * https://github.com/zaghaghi/openapi-tui
 * code generation https://github.com/oapi-codegen/oapi-codegen
@@ -297,6 +298,10 @@ https://blog.pecar.me/rds-blue-green
 https://blog.pecar.me/gunicorn-restart
 https://github.com/piku/piku
 
+SEMANTICS
+* _release_: users get latest deployment
+* _canary release_: only subset of users get latest deployment https://medium.com/netflix-techblog/automated-canary-analysis-at-netflix-with-kayenta-3260bc7acc69 
+
 ## CICD
 
 OPTIONS
@@ -305,6 +310,7 @@ OPTIONS
 
 ---
 
+* validate configs https://github.com/kehoecj/validate-configs-action
 * taxonomy: yolo (edit on server) FTP (edit on local, push to server) SCM (SSH to sever and pull repo, maybe use cron) CICD (triggered by repo hook https://dagger.io/) https://css-tricks.com/deployment/
 * pipelines: fetch (clone from repo) build (install deps, compile) test (run unit tests) deploy (put artifact somewhere so CD can pick it up and run it)
 * Jenkins https://itnext.io/jenkins-is-getting-old-2c98b3422f79 https://www.youtube.com/watch?v=WWcijE7ifcA
@@ -378,27 +384,20 @@ CLOUD
 * _Daytona_: https://www.daytona.io/
 * _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://cli.github.com/manual/gh_codespace
 * _Gitpod_: https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15
+* _Zed_: https://zed.dev/releases/stable/0.145.1 https://www.youtube.com/watch?v=F9sQPpVVLeQ
 
 ---
 
 * db: not a silver bullet (Postgres in your Docker container will have some differences to db server you're connecting to in prod)
 
-## release
+## feature flag
 
 ---
 
-RELEASE
-* _release_: users get latest deployment
-* have a `RELEASE.md` https://news.ycombinator.com/item?id=26902887
-* have a runbook https://github.com/Microsoft/vscode/wiki/Development-Process#inside-an-iteration
-* _canary release_: only subset of users get latest deployment https://medium.com/netflix-techblog/automated-canary-analysis-at-netflix-with-kayenta-3260bc7acc69 
+🗄 `infra.md` analytics
 
-FEATURE FLAGGING 🗄 `infra.md` analytics
 * _feature flag_: toggle functionality; impl agnostic (env var, db, aaS) https://medium.com/@noahrobi/feature-toggles-give-you-superpowers-78fdeb7ab5e8
-* https://github.com/flipt-io/flipt
 * use cases: decouple deployment/release, canary release https://github.com/facebook/planout A/B testing https://findwork.dev/blog/django-b-testing-google-optimize https://www.evanmiller.org/
-* lib: https://waffle.readthedocs.io/en/stable/
-* service: paid (Launch Darkly, Split.io, Optimizely) on-prem (https://github.com/markphelps/flipt https://bullet-train.io/ https://github.com/Unleash/unleash)
 * as tech debt https://www.youtube.com/watch?v=HhxNaPYpYiU https://github.blog/2021-04-27-ship-code-faster-safer-feature-flags/
 * feature-flag-driven development
 > Always start a feature with a feature flag and try to get something to production on day 1. even if it's only feature flagged to you. usual feature flag timeline: week 1 - developer and people interested in a feature week 3 - release or do beta with users
@@ -408,6 +407,15 @@ class FeatureFlag(models.Model):
     enabled = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
 ```
+
+TOOLING
+* _flagsmith_: https://bullet-train.io/
+* _flipt_: https://github.com/markphelps/flipt https://github.com/flipt-io/flipt
+* _Launch Darkly_:
+* _Optimizely_:
+* _split_: https://www.split.io/
+* _unleash_: https://github.com/Unleash/unleash
+* _waffle_: https://waffle.readthedocs.io/en/stable/
 
 ## secrets
 
@@ -612,40 +620,6 @@ WORLD'S DUMBEST COMPLETE SAAS
 * _files - static_: CSS, JS, fonts https://learndjango.com/tutorials/django-static-files
 * _files - media_: uploaded by user https://docs.djangoproject.com/en/3.1/topics/files/#managing-files
 
-## concurrency
-
-📙 Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
-🗄
-* `golang.md` concurrency
-* `infra.md` queues
-* `linux.md` threads
-* `python.md` concurrency
-
-BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
-* why: WebSockets https://channels.readthedocs.io/en/latest/
-* why not: hard to reason about, just use a queue or a WebSockets server https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
-
----
-
-* async IO https://registerspill.thorstenball.com/p/joy-and-curiosity-7
-* _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
-* clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep
-* _callback_: another func to call after func finishes execution 🗄 `application.md` webhook
-* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/59370383#59370383
-* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/48530284#48530284
-* imperative programming fundamentally about order, which makes concurrency hard https://softwareengineeringdaily.com/2020/05/28/distributed-systems-research-with-peter-alvaro/ 7:00
-* concurrency is nearly always a bad idea https://www.arp242.net/go-easy.html
-* [concurrency != parallelism](https://blog.golang.org/concurrency-is-not-parallelism)
-* [multi-threading != parallelism](https://stackoverflow.com/a/806506/6813490) https://news.ycombinator.com/item?id=4495305
-* https://news.ycombinator.com/item?id=23496994
-* _sleeping barber problem_ http://kachayev.github.io/talks/kharkivpy%230/#/
-* reactive in Python https://blog.oakbits.com/introduction-to-rxpy.html
-* [the guy who wrote SQLAlchemy thinks async is kinda bs](https://news.ycombinator.com/item?id=18113889) + https://techspot.zzzeek.org/2015/02/15/asynchronous-python-and-databases/
-* https://return.co.de/blog/articles/dont-drink-too-much-reactive-cool-aid/
-* [asyncio problems](https://www.roguelynn.com/words/asyncio-we-did-it-wrong/)
-* most (web) things are bound by network, not CPU https://talkpython.fm/episodes/show/225/can-subinterpreters-free-us-from-python-s-gil
-* concurrency is a bad thing https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
-
 ## dependency injection (DI)
 
 * https://github.com/uber-go/fx
@@ -729,6 +703,16 @@ as red flag https://news.ycombinator.com/item?id=30675182
 * _sink_: https://github.com/kamranahmedse/design-patterns-for-humans https://www.youtube.com/playlist?list=PLVmRRBrc2pRAEgzxUIJc_7LLABdg_58hJ https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
 * in python https://python-patterns.guide/ https://hynek.me/articles/python-subclassing-redux/
 
+
+## internationalization (i18n)
+
+* https://phrase.com/blog/posts/internationalization-i18n-go/
+* examples: Odoo, https://github.com/jesseduffield/lazygit/tree/master/pkg/i18n
+* https://chatgpt.com/c/6717c3a0-0424-8004-9feb-90d6451666d7
+* _a11y_: accessibility https://en.wikipedia.org/wiki/Computer_accessibility
+* _l10n_: language localization https://en.wikipedia.org/wiki/Language_localisation
+* _Lokalise_: used at UM https://lokalise.com/automate-localization
+
 ## 🎭 paradigms
 
 📚 Lopes exercises in programming style
@@ -795,3 +779,11 @@ cf. [Designing Data Intensive Applications - chapter 2 - 'delcarative queries on
 * __object-oriented__: procedural on steroids; Java, C++
 * __scripting__: functions not attached to objects
 * __logic__: formal mathematical logic; Prolog https://news.ycombinator.com/item?id=30091291
+
+## perf
+
+---
+
+https://roadmap.sh/best-practices/backend-performance
+
+> The notes on benchmark performance graphs often read "higher is better" and performance improvements are even called "optimisations". But the truth is, at least as a user, once performance reaches a satisfactory level - enough for your own data analysis to complete in a reasonable about of time - there is no further benefit from increased speed. Instead of being called "performance optimisation" it should probably be called "performance satisfaction" as once it is satisfactory you have finished. Usability is different. The whole point of computers is as an aid to productivity so user-friendliness is actually the bit you want to optimise. Unlike speed, being easier to use is always better and there is very little limit to that. So it's "usability improvements" that should be called "optimisations" but perhaps the relevant ships on all of these terms have sailed. https://csvbase.com/blog/6

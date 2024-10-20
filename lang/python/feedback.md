@@ -74,6 +74,8 @@ ALTERNATIVES
 
 * https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
 * https://github.com/PyO3/pyo3 https://www.youtube.com/watch?v=UilujdubqVU
+> PyO3 is a Rust crate that allows you to write Python modules in Rust. It handles type conversion between Python and Rust, making it easy to call Rust functions from Python. You can use PyO3 to wrap Rust logic (including ORM operations) and expose it as a Python module.
+> Maturin simplifies the process of compiling Rust code into Python-compatible packages. This tool builds Rust libraries as Python packages (wheels) that can be installed and imported like any other Python module.
 * https://ward.readthedocs.io/en/latest/guide/writing_tests.html#using-assert-statements
 * https://www.youtube.com/watch?v=OjPT15y2EpE
 * inspect https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework

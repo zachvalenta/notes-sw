@@ -108,19 +108,16 @@ TIME MACHINE
 * parking tickets
 
 MUSIC
-* francis harris
-* christian scott
-* jamie xx
-* beatles
-* everything from sui generis
-* alice coltrane
-* bill frisell
-* Aster Aweke
-* bob seger
-* mark kozelek
-* modest mouse
+* dance: francis harris, jamie xx, danilov
+* jazz: christian scott, alice coltrane, bill frisell
+* far: Aster Aweke
+* rock: spin doctors, mark kozelek, modest mouse, libertines, no doubt to singles, perfect, grateful dead europe 72, seger, everything from sui generis, trex, stones
+* za/blues: hendrix
+* za/gospel: hank jones
 
 ### air-capp ➡️ mini23
+
+* dance/techno: all
 
 ## reimage
 
@@ -174,6 +171,7 @@ install from bootable disk
 * insert bootable disk, power on holding `ALT`, folllow video
 * troubleshoot https://support.apple.com/en-us/HT201475 + [potential issues](https://blog.macsales.com/45723-mac-installation-errors-you-may-encounter-and-how-to-fix-them)
 * load user files
+
 ## sync
 
 ---
@@ -207,8 +205,34 @@ MOVIES
 
 🗄
 * notebook [83,86]
+* `doc.md` notes, task mgmt
 * `git.md` submodules
 * `linux.md` denv
+
+### coordination
+
+🗄️ `git.md` lazygit
+
+```yaml
+# NOTES: SW, DOM
+- /Users/zach/Documents/zv/notes/domains
+- /Users/zach/Documents/zv/notes/sw
+
+# CAPP: TM, HB, WLR
+- /Users/zach/Documents/zv/capp/handbook
+- /Users/zach/Documents/zv/capp/task-mgmt
+- /Users/zach/Documents/zv/capp/worklogs
+
+# ZA: BASILK, UR, MYB
+- /Users/zach/Library/Application Support/basilk
+- /Users/zach/Documents/zv/materials/sw/lang/html-css/myblog
+- /Users/zach/Documents/zv/materials/sw/svc/ur-repo
+```
+
+* problem: slow workflow (git) + too many repos to sync (sw, dom, site, worklogs, task-mgmt, handbook)
+* solution: lazygit multiple reops -> manually add all repos to lazygit `state.yaml` and then your sync workflow can be done with no cd-ing around + through lazygit's status pane you have a catalog of all the repos you need to sync
+
+### tree
 
 ```sh
 # /Users/zach/Documents
@@ -229,14 +253,14 @@ MOVIES
 │   └──── sw
 │   └──── za
 │   └── 📝 NOTES
-│   └──── bookcase   # 📦
-│   └──── domains    # 📦
-│   └──── sw         # 📦
+│   └──── bookcase   # 📦 bookcase-sjk.git
+│   └──── domains    # 📦 notes-domains.git
+│   └──── sw         # 📦 notes-sw.git
 │   └── 🏡 PERSONAL
-│   └──── logs       # 📦
-│   └──── people     # 📦
+│   └──── logs       # 📦 logs.git
+│   └──── people     # 📦 people.git
 │   └──── photos
-│   └──── tracking   # 📦
+│   └──── tracking   # 📦 tracking.git
 ```
 
 ## music
@@ -271,7 +295,7 @@ repeated.export("mashup.mp3", format="mp3")
 * install: homebrew
 * alternatives: https://github.com/clangen/musikcube https://github.com/tramhao/termusic https://github.com/issadarkthing/gomu BYO https://www.reddit.com/r/rust/comments/ipjijo/how_to_make_a_tui_music_player/
 > write your own https://x.com/_darrenburns/status/1803836046213357792/photo/1
-* _pymus_: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/ https://rapidapi.com/collection/lyrics-apis https://aosabook.org/en/v1/audacity.html
+* _pymus_: cmus replacement https://github.com/darrenburns/posting https://realpython.com/python-guitar-synthesizer/ https://rapidapi.com/collection/lyrics-apis https://aosabook.org/en/v1/audacity.html https://github.com/james4ever0/vignore
 * file nav: opens to most recent dir, can cd to music dir and then if you need to return scroll command history
 * playlists https://unix.stackexchange.com/q/593727 /Users/zach/Documents/zv/materials/music/za/music-library/playlists
 ```sh
@@ -386,6 +410,7 @@ SELF-HOSTED STREAMING
 
 ---
 
+* metadata https://stefaniemolin.com/articles/devx/pre-commit/exif-stripper/
 * viewer https://github.com/karlch/vimiv-qt
 * https://news.ycombinator.com/item?id=37670756
 * https://www.jefftk.com/pictures/
@@ -529,7 +554,8 @@ https://drewdevault.com/2020/02/18/Fucking-laptops.html
 CONSIDERATIONS
 * ✅ Mac: familiarity, hardware
 * ❌ Windows: pyenv is second-class citizen, WSL just something else to debug, unused to keybindings
-* ❌ Linux: no Ableton, hardware, apps
+* ❌ Linux: no Ableton, hardware, apps, bluetooth https://github.com/darkhz/bluetuith
+> be like having American Express
 
 🍎 APPLE
 * cleaning dust https://quanticdev.com/articles/cleaning-macbook-after-16800-hours-of-use/
@@ -792,8 +818,8 @@ CMD r  # reload
 CMD ALT i  # dev tools
 CMD b  # bookmarks
 ```
-* _Brave_:
 * _Chrome_:
+* _Lynx_: 'reader mode' https://github.com/bensadeh/circumflex
 * _Firefox_: https://wesbos.com/uses https://www.mozilla.org/en-US/firefox/developer/
 * _Zen_: https://zen-browser.app/ https://www.youtube.com/watch?v=VshptkoKfQo
 

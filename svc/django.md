@@ -14,8 +14,10 @@
 
 ## 进步
 
+* in a single file https://github.com/radiac/nanodjango
 TUI commands https://github.com/anze3db/django-tui
 TUI admin https://github.com/valberg/django-admin-tui
+history https://jacobian.org/2024/mar/20/django-chat/
 
 * _24_: rf
 * _21_: rf, DML

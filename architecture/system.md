@@ -4,7 +4,7 @@
 
 📙 Bueno mature optimization https://carlos.bueno.org/optimization/
 🗄
-* `databases.md` perf
+* `dbms.md` perf
 * `info.md` documentation / system
 
 ## 进步
@@ -15,13 +15,11 @@ SEMANTICS
 ---
 
 testing https://www.thediff.co/archive/antithesis-debugging-debugging/ https://antithesis.com/ https://www.thediff.co/archive/offshoring-and-ai-agents/
+Kleppmann https://www.davidreis.me/2024/designing-data-intensive-applications
+https://www.davidreis.me/2024/what-happens-when-you-make-a-move-in-lichess https://news.ycombinator.com/item?id=41922928
 https://drewdevault.com/2021/10/17/Reliability.html
 https://drewdevault.com/2020/10/09/Four-principles-of-software-engineering.html
 https://drewdevault.com/2020/11/06/Utility-vs-usability.html
-
-https://roadmap.sh/best-practices/backend-performance
-
-> The notes on benchmark performance graphs often read "higher is better" and performance improvements are even called "optimisations". But the truth is, at least as a user, once performance reaches a satisfactory level - enough for your own data analysis to complete in a reasonable about of time - there is no further benefit from increased speed. Instead of being called "performance optimisation" it should probably be called "performance satisfaction" as once it is satisfactory you have finished. Usability is different. The whole point of computers is as an aid to productivity so user-friendliness is actually the bit you want to optimise. Unlike speed, being easier to use is always better and there is very little limit to that. So it's "usability improvements" that should be called "optimisations" but perhaps the relevant ships on all of these terms have sailed. https://csvbase.com/blog/6
 
 * algos https://www.youtube.com/watch?v=xbgzl2maQUU
 
@@ -319,6 +317,11 @@ BLOCKCHAIN https://a16zcrypto.com/
 * _smart contract_: app using blockchain
 * _oracle_: data ingestion onto chain
 
+NEW SQL
+* _new SQL_: relational semantics + non-relational scaling
+* more resistant to CAP theory resistant SQL i.e. seems to shard more finely so that in network partition some very high % of cluster can remain available i.e. trade-off still there just minimized to the point that most users won't notice https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37
+* dbms: Cockroach https://www.openmymind.net/Migrating-To-CockroachDB/ Spanner, Rethink https://brandur.org/cloud-databases distributed https://github.com/erikgrinaker/toydb https://github.com/rqlite/rqlite https://github.com/maxpert/marmot
+
 ---
 
 * _distributed system_: no shared memory, no shared clock https://news.ycombinator.com/item?id=26089683
@@ -361,22 +364,46 @@ Petrov ch. 11
 
 ## consensus
 
+🗄️ `svc/src.md` concurrency
+📙 Kleppmann ch. 8-9
+
 ---
 
 * https://entropicthoughts.com/data-consistency-is-overrated
 https://www.youtube.com/watch?v=nH4qjmP2KEE
-
-📙 Kleppmann ch. 8-9
-
 * https://jamesg.blog/2024/08/18/consensus-modeling-python/
 * https://sre.google/sre-book/table-of-contents/ chapter 23
-* _leader election_: Raft algorithm https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html Paxos https://news.ycombinator.com/item?id=24906225
+* https://lethain.com/distributed-systems-vocabulary/
+* https://news.ycombinator.com/item?id=28425379
 
-Raft https://raft.github.io/
-* start here https://pyvideo.org/pygotham-2017/an-introduction-to-the-raft-distributed-consensus-algorithm.html https://news.ycombinator.com/item?id=31416812 https://notes.eatonphil.com/distributed-postgres.html https://news.ycombinator.com/item?id=35246228
-* BYO https://eli.thegreenplace.net/2020/implementing-raft-part-1-elections/ https://github.com/streed/simpleRaft https://github.com/bbbilibili/raft-1----python https://github.com/erewok/raft-py https://github.com/xwhan/Raft-python
-* https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html https://www.micahlerner.com/2020/05/09/understanding-raft-consensus-part-2.html
-* https://www.confluent.io/blog/why-replace-zookeeper-with-kafka-raft-the-log-of-all-logs/
+* _distributed locks_: https://hazelcast.com/blog/long-live-distributed-locks/
+* _Lamport timestamp_: https://towardsdatascience.com/understanding-lamport-timestamps-with-pythons-multiprocessing-library-12a6427881c6
+* _Lamport clock_: https://martinfowler.com/articles/patterns-of-distributed-systems/lamport-clock.html
+* _Byzantine generals problem_: achieve consensus when some actors are unreliable https://en.wikipedia.org/wiki/Byzantine_fault
+* _Reed-Solomon_: way to protect messages against damage or partial arrival https://news.ycombinator.com/item?id=27491219
+* _semaphore_: synchronization primative, 类似 mutex/lock https://greenteapress.com/wp/semaphores/ https://danluu.com/programming-books/ https://en.wikipedia.org/wiki/Semaphore_(programming) https://sqlfordevs.com/transaction-locking-prevent-race-condition
+* on having more than one primary 📙 Bradshaw [243]
+* locks for task, Shedlock https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203061
+
+## consistency
+
+🧠 https://chatgpt.com/c/6717a9cd-1f04-8004-8686-4758cb6fe382
+
+* _sequential consistency_: everyone sees changes in the same order, but they might not see them at the exact same time
+* _strong consistency_: everyone sees the same data instantly
+* _eventual consistency_: when db gets write operation, responds w/ ack and then does write when it gets time, meaning one node could receive write, ack, write it, and then need time to propagate write to other nodes, which means during that time the system would be in a state of inconsistency
+* benefit: you can put lots of processing power behind your db so the walltime of inconsistent states should be very short; aka 'AP system' 📙 Conery 337-8
+
+---
+
+* https://jepsen.io/consistency
+* https://www.youtube.com/watch?v=rpqsSkTIdAw
+* eventually consistent = eventually corrupt https://www.youtube.com/watch?v=h8cyPIEfxQY 7:45
+* https://robertovitillo.com/what-every-developer-should-know-about-database-consistency/
+
+## CRDT
+
+---
 
 CONFLICT RESOLUTION
 * _operational transform_: funnel changes through central server, this is what Google Docs uses, a bunch of algorithms have been applied and found to fail
@@ -392,29 +419,22 @@ foo-conflict-20240705-0981234.md
 ```
 * syncing with CRDT https://tonsky.me/blog/crdt-filesync/
 > We can solve conflicts by opening both files, merging states, and saving back to the original file.
-* BYO https://github.com/tonsky/crdt-filesync https://automerge.org/
+* BYO https://github.com/tonsky/crdt-filesync https://automerge.org/ https://github.com/jackyzha0/bft-json-crdt
 * https://www.thoughtworks.com/radar/languages-and-frameworks/electric
 
 more crdt
-* https://softwareengineeringdaily.com/2017/12/08/decentralized-objects-with-martin-kleppman/ https://www.inkandswitch.com/local-first.html https://github.com/xi-editor/xi-editor/issues/1187#issuecomment-491473599 https://news.ycombinator.com/item?id=37764581 https://martin.Kleppmann.com/2020/07/06/crdt-hard-parts-hydra.html https://caolan.uk/articles/inside-a-collaborative-text-editor/ vs OT (operational transformations) https://news.ycombinator.com/item?id=24176455 https://news.ycombinator.com/item?id=24617542 https://news.ycombinator.com/item?id=24790170 https://www.youtube.com/watch?v=Paau_t0aZKw https://automerge.org/ https://vlcn.io/blog/gentle-intro-to-crdts.html https://github.com/alangibson/awesome-crdt
+* https://softwareengineeringdaily.com/2017/12/08/decentralized-objects-with-martin-kleppman/ https://www.inkandswitch.com/local-first.html https://github.com/xi-editor/xi-editor/issues/1187#issuecomment-491473599 https://news.ycombinator.com/item?id=37764581 https://martin.Kleppmann.com/2020/07/06/crdt-hard-parts-hydra.html https://caolan.uk/articles/inside-a-collaborative-text-editor/ vs OT (operational transformations) https://news.ycombinator.com/item?id=24176455 https://news.ycombinator.com/item?id=24617542 https://news.ycombinator.com/item?id=24790170 https://www.youtube.com/watch?v=Paau_t0aZKw https://automerge.org/ https://vlcn.io/blog/gentle-intro-to-crdts.html https://github.com/alangibson/awesome-crdt https://github.com/jackyzha0/bft-json-crdt
 
-* https://lethain.com/distributed-systems-vocabulary/
-* _distributed locks_: https://hazelcast.com/blog/long-live-distributed-locks/
-* _Lamport timestamp_: https://towardsdatascience.com/understanding-lamport-timestamps-with-pythons-multiprocessing-library-12a6427881c6
-* _Lamport clock_: https://martinfowler.com/articles/patterns-of-distributed-systems/lamport-clock.html
-* _Byzantine generals problem_: achieve consensus when some actors are unreliable https://en.wikipedia.org/wiki/Byzantine_fault
-* _Reed-Solomon_: way to protect messages against damage or partial arrival https://news.ycombinator.com/item?id=27491219
-* _semaphore_: synchronization primative, 类似 mutex/lock https://greenteapress.com/wp/semaphores/ https://danluu.com/programming-books/ https://en.wikipedia.org/wiki/Semaphore_(programming) https://sqlfordevs.com/transaction-locking-prevent-race-condition
-* on having more than one primary 📙 Bradshaw [243]
-* locks for task, Shedlock https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203061
-* https://robertovitillo.com/what-every-developer-should-know-about-database-consistency/ https://news.ycombinator.com/item?id=28425379
-* _eventual consistency_: when db gets write operation, responds w/ ack and then does write when it gets time, meaning one node could receive write, ack, write it, and then need time to propagate write to other nodes, which means during that time the system would be in a state of inconsistency; benefit is that distributed system means you can put lots of processing power behind your db so the walltime of inconsistent states should be very short; aka 'AP system' 📙 Conery 337-8
-> https://www.youtube.com/watch?v=rpqsSkTIdAw
-> eventually consistent = eventually corrupt https://www.youtube.com/watch?v=h8cyPIEfxQY 7:45
-* https://nchammas.com/writing/database-access-patterns
-* _new SQL_: relational semantics + non-relational scaling
-* more resistant to CAP theory resistant SQL i.e. seems to shard more finely so that in network partition some very high % of cluster can remain available i.e. trade-off still there just minimized to the point that most users won't notice https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37
-* dbms: Cockroach https://www.openmymind.net/Migrating-To-CockroachDB/ Spanner, Rethink https://brandur.org/cloud-databases distributed https://github.com/erikgrinaker/toydb https://github.com/rqlite/rqlite https://github.com/maxpert/marmot
+## Raft
+
+---
+
+* _leader election_: Raft algorithm https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html Paxos https://news.ycombinator.com/item?id=24906225
+Raft https://raft.github.io/
+* start here https://pyvideo.org/pygotham-2017/an-introduction-to-the-raft-distributed-consensus-algorithm.html https://news.ycombinator.com/item?id=31416812 https://notes.eatonphil.com/distributed-postgres.html https://news.ycombinator.com/item?id=35246228
+* BYO https://eli.thegreenplace.net/2020/implementing-raft-part-1-elections/ https://github.com/streed/simpleRaft https://github.com/bbbilibili/raft-1----python https://github.com/erewok/raft-py https://github.com/xwhan/Raft-python https://github.com/jackyzha0/miniraft
+* https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html https://www.micahlerner.com/2020/05/09/understanding-raft-consensus-part-2.html
+* https://www.confluent.io/blog/why-replace-zookeeper-with-kafka-raft-the-log-of-all-logs/
 
 ## service discovery
 

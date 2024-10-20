@@ -23,6 +23,13 @@
 * Eloquent Javascript
 * https://keleshev.com/compiling-to-assembly-from-scratch/
 
+SEMANTICS
+* _compiler_: src -> machine code https://www.youtube.com/watch?v=QdnxjYj1pS0
+* misused http://coconut-lang.org/
+* _transpile_: src -> another HLA
+* e.g. Typescript to JS
+* e.g. current JS version to previous ECMAScript spec for older browser e.g. Babel https://www.vrk.dev/2019/07/11/why-is-modern-web-development-so-complicated-a-long-yet-hasty-explanation-part-1/
+
 ---
 
 TYPES OF COMPILATION
@@ -45,9 +52,6 @@ COMPILERS
 * _LLVM_: from source to IR, then optimize IR https://aosabook.org/en/v1/llvm.html
 
 SEMANTICS
-* _compiler_: src code -> machine code https://www.youtube.com/watch?v=QdnxjYj1pS0
-* _transpile_: convert from one HLA to another http://coconut-lang.org/
-* in JS world, to previous ECMAScript spec for older browser e.g. Babel https://www.vrk.dev/2019/07/11/why-is-modern-web-development-so-complicated-a-long-yet-hasty-explanation-part-1/
 * _hot reload_: change program while it runs http://www.jakubkonka.com/2022/03/16/hcs-zig.html
 * _inline cache_: https://en.wikipedia.org/wiki/Inline_caching https://bernsteinbear.com/blog/inline-caches-in-skybison/
 
@@ -159,7 +163,63 @@ define    calculate        run area_of_circle
 ```
 * _grammar_: rules for language's AST https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework#parsing-the-code
 * FFI parser https://scottlocklin.wordpress.com/2021/04/01/obvious-and-possible-software-innovations-nobody-does/
-* FFI, JNI https://news.ycombinator.com/item?id=31353740
+* FFI, JNI https://news.ycombinator.com/item?id=31353740 https://github.com/replit/ruspty
+
+## ctags
+
+📙 Neil practical ch. 16
+
+---
+
+> The previously mentioned tag mechanism also works for jumping between files. The usual approach is to generate a tags file for the whole project you are working on. You can then quickly jump between all files in the project to find the definitions of functions, structures, typedefs, etc. The time you save compared with manually searching is tremendous; creating a tags file is the first thing I do when browsing a program. https://www.moolenaar.net/habits.html
+> Include files contain useful information. But finding the one that contains the declaration you need to see can take a lot of time. Vim knows about include files, and can search them for a word you are looking for. The most common action is to lookup the prototype of a function. Position the cursor on the name of the function in your file and type [I: Vim will show a list of all matches for the function name in included files. If you need to see more context, you can directly jump to the declaration. A similar command can be used to check if you did include the right header files. https://www.moolenaar.net/habits.html
+* _tag_: scope-defining keywords in your programming language https://www.youtube.com/watch?v=XA2WjJbmmoM 3:50
+* _ctags_: index of tags https://en.wikipedia.org/wiki/Ctags https://www.youtube.com/watch?v=JWD1Fpdd4Pc&t=338s 7:30 🗄 `db.md` index
+
+https://github.com/iggredible/Learn-Vim/blob/master/ch16_tags.md
+https://www.youtube.com/playlist?list=WL
+https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-2g28
+* exuberant
+* gutentags
+* recently access tags
+* ctags impl https://github.com/universal-ctags/ctags
+* https://www.semicolonandsons.com/episode/Fluent-File-Navigation
+* JetBrains just better at refactoring? https://news.ycombinator.com/item?id=34072714
+* text expander https://github.com/espanso/espanso
+* LSP https://news.ycombinator.com/item?id=34070458 https://news.ycombinator.com/item?id=37020610
+* YouCompleteMe https://realpython.com/vim-and-python-a-match-made-in-heaven/#auto-complete 
+* https://www.youtube.com/watch?v=XA2WjJbmmoM 24:30
+* https://github.com/neoclide/coc.nvim https://www.youtube.com/watch?v=gnupOrSEikQ
+* https://stackoverflow.com/questions/905005/python-and-intellisense https://www.youtube.com/watch?v=2f8h45YR494 https://www.youtube.com/watch?v=2f8h45YR494 https://www.youtube.com/watch?v=ZzyY_9SMfeY https://pmihaylov.com/vim-for-go-development/
+* comby, sourcegraph https://comby.dev/ https://www.thoughtworks.com/radar/tools?blipid=202110077
+* https://news.ycombinator.com/item?id=30819579
+* https://www.youtube.com/watch?v=4f3AENLrdYo 
+* https://www.youtube.com/watch?v=XA2WjJbmmoM 16:15
+* https://www.youtube.com/watch?v=MP-FxMl0frk
+* https://thoughtbot.com/upcase/navigating-ruby-files-with-vim
+* https://thoughtbot.com/upcase/vim
+* https://vimtricks.substack.com/p/vimtrick-open-file-to-line
+* https://vimtricks.substack.com/p/vimtrick-open-to-a-pattern
+* https://github.blog/2021-12-09-introducing-stack-graphs/
+
+## LSP
+
+---
+
+* _language server_: provides editor with code completion, syntax highlighting https://github.com/echasnovski/mini.nvim#general-principles
+* enables: analysis, completion, navigation, linting https://www.youtube.com/watch?v=3a1PCir_aHs 0:40
+* _pylance_: closed source, uses pyright https://github.com/microsoft/pylance-release/issues/4
+* _pyright_: type checker https://github.com/microsoft/pyright
+* _pylyzer_: pyright but better? https://github.com/mtshiba/pylyzer https://news.ycombinator.com/item?id=41305941
+* _vanilla_: OSS https://github.com/microsoft/python-language-server
+* _jedi_: https://github.com/davidhalter/jedi https://www.pythonpodcast.com/episode-113-jedi-code-completion-with-david-halter/ 
+* _LSP_: protocol for language servers and editors https://en.wikipedia.org/wiki/Language_Server_Protocol 📙 Neil modern [127]
+* client = editor impl LSP, server = provides language info https://www.youtube.com/watch?v=C9X5VF9ASac 2:30
+* created by Microsoft and RedHat https://www.youtube.com/watch?v=C9X5VF9ASac 1:15
+* used as a synonym for language server https://www.youtube.com/watch?v=OhnLevLpGB4 2:35
+* JetBrains has their own version of this https://news.ycombinator.com/item?id=33211373 https://blog.jetbrains.com/platform/2023/07/lsp-for-plugin-developers/
+* Sourcegraph LSP https://sourcegraph.com/blog/the-self-driving-ide-is-coming
+* BYO https://www.youtube.com/watch?v=jo3IChyh09U&list=WL
 
 ## spec
 
@@ -194,10 +254,20 @@ tokens = {
 
 # 📚 LANGUAGES
 
-> an algorithm management system 📰 Ford what is code?
-> We can see that Brooks' 1986 claim that we've basically captured all the productivity gains high-level languages can provide isn't too different from an assembly language programmer saying the same thing in 1955, thinking that assembly is as good as any language can be. https://danluu.com/essential-complexity/#summary
+* _APL_: https://mathspp.com/blog/what-learning-apl-taught-me-about-python
+* _C++_: https://ccc.codes/ https://github.com/green7ea/cpp-compilation http://esr.ibiblio.org/?p=7724 people hate C++ https://news.ycombinator.com/item?id=33436268 https://borretti.me/article/simplicity-and-survival https://news.ycombinator.com/item?id=34588340 https://news.ycombinator.com/item?id=34643530
+* with Alpine https://news.ycombinator.com/item?id=34365515
+* _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/  https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/
+* _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
+* _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
+* _Prolog_: https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/
+* _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter
+* _Scala_: used for Lichess https://news.ycombinator.com/item?id=28479697 https://www.youtube.com/watch?v=7VSVfQcaxFY https://www.scala-lang.org/
 
-HISTORY https://increment.com/programming-languages/language-history/
+## history
+
+https://increment.com/programming-languages/language-history/
+
 * _1957_: Fortran (IBM); still the best for math https://news.ycombinator.com/item?id=14498904 Python better? https://cerfacs.fr/coop/fortran-vs-python role in Python https://labs.quansight.org/blog/building-scipy-with-flang
 * _1958_: Lisp (MIT)
 * _1959_: Cobol; process transactions
@@ -211,52 +281,23 @@ HISTORY https://increment.com/programming-languages/language-history/
 * _2015_: Rust
 * _2016_: Zig
 
-🇧🇷 LUA https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua https://nvchad.com/docs/quickstart/learn-lua
-* pkg mgmt https://luarocks.org/
-* filepaths: use `.` separator, will handle forward/backslash on Linux, Windows https://www.youtube.com/watch?v=prnrwpOEsmo 9:45
-* functions: can omit parens if passing string or table as a single arg https://www.youtube.com/watch?v=prnrwpOEsmo 10:15
-* colons https://www.youtube.com/watch?v=prnrwpOEsmo 13:00
-* syntax = Python + `end`
-* small stdlib https://news.ycombinator.com/item?id=3535382
-* libraries https://luarocks.org/
-* for binaries https://news.ycombinator.com/item?id=10974870
-* easy to embed https://news.ycombinator.com/item?id=3534746
-* not backwards compatibile bc don't keep previous mistakes around https://news.ycombinator.com/item?id=3535382
-* people like? https://news.ycombinator.com/item?id=40538540
-* multiple compilers https://news.ycombinator.com/item?id=23686297
+## stdlib
 
-🐪 OCAML 📜 https://ocaml.org/
-* guide https://crmarsh.com/intro-to-ocaml/
-* dev env https://crmarsh.com/ocaml-dev-environment/
-* design: part of ML family tree, related to F# https://en.wikipedia.org/wiki/ML_(programming_language)
-* written in: Google Drive FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace#Remote/distributed_file_system_clients
+---
 
-🔤 R
-* language for stats https://walker-data.com/census-r/index.html
-* _CRAN_: where you download R itself and also (?) R packages https://cran.r-project.org/
-* _packrat_: pkg manager https://rstudio.github.io/packrat/
-* _RStudio_: IDE
-* _tidyverse_: https://www.tidyverse.org/index.html
-* clean https://github.com/sfirke/janitor https://tidyr.tidyverse.org https://tidyr.tidyverse.org/articles/tidy-data.html
-* functional https://purrr.tidyverse.org/
-* string pattern match https://stringr.tidyverse.org/
-* plot https://ggplot2.tidyverse.org/ grammar of graphics https://plotnine.org/
-* dataframes https://tibble.tidyverse.org/
+> an algorithm management system 📰 Ford what is code?
+* builtin: hot reload, lint, fmt, http https://www.youtube.com/watch?v=8IHhvkaVqVE
+* things people don't like and replacements https://news.ycombinator.com/item?id=25125034
+* Fred Brooks very wrong about dev tooling https://twitter.com/danluu/status/1343898148863762435 https://varnish-cache.org/docs/6.2/phk/thatslow.html https://www.newyorker.com/magazine/2018/11/12/why-doctors-hate-their-computers https://www.hillelwayne.com/post/learning-a-language/ https://news.ycombinator.com/item?id=24123372 🗄️ Brooks Law
+> We can see that Brooks' 1986 claim that we've basically captured all the productivity gains high-level languages can provide isn't too different from an assembly language programmer saying the same thing in 1955, thinking that assembly is as good as any language can be. https://danluu.com/essential-complexity/#summary
 
-ZA
-* _APL_: https://mathspp.com/blog/what-learning-apl-taught-me-about-python
-* _C++_: https://ccc.codes/ https://github.com/green7ea/cpp-compilation http://esr.ibiblio.org/?p=7724 people hate C++ https://news.ycombinator.com/item?id=33436268 https://borretti.me/article/simplicity-and-survival https://news.ycombinator.com/item?id=34588340 https://news.ycombinator.com/item?id=34643530
-* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html
-* with Alpine https://news.ycombinator.com/item?id=34365515
-* _Haskell_: https://learnyouahaskell.com/ https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
-* _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/  https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/
-* _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
-* _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
-* _Prolog_: https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/
-* _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter
-* _Scala_: used for Lichess https://news.ycombinator.com/item?id=28479697 https://www.youtube.com/watch?v=7VSVfQcaxFY https://www.scala-lang.org/
-
-## assembly
+* stdlib https://borretti.me/article/languages-not-ecosystems
+> Ruby missed the boat because Matz thinks developer happiness is purely about the language and they missed that it’s more and more about the tooling. https://registerspill.thorstenball.com/p/joy-and-curiosity-10
+> 99.5% of programming consists of gluing together calls to library functions. All popular languages are equally good at this. So one can easily spend one's whole career operating in the intersection of popular programming languages. http://paulgraham.com/weird.html
+> The true measure of a language isn’t how it uses semicolons; it’s the standard library of each language. - Ford what is code?
+> I think a lot of the advances that happen in programming languages in the next fifty years will have to do with library functions. I think future programming languages will have libraries that are as carefully designed as the core language. Programming language design will not be about whether to make your language strongly or weakly typed, or object oriented, or functional, or whatever, but about how to design great libraries. The kind of language designers who like to think about how to design type systems may shudder at this. It's almost like writing applications! Too bad. Languages are for programmers, and libraries are what programmers need. - http://paulgraham.com/popular.html
+> The open source JS ecosystem, though, has soooooo many folks working on it that you can almost always find something you need. Certainly compared to something like Java, which has a couple "800 pound gorilla" projects, but then it falls off pretty quickly. https://news.ycombinator.com/item?id=31996232
+## 🧱 assembly
 
 🔗 https://github.com/hackclub/some-assembly-required
 📚
@@ -274,7 +315,7 @@ https://wizardzines.com/comics/assembly/
 * _HLA (high-level assembly)_: just a Randall Hyde thing https://news.ycombinator.com/item?id=7143409
 * https://news.ycombinator.com/item?id=26311722
 
-## C
+## 🔤 C
 
 📹 https://www.youtube.com/c/JacobSorber/videos
 📚
@@ -336,7 +377,17 @@ under the hood
 * _undefined behavior_: when an error happens but it's not thrown i.e. `TypeError` in Python might be mean the compiler just chugging along in C https://blog.regehr.org/archives/213 https://news.ycombinator.com/item?id=24363573
 * call Python from C http://eradman.com/posts/extending-c-python.html
 
-## Java
+## 👾 Elixir
+
+https://elixir-lang.org/
+https://en.wikipedia.org/wiki/Elixir_(programming_language)
+* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html https://github.com/sile/erldash
+
+## 🐘 Haskell
+
+* https://learnyouahaskell.com/ https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
+
+## ☕️ Java
 
 * abstraction run wild https://news.ycombinator.com/item?id=8420314
 * Flask for Java https://javalin.io/
@@ -434,7 +485,11 @@ SPRING
 * `@Entity`: tells JPA to map class to table https://stackoverflow.com/a/29333628/6813490
 * `@Value`: pull in V from `.properties` into class
 
-## Lisp
+## 👽 Lisp
+
+📚
+* Barski land of lisp
+* Sussman sicp https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
 
 LANGUAGE
 * little syntax https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
@@ -445,8 +500,6 @@ ZA
 * embedded in Python https://news.ycombinator.com/item?id=33600941
 
 ---
-
-📙 SICP https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
 
 ZA
 * Hofstadter https://gist.github.com/jackrusher/5139396
@@ -478,14 +531,65 @@ LANGUAGE https://tryclojure.org/
 * no loops https://www.lvguowei.me/post/sicp-goodness-looping/
 * prefix notation: operator comes first https://www.braveclojure.com/getting-started/
 
-## Rust
+## 🇧🇷 Lua
 
 ---
 
+https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua https://nvchad.com/docs/quickstart/learn-lua
+
+* pkg mgmt https://luarocks.org/
+* filepaths: use `.` separator, will handle forward/backslash on Linux, Windows https://www.youtube.com/watch?v=prnrwpOEsmo 9:45
+* functions: can omit parens if passing string or table as a single arg https://www.youtube.com/watch?v=prnrwpOEsmo 10:15
+* colons https://www.youtube.com/watch?v=prnrwpOEsmo 13:00
+* syntax = Python + `end`
+* small stdlib https://news.ycombinator.com/item?id=3535382
+* libraries https://luarocks.org/
+* for binaries https://news.ycombinator.com/item?id=10974870
+* easy to embed https://news.ycombinator.com/item?id=3534746
+* not backwards compatibile bc don't keep previous mistakes around https://news.ycombinator.com/item?id=3535382
+* people like? https://news.ycombinator.com/item?id=40538540
+* multiple compilers https://news.ycombinator.com/item?id=23686297
+
+## 🐪 OCaml
+
+📜 https://ocaml.org/
+
+* guide https://crmarsh.com/intro-to-ocaml/
+* dev env https://crmarsh.com/ocaml-dev-environment/
+* design: part of ML family tree, related to F# https://en.wikipedia.org/wiki/ML_(programming_language)
+* written in: Google Drive FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace#Remote/distributed_file_system_clients
+
+## 🔤 R
+
+* language for stats https://walker-data.com/census-r/index.html
+* run inside Python
+* _CRAN_: where you download R itself and also (?) R packages https://cran.r-project.org/
+* _packrat_: pkg manager https://rstudio.github.io/packrat/
+* _RStudio_: IDE
+* _tidyverse_: https://www.tidyverse.org/index.html
+* clean https://github.com/sfirke/janitor https://tidyr.tidyverse.org https://tidyr.tidyverse.org/articles/tidy-data.html
+* functional https://purrr.tidyverse.org/
+* string pattern match https://stringr.tidyverse.org/
+* plot https://ggplot2.tidyverse.org/ grammar of graphics https://plotnine.org/
+* dataframes https://tibble.tidyverse.org/
+
+## 🦀 Rust
+
+CODEBASES TO LEARN FROM
+* tests with the source code https://github.com/b1rger/carl
+* https://github.com/lusingander/serie
 * not so hard to read after all https://github.com/raphlinus/font-rs/blob/master/src/accumulate.rs
+
+PROJECT STRUCTURE
+* https://github.com/raphlinus/font-rs
+* https://github.com/b1rger/carl
 
 STDLIB
 * GUI https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html
+* TUI: https://github.com/ratatui-org/ratatui cursive https://github.com/gyscos/cursive https://github.com/Builditluc/wiki-tui https://github.com/fdehau/tui-rs https://github.com/lusingander/stu
+> seems like ratatui won
+
+---
 
 https://simonwillison.net/tags/rust/
 https://chrisdone.com/posts/rust/
@@ -504,7 +608,6 @@ https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUC
 * books https://news.ycombinator.com/item?id=34556318 https://github.com/plabayo/learn-rust-101/blob/main/README.md
 * CLI https://www.amazon.com/gp/product/1098109430/ref=ox_sc_act_title_1?smid=ATVPDKIKX0DER&psc=1
 * web https://tech.marksblogg.com/poem-rust-web-framework.html https://tech.marksblogg.com/actix-rust-web-framework.html https://tech.marksblogg.com/rocket-rust-web-framework.html https://www.shuttle.rs/blog/2023/09/27/rust-vs-go-comparison
-* TUI https://github.com/gyscos/Cursive https://github.com/fdehau/tui-rs https://github.com/ratatui-org/ratatui https://github.com/lusingander/stu
 * vs. Golang https://news.ycombinator.com/item?id=31205072
 * doesn't have a spec https://drewdevault.com/2019/03/25/Rust-is-not-a-good-C-replacement.html
 * big learning curve https://news.ycombinator.com/item?id=30627667
@@ -515,7 +618,7 @@ https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUC
 * what people love: packaging, DX https://stackoverflow.blog/2020/06/05/why-the-developers-who-use-rust-love-it-so-much parallelization https://news.ycombinator.com/item?id=26443768 CLI (jless) https://news.ycombinator.com/item?id=30273940 correctness
 > [invariant violation] At point A, there's some assumption, and way over there at point B, that assumption is violated... Type systems prevent some invariant violations. Because that works, there are ongoing attempts to extend type systems to prevent still more invariant violations. That creates another layer of confusing abstraction. Some invariants are not well represented as types, and trying makes for a bad fit. What you're really trying to do is to substitute manual specification of attributes for global analysis. The Rust borrow checker is an invariant enforcer. It explicitly does automatic global analysis, and reports explicitly that what's going on at point B is inconsistent with what point A needs. This is real progress in programming language design, and is Rust's main contribution. https://news.ycombinator.com/item?id=29996240
 
-## Zig
+## ⚡️ Zig
 
 https://ziglang.org/
 
@@ -701,12 +804,6 @@ COMMUNITY
 * Java developers have high pain tolerances https://news.ycombinator.com/item?id=25124513
 > The wrong people like it. The programmers I admire most are not, on the whole, captivated by Java. http://www.paulgraham.com/javacover.html
 > Language users do not miss conveniences that they have never had access to in the first place. Those few bi-cultural citizens who function in both Chinese-character and alphabetic worlds are aware of the advantages conferred by the alphabet, but even these people soon get used to the differences, which slip below the level of consciousness, unremarked and unlamented...in virtually every informatic context, from library card catalogs to everyday user's manuals, the relatively cumbersome Chinese writing system exerts a low-level but constant drag force on productivity 📝 Moser invisible writing
-* stdlib https://borretti.me/article/languages-not-ecosystems
-> Ruby missed the boat because Matz thinks developer happiness is purely about the language and they missed that it’s more and more about the tooling. https://registerspill.thorstenball.com/p/joy-and-curiosity-10
-> 99.5% of programming consists of gluing together calls to library functions. All popular languages are equally good at this. So one can easily spend one's whole career operating in the intersection of popular programming languages. http://paulgraham.com/weird.html
-> The true measure of a language isn’t how it uses semicolons; it’s the standard library of each language. - Ford what is code?
-> I think a lot of the advances that happen in programming languages in the next fifty years will have to do with library functions. I think future programming languages will have libraries that are as carefully designed as the core language. Programming language design will not be about whether to make your language strongly or weakly typed, or object oriented, or functional, or whatever, but about how to design great libraries. The kind of language designers who like to think about how to design type systems may shudder at this. It's almost like writing applications! Too bad. Languages are for programmers, and libraries are what programmers need. - http://paulgraham.com/popular.html
-> The open source JS ecosystem, though, has soooooo many folks working on it that you can almost always find something you need. Certainly compared to something like Java, which has a couple "800 pound gorilla" projects, but then it falls off pretty quickly. https://news.ycombinator.com/item?id=31996232
 
 HOWTO
 * development speed vs. execution speed https://bitfieldconsulting.com/golang/rust-vs-go
@@ -723,6 +820,7 @@ HOWTO
 
 SYSTEMS PROGRAMMING
 * languages: C, C++, Rust
+* Golang for containers https://github.com/sablierapp/sablier
 * things people write with: dbms, web server, compiler, shell https://drewdevault.com/2021/05/30/Come-build-your-project.html
 * fuzzy definition http://willcrichton.net/notes/systems-programming/ https://news.ycombinator.com/item?id=35092049
 * memory management now in favor http://esr.ibiblio.org/?p=7804
@@ -994,6 +1092,67 @@ learn a few languages well
 when you really love your favorite language 💜
 > My favorite programming language is C. It’s fast, simple, and compiles very quickly. Unlike many other languages, it’s quite reasonable for an individual to have a comprehensive understanding of the entire language. C is my default choice unless something else is particularly better suited (Python, shell script, etc.). There’s also a special place in my heart for Emacs Lisp, a venerable goofball language that’s so much fun to discuss. https://nullprogram.com/about/
 
+## concurrency
+
+📙 Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
+🗄
+* `golang.md` concurrency
+* `infra.md` queues
+* `linux.md` threads
+* `python.md` concurrency
+*️ `architecture/system.md` distributed > consensus
+
+BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
+* why: WebSockets https://channels.readthedocs.io/en/latest/
+* why not: hard to reason about, just use a queue or a WebSockets server https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
+
+---
+
+https://threedots.tech/post/go-test-parallelism/
+
+* MVCC https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html
+* async IO https://registerspill.thorstenball.com/p/joy-and-curiosity-7
+* _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
+* clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep
+* _callback_: another func to call after func finishes execution 🗄 `application.md` webhook
+* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/59370383#59370383
+* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/48530284#48530284
+* imperative programming fundamentally about order, which makes concurrency hard https://softwareengineeringdaily.com/2020/05/28/distributed-systems-research-with-peter-alvaro/ 7:00
+* concurrency is nearly always a bad idea https://www.arp242.net/go-easy.html
+* [concurrency != parallelism](https://blog.golang.org/concurrency-is-not-parallelism)
+* [multi-threading != parallelism](https://stackoverflow.com/a/806506/6813490) https://news.ycombinator.com/item?id=4495305
+* https://news.ycombinator.com/item?id=23496994
+* _sleeping barber problem_ http://kachayev.github.io/talks/kharkivpy%230/#/
+* reactive in Python https://blog.oakbits.com/introduction-to-rxpy.html
+* [the guy who wrote SQLAlchemy thinks async is kinda bs](https://news.ycombinator.com/item?id=18113889) + https://techspot.zzzeek.org/2015/02/15/asynchronous-python-and-databases/
+* https://return.co.de/blog/articles/dont-drink-too-much-reactive-cool-aid/
+* [asyncio problems](https://www.roguelynn.com/words/asyncio-we-did-it-wrong/)
+* most (web) things are bound by network, not CPU https://talkpython.fm/episodes/show/225/can-subinterpreters-free-us-from-python-s-gil
+* concurrency is a bad thing https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
+
+GOLANG
+* _goroutine_: thread but... https://github.com/uber-go/goleak
+scheduled by Go runtime instead of OS
+* 2KB vs. 1MB for OS thread [ibid @ 1:10]
+* _channels_: communication between go routines [‘Go in Action’ 1.1.2]
+```golang
+# _defer_: execute after surrounding code block returns
+func hey() {
+	defer fmt.Println("world")
+	fmt.Println("hello")
+}
+
+# _mutex_: only one goroutine can 
+func hi() {
+    mutex.Lock() 
+    defer mutex.Unlock()
+    x = x + 1
+}
+```
+* https://threedots.tech/post/go-test-parallelism/
+* vs. concurrency in other languages https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
+* http://www.doxsey.net/blog/go-concurrency-from-the-ground-up https://rcoh.me/posts/why-you-can-have-a-million-go-routines-but-only-1000-java-threads/ https://utcc.utoronto.ca/~cks/space/blog/programming/GoConcurrencyStillNotEasy https://divan.dev/posts/go_concurrency_visualize/
+
 ## control flow
 
 CONDITIONALS
@@ -1082,8 +1241,3 @@ ARITHMATIC
 * _increment_: `++`
 * _infix_: multiplication `*` exponentiation `**` https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/ 🗄 `python.md`
 * += https://stackoverflow.com/a/7456548
-
-## stdlib
-
-* builtin: hot reload, lint, fmt, http https://www.youtube.com/watch?v=8IHhvkaVqVE
-* things people don't like and replacements https://news.ycombinator.com/item?id=25125034

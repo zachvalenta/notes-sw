@@ -103,12 +103,17 @@ ALTERNATIVES
 
 ## project structure
 
+🔍 email to Robert Heaton
+🗄️
+* `golang.md` project structure
+* `plt.md` Rust
+
 ---
 
 * dupe https://github.com/simonw/files-to-prompt
-* compared to Rust https://github.com/raphlinus/font-rs
 * https://github.com/fpgmaas/cookiecutter-uv
-* _publish_: Flit, Poetry, Twine https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:00
+
+https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
 
 https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.html
 
@@ -124,6 +129,19 @@ https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.h
 * lockfile https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
 * https://www.youtube.com/watch?v=niMybnzmzqc
 * https://www.youtube.com/watch?v=dlCcnJdh4c4
+
+## publish
+
+---
+
+* `MANIFEST.ini` https://chatgpt.com/c/67181d59-63f4-8004-ba67-ff251c9cb141
+* Flit, Poetry, Twine https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:00
+* fork https://github.com/zachvalenta/anytree https://github.com/zachvalenta/capp-prod-cat-alt
+```toml
+[tool.poetry.dependencies]
+python = "^3.12"
+anytree = {git = "https://github.com/zachvalenta/anytree.git"}
+```
 
 # 📦 MGMT
 
@@ -171,6 +189,7 @@ freeze --user > $FILE  # per user
 
 ---
 
+* freeze alternative https://github.com/bndr/pipreqs
 * install from lockfile: `pip install -r requirements.txt`; run from inside activated virtualenv
 * uninstall from requirements: `pip uninstall -r requirements.txt -y` https://stackoverflow.com/a/53032141
 * require venv: `PIP_REQUIRE_VIRTUALENV=true` https://docs.python-guide.org/dev/pip-virtualenv/#requiring-an-active-virtual-environment-for-pip

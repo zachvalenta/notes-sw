@@ -32,6 +32,7 @@
 * public key cryptography [MacCormick 4] https://austinvernon.eth.link/blog/pkexamples.html https://austinvernon.eth.link/blog/publickey.html
 * https://nostarch.com/hacks-leaks-and-revelations
 * EDR endpoint detection https://nostarch.com/evading-edr
+* disclosures https://news.ycombinator.com/item?id=41916246
 
 things to know https://www.netmeister.org/blog/infosec-competencies.html https://jacobian.org/2021/jul/8/appsec-pagnis https://latacora.github.io/careers/
 
@@ -187,6 +188,7 @@ https://github.com/FiloSottile/age
 * AES-256 SHA256 https://hackernoon.com/very-basic-intro-to-aes-256-cipher-qxr32yk https://github.com/in3rsha/sha256-animation https://github.com/karpathy/cryptos https://sha256algorithm.com/ https://news.ycombinator.com/item?id=30244534 BYO SHA256 https://github.com/oconnor663/sha256_project https://github.com/francisrstokes/githublog/blob/main/2022/6/15/rolling-your-own-crypto-aes.md
 * E4M (Paul Le Roux) was the basis for True Crypt https://news.ycombinator.com/item?id=11381625 Ptacek audited True Crypt https://news.ycombinator.com/item?id=9069295
 * file encryption https://github.com/skeeto/enchive
+* verify content https://www.youtube.com/watch?v=KpwCP1Xil-Q
 * _PGP (Pretty Good Privacy)_: encryption for email; limited adoption https://latacora.micro.blog/2019/07/16/the-pgp-problem.html
 * _Age_: https://github.com/FiloSottile/age https://www.youtube.com/watch?v=AAUJjwdCx4I 1:40
 * _OTR_: https://robertheaton.com/otr1
@@ -253,6 +255,7 @@ pass
 https://roadmap.sh/backend
 https://github.com/goauthentik/authentik
 https://github.com/lucia-auth/lucia/discussions/1707 https://news.ycombinator.com/item?id=41801883
+https://sso.tax/
 
 vocab
 https://ntietz.com/blog/lets-say-instead-of-auth/
@@ -394,10 +397,14 @@ tracking w/ cookies
 
 ---
 
+PAK/PAKE https://en.wikipedia.org/wiki/Password-authenticated_key_agreement https://github.com/schollz/croc https://en.wikipedia.org/wiki/Pake
+
+macOS keychain https://chatgpt.com/c/67169518-4498-8004-9299-20713115c9e9
+
 * _passkey_: https://world.hey.com/dhh/passwords-have-problems-but-passkeys-have-more-95285df9
 
 PASSWORD MANAGER
-* _Bitwarden_: has a CLI
+* _Bitwarden_: has a CLI; alternative https://github.com/AChep/keyguard-app
 * _gopass_: pass fork
 * _himitsu_: https://drewdevault.com/2022/06/20/Himitsu.html
 * _keyring_: https://rutar.org/writing/managing-secrets-from-the-command-line/

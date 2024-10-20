@@ -25,6 +25,7 @@ BASICS 📙 Ball
 
 # 📝 LANG
 
+🗄️ `plt.md` concurrency
 📜
 * https://github.com/uber-go/guide/blob/master/style.md
 * https://golang.org/doc/effective_go.html
@@ -60,33 +61,6 @@ type Book struct {
     Author string `json: "author"`
 }
 ```
-
-## concurrency
-
----
-
-SEMANTICS
-* _goroutine_: thread but... https://github.com/uber-go/goleak
-scheduled by Go runtime instead of OS
-* 2KB vs. 1MB for OS thread [ibid @ 1:10]
-* _channels_: communication between go routines [‘Go in Action’ 1.1.2]
-```golang
-# _defer_: execute after surrounding code block returns
-func hey() {
-	defer fmt.Println("world")
-	fmt.Println("hello")
-}
-
-# _mutex_: only one goroutine can 
-func hi() {
-    mutex.Lock() 
-    defer mutex.Unlock()
-    x = x + 1
-}
-```
-
-* vs. concurrency in other languages https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
-* http://www.doxsey.net/blog/go-concurrency-from-the-ground-up https://rcoh.me/posts/why-you-can-have-a-million-go-routines-but-only-1000-java-threads/ https://utcc.utoronto.ca/~cks/space/blog/programming/GoConcurrencyStillNotEasy https://divan.dev/posts/go_concurrency_visualize/
 
 ## collections
 
@@ -190,6 +164,7 @@ var myInt // 0
 * _filesystem_: https://github.com/spf13/afero
 * _Git_: https://github.com/go-git/go-git
 * _GraphQL_: https://gqlgen.com/ https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
+* _GUI_: https://gioui.org/ https://anvil-editor.net/
 * _lint_: https://github.com/golangci/awesome-go-linters
 * _logging_ https://github.com/bloom42/rz-go https://github.com/charmbracelet/log
 * _Markdown_: https://github.com/yuin/goldmark
@@ -279,7 +254,6 @@ func main() {
 * https://github.com/go-chi/chi
 * vanilla https://eli.thegreenplace.net/2021/life-of-an-http-request-in-a-go-server/
 * _db_: `database/sql` (SQLAlchemy engine) gorm (SQLAlchemy ORM) https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://www.calhoun.io/using-postgresql-with-go  https://github.com/go-reform/reform https://entgo.io/ https://github.com/upper/db in mem KV https://github.com/sdslabs/kiwi generate SQL https://github.com/Masterminds/squirrel CLI https://upper.io/v4/ query builder https://github.com/doug-martin/goqu https://pboyd.io/posts/5-ways-to-write-a-go-database-model/
-* _internationalization (i18n)_: https://phrase.com/blog/posts/internationalization-i18n-go/ https://lokalise.com/automate-localization
 * _microservice_: https://github.com/micro/micro https://blog.m3o.com/2020/11/16/building-a-blog-with-micro.html
 * frameworks: Buffalo, Gin, Echo; hot reload for Gin https://github.com/cosmtrek/air https://github.com/go-goyave/goyave https://github.com/cloudwego/hertz
 * routing: https://benhoyt.com/writings/go-routing/
@@ -451,6 +425,9 @@ design, legacy
 > At the same time, allowing different major versions of a module (because they have different paths) gives module consumers the ability to upgrade to a new major version incrementally. In this example, we wanted to use quote.Concurrency from rsc/quote/v3 v3.1.0 but are not yet ready to migrate our uses of rsc.io/quote v1.5.2. The ability to migrate incrementally is especially important in a large program or codebase. - https://blog.golang.org/using-go-modules
 
 ## project structure
+
+https://github.com/jesseduffield/lazygit/tree/master/pkg
+https://www.bytesizego.com/blog/golang-internal-package
 
 > I wish there was a good place to learn “the other parts” of C++, the build systems, using static analyzers, testing, dependency management, etc. https://news.ycombinator.com/item?id=34229802
 

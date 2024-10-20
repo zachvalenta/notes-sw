@@ -166,6 +166,8 @@ This makes development much more involved than the traditional “flip a switch�
 
 ---
 
+https://github.com/xataio/pgroll
+https://xata.io/blog/migrations-and-exclusive-locks
 https://github.com/pressly/goose
 https://github.com/amacneil/dbmate#alternatives
 * SQLite https://news.ycombinator.com/item?id=31249823
@@ -899,17 +901,11 @@ DESIGN
 * _impedance mismatch_: difficulty of object-relational mapping [Kleppmann 1.33] multiple ways to aproach http://blogs.tedneward.com/post/the-vietnam-of-computer-science/
 > In the database community it has been conventional wisdom for nearly half a century now (basically since the invention of the relational model) that in designing your database schema you should be careful to avoid any kind of redundancy. That's what database normalization theory is all about. For some unfathomable reason, the same kind of thinking is never (or almost never) applied to software construction, even though it would be as beneficial (possibly even more so) as it is for databases. So, before we countinue our discussion, it's a good idea to talk a bit about redundancy, and to explain what's so harmful about it. https://www.cell-lang.net/relations.html
 
-OPTIONS
-* _dataset_: lightweight https://dataset.readthedocs.io/en/latest/index.html 
-* _orator_: from the guy who did Poetry https://github.com/sdispater/orator
-* _Peewee_: https://github.com/coleifer/peewee not for async https://fastapi.tiangolo.com/advanced/sql-databases-peewee/
-* _SQLmodel_: SQLAlchemy wrapper https://github.com/tiangolo/sqlmodel
-* _sqlc_: https://github.com/sqlc-dev/sqlc
-* _Tortoise_: async https://github.com/tortoise/tortoise-orm
-
 ## API / code gen
 
 🗄️ `src.md` API
+
+---
 
 * https://github.com/directus/directus
 * Postgrest https://github.com/PostgREST/postgrest https://news.ycombinator.com/item?id=30132947 https://github.com/prest/prest
@@ -923,13 +919,17 @@ OPTIONS
 
 ## query builders
 
+---
+
 * reverse query builder https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203030 https://github.com/kyleconroy/sqlc https://preslav.me/2023/03/07/reasons-against-sqlc/
 * _query builder_: what it sounds like i.e. cares about physical tables, doesn't care about objects i.e. not an ORM https://github.com/stephenafamo/bob
 * BYO https://death.andgravity.com/query-builder-how
 * _aiosql_: https://github.com/nackjicholson/aiosql load sql file into Python and run queries as methods https://github.com/nackjicholson/aiosql
 * _csql_: https://news.ycombinator.com/item?id=24866377
 * _hashquery_: https://news.ycombinator.com/item?id=40132424 https://hashquery.dev/ https://github.com/hashboard-hq/hashquery
+* _piccolo_: https://github.com/piccolo-orm/piccolo
 * _pypika_ https://github.com/kayak/pypika https://github.com/zachvalenta/query-sandbox/blob/main/queries.py
+* _Pony_: https://github.com/ponyorm/pony
 * _records_: just write SQL https://github.com/kennethreitz/records
 * _spyql_: https://github.com/dcmoura/spyql https://news.ycombinator.com/item?id=30074787
 
@@ -938,12 +938,21 @@ OPTIONS
 📜 https://docs.sqlalchemy.org/en/20/
 🗄 `django.md` db
 
+----
+
+ALTERNATIVES
+* Django
+* _dataset_: lightweight https://github.com/pudo/dataset https://dataset.readthedocs.io/en/latest/index.html 
+* _orator_: from the guy who did Poetry https://github.com/sdispater/orator
+* _Peewee_: https://github.com/coleifer/peewee not for async https://fastapi.tiangolo.com/advanced/sql-databases-peewee/
+* _SQLmodel_: SQLAlchemy wrapper https://github.com/tiangolo/sqlmodel
+* _sqlc_: https://github.com/sqlc-dev/sqlc
+* _Tortoise_: async https://github.com/tortoise/tortoise-orm
+
 * https://aosabook.org/en/v2/sqlalchemy.html
 * overly complex https://news.ycombinator.com/item?id=34541452
 * people hate the docs https://news.ycombinator.com/item?id=34540251 https://news.ycombinator.com/item?id=34542075 https://news.ycombinator.com/item?id=34578772 https://news.ycombinator.com/item?id=34540960
 * migrations: Alembic https://news.ycombinator.com/item?id=34549578
-
-----
 
 * https://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/
 * https://talkpython.fm/episodes/show/344/sqlalchemy-2.0
@@ -1209,22 +1218,6 @@ BAKED DATA
 * https://sqlbolt.com/
 * https://dataschool.com/learn-sql/basic-practice/
 * https://sql-playground.wizardzines.com/
-
-GET DATA
-* general https://github.com/awesomedata/awesome-public-datasets https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks https://corgis-edu.github.io/corgis/csv/ https://www.data-is-plural.com/archive/ https://redis.com/blog/datasets-for-test-databases/
-* JSON https://github.com/jdorfman/awesome-json-datasets
-* csv https://github.com/secretGeek/awesomecsv#data
-* 📍 more in 🗄 `ml.md`? put these there? Paul Swanson videos?
-> put in ML
-* PG Exercises https://pgexercises.com/gettingstarted.html https://github.com/AlisdairO/pgexercises/issues/28
-* executions https://selectstarsql.com/frontmatter.html#dataset
-* housing https://www.zillow.com/research/data/
-* music https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks
-* shootings https://catalog.data.gov/dataset/nypd-shooting-incident-data-historic
-* verbos https://github.com/ghidinelli/fred-jehle-spanish-verbs
-* HN https://github.com/dogsheep/hacker-news-to-sqlite https://news.ycombinator.com/submitted?id=luu
-* movies https://simonwillison.net/2019/Feb/25/sqlite-utils/ https://github.com/jdorfman/awesome-json-datasets
-* music https://corgis-edu.github.io/corgis/csv/music/ 
 
 ## tables
 

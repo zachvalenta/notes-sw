@@ -431,10 +431,12 @@ ZA
 ---
 
 TOOLS
+* traceroute
 * _dig_: https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command https://jvns.ca/blog/2021/12/04/how-to-use-dig/
 * _dog_: https://github.com/ogham/dog
 
-* DNS https://entropicthoughts.com/secure-dns-on-a-laptop-with-debian
+* https://jpetazzo.github.io/2024/05/12/understanding-kubernetes-dns-hostnetwork-dnspolicy-dnsconfigforming/
+* https://entropicthoughts.com/secure-dns-on-a-laptop-with-debian
 * whitelist/blacklist https://github.com/plutov/ultrafocus
 * https://www.youtube.com/watch?v=27r4Bzuj5NQ
 * https://jvns.ca/blog/2024/08/19/migrating-mess-with-dns-to-use-powerdns/
@@ -559,22 +561,33 @@ https://kevq.uk/how-to-host-email-with-your-own-domain/
 > I wish Gmail had better search re: links. I think other people solve this by using things like Pinboard https://pinboard.in/
 mbsync https://www.c0ffee.net/blog/mail-server-guide/
 
-## FTP
+## file transfer
 
----
+TOOLING
+* _aim_: client https://github.com/mihaigalos/aim
+* _aria_: ❌ client, bad presentation https://github.com/aria2/aria2
+* _croc_: 🎯 relay via PAKE https://github.com/schollz/croc
+> Yes, all data goes through the relay. I haven't found a way that can reliably send data directly between two computers that don't have port-forwarding enabled. croc differs from a utility like scp because it doesn't require any two computers to have enabled port-forwarding, nor does it require computers having any server setup. Instead, croc will uses a relay - a temporary server setup locally (if both computers are on LAN) or publicly (default is at croc4.schollz.com). Any two computers can connect to the relay, and after securing their channel with PAKE, they can transfer encrypted metadata and data through the relay. The relay works by first having the computers communicate the PAKE protocol via websockets, and then exchanging encrypted metadata, and then stapling the TCP connections directly so that they can transfer directly. https://github.com/schollz/croc/issues/104
+* _Cyberduck_: ❌ looks like malware https://cyberduck.io/ https://fabiensanglard.net/html/index.html
+* _filestash_: GUI client https://github.com/mickael-kerjean/filestash
+* _FileZilla_: 🎯 client, used in first job! https://filezilla-project.org/
+* _magic wormhole_: relay https://github.com/magic-wormhole/magic-wormhole impl https://www.youtube.com/watch?v=oFrTqQw0_3c
+* _portal_: relay via PAKE https://github.com/SpatiumPortae/portal
+* _sftpgo_: server https://github.com/drakkan/sftpgo
+* _sshfs_: client? server? both https://github.com/libfuse/sshfs https://fabiensanglard.net/html/index.html
+> SSHFS allows you to mount a remote filesystem using SFTP. Most SSH servers support and enable this SFTP access by default, so SSHFS is very simple to use - there's nothing to do on the server-side.
+* _tran_: ❌ https://github.com/abdfnx/tran 
+* _termscp_: 🎯 SFTP client https://github.com/veeso/termscp
+* _VSFTPD_: FTP server
 
-file download https://github.com/aria2/aria2
-
-DATA TRANSFER https://github.com/veeso/termscp
-* alternative file transfer https://github.com/abdfnx/tran cyberduck https://fabiensanglard.net/html/index.html https://github.com/SpatiumPortae/portal
-* https://github.com/schollz/croc
-* _croc_: https://github.com/schollz/croc
-* _FTP_: sends binary instead of metadata
-* FileZilla (client) VSFTPD (server)
-* server GUI https://github.com/mickael-kerjean/filestash https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2
-* _SFTP_: FTP + security https://github.com/drakkan/sftpgo https://goteleport.com/blog/scp-familiar-simple-insecure-slow/
-* magic wormhole https://www.youtube.com/watch?v=oFrTqQw0_3c
-* client: CyberDuck
+PROTOCOLS
+* _FTP_: sends binary instead of metadata https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2
+* _SFTP_: FTP + security https://goteleport.com/blog/scp-familiar-simple-insecure-slow/
+```sh
+$ sftp sftp://user@hostname:port
+put /local/path/to/file /remote/path/to/destination/
+exit
+```
 * _scp_: https://en.wikipedia.org/wiki/Secure_copy
 * need to create dir first w/ `ssh` https://stackoverflow.com/a/25157693
 ```sh
@@ -597,6 +610,7 @@ scp user@host:/src/file.txt /local/
 
 https://drewdevault.com/2021/03/29/The-worlds-dumbest-IRC-bot.html
 https://webchat.freenode.net/#sr.ht
+https://sr.ht/~delthas/senpai/
 * channels https://news.ycombinator.com/item?id=7161436
 * clients: irssi https://weechat.org/ Textual
 * _connect_: /connect irc.freenode.net
@@ -607,6 +621,22 @@ https://webchat.freenode.net/#sr.ht
 * _ignore noise_: /ignore -channels #<channel> * JOINS PARTS QUITS NICKS
 * _grep_: /lastlog <query> <occurences>
 * _save log_: /lastlog -file <pathAndFileToBeCreated>
+
+## NTP
+
+🗄️ `python/stdlib/datetime.md`
+
+* https://buttondown.com/hillelwayne/archive/time-zones-are-hard-because-people-are-hard/
+* YYYY-MM-DD is the only correct answer https://twitter.com/VitalikButerin/status/1547161382373756928
+* https://www.libertysys.com.au/2024/05/aws-microsecond-accurate-time-second-look/?ck_subscriber_id=512830619
+* _Internet Time Service_: current time as provided by NIST https://news.ycombinator.com/item?id=37778496
+* _NTP_: protocol to handle keeping correct time packets move geographically [Network Flow Analysis 6] https://sookocheff.com/post/time/how-does-ntp-work/
+* _NTPsec_: fork meant to replace NTP
+* _UTC_: Iceland right on it, UK +1, NYC -4; typically the default https://stackoverflow.com/a/19801806/6813490
+* _bit slip_: lost bit from clock drift https://www.youtube.com/watch?v=8BhjXqw9MqI 3:00 https://en.wikipedia.org/wiki/Bit_slip
+* atomic clocks, earth spinning faster by milliseconds https://news.ycombinator.com/item?id=25684661
+* IANA, daylight savings https://news.ycombinator.com/item?id=24951473
+* _sink_: https://zachholman.com/talk/utc-is-enough-for-everyone-right https://alexwlchan.net/2019/05/falsehoods-programmers-believe-about-unix-time/ https://app.pluralsight.com/library/courses/date-time-fundamentals/table-of-contents https://news.ycombinator.com/item?id=24746836 timezones https://pyvideo.org/pycon-us-2019/working-with-time-zones-everything-you-wish-you-didnt-need-to-know.html
 
 ## SSH
 
@@ -676,31 +706,6 @@ process https://help.ubuntu.com/community/SSH/OpenSSH/Keys
 * _session - start_: `ssh <user>@<host_domain_or_IP>`; if you don't specify user, server figures out which user you should be bc 1) you first logged into server via user/pw and put your SSH public key in the server's `authorized_keys` 2) server seems to somehow map that public key to your user so that when you come back later via SSH w/ a private key for that public key the server is just like "oh, it's Alice/Bob/<foo_user>"
 * _session - quit_: `exit` or `~` to escape dead/frozen session https://lonesysadmin.net/2011/11/08/ssh-escape-sequences-aka-kill-dead-ssh-sessions/ https://www.remembertheusers.com/2020/07/0668-terminating-a-frozen-ssh-session.html
 
-## datetime
-
-📚 Kleppmann chapter 8 https://www.youtube.com/watch?v=U612mx16j7U
-> Time is nature's way to keep everything from happening all at once - John Wheeler https://lwn.net/Articles/827180/
-
-TIME
-* https://buttondown.com/hillelwayne/archive/time-zones-are-hard-because-people-are-hard/
-* YYYY-MM-DD is the only correct answer https://twitter.com/VitalikButerin/status/1547161382373756928
-* https://www.libertysys.com.au/2024/05/aws-microsecond-accurate-time-second-look/?ck_subscriber_id=512830619
-* _Internet Time Service_: current time as provided by NIST https://news.ycombinator.com/item?id=37778496
-* _NTP_: protocol to handle keeping correct time packets move geographically [Network Flow Analysis 6] https://sookocheff.com/post/time/how-does-ntp-work/
-* _NTPsec_: fork meant to replace NTP
-* _UTC_: Iceland right on it, UK +1, NYC -4; typically the default https://stackoverflow.com/a/19801806/6813490
-* _bit slip_: lost bit from clock drift https://www.youtube.com/watch?v=8BhjXqw9MqI 3:00 https://en.wikipedia.org/wiki/Bit_slip
-* atomic clocks, earth spinning faster by milliseconds https://news.ycombinator.com/item?id=25684661
-* IANA, daylight savings https://news.ycombinator.com/item?id=24951473
-* human perception https://hpbn.co/primer-on-web-performance/#speed-performance-and-human-perception
-* _sink_: https://zachholman.com/talk/utc-is-enough-for-everyone-right https://alexwlchan.net/2019/05/falsehoods-programmers-believe-about-unix-time/ https://app.pluralsight.com/library/courses/date-time-fundamentals/table-of-contents https://news.ycombinator.com/item?id=24746836 timezones https://pyvideo.org/pycon-us-2019/working-with-time-zones-everything-you-wish-you-didnt-need-to-know.html
-
-SPACE
-* _GIS_: ESRI (SaaS) Postgres https://news.ycombinator.com/item?id=23361794 geocode https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code https://www.wired.com/story/geocode-address-puerto-rico-hurricane-maria/ https://github.com/giswqs/leafmap https://www.paulox.net/2021/07/19/maps-with-django-part-2-geodjango-postgis-and-leaflet/ https://github.com/marceloprates/prettymaps https://softwareengineeringdaily.com/2021/04/26/makepath-geospatial-technology-with-brendan-collins/ https://gis.stackexchange.com/ isochrones https://tech.marksblogg.com/valhalla-isochrones.html https://tech.marksblogg.com/pretty-maps-in-python.html satellite https://github.com/plant99/felicette https://realpython.com/python-folium-web-maps-from-data/ https://github.com/geoserver/geoserver https://walker-data.com/posts/lodes-commutes/ https://walker-data.com/census-r/index.html https://walker-data.com/posts/proximity-analysis/  https://news.ycombinator.com/item?id=40052172 tiny map https://github.com/tinyworldmap/tiny-world-map Open Street Map https://pybit.es/articles/openstreetmaps-overpass-api-and-python/ https://news.ycombinator.com/item?id=41424373 ArcGis https://storymaps.arcgis.com/stories/41d4bd6029044afbb1b9ad805a4731d8 display map on website https://news.ycombinator.com/item?id=41635592 https://openfreemap.org/
-* maps https://storymaps.arcgis.com/stories/1e7f582d478a4b99bd0c70fffeac4c8b
-* _GPS_: https://news.ycombinator.com/item?id=29981188 https://ciechanow.ski/gps/
-* _sink_: https://www.bloomberg.com/news/features/2018-07-25/the-world-economy-runs-on-gps-it-needs-a-backup-plan https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code
-
 ## TLS
 
 📙 https://unixsheikh.com/articles/are-you-a-tls-master.html
@@ -708,6 +713,7 @@ SPACE
 ---
 
 https://questions.wizardzines.com/tls-certificates.html
+https://news.ycombinator.com/item?id=41876741
 
 * certs for local dev https://github.com/FiloSottile/mkcert
 https://www.youtube.com/watch?v=k3rFFLmQCuY
@@ -824,5 +830,5 @@ ValueError: unsupported hash type md5
 * _HTTP2_: multiplexed i.e n assets from single request; servers can push (in same way as Web Sockets); binary instead of HTTP's text https://serversforhackers.com/s/http2 https://hpbn.co/http2/ https://news.ycombinator.com/item?id=26263085
 * _libraries_: Pusher https://www.youtube.com/watch?v=h4kIkPxhXPs
 * _multiplex_: combine multiple signals into one
-* _perf_: only sends 2 bytes instead of 100s of bytes for HTTP
+* perf: only sends 2 bytes instead of 100s of bytes for HTTP
 * _sink_: https://www.fullstackpython.com/websockets.html Django https://www.untangled.dev/2020/08/02/django-websockets-minimal-setup

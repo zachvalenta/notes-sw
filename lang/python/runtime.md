@@ -81,7 +81,7 @@ CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-g
 📙 Beazley ch. 12
 🗄
 * `linux.md` processes
-* `src.md` concurrency
+* `plt.md` concurrency
 
 BIG PICTURE
 * Python as a language spec supports multiple threads
@@ -234,6 +234,7 @@ https://news.ycombinator.com/item?id=22514004
 
 ---
 
+* https://realpython.com/courses/understanding-global-interpreter-lock-gil/
 * recent perf improvements https://sumercip.com/posts/making-python-fitter-and-faster/
 * GIL, JIT, free thread https://realpython.com/python313-free-threading-jit/ https://drew.silcock.dev/blog/everything-you-need-to-know-about-python-3-13/ https://blog.changs.co.uk/free-threaded-python-with-asyncio.html
 * AST is slow https://www.gauge.sh/blog/python-extensions-should-be-lazy

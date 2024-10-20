@@ -16,13 +16,20 @@
 
 ## 进步
 
+* move LSP and ctags to `plt.md`?
+* VS Code: indentation rainbow, bookmarks, project manager https://switowski.com/blog/plugins-for-python-in-vscode/
+
+---
+
+Neovim just too fragile?
+> Every now and then I would update a plugin in Neovim and everything would break, and I would have to spend time fixing it instead of getting work done. This resulted in slimming down my config more and more, but there was still so much that went into making all the basics work. I stuck with it because it was still better than using VSCode, which I did try for a two week sprint to see if it could be any better. It was also key to a terminal based workflow that other editors couldn’t really match. The sentiment started to shift again not too long ago as I started working in some really large code bases, and boy Neovim was struggling. I would have random hang ups, frozen screens, stuff that just drove me nuts when productivity was king. I tried switching to other terminal emulators too such as Alacritty and Wezterm but it didn’t help much. https://stevedylan.dev/posts/leaving-neovim-for-zed/
+
 https://www.youtube.com/watch?v=VljhZ0e9zGE
 https://news.ycombinator.com/item?id=41637286
 note-taking in Markdown https://www.youtube.com/watch?v=DgKI4hZ4EEI
 basic setup https://www.youtube.com/watch?v=VljhZ0e9zGE
 https://www.youtube.com/watch?v=zHTeCSVAFNY
 
-* while you're stil on VS Code https://switowski.com/blog/plugins-for-python-in-vscode/
 
 https://stevedylan.dev/posts/leaving-neovim-for-zed/
 * Codi
@@ -92,13 +99,17 @@ ZA
 
 # 🦚 ALTERNATIVES
 
-FEATURES
-* _soft wrap_: wrap real line to look like multiple lines https://www.youtube.com/watch?v=5WLlLxU2EZE [10:45]
-* modal
+## design
+
+> port in from Zed
+* document outline: VSC has a long-standing bug where Markdown outlines get wiped and then only rerender on further editing
+> which makes file pin useless
 * LSP
-* document outline
 * plugin mgmt
-* terminal
+* modal https://marketplace.visualstudio.com/items?itemName=wmaurer.vscode-jumpy
+* _soft wrap_: wrap real line to look like multiple lines https://www.youtube.com/watch?v=5WLlLxU2EZE [10:45]
+* syntax highlighting: VSC can't highlight TOML
+* terminal integration
 
 HISTORY
 * stone age: no screen = teletype
@@ -110,6 +121,7 @@ HISTORY
 * 2015: Neovim
 * 2020s: Zed, Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 https://www.youtube.com/watch?v=tGYvUXYN-c0 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
 > select + action and space mode makes me think helix is worth learning https://www.youtube.com/watch?v=xHebvTGOdH8 https://www.youtube.com/watch?v=5WLlLxU2EZE
+> https://anvil-editor.net/ http://acme.cat-v.org/ https://news.ycombinator.com/item?id=41923018
 
 ## Emacs
 
@@ -204,11 +216,12 @@ edit
 * _select - all occurences_: 📍
 * _undo/redo_ | CMD z / CMD SHIFT z
 
-## VSC
+## VS Code
 
 🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
 
 dev containers https://github.com/michidk/vscli
+* walled garden https://news.ycombinator.com/item?id=41907350
 
 THINGS I'M NOTICING ABOUT VSC
 * autocomplete works for any word in the workspace
@@ -355,11 +368,15 @@ keybindings
 📜 https://zed.dev/
 
 FEATURES
+* can be more keyboard drive using Vim mode? https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode--keybindings
+> I’ll likely get into this further into the post, but the way you can structure keybindings for Vim mode in Zed is fantastic. The structure allows for your typical VScode style config, but with the ability to scope a keybinding to a Vim mode is such a huge win for Neovim users. For instance, I can cheat my way into using a leader key when in normal mode and get things like space d to see diagnostics, or space t to open a full window terminal. It’s a pattern many Vim users will appreciate and I wish there was more docs for it as I’ve had to figure some of it out myself. https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode
 * basics: very fast, runs on macOS and Linux https://zed.dev/releases/stable/0.143.6
 * document outline https://github.com/zed-industries/zed/discussions/13421 https://zed.dev/releases/stable/0.141.2
 * feedback: notebooks, REPL https://zed.dev/releases/stable/0.146.3
-* GPT built-in https://zed.dev/releases/stable/0.147.2 https://zed.dev/releases/stable/0.149.3
+* remote dev 🗄️ `src.md` denv > cloud
+* GPT built-in https://zed.dev/releases/stable/0.147.2 https://zed.dev/releases/stable/0.149.3 https://zed.dev/blog/replhttps://zed.dev/blog/zed-ai
 * pairing tools
+* project mgmt https://stevedylan.dev/posts/leaving-neovim-for-zed/#plugin-replacements
 * pkg mgmt: just works with Poetry
 * remote dev https://zed.dev/releases/stable/0.145.1
 * search https://zed.dev/releases/stable/0.152.3
@@ -368,12 +385,13 @@ FEATURES
 * ❌ makes itself default editor (broot)
 
 DESIGN
+* just works https://stevedylan.dev/posts/leaving-neovim-for-zed/
 * https://zed.dev/blog/between-editors-and-ides
 * https://zed.dev/blog/we-have-to-start-over 
 * https://registerspill.thorstenball.com/p/from-vim-to-zed
 * https://jackevans.bearblog.dev/trying-out-zed/
 
-# ✏️ EDIT
+# ⭕️️ CORE
 
 PLUGINS
 * pairs - edit: https://github.com/tpope/vim-surround https://stackoverflow.com/a/50687836 https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-surround.md
@@ -453,6 +471,44 @@ SUBSTITUTE 📙 Neil practical ch. 14
 * show newline, invisible char http://vimcasts.org/episodes/show-invisibles/
 * lists: quickfixlist, arglist https://vimtricks.substack.com/p/vimtrick-copy-from-quickfix-to-the 📙 Neil modern ch. 4 https://vimtricks.substack.com/p/vimtricks-help-powerup
 
+## command mode
+
+📚
+* Neil modern ch. 5
+* Neil practical ch. 5
+
+OPEN FILE AT
+* search query: `alias com="vim +/commits $MAT_DIR/sw/db/shujuku/hiring/profile.md"`
+* last line: `vim '+normal G$' $PER_DIR/tracking/24/"$fname";`
+
+---
+
+* completion https://alpha2phi.medium.com/neovim-for-beginners-built-in-completion-8bbbb0f16c9c
+* can run terminal emulator inside buffer http://vimcasts.org/episodes/neovim-terminal/ https://www.youtube.com/watch?v=ehD382bPuPA https://rutar.org/writing/from-vim-and-tmux-to-neovim/ 📙 Neil modern [5.130] http://vimcasts.org/episodes/neovim-terminal/ http://vimcasts.org/episodes/neovim-terminal-mappings/ https://github.com/akinsho/toggleterm.nvim
+
+ARGDO
+* bufdo, tabdo, location list, quickfix list 📙 Neil practical chapter 17 https://github.com/iggredible/Learn-Vim/blob/master/ch21_multiple_file_operations.md
+* https://www.youtube.com/watch?v=futay9NjOac
+* http://vimcasts.org/episodes/using-argdo-to-change-multiple-files/
+* https://www.semicolonandsons.com/episode/Vim's-Versatile-CLI https://www.semicolonandsons.com/episode/Advanced-Vim-Workflows
+
+* scroll cmd history: `: + arrow`
+* search: `:<start_of_cmd> + arrow` https://vim.fandom.com/wiki/Using_command-line_history
+* open stdin: `cmd | vim -` e.g. `\ls | vim -` for file editing https://vim.fandom.com/wiki/Bulk_rename_files_with_Vim
+
+* http://vimcasts.org/episodes/refining-search-patterns-with-the-command-line-window/
+
+* execute over a range of lines, aka ex cmds [PV 5.intro]
+* enter: `:` or `/` [PV 5.intro]
+* exit: `esc`
+* view history https://vimtricks.substack.com/p/vimtrick-view-your-history-from-command
+* quit and discard: `:q!`
+* https://vimtricks.com/p/operate-across-files-by-name/
+
+* _substitute_: `:%s/<old>/<new>` [PV 5.58] repeat https://vimtricks.substack.com/p/vimtrick-repeat-the-last-substitution across files https://vimtricks.substack.com/p/vimtrick-replace-across-files
+* _global_: `:%s/<old>/<new>/g` [PV 5.58]
+can also use to delete lines https://vimtricks.substack.com/p/vimtrick-remove-lines-matching-pattern
+
 ## motions
 
 ---
@@ -485,7 +541,7 @@ word
 * _back to start_: `b`
 * _back to end_: `ge`
 
-## normal
+## normal mode
 
 JUMPS https://github.com/folke/flash.nvim https://github.com/phaazon/hop.nvim https://github.com/ggandor/leap.nvim sneak https://www.youtube.com/watch?v=HkY3LoQqKVA https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-jump2d.md
 * _jump_: mv btw buffers; can think of as long-range motions 📙 Neil practical [9.135-6]
@@ -605,7 +661,15 @@ https://vimtricks.com/p/improving-usage-of-registers/
 * https://vimtricks.com/p/go-to-next-match-and-select/
 * [PV 10.61]
 
-# 🛠️ UTILS
+# 🔳 ORG
+
+🐘 BARBAR https://github.com/romgrk/barbar.nvim
+* tabline aka bufferline https://github.com/mengelbrecht/lightline-bufferline https://github.com/akinsho/bufferline.nvim
+* catppuccin integration
+* pin https://github.com/romgrk/barbar.nvim/issues/539 https://github.com/romgrk/barbar.nvim/issues/175
+* tab width https://github.com/romgrk/barbar.nvim/issues/515
+* separator https://github.com/romgrk/barbar.nvim/issues/457
+* alternatives https://github.com/nanozuki/tabby.nvim https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-tabline.md
 
 ## buffers
 
@@ -632,21 +696,8 @@ BUFFERS https://github.com/romgrk/barbar.nvim/issues/279
 * _winbar_: fs breadcrumbs;
 * catppuccin integration https://github.com/utilyre/barbecue.nvim https://github.com/Bekaboo/dropbar.nvim
 
-WINDOWS
-* _viewport_: what's in view 📙 Neil practical [6.92] https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts https://vimtricks.com/p/navigating-around-the-screen/
-* `zt/z/b`: mv cursor line to top/mid/btm of viewport https://vimtricks.substack.com/p/vimtrick-reposition-the-current-line
-* keep cursor vertically centered https://vim.fandom.com/wiki/Keep_your_cursor_centered_vertically_on_the_screen https://stackoverflow.com/a/2281755
-* _window/split_: viewport onto buffer 📙 Neil practical [6.92] http://vimcasts.org/episodes/working-with-windows/
-* create: horizontal `:split`/`CTRL-w s` vertical `:vsplit`/`CTRL-w v` 📙 Neil practical [6.92]
-* balance: `CTRL W` https://vimtricks.substack.com/p/vimtrick-equalize-your-splits
-* nav 📙 Neil practical [6.93]
-* mv https://vimtricks.substack.com/p/vimtrick-moving-splits https://vimtricks.substack.com/p/vimtrick-change-split-orientation
-* resize, close [6.94]
-* create w/ file `:sp $FILE` [6.93]
-* create to specific line https://vimtricks.substack.com/p/vimtrick-split-to-a-line
-* maximize current split https://vimtricks.com/p/maximize-the-current-split/
+## tabs / sessions
 
-TABS / SESSIONS
 * _tab group_: collection of windows 📙 Neil practical [6.95] http://vimcasts.org/episodes/working-with-tabs/ http://vimcasts.org/episodes/how-to-use-tabs/
 > this is something that I didn't fully realize that I wanted from VS Code
 * `tabedit` workflow https://vimtricks.com/p/quickly-access-project-notes/
@@ -674,7 +725,10 @@ vim -S ~/.vim/sessions/foo.vim
 * restore https://github.com/rmagatti/auto-session
 * porcelain https://github.com/tpope/vim-obsession
 
-🔭 TELESCOPE https://github.com/nvim-telescope/telescope.nvim 🗄 `shell.md` explorer
+## Telescope
+
+https://github.com/nvim-telescope/telescope.nvim 🗄 `shell.md` explorer
+
 ```sh
 # https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
 # 📍 update mappings like this https://github.com/malob/nixpkgs/blob/bc3924254db722ce5d1e44389e0702ddf3398e60/configs/nvim/lua/malo/telescope-nvim.lua#L22
@@ -701,15 +755,23 @@ select_tab_drop             # open in new tab, only available on master https://
 # create file/dir https://vimtricks.com/p/creating-files-and-directories/
 ```
 
-🐘 BARBAR https://github.com/romgrk/barbar.nvim
-* tabline aka bufferline https://github.com/mengelbrecht/lightline-bufferline https://github.com/akinsho/bufferline.nvim
-* catppuccin integration
-* pin https://github.com/romgrk/barbar.nvim/issues/539 https://github.com/romgrk/barbar.nvim/issues/175
-* tab width https://github.com/romgrk/barbar.nvim/issues/515
-* separator https://github.com/romgrk/barbar.nvim/issues/457
-* alternatives https://github.com/nanozuki/tabby.nvim https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-tabline.md
+## windows
 
-WORKSPACES
+* _viewport_: what's in view 📙 Neil practical [6.92] https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts https://vimtricks.com/p/navigating-around-the-screen/
+* `zt/z/b`: mv cursor line to top/mid/btm of viewport https://vimtricks.substack.com/p/vimtrick-reposition-the-current-line
+* keep cursor vertically centered https://vim.fandom.com/wiki/Keep_your_cursor_centered_vertically_on_the_screen https://stackoverflow.com/a/2281755
+* _window/split_: viewport onto buffer 📙 Neil practical [6.92] http://vimcasts.org/episodes/working-with-windows/
+* create: horizontal `:split`/`CTRL-w s` vertical `:vsplit`/`CTRL-w v` 📙 Neil practical [6.92]
+* balance: `CTRL W` https://vimtricks.substack.com/p/vimtrick-equalize-your-splits
+* nav 📙 Neil practical [6.93]
+* mv https://vimtricks.substack.com/p/vimtrick-moving-splits https://vimtricks.substack.com/p/vimtrick-change-split-orientation
+* resize, close [6.94]
+* create w/ file `:sp $FILE` [6.93]
+* create to specific line https://vimtricks.substack.com/p/vimtrick-split-to-a-line
+* maximize current split https://vimtricks.com/p/maximize-the-current-split/
+
+## workspaces
+
 * people don't seem to grok why this is useful https://www.reddit.com/r/vim/comments/97113u/simpleworkspacesvim_vs_codelike_workspace_support/ https://www.reddit.com/r/neovim/comments/10g76tf/open_multiple_directories_like_vs_code_workspace/
 > Workspaces are the major thing keeping me in VSCode https://www.reddit.com/r/neovim/comments/11r8npx/hello_first_post_here_any_alternatives_to_vscodes/
 * could just have diff projects in diff tab groups but would lose search across (domain/book notes, logs/ren)
@@ -723,49 +785,19 @@ WORKSPACES
 * `workspaces.nvim`: misnomer https://www.reddit.com/r/neovim/comments/10g76tf/open_multiple_directories_like_vs_code_workspace/
 * `telescope-project`: allows jump btw dir, doesn't allow putting dirs into single workspace https://github.com/nvim-telescope/telescope-project.nvim
 
+# 🛠️ UTILS
+
+🗄️ `os/tools.md` search
+
 ## code intel
 
-### git
-
-🗄️ `git.md` tooling
-
 ---
 
-DECORATIONS
-* _gitgutter_: https://github.com/airblade/vim-gitgutter
-* _gitsigns_: catppuccin integration https://github.com/lewis6991/gitsigns.nvim
+* error lens https://switowski.com/blog/plugins-for-python-in-vscode/
+* https://github.com/facebookincubator/bowler
 
-### LSP
-
-### ctags
-
----
-
-📍 todo LSP plugins
-* _ALE_: real-time linting via LSP https://github.com/dense-analysis/ale
-* use individual linters behind the scenes e.g. jslint for project X and eshint for project Y 📙 Neil modern [118]
-* _DAP_: debugger https://www.youtube.com/watch?v=RziPWdTzSV8 https://github.com/puremourning/vimspector
-* _trouble_: diagnostics https://github.com/folke/trouble.nvim
-* _vim-test_: run test under cursor https://www.youtube.com/watch?v=7VP7TdItuEs https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 1:40 alternative https://github.com/nvim-neotest/neotest
-* _vim-projectionist_: decouple way you organize buffers from fs 📙 Neil modern [30,113-124] https://github.com/tpope/vim-projectionist https://subvisual.com/blog/posts/133-super-powered-vim-part-i-projections/ using in Neovim https://stackoverflow.com/questions/76493146/configure-vim-projectionist-in-neovim-with-lua
-* switch btw src and test https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 1:15
-
-LSP https://www.youtube.com/playlist?list=WL
+LSP
 * how this works in Neovim: `nvim-lspconfig` configs nvim client, `vim.lsp` as framework for tooling to connect to language servers, tool for language server mgmt (mason) https://www.youtube.com/watch?v=3a1PCir_aHs
-* _language server_: provides editor with code completion, syntax highlighting https://github.com/echasnovski/mini.nvim#general-principles
-* enables: analysis, completion, navigation, linting https://www.youtube.com/watch?v=3a1PCir_aHs 0:40
-* _pylance_: closed source, uses pyright https://github.com/microsoft/pylance-release/issues/4
-* _pyright_: type checker https://github.com/microsoft/pyright
-* _pylyzer_: pyright but better? https://github.com/mtshiba/pylyzer https://news.ycombinator.com/item?id=41305941
-* _vanilla_: OSS https://github.com/microsoft/python-language-server
-* _jedi_: https://github.com/davidhalter/jedi https://www.pythonpodcast.com/episode-113-jedi-code-completion-with-david-halter/ 
-* _LSP_: protocol for language servers and editors https://en.wikipedia.org/wiki/Language_Server_Protocol 📙 Neil modern [127]
-* client = editor impl LSP, server = provides language info https://www.youtube.com/watch?v=C9X5VF9ASac 2:30
-* created by Microsoft and RedHat https://www.youtube.com/watch?v=C9X5VF9ASac 1:15
-* used as a synonym for language server https://www.youtube.com/watch?v=OhnLevLpGB4 2:35
-* JetBrains has their own version of this https://news.ycombinator.com/item?id=33211373 https://blog.jetbrains.com/platform/2023/07/lsp-for-plugin-developers/
-* Sourcegraph LSP https://sourcegraph.com/blog/the-self-driving-ide-is-coming
-* BYO https://www.youtube.com/watch?v=jo3IChyh09U&list=WL
 * _lsp-zero_: ✅ wrapper around `nvim-lspconfig`, `nvim-cmp`, and `mason` https://github.com/VonHeikemen/lsp-zero.nvim https://www.youtube.com/watch?v=3a1PCir_aHs 2:15
 * keybindings: things that don't work so far are `gd` but maybe this is because poetry build broken https://github.com/VonHeikemen/lsp-zero.nvim?tab=readme-ov-file#keybindings
 * install: for some reason pyright needs `npm`, installed with `nodenv` and then ran `nodenv init` (need to restart terminal) https://github.com/VonHeikemen/lsp-zero.nvim/issues/91#issuecomment-1364608056
@@ -773,11 +805,10 @@ LSP https://www.youtube.com/playlist?list=WL
 * alternative https://github.com/neoclide/coc.nvim https://www.youtube.com/watch?v=OXEVhnY621M https://news.ycombinator.com/item?id=33210247
 * _nvim-cmp_: ✅ code completion, catppuccin https://github.com/hrsh7th/nvim-cmp
 
-CTAGS 📙 Neil practical ch. 16
-> The previously mentioned tag mechanism also works for jumping between files. The usual approach is to generate a tags file for the whole project you are working on. You can then quickly jump between all files in the project to find the definitions of functions, structures, typedefs, etc. The time you save compared with manually searching is tremendous; creating a tags file is the first thing I do when browsing a program. https://www.moolenaar.net/habits.html
-> Include files contain useful information. But finding the one that contains the declaration you need to see can take a lot of time. Vim knows about include files, and can search them for a word you are looking for. The most common action is to lookup the prototype of a function. Position the cursor on the name of the function in your file and type [I: Vim will show a list of all matches for the function name in included files. If you need to see more context, you can directly jump to the declaration. A similar command can be used to check if you did include the right header files. https://www.moolenaar.net/habits.html
-* _tag_: scope-defining keywords in your programming language https://www.youtube.com/watch?v=XA2WjJbmmoM 3:50
-* _ctags_: index of tags https://en.wikipedia.org/wiki/Ctags https://www.youtube.com/watch?v=JWD1Fpdd4Pc&t=338s 7:30 🗄 `db.md` index
+GIT 🗄️ `git.md` tooling
+* _gitgutter_: https://github.com/airblade/vim-gitgutter
+* _gitsigns_: catppuccin integration https://github.com/lewis6991/gitsigns.nvim
+* _gitlens_: https://switowski.com/blog/plugins-for-python-in-vscode/
 
 MISC PLUGINS
 * _aerial_: ✅ outliner https://github.com/stevearc/aerial.nvim (catppuccin theme, Telescope integration)
@@ -795,8 +826,6 @@ HIGHLIGHT PLUGINS
 * ✅ scope https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-indentscope.md
 * todos https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hipatterns.md
 
----
-
 folding
 * _ufo_: https://github.com/kevinhwang91/nvim-ufo
 * https://realpython.com/vim-and-python-a-match-made-in-heaven/#code-folding http://vimcasts.org/episodes/archive/
@@ -806,32 +835,14 @@ https://github.com/nvim-treesitter/nvim-treesitter-context
 Python indentation https://vimtricks.substack.com/p/vimtrick-column-highlighting 
 Python terminal, debugger https://github.com/AstroNvim/AstroNvim
 
-CTAGS
-https://github.com/iggredible/Learn-Vim/blob/master/ch16_tags.md
-https://www.youtube.com/playlist?list=WL
-https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-2g28
-* exuberant
-* gutentags
-* recently access tags
-* ctags impl https://github.com/universal-ctags/ctags
-* https://www.semicolonandsons.com/episode/Fluent-File-Navigation
-* JetBrains just better at refactoring? https://news.ycombinator.com/item?id=34072714
-* text expander https://github.com/espanso/espanso
-* LSP https://news.ycombinator.com/item?id=34070458 https://news.ycombinator.com/item?id=37020610
-* YouCompleteMe https://realpython.com/vim-and-python-a-match-made-in-heaven/#auto-complete 
-* https://www.youtube.com/watch?v=XA2WjJbmmoM 24:30
-* https://github.com/neoclide/coc.nvim https://www.youtube.com/watch?v=gnupOrSEikQ
-* https://stackoverflow.com/questions/905005/python-and-intellisense https://www.youtube.com/watch?v=2f8h45YR494 https://www.youtube.com/watch?v=2f8h45YR494 https://www.youtube.com/watch?v=ZzyY_9SMfeY https://pmihaylov.com/vim-for-go-development/
-* comby, sourcegraph https://comby.dev/ https://www.thoughtworks.com/radar/tools?blipid=202110077
-* https://news.ycombinator.com/item?id=30819579
-* https://www.youtube.com/watch?v=4f3AENLrdYo 
-* https://www.youtube.com/watch?v=XA2WjJbmmoM 16:15
-* https://www.youtube.com/watch?v=MP-FxMl0frk
-* https://thoughtbot.com/upcase/navigating-ruby-files-with-vim
-* https://thoughtbot.com/upcase/vim
-* https://vimtricks.substack.com/p/vimtrick-open-file-to-line
-* https://vimtricks.substack.com/p/vimtrick-open-to-a-pattern
-* https://github.blog/2021-12-09-introducing-stack-graphs/
+📍 todo LSP plugins
+* _ALE_: real-time linting via LSP https://github.com/dense-analysis/ale
+* use individual linters behind the scenes e.g. jslint for project X and eshint for project Y 📙 Neil modern [118]
+* _DAP_: debugger https://www.youtube.com/watch?v=RziPWdTzSV8 https://github.com/puremourning/vimspector
+* _trouble_: diagnostics https://github.com/folke/trouble.nvim
+* _vim-test_: run test under cursor https://www.youtube.com/watch?v=7VP7TdItuEs https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 1:40 alternative https://github.com/nvim-neotest/neotest
+* _vim-projectionist_: decouple way you organize buffers from fs 📙 Neil modern [30,113-124] https://github.com/tpope/vim-projectionist https://subvisual.com/blog/posts/133-super-powered-vim-part-i-projections/ using in Neovim https://stackoverflow.com/questions/76493146/configure-vim-projectionist-in-neovim-with-lua
+* switch btw src and test https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 1:15
 
 AUTOCOMPLETE 📙 Neil practical ch. 19
 * https://github.com/ycm-core/YouCompleteMe
@@ -921,6 +932,7 @@ let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim']
 - [ ] comment: separate colors for asterisk
 
 ZA
+* highlight TODO/FIXME/NOTE https://switowski.com/blog/plugins-for-python-in-vscode/
 * devicons ✅ https://github.com/nvim-tree/nvim-web-devicons
 * highlight current line: Rigel https://github.com/junegunn/limelight.vim
 * dim other code blocks https://github.com/folke/twilight.nvim Markdown preview https://github.com/junegunn/goyo.vim https://www.youtube.com/watch?v=zbguTldYkCw
@@ -944,44 +956,6 @@ NEOVIM
 * installation: Homebrew (requires macOS > 10.14) 📙 Neil modern [5]
 * design: run tasks async, Lua for scripting https://github.com/nvim-lua/plenary.nvim can also use Python to script https://mkaz.blog/code/neovim-plugin-python
 > Bram's comparison is Vi, Neovim teams' comparison is VS Code. https://news.ycombinator.com/item?id=31936725
-
-## command mode
-
-📚
-* Neil modern ch. 5
-* Neil practical ch. 5
-
-OPEN FILE AT
-* search query: `alias com="vim +/commits $MAT_DIR/sw/db/shujuku/hiring/profile.md"`
-* last line: `vim '+normal G$' $PER_DIR/tracking/24/"$fname";`
-
----
-
-* completion https://alpha2phi.medium.com/neovim-for-beginners-built-in-completion-8bbbb0f16c9c
-* can run terminal emulator inside buffer http://vimcasts.org/episodes/neovim-terminal/ https://www.youtube.com/watch?v=ehD382bPuPA https://rutar.org/writing/from-vim-and-tmux-to-neovim/ 📙 Neil modern [5.130] http://vimcasts.org/episodes/neovim-terminal/ http://vimcasts.org/episodes/neovim-terminal-mappings/ https://github.com/akinsho/toggleterm.nvim
-
-ARGDO
-* bufdo, tabdo, location list, quickfix list 📙 Neil practical chapter 17 https://github.com/iggredible/Learn-Vim/blob/master/ch21_multiple_file_operations.md
-* https://www.youtube.com/watch?v=futay9NjOac
-* http://vimcasts.org/episodes/using-argdo-to-change-multiple-files/
-* https://www.semicolonandsons.com/episode/Vim's-Versatile-CLI https://www.semicolonandsons.com/episode/Advanced-Vim-Workflows
-
-* scroll cmd history: `: + arrow`
-* search: `:<start_of_cmd> + arrow` https://vim.fandom.com/wiki/Using_command-line_history
-* open stdin: `cmd | vim -` e.g. `\ls | vim -` for file editing https://vim.fandom.com/wiki/Bulk_rename_files_with_Vim
-
-* http://vimcasts.org/episodes/refining-search-patterns-with-the-command-line-window/
-
-* execute over a range of lines, aka ex cmds [PV 5.intro]
-* enter: `:` or `/` [PV 5.intro]
-* exit: `esc`
-* view history https://vimtricks.substack.com/p/vimtrick-view-your-history-from-command
-* quit and discard: `:q!`
-* https://vimtricks.com/p/operate-across-files-by-name/
-
-* _substitute_: `:%s/<old>/<new>` [PV 5.58] repeat https://vimtricks.substack.com/p/vimtrick-repeat-the-last-substitution across files https://vimtricks.substack.com/p/vimtrick-replace-across-files
-* _global_: `:%s/<old>/<new>/g` [PV 5.58]
-can also use to delete lines https://vimtricks.substack.com/p/vimtrick-remove-lines-matching-pattern
 
 ## config
 

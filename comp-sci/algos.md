@@ -22,6 +22,8 @@ https://chatgpt.com/share/67069a06-24cc-8004-9a88-108d568d211a
 
 ---
 
+streams? SICP https://blog.moertel.com/posts/2013-05-26-python-lazy-merge.html
+
 fizz buzz
 fibonacci
 > look up the ten algorithms you have to know, rosetta code, project euler
@@ -140,12 +142,6 @@ print(get_config_value(configs, "prod"))
 
 * personalization engine https://news.ycombinator.com/item?id=30778100
 * code formatter https://yorickpeterse.com/articles/how-to-write-a-code-formatter/
-
-SPELL CHECKER
-* https://spylls.readthedocs.io/en/latest/ https://zverok.github.io/blog/2021-05-06-how-to-spellcheck.html
-* https://norvig.com/spell-correct.html
-* https://theautomatic.net/2019/12/10/3-packages-to-build-a-spell-checker-in-python/
-* https://0x65.dev/blog/2019-12-08/how-do-you-spell-boscodictiasaur.html
 
 * _21_: 📙 Trask chapters 1-3
 * _20_: 📙 Bhargava grokking
@@ -455,7 +451,7 @@ def linear_and_quadratic():  # O(n + n^2) = O(n^2)
 * how to solve https://news.ycombinator.com/item?id=28845593
 * _decision problem_: problem w/ yes or no answer
 * _NP-hard_: problems that are pretty goddamn hard
-* _NP-complete_: not possible to solve quickly w/out approximation e.g. set covering [Bhargava 8.157, 159] 🗄 `system.md` SAT https://blog.robertelder.org/computer-science-for-engineers/
+* _NP-complete_: not possible to solve quickly w/out approximation e.g. set covering [Bhargava 8.157, 159] 🗄 `system.md` SAT https://blog.robertelder.org/computer-science-for-engineers/ https://github.com/konstin/sudoku-in-python-packaging
 * _N = NP_: 不明觉厉 https://stackoverflow.com/a/1857342/6813490
 
 ## runtimes
@@ -665,9 +661,12 @@ https://www.amazon.com/How-Bake-Pi-Exploration-Mathematics/dp/0465097677
 
 ## graph
 
-🗄 `info.md` diagrams
 📙 Kun ch. 6 https://en.wikipedia.org/wiki/Graph_theory
 🛠 https://github.com/networkx/networkx https://github.com/dominikbraun/graph/ https://news.ycombinator.com/item?id=38834780 https://www.hytradboi.com/2022/how-to-query-almost-everything d2 https://chatgpt.com/c/671043db-1354-8004-a127-6b4152994963 https://calmcode.io/datasets/dependencies
+> clean these up
+🗄
+* `info.md` diagrams
+* `linux.md` build systems
 
 SEMANTICS
 * _graph_: nodes + edges

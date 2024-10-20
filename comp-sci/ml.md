@@ -13,6 +13,10 @@
 
 ## 进步
 
+CLIENTS
+* aichat issue
+* mods
+
 * _24_: usage (regex, stdlib, EDI) tooling (clients)
 
 # ☄️ GEN AI
@@ -89,6 +93,13 @@ https://stratechery.com/2023/ai-and-the-big-five/
 
 ## code assist
 
+> why you need: basilk, lazygit (option to not add dir to recently_visited) https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
+
+OPTIONS
+* _Avante_: Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835
+* _Cursor_: closed source https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode
+* _Void_: https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
+
 ---
 
 https://www.thediff.co/archive/offshoring-and-ai-agents/
@@ -130,20 +141,22 @@ https://www.youtube.com/watch?v=dkV01hBdhZE
 
 FILE FMT
 > 📍 building a context window by feeding in docs https://simonw.substack.com/p/video-scraping-using-google-gemini
-* JSON: Superpower ChatGPT
-* Markdown: https://simonw.substack.com/p/video-scraping-using-google-gemini?utm_source=post-email-title&publication_id=1173386&post_id=150425423&utm_campaign=email-post-title&isFreemail=true&r=5hxmz&triedRedirect=true&utm_medium=email
+* JSON: Superpower ChatGPT, Claude https://github.com/simonw/claude-to-sqlite https://simonw.substack.com/p/everything-i-built-with-claude-artifacts https://support.anthropic.com/en/articles/9450526-how-can-i-export-my-claude-ai-data
+* Markdown: https://simonw.substack.com/p/video-scraping-using-google-gemini
 * XML: https://github.com/simonw/files-to-prompt
 
 OPTIONS
 * in Bash https://github.com/simonmysun/ell
 * _aichat_: ❌ https://github.com/sigoden/aichat/issues/924
 * doesn't work https://github.com/sigoden/aichat 
+* _chat-macOS_: https://github.com/huggingface/chat-macOS https://news.ycombinator.com/item?id=41927624
 * _Easy Folders_: ❌ didn't work in Brave https://chromewebstore.google.com/detail/chatgpt-folders-search-pr/gdocioajfidpnaejbgmbnkflgmppibfe
 * _khoj_: https://github.com/khoj-ai/khoj
-* _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm https://simonw.substack.com/p/video-scraping-using-google-gemini
+* _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm https://simonw.substack.com/p/video-scraping-using-google-gemini plugins for models https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3
 * _mods_: 🎯 https://github.com/charmbracelet/mods
 * _oterm_: for Ollama https://github.com/ggozad/oterm
 * _Superpower ChatGPT_: folders mostly broken but JSON export seems to work https://spchatgpt.com/ https://chromewebstore.google.com/detail/Superpower%20ChatGPT/amhmeenmapldpjdedekalnfifgnpfnkc 
+* _tenere_: 🎯 file output, no Homebrew install yet https://github.com/pythops/tenere https://github.com/pythops/tenere/issues/31
 * _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
 
 ELIA 📜 https://github.com/darrenburns/elia
@@ -181,6 +194,10 @@ https://github.com/nomic-ai/gpt4all
 * benchmark https://arena.lmsys.org/
 * _ChatGPT_: need to ugrade macOS to get access to desktop app
 * code: https://ollama.com/blog/python-javascript-libraries
+* _Claude_: https://news.ycombinator.com/item?id=41914989
+* larger context window = better for dev? https://www.anthropic.com/customers/headstart
+* the best? https://x.com/emollick/status/1849168452914938082
+* _Eliza_: https://web.njit.edu/~ronkowit/eliza.html
 * _Gemma_: https://ai.google.dev/gemma
 * _Gemini_: https://simonw.substack.com/p/video-scraping-using-google-gemini
 * _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model)
@@ -236,6 +253,7 @@ https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willi
 
 ---
 
+* chess https://arxiv.org/pdf/2402.04494 https://x.com/sytelus/status/1848160140278555049
 * running locally, llamafile https://news.ycombinator.com/item?id=40424519
 * https://news.ycombinator.com/item?id=40416362
 * https://explainextended.com/2023/12/31/happy-new-year-15/ https://news.ycombinator.com/item?id=40378499
@@ -338,6 +356,7 @@ dot([1,2,3], [4,5,6])
 * contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
 * BYO https://medium.com/@msouza.os/llm-from-scratch-with-pytorch-9f21808c6319 https://youtu.be/kCc8FmEb1nY
 * learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
+* price per token https://x.com/drorpoleg/status/1847686346078368006
 * tokens, read whole thing
 > The big challenge for traditional LLMs is that they are path-dependent; while they can consider the puzzle as a whole, as soon as they commit to a particular guess they are locked in, and doomed to failure. This is a fundamental weakness of what are known as “auto-regressive large language models”, which to date, is all of them. To grossly simplify, a large language model generates a token (usually a word, or part of a word) based on all of the tokens that preceded the token being generated; the specific token is the most statistically likely next possible token derived from the model’s training (this also gets complicated, as the “temperature” of the output determines what level of randomness goes into choosing from the best possible options; a low temperature chooses the most likely next token, while a higher temperature is more “creative”). The key thing to understand, though, is that this is a serial process: once a token is generated it influences what token is generated next. https://stratechery.com/2024/enterprise-philosophy-and-the-first-wave-of-ai/
 > These new models are also available through Mistral's la Plateforme API, priced at $0.1/million tokens (input and output) for the 8B and $0.04/million tokens for the 3B. https://simonw.substack.com/p/video-scraping-using-google-gemini
@@ -527,27 +546,37 @@ SEMANTICS
 
 ---
 
-* video scraping https://simonw.substack.com/p/video-scraping-using-google-gemini
-* generative music https://www.garbageday.email/p/suno-just-raised-lot-money
+DOCS
+* chat with your docs https://github.com/Cinnamon/kotaemon
 * ingest all your notes https://news.ycombinator.com/item?id=41732634
-* image search https://tembo.io/blog/image-search
+* analyze research papers https://elicit.com/
+* PDF https://dev.to/jagroop2001/building-a-chat-with-pdfs-using-pinataopenai-and-streamlit-3jb7
+* papers to podcasts https://www.fwdaudio.com/ https://x.com/barbell_fi
+
+AUDIO
+* TTS https://github.com/fishaudio/fish-speech
+* text to voice e.g. AWS Polly https://aws.amazon.com/blogs/aws/introducing-aws-b2b-data-interchange-simplified-connections-with-your-trading-partners/
+* transcription https://news.ycombinator.com/item?id=41199567 https://www.theguardian.com/media/2014/jan/22/ten-tools-for-digital-and-citizen-journalists-on-the-go
+* audio prompt + voice cloning for answer https://blog.untrod.com/2023/11/robot-dad.html https://elevenlabs.io/
 * voice clone https://www.jeffgeerling.com/blog/2024/elecrow-responded-apologized-ai-voice-cloning
 * speech to text https://github.com/kyutai-labs/moshi
-* image recognition https://www.youtube.com/watch?v=XPA213k8G_U
-* text to SQL https://github.com/vanna-ai/vanna
-* chat with your docs https://github.com/Cinnamon/kotaemon
-* to synthesize all comments on a product into a blurb https://blog.untrod.com/2024/04/llm-chatgpt-powered-django-admin-fields.html
-* copyedit a novel https://blog.untrod.com/2023/06/copy-editing-a-novel-with-chatgpt.html
-* audio prompt + voice cloning for answer https://blog.untrod.com/2023/11/robot-dad.html https://elevenlabs.io/
+* generative music https://www.garbageday.email/p/suno-just-raised-lot-money
 * vocals https://audimee.com/
-* analyze research papers https://elicit.com/
-* IFTTT https://news.ycombinator.com/item?id=41059821 https://en.wikipedia.org/wiki/IFTTT
-* audio transcription https://news.ycombinator.com/item?id=41199567
-* deep fakes https://github.com/hacksider/Deep-Live-Cam
+* Siri https://github.com/homebrewltd/ichigo
 
 IMG
+* video scraping https://simonw.substack.com/p/video-scraping-using-google-gemini
+* image recognition https://www.youtube.com/watch?v=XPA213k8G_U
+* image to spreadsheet https://news.ycombinator.com/item?id=41059821 https://en.wikipedia.org/wiki/IFTTT
+* deep fakes https://github.com/hacksider/Deep-Live-Cam
+* image search https://tembo.io/blog/image-search
 * https://github.com/GabAlpha/basilk https://perchance.org/ai-pixel-art-generator
 * Midjourney https://midlibrary.io/styles
 * DALL-E
 * Stable Diffusion
 * https://news.ycombinator.com/item?id=40437641
+
+ZA
+* text to SQL https://github.com/vanna-ai/vanna
+* to synthesize all comments on a product into a blurb https://blog.untrod.com/2024/04/llm-chatgpt-powered-django-admin-fields.html
+* copyedit a novel https://blog.untrod.com/2023/06/copy-editing-a-novel-with-chatgpt.html

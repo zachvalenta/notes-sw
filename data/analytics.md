@@ -19,7 +19,7 @@ TOOLING
 * visualize https://github.com/man-group/dtale
 
 ZA
-* _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog
+* _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog https://realpython.com/podcasts/rpp/224/
 > Chances are, you’ve never heard of Narwhals. That’s because it’s a tool targeted at tool builders, rather than at end users. Specifically, it allows library maintainers to support multiple dataframe libraries as inputs, without having to make any of them required. https://pola.rs/posts/lightweight_plotting/
 
 ---
@@ -537,6 +537,8 @@ HARLEQUIN 📜 https://harlequin.sh
 
 ---
 
+* AI / plain English https://news.ycombinator.com/item?id=41907719
+
 * _business intelligence (BI)_: explorer (for non-devs) + graphs
 * SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
 
@@ -593,10 +595,28 @@ NATURAL WORLD
 
 SPORTS
 * diet, sleep https://calmcode.io/datasets
+* https://www.statmuse.com/
 * baseball https://jamesrledoux.com/projects/open-source/introducing-pybaseball/ https://www.thedrummeyangle.com/post/an-introduction-to-pybaseball-using-python-to-analyze-baseball-data https://www.datacamp.com/tutorial/scikit-learn-tutorial-baseball-1
 * basketball https://craftednba.com/ https://cleaningtheglass.com/ https://cleaningtheglass.com/stats/player/4231/onoff#tab-team_efficiency https://sportradar.com/ https://www.youtube.com/watch?v=boct75srdbE
 * football https://x.com/theStevenRuiz/status/1838644108685963386
 * soccer https://statsbomb.com/news/statsbomb-release-free-euro-2024-data
+
+---
+
+* general https://github.com/awesomedata/awesome-public-datasets https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks https://corgis-edu.github.io/corgis/csv/ https://www.data-is-plural.com/archive/ https://redis.com/blog/datasets-for-test-databases/
+* JSON https://github.com/jdorfman/awesome-json-datasets
+* csv https://github.com/secretGeek/awesomecsv#data
+* 📍 more in 🗄 `ml.md`? put these there? Paul Swanson videos?
+> put in ML
+* PG Exercises https://pgexercises.com/gettingstarted.html https://github.com/AlisdairO/pgexercises/issues/28
+* executions https://selectstarsql.com/frontmatter.html#dataset
+* housing https://www.zillow.com/research/data/
+* music https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks
+* shootings https://catalog.data.gov/dataset/nypd-shooting-incident-data-historic
+* verbos https://github.com/ghidinelli/fred-jehle-spanish-verbs
+* HN https://github.com/dogsheep/hacker-news-to-sqlite https://news.ycombinator.com/submitted?id=luu
+* movies https://simonwillison.net/2019/Feb/25/sqlite-utils/ https://github.com/jdorfman/awesome-json-datasets
+* music https://corgis-edu.github.io/corgis/csv/music/ 
 
 ## spreadsheet (Excel)
 

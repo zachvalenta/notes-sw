@@ -11,6 +11,7 @@
 
 ## 进步
 
+* https://www.cs.cmu.edu/~pavlo/blog/index.html
 * https://github.com/bytebase/bytebase
 * https://ngrok.com/blog-post/how-we-built-ngroks-data-platform https://github.com/amalshaji/portr
 * https://www.youtube.com/@jayzern/videos
@@ -177,6 +178,7 @@ TOOLS
 
 ---
 
+* https://blog.codepen.io/2023/02/01/399-data-munging/
 * unstructured https://news.ycombinator.com/item?id=41236273
 * anonymize/differential privacy https://www.youtube.com/watch?v=PC0bF5tstvI
 * _Zingg_: entity resolution i.e. fix data integrity problems https://github.com/zinggAI/zingg
@@ -446,6 +448,7 @@ ROLES
 ---
 
 https://github.com/ebonnal/streamable
+https://www.npmjs.com/package/x12-parser
 
 * streaming architecture https://news.ycombinator.com/item?id=31421004
 * streaming in Postgres https://github.com/sequinstream/sequin

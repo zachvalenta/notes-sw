@@ -4,6 +4,9 @@
 
 ## 进步
 
+* grok segments from chatgpt code block https://github.com/dev0088/pyedi830
+* https://github.com/lusingander/btox
+
 * _24_: split into own file, file fmts (Cuelang, INI, KDL, YAML, EDI)
 * _22_: protocol (encoding, serialization)
 * _21_: prefix code
@@ -84,11 +87,11 @@ IEA*1*000000905
 
 ## tooling
 
-🔬 https://www.stedi.com/edi/inspector
+🔍 https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
 
-> can either of these do JSON to x12?
-* _bots_: bad docs https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
-* _pyedi_: ✅ parse x12 to JSON https://github.com/freestream/pyedi 💻 https://github.com/zachvalenta/capp-pyedi
+* _AWS B2Bi_: 🎯 https://docs.aws.amazon.com/b2bi/ history, usage https://aws.amazon.com/blogs/aws/introducing-aws-b2b-data-interchange-simplified-connections-with-your-trading-partners/
+* _bots_: ❌ bad docs https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
+* _pyedi_: ✅ parse (x12-JSON) https://github.com/freestream/pyedi 💻 https://github.com/zachvalenta/capp-pyedi
 * not on PyPI; fork and publish? https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 ```python
 import json
@@ -99,24 +102,15 @@ with open("data.json", "w") as f:
     json.dump(ts, f)
 # fmt -> python -m json.tool data.json
 ```
-* _pyx12_: https://github.com/azoner/pyx12
-* _sezna_: parse x12 to JSON https://github.com/sezna/edi https://news.ycombinator.com/item?id=23786634
-* _x12-edi-tools_: 🐍 Python to x12 https://github.com/copyleftdev/x12-edi-tools https://pypi.org/project/x12-edi-tools/
-
----
-
-* https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
-* https://www.npmjs.com/package/x12-parser
-* https://github.com/dev0088/pyedi830
-
-XML
-* https://cxml.org/ https://github.com/simonw/files-to-prompt
-* https://www.smooks.org/
-
-AWS
-* https://docs.aws.amazon.com/b2bi/
-* https://docs.aws.amazon.com/b2bi/latest/userguide/what-is-b2bi.html
-* https://aws.amazon.com/blogs/aws/introducing-aws-b2b-data-interchange-simplified-connections-with-your-trading-partners/
+* _pyedi830_: ❌ parse (x12-CSV) https://github.com/dev0088/pyedi830
+* _pyx12_: ❌ validate x12; `ModuleNotFoundError: No module named 'pkg_resources'` https://github.com/azoner/pyx12
+* _sezna_: parse (x12-JSON) https://github.com/sezna/edi
+> It has been already used commercially for multiple EDI pipelines and is able to handle any X12 document which is specification-compliant. It can both parse and output valid EDI documents while maintaining versatility to cover the entire spec. There is also a `loose_parse` mode which is less strict on the spec, in case the incoming data is slightly malformed. https://news.ycombinator.com/item?id=23786634
+* _Smooks_: ❌ Java, XML https://www.smooks.org/
+* _Stedi_: ✅ syntax highlight https://www.stedi.com/edi/inspector
+* _vs-edi_: 🎯 syntax highlight https://github.com/hellooops/vscode-edi-support https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources#syntax-highlighters
+* _x12-edi-tools_: parse (Python-x12) https://github.com/copyleftdev/x12-edi-tools https://pypi.org/project/x12-edi-tools/
+* _x12-parser_: JS, for large files https://www.npmjs.com/package/x12-parser
 
 # 🪪 ENCODING
 
@@ -276,7 +270,7 @@ VERSIONS https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog
 https://drewdevault.com/2021/07/28/The-next-YAML.html
 
 QUERY TOOLS
-* https://github.com/julien040/anyquery
+* query Google Sheets with SQL https://github.com/julien040/anyquery
 * _qq_: https://github.com/JFryy/qq
 * https://github.com/simonw/sqlite-utils
 * https://github.com/datafold/data-diff
@@ -342,6 +336,7 @@ cue vet person.cue
 
 * used by `.gitconfig`
 * comments: `;`, hash (for Git at least)
+* _pyinilint_: validate https://pypi.org/project/pyinilint/ https://gitlab.com/danieljrmay/pyinilint alternative https://github.com/Boeing/config-file-validator
 
 ## JSON
 
@@ -352,6 +347,7 @@ cue vet person.cue
 
 OPERATIONS
 * fmt: `python3 -m json.tool music-lib.json > music-lib-fmt.json` https://orbifold.xyz/check-in-json.html
+* to SQL https://github.com/simonw/claude-to-sqlite
 * _dasel_: edit https://github.com/TomWright/dasel
 * _jo_: ✅ generate https://github.com/jpmens/jo
 * _graphtage_: ❌ diff https://github.com/trailofbits/graphtage broken https://github.com/trailofbits/graphtage/issues/91 🗄️ `shell.md` file / diff
@@ -399,6 +395,7 @@ ALTERNATIVES
 * SQLite CLI
 * DuckDB https://www.pgrs.net/2024/03/21/duckdb-as-the-new-jq/ https://news.ycombinator.com/item?id=35009612 https://duckdb.org/2023/03/03/json.html 
 * _jaq_: rewrite https://github.com/01mf02/jaq
+* _jello_: 🎯 Python syntax https://github.com/kellyjonbrazil/jello https://github.com/kellyjonbrazil/jellex
 * _jnv_: 🎯 interactive https://github.com/ynqa/jnv
 * _jqp_: TUI https://github.com/noahgorstein/jqp 
 * _jsonata_: https://jsonata.org/
@@ -466,6 +463,7 @@ https://kdl.dev/ https://zellij.dev/documentation/layouts
 
 ---
 
+* https://www.crunchydata.com/blog/pg_parquet-an-extension-to-connect-postgres-and-parquet
 * https://csvbase.com/blog/3
 * https://r4ds.hadley.nz/arrow#sec-parquet
 * partition elimination https://duckdb.org/2021/12/03/duck-arrow.html
@@ -480,14 +478,15 @@ https://kdl.dev/ https://zellij.dev/documentation/layouts
 
 🗄️ `algos.md` tree
 
-* usage: EDI, Maven
+* usage: EDI, Maven, Claude https://github.com/simonw/files-to-prompt
 * element types: prolog, root node/element, child node/elements, comments (same as HTML)
-* _XSLT_: CSS for XML
+* _XSLT_: CSS for XML https://github.com/azoner/pyx12
 * _XPath_: CSS selector for XML
 
 ---
 
 HISTORY
+* _cXML_: owned by SAP https://en.wikipedia.org/wiki/CXML https://cxml.org/
 * https://news.ycombinator.com/item?id=35467711
 * previously more popular 📙 Beaulieu 2.34
 
@@ -495,6 +494,7 @@ HISTORY
 
 📜 https://yaml.org/
 🔍 query https://github.com/mikefarah/yq
+> can validate as well https://chatgpt.com/c/67141929-cb80-8004-86dc-201dc864fdad
 
 * scalars
 ```yaml

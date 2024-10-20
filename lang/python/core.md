@@ -22,6 +22,7 @@
 
 # 📍 CLEAN UP
 
+* https://realpython.com/syntactic-sugar-python/
 * https://treyhunner.com/2022/03/variables-objects-and-pointers-in-python/
 * https://realpython.com/python-lazy-evaluation/
 * https://www.pythonmorsels.com/cli-tools/
@@ -45,7 +46,6 @@ attributes
 * library design https://benhoyt.com/writings/python-api-design/
 * dataclasses, typing https://kobzol.github.io/rust/python/2023/05/20/writing-python-like-its-rust.html
 * classes https://realpython.com/python-classes/
-* protocols https://godatadriven.com/blog/protocols-in-python-why-you-need-them/ https://www.youtube.com/watch?v=xvb5hGLoK0A https://peps.python.org/pep-0544/ https://www.amazon.com/Architecture-Patterns-Python-Domain-Driven-Microservices/dp/1492052205 https://unitedmasters.atlassian.net/wiki/spaces/PROGRAM/pages/2379939844/2023-04-13+U+Sprint https://codebeez.nl/blogs/type-hinting-in-modern-python-the-protocol-class/
 * https://lukeplant.me.uk/blog/posts/pythons-disappointing-superpowers/
 * dictview, lru_cache https://death.andgravity.com/caching-methods namedtuple, frozen dataclasses, fractions over floats https://www.textualize.io/blog/posts/7-things-about-terminals multiset https://www.youtube.com/watch?v=b-K1ujf8u_k&pp=ygUQcHl0aG9uIGZyb3plbnNldA%3D%3D
 * https://snarky.ca/tag/syntactic-sugar/ https://realpython.com/python-del-statement/ https://www.wrighters.io/intro-to-python-match-statement/
@@ -133,6 +133,8 @@ class SomeView(BaseView):
 
 ## descriptor
 
+---
+
 * https://www.youtube.com/watch?v=mMbVs17Vmo4
 * https://docs.python.org/3/library/inspect.html#inspect.ismethoddescriptor https://docs.python.org/3/library/inspect.html#inspect.isdatadescriptor https://docs.python.org/3/library/inspect.html#inspect.ismemberdescriptor
 * https://www.fluentpython.com/lingo/#descriptor https://docs.python.org/3/glossary.html#term-descriptor
@@ -142,7 +144,6 @@ class SomeView(BaseView):
 * _attribute_: https://www.fluentpython.com/lingo/#EAFP https://www.fluentpython.com/lingo/#attribute
 > other stuff on attributes scattered throughout note
 * managed instance, managed class https://www.fluentpython.com/lingo/#managed_instance
-* managed attribute https://www.fluentpython.com/lingo/#managed_attribute
 * managed class https://www.fluentpython.com/lingo/#managed_attribute
 * getter/setter https://realpython.com/python-getter-setter/
 * storage attribute https://www.fluentpython.com/lingo/#storage_attribute
@@ -272,7 +273,10 @@ isinstance(type, object)  # True
 * _abstract base class (ABC)_: https://www.fluentpython.com/lingo/ https://docs.python.org/3/glossary.html#term-abstract-base-class
 * _virtual subclass_: https://www.fluentpython.com/lingo/ https://www.fluentpython.com/lingo/#constructor
 
-MIXINS
+### mixin
+
+---
+
 * _mixin_: multiple inheritance of abstract class https://stackoverflow.com/a/15605119 https://www.fluentpython.com/lingo/#mixin_class
 * _interface_: https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python https://realpython.com/python-interface/ https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html https://www.youtube.com/watch?v=DqFspy9pI9k
 * _sink_: https://www.ianlewis.org/en/mixins-and-python https://stackoverflow.com/a/52469499/6813490 https://www.residentmar.io/2019/07/07/python-mixins.html https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful mixins tutorial https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556 https://stackoverflow.com/a/547714/6813490
@@ -310,6 +314,18 @@ c.walk()
 c.crawl()
 ```
 
+### protocol
+
+---
+
+* https://chatgpt.com/c/671815e8-0f44-8004-abb5-be6b52fc8bd1
+* https://godatadriven.com/blog/protocols-in-python-why-you-need-them/
+* https://www.youtube.com/watch?v=xvb5hGLoK0A
+* https://peps.python.org/pep-0544/
+* https://www.amazon.com/Architecture-Patterns-Python-Domain-Driven-Microservices/dp/1492052205
+* https://codebeez.nl/blogs/type-hinting-in-modern-python-the-protocol-class/
+* https://pythontest.com/fix-circular-import-python-typing-protocol/
+
 ## methods
 
 ---
@@ -345,35 +361,43 @@ METHODS
 * impl via descriptor https://www.youtube.com/watch?v=ANLjBsWHshc
 * just a naming convention https://stackoverflow.com/a/475919
 * debate http://neopythonic.blogspot.com/2008/10/why-explicit-self-has-to-stay.html https://stackoverflow.com/q/2709821
-* _property_: 
+
+## property
+
+* _property_: https://realpython.com/python-property/
+* aka managed attribute
+> Programming languages such as Java and C++ encourage you to never expose your attributes to avoid this kind of problem. Instead, you should provide getter and setter methods, also known as accessors and mutators, respectively. These methods offer a way to change the internal implementation of your attributes without changing your public API.
+> Properties represent an intermediate functionality between a plain attribute, or field, and a method. In other words, they allow you to create methods that behave like attributes. With properties, you can change how you compute the target attribute whenever you need to.
+
+---
+
 * 📙 Ramalho [839]
+* https://www.fluentpython.com/lingo/#managed_attribute
+
 * call method same way you used access property/attr i.e. dot notation
 * way to refactor field into method https://www.machinelearningplus.com/python/python-property/ https://stackoverflow.com/q/6618002/6813490
 * uniform acccess principle https://www.fluentpython.com/lingo/
 ```python
-# phase 1 - .fullname becomes inconsistent if other attr updated bc only set on init
+# PHASE 1 - .fullname becomes inconsistent if other attr updated bc only set on init
 class Person():
     def __init__(self, firstname, lastname):
         self.first = firstname
         self.last = lastname
         self.fullname = self.first + ' '+ self.last
 
-# phase 2 - works but a breaking change bc .fullname is now .fullname()
+# PHASE 2 - works but a breaking change bc .fullname is now .fullname()
 class Person():
     def __init__(self, firstname, lastname):
         self.first = firstname
         self.last = lastname
-
     def fullname(self)
         return self.first + ' ' + self.last
 
-# phase 3 - invoke method with same syntax as accessing property
+# PHASE 3 - invoke method with same syntax as accessing property
 class Person():
-
     def __init__(self, firstname, lastname):
         self.first = firstname
         self.last = lastname
-
     @property
     def fullname(self)
         return self.first + ' ' + self.last
@@ -475,6 +499,7 @@ match result[0]:
 
 ---
 
+* https://realpython.com/structural-pattern-matching/
 * https://www.youtube.com/watch?v=ASRqxDGutpA
 * https://martinheinz.dev/blog/78
 * switch statement on steroids https://benhoyt.com/writings/python-pattern-matching/ https://peps.python.org/pep-0634/
@@ -641,6 +666,9 @@ def outer(num):
 
 ## lambdas
 
+---
+
+* https://blog.appsignal.com/2024/10/16/how-to-use-lambda-functions-in-python.html
 https://www.youtube.com/watch?v=fZE6ZWde-Os
 https://www.pythonmorsels.com/lambda-expressions/
 https://lwn.net/Articles/964839/
@@ -801,6 +829,7 @@ def use_decorator():
 
 ---
 
+https://github.com/google/pyglove
 * _callable_: any obj that impl `__call__` e.g function, method, classes e.g. `MyClass()` https://eli.thegreenplace.net/2012/03/23/python-internals-how-callables-work https://www.fluentpython.com/lingo/#callable_object https://www.pythonmorsels.com/class-function-and-callable/ https://docs.python.org/3/glossary.html#term-callable
 * _key function_: for callables https://docs.python.org/3/glossary.html#term-key-function
 * _destructuors_: https://eli.thegreenplace.net/2009/06/12/safely-using-destructors-in-python
@@ -1032,7 +1061,9 @@ foo  # [42, 2, 3]
 
 ## typing
 
-🗄 `language.md` typing
+🗄 `plt.md` typing
+
+* ruining the language? https://bryananthonio.com/blog/pydantic-custom-dictionary-types/
 > You probably know my skepticism towards Python typing. This stems from the syntax's complexity, the sluggishness of mypy, the overall cumbersome nature of its implementation and awkwardness of interactions with it...in a way in some areas we are creating the new Java. We became the people we originally displaced. Just that when we are not careful we are on a path to the world's worst Java. We put typing on a language that does not support it, our interpreter is slow, it has a GIL. We need to be careful not to forget that our roots are somewhere else. We should not collectively throw away the benefits we had. https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
 
 * _exhaustiveness check_: check that functions handle newly-added attributes on their args https://news.ycombinator.com/item?id=25428583
@@ -1246,6 +1277,7 @@ ZA
 * happened to me when I was trying to import pandas in a dir named `to-csv` https://stackoverflow.com/a/36250354
 
 https://nedbatchelder.com/blog/202405/one_way_to_fix_python_circular_imports.html
+https://pythontest.com/fix-circular-import-python-typing-protocol/
 https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
 * https://news.ycombinator.com/item?id=34727287
 * _import_: https://docs.python.org/3/glossary.html#term-importing
