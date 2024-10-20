@@ -14,6 +14,268 @@ workflow engine or task queue https://news.ycombinator.com/item?id=34163888 http
 * _18_: Cloud Foundry and AMQP/Spring for Dark Canary
 * _17_: try out Terraform and AWS for Comcast interview
 
+# ☁️ CLOUDS
+
+## CF
+
+misc
+* _architecture_: DEA (Ruby) Diego (Go) https://docs.cloudfoundry.org/concepts/diego/dea-vs-diego.html
+* _healthchecks_: https://stackoverflow.com/questions/39736774/health-check-in-cloud-foundry https://docs.cloudfoundry.org/devguide/deploy-apps/healthchecks.html
+* _history_: 2009 (acquired by SpringSource, itself acquired by VMware in 2009) 2011 (public launch)
+* `runtime.txt`: specify runtime for Python https://docs.cloudfoundry.org/buildpacks/python/index.html
+* _task_: akin to cronjob https://docs.cloudfoundry.org/devguide/using-tasks.html
+
+Pivotal
+* _Cloud Foundry_: the software
+* _Pivotal Cloud Foundry_: enterprise version
+* _Pivotal Web Services_: hosted environment for PCF
+* _Cloud Foundry Foundation_: drive adoption to prevent AWS from taking over 😀
+* _droplet_: app + dependencies
+
+terms
+* _Apps Manager_: GUI
+* _pool_: 类似 AWS region ➡️ `AP`
+* _lane_: 类似 AWS availability zone ➡️ `AP-3b`
+* _org_: account ➡️ `AP-3b FooTeam`
+* _space_: namespace within pool/lane owned by org ➡️ `AP-3b FooTeam DEV`
+
+services
+* _binding_: service credentials [delivered automatically to app](https://docs.cloudfoundry.org/devguide/services/#application-binding)
+* if service listed in `manifest.yml` and service does not exist in CF, app will push but won't start
+* _VCAP SERVICES_: JSON of connected services https://banck.net/2014/12/deploying-a-django-application-to-cloud-foundry/
+
+cmds
+* login: `login -a <url>`
+* switch endpoints: `api <url>`
+* view apps in pool: `apps`
+* env var for app: `env <app>`
+* tail logs: `logs <app>`
+* dump logs: `logs <app> --recent`
+
+db setup
+* create dedicated db svc
+* create db cluster
+* create db _in_ cluster
+* bind svc to db
+* `cf push` app that will need the db
+
+instances
+* [kill specific instance](https://stackoverflow.com/a/39241780/6813490)
+* [get instance GUID](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#CF-INSTANCE-GUID)
+* [route request to specific instance](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#surgical-routing)
+* [start instances in order](https://stackoverflow.com/a/49417497/6813490)
+
+__app boot__
+
+start command https://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html
+* https://docs.cloudfoundry.org/buildpacks/prod-server.html
+* the console will show you the complete start command on the 'settings' page
+* args provided by CLI trump `maninfest.yml`
+
+semantics
+* _buildpack_: 
+* _droplet_: 
+* _Procfile_: Ruby version of `docker-compose.yml`
+* used by Heroku
+
+request flow
+> if service listed in `manifest.yml` but nonexistant in CF, app won't start
+* app binds to route
+* create buildpack (`.profile.d`) https://news.ycombinator.com/item?id=28468660
+* create droplet
+* hooks (`.profile`)
+* start (`Procfile`)
+
+__routes__
+
+create route
+* _automatic_: CF creates route based on app name/pool and maps route to application on `cf push`
+* _custom_: use `manifest.yml` or CLI (`create-route`, `map-route`)
+* `manifest.yml` can create routes, but it will not remove previously mapped routes
+* can create random route using `cf push <app> --random-route`
+* `map-route` runs `create-route` as first step of its own execution so in practice you really only need to use `map-route`; same thing for `delete-route` and `unmap-route`
+
+* commands
+```sh
+# associate route w/ *space*
+create-route <space> <domain> --hostname
+
+# associate route w/ *app*
+map-route <app> <domain> --hostname
+
+# rm route and its associations
+delete-route <domain> --hostname
+```
+
+gotchas
+* Gorouter does not use a route until route is _mapped_ to an app; if route created but unmapped, [Gorouter serves 404](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html)
+* you probably have more routes than are visible from Apps Manager; view using `cf routes`
+* if you don't explicitly create a route and map it to your application, CF will make the route combining `app-name` and `domain` and `pool-info`
+* routes must be unique, even across spaces
+> The URL for your app must be unique from other apps hosted by Cloud Foundry - https://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html
+> Routes are globally unique. Developers in one space cannot create a route with the same URL as developers in another space, regardless of which orgs control these spaces. - https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#routes
+
+request flow
+* client ➡️ Gorouter ➡️ route service ➡️ app
+* _Gorouter_: routes w/in pool to app instances via round-robin
+* _route service_: handles rate limiting, caching; find app instance using `X-CF-Forwarded-Url` header
+
+## cost control
+
+SVC
+* _Budgets_: set alerts for spend/underusage https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html
+* can also set alarms in CloudWatch 📹 Brown ccp [1:43:30]
+* _Trusted Advisor_: inspect your env, give recs https://docs.aws.amazon.com/awssupport/latest/user/trusted-advisor.html https://us-east-1.console.aws.amazon.com/trustedadvisor
+
+ZA
+* why cloud: metered billing, flexibility, cost
+* free tier available for n months for certain svc
+* some svc default to large node size e.g. ElasticCache 📹 Brown ccp [1:33:00]
+* sometimes get refunded for misspend 📹 Brown ccp [1:34:00]
+* _metered billing_: pay for what you use (vs. fixed costs) 📹 Brown ccp [1:31:15]
+* autoscaling is overrated
+> You won't need it to spin instances up and down based on utilization. Unless your profit margins are as thin as Amazon's, what you need instead is abundant capacity headroom. Permanently. Then you can sleep well at night - unlike Amazon's oncall engineers. https://x.com/dvassallo/status/1154516910265884672
+
+---
+
+https://focus.finops.org/
+> Cloud and SaaS billing data can be complex, inconsistent among providers and difficult to understand. The FinOps Open Cost and Usage Specification (FOCUS) aims to reduce this friction with a spec containing a set of terminologies (aligned with the FinOps framework), a schema and a minimum set of requirements for billing data. The spec is intended to support use cases common to a variety of FinOps practitioners. Although still in the early stages of development and adoption, it’s worth watching because, with growing industry adoption, FOCUS will make it easier for platforms and end users to get a holistic view of cloud spend across a long tail of cloud and SaaS providers. https://www.thoughtworks.com/radar/platforms/focus
+
+https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
+* rightsizing https://softwareengineeringdaily.com/2021/01/12/kubecost-with-webb-brown/
+* on-prem: need to integrate w/ legacy systems inside firewall, regulatory, cheaper, you can still make the consumption of your data center feel like a public cloud (CF, HPE)
+* _capacity planning / demand forecasting_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/ https://www.youtube.com/watch?v=UC5xf8FbdJc https://www.youtube.com/watch?v=ov7xhNdrsDM
+
+* free tier https://www.lastweekinaws.com/blog/an-aws-free-tier-bill-shock-your-next-steps/
+> Exercise: Pick an infrastructure service that your team operates and calculate how many hours/month you work to maintain the solution. https://cloudonaut.io/my-mental-model-of-aws/
+* https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
+* https://www.lastweekinaws.com/blog/awss-deprecation-policy-is-like-a-platypus/
+* https://www.lastweekinaws.com/blog/why_amazon_cant_end_the_release_tidal_wave/
+* https://www.lastweekinaws.com/blog/the-feudal-lords-of-amazon/
+* https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
+* AWS is more expensive https://calpaterson.com/amazon-premium.html https://bravenewgeek.com/multi-cloud-is-a-trap/
+* switching https://news.ycombinator.com/item?id=30942698
+* https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
+* buy don't build https://news.ycombinator.com/item?id=25399250
+* if it's not your data center you're not really self-hosting https://news.ycombinator.com/item?id=27674726 https://github.com/khuedoan/homelab
+> But the thing is in most of the companies you don't have full control over the whole stack. Even if you have "full control" over the database, you don't have control over networking, firewall, OS, "security" patching, VMs, Docker, Kubernetes, Load balancers, vendors managing parts of the infra, internet provider, hosting provider ... Not even datacenter team may have control over all of it, but at least that's their job and their area of expertise.
+* _benefits_: cost (sometimes) scalability (most times) geographic DR (nearly always)
+* _consultants_: https://aws.amazon.com/iq/ https://www.gruntwork.io/
+* _cost control_: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ https://www.lastweekinaws.com/ https://github.com/mlabouardy/komiser https://www.infracost.io/
+
+## PaaS
+
+OPTIONS https://testdriven.io/blog/heroku-alternatives/
+* _Dokku_:
+* _Fly.io_: https://www.youtube.com/watch?v=0eP98xkLj9w
+* _Kamal_: https://kamal-deploy.org/
+* _Netlify_: 
+* _Pikku_: https://github.com/piku/piku
+* _Render_: 
+* _Platform.sh_:
+* _Sidekick_: 🎯 https://github.com/MightyMoud/sidekick https://news.ycombinator.com/item?id=41591018
+* _Tau_: https://github.com/taubyte/tau
+* _Vercel_: 
+
+---
+
+> With something like Heroku, you can have multiple VM's in staging and production, w/ a deployment pipeline that supports rollbacks, monitoring, alerting, autoscaling, all in a managed environment w/ a managed, highly available Postgres setup, with very little effort and 0 maintenance. This is what I've setup at my current startup. My last company was on K8's and I loved it - but this is nearly as good and requires literally no maintenance and far less expertise / setup. https://news.ycombinator.com/item?id=22493873 
+relisten from 29:30 for limitations https://softwareengineeringdaily.com/2019/06/17/render-high-level-cloud-with-anurag-goel/
+> my playbook: Heroku for experiments, Render for most work, AWS for work
+
+HEROKU
+
+cmd
+* login: `login`
+* create app: `create`
+* push: `git push heroku master` [Vincent 📍]
+* start: `ps:scale web=1` [Vincent 📍]
+* open: `open`
+* stop: `ps:scale web=0` https://stackoverflow.com/a/10231477/6813490
+
+* https://www.accordbox.com/blog/deploy-django-project-heroku-using-docker/
+* _pricing_: 2GB RAM is hundreds of dollars; they're owned by Salesforce now https://softwareengineeringdaily.com/2019/06/17/render-high-level-cloud-with-anurag-goel/ 29:15
+* _dyno_: VM running on top of EC2 instance https://stackoverflow.com/questions/21462439/what-exactly-is-a-single-heroku-web-dyno
+* _Git_: seems like when you're logged Heroku automatically becomes a Git remote [Vincent page 📍]
+* _scale_: serves 2M req/month pretty easily https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around
+* _virtual environments_: doesn't support Poetry yet https://github.com/heroku/heroku-buildpack-python/issues/796 need `requirements.txt` in root https://devcenter.heroku.com/articles/python-support#recognizing-a-python-app https://devcenter.heroku.com/articles/python-support#build-behavior
+* _Python version_: `runtime.txt` https://devcenter.heroku.com/articles/python-runtimes#selecting-a-runtime
+
+* analogous to `docker-compose.yml` https://www.mattlayman.com/blog/2019/web-development-environments/
+```Procfile
+web: ./manage.py runserver
+worker: celery worker --app new_hot_thing:celeryapp --loglevel info
+frontend: webpack --watch
+```
+
+## hosting
+
+🗄 `html-css.com`
+
+TAXONOMY https://www.youtube.com/watch?v=NhDYbskXRgc [48:00]
+> What is a server? Is it just, like, a big computer? Or is it actually special? There's a lot of industrial history wrapped up in that question, and the answer is often very context-specific. But there are some generalizations we can make about the history of the server: client-server computing originated mostly as an evolution of time-sharing computing using multiple terminals connected to a single computer. There was no expectation that terminals had a similar architecture to computers (and indeed they were usually vastly simpler machines), and that attitude carried over to client-server systems. The PC revolution instilled a WinTel monoculture in much of client-side computing by the mid-'90s, but it remained common into the '00s for servers to run entirely different operating systems and architectures. https://computer.rip/2024-08-31-ipmi.html
+* _node_: physical or virtual to host something (web server, API)
+* con: can't vertically scale https://www.youtube.com/watch?v=NhDYbskXRgc [1:09:30]
+* _dedicated_: physical machine (Raspberry Pi, Rackspace) + single business https://news.ycombinator.com/item?id=22407098
+* _virtual_: virtualize physical node + single business
+* _shared_: virtualize physical node + n businesses
+* BYO https://news.ycombinator.com/item?id=30676595
+* _cloud_: virtualize n nodes + n businesses; offers metered billing, composable services https://www.youtube.com/watch?v=NhDYbskXRgc [55:45]
+* OSS: OpenStack, CloudStack, VSphere
+* _PaaS_: e.g. Heroku https://www.youtube.com/watch?v=NhDYbskXRgc [1:14:15]
+* _IaaS_: e.g. AWS
+
+STATIC SITE
+* _AWS_: https://brandur.org/aws-intrinsic-static S3 and Cloudfront https://www.benkuhn.net/about/ https://github.com/s3tools/s3cmd s3-website https://bedford.io/misc/about/
+* _Firebase_: https://tinyprojects.dev/projects/tiny_website
+* _Github_: source has to be public
+* _Netlify_: https://wsvincent.com/site-design/ https://adamwathan.me/uses/
+
+---
+
+* self-hosting https://www.jotaen.net/anA6o/self-hosting-guide-docker-haproxy-lets-encrypt/ https://knhash.in/gentle-guide-to-self-hosting/
+* hosting https://news.ycombinator.com/item?id=34860655 https://news.ycombinator.com/item?id=34867314
+* Cloudflare https://rutar.org/writing/how-to-build-a-personal-webpage-from-scratch/ https://rutar.org/writing/previewing-a-development-branch-on-cloudflare-pages/ https://news.ycombinator.com/item?id=34639212
+* https://adamj.eu/colophon/
+* Netlify https://uglyduck.ca/articles/
+* https://dev.to/harri_etty/the-introduction-to-servers-i-wish-i-d-had-44jl
+* _level 2 (resellers)_: Heroku, Netlify, Render https://render.com/ https://softwareengineeringdaily.com/2019/06/17/render-high-level-cloud-with-anurag-goel/ Serverless https://serverless.com/
+* _alternatives_: Platform.sh https://news.ycombinator.com/item?id=22486031, Zeit/Vercel https://news.ycombinator.com/item?id=22933479 OpenShift (RHEL managed Kubernetes https://news.ycombinator.com/item?id=3003289) Cloud Run https://alexolivier.me/posts/deploy-container-stateless-cheap-google-cloud-run-serverless Dokku http://dokku.viewdocs.io/dokku/ Cap Rover https://news.ycombinator.com/item?id=23465087 https://fly.io/
+* _Digital Ocean_: https://github.com/seven1m/do-install-button
+
+## GCP
+
+* https://softwareengineeringdaily.com/2021/06/09/gcp-with-liz-fong-jones/
+
+* _App Engine_: PaaS https://testdriven.io/blog/django-gae
+* _RTDN_: notifcations from GP app https://developer.android.com/google/play/billing/rtdn-reference
+* howto https://developer.android.com/google/play/billing/getting-ready#enable-rtdn
+* _Cloud Pub/Sub_: MQ btw GCP apps https://cloud.google.com/pubsub/docs/publish-receive-messages-console https://console.cloud.google.com/cloudpubsub/topic/list https://console.cloud.google.com/cloudpubsub/subscription/list
+* multiple topics for GP app: possible? https://stackoverflow.com/q/72688883 yes https://stackoverflow.com/a/52759477 https://stackoverflow.com/a/71740580 no https://stackoverflow.com/a/70986770
+* https://stackoverflow.com/questions/6991135/what-does-it-mean-to-hydrate-an-object
+
+IAM
+* _principal_: user account, service account, group
+* _role_: collection of perms
+* _condition_: further constraint on role i.e. no write access if req lacks key
+* _allow policy_: mapping of principal to role per resource https://cloud.google.com/iam/docs/policies
+* _service account_: account for service (vs. user) https://cloud.google.com/iam/docs/service-accounts
+* GCP also has service accounts for itself e.g. to publish RTDN https://stackoverflow.com/a/64184564
+
+IAP Proxy https://www.youtube.com/watch?v=xM9-FSU5MoY
+* type of access: public, authed users, authed employees [2:00]
+* = identity service in front of site [3:30]
+* uses Google (or Active Directory) as SSoT for identity [4:15]
+
+za
+* unreliable https://news.ycombinator.com/item?id=24169044
+* bad customer supprt https://calpaterson.com/amazon-premium.html
+* GCS = S3
+* Cloud SQL = RDS
+* Cloud Spanner = Aurora
+* _BigQuery_: serverless db, good for GIS https://news.ycombinator.com/item?id=40052172
+* _BigTable_: BigQuery but NoSQL https://cloud.google.com/free/docs/map-aws-google-cloud-platform
+
 # 🧮 IaC
 
 ---
@@ -550,222 +812,6 @@ cmds
 * _reload conf_: `-s reload`
 
 # 🟨 ZA
-
-## Cloud Foundry
-
-misc
-* _architecture_: DEA (Ruby) Diego (Go) https://docs.cloudfoundry.org/concepts/diego/dea-vs-diego.html
-* _healthchecks_: https://stackoverflow.com/questions/39736774/health-check-in-cloud-foundry https://docs.cloudfoundry.org/devguide/deploy-apps/healthchecks.html
-* _history_: 2009 (acquired by SpringSource, itself acquired by VMware in 2009) 2011 (public launch)
-* `runtime.txt`: specify runtime for Python https://docs.cloudfoundry.org/buildpacks/python/index.html
-* _task_: akin to cronjob https://docs.cloudfoundry.org/devguide/using-tasks.html
-
-Pivotal
-* _Cloud Foundry_: the software
-* _Pivotal Cloud Foundry_: enterprise version
-* _Pivotal Web Services_: hosted environment for PCF
-* _Cloud Foundry Foundation_: drive adoption to prevent AWS from taking over 😀
-* _droplet_: app + dependencies
-
-terms
-* _Apps Manager_: GUI
-* _pool_: 类似 AWS region ➡️ `AP`
-* _lane_: 类似 AWS availability zone ➡️ `AP-3b`
-* _org_: account ➡️ `AP-3b FooTeam`
-* _space_: namespace within pool/lane owned by org ➡️ `AP-3b FooTeam DEV`
-
-services
-* _binding_: service credentials [delivered automatically to app](https://docs.cloudfoundry.org/devguide/services/#application-binding)
-* if service listed in `manifest.yml` and service does not exist in CF, app will push but won't start
-* _VCAP SERVICES_: JSON of connected services https://banck.net/2014/12/deploying-a-django-application-to-cloud-foundry/
-
-cmds
-* login: `login -a <url>`
-* switch endpoints: `api <url>`
-* view apps in pool: `apps`
-* env var for app: `env <app>`
-* tail logs: `logs <app>`
-* dump logs: `logs <app> --recent`
-
-db setup
-* create dedicated db svc
-* create db cluster
-* create db _in_ cluster
-* bind svc to db
-* `cf push` app that will need the db
-
-instances
-* [kill specific instance](https://stackoverflow.com/a/39241780/6813490)
-* [get instance GUID](https://docs.cloudfoundry.org/devguide/deploy-apps/environment-variable.html#CF-INSTANCE-GUID)
-* [route request to specific instance](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#surgical-routing)
-* [start instances in order](https://stackoverflow.com/a/49417497/6813490)
-
-__app boot__
-
-start command https://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html
-* https://docs.cloudfoundry.org/buildpacks/prod-server.html
-* the console will show you the complete start command on the 'settings' page
-* args provided by CLI trump `maninfest.yml`
-
-semantics
-* _buildpack_: 
-* _droplet_: 
-* _Procfile_: Ruby version of `docker-compose.yml`
-* used by Heroku
-
-request flow
-> if service listed in `manifest.yml` but nonexistant in CF, app won't start
-* app binds to route
-* create buildpack (`.profile.d`) https://news.ycombinator.com/item?id=28468660
-* create droplet
-* hooks (`.profile`)
-* start (`Procfile`)
-
-__routes__
-
-create route
-* _automatic_: CF creates route based on app name/pool and maps route to application on `cf push`
-* _custom_: use `manifest.yml` or CLI (`create-route`, `map-route`)
-* `manifest.yml` can create routes, but it will not remove previously mapped routes
-* can create random route using `cf push <app> --random-route`
-* `map-route` runs `create-route` as first step of its own execution so in practice you really only need to use `map-route`; same thing for `delete-route` and `unmap-route`
-
-* commands
-```sh
-# associate route w/ *space*
-create-route <space> <domain> --hostname
-
-# associate route w/ *app*
-map-route <app> <domain> --hostname
-
-# rm route and its associations
-delete-route <domain> --hostname
-```
-
-gotchas
-* Gorouter does not use a route until route is _mapped_ to an app; if route created but unmapped, [Gorouter serves 404](https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html)
-* you probably have more routes than are visible from Apps Manager; view using `cf routes`
-* if you don't explicitly create a route and map it to your application, CF will make the route combining `app-name` and `domain` and `pool-info`
-* routes must be unique, even across spaces
-> The URL for your app must be unique from other apps hosted by Cloud Foundry - https://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html
-> Routes are globally unique. Developers in one space cannot create a route with the same URL as developers in another space, regardless of which orgs control these spaces. - https://docs.cloudfoundry.org/devguide/deploy-apps/routes-domains.html#routes
-
-request flow
-* client ➡️ Gorouter ➡️ route service ➡️ app
-* _Gorouter_: routes w/in pool to app instances via round-robin
-* _route service_: handles rate limiting, caching; find app instance using `X-CF-Forwarded-Url` header
-
-## Heroku 
-
-ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
-* _AWS Beanstalk_:
-* _Dokku_:
-* _Fly.io_: https://www.youtube.com/watch?v=0eP98xkLj9w
-* _Google App Engine_:
-* _Kamal_: https://kamal-deploy.org/
-* _Netlify_: 
-* _Pikku_: https://github.com/piku/piku
-* _Render_: 
-* _Platform.sh_:
-* _Sidekick_: 🎯 https://github.com/MightyMoud/sidekick https://news.ycombinator.com/item?id=41591018
-* _Tau_: https://github.com/taubyte/tau
-* _Vercel_: 
-
-> With something like Heroku, you can have multiple VM's in staging and production, w/ a deployment pipeline that supports rollbacks, monitoring, alerting, autoscaling, all in a managed environment w/ a managed, highly available Postgres setup, with very little effort and 0 maintenance. This is what I've setup at my current startup. My last company was on K8's and I loved it -- but this is nearly as good and requires literally no maintenance and far less expertise / setup. - https://news.ycombinator.com/item?id=22493873 
-
-relisten from 29:30 for limitations https://softwareengineeringdaily.com/2019/06/17/render-high-level-cloud-with-anurag-goel/
-> my playbook: Heroku for experiments, Render for most work, AWS for work
-
-cmd
-* login: `login`
-* create app: `create`
-* push: `git push heroku master` [Vincent 📍]
-* start: `ps:scale web=1` [Vincent 📍]
-* open: `open`
-* stop: `ps:scale web=0` https://stackoverflow.com/a/10231477/6813490
-
-* https://www.accordbox.com/blog/deploy-django-project-heroku-using-docker/
-* _pricing_: 2GB RAM is hundreds of dollars; they're owned by Salesforce now https://softwareengineeringdaily.com/2019/06/17/render-high-level-cloud-with-anurag-goel/ 29:15
-* _dyno_: VM running on top of EC2 instance https://stackoverflow.com/questions/21462439/what-exactly-is-a-single-heroku-web-dyno
-* _Git_: seems like when you're logged Heroku automatically becomes a Git remote [Vincent page 📍]
-* _scale_: serves 2M req/month pretty easily https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around
-* _virtual environments_: doesn't support Poetry yet https://github.com/heroku/heroku-buildpack-python/issues/796 need `requirements.txt` in root https://devcenter.heroku.com/articles/python-support#recognizing-a-python-app https://devcenter.heroku.com/articles/python-support#build-behavior
-* _Python version_: `runtime.txt` https://devcenter.heroku.com/articles/python-runtimes#selecting-a-runtime
-
-* analogous to `docker-compose.yml` https://www.mattlayman.com/blog/2019/web-development-environments/
-```Procfile
-web: ./manage.py runserver
-worker: celery worker --app new_hot_thing:celeryapp --loglevel info
-frontend: webpack --watch
-```
-
-## hosting
-
-🗄 `html-css.com`
-
-TAXONOMY https://www.youtube.com/watch?v=NhDYbskXRgc [48:00]
-> What is a server? Is it just, like, a big computer? Or is it actually special? There's a lot of industrial history wrapped up in that question, and the answer is often very context-specific. But there are some generalizations we can make about the history of the server: client-server computing originated mostly as an evolution of time-sharing computing using multiple terminals connected to a single computer. There was no expectation that terminals had a similar architecture to computers (and indeed they were usually vastly simpler machines), and that attitude carried over to client-server systems. The PC revolution instilled a WinTel monoculture in much of client-side computing by the mid-'90s, but it remained common into the '00s for servers to run entirely different operating systems and architectures. https://computer.rip/2024-08-31-ipmi.html
-* _node_: physical or virtual to host something (web server, API)
-* con: can't vertically scale https://www.youtube.com/watch?v=NhDYbskXRgc [1:09:30]
-* _dedicated_: physical machine (Raspberry Pi, Rackspace) + single business https://news.ycombinator.com/item?id=22407098
-* _virtual_: virtualize physical node + single business
-* _shared_: virtualize physical node + n businesses
-* BYO https://news.ycombinator.com/item?id=30676595
-* _cloud_: virtualize n nodes + n businesses; offers metered billing, composable services https://www.youtube.com/watch?v=NhDYbskXRgc [55:45]
-* OSS: OpenStack, CloudStack, VSphere
-* _PaaS_: e.g. Heroku https://www.youtube.com/watch?v=NhDYbskXRgc [1:14:15]
-* _IaaS_: e.g. AWS
-
-STATIC SITE
-* _AWS_: https://brandur.org/aws-intrinsic-static S3 and Cloudfront https://www.benkuhn.net/about/ https://github.com/s3tools/s3cmd s3-website https://bedford.io/misc/about/
-* _Firebase_: https://tinyprojects.dev/projects/tiny_website
-* _Github_: source has to be public
-* _Netlify_: https://wsvincent.com/site-design/ https://adamwathan.me/uses/
-
----
-
-* self-hosting https://www.jotaen.net/anA6o/self-hosting-guide-docker-haproxy-lets-encrypt/ https://knhash.in/gentle-guide-to-self-hosting/
-* hosting https://news.ycombinator.com/item?id=34860655 https://news.ycombinator.com/item?id=34867314
-* Cloudflare https://rutar.org/writing/how-to-build-a-personal-webpage-from-scratch/ https://rutar.org/writing/previewing-a-development-branch-on-cloudflare-pages/ https://news.ycombinator.com/item?id=34639212
-* https://adamj.eu/colophon/
-* Netlify https://uglyduck.ca/articles/
-* https://dev.to/harri_etty/the-introduction-to-servers-i-wish-i-d-had-44jl
-* _level 2 (resellers)_: Heroku, Netlify, Render https://render.com/ https://softwareengineeringdaily.com/2019/06/17/render-high-level-cloud-with-anurag-goel/ Serverless https://serverless.com/
-* _alternatives_: Platform.sh https://news.ycombinator.com/item?id=22486031, Zeit/Vercel https://news.ycombinator.com/item?id=22933479 OpenShift (RHEL managed Kubernetes https://news.ycombinator.com/item?id=3003289) Cloud Run https://alexolivier.me/posts/deploy-container-stateless-cheap-google-cloud-run-serverless Dokku http://dokku.viewdocs.io/dokku/ Cap Rover https://news.ycombinator.com/item?id=23465087 https://fly.io/
-* _Digital Ocean_: https://github.com/seven1m/do-install-button
-
-## GCP
-
-* https://softwareengineeringdaily.com/2021/06/09/gcp-with-liz-fong-jones/
-
-* _App Engine_: https://testdriven.io/blog/django-gae
-* _RTDN_: notifcations from GP app https://developer.android.com/google/play/billing/rtdn-reference
-* howto https://developer.android.com/google/play/billing/getting-ready#enable-rtdn
-* _Cloud Pub/Sub_: MQ btw GCP apps https://cloud.google.com/pubsub/docs/publish-receive-messages-console https://console.cloud.google.com/cloudpubsub/topic/list https://console.cloud.google.com/cloudpubsub/subscription/list
-* multiple topics for GP app: possible? https://stackoverflow.com/q/72688883 yes https://stackoverflow.com/a/52759477 https://stackoverflow.com/a/71740580 no https://stackoverflow.com/a/70986770
-* https://stackoverflow.com/questions/6991135/what-does-it-mean-to-hydrate-an-object
-
-IAM
-* _principal_: user account, service account, group
-* _role_: collection of perms
-* _condition_: further constraint on role i.e. no write access if req lacks key
-* _allow policy_: mapping of principal to role per resource https://cloud.google.com/iam/docs/policies
-* _service account_: account for service (vs. user) https://cloud.google.com/iam/docs/service-accounts
-* GCP also has service accounts for itself e.g. to publish RTDN https://stackoverflow.com/a/64184564
-
-IAP Proxy https://www.youtube.com/watch?v=xM9-FSU5MoY
-* type of access: public, authed users, authed employees [2:00]
-* = identity service in front of site [3:30]
-* uses Google (or Active Directory) as SSoT for identity [4:15]
-
-za
-* unreliable https://news.ycombinator.com/item?id=24169044
-* bad customer supprt https://calpaterson.com/amazon-premium.html
-* GCS = S3
-* Cloud SQL = RDS
-* Cloud Spanner = Aurora
-* _BigQuery_: serverless db, good for GIS https://news.ycombinator.com/item?id=40052172
-* _BigTable_: BigQuery but NoSQL https://cloud.google.com/free/docs/map-aws-google-cloud-platform
 
 ## mobile
 
