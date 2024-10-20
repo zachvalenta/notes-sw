@@ -21,84 +21,6 @@
 * _16_: Zipcode, offers (JPMC, WSFS)
 * _15_: start, CSS hell, Buy Buy China consulting
 
-# 🟥 CAPP
-
-WHAT IS THIS JOB?
-* understand how the ERP works i.e. understand usage by sales, warehouse, accounting
-* how the world works e.g. PCI compliance, accounting, purchasing, warehouse
-* internal tooling: build infra, build tools
-* data eng: build infra, analysis
-
-BRAG SHEET SO FAR
-- [ ] prod cat: tree builder (many attempts previously and all failed)
-- [ ] EDI: build tooling to maintain 0.5M/year relationship
-- [ ] restock: build algo and ETL
-- [ ] CQ: rf and add documentation system to monorepo (system diagrams, ADR, changelog)
-- [ ] CQ: create Capp Uni
-- [ ] infra: mv from single Azure instance over LAN to AWS (auth so people can connect at home)
-
-## infra
-
-🔗 https://rdrn.me/postmodern-python/
-
-DENV
-- [ ] dotenvx
-- [ ] CICD
-- [ ] uv
-- [ ] tooling https://zed.dev/blog/replhttps://zed.dev/blog/zed-ai
-- [ ] remote dev https://zed.dev/releases/stable/0.145.1 https://www.youtube.com/watch?v=F9sQPpVVLeQ
-
-CLOUD
-> just use a Heroku alternative?
-- [ ] AWS
-- [ ] IaC
-- [ ] monitoring: uptime, OpenTelemetry
-
-## operations
-
-* warehouse
-* sales
-
-CODEBASE
-* doc dataflow
-> Google docs supports Markdown import https://x.com/rseroter/status/1813580024538337784
-* diagram dataflow w/ Mermaid
-* Jupyter server https://docs.google.com/document/d/1x-fkEwuNwKTW9Pf-8R-znTkBCVJthZQRge6lrSzkNfI/edit
-* changelog
-* ADR
-
-`product-workflow` 🗄️ `08.26` Riley meeting
-* docs
-* run locally
-* diagram
-
-## shujuku
-
-🗄️ `src.md` checklist
-
-> components: BI, workflow engine, notebooks
-
-❓
-* workflow engine vs. task queue
-* dbt for Capp fmt
-* Instant Data Scraper https://news.ycombinator.com/item?id=34069680
-
-ENG
-- [ ] Cleanlab, Autolabel
-- [ ] BI: dashboards 🗄️ `math.md` graphs
-- [ ] BI: replace Looker Studio https://pola.rs/posts/lightweight_plotting/
-- [ ] data governance/provenance
-- [ ] dataframes: swap in Polars
-- [ ] BI: alerting for failed jobs
-- [ ] BI: read-replica
-- [ ] query Google Sheets with SQL https://github.com/julien040/anyquery
-- [ ] warehouse: replace Drive
-- [ ] warehouse: dvc
-
-ANALYSIS
-* MRR https://news.ycombinator.com/item?id=41350468
-* plot https://nrennie.rbind.io/blog/plotnine-annotated-area-chart/
-
 # 🪐️ INDUSTRY
 
 📚
@@ -578,3 +500,19 @@ EDUCATION
 * _2012.09-2013.08_: Johns Hopkins University (grad cert in Chinese Studies)
 * _2010.09-2012.08_: Dalian University of Technology (Chinese language study)
 * _2006.08-2010.08_: Penn State - honors college (BA - English)
+
+### CAPP
+
+WHAT IS THIS JOB?
+* understand how the ERP works i.e. understand usage by sales, warehouse, accounting
+* how the world works e.g. PCI compliance, accounting, purchasing, warehouse
+* internal tooling: build infra, build tools
+* data eng: build infra, analysis
+
+BRAG SHEET SO FAR
+- [ ] prod cat: tree builder (many attempts previously and all failed)
+- [ ] EDI: build tooling to maintain 0.5M/year relationship
+- [ ] restock: build algo and ETL
+- [ ] CQ: rf and add documentation system to monorepo (system diagrams, ADR, changelog)
+- [ ] CQ: create Capp Uni
+- [ ] infra: mv from single Azure instance over LAN to AWS (auth so people can connect at home)
