@@ -304,6 +304,7 @@ ALTERNATIVES
 * _hishtory_: https://github.com/ddworken/hishtory
 * _marker_: uses tldr https://github.com/pindexis/marker
 * _mcfly_: cmd suggestions https://github.com/cantino/mcfly
+* _tsukae_: 🎯 view most commonly used commands https://github.com/irevenko/tsukae
 * _zsh-histdb_: https://github.com/larkery/zsh-histdb https://www.jefftk.com/p/logging-shell-history-in-zsh
 
 CMD
@@ -459,6 +460,7 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 ## alternatives
 
 * _Alacritty_: 🎯 TOML config, cross-platform, no global hotkey but Hammerspoon/Karabiner workaround https://github.com/alacritty/alacritty/issues/3313 https://github.com/alacritty/alacritty/issues/862
+* _gotty_: term as web app https://github.com/yudai/gotty
 * _ghostty_: 🎯 private beta, written in Zig https://mitchellh.com/ghostty https://www.youtube.com/watch?v=7Jon_cAK_to
 * _Hyper_: ❌ Electron https://hyper.is/
 * _kitty_: can preview images in broot https://sw.kovidgoyal.net/kitty/ maintainer is a jerk https://news.ycombinator.com/item?id=41223934

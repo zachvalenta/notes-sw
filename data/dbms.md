@@ -197,6 +197,7 @@ TACTICS
 
 ---
 
+* tuning aaS https://ottertune.com/ https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html
 * https://terrastruct.com/blog/post/practical-intermediate-database-tips/
 * Postgres
 > When modeling a Postgres database, you probably don’t give much thought to the order of columns in your tables. After all, it seems like the kind of thing that wouldn’t affect storage or performance. But what if I told you that simply reordering your columns could reduce the size of your tables and indexes by 20%? This isn’t some obscure database trick — it’s a direct result of how Postgres aligns data on disk.

@@ -692,14 +692,35 @@ TIME
 * _bit slip_: lost bit from clock drift https://www.youtube.com/watch?v=8BhjXqw9MqI 3:00 https://en.wikipedia.org/wiki/Bit_slip
 * atomic clocks, earth spinning faster by milliseconds https://news.ycombinator.com/item?id=25684661
 * IANA, daylight savings https://news.ycombinator.com/item?id=24951473
-* human perception https://hpbn.co/primer-on-web-performance/#speed-performance-and-human-perception
 * _sink_: https://zachholman.com/talk/utc-is-enough-for-everyone-right https://alexwlchan.net/2019/05/falsehoods-programmers-believe-about-unix-time/ https://app.pluralsight.com/library/courses/date-time-fundamentals/table-of-contents https://news.ycombinator.com/item?id=24746836 timezones https://pyvideo.org/pycon-us-2019/working-with-time-zones-everything-you-wish-you-didnt-need-to-know.html
 
-SPACE
-* _GIS_: ESRI (SaaS) Postgres https://news.ycombinator.com/item?id=23361794 geocode https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code https://www.wired.com/story/geocode-address-puerto-rico-hurricane-maria/ https://github.com/giswqs/leafmap https://www.paulox.net/2021/07/19/maps-with-django-part-2-geodjango-postgis-and-leaflet/ https://github.com/marceloprates/prettymaps https://softwareengineeringdaily.com/2021/04/26/makepath-geospatial-technology-with-brendan-collins/ https://gis.stackexchange.com/ isochrones https://tech.marksblogg.com/valhalla-isochrones.html https://tech.marksblogg.com/pretty-maps-in-python.html satellite https://github.com/plant99/felicette https://realpython.com/python-folium-web-maps-from-data/ https://github.com/geoserver/geoserver https://walker-data.com/posts/lodes-commutes/ https://walker-data.com/census-r/index.html https://walker-data.com/posts/proximity-analysis/  https://news.ycombinator.com/item?id=40052172 tiny map https://github.com/tinyworldmap/tiny-world-map Open Street Map https://pybit.es/articles/openstreetmaps-overpass-api-and-python/ https://news.ycombinator.com/item?id=41424373 ArcGis https://storymaps.arcgis.com/stories/41d4bd6029044afbb1b9ad805a4731d8 display map on website https://news.ycombinator.com/item?id=41635592 https://openfreemap.org/
-* maps https://storymaps.arcgis.com/stories/1e7f582d478a4b99bd0c70fffeac4c8b
-* _GPS_: https://news.ycombinator.com/item?id=29981188 https://ciechanow.ski/gps/
-* _sink_: https://www.bloomberg.com/news/features/2018-07-25/the-world-economy-runs-on-gps-it-needs-a-backup-plan https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere https://github.com/google/open-location-code
+GPS
+* https://news.ycombinator.com/item?id=29981188
+* https://ciechanow.ski/gps/
+* https://www.bloomberg.com/news/features/2018-07-25/the-world-economy-runs-on-gps-it-needs-a-backup-plan
+* https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere
+* https://github.com/google/open-location-code
+
+GIS
+* ESRI (SaaS) Postgres https://news.ycombinator.com/item?id=23361794
+* geocode https://www.theguardian.com/technology/2018/jun/23/the-gps-app-that-can-find-anyone-anywhere
+* https://github.com/google/open-location-code
+* https://www.wired.com/story/geocode-address-puerto-rico-hurricane-maria/
+* https://github.com/giswqs/leafmap
+* https://www.paulox.net/2021/07/19/maps-with-django-part-2-geodjango-postgis-and-leaflet/
+* https://github.com/marceloprates/prettymaps
+* https://softwareengineeringdaily.com/2021/04/26/makepath-geospatial-technology-with-brendan-collins/
+* https://gis.stackexchange.com/
+* isochrones https://tech.marksblogg.com/valhalla-isochrones.html https://tech.marksblogg.com/pretty-maps-in-python.html
+* satellite https://github.com/plant99/felicette https://realpython.com/python-folium-web-maps-from-data/
+* https://github.com/geoserver/geoserver
+* https://walker-data.com/posts/lodes-commutes/
+* https://walker-data.com/census-r/index.html https://walker-data.com/posts/proximity-analysis/
+* https://news.ycombinator.com/item?id=40052172
+* tiny map https://github.com/tinyworldmap/tiny-world-map
+* Open Street Map https://pybit.es/articles/openstreetmaps-overpass-api-and-python/ https://news.ycombinator.com/item?id=41424373 https://openfreemap.org/ https://news.ycombinator.com/item?id=41895356
+* ArcGis https://storymaps.arcgis.com/stories/41d4bd6029044afbb1b9ad805a4731d8 https://storymaps.arcgis.com/stories/1e7f582d478a4b99bd0c70fffeac4c8b
+* display map on website https://news.ycombinator.com/item?id=41635592
 
 ## TLS
 
@@ -824,5 +845,5 @@ ValueError: unsupported hash type md5
 * _HTTP2_: multiplexed i.e n assets from single request; servers can push (in same way as Web Sockets); binary instead of HTTP's text https://serversforhackers.com/s/http2 https://hpbn.co/http2/ https://news.ycombinator.com/item?id=26263085
 * _libraries_: Pusher https://www.youtube.com/watch?v=h4kIkPxhXPs
 * _multiplex_: combine multiple signals into one
-* _perf_: only sends 2 bytes instead of 100s of bytes for HTTP
+* perf: only sends 2 bytes instead of 100s of bytes for HTTP
 * _sink_: https://www.fullstackpython.com/websockets.html Django https://www.untangled.dev/2020/08/02/django-websockets-minimal-setup

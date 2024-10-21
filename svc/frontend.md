@@ -27,8 +27,6 @@ MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 
 # 🪑 FRAMEWORKS
 
-🔗 https://roadmap.sh/best-practices/frontend-performance
-
 ## design
 
 TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
@@ -42,6 +40,7 @@ TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-develop
 * _React-lite_: Mithril https://mithril.js.org https://news.ycombinator.com/item?id=24368689 Svelte https://svelte.dev/ https://news.ycombinator.com/item?id=24363261
 * _full-stack_: Next, Redwood, sock-puppet, Remix https://macwright.com/2020/10/28/if-not-spas.html https://www.youtube.com/watch?v=hHWgGfZpk00
 * _server side state_: do everything from the server w/ websockets https://macwright.com/2020/10/28/if-not-spas.html
+> They [McMaster Carr] are server rendering all of their HTML...the server is very good at rendering HTML. https://www.youtube.com/watch?v=-Ln-8QM8KhQ
 * _progressive enhancement_: content first, then sprinkle in some JS if the user-agent allows for it
 * options: InstantPage (load pages before user even clicks) Turbolinks (fast nav w/out SPA) https://macwright.com/2020/10/28/if-not-spas.html 
 * _wysiwyg_: https://news.ycombinator.com/item?id=27516212
@@ -145,6 +144,11 @@ https://roadmap.sh/react
 > As Storybook grew in popularity, it became more and more of a behemoth. If all you really care about is isolating and testing your React UI components, then Ladle is the alternative. Ladle supports most of the Storybook API (MDX files are not supported yet) and can be used as a drop-in replacement. It is lightweight and has better integration with Vite. It also provides simple and clean APIs that can be easily integrated with other testing frameworks.
 
 ## state
+
+* `pushState()`: change browser history https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
+* used in SPAs (and McMaster Carr) to change history even when you're only rerendering part of the page https://chatgpt.com/c/67167486-b528-8004-b44c-89de54e2fded https://www.youtube.com/watch?v=-Ln-8QM8KhQ
+
+---
 
 * HTML over websockets https://news.ycombinator.com/item?id=26265999
 * Vuex, Pinia, Redux https://www.thoughtworks.com/radar/languages-and-frameworks/pinia
@@ -383,7 +387,6 @@ STATE
 * extension for wayback machine https://news.ycombinator.com/item?id=27173185&utm_term=comment
 * nyxt https://news.ycombinator.com/item?id=27219646
 * _Web API_: document, window, Event, XMLHttpRequest, fetch https://www.vrk.dev/2019/07/11/why-is-modern-web-development-so-complicated-a-long-yet-hasty-explanation-part-1/
-* prefetch https://www.jefftk.com/p/why-prefetch-is-broken
 
 > Nowadays, if you say, "what is the web?", you must include specifications from at least IETF (e.g. HTTP), WHATWG (e.g. HTML), W3C (e.g. CSS) and Ecma (e.g. JavaScript); but actual browser behaviour (an extremely vague concept) must also be considered too, because it has a big impact on what the web is. https://news.ycombinator.com/item?id=24917780
 
@@ -396,7 +399,7 @@ STATE
 * CSS bugs are a normal thing for browser vendors https://jvns.ca/blog/2020/08/10/some-more-css-comics/
 * _debug_: save req res in dev tools, breakpoint (`debugger;`) inspect obj (`console.dir()`) stack trace (`console.trace()`)
 * _DOM_: model of an HTML document as objects; interaction via Web APIs; standardized by W3C and WHATWG i.e. are not baked into the JavaScript language but rather reference to browser implementations
-* _dev tools_: shortcuts https://developers.google.com/web/tools/chrome-devtools/shortcuts clear network panel https://developers.google.com/web/tools/chrome-devtools/network-performance/reference https://www.youtube.com/watch?v=x4q86IjJFag https://apsdehal.in/blog/chrome-developer-tools-to-master
+* _dev tools_: shortcuts https://developers.google.com/web/tools/chrome-devtools/shortcuts clear network panel https://www.youtube.com/watch?v=x4q86IjJFag https://apsdehal.in/blog/chrome-developer-tools-to-master
 * _headless_: browser sans UI
 * _JS engine_: V8 for Chrome, SpiderMonkey for Firefox
 > ❓ aka web engine? browser engine? https://servo.org/
@@ -533,6 +536,32 @@ FORMS
 * `role`: accessibility thing https://stackoverflow.com/a/18664038/6813490
 * `type`: text, file, submit; submit is only useful for input elements (button el default to submit anyway https://stackoverflow.com/a/10079197/6813490)
 
+## perf
+
+📹 McMaster Carr https://www.youtube.com/watch?v=-Ln-8QM8KhQ @ 2:00
+🗄️
+* `application.md` HTTP
+* `dbms.md` perf
+* `python/stdlib.md` profiling
+* `src.md` perf
+* `telemetry.md` perf
+* `test.md` integration
+
+* _prefetch_: browser makes request when you hover over a link i.e. even before you click on it https://www.youtube.com/watch?v=-Ln-8QM8KhQ
+* cache: "The browser stores URLs it fetches in a cache. At its simplest this looks like a big dictionary, from url to the contents of that url" https://www.jefftk.com/p/why-prefetch-is-broken
+
+---
+
+* https://roadmap.sh/best-practices/frontend-performance
+* https://developers.google.com/web/tools/chrome-devtools/network-performance/reference 
+* https://hpbn.co/primer-on-web-performance/
+* https://1mb.club/
+* https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-performance
+* https://www.webpagetest.org/
+* https://webhint.io
+* https://developers.google.com/speed/pagespeed/insights/
+* human perception https://hpbn.co/primer-on-web-performance/#speed-performance-and-human-perception
+
 ## SSG
 
 🗄️ `infra.com` hosting
@@ -589,6 +618,7 @@ SSGs 🗄️ `algos.md` tree / treebuilders
 * _Django_: 🎯 https://simonwillison.net/about/#subscribe
 * _Eleventy_: https://www.11ty.dev/ https://www.erichgrunewald.com/ https://news.ycombinator.com/item?id=31293971 https://angeliqueweger.com/
 * _Lanyon_: server, same guy that did termgraph https://github.com/mkaz/lanyon
+* _hakyll_: Haskell https://jaspervdj.be/hakyll/ https://blog.moertel.com/
 * _Hugo_: https://gitlab.com/gitlab-com/content-sites/handbook
 * popular https://blog.golang.org/8years
 * bad docs https://yawpitchroll.com/posts/hugo-probably-is-not-for-you/ https://twitter.com/danluu/status/1244024025019342851

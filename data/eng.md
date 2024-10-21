@@ -11,6 +11,7 @@
 
 ## 进步
 
+* https://www.cs.cmu.edu/~pavlo/blog/index.html
 * https://github.com/bytebase/bytebase
 * https://ngrok.com/blog-post/how-we-built-ngroks-data-platform https://github.com/amalshaji/portr
 * https://www.youtube.com/@jayzern/videos

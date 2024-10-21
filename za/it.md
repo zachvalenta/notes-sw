@@ -122,6 +122,7 @@ MUSIC
 * grateful dead
 * hendrix blues
 * rock/punk/90s: libertines, no doubt to singles, perfect
+* hank jones
 
 ### air-capp ➡️ mini23
 

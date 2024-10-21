@@ -16,6 +16,8 @@ workflow engine or task queue https://news.ycombinator.com/item?id=34163888 http
 
 # ☁️ CLOUDS
 
+* Azure is unreliable? https://news.ycombinator.com/item?id=41898723
+
 ## CF
 
 misc

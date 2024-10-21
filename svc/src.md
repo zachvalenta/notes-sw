@@ -628,6 +628,7 @@ BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 
 ---
 
+* MVCC https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html
 * async IO https://registerspill.thorstenball.com/p/joy-and-curiosity-7
 * _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
 * clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep
@@ -796,3 +797,11 @@ cf. [Designing Data Intensive Applications - chapter 2 - 'delcarative queries on
 * __object-oriented__: procedural on steroids; Java, C++
 * __scripting__: functions not attached to objects
 * __logic__: formal mathematical logic; Prolog https://news.ycombinator.com/item?id=30091291
+
+## perf
+
+---
+
+https://roadmap.sh/best-practices/backend-performance
+
+> The notes on benchmark performance graphs often read "higher is better" and performance improvements are even called "optimisations". But the truth is, at least as a user, once performance reaches a satisfactory level - enough for your own data analysis to complete in a reasonable about of time - there is no further benefit from increased speed. Instead of being called "performance optimisation" it should probably be called "performance satisfaction" as once it is satisfactory you have finished. Usability is different. The whole point of computers is as an aid to productivity so user-friendliness is actually the bit you want to optimise. Unlike speed, being easier to use is always better and there is very little limit to that. So it's "usability improvements" that should be called "optimisations" but perhaps the relevant ships on all of these terms have sailed. https://csvbase.com/blog/6

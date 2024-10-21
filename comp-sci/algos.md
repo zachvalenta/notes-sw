@@ -22,6 +22,8 @@ https://chatgpt.com/share/67069a06-24cc-8004-9a88-108d568d211a
 
 ---
 
+streams? SICP https://blog.moertel.com/posts/2013-05-26-python-lazy-merge.html
+
 fizz buzz
 fibonacci
 > look up the ten algorithms you have to know, rosetta code, project euler
