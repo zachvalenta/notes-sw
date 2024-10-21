@@ -9,14 +9,24 @@
 
 ## 进步
 
-use Github CLI to perform faster repo sustainability assessment:
+https://www.gitkraken.com/gitlens https://www.youtube.com/watch?v=oJdlGtsbc3U https://switowski.com/blog/plugins-for-python-in-vscode/
+
+TUI for quick sustainability assessment of Github repo: https://chatgpt.com/c/671692f3-9ca8-8004-8b71-8ae027bdbbad
 > https://json-schema.org/tools
 > do existing repo browsers offer?
-* stars
-* recent commits
-* open issues vs. closed issues
-* most recent closed issue
-* first commit, commit frequency
+* total stars
+* commits: frequency, rate over time, first & last
+* issues: open vs. closed, most recently closed
+```sh
+# https://github.com/ponyorm/pony
+
+# OVERALL
+gh repo view ponyorm/pony --json stargazerCount,primaryLanguage,createdAt,description,contactLinks,fundingLinks,homepageUrl,isArchived,issues,labels,latestRelease,licenseInfo,milestones,name,openGraphImageUrl,owner,parent,primaryLanguage,pullRequests,pushedAt,repositoryTopics,updatedAt,url,viewerHasStarred,visibility,watchers
+
+# ISSUES
+gh issue list --repo ponyorm/pony --state open --json number --jq 'length'
+gh issue list --repo ponyorm/pony --state closed --json number --jq 'length'
+```
 
 * _24_: pager (delta, difftastic)
 * _21_: prepopulate commit msg
@@ -119,7 +129,7 @@ TOOLING
 * https://github.com/cli/cli
 
 ```sh
-# alias https://cli.github.com/manual/gh_alias
+# alias https://cli.github.com/manual/gh_alias https://github.com/zachvalenta/dotfiles-um
 gh alias set --shell prl "gh pr list --author zachvalenta --repo tommyboytech/t3"  # get PR number
 gh alias set --shell prv 'gh pr view "$1" --repo tommyboytech/t3 -w'               # view PR in browser
 
