@@ -474,6 +474,11 @@ PUB/SUB 📙 Narkhede ch. 1
 
 ## event (Kafka)
 
+
+---
+
+https://www.warpstream.com/ https://changelog.com/podcast/606#transcript + sponsors
+
 🗄 `data/eng.md` streaming
 📜 https://kafka.apache.org/documentation/
 📙 Narkhede guide

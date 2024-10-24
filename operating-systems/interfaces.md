@@ -460,11 +460,12 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 
 ## alternatives
 
-* _Alacritty_: 🎯 TOML config, cross-platform, no global hotkey but Hammerspoon/Karabiner workaround https://github.com/alacritty/alacritty/issues/3313 https://github.com/alacritty/alacritty/issues/862
+> try out Wezterm or kitty https://chatgpt.com/c/671abdee-ccec-8004-958e-6dd5bf9f6ed9
+* _Alacritty_: 🎯 YAML config, fastest, cross-platform, no global hotkey but Hammerspoon/Karabiner workaround https://github.com/alacritty/alacritty/issues/3313 https://github.com/alacritty/alacritty/issues/862 https://alacritty.org/index.html
 * _gotty_: term as web app https://github.com/yudai/gotty
-* _ghostty_: 🎯 private beta, written in Zig https://mitchellh.com/ghostty https://www.youtube.com/watch?v=7Jon_cAK_to
+* _ghostty_: private beta, written in Zig https://mitchellh.com/ghostty https://www.youtube.com/watch?v=7Jon_cAK_to
 * _Hyper_: ❌ Electron https://hyper.is/
-* _kitty_: can preview images in broot https://sw.kovidgoyal.net/kitty/ maintainer is a jerk https://news.ycombinator.com/item?id=41223934
+* _kitty_: 🎯 can preview images in broot https://sw.kovidgoyal.net/kitty/ opinionated maintainer https://news.ycombinator.com/item?id=41223934 https://kovidgoyal.net/ https://kovidgoyal.net/
 * _sshx_: real-time collaboration https://github.com/ekzhang/sshx
 * _Tabby_: ❌ Electron https://news.ycombinator.com/item?id=35111397 https://github.com/Eugeny/tabby?tab=readme-ov-file#what-tabby-is-and-isnt
 * _Warp_: ❌ https://www.warp.dev/
@@ -475,7 +476,8 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 * autocomplete is cool, esp. Git branches https://www.warp.dev/modern-terminal
 * terminal block is interesting https://www.warp.dev/modern-terminal
 * launch configurations 类似 iterm profiles
-* _Wezterm_: 🎯 immature, no global hotkey https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751 https://www.youtube.com/watch?v=TTgQV21X0SQ
+* _Wezterm_: 🎯 no global hotkey, Lua config for macros https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751 https://www.youtube.com/watch?v=TTgQV21X0SQ
+* keybindings for built-in multiplex are bad https://wezfurlong.org/wezterm/features.html#available-features
 
 ---
 
@@ -521,6 +523,8 @@ https://news.ycombinator.com/item?id=41727971 https://jvns.ca/blog/2024/10/01/te
 * compute: iTerm uses ~15% CPU on air-capp, Alacritty is supposed to be good https://chatgpt.com/c/671149f9-6ff4-8004-a834-78d1cbfdd46b
 
 ---
+
+https://wezfurlong.org/wezterm/features.html
 
 > UX also isn't something that can really be competed on for a terminal app as the UX is typically dictated by the shell, tool, tmux, etc. https://news.ycombinator.com/item?id=35125295
 

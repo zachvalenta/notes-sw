@@ -223,6 +223,7 @@ TOOLS
 
 ---
 
+https://sw.kovidgoyal.net/kitty/faq/#some-special-symbols-are-rendered-small-truncated-in-kitty
 https://crates.io/crates/ucd-trie
 https://docs.python.org/2/howto/unicode.html
 https://docs.python.org/3/howto/unicode.html

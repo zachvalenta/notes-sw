@@ -142,6 +142,10 @@ PG http://paulgraham.com/popular.html
 
 ---
 
+TYPES
+* sampling profiler
+> So you talked about sampling profilers as one common tool. Can you actually just go in a little more detail of what is a sampling profiler and how does it actually work at a low level? -> So there’s a lot of different implementations of this, but the general shape of it is you take a system and you point a tool at it that stops the world every so often. Let’s say every hundred microseconds maybe. And it stops the world and asks, where are you right now? And it looks at where the instruction pointer is, what are we currently executing? And it generally looks at the stack trace, how did you get here? And then it writes this down and it lets the program keep going. And profilers only really differ on how do they stop the world and how do they write this down. My favorite is the Linux kernel profiler. It’s called perf, and it just uses a bunch of hardware features to get an interrupt at exactly the right moment in time. And then it just very quickly writes down the stack trace in this compressed format. It’s very optimized. And then you take all these stack traces. The profile is really just a list of stack traces and sometimes a little bit of augmented information, but that’s fundamentally the core idea. And then you present it to the user in some way that adds them up. And like I say, the key thing is it tells you, okay, 30% of the stack traces ended in the function foo. That’s a hotspot. You’re spending 30% of your time there. https://signalsandthreads.com/performance-engineering-on-hard-mode/
+
 OPTIONS
 * https://github.com/nakabonne/gosivy
 * _austin_: frame stack sampler https://github.com/P403n1x87/austin https://github.com/P403n1x87/austin-tui

@@ -93,7 +93,7 @@ https://stratechery.com/2023/ai-and-the-big-five/
 
 ## code assist
 
-> why you need: basilk, lazygit (option to not add dir to recently_visited) https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
+> why you need: basilk (output formatted json) lazygit (option to not add dir to recently_visited) https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
 
 OPTIONS
 * _Avante_: Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835

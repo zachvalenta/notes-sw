@@ -118,6 +118,7 @@ STANDARDS BODIES
 
 ---
 
+* https://changelog.com/podcast/606#transcript
 > how to make money: popularize lib, sell support | managed env https://pola.rs/our-services/
 > TRC20 USDT for donations: TSFU6QLMJ4zJQtwnt1YAZBdgZ8qNSLWHJN https://github.com/Andrej730 -> Twin Peaks
 * Unicode fundraiser https://aac.unicode.org/

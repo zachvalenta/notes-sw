@@ -621,6 +621,7 @@ git rebase main
 
 scenarios
 * squash commits on feature: `rebase -i main` (pick first commit)
+* squash commits on master itself: `rebase -i $HASH_OF_FIRST_COMMIT` https://chatgpt.com/c/671ab992-0e84-8004-b938-6afdf084485b
 * changes from master onto feature: `rebase main` https://medium.com/front-end-weekly/avoid-80-of-merge-conflicts-with-git-rebase-b5d755a082a6
 > this calls into question the above definition of rebase insofar as commits from master go onto tip of feature *and then feature commits go after that*
 
@@ -936,13 +937,13 @@ GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Rep
 * _snippets_: Gist, pastebin https://softwareengineeringdaily.com/2020/06/08/tilt-kubernetes-tooling-with-dan-bentley/ 46:45
 
 HOSTING
-* aaS: Github (no default to fuzzy search), Gitlab EE, SourceHut https://git.sr.ht/~shulhan/gotp https://drewdevault.com/2018/06/05/Should-you-move-to-sr.ht.html
-* https://github.com/honza/smithy https://codeberg.org/
+* BYO https://github.com/honza/smithy
 * _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965
 * _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717
 * now for-profit and licensing issues https://news.ycombinator.com/item?id=34011581
 * _Gitweb_: built-in GUI for server https://git-scm.com/book/en/v2/Git-on-the-Server-GitWeb
 * _Gogs_: https://gogs.io/
+* _SourceHut_: https://git.sr.ht/~shulhan/gotp https://drewdevault.com/2018/06/05/Should-you-move-to-sr.ht.html
 
 ---
 
