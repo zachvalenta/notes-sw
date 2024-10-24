@@ -9,6 +9,8 @@
 
 ## 进步
 
+* can run Jupyter in the terminal!?! https://github.com/joouha/euporie
+
 * _24_: iPython
 
 TAXONOMY https://en.wikipedia.org/wiki/Exploratory_programming

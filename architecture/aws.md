@@ -75,6 +75,8 @@ https://www.lastweekinaws.com/blog/why-aws-might-be-the-next-backbone-provider/
 
 ---
 
+https://news.ycombinator.com/item?id=41941308
+
 https://www.lastweekinaws.com/blog/aws-is-asleep-at-the-lambda-wheel/
 
 https://docs.aws.amazon.com/lambda/latest/operatorguide/profile-functions.html
@@ -391,7 +393,7 @@ internal accounts https://www.lastweekinaws.com/blog/the-aws-service-i-hate-the-
 QUEUE
 * _Eventbridge_: route events btw AWS services https://cloudonaut.io/versus/messaging/eventbridge-vs-msk/
 * _SNS_: pub sub 🔗 `amqp.md`
-* _SQS_: queue; Postgres impl https://github.com/CoreDB-io/coredb/tree/main/extensions/pgmq https://github.com/poundifdef/SmoothMQ
+* _SQS_: queue; Postgres impl https://github.com/CoreDB-io/coredb/tree/main/extensions/pgmq https://github.com/poundifdef/SmoothMQ https://github.com/zillow/python-sqs-logging-handler
 * API-based queue - you publish to an SQS queue and you consume from the queue https://stackoverflow.com/a/60543786
 * _SWF_: SQS + logic
 * _SES_: email https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/

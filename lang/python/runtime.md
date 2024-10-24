@@ -236,7 +236,7 @@ https://news.ycombinator.com/item?id=22514004
 
 * https://realpython.com/courses/understanding-global-interpreter-lock-gil/
 * recent perf improvements https://sumercip.com/posts/making-python-fitter-and-faster/
-* GIL, JIT, free thread https://realpython.com/python313-free-threading-jit/ https://drew.silcock.dev/blog/everything-you-need-to-know-about-python-3-13/ https://blog.changs.co.uk/free-threaded-python-with-asyncio.html
+* GIL, JIT, free thread https://realpython.com/python313-free-threading-jit/ https://drew.silcock.dev/blog/everything-you-need-to-know-about-python-3-13/ https://blog.changs.co.uk/free-threaded-python-with-asyncio.html https://til.simonwillison.net/python/trying-free-threaded-python
 * AST is slow https://www.gauge.sh/blog/python-extensions-should-be-lazy
 * preprocessor https://pydong.org/posts/PythonsPreprocessor/
 * https://snarky.ca/unravelling-attribute-access-in-python/

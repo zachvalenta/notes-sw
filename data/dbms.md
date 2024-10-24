@@ -10,6 +10,7 @@
 
 * page, heap https://news.ycombinator.com/item?id=41159180 https://blog.sylver.dev/build-your-own-sqlite-part-1-listing-tables
 * physical storage https://drew.silcock.dev/blog/how-postgres-stores-data-on-disk/
+* https://github.com/zillow/fcache
 
 * _22_: 📙 Bradshaw ch. 1/4/7/10/14/18
 * _20_: Postgres with Django (psycopg, Docker) 📙 Kleppmann section 1
@@ -266,9 +267,8 @@ https://www.timescale.com/blog/13-tips-to-improve-postgresql-insert-performance/
 # 🟩 MONGO
 
 📙 Bradshaw guide
-🎓 https://university.mongodb.com/dashboard
 📜
-* Mongo https://www.mongodb.com/docs/manual
+* Mongo https://www.mongodb.com/docs/manual https://learn.mongodb.com/
 * PyMongo https://pymongo.readthedocs.io/en/stable/tutorial.html
 
 ---
@@ -1072,6 +1072,9 @@ USAGE
 * prod! https://simonw.substack.com/p/video-scraping-using-google-gemini
 
 ---
+
+* WASM https://news.ycombinator.com/item?id=41851051
+* durable object https://simonwillison.net/2024/Oct/13/zero-latency-sqlite-storage-in-every-durable-object/
 
 ZA
 * vector https://github.com/asg017/sqlite-vec

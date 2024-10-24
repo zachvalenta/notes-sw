@@ -3,6 +3,10 @@
 ## 参考
 
 🔗 https://en.wikipedia.org/wiki/Programming_language_theory
+📚
+* https://pragprog.com/titles/dzseven/seven-obscure-languages-in-seven-weeks/
+* https://pragprog.com/titles/btlang/seven-languages-in-seven-weeks/
+* https://pragprog.com/titles/7lang/seven-more-languages-in-seven-weeks/
 
 ## 进步
 
@@ -32,6 +36,12 @@ SEMANTICS
 
 ---
 
+GRAMMAR
+* BNF, notation, grammar https://langdev.stackexchange.com/questions/2692/how-should-i-read-type-system-notation
+* _grammar_: syntax for programming language https://blog.robertelder.org/computer-science-for-engineers/
+
+http://steve-yegge.blogspot.com/2007/06/rich-programmer-food.html
+
 TYPES OF COMPILATION
 * _just-in-time (JIT)_: https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction
 * _ahead-of-time (AOT)_: https://news.ycombinator.com/item?id=22346540
@@ -40,7 +50,7 @@ TYPES OF COMPILATION
 TYPES OF CODE 📙 Bryant computer systems (3)
 * _machine code_: binary; handled by compiler's backend https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ via `objdump` 📙 Erickson hacking [21]
 * _instuction set_: pattern of bits/int/char that map to cmd https://en.wikipedia.org/wiki/Machine_code#Instruction_set https://steveklabnik.com/writing/is-webassembly-the-return-of-java-applets-flash
-* _intermediate representation (IR)_: final step before machine code; handled by compiler's front end https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
+* _intermediate representation (IR)_: final step before machine code; handled by compiler's front end https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ MIR https://softwareengineeringdaily.com/2024/10/23/rust-vs-c-with-steve-klabnik-herb-sutter/
 * _instruction_: individual line of machine code https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
 * _bytecode_: step after src but before IR? uses hex? https://www.youtube.com/watch?v=QU158nGABxI 23:55 🗄 `python.md` interpreter https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md injection https://stackoverflow.com/questions/3470949/what-is-java-bytecode-injection https://github.com/yiblet/inquest  https://docs.python.org/3/glossary.html#term-bytecode
 
@@ -96,7 +106,7 @@ implementations https://github.com/marcpaq/b1fipl
 * _SQL_: http://aosabook.org/en/sqlalchemy.html
 
 clean up
-* mojo https://www.fast.ai/posts/2023-05-03-mojo-launch.html
+* new languages https://www.youtube.com/@codetothemoon/videos mojo https://www.fast.ai/posts/2023-05-03-mojo-launch.html
 * _compiled_: src type checked, then run
 * _reference implementation_: primary implementation of language (CPython) as compared to other alternate implementations (PyPy, Jython)
 * need to have same errors
@@ -106,8 +116,7 @@ clean up
 * _JIT_: normal interpreter but will compile hot paths https://carolchen.me/blog/jits-impls/
 * _output_: assembly (for GCC) https://cs.stackexchange.com/questions/14749/why-do-compilers-produce-assembly-code
 * writing language compiler in that language https://stackoverflow.com/questions/18247888/how-can-a-c-compiler-be-written-in-c
-* _grammar_: syntax for programming language https://blog.robertelder.org/computer-science-for-engineers/
-* https://github.com/aalhour/awesome-compilers http://steve-yegge.blogspot.com/2007/06/rich-programmer-food.html https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript https://medium.com/basecs https://ruslanspivak.com/lsbasi-part1/ https://nicoleorchard.com/blog/compilers https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/README.md http://aosabook.org/en/500L/static-analysis.html https://increment.com/programming-languages/crash-course-in-compilers/ https://corecursive.com/037-thorsten-ball-compilers/ https://news.ycombinator.com/item?id=22731505 https://www.pythoninsight.com/2018/09/python-basics-bytecode 
+* https://github.com/aalhour/awesome-compilers https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript https://medium.com/basecs https://ruslanspivak.com/lsbasi-part1/ https://nicoleorchard.com/blog/compilers https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/README.md http://aosabook.org/en/500L/static-analysis.html https://increment.com/programming-languages/crash-course-in-compilers/ https://corecursive.com/037-thorsten-ball-compilers/ https://news.ycombinator.com/item?id=22731505 https://www.pythoninsight.com/2018/09/python-basics-bytecode 
 
 BNF https://realpython.com/python-bnf-notation/
 BYO JSON parser https://news.ycombinator.com/item?id=38150833
@@ -255,6 +264,7 @@ tokens = {
 # 📚 LANGUAGES
 
 * _APL_: https://mathspp.com/blog/what-learning-apl-taught-me-about-python
+* _C#_: .NET big in game dev https://news.ycombinator.com/item?id=41936001
 * _C++_: https://ccc.codes/ https://github.com/green7ea/cpp-compilation http://esr.ibiblio.org/?p=7724 people hate C++ https://news.ycombinator.com/item?id=33436268 https://borretti.me/article/simplicity-and-survival https://news.ycombinator.com/item?id=34588340 https://news.ycombinator.com/item?id=34643530
 * with Alpine https://news.ycombinator.com/item?id=34365515
 * _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/  https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/
@@ -381,7 +391,9 @@ under the hood
 
 https://elixir-lang.org/
 https://en.wikipedia.org/wiki/Elixir_(programming_language)
-* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html https://github.com/sile/erldash
+* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html https://github.com/sile/erldash Erlang https://en.wikipedia.org/wiki/Erlang_(programming_language)
+* https://gleam.run/
+* https://www.lambdafunctions.com/articles/elixir-and-rust
 
 ## 🐘 Haskell
 
@@ -489,6 +501,7 @@ SPRING
 
 📚
 * Barski land of lisp
+* Friedman little schemer https://www.amazon.com/dp/0262560992/
 * Sussman sicp https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
 
 LANGUAGE
@@ -500,6 +513,16 @@ ZA
 * embedded in Python https://news.ycombinator.com/item?id=33600941
 
 ---
+
+https://en.wikipedia.org/wiki/Steve_Yegge
+
+LISPS
+* _Clojure_: https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792
+* https://github.com/damn/core
+* _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
+* _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
+* _Racket_: based off Scheme, async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=19952714 https://news.ycombinator.com/item?id=23132621 https://news.ycombinator.com/item?id=8206038 https://news.ycombinator.com/item?id=13881535 https://news.ycombinator.com/item?id=32723784
+* _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
 
 ZA
 * Hofstadter https://gist.github.com/jackrusher/5139396
@@ -516,14 +539,6 @@ ZA
 * https://news.ycombinator.com/item?id=40335608
 * https://www.fosskers.ca/en/blog/rounds-of-lisp
 * https://gitlab.com/lockie/cl-fast-ecs/-/wikis/tutorial-2 https://news.ycombinator.com/item?id=41869460
-
-LISPS
-* _Clojure_: https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792
-* https://github.com/damn/core
-* _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
-* _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
-* _Racket_: based off Scheme, async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=19952714 https://news.ycombinator.com/item?id=23132621 https://news.ycombinator.com/item?id=8206038 https://news.ycombinator.com/item?id=13881535 https://news.ycombinator.com/item?id=32723784
-* _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
 
 LANGUAGE https://tryclojure.org/
 * https://stackoverflow.com/questions/47482349/what-characterizes-a-lisp-dialect
@@ -575,19 +590,25 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 
 ## 🦀 Rust
 
+DESIGN
+* too complicated, learn Golang instead https://registerspill.thorstenball.com/p/glad-i-did-it-in-go https://registerspill.thorstenball.com/p/rust-prism
+> This blog post, Rewriting Rust, was very interesting. “I swear, it took more effort to learn pinning in rust than it took me to learn the entire Go programming language.” Some day (in the far future) I might write more about my feelings on Rust, but while reading this post I kept waiting for the paragraph in which they say what they would remove from the language. That paragraph never came and I think that’s one of the biggest sources of friction between me and Rust. https://registerspill.thorstenball.com/p/joy-and-curiosity-9
+
 CODEBASES TO LEARN FROM
 * tests with the source code https://github.com/b1rger/carl
 * https://github.com/lusingander/serie
 * not so hard to read after all https://github.com/raphlinus/font-rs/blob/master/src/accumulate.rs
 
 PROJECT STRUCTURE
+* basic TUI https://github.com/lusingander/btox
 * https://github.com/raphlinus/font-rs
 * https://github.com/b1rger/carl
 
 STDLIB
-* GUI https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html
-* TUI: https://github.com/ratatui-org/ratatui cursive https://github.com/gyscos/cursive https://github.com/Builditluc/wiki-tui https://github.com/fdehau/tui-rs https://github.com/lusingander/stu
-> seems like ratatui won
+* _db_: https://github.com/launchbadge/sqlx
+* _GUI_ https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html
+* _TUI_: https://github.com/ratatui-org/ratatui cursive https://github.com/gyscos/cursive https://github.com/Builditluc/wiki-tui https://github.com/fdehau/tui-rs https://github.com/lusingander/stu
+* _web_: https://news.ycombinator.com/item?id=41914544 https://www.leptos.dev/ https://dioxuslabs.com/ https://loco.rs/
 
 ---
 
@@ -597,8 +618,6 @@ https://drewdevault.com/2024/08/30/2024-08-30-Rust-in-Linux-revisited.html
 https://drewdevault.com/2022/10/03/Does-Rust-belong-in-Linux.html
 https://drewdevault.com/2019/03/25/Rust-is-not-a-good-C-replacement.html
 https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust https://www.ntietz.com/projects/
-* vs. Golang https://registerspill.thorstenball.com/p/glad-i-did-it-in-go
-> This blog post, Rewriting Rust, was very interesting. “I swear, it took more effort to learn pinning in rust than it took me to learn the entire Go programming language.” Some day (in the far future) I might write more about my feelings on Rust, but while reading this post I kept waiting for the paragraph in which they say what they would remove from the language. That paragraph never came and I think that’s one of the biggest sources of friction between me and Rust. https://registerspill.thorstenball.com/p/joy-and-curiosity-9
 * incomplete bc no BDFL https://news.ycombinator.com/item?id=41656463 https://doc.rust-lang.org/unstable-book/the-unstable-book.html
 > Maybe this is by design. Good languages are stable languages. It might be time to think of rust as a fully baked language - warts and all. Python 2.7 for life. https://josephg.com/blog/rewriting-rust/
 * release, editions https://blog.rust-lang.org/2014/10/30/Stability.html https://doc.rust-lang.org/edition-guide/editions/
@@ -616,12 +635,13 @@ https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUC
 * used for: CPU intensive, not API https://news.ycombinator.com/item?id=25798008
 * governance problems https://news.ycombinator.com/item?id=28513130
 * what people love: packaging, DX https://stackoverflow.blog/2020/06/05/why-the-developers-who-use-rust-love-it-so-much parallelization https://news.ycombinator.com/item?id=26443768 CLI (jless) https://news.ycombinator.com/item?id=30273940 correctness
-> [invariant violation] At point A, there's some assumption, and way over there at point B, that assumption is violated... Type systems prevent some invariant violations. Because that works, there are ongoing attempts to extend type systems to prevent still more invariant violations. That creates another layer of confusing abstraction. Some invariants are not well represented as types, and trying makes for a bad fit. What you're really trying to do is to substitute manual specification of attributes for global analysis. The Rust borrow checker is an invariant enforcer. It explicitly does automatic global analysis, and reports explicitly that what's going on at point B is inconsistent with what point A needs. This is real progress in programming language design, and is Rust's main contribution. https://news.ycombinator.com/item?id=29996240
+* lifetimes, safety profiles in C++ https://en.wikipedia.org/wiki/Erlang_(programming_language)
 
 ## ⚡️ Zig
 
 https://ziglang.org/
 
+* compared to Rust https://www.youtube.com/watch?v=Vxq6Qc-uAmE
 * overview https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203010 https://kristoff.it/blog/maintain-it-with-zig/
 * tutorial https://gist.github.com/ityonemo/769532c2017ed9143f3571e5ac104e50
 * BYO ls https://stackoverflow.com/questions/13554150/implementing-the-ls-al-command-in-c
@@ -797,7 +817,7 @@ ABSTRACTION
 * howto https://tonsky.me/blog/dsl/
 * against abstraction https://thorstenball.com/blog/2015/10/22/write-stupid-code/
 * _law of leaky abstractions_: natch; if they wouldn't exist in the first place https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/
-* _DSL_: lose tooling of general purpose language https://news.ycombinator.com/item?id=22375721
+* _DSL_: lose tooling of general purpose language https://news.ycombinator.com/item?id=22375721 https://news.ycombinator.com/item?id=41938819 https://registerspill.thorstenball.com/p/joy-and-curiosity-12
 
 COMMUNITY
 > But the choice of a main programming language is the most important signaling behavior that a technology company can engage in. Tell me that you program in Java, and I believe you to be either serious or boring. In Ruby, and you are interested in building things quickly. In Clojure, and I think you are smart but wonder if you ship. In Python, and I trust you implicitly. In PHP, and we sigh together. In C++ or C, and I nod humbly. In C#, and I smile and assume we have nothing in common. In Fortran, and I ask to see your security clearance. These languages contain entire civilizations. - Ford what is code?
@@ -942,9 +962,8 @@ class Player:
 ## typing
 
 🔗 https://en.wikipedia.org/wiki/Type_system
-🗄
-* `algos.md` data structures
-* `python.md` typing
+📙 Friedman little typer https://www.amazon.com/Little-Typer-MIT-Press/dp/0262536439
+🗄 `python.md` typing
 
 SEMANTICS
 * _nominative typing_: obj type explicitly declared https://en.wikipedia.org/wiki/Nominal_type_system
@@ -952,16 +971,41 @@ SEMANTICS
 * _type inference_: figure out type based on context https://calpaterson.com/mypy-hints.html
 > aka implicit? https://go.dev/tour/basics/10
 
+COST-BENEFIT
+* benefit
+> [invariant violation] At point A, there's some assumption, and way over there at point B, that assumption is violated... Type systems prevent some invariant violations. Because that works, there are ongoing attempts to extend type systems to prevent still more invariant violations. That creates another layer of confusing abstraction. Some invariants are not well represented as types, and trying makes for a bad fit. What you're really trying to do is to substitute manual specification of attributes for global analysis. The Rust borrow checker is an invariant enforcer. It explicitly does automatic global analysis, and reports explicitly that what's going on at point B is inconsistent with what point A needs. This is real progress in programming language design, and is Rust's main contribution. https://news.ycombinator.com/item?id=29996240
+> Type checking catches bugs that unit testing does not, often much faster and with less code overhead than unit testing requires. It has surprised me how much of my unit tests were de facto implementing a type system halfheartedly as opposed to testing behavior of those types. - https://threadreaderapp.com/thread/1141836825838800896.html more on typing as a analog to unit tests https://www.jorgemanrubia.com/2019/06/22/on-ruby-and-type-checkers/
+> Having used Kotlin on and off for the better part of a decade, the one thing I can say is that their editor support is unrivaled by any other language today. https://news.ycombinator.com/item?id=33331123
+* cost https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/ https://bryananthonio.com/blog/pydantic-custom-dictionary-types/
+> Every dynamically-typed programming language attempts to expand until it has static types and compiles to machine code. https://news.ycombinator.com/item?id=24839697
+> Types add value and they add cost https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
+> Research has shown that Franklin's remark about giving up liberty to purchase safety is actually about type systems. https://twitter.com/MarijnJH/status/570833749065265152
+> And Haskell, OCaml and their ilk are part of a 45-year-old static-typing movement within academia to try to force people to model everything. Programmers hate that. These languages will never, ever enjoy any substantial commercial success, for the exact same reason the Semantic Web is a failure. You can't force people to provide metadata for everything they do. They'll hate you. The type system is 'wrong' whenever it cannot match the intended computational model. Every time want to use multiple inheritance or mixins in Java's type system, Java is 'wrong', because it can't do what you want. You have to take the most natural design and corrupt it to fit Java's view of the world. I think the general answer to this is: when in doubt, don't model it. Just get the code written, make forward progress. Don't let yourself get bogged down with the details of modeling a helper class that you're creating for documentation purposes. http://steve-yegge.blogspot.com/2008/02/portrait-of-n00b.html
+> When in doubt, don't model it. Just get the code written, make forward progress. Don't let yourself get bogged down with the details of modeling a helper class that you're creating for documentation purposes. http://steve-yegge.blogspot.com/2008/02/portrait-of-n00b.html
+> You probably know my skepticism towards Python typing...we are creating the new Java. We became the people we originally displaced. Just that when we are not careful we are on a path to the world's worst Java. We put typing on a language that does not support it, our interpreter is slow, it has a GIL. We need to be careful not to forget that our roots are somewhere else. We should not collectively throw away the benefits we had. https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
+> I'm worried that a de-facto move away from dynamic stuff in the Python ecosystem, possibly motivated by those who use Python only because they have to, and just want to make it more like the C# or Java they are comfortable with, could leave us with the very worst of all worlds. https://news.ycombinator.com/item?id=34615749
+
 ---
 
-> types add value and they add cost https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
-https://langdev.stackexchange.com/questions/2692/how-should-i-read-type-system-notation
-https://news.ycombinator.com/item?id=36775644
-
+SEMANTICS https://www.destroyallsoftware.com/compendium/types?share_key=baf6b67369843fa2
+* dynamic https://gist.github.com/non/ec48b0a7343db8291b92
+* gradual typing: type hints/annotations in code checked by static analysis tooling, not compiler
+* inference https://news.ycombinator.com/item?id=36775644
+* implicit https://news.ycombinator.com/item?id=26671136 https://go.dev/tour/basics/10
+* _definitions_: strong/weak less rigorously defined than static/dynamic [Smallshire 1 @ 5.4]
+* _sink_: https://danluu.com/empirical-pl/ https://www.cs.uaf.edu/users/chappell/public_html/class/2018_spr/cs331/docs/types_primer.html https://eli.thegreenplace.net/2006/11/25/a-taxonomy-of-typing-systems vocab https://cdsmith.wordpress.com/2011/01/09/an-old-article-i-wrote/ https://danluu.com/empirical-pl/
+|   	    | static   	| dynamic   	    |
+|---	    |---	    |---	            |
+| strong   	| C++      	| Python, Ruby   	|
+| weak  	|   	    | JS, Perl   	    |
+* _static_: specify type in code (resolved during compilation)
+* _dynamic_: don't specify type in code (resolved during runtime) ❓ 'dynamic' synonym for duck typing?
+* _weak_: will perform type conversion (e.g. JS) 
+* _strong_: won't perform type conversion `42 + 'hi'` throws `TypeError` (only time this happens in Python is `if` statements)
 * history https://www.youtube.com/watch?v=Tml94je2edk
 * Liskov (from SOLID) https://en.wikipedia.org/wiki/Liskov_substitution_principle
-* Flask debugger, typing, metaprogramming vs monkey patching https://news.ycombinator.com/item?id=34611969
-* _null_: https://2ality.com/2013/10/typeof-null.html
+* metaprogramming and dynamic typing vs monkey patching https://news.ycombinator.com/item?id=34611969
+* _null_: https://2ality.com/2013/10/typeof-null.html https://www.fluentpython.com/lingo/#fail_fast
     
 GENERICS
 * _generics_: prevent type errors in Collections (bc Collections can contain any obj type e.g. str, int, et al.)
@@ -971,39 +1015,6 @@ GENERICS
 * https://news.ycombinator.com/item?id=29702607
 * https://drewdevault.com/2019/02/18/Generics-arent-ready-for-Go.html
 * https://go.dev/blog/why-generics https://go.dev/blog/generics-next-step
-
-https://gist.github.com/non/ec48b0a7343db8291b92
-https://www.fluentpython.com/lingo/#fail_fast
-* Kotlin as toolable https://news.ycombinator.com/item?id=33331123
- https://thelittletyper.com/
-https://www.destroyallsoftware.com/compendium/types?share_key=baf6b67369843fa2
-
-* gradual typing: type hints/annotations in code checked by static analysis tooling, not compiler
-* _definitions_: strong/weak less rigorously defined than static/dynamic [Smallshire 1 @ 5.4]
-* _sink_: https://danluu.com/empirical-pl/ https://www.cs.uaf.edu/users/chappell/public_html/class/2018_spr/cs331/docs/types_primer.html https://eli.thegreenplace.net/2006/11/25/a-taxonomy-of-typing-systems vocab https://cdsmith.wordpress.com/2011/01/09/an-old-article-i-wrote/ https://danluu.com/empirical-pl/
-
-|   	    | static   	| dynamic   	    |
-|---	    |---	    |---	            |
-| strong   	| C++      	| Python, Ruby   	|
-| weak  	|   	    | JS, Perl   	    |
-
-* _static_: specify type in code (resolved during compilation)
-* _dynamic_: don't specify type in code (resolved during runtime) ❓ 'dynamic' synonym for duck typing?
-* _weak_: will perform type conversion (e.g. JS) 
-* _strong_: won't perform type conversion `42 + 'hi'` throws `TypeError` (only time this happens in Python is `if` statements)
-
-__opinions__
-
-* implicit https://news.ycombinator.com/item?id=26671136 https://go.dev/tour/basics/10
-https://news.ycombinator.com/item?id=24839697
-
-> Type checking catches bugs that unit testing does not, often much faster and with less code overhead than unit testing requires. It has surprised me how much of my unit tests were de facto implementing a type system halfheartedly as opposed to testing behavior of those types. - https://threadreaderapp.com/thread/1141836825838800896.html more on typing as a analog to unit tests https://www.jorgemanrubia.com/2019/06/22/on-ruby-and-type-checkers/
-
-> Research has shown that Franklin's remark about giving up liberty to purchase safety is actually about type systems. - https://twitter.com/MarijnJH/status/570833749065265152
-
-turns into metadata addiction
-
-> And Haskell, OCaml and their ilk are part of a 45-year-old static-typing movement within academia to try to force people to model everything. Programmers hate that. These languages will never, ever enjoy any substantial commercial success, for the exact same reason the Semantic Web is a failure. You can't force people to provide metadata for everything they do. They'll hate you. The type system is 'wrong' whenever it cannot match the intended computational model. Every time want to use multiple inheritance or mixins in Java's type system, Java is 'wrong', because it can't do what you want. You have to take the most natural design and corrupt it to fit Java's view of the world. I think the general answer to this is: when in doubt, don't model it. Just get the code written, make forward progress. Don't let yourself get bogged down with the details of modeling a helper class that you're creating for documentation purposes. http://steve-yegge.blogspot.com/2008/02/portrait-of-n00b.html
 
 # 🟨 ZA
 

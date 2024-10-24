@@ -142,6 +142,10 @@ PG http://paulgraham.com/popular.html
 
 ---
 
+TYPES
+* sampling profiler
+> So you talked about sampling profilers as one common tool. Can you actually just go in a little more detail of what is a sampling profiler and how does it actually work at a low level? -> So there’s a lot of different implementations of this, but the general shape of it is you take a system and you point a tool at it that stops the world every so often. Let’s say every hundred microseconds maybe. And it stops the world and asks, where are you right now? And it looks at where the instruction pointer is, what are we currently executing? And it generally looks at the stack trace, how did you get here? And then it writes this down and it lets the program keep going. And profilers only really differ on how do they stop the world and how do they write this down. My favorite is the Linux kernel profiler. It’s called perf, and it just uses a bunch of hardware features to get an interrupt at exactly the right moment in time. And then it just very quickly writes down the stack trace in this compressed format. It’s very optimized. And then you take all these stack traces. The profile is really just a list of stack traces and sometimes a little bit of augmented information, but that’s fundamentally the core idea. And then you present it to the user in some way that adds them up. And like I say, the key thing is it tells you, okay, 30% of the stack traces ended in the function foo. That’s a hotspot. You’re spending 30% of your time there. https://signalsandthreads.com/performance-engineering-on-hard-mode/
+
 OPTIONS
 * https://github.com/nakabonne/gosivy
 * _austin_: frame stack sampler https://github.com/P403n1x87/austin https://github.com/P403n1x87/austin-tui
@@ -250,6 +254,7 @@ https://github.com/DataDog/go-profiler-notes
 * benchmark: https://github.com/sharkdp/hyperfine https://github.com/egoist/dum
 * can use hyperfine under the hood https://github.com/dandavison/magit-delta https://github.com/sharkdp/hyperfine
 * https://blog.usejournal.com/how-to-create-your-own-timing-context-manager-in-python-a0e944b48cf8 https://martinheinz.dev/blog/13 https://realpython.com/python-timer/
+* https://pragprog.com/titles/atcrime2/your-code-as-a-crime-scene-second-edition/ https://pragprog.com/titles/pbdp/debug-it/
 
 # 🤖 OS
 
@@ -1042,7 +1047,7 @@ INPUT 🗄 `security.md` sanitization
 ur_in = input()
 ```
 * Textual https://github.com/darrenburns/textual-autocomplete
-* _bullet_: https://github.com/Mckinsey666/bullet
+* _bullet_: https://github.com/Mckinsey666/bullet Golang alternative https://github.com/charmbracelet/huh
 * repos https://github.com/zachvalenta/news https://github.com/zachvalenta/capp-prod-cat/blob/link-nodes/tree_viz.py 🗄️ `git.md` Github / search
 * control flow https://github.com/shkey/killurp/blob/141d411d353ab46edf362ff6a33bfe9c5a5ad211/killurp.py#L8 https://github.com/chroma-core/chroma-migrate/blob/2a6e61ee7f2d717281075512b308c40616033189/chroma_migrate/cli.py#L2
 * _questionary_: https://github.com/tmbo/questionary 
@@ -1075,10 +1080,8 @@ cd /Users/zvalenta/Desktop/textual/examples
 python json_tree.py
 ```
 
-ZA
-* inherently slow? both browsr and elia crawl on open
-
 ALTERNATIVES
+> Textual inherently slow? Both browsr and elia crawl on open. Find Golang-like alternative
 * _blessed_: https://github.com/jquast/blessed
 * _asciimatics_: https://github.com/peterbrittain/asciimatics
 * _urwid_: used by pudb, Zulip http://urwid.org/ https://github.com/zulip/zulip-terminal/blob/main/zulipterminal/ui_tools/boxes.py
@@ -1099,11 +1102,13 @@ ALTERNATIVES
 
 ## frameworks
 
+🗄️ `infra.md` web servers
 🛠️ debug HTTP requests https://github.com/cle-b/httpdbg
 
 FRAMEWORKS
 > Web development is often broad, not deep - problems span many domains. https://docs.djangoproject.com/en/2.0/intro/whatsnext/
 > A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
+* Ruby on Rails is still the acme here
 * components: HTTP, routes, ORM
 * BYO https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/ https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/ https://github.com/itsthejoker/spiderweb/ https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://dev.to/brunociccarino/how-i-wrote-express-go-in-19-hours-3ndh
 
@@ -1309,6 +1314,7 @@ ALTERNATIVES
 ### JSON
 
 📜 https://docs.python.org/3/library/json.html
+🛠️ flatten https://github.com/simonw/json-flatten
 
 BASICS
 * dump = ser, load = de 
@@ -1434,6 +1440,7 @@ sha.hexdigest()  # 'fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba6259
 
 ---
 
+* holidays https://github.com/GothenburgBitFactory/holidata
 https://realpython.com/python-packages/#dateutil-for-working-with-dates-and-times
 https://drewdevault.com/2014/06/28/Python-datetime-sucks.html
 📙 Beazley ch. 3

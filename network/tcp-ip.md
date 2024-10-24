@@ -111,6 +111,8 @@ models
 
 ---
 
+https://news.ycombinator.com/item?id=41930628
+
 * nc/netcat: check if TCP/UDP port is open
 * _tc_: add network latency
 * _ARP_: 🗄 `practical-packet-analysis.pdf` chapter 6

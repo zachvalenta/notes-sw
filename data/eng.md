@@ -319,6 +319,8 @@ DATAHUB 📜 https://github.com/datahub-project/datahub https://datahubproject.i
 
 ---
 
+> promising! https://github.com/zillow/intake-nested-yaml-catalog
+
 ZA
 * _catalog_: manifest (desc, location) 📻 Macey 5:15 https://data.world/solutions/product-overview/ https://softwareengineeringdaily.com/2022/12/14/the-enterprise-data-catalog/
 * Collibra https://www.thoughtworks.com/radar/platforms?blipid=202203049

@@ -5,6 +5,7 @@
 ## 进步
 
 ZOLA DEPLOYMENT
+> blog auth? what is really the point of your site? 🗄️ `tmp.md`
 * DNS tools to diff `zachvalenta.com` vs. `zjayv.com`
 * learn Github actions
 * specify `index.html` for GH Pages: `publish_dir` https://chatgpt.com/share/66f4a7c1-ea3c-8004-8327-46a9840bf1d5 https://github.com/shalzz/zola-deploy-action/blob/master/README.md#custom-domain symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying https://stackoverflow.com/questions/42941170/how-to-set-up-github-pages-to-look-for-index-html-in-a-different-location https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository or Cloudflare https://chevyray.dev/blog/how-this-site-is-made/ or Netlify https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/
@@ -77,6 +78,7 @@ taxonomy
 ## htmx
 
 📜
+> https://pragprog.com/titles/mvhtmx/server-driven-web-apps-with-htmx/
 * https://htmx.org/
 * https://hypermedia.systems/book/contents/
 🗄
@@ -358,7 +360,7 @@ fi
 * _sourcemap_: map from minified code to source for purpose of debugging
 * _tree shaking_: remove dead code
 * _WASM_: compilation target for browsers that supports non-JS languages https://words.steveklabnik.com/is-webassembly-the-return-of-java-applets-flash https://sqlite.org/wasm/doc/tip/about.md https://rsms.me/wasm-intro
-* _WebRTC_: browser-to-browser communication (for high-speed A/V) https://hpbn.co/webrtc/
+* _WebRTC_: browser-to-browser communication (for high-speed A/V) e.g. Facetime https://hpbn.co/webrtc/ https://pragprog.com/titles/ksrtc/programming-webrtc/
 * _Webpack_: creates bundle (all libs in single file); preceded by Browserify, succeeded by Snowpack
 * editors: Code Mirror, Monaco (what repl.it used before Code Mirror)
 
@@ -404,7 +406,7 @@ STATE
 * _dev tools_: shortcuts https://developers.google.com/web/tools/chrome-devtools/shortcuts clear network panel https://www.youtube.com/watch?v=x4q86IjJFag https://apsdehal.in/blog/chrome-developer-tools-to-master
 * _headless_: browser sans UI
 * _JS engine_: V8 for Chrome, SpiderMonkey for Firefox
-> ❓ aka web engine? browser engine? https://servo.org/
+> ❓ aka web engine? browser engine? https://servo.org/ https://github.com/gosub-io/gosub-engine
 * _layout engine_: parses XML/HTML into a DOM
 * scrolling https://news.ycombinator.com/item?id=23994619
 * _service worker_: API to run background scripts; diff than AJAX bc allow for push notifications and sync from emanating from server https://whatisjasongoldstein.com/writing/service-workers-of-the-world-unite/
@@ -613,7 +615,7 @@ SOCIAL
 SSGs 🗄️ `algos.md` tree / treebuilders
 * Emacs org mode
 * BYO https://www.youtube.com/watch?v=Ph7oJDR71Jc https://github.com/mitsuhiko/rstblog https://til.simonwillison.net/django/building-a-blog-in-django dynamic https://realpython.com/build-a-blog-from-scratch-django/ https://dev.to/chasefleming/building-a-go-static-site-generator-using-elem-go-3fhh https://github.com/jeffkaufman/webscripts https://github.com/PaulJuliusMartinez/jless/tree/website or just HTML https://fabiensanglard.net/html/index.html
-* _Astro micro_: 🎯 https://drew.silcock.dev/about/ https://github.com/drewsilcock/silcock-dev https://astro.build/themes/details/astro-micro/ https://astro-nano-demo.vercel.app/ https://www.bytedrum.com/about/
+* _Astro micro_: 🎯 https://drew.silcock.dev/about/ https://github.com/drewsilcock/silcock-dev https://astro.build/themes/details/astro-micro/ https://astro-nano-demo.vercel.app/ https://www.bytedrum.com/about/ https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/
 * _aurora_: 🎯 https://github.com/capjamesg/aurora
 * _Bearclaw_: https://github.com/donuts-are-good/bearclaw
 * _Django_: 🎯 https://simonwillison.net/about/#subscribe

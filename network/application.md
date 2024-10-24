@@ -119,6 +119,7 @@ etag
 
 ---
 
+https://github.com/simonw/datasette-cors
 * http://eradman.com/posts/cross-origin-requests.html
 https://jakearchibald.com/2021/cors/
 https://ieftimov.com/post/deep-dive-cors-history-how-it-works-best-practices/
@@ -505,6 +506,7 @@ GMAIL ALTERNATIVES 🗄 `security.md` privacy
 * why not: works well, only marginal return for time invested, apparently Gmail search is better than others https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/
 * _Hey_: https://www.hey.com/
 * _Fastmail_: https://news.ycombinator.com/item?id=24245817
+* _pop_: https://github.com/charmbracelet/pop
 
 ---
 
@@ -522,8 +524,6 @@ SPF, DKIM, and DMARC https://news.ycombinator.com/item?id=40708476
 for SMB
 * https://myemma.com/
 * https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
-
-https://github.com/charmbracelet/pop
 
 LEAVING GMAIL
 * lockout https://www.jefftk.com/p/how-likely-is-losing-a-google-account
@@ -608,6 +608,7 @@ scp user@host:/src/file.txt /local/
 
 ---
 
+* _libera.chat_: https://taskwarrior.org/docs/help/
 https://drewdevault.com/2021/03/29/The-worlds-dumbest-IRC-bot.html
 https://webchat.freenode.net/#sr.ht
 https://sr.ht/~delthas/senpai/
@@ -667,6 +668,7 @@ ssh -NL local-port:env-host.domain.io:remove-port env-jumpbox.domain.io
 ```
 
 za
+* https://news.ycombinator.com/item?id=41785511
 * https://github.com/quantumsheep/sshs
 * https://www.youtube.com/watch?v=5JvLV2-ngCI
 * https://news.ycombinator.com/item?id=37240187
@@ -689,7 +691,7 @@ client config https://news.ycombinator.com/item?id=23027833
 ---
 
 * tailscale https://news.ycombinator.com/item?id=33986430
-* https://github.com/charmbracelet/wish
+* https://github.com/charmbracelet/wish https://www.youtube.com/watch?v=0YoHqRfKE1k
 https://stackoverflow.com/a/33243564/6813490
 process https://help.ubuntu.com/community/SSH/OpenSSH/Keys
 * _agent_: https://smallstep.com/blog/ssh-agent-explained/ https://drewdevault.com/2022/05/09/hare-ssh.html

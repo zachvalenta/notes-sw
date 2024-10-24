@@ -479,6 +479,7 @@ DESIGN
 * https://talkpython.fm/episodes/show/476/unified-python-packaging-with-uv
 * https://www.youtube.com/watch?v=zE-RigeEODM
 * in Django https://blog.pecar.me/uv-with-django
+* with Github Actions https://github.com/astral-sh/setup-uv https://pythonbytes.fm/episodes/show/405/oh-really
 
 # 🟨️ ZA
 
@@ -500,6 +501,7 @@ PEPS https://realpython.com/pypi-publish-python-package/#prepare-your-package-fo
 * _PEP 518_: specifying build systems
 * _PEP 621_: specifying project metadata
 * _PEP 660_: editable installs
+* _PEP 735_: didn't Poetry already have this? https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight
 * _PEP 777_: wheel backwards compatibility (to enable new functionality to be added to wheels) https://peps.python.org/pep-0777/
 
 ---

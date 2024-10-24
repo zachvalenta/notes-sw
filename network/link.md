@@ -148,7 +148,7 @@ Twenty-five miles north of Seattle, there is a major intercontinental undersea c
 ## speed
 
 re: wifi
-* 搜 'internet speed test' https://news.ycombinator.com/item?id=26343394 https://news.ycombinator.com/item?id=31062799
+* 搜 'internet speed test' https://news.ycombinator.com/item?id=26343394 https://news.ycombinator.com/item?id=31062799 https://www.lambdafunctions.com/articles/make-internet-connection-worse
 * https://news.ycombinator.com/item?id=24478149 https://dailywireless.org/internet/what-is-mbps/
 * 115/4.5 at Wilmington apartment
 

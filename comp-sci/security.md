@@ -296,6 +296,7 @@ dn: CN=Alice, OU=sysadmin
 
 Kerberos https://www.roguelynn.com/words/explain-like-im-5-kerberos/ https://web.mit.edu/kerberos/krb5-1.12/doc/index.html https://web.mit.edu/kerberos/www/dialogue.html
 * single sign-on (SSO) for corporate networks https://stackoverflow.com/a/46188971
+* https://news.ycombinator.com/item?id=41943589
 * authentication
 * login: user/pass, user/keytab (secret but not a pw)
 * _keytab_: db for keys https://web.mit.edu/kerberos/krb5-1.12/doc/basic/keytab_def.html
@@ -408,6 +409,7 @@ PASSWORD MANAGER
 * _gopass_: pass fork
 * _himitsu_: https://drewdevault.com/2022/06/20/Himitsu.html
 * _keyring_: https://rutar.org/writing/managing-secrets-from-the-command-line/
+* _OnePassword_: CLI https://til.simonwillison.net/macos/1password-terminal
 * _pass_: https://www.youtube.com/watch?v=w34xAnNdliE https://rutar.org/writing/some-tricks-with-unix-pass/ https://www.youtube.com/watch?v=FhwsfH2TpFA
 * _Vault_: Hashicorp
 

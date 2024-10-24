@@ -23,6 +23,7 @@
 
 # 🪐️ INDUSTRY
 
+🔍 https://newsletter.pragmaticengineer.com/p/state-of-eng-market-2024
 📙 Seibel coders at work
 
 DEFINING "ENGINEER" 🗄️ `built.md` engineering
@@ -32,6 +33,11 @@ DEFINING "ENGINEER" 🗄️ `built.md` engineering
 * as builders (vs. scientists) https://news.ycombinator.com/item?id=23565429
 * software engineers https://www.hillelwayne.com/post/crossover-project/are-we-really-engineers/ https://chriskiehl.com/article/thoughts-after-6-years
 * https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/
+
+POLITICS
+* https://x.com/steveklabnik https://bsky.app/profile/steveklabnik.com
+* https://kjaymiller.com/blog/blog1.html
+> As a community, we want to be friendly too. People from around the world, of all backgrounds, genders, and experience levels are welcome and respected equally. See our community code of conduct for more. Black lives matter. Trans rights are human rights. No nazi bullsh*t. https://gleam.run/
 
 ---
 
@@ -118,6 +124,8 @@ STANDARDS BODIES
 
 ---
 
+* https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight
+* https://changelog.com/podcast/606#transcript
 > how to make money: popularize lib, sell support | managed env https://pola.rs/our-services/
 > TRC20 USDT for donations: TSFU6QLMJ4zJQtwnt1YAZBdgZ8qNSLWHJN https://github.com/Andrej730 -> Twin Peaks
 * Unicode fundraiser https://aac.unicode.org/
@@ -205,12 +213,15 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 📚
 * Eghbal working in public https://www.amazon.com/gp/product/0578675862 https://drewdevault.com/2024/07/16/2024-07-16-So-you-want-to-compete-with-FOSS.html https://drewdevault.com/2023/12/26/2023-12-26-Prusa-is-floundering.html
 * Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/
+* https://pragprog.com/titles/vbfoss/business-success-with-open-source/
 
 ---
 
+* floss vs. foss vs. oss https://opensource.stackexchange.com/questions/262/what-is-the-difference-between-foss-and-floss https://www.gnu.org/philosophy/floss-and-foss.en.html
 * distrust of Microsoft https://news.ycombinator.com/item?id=41907350
 > what happened to exa i.e. just bc it wasn't receiving updates why did it get booted from Homebrew? -> also, eza install from Homebrew takes forever
 * contributing https://github.com/all-contributors/all-contributors https://github.com/Builditluc/wiki-tui
+* Bill James https://en.wikipedia.org/wiki/Bill_James#STATS,_Inc.
 
 ## Stack Overflow
 
@@ -267,12 +278,6 @@ IMPEDIMENTS https://pythonbytes.fm/episodes/show/383/why-aren-t-devs-shipping-fa
 * https://review.firstround.com/40-favorite-interview-questions-from-some-of-the-sharpest-folks-we-know
 * https://news.ycombinator.com/item?id=25928641
 
-KEEPING UP
-* how to - SO, YT, https://devdocs.io/
-* general - HN, awesome-$foo, pods (SED, Python Podcast, Changelog) books (Manning, No Starch, Pragmatic)
-* news - LWN weekly edition, Hacker Newsletter, newsletters (Python, Golang, Django)
-* people - Thorsten, Luu, Somers, Patio11, Julia Evans, Jess Frazze, Yegge, PG
-
 STRENGTHS AND WEAKNESSES
 * _strengths_: maintainability, technical communication (GH, blog), DX https://www.zachvalenta.com/blog/dx.html 🗄 `pitch-letter.md` 🗄 `operations.md` shift left
 > half the time this business comes down to "I don't like that guy." https://news.ycombinator.com/item?id=29082060
@@ -286,10 +291,6 @@ STRENGTHS AND WEAKNESSES
 * _staying up to date_: devs (newsletter for Python, Django, Golang, podcasts) https://www.thoughtworks.com/radar 🗄 keeping up
 * _good leader_: point guard https://news.ycombinator.com/item?id=20236685
 > I've spent a lot of time asking about why things are the way they are, both in areas where things are working well, and in areas where things are going badly. Where things are going badly, everyone has ideas. But where things are going well...almost no one has any idea why things work. It's magic. If you ask, people will literally tell you that it seems really similar to some other place they've worked, except that things are magically good instead of being terrible for reasons they don't understand. https://danluu.com/wat/
-
-PREFERENCES
-* _things I like_: Vim, Python (pipx, bpython) visdata https://github.com/zachvalenta?tab=stars files https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/
-* _devs I like_: Steve Yegge, Dan Luu, James Somers, Bob Heaton, Patrick McKenzie, Julia Evans
 
 ## questions
 
@@ -380,9 +381,7 @@ misc
 RECENT
 * logs
 * ml
-* basilk
 * air22: logs, dot
-* air-capp: logs
 * ms: pull capp repos into ms
 
 CLEAN UP
@@ -464,6 +463,19 @@ One thing I think I do well is technical communication. This shows up in:
 https://github.com/simonw https://github.com/radiac
 
 LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER)
+```sh
+├── 2024
+│   └── CSS
+│   └── Python
+│   └── SQL
+├── 2025
+│   └── C
+│   └── Golang
+│   └── Haskell
+│   └── Lisp
+│   └── Lua
+│   └── Zig
+```
 > try Haskell and Lisp for the math https://news.ycombinator.com/item?id=41861304
 * _C_: 🎯 to understand Linux better
 * _Golang_: PLT + tooling

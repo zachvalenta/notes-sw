@@ -112,12 +112,14 @@ MUSIC
 * jazz: christian scott, alice coltrane, bill frisell
 * far: Aster Aweke
 * rock: spin doctors, mark kozelek, modest mouse, libertines, no doubt to singles, perfect, grateful dead europe 72, seger, everything from sui generis, trex, stones
+* rock/roots: dylan, band
 * za/blues: hendrix
 * za/gospel: hank jones
 
 ### air-capp ➡️ mini23
 
 * dance/techno: all
+> za (chemical brothers et al.)
 
 ## reimage
 
@@ -810,6 +812,8 @@ INVENTORY 🗄 `/Applications`
 * set default: system preferences > general
 * settings: zoom to 110, font fize large, downloads to desktop, switch search to DuckDuckGo, startup to open previous tabs
 * extensions: Vimium, Mercury Reader, EditThisCookie, PocketTube
+* _Arc_: https://en.wikipedia.org/wiki/Arc_(web_browser) https://www.youtube.com/watch?v=E9yZ0JusME4 https://news.ycombinator.com/item?id=36863925 https://news.ycombinator.com/item?id=41597250
+* _awrit_: in terminal?!? https://github.com/chase/awrit
 * _Brave_: way less storage hit (150M) than Chrome (1.2GB) 🗄️ `/Users/$USER/Library/Application Support`
 * commands
 ```sh
@@ -1088,6 +1092,11 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
 * screen capture https://switowski.com/blog/favorite-mac-tools/
 
 ## PDF
+
+TOOLING
+* _poppler_: https://github.com/sxyazi/yazi
+* _tdf_: https://github.com/itsjunetime/tdf
+* _termpdf_: kitty https://github.com/dsanson/termpdf.py
 
 ---
 

@@ -406,6 +406,7 @@ apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythons
 
 SEMVER https://stackoverflow.com/a/22345808
 > what fmt is this? https://zed.dev/releases/stable/0.149.3
+* https://mitchellh.com/writing/ghostty-is-coming
 * _patch_: update all patches w/out changing minor e.g. `~1.3.7` gets everything up to `1.4.0`
 * _minor_: update all patch + minor w/out changing major e.g. `^1.3.7` gets everything up to `2.0.0`
 * definitions fuzzy e.g. what does "major" actually mean e.g. breaking change? for what percentage of users? https://gist.github.com/jashkenas/cbd2b088e20279ae2c8e https://snarky.ca/why-i-dont-like-semver/
@@ -517,6 +518,7 @@ deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/32
 
 ---
 
+* can script everything (install GUI apps, CLI apps, write dotfiles)
 * nixpacks https://railway.app/
 * _Nix_: 🎯 https://github.com/NixOS/nix
 > The point of nix is just to create completely reproducible builds and package management, including support for multiple versions of packages side-by-size with no issues. It's sort of a next-generation package management system that tries to avoid most of the pitfalls that OS package managers have fumbled with up to this point. https://news.ycombinator.com/item?id=23251754
@@ -813,6 +815,7 @@ function tz(){
 
 * _alpine_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html https://drewdevault.com/2021/05/06/Praise-for-Alpine-Linux.html
 * _arch_: 
+* _CentOS_: https://taskwarrior.org/docs/workflow/
 * _mint_: https://drewdevault.com/2021/12/14/Linux-Mint-and-elementary-OS.html
 * _omakub_: https://github.com/basecamp/omakub https://omakub.org/ https://www.youtube.com/watch?v=g2vcIRavtqY
 * _Red Hat_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html
@@ -823,7 +826,7 @@ function tz(){
 * desktop https://drewdevault.com/2021/12/05/What-desktop-Linux-needs.html
 * non-C operating systems e.g. SerenityOS https://news.ycombinator.com/item?id=30851955
 * _DOS (disk os)_: os that came after punch cards and magnetic drums i.e. computers 1980s to mid 90s
-* _Plan9_: os from Bell Labs after UNIX https://seh.dev/go-legacy/ https://drewdevault.com/2022/11/12/In-praise-of-Plan-9.html
+* _Plan9_: os from Bell Labs after UNIX https://seh.dev/go-legacy/ https://drewdevault.com/2022/11/12/In-praise-of-Plan-9.html relationship to Golang https://registerspill.thorstenball.com/p/joy-and-curiosity-12
 * [Rob Pike talk](https://www.youtube.com/watch?v=_2NI6t2r_Hs&t=1105s)
 * The Open Group, an industry consortium (IBM Huawei DoD) controls UNIX name and compliance; no Linux distro qualifies [LPI 1, 1.3.3, 1.3.8]
 * how to keep Linux distros consistent? The Linux Standard Base [LPI 1.3.8]

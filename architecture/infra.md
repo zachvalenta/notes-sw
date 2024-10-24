@@ -474,6 +474,11 @@ PUB/SUB 📙 Narkhede ch. 1
 
 ## event (Kafka)
 
+
+---
+
+https://www.warpstream.com/ https://changelog.com/podcast/606#transcript + sponsors
+
 🗄 `data/eng.md` streaming
 📜 https://kafka.apache.org/documentation/
 📙 Narkhede guide
@@ -613,6 +618,9 @@ REDIS QUEUE (RQ)
 * comment server: Disqus, isso https://avi.im/blag/about/ https://posativ.org/isso/docs/
 * _Apache_: on start, Apache runs as master process `root` and binds to port 80; pre-fork (master process spawns child proccesses under UID `apached` to wait for connections) https://stackoverflow.com/a/25894770/6813490
 * _CGI_: process per req (vs. connection) cannot keep db connection over multiple
+* _Granian_: https://github.com/emmett-framework/granian https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server https://mkennedy.codes/posts/we-must-replace-uwsgi-with-something-else-but-with-what/
+* _hypercorn_: https://mkennedy.codes/posts/we-must-replace-uwsgi-with-something-else-but-with-what/
+* _uvicorn_: https://mkennedy.codes/posts/we-must-replace-uwsgi-with-something-else-but-with-what/
 * _redbean_: small https://justine.lol/redbean/index.html https://news.ycombinator.com/item?id=27431910
 
 💀 UWSGI
@@ -680,12 +688,6 @@ conf
 * security lint https://github.com/yandex/gixy 
 * location (Linux `/etc/nginx/nginx.conf` macOS `/usr/local/etc/nginx/nginx.conf`) 
 * language: Nginx's own thing despite looking like JSON https://carrot.is/coding/nginx_introduction
-
-## Granian
-
----
-* https://github.com/emmett-framework/granian
-* https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server
 
 ## Gunicorn
 

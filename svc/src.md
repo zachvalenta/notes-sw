@@ -145,6 +145,8 @@ end
 
 ---
 
+https://news.ycombinator.com/item?id=41939027
+
 * _schema_: typing 📙 Kleppmann [4.122-128]
 * _spec_: doc explaining schema https://www.youtube.com/watch?v=1lo7idI7uq8
 * generate spec from API and vice versa https://www.youtube.com/watch?v=1lo7idI7uq8 3:00
@@ -310,6 +312,8 @@ OPTIONS
 
 ---
 
+https://github.com/zillow/tycho
+
 * validate configs https://github.com/kehoecj/validate-configs-action
 * taxonomy: yolo (edit on server) FTP (edit on local, push to server) SCM (SSH to sever and pull repo, maybe use cron) CICD (triggered by repo hook https://dagger.io/) https://css-tricks.com/deployment/
 * pipelines: fetch (clone from repo) build (install deps, compile) test (run unit tests) deploy (put artifact somewhere so CD can pick it up and run it)
@@ -393,6 +397,8 @@ CLOUD
 ## feature flag
 
 ---
+
+https://news.ycombinator.com/item?id=41941493
 
 🗄 `infra.md` analytics
 
@@ -726,8 +732,6 @@ as red flag https://news.ycombinator.com/item?id=30675182
 https://drewdevault.com/2019/04/29/Shut-up-and-get-back-to-work-style.html
 
 * hoisting
-
-> When in doubt, don't model it. Just get the code written, make forward progress. Don't let yourself get bogged down with the details of modeling a helper class that you're creating for documentation purposes. - http://steve-yegge.blogspot.com/2008/02/portrait-of-n00b.html
 
 > This is what I’ve started telling people: Use mostly functions, try to make most of them pure. I think that can get people (even new devs) 80% of the benefits (testability, composability, loose coupling, and the ability to reason about code) of more complicated, prescriptive architectures (Hexagonal, Onion, Ports & Adapters, Clean, etc) with a minimal amount of ramp up. https://news.ycombinator.com/item?id=24915497
 

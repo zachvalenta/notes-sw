@@ -182,7 +182,9 @@ var myInt // 0
 
 ## CLI
 
-* frameworks https://github.com/charmbracelet/bubbletea https://leg100.github.io/en/posts/building-bubbletea-programs/ https://github.com/noahgorstein/jqp https://www.youtube.com/watch?v=ZA93qgdLUzM https://github.com/rivo/tview/ https://github.com/jroimartin/gocui 
+* animation https://github.com/charmbracelet/harmonica
+* _bubbletea_: https://github.com/charmbracelet/bubbletea https://github.com/charmbracelet/bubbles https://leg100.github.io/en/posts/building-bubbletea-programs/ use in Bash https://github.com/charmbracelet/gum
+* frameworks https://github.com/noahgorstein/jqp https://www.youtube.com/watch?v=ZA93qgdLUzM https://github.com/rivo/tview/ https://github.com/jroimartin/gocui 
 * color https://github.com/fatih/color
 * tables https://github.com/jedib0t/go-pretty
 * Markdown render https://github.com/charmbracelet/glamour https://miller.readthedocs.io/en/latest/file-formats/#markdown-tabular
@@ -193,7 +195,6 @@ var myInt // 0
 
 * https://www.dolthub.com/blog/2023-03-29-interactive-shell-golang/
 
-* dataclerk, fz/tz https://github.com/charmbracelet/lipgloss https://github.com/charmbracelet/bubbles?tab=readme-ov-file#viewport https://github.com/charmbracelet/harmonica https://github.com/charmbracelet/mods https://github.com/charmbracelet/gum https://github.com/charmbracelet/glow
 
 * https://clig.dev/ https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46 https://www.youtube.com/watch?v=eMz0vni6PAw https://eryb.space/2020/05/27/diving-into-go-by-building-a-cli-application.html https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ email author -> 艘 'Golang article typo'
 ```sh
@@ -530,7 +531,11 @@ func JoinFiles(files []string) (string, error) {
 
 ## version mgmt
 
-installation
+---
+
+> homebrew conflict?
+
+INSTALLATION
 * ✅ use golang.org https://golang.org/doc/install#download
 * uninstall: rm `~/go`, `/usr/local/go` https://golang.org/doc/install#uninstall
 * use pkg manager https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/install-go https://howistart.org/posts/go/1/ 
@@ -538,6 +543,6 @@ installation
 > my version is Homebrew
 * tooling location: `go env GOTOOLDIR` https://golang.org/doc/install#install 🗄 `go help environment`
 
-version mgmt
+VERSION MGMT
 * ✅ just use version name https://go.dev/doc/manage-install
 * version mgmt tool https://github.com/moovweb/gvm

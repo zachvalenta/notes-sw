@@ -14,8 +14,13 @@
 ## 进步
 
 CLIENTS
+> multichat as a reason for ai chat
+> TTS/RAG for changelog
 * aichat issue
 * mods
+* usage
+
+> You talked a lot about this distinction between LLM benchmarks and evaluating LLM applications. Could you talk a little bit about the differences? Maybe there are software engineers in the audience, that maybe they’re used to writing unit tests and integration tests for their software. Now as a consumer, as you said, they’re integrating some LLM functionality, or maybe a chain of reasoning with LLMs into their software. From a practical standpoint, what are the new types of things that they might need to consider that are different maybe from the way that they’ve unit-tested in the past, or written tests in the past, now that they’re working with these LLM workflows? https://changelog.com/practicalai/284#transcript
 
 * _24_: usage (regex, stdlib, EDI) tooling (clients)
 
@@ -27,6 +32,8 @@ GREAT ANSWERS
 
 ---
 
+https://www.apricitas.io/archive https://github.com/zillow/luminaire https://github.com/zillow/fair-housing-guardrail
+https://forklightning.substack.com/
 https://treyhunner.com/2024/07/chatgpt-and-claude-from-your-browser-url-bar/
 building into projects https://news.ycombinator.com/item?id=40857589
 
@@ -93,7 +100,7 @@ https://stratechery.com/2023/ai-and-the-big-five/
 
 ## code assist
 
-> why you need: basilk, lazygit (option to not add dir to recently_visited) https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
+> why you need: basilk (output formatted json, https://github.com/skanehira/github-tui) lazygit (option to not add dir to recently_visited) https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
 
 OPTIONS
 * _Avante_: Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835
@@ -102,6 +109,7 @@ OPTIONS
 
 ---
 
+https://til.simonwillison.net/clickhouse/github-public-history
 https://www.thediff.co/archive/offshoring-and-ai-agents/
 
 * https://news.ycombinator.com/item?id=41732634
@@ -112,6 +120,7 @@ https://news.ycombinator.com/item?id=41563958
 * legacy codebases https://bloop.ai/ https://www.driverai.com/
 
 https://aider.chat/ https://news.ycombinator.com/item?id=41453237
+https://news.ycombinator.com/item?id=41929174&utm_term=comment
 
 https://github.com/guywaldman/magic-cli https://news.ycombinator.com/item?id=40980715
 
@@ -139,23 +148,25 @@ https://www.youtube.com/watch?v=dkV01hBdhZE
 
 ## clients
 
-FILE FMT
-> 📍 building a context window by feeding in docs https://simonw.substack.com/p/video-scraping-using-google-gemini
+FILE FMT https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a https://chatgpt.com/c/671ebbd6-c110-8004-a519-0f723970d64c
+* streaming https://til.simonwillison.net/llms/streaming-llm-apis
 * JSON: Superpower ChatGPT, Claude https://github.com/simonw/claude-to-sqlite https://simonw.substack.com/p/everything-i-built-with-claude-artifacts https://support.anthropic.com/en/articles/9450526-how-can-i-export-my-claude-ai-data
+> you've more in Elia about JSON export
 * Markdown: https://simonw.substack.com/p/video-scraping-using-google-gemini
 * XML: https://github.com/simonw/files-to-prompt
 
 OPTIONS
+> get API tier, try mods, export current conversations https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a do you really need to export current? just incorporate into your notes and delete, leaving anything outstanding. your notes is the final downstream for everything (excluding code, music, etc.), hence LLMs are upstream. the goal with this is to 1) reduce friction re: queries 2) better...system message / prompts / RAG 3) history / stats 4) tags
 * in Bash https://github.com/simonmysun/ell
-* _aichat_: ❌ https://github.com/sigoden/aichat/issues/924
-* doesn't work https://github.com/sigoden/aichat 
+* _aichat_: 🎯 https://github.com/sigoden/aichat/issues/924 https://github.com/sigoden/aichat 
 * _chat-macOS_: https://github.com/huggingface/chat-macOS https://news.ycombinator.com/item?id=41927624
-* _Easy Folders_: ❌ didn't work in Brave https://chromewebstore.google.com/detail/chatgpt-folders-search-pr/gdocioajfidpnaejbgmbnkflgmppibfe
-* _khoj_: https://github.com/khoj-ai/khoj
+* _chatgpt-cli_: 🎯 Markdown https://github.com/kardolus/chatgpt-cli
+* _gpt4all_: local https://github.com/nomic-ai/gpt4all
+* _khoj_: 🎯 https://github.com/khoj-ai/khoj
 * _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm https://simonw.substack.com/p/video-scraping-using-google-gemini plugins for models https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3
-* _mods_: 🎯 https://github.com/charmbracelet/mods
+* _mods_: 🎯 Markdown output https://github.com/charmbracelet/mods
+* continue conversation https://github.com/charmbracelet/mods/issues/197
 * _oterm_: for Ollama https://github.com/ggozad/oterm
-* _Superpower ChatGPT_: folders mostly broken but JSON export seems to work https://spchatgpt.com/ https://chromewebstore.google.com/detail/Superpower%20ChatGPT/amhmeenmapldpjdedekalnfifgnpfnkc 
 * _tenere_: 🎯 file output, no Homebrew install yet https://github.com/pythops/tenere https://github.com/pythops/tenere/issues/31
 * _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
 
@@ -181,8 +192,6 @@ Say you have a CLI program that needs a secret (e.g. an API key). The secret nee
 * the secret would be exposed to all other programs running on your machine
 ```
 
-https://github.com/nomic-ai/gpt4all
-
 ## features
 
 * folders: ❓ does anyone offer? https://chatgpt.com/c/67108642-c0cc-8004-b985-28773a5764fb
@@ -196,13 +205,14 @@ https://github.com/nomic-ai/gpt4all
 * code: https://ollama.com/blog/python-javascript-libraries
 * _Claude_: https://news.ycombinator.com/item?id=41914989
 * larger context window = better for dev? https://www.anthropic.com/customers/headstart
-* the best? https://x.com/emollick/status/1849168452914938082
+* the best? https://x.com/emollick/status/1849168452914938082 https://simonwillison.net/2024/Oct/21/claude-artifacts/
 * _Eliza_: https://web.njit.edu/~ronkowit/eliza.html
 * _Gemma_: https://ai.google.dev/gemma
 * _Gemini_: https://simonw.substack.com/p/video-scraping-using-google-gemini
 * _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model)
 * uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
 * _Mistral_: https://en.wikipedia.org/wiki/Mistral_AI
+* _Perplexity_: https://x.com/AravSrinivas/status/1849499271655276658
 
 ---
 
@@ -546,15 +556,22 @@ SEMANTICS
 
 ---
 
+https://platform.openai.com/docs/overview https://cookbook.openai.com/
+
 DOCS
+* _RAG_: document-based interactions https://github.com/sigoden/aichat#rag-chat-with-your-documents
+* https://simonw.substack.com/p/video-scraping-using-google-gemini
+* tokens https://github.com/simonw/ttok
+* AWS Textract https://github.com/simonw/textract-cli
 * chat with your docs https://github.com/Cinnamon/kotaemon
 * ingest all your notes https://news.ycombinator.com/item?id=41732634
 * analyze research papers https://elicit.com/
 * PDF https://dev.to/jagroop2001/building-a-chat-with-pdfs-using-pinataopenai-and-streamlit-3jb7
 * papers to podcasts https://www.fwdaudio.com/ https://x.com/barbell_fi
+* https://www.assemblyai.com/
 
 AUDIO
-* TTS https://github.com/fishaudio/fish-speech
+* TTS https://github.com/fishaudio/fish-speech https://til.simonwillison.net/ios/listen-to-page Hugging Face https://til.simonwillison.net/macos/whisper-cpp
 * text to voice e.g. AWS Polly https://aws.amazon.com/blogs/aws/introducing-aws-b2b-data-interchange-simplified-connections-with-your-trading-partners/
 * transcription https://news.ycombinator.com/item?id=41199567 https://www.theguardian.com/media/2014/jan/22/ten-tools-for-digital-and-citizen-journalists-on-the-go
 * audio prompt + voice cloning for answer https://blog.untrod.com/2023/11/robot-dad.html https://elevenlabs.io/
@@ -563,6 +580,7 @@ AUDIO
 * generative music https://www.garbageday.email/p/suno-just-raised-lot-money
 * vocals https://audimee.com/
 * Siri https://github.com/homebrewltd/ichigo
+* mastering https://www.youtube.com/watch?v=wZRV2H4PK0Q
 
 IMG
 * video scraping https://simonw.substack.com/p/video-scraping-using-google-gemini
@@ -580,3 +598,4 @@ ZA
 * text to SQL https://github.com/vanna-ai/vanna
 * to synthesize all comments on a product into a blurb https://blog.untrod.com/2024/04/llm-chatgpt-powered-django-admin-fields.html
 * copyedit a novel https://blog.untrod.com/2023/06/copy-editing-a-novel-with-chatgpt.html
+* detection https://deepmind.google/technologies/synthid/?utm_source=www.superpowerdaily.com&utm_medium=newsletter&utm_campaign=new-claude-ai-can-take-over-your-computer

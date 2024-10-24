@@ -4,8 +4,12 @@
 
 ## 进步
 
-* grok segments from chatgpt code block https://github.com/dev0088/pyedi830
+* grok segments from chatgpt code block
 * https://github.com/lusingander/btox
+* https://www.lambdafunctions.com/articles/racing-sed-with-rust
+* https://news.ycombinator.com/item?id=31840852
+* https://chatgpt.com/c/670d4d6e-c8c4-8004-91d1-052b4c33c416
+* segment types https://github.com/sezna/edi
 
 * _24_: split into own file, file fmts (Cuelang, INI, KDL, YAML, EDI)
 * _22_: protocol (encoding, serialization)
@@ -15,51 +19,34 @@
 
 🔗 https://en.wikipedia.org/wiki/Electronic_data_interchange
 
+SEMANTICS
+* _EDI_: fmt for business transactions (purchases orders, sales)
+* used by GSA, B2B (healthcare, manufacturing, railroad frieight) https://www.remedi.com/blog/edi-for-railway-freight
+* _ASC x12_: US standards body for x12, created by ANSI https://en.wikipedia.org/wiki/ASC_X12
+* _x12_: USA EDI spec
+* _EDIFACT_: EU EDI spec https://en.wikipedia.org/wiki/EDIFACT
+* _SPS_: does EDI for ERPs (Odoo) https://www.spscommerce.com/
+* _Kleinschmidt_: does EDI for Steersman
+
 TRANSFER https://chatgpt.com/share/9b405f7d-4879-4985-be22-39fc267349f7
 * can just do over SFTP
 * _AS2_: HTTPS EDI
 * _VAN_: third-party that provides message tracking
-
----
-
-TO READ
-* https://www.lambdafunctions.com/articles/racing-sed-with-rust
-* https://news.ycombinator.com/item?id=31840852
-* https://chatgpt.com/c/670d4d6e-c8c4-8004-91d1-052b4c33c416
 
 ## document lists
 
 * _document list (DL)_: type of x12 document https://en.wikipedia.org/wiki/X12_Document_List
 * each company picks a subset that they want to work with https://static.fishersci.com/cmsassets/downloads/segment/Scientific/pdf/WebServices/EDIspecGuideCust832.pdf
 * file extension: `.edi`, `.x12`, `.dat`, `.txt`
+* _envelope_: collection of documents of a type
+* _mailbag_: collection of envelopes
 * _832_: DL for catalog
 * _850_: DL purchase order
 * _855_: DL purchase order (= HTTP 200)
 * _997_: DL for ack https://github.com/azoner/pyx12
 * _999_: ? https://github.com/azoner/pyx12
 
-## semantics
-
-SPEC
-* _EDI_: fmt for business transactions (purchases orders, sales)
-* used by GSA, B2B (healthcare, manufacturing, railroad frieight) https://www.remedi.com/blog/edi-for-railway-freight
-* _ASC x12_: US standards body for x12 https://en.wikipedia.org/wiki/ASC_X12
-* _x12_: USA EDI spec
-* _EDIFACT_: EU EDI spec https://en.wikipedia.org/wiki/EDIFACT
-> For those who haven't had the pleasure, X12 is an ANSI standard for "electronic data interchange." It could be considered a very distant spiritual ancestor of XML; it was designed to meet the same kind of need, but way back in days of yore when individual bytes were valuable things to be cherished. The standards committee was originally chartered back in 1979. https://www.lambdafunctions.com/articles/racing-sed-with-rust
-
-PROVIDERS
-* _SPS_: does EDI for ERPs (Odoo) https://www.spscommerce.com/
-* _Kleinschmidt_: does EDI for Steersman
-
----
-
-* _envelope_: collection of documents of a type
-* _mailbag_: collection of envelopes
-
 ## spec
-
-segment types https://github.com/sezna/edi
 
 ```sh
 # ISA (Interchange Control Header): sender, receiver
@@ -85,12 +72,18 @@ GE*1*1
 IEA*1*000000905
 ```
 
+META
+* attempts at replacement https://chatgpt.com/c/670d82d9-c488-8004-967f-2a987b16c9e9
+> It could be considered a very distant spiritual ancestor of XML; it was designed to meet the same kind of need, but way back in days of yore when individual bytes were valuable things to be cherished. The standards committee was originally chartered back in 1979. https://www.lambdafunctions.com/articles/racing-sed-with-rust
+
 ## tooling
 
 🔍 https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
 
 * _AWS B2Bi_: 🎯 https://docs.aws.amazon.com/b2bi/ history, usage https://aws.amazon.com/blogs/aws/introducing-aws-b2b-data-interchange-simplified-connections-with-your-trading-partners/
 * _bots_: ❌ bad docs https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
+* _edi-support_: 🎯 syntax https://github.com/Silvenga/vscode-edi-x12-support
+* _edifact_: 🎯 syntax https://github.com/DAXaholic/vscode-edifact
 * _pyedi_: ✅ parse (x12-JSON) https://github.com/freestream/pyedi 💻 https://github.com/zachvalenta/capp-pyedi
 * not on PyPI; fork and publish? https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 ```python
@@ -210,11 +203,6 @@ https://github.com/abhimanyu003/sttr
 
 🗄️ `info.md` diagrams
 
-TOOLS
-* editor https://monodraw.helftone.com/
-* art https://www.asciiart.eu/
-* to SVG https://code.sgo.to/2022/06/20/typographic-diagrams.html https://github.com/ivanceras/svgbob https://github.com/google/typograms https://ditaa.sourceforge.net/ https://casual-effects.com/markdeep/features.md.html#basicformatting/diagrams http://asciiflow.com/ https://github.com/ArthurSonzogni/Diagon
-
 ---
 
 * _ASCII_: mapping from number to glyph (char) 📍 Petzold 15.181, computerphile 📚 Petzold code ch. 20 https://www.youtube.com/watch?v=XaGXPObx2Gs from pre 8-bit era; `man ascii` https://increment.com/programming-languages/unplain-text-primer-on-non-latin/
@@ -223,6 +211,8 @@ TOOLS
 
 ---
 
+https://taskwarrior.org/docs/unicode/
+https://sw.kovidgoyal.net/kitty/faq/#some-special-symbols-are-rendered-small-truncated-in-kitty
 https://crates.io/crates/ucd-trie
 https://docs.python.org/2/howto/unicode.html
 https://docs.python.org/3/howto/unicode.html
@@ -241,7 +231,9 @@ https://text.makeup/about/
 
 ## UUID
 
-🔗 https://en.wikipedia.org/wiki/Universally_unique_identifier
+🔗
+* https://en.wikipedia.org/wiki/Universally_unique_identifier
+* https://taskwarrior.org/docs/dom/
 
 VERSIONS https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/
 * version 1: generated from timestamp, monotonic counter, and a MAC address
@@ -348,6 +340,7 @@ cue vet person.cue
 OPERATIONS
 * fmt: `python3 -m json.tool music-lib.json > music-lib-fmt.json` https://orbifold.xyz/check-in-json.html
 * to SQL https://github.com/simonw/claude-to-sqlite
+* _csv-diff_: diff https://github.com/simonw/csv-diff
 * _dasel_: edit https://github.com/TomWright/dasel
 * _jo_: ✅ generate https://github.com/jpmens/jo
 * _graphtage_: ❌ diff https://github.com/trailofbits/graphtage broken https://github.com/trailofbits/graphtage/issues/91 🗄️ `shell.md` file / diff
@@ -463,6 +456,7 @@ https://kdl.dev/ https://zellij.dev/documentation/layouts
 
 ---
 
+* Vortex https://news.ycombinator.com/item?id=41839773
 * https://www.crunchydata.com/blog/pg_parquet-an-extension-to-connect-postgres-and-parquet
 * https://csvbase.com/blog/3
 * https://r4ds.hadley.nz/arrow#sec-parquet
@@ -492,10 +486,17 @@ HISTORY
 
 ## YAML
 
-📜 https://yaml.org/
-🔍 query https://github.com/mikefarah/yq
-> can validate as well https://chatgpt.com/c/67141929-cb80-8004-86dc-201dc864fdad
+YQ 📜 https://github.com/mikefarah/yq
+* edit
+* query
+* to JSON
+* Github Action
+```sh
+yq 'true' $FILE  # validate https://mikefarah.gitbook.io/yq/upgrading-from-v3#validate-documents
+```
 
+SYNTAX 📜 https://yaml.org/
+* spacing err: `mapping values are not allowed in this context` https://chatgpt.com/c/671d7065-3644-8004-9967-e49a83ef4810
 * scalars
 ```yaml
 name: John Doe                # string
@@ -711,10 +712,10 @@ PARSERS
 * HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown
 
 RENDER
-* mdcat https://github.com/swsnr/mdcat
-* rich https://rich.readthedocs.io/en/latest/markdown.html
-* https://github.com/Textualize/frogmouth
-* glow https://github.com/charmbracelet/bubbletea
+* _frogmouth_: https://github.com/Textualize/frogmouth
+* _glow_: https://github.com/charmbracelet/glow
+* _mdcat_: ✅ https://github.com/swsnr/mdcat https://github.com/charmbracelet/mods/blob/main/examples.md
+* _rich_: https://rich.readthedocs.io/en/latest/markdown.html
 
 EDITOR
 * https://simplemde.com/ https://tunalog.org/en-us/index.html

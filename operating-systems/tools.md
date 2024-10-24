@@ -38,6 +38,7 @@ FILE WATCHERS
 * application code in Python https://github.com/gorakhargosh/watchdog
 * _entr_: bad install https://github.com/eradman/entr https://jvns.ca/blog/2020/06/28/entr/ https://github.com/eradman/entr/issues/45 http://eradman.com/posts/repeatable-workspaces.html
 * _fswatch_: bad install https://github.com/emcrisostomo/fswatch https://slack.engineering/development-environments-at-slack/
+* _LiveReload_: https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight https://livereload.readthedocs.io/en/latest/index.html https://gist.github.com/mikeckennedy/4e1378477a6d174aa8d59921f8db89c3
 * _watch_: built-in https://linux.die.net/man/1/watch https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command
 * _watchman_: shaky install https://facebook.github.io/watchman/ https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman
 * _hwatch_: https://github.com/blacknon/hwatch
@@ -95,7 +96,7 @@ ALTERNATIVES
 * _vifm_: https://github.com/vifm/vifm https://www.youtube.com/watch?v=RGOsE3UWqhI https://www.youtube.com/watch?v=6eyFXcyosu8
 * _walk_: ❌ no way to enter directory you've navigated to https://github.com/antonmedv/walk
 * _xlpr_: 🎯 https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020
-* _yazi_: 🎯 https://github.com/sxyazi/yazi
+* _yazi_: 🎯 PDF preview via poppler https://github.com/sxyazi/yazi
 
 ### broot
 

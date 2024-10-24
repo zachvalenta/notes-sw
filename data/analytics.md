@@ -501,7 +501,7 @@ GUI
 * Postgres: pgAdmin, PGweb https://github.com/centerofci/mathesar
 * _Beekeeper_: $7/month https://www.beekeeperstudio.io/
 * _Datagrip_: $25/month, ERD
-* _Datasette_: 🎯 SQLite only https://github.com/simonw/datasette/issues/670
+* _Datasette_: 🎯 SQLite only https://github.com/simonw/datasette/issues/670 https://github.com/simonw/datasette-upload-csvs https://github.com/simonw/dclient https://github.com/datasette/datasette-create-view https://github.com/simonw/sqlite-utils-ask https://github.com/datasette/datasette-query-assistant
 * _DBeaver_: OSS, ERD https://stackoverflow.com/a/48397209
 * _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
 
@@ -529,7 +529,7 @@ HARLEQUIN 📜 https://harlequin.sh
 ## BI
 
 🗄
-* `info.md` viz
+* `doc.md` viz > chart
 * `math.md` stat / distributions
 * `system.md` no code
 
@@ -542,9 +542,10 @@ HARLEQUIN 📜 https://harlequin.sh
 * _business intelligence (BI)_: explorer (for non-devs) + graphs
 * SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
 
-TOOLS
+TOOLS / DASHBOARDS
 * text to SQL https://github.com/vanna-ai/vanna
 * _Blazer_: https://github.com/ankane/blazer
+* _Briefer_: https://github.com/briefercloud/briefer https://pythonbytes.fm/episodes/show/405/oh-really
 * _csvbase_: 🎯 https://csvbase.com/ https://csvbase.com/blog/10
 * _Dash_: 🎯 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE
 * _Dataherald_: query using natural language via LLM https://github.com/Dataherald/dataherald
@@ -562,6 +563,7 @@ TOOLS
 * _Redash_: cloud deploy https://github.com/getredash/redash
 * _Retool_: 🎯 https://retool.com/blog/how-to-build-a-sql-gui
 * _Tableau_: via Pandas https://github.com/Kanaries/pygwalker Markdown https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=39519145
+* _Shiny_: https://training.talkpython.fm/courses/reactive-web-dashboards-with-shiny-for-data-science https://www.maximum-progress.com/p/economics-is-a-field-of-software
 * _SQL Explorer_: 🎯 https://github.com/explorerhq/django-sql-explorer
 > Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
 * _Superset_: popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset
@@ -576,7 +578,7 @@ TOOLS
 ART
 * music: https://musicbrainz.org/ https://www.kaggle.com/datasets/nolanbconaway/24169-pitchfork-reviews/data https://pudding.cool/2024/03/greatest-music/
 * viz https://news.ycombinator.com/item?id=28445761
-* film https://www.theringer.com/2024/9/23/24252627/biggest-takeaways-netflix-data-dump-2024-streaming
+* movies https://www.theringer.com/2024/9/23/24252627/biggest-takeaways-netflix-data-dump-2024-streaming IMDb Parents Guide https://www.theringer.com/movies/2024/10/24/24276810/sex-in-movies-decline-international-market-gen-z-intimacy-coordinators-anora
 * literature: ratings http://fastml.com/goodbooks-10k-a-new-dataset-for-book-recommendations/ https://github.com/zygmuntz/goodbooks-10k https://bookbrainz.org/ text http://www.jessamyn.com/barth/index.html https://en.wikisource.org/ https://news.ycombinator.com/item?id=1394077
 
 ECON
@@ -596,7 +598,7 @@ NATURAL WORLD
 SPORTS
 * diet, sleep https://calmcode.io/datasets
 * https://www.statmuse.com/
-* baseball https://jamesrledoux.com/projects/open-source/introducing-pybaseball/ https://www.thedrummeyangle.com/post/an-introduction-to-pybaseball-using-python-to-analyze-baseball-data https://www.datacamp.com/tutorial/scikit-learn-tutorial-baseball-1
+* baseball https://en.wikipedia.org/wiki/Bill_James https://jamesrledoux.com/projects/open-source/introducing-pybaseball/ https://www.thedrummeyangle.com/post/an-introduction-to-pybaseball-using-python-to-analyze-baseball-data https://www.datacamp.com/tutorial/scikit-learn-tutorial-baseball-1
 * basketball https://craftednba.com/ https://cleaningtheglass.com/ https://cleaningtheglass.com/stats/player/4231/onoff#tab-team_efficiency https://sportradar.com/ https://www.youtube.com/watch?v=boct75srdbE
 * football https://x.com/theStevenRuiz/status/1838644108685963386
 * soccer https://statsbomb.com/news/statsbomb-release-free-euro-2024-data
@@ -671,6 +673,8 @@ ALTERNATIVES
 * _projection pushdown_: having a small select clause (i.e. don't `select *`) = minimize columns read https://duckdb.org/2021/12/03/duck-arrow.html
 
 ---
+
+* https://blog.moertel.com/posts/2024-08-23-sampling-with-sql.html https://news.ycombinator.com/item?id=41894528
 
 DTALE https://github.com/man-group/dtale
 * feature analysis: max correlation, missing rows

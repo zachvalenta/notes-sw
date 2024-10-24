@@ -33,6 +33,10 @@ FEATURES https://buttondown.com/hillelwayne/archive/github-has-too-many-hidden-f
 * wiki: not searchable https://stackoverflow.com/questions/12535602/search-for-a-keyword-within-a-github-wiki can't find out how to edit project names https://github.com/kraanzu/dooit/wiki
 * README for org: `.github-private` repo w/ `profile/README.md` https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme
 * contributions: won't count unless user pushing them using same email tied to account in `.gitconfig`
+```sh
+# attempt to get daily contributions without having to check site 🗄️ `denv/bin/gstat`
+gh api "/users/zachvalenta/events" | jq 'map(select(.created_at | startswith("2024-10-24")))' | jl
+```
 * feedback https://github.com/isaacs/github/issues/6 https://github.com/orgs/community/discussions
 * all forks are public https://news.ycombinator.com/item?id=41060102
 * _repo language_: https://github.com/github/linguist#overrides
@@ -42,6 +46,7 @@ FEATURES https://buttondown.com/hillelwayne/archive/github-has-too-many-hidden-f
 
 🗄️ `src.md` deployment / CICD
 📜 https://docs.github.com/en/actions
+🔬 example https://github.com/GothenburgBitFactory/taskwarrior/actions
 
 SEMANTICS https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
 * _workflow_: collection of jobs
@@ -163,11 +168,16 @@ gh alias list
 
 ## repos
 
+> https://github.com/rubysolo/brows
+> learn how to use browser shortcuts for faster nav
+
 ISSUES
 * dashboard https://github.com/dlvhdr/gh-dash https://github.com/pwntester/octo.nvim
 * templates https://github.com/GabAlpha/basilk/tree/master/.github/ISSUE_TEMPLATE
+* `TODO` checker https://github.com/preslavmihaylov/todocheck
 
 TOOLS
+* https://github.com/skanehira/gh.vim https://github.com/skanehira/denops-gh.vim
 * template repo https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository https://github.com/jackyzha0/quartz
 * browse releases https://github.com/rubysolo/brows
 * repo stats https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
@@ -300,6 +310,7 @@ HISTORY https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 > used by Facebook, Unity https://news.ycombinator.com/item?id=20745393
 > Mercurial design https://news.ycombinator.com/item?id=18029498
 * Git for everything https://news.ycombinator.com/item?id=30522175
+* _fourth generation_: https://github.com/martinvonz/jj https://tonyfinn.com/blog/jj/
 
 LINKABLE LIBRARIES 🗄 `python.md` Git
 * reference impl of Git doesn't include i.e. can only as an executable, not as lib https://medium.com/@willhayjr/the-architecture-and-history-of-git-a-distributed-version-control-system-62b17dd37742 
@@ -451,6 +462,7 @@ strategies
 🗄️ `doc.md` repo
 
 commits as documentation https://mislav.net/2014/02/hidden-documentation/
+> https://github.com/charmbracelet/gum
 > https://github.com/SKalt/git-cc/
 > https://github.com/muandane/goji
 > https://gitmoji.dev/ https://github.com/juftin/browsr
@@ -621,6 +633,7 @@ git rebase main
 
 scenarios
 * squash commits on feature: `rebase -i main` (pick first commit)
+* squash commits on master itself: `rebase -i $HASH_OF_FIRST_COMMIT` https://chatgpt.com/c/671ab992-0e84-8004-b938-6afdf084485b
 * changes from master onto feature: `rebase main` https://medium.com/front-end-weekly/avoid-80-of-merge-conflicts-with-git-rebase-b5d755a082a6
 > this calls into question the above definition of rebase insofar as commits from master go onto tip of feature *and then feature commits go after that*
 
@@ -936,13 +949,14 @@ GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Rep
 * _snippets_: Gist, pastebin https://softwareengineeringdaily.com/2020/06/08/tilt-kubernetes-tooling-with-dan-bentley/ 46:45
 
 HOSTING
-* aaS: Github (no default to fuzzy search), Gitlab EE, SourceHut https://git.sr.ht/~shulhan/gotp https://drewdevault.com/2018/06/05/Should-you-move-to-sr.ht.html
-* https://github.com/honza/smithy https://codeberg.org/
+* BYO https://github.com/honza/smithy
 * _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965
 * _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717
 * now for-profit and licensing issues https://news.ycombinator.com/item?id=34011581
 * _Gitweb_: built-in GUI for server https://git-scm.com/book/en/v2/Git-on-the-Server-GitWeb
 * _Gogs_: https://gogs.io/
+* _soft-serve_: https://github.com/charmbracelet/soft-serve https://www.youtube.com/watch?v=9xCwBdlo85g
+* _SourceHut_: https://git.sr.ht/~shulhan/gotp https://drewdevault.com/2018/06/05/Should-you-move-to-sr.ht.html
 
 ---
 

@@ -364,6 +364,7 @@ TOOLING
 * https://tech.marksblogg.com/minimalist-guide-tutorial-flume.html
 * log to stdout https://www.youtube.com/watch?v=aQikNWEaJUQ
 * https://blog.twitter.com/engineering/en_us/topics/infrastructure/2021/logging-at-twitter-updated
+* https://github.com/GothenburgBitFactory/clog
 https://news.ycombinator.com/item?id=30394152
 > If you are building an API, having a mechanism that provides detailed logs—including the POST bodies passed to the API—is invaluable. It’s an inexpensive way of maintaining a complete record of what happened with your application—invaluable for debugging, but also for tricks like replaying past API traffic against a new implementation under test. Logs like these may become infeasible at scale, but for a new project they’ll probably add up to just a few MBs a day—and they’re easy to prune or switch off later on if you need to. https://simonwillison.net/2021/Jul/1/pagnis/
 * _Logflare_: middleman btw app and storage; most logging services (datadog) make money by marking up storage; available as Cloudflare app https://runninginproduction.com/podcast/11-logflare-is-a-log-management-and-event-analytics-platform
