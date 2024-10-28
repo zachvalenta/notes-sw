@@ -497,6 +497,7 @@ PROTCOLS https://news.ycombinator.com/item?id=22989186 https://valyent.substack.
 * _JMAP_: email protocol https://fastmail.blog/2018/12/27/jmap-is-on-the-home-straight/ https://news.ycombinator.com/item?id=36127703
 
 GMAIL ALTERNATIVES 🗄 `security.md` privacy
+* https://www.youtube.com/watch?v=iH626CXyNtE
 * https://drewdevault.com/2020/06/19/Mail-service-provider-recommendations.html
 * don't bikeshed https://news.ycombinator.com/item?id=23423548 bc accounts tied to email are hard to move https://news.ycombinator.com/item?id=24245817
 * howto: try out new service with some newsletters and the zjayv.com domain

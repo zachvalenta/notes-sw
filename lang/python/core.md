@@ -726,6 +726,8 @@ sorted(colors, key=lambda c: (len(c), c.lower()))  # can also use tuple for comb
 
 ---
 
+https://chatgpt.com/c/6720e992-860c-8004-a2dd-2cc826753ecf
+
 * https://dev.to/karishmashukla/a-practical-guide-to-metaprogramming-in-python-691
 * Flask debugger, typing, metaprogramming vs monkey patching https://news.ycombinator.com/item?id=34611969
 * _metaprogramming_: functions that manipulate existing code e.g. decorators, inspection 📙 Beazley 329
@@ -734,7 +736,11 @@ sorted(colors, key=lambda c: (len(c), c.lower()))  # can also use tuple for comb
 
 * _meta programming_: function that takes some other code, wraps it, and returns https://medium.com/@saurabhkukade_96600/meta-programming-in-python-7fb94c8c7152
 
-DECORATORS
+### decorators
+
+---
+
+* perf https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
 * _decorator_: factory + functionality https://www.fluentpython.com/lingo/#decorator https://jcarlosroldan.com/post/329/my-latest-tils-about-python
 * https://www.fluentpython.com/lingo/#decorator https://docs.python.org/3/glossary.html#term-decorator https://www.bitecode.dev/p/xmas-decorations-part-3
 * use cases
@@ -829,6 +835,7 @@ def use_decorator():
 
 ---
 
+https://realpython.com/python313-new-features/#new-copyreplace-for-modifying-immutable-objects
 https://github.com/google/pyglove
 * _callable_: any obj that impl `__call__` e.g function, method, classes e.g. `MyClass()` https://eli.thegreenplace.net/2012/03/23/python-internals-how-callables-work https://www.fluentpython.com/lingo/#callable_object https://www.pythonmorsels.com/class-function-and-callable/ https://docs.python.org/3/glossary.html#term-callable
 * _key function_: for callables https://docs.python.org/3/glossary.html#term-key-function
@@ -1063,17 +1070,22 @@ foo  # [42, 2, 3]
 
 🗄 `plt.md` typing
 
-* _exhaustiveness check_: check that functions handle newly-added attributes on their args https://news.ycombinator.com/item?id=25428583
-* _type narrowing_: issue warning if src tries to operate on type that args cannot be passed on blocks's previous code https://hakibenita.com/python-mypy-exhaustive-checking
-
----
-
-OPTIONS
+TYPE CHECKERS
+* _Beartype_: https://github.com/beartype/beartype
 * _MonkeyType_: Instagram i.e. Python 3 https://github.com/Instagram/MonkeyType https://www.pythonpodcast.com/monkeytype-with-carl-meyer-and-matt-page-episode-146/
 * _mypy_: PSF
 * _pyannotate_: Dropbox i.e. Python 2 https://github.com/dropbox/pyannotate
 * _pyre_: Facebook https://pyre-check.org/
 * _PyRight_: Microsoft https://github.com/Microsoft/pyright
+
+ZA
+> The foundations of Python’s static type system were defined in PEP 484 and introduced in Python 3.5. In November 2023, PEP 729 established the Typing Council and formalized the type system through a typing specification. https://realpython.com/python313-new-features/
+* _exhaustiveness check_: check that functions handle newly-added attributes on their args https://news.ycombinator.com/item?id=25428583
+* _type narrowing_: issue warning if src tries to operate on type that args cannot be passed on blocks's previous code https://hakibenita.com/python-mypy-exhaustive-checking
+
+---
+
+https://realpython.com/python313-new-features/#improvements-to-static-typing
 
 ANNOTATIONS
 * _annotation_: https://docs.python.org/3/glossary.html#term-annotation
@@ -1218,7 +1230,6 @@ PEPS https://peps.python.org/
 ## exec
 
 📜 https://docs.python.org/3/using/cmdline.html
-📰 https://www.pythonmorsels.com/cli-tools/
 
 COMMAND LINE
 ```sh

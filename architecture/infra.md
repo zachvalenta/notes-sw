@@ -172,7 +172,7 @@ OPTIONS https://testdriven.io/blog/heroku-alternatives/
 * _Fly.io_: 🎯 https://www.youtube.com/watch?v=0eP98xkLj9w
 * _Kamal_: 🎯 https://kamal-deploy.org/
 * _Netlify_: 
-* _Pikku_: 🎯 6k https://github.com/piku/piku
+* _Piku_: 🎯 6k https://github.com/piku/piku
 * _Render_: https://kamal-deploy.org/
 * _Platform.sh_:
 * _Railway_: https://railway.app/ https://docs.railway.app/guides/gin
@@ -232,6 +232,7 @@ STATIC SITE
 * _AWS_: https://brandur.org/aws-intrinsic-static S3 and Cloudfront https://www.benkuhn.net/about/ https://github.com/s3tools/s3cmd s3-website https://bedford.io/misc/about/
 * _Firebase_: https://tinyprojects.dev/projects/tiny_website
 * _Github_: source has to be public
+* _pico_: https://pico.sh/pgs
 * _Netlify_: https://wsvincent.com/site-design/ https://adamwathan.me/uses/
 
 ---
@@ -610,12 +611,20 @@ REDIS QUEUE (RQ)
 * `application.md` HTTP
 * `stdlib.md` web / frameworks
 
+CLEAN UP
 > Parsing the request is just a matter of splitting the request string into lines. The first line contains the method, path and protocol separated by spaces. The following lines contain the headers, followed by an empty line. https://blog.sylver.dev/build-a-web-server-with-rust-and-tokio-part-0-a-simple-get-handler
 * benchmark: https://httpd.apache.org/docs/2.4/programs/ab.html https://github.com/wg/wrk https://github.com/giltene/wrk2 https://github.com/rakyll/hey https://github.com/encode/starlette#performance https://falconframework.org/#sectionBenchmarks https://www.webpagetest.org/ https://www.golang.dk/articles/benchmarking-sqlite-performance-in-go
 * BYO https://github.com/codecrafters-io/build-your-own-x#build-your-own-web-server https://news.ycombinator.com/item?id=41642151 https://doc.rust-lang.org/book/ch20-00-final-project-a-web-server.html
 * mock server: https://smocker.dev/
-* URL for dev server: ngrok https://news.ycombinator.com/item?id=40355744 https://github.com/andydunstall/piko
 * comment server: Disqus, isso https://avi.im/blag/about/ https://posativ.org/isso/docs/
+
+URL for dev server
+* _ngrok_
+* _pico_: https://pico.sh/tuns https://news.ycombinator.com/item?id=40355744 
+* _piko_: https://github.com/andydunstall/piko
+
+ALTERNATIVES
+* just use SQLite https://news.ycombinator.com/item?id=41963996
 * _Apache_: on start, Apache runs as master process `root` and binds to port 80; pre-fork (master process spawns child proccesses under UID `apached` to wait for connections) https://stackoverflow.com/a/25894770/6813490
 * _CGI_: process per req (vs. connection) cannot keep db connection over multiple
 * _Granian_: https://github.com/emmett-framework/granian https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server https://mkennedy.codes/posts/we-must-replace-uwsgi-with-something-else-but-with-what/

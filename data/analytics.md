@@ -549,14 +549,14 @@ TOOLS / DASHBOARDS
 * _csvbase_: 🎯 https://csvbase.com/ https://csvbase.com/blog/10
 * _Dash_: 🎯 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE
 * _Dataherald_: query using natural language via LLM https://github.com/Dataherald/dataherald
-* _Datalens_: Docker https://news.ycombinator.com/item?id=37657772
-* _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111
+* _Datalens_: run locally https://news.ycombinator.com/item?id=37657772
+* _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872
 * _Hex_: https://hex.tech/ https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift
 * _Lightdash_: https://github.com/lightdash/lightdash
 * _Looker_: Looker Studio is the free dashboard component
 > Everything builds on top of Looker. Looker Studio is a way to access and build reports on that trusted, underlying data model. https://www.cobry.co.uk/looker-vs-looker-studio
 * _Kviklet_: queries + perms https://github.com/kviklet/kviklet
-* _Metabase_: popular https://news.ycombinator.com/item?id=30323131 https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift
+* _Metabase_: 🎯 popular https://news.ycombinator.com/item?id=30323131 https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift https://news.ycombinator.com/item?id=37661872
 * _Poli_: local, Java https://github.com/shzlw/poli
 * _PyGWalker_: https://github.com/Kanaries/pygwalker
 * _Quary_: VS Code extension https://github.com/quarylabs/quary
@@ -566,7 +566,7 @@ TOOLS / DASHBOARDS
 * _Shiny_: https://training.talkpython.fm/courses/reactive-web-dashboards-with-shiny-for-data-science https://www.maximum-progress.com/p/economics-is-a-field-of-software
 * _SQL Explorer_: 🎯 https://github.com/explorerhq/django-sql-explorer
 > Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
-* _Superset_: popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset
+* _Superset_: 🎯 popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset https://news.ycombinator.com/item?id=37661872
 * _Taipy_: https://github.com/Avaiga/taipy
 
 ## datasets
@@ -674,6 +674,7 @@ ALTERNATIVES
 
 ---
 
+https://github.com/paddymul/buckaroo https://news.ycombinator.com/item?id=41972835
 * https://blog.moertel.com/posts/2024-08-23-sampling-with-sql.html https://news.ycombinator.com/item?id=41894528
 
 DTALE https://github.com/man-group/dtale

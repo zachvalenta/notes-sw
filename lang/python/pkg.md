@@ -7,7 +7,8 @@
 
 ## 进步
 
-compare to Golang and Rust https://crates.io/crates/basilk https://pypistats.org/packages/__all__ cargo https://github.com/ratatui/crates-tui
+* compare to Golang and Rust https://crates.io/crates/basilk https://pypistats.org/packages/__all__ cargo https://github.com/ratatui/crates-tui
+* https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/ https://www.b-list.org/weblog/2022/dec/19/boring-python-code-quality/
 
 * _24_: create own file
 * _19_: lib (pipx, Poetry, pyinstaller)
@@ -41,6 +42,7 @@ GET NAMESPACE FOR DATACLERK
 * example https://github.com/tfeldmann/simplematch
 * _deprecation_: https://www.dampfkraft.com/code/how-to-deprecate-a-pypi-package.html https://blog.ovalerio.net/archives/1971 https://sirupsen.com/shitlists/
 * _PyPI_: security https://github.com/gitpython-developers/GitPython
+* browser https://github.com/wasi-master/pypi-command-line
 * alternative https://pyoven.org/
 * find old versions https://pypi-browser.org/
 * warnings, PYTHONWARNINGS https://www.reddit.com/r/learnpython/comments/a14ow5/psa_when_developing_set_pythonwarnings/ https://docs.python.org/3/using/cmdline.html#cmdoption-w https://www.youtube.com/watch?v=X0AjcpicNOM&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=35
@@ -148,7 +150,7 @@ anytree = {git = "https://github.com/zachvalenta/anytree.git"}
 🗄️ `linux.md` packaging / manager
 
 ALTERNATIVES
-* too many tools https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/#tooling-proliferation-and-the-python-package-authority
+* too many tools https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/#tooling-proliferation-and-the-python-package-authority dated https://www.amazon.com/dp/1098139585
 * _hatch_: https://github.com/pypa/hatch https://github.com/juftin/browsr
 * single contributor https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/
 * good: no need for tox, separates deps by dev/test/link https://andrich.me/2023/08/switching-to-hatch/
@@ -438,6 +440,9 @@ poetry run flask
 ### uv
 
 📜 https://docs.astral.sh/uv/ https://github.com/astral-sh/uv
+🗄️
+* `linux.md` packaging
+* `frontend.md` javascript > runtimes
 
 VERSION MGMT
 * via Python Build Standalone https://github.com/indygreg/python-build-standalone

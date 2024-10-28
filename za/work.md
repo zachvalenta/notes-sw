@@ -51,6 +51,7 @@ MGMT https://jacobian.org/posts/
 > even people who should know better https://x.com/danluu/status/1244051446313574402
 * DORA https://jacobian.org/2022/jun/17/dora-metrics/
 
+* https://www.trevorlasn.com/blog/software-engineer-titles-have-almost-lost-all-their-meaning
 * in-house https://news.ycombinator.com/item?id=41161315
 * freelance: https://www.racketracer.com/2019/07/11/why-data-scientists-should-never-use-upwork https://andyadams.org/everything-i-know-about-freelancing https://news.ycombinator.com/item?id=19455224 https://github.com/engineerapart/TheRemoteFreelancer https://plainfreelancecontract.com/ https://news.ycombinator.com/item?id=18945658 contracting https://ochagavia.nl/blog/becoming-a-contractor
 * pair programming: https://news.ycombinator.com/item?id=2050552 http://mwilden.blogspot.com/2010/12/why-i-love-solo-programming-and-why-i.html http://mwilden.blogspot.com/2009/11/why-i-dont-like-pair-programming-and.html https://codeburst.io/pair-programming-is-hard-a5da3449b67a https://gitduck.com/ https://tuple.app/
@@ -71,6 +72,7 @@ MGMT https://jacobian.org/posts/
 * Tim Peters https://lwn.net/Articles/988894/ https://news.ycombinator.com/item?id=41515766
 * Hacker News https://news.ycombinator.com/item?id=41539125
 * corporate dev https://news.ycombinator.com/item?id=41581687
+* military https://conversationswithtyler.com/episodes/christopher-kirchhoff/ https://marginalrevolution.com/marginalrevolution/2024/10/my-conversation-with-the-excellent-christopher-kirchhoff.html#comments
 
 DEV TYPES https://josephg.com/blog/3-tribes
 * _jobs_: employee, mgmt, founder, solo; impl (do the work) middle mgmt (make sure work gets done) upper mgmt (decide what work to do) https://news.ycombinator.com/item?id=16553253
@@ -124,6 +126,7 @@ STANDARDS BODIES
 
 ---
 
+* https://opensourcepledge.com/
 * https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight
 * https://changelog.com/podcast/606#transcript
 > how to make money: popularize lib, sell support | managed env https://pola.rs/our-services/
@@ -172,6 +175,8 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 > "did you win the Putnam?" / "yes, I did" - Percival https://news.ycombinator.com/item?id=35079
 > I wouldn't be a hacker at heart if I wasn't willing to spend a few hours automating a task that takes 3 extra seconds. https://eli.thegreenplace.net/2018/command-line-autocomplete-for-go-documentation/
 
+* big kids https://news.ycombinator.com/item?id=41970407
+* https://news.ycombinator.com/item?id=41966197
 * https://xkcd.com/378/ https://xkcd.com/386/ https://xkcd.com/2030/
 * brainfuck https://news.ycombinator.com/item?id=41620198
 * poll https://news.ycombinator.com/item?id=34180508
@@ -414,6 +419,7 @@ COMPANIES
 > who else? Palantir https://news.ycombinator.com/item?id=41855006 https://www.thediff.co/archive/longreads-open-thread-97/A https://registerspill.thorstenball.com/p/joy-and-curiosity-11
 
 NETWORK
+* https://www.phillylinux.org/talks.html
 * Jonathan Magen https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/ https://pod.link/1602572955/episode/12fe9e0c14dab3b5e9780ffc13412136 https://www.linkedin.com/in/jonathan-magen-9848711b/ https://yonkeltron.com/
 * LinkedIn contacts
 * China: Dror, Eva
@@ -462,7 +468,26 @@ One thing I think I do well is technical communication. This shows up in:
 
 https://github.com/simonw https://github.com/radiac
 
-LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER)
+* link to your podcast with Dror https://www.petermcconnell.com/about/ https://github.com/papers-we-love/papers-we-love
+> you need to talk at local meetups like PLUG https://chatgpt.com/c/672104a2-8cac-8004-910c-308849161554
+* https://www.petermcconnell.com/skills/
+```txt
+I’m a solid debugger, reasonable systems designer, ok coder & natural leader who leans heavy into automation / giving people the power to do their jobs. I’ve worked with enough talent to know I’m nothing special; but I have a great track record for learning fast, being easy to work with and getting shit done be it as an IC, a manager, or a group lead.
+
+Usually never far from:
+
+Linux
+Python
+Golang
+C
+C++
+Bash
+Docker
+Kubernetes
+AWS
+Over 20 years I’ve touched a lot of different tech and generally speaking can shake the rust off or learn something new in a week or two.
+```
+LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER) https://www.petermcconnell.com/showcase/
 ```sh
 ├── 2024
 │   └── CSS
@@ -489,7 +514,7 @@ LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER)
 * _Python_: ✅ have used professionally since 2018, the language I know best, would be considered a Pythonista
 * _SQL_: 📍 https://github.com/zachvalenta/query-sandbox
 * _Scala_: liked the syntax
-* _Rust_: learned in order to port a tast mgmt system I liked (Basilk) into Python
+* _Rust_: learned in order to port a tast mgmt system I liked (Basilk) into Python + Stedi https://www.stedi.com/blog/excerpts-from-the-annual-letter
 * _Zig_: 🎯 learned to learn more about C and assembly
 
 https://koaning.io/ go through blog as well https://github.com/koaning

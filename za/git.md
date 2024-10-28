@@ -49,6 +49,7 @@ gh api "/users/zachvalenta/events" | jq 'map(select(.created_at | startswith("20
 🔬 example https://github.com/GothenburgBitFactory/taskwarrior/actions
 
 SEMANTICS https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
+* use on AWS https://github.com/CloudSnorkel/cdk-github-runners
 * _workflow_: collection of jobs
 * triggered by event, chron, API
 * defined in `.github/workflows`
@@ -146,6 +147,7 @@ gh alias list
 
 📜 https://docs.github.com/en/get-started/writing-on-github
 
+* add a welcome video! https://github.com/grafana/pyroscope
 * use SVG https://github.com/zachvalenta/capp-prod-cat-alt
 * use HTML https://github.com/catppuccin/delta/blame/main/README.md
 * "try without installing!" https://zellij.dev/
@@ -172,9 +174,12 @@ gh alias list
 > learn how to use browser shortcuts for faster nav
 
 ISSUES
+* `TODO` checker https://github.com/preslavmihaylov/todocheck
 * dashboard https://github.com/dlvhdr/gh-dash https://github.com/pwntester/octo.nvim
 * templates https://github.com/GabAlpha/basilk/tree/master/.github/ISSUE_TEMPLATE
-* `TODO` checker https://github.com/preslavmihaylov/todocheck
+```txt
+We also encourage you to put up a PR yourself! Who cares if you've never written Go before, neither did any of the existing contributors before their first lazygit PR! Check out the PR tutorial here: https://www.youtube.com/watch?v=kNavnhzZHtk&ab_channel=JesseDuffield
+```
 
 TOOLS
 * https://github.com/skanehira/gh.vim https://github.com/skanehira/denops-gh.vim
@@ -290,7 +295,7 @@ sections https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 * full version of repo history https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 * reversible: Git database onlys adds data so it's hard to do something that's not reversible https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F
 * no server: no predefined client/server relationship among repos i.e. Github acts as a server but could be just another client https://zwischenzugs.com/2018/05/14/beyond-punk-rock-git-in-eleven-steps/
-* text-first: meant for smaller repos and text https://superuser.com/q/13376 GFVS for large repos https://pythonbytes.fm/episodes/show/53/getting-started-with-devpi-and-git-virtual-fs GLFS for large files https://stackoverflow.com/a/38313259 people don't like GLFS https://news.ycombinator.com/item?id=34875020 diffing binary https://tech.marksblogg.com/git-track-changes-in-media-office-documents.html
+* text-first: meant for smaller repos and text https://superuser.com/q/13376 GFVS for large repos https://pythonbytes.fm/episodes/show/53/getting-started-with-devpi-and-git-virtual-fs
 ```sh
 db/query-sandbox  $ git push -u origin main
 Writing objects: 100% (17/17), 40.31 MiB | 596.00 KiB/s, done.
@@ -339,6 +344,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * good for granular stages
 * switch views `cmd #`
 * open commit into quick view `space`
+* _Tower_: 🎯 reorder commits https://www.git-tower.com
 
 ---
 
@@ -366,14 +372,17 @@ LAZYGIT 📜 https://github.com/jesseduffield/lazygit https://git-how.com/
 * all panel cmds: search `/` scroll `jk|JK` drill `ENTER|ESC` default action `SPACE` commit `c` commit using $EDITOR `C` push `P`
 * main panel: toggle staged|unstage `TAB`
 * stage: line `SPACE` stage hunk `a` stage all `a` (when in side panel) https://git-how.com/basics/staging
-* work with multiple repos: status pain > `ENTER` repos https://github.com/jesseduffield/lazygit/issues/1071
+* working with multiple repos: status pain > `ENTER` repos https://github.com/jesseduffield/lazygit/issues/1071
+* working with multiple repos: locking `state.yml` https://github.com/jesseduffield/lazygit/issues/4017
+* working with multiple repos: check out gfold! https://github.com/nickgerace/gfold/issues/261
+* readline for commit pane still pending https://github.com/jesseduffield/lazygit/issues/1712
 
 ALTERNATIVES
 * _bit_: 💀 unmaintained, autcomplete https://github.com/chriswalz/bit
 * _forgit_: good UI, for `gai`, no Vim keybindings https://github.com/wfxr/forgit#-features
 * _gitu_: no Vim keybindings https://github.com/altsem/gitu
 * _gitui_: 🎯 https://github.com/extrawurst/gitui
-* _magit_: looks great, Emacs-only https://github.com/magit/magit https://emacsair.me/2017/09/01/magit-walk-through/ https://github.com/dandavison/delta/issues/194
+* _magit_: looks great, Emacs-only https://github.com/magit/magit https://emacsair.me/2017/09/01/magit-walk-through/ https://github.com/dandavison/delta/issues/194 https://github.com/dandavison/magit-delta
 * _Neogit_: 🎯 magit port https://github.com/NeogitOrg/neogit
 * _vimagit_: inspired by magit https://github.com/jreybert/vimagit
 * _vim-fugitive_: 🎯 https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI
@@ -381,13 +390,14 @@ ALTERNATIVES
 ---
 
 LAZYGIT
+* go through all these https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium
+* BYO menu https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium
 > are people aware that this guy has written the de facto docs? https://git-how.com/
 * config https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
 * theme https://github.com/catppuccin/lazygit
 * howto https://git-how.com/ https://www.youtube.com/watch?v=Ihg37znaiBo @ 2:30
 * pager https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
 * use for `git add .` commits, staging lines, nuking work tree https://www.youtube.com/watch?v=CPLdltN7wgE
-* BYO menu https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium
 
 ## repo browser (Tig)
 
@@ -750,6 +760,11 @@ restore https://martinheinz.dev/blog/109 https://adamj.eu/tech/2023/10/04/boost-
 REPOSITORY
 * ?: `reset --hard HEAD`
 * rm most recent commit: `reset --hard HEAD~1`
+```sh
+# recover from screwing this up
+git reflog
+git reset --hard $SHA_FROM_COMMIT_YOU_JUST_NUKED
+```
 * rm most recent commit from remote: `git push origin +HEAD` https://stackoverflow.com/a/8225166/6813490
 * mv most recent commit to index: `reset --soft HEAD~1`
 
@@ -918,14 +933,19 @@ GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Rep
 
 ## monorepo
 
-* Odoo as example of Git struggling with big codebases
+CONSIDERATIONS
+* activity: thousands of commits / day
+* perf: MS had a 300GB monorepo as of 2017, cloning Odoo takes ~7 minutes
+
+---
+
+* GLFS for large files https://stackoverflow.com/a/38313259 people don't like GLFS https://news.ycombinator.com/item?id=34875020 diffing binary https://tech.marksblogg.com/git-track-changes-in-media-office-documents.html https://www.git-tower.com/blog/git-performance/
+* sparse checkout, LFS https://martinheinz.dev/blog/109 https://www.git-tower.com/blog/git-performance/
+* Deno https://docs.deno.com/runtime/fundamentals/workspaces/
 * Madge https://blog.codepen.io/2023/01/25/398-devoops/
 * https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe
-* perf https://www.git-tower.com/blog/git-performance/
 * https://monadical.com/posts/from-chaos-to-cohesion.html
 * https://jackevans.bearblog.dev/python-monorepo-tooling-with-pants/
-* sparse checkout https://martinheinz.dev/blog/109
-* Deno https://docs.deno.com/runtime/fundamentals/workspaces/
 
 ## review
 

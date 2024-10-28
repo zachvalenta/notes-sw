@@ -447,6 +447,8 @@ OPTIONS
 
 # 🖥️ TERMINAL
 
+🗄️ `IT.md` window systems
+
 SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell-what-are-they.html
 * _terminal emulator_: shell GUI https://poor.dev/blog/terminal-anatomy/
 * i.e. command line + viewport (previous cmd, output)
@@ -615,6 +617,11 @@ WORKFLOW
 * _layout_: tab + start cmd
 * _session_: https://www.youtube.com/watch?v=bdumjiHabhQ 5:00
 
+ALTERNATIVES
+* _cy_: https://github.com/cfoust/cy
+* _screen_: https://www.gnu.org/software/screen/
+* _shpool_: https://github.com/shell-pool/shpool
+
 ### 🟩 tmux
 
 📜 https://github.com/tmux/tmux
@@ -627,7 +634,6 @@ WORKFLOW
 * floating pane https://www.youtube.com/watch?v=JFipv1_ycqU
 * stacked panes: closest option is hiding panes https://unix.stackexchange.com/questions/145857/how-do-you-hide-a-tmux-pane
 * workspaces via named sessions https://www.youtube.com/watch?v=niuOc02Rvrc&t=482s
-* alternatives: https://www.gnu.org/software/screen/ https://github.com/shell-pool/shpool
 * pkg mgmt https://github.com/tmux-plugins/tpm
 * status bar restore https://stackoverflow.com/questions/22407819/my-tmux-status-bar-has-disappeared
 * color theme https://github.com/nordtheme/tmux
@@ -660,6 +666,8 @@ a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/vide
 * copy/paste: doesn't work with iTerm but Alacritty doesn't have native global hotkey https://zellij.dev/documentation/faq#copy--paste-isnt-working-how-can-i-fix-this
 
 ---
+
+https://github.com/nickolaj-jepsen/fnug
 
 @ show status bar when opening with user-defined layout
 

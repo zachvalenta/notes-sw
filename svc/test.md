@@ -97,6 +97,7 @@ TLA+
 > generally used to test software that parses complex inputs that follow a particular format, protocol, or are otherwise structured...from a security standpoint, fuzzing is also used to uncover security vulnerabilities in programs that parse inputs from untrusted sources (e.g. the internet). Fuzzing for long periods without any bugs being reported increases the confidence in the stability of the code. However, no amount of Fuzzing can guarantee an absence of bugs in the code...fuzzing is a good candidate for some classes of software, especially ones that include networking protocols, file formats, and query languages. These software classes require input to follow a strictly defined format adhering to the specifications defined in an RFC/IETF, a standard, formal grammar, or finite state machine. https://dgraph.io/blog/post/continuous-fuzzing-with-go/
 * cousin to chaos engineering https://en.wikipedia.org/wiki/Chaos_engineering
 > Google runs Disaster Recovery Training annually (DiRT) where security teams are tasked with simulating these "black swan" events. Seems like this practice needs to expand to more industries. https://news.ycombinator.com/item?id=34149340
+* https://packagemain.tech/p/fuzzing-http-services-golang
 
 ## mutation
 
@@ -139,12 +140,19 @@ ZA
 
 # 🕳️ INTEGRATION
 
+IDEAS
 * functional? https://terrastruct.com/blog/post/functional-testing-with-your-database-in-go/
+* _testing external resources_: use real thing, use Docker version https://github.com/schireson/pytest-mock-resources/ https://yanglinzhao.com/posts/test-elasticsearch-in-django
+* use actual deps instead of mocks https://testcontainers.com/ https://news.ycombinator.com/item?id=39531536 microcontainers https://github.com/maelstrom-software/maelstrom https://github.com/maelstrom-software/maelstrom
+* spin up db in docker, run migrations, run integration tests; alternately, use CTEs https://news.ycombinator.com/item?id=34603691 https://news.ycombinator.com/item?id=34603244
+* don't teardown db btw test runs
+> Better yet, when your tests don't assume they're starting from a clean sheet, you can run your tests with a dump from production loaded into your database. This can help confirm that data access patterns you're using will work when the database, as a whole, is at production size. https://calpaterson.com/against-database-teardown.html
 
 ## API
 
 ---
 
+* generate test suite from spec https://kusho.ai/
 * https://www.youtube.com/watch?v=qquIJ1Ivusg
 * synthetic https://docs.datadoghq.com/synthetics/
 * mocking API = faster test runs but highe chance of rot; tooling (json-server, duckrails) https://github.com/SpectoLabs/hoverfly
@@ -244,18 +252,10 @@ TEST TYPES
 
 ---
 
-* use actual deps instead of mocks https://testcontainers.com/ https://news.ycombinator.com/item?id=39531536 microcontainers https://github.com/maelstrom-software/maelstrom https://github.com/maelstrom-software/maelstrom
-
-* spin up db in docker, run migrations, run integration tests; alternately, use CTEs https://news.ycombinator.com/item?id=34603691 https://news.ycombinator.com/item?id=34603244
-
-* don't teardown db btw test runs
-> Better yet, when your tests don't assume they're starting from a clean sheet, you can run your tests with a dump from production loaded into your database. This can help confirm that data access patterns you're using will work when the database, as a whole, is at production size. https://calpaterson.com/against-database-teardown.html
-
 https://pythonspeed.com/articles/faster-db-tests/
 
 * _mock_: override method so you can test; `unittest.mock` vs. `pytest.monkeypatch` https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/ mock vs. magicmock https://stackoverflow.com/questions/17181687/mock-vs-magicmock https://realpython.com/python-mock-library/ https://joshpeak.net/posts/2019-06-18-Advanced-python-testing.html env var https://adamj.eu/tech/2020/10/13/how-to-mock-environment-variables-with-pytest https://www.b-list.org/weblog/2023/dec/08/mock-python-httpx/
 * mocks https://github.com/tommyboytech/t3/pull/11146/files https://testing.googleblog.com/2013/05/testing-on-toilet-dont-overuse-mocks.html
-* _testing external resources_: use real thing, use Docker version https://github.com/schireson/pytest-mock-resources/ https://yanglinzhao.com/posts/test-elasticsearch-in-django
 * https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html
 
 TAXONOMY https://blog.thea.codes/my-python-testing-style-guide/

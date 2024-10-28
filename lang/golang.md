@@ -10,6 +10,9 @@
 
 ## 进步
 
+https://www.youtube.com/watch?v=kNavnhzZHtk
+https://www.willem.dev/articles/
+https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/
 building binary for your own archictecture (and fix frangipanni) https://github.com/jpbruinsslot/slack-term/issues/282
 
 BASICS 📙 Ball
@@ -169,7 +172,7 @@ var myInt // 0
 * _logging_ https://github.com/bloom42/rz-go https://github.com/charmbracelet/log
 * _Markdown_: https://github.com/yuin/goldmark
 * _math_: https://github.com/montanaflynn/stats
-* _profiler_ https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go https://blog.golang.org/profiling-go-programs https://marcan.st/2017/12/debugging-an-evil-go-runtime-bug https://artem.krylysov.com/blog/2017/03/13/profiling-and-optimizing-go-web-applications/ https://github.com/DataDog/go-profiler-notes/blob/main/guide/README.md https://notes.eatonphil.com/implementing-a-jq-clone-in-go.html
+* _profile_ https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go https://blog.golang.org/profiling-go-programs https://marcan.st/2017/12/debugging-an-evil-go-runtime-bug https://artem.krylysov.com/blog/2017/03/13/profiling-and-optimizing-go-web-applications/ https://github.com/DataDog/go-profiler-notes/blob/main/guide/README.md https://notes.eatonphil.com/implementing-a-jq-clone-in-go.html https://eli.thegreenplace.net/2023/common-pitfalls-in-go-benchmarking/ https://www.willem.dev/articles/benchmarks-performance-testing/
 * _refactoring_: http://blog.ralch.com/tutorial/golang-tools-refactoring/ http://www.gorefactor.org/
 * _REPL_: https://github.com/cosmos72/gomacro https://stackoverflow.com/questions/8513609/does-go-provide-repl https://golangweekly.com/link/146377/web
 * _search_ https://blevesearch.com/
@@ -182,8 +185,12 @@ var myInt // 0
 
 ## CLI
 
+* _gum_: use in Bash https://github.com/charmbracelet/gum https://www.youtube.com/watch?v=tnikefEuArQ
+
+---
+
 * animation https://github.com/charmbracelet/harmonica
-* _bubbletea_: https://github.com/charmbracelet/bubbletea https://github.com/charmbracelet/bubbles https://leg100.github.io/en/posts/building-bubbletea-programs/ use in Bash https://github.com/charmbracelet/gum
+* _bubbletea_: https://github.com/charmbracelet/bubbletea https://github.com/charmbracelet/bubbles https://leg100.github.io/en/posts/building-bubbletea-programs/ https://www.youtube.com/watch?v=ERaZi0YvBRs
 * frameworks https://github.com/noahgorstein/jqp https://www.youtube.com/watch?v=ZA93qgdLUzM https://github.com/rivo/tview/ https://github.com/jroimartin/gocui 
 * color https://github.com/fatih/color
 * tables https://github.com/jedib0t/go-pretty
@@ -254,7 +261,7 @@ func main() {
 * app config https://github.com/spf13/viper
 * https://github.com/go-chi/chi
 * vanilla https://eli.thegreenplace.net/2021/life-of-an-http-request-in-a-go-server/
-* _db_: `database/sql` (SQLAlchemy engine) gorm (SQLAlchemy ORM) https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://www.calhoun.io/using-postgresql-with-go  https://github.com/go-reform/reform https://entgo.io/ https://github.com/upper/db in mem KV https://github.com/sdslabs/kiwi generate SQL https://github.com/Masterminds/squirrel CLI https://upper.io/v4/ query builder https://github.com/doug-martin/goqu https://pboyd.io/posts/5-ways-to-write-a-go-database-model/
+* _db_: `database/sql` (SQLAlchemy engine) gorm (SQLAlchemy ORM) https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://www.calhoun.io/using-postgresql-with-go  https://github.com/go-reform/reform https://entgo.io/ https://github.com/upper/db in mem KV https://github.com/sdslabs/kiwi generate SQL https://github.com/Masterminds/squirrel CLI https://upper.io/v4/ query builder https://github.com/doug-martin/goqu https://pboyd.io/posts/5-ways-to-write-a-go-database-model/ ORM https://github.com/uptrace/bun
 * _microservice_: https://github.com/micro/micro https://blog.m3o.com/2020/11/16/building-a-blog-with-micro.html
 * frameworks: Buffalo, Gin, Echo; hot reload for Gin https://github.com/cosmtrek/air https://github.com/go-goyave/goyave https://github.com/cloudwego/hertz
 * routing: https://benhoyt.com/writings/go-routing/
@@ -426,6 +433,10 @@ design, legacy
 > At the same time, allowing different major versions of a module (because they have different paths) gives module consumers the ability to upgrade to a new major version incrementally. In this example, we wanted to use quote.Concurrency from rsc/quote/v3 v3.1.0 but are not yet ready to migrate our uses of rsc.io/quote v1.5.2. The ability to migrate incrementally is especially important in a large program or codebase. - https://blog.golang.org/using-go-modules
 
 ## project structure
+
+> The standard way to do testing is to have a foo.go and foo_test.go file next to each other. https://www.arp242.net/jia-tan-go.html
+
+---
 
 https://github.com/jesseduffield/lazygit/tree/master/pkg
 https://www.bytesizego.com/blog/golang-internal-package

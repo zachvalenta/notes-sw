@@ -7,6 +7,8 @@
 
 ## 进步
 
+* https://github.com/Ragnt/AngryOxide
+* https://www.stedi.com/blog/stedi-achieves-soc-2-type-ii-and-hipaa-eligibility-certification
 * encrypt file https://github.com/70sh1/eddy
 * https://pythonspeed.com/articles/stop-using-python-3.8/
 * https://cryptography101.ca/
@@ -190,6 +192,7 @@ https://github.com/FiloSottile/age
 * file encryption https://github.com/skeeto/enchive
 * verify content https://www.youtube.com/watch?v=KpwCP1Xil-Q
 * _PGP (Pretty Good Privacy)_: encryption for email; limited adoption https://latacora.micro.blog/2019/07/16/the-pgp-problem.html
+* _SigStore_: https://sethmlarson.dev/python-and-sigstore
 * _Age_: https://github.com/FiloSottile/age https://www.youtube.com/watch?v=AAUJjwdCx4I 1:40
 * _OTR_: https://robertheaton.com/otr1
 
@@ -211,7 +214,7 @@ asymmetric
 
 ## hashing
 
-🔗 https://github.com/HashPals/Name-That-Hash
+🔗 https://github.com/HashPals/Name-That-Hash https://github.com/noraj/haiti
 
 * _hash_: output from hash function [Bhargava 11.214]
 * ASIN https://inventlikeanowner.com/blog/the-story-behind-asins-amazon-standard-identification-numbers/
@@ -252,6 +255,7 @@ pass
 
 🗄 `application.md` security
 
+https://www.cerbos.dev/blog/how-to-implement-authorization-in-go https://github.com/cerbos/cerbos
 https://roadmap.sh/backend
 https://github.com/goauthentik/authentik
 https://github.com/lucia-auth/lucia/discussions/1707 https://news.ycombinator.com/item?id=41801883
@@ -266,6 +270,7 @@ https://ntietz.com/blog/lets-say-instead-of-auth/
 > The problem is precisely this: The credentials you require to access a Google account are essentially indeterminate. Supposedly, for a simple Google account without 2FA enabled, knowledge of the account email and password should be sufficient to access an account; except sometimes, they aren't. Sometimes, Google might randomly decide your login attempt is suspicious, and demand you complete some additional verification step. https://www.devever.net/~hl/logindenial
 * _role-based access control (RBAC)_: principle of least privilege
 * role-based e.g. dba has full access to all fields to db but app dev will not see any personally identifiable info e.g. in Postgres can set permissions at the column level https://softwareengineeringdaily.com/2020/07/28/access-control-management-with-fouad-matin-and-dan-gillespie/
+* ACL https://www.stedi.com/blog/how-stedi-uses-automated-reasoning-for-access-control-policy-verification
 
 OAuth https://www.youtube.com/watch?v=xHFzhBjnMPI https://news.ycombinator.com/item?id=35713518&utm_term=comment https://www.youtube.com/watch?v=ZV5yTm4pT8g
 * OPenID https://www.youtube.com/watch?app=desktop&v=996OiexHze0
@@ -418,7 +423,7 @@ read password: `getpass` (Python) https://github.com/conradkleinespel/rpassword
 
 * salt https://www.youtube.com/watch?v=zt8Cocdy15c
 https://news.ycombinator.com/item?id=41417659
-generate https://github.com/oleiade/motus https://github.com/70sh1/eddy
+generate https://github.com/oleiade/motus https://github.com/70sh1/eddy validate https://github.com/edoardottt/pwdsafety
 
 workflow https://robertheaton.com/2019/08/12/programming-projects-for-advanced-beginners-user-logins/
 * how to validate registration: to prevent the waste of maintaining empty accounts https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/ to prevent someone from accidentally reigstering wrong email and inadvertently giving someone access to their account [email - 'new feedback message']

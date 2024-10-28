@@ -6,6 +6,7 @@
 
 ZOLA DEPLOYMENT
 > blog auth? what is really the point of your site? 🗄️ `tmp.md`
+> syndication? https://www.youtube.com/watch?v=WYqnxCFJoLE
 * DNS tools to diff `zachvalenta.com` vs. `zjayv.com`
 * learn Github actions
 * specify `index.html` for GH Pages: `publish_dir` https://chatgpt.com/share/66f4a7c1-ea3c-8004-8327-46a9840bf1d5 https://github.com/shalzz/zola-deploy-action/blob/master/README.md#custom-domain symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying https://stackoverflow.com/questions/42941170/how-to-set-up-github-pages-to-look-for-index-html-in-a-different-location https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository or Cloudflare https://chevyray.dev/blog/how-this-site-is-made/ or Netlify https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/
@@ -91,7 +92,7 @@ taxonomy
 
 https://github.com/maddalax/htmgo
 https://news.ycombinator.com/item?id=41781457 https://chrisdone.com/posts/htmx-critique/
-https://github.com/AnswerDotAI/fasthtml
+https://github.com/AnswerDotAI/fasthtml https://www.youtube.com/watch?v=4En57Zw6gU4
 
 DESIGN
 > Hotwire / htmx are about server-side rendering and making that work more smoothly with the client. eg fewer page navigations, more rapid update of the client, etc. But it's still, through and through, server render with server state. It works well as long as the server is always the source of truth. The things that it isn't good at, such as drag and drop or complex, multi-state forms on the client side, are basically because you temporarily have a split source of truth: the client is the source of truth with complex state. https://news.ycombinator.com/item?id=41733625
@@ -227,7 +228,7 @@ STDLIB
 * site tour https://github.com/shipshapecode/shepherd
 * datatable https://github.com/handsontable/handsontable https://appliku.com/post/django-rest-framework-and-datatable-example https://github.com/pivotal-energy-solutions/django-datatable-view https://news.ycombinator.com/item?id=30919257
 * HTTP: Fetch, XHR/AJAX https://eloquentjavascript.net/18_http.html
-* native: JS (Cordova/PhoneGap, Ionic, React Native, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter) Golang (Wails https://github.com/wailsapp/wails) Rust https://dioxuslabs.com/
+* native: JS (Cordova/PhoneGap, Ionic, React Native, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter https://news.ycombinator.com/item?id=41975047) Golang (Wails https://github.com/wailsapp/wails) Rust https://dioxuslabs.com/
 * typing: Typescript beat Elm/Flow
 * Typescript, Civet https://news.ycombinator.com/item?id=41885940
 * vizualization: https://www.chartjs.org/ https://testdriven.io/blog/django-charts/#prepare-and-serve-the-data https://github.com/airbnb/visx https://github.com/recharts/recharts -> https://openbb.co/open#social-media-metrics 🗄 `math.md` graphs
@@ -278,23 +279,21 @@ let alice = {score: 5, name: 'Alice'};
 let bob = Object.assign({}, player, {score: 3});
 ```
 
-## runtimes
-
-* _bun_: ✅ runtime + tooling (bundle, transpile, pkg mgmt) https://bun.sh/
-* impl: in Zig, using WebKit JavaScriptCore (instead Chromes V8 engine) https://news.ycombinator.com/item?id=31993556
-* _Deno_: Node replacement https://softwareengineeringdaily.com/2020/09/28/deno-and-typescript-with-elio-rivero/
-* _Node_: libuv (IO library) + V8 (JS engine) https://neovim.io/charter/
-* don't install from OpenJS https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
-* previous problem due to installing as root at Zipcode
-
 ## packaging
 
-* _package_: anything w/ `package.json`
-* _npm_: manager + registry https://www.npmjs.com/
+MANAGERS
+* _npm_: 
+* _pnpm_: https://github.com/pnpm/pnpm https://pnpm.io/ https://www.youtube.com/watch?v=ZIKDJBrk56k
+* _yarn_: https://yarnpkg.com/
+
+REGISTRIES
+* _jsr_: Deno https://www.youtube.com/watch?v=8IHhvkaVqVE [5:15]
+* _npm_: https://www.npmjs.com/
+
+---
+
 * https://drewdevault.com/2021/11/16/Cash-for-leftpad.html
-* _jsr_: Deno registry https://www.youtube.com/watch?v=8IHhvkaVqVE [5:15]
-* _yarn_: manager https://yarnpkg.com/
-* `yarn install --ignore-engines` https://stackoverflow.com/a/45088032
+* _package_: anything w/ `package.json`
 
 NPM
 * `package.json`: dependency manifest
@@ -302,50 +301,43 @@ NPM
 * `prune`: rm pkg in `node_modules` but not in `package.json`
 * scopes: local (`./node_modules` of current pkg root; use for `require()`) global (`/usr/local` or wherever node is installed; use for CLI) https://stackoverflow.com/a/47284674
 
-## version mgmt
+## runtimes
 
-ALTERNATIVES
-* _asdf_: https://github.com/asdf-vm/asdf
+🗄️
+* `linux.md` packaging
+* `python/pkg.md` uv
+
+RUNTIMES
+* _bun_: ✅ runtime + tooling (bundle, transpile, pkg mgmt) https://bun.sh/
+* impl: in Zig, using WebKit JavaScriptCore (instead Chromes V8 engine) https://news.ycombinator.com/item?id=31993556
+* _Deno_: Node replacement https://softwareengineeringdaily.com/2020/09/28/deno-and-typescript-with-elio-rivero/
+* _Node_: libuv (IO library) + V8 (JS engine) https://neovim.io/charter/
+* don't install from OpenJS https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+* previous problem due to installing as root at Zipcode
+
+VERSION MGMT
 * _fnm_: https://github.com/Schniz/fnm
-* _pkgx_: https://www.youtube.com/watch?v=S9oHESiZyr0
-* _mise_: 🎯 https://github.com/jdx/mise
-* _nvm_: https://github.com/creationix/nvm#important-notes
-* _volta_: https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039
-
-NODENV 📜 https://github.com/nodenv/nodenv
+* _nodenv_: https://github.com/nodenv/nodenv
 * rm version: find fs location `nodenv prefix <ver>` and then just rm dir https://github.com/nodenv/nodenv#uninstalling-node-versions
-* _shim_: intercepts cmd and passes to specific version https://medium.com/@ujjawal.dixit/what-is-a-shim-72d9ac5d8620
+* shim = intercepts cmd and passes to specific version https://medium.com/@ujjawal.dixit/what-is-a-shim-72d9ac5d8620
 * e.g. when you run `npm`, nodenv will find `npm` on `$PATH` in which Node version you're using and pass cmd to that binary use whatever
 * workflow
 ```sh
-# available for install
-install -l
-
-# install + rehash https://github.com/nodenv/nodenv#nodenv-rehash
-install <ver>
-
-# list installed
-versions
-
-# check current version
-version
-node --version
-
-# find version of cmd https://github.com/nodenv/nodenv#nodenv-whence
-whence $CMD
-
-# select https://stackoverflow.com/a/19518939
-global/local <ver>
-
-# run `node` from shell https://github.com/nodenv/nodenv?tab=readme-ov-file#how-nodenv-hooks-into-your-shell
-init
-```
-* UM thing
-```sh
+version  # check current version
+versions # list installed
+install -l # available for install
+install <ver> # install + rehash https://github.com/nodenv/nodenv#nodenv-rehash
+whence $CMD # find version of cmd https://github.com/nodenv/nodenv#nodenv-whence
+global/local <ver> # select https://stackoverflow.com/a/19518939
+init # run `node` from shell https://github.com/nodenv/nodenv?tab=readme-ov-file#how-nodenv-hooks-into-your-shell
+# UM thing
 if command -v nodenv 1>/dev/null 2>&1; then
     eval "$(nodenv init --path)"
 fi
 ```
+* _nvm_: https://github.com/creationix/nvm#important-notes
+* _volta_: https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039
+
 # 🟨 ZA
 
 ---
@@ -442,6 +434,7 @@ FRAMEWORKS
 * animation https://roughnotation.com/ https://animejs.com/ https://github.com/greensock/GSAP https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/
 * _blocks_: https://thesephist.github.io/blocks.css/
 * _Bulma_: https://bulma.io/ 
+* _halfmoon_: https://github.com/redimp/otterwiki
 * _Magick_: sidenotes https://css.winterveil.net/
 * _Pure_: 🎯 https://purecss.io/
 * _Tailwind_: https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/ for TUIs https://github.com/koaning/tuilwindcss https://calmcode.io/labs/tuilwind-css
@@ -519,6 +512,7 @@ ARCHIVE
 * _Wayback Machine_: https://archive.org/
 * _waybackpack_: every version of single page in Wayback Machine https://github.com/jsvine/waybackpack
 * _wget_: https://stackoverflow.com/a/4769497 https://stackoverflow.com/a/10564190/6813490 https://news.ycombinator.com/item?id=16557439
+* _you-get_: https://news.ycombinator.com/item?id=41962205
 
 SEMANTICS
 * _attribute_: metadata

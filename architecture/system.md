@@ -5,7 +5,8 @@
 📙 Bueno mature optimization https://carlos.bueno.org/optimization/
 🗄
 * `dbms.md` perf
-* `info.md` documentation / system
+* `doc.md` viz / system
+* `src.md` checklist
 
 ## 进步
 
@@ -14,6 +15,7 @@ SEMANTICS
 
 ---
 
+https://github.com/DovAmir/awesome-design-patterns
 testing https://www.thediff.co/archive/antithesis-debugging-debugging/ https://antithesis.com/ https://www.thediff.co/archive/offshoring-and-ai-agents/
 Kleppmann https://www.davidreis.me/2024/designing-data-intensive-applications
 https://www.davidreis.me/2024/what-happens-when-you-make-a-move-in-lichess https://news.ycombinator.com/item?id=41922928
@@ -252,7 +254,7 @@ ZA
 
 * _bikeshedding_: aka yak shaving https://jsonapi.org/ http://bikeshed.org/ https://drewdevault.com/2020/08/17/Engineers-solve-problems.html
 > Some applications where you would consider ditching Django to shave off some latency are: a stock trading marketplace; an global online advertisement serving network; a low level infrastructure control API - https://mattsegal.dev/is-django-too-slow.html
-> Forget that all these things exist: Microservices, Lambda, API Gateway, Containers, Kubernetes, Docker. Anything whose main value proposition is about “ability to scale” will likely trade off your "ability to be agile & survive". That’s rarely a good trade off. Start with a t3.nano EC2 instance, and do all your testing & staging on it. It only costs $3.80/mo. Then before you launch, use something bigger for prod, maybe an m5.large (2 vCPU & 8 GB mem). It’s $70/mo and can easily serve 1 million page views per day. - https://twitter.com/dvassallo/status/1154516910265884672
+> Forget that all these things exist: Microservices, Lambda, API Gateway, Containers, Kubernetes...anything whose main value proposition is about "ability to scale" will likely trade off your "ability to be agile & survive". That’s rarely a good trade off. Start with a t3.nano EC2 instance, and do all your testing & staging on it. It only costs $3.80/mo. Then before you launch, use something bigger for prod, maybe an m5.large (2 vCPU & 8 GB mem). It’s $70/mo and can easily serve 1 million page views per day. https://twitter.com/dvassallo/status/1154516910265884672
 > don't waste time on problems you don't have yet 📙 Getting Real [42]
 > The bigger problem isn't scaling, it's getting to the point where you have to scale. 📙 Getting Real [42]
 > It is well-known that the majority of the cost of software is not in its initial development, but in its ongoing maintenance [Kleppmann 24] Vinsel, Innovation Delusion
@@ -648,7 +650,7 @@ TYPES
 * _reverse proxy_: closer to servers
 * often unecessary https://news.ycombinator.com/item?id=41642151 
 * less of a need given a cloud environment where a load balancer is already built-in?
-* https://pythonspeed.com/articles/gunicorn-in-docker/ https://testdriven.io/blog/django-docker-traefik/ https://www.artur-rodrigues.com/tech/2023/03/12/reverse-proxy-with-dynamic-backend-selection.html https://www.youtube.com/watch?v=RqfaTIWc3LQ https://www.youtube.com/watch?v=4NB0NDtOwIQ
+* https://pythonspeed.com/articles/gunicorn-in-docker/ https://www.artur-rodrigues.com/tech/2023/03/12/reverse-proxy-with-dynamic-backend-selection.html https://www.youtube.com/watch?v=RqfaTIWc3LQ https://www.youtube.com/watch?v=4NB0NDtOwIQ
 * _forward proxy_: closer to users; way for users to access resources outside network https://www.linuxbabe.com/it-knowledge/differences-between-forward-proxy-and-reverse-proxy https://github.com/mkjt2/lockbox
 * _sidecar proxy_: https://caddyserver.com/docs/
 

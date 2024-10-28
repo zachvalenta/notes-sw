@@ -221,6 +221,7 @@ ZA
 * _breadth-first (bfs)_: 🗄 `/algos` https://healeycodes.com/practical-intro-to-graphs/
 * _depth-first (dfs)_:
 > Doing great work is a depth-first search whose root node is the desire to. So "If at first you don't succeed, try, try again" isn't quite right. It should be: If at first you don't succeed, either try again, or backtrack and then try again. http://paulgraham.com/greatwork.html
+* _Aho-Corasick_: trie https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm https://www.lambdafunctions.com/articles/racing-sed-with-rust
 
 ---
 
@@ -745,7 +746,7 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 * _O(1)_: Bhargava 5.90
 * _hash aggregate_: aggregate keys e.g. A 1 B 2 A 4 -> A 5 B 2 https://veekaybee.github.io/2021/06/06/hashaggregate/
 
-## tree
+## 🌳 tree
 
 🔗
 * https://en.wikipedia.org/wiki/Tree_(data_structure)
@@ -756,47 +757,9 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 *️ `protocols.md` file fmt
 * `science.md` metascience / categories
 
-TREE BUILDERS 🗄️ `html-css.md` SSG `protocols.md` JSON `km.md` notes / tooling `info.md` viz / system
-* features: dynamic creation via TUI, hot reload viz, tree merge, Vim traversal, symlink nodes
-* BYO https://realpython.com/directory-tree-generator-python/
-* _anytree_: ✅ https://github.com/c0fec0de/anytree
-* repos https://github.com/zachvalenta/capp-prod-cat https://github.com/zachvalenta/capp-prod-cat-alt
-* symlink node https://anytree.readthedocs.io/en/stable/api/anytree.node.html#anytree.node.symlinknode.SymlinkNode https://github.com/c0fec0de/anytree/pull/189 https://github.com/zachvalenta/anytree/blob/main/anytree/exporter/dictexporter.py 🗄️ `runtime.md` pip
-* multi-dimensional https://anytree.readthedocs.io/en/stable/tricks/multidim.html https://en.wikipedia.org/wiki/MultiValue_database
-* dict export https://anytree.readthedocs.io/en/stable/exporter/dictexporter.html
-* json export https://anytree.readthedocs.io/en/stable/exporter/jsonexporter.html
-* _basilk_: https://github.com/GabAlpha/basilk
-* _d2_: grid diagram https://d2lang.com/tour/grid-diagrams
-* _Haystack_: 🎯 tree follower https://news.ycombinator.com/item?id=41648564
-* _hmm_: ✅ https://github.com/nadrad/h-m-m https://github.com/zachvalenta/capp-prod-cat-markmap
-* _markmap_: ✅ Markdowm https://github.com/markmap/markmap
-* _Leo_: 🎯 strange beast https://news.ycombinator.com/item?id=27615225 https://github.com/leo-editor/leo-editor
-* _treebuilder_: 🎯 https://github.com/fdieulle/treebuilder
-
-SEMANTICS
-* _node_: element of tree
-* _root_: node w/out parent
-* _parent_: node w/ children
-* _leaf_: node with no children
-```sh
-├── actuator  # parent
-│   └── damper
-│   └──── fire safety  # leaf
-```
-* _child_: node directly below parent
-* _grandchild_: node two levels below parent
-* _grandparent_: node two levels above parent
-```sh
-├── actuator  # parent to damper, grandparent to fire safety
-│   └── damper  # child to actuator, parent to fire safety
-│   └──── fire safety  # child to damper, grandchild to actuator
-```
-* _height_: distance from root to given leaf measured in levels
-* _subtree_: tree nested w/in root tree
-* _traversal_: movement through the tree
-
 ---
 
+* _s-expression_: nested list in which the elements are both data and src https://chatgpt.com/c/671f995f-e7e4-8004-9721-19cc903c3e98 akin to XML https://en.wikipedia.org/wiki/S-expression#Parsing https://news.ycombinator.com/item?id=31840852
 * _treemap_: https://github.com/niyue/skillmap https://github.com/nikolaydubina/go-cover-treemap https://github.com/imsnif/diskonaut https://calmcode.io/labs/pytest-duration-insights
 https://buttondown.com/hillelwayne/archive/maybe-software-engineers-could-learn-something/ https://en.wikipedia.org/wiki/Hypernymy_and_hyponymy
 
@@ -821,7 +784,56 @@ SEMANTICS
 * _completeness_: know how many elements in each layer except the last one https://realpython.com/python-heapq-module/#heaps-as-lists-in-the-python-heapq-module
 * _treemap_ https://news.ycombinator.com/item?id=36868940 https://en.wikipedia.org/wiki/Treemapping
 
-TYPES
+### builders
+
+🗄️
+* `html-css.md` SSG
+* `protocols.md` JSON
+* `km.md` notes / tooling
+* `info.md` viz / system
+
+* features: dynamic creation via TUI, hot reload viz, tree merge, Vim traversal, symlink nodes
+* BYO https://realpython.com/directory-tree-generator-python/
+* _anytree_: ✅ https://github.com/c0fec0de/anytree
+* repos https://github.com/zachvalenta/capp-prod-cat https://github.com/zachvalenta/capp-prod-cat-alt
+* symlink node https://anytree.readthedocs.io/en/stable/api/anytree.node.html#anytree.node.symlinknode.SymlinkNode https://github.com/c0fec0de/anytree/pull/189 https://github.com/zachvalenta/anytree/blob/main/anytree/exporter/dictexporter.py 🗄️ `runtime.md` pip
+* multi-dimensional https://anytree.readthedocs.io/en/stable/tricks/multidim.html https://en.wikipedia.org/wiki/MultiValue_database
+* dict export https://anytree.readthedocs.io/en/stable/exporter/dictexporter.html
+* json export https://anytree.readthedocs.io/en/stable/exporter/jsonexporter.html
+* _basilk_: https://github.com/GabAlpha/basilk
+* _d2_: grid diagram https://d2lang.com/tour/grid-diagrams
+* _Haystack_: 🎯 tree follower https://news.ycombinator.com/item?id=41648564
+* _hmm_: ✅ https://github.com/nadrad/h-m-m https://github.com/zachvalenta/capp-prod-cat-markmap
+* _markmap_: ✅ Markdowm https://github.com/markmap/markmap
+* _Leo_: 🎯 strange beast https://news.ycombinator.com/item?id=27615225 https://github.com/leo-editor/leo-editor
+* _treebuilder_: 🎯 https://github.com/fdieulle/treebuilder
+
+### semantics
+
+* _node_: element of tree
+* _root_: node w/out parent
+* _parent_: node w/ children
+* _leaf_: node with no children
+```sh
+├── actuator  # parent
+│   └── damper
+│   └──── fire safety  # leaf
+```
+* _child_: node directly below parent
+* _grandchild_: node two levels below parent
+* _grandparent_: node two levels above parent
+```sh
+├── actuator  # parent to damper, grandparent to fire safety
+│   └── damper  # child to actuator, parent to fire safety
+│   └──── fire safety  # child to damper, grandchild to actuator
+```
+* _height_: distance from root to given leaf measured in levels
+* _subtree_: tree nested w/in root tree
+* _traversal_: movement through the tree
+
+### types
+
+* _ordered_: Markdown, DOM, fs, AST, config mgmt, version control, NLP parse trees, task mgmt, window mgmt https://nikitabobko.github.io/AeroSpace/guide#tree https://chatgpt.com/c/67202b04-6aec-8004-92c2-1af3c5fce7de
 * _b-tree_: two branches for each node https://stackoverflow.com/a/6380314 🗄 `db.md` indexing https://avi.im/blag/ https://build-your-own.org/ https://build-your-own.org/database/04_btree_code_1 https://planetscale.com/blog/btrees-and-database-indexes
 * balanced = min height and max height differ by 1 (at most) https://www.youtube.com/watch?v=Aagf3RyK3Lw @ 0:50
 ```sh

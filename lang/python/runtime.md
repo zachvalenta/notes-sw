@@ -2,16 +2,27 @@
 
 ## 参考
 
+📙 Shaw python internals https://www.amazon.com/dp/1775093344
+
 ## 进步
+
+https://realpython.com/python313-new-features/
+> You don't need to worry about allocating memory before initializing a data structure, and you don’t need to remember to free the memory when you’re done working with it.
+> Another programming problem that Python helps you with is making sure that your code is thread-safe. Simply put, for code to be thread-safe, it needs to ensure that two different threads of execution don’t update the same part of memory at the same time. Python’s solution to this is a bit heavy-handed. It uses a global interpreter lock (GIL) to ensure that only one thread accesses the memory at a time. For most operations, a thread must first acquire the GIL. Because this lock is global—there’s only one GIL—most Python programs are effectively single-threaded, even when they’re running on modern hardware with several CPUs available. Many libraries that are written in C, including NumPy, are able to bypass the GIL by handling thread safety on their own. Such code can often take advantage of computers with multiple cores.
+> The most recent attempt, initialized by Sam Gross, is by far the most promising. In fact, you can set up a special free-threaded version of Python 3.13 that doesn’t have a global interpreter lock.
+> A just-in-time, or JIT, compiler provides a kind of middle ground, where the interpreter may choose to compile some code while a program is running in order to speed it up. In Python 3.13, there’s a new, experimental JIT compiler. The fact that it’s experimental means that it’s present in Python’s source code, but it’s not enabled by default. Python’s JIT compiler is based on an algorithm called copy-and-patch. The interpreter will look for patterns in your code that match pre-compiled templates and fill in the machine code with specific information like memory addresses of variables.
+
+https://realpython.com/python-bindings-overview/
+> Python bindings allow you to call functions and pass data from Python to C or C++
+> Marshalling is what the Python bindings are doing when they prepare data to move it from Python to C or vice versa. Python bindings need to do marshalling because Python and C store data in different ways. C stores data in the most compact form in memory possible. If you use an uint8_t, then it will only use 8 bits of memory total. In Python, on the other hand, everything is an object. This means that each integer uses several bytes in memory. How many will depend on which version of Python you’re running, your operating system, and other factors. This means that your Python bindings will need to convert a C integer to a Python integer for each integer passed across the boundary. https://en.wikipedia.org/wiki/Marshalling_(computer_science)
+
+thread-safe https://realpython.com/python-thread-lock/
+* free threaded https://github.com/astral-sh/uv/issues/7193
+* GIL, JIT https://news.ycombinator.com/item?id=41677131
 
 # 🟨️ ZA
 
----
-
 auditing hooks https://stackoverflow.com/questions/63350394/how-to-set-up-and-use-python-audit-hooks https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://chatgpt.com/c/67094688-4dac-8004-88e8-4eadd79a1d0e
-
-* free threaded https://github.com/astral-sh/uv/issues/7193
-* GIL, JIT https://news.ycombinator.com/item?id=41677131
 
 * `__pycache__`: holds bytecode in the form of `.pyc` https://stackoverflow.com/a/28365204/6813490 speeds up module loading https://docs.python.org/3/tutorial/modules.html#compiled-python-files suppress creation of with `export PYTHONDONTWRITEBYTECODE=1` more on bytecode https://blog.jse.li/posts/pyc/ https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md
 
@@ -21,22 +32,6 @@ auditing hooks https://stackoverflow.com/questions/63350394/how-to-set-up-and-us
 🗄 `language.md` compilers
 
 ---
-
-ALTERNATIVES
-* unique insofar as has to fit many use cases (web, CLI, security) https://talkpython.fm/episodes/show/265/why-is-python-slow 47:00
-* things that need to be fast will be written in C https://talkpython.fm/episodes/show/265/why-is-python-slow 50:00
-* _pypy_: JIT, supports Python 2 https://news.ycombinator.com/item?id=22928030 http://aosabook.org/en/pypy.html https://ao.gl/when-your-python-code-is-much-faster-with-pypy/ https://www.reddit.com/r/Python/comments/bv50uz/is_anyone_using_pypy_on_production/ https://realpython.com/pypy-faster-python/ https://avi.im/blag/2021/fast-sqlite-inserts/ 📙 Beazly 595
-* pypy is dead https://news.ycombinator.com/item?id=33330706
-* _numba_: just add annotation https://news.ycombinator.com/item?id=34148455 https://talkpython.fm/episodes/show/265/why-is-python-slow 37:00 https://news.ycombinator.com/item?id=30205848 📙 Beazly 595
-* _pyjion_: https://talkpython.fm/episodes/show/340/time-to-jit-your-python-with-pyjion
-* _Cython_: write Python, get perf of C++ 🗄 'executables'
-* _others_: Jython (Java) Iron Python (.NET) call Go from Python https://opendatagroup.github.io/development/2019/06/13/go-ffi.html
-* _HPy_: 💀 replacement C API for CPython, out of steam https://hpyproject.org/ https://github.com/hpyproject/hpy https://news.ycombinator.com/item?id=41755183
-> Much faster on alternative implementations such as PyPy, GraalPy.
-> Debug mode: in debug mode, you can easily identify common problems such as memory leaks, invalid lifetime of objects, invalid usage of APIs. Have you ever forgot a Py_INCREF or Py_DECREF? The HPy debug mode can be activated at runtime to detect these mistakes for you on universal binaries.
-> Nicer API: the standard Python/C API shows its age. HPy is designed to overcome some of its limitations, be more consistent, produce better quality extensions and to make it harder to introduce bugs.
-> Evolvability: As nicely summarized in PEP 620 the standard Python/C API exposes a lot of internal implementation details which makes it hard to evolve the C API. HPy doesn't have this problem because all internal implementation details are hidden.
-* _SPy_: https://www.youtube.com/watch?v=hnQ0oJ_yXlw
 
 STAGES https://www.youtube.com/watch?v=QU158nGABxI 25:30
 * parse https://www.pythonpodcast.com/cpython-parser-replacement-episode-285/
@@ -75,6 +70,59 @@ CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-g
 * _bytecode_: https://opensource.com/article/18/4/introduction-python-bytecode https://nullprogram.com/blog/2019/02/24/ https://snarky.ca/unravelling-attribute-access-in-python/ https://www.youtube.com/watch?v=QU158nGABxI 23:00 28:30 https://docs.python.org/3/glossary.html#term-bytecode
 * compiler execution flow: Python src to bytecode, VM runs bytecode https://eli.thegreenplace.net/2012/03/23/python-internals-how-callables-work https://eli.thegreenplace.net/2010/06/30/python-internals-adding-a-new-statement-to-python/
 > CPython bytecode is evaluated by the the mammoth function PyEval_EvalFrameEx in Python/ceval.c. The function is scary but it's nothing more than a fancy dispatcher of opcodes.
+
+### alternatives
+
+---
+
+* unique insofar as has to fit many use cases (web, CLI, security) https://talkpython.fm/episodes/show/265/why-is-python-slow 47:00
+* things that need to be fast will be written in C https://talkpython.fm/episodes/show/265/why-is-python-slow 50:00
+* _pypy_: JIT, supports Python 2 https://news.ycombinator.com/item?id=22928030 http://aosabook.org/en/pypy.html https://ao.gl/when-your-python-code-is-much-faster-with-pypy/ https://www.reddit.com/r/Python/comments/bv50uz/is_anyone_using_pypy_on_production/ https://realpython.com/pypy-faster-python/ https://avi.im/blag/2021/fast-sqlite-inserts/ 📙 Beazly 595
+* pypy is dead https://news.ycombinator.com/item?id=33330706
+* _numba_: just add annotation https://news.ycombinator.com/item?id=34148455 https://talkpython.fm/episodes/show/265/why-is-python-slow 37:00 https://news.ycombinator.com/item?id=30205848 📙 Beazly 595
+* _pyjion_: https://talkpython.fm/episodes/show/340/time-to-jit-your-python-with-pyjion
+* _Cython_: write Python, get perf of C++ 🗄 'executables' https://www.peterbaumgartner.com/blog/intro-to-just-enough-cython-to-be-useful/ 
+* _others_: Jython (Java) Iron Python (.NET) call Go from Python https://opendatagroup.github.io/development/2019/06/13/go-ffi.html
+* _HPy_: 💀 replacement C API for CPython, out of steam https://hpyproject.org/ https://github.com/hpyproject/hpy https://news.ycombinator.com/item?id=41755183
+> Much faster on alternative implementations such as PyPy, GraalPy.
+> Debug mode: in debug mode, you can easily identify common problems such as memory leaks, invalid lifetime of objects, invalid usage of APIs. Have you ever forgot a Py_INCREF or Py_DECREF? The HPy debug mode can be activated at runtime to detect these mistakes for you on universal binaries.
+> Nicer API: the standard Python/C API shows its age. HPy is designed to overcome some of its limitations, be more consistent, produce better quality extensions and to make it harder to introduce bugs.
+> Evolvability: As nicely summarized in PEP 620 the standard Python/C API exposes a lot of internal implementation details which makes it hard to evolve the C API. HPy doesn't have this problem because all internal implementation details are hidden.
+* _SPy_: https://www.youtube.com/watch?v=hnQ0oJ_yXlw
+
+### GIL
+
+---
+
+* https://realpython.com/courses/understanding-global-interpreter-lock-gil/
+* recent perf improvements https://sumercip.com/posts/making-python-fitter-and-faster/
+* GIL, JIT, free thread https://realpython.com/python313-free-threading-jit/ https://drew.silcock.dev/blog/everything-you-need-to-know-about-python-3-13/ https://blog.changs.co.uk/free-threaded-python-with-asyncio.html https://til.simonwillison.net/python/trying-free-threaded-python
+* adaptive https://github.com/brandtbucher/specialist
+* AST is slow https://www.gauge.sh/blog/python-extensions-should-be-lazy
+* preprocessor https://pydong.org/posts/PythonsPreprocessor/
+* https://snarky.ca/unravelling-attribute-access-in-python/
+* https://snarky.ca/mvpy-minimum-viable-python/
+
+### PyO3
+
+📜 https://github.com/pyo3/pyo3
+
+```python
+#[pyfunction]
+fn single_name_to_first_last_names() -> &PyAny {}
+```
+* https://www.youtube.com/watch?v=UilujdubqVU
+> PyO3 is a Rust crate that allows you to write Python modules in Rust. It handles type conversion between Python and Rust, making it easy to call Rust functions from Python. You can use PyO3 to wrap Rust logic (including ORM operations) and expose it as a Python module.
+> Maturin simplifies the process of compiling Rust code into Python-compatible packages. This tool builds Rust libraries as Python packages (wheels) that can be installed and imported like any other Python module.
+
+CAN BE SLOWER THAN PYTHON https://pythonspeed.com/articles/faster-text-processing/
+* overhead from obj conversion e.g strings (Rust uses UTF, CPython doesn't)
+* Python APIs quite optimized, CPython's C can beat Rust e.g. CPython string repr differs based on contents, can use optimized impl specifically for ASCII
+
+---
+
+* https://pythonspeed.com/articles/python-extension-performance/
+* https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
 
 ## concurrency
 
@@ -229,15 +277,3 @@ https://news.ycombinator.com/item?id=22514004
 * simplistic interpreter = C extensions = Python for datascience https://lucumr.pocoo.org/2018/7/13/python/
 * can write extensions in Rust https://towardsdatascience.com/nine-rules-for-writing-python-extensions-in-rust-d35ea3a4ec29 https://github.com/RustPython/RustPython https://blog.jerrycodes.com/python-trends-in-2023/ https://www.peterbaumgartner.com/blog/wrapping-a-rust-crate-in-a-python-package/ https://github.com/fulcrum-so/ziggy-pydust https://pythonspeed.com/articles/intro-rust-python-extensions https://pythonspeed.com/articles/intro-rust-python-extensions/
 * Rust https://rustpython.github.io/
-
-## GIL
-
----
-
-* https://realpython.com/courses/understanding-global-interpreter-lock-gil/
-* recent perf improvements https://sumercip.com/posts/making-python-fitter-and-faster/
-* GIL, JIT, free thread https://realpython.com/python313-free-threading-jit/ https://drew.silcock.dev/blog/everything-you-need-to-know-about-python-3-13/ https://blog.changs.co.uk/free-threaded-python-with-asyncio.html https://til.simonwillison.net/python/trying-free-threaded-python
-* AST is slow https://www.gauge.sh/blog/python-extensions-should-be-lazy
-* preprocessor https://pydong.org/posts/PythonsPreprocessor/
-* https://snarky.ca/unravelling-attribute-access-in-python/
-* https://snarky.ca/mvpy-minimum-viable-python/

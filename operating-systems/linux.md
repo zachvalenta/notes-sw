@@ -14,6 +14,7 @@
 
 ## 进步
 
+clean up https://github.com/clarkema/x12pp
 https://roadmap.sh/linux
 BYO linux https://drewdevault.com/2024/05/24/2024-05-24-Bunnix.html
 
@@ -377,27 +378,6 @@ requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
 * never update anything if you can avoid it https://blog.kronis.dev/articles/never-update-anything
 * pkg mgmt https://news.ycombinator.com/item?id=34577844
 
-MORE MANAGERS
-* _apk_: Alpine
-* _apt_: used by Debian, Ubuntu, Mint
-```sh
-apt list -installed # list installed
--y  # yes to interactive prompts `export DEBIAN_FRONTEND=noninteractive``
-apt-get -y update # update package listing so we know what packages exist
-apt-get -y upgrade # grab security updates
-RUN apt-get -y install <pkg> # install https://stackoverflow.com/a/50870967  sometimes have to update/upgrade or pkg won't be found
-apt-get -y install --no-install-recommends <pkg> # don't install subdeps https://pythonspeed.com/articles/system-packages-docker/
-apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythonspeed.com/articles/system-packages-docker/
-```
-* _dpkg_: alternative to apt just installs pkg, not subdeps https://askubuntu.com/a/309121 list pkgs `dpkg-query -l`
-* _lmod_: pkg + change env https://lmod.readthedocs.io/en/latest/ `module list` (what you have loaded) `module avail` (what you can load)
-* _pixi_: uses conda-forge https://twitter.com/wuoulf/status/1691833538226610355 https://taras.glek.net/post/trying-pixi-modern-python-packaging/ https://github.com/prefix-dev/pixi https://talkpython.fm/episodes/show/439/pixi-a-fast-package-manager https://pythonbytes.fm/episodes/show/386/major-releases-abound
-* _rpm_: pkg format and, confusingly, pkg manager for RHEL https://stackoverflow.com/a/8201051/6813490
-* _Snap_: Ubuntu https://lwn.net/Articles/825005/
-* _Tasksel_: Debian tool to install packages in bundled fashion e.g. LAMP stack
-* _yum_: Red Hat (RHEL, Fedora)
-* _Windows_: Chocolately, Nuget; uses Powershell under the hood
-
 ## dependencies
 
 🗄
@@ -451,9 +431,10 @@ problems
 ## 🍺 Homebrew
 
 📜 https://docs.brew.sh/Manpage
+> useful thing to know: when you catch a huge download like https://github.com/clarkema/x12pp can you interrupt install?
 
 TAPS
-> vs Homebrew Core https://github.com/pythops/tenere/issues/31 https://chatgpt.com/c/671502a5-99d0-8004-a57c-98b0962fdfc9
+> vs Homebrew Core https://github.com/pythops/tenere/issues/31 https://chatgpt.com/c/671502a5-99d0-8004-a57c-98b0962fdfc9 https://github.com/nickgerace/gfold
 * _tap_: repo of formulae not maintained by Homebrew https://stackoverflow.com/a/37973017 🗄️ terrastruct
 * examples taps https://github.com/GabAlpha/homebrew-tap https://github.com/Linus-Mussmaecher/homebrew-tap multiple https://github.com/lusingander/homebrew-tap
 * howto https://chatgpt.com/c/671502a5-99d0-8004-a57c-98b0962fdfc9 https://github.com/Boeing/config-file-validator/issues/184 https://github.com/AmmarAbouZor/tui-journal/issues/457
@@ -514,9 +495,37 @@ info $PKG  # info on pkg
 deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/322371 https://github.com/martido/homebrew-graph
 ```
 
+## managers
+
+* _apk_: Alpine
+* _apt_: used by Debian, Ubuntu, Mint
+```sh
+apt list -installed # list installed
+-y  # yes to interactive prompts `export DEBIAN_FRONTEND=noninteractive``
+apt-get -y update # update package listing so we know what packages exist
+apt-get -y upgrade # grab security updates
+RUN apt-get -y install <pkg> # install https://stackoverflow.com/a/50870967  sometimes have to update/upgrade or pkg won't be found
+apt-get -y install --no-install-recommends <pkg> # don't install subdeps https://pythonspeed.com/articles/system-packages-docker/
+apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythonspeed.com/articles/system-packages-docker/
+```
+* _dpkg_: alternative to apt just installs pkg, not subdeps https://askubuntu.com/a/309121 list pkgs `dpkg-query -l`
+* _lmod_: pkg + change env https://lmod.readthedocs.io/en/latest/ `module list` (what you have loaded) `module avail` (what you can load)
+* _pixi_: uses conda-forge https://twitter.com/wuoulf/status/1691833538226610355 https://taras.glek.net/post/trying-pixi-modern-python-packaging/ https://github.com/prefix-dev/pixi https://talkpython.fm/episodes/show/439/pixi-a-fast-package-manager https://pythonbytes.fm/episodes/show/386/major-releases-abound
+* _rpm_: pkg format and, confusingly, pkg manager for RHEL https://stackoverflow.com/a/8201051/6813490
+* _Snap_: Ubuntu https://lwn.net/Articles/825005/
+* _Tasksel_: Debian tool to install packages in bundled fashion e.g. LAMP stack
+* _yum_: Red Hat (RHEL, Fedora)
+* _Windows_: Chocolately, Nuget; uses Powershell under the hood
+* _Whisky_: for running Windows apps on macOS https://github.com/Whisky-App/Whisky https://pketh.org/plantstudio.html
+
 ## 🧬 nix
 
 ---
+
+ALTERNATIVES 🗄️ `python/pkg.md` uv `frontend.md` javascript > runtimes
+* _asdf_: https://github.com/asdf-vm/asdf
+* _pkgx_: from the creator of Homebrew https://www.youtube.com/watch?v=S9oHESiZyr0 https://dotenvx.com/docs/install#other https://www.youtube.com/watch?v=S9oHESiZyr0
+* _mise_: 🎯 https://github.com/jdx/mise
 
 * can script everything (install GUI apps, CLI apps, write dotfiles)
 * nixpacks https://railway.app/
@@ -686,7 +695,10 @@ TOOLS
 
 ---
 
-EBPF
+EBPF https://www.brendangregg.com/
+* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions https://flamegraph.com/ https://github.com/laixintao/flameshow
+* https://www.youtube.com/watch?v=bGAVrtb_tFs
+* https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
 * https://github.com/ZingerLittleBee/netop
 * https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06
 * https://news.ycombinator.com/item?id=27435081
@@ -1052,7 +1064,7 @@ echo "Command succeeded"
 * _?_: var for last cmd's exit code e.g. `echo "hi"; echo $?  #0` https://askubuntu.com/a/892607
 * _127_: you use a command in your script that the shell doesn't know about
 * _130_: termination via CTRL c
-* _137_: script faile (128) and then received sig kill (9) from OOM killer https://stackoverflow.com/a/1041309
+* _137_: script fails (128) and then received sig kill (9) from OOM killer https://stackoverflow.com/a/1041309
 * cleanup on exit https://github.com/Idnan/bash-guide#exit-traps
 * are less clear than you think https://news.ycombinator.com/item?id=24267155
 * get exit code of last command: `$?` https://www.freecodecamp.org/news/docker-exec-how-to-run-a-command-inside-a-docker-image-or-container/
@@ -1147,11 +1159,10 @@ DESIGN 🗄 `protocols.md` serialization `python.md` UI
 TUI
 * https://news.ycombinator.com/item?id=40273177
 * _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
-* _ncurses_: Linux https://github.com/jesseduffield/lazydocker https://github.com/NerdyPepper/dijo
-
+* ncurses
 * https://news.ycombinator.com/item?id=37418424
 * TUI for bash https://github.com/charmbracelet/gum
-* design https://www.micahlerner.com/2021/07/14/unix-shell-programming-the-next-50-years.html 🗣 Dan Luu https://borretti.me/article/shells-are-two-things
+* design https://www.micahlerner.com/2021/07/14/unix-shell-programming-the-next-50-years.html 🗣 Dan Luu https://borretti.me/article/shells-are-two-things extensions https://github.com/dotenvx/dotenvx/pull/426
 
 CLI IMPL LANGUAGE
 > use Rust for CLI and Python for business logic? https://github.com/chubin/wttr.in

@@ -103,13 +103,15 @@ nc -l 8080  # run server locally on port 8080 https://blog.sylver.dev/build-a-we
 
 # 🟨️ ZA
 
+---
+
+* _NIC_: https://en.wikipedia.org/wiki/Network_interface_controller re: Homelab https://www.youtube.com/watch?v=gPGf4Y8nQqM https://www.youtube.com/watch?v=MpaAu3HVDYE
+
 models
 * _OSI_: lost irl https://security.stackexchange.com/a/93338 📙 TCP-IP Ilustrated 1.2.1
 * 🗄 `destroy-all-software-protocols.pdf` https://jvns.ca/blog/2021/05/11/what-s-the-osi-model-/
 * DARPA/TCP-IP https://twobithistory.org/2021/03/08/arpanet-protocols.html https://twobithistory.org/2021/02/07/arpanet.html
 * avian protocol https://datatracker.ietf.org/doc/html/rfc1149
-
----
 
 https://news.ycombinator.com/item?id=41930628
 

@@ -764,7 +764,9 @@ https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
 https://lukeplant.me.uk/blog/posts/mvc-is-not-a-helpful-analogy-for-django/
 https://lukeplant.me.uk/
 
-## dev env
+## denv
+
+🗄️ `src.md` denv
 
 ---
 
@@ -777,13 +779,6 @@ DEV SERVER ON REMOTE
 * start cmd: `python manage.py runserver 0.0.0.0:8000`
 * `ALLOWED_HOSTS`: if running on server need to add hostname; `localhost` seems to be implicit https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts https://stackoverflow.com/a/46443432/6813490
 * Docker: set `DEBUG=False` https://stackoverflow.com/a/60832028
-
-🚢 DOCKER
-* https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
-* https://www.untangled.dev/2020/06/06/docker-django-local-dev
-* https://testdriven.io/courses/tdd-django
-* https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
-* https://github.com/godd0t/django-docker-quickstart
 
 🐚 SHELL https://docs.djangoproject.com/en/3.0/ref/django-admin/#shell https://docs.bpython-interpreter.org/en/latest/django.html
 * kill server: https://startcodingnow.com/kill-django-development-server

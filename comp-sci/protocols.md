@@ -4,12 +4,33 @@
 
 ## 进步
 
+STEDI TEACHING https://www.stedi.com/edi
+* https://www.stedi.com/blog/getting-started-with-the-x12-file-format
+* https://www.stedi.com/docs/edi-platform/edi-essentials/what-is-edi#what-is-edi
+* https://www.stedi.com/blog/edi-for-developers-turn-edi-into-json
+* https://www.stedi.com/blog/transaction-set-variants-in-the-amazon-850-purchase-order
+* control numbers https://www.stedi.com/blog/control-numbers-in-x12-edi
+* https://www.stedi.com/blog/date-and-time-in-edi
+* standards at national level https://increment.com/apis/introduction-apis-egovernment/
+
+CLEANUP
+* https://chatgpt.com/c/671fa6c4-e0bc-8004-9937-f66fd3ce06b2
 * grok segments from chatgpt code block
-* https://github.com/lusingander/btox
-* https://www.lambdafunctions.com/articles/racing-sed-with-rust
-* https://news.ycombinator.com/item?id=31840852
 * https://chatgpt.com/c/670d4d6e-c8c4-8004-91d1-052b4c33c416
 * segment types https://github.com/sezna/edi
+
+STEDI THE COMPANY
+* https://www.stedi.com/edi/network
+* https://www.stedi.com/blog/excerpts-from-the-annual-letter
+* https://www.stedi.com/blog/two-messy-kittens-and-a-missing-edi-214
+* https://www.stedi.com/blog/shareable-edi-implementation-guides-for-modern-edi-integrations
+* https://www.stedi.com/blog/hello-buckets https://www.stedi.com/blog/introducing-serverless-sftp-and-infinitely-scalable-data-storage
+* https://www.stedi.com/blog/translate-between-json-and-edi
+* https://www.stedi.com/blog/stedi-core-edi-integrations-in-minutes
+* https://www.stedi.com/blog/stedi-platform-no-code-edi
+* https://www.stedi.com/blog/introducing-stedis-x12-hipaa-guides
+* https://www.stedi.com/blog/stedi-process-large-files https://www.stedi.com/blog/stedi-core-large-file-support
+* create account? https://www.stedi.com/edi/inspector
 
 * _24_: split into own file, file fmts (Cuelang, INI, KDL, YAML, EDI)
 * _22_: protocol (encoding, serialization)
@@ -36,55 +57,77 @@ TRANSFER https://chatgpt.com/share/9b405f7d-4879-4985-be22-39fc267349f7
 ## document lists
 
 * _document list (DL)_: type of x12 document https://en.wikipedia.org/wiki/X12_Document_List
+* aka transaction set https://www.stedi.com/edi/x12
 * each company picks a subset that they want to work with https://static.fishersci.com/cmsassets/downloads/segment/Scientific/pdf/WebServices/EDIspecGuideCust832.pdf
 * file extension: `.edi`, `.x12`, `.dat`, `.txt`
-* _envelope_: collection of documents of a type
-* _mailbag_: collection of envelopes
 * _832_: DL for catalog
 * _850_: DL purchase order
 * _855_: DL purchase order (= HTTP 200)
 * _997_: DL for ack https://github.com/azoner/pyx12
 * _999_: ? https://github.com/azoner/pyx12
 
+## meta
+
+* maybe standards bodies are just slow and bad in general? https://news.ycombinator.com/item?id=41976529
+* who uses: manufacturing, healthcare
+* who controls: corporate hacks https://x12.org/about/committees/subcommittee-x12-03-external-code-list-oversight-eco https://www.linkedin.com/in/tina-martinez-8511192/ https://cognosante.com/
+* point to point is inherently complex https://www.stedi.com/blog/what-makes-edi-so-hard
+> Since each business has multiple trading partners, and each of its trading partner operates on different business systems, “point to point” integration of these transactions (that is, mapping Walmart’s internal database format directly to the QuickBooks JSON API) would require the recipient to have detailed knowledge of many different transaction formats – for example, a company selling to three customers running on NetSuite, SAP, and QuickBooks, respectively, would need to understand NetSuite XML, SAP IDoc, and QuickBooks JSON. Maintaining familiarity with so many systems isn’t practical; to avoid this explosion of complexity, businesses instead use commonly-accepted intermediary formats, which are broadly known as Electronic Data Interchange - EDI.
+> It is designed to eliminate only the unrealistic requirement that a trading partner be able to understand each of its trading partner’s internal syntax and vocabulary.  Instead of businesses having to work with many different syntaxes (e.g., JSON, XML, CSV) and vocabularies (e.g., PO No. and Purchase Order #), frameworks like X12 and EDIFACT provide highly structured, opinionated alternatives intended to reduce the surface area of knowledge required to successfully integrate with trading partners.
+> The vast majority of fields cannot be standardized to this degree. Take, for example, the product identifier of a line item on a Purchase Order - while X12 specifies that the 850 Purchase Order's PO107 element should be used to specify the product identifier value, the standard cannot possibly mandate which type of product identifier should be used. Some companies use SKUs (Stock Keeping Units), while others use Part Numbers, UPCs (Universal Product Codes), or GTINs (Global Trade Item Numbers); all in all, the X12 standard specifies a dictionary of 544 different possible product identifier values that can be populated in the PO106 element
+> What we’re seeing here is that while a standard can be opinionated about the structure of a document and the naming of fields, it cannot be opinionated about the contents of a business transaction – the contents of a business transaction are dictated by the idiosyncrasies of the business itself.
+* hostile to UNIX / typical tooling
+> It could be considered a very distant spiritual ancestor of XML; it was designed to meet the same kind of need, but way back in days of yore when individual bytes were valuable things to be cherished. The standards committee was originally chartered back in 1979...a file often contains just a single line...The problem with everything being on a single line is that the vast majority of the standard Unix toolbox for data processing and exploration is designed to work with data a line at a time. For example, say you want to take a peek at the beginning of a large file to see what sort of records it contains: $ head < file will print the first 10 lines to your terminal. If the entire file you’re dealing with is a single 1.3 gigabyte line, this is less than helpful. https://www.lambdafunctions.com/articles/racing-sed-with-rust
+* goofy semantics
+> These identifiers, ISA and GS, likely follow a convention used when the ANSI X12 standards were first developed in the late 1970s and 1980s. The X12 committee aimed to make EDI transactions compact and machine-readable. Short, non-ambiguous codes like ISA, GS, and others (e.g., ST, BEG, REF) were chosen as simple identifiers, often favoring brevity over human readability. https://chatgpt.com/c/671fa6c4-e0bc-8004-9937-f66fd3ce06b2
+* attempts at replacement https://chatgpt.com/c/670d82d9-c488-8004-967f-2a987b16c9e9 XML, s-expressions https://en.wikipedia.org/wiki/S-expression#Parsing https://news.ycombinator.com/item?id=31840852 JSON Schema https://www.stedi.com/blog/getting-started-with-the-x12-file-format
+> In the healthcare sector, the Health Insurance Portability and Accountability Act of 1996 (HIPAA) requires that all insurance carriers exchange transactions such as claims, eligibility checks, prior authorizations, and enrollments using a standardized EDI format called X12 HIPAA. A small group of legacy clearinghouses process the majority of these transactions, offering consolidated connectivity to carriers and providers. Stedi is building the world's only API-first clearinghouse. By offering modern API interfaces alongside traditional real-time and batch EDI processes, we enable both healthcare technology businesses and established players to exchange mission-critical transactions...by offering a modern API interface for running eligibility checks, processing claims, and ingesting ERAs, healthcare technology businesses can exchange transactions with payers without dealing with the EDI protocol or carrier-specific connectivity. - Stedi job posting
+
 ## spec
 
-```sh
-# ISA (Interchange Control Header): sender, receiver
-ISA*00*          *00*          *ZZ*SENDERID       *ZZ*RECEIVERID     *200710*1253*U*00401*000000905*0*T*>
-# ?
-GS*PO*SENDERID*RECEIVERID*20200710*1253*1*X*004010
-ST*850*0001
-BEG*00*SA*1234567890**20200710
-REF*DP*038
-PER*BD*John Doe*TE*555-123-4567
-N1*BT*BUYER NAME
-N3*1234 Buyer St
-N4*Buyertown*CA*94005
-N1*ST*SHIP TO NAME
-N3*5678 Ship St
-N4*Shiptown*CA*94006
-PO1*1*10*EA*15.00**CB*123456*VP*ABC123
-PO1*2*20*EA*45.00**CB*654321*VP*XYZ789
-CTT*2
-AMT*TT*1200.00
-SE*14*0001
-GE*1*1
-IEA*1*000000905
-```
+🔗 releases https://x12.org/news-and-events/release-schedule https://www.stedi.com/edi/x12-008050 https://www.stedi.com/blog/getting-started-with-the-x12-file-format
 
-META
-* attempts at replacement https://chatgpt.com/c/670d82d9-c488-8004-967f-2a987b16c9e9
-> It could be considered a very distant spiritual ancestor of XML; it was designed to meet the same kind of need, but way back in days of yore when individual bytes were valuable things to be cherished. The standards committee was originally chartered back in 1979. https://www.lambdafunctions.com/articles/racing-sed-with-rust
+COMPONENTS
+* _mailbag_: n envelopes
+* _envelope_: a single x12 document and its transmission
+* _segment_: LOC; terminated w/ `~`
+* _element_: segment subcomponent; separated w/ `*`, dupe `**` = blank el
+
+SEGMENTS
+> 📍 can you give me a breakdown of the elements in the following x12 segments: ISA, GS, IEA
+> 📍 what are the most common segment IDs in an x12 850 document?
+```sh
+BEG*00*SA*12345**20231014~
+BEG # segment ID
+SA # order type
+12345 # order number
+20231014 # date
+```
+* _InterchangeEnvelope (IE)_: first/last seg
+* _ISA_: ; order (header i.e. first seg)
+* elements: ISA05/7 (sender/receiver qualier) ISA06/8 (sender/receiver ID) ISA12 (version) ISA15 (usage - test|prod)
+> An X12 file starts with a fixed-length 106-byte header called an ISA segment. Among other things, this header specifies three different terminator characters to be used in the rest of the document...it's up to the author to ensure that the chosen terminators do not appear in any of the data fields. This is why each document can specify its own terminators. https://www.lambdafunctions.com/articles/racing-sed-with-rust
+* _GS_: metadata; order (follows ISA)
+* _IEA_: order (final)
+
+---
+
+qualifiers like ZZ https://chatgpt.com/c/671fa56b-6de4-8004-a31a-7dc361d40c8b
+
+* _transaction set purpose codes_: "why is document being sent?", only shows up in (typically) a single segment, can apply to multiple document lists (832, 850)
+* `00`: new
+* `01`: cancel previously sent doc
+* `04`: update
+* `05`: replace
+* `06`: ack receipt of sent doc
+* `24`: draft
 
 ## tooling
 
 🔍 https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
 
-* _AWS B2Bi_: 🎯 https://docs.aws.amazon.com/b2bi/ history, usage https://aws.amazon.com/blogs/aws/introducing-aws-b2b-data-interchange-simplified-connections-with-your-trading-partners/
-* _bots_: ❌ bad docs https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
-* _edi-support_: 🎯 syntax https://github.com/Silvenga/vscode-edi-x12-support
-* _edifact_: 🎯 syntax https://github.com/DAXaholic/vscode-edifact
-* _pyedi_: ✅ parse (x12-JSON) https://github.com/freestream/pyedi 💻 https://github.com/zachvalenta/capp-pyedi
+YES
+* _pyedi_: parse (x12-JSON) https://github.com/freestream/pyedi 💻 https://github.com/zachvalenta/capp-pyedi
 * not on PyPI; fork and publish? https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 ```python
 import json
@@ -93,17 +136,25 @@ from pyedi.settings import Settings
 ts = parse_file('./edi.txt', Settings())
 with open("data.json", "w") as f:
     json.dump(ts, f)
-# fmt -> python -m json.tool data.json
 ```
-* _pyedi830_: ❌ parse (x12-CSV) https://github.com/dev0088/pyedi830
-* _pyx12_: ❌ validate x12; `ModuleNotFoundError: No module named 'pkg_resources'` https://github.com/azoner/pyx12
+* _Stedi_: syntax highlight https://www.stedi.com/edi/inspector https://www.stedi.com/blog/the-foundation-of-any-reliable-edi-system
+* _x12-edi-tools_: parse (Python-x12) https://github.com/copyleftdev/x12-edi-tools https://pypi.org/project/x12-edi-tools/
+
+EVALUATE
+* _AWS B2Bi_: https://docs.aws.amazon.com/b2bi/ history, usage https://aws.amazon.com/blogs/aws/introducing-aws-b2b-data-interchange-simplified-connections-with-your-trading-partners/
+* _edi-support_: syntax https://github.com/Silvenga/vscode-edi-x12-support
+* _edifact_: syntax https://github.com/DAXaholic/vscode-edifact
 * _sezna_: parse (x12-JSON) https://github.com/sezna/edi
 > It has been already used commercially for multiple EDI pipelines and is able to handle any X12 document which is specification-compliant. It can both parse and output valid EDI documents while maintaining versatility to cover the entire spec. There is also a `loose_parse` mode which is less strict on the spec, in case the incoming data is slightly malformed. https://news.ycombinator.com/item?id=23786634
-* _Smooks_: ❌ Java, XML https://www.smooks.org/
-* _Stedi_: ✅ syntax highlight https://www.stedi.com/edi/inspector
-* _vs-edi_: 🎯 syntax highlight https://github.com/hellooops/vscode-edi-support https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources#syntax-highlighters
-* _x12-edi-tools_: parse (Python-x12) https://github.com/copyleftdev/x12-edi-tools https://pypi.org/project/x12-edi-tools/
+* _vs-edi_: syntax highlight https://github.com/hellooops/vscode-edi-support https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources#syntax-highlighters
+* _x12pp_: https://github.com/clarkema/x12pp
 * _x12-parser_: JS, for large files https://www.npmjs.com/package/x12-parser
+
+NO
+* _bots_: bad docs https://pypi.org/project/bots/ https://github.com/eppye-bots/bots
+* _pyedi830_: parse (x12-CSV) https://github.com/dev0088/pyedi830
+* _pyx12_: validate x12; `ModuleNotFoundError: No module named 'pkg_resources'` https://github.com/azoner/pyx12
+* _Smooks_: Java, XML https://www.smooks.org/
 
 # 🪪 ENCODING
 
@@ -343,6 +394,7 @@ OPERATIONS
 * _csv-diff_: diff https://github.com/simonw/csv-diff
 * _dasel_: edit https://github.com/TomWright/dasel
 * _jo_: ✅ generate https://github.com/jpmens/jo
+> just use Python https://news.ycombinator.com/item?id=30224063
 * _graphtage_: ❌ diff https://github.com/trailofbits/graphtage broken https://github.com/trailofbits/graphtage/issues/91 🗄️ `shell.md` file / diff
 
 ### design
@@ -391,7 +443,7 @@ ALTERNATIVES
 * _jello_: 🎯 Python syntax https://github.com/kellyjonbrazil/jello https://github.com/kellyjonbrazil/jellex
 * _jnv_: 🎯 interactive https://github.com/ynqa/jnv
 * _jqp_: TUI https://github.com/noahgorstein/jqp 
-* _jsonata_: https://jsonata.org/
+* _jsonata_: https://jsonata.org/ https://www.stedi.com/blog/jsonata-playground
 * _mistql_: Python and CLI https://www.mistql.com/
 * _sq_: https://news.ycombinator.com/item?id=41760697
 

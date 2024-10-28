@@ -23,6 +23,8 @@ CLIENTS
 > You talked a lot about this distinction between LLM benchmarks and evaluating LLM applications. Could you talk a little bit about the differences? Maybe there are software engineers in the audience, that maybe they’re used to writing unit tests and integration tests for their software. Now as a consumer, as you said, they’re integrating some LLM functionality, or maybe a chain of reasoning with LLMs into their software. From a practical standpoint, what are the new types of things that they might need to consider that are different maybe from the way that they’ve unit-tested in the past, or written tests in the past, now that they’re working with these LLM workflows? https://changelog.com/practicalai/284#transcript
 
 * _24_: usage (regex, stdlib, EDI) tooling (clients)
+> using a lot, much progress -> had this in notes from before! https://realpython.com/chatgpt-coding-mentor-python/ 
+* _23_: few random queries
 
 # ☄️ GEN AI
 
@@ -88,7 +90,7 @@ https://stratechery.com/2023/ai-and-the-big-five/
 * https://marginalrevolution.com/marginalrevolution/2022/12/one-look-at-our-future.html
 * more ChatGPT https://marginalrevolution.com/marginalrevolution/2022/12/chatgpt-does-a-thomas-schelling-poem.html https://davidrozado.substack.com/p/the-political-orientation-of-the how to use https://twitter.com/omarsar0/status/1600149116369051649 https://substack.com/inbox/post/88017506 https://astralcodexten.substack.com/p/perhaps-it-is-a-bad-thing-that-the AI will corrupt the corpus of the internet https://news.ycombinator.com/item?id=33864276
 * journaling to ChatGPT https://marginalrevolution.com/marginalrevolution/2022/12/chatting-with-yourself.html
-* politics of LLMs https://twitter.com/DavidRozado/status/1606249231185981440 https://cactus.substack.com/p/openais-woke-catechism-part-1
+* politics of LLMs https://twitter.com/DavidRozado/status/1606249231185981440 https://cactus.substack.com/p/openais-woke-catechism-part-1 https://x.com/DavidRozado/status/1850715219850678736 https://davidrozado.substack.com/p/an-analysis-of-ai-political-preferences
 * politics of LLM research https://twitter.com/RamaswmySridhar/status/1606031588789088256 https://twitter.com/pmarca/status/1611229226765783041 https://twitter.com/pmarca/status/1611237679496331265
 * effect on trust https://marginalrevolution.com/marginalrevolution/2022/12/ben-thompson-interview-with-daniel-gross-and-nat-friedman.html
 * Spielberg https://marginalrevolution.com/marginalrevolution/2022/12/rewatching-a-i-minor-spoilers.html
@@ -100,11 +102,11 @@ https://stratechery.com/2023/ai-and-the-big-five/
 
 ## code assist
 
-> why you need: basilk (output formatted json, https://github.com/skanehira/github-tui) lazygit (option to not add dir to recently_visited) https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
+> why you need: gfold, basilk (output formatted json, https://github.com/skanehira/github-tui) lazygit (option to not add dir to recently_visited) https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
 
 OPTIONS
 * _Avante_: Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835
-* _Cursor_: closed source https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode
+* _Cursor_: closed source https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203
 * _Void_: https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
 
 ---
@@ -157,13 +159,13 @@ FILE FMT https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a https://chat
 
 OPTIONS
 > get API tier, try mods, export current conversations https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a do you really need to export current? just incorporate into your notes and delete, leaving anything outstanding. your notes is the final downstream for everything (excluding code, music, etc.), hence LLMs are upstream. the goal with this is to 1) reduce friction re: queries 2) better...system message / prompts / RAG 3) history / stats 4) tags
-* in Bash https://github.com/simonmysun/ell
 * _aichat_: 🎯 https://github.com/sigoden/aichat/issues/924 https://github.com/sigoden/aichat 
 * _chat-macOS_: https://github.com/huggingface/chat-macOS https://news.ycombinator.com/item?id=41927624
 * _chatgpt-cli_: 🎯 Markdown https://github.com/kardolus/chatgpt-cli
+* _ell_: Bash https://github.com/simonmysun/ell
 * _gpt4all_: local https://github.com/nomic-ai/gpt4all
 * _khoj_: 🎯 https://github.com/khoj-ai/khoj
-* _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm https://simonw.substack.com/p/video-scraping-using-google-gemini plugins for models https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3
+* _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm https://simonw.substack.com/p/video-scraping-using-google-gemini plugins for models https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3 https://simonw.substack.com/p/run-prompts-against-images-audio
 * _mods_: 🎯 Markdown output https://github.com/charmbracelet/mods
 * continue conversation https://github.com/charmbracelet/mods/issues/197
 * _oterm_: for Ollama https://github.com/ggozad/oterm
@@ -200,24 +202,24 @@ Say you have a CLI program that needs a secret (e.g. an API key). The secret nee
 
 ## models
 
-* benchmark https://arena.lmsys.org/
-* _ChatGPT_: need to ugrade macOS to get access to desktop app
-* code: https://ollama.com/blog/python-javascript-libraries
-* _Claude_: https://news.ycombinator.com/item?id=41914989
-* larger context window = better for dev? https://www.anthropic.com/customers/headstart
-* the best? https://x.com/emollick/status/1849168452914938082 https://simonwillison.net/2024/Oct/21/claude-artifacts/
-* _Eliza_: https://web.njit.edu/~ronkowit/eliza.html
-* _Gemma_: https://ai.google.dev/gemma
-* _Gemini_: https://simonw.substack.com/p/video-scraping-using-google-gemini
-* _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model)
-* uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
-* _Mistral_: https://en.wikipedia.org/wiki/Mistral_AI
-* _Perplexity_: https://x.com/AravSrinivas/status/1849499271655276658
+🛠️ benchmark https://arena.lmsys.org/
+
+YES
+* _ChatGPT_: web client (no search/tags/org/page up, dark mode is bad for seeing prompt) native client (global hotkey conflicts with iterm but you get search https://openai.com/chatgpt/mac/)
+* _Mistral_: less polished but fast + search https://chat.mistral.ai/chat
+* _Perplexity_: search/org https://www.perplexity.ai/
+
+NO
+* _Claude_: web client has search + fast input / good UI, allegedly the best but GPT legacy model beat it, has native client https://x.com/emollick/status/1849168452914938082 https://simonwillison.net/2024/Oct/21/claude-artifacts/ https://darioamodei.com/
+* _Gemini_: no search/tags/org, looks low-effort https://simonw.substack.com/p/video-scraping-using-google-gemini
+* _Grok_: seems tied to Twitter https://grok.x.ai/ 
 
 ---
 
-* https://realpython.com/chatgpt-coding-mentor-python/ https://chat.openai.com/chat https://marginalrevolution.com/marginalrevolution/2023/05/how-to-use-gpt-4-plus-web-browsing.html https://bard.google.com/chat https://grok.x.ai/ https://notebooklm.google.com/
-* _NotebookLM_: https://notebooklm.google.com/ https://simonw.substack.com/p/video-scraping-using-google-gemini
+OPEN
+* _Gemma_: https://ai.google.dev/gemma
+* _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model) uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
+* _ollama_: https://ollama.com/
 
 ## prompts
 
@@ -229,11 +231,83 @@ Say you have a CLI program that needs a secret (e.g. an API key). The secret nee
 
 https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
 
+* _prompt engineering_: asking specific questions https://marginalrevolution.com/marginalrevolution/2023/05/how-to-use-gpt-4-plus-web-browsing.html https://www.youtube.com/watch?v=hB7sGE0W8CI
 * _prompt injection_: getting model to do something its creators don't want
 > Ask it to give options (it's more likely to give a better answer)
 > It will rarely get the answer right. Ask it to "do better."
 * _system message_: hidden instruction that defines the behavior/goals/tone of the model https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b
 > "You are a helpful assistant named Elia."
+
+## usage
+
+---
+
+ZA
+* text to SQL https://github.com/vanna-ai/vanna
+* to synthesize all comments on a product into a blurb https://blog.untrod.com/2024/04/llm-chatgpt-powered-django-admin-fields.html
+* copyedit a novel https://blog.untrod.com/2023/06/copy-editing-a-novel-with-chatgpt.html
+* detection https://deepmind.google/technologies/synthid/?utm_source=www.superpowerdaily.com&utm_medium=newsletter&utm_campaign=new-claude-ai-can-take-over-your-computer
+
+https://platform.openai.com/docs/overview https://cookbook.openai.com/
+
+### audio
+
+TYPES https://elevenlabs.io/
+* TTS:
+> Everyone is talking about the new hashtag#AI Notebook LM tool from Google that lets you create podcasts from articles and other sources. I decided to try it for myself, using one of my prior pieces, The Upside and Downside of AI, as the basis for the podcast. The result, which you can listen to in the article, is simply amazing. It doesn't just read the article - it has a discussion between two "people" about it that is very engaging. https://arnoldkling.substack.com/p/llm-links-b9d
+> Meta recently introduced NotebookLlama, an "open" version of Google’s podcast-generating feature found in NotebookLM. Leveraging Meta's Llama models, NotebookLlama is capable of creating conversational, podcast-style digests of uploaded text files, such as PDFs of news articles or blog posts. This technology aims to replicate the interactive storytelling aspect of Google's viral tool, adding its own elements of dramatization and interruptions to make the content sound more dynamic. https://www.superpowerdaily.com/p/google-preps-jarvis-ai-agent-that-works-in-chrome
+
+* STS
+* dubbing
+* voice clone
+
+---
+
+* TTS https://github.com/fishaudio/fish-speech https://til.simonwillison.net/ios/listen-to-page Hugging Face https://til.simonwillison.net/macos/whisper-cpp
+* text to voice e.g. AWS Polly https://aws.amazon.com/blogs/aws/introducing-aws-b2b-data-interchange-simplified-connections-with-your-trading-partners/
+* transcription https://news.ycombinator.com/item?id=41199567 https://www.theguardian.com/media/2014/jan/22/ten-tools-for-digital-and-citizen-journalists-on-the-go
+* audio prompt + voice cloning for answer https://blog.untrod.com/2023/11/robot-dad.html https://elevenlabs.io/
+* voice clone https://www.jeffgeerling.com/blog/2024/elecrow-responded-apologized-ai-voice-cloning
+* speech to text https://github.com/kyutai-labs/moshi
+* generative music https://www.garbageday.email/p/suno-just-raised-lot-money
+* vocals https://audimee.com/
+* Siri https://github.com/homebrewltd/ichigo
+* mastering https://www.youtube.com/watch?v=wZRV2H4PK0Q
+
+### docs
+
+---
+
+* _RAG_: document-based interactions https://github.com/sigoden/aichat#rag-chat-with-your-documents
+> Claude's extensive context window has also transformed their approach to handling large codebases. When the 200K context window was released, Hedley notes they "ripped out the entire RAG and just put it in the context window instead and it went from 60 percent accuracy to 98. It was quicker, cheaper, better, everything." This combination of automation, speed, and accuracy has fundamentally changed how Headstart approaches software development. https://www.anthropic.com/customers/headstart
+* _NotebookLM_: https://notebooklm.google.com/ https://simonw.substack.com/p/video-scraping-using-google-gemini
+* https://simonw.substack.com/p/video-scraping-using-google-gemini
+* tokens https://github.com/simonw/ttok
+* AWS Textract https://github.com/simonw/textract-cli
+* chat with your docs https://github.com/Cinnamon/kotaemon
+* ingest all your notes https://news.ycombinator.com/item?id=41732634
+* analyze research papers https://elicit.com/
+* PDF https://dev.to/jagroop2001/building-a-chat-with-pdfs-using-pinataopenai-and-streamlit-3jb7
+* papers to podcasts https://www.fwdaudio.com/ https://x.com/barbell_fi
+* https://www.assemblyai.com/
+
+### img
+
+* image to video https://www.vidifyapp.com/
+* _OCR_: image to text e.g. PDF to plaintext https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194 https://getomni.ai/ocr-demo https://news.ycombinator.com/item?id=41971614
+
+---
+
+* video scraping https://simonw.substack.com/p/video-scraping-using-google-gemini
+* image recognition https://www.youtube.com/watch?v=XPA213k8G_U
+* image to spreadsheet https://news.ycombinator.com/item?id=41059821 https://en.wikipedia.org/wiki/IFTTT
+* deep fakes https://github.com/hacksider/Deep-Live-Cam
+* image search https://tembo.io/blog/image-search
+* https://github.com/GabAlpha/basilk https://perchance.org/ai-pixel-art-generator
+* Midjourney https://midlibrary.io/styles
+* DALL-E
+* Stable Diffusion
+* https://news.ycombinator.com/item?id=40437641
 
 # 🧪 TECHNIQUES
 
@@ -269,7 +343,7 @@ https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willi
 * https://explainextended.com/2023/12/31/happy-new-year-15/ https://news.ycombinator.com/item?id=40378499
 * https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math
 * how to teach https://news.ycombinator.com/item?id=38759877
-* _embeddings_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings/ https://blog.wilsonl.in/hackerverse/ https://www.youtube.com/watch?v=zzY64Qu8HHc https://news.ycombinator.com/item?id=41473518
+* _embeddings_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings/ https://blog.wilsonl.in/hackerverse/ https://www.youtube.com/watch?v=zzY64Qu8HHc https://news.ycombinator.com/item?id=41473518 https://www.youtube.com/watch?v=hB7sGE0W8CI
 * with notes https://github.com/reorproject/reor
 
 ## Monte Carlo
@@ -357,8 +431,6 @@ dot([1,2,3], [4,5,6])
 ```
 
 # 🟨️ ZA
-
-* _OCR_: image to text https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194
 
 ---
 
@@ -500,6 +572,7 @@ SCIKIT
 * `system.md` search engine
 
 BASICS
+* _Eliza_: https://web.njit.edu/~ronkowit/eliza.html
 * _NLP_: linguistics + CS
 * rule system (noun phrase can be followed by noun, article, etc.) to construct parse tree
 * use cases: speech synthesis http://aiplaybook.a16z.com/docs/guides/nlp speech to text https://www.fullstackpython.com/blog/transcribe-recordings-speech-text-assemblyai.html
@@ -551,51 +624,3 @@ SEMANTICS
 * https://news.ycombinator.com/item?id=40877136
 * train model on dickens, cowen
 * https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
-
-## usage
-
----
-
-https://platform.openai.com/docs/overview https://cookbook.openai.com/
-
-DOCS
-* _RAG_: document-based interactions https://github.com/sigoden/aichat#rag-chat-with-your-documents
-* https://simonw.substack.com/p/video-scraping-using-google-gemini
-* tokens https://github.com/simonw/ttok
-* AWS Textract https://github.com/simonw/textract-cli
-* chat with your docs https://github.com/Cinnamon/kotaemon
-* ingest all your notes https://news.ycombinator.com/item?id=41732634
-* analyze research papers https://elicit.com/
-* PDF https://dev.to/jagroop2001/building-a-chat-with-pdfs-using-pinataopenai-and-streamlit-3jb7
-* papers to podcasts https://www.fwdaudio.com/ https://x.com/barbell_fi
-* https://www.assemblyai.com/
-
-AUDIO
-* TTS https://github.com/fishaudio/fish-speech https://til.simonwillison.net/ios/listen-to-page Hugging Face https://til.simonwillison.net/macos/whisper-cpp
-* text to voice e.g. AWS Polly https://aws.amazon.com/blogs/aws/introducing-aws-b2b-data-interchange-simplified-connections-with-your-trading-partners/
-* transcription https://news.ycombinator.com/item?id=41199567 https://www.theguardian.com/media/2014/jan/22/ten-tools-for-digital-and-citizen-journalists-on-the-go
-* audio prompt + voice cloning for answer https://blog.untrod.com/2023/11/robot-dad.html https://elevenlabs.io/
-* voice clone https://www.jeffgeerling.com/blog/2024/elecrow-responded-apologized-ai-voice-cloning
-* speech to text https://github.com/kyutai-labs/moshi
-* generative music https://www.garbageday.email/p/suno-just-raised-lot-money
-* vocals https://audimee.com/
-* Siri https://github.com/homebrewltd/ichigo
-* mastering https://www.youtube.com/watch?v=wZRV2H4PK0Q
-
-IMG
-* video scraping https://simonw.substack.com/p/video-scraping-using-google-gemini
-* image recognition https://www.youtube.com/watch?v=XPA213k8G_U
-* image to spreadsheet https://news.ycombinator.com/item?id=41059821 https://en.wikipedia.org/wiki/IFTTT
-* deep fakes https://github.com/hacksider/Deep-Live-Cam
-* image search https://tembo.io/blog/image-search
-* https://github.com/GabAlpha/basilk https://perchance.org/ai-pixel-art-generator
-* Midjourney https://midlibrary.io/styles
-* DALL-E
-* Stable Diffusion
-* https://news.ycombinator.com/item?id=40437641
-
-ZA
-* text to SQL https://github.com/vanna-ai/vanna
-* to synthesize all comments on a product into a blurb https://blog.untrod.com/2024/04/llm-chatgpt-powered-django-admin-fields.html
-* copyedit a novel https://blog.untrod.com/2023/06/copy-editing-a-novel-with-chatgpt.html
-* detection https://deepmind.google/technologies/synthid/?utm_source=www.superpowerdaily.com&utm_medium=newsletter&utm_campaign=new-claude-ai-can-take-over-your-computer

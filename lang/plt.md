@@ -290,6 +290,7 @@ https://increment.com/programming-languages/language-history/
 * _1996_: OCaml
 * _2015_: Rust
 * _2016_: Zig
+* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/
 
 ## stdlib
 
@@ -379,7 +380,7 @@ misc
 * `#define`: constants https://www.youtube.com/watch?v=hsmGp3cp_50 0:50
 
 under the hood
-* _ABI_: https://en.wikipedia.org/wiki/Application_binary_interface https://news.ycombinator.com/item?id=24140848 https://gankra.github.io/blah/c-isnt-a-language/ https://hpyproject.org/
+* _ABI_: https://en.wikipedia.org/wiki/Application_binary_interface https://news.ycombinator.com/item?id=24140848 https://gankra.github.io/blah/c-isnt-a-language/ https://hpyproject.org/ https://news.ycombinator.com/item?id=41992899
 * _abstract machine_: C's version of a virtual machine https://words.steveklabnik.com/should-you-learn-c-to-learn-how-the-computer-works
 * _bitfield_: https://danluu.com/algorithms-interviews/
 * _compilation_: https://jvns.ca/blog/2019/10/28/sqlite-is-really-easy-to-compile/
@@ -507,6 +508,7 @@ SPRING
 LANGUAGE
 * little syntax https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
 * mutual interop w/ Java https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
+* Golang https://funcall.blogspot.com/2024/10/lisp-vs-golang.html
 
 ZA
 * written in Lisp: ITA, Emacs
@@ -521,7 +523,8 @@ LISPS
 * https://github.com/damn/core
 * _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
 * _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
-* _Racket_: based off Scheme, async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=19952714 https://news.ycombinator.com/item?id=23132621 https://news.ycombinator.com/item?id=8206038 https://news.ycombinator.com/item?id=13881535 https://news.ycombinator.com/item?id=32723784
+* _Janet_: https://github.com/janet-lang/janet https://github.com/cfoust/cy
+* _Racket_: based off Scheme, async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=19952714 https://news.ycombinator.com/item?id=23132621 https://news.ycombinator.com/item?id=8206038 https://news.ycombinator.com/item?id=13881535 https://news.ycombinator.com/item?id=32723784 https://docs.racket-lang.org/pollen/
 * _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
 
 ZA
@@ -590,9 +593,13 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 
 ## 🦀 Rust
 
+🗄️ `python/runtime.md` CPython > PyO3
+
 DESIGN
 * too complicated, learn Golang instead https://registerspill.thorstenball.com/p/glad-i-did-it-in-go https://registerspill.thorstenball.com/p/rust-prism
 > This blog post, Rewriting Rust, was very interesting. “I swear, it took more effort to learn pinning in rust than it took me to learn the entire Go programming language.” Some day (in the far future) I might write more about my feelings on Rust, but while reading this post I kept waiting for the paragraph in which they say what they would remove from the language. That paragraph never came and I think that’s one of the biggest sources of friction between me and Rust. https://registerspill.thorstenball.com/p/joy-and-curiosity-9
+* using in other languages https://news.ycombinator.com/item?id=41941451
+* for the big kids https://www.lambdafunctions.com/articles/racing-sed-with-rust https://github.com/rayon-rs/rayon
 
 CODEBASES TO LEARN FROM
 * tests with the source code https://github.com/b1rger/carl
@@ -601,7 +608,7 @@ CODEBASES TO LEARN FROM
 
 PROJECT STRUCTURE
 * basic TUI https://github.com/lusingander/btox
-* https://github.com/raphlinus/font-rs
+* src https://github.com/raphlinus/font-rs https://github.com/dotenvx/dotenvx
 * https://github.com/b1rger/carl
 
 STDLIB
@@ -612,6 +619,7 @@ STDLIB
 
 ---
 
+https://gopodcast.dev/episodes/046-lets-talk-about-rust-with-john-arundel
 https://simonwillison.net/tags/rust/
 https://chrisdone.com/posts/rust/
 https://drewdevault.com/2024/08/30/2024-08-30-Rust-in-Linux-revisited.html
@@ -641,6 +649,7 @@ https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUC
 
 https://ziglang.org/
 
+* https://www.youtube.com/watch?v=ug-KuDlMTYw
 * compared to Rust https://www.youtube.com/watch?v=Vxq6Qc-uAmE
 * overview https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203010 https://kristoff.it/blog/maintain-it-with-zig/
 * tutorial https://gist.github.com/ityonemo/769532c2017ed9143f3571e5ac104e50
@@ -666,7 +675,7 @@ memory management https://stackoverflow.com/a/3434252
 * _unmanaged code_: language w/ no memory management e.g. C, C++; sometimes used to mean "compiles directly to machine code" by people who do not understand that C has an abstract machine
 * _managed code_: language w/ memory management (Java); dynamic languages not typically described as such, more of a marketing term for enterprise languages
 * _garbage_: 
-* _garbage collection_: scheduled memory management; yes (Python, Java) no (Rust 'borrow checker') no-unless-you-hack-real-hard (C, C++)
+* _garbage collection_: scheduled memory management; yes (Python, Java) no (Rust 'borrow checker') no-unless-you-hack-real-hard (C, C++) https://news.ycombinator.com/item?id=41963259
 * _memory leak_: https://www.glean.com/blog/how-we-analyzed-and-fixed-a-golang-memory-leak
 * reference counting, prefetching https://signalsandthreads.com/memory-management/)
 

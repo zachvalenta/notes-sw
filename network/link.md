@@ -198,7 +198,7 @@ https://networkengineering.stackexchange.com/questions/52232/whats-the-differenc
 types
 * _simplex_: one-way communication
 * _unicast_: simplex + one recipient e.g. TCP
-* _multicast_: simplex + n recipients https://signalsandthreads.com/multicast-and-the-markets/
+* _multicast_: simplex + n recipients; aka syndication https://signalsandthreads.com/multicast-and-the-markets/
 * _broadcast_: simplex + all recipients
 * _duplex_: two-way communication
 * _half duplex_: non-simultaneous e.g. walkie talkie

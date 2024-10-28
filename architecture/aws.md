@@ -13,6 +13,8 @@
 
 ## 进步
 
+> Lambda, API Gateway, SQS, SNS, DynamoDB, Aurora Serverless, and more. We don’t run a single server. - Stedi job posting
+
 https://www.youtube.com/watch?v=jFrGhodqC08
 * https://roadmap.sh/best-practices/aws
 * Brown ccp @ 2:15:00
@@ -73,6 +75,8 @@ https://www.lastweekinaws.com/blog/why-aws-might-be-the-next-backbone-provider/
 
 💡 run scripts
 
+> For example, I have a user service with several endpoints for user management...it became apparent that I would need to do http routing inside each of the Lambda functions. After some research I found out that the most popular approach is to use aws-lambda-go-api-proxy along with your favorite HTTP router like Gin or Chi. While this approach let’s you use a popular HTTP router, it comes with the overhead of converting the APIGatewayProxyRequest to http.Request, so that it can be processed by the router. Another good HTTP routing library I found is LmdRouter which works directly with the APIGatewayProxyRequest and doesn’t have the overhead of the conversion. The router implementation uses a hashmap to store the keys, however, matching a route to a handler is still O(n) where n is the number of routes. It iterates every route and uses a regex to match the path. Considering I wanted my lambda functions to execute as fast as possible to decrease request time and possibly reduce costs I started to wonder if I could do better. https://blog.dimitarandreev.com/posts/writing-an-http-router-for-aws-lambda-functions-from-scratch-with-go/
+
 ---
 
 https://news.ycombinator.com/item?id=41941308
@@ -108,7 +112,7 @@ SERVICES
 * _KMS_: password vault; handling keypairs https://www.tastycidr.net/using-aws-vault-with-linux
 * _WAF_: firewall for Cloudfront https://aws.amazon.com/waf/ https://news.ycombinator.com/item?id=20570332
 
-REGIONS https://awsnetwork.lastweekinaws.com
+REGIONS https://awsnetwork.lastweekinaws.com https://benjdd.com/aws/
 * _region_: collection of AZ http://cloudping.bastionhost.org/en/
 * factors: svc, cost, distance to users 📹 Brown ccp [2:12:45]
 * svc by region; != every feature of a svc is available https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
@@ -214,18 +218,22 @@ data transfer https://www.lastweekinaws.com/blog/aws-data-transfer-charges-ingre
 
 ## S3
 
-💡 FTP server
+DESIGN
+* FTP server
 > Objects were popular at the time and S3 was labelled an object store, but everyone really knows that S3 is for files. S3 is a cloud filesystem, not an object-whatever. https://calpaterson.com/s3.html
+> S3 isn't a regular file system, it's a distributed object storage service with an API https://tech.marksblogg.com/minio-aws-s3-hdfs.html
 
 TOOLING
 * create creds https://github.com/simonw/s3-credentials
 * TUI viewer https://github.com/lusingander/stu
+* find misconfigured buckets https://github.com/sa7mon/S3Scanner
 
 ZA
 * logging: none by default but can do with CloudTrail or S3 Server Access Logging https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1
 * you used to get charged for 400 requests https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1 https://aws.amazon.com/about-aws/whats-new/2024/05/amazon-s3-no-charge-http-error-codes/
 > So, if I were to open my terminal now and type: `aws s3 cp ./file.txt s3://your-bucket-name/random_key` I would receive an AccessDenied error, but you would be the one to pay for that request. And I don't even need an AWS account to do so.
 * _Glacier_: S3 but cheaper in exchange for higher latency
+* _MinIO_: https://tech.marksblogg.com/minio-aws-s3-hdfs.html
 
 ---
 
@@ -256,7 +264,6 @@ FILE
 * client https://github.com/Miserlou/NoDB https://github.com/s3tools/s3cmd
 * https://medium.hostux.net/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1
 * https://news.ycombinator.com/item?id=30371604
-* https://tech.marksblogg.com/minio-aws-s3-hdfs.html
 * _block-level storage_: hard drive aaS e.g. AWS EBS for db backups
 
 tighten perms for S3 buckets
@@ -337,17 +344,20 @@ ZA
 
 ## IaC
 
+> The fourth stage managing cloud infrastructure is "clicking around in the web console, then lying about it." I call it "ClickOps." https://www.lastweekinaws.com/blog/clickops/
+
+* _CDK_: script (Python, Golang) https://docs.aws.amazon.com/cdk/v2/guide/home.html
+* complaints: https://www.lastweekinaws.com/blog/the-cdks-most-fundamental-flaw-is-fixable/ https://www.lastweekinaws.com/blog/9-ways-aws-cdk-headdesk/
+* _CloudFormation (CFN)_: JSON/YAML; Terraform for AWS
+> If something is likely to be static, it’s a good candidate for CFN. Ex: VPCs, load balancers, build & deploy pipelines, IAM roles, etc. If something is likely to be modified over time, then using CFN will likely be a big headache. Ex: Autoscaling settings. I like having a separate shell script to create things that CFN shouldn’t know about. And for things that are hard/impossible to script, I just do them manually. Ex: Route 53 zones, ACM cert creation/validation, CloudTrail config, domain registration. https://x.com/dvassallo/status/1154516910265884672
+
 ---
 
+* latency https://www.stedi.com/blog/relative-performance-tradeoffs-of-aws-native-provisioning-methods
 * list resources https://github.com/jckuester/awsls
 * https://github.com/PaulleDemon/AWS-deployment
 * clean up old resources https://github.com/genevieve/leftovers https://github.com/rebuy-de/aws-nuke https://github.com/servian/aws-auto-cleanup https://github.com/gruntwork-io/cloud-nuke
-
-CDK https://www.lastweekinaws.com/blog/the-cdks-most-fundamental-flaw-is-fixable/ https://www.lastweekinaws.com/blog/9-ways-aws-cdk-headdesk/
-https://www.lastweekinaws.com/blog/clickops/
-* _CloudFormation_: Terraform for AWS
-> If something is likely to be static, it’s a good candidate for CFN. Ex: VPCs, load balancers, build & deploy pipelines, IAM roles, etc. If something is likely to be modified over time, then using CFN will likely be a big headache. Ex: Autoscaling settings. I like having a separate shell script to create things that CFN shouldn’t know about. And for things that are hard/impossible to script, I just do them manually. Ex: Route 53 zones, ACM cert creation/validation, CloudTrail config, domain registration. https://x.com/dvassallo/status/1154516910265884672
-* _Config_: 🎯 track overall AWS setup
+* _Config_: track overall AWS setup
 
 ## IAM
 

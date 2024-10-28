@@ -2,39 +2,57 @@
 
 ## 参考
 
-📜 https://docs.docker.com/reference/
-🔍 https://github.com/veggiemonk/awesome-docker
-📚
-* Clinton linux in action
-* Evans https://wizardzines.com/zines/containers/ 
-* Galvin dinosaur ch 16
-* Takemura book of xen
-* Tanenbaum circus ch 7
-
 ## 进步
 
+QUESTIONS
+* alternatives to macOS install? 🗄️ components
+> desktop macos app too heavy https://github.com/docker/for-mac/issues/2297 https://news.ycombinator.com/item?id=41987857
+* alternative runtimes? 🗄️ containerization
+* nix > apt? https://pythonspeed.com/articles/reproducible-docker-builds-python/
+* using Poetry and uv inside Docker 🗄️ Python
+* ease of setting up web server 🗄️ `src.md` checklist
+
+TOOLING
+* VSC Docker extension https://github.com/Microsoft/vscode-docker/issues/150#issuecomment-462079524 https://www.youtube.com/watch?v=dihfA7Ol6Mw
+* Dockerfile lint https://github.com/hadolint/hadolint https://hadolint.github.io/hadolint/ https://github.com/goodwithtech/dockle
+* what files to ignore: `.git`, `local.db`, not `.dockerfile` https://gist.github.com/wassname/b25471b0f3bb2f9ff81f build context = tarball sent to daemon for image build https://codefresh.io/blog/not-ignore-dockerignore-2/
+
+---
+
+https://github.com/veggiemonk/awesome-docker
+IMPROVE WORKLOW
+* _tooling_: lint image, GUI https://github.com/amir20/dozzle https://github.com/jesseduffield/lazydocker https://github.com/will-moss/isaiah CLI https://github.com/j-bennet/wharfee
+
 CLEANUP
-https://github.com/sablierapp/sablier
+* dont use https://www.youtube.com/watch?v=wVil7wG-1yg
+* basic https://www.youtube.com/watch?v=Ud7Npgi6x8E
+* compose https://www.youtube.com/watch?v=HGKfE-cn9y4
+* https://danielquinn.org/blog/developing-with-docker/ https://news.ycombinator.com/item?id=41935741
+* https://github.com/sablierapp/sablier
 next-gen images https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/
-https://github.com/moncho/dry
-https://github.com/bcicen/ctop
+* https://github.com/moncho/dry
+* https://github.com/bcicen/ctop
 * https://roadmap.sh/docker
-https://github.com/pommee/Pocker
-https://www.youtube.com/watch?v=3e8J_pv-xJI
-https://www.youtube.com/watch?v=Ud7Npgi6x8E
-https://news.ycombinator.com/item?id=38913425
-https://github.com/robertpsoane/ducker
-https://github.com/mrjackwills/oxker
+* https://github.com/pommee/Pocker
+* https://www.youtube.com/watch?v=3e8J_pv-xJI
+* https://www.youtube.com/watch?v=Ud7Npgi6x8E
+* https://news.ycombinator.com/item?id=38913425
+* https://github.com/robertpsoane/ducker
+* https://github.com/mrjackwills/oxker
 * making things actually reproducible https://pythonspeed.com/articles/reproducible-docker-builds-python/
 * https://github.com/deluan/zsh-in-docker https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog
+* https://pythonspeed.com/products/pythoncontainer/#changelog https://pythonspeed.com/products/productionquickstart/#changelog
+* Celery, Redis https://saasitive.com/tutorial/django-celery-redis-postgres-docker-compose
+* Nginx https://github.com/zachvalenta/nginx-wsgi https://www.youtube.com/watch?v=Qw9zlE3t8Ko https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx
+* TLS https://testdriven.io/blog/django-lets-encrypt/
+* AWS https://testdriven.io/blog/django-docker-https-aws/
 
-IMPROVE WORKLOW
-* hot reload https://www.youtube.com/watch?v=YFl2mCHdv24 8:30
-> DRF/crud app already seems to be hot reloading
-* fresh volume when running locally
-* _ignore_: .git, local.db https://gist.github.com/wassname/b25471b0f3bb2f9ff81f build context https://codefresh.io/docker-tutorial/not-ignore-dockerignore-2/ https://alecthegeek.github.io/docker/2019/06/06/Docker-Build-With-No-Build-Context.html
-* _deps_: export prod-only deps, add `http` as dev dep
-* _tooling_: lint image, GUI https://github.com/amir20/dozzle https://github.com/jesseduffield/lazydocker https://github.com/will-moss/isaiah CLI https://github.com/j-bennet/wharfee https://github.com/veggiemonk/awesome-docker#terminal
+BRUSH UP ON THE BASICS WITH DJANGO https://www.youtube.com/watch?v=YFl2mCHdv24
+* https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
+* https://www.untangled.dev/2020/06/06/docker-django-local-dev
+* https://testdriven.io/courses/tdd-django
+* https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
+* https://github.com/godd0t/django-docker-quickstart
 
 * _22_: rf Kubernetes notes
 * _20_: docker-compose (handle container startup order) skeletons (SQLite, gunicorn, Postgres), secrets mgmt, workflow (build cache to speed rebuilds, use ARGs, Makefile rules for rebuild and shell) compose (variables for db creds, envs using multiple compose files)
@@ -42,6 +60,12 @@ IMPROVE WORKLOW
 * _17_: Pluralsight course, explain what a container is in a work meeting :)
 
 # 🚢 DOCKER
+
+📜 https://docs.docker.com/reference/
+🔍 https://github.com/veggiemonk/awesome-docker
+💻 repos (SQLite, Postgres, gunicorn, secrets) https://github.com/zachvalenta?tab=repositories&q=docker HTTPS https://testdriven.io/blog/django-docker-traefik/ https://www.youtube.com/watch?v=-hfejNXqOzA
+
+---
 
 OS STORAGE
 * `docker.raw`: allocated 32GB but only 3-4GB of images https://apple.stackexchange.com/q/391377
@@ -58,7 +82,7 @@ ZA
 * ssh: https://stackoverflow.com/q/18136389/6813490
 * socket https://blog.quarkslab.com/why-is-exposing-the-docker-socket-a-really-bad-idea.html
 
-## commands
+## cmd
 
 workflow
 * _start_: compose (`make up`) single container (`make build`, `make start`)
@@ -370,7 +394,7 @@ RUN ./install-packages.sh
 RUN apt-get -y install --no-install-recommends <pkg>
 ```
 
-* Dockerfile: instructuions to build image https://stackoverflow.com/a/45549372 lint https://github.com/hadolint/hadolint https://github.com/goodwithtech/dockle
+* Dockerfile: instructuions to build image https://stackoverflow.com/a/45549372
 ```dockerfile
 #######
 # 🏁 BASE & MISCELLANEA
@@ -446,31 +470,6 @@ buildtime
 * _not yet_: BuildKit and `--secret` https://docs.docker.com/develop/develop-images/build_enhancements/#new-docker-build-secret-information https://ponderosa.io/blog/docker/2019/04/13/secrets-in-docker-builds/ leaves trace of image file https://github.com/moby/moby/issues/38667
 * _bad ideas_: `ARG`/`ENV` https://docs.docker.com/engine/reference/builder/#arg https://vsupalov.com/docker-arg-env-variable-guide/ env file https://stackoverflow.com/a/46919859 `–build-arg` https://pythonspeed.com/articles/docker-build-secrets/
 
-## skeletons
-
-* _base_: https://github.com/zachvalenta/docker-flask
-* _Postgres_: https://github.com/zachvalenta/docker-flask-postgres
-* _SQLite_: https://github.com/zachvalenta/docker-flask-sqlite
-* _SQLite + gunicorn_: https://github.com/zachvalenta/docker-flask-sqlite-gunicorn
-* _config_: https://github.com/zachvalenta/docker-flask-envs-secrets
-* _config + SQLite_: https://github.com/zachvalenta/docker-flask-sqlite-config
-* _config + SQLite + gunicorn_: https://github.com/zachvalenta/docker-flask-sqlite-gunicorn-config
-
----
-
-* https://pythonspeed.com/products/pythoncontainer/#changelog https://pythonspeed.com/products/productionquickstart/#changelog
-* Celery, Redis https://saasitive.com/tutorial/django-celery-redis-postgres-docker-compose
-* Nginx https://github.com/zachvalenta/nginx-wsgi https://www.youtube.com/watch?v=Qw9zlE3t8Ko https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx
-* uWSGI
-* Nginx w/cache
-* Caddy
-* config templating
-* Mongo
-* Redis
-* TLS https://testdriven.io/blog/django-lets-encrypt/
-* AWS https://testdriven.io/blog/django-docker-https-aws/
-* publish skeletons! have a personal site with analytics, replace http with curl (if you haven't sorted the dev deps yet), create Github org, send this one out to Michael Kennedy
-
 ## storage
 
 📜 https://docs.docker.com/storage/
@@ -509,6 +508,15 @@ types https://stackoverflow.com/a/55366707 https://www.youtube.com/watch?v=YFl2m
 # 🟨 ZA
 
 ## containerization
+
+📚
+* Clinton linux in action
+* Evans https://wizardzines.com/zines/containers/ 
+* Galvin dinosaur ch 16
+* Takemura book of xen
+* Tanenbaum circus ch 7
+
+---
 
 > Linux containers were not built to be secure isolated sandboxes (like Solaris Zones or FreeBSD Jails). Instead they’re built upon a shared kernel model that utilizes kernel features to provide basic process isolation http://tech.paulcz.net/blog/future-of-kubernetes-is-virtual-machines/ https://blog.jessfraz.com/post/containers-zones-jails-vms/
 
@@ -569,6 +577,8 @@ VMWARE
 * _contention_: vm can't get resources scheduled from host
 
 ## Kubernetes
+
+---
 
 https://github.com/vladimirvivien/ktop
 https://roadmap.sh/kubernetes

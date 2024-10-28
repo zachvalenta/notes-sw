@@ -31,6 +31,7 @@ TAXONOMY https://en.wikipedia.org/wiki/Exploratory_programming
 📚
 * Beazley ch. 14
 * Seitz grey hat ch. 2
+* https://pragprog.com/titles/pbdp/debug-it/
 
 INTERNALS / DESIGN https://www.youtube.com/watch?v=QU158nGABxI https://www.youtube.com/watch?v=COa-JHYuW3M
 * `sys.settrace` registers callback on interpreter for function call, LOC executed, func return value, exceptions raised [3:45]
@@ -57,6 +58,7 @@ from IPython import embed; embed()
 * _ipdb_: https://stackoverflow.com/a/15976544/6813490 https://adamj.eu/tech/2021/02/21/improve-your-django-experience-with-ipython/
 
 ALTERNATIVES
+> pdb much better in 3.13 https://www.bitecode.dev/i/150706558/make-debugging-great-again
 * `print()`: if you don't know how to use a debugger https://twitter.com/raymondh/status/1266668437020897280 https://github.com/gruns/icecream https://github.com/cool-RR/PySnooper
 > It takes less time to decide where to put print statements than to single-step to the critical section of code https://news.ycombinator.com/item?id=26928696
 * tmux send-keys https://news.ycombinator.com/item?id=37172711 https://www.reddit.com/r/zellij/comments/13zqggd/sending_keys_to_another_terminal/ https://www.youtube.com/results?search_query=send-keys+tmux
@@ -74,10 +76,9 @@ ALTERNATIVES
 
 ## AST
 
-* https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
-* https://github.com/PyO3/pyo3 https://www.youtube.com/watch?v=UilujdubqVU
-> PyO3 is a Rust crate that allows you to write Python modules in Rust. It handles type conversion between Python and Rust, making it easy to call Rust functions from Python. You can use PyO3 to wrap Rust logic (including ORM operations) and expose it as a Python module.
-> Maturin simplifies the process of compiling Rust code into Python-compatible packages. This tool builds Rust libraries as Python packages (wheels) that can be installed and imported like any other Python module.
+---
+
+ZA
 * https://ward.readthedocs.io/en/latest/guide/writing_tests.html#using-assert-statements
 * https://www.youtube.com/watch?v=OjPT15y2EpE
 * inspect https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
@@ -220,6 +221,7 @@ FEATURES
 * testing https://github.com/ploomber/nbsnapshot https://www.youtube.com/watch?v=8wpBd-jfUTU
 * Markdown https://github.com/mwouts/jupytext
 * TOC https://jupyterlab.readthedocs.io/en/stable/user/toc.html https://jupyterbook.org/en/stable/intro.html https://github.com/fluentpython/example-code-2e/blob/master/01-data-model/data-model.ipynb
+* profiler https://github.com/robusta-dev/WhyProfiler
 
 INSTALL
 * Conda recommended https://jupyter.readthedocs.io/en/latest/install.html#id3
@@ -280,7 +282,6 @@ ZA
 * track state https://github.com/saurabh0719/constable
 * `locals`, `globals`, `dir` https://stackoverflow.com/a/21961813/6813490
 * inspect https://news.ycombinator.com/item?id=29947891 https://textual.textualize.io/blog/2023/07/27/using-rich-inspect-to-interrogate-python-objects/
-* pyclbr https://www.pythonmorsels.com/cli-tools/
 * 🗄️ `stdlib.md` IO
 
 STACK TRACES 🗄️ stdlib/profiling

@@ -8,8 +8,9 @@
 
 * backups https://wesbos.com/uses
 * replace previous (huge) email export with personal only https://www.google.com/search?hl=en&q=gmail%20export%20only%20subset https://webapps.stackexchange.com/a/67379
+* macOS storage (just use external storage?) https://news.ycombinator.com/item?id=41986777
 
-* _24_: port media/admin from Dropbox to mini23 and backup mini23
+* _24_: port media/admin from Dropbox to mini23 and backup mini23, keyboards (nuphy air 75, keychron k8)
 * _23_: mbp14 battery starts dying, buy mini23, port to mini23
 * _22_: port from `linux.md`, buy air22
 * _21_: macOS (failed upgrade to Big Sur) music (version control library)
@@ -108,7 +109,9 @@ TIME MACHINE
 * parking tickets
 
 MUSIC
+* dylan: desire, modern times, love and theft
 * dance: francis harris, jamie xx, danilov
+* electronic: drone
 * jazz: christian scott, alice coltrane, bill frisell
 * far: Aster Aweke
 * rock: spin doctors, mark kozelek, modest mouse, libertines, no doubt to singles, perfect, grateful dead europe 72, seger, everything from sui generis, trex, stones
@@ -118,8 +121,10 @@ MUSIC
 
 ### air-capp ➡️ mini23
 
+* dylan: triplicate
 * dance/techno: all
 > za (chemical brothers et al.)
+* rock/punk/80s: birthday party (mv to nick cave), fugazi
 
 ## reimage
 
@@ -153,7 +158,7 @@ test reimage
 
 ---
 
-* _storage cleanup_: https://www.macworld.com/article/2030221/macs/our-favorite-mac-cleanup-tips.html https://macpaw.com/cleanmymac https://macpaw.com/gemini https://daisydiskapp.com/ https://macpaw.com/cleanmymac newer macOS versions have 'Reduce Clutter' tool https://github.com/docker/for-mac/issues/2297
+* _storage cleanup_: https://www.macworld.com/article/2030221/macs/our-favorite-mac-cleanup-tips.html https://macpaw.com/cleanmymac https://macpaw.com/gemini https://daisydiskapp.com/ https://macpaw.com/cleanmymac macOS 'Reduce Clutter'
 * file security https://hacker-tools.github.io/security/
 
 prereqs
@@ -472,23 +477,24 @@ USB https://en.wikipedia.org/wiki/USB
 
 🔗 versions https://en.wikipedia.org/wiki/IPad#iPad
 
-| IPAD   | USED | NEW | DISPLAY | STORAGE | PENCIL |
-|--------|------|-----|---------|---------|--------|
-| mini   | 120  | 500 | 8       |  64     | ?      |
-| reg    | 170  | 350 | 11      |  64     | ?      |
-| air    | ---  | --- | 11      |  --     | ?      |
-| pro    | ---  | --- | --      |  --     | ?      |
-
 ---
+
+| IPAD   | STATUS  | USED  | NEW | DISPLAY | STORAGE | PENCIL |
+|--------|---------|-------|-----|---------|---------|--------|
+| mini   | buy     | 120   | 500 | 8       |  64     | ?      |
+| reg    | caution | 170   | 350 | 11      |  64     | ?      |
+| air    | buy     | ---   | --- | 11      |  --     | ?      |
+| pro    | neutral | ---   | --- | --      |  --     | ?      |
 
 ROUGH PLAN
 * buy used mini for golf ($150)
 * buy used reg for procreate ($170 + pencil $80)
 
-TABLET
-* notes: Gitlab web IDE
-* music production: GarageBand, Koala
-* courses from Khan Academy https://github.com/rand-net/khan-dl
+USAGE
+* drawing
+* golf
+* music
+* travel https://github.com/rand-net/khan-dl
 
 https://buyersguide.macrumors.com/#iPad-Air
 https://www.amazon.com/dp/B09G9FPHY6 
@@ -556,7 +562,7 @@ https://drewdevault.com/2020/02/18/Fucking-laptops.html
 CONSIDERATIONS
 * ✅ Mac: familiarity, hardware
 * ❌ Windows: pyenv is second-class citizen, WSL just something else to debug, unused to keybindings
-* ❌ Linux: no Ableton, hardware, apps, bluetooth https://github.com/darkhz/bluetuith
+* ❌ Linux: no Ableton, hardware, apps, bluetooth https://github.com/darkhz/bluetuith but if you do... https://www.youtube.com/@optimumtech/videos
 > be like having American Express
 
 🍎 APPLE
@@ -599,6 +605,7 @@ CONSIDERATIONS
 
 ---
 
+* https://news.ycombinator.com/item?id=41987359
 * https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
 * config on macOS https://news.ycombinator.com/item?id=34487066
 * 1080p vs. 4k for readability https://news.ycombinator.com/item?id=23551983 
@@ -677,8 +684,8 @@ __WhatsApp__ 🗓 summer 2018
 
 # ⌨ MECHANCIAL
 
-🧠 https://chatgpt.com/c/6712bd5e-1484-8004-8dc1-119c4a3b6347
 🗄️ `built.md` homes / studio
+🔗 https://www.reddit.com/r/MechanicalKeyboards/
 📙 https://shifthappens.site/#story-of-a-photo
 
 ## features
@@ -691,28 +698,30 @@ WHAT I WANT
 
 FEATURES
 * connection: usb-c is faster https://www.keychron.com/blogs/news/solid-wireless-connection-type-c-connection
-* layout: TKL https://www.keychron.com/blogs/archived/keyboard-buying-guide
+* layout: TKL https://www.keychron.com/blogs/archived/keyboard-buying-guide BYO https://news.ycombinator.com/item?id=41972550
 * lights
 * rotary knob: typically used for volume, page up/down https://www.reddit.com/r/MechanicalKeyboards/comments/12nfiqg/what_are_you_using_the_knob_for/?rdt=47962
-* programmable: QMK|VIA https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard https://www.youtube.com/watch?v=EWiOIVnrmMs
+* programmable: QMK|VIA https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard https://www.youtube.com/watch?v=EWiOIVnrmMs
 
 ---
 
+* group buys https://www.keyboard.university
 * plate, PCB https://www.amazon.com/Keychron-Wireless-Mechanical-Hot-Swappable-Programmable/dp/B0B97JZV99
 * tray for desk https://www.amazon.com/VIVO-Computer-Keyboard-Platform-MOUNT-KB05E/dp/B07HFDJCSL
 * touch typing https://www.keybr.com/#!game https://github.com/kraanzu/smassh
 * can you use Windows keyboards for macOS? https://www.durgod.com/product/s230-dracula/
-* mechanical https://www.youtube.com/results?search_query=mechanical+keyboard+for+macos https://www.reddit.com/r/MechanicalKeyboards/comments/89fbk4/whats_all_the_hype_about_mechanical_keyboards_im/?rdt=56069
-* mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 try this one https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/
+* mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/
 * layers https://news.ycombinator.com/item?id=34069927
 * wrist rest https://news.ycombinator.com/item?id=34276226
 * Linux vs. Macos https://www.youtube.com/watch?v=GKoz7mm2tNI
 * chicklet https://www.youtube.com/watch?v=8jM1brvJhzg 5:20 butterfly started with 2015 12' Macbook https://www.theverge.com/2020/5/4/21246223/macbook-keyboard-butterfly-magic-pro-apple-design https://support.apple.com/keyboard-service-program-for-mac-notebooks returned to normal scissor keyboard (aka 'magic') with 2020 16' Macbook Pro https://www.wsj.com/articles/apple-updates-ipad-macbook-air-with-new-keyboard-11584538891
 * remapping https://missing.csail.mit.edu/2019/os-customization/
 * stenography for transcription https://www.openstenoproject.org/plover/
+* BYO https://www.youtube.com/watch?v=7UXsD7nSfDY
 
 ## keycaps
 
+🧠 compatability https://chatgpt.com/c/6712bd5e-1484-8004-8dc1-119c4a3b6347
 🏪
 * Etsy
 * https://novelkeys.com/collections/keycaps
@@ -732,21 +741,28 @@ FEATURES
 * https://mechanicalkeyboards.com/
 * https://novelkeys.com/
 
+https://www.youtube.com/watch?v=9P74eCU19d0
+++ case https://www.keychron.com/products/keychron-keyboard-carrying-case
+
 KEYCHRON
 > only low-profile from keychron either don't have brown switches or do have ISO https://www.keychron.com/collections/low-profile-keyboard-collection/products/keychron-k1-max-qmk-via-wireless-custom-mechanical-keyboard
-* _c1_: 🎯 https://www.keychron.com/products/keychron-c1-pro-qmk-via-wired-mechanical-keyboard?variant=40615797391449
-* _k1_: out of stock https://www.reddit.com/r/NuPhy/comments/1brdzgy/will_there_ever_be_low_profile_tkl_80_layout/
-* _v3_: 🎯 $110 layout (80/TKL) profile (normal) https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/ https://www.amazon.com/dp/B0CW5B5KL8
+* _c1_: $75 https://www.keychron.com/products/keychron-c1-pro-qmk-via-wired-mechanical-keyboard?variant=40615797391449
+* _k1_: stockout https://www.reddit.com/r/NuPhy/comments/1brdzgy/will_there_ever_be_low_profile_tkl_80_layout/
+* _k8_: ✅ $110 Jack https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?variant=39755425349721 https://www.amazon.com/Keychron-Wireless-Mechanical-Hot-Swappable-Programmable/dp/B0B97JZV99
+* _v3_: $110 layout (80/TKL) profile (normal) https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/ https://www.amazon.com/dp/B0CW5B5KL8
 
 NUPHY
-* _halo75_: less scrunched than air75 layout? 🎯 https://www.amazon.com/nuphy-Mechancial-Kyeboard-Swappable-Bluetooth/dp/B0D5Q891F1
-* _air75 v2_: ✅ $125 layout (75) profile (low - 2.3mm) https://nuphy.com/products/air75-v2
-* slow shipping (but next time you can just buy from Amazon?)
-* layout too scrunched
+* _halo75_: less scrunched layout than air75? 🎯 https://www.amazon.com/nuphy-Mechancial-Kyeboard-Swappable-Bluetooth/dp/B0D5Q891F1
+* _air75 v2_: ✅ $125 layout (75, scrunched) profile (low - 2.3mm) slow shipping (but next time you can just buy from Amazon?) https://nuphy.com/products/air75-v2
 * _gem 80_: $150 layout (80/TKL) profile (normal) https://nuphy.com/collections/keyboards/products/gem80
 
+SPLIT
+* _Glove80_: $400 https://www.moergo.com/collections/glove80-keyboards
+* _Keychron q11_: $200
+* _Nocfree lite_: $180 https://www.youtube.com/watch?v=ye0JXSFB0uY
+* _Zsa voyager_: 🎯 $350 https://www.zsa.io/voyager
+
 ZA
-* split https://www.youtube.com/@calmcode-io/videos
 * _Apple wired_: ✅ $60 layout (100) profile (low - 2.3mm) https://www.amazon.com/dp/B07K7V1FWC
 * _Logitech mx mini_: https://www.logitech.com/en-us/products/keyboards/mx-keys-mini.920-010475.html
 * _Varmilo mac_: https://varmilo.com/products/mac?variant=45350805405915 keycaps https://varmilo.com/products/shurikey-gear-keycaps-sets-167-keys?pr_prod_strat=jac&pr_rec_id=c6579d995&pr_rec_pid=7642777518299&pr_ref_pid=8195613425883&pr_seq=uniform
@@ -757,6 +773,9 @@ ZA
 * https://milktooth.com/products/switches
 * https://switches.mx/
 
+* _actuation_: lighter typists prefer red/blue, heavier prefer greens and blacks
+* O rings https://www.youtube.com/watch?v=mvLyaSl3mmw
+
 SOUNDS https://www.youtube.com/watch?v=xtadlynfAZ8 https://pacificparadiseprints.shop
 * _clicky_: high pitched; Gateron blue
 * _creamy_: ✅ quiet, more resistance; Gateron brown|milky yellow
@@ -764,6 +783,7 @@ SOUNDS https://www.youtube.com/watch?v=xtadlynfAZ8 https://pacificparadiseprints
 
 ---
 
+* mixing https://www.youtube.com/watch?v=YEj-wnhNSIk
 * linear switches don't feel clicky https://www.youtube.com/watch?v=xtadlynfAZ8
 > One other small detail to keep an eye out for is north or south-facing switches. North-facing switches have the LED cutout facing toward the top of the keyboard - they're better at illuminating shine-through legends, but aren't compatible with common Cherry-profile keycaps. South-facing switches have the LED cutout facing toward the front of the keyboard, and they are compatible with Cherry-profile keycaps. Some keyboards have both north  and south-facing switches, so make sure to double-check before buying a new set of keycaps. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
 * it goes deep https://www.theremingoat.com/ https://keyboardsexpert.com/what-is-a-frankenswitch-keyboard-switch/
@@ -812,6 +832,7 @@ INVENTORY 🗄 `/Applications`
 * set default: system preferences > general
 * settings: zoom to 110, font fize large, downloads to desktop, switch search to DuckDuckGo, startup to open previous tabs
 * extensions: Vimium, Mercury Reader, EditThisCookie, PocketTube
+* clean pages: archive.vn, https://12ft.io/ https://github.com/wasi-master/13ft https://chromewebstore.google.com/detail/archive-page/gcaimhkfmliahedmeklebabdgagipbia?pli=1
 * _Arc_: https://en.wikipedia.org/wiki/Arc_(web_browser) https://www.youtube.com/watch?v=E9yZ0JusME4 https://news.ycombinator.com/item?id=36863925 https://news.ycombinator.com/item?id=41597250
 * _awrit_: in terminal?!? https://github.com/chase/awrit
 * _Brave_: way less storage hit (150M) than Chrome (1.2GB) 🗄️ `/Users/$USER/Library/Application Support`
@@ -822,7 +843,7 @@ CMD r  # reload
 CMD ALT i  # dev tools
 CMD b  # bookmarks
 ```
-* _Chrome_:
+* _Chrome_: what's the extension you're using to Youtube playlist org? https://sponsor.ajay.app/
 * _Lynx_: 'reader mode' https://github.com/bensadeh/circumflex
 * _Firefox_: https://wesbos.com/uses https://www.mozilla.org/en-US/firefox/developer/
 * _Zen_: https://zen-browser.app/ https://www.youtube.com/watch?v=VshptkoKfQo
@@ -845,7 +866,6 @@ system register https://github.com/TermiT/Flycut
 
 * Gmail: have to opt into keyboard shortcuts
 * Youtube_: shortcuts `?` skip to % `<num>` list all video titles in playst `youtube-dl --get-filename https://www.youtube.com/playlist?list=PLIiejGE6XOgm_iInCjfVc2Rd0ghl5zJAV > sampling.txt`
-* _archive.vn_: https://chromewebstore.google.com/detail/archive-page/gcaimhkfmliahedmeklebabdgagipbia?pli=1
 
 Firevim https://github.com/glacambre/firenvim
 
@@ -1124,10 +1144,14 @@ https://news.ycombinator.com/item?id=26691626
 
 ## window systems
 
-🔗 https://en.wikipedia.org/wiki/Windowing_system
+🗄️ `interfaces.md` terminal
+
+WINDOW MANAGERS
+* _aerospace_: 🎯 https://github.com/nikitabobko/AeroSpace https://nikitabobko.github.io/AeroSpace/guide https://www.youtube.com/watch?v=-FoWClVHG5g
+* _hyprland_: https://www.youtube.com/watch?v=2CP_9-jCV6A config hell https://www.youtube.com/watch?v=T__INNgTW1M
 
 SEMANTICS
-* _window system_: server that displays graphics
+* _window system_: server that displays graphics https://en.wikipedia.org/wiki/Windowing_system
 * protocols: x11 https://unix.stackexchange.com/q/517 Wayland, pipewire https://www.youtube.com/watch?v=jFxwPJpUwl0 https://github.com/sharkdp/pastel#get-a-list-of-all-x11--css-color-names https://en.wikipedia.org/wiki/Wayland_(display_server_protocol) https://en.wikipedia.org/wiki/X_Window_System
 * _window manager_: control windows displayed by window system https://en.wikipedia.org/wiki/Window_manager https://news.ycombinator.com/item?id=34591661 https://news.ycombinator.com/item?id=36880235 https://www.youtube.com/watch?v=xWIDvnNFl5I
 * _tiling window manager_: keyboard-driven arrangement of and switching btw windows

@@ -42,6 +42,7 @@ FILE WATCHERS
 * _watch_: built-in https://linux.die.net/man/1/watch https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command
 * _watchman_: shaky install https://facebook.github.io/watchman/ https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman
 * _hwatch_: https://github.com/blacknon/hwatch
+* _viddy_: 🎯 https://github.com/sachaos/viddy
 
 ## find (fd)
 
@@ -394,13 +395,13 @@ bat src/*.rs
 bat --line-range 227:236 $NOTES_DIR/sw/za/algos.md
 ```
 
-## search (rg)
+## search (ripgrep)
 
 🗄 `vim.md` utils
 
 ZA
 * _rga_: PDFs, Microsoft Office https://github.com/phiresky/ripgrep-all https://pdfgrep.org/
-* _srgn_: alternative to LSP https://github.com/alexpovel/srgn
+* _srgn_: 🎯 alternative to LSP https://github.com/alexpovel/srgn https://www.youtube.com/watch?v=TRJo2-P9AEY
 * _symbex_: Python symbols https://github.com/simonw/symbex
 
 RG 📜 https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
@@ -496,7 +497,6 @@ CORE
 * _which_: search for executables on $PATH https://github.com/Idnan/bash-guide#d-which full path https://nil.wallyjones.com/what-shell-am-i-using/
 * _tar_: https://switowski.com/blog/favorite-mac-tools/
 * _w_: who is logged in and what they're doing https://rachelbythebay.com/w/2018/03/26/w/
-* _watch_: https://github.com/sachaos/viddy
 
 COREUTILS
 * _coreutils_: ls, rm, cat, et al. https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands

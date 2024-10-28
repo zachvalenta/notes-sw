@@ -92,7 +92,7 @@ ZA
 * which-key
 * tree
 * dashboard: both have catppuccin integrations https://github.com/goolord/alpha-nvim https://github.com/nvimdev/dashboard-nvim https://github.com/mhinz/vim-startify https://www.youtube.com/watch?v=9IcXJvoPHCY https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-starter.md
-* Markdown https://github.com/lukas-reineke/headlines.nvim https://arnaudr.io/2020/08/17/modify-vim-syntax-files-for-your-taste/ https://github.com/preservim/vim-markdown https://vimtricks.com/p/vertical-alignment/ https://www.youtube.com/watch?v=XdDUGAePASA http://vimcasts.org/episodes/aligning-text-with-tabular-vim/
+* Markdown https://github.com/lukas-reineke/headlines.nvim https://arnaudr.io/2020/08/17/modify-vim-syntax-files-for-your-taste/ https://github.com/preservim/vim-markdown https://vimtricks.com/p/vertical-alignment/ https://www.youtube.com/watch?v=XdDUGAePASA http://vimcasts.org/episodes/aligning-text-with-tabular-vim/ exec code blocks https://news.ycombinator.com/item?id=41954254#41979534 https://github.com/gpanders/vim-medieval
 * databases https://github.com/tpope/vim-dadbod https://github.com/tpope/vim-dadbod https://github.com/kndndrj/nvim-dbee
 * replace vimv https://github.com/stevearc/oil.nvim
 * `H/M/L`
@@ -303,7 +303,6 @@ config
 * exclude dir from search `search.exclude` https://stackoverflow.com/a/33418660/6813490
 * file explorer outline follow cursor, sort by position, levels of nesting https://github.com/Microsoft/vscode/issues/54941 https://github.com/Microsoft/vscode/issues/58095
 * relative line number for Vim https://github.com/VSCodeVim/Vim/issues/423
-* workaround for VSC Docker extension popup https://github.com/Microsoft/vscode-docker/issues/150#issuecomment-462079524
 * clickable URLs https://github.com/Microsoft/vscode/issues/68333
 * Markdown: autoclose for backticks and quotes https://github.com/Microsoft/vscode/issues/38352 bold w/ double underscore https://github.com/mdickin/vscode-markdown-shortcuts/issues/57 https://github.com/mdickin/vscode-markdown-shortcuts/issues/58
 * open tabs to far right https://stackoverflow.com/a/46865080
