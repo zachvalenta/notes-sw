@@ -11,6 +11,17 @@
 
 ## 进步
 
+https://news.ycombinator.com/item?id=42078067
+> We love Postgres for its simplicity, power, and rich ecosystem. But engineers have to still get bogged down with heavyweight and expensive OLAP systems when connecting an analytics data stack.
+> Postgres is amazing at OLTP queries, but not for OLAP queries (large data scans and aggregations). Even in this case, we’ve still heard from countless scaling startups that they still try to use only a read replica to run analytics workloads since they don’t want to deal with the data engineering complexity of the alternative. This actually works surprising well initially, but starts to break for them as they scale or when integrating multiple data sources. Adding lots of indexes to support analytics also slows down their transactional write performance.
+> When growing out of “just use Postgres”, companies have to understand and wrangle complex ETL pipelines, CDC processes, and data warehouses — adding layers of complexity that defeat the simplicity that undermines their initial choice for Postgres as their data storage in the first place.
+> We thought there had to be a better way, so we’re building BemiDB. It’s designed to handle complex analytical queries at scale without the usual overhead. It’s a single binary that automatically syncs with Postgres data and is Postgres-compatible, so it’s like querying standard Postgres and works with all existing tools.
+> Under the hood, we use Apache Iceberg (with Parquet data files) stored in S3. This allows for bottomless inexpensive storage, compressed data in columnar files, and an open format that guarantees compatibility with other data tools.
+> We embed DuckDB as the query engine for in-memory analytics that work for complex queries. With efficient columnar storage and vectorized execution, we’re aiming for faster results without heavy infra. BemiDB communicates over the Postgres wire protocol to make all querying Postgres-compatible.
+> We want to simplify data stacks for companies that use Postgres by reducing complexity (single binary and S3), using non-proprietary data formats (Iceberg open tables), and removing vendor lock-in (open source). We'd love to hear your feedback! What do you think?
+
+> taxonomy: backup/replicate part of pipelines?
+* streaming, backups https://github.com/shayonj/pg_flo
 * https://www.cs.cmu.edu/~pavlo/blog/index.html
 * https://github.com/bytebase/bytebase
 * https://ngrok.com/blog-post/how-we-built-ngroks-data-platform https://github.com/amalshaji/portr
@@ -155,6 +166,7 @@ TOOLS
 * _DBT_: tool for transforms https://www.youtube.com/watch?v=l48zwwRSGeA 6:15 https://www.youtube.com/watch?v=O-tyUOQccSs
 * Piperider https://github.com/InfuseAI/piperider https://www.youtube.com/watch?v=03MyOkIo8Hg
 * workflow https://www.youtube.com/watch?v=qqlbYDfqeI4 11:00-11:15
+* for unstructured https://news.ycombinator.com/item?id=42043948
 * plain text vs. crappy GUI tools for analysts https://www.youtube.com/watch?v=M8oi7nSaWps 5:45 https://www.youtube.com/watch?v=qqlbYDfqeI4 9:40
 * https://www.youtube.com/watch?v=UVI30Vxzd6c https://www.youtube.com/watch?v=4eCouvVOJUw https://www.youtube.com/watch?v=iMxh6s_wL4Q
 * why: schema introspection, testing https://highgrowthengineering.substack.com/p/why-is-dbt-so-important- https://news.ycombinator.com/item?id=33846087
@@ -194,6 +206,7 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 
 ## test
 
+* https://pycon-archive.python.org/2024/schedule/presentation/46/index.html
 * compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
 * _Pandera_: type checking for dataframes https://endjin.com/blog/2023/03/a-look-into-pandera-and-great-expectations-for-data-validation https://www.peterbaumgartner.com/blog/testing-for-data-science/ https://www.union.ai/blog-post/pandera-joins-union-ai https://www.youtube.com/watch?v=Ax4pWz6kUDw
 > From there, I create v2 of the schema, which adds Checks to the columns. Checks are information we gain after exploring the data - for example, whether a column should always be positive, whether the column name should be formatted a certain way, or whether a column should only contain certain values (e.g. a bool represented as a 0/1 int). https://www.peterbaumgartner.com/blog/testing-for-data-science/
@@ -207,7 +220,9 @@ validator.expect_column_values_to_be_between(column="congestion_surcharge", min_
 
 # 📦 STORE
 
-📙 Kleppmann [90-95]
+📚
+* Kleppmann [90-95]
+* Serra https://www.amazon.com/Deciphering-Data-Architectures-Warehouse-Lakehouse/dp/1098150767
 
 > Every company I worked at prior to Stripe built huge walls around their data warehouse. This resulted in a severely limited flow of information through the organization, forcing teams to use their intuition more than data analysis, since the data team would always have a miles-long backlog of requests to fulfill. Stripe is the fist place I've worked where the data warehouse is open to everyone to query and extract information that is relevant to their job. Of course, there are still strict access controls and auditing around company data, but access to relevant datasets are granted by default to team members. https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe
 
@@ -339,6 +354,8 @@ OPTIONS https://chatgpt.com/c/670d2ddc-9e9c-8004-a9a5-1852da15b853
 
 ---
 
+start here https://pycon-archive.python.org/2024/schedule/presentation/109/index.html
+
 SEMANTICS
 > https://github.com/pola-rs/polars
 > Ibis is a dataframe frontend to query engines https://ibis-project.org/
@@ -370,6 +387,8 @@ ALTERNATIVES
 
 ---
 
+https://pycon-archive.python.org/2024/schedule/presentation/130/index.html
+https://changelog.com/news/big-data-is-dead-analytics-is-alive-LGl0
 https://softwareengineeringdaily.com/2024/08/08/duckdb-with-hannes-muhleisen/
 
 https://www.youtube.com/watch?v=MCa0fAyfiRM

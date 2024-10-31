@@ -6,7 +6,7 @@
 
 ZOLA DEPLOYMENT
 > blog auth? what is really the point of your site? 🗄️ `tmp.md`
-> syndication? https://www.youtube.com/watch?v=WYqnxCFJoLE
+> syndication? https://www.youtube.com/watch?v=WYqnxCFJoLE https://x.com/jeremyjkun/status/1798789885966602419 no traffic from Google -> "whatever Google and Twitter are doing right now, unless your blog post lands on Hacker News front page, you basically get no more traffic anymore." https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 * DNS tools to diff `zachvalenta.com` vs. `zjayv.com`
 * learn Github actions
 * specify `index.html` for GH Pages: `publish_dir` https://chatgpt.com/share/66f4a7c1-ea3c-8004-8327-46a9840bf1d5 https://github.com/shalzz/zola-deploy-action/blob/master/README.md#custom-domain symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying https://stackoverflow.com/questions/42941170/how-to-set-up-github-pages-to-look-for-index-html-in-a-different-location https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository or Cloudflare https://chevyray.dev/blog/how-this-site-is-made/ or Netlify https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/
@@ -562,7 +562,9 @@ FORMS
 
 ## SSG
 
-🗄️ `infra.com` hosting
+🗄️
+* `infra.com` hosting
+* `sociology.com` RSS
 
 ZOLA 📜 https://github.com/getzola/zola
 * features: hot reload, tags, TOC https://chevyray.dev/blog/creating-175-fonts/
@@ -572,6 +574,7 @@ ZOLA 📜 https://github.com/getzola/zola
 
 FEATURES
 * hot reload
+* browser `python -m http.server` https://www.pythonmorsels.com/cli-tools/
 * sitemap https://otterwiki.com/-/index https://werc.cat-v.org/sitemap
 * _metadata_: title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/ linking https://github.com/erwald/blog/blob/master/_data/series.json https://danilafe.com/blog/blog_microfeatures/
 * advanced metadata https://gwern.net/metadata/annotation/backlink/https%253A%252F%252Fpublicdomainreview.org%252Fessay%252Four-masterpiece-is-the-private-life-in-pursuit-of-the-real-chateaubriand%252F.html
@@ -594,17 +597,6 @@ SEARCH
 * _lunr.js_: https://github.com/olivernn/lunr.js https://clearerthinkingpodcast.com/#episodes
 * _Stork_: https://stork-search.net/ https://danilafe.com/search/
 * _TinySearch_: https://github.com/tinysearch/tinysearch https://news.ycombinator.com/item?id=23474134
-
-SOCIAL
-* newsletter: https://www.scattered-thoughts.net/ https://www.erichgrunewald.com/newsletter/ https://www.benkuhn.net/ https://www.ntietz.com/newsletter/ https://thisisimportant.net/topics/newsletter/
-> Congratulations, you are now on the list. Look out for an email sometime in the indefinite future.
-> You've been sent a verification email with a link that you need to click, because that's how this always works. Check your inbox for a message from me@computer.rip. If you still haven't received it after an appropriate seeming amount of time, cross your fingers and try again
-> In the future, you will be permitted (but not encouraged) to unsubscribe using a link at the end of each message.
-* webring https://en.wikipedia.org/wiki/IndieWeb https://xn--sr8hvo.ws/ https://www.jvt.me/
-* webmentions https://indieweb.org/static_site
-* comments: HN, MR https://github.com/umputun/remark42 https://lists.sr.ht/~skeeto https://chevyray.dev/ask/
-> Folks wanted to talk about stuff where they already were, rather than centralizing that conversation on individual blogs. https://news.ycombinator.com/item?id=30853711
-* RSS generation
 
 SSGs 🗄️ `algos.md` tree / treebuilders
 * Emacs org mode

@@ -220,13 +220,14 @@ edit
 
 🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
 
-dev containers https://github.com/michidk/vscli
 * walled garden https://news.ycombinator.com/item?id=41907350
+* switch dir, switch project in IDE https://github.com/dandavison/wormhole
 
 THINGS I'M NOTICING ABOUT VSC
 * autocomplete works for any word in the workspace
 * prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421
 * constantly wipes out the outliner and requires Vim action to prompt redraw
+* symbol search doesn't work after git pull
 
 WORKSPACES 📜 https://code.visualstudio.com/docs/editor/multi-root-workspaces 
 * _workspace_: dir(s) in scope for search https://stackoverflow.com/a/50185038
@@ -374,8 +375,8 @@ FEATURES
 * feedback: notebooks, REPL https://zed.dev/releases/stable/0.146.3
 * remote dev 🗄️ `src.md` denv > cloud
 * GPT built-in https://zed.dev/releases/stable/0.147.2 https://zed.dev/releases/stable/0.149.3 https://zed.dev/blog/replhttps://zed.dev/blog/zed-ai
-* pairing tools
-* project mgmt https://stevedylan.dev/posts/leaving-neovim-for-zed/#plugin-replacements
+* collab https://zed.dev/docs/collaboration
+* project mgmt https://stevedylan.dev/posts/leaving-neovim-for-zed/#plugin-replacements https://zed.dev/docs/channels
 * pkg mgmt: just works with Poetry
 * remote dev https://zed.dev/releases/stable/0.145.1
 * search https://zed.dev/releases/stable/0.152.3

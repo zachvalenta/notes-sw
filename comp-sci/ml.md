@@ -41,7 +41,6 @@ building into projects https://news.ycombinator.com/item?id=40857589
 
 ZA
 * structured output https://news.ycombinator.com/item?id=40713952
-* https://notebooklm.google/
 * Claude https://www.anthropic.com/ https://x.com/AnthropicAI/status/1803790681971859473
 * https://news.ycombinator.com/item?id=40441945
 * custom GPT https://talkpython.fm/episodes/show/456/building-gpt-actions-with-fastapi-and-pydantic
@@ -57,11 +56,9 @@ ZA
 * use when coding https://realpython.com/chatgpt-coding-mentor-python/
 * use when reading https://www.reddit.com/r/ChatGPT/comments/17p968u/leaving_chatgpt_voice_on_while_reading_a_book_is/?rdt=52836 https://marginalrevolution.com/marginalrevolution/2023/11/the-early-days.html
 * https://twitter.com/patio11/status/1728018125398978659/photo/1
-* run locally https://github.com/Mozilla-Ocho/llamafile
 * training on literature https://news.ycombinator.com/item?id=25607809 https://news.ycombinator.com/item?id=24884789 
 * _agent_: give it a dataset, it writes the paper https://www.oneusefulthing.org/p/almost-an-agent-what-gpts-can-do
 * respond to social pressure https://twitter.com/AndrewCurran_/status/1720177766283505724
-* run locally https://github.com/getumbrel/llama-gpt
 * use to study math https://news.ycombinator.com/item?id=37963453
 * pretty transparent https://twitter.com/zoink/status/1599281052115034113
 * tooling https://github.com/eth-sri/lmql
@@ -100,13 +97,67 @@ https://stratechery.com/2023/ai-and-the-big-five/
 * ethics vs. alignment https://scottaaronson.blog/?p=7042 ethics as red herring https://blog.cerebralab.com/AI_alarmism_and_the_misinformed_position https://news.ycombinator.com/item?id=35146676
 * success and failures https://marginalrevolution.com/marginalrevolution/2023/01/chatgpt-and-the-revenge-of-history.html
 
-## code assist
+## clients
 
-> why you need: gfold, basilk (output formatted json, https://github.com/skanehira/github-tui) lazygit (option to not add dir to recently_visited) https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
+---
+
+Can you give a taxonomy of $FOO in the form of a tree, like this?
+```sh
+├── root
+│   └── nodes
+│   └──── leaves
+```
+
+> sort these
+
+* DDG offers bang (`ai`), slightly faster REPL but loses all org functionality
+* emacs https://github.com/karthink/gptel
+* _aichat_: 🎯 https://github.com/sigoden/aichat/issues/924 https://github.com/sigoden/aichat 
+* _ch_: 🎯 https://github.com/dnmfarrell/ch https://blog.dnmfarrell.com/post/chatgpt-at-the-terminal/
+* _chat-macOS_: https://github.com/huggingface/chat-macOS https://news.ycombinator.com/item?id=41927624
+* _chatgpt-cli_: 🎯 Markdown https://github.com/kardolus/chatgpt-cli
+* _ell_: Bash https://github.com/simonmysun/ell
+* _gpt4all_: local https://github.com/nomic-ai/gpt4all
+* _lmstudio_: https://lmstudio.ai/
+* _jan_: 🎯 https://github.com/janhq/jan
+* _khoj_: 🎯 https://github.com/khoj-ai/khoj
+* _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm https://simonw.substack.com/p/video-scraping-using-google-gemini plugins for models https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3 https://simonw.substack.com/p/run-prompts-against-images-audio https://simonw.substack.com/p/claude-35-haiku
+* _msty_: https://msty.app/
+* _mods_: 🎯 Markdown output https://github.com/charmbracelet/mods
+* continue conversation https://github.com/charmbracelet/mods/issues/197
+* _oterm_: for Ollama https://github.com/ggozad/oterm
+* _tenere_: 🎯 file output, no Homebrew install yet https://github.com/pythops/tenere https://github.com/pythops/tenere/issues/31
+* _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
+
+---
+
+OPEN
+* _Centaur_: https://x.com/marcel_binz/status/1850806691958313160
+* _Gemma_: https://ai.google.dev/gemma
+* _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model) uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
+* _ollama_: https://ollama.com/
+
+* run locally https://github.com/getumbrel/llama-gpt
+* run locally https://github.com/Mozilla-Ocho/llamafile
+* running locally, llamafile https://news.ycombinator.com/item?id=40424519
+* code prompt: https://ollama.com/blog/how-to-prompt-code-llama https://ollama.com/blog/run-code-llama-locally Codestral https://ollama.com/blog/continue-code-assistant
+
+### code assist
+
+PROJECTS
+* gfold https://github.com/nickgerace/gfold/issues/261
+* basilk: alphabetic sort projects, JSON output
+* lazygit (option to not add dir to recently_visited) https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
 
 OPTIONS
+> retry Claude for Zed integration
+* BYO https://news.ycombinator.com/item?id=42078536
+* _Aide_: https://news.ycombinator.com/item?id=42063346
 * _Avante_: Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835
-* _Cursor_: closed source https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203
+* _cline_: https://github.com/cline/cline
+* _Cursor_: closed source https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203 https://news.ycombinator.com/item?id=41988211 https://news.ycombinator.com/item?id=41987367
+* _Copilot_: multi-model https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
+* _TypingMind_: https://news.ycombinator.com/item?id=41988306
 * _Void_: https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
 
 ---
@@ -139,7 +190,6 @@ https://www.youtube.com/watch?v=dkV01hBdhZE
 
 > LLMs are good at explaining code. Give it code in a language you don't understand and it will explain it with 90% accuracy. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
 
-* code prompt: https://ollama.com/blog/how-to-prompt-code-llama https://ollama.com/blog/run-code-llama-locally Codestral https://ollama.com/blog/continue-code-assistant
 * math: https://ollama.com/blog/wizardmath-examples
 * Copilot
 * Cody https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
@@ -148,29 +198,7 @@ https://www.youtube.com/watch?v=dkV01hBdhZE
 * https://www.youtube.com/watch?v=MzFr7iXsESs
 * https://simonwillison.net/2023/Dec/31/ai-in-2023/
 
-## clients
-
-FILE FMT https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a https://chatgpt.com/c/671ebbd6-c110-8004-a519-0f723970d64c
-* streaming https://til.simonwillison.net/llms/streaming-llm-apis
-* JSON: Superpower ChatGPT, Claude https://github.com/simonw/claude-to-sqlite https://simonw.substack.com/p/everything-i-built-with-claude-artifacts https://support.anthropic.com/en/articles/9450526-how-can-i-export-my-claude-ai-data
-> you've more in Elia about JSON export
-* Markdown: https://simonw.substack.com/p/video-scraping-using-google-gemini
-* XML: https://github.com/simonw/files-to-prompt
-
-OPTIONS
-> get API tier, try mods, export current conversations https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a do you really need to export current? just incorporate into your notes and delete, leaving anything outstanding. your notes is the final downstream for everything (excluding code, music, etc.), hence LLMs are upstream. the goal with this is to 1) reduce friction re: queries 2) better...system message / prompts / RAG 3) history / stats 4) tags
-* _aichat_: 🎯 https://github.com/sigoden/aichat/issues/924 https://github.com/sigoden/aichat 
-* _chat-macOS_: https://github.com/huggingface/chat-macOS https://news.ycombinator.com/item?id=41927624
-* _chatgpt-cli_: 🎯 Markdown https://github.com/kardolus/chatgpt-cli
-* _ell_: Bash https://github.com/simonmysun/ell
-* _gpt4all_: local https://github.com/nomic-ai/gpt4all
-* _khoj_: 🎯 https://github.com/khoj-ai/khoj
-* _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm https://simonw.substack.com/p/video-scraping-using-google-gemini plugins for models https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3 https://simonw.substack.com/p/run-prompts-against-images-audio
-* _mods_: 🎯 Markdown output https://github.com/charmbracelet/mods
-* continue conversation https://github.com/charmbracelet/mods/issues/197
-* _oterm_: for Ollama https://github.com/ggozad/oterm
-* _tenere_: 🎯 file output, no Homebrew install yet https://github.com/pythops/tenere https://github.com/pythops/tenere/issues/31
-* _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
+### elia
 
 ELIA 📜 https://github.com/darrenburns/elia
 * config fs: `$HOME/.config`
@@ -194,32 +222,45 @@ Say you have a CLI program that needs a secret (e.g. an API key). The secret nee
 * the secret would be exposed to all other programs running on your machine
 ```
 
-## features
+### features
 
+> Claude from the browser https://news.ycombinator.com/item?id=42012412
+
+> get API tier, try mods, export current conversations https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a do you really need to export current? just incorporate into your notes and delete, leaving anything outstanding. your notes is the final downstream for everything (excluding code, music, etc.), hence LLMs are upstream. the goal with this is to 1) reduce friction re: queries 2) better...system message / prompts / RAG 3) history / stats 4) tags
+
+FEATURES
 * folders: ❓ does anyone offer? https://chatgpt.com/c/67108642-c0cc-8004-b985-28773a5764fb
 * search: ❓ does anyone offer?
 * export: 🗄️ Elia
+
+FILE FMT https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a https://chatgpt.com/c/671ebbd6-c110-8004-a519-0f723970d64c
+* streaming https://til.simonwillison.net/llms/streaming-llm-apis
+* JSON: Superpower ChatGPT, Claude https://github.com/simonw/claude-to-sqlite https://simonw.substack.com/p/everything-i-built-with-claude-artifacts https://support.anthropic.com/en/articles/9450526-how-can-i-export-my-claude-ai-data
+> you've more in Elia about JSON export
+* Markdown: https://simonw.substack.com/p/video-scraping-using-google-gemini
+* XML: https://github.com/simonw/files-to-prompt
 
 ## models
 
 🛠️ benchmark https://arena.lmsys.org/
 
 YES
-* _ChatGPT_: web client (no search/tags/org/page up, dark mode is bad for seeing prompt) native client (global hotkey conflicts with iterm but you get search https://openai.com/chatgpt/mac/)
+* _ChatGPT_:  native client (global hotkey conflicts with iterm but you get search https://openai.com/chatgpt/mac/)
+* web client: search added 241031 (intra-doc but slow, none by title), no tags/org/page up, dark mode is bad for seeing prompt
 * _Mistral_: less polished but fast + search https://chat.mistral.ai/chat
 * _Perplexity_: search/org https://www.perplexity.ai/
 
 NO
-* _Claude_: web client has search + fast input / good UI, allegedly the best but GPT legacy model beat it, has native client https://x.com/emollick/status/1849168452914938082 https://simonwillison.net/2024/Oct/21/claude-artifacts/ https://darioamodei.com/
+* _Claude_: web client has search + fast input / good UI
+* allegedly the best but GPT legacy model beat it and the other time I tried it admitted to fabricating data https://x.com/emollick/status/1849168452914938082 https://simonwillison.net/2024/Oct/21/claude-artifacts/ https://darioamodei.com/
 * _Gemini_: no search/tags/org, looks low-effort https://simonw.substack.com/p/video-scraping-using-google-gemini
 * _Grok_: seems tied to Twitter https://grok.x.ai/ 
 
 ---
 
-OPEN
-* _Gemma_: https://ai.google.dev/gemma
-* _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model) uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
-* _ollama_: https://ollama.com/
+* features: moderation, tuning to domain
+* Mixtral
+* Haiku
 
 ## prompts
 
@@ -253,13 +294,12 @@ https://platform.openai.com/docs/overview https://cookbook.openai.com/
 ### audio
 
 TYPES https://elevenlabs.io/
-* TTS:
-> Everyone is talking about the new hashtag#AI Notebook LM tool from Google that lets you create podcasts from articles and other sources. I decided to try it for myself, using one of my prior pieces, The Upside and Downside of AI, as the basis for the podcast. The result, which you can listen to in the article, is simply amazing. It doesn't just read the article - it has a discussion between two "people" about it that is very engaging. https://arnoldkling.substack.com/p/llm-links-b9d
-> Meta recently introduced NotebookLlama, an "open" version of Google’s podcast-generating feature found in NotebookLM. Leveraging Meta's Llama models, NotebookLlama is capable of creating conversational, podcast-style digests of uploaded text files, such as PDFs of news articles or blog posts. This technology aims to replicate the interactive storytelling aspect of Google's viral tool, adding its own elements of dramatization and interruptions to make the content sound more dynamic. https://www.superpowerdaily.com/p/google-preps-jarvis-ai-agent-that-works-in-chrome
-
-* STS
 * dubbing
 * voice clone
+* _TTS_: https://notebooklm.google/ https://news.ycombinator.com/item?id=41964980
+> Everyone is talking about the new hashtag#AI Notebook LM tool from Google that lets you create podcasts from articles and other sources. I decided to try it for myself, using one of my prior pieces, The Upside and Downside of AI, as the basis for the podcast. The result, which you can listen to in the article, is simply amazing. It doesn't just read the article - it has a discussion between two "people" about it that is very engaging. https://arnoldkling.substack.com/p/llm-links-b9d
+> Meta recently introduced NotebookLlama, an "open" version of Google’s podcast-generating feature found in NotebookLM. Leveraging Meta's Llama models, NotebookLlama is capable of creating conversational, podcast-style digests of uploaded text files, such as PDFs of news articles or blog posts. This technology aims to replicate the interactive storytelling aspect of Google's viral tool, adding its own elements of dramatization and interruptions to make the content sound more dynamic. https://www.superpowerdaily.com/p/google-preps-jarvis-ai-agent-that-works-in-chrome
+* _STS_: https://news.ycombinator.com/item?id=41941845
 
 ---
 
@@ -276,10 +316,17 @@ TYPES https://elevenlabs.io/
 
 ### docs
 
+📙 https://www.amazon.com/gp/product/1098150961
+
 ---
 
-* _RAG_: document-based interactions https://github.com/sigoden/aichat#rag-chat-with-your-documents
+* _RAG_: document-based interactions https://github.com/sigoden/aichat#rag-chat-with-your-documents https://changelog.com/practicalai/288 https://us.pycon.org/2024/schedule/presentation/103/index.html
 > Claude's extensive context window has also transformed their approach to handling large codebases. When the 200K context window was released, Hedley notes they "ripped out the entire RAG and just put it in the context window instead and it went from 60 percent accuracy to 98. It was quicker, cheaper, better, everything." This combination of automation, speed, and accuracy has fundamentally changed how Headstart approaches software development. https://www.anthropic.com/customers/headstart
+RAG, vector https://news.ycombinator.com/item?id=41105130 https://en.wikipedia.org/wiki/Retrieval-augmented_generation https://retool.com/blog/retrieval-augmented-generation https://www.youtube.com/watch?v=Q75JgLEXMsM https://www.youtube.com/watch?v=PJaqp5Kdwz0
+* how to teach https://news.ycombinator.com/item?id=38759877
+* _embeddings_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings/ https://blog.wilsonl.in/hackerverse/ https://www.youtube.com/watch?v=zzY64Qu8HHc https://news.ycombinator.com/item?id=41473518 https://www.youtube.com/watch?v=hB7sGE0W8CI https://news.ycombinator.com/item?id=42013762 * try it out https://github.com/taylorai/aiq
+* with notes https://github.com/reorproject/reor
+https://www.amazon.com/gp/product/1098107969
 * _NotebookLM_: https://notebooklm.google.com/ https://simonw.substack.com/p/video-scraping-using-google-gemini
 * https://simonw.substack.com/p/video-scraping-using-google-gemini
 * tokens https://github.com/simonw/ttok
@@ -338,13 +385,9 @@ TYPES https://elevenlabs.io/
 ---
 
 * chess https://arxiv.org/pdf/2402.04494 https://x.com/sytelus/status/1848160140278555049
-* running locally, llamafile https://news.ycombinator.com/item?id=40424519
 * https://news.ycombinator.com/item?id=40416362
 * https://explainextended.com/2023/12/31/happy-new-year-15/ https://news.ycombinator.com/item?id=40378499
 * https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math
-* how to teach https://news.ycombinator.com/item?id=38759877
-* _embeddings_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings/ https://blog.wilsonl.in/hackerverse/ https://www.youtube.com/watch?v=zzY64Qu8HHc https://news.ycombinator.com/item?id=41473518 https://www.youtube.com/watch?v=hB7sGE0W8CI
-* with notes https://github.com/reorproject/reor
 
 ## Monte Carlo
 
@@ -420,7 +463,8 @@ TYPES
 * _PyTorch_: superceded Tensorflow https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/ NumPy that can run in parallel on GPUs; tensor (array 类似 NumPy array) scalar (single value) vector (array) matrix (2d array) tensor (multi-dimensional array) https://aiweirdness.com/post/189170306297/how-to-begin-a-novel alternative https://github.com/geohot/tinygrad https://github.com/Lightning-AI/lightning
 * _CUDA_: GPUs aaS
 * _sci-kit learn_: https://jakevdp.github.io/PythonDataScienceHandbook/
-* _Matplotlib_: Matlab for Python https://jakevdp.github.io/PythonDataScienceHandbook/
+* _Matplotlib_: eaten by Python https://realpython.com/podcasts/rpp/197/
+* Matlab for Python https://jakevdp.github.io/PythonDataScienceHandbook/
 * _Numpy_: subset of scipy https://jakevdp.github.io/PythonDataScienceHandbook/ 📙 Trask 44
 ```python
 # numpy.array.dot https://stackoverflow.com/a/35208273 📙 Trask 3.35
@@ -434,7 +478,7 @@ dot([1,2,3], [4,5,6])
 
 ---
 
-* try it out https://github.com/taylorai/aiq
+* legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html
 * contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
 * BYO https://medium.com/@msouza.os/llm-from-scratch-with-pytorch-9f21808c6319 https://youtu.be/kCc8FmEb1nY
 * learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
@@ -467,10 +511,6 @@ REPOS
 https://www.freecodecamp.org/news/get-started-with-hugging-face/ https://pola.rs/posts/polars-hugging-face/ https://github.com/huggingface/transformers https://astral.sh/blog/uv-unified-python-packaging
 https://huggingface.co/stabilityai/stable-diffusion-3-medium
 https://realpython.com/huggingface-transformers/
-
-RAG, vector https://news.ycombinator.com/item?id=41105130 https://en.wikipedia.org/wiki/Retrieval-augmented_generation https://retool.com/blog/retrieval-augmented-generation https://www.youtube.com/watch?v=Q75JgLEXMsM https://www.youtube.com/watch?v=PJaqp5Kdwz0
-
-https://www.amazon.com/gp/product/1098107969
 
 https://www.nbcnews.com/tech/internet/hunting-ai-bots-four-words-trick-rcna161318
 

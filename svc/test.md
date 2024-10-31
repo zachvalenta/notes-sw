@@ -140,6 +140,8 @@ ZA
 
 # 🕳️ INTEGRATION
 
+* _golden file_: reference for tests covering src that has large text output https://chatgpt.com/c/672a6850-7af0-8004-abe9-710f95ad83da https://lucapette.me/writing/writing-integration-tests-for-a-go-cli-application/
+
 IDEAS
 * functional? https://terrastruct.com/blog/post/functional-testing-with-your-database-in-go/
 * _testing external resources_: use real thing, use Docker version https://github.com/schireson/pytest-mock-resources/ https://yanglinzhao.com/posts/test-elasticsearch-in-django
@@ -253,6 +255,8 @@ TEST TYPES
 ---
 
 https://pythonspeed.com/articles/faster-db-tests/
+
+https://pycon-archive.python.org/2024/schedule/presentation/26/index.html
 
 * _mock_: override method so you can test; `unittest.mock` vs. `pytest.monkeypatch` https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/ mock vs. magicmock https://stackoverflow.com/questions/17181687/mock-vs-magicmock https://realpython.com/python-mock-library/ https://joshpeak.net/posts/2019-06-18-Advanced-python-testing.html env var https://adamj.eu/tech/2020/10/13/how-to-mock-environment-variables-with-pytest https://www.b-list.org/weblog/2023/dec/08/mock-python-httpx/
 * mocks https://github.com/tommyboytech/t3/pull/11146/files https://testing.googleblog.com/2013/05/testing-on-toilet-dont-overuse-mocks.html

@@ -77,8 +77,7 @@ start command https://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html
 semantics
 * _buildpack_: 
 * _droplet_: 
-* _Procfile_: Ruby version of `docker-compose.yml`
-* used by Heroku
+* _Procfile_: Ruby version of `docker-compose.yml` https://github.com/DarthSim/overmind
 
 request flow
 > if service listed in `manifest.yml` but nonexistant in CF, app won't start
@@ -140,6 +139,8 @@ ZA
 
 ---
 
+https://world.hey.com/dhh/our-cloud-exit-savings-will-now-top-ten-million-over-five-years-c7d9b5bd
+
 https://focus.finops.org/
 > Cloud and SaaS billing data can be complex, inconsistent among providers and difficult to understand. The FinOps Open Cost and Usage Specification (FOCUS) aims to reduce this friction with a spec containing a set of terminologies (aligned with the FinOps framework), a schema and a minimum set of requirements for billing data. The spec is intended to support use cases common to a variety of FinOps practitioners. Although still in the early stages of development and adoption, it’s worth watching because, with growing industry adoption, FOCUS will make it easier for platforms and end users to get a holistic view of cloud spend across a long tail of cloud and SaaS providers. https://www.thoughtworks.com/radar/platforms/focus
 
@@ -159,7 +160,7 @@ https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 * switching https://news.ycombinator.com/item?id=30942698
 * https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
 * buy don't build https://news.ycombinator.com/item?id=25399250
-* if it's not your data center you're not really self-hosting https://news.ycombinator.com/item?id=27674726 https://github.com/khuedoan/homelab
+* if it's not your data center you're not really self-hosting https://news.ycombinator.com/item?id=27674726 https://github.com/khuedoan/homelab https://github.com/tiagoad/docker-homeserver
 > But the thing is in most of the companies you don't have full control over the whole stack. Even if you have "full control" over the database, you don't have control over networking, firewall, OS, "security" patching, VMs, Docker, Kubernetes, Load balancers, vendors managing parts of the infra, internet provider, hosting provider ... Not even datacenter team may have control over all of it, but at least that's their job and their area of expertise.
 * _benefits_: cost (sometimes) scalability (most times) geographic DR (nearly always)
 * _consultants_: https://aws.amazon.com/iq/ https://www.gruntwork.io/
@@ -171,6 +172,7 @@ OPTIONS https://testdriven.io/blog/heroku-alternatives/
 * _Dokku_: 🎯 https://github.com/dokku/dokku https://dokku.com/
 * _Fly.io_: 🎯 https://www.youtube.com/watch?v=0eP98xkLj9w
 * _Kamal_: 🎯 https://kamal-deploy.org/
+> Rare opening to join our excellent ops team. Help us run Basecamp, HEY, and the heritage suite of apps on our own hardware with Kamal, MySQL, ElasticSearch, Prometheus, Grafana, KVM, Chef. https://x.com/dhh/status/1848544864436162705
 * _Netlify_: 
 * _Piku_: 🎯 6k https://github.com/piku/piku
 * _Render_: https://kamal-deploy.org/
@@ -393,10 +395,10 @@ SEMANTICS
 
 ---
 
+* https://github.com/idoavrah/terraform-tui
 * https://github.com/leg100/pug
 * certification https://www.hashicorp.com/certification
 * alternative https://opentofu.org/
-* https://github.com/idoavrah/terraform-tui
 * `tf -plan`
 * CLI to query https://github.com/mazen160/tfquery
 * Python alternative https://www.pulumi.com/ https://leebriggs.co.uk/
@@ -478,6 +480,8 @@ PUB/SUB 📙 Narkhede ch. 1
 
 ---
 
+event sourcing, sagas https://github.com/ThreeDotsLabs/watermill
+
 https://www.warpstream.com/ https://changelog.com/podcast/606#transcript + sponsors
 
 🗄 `data/eng.md` streaming
@@ -534,7 +538,7 @@ za
 
 * queue attributes: durability (keep in mem, write to disk, write to db bc broker can restart, fail) time-to-live (how long to keep in the queue?) security (what consumers have access?) batching (delivery immediately or wait until x messages before allowing consumers to take)
 * msg attributes: id, user/groups id, creation time, reply to, subject https://www.rabbitmq.com/tutorials/amqp-concepts.html
-* _MQTT_: https://news.ycombinator.com/item?id=41912787
+* _MQTT_: https://news.ycombinator.com/item?id=41912787 https://github.com/EdJoPaTo/mqttui/
 * _AMQP_: protocol for MQ; alternatives incl. JMS, MSMQ, STOMP (text vs. binary for AMQP); originated in 2003 at JP Morgan, worked w/ Red Hat to create Qpid; can set version in HTTP but not AMQP https://www.digitalocean.com/community/tutorials/an-advanced-message-queuing-protocol-amqp-walkthrough
 > Unlike JMS, which defines an API and a set of behaviors that a messaging implementation must provide, AMQP is a wire-level protocol. A wire-level protocol is a description of the format of the data that is sent across the network as a stream of bytes. Consequently, any tool that can create and interpret messages that conform to this data format can interoperate with any other compliant tool irrespective of implementation language. - https://spring.io/understanding/AMQP
 * _consumer ack_: queue only rm msgs when consumer acks https://www.rabbitmq.com/tutorials/amqp-concepts.html
@@ -556,14 +560,22 @@ SEMANTICS
 
 ## task (Celery)
 
----
-
-🛠 https://taskqueues.com/ aka worker https://news.ycombinator.com/item?id=34940920
 🗄
 * `eng.md` pipelines
-* `shell.md` jobs
+* `tools.md` jobs
+
+* monitoring https://github.com/healthchecks/healthchecks
+> Healthchecks is a cron job monitoring service. It listens for HTTP requests and email messages ("pings") from your cron jobs and scheduled tasks ("checks"). When a ping does not arrive on time, Healthchecks sends out alerts.
+
+---
+
+https://us.pycon.org/2024/schedule/presentation/35/index.html
+https://github.com/cybertec-postgresql/pg_timetable
+🛠 https://taskqueues.com/ aka worker https://news.ycombinator.com/item?id=34940920
+https://github.com/hibiken/asynq
 
 ZA
+* Python https://github.com/agronholm/apscheduler
 * chron jobs https://github.com/Nukesor/pueue
 * Postgres https://github.com/procrastinate-org/procrastinate https://brandur.org/river https://github.com/riverqueue/river https://news.ycombinator.com/item?id=41284703
 * BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
@@ -849,3 +861,16 @@ two apple envs
 each with a URL for
 * dummy charges
 * real charges
+
+## search
+
+* _Algolia_: record (JSON obj) field (attr on obj) clients https://github.com/algolia/algoliasearch-client-javascript https://github.com/algolia/algoliasearch-client-python
+* _Elasticsearch_: use in Postgres https://github.com/zombodb/zombodb alternative https://github.com/valeriansaliou/sonic https://github.com/paradedb/paradedb
+* _Lucene_: framework https://stackoverflow.com/questions/15704644/difference-between-solr-and-lucene
+* _Meilisearch_: https://github.com/meilisearch/MeiliSearch https://news.ycombinator.com/item?id=22685831 https://github.com/valeriansaliou/sonic https://softwareengineeringdaily.com/2019/03/20/elasticsearch-at-scale-with-volkan-yazici/ https://github.com/typesense/typesense https://news.ycombinator.com/item?id=25414389 https://tech.marksblogg.com/meilisearch-full-text-search.html https://tech.marksblogg.com/meilisearch-full-text-search.html
+* _RediSearch_: built on Redis https://oss.redislabs.com/redisearch/
+* _Redka_: Redis fork using SQLite https://github.com/nalgeon/redka
+* _Solr_: built on Lucene https://blog.codepen.io/2016/05/24/091-solr/
+* _Typesense_: https://github.com/typesense/typesense https://xkcd-search.typesense.org/ https://www.thoughtworks.com/radar/tools?blipid=202203031
+* _whoosh_: project is dead https://github.com/gyllstromk/Flask-WhooshAlchemy/issues/69 https://stackoverflow.com/a/53338666/6813490 
+* _Zinc_: https://github.com/zinclabs/zinc

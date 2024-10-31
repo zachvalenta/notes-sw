@@ -35,6 +35,8 @@ DEFINING "ENGINEER" 🗄️ `built.md` engineering
 * https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/
 
 POLITICS
+* codes of conduct
+* masking in 2025 https://us.pycon.org/2025/about/health-safety-guidelines/
 * https://x.com/steveklabnik https://bsky.app/profile/steveklabnik.com
 * https://kjaymiller.com/blog/blog1.html
 > As a community, we want to be friendly too. People from around the world, of all backgrounds, genders, and experience levels are welcome and respected equally. See our community code of conduct for more. Black lives matter. Trans rights are human rights. No nazi bullsh*t. https://gleam.run/
@@ -175,6 +177,7 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 > "did you win the Putnam?" / "yes, I did" - Percival https://news.ycombinator.com/item?id=35079
 > I wouldn't be a hacker at heart if I wasn't willing to spend a few hours automating a task that takes 3 extra seconds. https://eli.thegreenplace.net/2018/command-line-autocomplete-for-go-documentation/
 
+* dang https://news.ycombinator.com/newsguidelines.html https://news.ycombinator.com/item?id=42057647
 * big kids https://news.ycombinator.com/item?id=41970407
 * https://news.ycombinator.com/item?id=41966197
 * https://xkcd.com/378/ https://xkcd.com/386/ https://xkcd.com/2030/
@@ -217,7 +220,7 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 
 📚
 * Eghbal working in public https://www.amazon.com/gp/product/0578675862 https://drewdevault.com/2024/07/16/2024-07-16-So-you-want-to-compete-with-FOSS.html https://drewdevault.com/2023/12/26/2023-12-26-Prusa-is-floundering.html
-* Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/
+* Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/ https://www.amazon.com/Cathedral-Bazaar-Musings-Accidental-Revolutionary/dp/0596001088
 * https://pragprog.com/titles/vbfoss/business-success-with-open-source/
 
 ---
@@ -465,6 +468,10 @@ One thing I think I do well is technical communication. This shows up in:
 ## resume
 
 ---
+
+pull in stack overflow questions as writing examples https://github.com/jesseduffield/lazygit/issues/4017
+
+https://michaelengen.com/posts/my-eleventy-resume/
 
 https://github.com/simonw https://github.com/radiac
 

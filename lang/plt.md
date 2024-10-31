@@ -30,6 +30,7 @@
 SEMANTICS
 * _compiler_: src -> machine code https://www.youtube.com/watch?v=QdnxjYj1pS0
 * misused http://coconut-lang.org/
+* you used to have to pay for a compiler https://x.com/zack_overflow/status/1852881457037074686
 * _transpile_: src -> another HLA
 * e.g. Typescript to JS
 * e.g. current JS version to previous ECMAScript spec for older browser e.g. Babel https://www.vrk.dev/2019/07/11/why-is-modern-web-development-so-complicated-a-long-yet-hasty-explanation-part-1/
@@ -43,7 +44,7 @@ GRAMMAR
 http://steve-yegge.blogspot.com/2007/06/rich-programmer-food.html
 
 TYPES OF COMPILATION
-* _just-in-time (JIT)_: https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction
+* _just-in-time (JIT)_: https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction https://pycon-archive.python.org/2024/schedule/presentation/124/index.html
 * _ahead-of-time (AOT)_: https://news.ycombinator.com/item?id=22346540
 * _adaptive_: quickening https://realpython.com/python311-new-features/#faster-code-execution https://github.com/brandtbucher/specialist
 
@@ -93,7 +94,7 @@ translators https://en.wikipedia.org/wiki/Symbol_table https://stackoverflow.com
 
 instructions
 > where do virtual machines fit in this taxonomy? https://www.capitalone.com/tech/software-engineering/go-is-boring/
-* _symbol table_: map of idenifiers (aka symbol) to type and scope https://en.wikipedia.org/wiki/Symbol_table#Example https://eli.thegreenplace.net/2010/09/18/python-internals-symbol-tables-part-1 https://drewdevault.com/2021/03/19/A-new-systems-language.html
+* _symbol table_: map of idenifiers (aka symbol) to type and scope https://en.wikipedia.org/wiki/Symbol_table#Example https://eli.thegreenplace.net/2010/09/18/python-internals-symbol-tables-part-1 https://drewdevault.com/2021/03/19/A-new-systems-language.html https://www.pixelstech.net/article/1728356198-Why-is-Golang-s-Compilation-Speed-So-Fast
 
 implementations https://github.com/marcpaq/b1fipl
 * make a Lisp https://news.ycombinator.com/item?id=21670442
@@ -215,6 +216,7 @@ https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-
 
 ---
 
+* https://rust-analyzer.github.io/ https://nickgerace.dev/posts/how-i-read-the-rust-programming-language/
 * _language server_: provides editor with code completion, syntax highlighting https://github.com/echasnovski/mini.nvim#general-principles
 * enables: analysis, completion, navigation, linting https://www.youtube.com/watch?v=3a1PCir_aHs 0:40
 * _pylance_: closed source, uses pyright https://github.com/microsoft/pylance-release/issues/4
@@ -270,7 +272,7 @@ tokens = {
 * _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/  https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
-* _Prolog_: https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/
+* _Prolog_: https://chatgpt.com/c/672d18fc-66cc-8004-94ba-23928fa2110c https://www.swi-prolog.org/ https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/ https://news.ycombinator.com/item?id=42004756 https://blog.dnmfarrell.com/
 * _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter
 * _Scala_: used for Lichess https://news.ycombinator.com/item?id=28479697 https://www.youtube.com/watch?v=7VSVfQcaxFY https://www.scala-lang.org/
 
@@ -290,7 +292,7 @@ https://increment.com/programming-languages/language-history/
 * _1996_: OCaml
 * _2015_: Rust
 * _2016_: Zig
-* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/
+* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ Hazel https://hazel.org/
 
 ## stdlib
 
@@ -330,6 +332,7 @@ https://wizardzines.com/comics/assembly/
 
 📹 https://www.youtube.com/c/JacobSorber/videos
 📚
+* Kernighan https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628
 * Matthews dive https://diveintosystems.org/
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
 🔍
@@ -519,7 +522,7 @@ ZA
 https://en.wikipedia.org/wiki/Steve_Yegge
 
 LISPS
-* _Clojure_: https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792
+* _Clojure_: http://cleancoder.com/a-little-clojure https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792
 * https://github.com/damn/core
 * _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
 * _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
@@ -555,6 +558,7 @@ LANGUAGE https://tryclojure.org/
 
 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua https://nvchad.com/docs/quickstart/learn-lua
 
+* usage: Neovim, Hammerspoon
 * pkg mgmt https://luarocks.org/
 * filepaths: use `.` separator, will handle forward/backslash on Linux, Windows https://www.youtube.com/watch?v=prnrwpOEsmo 9:45
 * functions: can omit parens if passing string or table as a single arg https://www.youtube.com/watch?v=prnrwpOEsmo 10:15
@@ -572,7 +576,7 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 
 📜 https://ocaml.org/
 
-* guide https://crmarsh.com/intro-to-ocaml/
+* guide https://crmarsh.com/intro-to-ocaml/ https://www.youtube.com/watch?v=mhkoWp5Akww
 * dev env https://crmarsh.com/ocaml-dev-environment/
 * design: part of ML family tree, related to F# https://en.wikipedia.org/wiki/ML_(programming_language)
 * written in: Google Drive FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace#Remote/distributed_file_system_clients
@@ -595,6 +599,17 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 
 🗄️ `python/runtime.md` CPython > PyO3
 
+```sh
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup self uninstall
+
+cargo build
+cargo run
+cargo test
+cargo doc
+cargo publish
+```
+
 DESIGN
 * too complicated, learn Golang instead https://registerspill.thorstenball.com/p/glad-i-did-it-in-go https://registerspill.thorstenball.com/p/rust-prism
 > This blog post, Rewriting Rust, was very interesting. “I swear, it took more effort to learn pinning in rust than it took me to learn the entire Go programming language.” Some day (in the far future) I might write more about my feelings on Rust, but while reading this post I kept waiting for the paragraph in which they say what they would remove from the language. That paragraph never came and I think that’s one of the biggest sources of friction between me and Rust. https://registerspill.thorstenball.com/p/joy-and-curiosity-9
@@ -609,17 +624,20 @@ CODEBASES TO LEARN FROM
 PROJECT STRUCTURE
 * basic TUI https://github.com/lusingander/btox
 * src https://github.com/raphlinus/font-rs https://github.com/dotenvx/dotenvx
+* lib/$PROJ_NAME https://github.com/nickgerace/gfold https://nickgerace.dev/posts/how-i-read-the-rust-programming-language/
 * https://github.com/b1rger/carl
 
 STDLIB
 * _db_: https://github.com/launchbadge/sqlx
 * _GUI_ https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html
-* _TUI_: https://github.com/ratatui-org/ratatui cursive https://github.com/gyscos/cursive https://github.com/Builditluc/wiki-tui https://github.com/fdehau/tui-rs https://github.com/lusingander/stu
+* _TUI_: https://github.com/ratatui-org/ratatui https://github.com/mrjackwills/oxker cursive https://github.com/gyscos/cursive https://github.com/Builditluc/wiki-tui https://github.com/fdehau/tui-rs https://github.com/lusingander/stu
 * _web_: https://news.ycombinator.com/item?id=41914544 https://www.leptos.dev/ https://dioxuslabs.com/ https://loco.rs/
 
 ---
 
+cargo https://nickgerace.dev/posts/how-to-manage-rust-tools-and-applications/
 https://gopodcast.dev/episodes/046-lets-talk-about-rust-with-john-arundel
+community https://nickgerace.dev/posts/announcing-gfold3/
 https://simonwillison.net/tags/rust/
 https://chrisdone.com/posts/rust/
 https://drewdevault.com/2024/08/30/2024-08-30-Rust-in-Linux-revisited.html
@@ -728,6 +746,7 @@ id(counter)  # 4304845312
 
 ---
 
+https://us.pycon.org/2024/schedule/presentation/80/index.html
 https://pythonbytes.fm/episodes/show/375/pointing-at-countries
 
 null https://www.youtube.com/watch?v=XIhQYRNBAYs
@@ -826,7 +845,7 @@ ABSTRACTION
 * howto https://tonsky.me/blog/dsl/
 * against abstraction https://thorstenball.com/blog/2015/10/22/write-stupid-code/
 * _law of leaky abstractions_: natch; if they wouldn't exist in the first place https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/
-* _DSL_: lose tooling of general purpose language https://news.ycombinator.com/item?id=22375721 https://news.ycombinator.com/item?id=41938819 https://registerspill.thorstenball.com/p/joy-and-curiosity-12
+* _DSL_: lose tooling of general purpose language https://news.ycombinator.com/item?id=22375721 https://news.ycombinator.com/item?id=41938819 https://registerspill.thorstenball.com/p/joy-and-curiosity-12 https://news.ycombinator.com/item?id=41931507
 
 COMMUNITY
 > But the choice of a main programming language is the most important signaling behavior that a technology company can engage in. Tell me that you program in Java, and I believe you to be either serious or boring. In Ruby, and you are interested in building things quickly. In Clojure, and I think you are smart but wonder if you ship. In Python, and I trust you implicitly. In PHP, and we sigh together. In C++ or C, and I nod humbly. In C#, and I smile and assume we have nothing in common. In Fortran, and I ask to see your security clearance. These languages contain entire civilizations. - Ford what is code?
@@ -840,9 +859,6 @@ HOWTO
 > Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem. http://paulgraham.com/popular.html
 * expressive
 > Large organizations have different aims from hackers. They want languages that are (believed to be) suitable for use by large teams of mediocre programmers-- languages with features that, like the speed limiters in U-Haul trucks, prevent fools from doing too much damage. Hackers don't like a language that talks down to them. Hackers just want power. http://www.paulgraham.com/javacover.html
-* ability to experiment
-> A programming language is for thinking of programs, not for expressing programs you've already thought of. It should be a pencil, not a pen. 📙 Graham hackers painters [22]
-> Have you ever noticed that when you sit down to write something, half the ideas that end up in it are ones you thought of while writing? The same thing happens with software. Working to implement one idea gives you more ideas. 📙 Graham hackers painters [68]
 * _feature creep_: adding more features vs. making existing features better https://twitter.com/random_walker/status/1182635589604171776
 * increases headcount, not total users https://news.ycombinator.com/item?id=34567237
 > Second, C has a tendency to be conservative, changing and growing very slowly. This is a feature, and one that is often undervalued by developers. (In fact, I’d personally like to see a future revision that makes the C language specification smaller and simpler, rather than accumulate more features.) - https://nullprogram.com/blog/2018/11/21/
@@ -858,8 +874,12 @@ SYSTEMS PROGRAMMING
 
 ## functional
 
+📚
+* Normand https://www.amazon.com/dp/1617296201
+
 ---
 
+https://us.pycon.org/2024/schedule/presentation/86/index.html
 https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell
 https://bytes.yingw787.com/posts/2018/11/07/data_driven_testing
 
@@ -976,16 +996,16 @@ class Player:
 
 SEMANTICS
 * _nominative typing_: obj type explicitly declared https://en.wikipedia.org/wiki/Nominal_type_system
-* _duck typing_: obj is type if it has properties/methods of that type (vs. nominative) https://docs.python.org/3/glossary.html#term-duck-typing
+* _duck typing_: obj is type if it has properties/methods of that type (vs. nominative) https://docs.python.org/3/glossary.html#term-duck-typing https://realpython.com/podcasts/rpp/196/
 * _type inference_: figure out type based on context https://calpaterson.com/mypy-hints.html
 > aka implicit? https://go.dev/tour/basics/10
 
-COST-BENEFIT
-* benefit
+PRO https://www.youtube.com/watch?v=YR5WdGrpoug https://news.ycombinator.com/item?id=42004756
 > [invariant violation] At point A, there's some assumption, and way over there at point B, that assumption is violated... Type systems prevent some invariant violations. Because that works, there are ongoing attempts to extend type systems to prevent still more invariant violations. That creates another layer of confusing abstraction. Some invariants are not well represented as types, and trying makes for a bad fit. What you're really trying to do is to substitute manual specification of attributes for global analysis. The Rust borrow checker is an invariant enforcer. It explicitly does automatic global analysis, and reports explicitly that what's going on at point B is inconsistent with what point A needs. This is real progress in programming language design, and is Rust's main contribution. https://news.ycombinator.com/item?id=29996240
 > Type checking catches bugs that unit testing does not, often much faster and with less code overhead than unit testing requires. It has surprised me how much of my unit tests were de facto implementing a type system halfheartedly as opposed to testing behavior of those types. - https://threadreaderapp.com/thread/1141836825838800896.html more on typing as a analog to unit tests https://www.jorgemanrubia.com/2019/06/22/on-ruby-and-type-checkers/
 > Having used Kotlin on and off for the better part of a decade, the one thing I can say is that their editor support is unrivaled by any other language today. https://news.ycombinator.com/item?id=33331123
-* cost https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/ https://bryananthonio.com/blog/pydantic-custom-dictionary-types/
+
+CON https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/ https://bryananthonio.com/blog/pydantic-custom-dictionary-types/
 > Every dynamically-typed programming language attempts to expand until it has static types and compiles to machine code. https://news.ycombinator.com/item?id=24839697
 > Types add value and they add cost https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
 > Research has shown that Franklin's remark about giving up liberty to purchase safety is actually about type systems. https://twitter.com/MarijnJH/status/570833749065265152
@@ -993,6 +1013,9 @@ COST-BENEFIT
 > When in doubt, don't model it. Just get the code written, make forward progress. Don't let yourself get bogged down with the details of modeling a helper class that you're creating for documentation purposes. http://steve-yegge.blogspot.com/2008/02/portrait-of-n00b.html
 > You probably know my skepticism towards Python typing...we are creating the new Java. We became the people we originally displaced. Just that when we are not careful we are on a path to the world's worst Java. We put typing on a language that does not support it, our interpreter is slow, it has a GIL. We need to be careful not to forget that our roots are somewhere else. We should not collectively throw away the benefits we had. https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
 > I'm worried that a de-facto move away from dynamic stuff in the Python ecosystem, possibly motivated by those who use Python only because they have to, and just want to make it more like the C# or Java they are comfortable with, could leave us with the very worst of all worlds. https://news.ycombinator.com/item?id=34615749
+* a programming language is for sketching
+> A programming language is for thinking of programs, not for expressing programs you've already thought of. It should be a pencil, not a pen. 📙 Graham hackers painters [22]
+> Have you ever noticed that when you sit down to write something, half the ideas that end up in it are ones you thought of while writing? The same thing happens with software. Working to implement one idea gives you more ideas. 📙 Graham hackers painters [68]
 
 ---
 
@@ -1128,6 +1151,7 @@ BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 
 ---
 
+https://jacko.io/async_intro.html
 https://threedots.tech/post/go-test-parallelism/
 
 * MVCC https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html

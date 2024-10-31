@@ -130,7 +130,7 @@ __in action__
 
 ---
 
-🎗 Aumasson serious cryptography https://eli.thegreenplace.net/2019/summary-of-reading-october-december-2019/
+🎗 Aumasson serious cryptography https://eli.thegreenplace.net/2019/summary-of-reading-october-december-2019/ https://nostarch.com/seriouscrypto https://www.amazon.com/Serious-Cryptography-2nd-Introduction-Encryption/dp/1718503849
 🔍 https://crypto.stackexchange.com/
 📚
 * Erickson hacking (chapter 10)
@@ -154,7 +154,6 @@ elliptic curve cryptography
 * RSA https://eli.thegreenplace.net/2019/rsa-theory-and-implementation/
 * https://eli.thegreenplace.net/2019/diffie-hellman-key-exchange/
 * https://news.ycombinator.com/item?id=24310842
-* https://nostarch.com/seriouscrypto
 * https://www.manning.com/books/real-world-cryptography
 * https://nostarch.com/mangacrypto
 * https://news.ycombinator.com/item?id=23384227 https://www.gkbrk.com/2020/03/encryption/ https://www.khanacademy.org/computing/computer-science/cryptography + 🗄 `cracking-codes.pdf` (owe Al Amazon review) https://missing.csail.mit.edu/2020/security/ https://www.manning.com/books/real-world-cryptography https://robertheaton.com/preventing-impossible-game-levels-using-cryptography/ https://www.cryptologie.net/article/496/whats-a-key-exchange/
@@ -222,6 +221,14 @@ asymmetric
 * _locality_: insensitive (slight diff in input changes hash completely) sensitive (slight diff in input changes hash only slightly) [Bhargava 11.216]
 * _hash function_: https://austinvernon.eth.link/blog/hashexamples.html https://austinvernon.eth.link/blog/hash.html
 * _rainbow table_: https://fasterthanli.me/articles/whats-in-a-rainbow-table
+* _memory-hard_: resistant to brute forcing with parallelism (hackers typically use GPUs) bc large mem requirements https://en.wikipedia.org/wiki/Memory-hard_function https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
+
+ALGOS
+* _argon_: https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://en.wikipedia.org/wiki/Argon2
+* _bcrypt_: https://en.wikipedia.org/wiki/Bcrypt
+* _crypt_: https://en.wikipedia.org/wiki/Crypt_(C)
+* _scrypt_: https://en.wikipedia.org/wiki/Scrypt
+* _yescrypt_: https://en.wikipedia.org/wiki/Yescrypt https://www.openwall.com/yescrypt/
 
 ---
 
@@ -265,7 +272,7 @@ vocab
 https://ntietz.com/blog/lets-say-instead-of-auth/
 * _authorization_: identity
 * _authentication_: access
-* aka permissions https://github.com/authzed/spicedb https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203085
+* aka permissions; Zanzibar https://github.com/authzed/spicedb https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203085
 * _risk-based auth_: non-deterministic login
 > The problem is precisely this: The credentials you require to access a Google account are essentially indeterminate. Supposedly, for a simple Google account without 2FA enabled, knowledge of the account email and password should be sufficient to access an account; except sometimes, they aren't. Sometimes, Google might randomly decide your login attempt is suspicious, and demand you complete some additional verification step. https://www.devever.net/~hl/logindenial
 * _role-based access control (RBAC)_: principle of least privilege

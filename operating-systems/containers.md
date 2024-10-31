@@ -2,52 +2,42 @@
 
 ## 参考
 
+🗄
+* `django.md` denv
+* `linux.md` denv
+* `src.md` denv
+
 ## 进步
 
-QUESTIONS
-* alternatives to macOS install? 🗄️ components
-> desktop macos app too heavy https://github.com/docker/for-mac/issues/2297 https://news.ycombinator.com/item?id=41987857
-* alternative runtimes? 🗄️ containerization
-* nix > apt? https://pythonspeed.com/articles/reproducible-docker-builds-python/
-* using Poetry and uv inside Docker 🗄️ Python
-* ease of setting up web server 🗄️ `src.md` checklist
-
 TOOLING
+* cron, exec https://github.com/mcuadros/ofelia/
 * VSC Docker extension https://github.com/Microsoft/vscode-docker/issues/150#issuecomment-462079524 https://www.youtube.com/watch?v=dihfA7Ol6Mw
 * Dockerfile lint https://github.com/hadolint/hadolint https://hadolint.github.io/hadolint/ https://github.com/goodwithtech/dockle
+* image explore https://github.com/wagoodman/dive https://news.ycombinator.com/item?id=38913425
+* TUI: https://github.com/jesseduffield/lazydocker https://github.com/will-moss/isaiah https://github.com/pommee/Pocker https://github.com/bcicen/ctop https://github.com/mrjackwills/oxker https://github.com/moncho/dry https://github.com/amir20/dozzle https://github.com/robertpsoane/ducker
+* CLI https://github.com/j-bennet/wharfee
+* stop inactive jobs https://github.com/sablierapp/sablier
 * what files to ignore: `.git`, `local.db`, not `.dockerfile` https://gist.github.com/wassname/b25471b0f3bb2f9ff81f build context = tarball sent to daemon for image build https://codefresh.io/blog/not-ignore-dockerignore-2/
 
 ---
 
-https://github.com/veggiemonk/awesome-docker
-IMPROVE WORKLOW
-* _tooling_: lint image, GUI https://github.com/amir20/dozzle https://github.com/jesseduffield/lazydocker https://github.com/will-moss/isaiah CLI https://github.com/j-bennet/wharfee
+REPRO
+* 📍 monitoring tool before install
+* https://danluu.com/ballmer/
+* nix > apt? https://pythonspeed.com/articles/reproducible-docker-builds-python/
+* using Poetry and uv inside Docker 🗄️ Python
 
-CLEANUP
-* dont use https://www.youtube.com/watch?v=wVil7wG-1yg
-* basic https://www.youtube.com/watch?v=Ud7Npgi6x8E
-* compose https://www.youtube.com/watch?v=HGKfE-cn9y4
+HOWTO https://pythonspeed.com/docker/
 * https://danielquinn.org/blog/developing-with-docker/ https://news.ycombinator.com/item?id=41935741
-* https://github.com/sablierapp/sablier
-next-gen images https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/
-* https://github.com/moncho/dry
-* https://github.com/bcicen/ctop
-* https://roadmap.sh/docker
-* https://github.com/pommee/Pocker
-* https://www.youtube.com/watch?v=3e8J_pv-xJI
-* https://www.youtube.com/watch?v=Ud7Npgi6x8E
-* https://news.ycombinator.com/item?id=38913425
-* https://github.com/robertpsoane/ducker
-* https://github.com/mrjackwills/oxker
+* basic https://www.youtube.com/watch?v=Ud7Npgi6x8E https://www.youtube.com/watch?v=YFl2mCHdv24
+* ergonomics https://www.youtube.com/watch?v=3e8J_pv-xJI https://github.com/deluan/zsh-in-docker https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog
+* compose https://www.youtube.com/watch?v=HGKfE-cn9y4
 * making things actually reproducible https://pythonspeed.com/articles/reproducible-docker-builds-python/
-* https://github.com/deluan/zsh-in-docker https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog
-* https://pythonspeed.com/products/pythoncontainer/#changelog https://pythonspeed.com/products/productionquickstart/#changelog
 * Celery, Redis https://saasitive.com/tutorial/django-celery-redis-postgres-docker-compose
 * Nginx https://github.com/zachvalenta/nginx-wsgi https://www.youtube.com/watch?v=Qw9zlE3t8Ko https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx
 * TLS https://testdriven.io/blog/django-lets-encrypt/
 * AWS https://testdriven.io/blog/django-docker-https-aws/
-
-BRUSH UP ON THE BASICS WITH DJANGO https://www.youtube.com/watch?v=YFl2mCHdv24
+* https://pythonspeed.com/products/pythoncontainer/#changelog https://pythonspeed.com/products/productionquickstart/#changelog
 * https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
 * https://www.untangled.dev/2020/06/06/docker-django-local-dev
 * https://testdriven.io/courses/tdd-django
@@ -74,7 +64,6 @@ OS STORAGE
 
 ZA
 * running as root https://blog.bejarano.io/how-to-write-great-container-images/ https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/ https://pythonspeed.com/articles/root-capabilities-docker-security/ https://pythonspeed.com/articles/vscode-broken-docker/ https://github.com/genuinetools/img 🗄 Docker alternatives
-* publishing https://github.com/tiangolo/uwsgi-nginx-docker https://github.com/jessfraz/dockerfiles/blob/master/httpie/Dockerfile
 * create super user in container https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
 * Docker as a company: still the default registry and runtime for development, but no longer the main runtime for prod https://news.ycombinator.com/item?id=26479921
 * load balancing: single container w/ single app service https://stackoverflow.com/a/40872526/6813490 single container w/ n app services (with something to restart if they crash?) https://devops.stackexchange.com/questions/2089/what-are-the-advantages-of-dockerizing-nginx-and-php-in-different-containers#comment3231_2090
@@ -319,9 +308,14 @@ services:
 * built from read-only file system layers
 * _repository_: n images w/ same name but diff version tags https://stackoverflow.com/q/34004076
 * _registry_: stores images
+
+REGISTRIES
+* _ECR_: AWS
 * commercial: AWS ECR, Docker Trusted Registry https://github.com/veggiemonk/awesome-docker#registry
 
 ---
+
+* publishing https://github.com/tiangolo/uwsgi-nginx-docker https://github.com/jessfraz/dockerfiles/blob/master/httpie/Dockerfile
 
 * dont use Alpine? https://martinheinz.dev/blog/92
 * view fs changes https://github.com/wagoodman/dive https://fzakaria.com/2020/05/31/containers-from-first-principles.html
@@ -330,8 +324,8 @@ services:
 * _get image size_: `docker image ls --format "{{ .Size }}" <image_name>` https://pythonspeed.com/articles/system-packages-docker/
 * _create new image_: pull base image, start container and run some commands, then save as new image `docker container commit -m "my new image" <container-id> my-new-image:<version>`
 
-multi-stage
-* _raison d'etre_: smaller images, esp. w/out separate Dockerfiles per env https://docs.docker.com/develop/develop-images/multistage-build/#before-multi-stage-builds
+MULTI-STAGE
+* _raison d'etre_: smaller images, esp. w/out separate Dockerfiles per env https://docs.docker.com/develop/develop-images/multistage-build/#before-multi-stage-builds https://labs.iximiuz.com/tutorials/docker-multi-stage-builds
 * _use cases_: create more granular image containing only what's needed. e.g. Redis image (use full os to compile, then copy Redis src and its runtime deps to new image and discard the os used to compile) https://blog.bejarano.io/how-to-write-great-container-images/ or for app dependencies https://www.youtube.com/watch?v=A9bA5HpOk30 7:30 https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/#production-dockerfile
 * _how_: single Dockerfile with multiple `FROM` https://pmac.io/2019/02/multi-stage-dockerfile-and-python-virtualenv
 ```dockerfile
@@ -509,6 +503,7 @@ types https://stackoverflow.com/a/55366707 https://www.youtube.com/watch?v=YFl2m
 
 ## containerization
 
+🗄️ `linux.md` perms
 📚
 * Clinton linux in action
 * Evans https://wizardzines.com/zines/containers/ 
@@ -517,6 +512,8 @@ types https://stackoverflow.com/a/55366707 https://www.youtube.com/watch?v=YFl2m
 * Tanenbaum circus ch 7
 
 ---
+
+https://blog.lizzie.io/linux-containers-in-500-loc.html
 
 > Linux containers were not built to be secure isolated sandboxes (like Solaris Zones or FreeBSD Jails). Instead they’re built upon a shared kernel model that utilizes kernel features to provide basic process isolation http://tech.paulcz.net/blog/future-of-kubernetes-is-virtual-machines/ https://blog.jessfraz.com/post/containers-zones-jails-vms/
 
@@ -531,7 +528,7 @@ CONTAINERIZATION
 * _cluster_: n containers
 * setting it up is hard https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/ https://github.com/kelseyhightower/kubernetes-the-hard-way
 * _orchestration_: manages clusters
-* under the hood: cgroups, namespace, seccomp, bpf https://twitter.com/b0rk/status/1227244309621215233
+* under the hood: cgroups, namespace, seccomp, bpf https://twitter.com/b0rk/status/1227244309621215233 namespaces, union filesystems https://roadmap.sh/docker
 * doesn't actually solve the 'works on my machine' problem as deployed container involves Kubernetes, networking, monitoring, config management https://www.youtube.com/watch?v=RB6MvSEaMK
 * can Dockerize surrounding services while keep web app non-Dockerized for REPL speed https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#24:14
 
@@ -546,22 +543,6 @@ ALTERNATIVES TO CONTAINERS
 * LXC https://news.ycombinator.com/item?id=30385580
 * VirtualBox, qemu, hyper-V, Xen https://drewdevault.com/2022/09/02/2022-09-02-In-praise-of-qemu.html https://chatgpt.com/c/670fec7a-7cd4-8004-bc50-8b790c438edd https://www.qemu.org/ https://drewdevault.com/2018/09/10/Getting-started-with-qemu.html
 
-ALTERNATIVES TO DOCKER AS CONTAINER RUNTIME
-* _container engine_: runtime
-* mostly Docker for now, but things like the Open Container Initiative (OCI) and the Runtime Spec could lead to a new runtime https://blog.technodrone.cloud/2019/02/goodbye-docker-and-thanks-for-all-fish.html https://github.com/containers/skopeo
-* _containerd_: container engine
-* used in Kubernetes https://www.thoughtworks.com/radar/platforms?blipid=202203015
-* used in Colima https://www.thoughtworks.com/radar/platforms?blipid=202203015
-* used to be Docker but now OSS https://news.ycombinator.com/item?id=26479921 https://github.com/containerd/containerd https://github.com/google/gvisor
-* BYO https://github.com/kelseyhightower/kubernetes-the-hard-way
-* _Colima_: https://github.com/abiosoft/colima
-> Colima is becoming a popular open alternative to Docker Desktop. It provisions the Docker container run time in a Lima VM, configures the Docker CLI on macOS and handles port-forwarding and volume mounts. Colima uses containerd as its run time, which is also the run time on most managed Kubernetes services — improving the important dev-prod parity. With Colima you can easily use and test the latest features of containerd, such as lazy loading for container images. We've been having good results with Colima in our projects. When in the Kubernetes space, we also use nerdctl, a Docker-compatible CLI for containerd. Since Kubernetes has deprecated Docker as container run time and most managed-services (EKS, GKE, etc) are following its lead, more people will be looking to containerd native tools, hence the importance of tools like nerdctl. In our opinion, Colima is realizing its strong potential and becoming a go-to option as an alternative to Docker Desktop.
-* _Lima_: containerd for macOS https://jvns.ca/blog/2023/07/10/lima--a-nice-way-to-run-linux-vms-on-mac/
-* _Podman_: same idea but 1) no daemon 2) allows for rootless 3) Red Hat's baby https://news.ycombinator.com/item?id=20542915 `podman play kube` = `docker-compose up` https://www.thoughtworks.com/radar/tools?blipid=202104064
-* _runC_: Docker's runtime https://www.docker.com/blog/runc/
-* _Packer_: build VM/container for use on cloud provider https://news.ycombinator.com/item?id=22491170
-* _Vagrant_: build VM/container for local dev env using VirtualBox as sandbox https://www.mattlayman.com/blog/2019/web-development-environments/ used to be more popular https://news.ycombinator.com/item?id=15395601
-
 HYPERVISORS
 * _host_: os running hypervisor
 * _hypervisor_: emulates host for vm
@@ -575,6 +556,52 @@ VMWARE
 * _OpenShift_: Kubernetes-aaS
 * _OpenStack_: general IaaS https://www.youtube.com/watch?v=_gWfFEuert8
 * _contention_: vm can't get resources scheduled from host
+
+## engines
+
+EC2
+```sh
+# INSTALL ON INSTANCE
+sudo amazon-linux-extras install docker
+sudo service docker start
+# AWS USER TO DOCKER GROUP
+sudo usermod -aG docker ec2-user
+```
+
+---
+
+> tldr for now is that Docker for Desktop is slow/bad security/registry weirdness but also the best option for getting everyone up and running
+
+🧠 https://chatgpt.com/c/6724c43a-a9cc-8004-809b-2b53075f84af
+
+> desktop macos app too heavy https://github.com/docker/for-mac/issues/2297 https://news.ycombinator.com/item?id=41987857
+
+HN AGG
+* https://news.ycombinator.com/item?id=33539019
+* https://news.ycombinator.com/item?id=33538199
+* https://news.ycombinator.com/item?id=28369570
+* registry weirdness https://news.ycombinator.com/item?id=35166317
+* dont use https://www.youtube.com/watch?v=wVil7wG-1yghttps://news.ycombinator.com/item?id=26746280
+* next-gen images https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/
+
+RUNTIMES
+* _container engine_: runtime
+* mostly Docker for now, but things like the Open Container Initiative (OCI) and the Runtime Spec could lead to a new runtime https://blog.technodrone.cloud/2019/02/goodbye-docker-and-thanks-for-all-fish.html https://github.com/containers/skopeo
+* _containerd_: container engine
+* used in Kubernetes https://www.thoughtworks.com/radar/platforms?blipid=202203015
+* used in Colima https://www.thoughtworks.com/radar/platforms?blipid=202203015
+* used to be Docker but now OSS https://news.ycombinator.com/item?id=26479921 https://github.com/containerd/containerd https://github.com/google/gvisor
+* BYO https://github.com/kelseyhightower/kubernetes-the-hard-way
+* _runC_: Docker's runtime https://www.docker.com/blog/runc/
+* API to Docker daemon https://github.com/fussybeaver/bollard https://github.com/mrjackwills/oxker https://docker-py.readthedocs.io/en/stable/index.html
+
+DOCKER DESKTOP ALTERNATIVES
+* _Colima_: https://github.com/abiosoft/colima
+> Colima is becoming a popular open alternative to Docker Desktop. It provisions the Docker container run time in a Lima VM, configures the Docker CLI on macOS and handles port-forwarding and volume mounts. Colima uses containerd as its run time, which is also the run time on most managed Kubernetes services — improving the important dev-prod parity. With Colima you can easily use and test the latest features of containerd, such as lazy loading for container images. We've been having good results with Colima in our projects. When in the Kubernetes space, we also use nerdctl, a Docker-compatible CLI for containerd. Since Kubernetes has deprecated Docker as container run time and most managed-services (EKS, GKE, etc) are following its lead, more people will be looking to containerd native tools, hence the importance of tools like nerdctl. In our opinion, Colima is realizing its strong potential and becoming a go-to option as an alternative to Docker Desktop.
+* _Lima_: containerd for macOS https://jvns.ca/blog/2023/07/10/lima--a-nice-way-to-run-linux-vms-on-mac/
+* _Podman_: no daemon, rootless, Red Hat https://news.ycombinator.com/item?id=20542915 `podman play kube` = `docker-compose up` https://www.thoughtworks.com/radar/tools?blipid=202104064
+* _Packer_: build VM/container for use on cloud provider https://news.ycombinator.com/item?id=22491170
+* _Vagrant_: build VM/container for local dev env using VirtualBox as sandbox https://www.mattlayman.com/blog/2019/web-development-environments/ used to be more popular https://news.ycombinator.com/item?id=15395601
 
 ## Kubernetes
 
@@ -610,6 +637,7 @@ BASICS
 * also how K8S internals work? https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
 
 DESIGN
+* anti-pattern https://changelog.com/shipit/126
 * once you have cluster set up, easy to add services https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
 * easy to see exact state of all services https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
 * use when you have more services than docker-compose
@@ -618,6 +646,7 @@ DESIGN
 * history: emerges from Borg (C++ 100M LOC) and moved to Linux Foundation (CNCF) in 2014
 * previous competition: Swarm, Mesos, Nomad, Marathon https://technodrone.blogspot.com/2019/02/goodbye-docker-and-thanks-for-all-fish.html
 * https://news.ycombinator.com/item?id=30767393
+* https://news.ycombinator.com/item?id=42042163
 
 UTIL
 * debugging Python https://martinheinz.dev/blog/99

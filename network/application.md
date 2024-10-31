@@ -191,8 +191,7 @@ accept-language https://borretti.me/article/uselessness-accept-language-header
 
 * https://www.twilio.com/blog/a-http-headers-for-the-responsible-developer https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers https://www.fastly.com/blog/headers-we-dont-want
 
-* _media type_: serialization; json `application/json` form `application/x-www-form-urlencoded` file `multipart/form-data` https://github.com/zachvalenta/pacific-flask/blob/master/templates/index.html#L22 
-* _MIME type_: old name for media type https://stackoverflow.com/a/9277778 https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types https://drewdevault.com/2022/01/28/Implementing-mime-in-xxxx.html
+* _media type_: serialization; json `application/json` form `application/x-www-form-urlencoded` file `multipart/form-data` https://github.com/zachvalenta/pacific-flask/blob/master/templates/index.html#L22 mimetype https://stackoverflow.com/a/9277778 https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types https://drewdevault.com/2022/01/28/Implementing-mime-in-xxxx.html https://www.pythonmorsels.com/cli-tools/#mimetypes
 
 misc
 * do not track: sites just ignore https://lwn.net/Articles/826575/
@@ -511,6 +510,9 @@ GMAIL ALTERNATIVES 🗄 `security.md` privacy
 
 ---
 
+* https://www.twilio.com/blog/2017/04/wedding-at-scale-how-i-used-twilio-python-and-google-to-automate-my-wedding.html
+* https://github.com/SkullTech/drymail
+
 * _Maddy_: send email https://blog.healthchecks.io/2023/08/notes-on-self-hosted-transactional-email/
 https://github.com/sdushantha/tmpmail
 
@@ -602,27 +604,6 @@ scp /local/file.txt user@host:/src
 # from remote
 scp user@host:/src/file.txt /local/
 ```
-
-## IRC
-
-🗄️ `info.md` chat
-
----
-
-* _libera.chat_: https://taskwarrior.org/docs/help/
-https://drewdevault.com/2021/03/29/The-worlds-dumbest-IRC-bot.html
-https://webchat.freenode.net/#sr.ht
-https://sr.ht/~delthas/senpai/
-* channels https://news.ycombinator.com/item?id=7161436
-* clients: irssi https://weechat.org/ Textual
-* _connect_: /connect irc.freenode.net
-* _login_: /nick <urNick>
-* [validate](https://superuser.com/a/322897)
-* _join channel_: /join #pocoo
-* _quit_: /quit
-* _ignore noise_: /ignore -channels #<channel> * JOINS PARTS QUITS NICKS
-* _grep_: /lastlog <query> <occurences>
-* _save log_: /lastlog -file <pathAndFileToBeCreated>
 
 ## NTP
 

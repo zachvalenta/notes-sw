@@ -208,6 +208,7 @@ for i in range(5,1):
 
 ## generators
 
+https://news.ycombinator.com/item?id=2133348
 https://docs.python.org/3/tutorial/classes.html#iterators
 https://www.youtube.com/watch?v=tmeksb2fras
 https://docs.python.org/3/library/inspect.html#inspect.isgenerator

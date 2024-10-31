@@ -25,8 +25,7 @@ https://www.youtube.com/watch?v=jFrGhodqC08
 
 # 🤖 COMPUTE
 
-CONTAINERS
-* _ECR_: container registry
+CONTAINERS 🗄️ `containers.md`
 * _ECS (Elastic Container Svc)_: run Docker containers on EC2, autoscales, can be used for jobs or service mesh https://www.youtube.com/watch?v=I9VAMGEjW-Q
 * howto: Dockerfile, build image and put to ECR, define ECS task (how to start container, what ports to open, what to connect to)
 * _Fargate_: serverless ECS
@@ -319,7 +318,7 @@ DEPLOYMENT
 MOBILE SVC
 * _Cognito_: OAuth
 * _Device Farm_: mobile testing across device types
-* _SNS_: Twilio (send notifications/SMS) https://github.com/nikoksr/notify
+* _SNS_: Twilio (push notifications) https://github.com/nikoksr/notify https://github.com/caronc/apprise https://github.com/fonoster/fonos
 
 ## certification 
 
@@ -350,6 +349,7 @@ ZA
 * complaints: https://www.lastweekinaws.com/blog/the-cdks-most-fundamental-flaw-is-fixable/ https://www.lastweekinaws.com/blog/9-ways-aws-cdk-headdesk/
 * _CloudFormation (CFN)_: JSON/YAML; Terraform for AWS
 > If something is likely to be static, it’s a good candidate for CFN. Ex: VPCs, load balancers, build & deploy pipelines, IAM roles, etc. If something is likely to be modified over time, then using CFN will likely be a big headache. Ex: Autoscaling settings. I like having a separate shell script to create things that CFN shouldn’t know about. And for things that are hard/impossible to script, I just do them manually. Ex: Route 53 zones, ACM cert creation/validation, CloudTrail config, domain registration. https://x.com/dvassallo/status/1154516910265884672
+* _System Initiative_: https://www.systeminit.com/ https://github.com/systeminit/si https://nickgerace.dev/posts/system-initiative-the-second-wave-of-devops/
 
 ---
 

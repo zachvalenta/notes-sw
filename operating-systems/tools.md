@@ -10,7 +10,7 @@
 
 ## 进步
 
-* _24_: forced switch to eza
+* _24_: forced switch to eza, try difftastic
 * _20_: broot
 * _19_: try out eza, z, fish, tig, fzf, ranger, ripgrep
 
@@ -19,6 +19,7 @@
 * file/dir name linter https://github.com/loeffel-io/ls-lint https://ls-lint.org/
 
 FILE/DIR DIFF 🗄️ `protocols.md` JSON
+* 🎯 https://www.pythonmorsels.com/cli-tools/#filecmp
 * _vimdiff_: `vim -d <file1> <file2>` https://stackoverflow.com/a/113328/6813490
 * wraps Vim's diff mode for use in other tools, notably Git's mergetool https://vi.stackexchange.com/a/626 https://www.youtube.com/watch?v=kFVjoIish0E
 * _diff_: https://danyspin97.org/blog/colorize-your-cli/
@@ -88,6 +89,7 @@ fselect path, mime from /home/user where is_audio = 1
 
 ALTERNATIVES
 * file explorer = TUI for file system e.g. Finder (mv, rm, preview); aka file browser, file manager
+* _bt_: https://github.com/LeperGnome/bt
 * _fff_: 💀 https://github.com/dylanaraps/fff/issues/135 
 * _lf_: https://github.com/gokcehan/lf https://www.youtube.com/c/BrodieRobertson/search?query=lf
 * _mini_: 🎯 https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
@@ -499,7 +501,7 @@ CORE
 * _w_: who is logged in and what they're doing https://rachelbythebay.com/w/2018/03/26/w/
 
 COREUTILS
-* _coreutils_: ls, rm, cat, et al. https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands
+* _coreutils_: ls, rm, cat, et al. https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands https://github.com/Gandalf-/coreutils
 * aka userland https://bitfieldconsulting.com/golang/scripting
 * aka "modern UNIX" https://www.thoughtworks.com/radar/tools/modern-unix-commands
 * Rust rewrite https://news.ycombinator.com/item?id=26396798 https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/ https://github.com/ibraheemdev/modern-Unix
@@ -520,12 +522,13 @@ MAN PAGES
 
 TRASH
 * https://github.com/nivekuil/rip https://hacker-tools.github.io/command-line/ https://github.com/umlx5h/gtrash https://news.ycombinator.com/item?id=41902864
+* _recoverpy_: https://github.com/PabloLec/RecoverPy
 * _rm_: send to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives
 * _send2trash_: https://github.com/arsenetar/send2trash/issues https://github.com/arsenetar/send2trash/issues/56 
 
-## cron
+## jobs
 
-🗄 `distributed.md` TQ
+🗄 `infra.md` task
 
 NOHUP
 * _nohup_: separates process and terminal https://unix.stackexchange.com/a/148698
@@ -538,10 +541,85 @@ nohup <cmd>
 nohup <cmd> &
 ```
 
+CRON https://chatgpt.com/c/6728d6eb-b654-8004-acba-f5f0d6aa8055 https://www.youtube.com/watch?v=QZJ1drMQz1A
+* used for: backups, rotate log files
+* semantics: cron = daemon, crontab(le) = file
+* alternatives: launchd = macOS version? https://en.wikipedia.org/wiki/Launchd anachron runs even if machine powered off (unlike chron) https://ports.macports.org/port/anacron/ https://github.com/dshearer/jobber
+> It’s a simple text file with an ASCII table that will execute a command on schedule. 📙 Conery [422]
+* flags: `-l` list `-e` edit
+* fs: system `/etc/crontab` user `/tmp/crontab.$HASH`
+* macOS perms workaround https://www.bejarano.io/fixing-cron-jobs-in-mojave/
+* syntax https://crontab.guru/examples.html
+* env: does not load same env (.bashrc, .zshrc) so you should use absolute paths, does not log the output anywhere by default https://missing.csail.mit.edu/2019/automation/
+```sh
+$SCHEDULE $USER /path/to/script.sh >> /tmp/out.log 2>&1
+```
+```yaml
+tasks:
+  - name: "Backup"
+    command: "python3 backup.py"
+    interval: "daily"
+  - name: "Data Cleanup"
+    command: "python3 cleanup.py"
+    interval: "hourly"
+  - name: "Generate Report"
+    command: "python3 generate_report.py"
+    interval: "weekly"
+```
+```python
+import schedule
+import time
+import subprocess
+import yaml
+from datetime import datetime, timedelta
+
+def load_tasks(file_path='tasks.yaml'):
+    with open(file_path, 'r') as file:
+        config = yaml.safe_load(file)
+    return config['tasks']
+
+def schedule_task(task):
+    command = task['command']
+    def job():
+        print(f"Running: {task['name']} - {datetime.now()}")
+        subprocess.run(command, shell=True)
+    interval = task.get('interval', 'daily')
+    if interval == "hourly":
+        schedule.every().hour.do(job)
+    elif interval == "daily":
+        schedule.every().day.at("00:00").do(job)
+    elif interval == "weekly":
+        schedule.every().monday.at("00:00").do(job)
+    else:
+        minutes = int(interval)
+        schedule.every(minutes).minutes.do(job)
+
+def main():
+    tasks = load_tasks()
+    for task in tasks:
+        schedule_task(task)
+    while True:
+        schedule.run_pending()
+        time.sleep(300)
+
+if __name__ == "__main__":
+    main()
+```
+```python
+# alt impl
+import schedule
+import time
+def job1(): print("Job 1 executed")
+schedule.every().hour.do(job1)             # Every hour
+schedule.every().monday.at("13:15").do(job1)   # Every Monday at 1:15 PM
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+```
+
 ---
 
-* use postgres https://github.com/cybertec-postgresql/pg_timetable
-* https://www.youtube.com/watch?v=AHAAA7zfT7Q
+* wait https://www.youtube.com/watch?v=AHAAA7zfT7Q
 * _bg_: put job in background
 * _fg_: put background job into foreground https://hacker-tools.github.io/shell/
 * _&_: run in background
@@ -554,49 +632,66 @@ $ nq make all
 $ fq  # look at output without stopping the build
 ```
 
-* https://www.twilio.com/blog/2017/04/wedding-at-scale-how-i-used-twilio-python-and-google-to-automate-my-wedding.html
-* https://github.com/SkullTech/drymail
-* https://github.com/caronc/apprise
-* https://github.com/fonoster/fonos
-* https://hacker-tools.github.io/automation/
-* Python https://github.com/agronholm/apscheduler
-* _anacron_: runs certain time after system start i.e. better for personal machine; 1 time/day
-* _launchd_: macOS equivalent https://blog.bejarano.io/fixing-cron-jobs-in-mojave.html
-* _batch_: runs when server load drops below specific level
-* _Autosys_: tool for coordinating cron jobs; first heard about this 2017.11
-* _monitoring_: https://github.com/healthchecks/healthchecks
-
-* _cron_: expects specific time i.e. better for server
-* `/etc/crontab` for system
-* `~/crontab` for user
->  It’s a simple text file with an ASCII table that will execute a command on schedule. 📙 Conery [422]
-* `crontab -e`: edit crontab 📙 Conery [422]
-* `crontab -l`: see active entries
-
-* syntax https://www.youtube.com/watch?v=QZJ1drMQz1A&t=895s https://crontab.guru/
-```sh
-# 1-min(0-59) 2-hour 3-day(month) 4-month 5-day(week)
-5 * * * *  # 5th minute of every hour, every day of month, every month, every day of week
-```
-
 ## monitoring
-
-OPTIONS
-* _tiptop_: 🐍 https://github.com/nschloe/tiptop
 
 STATS
 > why is air-capp slow? Google Drive? age (2020 machine)? 🗄️ `tcp-ip.md` network monitor
 * iTerm: 15%
 * VS Code: 10%
 
+SYSTEM INFO
+* can do in iTerm https://wompa.land/articles/iterm-status-bar
+* free (UNIX) top (macos)
+* _below_: 🎯 JSON https://github.com/facebookincubator/below
+* _bottom_: 🎯 GUI https://github.com/ClementTsang/bottom
+* _btop_: https://github.com/aristocratos/btop
+* _glances_: 🎯 JSON https://nicolargo.github.io/glances/ https://tech.marksblogg.com/top-htop-glances.html
+* _gotop_: 🎯 JSON export https://github.com/xxxserxxx/gotop/issues/50 https://asciinema.org/a/spxxHKMf3MBR8OfUYwsbZurXq
+* _htop_: https://tech.marksblogg.com/top-htop-glances.html
+* _procs_: ✅ modes (snapshot, watch) ❓ how to sum cpu/mem across PID by app name https://github.com/dalance/procs
+* _tiptop_: installed on capp machine https://github.com/nschloe/tiptop
+* _vtop_: ❌ sudo https://github.com/MrRio/vtop
+* _ytop_: 💀 https://github.com/cjbassi/ytop
+* _zenith_: 🎯 https://github.com/bvaisvil/zenith
+
+SYSTEM ARCHITECTURE
+* `python -m platform` https://www.pythonmorsels.com/cli-tools/#platform
+* _cpufetch_: https://github.com/Dr-Noob/cpufetch
+* _neofetch_: https://github.com/dylanaraps/neofetch
+* pfetch: https://github.com/dylanaraps/pfetch
+
+DISK USAGE
+* _df_: view of mounts https://danyspin97.org/blog/colorize-your-cli/
+* _duf_: 🎯 df rewrite, JSON https://github.com/muesli/duf
+* _diskonaut_: treemap https://github.com/imsnif/diskonaut
+* _du_: `du -sh $DIR` https://unix.stackexchange.com/a/185777
+* _dust_: du replacement https://github.com/bootandy/dust
+* _ncdu_: `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
+
+ZA
+* _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
+
 ---
 
-* _neofetch_: system info https://github.com/Dr-Noob/cpufetch https://github.com/dylanaraps/pfetch
-* https://wompa.land/articles/iterm-status-bar
-* directory size: ncdu, du, ncdu https://github.com/bootandy/dust `du -sh -- * | sort -r` https://unix.stackexchange.com/a/185777 https://github.com/muesli/duf https://github.com/imsnif/diskonaut https://github.com/KSXGitHub/parallel-disk-usage
-> ncdu config fs `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
-* disk: view of mounts; `df -h`; colorize https://danyspin97.org/blog/colorize-your-cli/
-* memory: btop https://github.com/aristocratos/btop free (UNIX) top (macos) gotop https://github.com/xxxserxxx/gotop/issues/50 ytop https://github.com/cjbassi/ytop htop https://tech.marksblogg.com/top-htop-glances.html below https://github.com/facebookincubator/below https://github.com/bvaisvil/zenith https://github.com/ClementTsang/bottom
-> config btop
-> looks pretty good https://github.com/MrRio/vtop
-* network: https://github.com/imsnif/bandwhich
+PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c4dea2c
+* control internet access for apps https://tripmode.ch/ https://www.obdev.at/products/littlesnitch/index.html
+* port viewer https://github.com/allyring/pvw
+* LAN port scanner https://github.com/RustScan/RustScan https://github.com/aceberg/WatchYourLAN
+* port scanner https://github.com/mrjackwills/havn
+* monitor, Slack notification on completion (or to Twilio) https://github.com/variadico/noti
+* _bandwhich_: network https://github.com/imsnif/bandwhich
+* _rustscan_: https://github.com/RustScan/RustScan
+
+MORE PROCESSES
+* see what's running `ps aux | grep crond` https://missing.csail.mit.edu/2019/automation/
+* `lsof`: open files https://danielmiessler.com/study/lsof/ GUI https://github.com/sveinbjornt/Sloth
+* _PID by port_: `lsof -i :<port>`
+* _$CWD by PID_: `lsof -p <PID> | grep cwd` https://unix.stackexchange.com/a/94359/331460
+* `pstree`: tree of processes
+* pgrep https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
+* `ps`: processes associated with current shell
+* pgrep https://hacker-tools.github.io/shell/
+* `ps -u`: associated with specific user
+* `ps -e`: associated with all users
+* `ps -f`: info on PPID
+* `ps -ejH`: show trees

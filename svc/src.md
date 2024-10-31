@@ -32,6 +32,7 @@ SEMANTICS
 OPTIONS
 * _Dagger_: created by the guy who created Docker, used Cuelang https://github.com/dagger/dagger https://news.ycombinator.com/item?id=30857012
 * _Github Actions_: 🗄️ `git.md` Github / Actions
+> you get a cool deployments tab on the repo as well that shows what's processing
 
 ---
 
@@ -108,16 +109,19 @@ PRE-COMMIT https://pre-commit.com https://github.com/pre-commit/pre-commit/issue
 * `linux.md` denv
 
 CLOUD
-* https://www.lastweekinaws.com/blog/the-real-reason-cloud-ide-adoption-is-lagging/
-* switching locally: macOS spaces https://github.com/dandavison/wormhole
+* why local https://nickgerace.dev/posts/theres-nothing-like-local-development/ https://news.ycombinator.com/item?id=42043130
+* why cloud: CPU/mem intensive e.g. 2TB mem for computational biology https://realpython.com/podcasts/rpp/197/
+> I don't understand the need for "cloud development environments" though. Isn't the point of containerized apps is to avoid the need for synchronizing dev envs amongst teams?...It's to ensure a consistent environment for all developers, with the resources required. E.g. they mention GPUs, for developers working with GPU-intensive workloads. You can ship all developers gaming laptops with 64GB RAM and proper GPUs, and have them fight the environment to get the correct libraries as you have in prod (even with containers that's not trivial), or you can ship them Macbook Airs and similar, and have them run consistent (the same) dev environments remotely (you can self-host gitpod, it's not only a cloud service, it's more the API/environment to get consistent remote dev enviornments). https://news.ycombinator.com/item?id=42042522
 * _Coder_: https://github.com/coder/coder
 * _Daytona_: https://www.daytona.io/
 * _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://cli.github.com/manual/gh_codespace
-* _Gitpod_: https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15
+* _Gitpod_: 🎯 https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15 https://news.ycombinator.com/item?id=42041917
 * _Zed_: https://zed.dev/releases/stable/0.145.1 https://www.youtube.com/watch?v=F9sQPpVVLeQ
 
 ---
 
+* https://www.lastweekinaws.com/blog/the-real-reason-cloud-ide-adoption-is-lagging/
+* dev containers https://github.com/michidk/vscli
 * db: not a silver bullet (Postgres in your Docker container will have some differences to db server you're connecting to in prod)
 
 ## feature flag
@@ -283,7 +287,10 @@ toggle=
 
 # 🧩 PROGRAMS
 
+🗄️ `api.md`
 📚
+* Beck extreme programming https://explaining.software/archive/the-death-of-the-architect/
+> It makes me happy to know there’s someone out there comparing first and second editions of Extreme Programming. https://registerspill.thorstenball.com/p/joy-and-curiosity-13
 * Buelta python architecture
 * Dibernardo 500 lines or less http://aosabook.org/en/index.html
 * ✅ Evans domain-driven design https://github.com/nickgerace/gfold/pull/149/files
@@ -293,29 +300,16 @@ toggle=
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
 * Tornhill https://pragprog.com/titles/atcrime2/your-code-as-a-crime-scene-second-edition/
 
-## checklist
+---
 
-* env: config, Docker, ❌ auth
-* CQ: testing, hooks
-* data: seed, repl, ❌ migrations, serialization, ORM
-* UI: styling, pagination, search
-🏡 intermediate - ✅ migrations, auth, env (✅ config, ✅ Docker)
-🥕 basic - CRUD (✅ ORM, ✅ serialization, seed) UI (styling, search, pagination) CQ (✅ testing, hooks)
-
-WORLD'S DUMBEST COMPLETE SAAS
-> use as your repo to experiment
-* Vincent books 🗄 `django.md`
-* https://saasitive.com/
-> scaffold (deployment, monitoring), accounts (individual, teams), auth (registration, login/logout, pw update, account removal), subscriptions
-* https://news.ycombinator.com/item?id=34530052
-* https://news.ycombinator.com/item?id=34483294
-* https://pocketbase.io/
-* BYO Saas https://www.datasette.cloud/blog/2023/welcome/
-
-* _files - static_: CSS, JS, fonts https://learndjango.com/tutorials/django-static-files
-* _files - media_: uploaded by user https://docs.djangoproject.com/en/3.1/topics/files/#managing-files
+extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.html
+* application boundaries https://morizbuesing.com/blog/greppability-code-metric/
 
 ## dependency injection (DI)
+
+---
+
+loose coupling https://www.youtube.com/watch?v=uWTvMCra-_Y
 
 * https://github.com/uber-go/fx
 * https://www.youtube.com/watch?v=uWTvMCra-_Y
@@ -520,6 +514,41 @@ URL shortener 🗄 `fd url-short`
 * providers: Bitly, TinyURL
 * https://www.youtube.com/watch?v=rGQKHpjMn_M
 * https://blog.codinghorror.com/url-shortening-hashes-in-practice/
+
+## frameworks
+
+> Web development is often broad, not deep - problems span many domains. https://docs.djangoproject.com/en/2.0/intro/whatsnext/
+> A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
+
+* components: HTTP, routes, ORM
+* _Rails_: still the best
+> It's productive, it's fast enough, it scales just fine, and perhaps most importantly there's a "right" way to do just about everything your web application will ever need to do: background jobs, websockets, read-only database replicas. https://news.ycombinator.com/item?id=42014906
+
+---
+
+BYO
+* https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/ https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/ https://github.com/itsthejoker/spiderweb/ https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://dev.to/brunociccarino/how-i-wrote-express-go-in-19-hours-3ndh https://blog.dimitarandreev.com/posts/writing-an-http-router-for-aws-lambda-functions-from-scratch-with-go/
+
+CHECKLIST
+* env: config, Docker, ❌ auth
+* CQ: testing, hooks
+* data: seed, repl, ❌ migrations, serialization, ORM
+* UI: styling, pagination, search
+🏡 intermediate - ✅ migrations, auth, env (✅ config, ✅ Docker)
+🥕 basic - CRUD (✅ ORM, ✅ serialization, seed) UI (styling, search, pagination) CQ (✅ testing, hooks)
+
+WORLD'S DUMBEST COMPLETE SAAS
+> use as your repo to experiment
+* Vincent books 🗄 `django.md`
+* https://saasitive.com/
+> scaffold (deployment, monitoring), accounts (individual, teams), auth (registration, login/logout, pw update, account removal), subscriptions
+* https://news.ycombinator.com/item?id=34530052
+* https://news.ycombinator.com/item?id=34483294
+* https://pocketbase.io/
+* BYO Saas https://www.datasette.cloud/blog/2023/welcome/
+
+* _files - static_: CSS, JS, fonts https://learndjango.com/tutorials/django-static-files
+* _files - media_: uploaded by user https://docs.djangoproject.com/en/3.1/topics/files/#managing-files
 
 ## internationalization (i18n)
 

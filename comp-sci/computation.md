@@ -29,8 +29,8 @@ https://github.com/lusingander/enigma
 * MacCormick computed
 * MacCormick nine algorithms
 * Nisan elements https://github.com/zachvalenta/nand2tetris
-* Petzold code
-* Petzold annotated turing https://www.amazon.com/gp/product/1400075998
+* Petzold code; second edition https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0137909101
+* Petzold annotated turing
 * Wayne logic for programmers
 
 > A computer is a clock with benefits. They all work the same, doing second-grade math, one step at a time - Ford what is code?
@@ -153,8 +153,8 @@ STATE MACHINE
 * Upton rapsberry pi
 * Upton rapsberry pi
 
-firmware
-* _firmware_: software tied to hardware
+FIRMWARE
+* _firmware_: software embedded in and specific to its hardware host
 * _BIOS (basic IO)_: firmware that gives option of where to boot from; can boot from vinyl https://news.ycombinator.com/item?id=25177045
 * _UEFI_: newer version of BIOS that's apparently more of a pain https://www.youtube.com/watch?v=mxA9Gyyu6Rg 5:45
 * _boot_: BIOS -> bootloader (GRUB) -> OS
@@ -297,7 +297,7 @@ scheduling 🗄 `linux.md` processes
 * _core types_: physical (what it sounds like) logical (abstraction to facilitate hyperthreading) https://stackoverflow.com/q/1715580 https://forums.tomshardware.com/threads/what-is-the-difference-between-physical-core-and-logical-core.1534416/
 * _hyperthreading_: single core that can execute n instructions simultaneously
 * _NPU_: good for lower power consumption? https://news.ycombinator.com/item?id=41863460
-* _GPU_: https://news.ycombinator.com/item?id=23986925 https://lwn.net/Articles/827596/ https://codeconfessions.substack.com/p/gpu-computing https://codeconfessions.substack.com/p/gpu-computing
+* _GPU_: https://news.ycombinator.com/item?id=23986925 https://lwn.net/Articles/827596/ https://codeconfessions.substack.com/p/gpu-computing https://codeconfessions.substack.com/p/gpu-computing https://news.ycombinator.com/item?id=42042016
 > GPUs are much less complex than CPUs; that means they can execute instructions much more quickly, but those instructions have to be much simpler. At the same time, you can run a lot of them at the same time to achieve outsized results. Graphics is, unsurprisingly, the most obvious example: every "shader" - the primary processing component of a GPU - calculates what will be displayed on a single portion of the screen; the size of the portion is a function of how many shaders you have available. If you have 1,024 shaders, each shader draws 1/1,024 of the screen. Ergo, if you have 2,048 shaders, you can draw the screen twice as fast. Graphics performance is "embarrassingly parallel", which is to say it scales with the number of processors you apply to the problem. https://stratechery.com/2023/china-chips-and-moores-law/
 * _Apple silicon_: processor that uses ARM64
 

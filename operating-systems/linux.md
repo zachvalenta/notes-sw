@@ -9,7 +9,6 @@
 * Evans linux
 * Evans za
 * Kerrisk lpi
-* Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
 * Stutz cookbook
 
 ## 进步
@@ -30,32 +29,46 @@ BYO linux https://drewdevault.com/2024/05/24/2024-05-24-Bunnix.html
 * `svc/src.md` deployment
 * `algos.md` graphs
 
+BUILD SYSTEMS
+* BYO http://aosabook.org/en/500L/contingent-a-fully-dynamic-build-system.html
+* _Bazel_: Make for FANG https://eng.uber.com/go-monorepo-bazel/ https://github.com/bazelbuild/bazel https://testdriven.io/blog/bazel-builds/ https://www.youtube.com/watch?v=zaymCO1A1dM
+* _cmake_: 不明觉厉 https://stackoverflow.com/a/25790020 http://aosabook.org/en/cmake.html
+* _Meson_: https://mesonbuild.com/
+* _ninja_: https://github.com/ninja-build/ninja https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/
+* _Nx_: monorepos https://github.com/nrwl/nx
+* _Pants_: https://github.com/pantsbuild/pants https://rdrn.me/postmodern-python/
+* _redo_: https://github.com/apenwarr/redo https://fzakaria.com/2020/06/08/my-love-letter-to-redo.html
+
+TASK RUNNERS
+* _makedown_: Markdown https://github.com/tzador/makedown
+* _mise_: 🎯 https://github.com/jdx/mise https://github.com/shuru-project/shuru
+* _pypyr_: https://pypyr.io/
+* _Task_: 🎯 https://github.com/go-task/task
+* _Xc_: Markdown https://github.com/joerdav/xc https://news.ycombinator.com/item?id=34911216 https://news.ycombinator.com/item?id=34911216
+
+---
+
+📍 NEED TO TAXONOMIZE BTW TASK RUNNER AND BUILD SYSTEM https://chatgpt.com/c/672d26cf-0e5c-8004-8692-6333538088c0
+
+https://pycon-archive.python.org/2024/schedule/presentation/112/index.html
+> Binary extensions underlie much of the modern Python ecosystem, providing performance and access to a wealth of existing code. Packaging for these libraries is rapidly changing from thousands of lines of distutils and setuptools based hackery to build systems designed for binaries like scikit-build-core, meson-python, and maturin. NumPy, for example, went from around 13K to 2K lines of building related code by moving to Meson in NumPy 1.26.
+> These build systems provide a much more integrated experience than was previously possible for compiled extensions. For example, CMake or Ninja are only required if the system doesn’t already provide an appropriate copy, which allows building with an external ninja/cmake on systems without binary wheels on PyPI like Pyodide, BSD, and Android. Modern editable installs are supported. Support for advanced features like ABI3 wheels or wheels that don’t call CPython is usually just a single configuration option.
+> We will look at how easy it is now to set up a binary extension using CMake, Meson, or Maturin (Rust only). It can be done with only three files each containing only a handful of lines of code. Unlike the previous solutions, this covers cross-compilation,multithreaded builds, modern C++ standards, and other features that would each require custom code in a classic setup.py. Combined with cibuildwheel for building wheels and good support from modern binding tools like pybind11 and nanobind, the barrier for entry to reliable compiled extensions has dropped dramatically.
+> We will also look at the challenges and solutions from some larger conversions to modern build systems, like NumPy’s and RAPIDS.ai.
+> After this talk, you will know how to easily create compiled extensions to solve problems you encounter, and how to move existing projects to these modern build systems.
+
 * _build system_: build executables (esp. for C, C++) https://signalsandthreads.com/build-systems/
 * aka task runner, command runner https://github.com/casey/just https://en.wikipedia.org/wiki/List_of_build_automation_software https://github.com/go-task/task
 * dependency graphs, build systems https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
 * analyze dependency graph https://github.com/loov/goda
 * faster deploys really save a lot of time https://github.blog/2022-12-08-experiment-the-hidden-costs-of-waiting-on-slow-build-times/
 
-ALTERNATIVES
-* BYO http://aosabook.org/en/500L/contingent-a-fully-dynamic-build-system.html https://github.com/mobalt/pipeline-runner
-* _Bazel_: Make for FANG https://eng.uber.com/go-monorepo-bazel/ https://github.com/bazelbuild/bazel https://testdriven.io/blog/bazel-builds/ https://www.youtube.com/watch?v=zaymCO1A1dM
-* _cmake_: 不明觉厉 https://stackoverflow.com/a/25790020 http://aosabook.org/en/cmake.html
-* _makedown_: Markdown https://github.com/tzador/makedown
-* _mise_: 🎯 https://github.com/jdx/mise
-* _ninja_: https://github.com/ninja-build/ninja https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/
-* _Nx_: monorepos https://github.com/nrwl/nx
-* _Pants_: https://github.com/pantsbuild/pants https://rdrn.me/postmodern-python/
-* _pypyr_: https://pypyr.io/
-* _redo_: https://github.com/apenwarr/redo https://fzakaria.com/2020/06/08/my-love-letter-to-redo.html
-* _run.sh_: 🎯 https://github.com/jotaen/klog
-* _Task_: 🎯 https://github.com/go-task/task
-* _Xc_: Markdown https://github.com/joerdav/xc https://news.ycombinator.com/item?id=34911216 https://news.ycombinator.com/item?id=34911216
-
 ## just
 
 ---
 
 * _just_: 🎯 https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529 https://github.com/pls-rs/pls/blob/main/justfile https://github.com/pls-rs/pls/blob/main/docs/justfile https://github.com/pythops/tenere
+https://luke.hsiao.dev/blog/housing-documentation/
 
 ## make
 
@@ -544,6 +557,7 @@ ALTERNATIVES 🗄️ `python/pkg.md` uv `frontend.md` javascript > runtimes
 # 🧵 PROCESSES
 
 🗄
+* `os/tools.md` monitoring
 * `python/runtime.md` concurrency
 * `src.md` concurrency
 📙
@@ -591,8 +605,6 @@ creation
 
 ---
 
-* monitor, Slack notification on completion (or to Twilio) https://github.com/variadico/noti
-* https://sirupsen.com/progress
 * each program executed by the shell starts a new process [LPI 2.13]
 * _location_: $CWD of their parent process [LPI 2.5]
 * _initial process_: PID 1, called `init` (or `systemd` on RHEL) [LPI 2.7]
@@ -603,7 +615,7 @@ creation
 
 communcation
 * _signals_: restart `-HUP/-1` terminate (sent to process) `-TERM/-15` terminate/sigterm (sent to kernel) `kill -KILL/-9 <pid>`
-* _intra-process communication (IPC)_: signals, writing to disk (for slow apps), file locking, pipes, message queues 📙 Kerrisk 37, 877
+* _intra-process communication (IPC)_: signals, writing to disk (for slow apps), file locking, pipes, message queues 📙 Kerrisk [37,877]
 
 memory
 * _hard limit_: inherited from parent
@@ -619,19 +631,6 @@ telemetry
 * written to file https://stackoverflow.com/a/8296204/6813490
 * lookup PID using process name https://stackoverflow.com/a/11547409/6813490
 * _PPID_: parent process ID
-* `lsof`: open files https://danielmiessler.com/study/lsof/ GUI https://github.com/sveinbjornt/Sloth
-* _PID by port_: `lsof -i :<port>`
-* _$CWD by PID_: `lsof -p <PID> | grep cwd` https://unix.stackexchange.com/a/94359/331460
-* `pstree`: tree of processes
-
-* pgrep https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
-* procs: ps replacment in Rust https://github.com/dalance/procs
-* `ps`: processes associated with current shell
-* pgrep https://hacker-tools.github.io/shell/
-* `ps -u`: associated with specific user
-* `ps -e`: associated with all users
-* `ps -f`: info on PPID
-* `ps -ejH`: show trees
 
 ## threads
 
@@ -695,6 +694,8 @@ TOOLS
 
 ---
 
+flamegraph https://github.com/laixintao/flameshow
+
 EBPF https://www.brendangregg.com/
 * _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions https://flamegraph.com/ https://github.com/laixintao/flameshow
 * https://www.youtube.com/watch?v=bGAVrtb_tFs
@@ -711,7 +712,6 @@ EBPF https://www.brendangregg.com/
 * https://github.com/google/gops
 * https://thume.ca/2023/12/02/tracing-methods/
 
-flamegraph https://github.com/laixintao/flameshow
 https://events.linuxfoundation.org/wp-content/uploads/2022/10/elena-zannoni-tracing-tutorial-LF-2021.pdf
 
 * strace, ptrace https://nullprogram.com/blog/2018/06/23/
@@ -762,7 +762,7 @@ Raspberry Pi
 * desktop https://www.raspberrypi.org/products/raspberry-pi-4-desktop-kit/
 
 daemons
-* _systemd_: manage daemons https://opensource.com/article/20/4/systemd
+* _systemd_: manage daemons https://opensource.com/article/20/4/systemd https://news.ycombinator.com/item?id=42036305
 * https://github.com/torfsen/python-systemd-tutorial
 * https://systemd-by-example.com/
 * can conf service to start on boot, restart if crashes https://www.reddit.com/r/Ubuntu/comments/7j5qgj/gunicorn_daemon_vs_gunicornservice_on_ubuntu_1604/
@@ -775,14 +775,6 @@ BOOT
 * _BIOS_: first step when powering on i.e. before bootloader
 * https://utcc.utoronto.ca/~cks/space/blog/linux/LinuxBootOverview?
 * https://news.ycombinator.com/item?id=35229045
-
-man pages
-* Visidata handles this well
-* run by Michael Kerrisk https://man7.org/tlpi/faq/index.html#many_errata https://www.kernel.org/doc/man-pages/
-* why do they look so much worse in the terminal? https://man7.org/linux/man-pages/man1/bash.1.html 🗄 `shell.md` bat
-* colorize https://danyspin97.org/blog/colorize-your-cli/
-* with bat https://github.com/sharkdp/bat#man https://github.com/eth-p/bat-extras
-* how to make one for your own program: https://github.com/bootandy/dust/issues/45 https://github.com/sharkdp/bat/blob/master/assets/manual/bat.1.in https://github.com/Canop/broot/blob/master/man/page `man bat -w` https://unix.stackexchange.com/a/6892/331460 http://www.tldp.org/HOWTO/Man-Page/
 
 ## date/time
 
@@ -826,8 +818,10 @@ function tz(){
 * Kerrisk 1
 
 * _alpine_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html https://drewdevault.com/2021/05/06/Praise-for-Alpine-Linux.html
+* _asahi_: linux for Mac https://asahilinux.org/ https://www.youtube.com/watch?v=PHFhyqYav5M
 * _arch_: 
 * _CentOS_: https://taskwarrior.org/docs/workflow/
+* _Fedora_: https://nickgerace.dev/posts/why-i-use-fedora/
 * _mint_: https://drewdevault.com/2021/12/14/Linux-Mint-and-elementary-OS.html
 * _omakub_: https://github.com/basecamp/omakub https://omakub.org/ https://www.youtube.com/watch?v=g2vcIRavtqY
 * _Red Hat_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html
@@ -897,6 +891,7 @@ FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace
 * howto https://gwolf.org/2024/10/started-a-guide-to-writing-fuse-filesystems-in-python.html
 
 ZA
+* notifications e.g. inotify, kqueue https://github.com/fsnotify/fsnotify
 * file name sorting, `chr()`, `LC_COLLATE` https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
 * trailing slash in path https://tookmund.com/2022/04/importance-of-the-trailing-slash
 
@@ -1150,6 +1145,19 @@ system calls
 * actually pretty tricky, hence most common sys calls being wrapped by glibc
 > Why does glibc do that? Why call clone(2) instead of fork(2)? And why does it wrap system calls in library functions? After digging around a bit I found out that making a system call is actually harder than just calling fork() somewhere in my code. I’d need to know the unique number of system call I was about to make, set up registers, call a special instruction (which varies on different machine architectures) to switch to kernel mode and then handle the results when I’m back in user space. By providing a wrapper around certain system calls glibc makes it a lot easier and portable for developers to use system calls. There is still the possibility to use syscall(2) to call system calls somewhat more directly. - https://thorstenball.com/blog/2014/06/13/where-did-fork-go/
 
+## man pages
+
+🗄️ `doc.md` repos
+
+---
+
+* Visidata handles this well
+* run by Michael Kerrisk https://man7.org/tlpi/faq/index.html#many_errata https://www.kernel.org/doc/man-pages/
+* why do they look so much worse in the terminal? https://man7.org/linux/man-pages/man1/bash.1.html 🗄 `shell.md` bat
+* colorize https://danyspin97.org/blog/colorize-your-cli/
+* with bat https://github.com/sharkdp/bat#man https://github.com/eth-p/bat-extras
+* how to make one for your own program: https://github.com/bootandy/dust/issues/45 https://github.com/sharkdp/bat/blob/master/assets/manual/bat.1.in https://github.com/Canop/broot/blob/master/man/page `man bat -w` https://unix.stackexchange.com/a/6892/331460 http://www.tldp.org/HOWTO/Man-Page/
+
 ## scripts
 
 🔗 http://gnu.ist.utl.pt/prep/standards/html_node/Command_002dLine-Interfaces.html
@@ -1223,42 +1231,37 @@ LOCATION
 * `tools/PROJECT/YOUR-TOOL` for project related tools
 * `bin/YOUR-TOOL` for things that are useful to have accessible at all times
 
-## user / group / perms
+## perms + user/group
+
+🗄️ `containers.md`
+
+PERMS 📙 Evans linux https://chatgpt.com/c/672cbc33-dabc-8004-bbac-7c5050f53879
+* categories: `u` (user/owner) `g` (group) `o` (other) `a` (all)
+* mv: `chmod` + group + `r|w|x` e.g. `u=rw` (user gains rw) `+x` (all gain x) `o-w` (other loses w)
+* mv file leaves: `find $ROOT -type f -exec chmod 644 {} +`
+* get as octal: `stat -f "%A" $FILE`
+* default: `666` (file) `777` (dir)
+* _umask_: set perms on new files via "mask" (subtraction) from default perms; can be set as user or distro level https://www.digitalocean.com/community/tutorials/linux-permissions-basics-and-how-to-use-umask-on-a-vps
 
 ---
 
-🔗 https://jvns.ca/blog/2017/11/20/groups/ https://terminaltrove.com/ugm
+PERMS
+* read/write/execute have slightly different meanings when applied to directories 📙 Kerrisk lpi [2.5]
+* macoS extended attributes https://serverfault.com/questions/151997/what-does-the-symbol-mean-in-a-files-permission-settings https://stackoverflow.com/questions/4833052/how-do-i-remove-the-extended-attributes-on-a-file-in-mac-os-x
 
-USERS
-* _UID_: user id; `root` is 0
-* _GID_: group id
-* logged in: `w`
+USER/GROUPS 🔗 https://jvns.ca/blog/2017/11/20/groups/ https://terminaltrove.com/ugm
+* logged-in users: `w`
 * many programs create username and perform operations as that user
 * macOS root user disabled by default but admin users can enable
 * all logged in users: `who`
 * switch user: `su <user>`; for root `su -`
 * create user: `adduser` 
 * give user sudo privilege: `visudo` (I think just opens `/etc/sudoers`)
-
-GROUPS
-* _GID_: group ID 
 * groups for user: `groups <user>` (or just `groups` for yourself)
 * `wheel`: users who can `sudo` https://en.wikipedia.org/wiki/Wheel_(computing) 📘
 * `/etc/group`: lists group name, pass, GID, users in group [LPI 26]
-
-PERMISSIONS 🗄 `installs/terraform/tf-path.log`
-* macoS extended attributes https://serverfault.com/questions/151997/what-does-the-symbol-mean-in-a-files-permission-settings https://stackoverflow.com/questions/4833052/how-do-i-remove-the-extended-attributes-on-a-file-in-mac-os-x
-```sh
-# RW for owner
-find path/to/dir -type f -exec chmod 600 {} \;
-```
-* _categories_: u (user/owner) g (group) o (other) a (all)
-* _alphabetic notation_: `chmod o=rwx` (all perms to other) `chmod +x` (singl perm to all) `chmod o+x` (add perm) `chmod o-x` (rm perm) https://www.guru99.com/file-permissions.html
-* _octal_: actually binary! [`evans-linux.pdf` 16]
-* _default_: 666 (file) 755 (dir)
-* _unmask_: adjust default permissions https://www.digitalocean.com/community/tutorials/linux-permissions-basics-and-how-to-use-umask-on-a-vps
-* read/write/execute have slightly different meanings when applied to directories [LPI 2.5]
-* https://blog.lizzie.io/linux-containers-in-500-loc.html
+* _GID_: group id
+* _UID_: user id; `root` is 0
 
 ## xargs
 

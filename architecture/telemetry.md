@@ -320,6 +320,7 @@ PROVIDERS
 * _Plausible_: https://plausible.io/calmcode.io
 * _Posthog_: https://github.com/posthog/posthog https://www.pythonpodcast.com/posthog-product-analytics-episode-266/
 * _Spindl_: https://www.spindl.xyz/
+* _trench_: https://github.com/FrigadeHQ/trench
 * _Umami_: https://github.com/umami-software/umami
 
 ---
@@ -344,8 +345,8 @@ TOOLING
 
 ---
 
+* you'll need to rotate if you don't want to store everything 
 * live log view `tail -f foo.log`
-
 * https://github.com/ptmcg/logmerger
 * https://github.com/ReagentX/Logria
 * https://github.com/tstack/lnav

@@ -9,9 +9,11 @@
 
 ## 进步
 
-* can run Jupyter in the terminal!?! https://github.com/joouha/euporie
+* can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
+* add to startup https://www.pythonmorsels.com/cli-tools/#pyclbr
 
 * _24_: iPython
+* _21_: pdb
 
 TAXONOMY https://en.wikipedia.org/wiki/Exploratory_programming
 * _REPL_: interactive CLI to interpreter https://docs.python.org/3/glossary.html#term-interactive https://docs.python.org/3/tutorial/interpreter.html#interactive-mode
@@ -79,6 +81,7 @@ ALTERNATIVES
 ---
 
 ZA
+* https://www.pythonmorsels.com/cli-tools/#analyzing-python-code
 * https://ward.readthedocs.io/en/latest/guide/writing_tests.html#using-assert-statements
 * https://www.youtube.com/watch?v=OjPT15y2EpE
 * inspect https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
@@ -231,6 +234,7 @@ INSTALL
 ZA
 * `.ipynb_checkpoints`: most recent state of `<file>.ipynb` https://stackoverflow.com/a/46422176/6813490 ignore in version control https://stackoverflow.com/a/39997938/6813490
 * libraries https://github.com/twosigma/beakerx
+* VS Code extension https://realpython.com/podcasts/rpp/197/
 
 COMPONENTS
 * _iPython_: REPL + syntax highlighting, access to Bash cmd, Jupyter kernel
@@ -255,14 +259,6 @@ poetry run python marimo tutorial intro
 # 👾 REPL
 
 🗄 `vim.md` Zed
-
-FEATURES
-* block-level history https://treyhunner.com/2024/05/my-favorite-python-3-dot-13-feature/
-* paste https://treyhunner.com/2024/05/my-favorite-python-3-dot-13-feature/
-* autocomplete
-* syntax highlighting
-* obj explorer
-* readline https://docs.python.org/3/tutorial/interactive.html#alternatives-to-the-interactive-interpreter
 
 ---
 
@@ -291,6 +287,16 @@ STACK TRACES 🗄️ stdlib/profiling
 * traceback https://martinheinz.dev/blog/66 https://docs.python.org/3/library/inspect.html#inspect.istraceback
 * https://docs.python.org/3/library/inspect.html#the-interpreter-stack
 * history https://stackoverflow.com/a/4289945
+
+## features
+
+* block-level history https://treyhunner.com/2024/05/my-favorite-python-3-dot-13-feature/
+* paste https://treyhunner.com/2024/05/my-favorite-python-3-dot-13-feature/
+* autocomplete
+* syntax highlighting
+* obj explorer
+* readline https://docs.python.org/3/tutorial/interactive.html#alternatives-to-the-interactive-interpreter
+* multiline edit https://realpython.com/podcasts/rpp/223/
 
 ## 🟦 iPython
 

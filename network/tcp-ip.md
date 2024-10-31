@@ -128,17 +128,6 @@ https://news.ycombinator.com/item?id=41930628
 * use 127.0.0.1 bc localhost stills need to be resolved by hosts file https://stackoverflow.com/q/7382602
 * `0.0.0.0`: IP addr that means "listen on every available network interface"; lets server receive req coming from outside os https://stackoverflow.com/a/20778887 
 
-## port scan / network monitor
-
-🗄️ `operating-systems.md` tools
-
----
-
-* control internet access for apps https://tripmode.ch/ https://www.obdev.at/products/littlesnitch/index.html
-* port viewer https://github.com/allyring/pvw
-* LAN port scanner https://github.com/RustScan/RustScan https://github.com/aceberg/WatchYourLAN
-* port scanner https://github.com/mrjackwills/havn
-
 ## TCP
 
 🗄 `practical-packet-analysis.pdf` chapter 6

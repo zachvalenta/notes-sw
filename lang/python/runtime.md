@@ -6,25 +6,13 @@
 
 ## 进步
 
-https://realpython.com/python313-new-features/
-> You don't need to worry about allocating memory before initializing a data structure, and you don’t need to remember to free the memory when you’re done working with it.
-> Another programming problem that Python helps you with is making sure that your code is thread-safe. Simply put, for code to be thread-safe, it needs to ensure that two different threads of execution don’t update the same part of memory at the same time. Python’s solution to this is a bit heavy-handed. It uses a global interpreter lock (GIL) to ensure that only one thread accesses the memory at a time. For most operations, a thread must first acquire the GIL. Because this lock is global—there’s only one GIL—most Python programs are effectively single-threaded, even when they’re running on modern hardware with several CPUs available. Many libraries that are written in C, including NumPy, are able to bypass the GIL by handling thread safety on their own. Such code can often take advantage of computers with multiple cores.
-> The most recent attempt, initialized by Sam Gross, is by far the most promising. In fact, you can set up a special free-threaded version of Python 3.13 that doesn’t have a global interpreter lock.
-> A just-in-time, or JIT, compiler provides a kind of middle ground, where the interpreter may choose to compile some code while a program is running in order to speed it up. In Python 3.13, there’s a new, experimental JIT compiler. The fact that it’s experimental means that it’s present in Python’s source code, but it’s not enabled by default. Python’s JIT compiler is based on an algorithm called copy-and-patch. The interpreter will look for patterns in your code that match pre-compiled templates and fill in the machine code with specific information like memory addresses of variables.
-
-https://realpython.com/python-bindings-overview/
-> Python bindings allow you to call functions and pass data from Python to C or C++
-> Marshalling is what the Python bindings are doing when they prepare data to move it from Python to C or vice versa. Python bindings need to do marshalling because Python and C store data in different ways. C stores data in the most compact form in memory possible. If you use an uint8_t, then it will only use 8 bits of memory total. In Python, on the other hand, everything is an object. This means that each integer uses several bytes in memory. How many will depend on which version of Python you’re running, your operating system, and other factors. This means that your Python bindings will need to convert a C integer to a Python integer for each integer passed across the boundary. https://en.wikipedia.org/wiki/Marshalling_(computer_science)
-
-thread-safe https://realpython.com/python-thread-lock/
-* free threaded https://github.com/astral-sh/uv/issues/7193
-* GIL, JIT https://news.ycombinator.com/item?id=41677131
-
 # 🟨️ ZA
 
 auditing hooks https://stackoverflow.com/questions/63350394/how-to-set-up-and-use-python-audit-hooks https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://chatgpt.com/c/67094688-4dac-8004-88e8-4eadd79a1d0e
 
-* `__pycache__`: holds bytecode in the form of `.pyc` https://stackoverflow.com/a/28365204/6813490 speeds up module loading https://docs.python.org/3/tutorial/modules.html#compiled-python-files suppress creation of with `export PYTHONDONTWRITEBYTECODE=1` more on bytecode https://blog.jse.li/posts/pyc/ https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md
+* `__pycache__`: holds bytecode in the form of `.pyc` https://stackoverflow.com/a/28365204/6813490 speeds up module loading https://docs.python.org/3/tutorial/modules.html#compiled-python-files suppress creation of with `export PYTHONDONTWRITEBYTECODE=1` more on bytecode https://blog.jse.li/posts/pyc/ https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md `python -m compileall` https://www.pythonmorsels.com/cli-tools/
+
+* tabs vs. spaces https://www.pythonmorsels.com/cli-tools/#tabnanny
 
 ## CPython
 
@@ -82,6 +70,7 @@ CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-g
 * _numba_: just add annotation https://news.ycombinator.com/item?id=34148455 https://talkpython.fm/episodes/show/265/why-is-python-slow 37:00 https://news.ycombinator.com/item?id=30205848 📙 Beazly 595
 * _pyjion_: https://talkpython.fm/episodes/show/340/time-to-jit-your-python-with-pyjion
 * _Cython_: write Python, get perf of C++ 🗄 'executables' https://www.peterbaumgartner.com/blog/intro-to-just-enough-cython-to-be-useful/ 
+* other transpiled-to-C https://news.ycombinator.com/item?id=29253039 https://github.com/zanellia/prometeo
 * _others_: Jython (Java) Iron Python (.NET) call Go from Python https://opendatagroup.github.io/development/2019/06/13/go-ffi.html
 * _HPy_: 💀 replacement C API for CPython, out of steam https://hpyproject.org/ https://github.com/hpyproject/hpy https://news.ycombinator.com/item?id=41755183
 > Much faster on alternative implementations such as PyPy, GraalPy.
@@ -94,14 +83,47 @@ CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-g
 
 ---
 
+start here https://pycon-archive.python.org/2024/schedule/presentation/72/index.html
+
+free-thread https://pycon-archive.python.org/2024/schedule/presentation/128/index.html
+* experimental features https://realpython.com/podcasts/rpp/223/
+
+https://realpython.com/python313-new-features/
+> You don't need to worry about allocating memory before initializing a data structure, and you don’t need to remember to free the memory when you’re done working with it.
+> Another programming problem that Python helps you with is making sure that your code is thread-safe. Simply put, for code to be thread-safe, it needs to ensure that two different threads of execution don’t update the same part of memory at the same time. Python’s solution to this is a bit heavy-handed. It uses a global interpreter lock (GIL) to ensure that only one thread accesses the memory at a time. For most operations, a thread must first acquire the GIL. Because this lock is global—there’s only one GIL—most Python programs are effectively single-threaded, even when they’re running on modern hardware with several CPUs available. Many libraries that are written in C, including NumPy, are able to bypass the GIL by handling thread safety on their own. Such code can often take advantage of computers with multiple cores.
+> The most recent attempt, initialized by Sam Gross, is by far the most promising. In fact, you can set up a special free-threaded version of Python 3.13 that doesn’t have a global interpreter lock.
+
+https://realpython.com/python-bindings-overview/
+> Python bindings allow you to call functions and pass data from Python to C or C++
+> Marshalling is what the Python bindings are doing when they prepare data to move it from Python to C or vice versa. Python bindings need to do marshalling because Python and C store data in different ways. C stores data in the most compact form in memory possible. If you use an uint8_t, then it will only use 8 bits of memory total. In Python, on the other hand, everything is an object. This means that each integer uses several bytes in memory. How many will depend on which version of Python you’re running, your operating system, and other factors. This means that your Python bindings will need to convert a C integer to a Python integer for each integer passed across the boundary. https://en.wikipedia.org/wiki/Marshalling_(computer_science)
+
+* Python 3.13 lays the foundation for Python to get faster before other languages get readable or reach stdlib parity
+> Like, internally, I mean, I shouldn't admit it, but I'm also a Python core developer, but I'm just not very active because I have enough of my own stuff going on nowadays.  But internally, the 3.13 is kind of called like a secret 4.0, which everybody who has to do with C-APIs have noticed because, like, unlike the releases before, like 3.12, 3.11, it took quite a while for the ecosystem to catch up with all the changes to the C-API because there's been a lot of changes. I mean, the Py REPL is great. Pablo has made a big push for better error messages, which is also nice. And they continue to get better. Yeah, that's great. This is like the things that are truly user-facing, but things that I don't really care about that much. I mean, I use IPython, so I will probably keep using it still. I just hope that maybe PDB will get better now that we have a better REPL because my favorite debugger, PDBPP, has been broken for two releases. I'm not really excited about anything from 3.12 and 3.13. I'm just excited for what those releases are going to give us in the future. https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
+
+thread-safe https://realpython.com/python-thread-lock/
+* free threaded https://github.com/astral-sh/uv/issues/7193 https://changelog.com/podcast/611
+> I want to give a quick shout out to a pytest plugin called pytest-Free Threaded from Anthony Shaw and friends. And this one basically lets you run your tests in the free threaded Python mode and run them with parallelism and stuff like that. https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
+
 * https://realpython.com/courses/understanding-global-interpreter-lock-gil/
 * recent perf improvements https://sumercip.com/posts/making-python-fitter-and-faster/
-* GIL, JIT, free thread https://realpython.com/python313-free-threading-jit/ https://drew.silcock.dev/blog/everything-you-need-to-know-about-python-3-13/ https://blog.changs.co.uk/free-threaded-python-with-asyncio.html https://til.simonwillison.net/python/trying-free-threaded-python
 * adaptive https://github.com/brandtbucher/specialist
 * AST is slow https://www.gauge.sh/blog/python-extensions-should-be-lazy
 * preprocessor https://pydong.org/posts/PythonsPreprocessor/
 * https://snarky.ca/unravelling-attribute-access-in-python/
 * https://snarky.ca/mvpy-minimum-viable-python/
+* https://news.ycombinator.com/item?id=42051197
+
+### JIT
+
+---
+
+> A just-in-time, or JIT, compiler provides a kind of middle ground, where the interpreter may choose to compile some code while a program is running in order to speed it up. In Python 3.13, there’s a new, experimental JIT compiler. The fact that it’s experimental means that it’s present in Python’s source code, but it’s not enabled by default. Python’s JIT compiler is based on an algorithm called copy-and-patch. The interpreter will look for patterns in your code that match pre-compiled templates and fill in the machine code with specific information like memory addresses of variables. https://realpython.com/python313-new-features/
+* _perf_: https://pycon-archive.python.org/2024/schedule/presentation/69/index.html
+* https://news.ycombinator.com/item?id=41677131
+* https://realpython.com/python313-free-threading-jit/
+* https://drew.silcock.dev/blog/everything-you-need-to-know-about-python-3-13/
+* https://blog.changs.co.uk/free-threaded-python-with-asyncio.html=
+* https://til.simonwillison.net/python/trying-free-threaded-python
 
 ### PyO3
 
@@ -121,8 +143,11 @@ CAN BE SLOWER THAN PYTHON https://pythonspeed.com/articles/faster-text-processin
 
 ---
 
+* https://us.pycon.org/2024/schedule/presentation/113/index.html
+* https://pycon-archive.python.org/2024/schedule/presentation/113/index.html
 * https://pythonspeed.com/articles/python-extension-performance/
 * https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+* _CFFI_: call C from Python https://pypi.org/project/cffi/ https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 
 ## concurrency
 
@@ -144,6 +169,8 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 
 ---
 
+* start here https://pycon-archive.python.org/2024/schedule/presentation/151/index.html 
+* REPL `python -m asyncio` https://www.pythonmorsels.com/cli-tools/#asyncio
 BYO event loop https://www.youtube.com/watch?v=8I9Rc2Zaos4
 https://www.amazon.com/gp/product/1492055026
 start here https://www.youtube.com/watch?v=ftmdDlwMwwQ https://www.youtube.com/watch?v=X7vBbelRXn0
@@ -152,7 +179,6 @@ https://superfastpython.com/asyncio-event-loop-separate-thread/
 https://calpaterson.com/async-python-is-not-faster.html
 https://martinheinz.dev/blog/97
 https://higherorderco.com/
-https://www.amazon.com/gp/product/1492055026
 https://roadmap.sh/python
 https://hakibenita.com/django-concurrency
 https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sync-vs-async-in-python-tools-benchmarks-and-asgiwsgi-explained
@@ -210,7 +236,6 @@ https://news.ycombinator.com/item?id=35073136
 * https://www.erichgrunewald.com/posts/gradually-migrating-python-code-to-asyncio/
 * https://superfastpython.com/threading-in-python/
 * functools.partial for actual parallelization?
-* https://www.amazon.com/dp/1937785653
 * https://github.com/rednafi/think-async
 * https://talkpython.fm/episodes/show/389/18-awesome-asyncio-packages-in-python https://github.com/agronholm/anyio
 * parallelism https://pythonspeed.com/articles/concurrency-control/

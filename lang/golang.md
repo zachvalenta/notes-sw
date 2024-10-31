@@ -36,7 +36,7 @@ BASICS 📙 Ball
 
 ---
 
-* generics https://www.dolthub.com/blog/2024-07-01-golang-generic-collections/
+* generics https://www.dolthub.com/blog/2024-07-01-golang-generic-collections/ https://bitfieldconsulting.com/posts/generics
 * lodash https://github.com/samber/lo
 * enums https://www.zarl.dev/articles/enums
 * loops https://go.dev/blog/loopvar-preview
@@ -57,6 +57,7 @@ import (
 JSON 
 * https://www.youtube.com/watch?v=Osm5SCw6gPU https://akrabat.com/converting-json-to-a-struct-in-go/ https://eli.thegreenplace.net/2020/representing-json-structures-in-go/ https://www.youtube.com/watch?v=52yMK6p_cAg 
 * generate struct from JSON https://mholt.github.io/json-to-go/
+* https://github.com/orsinium-labs/jsony
 * default values https://github.com/creasty/defaults
 ```golang
 type Book struct {
@@ -178,14 +179,14 @@ var myInt // 0
 * _search_ https://blevesearch.com/
 * _security_ https://github.com/securego/gosec
 * _serialization_: https://github.com/bytedance/sonic
-* _testing_: https://github.com/stretchr/testify https://eli.thegreenplace.net/2020/faking-stdin-and-stdout-in-go/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://quii.gitbook.io/learn-go-with-tests/ mock db https://github.com/cockroachdb/copyist/ mocks https://github.com/stretchr/testify https://github.com/vektra/mockery https://github.com/jarcoal/httpmock https://www.youtube.com/watch?v=U-eO9_lNi7w https://github.com/gotestyourself/gotestsum
+* _testing_: https://github.com/stretchr/testify https://eli.thegreenplace.net/2020/faking-stdin-and-stdout-in-go/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://quii.gitbook.io/learn-go-with-tests/ mock db https://github.com/cockroachdb/copyist/ mocks https://github.com/stretchr/testify https://github.com/vektra/mockery https://github.com/jarcoal/httpmock https://www.youtube.com/watch?v=U-eO9_lNi7w https://github.com/gotestyourself/gotestsum visualize https://github.com/roblaszczak/vgt
 * time https://github.com/mergestat/timediff
 * _TOML_: https://github.com/pelletier/go-toml
 * _YAML_: https://github.com/goccy/go-yaml
 
 ## CLI
 
-* _gum_: use in Bash https://github.com/charmbracelet/gum https://www.youtube.com/watch?v=tnikefEuArQ
+* _gum_: Charm utils for Bash https://github.com/charmbracelet/gum https://www.youtube.com/watch?v=tnikefEuArQ
 
 ---
 
@@ -304,7 +305,7 @@ CMDS
 
 https://drewdevault.com/2021/04/02/Go-is-a-great-language.html
 * https://drewdevault.com/2018/10/08/Go-1.11.html
-* governance https://changelog.com/gotime/333
+* governance https://changelog.com/gotime/333 https://www.youtube.com/watch?v=pLvZRnK2WRE
 * https://commandcenter.blogspot.com/2024/01/what-we-got-right-what-we-got-wrong.html
 * governance: controlled by Google https://news.ycombinator.com/item?id=27610108 https://drewdevault.com/2022/05/25/Google-has-been-DDoSing-sourcehut.html * https://sourcehut.org/blog/2023-01-09-gomodulemirror/
 > If you must read the rest of this document to understand the behavior of your program, you are being too clever. https://go.dev/ref/mem

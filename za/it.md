@@ -10,7 +10,7 @@
 * replace previous (huge) email export with personal only https://www.google.com/search?hl=en&q=gmail%20export%20only%20subset https://webapps.stackexchange.com/a/67379
 * macOS storage (just use external storage?) https://news.ycombinator.com/item?id=41986777
 
-* _24_: port media/admin from Dropbox to mini23 and backup mini23, keyboards (nuphy air 75, keychron k8)
+* _24_: port media/admin from Dropbox to mini23 and backup mini23
 * _23_: mbp14 battery starts dying, buy mini23, port to mini23
 * _22_: port from `linux.md`, buy air22
 * _21_: macOS (failed upgrade to Big Sur) music (version control library)
@@ -30,7 +30,7 @@
 | email         | google   | 22.02 |            | mini23        |
 | mini23        | -        |       | fs         |               |
 | air22         | -        | ----- | mini23     |               |
-| `ExFatMain`   | desk     | 24.09 | mini23     |               |
+| `ExFatMain`   | desk     | 24.11 | mini23     |               |
 | `WD1`         | safe     | 24.06 | mini23     |               |
 | `WD2`         | lockbox  | 20.02 | mini23     |               |
 | `music-usb`   | desk     | ----- | `yin`      |               |
@@ -108,23 +108,24 @@ TIME MACHINE
 * photos: nirvana
 * parking tickets
 
+MAT
+* sw: network
+* math
+* za
+* science
+* kent data and reality
+
 MUSIC
-* dylan: desire, modern times, love and theft
 * dance: francis harris, jamie xx, danilov
 * electronic: drone
 * jazz: christian scott, alice coltrane, bill frisell
 * far: Aster Aweke
-* rock: spin doctors, mark kozelek, modest mouse, libertines, no doubt to singles, perfect, grateful dead europe 72, seger, everything from sui generis, trex, stones
-* rock/roots: dylan, band
 * za/blues: hendrix
 * za/gospel: hank jones
-
-### air-capp ➡️ mini23
-
-* dylan: triplicate
 * dance/techno: all
 > za (chemical brothers et al.)
-* rock/punk/80s: birthday party (mv to nick cave), fugazi
+
+### air-capp ➡️ mini23
 
 ## reimage
 
@@ -197,6 +198,7 @@ install from bootable disk
 * _Borg_: https://www.borgbackup.org/ https://news.ycombinator.com/item?id=13694079 https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
 * _Backblaze_: Terraform provider https://news.ycombinator.com/item?id=26426489
 * _rsync_: https://goteleport.com/blog/scp-familiar-simple-insecure-slow/ https://missing.csail.mit.edu/2019/remote-machines/ impl https://news.ycombinator.com/item?id=31958536 `rsync -rv --exclude=.git <dir> <path/to>` https://stackoverflow.com/a/3672584/6813490 https://michael.stapelberg.ch/posts/2022-07-02-rsync-how-does-it-work/
+* progress bar https://github.com/laktak/rsyncy
 ```sh
 # sync local to remote
 rsync --rsync-path 'sudo -u app rsync' -arvR --exclude '.*' --exclude '*~' .  ${DEST_HOST}:/opt/t3  # start
@@ -605,6 +607,7 @@ CONSIDERATIONS
 
 ---
 
+* https://registerspill.thorstenball.com/p/joy-and-curiosity-13 https://daniel.lawrence.lu/blog/y2023m12d15/
 * https://news.ycombinator.com/item?id=41987359
 * https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
 * config on macOS https://news.ycombinator.com/item?id=34487066
@@ -682,123 +685,6 @@ __WhatsApp__ 🗓 summer 2018
 * https://stackpointer.io/security/decrypt-whatsapp-crypt8-database-messages/419/
 * https://stackpointer.io/security/decrypt-whatsapp-crypt12-database-messages/559/
 
-# ⌨ MECHANCIAL
-
-🗄️ `built.md` homes / studio
-🔗 https://www.reddit.com/r/MechanicalKeyboards/
-📙 https://shifthappens.site/#story-of-a-photo
-
-## features
-
-WHAT I WANT
-* layout: TKL
-* connection: wired
-* no lights
-* don't care about programmable or rotary knob
-
-FEATURES
-* connection: usb-c is faster https://www.keychron.com/blogs/news/solid-wireless-connection-type-c-connection
-* layout: TKL https://www.keychron.com/blogs/archived/keyboard-buying-guide BYO https://news.ycombinator.com/item?id=41972550
-* lights
-* rotary knob: typically used for volume, page up/down https://www.reddit.com/r/MechanicalKeyboards/comments/12nfiqg/what_are_you_using_the_knob_for/?rdt=47962
-* programmable: QMK|VIA https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard https://www.youtube.com/watch?v=EWiOIVnrmMs
-
----
-
-* group buys https://www.keyboard.university
-* plate, PCB https://www.amazon.com/Keychron-Wireless-Mechanical-Hot-Swappable-Programmable/dp/B0B97JZV99
-* tray for desk https://www.amazon.com/VIVO-Computer-Keyboard-Platform-MOUNT-KB05E/dp/B07HFDJCSL
-* touch typing https://www.keybr.com/#!game https://github.com/kraanzu/smassh
-* can you use Windows keyboards for macOS? https://www.durgod.com/product/s230-dracula/
-* mechanical keyboard: cherry mx browns https://www.keychron.com/ clear is quietest, blue is clicky, brown is chunky https://news.ycombinator.com/item?id=27221191 https://www.imore.com/best-mechanical-keyboards-mac customer service https://www.reddit.com/r/NuPhy/comments/ztbr5n/apologies_for_the_shipment_delay_and_adjustment/
-* layers https://news.ycombinator.com/item?id=34069927
-* wrist rest https://news.ycombinator.com/item?id=34276226
-* Linux vs. Macos https://www.youtube.com/watch?v=GKoz7mm2tNI
-* chicklet https://www.youtube.com/watch?v=8jM1brvJhzg 5:20 butterfly started with 2015 12' Macbook https://www.theverge.com/2020/5/4/21246223/macbook-keyboard-butterfly-magic-pro-apple-design https://support.apple.com/keyboard-service-program-for-mac-notebooks returned to normal scissor keyboard (aka 'magic') with 2020 16' Macbook Pro https://www.wsj.com/articles/apple-updates-ipad-macbook-air-with-new-keyboard-11584538891
-* remapping https://missing.csail.mit.edu/2019/os-customization/
-* stenography for transcription https://www.openstenoproject.org/plover/
-* BYO https://www.youtube.com/watch?v=7UXsD7nSfDY
-
-## keycaps
-
-🧠 compatability https://chatgpt.com/c/6712bd5e-1484-8004-8dc1-119c4a3b6347
-🏪
-* Etsy
-* https://novelkeys.com/collections/keycaps
-* https://pacificparadiseprints.shop/ https://www.youtube.com/@PacificParadisePrints
-
-* size
-> Keycap sizes are described in terms of a "u. width. For example, 1u is the size of each of the number and alphabet keys on a keyboard. A 2u key, like Backspace, is twice the size of those 1u keys...compact keyboards often have a 1.75u right Shift key in place of the standard 2.75u right Shift key as well as 1u modifiers in the bottom row. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
-* _legend_: character on key; double-shot (more expensive) dye-sub (PBT only, non-transparent)
-* _profile_: height * shape https://thekeeblog.com/overview-of-different-keycap-profiles/
-* less options for low profile https://www.youtube.com/watch?v=BWQFUPm6XE0
-* _PBT_: more durable
-* _ABS_: less durable
-
-## models
-
-🏪
-* https://mechanicalkeyboards.com/
-* https://novelkeys.com/
-
-https://www.youtube.com/watch?v=9P74eCU19d0
-++ case https://www.keychron.com/products/keychron-keyboard-carrying-case
-
-KEYCHRON
-> only low-profile from keychron either don't have brown switches or do have ISO https://www.keychron.com/collections/low-profile-keyboard-collection/products/keychron-k1-max-qmk-via-wireless-custom-mechanical-keyboard
-* _c1_: $75 https://www.keychron.com/products/keychron-c1-pro-qmk-via-wired-mechanical-keyboard?variant=40615797391449
-* _k1_: stockout https://www.reddit.com/r/NuPhy/comments/1brdzgy/will_there_ever_be_low_profile_tkl_80_layout/
-* _k8_: ✅ $110 Jack https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?variant=39755425349721 https://www.amazon.com/Keychron-Wireless-Mechanical-Hot-Swappable-Programmable/dp/B0B97JZV99
-* _v3_: $110 layout (80/TKL) profile (normal) https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/ https://www.amazon.com/dp/B0CW5B5KL8
-
-NUPHY
-* _halo75_: less scrunched layout than air75? 🎯 https://www.amazon.com/nuphy-Mechancial-Kyeboard-Swappable-Bluetooth/dp/B0D5Q891F1
-* _air75 v2_: ✅ $125 layout (75, scrunched) profile (low - 2.3mm) slow shipping (but next time you can just buy from Amazon?) https://nuphy.com/products/air75-v2
-* _gem 80_: $150 layout (80/TKL) profile (normal) https://nuphy.com/collections/keyboards/products/gem80
-
-SPLIT
-* _Glove80_: $400 https://www.moergo.com/collections/glove80-keyboards
-* _Keychron q11_: $200
-* _Nocfree lite_: $180 https://www.youtube.com/watch?v=ye0JXSFB0uY
-* _Zsa voyager_: 🎯 $350 https://www.zsa.io/voyager
-
-ZA
-* _Apple wired_: ✅ $60 layout (100) profile (low - 2.3mm) https://www.amazon.com/dp/B07K7V1FWC
-* _Logitech mx mini_: https://www.logitech.com/en-us/products/keyboards/mx-keys-mini.920-010475.html
-* _Varmilo mac_: https://varmilo.com/products/mac?variant=45350805405915 keycaps https://varmilo.com/products/shurikey-gear-keycaps-sets-167-keys?pr_prod_strat=jac&pr_rec_id=c6579d995&pr_rec_pid=7642777518299&pr_ref_pid=8195613425883&pr_seq=uniform
-
-## switches
-
-🏪
-* https://milktooth.com/products/switches
-* https://switches.mx/
-
-* _actuation_: lighter typists prefer red/blue, heavier prefer greens and blacks
-* O rings https://www.youtube.com/watch?v=mvLyaSl3mmw
-
-SOUNDS https://www.youtube.com/watch?v=xtadlynfAZ8 https://pacificparadiseprints.shop
-* _clicky_: high pitched; Gateron blue
-* _creamy_: ✅ quiet, more resistance; Gateron brown|milky yellow
-* _thocky_: clacky, less resistance; Gateron red
-
----
-
-* mixing https://www.youtube.com/watch?v=YEj-wnhNSIk
-* linear switches don't feel clicky https://www.youtube.com/watch?v=xtadlynfAZ8
-> One other small detail to keep an eye out for is north or south-facing switches. North-facing switches have the LED cutout facing toward the top of the keyboard - they're better at illuminating shine-through legends, but aren't compatible with common Cherry-profile keycaps. South-facing switches have the LED cutout facing toward the front of the keyboard, and they are compatible with Cherry-profile keycaps. Some keyboards have both north  and south-facing switches, so make sure to double-check before buying a new set of keycaps. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
-* it goes deep https://www.theremingoat.com/ https://keyboardsexpert.com/what-is-a-frankenswitch-keyboard-switch/
-> If you don't already have a preference, we recommend Brown switches made by Gateron, Kailh, or Cherry because they're popular, readily available tactile switches that are good for most tasks and quiet enough for most offices...Clicky switches—like Blues and Kailh Box Whites—provide fun, typewriter-esque feedback. But they’re not ideal if you work or game in a shared space because they're very noisy...Optical switches use a laser to determine when you actuate a key. Manufacturers claim they work faster than mechanical switches, but in our experience, a light linear option like the common Red switch or the gaming-focused Cherry MX Speed Silver is plenty fast. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
-* tester https://drop.com/buy/kbdfans-all-in-one-72-switch-tester?defaultSelectionIds=973206#signupv2 https://kineticlabs.com/switches/kinetic/keyboard-switch-sample-packs
-* for low profile https://www.howtogeek.com/339502/low-profile-switches-are-coming-to-shrink-your-mechanical-keyboards/
-* creamy https://kineticlabs.com/switches/hmx/hmx-latte-switches
-* Topre: https://duarteocarmo.com/blog/happy-hacking-keyboard-review https://gizmodo.com/this-is-the-perfect-keyboard-1845258727
-> ALPS switches have been considered by enthusiasts to be one of the rarest type key switches. They are not as popular as mechanical switches, membrane switches, and even Topre switches. In fact, they can only be seen in vintage keyboards that were produced before the rise of membrane keyboards in the 1990s.  https://keyboardsexpert.com/what-are-alps-switches/
-> Switch makers also make low-profile switches, which aren’t as tall and have less travel. You can also find other, completely different types of switches, such as Topre, buckling spring, and Alps clones. None of these switch types are compatible with the wide pool of keycaps designed for MX stems, but they all have their own unique appeal. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
-* _linear_: smooth
-* _tactile_: bump halfway through keypress
-* _clicky_: tactile + click
-* _hot-swappable_: don't need to solder in new switch
-
 # 🍎 MACOS
 
 🗄 `linux.md` denv
@@ -812,6 +698,7 @@ ZA
 * disk format: disk utility > select outermost > erase > ExFAT https://www.youtube.com/watch?v=Rq0_PQa8Irs https://www.youtube.com/watch?v=rMkGdnUwvXE
 * force quit: `cmd alt esc` or use Activity Monitor (had to kill Docker once this way)
 * CLI: https://github.com/rgcr/m-cli settings https://missing.csail.mit.edu/2019/os-customization/
+* screen capture https://switowski.com/blog/favorite-mac-tools/
 
 ## apps
 
@@ -833,6 +720,7 @@ INVENTORY 🗄 `/Applications`
 * settings: zoom to 110, font fize large, downloads to desktop, switch search to DuckDuckGo, startup to open previous tabs
 * extensions: Vimium, Mercury Reader, EditThisCookie, PocketTube
 * clean pages: archive.vn, https://12ft.io/ https://github.com/wasi-master/13ft https://chromewebstore.google.com/detail/archive-page/gcaimhkfmliahedmeklebabdgagipbia?pli=1
+* `python -m webbrowser pseudorandom.name` https://dev.to/dmahely/one-bash-command-to-start-the-day-2fni
 * _Arc_: https://en.wikipedia.org/wiki/Arc_(web_browser) https://www.youtube.com/watch?v=E9yZ0JusME4 https://news.ycombinator.com/item?id=36863925 https://news.ycombinator.com/item?id=41597250
 * _awrit_: in terminal?!? https://github.com/chase/awrit
 * _Brave_: way less storage hit (150M) than Chrome (1.2GB) 🗄️ `/Users/$USER/Library/Application Support`
@@ -1105,83 +993,3 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
   Reason: image not found
 /usr/local/bin/neofetch: line 4160: 11158 Trace/BPT trap: 5       awk -F'<|>' '/string/ {print $3}' "/System/Library/CoreServices/SystemVersion.plist"
 ```
-
-# 🟨 ZA
-
-* keystroke visualizer https://github.com/keycastr/keycastr https://switowski.com/blog/favorite-mac-tools/
-* screen capture https://switowski.com/blog/favorite-mac-tools/
-
-## PDF
-
-TOOLING
-* _poppler_: https://github.com/sxyazi/yazi
-* _tdf_: https://github.com/itsjunetime/tdf
-* _termpdf_: kitty https://github.com/dsanson/termpdf.py
-
----
-
-* grep https://github.com/darrenldl/docfd
-* Sioyek https://news.ycombinator.com/item?id=34069804
-* https://docs.racket-lang.org/quad/
-* Markdown https://docs.racket-lang.org/quad/
-* https://rtpg.co/2016/09/17/make-an-ebook.html
-* _design_: https://news.ycombinator.com/item?id=24108950 https://gds.blog.gov.uk/2018/07/16/why-gov-uk-content-should-be-published-in-html-and-not-pdf/
-* _annotation_: PDF Expert, Flexcil, https://news.ycombinator.com/item?id=23230218 https://github.com/xournalpp/xournalpp
-* _archival_: https://github.com/danburzo/percollate https://github.com/pirate/ArchiveBox
-* _readers - macOS_: PDF Expert (freemium version won't let you save) PDF Element ($90/year) Preview (search doesn't seem to work for most documents https://duckduckgo.com/?q=macos+preview+search+doesn%27t+work&atb=v161-1&ia=web text in sidebar doesn't correspond to hightlight, some hightlights produce no text in sidebar, can't enter emoji into notes, limited keyboard shortcuts) Nitro PDF
-* _to plain text_: https://github.com/axa-group/Parsr https://github.com/jsvine/pdfplumber
-* _from plain text_: http://richardmavis.info/using-web-technologies-to-print-a-book https://coreyburmeister.com/continuous-integration-and-deployment-for-my-resume/
-* _from HTML_: https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.princexml.com/
-* _split_: select subset and drag into Finder
-https://github.com/jorisschellekens/borb
-https://news.ycombinator.com/item?id=26691626
-* _ereader_ https://johnfactotum.github.io/foliate/
-[PDF is bad]()
-* PDF reader w/ Vim bindings: Zathura http://jhshi.me/2016/03/09/zathura-pdf-viewer-for-vim-lovers/index.html#.Xg4gThdKh-U not available on macOS https://www.reddit.com/r/vim/comments/3prfd0/pdf_reader_with_vim_keybindings_for_mac_osx/
-* https://github.com/burtonator/polar-bookshelf https://pwmt.org/projects/zathura/ https://goodreader.com/
-* mobile: [Joplin](https://github.com/laurent22/joplin), IAWriter
-* https://www.pdfa.org/a-technical-and-cultural-assessment-of-the-mueller-report-pdf/
-
-## window systems
-
-🗄️ `interfaces.md` terminal
-
-WINDOW MANAGERS
-* _aerospace_: 🎯 https://github.com/nikitabobko/AeroSpace https://nikitabobko.github.io/AeroSpace/guide https://www.youtube.com/watch?v=-FoWClVHG5g
-* _hyprland_: https://www.youtube.com/watch?v=2CP_9-jCV6A config hell https://www.youtube.com/watch?v=T__INNgTW1M
-
-SEMANTICS
-* _window system_: server that displays graphics https://en.wikipedia.org/wiki/Windowing_system
-* protocols: x11 https://unix.stackexchange.com/q/517 Wayland, pipewire https://www.youtube.com/watch?v=jFxwPJpUwl0 https://github.com/sharkdp/pastel#get-a-list-of-all-x11--css-color-names https://en.wikipedia.org/wiki/Wayland_(display_server_protocol) https://en.wikipedia.org/wiki/X_Window_System
-* _window manager_: control windows displayed by window system https://en.wikipedia.org/wiki/Window_manager https://news.ycombinator.com/item?id=34591661 https://news.ycombinator.com/item?id=36880235 https://www.youtube.com/watch?v=xWIDvnNFl5I
-* _tiling window manager_: keyboard-driven arrangement of and switching btw windows
-> https://www.youtube.com/watch?v=bdumjiHabhQ on i3 convinced me that this was potentially worthwhile just to not have to scroll for VS Code (and break dependency on iTerm auto hotkey)
-* _desktop environment_: mouse-driven GUI riding on top of window system https://askubuntu.com/a/20435
-* _display server_: ❓ e.g. Quartz Compositor (aka WindowServer) https://en.wikipedia.org/wiki/Quartz_Compositor https://unix.stackexchange.com/a/1016
-
-DESKTOP ENV
-* rainmeter https://modkavartini.github.io/catppuccin/ https://www.rainmeter.net/
-* _GNOME_: https://blog.edfloreshz.dev/articles/linux/system76/rust-based-desktop-environment/
-* _Material Shell_: https://news.ycombinator.com/item?id=24491091
-* _Cinnamon_: https://news.ycombinator.com/item?id=24491091
-
----
-
-WINDOW MANAGERS
-* window manager https://news.ycombinator.com/item?id=34591661
-* for Windows https://news.ycombinator.com/item?id=33168263
-* for macOS https://magnet.crowdcafe.com/ https://news.ycombinator.com/item?id=22852157 https://faun.pub/yabai-macos-tile-window-manager-833ce1be396a?gi=132df1bca0e1 https://github.com/koekeishiya/yabai https://news.ycombinator.com/item?id=36368990
-* AlwaysOnTop https://www.youtube.com/watch?v=6IxRlaTWsoQ
-* _alt-tab_: https://alt-tab-macos.netlify.app/
-* _Amethyst_: macOS https://github.com/ianyh/Amethyst https://www.reddit.com/r/xmonad/comments/3j4tnt/is_it_possible_to_use_xmonad_on_os_x/ https://switowski.com/blog/favorite-mac-tools/
-* _dwm_: https://dwm.suckless.org/
-* _i3_: tiling + hotkeys https://www.youtube.com/watch?v=bdumjiHabhQ 3:30 https://www.youtube.com/watch?v=bdumjiHabhQ 1:30
-* _Magnet_: https://switowski.com/blog/favorite-mac-tools/
-* _PaperWM_: https://jvns.ca/blog/2020/01/05/paperwm/
-* _Slate_: unmaintained https://github.com/jigish/slate
-* _Sway_: https://swaywm.org/
-* _Rectangle_: macOS https://rectangleapp.com/ https://switowski.com/blog/favorite-mac-tools/ https://github.com/rxhanson/Rectangle
-* _X.org_: https://www.x.org/wiki/
-* _XQuartz_: port of X.org for macOS https://www.xquartz.org/
-* _xmonad_: x11, no macOS https://news.ycombinator.com/item?id=30402358 https://xmonad.org/
-> I've mellowed as I've aged, but still fondly remember the thrill of the XMonad tiling window manager on multiple monitors — in particular, its responsiveness. With a few fast keyboard shortcuts, I could throw windows between monitors, arrange windows side-by-side, and immediately move focus to exactly the window I had in mind. XMonad also supports "virtual desktops", which I used to organize windows by task. For example, when working on a web app I'd put a terminal window, Emacs window, two web browsers (one for my app, the other for looking up documentation) all on the same virtual desktop. Then, when I wanted to do something else, I could switch to an empty virtual desktop, effectively saving my previous one "away for later". https://kevinlynagh.com/newsletter/2020_04_keyboards_rethinking_desktops/

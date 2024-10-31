@@ -14,6 +14,7 @@
 
 ## 进步
 
+* perf: https://openfolder.sh/django-faster-speed-tutorial
 * in a single file https://github.com/radiac/nanodjango
 TUI commands https://github.com/anze3db/django-tui
 TUI admin https://github.com/valberg/django-admin-tui
@@ -822,7 +823,6 @@ https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-djan
 * _maps_: https://www.paulox.net/2020/12/08/maps-with-django-part-1-geodjango-spatialite-and-leaflet/
 * _Markdown_: https://learndjango.com/tutorials/django-markdown-tutorial
 * _payments_: https://testdriven.io/blog/django-stripe-tutorial/ https://github.com/zinmyoswe/Django-Ecommerce https://github.com/dinoperovic/django-salesman
-* _perf_: https://openfolder.sh/django-faster-speed-tutorial
 * _rate limiting_: https://github.com/jsocol/django-ratelimit
 * _search_: https://findwork.dev/blog/optimizing-postgres-full-text-search-django/ https://www.youtube.com/watch?v=is3R8d420D4 https://youtu.be/is3R8d420D4 https://jamesturk.net/posts/websearch-in-django-31 https://www.youtube.com/watch?v=kOKwEDHeBX4 https://github.com/ivelum/djangoql https://pganalyze.com/blog/full-text-search-django-postgres Haystack https://django-q.readthedocs.io/en/latest/examples.html https://github.com/etianen/django-watson https://www.paulox.net/2017/12/22/full-text-search-in-django-with-postgresql https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ sort https://rednafi.com/python/sort_by_a_custom_sequence_in_django/ https://www.photondesigner.com/articles/database-search-django-htmx
 * _secrets_: https://github.com/LeeHanYeong/django-secrets-manager https://adamj.eu/tech/2024/08/30/django-rotate-secret-key/

@@ -33,6 +33,50 @@ INTERVIEWING
 * _18_: Flyway for Dark Canary, modeling course
 * _17_: subqueries for Case
 
+# 🚧 DESIGN
+
+🗄️ `eng.md` dataframes
+
+* boring and durable https://josephg.com/blog/databases-have-failed-the-web
+* outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/
+> The relational data model enables those things. None of them require the language to be SQL...LINQ, spark, flink, kafka streams, pandas, dataframes are all widely used examples of an expression-based language-embedded approach to relational queries. https://www.scattered-thoughts.net/writing/against-sql
+> SQL is the most popular to communicate with databases but isn't always the easiest to write. I've been writing SQL statements since the 1990s and even in 2024, I can find myself needing to refer to documentation and spending 30 minutes or more getting more complex statements to run as I wish. https://tech.marksblogg.com/heavyiq-faa-ai-llm-gpu-database.html
+* ISO, ANSI standard 📙 Beaulieu [86-87]
+* SQL92 📙 Beaulieu [91]
+* SQL2023 http://peter.eisentraut.org/blog/2023/04/04/sql-2023-is-finished-here-is-whats-new
+
+## code gen
+
+🗄️ `src.md` API
+
+---
+
+* https://github.com/directus/directus
+* Postgrest https://github.com/PostgREST/postgrest https://news.ycombinator.com/item?id=30132947 https://github.com/prest/prest
+* GraphQL https://www.graphile.org/postgraphile/ 
+* query SQLite over HTTP https://news.ycombinator.com/item?id=30636796
+* ROAPI https://github.com/roapi/roapi https://tech.marksblogg.com/roapi-rust-data-api.html
+* Datasette https://www.youtube.com/watch?v=pTr1uLQTJNE https://www.hytradboi.com/2022/datasette-a-big-bag-of-tricks-for-solving-interesting-problems-using-sqlite
+* DBCore https://github.com/eatonphil/dbcore https://notes.eatonphil.com/generating-a-rest-api-from-a-database.html
+* Octo https://github.com/octoproject/octo-cli
+* https://github.com/thevahidal/soul
+
+## query builders
+
+---
+
+* reverse query builder https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203030 https://github.com/kyleconroy/sqlc https://preslav.me/2023/03/07/reasons-against-sqlc/
+* _query builder_: what it sounds like i.e. cares about physical tables, doesn't care about objects i.e. not an ORM https://github.com/stephenafamo/bob
+* BYO https://death.andgravity.com/query-builder-how
+* _aiosql_: https://github.com/nackjicholson/aiosql load sql file into Python and run queries as methods https://github.com/nackjicholson/aiosql
+* _csql_: https://news.ycombinator.com/item?id=24866377
+* _hashquery_: https://news.ycombinator.com/item?id=40132424 https://hashquery.dev/ https://github.com/hashboard-hq/hashquery
+* _piccolo_: https://github.com/piccolo-orm/piccolo
+* _pypika_ https://github.com/kayak/pypika https://github.com/zachvalenta/query-sandbox/blob/main/queries.py
+* _Pony_: https://github.com/ponyorm/pony
+* _records_: just write SQL https://github.com/kennethreitz/records
+* _spyql_: https://github.com/dcmoura/spyql https://news.ycombinator.com/item?id=30074787
+
 # 🚧 DDL
 
 COMMANDS
@@ -166,6 +210,7 @@ This makes development much more involved than the traditional “flip a switch�
 
 ---
 
+https://news.ycombinator.com/item?id=41935730
 https://github.com/xataio/pgroll
 https://xata.io/blog/migrations-and-exclusive-locks
 https://github.com/pressly/goose
@@ -214,126 +259,6 @@ Flyway https://flywaydb.org/documentation/ https://github.com/zachvalenta/flyway
 * _types_: versioned (default) repeatable https://flywaydb.org/getstarted/repeatable undo https://flywaydb.org/getstarted/undo just make a new migration file (vs. using `flyway repair`) ['How to Correct a Mistake in a Migration']
 * _versions_: looks at `version` table; version numbers https://flywaydb.org/documentation/migrations#naming
 * _with Java_: if you drop tables and rerun app, run `mvn clean install` before rerun (think something cached between runs (in `target`?) indicating that scripts have already been run --> this is weird bc Flyway should look to version table in the database for that)
-
-## modeling
-
-🗄️ `algos.md` data structures
-🔍 https://drawsql.app/templates
-📙 Kent data/reality https://www.amazon.com/Data-Reality-Perspective-Perceiving-Information/dp/1935504215
-
-* enum > FK
-* modeling payments https://news.ycombinator.com/item?id=36775098
-* https://news.ycombinator.com/item?id=41146239&utm_term=comment
-
-ACCESS PATTERNS
-* _access pattern_: how you have to query based on schema https://calpaterson.com/non-relational-beartraps.html
-* what you're prioritizing e.g. read/write vs. aggregations 📻 Macey 6:10
-* _upsert_: insert or update 📙 Bradshaw [46]
-* _get-or-create_: `get_or_create()` in Django, aka find_create_find
-
-RELATIONS
-* _relationship_: what ties tables together https://twobithistory.org/2017/12/29/codd-relational-model.html
-* _relational model_: Codd 📙 Kent data/reality [155] Beaulieu [5]
-* relational algebra https://news.ycombinator.com/item?id=39753749
-> when embedding would result in duplication of data but would not provide sufficient read performance advantages to outweigh the implications of the duplication.
-> to represent more complex many-to-many relationships
-> to model large hierarchical data sets
-> In the database community it has been conventional wisdom for nearly half a century now (basically since the invention of the relational model) that in designing your database schema you should be careful to avoid any kind of redundancy. That's what database normalization theory is all about. https://www.cell-lang.net/relations.html
-* _denormalization_: when speed more of a concern 📙 Conery imposter [320] Kleppmann [491] Manga [62]
-* _denormalized query engine_: subset of data for search https://speakerdeck.com/simon/the-denormalized-query-engine-design-pattern https://simonwillison.net/2020/Dec/19/dogsheep-beta/
-* _locality_: proximity of data relevant to an entity 📙 Kleppmann [32] 🗄 `db.md` document
-* _embeded_: NoSQL https://www.mongodb.com/docs/manual/core/data-model-design/
-> you have "contains" relationships between entities
-> you have one-to-many relationships between entities, in these relationships the "many" or child documents always appear with or are viewed in the context of the "one" or parent documents.
-> embedding provides better performance for read operations, as well as the ability to request and retrieve related data in a single database operation.
-
-1-1
-* = sole ownership
-* impl: attr, separate table https://support.airtable.com/hc/en-us/articles/218734758#onetoone
-* example: person-SSN, country-capital https://stackoverflow.com/a/15037461
-* less common than you'd think https://www.b-list.org/weblog/2024/aug/27/highlander-problem/
-
-1-M
-* = ownership
-```sql
-CREATE TABLE team(
-    team_id INTEGER PRIMARY KEY,
-);
-
-CREATE TABLE player(
-    player_id INTEGER PRIMARY KEY,
-    team_id INTEGER,
-    FOREIGN KEY (team_id) REFERENCES team(team_id)
-);
-```
-
-M-M
-* = collaboration
-* aka join table, junction table https://stackoverflow.com/a/3419868
-```sql
-CREATE TABLE band(
-    band_id INTEGER PRIMARY KEY,
-);
-
-CREATE TABLE musician(
-    musician_id INTEGER PRIMARY KEY,
-);
-
-CREATE TABLE band_musician(
-    bm_id INTEGER PRIMARY KEY,
-    band INTEGER,
-    musician INTEGER,
-    FOREIGN KEY (band) REFERENCES band(band_id)
-    FOREIGN KEY (musician) REFERENCES band(musician_id)
-);
-```
-
-IMPORTANCE
-> Data models are perhaps the most important part of developing software, because they have such a profound effect: not only on how the software is written, but also how we think about the problem that we are solving. 📙 Kleppmann [31]
-> This is one reason it's so important to model your domain correctly: if, for example, you make something a property of A when it should be a property of B, the penalty is often that operations that formerly required checking all the As or all the Bs now require checking all the As and all the Bs. https://www.natemeyvis.com/writing/on-quadratic-complexity/
-> Take data access patterns very seriously!...it's easy to turn something that should be logarithmic time into polynomial time https://calpaterson.com/activerecord.html
-
-SEMANTICS
-* _domain_: thing you're trying to model https://calpaterson.com/non-relational-beartraps.html
-* _schema_: model of thing https://calpaterson.com/non-relational-beartraps.html
-* general usage: table names + column name/type https://news.ycombinator.com/item?id=22723277
-* Postgres usage: container for obj such as table or view https://news.ycombinator.com/item?id=22721914
-
-NORMALIZATION
-* _normalization_: process of extracting entities from other entities https://en.wikipedia.org/wiki/Database_normalization#Normal_forms
-* _form_: step in normalization
-* avoids redundancy (no `author` in `book` bc you'd repeat Jane Austen for each novel)
-* saves space (no dupes) 📙 Kleppmann [33]
-* howto: one big mess and decompose from there, think of example queries
-* _1NF_: 1 value for each attr
-* aka atomic 📙 Takahashi [58] Winand [6]
-```sql
--- pre-1NF: n values for each record
-insert into danzi(item) values ('quesidilla, churro');
-
--- 1NF: 1 value for each record
-insert into danzi(item) values ('quesidilla');
-insert into danzi(item) values ('churro');
-```
-* _2NF_: non-PK must be related to PK 📙 Conery imposter 316 Takahashi 3.63 https://stackoverflow.com/a/724032
-* symptom is redundancy (value repeats across records w/out reference to FK) and therefore anomaly (value could be mispelled) 📙 Karwin [289]
-```sql
--- TITLE dependent on COURSE_ID but unrelated to SEMESTER_ID
-CourseID | SemesterID | #Places  | Title        |
-------------------------------------------------|
-IT101    |   2009-1   | 100      | Programming  |
-IT101    |   2009-2   | 100      | Programming  |
-IT102    |   2009-1   | 200      | Databases    |
-IT102    |   2010-1   | 150      | Databases    |
-IT103    |   2009-2   | 120      | Web Design   |
-```
-* _3NF_: don't get difference from 2NF 📙 Conery imposter 318 Karwin 291
-* the generally accepted level of normalization 📙 Winand 1.4
-* https://stackoverflow.com/a/724013/6813490 https://www.mikealche.com/software-development/a-humble-guide-to-database-schema-design
-```sql
--- todo
-```
-* _5NF (Boyce-Codd)_: when you're going too far 📙 Winand [5]
 
 ## typing
 
@@ -885,53 +810,95 @@ SELECT NAME,
 FROM cd.facilities;  
 ```
 
-# ⭕️ ORM
+# 🟨️ ZA
 
-DESIGN
-* _ORM (object-relational mapper)_: obj as frontend to relational data store
-* why: dbms portability, terseness, getting data into obj https://monadical.com/posts/why-use-orm.html https://news.ycombinator.com/item?id=37118633
-* why not: SQL is more durable, more help on SO, easier for complicated relationships https://news.ycombinator.com/item?id=21961214 https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://sirupsen.com/stop-relying-on-your-orm-and-learn-sql https://news.ycombinator.com/item?id=36497613
-* write thin DSL over ORM vs. modifying default ORM methods https://rtpg.co/2016/09/12/orms-are-scary.html
-* _data mapper_: https://en.wikipedia.org/wiki/SQLAlchemy https://www.openmymind.net/2011/11/18/I-Just-Dont-Like-Object-Mappers/
-* _active record_: wrapper (row + DSL) https://www.martinfowler.com/eaaCatalog/activeRecord.html http://calpaterson.com/activerecord.html https://github.com/sdispater/orator
-* ActiveRecord for Golang https://github.com/volatiletech/sqlboiler
-* _N+1 problem_: https://roadmap.sh/backend https://macwright.org/2020/05/10/spa-fatigue.html https://stackoverflow.com/q/97197/6813490 https://www.sqlalchemy.org/features.html https://tech.yplanapp.com/2016/09/26/introducing-django-perf-rec/ https://www.youtube.com/watch?v=uCbFMZYQbxE https://github.com/jmcarp/nplusone https://news.ycombinator.com/item?id=26151302 https://fly.io/blog/introducing-litefs/ https://github.com/superfly/litefs
-> The 1+N database anti-pattern is common: fetch some rows from the database then re-fetch specific rows to get all the items. An ORM can hide this away and make you not realize it is happening. https://suor.github.io/blog/2023/03/26/ban-1-plus-n-in-django/
-* solved with eager loading https://news.learnenough.com/eager-loading
-* _impedance mismatch_: difficulty of object-relational mapping [Kleppmann 1.33] multiple ways to aproach http://blogs.tedneward.com/post/the-vietnam-of-computer-science/
-> In the database community it has been conventional wisdom for nearly half a century now (basically since the invention of the relational model) that in designing your database schema you should be careful to avoid any kind of redundancy. That's what database normalization theory is all about. For some unfathomable reason, the same kind of thinking is never (or almost never) applied to software construction, even though it would be as beneficial (possibly even more so) as it is for databases. So, before we countinue our discussion, it's a good idea to talk a bit about redundancy, and to explain what's so harmful about it. https://www.cell-lang.net/relations.html
+SEMANTICS
+* _object_: anything e.g. table, user, trigger https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements007.htm https://github.com/jOOQ/sakila/blob/ee1a637656aec2d82183ab451c56a3845315e761/mysql-sakila-db/mysql-sakila-drop-objects.sql ownership model https://www.red-gate.com/simple-talk/uncategorized/postgresql-basics-object-ownership-and-default-privileges/
+* _collation_: order in which char in character set are sorted 📙 Beaulieu [77]
+* _enumeration attack_: https://sqlfordevs.com/uuid-prevent-enumeration-attack
+* _fuzzy matching_: merging n datasets that don't have a common UUID e.g. merging contacts based on name https://pbpython.com/record-linking.html
+* _deterministic matching_: https://github.com/zinggAI/zingg
+* _virtual column_: https://news.ycombinator.com/item?id=31396578
 
-## code gen
+STYLE 📜 https://www.sqlstyle.guide/
+* ✅ constraints next to the attr they constrain https://www.sqlstyle.guide/#layout-and-order
+> this seems to violate parsing rules for SQLite 🗄 `golf`
+* ✅ suffixes https://www.sqlstyle.guide/#uniform-suffixes
+* ✅ uppercase keywords https://www.sqlstyle.guide/#reserved-words
+* indentation along root keywords (select, from, where) https://www.sqlstyle.guide/#indentation https://www.sqlstyle.guide/#spaces
+* white space / tabs not significant
+* ✅ ubiquitous language ❌ but no Hungarian notation https://news.ycombinator.com/item?id=24403236 
+* ✅ starts w/ char, use underscores where you'd use a space in natural language https://www.sqlstyle.guide/#naming-conventions
+* ❌ _Hungarian notation_: type in signature https://www.sqlstyle.guide/#tables https://news.ycombinator.com/item?id=24403236
+* ❌ through table as concatentation of its constituents https://www.sqlstyle.guide/#tables
+* ❌ `id` as PK https://www.sqlstyle.guide/#columns https://github.com/jOOQ/jOOQ/tree/master/jOOQ-examples/Sakila
+* ✅ singular for attr https://www.sqlstyle.guide/#columns
 
-🗄️ `src.md` API
+DCL
+* _get current user_: `select current_user;` or `select user();`
+* _create user_: `CREATE USER alice WITH PASSWORD '1234';` `CREATE USER '<name>'@'localhost';
+* scope reads to currrent user https://news.ycombinator.com/item?id=23308945
+* give user perms to db
+```sql
+GRANT ALL PRIVILEGES ON <dbName>.* to '<userName>'@'localhost' WITH GRANT OPTION; 
+FLUSH PRIVILEGES;
+```
+* test user privileges
+```sql
+mysql -u user_name
+USE db_name;
+CREATE TABLE test_table (c CHAR(20));
+INSERT INTO test_table(name, age) values('zach', 31);
+SELECT * FROM test_table;
+DROP TABLE test_table;
+```
 
----
+## commands
 
-* https://github.com/directus/directus
-* Postgrest https://github.com/PostgREST/postgrest https://news.ycombinator.com/item?id=30132947 https://github.com/prest/prest
-* GraphQL https://www.graphile.org/postgraphile/ 
-* query SQLite over HTTP https://news.ycombinator.com/item?id=30636796
-* ROAPI https://github.com/roapi/roapi https://tech.marksblogg.com/roapi-rust-data-api.html
-* Datasette https://www.youtube.com/watch?v=pTr1uLQTJNE https://www.hytradboi.com/2022/datasette-a-big-bag-of-tricks-for-solving-interesting-problems-using-sqlite
-* DBCore https://github.com/eatonphil/dbcore https://notes.eatonphil.com/generating-a-rest-api-from-a-database.html
-* Octo https://github.com/octoproject/octo-cli
-* https://github.com/thevahidal/soul
+SEMANTICS 🗄 `language.md` semantics
+* _command_: keyword + identifier
+* _keyword_: part of SQL lang spec; not case sensitive
+* _identifier_: value (cell, attribute); case-sensitive
+* quotes: single for value, double for attr https://stackoverflow.com/q/1992314
+```sql
+SELECT "from" FROM foo WHERE something = 'val';
+```
+* _query_: `SELECT` command 📙 Karwin [6]
+* _statement_: non-`SELECT` commands 📙 Karwin [6]
 
-## query builders
+TYPES
+* _DCL_: control; user perms https://stackoverflow.com/a/44898661
+* _DDL_: definition; table structure and inter-table relationships https://stackoverflow.com/a/2578207
+* _DML_: manipulation; CRUD
 
----
+KEYWORDS https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html https://www.sqlstyle.guide/#reserved-keyword-reference
+* _reserved_: word that cannot use as identifier e.g. `create`
+* _non-reserved_: word that you can use as identifier but should use backtickets for e.g. `assertion`, `name`
+* _keyword_: reserved + non-reserved; case-insensitive
+> As a general rule, if you get spurious parser errors for commands that contain any of the listed key words as an identifier you should try to quote the identifier to see if the problem goes away. - https://www.postgresql.org/docs/8.1/static/sql-keywords-appendix.html
 
-* reverse query builder https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203030 https://github.com/kyleconroy/sqlc https://preslav.me/2023/03/07/reasons-against-sqlc/
-* _query builder_: what it sounds like i.e. cares about physical tables, doesn't care about objects i.e. not an ORM https://github.com/stephenafamo/bob
-* BYO https://death.andgravity.com/query-builder-how
-* _aiosql_: https://github.com/nackjicholson/aiosql load sql file into Python and run queries as methods https://github.com/nackjicholson/aiosql
-* _csql_: https://news.ycombinator.com/item?id=24866377
-* _hashquery_: https://news.ycombinator.com/item?id=40132424 https://hashquery.dev/ https://github.com/hashboard-hq/hashquery
-* _piccolo_: https://github.com/piccolo-orm/piccolo
-* _pypika_ https://github.com/kayak/pypika https://github.com/zachvalenta/query-sandbox/blob/main/queries.py
-* _Pony_: https://github.com/ponyorm/pony
-* _records_: just write SQL https://github.com/kennethreitz/records
-* _spyql_: https://github.com/dcmoura/spyql https://news.ycombinator.com/item?id=30074787
+## pedagogy
+
+* tldr: better at SQL if data 1) local 2) interesting
+* small databases https://news.ycombinator.com/item?id=34558054
+* example databases: Spanish, Sakila https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql 📙 Beaulieau [41]
+
+CONNECT TO ACTUAL SERVER
+* https://data.stackexchange.com/help
+* https://sqlpd.com/
+* https://news.ycombinator.com/item?id=30631477
+
+PLAYGROUNDS
+* PG exercises https://github.com/zachvalenta/pg-exercises
+* https://jvns.ca/blog/2023/04/17/a-list-of-programming-playgrounds/
+
+BAKED DATA
+* Datasette https://csvbase.com/ fetching https://github.com/fatiando/pooch
+* SQL.js https://selectstarsql.com/frontmatter.html#technicals https://github.com/sql-js/sql.js https://github.com/NUKnightLab/sql-mysteries
+* https://news.ycombinator.com/item?id=34558054 https://news.ycombinator.com/item?id=34630153
+* https://sqlbolt.com/
+* https://dataschool.com/learn-sql/basic-practice/
+* https://sql-playground.wizardzines.com/
 
 ## SQLAlchemy
 
@@ -939,6 +906,8 @@ DESIGN
 🗄 `django.md` db
 
 ----
+
+https://us.pycon.org/2024/schedule/presentation/57/index.html
 
 ALTERNATIVES
 * Django
@@ -1116,108 +1085,6 @@ new thing [id 1 name thing1 desc thing-1-desc]
 >>> Thing.query.all()
 []
 ```
-
-# 🟨️ ZA
-
-SEMANTICS
-* _object_: anything e.g. table, user, trigger https://docs.oracle.com/cd/B19306_01/server.102/b14200/sql_elements007.htm https://github.com/jOOQ/sakila/blob/ee1a637656aec2d82183ab451c56a3845315e761/mysql-sakila-db/mysql-sakila-drop-objects.sql ownership model https://www.red-gate.com/simple-talk/uncategorized/postgresql-basics-object-ownership-and-default-privileges/
-* _collation_: order in which char in character set are sorted 📙 Beaulieu [77]
-* _enumeration attack_: https://sqlfordevs.com/uuid-prevent-enumeration-attack
-* _fuzzy matching_: merging n datasets that don't have a common UUID e.g. merging contacts based on name https://pbpython.com/record-linking.html
-* _deterministic matching_: https://github.com/zinggAI/zingg
-* _virtual column_: https://news.ycombinator.com/item?id=31396578
-
-STYLE 📜 https://www.sqlstyle.guide/
-* ✅ constraints next to the attr they constrain https://www.sqlstyle.guide/#layout-and-order
-> this seems to violate parsing rules for SQLite 🗄 `golf`
-* ✅ suffixes https://www.sqlstyle.guide/#uniform-suffixes
-* ✅ uppercase keywords https://www.sqlstyle.guide/#reserved-words
-* indentation along root keywords (select, from, where) https://www.sqlstyle.guide/#indentation https://www.sqlstyle.guide/#spaces
-* white space / tabs not significant
-* ✅ ubiquitous language ❌ but no Hungarian notation https://news.ycombinator.com/item?id=24403236 
-* ✅ starts w/ char, use underscores where you'd use a space in natural language https://www.sqlstyle.guide/#naming-conventions
-* ❌ _Hungarian notation_: type in signature https://www.sqlstyle.guide/#tables https://news.ycombinator.com/item?id=24403236
-* ❌ through table as concatentation of its constituents https://www.sqlstyle.guide/#tables
-* ❌ `id` as PK https://www.sqlstyle.guide/#columns https://github.com/jOOQ/jOOQ/tree/master/jOOQ-examples/Sakila
-* ✅ singular for attr https://www.sqlstyle.guide/#columns
-
-DCL
-* _get current user_: `select current_user;` or `select user();`
-* _create user_: `CREATE USER alice WITH PASSWORD '1234';` `CREATE USER '<name>'@'localhost';
-* scope reads to currrent user https://news.ycombinator.com/item?id=23308945
-* give user perms to db
-```sql
-GRANT ALL PRIVILEGES ON <dbName>.* to '<userName>'@'localhost' WITH GRANT OPTION; 
-FLUSH PRIVILEGES;
-```
-* test user privileges
-```sql
-mysql -u user_name
-USE db_name;
-CREATE TABLE test_table (c CHAR(20));
-INSERT INTO test_table(name, age) values('zach', 31);
-SELECT * FROM test_table;
-DROP TABLE test_table;
-```
-
-## commands
-
-SEMANTICS 🗄 `language.md` semantics
-* _command_: keyword + identifier
-* _keyword_: part of SQL lang spec; not case sensitive
-* _identifier_: value (cell, attribute); case-sensitive
-* quotes: single for value, double for attr https://stackoverflow.com/q/1992314
-```sql
-SELECT "from" FROM foo WHERE something = 'val';
-```
-* _query_: `SELECT` command 📙 Karwin [6]
-* _statement_: non-`SELECT` commands 📙 Karwin [6]
-
-TYPES
-* _DCL_: control; user perms https://stackoverflow.com/a/44898661
-* _DDL_: definition; table structure and inter-table relationships https://stackoverflow.com/a/2578207
-* _DML_: manipulation; CRUD
-
-KEYWORDS https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html https://www.sqlstyle.guide/#reserved-keyword-reference
-* _reserved_: word that cannot use as identifier e.g. `create`
-* _non-reserved_: word that you can use as identifier but should use backtickets for e.g. `assertion`, `name`
-* _keyword_: reserved + non-reserved; case-insensitive
-> As a general rule, if you get spurious parser errors for commands that contain any of the listed key words as an identifier you should try to quote the identifier to see if the problem goes away. - https://www.postgresql.org/docs/8.1/static/sql-keywords-appendix.html
-
-## design
-
-🗄️ `eng.md` dataframes
-
-* boring and durable https://josephg.com/blog/databases-have-failed-the-web
-* outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/
-> The relational data model enables those things. None of them require the language to be SQL...LINQ, spark, flink, kafka streams, pandas, dataframes are all widely used examples of an expression-based language-embedded approach to relational queries. https://www.scattered-thoughts.net/writing/against-sql
-> SQL is the most popular to communicate with databases but isn't always the easiest to write. I've been writing SQL statements since the 1990s and even in 2024, I can find myself needing to refer to documentation and spending 30 minutes or more getting more complex statements to run as I wish. https://tech.marksblogg.com/heavyiq-faa-ai-llm-gpu-database.html
-* ISO, ANSI standard 📙 Beaulieu [86-87]
-* SQL92 📙 Beaulieu [91]
-* SQL2023 http://peter.eisentraut.org/blog/2023/04/04/sql-2023-is-finished-here-is-whats-new
-
-## pedagogy
-
-* tldr: better at SQL if data 1) local 2) interesting
-* small databases https://news.ycombinator.com/item?id=34558054
-* example databases: Spanish, Sakila https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql 📙 Beaulieau [41]
-
-CONNECT TO ACTUAL SERVER
-* https://data.stackexchange.com/help
-* https://sqlpd.com/
-* https://news.ycombinator.com/item?id=30631477
-
-PLAYGROUNDS
-* PG exercises https://github.com/zachvalenta/pg-exercises
-* https://jvns.ca/blog/2023/04/17/a-list-of-programming-playgrounds/
-
-BAKED DATA
-* Datasette https://csvbase.com/ fetching https://github.com/fatiando/pooch
-* SQL.js https://selectstarsql.com/frontmatter.html#technicals https://github.com/sql-js/sql.js https://github.com/NUKnightLab/sql-mysteries
-* https://news.ycombinator.com/item?id=34558054 https://news.ycombinator.com/item?id=34630153
-* https://sqlbolt.com/
-* https://dataschool.com/learn-sql/basic-practice/
-* https://sql-playground.wizardzines.com/
 
 ## tables
 

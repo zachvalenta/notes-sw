@@ -11,9 +11,21 @@
 ## 进步
 
 SEMANTICS
-* application boundaries https://morizbuesing.com/blog/greppability-code-metric/
+* _architecture_: the stuff that's hard to change
+* will change with each order of magnitude i.e. from 1.5k users to 10k 📙 Kleppmann [17,22]
+* _node_: process https://leanpub.com/systemdesignmanual/read_sample
+* _service_: 1/n nodes providing API https://leanpub.com/systemdesignmanual/read_sample
+* _elastic_: scales automatically with load 📙 Kleppmann [17]
 
 ---
+
+UNCLE BOB
+* https://www.youtube.com/watch?v=qdcamTUcuAQ
+* http://cleancoder.com/books
+* https://x.com/unclebobmartin
+* https://blog.cleancoder.com/
+* https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure-ebook/dp/B075LRM681
+* https://www.amazon.com/Functional-Design-Principles-Patterns-Practices-ebook/dp/B0CGHQKGYG
 
 https://github.com/DovAmir/awesome-design-patterns
 testing https://www.thediff.co/archive/antithesis-debugging-debugging/ https://antithesis.com/ https://www.thediff.co/archive/offshoring-and-ai-agents/
@@ -55,7 +67,6 @@ FACTORS
 * https://wafris.org/blog/rearchitecting-for-sqlite https://news.ycombinator.com/item?id=41646775
 * https://news.ycombinator.com/item?id=34612919
 * https://www.youtube.com/@AsliEngineering/videos
-* things you need in an app https://www.amazon.com/Become-Awesome-Software-Architect-Foundation/dp/1697271065
 * course on microservices https://www.youtube.com/watch?v=hmkF77F9TLw https://www.youtube.com/watch?v=NVvIpqmf_Xc
 * https://brooker.co.za/blog/
 * https://runninginproduction.com/podcast/
@@ -179,7 +190,7 @@ ZA
 * aka flat data https://news.ycombinator.com/item?id=27197950
 * sql.js https://github.com/sql-js/sql.js/ https://selectstarsql.com/frontmatter.html#technicals https://jvns.ca/blog/2019/09/30/notes-on-building-sql-exercises/ https://news.ycombinator.com/item?id=27016630
 * query SQLite over HTTP https://github.com/psanford/sqlite3vfshttp
-* with pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html
+* https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html
 
 ## event-driven 
 
@@ -308,17 +319,6 @@ DESIGN
 * Petrov ch. 8-14
 * Takada fun/profit http://book.mixu.net/distsys/index.html
 
-BLOCKCHAIN https://a16zcrypto.com/
-* design https://unwttng.com/what-is-a-blockchain https://a16z.com/2018/02/10/crypto-readings-resources/ https://www.manning.com/books/grokking-bitcoin
-* https://cdixon.org/2018/02/18/why-decentralization-matters
-> Blockchains are special computers that anyone can access but no one owns. https://twitter.com/cdixon/status/1442201642338643969
-* BYO https://news.ycombinator.com/item?id=27594943 https://norswap.com/blockchain-how/ https://hackernoon.com/learn-blockchains-by-building-one-117428612f46 
-* history: https://danromero.org/crypto-reading/
-* design: size of chain makes fraud difficult bc would have tamper with block, then re-write proceeding blocks on all nodes
-* _blockchain_: db distributed over p2p network w/ each node holding entire db https://danielmiessler.com/study/blockchain/
-* _smart contract_: app using blockchain
-* _oracle_: data ingestion onto chain
-
 NEW SQL
 * _new SQL_: relational semantics + non-relational scaling
 * more resistant to CAP theory resistant SQL i.e. seems to shard more finely so that in network partition some very high % of cluster can remain available i.e. trade-off still there just minimized to the point that most users won't notice https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37
@@ -346,191 +346,19 @@ za
 * _Jepsen analysis_: standard safety in distributed/transactional systems https://news.ycombinator.com/item?id=8385970 https://news.ycombinator.com/item?id=26645654 https://www.micahlerner.com/2021/06/12/foundationdb-a-distributed-unbundled-transactional-key-value-store.html
 * _GFS (Google File System)_: https://www.micahlerner.com/2020/03/22/understanding-googles-file-system.html
 
-## CAP theorem
+## blockchain
 
----
+https://a16zcrypto.com/
 
-Petrov ch. 11
-
-🗄 `algos.md` probabilistic data structures
-
-* https://www.youtube.com/watch?v=_RbsFXWRZ10 https://softwareengineeringdaily.com/2023/07/25/cap-theorem/
-* _CAP theorem_: tradeoffs if network partition
-* _consistency_: ACID
-* eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
-* _availability_: res for req
-* _partition tolerance_: works offline 📙 Conery 336
-* C: refuse to incoming reads/writes
-* A, P: (db remains available but other cluster members becoming inconsistent)
-* choose consistency 📙 `evans-linux.pdf` 2
-
-## consensus
-
-🗄️ `svc/src.md` concurrency
-📙 Kleppmann ch. 8-9
-
----
-
-* https://entropicthoughts.com/data-consistency-is-overrated
-https://www.youtube.com/watch?v=nH4qjmP2KEE
-* https://jamesg.blog/2024/08/18/consensus-modeling-python/
-* https://sre.google/sre-book/table-of-contents/ chapter 23
-* https://lethain.com/distributed-systems-vocabulary/
-* https://news.ycombinator.com/item?id=28425379
-
-* _distributed locks_: https://hazelcast.com/blog/long-live-distributed-locks/
-* _Lamport timestamp_: https://towardsdatascience.com/understanding-lamport-timestamps-with-pythons-multiprocessing-library-12a6427881c6
-* _Lamport clock_: https://martinfowler.com/articles/patterns-of-distributed-systems/lamport-clock.html
-* _Byzantine generals problem_: achieve consensus when some actors are unreliable https://en.wikipedia.org/wiki/Byzantine_fault
-* _Reed-Solomon_: way to protect messages against damage or partial arrival https://news.ycombinator.com/item?id=27491219
-* _semaphore_: synchronization primative, 类似 mutex/lock https://greenteapress.com/wp/semaphores/ https://danluu.com/programming-books/ https://en.wikipedia.org/wiki/Semaphore_(programming) https://sqlfordevs.com/transaction-locking-prevent-race-condition
-* on having more than one primary 📙 Bradshaw [243]
-* locks for task, Shedlock https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203061
-
-## consistency
-
-🧠 https://chatgpt.com/c/6717a9cd-1f04-8004-8686-4758cb6fe382
-
-* _sequential consistency_: everyone sees changes in the same order, but they might not see them at the exact same time
-* _strong consistency_: everyone sees the same data instantly
-* _eventual consistency_: when db gets write operation, responds w/ ack and then does write when it gets time, meaning one node could receive write, ack, write it, and then need time to propagate write to other nodes, which means during that time the system would be in a state of inconsistency
-* benefit: you can put lots of processing power behind your db so the walltime of inconsistent states should be very short; aka 'AP system' 📙 Conery 337-8
-
----
-
-* https://jepsen.io/consistency
-* https://www.youtube.com/watch?v=rpqsSkTIdAw
-* eventually consistent = eventually corrupt https://www.youtube.com/watch?v=h8cyPIEfxQY 7:45
-* https://robertovitillo.com/what-every-developer-should-know-about-database-consistency/
-
-## CRDT
-
----
-
-CONFLICT RESOLUTION
-* _operational transform_: funnel changes through central server, this is what Google Docs uses, a bunch of algorithms have been applied and found to fail
-* _CRDT_: maintain each user's data in format that clients can resolve themselves https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type
-> CRDT is a collection of data types that all share a very nice property: they can always be merged. It’s not always the perfect merge, and not everything can be made into a CRDT, but IF you can put your data into a CRDT, you can be sure: all merges will go without conflicts. https://tonsky.me/blog/crdt-filesync/
-* local-first https://tonsky.me/blog/crdt-filesync/
-> Prefers keeping your data local but it still goes to the internet occasionally to sync with other users, fetch data, back up, etc.  If it doesn't go to the internet at all, it's just local software. If it doesn't work offline with data it already has, then it's just normal cloud software. You all know the type - sorry, Dave, I can't play the song I just downloaded because your internet disappeared for one second
-* syncing without CRDT https://tonsky.me/blog/crdt-filesync/
-> But what happens if you change the state on two machines? Well, you get a conflict file:
-```sh
-foo.md
-foo-conflict-20240705-0981234.md
-```
-* syncing with CRDT https://tonsky.me/blog/crdt-filesync/
-> We can solve conflicts by opening both files, merging states, and saving back to the original file.
-* BYO https://github.com/tonsky/crdt-filesync https://automerge.org/ https://github.com/jackyzha0/bft-json-crdt
-* https://www.thoughtworks.com/radar/languages-and-frameworks/electric
-
-more crdt
-* https://softwareengineeringdaily.com/2017/12/08/decentralized-objects-with-martin-kleppman/ https://www.inkandswitch.com/local-first.html https://github.com/xi-editor/xi-editor/issues/1187#issuecomment-491473599 https://news.ycombinator.com/item?id=37764581 https://martin.Kleppmann.com/2020/07/06/crdt-hard-parts-hydra.html https://caolan.uk/articles/inside-a-collaborative-text-editor/ vs OT (operational transformations) https://news.ycombinator.com/item?id=24176455 https://news.ycombinator.com/item?id=24617542 https://news.ycombinator.com/item?id=24790170 https://www.youtube.com/watch?v=Paau_t0aZKw https://automerge.org/ https://vlcn.io/blog/gentle-intro-to-crdts.html https://github.com/alangibson/awesome-crdt https://github.com/jackyzha0/bft-json-crdt
-
-## Raft
-
----
-
-* _leader election_: Raft algorithm https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html Paxos https://news.ycombinator.com/item?id=24906225
-Raft https://raft.github.io/
-* start here https://pyvideo.org/pygotham-2017/an-introduction-to-the-raft-distributed-consensus-algorithm.html https://news.ycombinator.com/item?id=31416812 https://notes.eatonphil.com/distributed-postgres.html https://news.ycombinator.com/item?id=35246228
-* BYO https://eli.thegreenplace.net/2020/implementing-raft-part-1-elections/ https://github.com/streed/simpleRaft https://github.com/bbbilibili/raft-1----python https://github.com/erewok/raft-py https://github.com/xwhan/Raft-python https://github.com/jackyzha0/miniraft
-* https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html https://www.micahlerner.com/2020/05/09/understanding-raft-consensus-part-2.html
-* https://www.confluent.io/blog/why-replace-zookeeper-with-kafka-raft-the-log-of-all-logs/
-
-## service discovery
-
-🗄 consensus
-
----
-
-📍
-* https://www.youtube.com/watch?v=S7bsPbJvBzU
-* try out Consul locally https://learn.hashicorp.com/tutorials/consul/get-started-install?in=consul/getting-started
-
-* _service discovery_: registry of available services https://www.youtube.com/watch?v=Vv4HpLfqAz4 9:45
-* aka configuration store https://github.com/zalando/patroni
-* e.g. Zookeeper, etcd, Consul https://stackoverflow.com/a/48652680
-* vs. static config of available services https://www.youtube.com/watch?v=Vv4HpLfqAz4 10:00
-* like DNS https://www.youtube.com/watch?v=Vv4HpLfqAz4 1:35
-
-ZOOKEEPER https://www.youtube.com/watch?v=Vv4HpLfqAz4
-* high level: distributed KV store [8:35]
-* impl: tree/hierarchical data model 类似 file system [8:50]
-* features: service discovery + leader election https://www.youtube.com/watch?v=AS5a91DOmks 0:45
-* used by: Kafka (previously) FoundationDB (itself a distributed KV store) https://www.micahlerner.com/2021/06/12/foundationdb-a-distributed-unbundled-transactional-key-value-store.html
-* _znode_: node in tree [9:20]
-* _node_: server in Zookeeper cluster [9:30]
-
-## transactions
-
-🗄 `system.md`
-📙
-* Bradshaw ch. 8
-* Kleppmann ch. 7
-
-📍 rf re: 'dbms taxnomy'
-
-* _serializability_: ordered transactions https://www.micahlerner.com/2021/06/12/foundationdb-a-distributed-unbundled-transactional-key-value-store.html
-
----
-
-https://hakibenita.com/django-nested-transaction
-* https://jepsen.io/analyses/mysql-8.0.34
-https://sqlfordevs.com/transaction-locking-prevent-race-condition
-
-transactions & isolation levels 📙 Beaulieu 12
-* https://retool.com/blog/isolation-levels-and-locking-in-relational-databases/ https://jahfer.com/posts/innodb-locks/ https://www.postgresql.org/docs/9.5/transaction-iso.html
-* _transaction_: unit of work https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html https://sqlite.org/transactional.html https://news.ycombinator.com/item?id=33934694
-* _commit_: save change; happens in two phases http://dbmsmusings.blogspot.com/2019/01/its-time-to-move-on-from-two-phase.html
-* _serializable_: transactions only execute concurrently if end result is same as them executing sequentially
-* repeatable read: 
-* DDL changes can be transactional as well https://news.ycombinator.com/item?id=28077797
-
-ACID 📙 Kleppmann 7, section 2 🗄 `django.md` design https://lethain.com/distributed-systems-vocabulary/
-* https://www.youtube.com/watch?v=yaQ5YMWkxq4
-* _atomic_: transaction succeeds/fails as an entire unit https://brandur.org/postgres-atomicity
-* NoSQL kinda does http://aosabook.org/en/nosql.html
-> Most NoSQL systems pick performance over full ACID guarantees, but do provide guarantees at the key level: two operations on the same key will be serialized, avoiding serious corruption to key-value pairs. For many applications, this decision will not pose noticeable correctness issues, and will allow quick operations to execute with more regularity. It does, however, leave more considerations for application design and correctness in the hands of the developer.
-* _consistent_: transaction changes db from one valid state to another 
-* eventual consistency 📝 Vogel https://dl.acm.org/doi/10.1145/1435417.1435432
-* semantics https://lethain.com/distributed-systems-vocabulary/
-* _isolated_: protection from dirty read
-* no transaction affects another happening at the same time 📙 Conery 335
-* _durable_: successful transaction will survive hardware fault e.g. server restart 📙 Kleppmann 226
-* nothing can change transaction except another update 📙 Conery 335
-* uses `fsync` http://aosabook.org/en/nosql.html https://sirupsen.com/napkin/problem-10-mysql-transactions-per-second
-
-locking
-* _lock_: db disallows other processes to access object (table, row, etc.)
-* 'held' by transaction https://jahfer.com/posts/innodb-locks/
-* handle at app level by throwing error or retry https://lincolnloop.com/blog/distributed-locking-django/
-* _latch_: lightweight lock 📙 Kleppmann 82
-* _dirty read_: read uncommitted data
-* e.g. transaction 1 updates a row, transaction 2 reads the updated row before transaction 1 commits the update, transaction 1 rolls back the change, transaction 2 will have read data that is considered never to have existed https://retool.com/blog/whats-an-acid-compliant-database/
-
-# 🟨 ZA
-
----
-
-SEMANTICS 🗄 distributed/semantics
-* _architecture_: the stuff that's hard to change
-* will change with each order of magnitude i.e. from 1.5k users to 10k 📙 Kleppmann [17,22]
-* _node_: process https://leanpub.com/systemdesignmanual/read_sample
-* _service_: 1/n nodes providing API https://leanpub.com/systemdesignmanual/read_sample
-* _elastic_: scales automatically with load 📙 Kleppmann [17]
-
-SEARCH
-* _Algolia_: record (JSON obj) field (attr on obj) clients https://github.com/algolia/algoliasearch-client-javascript https://github.com/algolia/algoliasearch-client-python
-* _Elasticsearch_: use in Postgres https://github.com/zombodb/zombodb alternative https://github.com/valeriansaliou/sonic https://github.com/paradedb/paradedb
-* _Lucene_: framework https://stackoverflow.com/questions/15704644/difference-between-solr-and-lucene
-* _Meilisearch_: https://github.com/meilisearch/MeiliSearch https://news.ycombinator.com/item?id=22685831 https://github.com/valeriansaliou/sonic https://softwareengineeringdaily.com/2019/03/20/elasticsearch-at-scale-with-volkan-yazici/ https://github.com/typesense/typesense https://news.ycombinator.com/item?id=25414389 https://tech.marksblogg.com/meilisearch-full-text-search.html https://tech.marksblogg.com/meilisearch-full-text-search.html
-* _RediSearch_: built on Redis https://oss.redislabs.com/redisearch/
-* _Redka_: Redis fork using SQLite https://github.com/nalgeon/redka
-* _Solr_: built on Lucene https://blog.codepen.io/2016/05/24/091-solr/
-* _Typesense_: https://github.com/typesense/typesense https://xkcd-search.typesense.org/ https://www.thoughtworks.com/radar/tools?blipid=202203031
-* _whoosh_: project is dead https://github.com/gyllstromk/Flask-WhooshAlchemy/issues/69 https://stackoverflow.com/a/53338666/6813490 
-* _Zinc_: https://github.com/zinclabs/zinc
+* design https://unwttng.com/what-is-a-blockchain https://a16z.com/2018/02/10/crypto-readings-resources/ https://www.manning.com/books/grokking-bitcoin
+* https://cdixon.org/2018/02/18/why-decentralization-matters
+> Blockchains are special computers that anyone can access but no one owns. https://twitter.com/cdixon/status/1442201642338643969
+* BYO https://news.ycombinator.com/item?id=27594943 https://norswap.com/blockchain-how/ https://hackernoon.com/learn-blockchains-by-building-one-117428612f46 
+* history: https://danromero.org/crypto-reading/
+* design: size of chain makes fraud difficult bc would have tamper with block, then re-write proceeding blocks on all nodes
+* _blockchain_: db distributed over p2p network w/ each node holding entire db https://danielmiessler.com/study/blockchain/
+* _smart contract_: app using blockchain
+* _oracle_: data ingestion onto chain
 
 ## caching
 
@@ -615,6 +443,86 @@ in general
 * https://ieftimov.com/post/when-why-least-frequently-used-cache-implementation-golang/ 
 * http://danluu.com/2choices-eviction/
 * https://www.digitalocean.com/community/tutorials/web-caching-basics-terminology-http-headers-and-caching-strategies
+## CAP theorem
+
+---
+
+Petrov ch. 11
+
+🗄 `algos.md` probabilistic data structures
+
+* https://www.youtube.com/watch?v=_RbsFXWRZ10 https://softwareengineeringdaily.com/2023/07/25/cap-theorem/
+* _CAP theorem_: tradeoffs if network partition
+* _consistency_: ACID
+* eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
+* _availability_: res for req
+* _partition tolerance_: works offline 📙 Conery 336
+* C: refuse to incoming reads/writes
+* A, P: (db remains available but other cluster members becoming inconsistent)
+* choose consistency 📙 `evans-linux.pdf` 2
+
+## consensus
+
+🗄️ `svc/src.md` concurrency
+📙 Kleppmann ch. 8-9
+
+---
+
+* https://entropicthoughts.com/data-consistency-is-overrated
+https://www.youtube.com/watch?v=nH4qjmP2KEE
+* https://jamesg.blog/2024/08/18/consensus-modeling-python/
+* https://sre.google/sre-book/table-of-contents/ chapter 23
+* https://lethain.com/distributed-systems-vocabulary/
+* https://news.ycombinator.com/item?id=28425379
+
+* _distributed locks_: https://hazelcast.com/blog/long-live-distributed-locks/
+* _Lamport timestamp_: https://towardsdatascience.com/understanding-lamport-timestamps-with-pythons-multiprocessing-library-12a6427881c6
+* _Lamport clock_: https://martinfowler.com/articles/patterns-of-distributed-systems/lamport-clock.html
+* _Byzantine generals problem_: achieve consensus when some actors are unreliable https://en.wikipedia.org/wiki/Byzantine_fault
+* _Reed-Solomon_: way to protect messages against damage or partial arrival https://news.ycombinator.com/item?id=27491219
+* _semaphore_: synchronization primative, 类似 mutex/lock https://greenteapress.com/wp/semaphores/ https://danluu.com/programming-books/ https://en.wikipedia.org/wiki/Semaphore_(programming) https://sqlfordevs.com/transaction-locking-prevent-race-condition
+* on having more than one primary 📙 Bradshaw [243]
+* locks for task, Shedlock https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203061
+
+## consistency
+
+🧠 https://chatgpt.com/c/6717a9cd-1f04-8004-8686-4758cb6fe382
+
+* _sequential consistency_: everyone sees changes in the same order, but they might not see them at the exact same time
+* _strong consistency_: everyone sees the same data instantly
+* _eventual consistency_: when db gets write operation, responds w/ ack and then does write when it gets time, meaning one node could receive write, ack, write it, and then need time to propagate write to other nodes, which means during that time the system would be in a state of inconsistency
+* benefit: you can put lots of processing power behind your db so the walltime of inconsistent states should be very short; aka 'AP system' 📙 Conery 337-8
+
+---
+
+* https://jepsen.io/consistency
+* https://www.youtube.com/watch?v=rpqsSkTIdAw
+* eventually consistent = eventually corrupt https://www.youtube.com/watch?v=h8cyPIEfxQY 7:45
+* https://robertovitillo.com/what-every-developer-should-know-about-database-consistency/
+
+## CRDT
+
+---
+
+CONFLICT RESOLUTION
+* _operational transform_: funnel changes through central server, this is what Google Docs uses, a bunch of algorithms have been applied and found to fail
+* _CRDT_: maintain each user's data in format that clients can resolve themselves https://en.wikipedia.org/wiki/Conflict-free_replicated_data_type
+> CRDT is a collection of data types that all share a very nice property: they can always be merged. It’s not always the perfect merge, and not everything can be made into a CRDT, but IF you can put your data into a CRDT, you can be sure: all merges will go without conflicts. https://tonsky.me/blog/crdt-filesync/
+* local-first https://tonsky.me/blog/crdt-filesync/
+> Prefers keeping your data local but it still goes to the internet occasionally to sync with other users, fetch data, back up, etc.  If it doesn't go to the internet at all, it's just local software. If it doesn't work offline with data it already has, then it's just normal cloud software. You all know the type - sorry, Dave, I can't play the song I just downloaded because your internet disappeared for one second
+* syncing without CRDT https://tonsky.me/blog/crdt-filesync/
+> But what happens if you change the state on two machines? Well, you get a conflict file:
+```sh
+foo.md
+foo-conflict-20240705-0981234.md
+```
+* syncing with CRDT https://tonsky.me/blog/crdt-filesync/
+> We can solve conflicts by opening both files, merging states, and saving back to the original file.
+* BYO https://github.com/tonsky/crdt-filesync https://automerge.org/ https://github.com/jackyzha0/bft-json-crdt
+* https://www.thoughtworks.com/radar/languages-and-frameworks/electric
+
+more crdt
+* https://softwareengineeringdaily.com/2017/12/08/decentralized-objects-with-martin-kleppman/ https://www.inkandswitch.com/local-first.html https://github.com/xi-editor/xi-editor/issues/1187#issuecomment-491473599 https://news.ycombinator.com/item?id=37764581 https://martin.Kleppmann.com/2020/07/06/crdt-hard-parts-hydra.html https://caolan.uk/articles/inside-a-collaborative-text-editor/ vs OT (operational transformations) https://news.ycombinator.com/item?id=24176455 https://news.ycombinator.com/item?id=24617542 https://news.ycombinator.com/item?id=24790170 https://www.youtube.com/watch?v=Paau_t0aZKw https://automerge.org/ https://vlcn.io/blog/gentle-intro-to-crdts.html https://github.com/alangibson/awesome-crdt https://github.com/jackyzha0/bft-json-crdt
 
 ## proxy
 
@@ -691,3 +599,84 @@ LOAD BALANCING
 * _algos_: least-busy (based on server pushing <foo> metric?) round-robin (subject to chance i.e. server n could unluckily keep getting the heavier requests) https://www.youtube.com/watch?v=-W9F__D3oY4 @ 18:00
 * _hw_: Kemp, Barracuda, F5; run $1-20k bc need to handle GBps of traffic https://news.ycombinator.com/item?id=21095159&utm_term=comment 
 * BYO: https://kasvith.github.io/posts/lets-create-a-simple-lb-go/ https://dev.to/bmf_san/implement-a-load-balancer-in-golang-8gj
+## Raft
+
+---
+
+* _leader election_: Raft algorithm https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html Paxos https://news.ycombinator.com/item?id=24906225
+Raft https://raft.github.io/
+* start here https://pyvideo.org/pygotham-2017/an-introduction-to-the-raft-distributed-consensus-algorithm.html https://news.ycombinator.com/item?id=31416812 https://notes.eatonphil.com/distributed-postgres.html https://news.ycombinator.com/item?id=35246228
+* BYO https://eli.thegreenplace.net/2020/implementing-raft-part-1-elections/ https://github.com/streed/simpleRaft https://github.com/bbbilibili/raft-1----python https://github.com/erewok/raft-py https://github.com/xwhan/Raft-python https://github.com/jackyzha0/miniraft
+* https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html https://www.micahlerner.com/2020/05/09/understanding-raft-consensus-part-2.html
+* https://www.confluent.io/blog/why-replace-zookeeper-with-kafka-raft-the-log-of-all-logs/
+
+## service discovery
+
+🗄 consensus
+
+---
+
+📍
+* https://www.youtube.com/watch?v=S7bsPbJvBzU
+* try out Consul locally https://learn.hashicorp.com/tutorials/consul/get-started-install?in=consul/getting-started
+
+* _service discovery_: registry of available services https://www.youtube.com/watch?v=Vv4HpLfqAz4 9:45
+* aka configuration store https://github.com/zalando/patroni
+* e.g. Zookeeper, etcd, Consul https://stackoverflow.com/a/48652680
+* vs. static config of available services https://www.youtube.com/watch?v=Vv4HpLfqAz4 10:00
+* like DNS https://www.youtube.com/watch?v=Vv4HpLfqAz4 1:35
+
+ZOOKEEPER https://www.youtube.com/watch?v=Vv4HpLfqAz4
+* high level: distributed KV store [8:35]
+* impl: tree/hierarchical data model 类似 file system [8:50]
+* features: service discovery + leader election https://www.youtube.com/watch?v=AS5a91DOmks 0:45
+* used by: Kafka (previously) FoundationDB (itself a distributed KV store) https://www.micahlerner.com/2021/06/12/foundationdb-a-distributed-unbundled-transactional-key-value-store.html
+* _znode_: node in tree [9:20]
+* _node_: server in Zookeeper cluster [9:30]
+
+## transactions
+
+🗄 `system.md`
+📙
+* Bradshaw ch. 8
+* Kleppmann ch. 7
+
+📍 rf re: 'dbms taxnomy'
+
+* _serializability_: ordered transactions https://www.micahlerner.com/2021/06/12/foundationdb-a-distributed-unbundled-transactional-key-value-store.html
+
+---
+
+https://hakibenita.com/django-nested-transaction
+* https://jepsen.io/analyses/mysql-8.0.34
+https://sqlfordevs.com/transaction-locking-prevent-race-condition
+
+transactions & isolation levels 📙 Beaulieu 12
+* https://retool.com/blog/isolation-levels-and-locking-in-relational-databases/ https://jahfer.com/posts/innodb-locks/ https://www.postgresql.org/docs/9.5/transaction-iso.html
+* _transaction_: unit of work https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html https://sqlite.org/transactional.html https://news.ycombinator.com/item?id=33934694
+* _commit_: save change; happens in two phases http://dbmsmusings.blogspot.com/2019/01/its-time-to-move-on-from-two-phase.html
+* _serializable_: transactions only execute concurrently if end result is same as them executing sequentially
+* repeatable read: 
+* DDL changes can be transactional as well https://news.ycombinator.com/item?id=28077797
+
+ACID 📙 Kleppmann 7, section 2 🗄 `django.md` design https://lethain.com/distributed-systems-vocabulary/
+* https://www.youtube.com/watch?v=yaQ5YMWkxq4
+* _atomic_: transaction succeeds/fails as an entire unit https://brandur.org/postgres-atomicity
+* NoSQL kinda does http://aosabook.org/en/nosql.html
+> Most NoSQL systems pick performance over full ACID guarantees, but do provide guarantees at the key level: two operations on the same key will be serialized, avoiding serious corruption to key-value pairs. For many applications, this decision will not pose noticeable correctness issues, and will allow quick operations to execute with more regularity. It does, however, leave more considerations for application design and correctness in the hands of the developer.
+* _consistent_: transaction changes db from one valid state to another 
+* eventual consistency 📝 Vogel https://dl.acm.org/doi/10.1145/1435417.1435432
+* semantics https://lethain.com/distributed-systems-vocabulary/
+* _isolated_: protection from dirty read
+* no transaction affects another happening at the same time 📙 Conery 335
+* _durable_: successful transaction will survive hardware fault e.g. server restart 📙 Kleppmann 226
+* nothing can change transaction except another update 📙 Conery 335
+* uses `fsync` http://aosabook.org/en/nosql.html https://sirupsen.com/napkin/problem-10-mysql-transactions-per-second
+
+locking
+* _lock_: db disallows other processes to access object (table, row, etc.)
+* 'held' by transaction https://jahfer.com/posts/innodb-locks/
+* handle at app level by throwing error or retry https://lincolnloop.com/blog/distributed-locking-django/
+* _latch_: lightweight lock 📙 Kleppmann 82
+* _dirty read_: read uncommitted data
+* e.g. transaction 1 updates a row, transaction 2 reads the updated row before transaction 1 commits the update, transaction 1 rolls back the change, transaction 2 will have read data that is considered never to have existed https://retool.com/blog/whats-an-acid-compliant-database/

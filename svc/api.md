@@ -8,9 +8,9 @@
 
 ## 进步
 
-* https://roadmap.sh/api-design
+* https://roadmap.sh/api-design https://pycon-archive.python.org/2024/schedule/presentation/25/index.html 🗄️ `src.md`
 * https://roadmap.sh/backend
-*️ https://roadmap.sh/best-practices/api-security
+*️ https://roadmap.sh/best-practices/api-security https://us.pycon.org/2024/schedule/presentation/5/index.html
 * https://news.ycombinator.com/item?id=41432101
 * Kleppmann ch. 3
 * styles https://www.youtube.com/watch?v=4vLxWqE94l4
@@ -201,6 +201,8 @@ API STAR 📜 https://docs.apistar.com/ https://github.com/zachvalenta/flask-ope
 * ❓ no hot reload https://github.com/encode/apistar/issues/637 from when it was a framework? https://github.com/encode/apistar/issues/40 https://github.com/encode/apistar/pull/57
 
 # 🟨 ZA
+
+* reverse engineering https://news.ycombinator.com/item?id=41983409
 
 ## pagination
 

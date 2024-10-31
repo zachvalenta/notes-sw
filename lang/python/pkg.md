@@ -91,6 +91,7 @@ PYOXIDIZER
 * https://www.pythonpodcast.com/pyoxidizer-python-package-creation-episode-282/
 
 ALTERNATIVES
+* `python -m zipapp` https://www.pythonmorsels.com/cli-tools/
 * https://github.com/cole-wilson/sailboat
 * Beeware https://github.com/beeware/ https://www.youtube.com/watch?v=WjMDXDHBn1I
 * _auto-py-to-exe_: https://pythonbytes.fm/episodes/show/160/your-json-shall-be-streamed
@@ -112,6 +113,7 @@ ALTERNATIVES
 
 ---
 
+* even Prolog uses src/test https://github.com/dnmfarrell/dict
 * dupe https://github.com/simonw/files-to-prompt
 * https://github.com/fpgmaas/cookiecutter-uv
 
@@ -149,6 +151,20 @@ anytree = {git = "https://github.com/zachvalenta/anytree.git"}
 
 🗄️ `linux.md` packaging / manager
 
+### landscape
+
+---
+
+https://pycon-archive.python.org/2024/schedule/presentation/61/index.html
+> While other language ecosystems have a streamlined workflow that involves a single tool like Rust's Cargo and JavaScript's npm, maintaining Python projects has historically involved learning and using an ever-growing set of tools:
+> packaging: distutils, setuptools, flit
+> dependency management: pip, pip-tools, poetry
+> Python management: pyenv, Homebrew, Windows store
+> environments: virtualenv, tox, nox
+> versioning: pbr, setuptools_scm, bump2version, versioneer
+> builds: pip, build
+> publishing: twine
+
 ALTERNATIVES
 * too many tools https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/#tooling-proliferation-and-the-python-package-authority dated https://www.amazon.com/dp/1098139585
 * _hatch_: https://github.com/pypa/hatch https://github.com/juftin/browsr
@@ -182,8 +198,11 @@ MORE ON ALTERNATIVES
 ```sh
 install $PKG==$VERSION
 install $PKG --user  # per user
+
 list  # global
 list --user  # per user
+show $PKG # pkg info
+
 freeze > $FILE  # global
 freeze --user > $FILE  # per user
 ```
@@ -460,6 +479,11 @@ DESIGN
 
 ---
 
+https://www.youtube.com/watch?v=8UuW8o4bHbw
+https://www.youtube.com/watch?v=_FdjW47Au30
+
+> There was, over on Python Bytes, we covered this thing by Simon Willison, where he kind of summarized a Mastodon thread about UV and whether it being written in Rust is detrimental to the Python ecosystem or not and all of those things.  But I think it was there.  Your take was, look, fast is interesting.  But one of the really powerful things, I think, is here is a single binary that, if it's on your computer, you can do all things Python, right?  And right now, it's super, without UV, it's been really challenging, right?  Maybe I want to use pip-tools or I want to use pip to install something or all of those things are predicated on several steps.  Do you have Python?  Do you have a right version of Python?  Have you realized you've got to create a virtual environment because you don't have right access to where there's just, before you can get started, like, well, here's a whole set of conversations you need to have about not terribly complicated things, but things that people might not care about.  And now with UV, it's just UV, run.  And you can even put in the comment in the top, like, these are the three libraries I need to run.  And it'll just run.  Oh, so they don't break.  That's what I meant with the one binary, right?  Like, I think most of Python's bad reputation around packaging is that things just break.  Because Homebrew updated your Python or because you didn't activate your virtual length, accidentally installed something into your global thing.  Or you used pip install --user and now it's in all your virtual lengths and you don't know why.  And there's so much unpredictability around these things.  And now suddenly we have, like, this one thing that behaves in certain ways that people understand, that people expect it to behave.  As I said before, this is not necessarily the way I would like it to behave, but I understand why it's so important to just narrow the envelope of packaging of the behaviors that we expect and that we as a community endorse. https://talkpython.fm/episodes/transcript/481/python-opinions-and-zeitgeist-with-hynek
+
 * https://github.com/fpgmaas/cookiecutter-uv
 
 
@@ -494,7 +518,7 @@ DESIGN
 
 PROGRESSION
 * `setup.py`: https://github.com/freestream/pyedi
-* _setuptools_: https://github.com/azoner/pyx12
+* _setuptools_: https://github.com/azoner/pyx12 not part of 3.12 https://chatgpt.com/c/6728df32-9ed8-8004-af28-b44b9bebb96c https://github.com/AnirudhG07/Typeinc/issues/3
 * _egg_:
 * _wheel_:
 
@@ -630,6 +654,23 @@ pip install -r requirements.txt
 ```
 
 ---
+
+```python
+$ python -m site  # https://www.pythonmorsels.com/cli-tools/#site
+$ python3.12 -m sysconfig | less  # https://www.pythonmorsels.com/cli-tools/#site
+
+sys.path = [
+    '/Users/zvalenta/Desktop',
+    '/Users/zvalenta/.pyenv/versions/3.12.5/lib/python312.zip',
+    '/Users/zvalenta/.pyenv/versions/3.12.5/lib/python3.12',
+    '/Users/zvalenta/.pyenv/versions/3.12.5/lib/python3.12/lib-dynload',
+    '/Users/zvalenta/.local/lib/python3.12/site-packages',
+    '/Users/zvalenta/.pyenv/versions/3.12.5/lib/python3.12/site-packages',
+]
+USER_BASE: '/Users/zvalenta/.local' (exists)
+USER_SITE: '/Users/zvalenta/.local/lib/python3.12/site-packages' (exists)
+ENABLE_USER_SITE: True
+```
 
 Linux distros https://pythonspeed.com/articles/stop-using-python-3.8/
 

@@ -11,7 +11,7 @@
 
 https://www.gitkraken.com/gitlens https://www.youtube.com/watch?v=oJdlGtsbc3U https://switowski.com/blog/plugins-for-python-in-vscode/
 
-* _24_: pager (delta, difftastic, diffnav) porcelain (lazygit)
+* _24_: pager (delta, diffnav) porcelain (lazygit)
 * _21_: prepopulate commit msg
 > no memory of doing this, nor knowledge of how to do now
 * _20_: stash commands, 📙 Chacon ch 1-2, Gitlab as secondary remote for notes, auth for BNY (Gitlab token types, server protocols and set up, lots of debugging)
@@ -148,7 +148,7 @@ gh alias list
 📜 https://docs.github.com/en/get-started/writing-on-github
 
 * add a welcome video! https://github.com/grafana/pyroscope
-* use SVG https://github.com/zachvalenta/capp-prod-cat-alt
+* use SVG https://github.com/zachvalenta/capp-prod-cat-alt https://github.com/pommee/Pocker
 * use HTML https://github.com/catppuccin/delta/blame/main/README.md
 * "try without installing!" https://zellij.dev/
 * directory tree https://github.com/koaning
@@ -175,7 +175,7 @@ gh alias list
 
 ISSUES
 * `TODO` checker https://github.com/preslavmihaylov/todocheck
-* dashboard https://github.com/dlvhdr/gh-dash https://github.com/pwntester/octo.nvim
+* dashboard https://github.com/dlvhdr/gh-dash https://github.com/pwntester/octo.nvim https://github.com/skanehira/github-tui
 * templates https://github.com/GabAlpha/basilk/tree/master/.github/ISSUE_TEMPLATE
 ```txt
 We also encourage you to put up a PR yourself! Who cares if you've never written Go before, neither did any of the existing contributors before their first lazygit PR! Check out the PR tutorial here: https://www.youtube.com/watch?v=kNavnhzZHtk&ab_channel=JesseDuffield
@@ -190,6 +190,7 @@ TOOLS
 
 TUI for quick sustainability assessment of Github repo: https://chatgpt.com/c/671692f3-9ca8-8004-8b71-8ae027bdbbad
 > stars https://github.com/github/feedback/discussions/8293 https://github.com/korosuke613/gh-user-stars https://webapps.stackexchange.com/a/41800 https://github.com/maguowei/starred#use-awesome-stars-as-template https://github.com/maguowei/awesome-stars/blob/master/topics.md https://github.com/DaveParr/starpilot https://github.com/den-is/gh-stars-scraper
+> good for: https://github.com/veggiemonk/awesome-docker
 > Terminal Trove
 > https://github.com/gitbutlerapp/gitbutler https://repobeats.axiom.co/
 > make this into a meta svc for awesome-$SOFTWARETYPE repos
@@ -359,7 +360,6 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * _delta_: ✅ https://github.com/dandavison/delta
 * themes file https://dandavison.github.io/delta/custom-themes.html https://github.com/dandavison/delta/blob/main/themes.gitconfig
 > don't understand why catpuccin relies on their bat theme https://github.com/catppuccin/delta can you just use straight from repo? https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
-* _difftastic_: ✅ https://github.com/Wilfred/difftastic
 * _diffnav_: ✅ obviated w/ lazygit https://github.com/dlvhdr/diffnav
 * _diffview_: 🎯 neovim https://github.com/sindrets/diffview.nvim https://www.youtube.com/watch?v=aJikrPnTOtI
 * _dunk_: similar to delta https://github.com/darrenburns/dunk
@@ -943,6 +943,7 @@ CONSIDERATIONS
 * sparse checkout, LFS https://martinheinz.dev/blog/109 https://www.git-tower.com/blog/git-performance/
 * Deno https://docs.deno.com/runtime/fundamentals/workspaces/
 * Madge https://blog.codepen.io/2023/01/25/398-devoops/
+* https://news.ycombinator.com/item?id=42062074
 * https://steinkamp.us/posts/2022-11-10-what-i-learned-at-stripe
 * https://monadical.com/posts/from-chaos-to-cohesion.html
 * https://jackevans.bearblog.dev/python-monorepo-tooling-with-pants/
@@ -960,16 +961,9 @@ CONSIDERATIONS
 
 ## server
 
-* https://gemini.nytpu.com/gemlog/2021-03-07.gmi
-* https://github.com/charmbracelet/soft-serve
-* admin setup: create bare repository, scp to server with Git installed, if devs on your team have ssh access to server you're set https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a-Server
-* user setup: add public key
-
-* _bare repository_: only git data (`.git`) with no working directory i.e. no actual files https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols
-* _snippets_: Gist, pastebin https://softwareengineeringdaily.com/2020/06/08/tilt-kubernetes-tooling-with-dan-bentley/ 46:45
-
-HOSTING
+FORGES
 * BYO https://github.com/honza/smithy
+* _Bitbucket_: 💀 https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 * _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965
 * _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717
 * now for-profit and licensing issues https://news.ycombinator.com/item?id=34011581
@@ -979,6 +973,14 @@ HOSTING
 * _SourceHut_: https://git.sr.ht/~shulhan/gotp https://drewdevault.com/2018/06/05/Should-you-move-to-sr.ht.html
 
 ---
+
+* https://gemini.nytpu.com/gemlog/2021-03-07.gmi
+* https://github.com/charmbracelet/soft-serve
+* admin setup: create bare repository, scp to server with Git installed, if devs on your team have ssh access to server you're set https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a-Server
+* user setup: add public key
+
+* _bare repository_: only git data (`.git`) with no working directory i.e. no actual files https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols
+* _snippets_: Gist, pastebin https://softwareengineeringdaily.com/2020/06/08/tilt-kubernetes-tooling-with-dan-bentley/ 46:45
 
 AUTH
 * identity: https://www.micah.soy/posts/setting-up-git-identities/

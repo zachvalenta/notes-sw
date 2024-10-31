@@ -3,6 +3,7 @@
 ## 参考
 
 📜 https://docs.python.org/3
+> `python -m pydoc` -> would love a version of this for the entire documenation 🧠 https://chatgpt.com/c/672a34e7-ca2c-8004-bef4-64829a580ab7
 🗣
 * https://chat.stackoverflow.com/rooms/6/python
 * https://www.youtube.com/@mCoding
@@ -10,6 +11,7 @@
 * Beazley cookbook
 * Ramalho fluent https://github.com/fluentpython/example-code-2e/tree/master/01-data-model
 > how to work through book: notebook | REPL + repo doctest
+> This strategy revolves around writing a crate...for every section of every chapter...to reduce friction as much as possible, I opted to write (type) down my chapter notes as comments within the “section crates” themselves. This system allows me to co-locate my notes with my Rust code, and learn a bit extra about Cargo along the way. It also keeps me on the keyboard, either writing code or taking notes in the same files. https://nickgerace.dev/posts/how-i-read-the-rust-programming-language/
 * Van Rossum tutorial
 
 ## 进步
@@ -22,6 +24,7 @@
 
 # 📍 CLEAN UP
 
+* https://realpython.com/python-variables/
 * https://realpython.com/syntactic-sugar-python/
 * https://treyhunner.com/2022/03/variables-objects-and-pointers-in-python/
 * https://realpython.com/python-lazy-evaluation/
@@ -122,7 +125,7 @@ class SomeView(BaseView):
 
 ---
 
-* alternative + serde https://github.com/python-attrs/attrs
+* alternative + serde https://github.com/python-attrs/attrs https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://hynek.me/articles/import-attrs/
 * serde https://github.com/lidatong/dataclasses-json
 * https://www.youtube.com/watch?v=vBH6GRJ1REM
 * vs. defined https://www.youtube.com/watch?v=1S2h11XronA
@@ -740,6 +743,7 @@ https://chatgpt.com/c/6720e992-860c-8004-a2dd-2cc826753ecf
 
 ---
 
+https://us.pycon.org/2024/schedule/presentation/85/index.html
 * perf https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
 * _decorator_: factory + functionality https://www.fluentpython.com/lingo/#decorator https://jcarlosroldan.com/post/329/my-latest-tils-about-python
 * https://www.fluentpython.com/lingo/#decorator https://docs.python.org/3/glossary.html#term-decorator https://www.bitecode.dev/p/xmas-decorations-part-3
@@ -1192,10 +1196,12 @@ UNDERSCORES https://dbader.org/blog/meaning-of-underscores-in-python
 DESIGN
 * history: origins in ABC https://www.fluentpython.com/lingo/#ABC
 * readabillity: indentation for statement grouping via significant white space vs. semi-colons https://news.ycombinator.com/item?id=34936023
-* simplicity: `python -m this` https://peps.python.org/pep-0020/ https://xkcd.com/353/
+* simplicity: `python -m this` https://peps.python.org/pep-0020/ `python -m antigravity` https://xkcd.com/353/
 * pain points: binaries, import system, version management, packaging, browser, native (mobile, desktop), speed (not built for multi-core https://twitter.com/mitsuhiko/status/1091802711908106240)
 
 USAGE 💡 second-best for everything
+* popularity https://realpython.com/preview/python-news-november-2024/
+* in the browser: pyodide https://pycon-archive.python.org/2024/schedule/presentation/92/index.html https://github.com/pyscript/pyscript
 * teaching: Jupyter
 * web: Django, Flask, FastAPI
 * sys admin: Ansible, scripting
@@ -1235,6 +1241,7 @@ COMMAND LINE
 ```sh
 python $MODULE  # exec module https://realpython.com/run-python-scripts
 python -i $MODULE  # enter pdb after exec https://docs.python.org/3/using/cmdline.html#cmdoption-i
+python -m $LIB  # exec lib as cmd https://www.pythonmorsels.com/cli-tools/#how-m-works
 python -m $LIB $CMD  # exec lib cmd https://docs.python.org/3/using/cmdline.html#cmdoption-m
 python -c "import $MOD; $MOD.$METHOD()"  # exec inline https://docs.python.org/3/using/cmdline.html#cmdoption-c
 python -c "from home import foo; foo.bye()"  # exec module w/in dir
@@ -1274,6 +1281,10 @@ ZA
 * pkgutil https://docs.python.org/3/library/pkgutil.html https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
 
 ----
+
+https://www.pythonmorsels.com/cli-tools/#how-m-works
+> This is called an "import side effect" and most modules avoid import side effects. Fun Easter egg modules like antigravity and this are the exception. Modules that avoid import side effects need a different mechanism to change their behavior when run as a command-line script or when imported as a module. Python uses a __name__ variable to distinguish between importing a module and running a module as a script.
+> When Python runs a module as a script, it sets the module's name to the string "__main__" (normally __name__ would contain the module's actual name). See more in defining a main function in Python. For packages, Python also looks for a __main__.py file to run (there's one in the zipfile package for example). This distinction between module versus script allows for some really nifty command-line tools.
 
 🎗️ start here for semantics https://lucumr.pocoo.org/2024/9/9/multiversion-python/
 
