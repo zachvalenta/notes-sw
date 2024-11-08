@@ -26,14 +26,6 @@
 🔍 https://newsletter.pragmaticengineer.com/p/state-of-eng-market-2024
 📙 Seibel coders at work
 
-DEFINING "ENGINEER" 🗄️ `built.md` engineering
-* https://news.ycombinator.com/item?id=41907412
-> In the physical world there are the engineers, and the mechanics. In the software world everybody is a software engineer. https://news.ycombinator.com/item?id=27002281
-* https://news.ycombinator.com/item?id=29998868 https://www.hillelwayne.com/tags/crossover-project/
-* as builders (vs. scientists) https://news.ycombinator.com/item?id=23565429
-* software engineers https://www.hillelwayne.com/post/crossover-project/are-we-really-engineers/ https://chriskiehl.com/article/thoughts-after-6-years
-* https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/
-
 POLITICS
 * codes of conduct
 * masking in 2025 https://us.pycon.org/2025/about/health-safety-guidelines/
@@ -123,6 +115,18 @@ STANDARDS BODIES
 * https://softwareengineeringdaily.com/host/
 * https://blogs.windows.com/msedgedev/2017/10/18/documenting-web-together-mdn-web-docs/
 * Linux Programming Interface: chapter 1
+
+## defining eng
+
+🗄️ `built.md` engineering
+
+* DHH: comp sci and seniors and information systems = software writers https://www.youtube.com/watch?v=9LfmrkyP81M 📻 STT
+* https://news.ycombinator.com/item?id=41907412
+> In the physical world there are the engineers, and the mechanics. In the software world everybody is a software engineer. https://news.ycombinator.com/item?id=27002281
+* https://news.ycombinator.com/item?id=29998868 https://www.hillelwayne.com/tags/crossover-project/
+* as builders (vs. scientists) https://news.ycombinator.com/item?id=23565429
+* software engineers https://www.hillelwayne.com/post/crossover-project/are-we-really-engineers/ https://chriskiehl.com/article/thoughts-after-6-years
+* https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/
 
 ## funding
 
@@ -469,6 +473,8 @@ One thing I think I do well is technical communication. This shows up in:
 
 ---
 
+https://bitfieldconsulting.com/books/horrible
+
 pull in stack overflow questions as writing examples https://github.com/jesseduffield/lazygit/issues/4017
 
 https://michaelengen.com/posts/my-eleventy-resume/
@@ -494,6 +500,77 @@ Kubernetes
 AWS
 Over 20 years I’ve touched a lot of different tech and generally speaking can shake the rust off or learn something new in a week or two.
 ```
+
+https://koaning.io/ go through blog as well https://github.com/koaning
+https://lyra.horse/blog/
+https://ashfurrow.com/about
+https://cleaningtheglass.com/about/
+https://www.open-resume.com/
+https://rxresu.me/
+https://jsonresume.org/
+https://news.ycombinator.com/item?id=34519268
+
+> Did royalties for United Masters. Worked at both JP Morgan (CRM for HNW clients, feature flagging system for entire consumer bank) and BNY (infrastructure automation). Ran consultancy focused on consumer-facing brands in China and Chinese consumer behavior; consulted at C-suite level.
+
+FUTURE_JOB
+* give presentations https://github.com/mfontanini/presenterm
+* keep logs https://www.simplermachines.com/why-you-need-a-wtf-notebook/
+
+### blog
+
+GENRES
+* bug hunt
+* how we built it
+* lessons learned
+* thoughts on trends
+* benchmarks
+
+### CAPP
+
+WHAT IS THIS JOB?
+* understand how the ERP works i.e. understand usage by sales, warehouse, accounting
+* how the world works e.g. PCI compliance, accounting, purchasing, warehouse
+* internal tooling: build infra, build tools
+* data eng: build infra, analysis
+
+BRAG SHEET SO FAR
+- [ ] prod cat: tree builder (many attempts previously and all failed)
+- [ ] EDI: build tooling to maintain 0.5M/year relationship
+- [ ] restock: build algo and ETL
+- [ ] CQ: rf and add documentation system to monorepo (system diagrams, ADR, changelog)
+- [ ] CQ: create Capp Uni
+- [ ] infra: mv from single Azure instance over LAN to AWS (auth so people can connect at home)
+
+### history
+
+ELIASSEN
+* BNY-Mellon: infrastructure automation; Docker, Django, Flask
+* Capital One: commercial loan risk rating; Docker, Flask
+
+JPMC
+* cloud: AWS (Lambda, CloudWatch, EC2, IAM) PaaS (Cloud Foundry) IAC (Terraform) Linux
+* backend: Python (Django/DRF, Flask) Java (Spring) misc (PHP, regex, Algolia)
+* ops: servers (Nginx, Gunicorn) messaging (RabbitMQ, Qpid) 
+* Python: libraries (bpython, Black, bandit, loguru, pytest) scraping (Scrapy, Beautiful Soup)
+* frontend: Vue, Selenium, Angular 1
+
+HOPKINS (Sep 2013 - Aug 2016)
+* Chinese as workplace language
+
+BUY BUY (May 2012 - Oct 2015)
+* consultant for American/Israeli tech companies on mobile messaging across East Asia/SE Asia/MENA (WeChat, Line, Kakao, Zalo, Viber, WhatsApp)
+* consulted directly to CTO of a billion dollar market cap startup
+
+FREELANCE (Jul 2011 - Jun 2013)
+* content and translation for agency (North Head, MSL) and in-house (Kardan Land, Trekiz)
+
+EDUCATION
+* _2012.09-2013.08_: Johns Hopkins University (grad cert in Chinese Studies)
+* _2010.09-2012.08_: Dalian University of Technology (Chinese language study)
+* _2006.08-2010.08_: Penn State - honors college (BA - English)
+
+### languages
+
 LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER) https://www.petermcconnell.com/showcase/
 ```sh
 ├── 2024
@@ -523,60 +600,3 @@ LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER) https://www.petermcconnell.com/showc
 * _Scala_: liked the syntax
 * _Rust_: learned in order to port a tast mgmt system I liked (Basilk) into Python + Stedi https://www.stedi.com/blog/excerpts-from-the-annual-letter
 * _Zig_: 🎯 learned to learn more about C and assembly
-
-https://koaning.io/ go through blog as well https://github.com/koaning
-https://lyra.horse/blog/
-https://ashfurrow.com/about
-https://cleaningtheglass.com/about/
-https://www.open-resume.com/
-https://rxresu.me/
-https://jsonresume.org/
-https://news.ycombinator.com/item?id=34519268
-
-> Did royalties for United Masters. Worked at both JP Morgan (CRM for HNW clients, feature flagging system for entire consumer bank) and BNY (infrastructure automation). Ran consultancy focused on consumer-facing brands in China and Chinese consumer behavior; consulted at C-suite level.
-
-FUTURE_JOB
-* give presentations https://github.com/mfontanini/presenterm
-* keep logs https://www.simplermachines.com/why-you-need-a-wtf-notebook/
-
-ELIASSEN
-* BNY-Mellon: infrastructure automation; Docker, Django, Flask
-* Capital One: commercial loan risk rating; Docker, Flask
-
-JPMC
-* cloud: AWS (Lambda, CloudWatch, EC2, IAM) PaaS (Cloud Foundry) IAC (Terraform) Linux
-* backend: Python (Django/DRF, Flask) Java (Spring) misc (PHP, regex, Algolia)
-* ops: servers (Nginx, Gunicorn) messaging (RabbitMQ, Qpid) 
-* Python: libraries (bpython, Black, bandit, loguru, pytest) scraping (Scrapy, Beautiful Soup)
-* frontend: Vue, Selenium, Angular 1
-
-HOPKINS (Sep 2013 - Aug 2016)
-* Chinese as workplace language
-
-BUY BUY (May 2012 - Oct 2015)
-* consultant for American/Israeli tech companies on mobile messaging across East Asia/SE Asia/MENA (WeChat, Line, Kakao, Zalo, Viber, WhatsApp)
-* consulted directly to CTO of a billion dollar market cap startup
-
-FREELANCE (Jul 2011 - Jun 2013)
-* content and translation for agency (North Head, MSL) and in-house (Kardan Land, Trekiz)
-
-EDUCATION
-* _2012.09-2013.08_: Johns Hopkins University (grad cert in Chinese Studies)
-* _2010.09-2012.08_: Dalian University of Technology (Chinese language study)
-* _2006.08-2010.08_: Penn State - honors college (BA - English)
-
-### CAPP
-
-WHAT IS THIS JOB?
-* understand how the ERP works i.e. understand usage by sales, warehouse, accounting
-* how the world works e.g. PCI compliance, accounting, purchasing, warehouse
-* internal tooling: build infra, build tools
-* data eng: build infra, analysis
-
-BRAG SHEET SO FAR
-- [ ] prod cat: tree builder (many attempts previously and all failed)
-- [ ] EDI: build tooling to maintain 0.5M/year relationship
-- [ ] restock: build algo and ETL
-- [ ] CQ: rf and add documentation system to monorepo (system diagrams, ADR, changelog)
-- [ ] CQ: create Capp Uni
-- [ ] infra: mv from single Azure instance over LAN to AWS (auth so people can connect at home)

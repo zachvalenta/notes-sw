@@ -147,6 +147,7 @@ gh alias list
 
 📜 https://docs.github.com/en/get-started/writing-on-github
 
+* use GIF https://github.com/Melkeydev/go-blueprint
 * add a welcome video! https://github.com/grafana/pyroscope
 * use SVG https://github.com/zachvalenta/capp-prod-cat-alt https://github.com/pommee/Pocker
 * use HTML https://github.com/catppuccin/delta/blame/main/README.md
@@ -174,6 +175,7 @@ gh alias list
 > learn how to use browser shortcuts for faster nav
 
 ISSUES
+* surface top-ranking https://github.com/zed-industries/zed/issues/6952
 * `TODO` checker https://github.com/preslavmihaylov/todocheck
 * dashboard https://github.com/dlvhdr/gh-dash https://github.com/pwntester/octo.nvim https://github.com/skanehira/github-tui
 * templates https://github.com/GabAlpha/basilk/tree/master/.github/ISSUE_TEMPLATE
@@ -477,7 +479,7 @@ commits as documentation https://mislav.net/2014/02/hidden-documentation/
 > https://github.com/muandane/goji
 > https://gitmoji.dev/ https://github.com/juftin/browsr
 
-MESSAGE
+MESSAGE https://github.com/cococonscious/koji
 * msg components: subject/header, description
 * _COMMIT EDITMSG_: tmp file storing commit msg
 * fmt: subject 50 col, desc 72 col https://drewdevault.com/2019/02/25/Using-git-with-discipline.html automate https://github.com/commitizen/cz-cli

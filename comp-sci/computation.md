@@ -86,6 +86,8 @@ ENTROPY
 * Petzold code ch. 10-11, 14
 * Shibuya microprocessors ch. 1
 
+---
+
 todo
 * https://reasonablypolymorphic.com/book/preface
 * Ben Eater https://eater.net/8bit + 📚 Petzold code 17
@@ -97,7 +99,7 @@ BASICS
 GATES
 * gate/relay - abstraction for controlling current that can implement boolean logical operations
 * transistor - gate impl; wire
-* _gate_: control path of current https://www.youtube.com/watch?v=gI-qXk7XojA 4:40 🗄 `science.md` engineering / valve
+* _gate_: controls path of current https://www.youtube.com/watch?v=gI-qXk7XojA 4:40 🗄 `science.md` engineering / valve
 * physical implementation of boolean logic 
 * components: wires (input, output)
 * _transistor_: current from control wire connects current from two electrodes https://www.youtube.com/watch?v=gI-qXk7XojA 3:10 input (control wire) output (current) germanium  https://www.youtube.com/watch?v=LUXR8UnYhzc 📚 Petzold code 18
@@ -172,19 +174,16 @@ za
 * _UPS_: uninterruptible power supply (backup juice for proper shutdown)
 * circuits, branch prediction https://danluu.com/branch-prediction/
 
-## form factors
+## chips
 
-📚
-* Conery ch. 5
-
-chips
 * _silica_: mineral extracted from sand
 * _silicon_: element formed by rm oxygen from silica; btw aluminum and phosphorus; by itself only a semiconductor
 * _wafer_: larger piece of processed silicon
 * _diode_: is a conductor that allows current flow in one direction
 * _semiconductor_: https://www.youtube.com/watch?v=qCSIGejNT4M https://twitter.com/szeloof/status/1280249239495479297 https://blog.robertelder.org/semiconductor-example-uses/
 
-chip manufacturing https://doxa.substack.com/p/why-a-chinese-invasion-of-taiwan
+MANUFACTURING https://doxa.substack.com/p/why-a-chinese-invasion-of-taiwan
+* https://news.ycombinator.com/item?id=42051968
 * _fabless_: you design, someone else manufacturers (AMD, Nvidia, Qualcomm, Apple) https://www.youtube.com/watch?v=Jyp6jFCzW44
 * _foundry_: manufacturing (TSMC, Intel, Samsung, GlobalFoundries) https://stratechery.com/2020/chips-and-geopolitics Intel one of the few that does both design and manufacturing https://stratechery.com/2022/the-intel-split/
 * _HDL_: software for designing chips
@@ -192,6 +191,11 @@ chip manufacturing https://doxa.substack.com/p/why-a-chinese-invasion-of-taiwan
 * cloud computing kept Intel going after they lost smartphones https://stratechery.com/2021/intel-problems/
 > Intel both designs and makes chips, whereas TSMC mostly makes other people's designs for them - hence it makes Apple's custom ARM-based CPUs for iPhones and now Macs. - Evans 2020.07.28
 > After all, nearly all mobile chips are centered on the ARM architecture...It is manufacturing capability, on the other hand, that is increasingly rare...In fact, today there are only four major foundries: Samsung, GlobalFoundries, Taiwan Semiconductor Manufacturing Company (TSMC), and Intel. Only four companies have the capacity to build the chips that are in every mobile device today, and in everything tomorrow. https://stratechery.com/2021/intel-problems/
+
+## form factors
+
+📚
+* Conery ch. 5
 
 materials https://www.youtube.com/watch?v=LN0ucKNX0hc
 * _relay_: 
@@ -205,6 +209,7 @@ timeline
 * _1945_: Colussus - first programmable (configured w/ plugs) https://www.youtube.com/watch?v=LN0ucKNX0hc 6:10
 * _1946_: ENIAC https://www.youtube.com/watch?v=LN0ucKNX0hc 6:45
 * _1950_: IBM mainframes
+* _1960_: minicomputers https://en.wikipedia.org/wiki/The_Soul_of_a_New_Machine
 * _1975_: Altair 8080 https://twobithistory.org/2018/07/22/dawn-of-the-microcomputer.html
 * _1984_: Mac https://en.wikipedia.org/wiki/Macintosh#1984:_Debut
 
@@ -222,7 +227,7 @@ timeline
 RAM
 * _RAM (random access memory)_: holds program/data until needed by CPU 📙 Manga [19] Kerrisk [2.1]
 * aka memory, working memory https://www.interviewcake.com/article/python/data-structures-coding-interview
-> RAM is just bigger-but-slower CPU cache. https://news.ycombinator.com/item?id=25056588
+> RAM is just bigger-but-slower CPU cache. https://news.ycombinator.com/item?id=25056588 https://www.youtube.com/watch?v=WDIkqP4JbkE
 * _address_: location in RAM holding single byte
 * untyped (unlike ALU register) https://www.interviewcake.com/article/python3/data-structures-coding-interview#ram
 * _memory controller_: thing that reads/writes from memory addresses

@@ -7,6 +7,7 @@
 🧪 https://github.com/zachvalenta?tab=repositories&q=django
 📚
 * https://www.saaspegasus.com/
+* https://www.manning.com/books/django-in-action
 * Vincent beginners https://treypiepmeier.com/words/2024/08/django-is-for-everyone
 > new edition
 * Vincent professionals
@@ -18,7 +19,6 @@
 * in a single file https://github.com/radiac/nanodjango
 TUI commands https://github.com/anze3db/django-tui
 TUI admin https://github.com/valberg/django-admin-tui
-history https://jacobian.org/2024/mar/20/django-chat/
 
 * _24_: rf
 * _21_: rf, DML
@@ -386,6 +386,7 @@ how to
 ---
 
 * TUI https://github.com/valberg/django-admin-tui
+* theme https://github.com/sjbitcode/django-admin-dracula
 * https://github.com/cuducos/django-public-admin
 * https://github.com/simonw/django-sql-dashboard
 * https://roman.pt/posts/django-admin-and-service-layer/
@@ -617,6 +618,7 @@ misc
 📰 GOVERNANCE / COMMUNITY
 * creators: Simon https://news.ycombinator.com/user?id=simonw Adrian https://www.soundslice.com/ Jacob https://jacobian.org/ Andrew Godwin (did south and migrations)
 * versions: https://www.codestasis.com/
+* history https://jacobian.org/2024/mar/20/django-chat/ https://buttondown.com/carlton/archive/thoughts-on-djangos-core/
 * alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016
 * _DSF_: admin https://wsvincent.com/how-django-works-behind-the-scenes/ 501 non-profit https://www.b-list.org/weblog/2018/nov/20/core/
 * _DEP_: PEP for Django https://github.com/django/deps

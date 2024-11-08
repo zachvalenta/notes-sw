@@ -266,9 +266,11 @@ Flyway https://flywaydb.org/documentation/ https://github.com/zachvalenta/flyway
 🗄 `db.md` SQLite/design
 📙 Beaulieu chapter 7
 
+storing PDFs https://news.ycombinator.com/item?id=42059639
+> able to store Markdown?
+
 TYPES
 * money https://www.youtube.com/watch?v=lxVzLAHnPOE https://news.ycombinator.com/item?id=41776878
-* SKU: K8P-G3 https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?variant=39755425349721
 * _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
 * _varchar_: variable 📙 Beaulieu [21]
 * _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485
@@ -818,7 +820,9 @@ SEMANTICS
 * _enumeration attack_: https://sqlfordevs.com/uuid-prevent-enumeration-attack
 * _fuzzy matching_: merging n datasets that don't have a common UUID e.g. merging contacts based on name https://pbpython.com/record-linking.html
 * _deterministic matching_: https://github.com/zinggAI/zingg
-* _virtual column_: https://news.ycombinator.com/item?id=31396578
+* _generated column_: col whose value generated based on other columns https://chatgpt.com/c/6734cd95-6754-8004-b89c-8d25d8da8048 https://news.ycombinator.com/item?id=31396578
+* virtual = doesn't store computed value, stored = does store computed value
+* in Django https://realpython.com/podcasts/rpp/227/ https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/#tldr
 
 STYLE 📜 https://www.sqlstyle.guide/
 * ✅ constraints next to the attr they constrain https://www.sqlstyle.guide/#layout-and-order
@@ -904,6 +908,9 @@ BAKED DATA
 
 📜 https://docs.sqlalchemy.org/en/20/
 🗄 `django.md` db
+
+* use something else https://danluu.com/simple-architectures/e
+> SQLAlchemy...makes it hard for developers to understand what database queries their code is going to emit, leading to various situations that are hard to debug and involve unnecessary operational pain
 
 ----
 

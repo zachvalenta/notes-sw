@@ -85,6 +85,7 @@ CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-g
 
 start here https://pycon-archive.python.org/2024/schedule/presentation/72/index.html
 
+https://softwareengineeringdaily.com/2024/10/29/the-big-changes-in-python-3-13-with-lukasz-langa/
 free-thread https://pycon-archive.python.org/2024/schedule/presentation/128/index.html
 * experimental features https://realpython.com/podcasts/rpp/223/
 
@@ -147,7 +148,6 @@ CAN BE SLOWER THAN PYTHON https://pythonspeed.com/articles/faster-text-processin
 * https://pycon-archive.python.org/2024/schedule/presentation/113/index.html
 * https://pythonspeed.com/articles/python-extension-performance/
 * https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
-* _CFFI_: call C from Python https://pypi.org/project/cffi/ https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 
 ## concurrency
 
@@ -168,6 +168,9 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 * `threading`: single process; cooperative multi-tasking (code tells OS when to interrupt)
 
 ---
+
+* bad concurrency compared to other languages?
+> Python (which was the right initial choice because of our founding CTO’s technical background, but its concurrency support, performance, and extensive dynamism make us question whether it’s the right choice for a large-scale backend codebase). None of these was a major mistake, and for some (e.g. Python) the downsides are minimal enough that it’s cheaper for us to continue to pay the increased maintenance burden than to invest in migrating to something theoretically better, but if we were starting a similar codebase from scratch today we’d think hard about whether they were the right choice. https://danluu.com/simple-architectures/
 
 * start here https://pycon-archive.python.org/2024/schedule/presentation/151/index.html 
 * REPL `python -m asyncio` https://www.pythonmorsels.com/cli-tools/#asyncio

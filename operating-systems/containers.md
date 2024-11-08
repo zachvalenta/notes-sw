@@ -233,6 +233,7 @@ cmds
 * view running services: `ps`
 * run cmd in service: `docker-compose exec <service> <cmd>` https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
 > preceded by nsenter https://github.com/jpetazzo/nsenter https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
+* pipe into container https://travisjeffery.com/b/2015/09/piping-into-a-docker-container/
 * rm service/volume created on up: `down -v` https://docs.docker.com/compose/reference/down/ https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
 * non-interactive: `exec -it`  or `exec -T` (TTY error) https://stackoverflow.com/a/57565119
 
@@ -506,12 +507,19 @@ types https://stackoverflow.com/a/55366707 https://www.youtube.com/watch?v=YFl2m
 🗄️ `linux.md` perms
 📚
 * Clinton linux in action
-* Evans https://wizardzines.com/zines/containers/ 
+* Evans containers
 * Galvin dinosaur ch 16
 * Takemura book of xen
 * Tanenbaum circus ch 7
 
+EVANS CONTAINERS
+* why: avoid dependency diffs by separating host/container filesystem
+* _image_: tarball of OS + system libs (libc) + language (runtime, libs) + your src
+* _cgroup (control group)_: `cgroup_id` create ID `cgset` set CPU/mem limits `cgexec $ARGS unshare $ARGS` create cgroup 
+
 ---
+
+https://bitfieldconsulting.com/blog/container-security
 
 https://blog.lizzie.io/linux-containers-in-500-loc.html
 
@@ -528,7 +536,7 @@ CONTAINERIZATION
 * _cluster_: n containers
 * setting it up is hard https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/ https://github.com/kelseyhightower/kubernetes-the-hard-way
 * _orchestration_: manages clusters
-* under the hood: cgroups, namespace, seccomp, bpf https://twitter.com/b0rk/status/1227244309621215233 namespaces, union filesystems https://roadmap.sh/docker
+* under the hood: namespace, seccomp, bpf https://twitter.com/b0rk/status/1227244309621215233 namespaces, union filesystems https://roadmap.sh/docker
 * doesn't actually solve the 'works on my machine' problem as deployed container involves Kubernetes, networking, monitoring, config management https://www.youtube.com/watch?v=RB6MvSEaMK
 * can Dockerize surrounding services while keep web app non-Dockerized for REPL speed https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#24:14
 
@@ -604,6 +612,9 @@ DOCKER DESKTOP ALTERNATIVES
 * _Vagrant_: build VM/container for local dev env using VirtualBox as sandbox https://www.mattlayman.com/blog/2019/web-development-environments/ used to be more popular https://news.ycombinator.com/item?id=15395601
 
 ## Kubernetes
+
+* good for on-prem? https://danluu.com/simple-architectures/
+> As for Kubernetes, we use Kubernetes because knew that, if the business was successful (which it has been) and we kept expanding, we’d eventually expand to countries that require us to operate our services in country. The exact regulations vary by country, but we’re already expanding into one major African market that requires we operate our “primary datacenter” in the country and there are others with regulations that, e.g., require us to be able to fail over to a datacenter in the country.
 
 ---
 

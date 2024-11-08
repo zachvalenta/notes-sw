@@ -10,7 +10,7 @@
 
 * https://roadmap.sh/api-design https://pycon-archive.python.org/2024/schedule/presentation/25/index.html 🗄️ `src.md`
 * https://roadmap.sh/backend
-*️ https://roadmap.sh/best-practices/api-security https://us.pycon.org/2024/schedule/presentation/5/index.html
+*️ https://roadmap.sh/best-practices/api-security https://us.pycon.org/2024/schedule/presentation/5/index.html https://www.manning.com/books/secure-apis https://nostarch.com/hacking-apis
 * https://news.ycombinator.com/item?id=41432101
 * Kleppmann ch. 3
 * styles https://www.youtube.com/watch?v=4vLxWqE94l4
@@ -30,11 +30,25 @@ DONE
 
 # 🏮 DESIGN
 
+📙 https://www.manning.com/books/the-design-of-web-apis-second-edition
+
 * KISS: if data is static, use web server like Nginx, don't even need a backend https://blog.pecar.me/faster-api
 
 ## GraphQL
 
 ---
+
+https://danluu.com/simple-architectures/
+> Pros:
+> Self-documentation of exact return type
+> Code generation of exact return type leads to safer clients
+> GraphiQL interactive explorer is a productivity win
+> Our various apps (user app, support app, Wave agent app, etc.) can mostly share one API, reducing complexity
+> Composable query language allows clients to fetch exactly the data they need in a single packet roundtrip without needing to build a large number of special-purpose endpoints
+> Eliminates bikeshedding over what counts as a RESTful API
+> Cons:
+> GraphQL libraries weren’t great when we adopted GraphQL (the base Python library was a port of the Javascript one so not Pythonic, Graphene required a lot of boilerplate, and Apollo-Android produced very poorly optimized code)
+> Default GQL encoding is redundant and we care a lot about limiting size because many of our customers have low bandwidth
 
 https://softwareengineeringdaily.com/2024/10/16/the-end-of-graphql-matt-bessey/
 📹 https://www.youtube.com/watch?v=QJhiMSUFgDM
@@ -79,6 +93,8 @@ https://softwareengineeringdaily.com/2024/10/16/the-end-of-graphql-matt-bessey/
 
 ---
 
+* used more for internal services 📙 Jeffrey distributed [5]
+* BYO https://github.com/travisjeffery/proglog
 * https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/
 * https://www.youtube.com/watch?v=gnchfOojMk4
 * https://www.youtube.com/watch?v=_4TPM6clQjM
@@ -202,7 +218,7 @@ API STAR 📜 https://docs.apistar.com/ https://github.com/zachvalenta/flask-ope
 
 # 🟨 ZA
 
-* reverse engineering https://news.ycombinator.com/item?id=41983409
+* reverse engineering https://news.ycombinator.com/item?id=41983409 https://news.ycombinator.com/item?id=42057903
 
 ## pagination
 
@@ -271,4 +287,4 @@ https://app.pluralsight.com/library/courses/designing-restful-web-apis/table-of-
 * _REST_: tell devs about change via new version
 * _GraphQL_: tell devs about change via deprecating field -> seems like versioning by other means vs. not versioning at all (as the docs claim) https://graphql.org/learn/best-practices/ https://blog.hitchhq.com/graphql-3-reasons-not-to-use-it-7715f60cb934 https://www.graphile.org/postgraphile/
 
-* _sink_: https://www.youtube.com/watch?v=dqDnB6jKzcE https://www.moesif.com/blog/technical/api-design/Best-Practices-for-Versioning-REST-and-GraphQL-APIs/ https://stackoverflow.com/questions/55877310/add-x-frame-options-header-to-all-flask-responses https://flask.palletsprojects.com/en/1.1.x/api/#flask.Flask.after_request https://pythonise.com/series/learning-flask/python-before-after-request https://stripe.com/blog/api-versioning https://news.ycombinator.com/item?id=21834628 https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api https://brandur.org/api-upgrades security https://nostarch.com/hacking-apis
+* _sink_: https://www.youtube.com/watch?v=dqDnB6jKzcE https://www.moesif.com/blog/technical/api-design/Best-Practices-for-Versioning-REST-and-GraphQL-APIs/ https://stackoverflow.com/questions/55877310/add-x-frame-options-header-to-all-flask-responses https://flask.palletsprojects.com/en/1.1.x/api/#flask.Flask.after_request https://pythonise.com/series/learning-flask/python-before-after-request https://stripe.com/blog/api-versioning https://news.ycombinator.com/item?id=21834628 https://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api https://brandur.org/api-upgrades

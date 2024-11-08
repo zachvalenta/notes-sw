@@ -12,8 +12,6 @@ https://en.wikipedia.org/wiki/Internet_protocol_suite
 
 ## 进步
 
-traceroute https://terminaltrove.com/trippy/ https://github.com/fujiapple852/trippy asn https://terminaltrove.com/asn/
-
 https://www.youtube.com/watch?v=dV8mjZd1OtU
 https://www.youtube.com/watch?v=F5rni9fr1yE
 https://www.youtube.com/watch?v=37AFBZv4_6Y
@@ -74,7 +72,7 @@ request spoofing
 🗄 `practical-packet-analysis.pdf` chapters 1
 
 how they work
-* _packets_: headers = sections -> ethernet (MAC address of computer that forward packet to current recipient) IP (addr of machine where packet is heading) HTTP (actually data you are trying to send) [`evans-linux.pdf` 15]
+* _packets_: headers = sections -> ethernet (MAC address of computer that forward packet to current recipient) IP (addr of machine where packet is heading) HTTP (actually data you are trying to send) [`evans-linux.pdf` 15] https://news.ycombinator.com/item?id=42105190
 * how Linux handles packets https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * _MTU_: when packets get too big https://www.youtube.com/watch?v=Y6IMlPSl4fI https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 
@@ -137,6 +135,15 @@ https://news.ycombinator.com/item?id=41930628
 * _connection settings_: https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * _sink_: https://robertovitillo.com/what-every-developer-should-know-about-tcp/ https://blog.erratasec.com/2019/02/a-basic-question-about-tcp.html#.XHaBq1NKgWo https://robertheaton.com/2018/08/31/how-to-build-a-tcp-proxy-1/ https://hpbn.co/building-blocks-of-tcp/
 > If you’re sending the same data from one machine to 30 others, with normal unicast connections like TCP you’d need to send 30 copies. This takes quite a lot of bandwidth. With multicast you can send just one copy of the data, no matter how many machines you’re sending to. - 搜 Itamar Turner-Trauring, 'software clown'
+
+## tooling
+
+* _asn_: ASN https://terminaltrove.com/asn/
+* _dig_: https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command https://jvns.ca/blog/2021/12/04/how-to-use-dig/
+* _dog_: https://github.com/ogham/dog
+* _intentrace_: https://github.com/sectordistrict/intentrace
+* _traceroute_: 
+* _trippy_: https://github.com/fujiapple852/trippy
 
 ## VPN
 

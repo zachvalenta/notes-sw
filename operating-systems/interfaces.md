@@ -47,7 +47,7 @@ SEMANTICS
 * _teletype (TTY)_: https://www.linusakesson.net/programming/tty/ https://bas.codes/posts/python-asterisks https://the.exa.website/introduction https://en.wikipedia.org/wiki/Tty_(Unix) https://en.wikipedia.org/wiki/Tty_(Unix) https://the.exa.website/introduction https://jvns.ca/blog/2022/08/30/a-way-to-categorize-debugging-skills/ https://news.ycombinator.com/item?id=34146212 https://en.wikipedia.org/wiki/Teleprinter
 * https://bestasciitable.com/
 
-## bash
+## 🐦‍🔥 bash
 
 📚
 * Barrett https://www.amazon.com/gp/product/1098113403 https://fabiensanglard.net/bash/
@@ -55,14 +55,18 @@ SEMANTICS
 * Stutz cookbook
 🔗
 * https://github.com/dylanaraps/pure-bash-bible
-* https://aosabook.org/en/v1/bash.html
-* http://aosabook.org/en/bash.html
 * https://github.com/anordal/shellharden/blob/master/how_to_do_things_safely_in_bash.md https://jvns.ca/blog/2023/08/08/what-helps-people-get-comfortable-on-the-command-line-/
 * https://leanpub.com/learnbashthehardway
 * https://wizardzines.com/zines/bite-size-bash/
 * https://mywiki.wooledge.org/BashGuide/Practices
 
-DESIGN
+### design
+
+📙 https://aosabook.org/en/v1/bash.html
+
+---
+
+* inspired by Algol https://news.ycombinator.com/item?id=42020368 https://www.youtube.com/watch?v=olH-9b3VJfs https://shellhaters.org/talk
 * use other languages (like Golang) https://blog.kowalczyk.info/article/4b1f9201181340099b698246857ea98d/using-go-instead-of-bash-for-scripts.html
 * downsides: not great for scripting other than universality (which is great); crappy syntax, hard to test, limited data structures https://medium.com/capital-one-developers/bashing-the-bash-replacing-shell-scripts-with-python-d8d201bc0989 doesn't do autosuggestion, syntax highlighting https://danyspin97.org/blog/colorize-your-cli/
 > The opposite of "it's like riding a bike" is "it's like programming in bash". A phrase which means that no matter how many times you do something, you will have to re-learn it every single time. https://twitter.com/JakeWharton/status/1334177665356587008
@@ -264,7 +268,7 @@ echo "hi, ${alice}. look at these random numbers: ${randomNum}"
 
 https://stackoverflow.com/a/673940/6813490
 
-## fish
+## 🐠 fish
 
 📜 https://fishshell.com/
 
@@ -428,7 +432,8 @@ OPTIONS
 * uninstall `sh -c 'rm "$(command -v 'starship')"'`
 * venv https://github.com/starship/starship/issues/1529
 * won't get Python version if you're using an alias https://github.com/starship/starship/issues/632
-## zsh
+
+## 🦓 zsh
 
 📜 https://zsh.sourceforge.io/
 
@@ -466,6 +471,7 @@ https://chatgpt.com/c/671abdee-ccec-8004-958e-6dd5bf9f6ed9
 
 * _Alacritty_: 🎯 YAML config, fastest, cross-platform, no global hotkey but Hammerspoon/Karabiner workaround https://github.com/alacritty/alacritty/issues/3313 https://github.com/alacritty/alacritty/issues/862 https://alacritty.org/index.html
 * doesnt work on mac? https://www.youtube.com/watch?v=3wq0RFYAvNo [2:20]
+* works with Zellij copy/paste https://zellij.dev/documentation/faq#copy--paste-isnt-working-how-can-i-fix-this
 * _gotty_: term as web app https://github.com/yudai/gotty
 * _ghostty_: 🎯 private beta, written in Zig, coming out in 2025 https://mitchellh.com/writing/ghostty-is-coming https://mitchellh.com/ghostty https://www.youtube.com/watch?v=7Jon_cAK_to
 * _Hyper_: ❌ Electron https://hyper.is/
@@ -530,6 +536,18 @@ https://news.ycombinator.com/item?id=41727971 https://jvns.ca/blog/2024/10/01/te
 
 * compute: iTerm uses ~15% CPU on air-capp, Alacritty is supposed to be good https://chatgpt.com/c/671149f9-6ff4-8004-a834-78d1cbfdd46b
 
+GLOBAL HOTKEY 🗄️ `keyboards.md` programmable
+* = keypress handled by listening program even if another program is active
+* killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
+* used by: iTerm, Google Drive for Desktop
+> would be great to remap `CMD SPACE` bc I never use Spotlight + less strain on left thumb
+* _AutoHotKey_: https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ 
+* _Alfred_ https://www.alfredapp.com/ https://wesbos.com/uses
+* _BetterTouchTool_: https://switowski.com/blog/favorite-mac-tools/
+* _Hammerspoon_: Keyboard Maestro https://news.ycombinator.com/item?id=34070951 install https://github.com/dandavison/wormhole
+* _Karabiner_: https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934
+* _Raycast_: https://www.raycast.com/ https://wesbos.com/uses https://www.youtube.com/watch?v=lhJwEckGi4U https://www.youtube.com/watch?v=Bslp82vTQaM https://weiyen.net/articles/useful-macos-cmd-line-utilities
+
 ---
 
 https://wezfurlong.org/wezterm/features.html
@@ -548,18 +566,6 @@ VIZ
 * themes e.g. gruvbox https://www.youtube.com/watch?v=h509rn2xIyU
 * image rendering https://github.com/lusingander/serie?tab=readme-ov-file#supported-terminals https://iterm2.com/documentation-images.html https://sw.kovidgoyal.net/kitty/graphics-protocol/
 
-HOTKEY
-* = keypress handled by listening program even if another program is active
-* killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
-* used by: iTerm, Google Drive for Desktop
-> would be great to remap `CMD SPACE` bc I never use Spotlight + less strain on left thumb
-* _AutoHotKey_: https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ 
-* _Alfred_ https://www.alfredapp.com/ https://wesbos.com/uses
-* _BetterTouchTool_: https://switowski.com/blog/favorite-mac-tools/
-* _Hammerspoon_: Keyboard Maestro https://news.ycombinator.com/item?id=34070951 install https://github.com/dandavison/wormhole
-* _Karabiner_: https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934
-* _Raycast_: https://www.raycast.com/ https://wesbos.com/uses https://www.youtube.com/watch?v=lhJwEckGi4U https://www.youtube.com/watch?v=Bslp82vTQaM
-
 ## 🍎 iTerm
 
 📜 https://iterm2.com/documentation.html
@@ -575,7 +581,7 @@ https://news.ycombinator.com/item?id=35126280
 * fullscreen pane: `SHIFT CMD ENTER` https://stackoverflow.com/questions/13243933/iterm2-how-to-expand-split-pane-temporarily
 * locate cursor: `CMD /`
 * config status bar: profile > session > configure status bar
-* hotkey: keys > hotkey > show/hide all windows (`ALT SPACE`)
+* global hotkey: keys > hotkey > show/hide all windows (`ALT SPACE`)
 * select tab by number: keys > nav > tab https://stackoverflow.com/a/59303000
 * restore tabs https://superuser.com/a/755924
 * handle using ALT: preferences > profiles > keys > left option as esc+ https://stackoverflow.com/a/345949
@@ -664,7 +670,7 @@ a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/vide
 📜 https://zellij.dev/documentation/
 
 * shell: doesn't use login, work around using `.zshenv` https://github.com/zellij-org/zellij/issues/1434#issuecomment-2185020449
-* copy/paste: doesn't work with iTerm but Alacritty doesn't have native global hotkey https://zellij.dev/documentation/faq#copy--paste-isnt-working-how-can-i-fix-this
+* copy/paste: via OSC 52 signal; works with Alacritty but not iTerm https://zellij.dev/documentation/faq#copy--paste-isnt-working-how-can-i-fix-this
 
 ---
 
@@ -712,7 +718,7 @@ layout_dir "~/.config/zellij"
 🗄️ `interfaces.md` terminal
 
 WINDOW MANAGERS
-* _aerospace_: 🎯 https://github.com/nikitabobko/AeroSpace https://nikitabobko.github.io/AeroSpace/guide https://www.youtube.com/watch?v=-FoWClVHG5g
+* _aerospace_: 🎯 https://github.com/nikitabobko/AeroSpace https://nikitabobko.github.io/AeroSpace/guide https://www.youtube.com/watch?v=-FoWClVHG5g https://www.youtube.com/watch?v=q4cexeIc3WA
 * _hyprland_: https://www.youtube.com/watch?v=2CP_9-jCV6A config hell https://www.youtube.com/watch?v=T__INNgTW1M
 * _yabai_: 🎯 https://github.com/koekeishiya/yabai https://daniel.lawrence.lu/blog/y2023m12d15/
 

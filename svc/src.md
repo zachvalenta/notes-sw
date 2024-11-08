@@ -29,10 +29,15 @@ SEMANTICS
 
 ## CICD
 
+🗄️ `infra.md` IaC
+
 OPTIONS
 * _Dagger_: created by the guy who created Docker, used Cuelang https://github.com/dagger/dagger https://news.ycombinator.com/item?id=30857012
 * _Github Actions_: 🗄️ `git.md` Github / Actions
 > you get a cool deployments tab on the repo as well that shows what's processing
+
+GITOPS
+> The idea is to bring together the processes of deploying code and managing that code with version control (git being one of the more popular source control tools in use these days). Instead of keeping your code in a Git repository and then running some command or process to manually deploy changes from it, when you do GitOps you are automatically deploying whatever is at the head of that repo. So 'deployment', for you as a developer, means simply merging a pull request, and the automation does the rest. This means maintaining a single Git repository that contains all of your Kubernetes manifests, both for your own applications, along with any supporting services you need to install, such as prometheus for metrics, fluentd for logs, or cert-manager for managing TLS certificates. Because everything is in one place, it's easy to manage, and there's a single audit trail that shows who changed what, when, and why in the git commit history. Adding a new application to your clusters can be as simple as opening a PR to this central “configuration repo” containing the Kubernetes manifests or Helm charts for your new service. Once that PR is approved by your team and merged, a GitOps tool (like Flux or Argo) can automatically apply that change from within the cluster. https://bitfieldconsulting.com/blog/what-is-gitops
 
 ---
 
@@ -293,7 +298,6 @@ toggle=
 > It makes me happy to know there’s someone out there comparing first and second editions of Extreme Programming. https://registerspill.thorstenball.com/p/joy-and-curiosity-13
 * Buelta python architecture
 * Dibernardo 500 lines or less http://aosabook.org/en/index.html
-* ✅ Evans domain-driven design https://github.com/nickgerace/gfold/pull/149/files
 * Fowler refactoring https://www.amazon.com/dp/0134757599/ https://registerspill.thorstenball.com/p/skin-shedding-code
 * Martin clean code https://qntm.org/clean
 * McConnell code complete
@@ -304,6 +308,8 @@ toggle=
 
 extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.html
 * application boundaries https://morizbuesing.com/blog/greppability-code-metric/
+* Richard Gabriel https://www.jwz.org/doc/worse-is-better.html https://bitfieldconsulting.com/posts/not-real-developer
+> Simplicity beats even strict correctness, in this view: it’s better to be simple (and handle the easy 90% of cases in a nice way) than to be totally correct (and handle the awkward edge cases, at the expense of making the code much more complex).
 
 ## dependency injection (DI)
 
@@ -388,6 +394,29 @@ as red flag https://news.ycombinator.com/item?id=30675182
 * _observer_: pub sub https://layerci.com/blog/postgres-is-the-answer http://blog.joncairns.com/2013/04/fat-model-skinny-controller-is-a-load-of-rubbish/
 * _sink_: https://github.com/kamranahmedse/design-patterns-for-humans https://www.youtube.com/playlist?list=PLVmRRBrc2pRAEgzxUIJc_7LLABdg_58hJ https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
 * in python https://python-patterns.guide/ https://hynek.me/articles/python-subclassing-redux/
+
+## domain driven
+
+📚
+* ✅ Evans domain-driven design https://github.com/nickgerace/gfold/pull/149/files
+* Percival https://www.amazon.com/gp/product/1492052205
+
+## DSLs
+
+---
+
+📙 https://www.manning.com/books/building-user-friendly-dsls
+
+* lose tooling of general purpose language https://news.ycombinator.com/item?id=22375721
+* https://news.ycombinator.com/item?id=41938819
+* https://registerspill.thorstenball.com/p/joy-and-curiosity-12
+* https://news.ycombinator.com/item?id=41931507
+
+ABSTRACTION
+* https://jesseduffield.com/Beginners-Guide-To-Abstraction/
+* howto https://tonsky.me/blog/dsl/
+* against abstraction https://thorstenball.com/blog/2015/10/22/write-stupid-code/
+* _law of leaky abstractions_: natch; if they wouldn't exist in the first place https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/
 
 ## paradigms
 

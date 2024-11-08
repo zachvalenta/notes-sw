@@ -644,6 +644,8 @@ reduce(mul, nums)  # 6
 
 🗄 functools/partial
 
+https://realpython.com/python-closure/
+
 https://www.youtube.com/watch?v=jXugs4B3lwU
 * _closure_: closes around value on stack to preserve in mem after stack finishes 
 ```python
@@ -1200,6 +1202,8 @@ DESIGN
 * pain points: binaries, import system, version management, packaging, browser, native (mobile, desktop), speed (not built for multi-core https://twitter.com/mitsuhiko/status/1091802711908106240)
 
 USAGE 💡 second-best for everything
+* why not: typing, concurrency, perf
+> Python (which was the right initial choice because of our founding CTO’s technical background, but its concurrency support, performance, and extensive dynamism make us question whether it’s the right choice for a large-scale backend codebase). None of these was a major mistake, and for some (e.g. Python) the downsides are minimal enough that it’s cheaper for us to continue to pay the increased maintenance burden than to invest in migrating to something theoretically better, but if we were starting a similar codebase from scratch today we’d think hard about whether they were the right choice. https://danluu.com/simple-architectures/
 * popularity https://realpython.com/preview/python-news-november-2024/
 * in the browser: pyodide https://pycon-archive.python.org/2024/schedule/presentation/92/index.html https://github.com/pyscript/pyscript
 * teaching: Jupyter

@@ -5,8 +5,9 @@
 ## 进步
 
 ZOLA DEPLOYMENT
+* email/RSS https://travisjeffery.com/subscribe/
 > blog auth? what is really the point of your site? 🗄️ `tmp.md`
-> syndication? https://www.youtube.com/watch?v=WYqnxCFJoLE https://x.com/jeremyjkun/status/1798789885966602419 no traffic from Google -> "whatever Google and Twitter are doing right now, unless your blog post lands on Hacker News front page, you basically get no more traffic anymore." https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
+> syndication? “POSSE” (“post on your own site, syndicate elsewhere”) https://jvns.ca/blog/2024/11/09/new-microblog/ https://www.youtube.com/watch?v=WYqnxCFJoLE https://x.com/jeremyjkun/status/1798789885966602419 no traffic from Google -> "whatever Google and Twitter are doing right now, unless your blog post lands on Hacker News front page, you basically get no more traffic anymore." https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 * DNS tools to diff `zachvalenta.com` vs. `zjayv.com`
 * learn Github actions
 * specify `index.html` for GH Pages: `publish_dir` https://chatgpt.com/share/66f4a7c1-ea3c-8004-8327-46a9840bf1d5 https://github.com/shalzz/zola-deploy-action/blob/master/README.md#custom-domain symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying https://stackoverflow.com/questions/42941170/how-to-set-up-github-pages-to-look-for-index-html-in-a-different-location https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository or Cloudflare https://chevyray.dev/blog/how-this-site-is-made/ or Netlify https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/
@@ -70,7 +71,7 @@ ZA
 * page reloads are ok
 > We ran Basecamp on a single server for the first year...most of the problems we feared weren't that big of a deal to customers. As long as you keep people in the loop, and are honest about the situation, they'll understand. - 📙 Getting Real [44]
 taxonomy
-* BYO https://nolanlawson.com/2023/12/02/lets-learn-how-modern-javascript-frameworks-work-by-building-one/
+* BYO https://nolanlawson.com/2023/12/02/lets-learn-how-modern-javascript-frameworks-work-by-building-one/ https://www.manning.com/books/build-a-frontend-web-framework-from-scratch
 * https://github.com/redwoodjs/redwood https://news.ycombinator.com/item?id=34069527
 * for Deno https://alephjs.org/
 * Astro https://docs.astro.build/en/concepts/why-astro/ https://morizbuesing.com/blog/astro-from-next/
@@ -286,7 +287,7 @@ MANAGERS
 * _pnpm_: https://github.com/pnpm/pnpm https://pnpm.io/ https://www.youtube.com/watch?v=ZIKDJBrk56k
 * _yarn_: https://yarnpkg.com/
 
-REGISTRIES
+REGISTRIES 🗄️ `python/pkg.md` publish > registry
 * _jsr_: Deno https://www.youtube.com/watch?v=8IHhvkaVqVE [5:15]
 * _npm_: https://www.npmjs.com/
 
@@ -416,9 +417,10 @@ STATE
 * https://cssreference.io/ 
 * https://web.dev/learn/css/
 📚
+* https://www.manning.com/books/css-in-depth-second-edition
+* ⭐️ https://www.manning.com/books/tiny-css-projects
 * Evans hell yes https://wizardzines.com/zines/css/
 * Meyer https://www.amazon.com/CSS-Definitive-Guide-Layout-Presentation/dp/1098117611
-* https://macwright.com/2016/12/28/what-little-i-know-about-design.html
 * https://cssfordesigners.com/articles/things-i-wish-id-known-about-css 
 
 HOWTO
@@ -574,6 +576,7 @@ ZOLA 📜 https://github.com/getzola/zola
 
 FEATURES
 * hot reload
+* social/comments via Github https://zackproser.com/blog/autocomplete-is-not-all-you-need
 * browser `python -m http.server` https://www.pythonmorsels.com/cli-tools/
 * sitemap https://otterwiki.com/-/index https://werc.cat-v.org/sitemap
 * _metadata_: title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/ linking https://github.com/erwald/blog/blob/master/_data/series.json https://danilafe.com/blog/blog_microfeatures/

@@ -177,6 +177,7 @@ TYPES https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/
 
 TYPES
 * _command log_: log commands to change state but not incremental changes
+* _commit log_: append-only list of time-ordered records 📙 Jeffrey distributed [6] https://en.wikipedia.org/wiki/Commit_(data_management)
 * _append-only log_: immutability at the db level; conflict w/ GDPR https://www.bloorresearch.com/2018/02/append-databases-gdpr-conundrum/
 * _write-ahead log (WAL)_: log changes in state before update so you can recover if failure (power, OS, hw) https://softwareengineeringdaily.com/wp-content/uploads/2018/06/SED613-Database-Reliability-Engineering.pdf BYO https://github.com/khonsulabs/okaywal logical decoding messages https://www.infoq.com/articles/wonders-of-postgres-logical-decoding-messages/ https://pgdash.io/blog/taming-postgresql-wal-file-growth.html https://news.ycombinator.com/item?id=41851051 https://simonwillison.net/2022/Oct/23/datasette-gunicorn
 * used in b-tree 📙 Kleppmann 84
@@ -598,6 +599,7 @@ show collections  # view collections
 # 🐘 POSTGRES
 
 📙 Suzuki postgres internals https://www.interdb.jp/pg/
+🔗 https://challahscript.com/what_i_wish_someone_told_me_about_postgres
 📜
 * general https://www.postgresql.org/docs/current/index.html
 * guide http://postgresguide.com/

@@ -7,38 +7,20 @@
 
 ## 进步
 
-* compare to Golang and Rust https://crates.io/crates/basilk https://pypistats.org/packages/__all__ cargo https://github.com/ratatui/crates-tui
-* https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/ https://www.b-list.org/weblog/2022/dec/19/boring-python-code-quality/
-
 * _24_: create own file
 * _19_: lib (pipx, Poetry, pyinstaller)
 
 # 📮 DISTRO
 
-📙 https://pypackages.com/
-📜 https://docs.python.org/3/distributing/index.html
-📊 stats https://pepy.tech/
-🧀
-* https://pypi.org/manage/account/
-* https://test.pypi.org/
-
 ---
 
-GET NAMESPACE FOR DATACLERK
-* PSF https://packaging.python.org/en/latest/tutorials/packaging-projects/
-* Real Python https://realpython.com/pypi-publish-python-package/
-* Poetry
-* Twine https://github.com/pypa/twine
-> see termgraph
-> do people use? https://talkpython.fm/episodes/transcript/208/packaging-making-the-most-of-pycon-and-more
-> tool to replace `stup.py` upload https://talkpython.fm/episodes/transcript/64/inside-the-python-package-index
-
+PYPI ALTERNATIVES
+* internal https://www.pythonpodcast.com/pulp-with-bihan-zhang-and-austin-macdonald-episode-168/ https://twitter.com/brianokken/status/1402631045107707908
+* external https://peps.python.org/pep-0759/ https://realpython.com/podcasts/rpp/227/
 
 * editable installs `pip install -e` https://pgjones.dev/blog/packaging-without-setup-py-2020 https://talkpython.fm/episodes/transcript/208/packaging-making-the-most-of-pycon-and-more 🔍 Twine
 * _distribution_: archived package (lib) or binary (executable) https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 6:00 distribution != release https://pydist.com/blog/distributions-vs-releases
-* internal https://twitter.com/brianokken/status/1402631045107707908
 * _how to_: create archive and put on PyPI https://pgjones.dev/blog/packaging-without-setup-py-2020 https://packaging.python.org/guides/tool-recommendations/#packaging-tool-recommendations don't delete a build from PyPI https://pydist.com/blog/never-delete-a-release https://dustingram.com/articles/2019/04/02/pypi-as-a-service/ https://snarky.ca/how-do-you-verify-pypi-can-be-trusted/ https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 14:30 https://www.youtube.com/watch?v=P3dY3uDmnkU https://www.python.org/dev/peps/pep-0518/ PyPI doesn't have good search mechanism https://github.com/pipxproject/pipx/issues/249#issuecomment-636019556 https://jwodder.github.io/kbits/posts/pypkg-mistakes/ https://news.ycombinator.com/item?id=26733423 fix bad release https://snarky.ca/what-to-do-when-you-botch-a-release-on-pypi/
-* internal PyPI https://www.pythonpodcast.com/pulp-with-bihan-zhang-and-austin-macdonald-episode-168/
 * example https://github.com/tfeldmann/simplematch
 * _deprecation_: https://www.dampfkraft.com/code/how-to-deprecate-a-pypi-package.html https://blog.ovalerio.net/archives/1971 https://sirupsen.com/shitlists/
 * _PyPI_: security https://github.com/gitpython-developers/GitPython
@@ -113,6 +95,7 @@ ALTERNATIVES
 
 ---
 
+* https://travisjeffery.com/b/2019/11/i-ll-take-pkg-over-internal/
 * even Prolog uses src/test https://github.com/dnmfarrell/dict
 * dupe https://github.com/simonw/files-to-prompt
 * https://github.com/fpgmaas/cookiecutter-uv
@@ -138,6 +121,26 @@ https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.h
 
 ---
 
+REGISTRY 🗄️ `frontend.md` packaging
+* https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you
+* stats https://pepy.tech/
+* https://pypi.org/manage/account/
+* https://test.pypi.org/
+* compare to Golang and Rust https://crates.io/crates/basilk https://pypistats.org/packages/__all__ cargo https://github.com/ratatui/crates-tui
+* local PyPI https://testdriven.io/blog/private-pypi/
+```sh
+# https://github.com/pywharf/pywharf https://stefan.sofa-rockers.org/2019/04/18/python-packaging-gitlab-conda/ https://pydist.com https://github.com/devpi/devpi
+# create index
+mkdir pypi-local
+
+# populate index w/ pkg
+pip3 download -r /Users/zach/Desktop/zvmac/materials/sw/lang/python/create-python-app/requirements.txt
+
+# use index for new project
+pip3 install --no-index --find-links=~/Desktop/pypi-local coverage
+```
+
+HOWTO 📙 https://pypackages.com/ 📜 https://docs.python.org/3/distributing/index.html https://www.manning.com/books/publishing-python-packages
 * `MANIFEST.ini` https://chatgpt.com/c/67181d59-63f4-8004-ba67-ff251c9cb141
 * Flit, Poetry, Twine https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:00
 * fork https://github.com/zachvalenta/anytree https://github.com/zachvalenta/capp-prod-cat-alt
@@ -146,6 +149,13 @@ https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.h
 python = "^3.12"
 anytree = {git = "https://github.com/zachvalenta/anytree.git"}
 ```
+* PSF https://packaging.python.org/en/latest/tutorials/packaging-projects/
+* Real Python https://realpython.com/pypi-publish-python-package/
+* Poetry
+* Twine https://github.com/pypa/twine
+> see termgraph
+> do people use? https://talkpython.fm/episodes/transcript/208/packaging-making-the-most-of-pycon-and-more
+> tool to replace `stup.py` upload https://talkpython.fm/episodes/transcript/64/inside-the-python-package-index
 
 # 📦 MGMT
 
@@ -154,6 +164,8 @@ anytree = {git = "https://github.com/zachvalenta/anytree.git"}
 ### landscape
 
 ---
+
+* https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/ https://www.b-list.org/weblog/2022/dec/19/boring-python-code-quality/
 
 https://pycon-archive.python.org/2024/schedule/presentation/61/index.html
 > While other language ecosystems have a streamlined workflow that involves a single tool like Rust's Cargo and JavaScript's npm, maintaining Python projects has historically involved learning and using an ever-growing set of tools:
@@ -216,18 +228,6 @@ freeze --user > $FILE  # per user
 * require venv: `PIP_REQUIRE_VIRTUALENV=true` https://docs.python-guide.org/dev/pip-virtualenv/#requiring-an-active-virtual-environment-for-pip
 * pinning w/ pip-tools https://lincolnloop.com/blog/python-dependency-locking-pip-tools
 * pip-compile
-* local PyPI https://testdriven.io/blog/private-pypi/
-```sh
-# https://github.com/pywharf/pywharf https://stefan.sofa-rockers.org/2019/04/18/python-packaging-gitlab-conda/ https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you https://pydist.com https://github.com/devpi/devpi
-# create index
-mkdir pypi-local
-
-# populate index w/ pkg
-pip3 download -r /Users/zach/Desktop/zvmac/materials/sw/lang/python/create-python-app/requirements.txt
-
-# use index for new project
-pip3 install --no-index --find-links=~/Desktop/pypi-local coverage
-```
 ```make
 @echo "📦 DEPENDENCIES"
 @echo
@@ -536,6 +536,8 @@ PEPS https://realpython.com/pypi-publish-python-package/#prepare-your-package-fo
 ---
 
 📍 great answer https://chatgpt.com/c/67111dbc-0964-8004-9e50-41fa41875da8
+
+https://reinforcedknowledge.com/a-comprehensive-guide-to-python-project-management-and-packaging-concepts-illustrated-with-uv-part-i/
 
 FORMATS
 * _wheel_: binary https://pythonspeed.com/articles/upgrade-python-3.11/

@@ -2,7 +2,10 @@
 
 ## 参考
 
-🛣️ https://roadmap.sh/datastructures-and-algorithms https://roadmap.sh/computer-science https://roadmap.sh/python
+> Until you start dealing with millions of people on a network or you need to blur or sharpen a million photos quickly, you can just use the work of other people. When it gets real, break out the comp sci. 🗄 `ford-code.pdf`
+🔍
+* https://github.com/TheAlgorithms/Python
+* https://xlinux.nist.gov/dads/
 📚
 * ✅ Bhargava grokking algorithms
 * Christian algorithms to live by
@@ -14,9 +17,13 @@
 
 ## 进步
 
-> do you have the PDF? https://news.ycombinator.com/item?id=41967900
+https://www.manning.com/books/optimization-algorithms
+🛣️ https://roadmap.sh/datastructures-and-algorithms https://roadmap.sh/computer-science https://roadmap.sh/python
 
----
+* _algorithm_: solution (Dijkstra) to specific problem (lightest path through unweighted graph)
+* sometimes the name of the problem (set covering)
+
+> do you have the PDF? https://news.ycombinator.com/item?id=41967900
 
 streams? SICP https://blog.moertel.com/posts/2013-05-26-python-lazy-merge.html
 
@@ -34,7 +41,6 @@ D = Days modifier (currently at 14)
 
 D values is used to modify the effect of time on the score. The higher D, the more time gravity influences post score.
 ```
-
 
 https://www.softwaredesign.ing/blog/ai-is-the-reason-interviews-are-harder-now
 https://realpython.com/python-hash-table/
@@ -138,16 +144,7 @@ print(get_config_value(configs, "prod"))
 * _17_: start Bhargava, Castro and Roberto get everyone to buy the O'Reilly ML book
 * _16_: Hacker Rank for Zip Code
 
-# 🛣️ ALGORITHMS
-
-🔍
-* https://github.com/TheAlgorithms/Python
-* https://softwareengineering.stackexchange.com/
-* https://xlinux.nist.gov/dads/
-> Until you start dealing with millions of people on a network or you need to blur or sharpen a million photos quickly, you can just use the work of other people. When it gets real, break out the comp sci. 🗄 `ford-code.pdf`
-
-* _algorithm_: solution (Dijkstra) to specific problem (lightest path through unweighted graph)
-* sometimes the name of the problem (set covering)
+# 🦋 TYPES
 
 ## classics
 
@@ -198,6 +195,117 @@ ZA
 * _PubGrub_: for dependency resolution (SAT) https://github.com/sdispater/mixology https://github.com/dart-lang/pub/blob/master/doc/solver.md SAT solver, theorem prover https://news.ycombinator.com/item?id=35626783
 * _simulated annealing_: https://matthewstrom.com/writing/how-to-pick-the-least-wrong-colors/
 * _Towers of Hanoi_: 🗄 `classic-compsci.pdf` https://en.wikipedia.org/wiki/Dynamic_programming#Tower_of_Hanoi_puzzle
+
+## KNN
+
+🗄 `math.md` regression
+
+* _k-nearest neighbors_: taxonomize based on proximate elements i.e. those that have similar attributes
+* form of supervised learning https://stats.stackexchange.com/a/56504
+* used for recommendation system, regression, OCR 📙 Bhargava [186,195,196]
+* recommendation systems https://github.com/gorse-io/gorse
+* https://philippmuens.com/k-nearest-neighbors-from-scratch/
+* https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
+* https://realpython.com/courses/knn-python/
+* https://news.ycombinator.com/item?id=26328958
+* https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
+* 📙 MacCormick chapter 6
+* _k means_: group points into K clusters; unsupervised https://stats.stackexchange.com/a/56504
+
+## Monte Carlo
+
+🗄 `math.md` Markov chain
+
+* _Monte Carlo tree search (MCTS)_: domain independent https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 12:00
+* tree: roots = next moves, branches = n order paths
+* search: takes weights from neural net, traverse branches, report back
+* _Monte Carlo_: 📙 Christian chapter 9 https://pbpython.com/monte-carlo.html https://news.ycombinator.com/item?id=27379310
+* determine weights for MCTS
+* weights = secret sauce https://github.com/leela-zero/leela-zero
+* https://easylang.dev/apps/tutorial_mcarlo.html
+* aka simulation 📙 Konnikova bluff Zuckerman simons
+* https://sirupsen.com/napkin/problem-16-simulation 
+* https://www.erichgrunewald.com/posts/simulations-of-diversity-hiring/
+* https://conversationswithtyler.com/episodes/annie-duke/
+* _minimax_: predecessor to MCTS https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 1:15 used in chess 4:30 https://marginalrevolution.com/marginalrevolution/2021/05/maradona-plays-minimax.html
+
+## neural networks
+
+🗄️ `graphs.md` https://www.manning.com/books/graph-neural-networks-in-action https://www.manning.com/books/math-and-architectures-of-deep-learning
+BYO https://www.manning.com/books/design-a-machine-learning-system-design-from-scratch
+
+FUNCTIONS
+```python
+def af(arg, weight):
+    activation = arg * weight
+    return activation
+```
+* _activation function (AF)_: arg * weight = activation 📙 Trask 9.162 https://stats.stackexchange.com/a/307295
+* _weight_: importance of arg 📙 Trask 3.23, 3.27
+* _activation_: return of AF https://stats.stackexchange.com/a/307295 https://www.youtube.com/watch?v=aircAruvnKk 3:25 📙 Trask 3.46
+* _weighted sum_: multiply input by weights and sum; aka dot product 📙 Trask 3.30
+
+PROPAGATION
+* _datapoint_: arg to network as a whole (vs. weight) 📙 Trask 3.22
+* _shape_: types of datapoints 📙 Trask 3.23
+* _propagate_: pass datapoint to network 📙 Trask 3.22 e.g. pass n pixels for computer vision neural network
+* _forward propagation_: datapoints go straight through network 📙 Trask 3.46
+* _back propagation_: figuring out which weight from previous layer contributed to increased error at higher layer and updating it 📙 Trask 6.119 https://www.youtube.com/watch?v=Ilg3gGewQ5U
+* _prediction_: return of neural network 📙 Trask 3.25
+
+BASICS https://www.youtube.com/watch?v=aircAruvnKk https://karpathy.ai/zero-to-hero.html
+* _neural network_: graph (network) that mimics the brain (neural) https://victorzhou.com/blog/intro-to-neural-networks/
+* in NN, just a var holding boolean value https://www.youtube.com/watch?v=aircAruvnKk 2:55
+* akin to logic gate https://victorzhou.com/blog/intro-to-neural-networks/
+* as non-leaky abstraction https://blog.cerebralab.com/Neural_networks_as_non-leaky_mathematical_abstraction
+* _LLM_: type of neural network, predict some likely output based on a given input https://www.seangoedecke.com/how-llms-work/
+
+TYPES
+* _deep_: https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/how-deep-neural-networks-work
+* _recurrent_: https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm https://victorzhou.com/blog/intro-to-rnns/
+* _convolutional_: https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/how-convolutional-neural-networks-work https://victorzhou.com/blog/intro-to-cnns-part-1/ good for computer vision https://www.youtube.com/watch?v=aircAruvnKk 2:10
+
+### labels
+
+* https://calmcode.io/datasets/clinc
+* https://calmcode.io/labs/doubtlab
+* https://labelerrors.com/
+* https://www.manning.com/books/data-without-labels
+
+TYPES
+* _supervised_: labeled data during training, unlabeled during predication [Trask 2.11]
+* _unsupervised_: unlabeled data during training and prediction [Trask 13]
+* _reinforcement_: no labels but algo can tell if it's getting hotter or colder http://aiplaybook.a16z.com/docs/guides/dl-learning#user-content-reinforcementlearning
+* _parametric_: modeler derives parameters [Trask 2.14, 2.18]
+* _nonparametric_: model derives parameters [Trask 2.14, 2.18]
+
+### transformers
+
+* https://www.manning.com/books/transformers-in-action
+* https://www.amazon.com/gp/product/1098134184
+* https://realpython.com/huggingface-transformers/
+
+### vectors
+
+* _scalar_: single value 📙 Trask [3.45] Bradshaw [62]
+* _vector_: list 📙 Trask 3.31
+* _matrix_: list of lists 📙 Trask 3.41 e.g. NumPy array, Pandas dataframe
+* _elementwise operation_: perform same operation on two vectors of equal length 📙 Trask 3.31 i.e. zip
+* _dimensionality_: number of components in a vector https://zackproser.com/blog/introduction-to-dimensionality#what-is-dimensionality-
+* _embedding_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings/ https://blog.wilsonl.in/hackerverse/ https://www.youtube.com/watch?v=zzY64Qu8HHc https://news.ycombinator.com/item?id=41473518 https://www.youtube.com/watch?v=hB7sGE0W8CI https://news.ycombinator.com/item?id=42013762 try it out https://github.com/taylorai/aiq
+* _feature extraction_: key attr e.g. semantic meaning, syntax, sentiment analysis https://zackproser.com/blog/introduction-to-embeddings
+
+## regression
+
+* _linear regression_: use set of numerical X values (e.g. study time, price of crude oil) to predict numerical Y values (e.g. test score, price of gasoline)
+* BYO https://www.youtube.com/watch?v=VmbA0pi2cRQ https://www.youtube.com/watch?v=KsVBBJRb9TE
+* in Pandas, SQL https://hakibenita.com/sql-for-data-analysis#linear-regression
+* uses k-NN 📙 Bhargava 10.196 🗄 `algos.md`
+* 名 relationship
+> the common narrative that it's a fairly simple regression with size, where small startups are fast and large companies are slow, I don't think that's necessarily the case at all, where Facebook is a good example of a company that's remarkable at executing quickly from a technology point of view https://www.stitcher.com/podcast/mathew-passy/invest-like-the-best/e/71161348 25:00
+* 动 plot relationship btw
+> People have regressed spending by countries, states, and districts on outcome metrics for a long time, and they pretty much universally show that there is no relationship between spending and success as defined in traditional terms. https://freddiedeboer.substack.com/p/is-the-conventional-wisdom-on-educational
+* _logistic regression_: use set of numerical X values (e.g. email attr) to predict categorical Y value (e.g. spam or no?) https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
 
 ## search
 
@@ -336,37 +444,6 @@ quicksort https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsor
 * _selection_: 🗄 `algos`
 * _Timsort_: https://realpython.com/sorting-algorithms-python/
 * _topological_: [Bhargava 6.112]
-
-## strategies
-
-🔗 https://en.wikipedia.org/wiki/Approximation_algorithm#Algorithm_design_techniques
-
----
-
-* _dynamic programming (DP)_: maximize X given constraint on Y or calculate optimum involves large numbers 📙 Bhargava 9.163, 178 https://www.youtube.com/watch?v=gK8KmTDtX8E
-* only works for independent problems 📙 Bhargava 9.177
-* used for Towers of Hanoi, Dikstra, longest substring/sequence, Fibonacci
-* must have optimal substructure and overlapping sub-problems https://en.wikipedia.org/wiki/Dynamic_programming#Computer_programming
-* clean up https://ngoldbaum.github.io/posts/dynamic-programming/ https://skerritt.blog/dynamic-programming/#why-is-dynamic-programming-called-dynamic-programmin https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/
-
-* _divide and conquer (D&C)_: winnow to atomic case using recursion
-* most (but not all) recursive algos use D&C e.g. quicksort https://stackoverflow.com/a/53796319
-
-* _brute force_: enumerate all possible solutions
-* _partition_: split list into two smaller sub-lists 🗄 `linux.md` split
-* _pivot_: el used to partition
-* _MapReduce_: map (apply func to each item in el) reduce (combine els) [Bhargava 11.209-10] parallel doesn't mean new runtime is old_runtime/cores bc have to load balance btw core and merge results [ibid 11.208] https://en.wikipedia.org/wiki/Parallel_algorithm 🗄 `language.md` concurrency
-* _hill-climbing_: local maxima https://diff.substack.com/p/big-tech-sees-like-a-state 📙 Christian 195
-
-* decision tree 📙 MacCormick chapter 6 https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/information-gain/ https://mlu-explain.github.io/
-* random forest https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/intro-to-random-forests/ https://mlu-explain.github.io/
-* gini impurity https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/gini-impurity/
-
-yet to use personally
-* _approximation_: aim for good enough when optimal solution too expensive/NP [Bhargava 8.147] take local maximum https://en.wikipedia.org/wiki/Approximation_algorithm
-* _genetic_: select best candidates from random population https://danielmiessler.com/blog/genetic-algorithms-could-be-more-significant-than-machine-learning/  evolutionary https://www.drorpoleg.com/books-to-read-in-2023-part-2/ there's also something called 'genetic programming' whose relationship to genetic algorithms is unclear https://stackoverflow.com/a/3821746
-* _greedy_: recursively choose local optimum e.g. counting change, lightest edge in MST; might not lead to global optimum but that can be ok w/ NP [Bhargava 8.144-5] https://www.interviewcake.com/concept/python3/greedy
-* _linear programming_: maximize target given constraints 📙 Bhargava 11.218 https://www.jeremykun.com/2017/09/24/linear-programming-and-healthy-diets-part-2/
 
 # 🧮 COMPLEXITY
 
@@ -573,6 +650,8 @@ def set_covering(states_needed, stations):
 
 ## recursion
 
+📙 https://www.amazon.com/gp/product/1718502028
+
 * _base case_: case in which the function doesn't call itself
 * _recursive case_: case in which function calls itself
 * _partial execution_: state of function when another function called from within it (until the other function completes its own execution) [3.44]
@@ -676,3 +755,34 @@ Ba  # match on 'a'
 * `^` exclude (when inside character set)
 * `^` anchor to start (when outside character set)
 * `$` anchor to end https://regex101.com/r/SF2Mpd/1
+
+## strategies
+
+🔗 https://en.wikipedia.org/wiki/Approximation_algorithm#Algorithm_design_techniques
+
+---
+
+* _dynamic programming (DP)_: maximize X given constraint on Y or calculate optimum involves large numbers 📙 Bhargava 9.163, 178 https://www.youtube.com/watch?v=gK8KmTDtX8E
+* only works for independent problems 📙 Bhargava 9.177
+* used for Towers of Hanoi, Dikstra, longest substring/sequence, Fibonacci
+* must have optimal substructure and overlapping sub-problems https://en.wikipedia.org/wiki/Dynamic_programming#Computer_programming
+* clean up https://ngoldbaum.github.io/posts/dynamic-programming/ https://skerritt.blog/dynamic-programming/#why-is-dynamic-programming-called-dynamic-programmin https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/
+
+* _divide and conquer (D&C)_: winnow to atomic case using recursion
+* most (but not all) recursive algos use D&C e.g. quicksort https://stackoverflow.com/a/53796319
+
+* _brute force_: enumerate all possible solutions
+* _partition_: split list into two smaller sub-lists 🗄 `linux.md` split
+* _pivot_: el used to partition
+* _MapReduce_: map (apply func to each item in el) reduce (combine els) [Bhargava 11.209-10] parallel doesn't mean new runtime is old_runtime/cores bc have to load balance btw core and merge results [ibid 11.208] https://en.wikipedia.org/wiki/Parallel_algorithm 🗄 `language.md` concurrency
+* _hill-climbing_: local maxima https://diff.substack.com/p/big-tech-sees-like-a-state 📙 Christian 195
+
+* decision tree 📙 MacCormick chapter 6 https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/information-gain/ https://mlu-explain.github.io/
+* random forest https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/intro-to-random-forests/ https://mlu-explain.github.io/
+* gini impurity https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/gini-impurity/
+
+yet to use personally
+* _approximation_: aim for good enough when optimal solution too expensive/NP [Bhargava 8.147] take local maximum https://en.wikipedia.org/wiki/Approximation_algorithm
+* _genetic_: select best candidates from random population https://danielmiessler.com/blog/genetic-algorithms-could-be-more-significant-than-machine-learning/  evolutionary https://www.drorpoleg.com/books-to-read-in-2023-part-2/ there's also something called 'genetic programming' whose relationship to genetic algorithms is unclear https://stackoverflow.com/a/3821746
+* _greedy_: recursively choose local optimum e.g. counting change, lightest edge in MST; might not lead to global optimum but that can be ok w/ NP [Bhargava 8.144-5] https://www.interviewcake.com/concept/python3/greedy
+* _linear programming_: maximize target given constraints 📙 Bhargava 11.218 https://www.jeremykun.com/2017/09/24/linear-programming-and-healthy-diets-part-2/

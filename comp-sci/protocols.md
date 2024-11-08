@@ -2,6 +2,8 @@
 
 ## 参考
 
+🗄️ `data/modeling.md`
+
 ## 进步
 
 SEGMENTS
@@ -74,6 +76,12 @@ ZA
 * _transaction set purpose codes_: "why is document being sent?", only shows up in (typically) a single segment, can apply to multiple document lists (832, 850)
 * `00` new `01` cancel previously sent doc `04` update `05` replace `06` ack receipt of sent doc `24` draft
 
+## items
+
+🧠 https://chatgpt.com/c/672a2132-cf28-8004-9afa-c0bd20a0ffa0
+
+* _LIN_: ID e.g. UPC, SKU
+
 ## ISA
 
 🧠 https://chatgpt.com/c/6723ec93-f688-8004-9390-f69468340e26 https://chatgpt.com/c/6723e31b-bf8c-8004-a801-41b1b4e52419
@@ -107,7 +115,7 @@ ISA15 (usage - test|prod)
 
 STANDARDS BODIES
 * _EDI_: fmt for business transactions (purchases orders, sales) https://en.wikipedia.org/wiki/Electronic_data_interchange
-* _ASC x12_: US standards body for x12, created by ANSI https://en.wikipedia.org/wiki/ASC_X12
+* _ASC x12_: US standards body for x12, created by ANSI https://en.wikipedia.org/wiki/ASC_X12 https://www.nist.gov/
 * _x12_: USA EDI spec
 * _EDIFACT_: EU EDI spec https://en.wikipedia.org/wiki/EDIFACT
 
@@ -269,6 +277,65 @@ https://github.com/abhimanyu003/sttr
 * `n`: new line
 * `\t`: in a string literal is an escape sequence for tab character, horizontal whitespace, ASCII codepoint 9 https://stackoverflow.com/a/22116523/6813490
 
+## semantics
+
+* _encode_: 动 convert to diff fmt 📙 MacCormick 5.66
+* typically byte per/char https://stackoverflow.com/a/31322359
+> Each byte represents some text character in the program. 📙 Bryant 1.1
+* multibyte = n byte per/char e.g. Japanese 📙 Beaulieu 2.19
+* can be anything e.g. Morse code (dot/dash to text) 📙 Sweigart 1.3
+* QR/bar code https://boonepeter.github.io/posts/2020-11-10-spotify-codes/ https://news.ycombinator.com/item?id=32837565&utm_term=comment
+* _decode_: 动 convert back to original fmt https://stackoverflow.com/a/31322359
+```yaml
+1: "A"  # encode
+"A": 1  # decode
+```
+* _character set_: alphabet + syllabary https://en.wikipedia.org/wiki/Character_encoding#Terminology 🗄 `sociology.md` linguistics/grammar
+* used synonymously with 'encoding'
+> When I discovered that the popular web development tool PHP has almost complete ignorance of character encoding issues, blithely using 8 bits for characters, making it darn near impossible to develop good international web applications, I thought, enough is enough. https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
+
+🗄 `sociology.md` linguistics
+📙
+* Bhargava ch. 5
+* MacCormick ch. 4
+
+* _format_: rules for information structure https://format.wtf/examples https://en.wikipedia.org/wiki/Format
+* _encoding_: rules for conversion from one fmt to another https://en.wikipedia.org/wiki/Code
+* used as both noun and verb
+* _serialization_: encoding for obj in-mem to text/binary and vice versa https://www.fluentpython.com/lingo/#serialization 📙 Kleppmann [113]
+* _protocol_: rules for communication system https://en.wikipedia.org/wiki/Communication_protocol
+* sometimes used synonymously with "encoding" https://blainsmith.com/articles/plain-text-protocols/
+
+* _unstructured text_: e.g. Unix tools
+* flexible http://www.catb.org/~esr/writings/taoup/html/ch05s01.html https://news.ycombinator.com/item?id=23630640
+* leads to complexity https://danluu.com/cli-complexity/ 
+* _structured text_: e.g. Powershell, JSON, CSV, XML, HTTP/1 https://news.ycombinator.com/item?id=27431998
+* operating systems use of https://news.ycombinator.com/item?id=28301646
+
+* _codec_: https://www.fluentpython.com/lingo/#codec https://en.wikipedia.org/wiki/Code
+
+semantics https://stackoverflow.com/a/41217889
+* _protocol_: encoding for computer networking https://blainsmith.com/articles/plain-text-protocols/
+* impl can interact; e.g. HTTP - JS client can talk to Python server
+* overlap with linguistics https://www.unicode.org/versions/Unicode14.0.0/appE.pdf
+* representing integers, Google had to switch from 32-bit to 64-bit for Gangnam Style https://www.interviewcake.com/article/python3/data-structures-coding-interview#fixed-width-nums https://danielmiessler.com/study/encoding/ https://kunststube.net/encoding/ https://kunststube.net/frontback/ https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
+* _base64_: 🗄 `4-application.md` 'headers' https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Authentication_schemes
+
+semantics
+* _protocol_: fmt https://blainsmith.com/articles/plain-text-protocols/
+* "implement protocol/spec" = create library for language to read/write data in that protocol https://msgpack.org/ https://github.com/polyglotted/msgpack-python/tree/master/msgpack https://github.com/aviramha/ormsgpack https://bsonspec.org/faq.html https://bsonspec.org/spec.html
+* _serialization_: convert obj to protocol for network transmission 
+* _encoding_: protocol to represent non-digital (text, audio) as digital 📙 Petzold ch. 20
+* i.e. binary files don't have encoding themselves but have text fields w/ encoding https://stackoverflow.com/a/38264655
+* synonym for conversion in general e.g. Morse code dot/dash to electrical signal 📙 Sweigart ciphers 3 https://www.reddit.com/r/AskProgramming/comments/c8pssr/comment/esom0gi/
+
+semantics
+* _serialization_: encoding for data interchange 📙 Kleppmann [115] https://www.fluentpython.com/lingo/#serialization
+* no one uses language-specific versions e.g. Pickle 📙 Kleppmann [114]
+
+* _encoding_: spec for conversion https://en.wikipedia.org/wiki/Code
+* e.g. mp3 spec for how to encode audio 📙 Sweigart 1.3
+
 ## ascii
 
 🗄️ `info.md` diagrams
@@ -301,29 +368,6 @@ https://text.makeup/about/
 * _Unicode_: char set https://stackoverflow.com/a/13212528/6813490 https://github.com/arp242/uni https://www.youtube.com/watch?v=MijmeoH9LT4 https://rentafounder.com/how-to-count-unicode-string-characters/ https://www.dampfkraft.com/ghost-characters.html code point, glyph, octal, hex https://realpython.com/courses/python-unicode/ `unicode-standard.pdf` https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/ https://en.wikipedia.org/wiki/Code_point CLI tool https://github.com/arp242/uni/ in Python https://blog.phylum.io/malicious-actors-use-unicode-support-in-python-to-evade-detection https://news.ycombinator.com/item?id=37735801 https://realpython.com/python-sort-unicode-strings/
 * unicode, emoji in the terminal https://news.ycombinator.com/item?id=37047785
 > Since the distinction between string and unicode has been done away with in Python 3, __unicode__ is gone and __bytes__ (which behaves similarly to __str__ and __unicode__ in 2.7) exists for a new built-in for constructing byte arrays. https://rszalski.github.io/magicmethods/#appendix2
-
-## UUID
-
-🔗
-* https://en.wikipedia.org/wiki/Universally_unique_identifier
-* https://taskwarrior.org/docs/dom/
-
-VERSIONS https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/
-* version 1: generated from timestamp, monotonic counter, and a MAC address
-> don't use
-* version 2: reserved for security IDs with no known details
-* version 3: generated from MD5 hashes of some data you provide; RFC suggests DNS and URLs among the candidates for data.
-> superseded by version 5
-* version 4: generated from entirely random data; this is probably what most people think of and run into with UUIDs.
-> default
-* version 5: generated from SHA1 hahes of some data you proivde; RFC suggests DNS or URLs as candidates for data.
-> if you have your own data you want in the UUID
-* version 6: generated from timestamp, monotonic counter, and a MAC address; same data as Version 1 but they change the order so that sorting them will sort by creation time.
-> don't use
-* version 7: generated from a timestamp and random data.
-> if you're using in a context where you want to be able to sort e.g. database keys
-* version 8: entirely custom (besides the required version/variant fields that all versions contain).
-> if you have your own data you want in the UUID
 
 # 🗃️ FILE FMT
 
@@ -448,10 +492,12 @@ NUMBERS https://chatgpt.com/c/671266a2-7fa4-8004-b1d3-c43acb773f7d
 * no leading zeros
 * largest safe int `2^53 - 1` (`9007199254740991`) 📜 IEEE-754 double-precision floating-point
 
+ZA
+* benefits: readable, tooling, mindshare 📙 Jeffrey distributed [4]
+
 ---
 
 * https://seriot.ch/projects/parsing_json.html
-* benefits: readable, tooling, mindshare 📙 Jeffrey distributed [4]
 * objs: colloquially (start/end w/ braces) https://youtu.be/SM9gJv08dm0 0:30 literally (doesn't exist) http://benalman.com/news/2010/03/theres-no-such-thing-as-a-json/
 * typing: str, bool, array, num (int/float considered the same, which can be problem w/ large numbers) 📙 Kleppmann [144]
 * no comments https://stackoverflow.com/a/4183018
@@ -467,9 +513,11 @@ ALTERNATIVES
 * DuckDB https://www.pgrs.net/2024/03/21/duckdb-as-the-new-jq/ https://news.ycombinator.com/item?id=35009612 https://duckdb.org/2023/03/03/json.html 
 * _jaq_: rewrite https://github.com/01mf02/jaq
 * _jello_: 🎯 Python syntax https://github.com/kellyjonbrazil/jello https://github.com/kellyjonbrazil/jellex
+* _jmespath_: https://github.com/jmespath/jp https://github.com/birchb1024/frangipanni/blob/cf997721e2c5793e062d1c16908d7ddf2a325173/frangipanni.go
 * _jnv_: 🎯 interactive https://github.com/ynqa/jnv
 * _jqp_: TUI https://github.com/noahgorstein/jqp 
 * _jsonata_: https://jsonata.org/ https://www.stedi.com/blog/jsonata-playground
+* _qq_: ⭐️ https://github.com/JFryy/qq/
 * _mistql_: Python and CLI https://www.mistql.com/
 * _sq_: https://news.ycombinator.com/item?id=41760697
 
@@ -661,19 +709,25 @@ SEMANTICS
 
 📚 Petzold code 3, 9, 12-13
 
+SCALE 📙 Kozierok 4.63
+* _bit_: binary digit; aka 'flag' [Kozierok 4.63]
+* _byte_: 8 bits
+* aka octet, octet string = sequence of bytes https://stackoverflow.com/a/21463473 https://stackoverflow.com/a/1241234
+* 255 possible values https://www.youtube.com/watch?v=dPxCGlW9lfM 5:10
+* _kilobyte (KB)_: 1k bytes
+* _megabyte (MB)_: 
+* _gigabyte (GB)_: 1024^3 bytes https://chatgpt.com/c/6733cbae-092c-8004-801c-25fbe5b8076e
+* _terabyte (TB)_: 
+* _petabyte_: 1024 TB?
+* _exabyte_: 1B GB
+
 ---
 
 * https://wizardzines.com/zines/integers-floats/
 
-* _bit_: binary digit; aka 'flag' [Kozierok 4.63]
 * _bitmask_: toggling bit https://www.arp242.net/bitmask.html set (to 1) reset/clear (to 0) [Kozierok 4.63]
 * _nybble_: 4 bits [Petzold code 181]
-* _byte_: 8 bits
-* aka octet https://stackoverflow.com/a/21463473/6813490
-* 255 possible values https://www.youtube.com/watch?v=dPxCGlW9lfM 5:10
 * _byte string_: sequence of bytes https://stackoverflow.com/a/31322359 https://www.fluentpython.com/lingo/#byte_string
-* _kilobyte_: 1k bytes
-* other sizes: MB, GB, TB, petabyte (1024 tb) exabyte (1B GB) https://stackoverflow.com/a/1241234 [Kozierok 4.63]
 * _bit width_: number of bits needed to represent an int e.g. on Intel processors ints are 4 bytes wide https://boredzo.org/pointers/#starting
 * add by carrying over e.g. 1 + 1 = 10 [Manga 1.43]
 * _two's complement_: how to do substraction on binary, represent negative numbers [Petzold code 15.180, Petzold code 12-13 Manga 1.44-46]
@@ -706,70 +760,39 @@ f"{val:.{4}}"  # 13.5
 
 # 🟨 ZA
 
-CASE
-* snake case: `hello_world`
-* kebab case: `hello-world`
-* camel case: `helloWorld`
-* Pascal case: `HelloWorld`
+CASES
+* snake: `hello_world`
+* kebab: `hello-world`
+* camel: `helloWorld`
+* Pascal: `HelloWorld`
 
----
+## identifiers
 
-* _encode_: 动 convert to diff fmt 📙 MacCormick 5.66
-* typically byte per/char https://stackoverflow.com/a/31322359
-> Each byte represents some text character in the program. 📙 Bryant 1.1
-* multibyte = n byte per/char e.g. Japanese 📙 Beaulieu 2.19
-* can be anything e.g. Morse code (dot/dash to text) 📙 Sweigart 1.3
-* QR/bar code https://boonepeter.github.io/posts/2020-11-10-spotify-codes/ https://news.ycombinator.com/item?id=32837565&utm_term=comment
-* _decode_: 动 convert back to original fmt https://stackoverflow.com/a/31322359
-```yaml
-1: "A"  # encode
-"A": 1  # decode
+* _ASIN_: https://inventlikeanowner.com/blog/the-story-behind-asins-amazon-standard-identification-numbers/
+* _SKU_: https://chatgpt.com/c/672e0fc3-36d8-8004-b52c-7aefbcd25e7f
+* _UPC_:
+
+UUID https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/ https://en.wikipedia.org/wiki/Universally_unique_identifier https://taskwarrior.org/docs/dom/
+```sh
+# https://weiyen.net/articles/useful-macos-cmd-line-utilities
+uuidgen
+uuidgen | tr '[:upper:]' '[:lower:]' | pbcopy
 ```
-* _character set_: alphabet + syllabary https://en.wikipedia.org/wiki/Character_encoding#Terminology 🗄 `sociology.md` linguistics/grammar
-* used synonymously with 'encoding'
-> When I discovered that the popular web development tool PHP has almost complete ignorance of character encoding issues, blithely using 8 bits for characters, making it darn near impossible to develop good international web applications, I thought, enough is enough. https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
-
-🗄 `sociology.md` linguistics
-📙
-* Bhargava ch. 5
-* MacCormick ch. 4
-
-* _format_: rules for information structure https://format.wtf/examples https://en.wikipedia.org/wiki/Format
-* _encoding_: rules for conversion from one fmt to another https://en.wikipedia.org/wiki/Code
-* used as both noun and verb
-* _serialization_: encoding for obj in-mem to text/binary and vice versa https://www.fluentpython.com/lingo/#serialization 📙 Kleppmann [113]
-* _protocol_: rules for communication system https://en.wikipedia.org/wiki/Communication_protocol
-* sometimes used synonymously with "encoding" https://blainsmith.com/articles/plain-text-protocols/
-
-* _unstructured text_: e.g. Unix tools
-* flexible http://www.catb.org/~esr/writings/taoup/html/ch05s01.html https://news.ycombinator.com/item?id=23630640
-* leads to complexity https://danluu.com/cli-complexity/ 
-* _structured text_: e.g. Powershell, JSON, CSV, XML, HTTP/1 https://news.ycombinator.com/item?id=27431998
-* operating systems use of https://news.ycombinator.com/item?id=28301646
-
-* _codec_: https://www.fluentpython.com/lingo/#codec https://en.wikipedia.org/wiki/Code
-
-semantics https://stackoverflow.com/a/41217889
-* _protocol_: encoding for computer networking https://blainsmith.com/articles/plain-text-protocols/
-* impl can interact; e.g. HTTP - JS client can talk to Python server
-* overlap with linguistics https://www.unicode.org/versions/Unicode14.0.0/appE.pdf
-* representing integers, Google had to switch from 32-bit to 64-bit for Gangnam Style https://www.interviewcake.com/article/python3/data-structures-coding-interview#fixed-width-nums https://danielmiessler.com/study/encoding/ https://kunststube.net/encoding/ https://kunststube.net/frontback/ https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/
-* _base64_: 🗄 `4-application.md` 'headers' https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Authentication_schemes
-
-semantics
-* _protocol_: fmt https://blainsmith.com/articles/plain-text-protocols/
-* "implement protocol/spec" = create library for language to read/write data in that protocol https://msgpack.org/ https://github.com/polyglotted/msgpack-python/tree/master/msgpack https://github.com/aviramha/ormsgpack https://bsonspec.org/faq.html https://bsonspec.org/spec.html
-* _serialization_: convert obj to protocol for network transmission 
-* _encoding_: protocol to represent non-digital (text, audio) as digital 📙 Petzold ch. 20
-* i.e. binary files don't have encoding themselves but have text fields w/ encoding https://stackoverflow.com/a/38264655
-* synonym for conversion in general e.g. Morse code dot/dash to electrical signal 📙 Sweigart ciphers 3 https://www.reddit.com/r/AskProgramming/comments/c8pssr/comment/esom0gi/
-
-semantics
-* _serialization_: encoding for data interchange 📙 Kleppmann [115] https://www.fluentpython.com/lingo/#serialization
-* no one uses language-specific versions e.g. Pickle 📙 Kleppmann [114]
-
-* _encoding_: spec for conversion https://en.wikipedia.org/wiki/Code
-* e.g. mp3 spec for how to encode audio 📙 Sweigart 1.3
+* version 1: generated from timestamp, monotonic counter, and a MAC address
+> don't use
+* version 2: reserved for security IDs with no known details
+* version 3: generated from MD5 hashes of some data you provide; RFC suggests DNS and URLs among the candidates for data.
+> superseded by version 5
+* version 4: generated from entirely random data; this is probably what most people think of and run into with UUIDs.
+> default
+* version 5: generated from SHA1 hahes of some data you proivde; RFC suggests DNS or URLs as candidates for data.
+> if you have your own data you want in the UUID
+* version 6: generated from timestamp, monotonic counter, and a MAC address; same data as Version 1 but they change the order so that sorting them will sort by creation time.
+> don't use
+* version 7: generated from a timestamp and random data.
+> if you're using in a context where you want to be able to sort e.g. database keys
+* version 8: entirely custom (besides the required version/variant fields that all versions contain).
+> if you have your own data you want in the UUID
 
 ## Markdown
 
@@ -787,7 +810,7 @@ PARSERS
 * _markdown-it-py_: https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
 * _commonmark_: https://github.com/readthedocs/commonmark.py https://github.com/Textualize/rich/pull/2439/files
 * _goldmark_: https://github.com/yuin/goldmark
-* HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown
+* HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown https://html-to-markdown.com/
 
 RENDER
 * _frogmouth_: https://github.com/Textualize/frogmouth
@@ -875,6 +898,8 @@ https://news.ycombinator.com/item?id=26691626
 
 ---
 
+Rust serde to OCaml https://www.youtube.com/watch?v=Qs6Di6vjEGs
+
 * _serialize_: convert obj to interchange fmt
 * _deserialize_: convert interchange fmt to obj
 * _schema_: mapping of obj to interchange fmt structure
@@ -884,7 +909,6 @@ https://news.ycombinator.com/item?id=26691626
 BINARY
 > ❓ how is BSON more binary than JSON itself? https://stackoverflow.com/questions/3554325/why-is-it-called-bson 📙 Kleppmann ch. 4
 * e.g. HTTP/2 https://news.ycombinator.com/item?id=27431998
-* used more for internal services 📙 Jeffrey distributed [5]
 * db res in binary which is parsed by language-specific API 📙 Kleppmann 4.128
 📙 Kleppmann 4.117, 4.122, 4.130
 * _BSON_: binary JSON + SQL datatypes https://bsonspec.org/
@@ -895,7 +919,8 @@ BINARY
 * sustainable? https://github.com/capnproto/capnproto/issues/2067
 * _MessagePack_: like BSON https://msgpack.org/ https://neovim.io/ 📙 Kleppmann [4.116]
 
-AVRO
+### Avro
+
 * serialization format https://avro.apache.org/docs/current/
 * better than CSV bc handles typing, cells missing data
 * CSV disadvantages: inferred data types https://www.youtube.com/watch?v=SZX9DM_gyOE 1:20
@@ -904,7 +929,8 @@ AVRO
 * Python tutorial https://avro.apache.org/docs/current/gettingstartedpython.html
 * https://www.youtube.com/watch?v=kq_JCVcHJLE
 
-PROTOCOL BUFFERS (PROTOBUF)
+### protobuf
+
 * convert/query https://github.com/dflemstr/rq
 * like BSON https://bsonspec.org/ https://github.com/bufbuild/buf
 * https://vincent.bernat.ch/en/blog/2023-dynamic-protobuf-golang

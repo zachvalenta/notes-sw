@@ -4,9 +4,11 @@
 
 ## 进步
 
+* start here https://github.com/okken/cards
 * test heatmap https://threedots.tech/post/go-test-parallelism/
 * literate testing, literate programming https://simonw.substack.com/p/video-scraping-using-google-gemini
-* start here https://github.com/okken/cards
+* https://bitfieldconsulting.com/posts/test-names
+* https://bitfieldconsulting.com/posts/testing-legacy-code
 
 * _24_: rf + approaches (fuzz, mutation, property-based)
 * _20_: pre-commit for Git hooks, behave for bdd
@@ -93,6 +95,7 @@ TLA+
 
 ## fuzz
 
+* https://bitfieldconsulting.com/posts/bugs-fuzzing
 * provide random input, see what breaks https://www.fuzzingbook.org/ https://github.com/ffuf/ffuf https://github.com/google/atheris https://blog.burntsushi.net/projects/ https://github.com/ffuf/ffuf https://bitfieldconsulting.com/golang/bugs-fuzzing
 > generally used to test software that parses complex inputs that follow a particular format, protocol, or are otherwise structured...from a security standpoint, fuzzing is also used to uncover security vulnerabilities in programs that parse inputs from untrusted sources (e.g. the internet). Fuzzing for long periods without any bugs being reported increases the confidence in the stability of the code. However, no amount of Fuzzing can guarantee an absence of bugs in the code...fuzzing is a good candidate for some classes of software, especially ones that include networking protocols, file formats, and query languages. These software classes require input to follow a strictly defined format adhering to the specifications defined in an RFC/IETF, a standard, formal grammar, or finite state machine. https://dgraph.io/blog/post/continuous-fuzzing-with-go/
 * cousin to chaos engineering https://en.wikipedia.org/wiki/Chaos_engineering
@@ -137,6 +140,10 @@ ZA
 * https://nchammas.com/writing/how-not-to-die-hard-with-hypothesis
 * https://semaphoreci.com/blog/property-based-testing-python-hypothesis-pytest
 * https://github.com/flyingmutant/rapid
+
+## TDD
+
+* DHH: clarity above all, TDD yokes the program architecture https://www.youtube.com/watch?v=9LfmrkyP81M 📻 STT
 
 # 🕳️ INTEGRATION
 

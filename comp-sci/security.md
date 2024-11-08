@@ -4,6 +4,7 @@
 
 🔍 https://security.stackexchange.com/
 🗣 https://www.latacora.com/blog/ https://krebsonsecurity.com/ https://twitter.com/badthingsdaily
+📙 grokking https://www.amazon.com/gp/product/1633438260 https://www.manning.com/books/grokking-web-application-security
 
 ## 进步
 
@@ -135,12 +136,13 @@ __in action__
 📚
 * Erickson hacking (chapter 10)
 * Sweigart ciphers
+* https://www.manning.com/books/hacking-cryptography
 
 * real/academic cryptography is a math thing https://web.engr.oregonstate.edu/~rosulekm/crypto/
 * diff btw cryptography and encryption https://security.stackexchange.com/questions/tagged/cryptography
 * _opaque_: not human readable
 
-elliptic curve cryptography
+ELLIPTIC CURVE CRYPTOGRAPHY 📙 https://www.manning.com/books/elliptic-curve-cryptography-for-developers
 * https://paulmillr.com/posts/noble-secp256k1-fast-ecc/
 * https://cryptobook.nakov.com/
 * https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/
@@ -156,7 +158,7 @@ elliptic curve cryptography
 * https://news.ycombinator.com/item?id=24310842
 * https://www.manning.com/books/real-world-cryptography
 * https://nostarch.com/mangacrypto
-* https://news.ycombinator.com/item?id=23384227 https://www.gkbrk.com/2020/03/encryption/ https://www.khanacademy.org/computing/computer-science/cryptography + 🗄 `cracking-codes.pdf` (owe Al Amazon review) https://missing.csail.mit.edu/2020/security/ https://www.manning.com/books/real-world-cryptography https://robertheaton.com/preventing-impossible-game-levels-using-cryptography/ https://www.cryptologie.net/article/496/whats-a-key-exchange/
+* https://news.ycombinator.com/item?id=23384227 https://www.gkbrk.com/2020/03/encryption/ https://www.khanacademy.org/computing/computer-science/cryptography + 🗄 `cracking-codes.pdf` (owe Al Amazon review) https://missing.csail.mit.edu/2020/security/ https://robertheaton.com/preventing-impossible-game-levels-using-cryptography/ https://www.cryptologie.net/article/496/whats-a-key-exchange/
 * https://news.ycombinator.com/item?id=26560953
 * digital signatures 📙 MacCormick ch. 9
 
@@ -216,8 +218,6 @@ asymmetric
 🔗 https://github.com/HashPals/Name-That-Hash https://github.com/noraj/haiti
 
 * _hash_: output from hash function [Bhargava 11.214]
-* ASIN https://inventlikeanowner.com/blog/the-story-behind-asins-amazon-standard-identification-numbers/
-> Behind every card transaction there are FIVE parties: consumer -> issuing bank -> network (V/MA) -> acquiring bank -> merchant. The middle three get zero data on what items (“SKUs”) are being bought. https://youtu.be/vR-uvPPdI_M
 * _locality_: insensitive (slight diff in input changes hash completely) sensitive (slight diff in input changes hash only slightly) [Bhargava 11.216]
 * _hash function_: https://austinvernon.eth.link/blog/hashexamples.html https://austinvernon.eth.link/blog/hash.html
 * _rainbow table_: https://fasterthanli.me/articles/whats-in-a-rainbow-table
@@ -409,6 +409,8 @@ tracking w/ cookies
 * `src.md` deployment / secrets
 
 ---
+
+keychain https://weiyen.net/articles/useful-macos-cmd-line-utilities
 
 PAK/PAKE https://en.wikipedia.org/wiki/Password-authenticated_key_agreement https://github.com/schollz/croc https://en.wikipedia.org/wiki/Pake
 

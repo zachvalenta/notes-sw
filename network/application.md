@@ -58,6 +58,8 @@ CLEAN UP
 * Hafner where wizards stay up late
 * Kozeriok tcp-ip guide (ch. 79-84)
 
+BYO transport?!?
+> Some areas where we’re happy with our choices even though they may not sound like the simplest feasible solution is with our API, where we use GraphQL, with our transport protocols, where we had a custom protocol for a while, and our host management, where we use Kubernetes. For our transport protocols, we used to use a custom protocol that runs on top of UDP, with an SMS and USSD fallback, for the performance reasons described in this talk. With the rollout of HTTP/3, we’ve been able to replace our custom protocol with HTTP/3 and we generally only need USSD for events like the recent internet shutdowns in Mali. https://danluu.com/simple-architectures/
 BYO server https://news.ycombinator.com/item?id=40642865
 
 message structure https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages
@@ -430,11 +432,6 @@ ZA
 
 ---
 
-TOOLS
-* traceroute
-* _dig_: https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command https://jvns.ca/blog/2021/12/04/how-to-use-dig/
-* _dog_: https://github.com/ogham/dog
-
 * https://jpetazzo.github.io/2024/05/12/understanding-kubernetes-dns-hostnetwork-dnspolicy-dnsconfigforming/
 * https://entropicthoughts.com/secure-dns-on-a-laptop-with-debian
 * whitelist/blacklist https://github.com/plutov/ultrafocus
@@ -504,6 +501,7 @@ GMAIL ALTERNATIVES 🗄 `security.md` privacy
 * why: search ('in:sent label:personal' doesn't show recent emails w/ YQ or Ellen but 'in:sent' shows)
 * why: lose account https://news.ycombinator.com/item?id=24791357 https://news.ycombinator.com/item?id=34581090
 * why not: works well, only marginal return for time invested, apparently Gmail search is better than others https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/
+* shared https://news.ycombinator.com/item?id=42119042
 * _Hey_: https://www.hey.com/
 * _Fastmail_: https://news.ycombinator.com/item?id=24245817
 * _pop_: https://github.com/charmbracelet/pop

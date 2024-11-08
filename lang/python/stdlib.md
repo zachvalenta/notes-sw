@@ -106,7 +106,7 @@ open(path, mode).read().split(" ")  # tokenize https://stackoverflow.com/a/55723
 f.readline()   # first line https://stackoverflow.com/a/19044550
 
 ###
-# CONTEXT MANAGER https://www.fluentpython.com/lingo/#context_manager https://www.pythonmorsels.com/creating-a-context-manager/
+# CONTEXT MANAGER https://www.fluentpython.com/lingo/#context_manager https://www.pythonmorsels.com/creating-a-context-manager/ https://hamatti.org/posts/write-more-pythonic-code-with-context-managers/
 # clean up unmanaged resources (like file streams)
 # simple way to wrap a try/except/finally block in a reusable function https://tuckerchapman.com/til/python-context-manager/
 # r (read; default) b (binary) w (create new) w+ (create new if doesn't exist https://stackoverflow.com/a/2967249
@@ -588,6 +588,9 @@ aaS
 * _ScrapingBee_: https://www.scrapingbee.com/
 * _Zenrows_: https://www.zenrows.com/solutions/scraper-api
 
+LIBS
+* scrapling: https://github.com/D4Vinci/Scrapling
+
 ---
 
 in golang 17k sites in 10 mins https://medium.com/@tonywangcn/27-6-of-the-top-10-million-sites-are-dead-6bc7805efa85
@@ -873,6 +876,7 @@ print(f"today's date is {datetime.now().strftime('%y%m%d')}")  ## YYMMDD
 
 ---
 
+* great Golang library, parser https://github.com/olebedev/when
 * holidays https://github.com/GothenburgBitFactory/holidata
 https://realpython.com/python-packages/#dateutil-for-working-with-dates-and-times
 https://drewdevault.com/2014/06/28/Python-datetime-sucks.html

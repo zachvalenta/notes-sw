@@ -139,6 +139,13 @@ ZA
 
 ---
 
+BUY VS. BUILD
+* https://news.ycombinator.com/item?id=25399250
+> Another area is with software we’ve had to build (instead of buy). When we started out, we strongly preferred buying software over building it because a team of only a few engineers can’t afford the time cost of building everything. That was the right choice at the time even though the “buy” option generally gives you tools that don’t work. In cases where vendors can’t be convinced to fix showstopping bugs that are critical blockers for us, it does make sense to build more of our own tools and maintain in-house expertise in more areas, in contradiction to the standard advice that a company should only choose to “build” in its core competency. Much of that complexity is complexity that we don’t want to take on, but in some product categories, even after fairly extensive research we haven’t found any vendor that seems likely to provide a product that works for us. To be fair to our vendors, the problem they’d need to solve to deliver a working solution to us is much more complex than the problem we need to solve since our vendors are taking on the complexity of solving a problem for every customer, whereas we only need to solve the problem for one customer, ourselves. https://danluu.com/simple-architectures/
+
+
+https://blog.duolingo.com/reducing-cloud-spending
+
 https://world.hey.com/dhh/our-cloud-exit-savings-will-now-top-ten-million-over-five-years-c7d9b5bd
 
 https://focus.finops.org/
@@ -147,7 +154,7 @@ https://focus.finops.org/
 https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 * rightsizing https://softwareengineeringdaily.com/2021/01/12/kubecost-with-webb-brown/
 * on-prem: need to integrate w/ legacy systems inside firewall, regulatory, cheaper, you can still make the consumption of your data center feel like a public cloud (CF, HPE)
-* _capacity planning / demand forecasting_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/ https://www.youtube.com/watch?v=UC5xf8FbdJc https://www.youtube.com/watch?v=ov7xhNdrsDM
+* _capacity planning / demand forecasting_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/ https://www.youtube.com/watch?v=UC5xf8FbdJc https://www.youtube.com/watch?v=ov7xhNdrsDM https://www.manning.com/books/demand-forecasting-best-practices
 
 * free tier https://www.lastweekinaws.com/blog/an-aws-free-tier-bill-shock-your-next-steps/
 > Exercise: Pick an infrastructure service that your team operates and calculate how many hours/month you work to maintain the solution. https://cloudonaut.io/my-mental-model-of-aws/
@@ -159,7 +166,6 @@ https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 * AWS is more expensive https://calpaterson.com/amazon-premium.html https://bravenewgeek.com/multi-cloud-is-a-trap/
 * switching https://news.ycombinator.com/item?id=30942698
 * https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
-* buy don't build https://news.ycombinator.com/item?id=25399250
 * if it's not your data center you're not really self-hosting https://news.ycombinator.com/item?id=27674726 https://github.com/khuedoan/homelab https://github.com/tiagoad/docker-homeserver
 > But the thing is in most of the companies you don't have full control over the whole stack. Even if you have "full control" over the database, you don't have control over networking, firewall, OS, "security" patching, VMs, Docker, Kubernetes, Load balancers, vendors managing parts of the infra, internet provider, hosting provider ... Not even datacenter team may have control over all of it, but at least that's their job and their area of expertise.
 * _benefits_: cost (sometimes) scalability (most times) geographic DR (nearly always)
@@ -168,17 +174,27 @@ https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 
 ## PaaS
 
+https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
+* _cloud-native_: dependent on cloud services
+* _lift-and-shift_: on-prem but on a smart cloud instance
+> Did you have one huge server in the office? Well, now you get one huge server in AWS EC2 and copy your app to it. You’ll also pay extreme prices for that privilege.
+* _stack-native_: on-prem but on a dumb cloud instance
+> Here’s the crazy part. All of our infrastructure is running on one medium-sized server in a US-based data center from Hetzner. We have a single 8 CPU / 16 GB RAM server that we partition up across 17 apps and databases using docker. Most of these apps are as simple or simpler than the stack-native diagram above. For this entire setup, including bandwidth, we pay $65/month. That’s $25/mo for the server and another $40 for bandwidth. I just finished doing some tentative load testing using the amazing Locust.io framework. At its peak, this setup running Nginx + Granian + Python + Pyramid + MongoDB would handle over 100M Python requests / month. For $25. In contrast, what would this setup cost in AWS? Well, the server is about $205 / month. The bandwidth out of that server is another $100/mo. If we put all our bandwidth through AWS (for example mp3s and videos through S3) the price jumps up by another whopping $921. This brings the total to $1,226/mo. The contrast is stark. If we chose cloud-native, we’d be tied into cloud-front, EKS, S3, EC2, etc. That’s the way you use the cloud, you noobie. Let’ the company cover the monthly costs. But stack-native can move. We can run it in Digital Ocean for a few years as we did. When a company like Hetzner opens a data center in the US with 1/6th pricing, we can take our setup and move. The hardest part of this is Let’s Encrypt and DNS. There is nearly zero lock-in.
+
 OPTIONS https://testdriven.io/blog/heroku-alternatives/
+* _Coolify_: https://coolify.io/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
 * _Dokku_: 🎯 https://github.com/dokku/dokku https://dokku.com/
 * _Fly.io_: 🎯 https://www.youtube.com/watch?v=0eP98xkLj9w
 * _Kamal_: 🎯 https://kamal-deploy.org/
 > Rare opening to join our excellent ops team. Help us run Basecamp, HEY, and the heritage suite of apps on our own hardware with Kamal, MySQL, ElasticSearch, Prometheus, Grafana, KVM, Chef. https://x.com/dhh/status/1848544864436162705
+* _Knative_: https://knative.dev/docs/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
 * _Netlify_: 
 * _Piku_: 🎯 6k https://github.com/piku/piku
 * _Render_: https://kamal-deploy.org/
 * _Platform.sh_:
 * _Railway_: https://railway.app/ https://docs.railway.app/guides/gin
 * _Sidekick_: 🎯 https://github.com/MightyMoud/sidekick https://news.ycombinator.com/item?id=41591018
+* _sst_: 🎯 https://sst.dev/
 * _Tau_: https://github.com/taubyte/tau
 * _Vercel_: 
 
@@ -284,7 +300,11 @@ za
 
 # 🧮 IaC
 
+🗄️ `src.md` CICD
+
 ---
+
+> In the bad old days, managing configuration on servers and networks was anarchy, but anarchy made of a lot of largely non-portable and incorrect shell scripts. Every company just cobbled together some bespoke tools...the problem is, you can build a machine with a shell script, but then what? If you make manual changes to the server, and then forget about them, there’s no automated way to revert them. And you can't easily roll out a single change to a big farm of heterogeneous machines, all with different operating systems and software versions, in a safe and repeatable way. - re: Puppet https://bitfieldconsulting.com/posts/not-real-developer
 
 https://roadmap.sh/linux
 * SQL https://news.ycombinator.com/item?id=28554089
@@ -384,6 +404,7 @@ localhost | SUCCESS => {
 ## Terraform
 
 🛣️ https://roadmap.sh/terraform
+📙 https://www.manning.com/books/terraform-in-depth
 
 SEMANTICS
 > generates a dependency graph of resources, runs against provider, walks resource graph and ensures that resources are configured
@@ -445,7 +466,9 @@ config
 
 # 🏁 QUEUES
 
-🗄 `db.md` data eng/ETL
+🗄
+*️ `architecture/system.md` distributed
+* `eng.md`
 📚
 * Kleppmann ch. 11
 * Narkhede ch. 11
@@ -487,6 +510,7 @@ https://www.warpstream.com/ https://changelog.com/podcast/606#transcript + spons
 🗄 `data/eng.md` streaming
 📜 https://kafka.apache.org/documentation/
 📙 Narkhede guide
+* https://www.manning.com/books/kafka-streams-in-action-second-edition
 📹
 * 101 https://www.youtube.com/playlist?list=PLa7VYi0yPIH0KbnJQcMv5N9iW8HkZHztH
 * talk https://www.youtube.com/watch?v=Ltgt0ekso4c
@@ -536,6 +560,11 @@ za
 
 ## msg (Rabbit)
 
+* use something else
+> RabbitMQ (for our purposes, Redis would probably work equally well as a task queue and just using Redis would reduce operational burden) https://danluu.com/simple-architectures/
+
+---
+
 * queue attributes: durability (keep in mem, write to disk, write to db bc broker can restart, fail) time-to-live (how long to keep in the queue?) security (what consumers have access?) batching (delivery immediately or wait until x messages before allowing consumers to take)
 * msg attributes: id, user/groups id, creation time, reply to, subject https://www.rabbitmq.com/tutorials/amqp-concepts.html
 * _MQTT_: https://news.ycombinator.com/item?id=41912787 https://github.com/EdJoPaTo/mqttui/
@@ -564,6 +593,8 @@ SEMANTICS
 * `eng.md` pipelines
 * `tools.md` jobs
 
+* use something else https://danluu.com/simple-architectures/e
+> Celery (which is overcomplicated for our use case and has been implicated in several outages e.g. due to backwards compatibility issues during version upgrades)
 * monitoring https://github.com/healthchecks/healthchecks
 > Healthchecks is a cron job monitoring service. It listens for HTTP requests and email messages ("pings") from your cron jobs and scheduled tasks ("checks"). When a ping does not arrive on time, Healthchecks sends out alerts.
 
@@ -623,14 +654,28 @@ REDIS QUEUE (RQ)
 * `application.md` HTTP
 * `stdlib.md` web / frameworks
 
-CLEAN UP
-> Parsing the request is just a matter of splitting the request string into lines. The first line contains the method, path and protocol separated by spaces. The following lines contain the headers, followed by an empty line. https://blog.sylver.dev/build-a-web-server-with-rust-and-tokio-part-0-a-simple-get-handler
-* benchmark: https://httpd.apache.org/docs/2.4/programs/ab.html https://github.com/wg/wrk https://github.com/giltene/wrk2 https://github.com/rakyll/hey https://github.com/encode/starlette#performance https://falconframework.org/#sectionBenchmarks https://www.webpagetest.org/ https://www.golang.dk/articles/benchmarking-sqlite-performance-in-go
-* BYO https://github.com/codecrafters-io/build-your-own-x#build-your-own-web-server https://news.ycombinator.com/item?id=41642151 https://doc.rust-lang.org/book/ch20-00-final-project-a-web-server.html
-* mock server: https://smocker.dev/
-* comment server: Disqus, isso https://avi.im/blag/about/ https://posativ.org/isso/docs/
+SEMANTICS
+* req/res: OS takes req on port, hands req to web server, web server hands req to app server, app server hands req to application, res flow back up
+* servers useful in Python bc GIL only allows one thread to execute at a time so server does pools other connections 📙 Butcher practice 1.3.3
+* why use a server? in Python's case bc 
+* _machine_: hw (or vm) https://sre.google/sre-book/production-environment/
+* _server_: machine w/ server sw or sw itself https://sre.google/sre-book/production-environment/
+* _web server_: deal w/ HTTP, handle static content and rate limiting https://www.quora.com/What-are-the-differences-between-nginx-and-gunicorn
+* port 80
+* BYO https://ruslanspivak.com/lsbaws-part1/
+* _app server_: translate HTTP into obj for web framework
+* can also be pressed into service as combo app/web server https://stackoverflow.com/a/38982989 https://www.nginx.com/resources/glossary/application-server-vs-web-server/
+* port 8080
 
-URL for dev server
+CONNECTIONS
+* _threads_: single (one thread per connection; WSGI, PHP) multi (📍 http://aosabook.org/en/nginx.html https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#adding-concurrency-and-monitoring)
+* _idle_: different languages require diff amount of memory e.g. Golang allocates buffer in preparation for data to be read (whereas C++ does not) https://blog.phusion.nl/2018/09/18/migrating-passenger-from-cxx-to-go/
+* _multiple_: connections from many clients to single server
+* _parallel_: multiple connections from single client to a server; HTTP spec recommends max of 2; workaround is multiple servers deal with different resources
+* _persistent_: Keep-Alive, WebSocket
+* _pipeline_: send a bunch of requests before waiting for response
+
+URL FOR DEV SERVER
 * _ngrok_
 * _pico_: https://pico.sh/tuns https://news.ycombinator.com/item?id=40355744 
 * _piko_: https://github.com/andydunstall/piko
@@ -646,36 +691,31 @@ ALTERNATIVES
 
 💀 UWSGI
 * in maintenance mode https://pythonbytes.fm/episodes/show/401/we-must-replace-uwsgi-with-something-else
-* run options https://blog.ionelmc.ro/2022/03/14/how-to-run-uwsgi/
 * docs are a mess, scroll past 42 changelogs for the README, and commercial support in Italian https://github.com/unbit/uwsgi-docs#commercial-support
-* install
+* run options https://blog.ionelmc.ro/2022/03/14/how-to-run-uwsgi/
 * commands https://github.com/zachvalenta/flask-skeleton/commit/435517e5e1353eaa875d16e91ea96e47300b35dc
-```sh
-# https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#deploy-it-on-http-port-9090
-uwsgi --http :9090 --wsgi-file foobar.py
-
-# https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04
-# https://github.com/zachvalenta/flask-uwsgi-scaffold
-uwsgi --socket 0.0.0.0:8000 --protocol=http -w wsgi
-
-# expects app obj to be named `application` https://riptutorial.com/flask/example/16286/using-uwsgi-to-run-a-flask-application
-# rename w/ `callable` https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#deploying-flask
-# https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#deploying-flask
-uwsgi --http :5002 --wsgi-file app.py --callable app
-
-# https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#adding-concurrency-and-monitoring
-uwsgi --http :9090 --wsgi-file foobar.py --master --processes 4 --threads 2
-uwsgi --http :9090 --wsgi-file foobar.py --master --processes 4 --threads 2 --stats 127.0.0.1:9191
-```
-* can also point to app obj via `uwsgi.py` or `uwsgi.ini` https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04 https://www.youtube.com/watch?v=lnFMKAIHRcA
-```sh
-uwsgi --socket 0.0.0.0:8000 --protocol=http -w wsgi --callable
-```
 ```python
 from myproject import application
 if __name__ == "__main__":
     application.run()
 ```
+```sh
+uwsgi --http :9090 --wsgi-file foobar.py # https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#deploy-it-on-http-port-9090
+uwsgi --socket 0.0.0.0:8000 --protocol=http -w wsgi # https://github.com/zachvalenta/flask-uwsgi-scaffold https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uswgi-and-nginx-on-ubuntu-18-04
+uwsgi --http :5002 --wsgi-file app.py --callable app # expects app obj to be named `application`, rename w/ `callable` https://riptutorial.com/flask/example/16286/using-uwsgi-to-run-a-flask-application # https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#deploying-flask
+# https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#adding-concurrency-and-monitoring
+uwsgi --http :9090 --wsgi-file foobar.py --master --processes 4 --threads 2
+uwsgi --http :9090 --wsgi-file foobar.py --master --processes 4 --threads 2 --stats 127.0.0.1:9191
+```
+* can also point to app obj via `uwsgi.py` or `uwsgi.ini` https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-uwsgi-and-nginx-on-ubuntu-14-04 https://www.youtube.com/watch?v=lnFMKAIHRcA
+
+---
+
+> Parsing the request is just a matter of splitting the request string into lines. The first line contains the method, path and protocol separated by spaces. The following lines contain the headers, followed by an empty line. https://blog.sylver.dev/build-a-web-server-with-rust-and-tokio-part-0-a-simple-get-handler
+* benchmark: https://httpd.apache.org/docs/2.4/programs/ab.html https://github.com/wg/wrk https://github.com/giltene/wrk2 https://github.com/rakyll/hey https://github.com/encode/starlette#performance https://falconframework.org/#sectionBenchmarks https://www.webpagetest.org/ https://www.golang.dk/articles/benchmarking-sqlite-performance-in-go
+* BYO https://github.com/codecrafters-io/build-your-own-x#build-your-own-web-server https://news.ycombinator.com/item?id=41642151 https://doc.rust-lang.org/book/ch20-00-final-project-a-web-server.html
+* mock server: https://smocker.dev/
+* comment server: Disqus, isso https://avi.im/blag/about/ https://posativ.org/isso/docs/
 
 ## Caddy
 

@@ -206,6 +206,7 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 
 ## test
 
+* _data contract_: https://github.com/benrutter/wimsey
 * https://pycon-archive.python.org/2024/schedule/presentation/46/index.html
 * compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
 * _Pandera_: type checking for dataframes https://endjin.com/blog/2023/03/a-look-into-pandera-and-great-expectations-for-data-validation https://www.peterbaumgartner.com/blog/testing-for-data-science/ https://www.union.ai/blog-post/pandera-joins-union-ai https://www.youtube.com/watch?v=Ax4pWz6kUDw
@@ -327,6 +328,8 @@ https://medium.com/expedia-group-tech/a-short-introduction-to-apache-iceberg-d34
 
 ## metadata (Datahub)
 
+📙 https://www.amazon.com/gp/product/1098138864
+
 DATAHUB 📜 https://github.com/datahub-project/datahub https://datahubproject.io/
 > data lineage from source to processing to consumption. https://www.thoughtworks.com/radar/platforms/summary/datahub
 * features: perms/ACL, lineage, search, notes https://chatgpt.com/share/66e4a4fd-83c4-8004-b112-7935b341365d
@@ -371,7 +374,7 @@ ALTERNATIVES
 * _Orc_: https://tech.marksblogg.com/faster-csv-to-orc-conversions.html
 * _Postgres_: https://news.ycombinator.com/item?id=39263760 https://brandur.org/warehouse https://tech.marksblogg.com/billion-nyc-taxi-rides-postgresql.html https://news.ycombinator.com/item?id=27109960
 > I've also heard arguments that row-oriented systems like MySQL and PostgreSQL can fit the needs of analytical workloads as well as their traditional transactional workloads. Both of these offerings can do analytics and if you're looking at less than 20 GB of data it's probably not worth the effort of having multiple pieces of software running your data platform. https://tech.marksblogg.com/is-hadoop-dead.html
-* _Snowflake_: users/investors like them https://news.ycombinator.com/item?id=24265041 https://dataschool.com/sql-optimization/snowflake/ https://www.youtube.com/watch?v=xojAXXRo_S0 OSS https://news.ycombinator.com/item?id=38038239
+* _Snowflake_: users/investors like them https://news.ycombinator.com/item?id=24265041 https://dataschool.com/sql-optimization/snowflake/ https://www.youtube.com/watch?v=xojAXXRo_S0 OSS https://news.ycombinator.com/item?id=38038239 📙 https://www.manning.com/books/snowflake-data-engineering
 * apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
 * can build dashboards off queries
 * _Trino_: https://github.com/trinodb/trino https://ibis-project.org/ https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
@@ -384,6 +387,8 @@ ALTERNATIVES
 * beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
 
 ## 🦆 DuckDB
+
+📙 https://www.manning.com/books/duckdb-in-action
 
 ---
 

@@ -18,8 +18,11 @@
 
 * file/dir name linter https://github.com/loeffel-io/ls-lint https://ls-lint.org/
 
-FILE/DIR DIFF 🗄️ `protocols.md` JSON
-* 🎯 https://www.pythonmorsels.com/cli-tools/#filecmp
+FILE/DIR DIFF 🗄️ `protocols.md` JSON `algos.md` tree walkers https://chatgpt.com/c/67327ac8-4b10-8004-869b-f31305dd5189
+* _filecmp_: https://www.pythonmorsels.com/cli-tools/#filecmp
+```sh
+$ python -m filecmp dir1 dir2
+```
 * _vimdiff_: `vim -d <file1> <file2>` https://stackoverflow.com/a/113328/6813490
 * wraps Vim's diff mode for use in other tools, notably Git's mergetool https://vi.stackexchange.com/a/626 https://www.youtube.com/watch?v=kFVjoIish0E
 * _diff_: https://danyspin97.org/blog/colorize-your-cli/
@@ -166,6 +169,7 @@ DESIGN
 
 FEATURES
 * config e.g. way to avoid repetition of eza commands in `.zprofile`
+* `--total-size` overstates dir size 🗄️ `yin`
 * icons
 * file dimming
 * link related files
@@ -280,6 +284,11 @@ cdf() {
 * _cut_: rm columns https://blog.balthazar-rouberol.com/text-processing-in-the-shell#cut https://kadekillary.work/posts/cli-4-ds/ https://github.com/theryangeary/choose https://github.com/ibraheemdev/modern-unix
 
 ### awk
+
+* trim line length, dynamic date
+```sh
+procs --sortd mem | awk '{ print substr($0, 1, 100) }' | head -n 100 > "procs_$(date +'%y%m%d_%H%M%S').txt"
+```
 
 ---
 
@@ -480,7 +489,7 @@ CLEAN UP
 * _imgcat_: render img in terminal https://news.ycombinator.com/item?id=23319272
 * _tee_: view output https://www.youtube.com/watch?v=NsAUBict1Aw
 * _try_: view files that command touches https://github.com/binpash/try
-* weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/
+* weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/ https://git.sr.ht/~timharek/yr
 * Wikipedia https://github.com/yashsinghcodes/wik
 
 CLIPBOARD
@@ -635,52 +644,69 @@ $ fq  # look at output without stopping the build
 ## monitoring
 
 STATS
-> why is air-capp slow? Google Drive? age (2020 machine)? 🗄️ `tcp-ip.md` network monitor
+> why is air-capp slow? Google Drive? age (2020 machine)?
 * iTerm: 15%
 * VS Code: 10%
 
 SYSTEM INFO
-* can do in iTerm https://wompa.land/articles/iterm-status-bar
-* free (UNIX) top (macos)
-* _below_: 🎯 JSON https://github.com/facebookincubator/below
+* features: JSON, aggregation per app
+* alternatives: free (UNIX) top (macos), in iTerm, Activity Monitor https://wompa.land/articles/iterm-status-bar
+* _below_: 🎯 JSON https://github.com/facebookincubator/below no Homebrew https://github.com/facebookincubator/below/issues/8239
 * _bottom_: 🎯 GUI https://github.com/ClementTsang/bottom
 * _btop_: https://github.com/aristocratos/btop
-* _glances_: 🎯 JSON https://nicolargo.github.io/glances/ https://tech.marksblogg.com/top-htop-glances.html
+* _glances_: ✅ JSON https://nicolargo.github.io/glances/ https://tech.marksblogg.com/top-htop-glances.html
 * _gotop_: 🎯 JSON export https://github.com/xxxserxxx/gotop/issues/50 https://asciinema.org/a/spxxHKMf3MBR8OfUYwsbZurXq
 * _htop_: https://tech.marksblogg.com/top-htop-glances.html
 * _procs_: ✅ modes (snapshot, watch) ❓ how to sum cpu/mem across PID by app name https://github.com/dalance/procs
+```sh
+# how to reduce Chrome tab mem usage
+procs iterm --sortd mem
+procs --sortd mem | awk '{ print substr($0, 1, 100) }' | head -n 100 > $DENV_DIR/logs/sys-info/"$(date +'%y%m%d_%H%M%S').txt"
+```
 * _tiptop_: installed on capp machine https://github.com/nschloe/tiptop
 * _vtop_: ❌ sudo https://github.com/MrRio/vtop
 * _ytop_: 💀 https://github.com/cjbassi/ytop
 * _zenith_: 🎯 https://github.com/bvaisvil/zenith
 
+DISK USAGE
+```sh
+#  https://chatgpt.com/c/6733cbae-092c-8004-801c-25fbe5b8076e
+├── /System/Volumes/
+│   └── Data # user files
+│   └── Proboot # BIOS
+│   └── VM # virtual memory swap files (manage memory usage)
+│   └── Update # system updates
+```
+* _df_: view of mounts https://danyspin97.org/blog/colorize-your-cli/
+* _duf_: ✅ JSON https://github.com/muesli/duf
+* _diskonaut_: treemap https://github.com/imsnif/diskonaut
+* _du_: `du -sh $DIR` https://unix.stackexchange.com/a/185777
+* _dust_: ✅ JSON https://github.com/bootandy/dust
+* _ncdu_: ✅ JSON `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
+
 SYSTEM ARCHITECTURE
 * `python -m platform` https://www.pythonmorsels.com/cli-tools/#platform
 * _cpufetch_: https://github.com/Dr-Noob/cpufetch
-* _neofetch_: https://github.com/dylanaraps/neofetch
-* pfetch: https://github.com/dylanaraps/pfetch
-
-DISK USAGE
-* _df_: view of mounts https://danyspin97.org/blog/colorize-your-cli/
-* _duf_: 🎯 df rewrite, JSON https://github.com/muesli/duf
-* _diskonaut_: treemap https://github.com/imsnif/diskonaut
-* _du_: `du -sh $DIR` https://unix.stackexchange.com/a/185777
-* _dust_: du replacement https://github.com/bootandy/dust
-* _ncdu_: `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
+* _neofetch_: https://github.com/dylanaraps/neofetch https://github.com/dylanaraps/pfetch
 
 ZA
 * _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
 
 ---
 
-PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c4dea2c
+PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c4dea2c 🗄️ `tcp-ip.md` network monitor
 * control internet access for apps https://tripmode.ch/ https://www.obdev.at/products/littlesnitch/index.html
 * port viewer https://github.com/allyring/pvw
-* LAN port scanner https://github.com/RustScan/RustScan https://github.com/aceberg/WatchYourLAN
-* port scanner https://github.com/mrjackwills/havn
+* LAN port scanner nmap https://github.com/RustScan/RustScan https://github.com/aceberg/WatchYourLAN
 * monitor, Slack notification on completion (or to Twilio) https://github.com/variadico/noti
-* _bandwhich_: network https://github.com/imsnif/bandwhich
+* _bandwhich_: https://github.com/imsnif/bandwhich
+* _havn_: 🎯 https://github.com/mrjackwills/havn
 * _rustscan_: https://github.com/RustScan/RustScan
+
+DASHBOARDS
+* https://github.com/wtfutil/wtf
+* https://github.com/Phantas0s/devdash
+* https://github.com/gizak/termui
 
 MORE PROCESSES
 * see what's running `ps aux | grep crond` https://missing.csail.mit.edu/2019/automation/

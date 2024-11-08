@@ -19,6 +19,8 @@ SEMANTICS
 
 ---
 
+bandwindth and CPU https://talkpython.fm/blog/posts/we-have-moved-to-hetzner/
+
 UNCLE BOB
 * https://www.youtube.com/watch?v=qdcamTUcuAQ
 * http://cleancoder.com/books
@@ -177,7 +179,7 @@ ZA
 * _multi-tenant_: multiple customer users https://www.saaspegasus.com/
 * Edge, Sentry, Parse https://www.youtube.com/watch?v=W1fkGyIcePA&t=1044s https://www.pythonpodcast.com/datacoral-serverless-technology-episode-214/ 15:00-19:00 https://www.youtube.com/watch?v=OfPE7yj1trw https://www.viget.com/articles/multi-tenancy-in-django
 * _service mesh_: https://servicemesh.io/ https://news.ycombinator.com/item?id=17415421 https://www.digitalocean.com/community/tutorials/an-introduction-to-service-meshes sidecar, eBPF https://www.thoughtworks.com/radar/techniques?blipid=202203060 Istio
-* data mesh https://news.ycombinator.com/item?id=30721198 https://www.thoughtworks.com/radar/techniques?blipid=201911051
+* data mesh https://news.ycombinator.com/item?id=30721198 https://www.thoughtworks.com/radar/techniques?blipid=201911051 https://www.manning.com/books/data-mesh-in-action
 * _SSoT_: single source of truth
 * _SPoF_: single point of failure
 * _fault domain_: components sharing SPoF https://lethain.com/fault-domains/
@@ -208,6 +210,13 @@ ZA
 * 📍 clean up --> https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/ apparently good for SEO as well Netlify, Gridsome https://redwoodjs.com/ deployment on Zeit, Netlify https://softwareengineeringdaily.com/2020/04/30/jamstack-content-management-with-scott-gallant-jordan-patterson-and-nolan-phillips/ 15:00 https://hacks.mozilla.org/2020/10/mdn-web-docs-evolves-lowdown-on-the-upcoming-new-platform  what it means for backend dev https://www.youtube.com/watch?v=Z2JK7SS82wE https://www.youtube.com/watch?v=grSxHfGoaeg https://scotch.io/@sw-yx/python-the-jamstack
 
 ## KISS
+
+* DHH: clarity above all, we're bulding information systems https://www.youtube.com/watch?v=9LfmrkyP81M 📻 STT
+* monolith + db https://danluu.com/simple-architectures/
+> Wave is a $1.7B company with 70 engineers whose product is a CRUD app that adds and subtracts numbers. In keeping with this, our architecture is a standard CRUD app architecture, a Python monolith on top of Postgres. Starting with a simple architecture and solving problems in simple ways where possible has allowed us to scale to this size while engineers mostly focus on work that delivers value to users. Stackoverflow scaled up a monolith to good effect (2013 architecture / 2016 architecture), eventually getting acquired for $1.8B. If we look at traffic instead of market cap, Stackoverflow is among the top 100 highest traffic sites on the internet.
+> Despite the unreasonable effectiveness of simple architectures, most press goes to complex architectures. For example, at a recent generalist tech conference, there were six talks on how to build or deal with side effects of complex, microservice-based, architectures and zero on how one might build out a simple monolith. There were more talks on quantum computing (one) than talks on monoliths (zero). Larger conferences are similar; a recent enterprise-oriented conference in SF had a double-digit number of talks on dealing with the complexity of a sophisticated architecture and zero on how to build a simple monolith. Something that was striking to me the last time I attended that conference is how many attendees who worked at enterprises with low-scale applications that could’ve been built with simple architectures had copied the latest and greatest sophisticated techniques that are popular on the conference circuit and HN.
+> The cost of our engineering team completely dominates the cost of the systems we operate.
+> A place where we can’t be as boring as we’d like is with our on-prem datacenters. When we were operating solely in Senegal and Côte d'Ivoire, we operated fully in the cloud, but as we expand into Uganda (and more countries in the future), we’re having to split our backend and deploy on-prem to comply with local data residency laws and regulations. That's not exactly a simple operation, but as anyone who's done the same thing with a complex service-oriented architecture knows, this operation is much simpler than it would've been if we had a complex service-oriented architecture.
 
 ---
 
@@ -312,12 +321,27 @@ DESIGN
 * `eng.md` replicate
 * `infra.md` queues
 📚
+* https://www.manning.com/books/think-distributed-systems
 * Arpaci ch. 48-50
 * Galvin dinosaur chapter 17
 * Jeffrey distributed
 * Kleppmann data intensive
 * Petrov ch. 8-14
 * Takada fun/profit http://book.mixu.net/distsys/index.html
+
+DISTRIBUTED SYSTEMS
+* _distributed system_: no shared memory, no shared clock https://news.ycombinator.com/item?id=26089683
+* needs coordination across network/cores 📙 Jeffrey distributed [4]
+* hard https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
+> You need whole new categories of instrumentation and logging to getting understanding that isn't quite as good as what you'd get from the logs of a monolithic application. https://pythonspeed.com/articles/dont-need-kubernetes/
+* why: availability, durability, flexibility, locality https://news.ycombinator.com/item?id=29006223
+> What happens when that database fails? Are you OK losing some data, or do you want the data to be synchronously replicated off the machine and be available somewhere else after failure? Distribution isn't only about scale, it's also about availability.
+> What happens when that database loses some data? Do you want an up-to-the second backup, or point-in-time recovery? Or are you OK restoring last night's backup? Distribution isn't only about scale, it's also about durability.
+> What happens when you need to run an expensive business process ad-hoc? Do you want it to be easy to scale out reads, or to export that data to an analytics system? Or are you OK building something else to handle that case? Distribution isn't only about scale, it's also about flexibility.
+> What happens when you want to serve customers in one market, and make sure that their data stays local for regulatory compliance reasons or latency? Are you OK with having separate databases? Distribution isn't only about scale, it's also about locality.
+
+SIDECAR
+> A very general solution could be to wrap the code we need in some kind of server interface and run it as a separate process; this kind of process is called a sidecar - it's launched specifically to provide additional functionality for another process. Whichever inter-process communication (IPC) mechanism we use, the benefits of this approach are many - isolation, security, language independence, etc. In today's world of containers and orchestration this approach is becoming increasingly more common; this is why many of the links about sidecars lead to k8s and other containerized solutions. https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
 
 NEW SQL
 * _new SQL_: relational semantics + non-relational scaling
@@ -326,15 +350,6 @@ NEW SQL
 
 ---
 
-* _distributed system_: no shared memory, no shared clock https://news.ycombinator.com/item?id=26089683
-* needs coordination across network/cores 📙 Jeffrey distributed [4]
-* hard https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
-> You need whole new categories of instrumentation and logging to getting understanding that isn’t quite as good as what you’d get from the logs of a monolithic application. https://pythonspeed.com/articles/dont-need-kubernetes/
-* why: availability, durability, flexibility, locality https://news.ycombinator.com/item?id=29006223
-> What happens when that database fails? Are you OK losing some data, or do you want the data to be synchronously replicated off the machine and be available somewhere else after failure? Distribution isn't only about scale, it's also about availability.
-> What happens when that database loses some data? Do you want an up-to-the second backup, or point-in-time recovery? Or are you OK restoring last night's backup? Distribution isn't only about scale, it's also about durability.
-> What happens when you need to run an expensive business process ad-hoc? Do you want it to be easy to scale out reads, or to export that data to an analytics system? Or are you OK building something else to handle that case? Distribution isn't only about scale, it's also about flexibility.
-> What happens when you want to serve customers in one market, and make sure that their data stays local for regulatory compliance reasons or latency? Are you OK with having separate databases? Distribution isn't only about scale, it's also about locality.
 * mesh, service weaver https://serviceweaver.dev/blog/quick_intro.html
 
 https://drewdevault.com/2020/09/20/The-potential-of-federation.html
@@ -372,7 +387,7 @@ https://a16zcrypto.com/
 https://csvbase.com/blog/8
 https://www.youtube.com/watch?v=dGAgxozNWFE
 
-semantics
+SEMANTICS
 * https://www.youtube.com/watch?v=wh98s0XhMmQ
 * design https://www.youtube.com/watch?v=bFf-A27Rc9s
 * _cache_: tmp storage for read; e.g. browser (SQLite) network (CDN) db (connection pool); can cache to either memory or disk https://danielmiessler.com/blog/nginx-caching-tempfs/
@@ -443,23 +458,6 @@ in general
 * https://ieftimov.com/post/when-why-least-frequently-used-cache-implementation-golang/ 
 * http://danluu.com/2choices-eviction/
 * https://www.digitalocean.com/community/tutorials/web-caching-basics-terminology-http-headers-and-caching-strategies
-## CAP theorem
-
----
-
-Petrov ch. 11
-
-🗄 `algos.md` probabilistic data structures
-
-* https://www.youtube.com/watch?v=_RbsFXWRZ10 https://softwareengineeringdaily.com/2023/07/25/cap-theorem/
-* _CAP theorem_: tradeoffs if network partition
-* _consistency_: ACID
-* eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
-* _availability_: res for req
-* _partition tolerance_: works offline 📙 Conery 336
-* C: refuse to incoming reads/writes
-* A, P: (db remains available but other cluster members becoming inconsistent)
-* choose consistency 📙 `evans-linux.pdf` 2
 
 ## consensus
 
@@ -530,29 +528,6 @@ more crdt
 * `flask.md` context
 * `infra.md` servers
 
-load balancing https://sre.google/sre-book/table-of-contents/
-
-SERVERS
-* req/res: OS takes req on port, hands req to web server, web server hands req to app server, app server hands req to application, res flow back up
-* servers useful in Python bc GIL only allows one thread to execute at a time so server does pools other connections 📙 Butcher practice 1.3.3
-* why use a server? in Python's case bc 
-* _machine_: hw (or vm) https://sre.google/sre-book/production-environment/
-* _server_: machine w/ server sw or sw itself https://sre.google/sre-book/production-environment/
-* _web server_: deal w/ HTTP, handle static content and rate limiting https://www.quora.com/What-are-the-differences-between-nginx-and-gunicorn
-* port 80
-* BYO https://ruslanspivak.com/lsbaws-part1/
-* _app server_: translate HTTP into obj for web framework
-* can also be pressed into service as combo app/web server https://stackoverflow.com/a/38982989 https://www.nginx.com/resources/glossary/application-server-vs-web-server/
-* port 8080
-
-CONNECTIONS
-* _threads_: single (one thread per connection; WSGI, PHP) multi (📍 http://aosabook.org/en/nginx.html https://uwsgi-docs.readthedocs.io/en/latest/WSGIquickstart.html#adding-concurrency-and-monitoring)
-* _idle_: different languages require diff amount of memory e.g. Golang allocates buffer in preparation for data to be read (whereas C++ does not) https://blog.phusion.nl/2018/09/18/migrating-passenger-from-cxx-to-go/
-* _multiple_: connections from many clients to single server
-* _parallel_: multiple connections from single client to a server; HTTP spec recommends max of 2; workaround is multiple servers deal with different resources
-* _persistent_: Keep-Alive, WebSocket
-* _pipeline_: send a bunch of requests before waiting for response
-
 TYPES
 * _proxy_: layer between requester and responder
 * _reverse proxy_: closer to servers
@@ -560,17 +535,6 @@ TYPES
 * less of a need given a cloud environment where a load balancer is already built-in?
 * https://pythonspeed.com/articles/gunicorn-in-docker/ https://www.artur-rodrigues.com/tech/2023/03/12/reverse-proxy-with-dynamic-backend-selection.html https://www.youtube.com/watch?v=RqfaTIWc3LQ https://www.youtube.com/watch?v=4NB0NDtOwIQ
 * _forward proxy_: closer to users; way for users to access resources outside network https://www.linuxbabe.com/it-knowledge/differences-between-forward-proxy-and-reverse-proxy https://github.com/mkjt2/lockbox
-* _sidecar proxy_: https://caddyserver.com/docs/
-
-CDN
-> Caching reverse proxies that you self-host, like Varnish and Apache Traffic Server, can use non-standard PUSH and PURGE verbs that let you explicitly control the cache contents. If you can invalidate explicitly you can use strategies #2 and #3 [update-on-write]. If you have the file on hand, why not also populate your reverse proxy's cache? The nice thing overall about caching at the HTTP level is that it takes work off the applications server's plate. https://calpaterson.com/ttl-hell.html
-* BYO https://github.com/leandromoreira/cdn-up-and-running https://news.ycombinator.com/item?id=41731720
-* https://jvns.ca/blog/2016/04/29/cdns-arent-just-for-caching/
-* https://css-tricks.com/adding-a-cdn-to-your-website/
-* Google/Facebook CDNs are blocked in China https://www.freecodecamp.org/news/devblog-launch-your-developer-blog-own-domain/
-* https://www.youtube.com/watch?v=6DXEPcXKQNY
-* _sink_: https://arp242.net/cdn.html https://css-tricks.com/adding-a-cdn-to-your-website/ http://highscalability.com/blog/2011/2/28/a-practical-guide-to-varnish-why-varnish-matters.html Whitenoise vs. nginx https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/ https://pasztor.at/blog/building-your-own-cdn
-* BYO https://dev.to/megajakob/how-to-build-your-own-cdn-io1 https://debugged.it/blog/building-your-own-cdn/
 
 ---
 
@@ -585,7 +549,20 @@ CDN
 * https://softwareengineeringdaily.com/2021/08/10/fly-io-geographic-app-deployment-with-kurt-mackey/
 * _sink_: https://serversforhackers.com/t/proxies https://www.maxcdn.com/one/visual-glossary/proxy-caching/ reverse cache https://msdn.microsoft.com/en-us/library/windows/desktop/dd892097%28v=vs.85%29.aspx?f=255&MSPPError=-2147217396 https://blog.envoyproxy.io/introduction-to-modern-network-load-balancing-and-proxying-a57f6ff80236
 
-LOAD BALANCING
+### CDN
+
+> Caching reverse proxies that you self-host, like Varnish and Apache Traffic Server, can use non-standard PUSH and PURGE verbs that let you explicitly control the cache contents. If you can invalidate explicitly you can use strategies #2 and #3 [update-on-write]. If you have the file on hand, why not also populate your reverse proxy's cache? The nice thing overall about caching at the HTTP level is that it takes work off the applications server's plate. https://calpaterson.com/ttl-hell.html
+* BYO https://github.com/leandromoreira/cdn-up-and-running https://news.ycombinator.com/item?id=41731720
+* https://jvns.ca/blog/2016/04/29/cdns-arent-just-for-caching/
+* https://css-tricks.com/adding-a-cdn-to-your-website/
+* Google/Facebook CDNs are blocked in China https://www.freecodecamp.org/news/devblog-launch-your-developer-blog-own-domain/
+* https://www.youtube.com/watch?v=6DXEPcXKQNY
+* _sink_: https://arp242.net/cdn.html https://css-tricks.com/adding-a-cdn-to-your-website/ http://highscalability.com/blog/2011/2/28/a-practical-guide-to-varnish-why-varnish-matters.html Whitenoise vs. nginx https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/ https://pasztor.at/blog/building-your-own-cdn
+* BYO https://dev.to/megajakob/how-to-build-your-own-cdn-io1 https://debugged.it/blog/building-your-own-cdn/
+
+### load balancing
+
+* https://sre.google/sre-book/table-of-contents/
 * algos https://www.youtube.com/watch?v=dBmxNsS3BGE
 * https://news.ycombinator.com/item?id=35588797
 * https://www.youtube.com/watch?v=galcDRNd5Ow
@@ -599,6 +576,7 @@ LOAD BALANCING
 * _algos_: least-busy (based on server pushing <foo> metric?) round-robin (subject to chance i.e. server n could unluckily keep getting the heavier requests) https://www.youtube.com/watch?v=-W9F__D3oY4 @ 18:00
 * _hw_: Kemp, Barracuda, F5; run $1-20k bc need to handle GBps of traffic https://news.ycombinator.com/item?id=21095159&utm_term=comment 
 * BYO: https://kasvith.github.io/posts/lets-create-a-simple-lb-go/ https://dev.to/bmf_san/implement-a-load-balancer-in-golang-8gj
+
 ## Raft
 
 ---
@@ -647,6 +625,8 @@ ZOOKEEPER https://www.youtube.com/watch?v=Vv4HpLfqAz4
 
 ---
 
+> A mistake we made in the first few months of operation that has some cost today was not carefully delimiting the boundaries of database transactions. In Wave’s codebase, the SQLAlchemy database session is a request-global variable; it implicitly begins a new database transaction any time a DB object’s attribute is accessed, and any function in Wave’s codebase can call commit on the session, causing it to commit all pending updates. This makes it difficult to control the time at which database updates occur, which increases our rate of subtle data-integrity bugs, as well as making it harder to lean on the database to build things like idempotency keys or a transactionally-staged job drain. It also increases our risk of accidentally holding open long-running database transactions, which can make schema migrations operationally difficult. https://danluu.com/simple-architectures/
+
 https://hakibenita.com/django-nested-transaction
 * https://jepsen.io/analyses/mysql-8.0.34
 https://sqlfordevs.com/transaction-locking-prevent-race-condition
@@ -659,7 +639,10 @@ transactions & isolation levels 📙 Beaulieu 12
 * repeatable read: 
 * DDL changes can be transactional as well https://news.ycombinator.com/item?id=28077797
 
-ACID 📙 Kleppmann 7, section 2 🗄 `django.md` design https://lethain.com/distributed-systems-vocabulary/
+### ACID
+
+📙 Kleppmann 7, section 2 🗄 `django.md` design https://lethain.com/distributed-systems-vocabulary/
+
 * https://www.youtube.com/watch?v=yaQ5YMWkxq4
 * _atomic_: transaction succeeds/fails as an entire unit https://brandur.org/postgres-atomicity
 * NoSQL kinda does http://aosabook.org/en/nosql.html
@@ -673,10 +656,29 @@ ACID 📙 Kleppmann 7, section 2 🗄 `django.md` design https://lethain.com/dis
 * nothing can change transaction except another update 📙 Conery 335
 * uses `fsync` http://aosabook.org/en/nosql.html https://sirupsen.com/napkin/problem-10-mysql-transactions-per-second
 
-locking
+### locks
+
 * _lock_: db disallows other processes to access object (table, row, etc.)
 * 'held' by transaction https://jahfer.com/posts/innodb-locks/
 * handle at app level by throwing error or retry https://lincolnloop.com/blog/distributed-locking-django/
 * _latch_: lightweight lock 📙 Kleppmann 82
 * _dirty read_: read uncommitted data
 * e.g. transaction 1 updates a row, transaction 2 reads the updated row before transaction 1 commits the update, transaction 1 rolls back the change, transaction 2 will have read data that is considered never to have existed https://retool.com/blog/whats-an-acid-compliant-database/
+
+### CAP theorem
+
+---
+
+Petrov ch. 11
+
+🗄 `algos.md` probabilistic data structures
+
+* https://www.youtube.com/watch?v=_RbsFXWRZ10 https://softwareengineeringdaily.com/2023/07/25/cap-theorem/
+* _CAP theorem_: tradeoffs if network partition
+* _consistency_: ACID
+* eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
+* _availability_: res for req
+* _partition tolerance_: works offline 📙 Conery 336
+* C: refuse to incoming reads/writes
+* A, P: (db remains available but other cluster members becoming inconsistent)
+* choose consistency 📙 `evans-linux.pdf` 2

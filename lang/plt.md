@@ -10,6 +10,9 @@
 
 ## 进步
 
+* BYO assembly https://zserge.com/posts/langs-asm/
+* macros, AST https://news.ycombinator.com/item?id=42084603
+
 * _22_: keeping track of Rust and Zig
 * _19-present_: Python, SQL
 * _18_: Python, Spring Boot, Django/DRM
@@ -120,7 +123,6 @@ clean up
 * https://github.com/aalhour/awesome-compilers https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript https://medium.com/basecs https://ruslanspivak.com/lsbasi-part1/ https://nicoleorchard.com/blog/compilers https://github.com/jamiebuilds/the-super-tiny-compiler/blob/master/README.md http://aosabook.org/en/500L/static-analysis.html https://increment.com/programming-languages/crash-course-in-compilers/ https://corecursive.com/037-thorsten-ball-compilers/ https://news.ycombinator.com/item?id=22731505 https://www.pythoninsight.com/2018/09/python-basics-bytecode 
 
 BNF https://realpython.com/python-bnf-notation/
-BYO JSON parser https://news.ycombinator.com/item?id=38150833
 
 * JIT https://tonybaloney.github.io/posts/python-gets-a-jit.html
 * Bryant (5)
@@ -153,6 +155,8 @@ gcc foo.c -Wall -o my_program m -std='c99'
 > D2 has an API built on top of its AST for programmatically creating diagrams in Go. This package is d2/d2oracle.  https://d2lang.com/tour/api
 
 * _parser_: generates AST from src https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html https://astral.sh/blog/ruff-v0.4.0 https://drewdevault.com/2021/04/22/Our-self-hosted-parser-design.html
+* date/time parser https://github.com/olebedev/when
+* JSON parser https://news.ycombinator.com/item?id=38150833 https://blog.sylver.dev/building-a-json-validator-with-sylver-part13-writing-a-json-parser-in-49-lines-of-code 
 * _AST_: src as tree https://sadh.life/post/ast/ https://d2lang.com/tour/api
 * translate AST from c to Golang src https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
 ```python
@@ -172,8 +176,8 @@ define    calculate        run area_of_circle
      multiply  (pi, r, r)
 ```
 * _grammar_: rules for language's AST https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework#parsing-the-code
-* FFI parser https://scottlocklin.wordpress.com/2021/04/01/obvious-and-possible-software-innovations-nobody-does/
-* FFI, JNI https://news.ycombinator.com/item?id=31353740 https://github.com/replit/ruspty
+* _FFI_:  https://scottlocklin.wordpress.com/2021/04/01/obvious-and-possible-software-innovations-nobody-does/ https://www.youtube.com/watch?v=-1_FDp84PDE JNI https://news.ycombinator.com/item?id=31353740 https://github.com/replit/ruspty
+* _CFFI_: call C from Python https://pypi.org/project/cffi/ https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 
 ## ctags
 
@@ -213,6 +217,8 @@ https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-
 * https://github.blog/2021-12-09-introducing-stack-graphs/
 
 ## LSP
+
+🗄️ `vim.md` LSP
 
 ---
 
@@ -265,16 +271,20 @@ tokens = {
 
 # 📚 LANGUAGES
 
+FACTORS
+* people like it: Ruby, Python, Rust, JS
+* build import things with it: + Golang, Java, C++
+
+* _Algol_: inspired Bash https://news.ycombinator.com/item?id=42020368 https://www.youtube.com/watch?v=olH-9b3VJfs https://shellhaters.org/talk
 * _APL_: https://mathspp.com/blog/what-learning-apl-taught-me-about-python
 * _C#_: .NET big in game dev https://news.ycombinator.com/item?id=41936001
-* _C++_: https://ccc.codes/ https://github.com/green7ea/cpp-compilation http://esr.ibiblio.org/?p=7724 people hate C++ https://news.ycombinator.com/item?id=33436268 https://borretti.me/article/simplicity-and-survival https://news.ycombinator.com/item?id=34588340 https://news.ycombinator.com/item?id=34643530
 * with Alpine https://news.ycombinator.com/item?id=34365515
-* _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/  https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/
+* _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/ https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/ https://www.manning.com/books/julia-as-a-second-language
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
+* _Perl_: https://buttondown.com/hillelwayne/archive/raku-a-language-for-gremlins/ https://buttondown.com/hillelwayne/archive/five-unusual-raku-features/ https://raku.org/
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
 * _Prolog_: https://chatgpt.com/c/672d18fc-66cc-8004-94ba-23928fa2110c https://www.swi-prolog.org/ https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/ https://news.ycombinator.com/item?id=42004756 https://blog.dnmfarrell.com/
-* _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter
-* _Scala_: used for Lichess https://news.ycombinator.com/item?id=28479697 https://www.youtube.com/watch?v=7VSVfQcaxFY https://www.scala-lang.org/
+* _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter small stdlib = Python will get fast before Nim gets big https://news.ycombinator.com/item?id=36958900
 
 ## history
 
@@ -292,12 +302,13 @@ https://increment.com/programming-languages/language-history/
 * _1996_: OCaml
 * _2015_: Rust
 * _2016_: Zig
-* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ Hazel https://hazel.org/
+* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/
 
 ## stdlib
 
 ---
 
+> I wish there was a good place to learn “the other parts” of C++, the build systems, using static analyzers, testing, dependency management, etc. https://news.ycombinator.com/item?id=34229802
 > an algorithm management system 📰 Ford what is code?
 * builtin: hot reload, lint, fmt, http https://www.youtube.com/watch?v=8IHhvkaVqVE
 * things people don't like and replacements https://news.ycombinator.com/item?id=25125034
@@ -310,98 +321,6 @@ https://increment.com/programming-languages/language-history/
 > The true measure of a language isn’t how it uses semicolons; it’s the standard library of each language. - Ford what is code?
 > I think a lot of the advances that happen in programming languages in the next fifty years will have to do with library functions. I think future programming languages will have libraries that are as carefully designed as the core language. Programming language design will not be about whether to make your language strongly or weakly typed, or object oriented, or functional, or whatever, but about how to design great libraries. The kind of language designers who like to think about how to design type systems may shudder at this. It's almost like writing applications! Too bad. Languages are for programmers, and libraries are what programmers need. - http://paulgraham.com/popular.html
 > The open source JS ecosystem, though, has soooooo many folks working on it that you can almost always find something you need. Certainly compared to something like Java, which has a couple "800 pound gorilla" projects, but then it falls off pretty quickly. https://news.ycombinator.com/item?id=31996232
-## 🧱 assembly
-
-🔗 https://github.com/hackclub/some-assembly-required
-📚
-* Petzold code (24)
-* Nisan nand2tetris (4, 6)
-
-* https://shikaan.github.io/assembly/x86/guide/2024/09/08/x86-64-introduction-hello.html
-* ARM https://www.youtube.com/watch?v=gfmRrPjnEw4
-* compiler explorer https://godbolt.org/
-* _assembly_: shorthand for whatever binary the CPU understands 📙 `evans-linux.pdf` 1
-* _learning_: 📍 finish second chapter of Manga Microprocessors 🗄 Duntemann https://news.ycombinator.com/item?id=7143585 Latacora CTF https://news.ycombinator.com/item?id=7145479 🗄 Bryant https://news.ycombinator.com/item?id=7143866 microcontrollers https://news.ycombinator.com/item?id=7147009
-https://wizardzines.com/comics/assembly/
-* most assembly scoped to particular machine architecture; assembly used to be what OS were written in until Unix [LPI 1.1]
-* macOS https://news.ycombinator.com/item?id=7144020
-* _HLA (high-level assembly)_: just a Randall Hyde thing https://news.ycombinator.com/item?id=7143409
-* https://news.ycombinator.com/item?id=26311722
-
-## 🔤 C
-
-📹 https://www.youtube.com/c/JacobSorber/videos
-📚
-* Kernighan https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628
-* Matthews dive https://diveintosystems.org/
-* Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
-🔍
-* courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
-* more books http://fabiensanglard.net/c/index.php
-
-STDLIB
-* _libc_: POSIX spec for os stdlib; used by higher-levels languages for everything from networking to memory management https://wizardzines.com/comics/libc/ https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
-* _glibc_: most common impl of libc https://stackoverflow.com/a/11373143
-* _musl_: used by Alpine https://www.musl-libc.org/ https://news.ycombinator.com/item?id=23819500 https://www.etalabs.net/compare_libcs.html cleaner? https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
-
-DESIGN
-> C has a tendency to be conservative, changing and growing very slowly. https://nullprogram.com/blog/2018/11/21/
-> The C language is old and boring. It is a well-known and well-understood language. https://sqlite.org/whyc.html
-> When programming in C you do not stand on a path, but a plane of decision, and C dares you to decide what to do. http://www.buildyourownlisp.com/chapter1_introduction
-* portable
-> Libraries written in C are callable from any programming language. https://sqlite.org/whyc.html
-> The Linux kernel is written in C. The software that connects your printer to your computer could be in C. The Web servers that serve up your Web pages are often written in C. It’s also a good language for writing other languages - Python, PHP, and Perl are written in C, as are many others. C is a language you use for building systems; it has the same role in computing that Latin did among Renaissance academics. - Ford what is code?
-* example code: Redis, SQlite https://news.ycombinator.com/item?id=30753428
-* https://drewdevault.com/2017/03/15/How-I-learned-to-stop-worrying-and-love-C.html
-* https://drewdevault.com/2017/01/30/Lessons-to-learn-from-C.html
-
-HISTORY
-* _1972_: created https://www.bell-labs.com/usr/dmr/www/chist.html
-* _1978_: K&R spec
-* _1980_: prominence http://esr.ibiblio.org/?p=7711
-* _1989_: c89
-* _90s-present_: used for firmware and kernels but new stuff now in other languages http://esr.ibiblio.org/?p=7711
-* c99, c11, c17 https://drewdevault.com/2020/11/01/What-is-Gemini-anyway.html https://news.ycombinator.com/item?id=24361469
-
-PROJECTS
-* Python extension https://realpython.com/build-python-c-extension-module/
-* BYO db https://cstack.github.io/db_tutorial/
-* cmus https://github.com/cmus
-* BYO virtual machine https://justinmeiners.github.io/lc3-vm/
-* BYO text editor https://viewsourcecode.org/snaptoken/kilo/01.setup.html https://github.com/codecrafters-io/build-your-own-x#build-your-own-text-editor
-
-----
-
-* start here https://realpython.com/c-for-python-programmers/
-> Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
-
-misc
-* design: https://saagarjha.com/blog/2020/05/10/why-we-at-famous-company-switched-to-hyped-technology/ https://eev.ee/blog/2016/12/01/lets-stop-copying-c/ https://nullprogram.com/tags/c/
-* sysroot, undefined behavior (UB) https://news.ycombinator.com/item?id=30488979
-* _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron
-* Postgres codebase is supposed to be a good guide https://news.ycombinator.com/item?id=20556336
-* `#define`: constants https://www.youtube.com/watch?v=hsmGp3cp_50 0:50
-
-under the hood
-* _ABI_: https://en.wikipedia.org/wiki/Application_binary_interface https://news.ycombinator.com/item?id=24140848 https://gankra.github.io/blah/c-isnt-a-language/ https://hpyproject.org/ https://news.ycombinator.com/item?id=41992899
-* _abstract machine_: C's version of a virtual machine https://words.steveklabnik.com/should-you-learn-c-to-learn-how-the-computer-works
-* _bitfield_: https://danluu.com/algorithms-interviews/
-* _compilation_: https://jvns.ca/blog/2019/10/28/sqlite-is-really-easy-to-compile/
-* _garbage collection_: (kinda) possible https://stackoverflow.com/a/5009966/6813490
-* _undefined behavior_: when an error happens but it's not thrown i.e. `TypeError` in Python might be mean the compiler just chugging along in C https://blog.regehr.org/archives/213 https://news.ycombinator.com/item?id=24363573
-* call Python from C http://eradman.com/posts/extending-c-python.html
-
-## 👾 Elixir
-
-https://elixir-lang.org/
-https://en.wikipedia.org/wiki/Elixir_(programming_language)
-* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html https://github.com/sile/erldash Erlang https://en.wikipedia.org/wiki/Erlang_(programming_language)
-* https://gleam.run/
-* https://www.lambdafunctions.com/articles/elixir-and-rust
-
-## 🐘 Haskell
-
-* https://learnyouahaskell.com/ https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
 
 ## ☕️ Java
 
@@ -501,57 +420,6 @@ SPRING
 * `@Entity`: tells JPA to map class to table https://stackoverflow.com/a/29333628/6813490
 * `@Value`: pull in V from `.properties` into class
 
-## 👽 Lisp
-
-📚
-* Barski land of lisp
-* Friedman little schemer https://www.amazon.com/dp/0262560992/
-* Sussman sicp https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
-
-LANGUAGE
-* little syntax https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
-* mutual interop w/ Java https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
-* Golang https://funcall.blogspot.com/2024/10/lisp-vs-golang.html
-
-ZA
-* written in Lisp: ITA, Emacs
-* embedded in Python https://news.ycombinator.com/item?id=33600941
-
----
-
-https://en.wikipedia.org/wiki/Steve_Yegge
-
-LISPS
-* _Clojure_: http://cleancoder.com/a-little-clojure https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792
-* https://github.com/damn/core
-* _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
-* _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
-* _Janet_: https://github.com/janet-lang/janet https://github.com/cfoust/cy
-* _Racket_: based off Scheme, async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=19952714 https://news.ycombinator.com/item?id=23132621 https://news.ycombinator.com/item?id=8206038 https://news.ycombinator.com/item?id=13881535 https://news.ycombinator.com/item?id=32723784 https://docs.racket-lang.org/pollen/
-* _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
-
-ZA
-* Hofstadter https://gist.github.com/jackrusher/5139396
-* declarative? 📙 Karwin [2]
-* _history_: self-perpetuating failure https://news.ycombinator.com/item?id=13143282 Lisp was more awesome in a world w/out Java, Python?
-* https://twobithistory.org/2018/10/14/lisp.html
-* https://beautifulracket.com/appendix/why-racket-why-lisp.html
-* http://jakob.space/blog/thoughts-on-lisps.html
-* http://www.paulgraham.com/rootsoflisp.html
-* https://treenotation.org/
-* https://www.youtube.com/watch?v=1r5GkhoN-Zc
-* https://github.com/syncsynchalt/axiomatic-lisp
-* https://news.ycombinator.com/item?id=33600941
-* https://news.ycombinator.com/item?id=40335608
-* https://www.fosskers.ca/en/blog/rounds-of-lisp
-* https://gitlab.com/lockie/cl-fast-ecs/-/wikis/tutorial-2 https://news.ycombinator.com/item?id=41869460
-
-LANGUAGE https://tryclojure.org/
-* https://stackoverflow.com/questions/47482349/what-characterizes-a-lisp-dialect
-* s-expressions https://news.ycombinator.com/item?id=5654398 https://notes.eatonphil.com/compiler-basics-lisp-to-assembly.html
-* no loops https://www.lvguowei.me/post/sicp-goodness-looping/
-* prefix notation: operator comes first https://www.braveclojure.com/getting-started/
-
 ## 🇧🇷 Lua
 
 ---
@@ -572,17 +440,9 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 * people like? https://news.ycombinator.com/item?id=40538540
 * multiple compilers https://news.ycombinator.com/item?id=23686297
 
-## 🐪 OCaml
-
-📜 https://ocaml.org/
-
-* guide https://crmarsh.com/intro-to-ocaml/ https://www.youtube.com/watch?v=mhkoWp5Akww
-* dev env https://crmarsh.com/ocaml-dev-environment/
-* design: part of ML family tree, related to F# https://en.wikipedia.org/wiki/ML_(programming_language)
-* written in: Google Drive FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace#Remote/distributed_file_system_clients
-
 ## 🔤 R
 
+* vs. Prolog https://chatgpt.com/c/67336949-e2fc-8004-92cc-19f5e9e9f230
 * language for stats https://walker-data.com/census-r/index.html
 * run inside Python
 * _CRAN_: where you download R itself and also (?) R packages https://cran.r-project.org/
@@ -594,91 +454,6 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 * string pattern match https://stringr.tidyverse.org/
 * plot https://ggplot2.tidyverse.org/ grammar of graphics https://plotnine.org/
 * dataframes https://tibble.tidyverse.org/
-
-## 🦀 Rust
-
-🗄️ `python/runtime.md` CPython > PyO3
-
-```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-rustup self uninstall
-
-cargo build
-cargo run
-cargo test
-cargo doc
-cargo publish
-```
-
-DESIGN
-* too complicated, learn Golang instead https://registerspill.thorstenball.com/p/glad-i-did-it-in-go https://registerspill.thorstenball.com/p/rust-prism
-> This blog post, Rewriting Rust, was very interesting. “I swear, it took more effort to learn pinning in rust than it took me to learn the entire Go programming language.” Some day (in the far future) I might write more about my feelings on Rust, but while reading this post I kept waiting for the paragraph in which they say what they would remove from the language. That paragraph never came and I think that’s one of the biggest sources of friction between me and Rust. https://registerspill.thorstenball.com/p/joy-and-curiosity-9
-* using in other languages https://news.ycombinator.com/item?id=41941451
-* for the big kids https://www.lambdafunctions.com/articles/racing-sed-with-rust https://github.com/rayon-rs/rayon
-
-CODEBASES TO LEARN FROM
-* tests with the source code https://github.com/b1rger/carl
-* https://github.com/lusingander/serie
-* not so hard to read after all https://github.com/raphlinus/font-rs/blob/master/src/accumulate.rs
-
-PROJECT STRUCTURE
-* basic TUI https://github.com/lusingander/btox
-* src https://github.com/raphlinus/font-rs https://github.com/dotenvx/dotenvx
-* lib/$PROJ_NAME https://github.com/nickgerace/gfold https://nickgerace.dev/posts/how-i-read-the-rust-programming-language/
-* https://github.com/b1rger/carl
-
-STDLIB
-* _db_: https://github.com/launchbadge/sqlx
-* _GUI_ https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html
-* _TUI_: https://github.com/ratatui-org/ratatui https://github.com/mrjackwills/oxker cursive https://github.com/gyscos/cursive https://github.com/Builditluc/wiki-tui https://github.com/fdehau/tui-rs https://github.com/lusingander/stu
-* _web_: https://news.ycombinator.com/item?id=41914544 https://www.leptos.dev/ https://dioxuslabs.com/ https://loco.rs/
-
----
-
-cargo https://nickgerace.dev/posts/how-to-manage-rust-tools-and-applications/
-https://gopodcast.dev/episodes/046-lets-talk-about-rust-with-john-arundel
-community https://nickgerace.dev/posts/announcing-gfold3/
-https://simonwillison.net/tags/rust/
-https://chrisdone.com/posts/rust/
-https://drewdevault.com/2024/08/30/2024-08-30-Rust-in-Linux-revisited.html
-https://drewdevault.com/2022/10/03/Does-Rust-belong-in-Linux.html
-https://drewdevault.com/2019/03/25/Rust-is-not-a-good-C-replacement.html
-https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUCQrkDzAIhav https://google.github.io/comprehensive-rust/ https://www.youtube.com/@codetothemoon https://roadmap.sh/rust https://www.ntietz.com/projects/
-* incomplete bc no BDFL https://news.ycombinator.com/item?id=41656463 https://doc.rust-lang.org/unstable-book/the-unstable-book.html
-> Maybe this is by design. Good languages are stable languages. It might be time to think of rust as a fully baked language - warts and all. Python 2.7 for life. https://josephg.com/blog/rewriting-rust/
-* release, editions https://blog.rust-lang.org/2014/10/30/Stability.html https://doc.rust-lang.org/edition-guide/editions/
-* desktop framework https://github.com/tauri-apps/tauri https://blog.gitbutler.com/open-source-pledge-2024/
-* Neovim https://www.youtube.com/watch?v=mh_EJhH49Ms
-* example project https://github.com/nate-sys/tuime https://github.com/swsnr/mdcat
-* books https://news.ycombinator.com/item?id=34556318 https://github.com/plabayo/learn-rust-101/blob/main/README.md
-* CLI https://www.amazon.com/gp/product/1098109430/ref=ox_sc_act_title_1?smid=ATVPDKIKX0DER&psc=1
-* web https://tech.marksblogg.com/poem-rust-web-framework.html https://tech.marksblogg.com/actix-rust-web-framework.html https://tech.marksblogg.com/rocket-rust-web-framework.html https://www.shuttle.rs/blog/2023/09/27/rust-vs-go-comparison
-* vs. Golang https://news.ycombinator.com/item?id=31205072
-* doesn't have a spec https://drewdevault.com/2019/03/25/Rust-is-not-a-good-C-replacement.html
-* big learning curve https://news.ycombinator.com/item?id=30627667
-> Despite my infamous distaste for Rust, long-time readers will know that where I have distaste for Rust, I have passionate scorn for C++. I’m quite glad to see Rust taking it on, and I hope very much that it succeeds in this respect. https://drewdevault.com/2021/02/21/On-the-traits-of-good-replacements.html
-* syntax https://lucumr.pocoo.org/2015/5/27/rust-for-pythonistas/ https://fasterthanli.me/blog/2020/a-half-hour-to-learn-rust/
-* used for: CPU intensive, not API https://news.ycombinator.com/item?id=25798008
-* governance problems https://news.ycombinator.com/item?id=28513130
-* what people love: packaging, DX https://stackoverflow.blog/2020/06/05/why-the-developers-who-use-rust-love-it-so-much parallelization https://news.ycombinator.com/item?id=26443768 CLI (jless) https://news.ycombinator.com/item?id=30273940 correctness
-* lifetimes, safety profiles in C++ https://en.wikipedia.org/wiki/Erlang_(programming_language)
-
-## ⚡️ Zig
-
-https://ziglang.org/
-
-* https://www.youtube.com/watch?v=ug-KuDlMTYw
-* compared to Rust https://www.youtube.com/watch?v=Vxq6Qc-uAmE
-* overview https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203010 https://kristoff.it/blog/maintain-it-with-zig/
-* tutorial https://gist.github.com/ityonemo/769532c2017ed9143f3571e5ac104e50
-* BYO ls https://stackoverflow.com/questions/13554150/implementing-the-ls-al-command-in-c
-* getting popular https://macwright.com/2020/08/01/recently.html
-* https://news.ycombinator.com/item?id=29702607
-* seems way easier than Rust https://scattered-thoughts.net/writing/assorted-thoughts-on-zig-and-rust/ https://kevinlynagh.com/rust-zig/
-* smart users https://github.com/jamii
-* current state of affairs https://news.ycombinator.com/item?id=36149462
-* use as compiler https://jakstys.lt/2022/how-uber-uses-zig/ https://mitchellh.com/writing/zig-comptime-tagged-union-subset
-* as a teaching language https://news.ycombinator.com/item?id=32752383
 
 # 📥 MEMORY
 
@@ -840,13 +615,6 @@ def out_of_place(qd):
 
 https://borretti.me/article/language-pragmatics
 
-ABSTRACTION
-* https://jesseduffield.com/Beginners-Guide-To-Abstraction/
-* howto https://tonsky.me/blog/dsl/
-* against abstraction https://thorstenball.com/blog/2015/10/22/write-stupid-code/
-* _law of leaky abstractions_: natch; if they wouldn't exist in the first place https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/
-* _DSL_: lose tooling of general purpose language https://news.ycombinator.com/item?id=22375721 https://news.ycombinator.com/item?id=41938819 https://registerspill.thorstenball.com/p/joy-and-curiosity-12 https://news.ycombinator.com/item?id=41931507
-
 COMMUNITY
 > But the choice of a main programming language is the most important signaling behavior that a technology company can engage in. Tell me that you program in Java, and I believe you to be either serious or boring. In Ruby, and you are interested in building things quickly. In Clojure, and I think you are smart but wonder if you ship. In Python, and I trust you implicitly. In PHP, and we sigh together. In C++ or C, and I nod humbly. In C#, and I smile and assume we have nothing in common. In Fortran, and I ask to see your security clearance. These languages contain entire civilizations. - Ford what is code?
 * Java developers have high pain tolerances https://news.ycombinator.com/item?id=25124513
@@ -876,6 +644,8 @@ SYSTEMS PROGRAMMING
 
 📚
 * Normand https://www.amazon.com/dp/1617296201
+* Martin https://www.amazon.com/gp/product/0138176396
+* https://www.manning.com/books/functional-design-and-architecture
 
 ---
 
@@ -1104,7 +874,7 @@ ZA
 * _embedded_: language runs in same process as another language i.e. you need to impl interpreter and stdlib for embedded lang within host lang runtime?
 * Jython being built in Java means it's easy to embed bc it will run anywhere that has a JVM https://softwareengineering.stackexchange.com/a/403915
 * Lua good at embedding bc small stdlib, used in game dev https://news.ycombinator.com/item?id=3534746 howto https://news.ycombinator.com/item?id=36107315
-* _static analysis_: run rules against non-running code; aka code quality (CQ); autofmt (black, prettier) lint (flake8) security (https://github.com/returntocorp/semgrep) Sylver https://blog.sylver.dev/building-a-json-validator-with-sylver-part13-writing-a-json-parser-in-49-lines-of-code https://blog.sylver.dev/build-a-custom-python-linter-in-5-minutes
+* _static analysis_: run rules against non-running code; aka code quality (CQ); autofmt (black, prettier) lint (flake8) security (https://github.com/returntocorp/semgrep) https://blog.sylver.dev/build-a-custom-python-linter-in-5-minutes
 * _standard library (stdlib)_: algos, datetime, networking https://drewdevault.com/2021/03/19/A-new-systems-language.html
 > The base state of programming is gluing together library calls. Since glue code can be written in any language, most programmers' language preferences are really library preferences. - Graham https://twitter.com/paulg/status/1373926244673323008
 > The true measure of a language isn’t how it uses semicolons; it’s the standard library of each language. - Ford what is code
@@ -1137,17 +907,21 @@ when you really love your favorite language 💜
 
 ## concurrency
 
-📙 Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
 🗄
-* `golang.md` concurrency
-* `infra.md` queues
+* `golang.md`
 * `linux.md` threads
-* `python.md` concurrency
-*️ `architecture/system.md` distributed > consensus
+*️ `architecture/system.md` distributed
+* `python/runtime.md` concurrency
+📚
+* Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
+* grokking https://www.amazon.com/gp/product/1633439771 https://www.manning.com/books/grokking-concurrency
 
 BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 * why: WebSockets https://channels.readthedocs.io/en/latest/
 * why not: hard to reason about, just use a queue or a WebSockets server https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
+* not worth it
+> We’re currently using boring, synchronous, Python, which means that our server processes block while waiting for I/O, like network requests. We previously tried Eventlet, an async framework that would, in theory, let us get more efficiency out of Python, but ran into so many bugs that we decided the CPU and latency cost of waiting for events wasn’t worth the operational pain we had to take on to deal with Eventlet issues. The are other well-known async frameworks for Python, but users of those at scale often also report significant fallout from using those frameworks at scale. Using synchronous Python is expensive, in the sense that we pay for CPU that does nothing but wait during network requests, but since we’re only handling billions of requests a month (for now), the cost of this is low even when using a slow language, like Python, and paying retail public cloud prices. The cost of our engineering team completely dominates the cost of the systems we operate. https://danluu.com/simple-architectures/ 
+> Rather than take on the complexity of making our monolith async we farm out long-running tasks (that we don’t want responses to block on) to a queue.
 
 ---
 
@@ -1211,6 +985,7 @@ LOOPS
 * `break`: exit
 
 ZA
+* _branchless_: https://registerspill.thorstenball.com/p/joy-and-curiosity-14 https://lemire.me/blog/2019/10/15/mispredicted-branches-can-multiply-your-running-times/ https://lemire.me/blog/2019/10/16/benchmarking-is-hard-processors-learn-to-predict-branches/
 * _branching factor_: degree of nesting in control flow 📙 Kleppmann 81 https://fivethirtyeight.com/features/what-if-trump-loses-and-wont-leave/
 * _cyclomatic complexity_: number of linear paths through a problem i.e. how many if-else https://github.com/PyCQA/mccabe
 > diff btw branching factor and cyclomatic complexity?
@@ -1259,7 +1034,7 @@ UNITS
 * compositions of n expressions 📙 Haverbeke [ch.2]
 * _block_: 名 group of statements
 
-OPERATORS 📙 Nisan nand2tetris ch. 1-2
+OPERATORS 📙 Nisan nand2tetris ch. 1-2 https://buttondown.com/hillelwayne/archive/a-list-of-ternary-operators/
 * _operand_: value used by operator
 * _operator_: perform action
 * _assignment_: =

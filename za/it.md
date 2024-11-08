@@ -6,7 +6,8 @@
 
 ## 进步
 
-* backups https://wesbos.com/uses
+* get the best albums in FLAC
+* backups https://wesbos.com/uses HDD https://www.amazon.com/dp/B07VTWX8MN/
 * replace previous (huge) email export with personal only https://www.google.com/search?hl=en&q=gmail%20export%20only%20subset https://webapps.stackexchange.com/a/67379
 * macOS storage (just use external storage?) https://news.ycombinator.com/item?id=41986777
 
@@ -75,6 +76,7 @@ physical storage
 
 ---
 
+* drives https://news.ycombinator.com/item?id=42033931
 * don't backup project deps e.g. `.node_modules` https://bsago.me/posts/lessons-learned-when-my-ssd-died
 * regularize email export https://news.ycombinator.com/item?id=29978099
 * https://hacker-tools.github.io/backups/
@@ -102,18 +104,16 @@ TIME MACHINE
 ### mini23 ➡️ exfatmain
 
 > 📍 clean up DS files `fd -HI DS`
-* rm mckinney book
 * 23 taxes
 * golf
 * photos: nirvana
 * parking tickets
 
 MAT
-* sw: network
+* se: rm mckinney book, wayne logic for programmers, network, kent data and reality, evans containers
 * math
 * za
 * science
-* kent data and reality
 
 MUSIC
 * dance: francis harris, jamie xx, danilov
@@ -124,6 +124,8 @@ MUSIC
 * za/gospel: hank jones
 * dance/techno: all
 > za (chemical brothers et al.)
+* rock: singles, dylan, band, minutemen, dinosaur jr, dr john to psych, ritter to pop, neil young
+> loud soft loud out of punk + import meat puppets
 
 ### air-capp ➡️ mini23
 
@@ -277,6 +279,7 @@ MOVIES
 ---
 
 * get song duration https://www.youtube.com/watch?v=s6DXMf_yj64
+* file fmt conversion https://news.ycombinator.com/item?id=42064988
 
 TRACKING
 * poc: `mlib` `os.walk()` https://unix.stackexchange.com/questions/90115/convert-output-of-tree-command-to-json-format/ regex to strip and kebab https://github.com/30-seconds/30-seconds-of-python#kebab https://www.robertchristgau.com/get_gl.php?g=A%2B store library song info as db
@@ -301,6 +304,7 @@ repeated.export("mashup.mp3", format="mp3")
 
 ### cmus
 
+https://github.com/hajimehoshi/oto
 * install: homebrew
 * alternatives: https://github.com/clangen/musikcube https://github.com/tramhao/termusic https://github.com/issadarkthing/gomu BYO https://www.reddit.com/r/rust/comments/ipjijo/how_to_make_a_tui_music_player/
 > write your own https://x.com/_darrenburns/status/1803836046213357792/photo/1
@@ -385,7 +389,20 @@ config
 
 ## media server
 
+HOME MEDIA SERVERS
+* Spotify client https://github.com/Rigellute/spotify-tui https://github.com/hrkfdn/ncspot
+* BYO https://www.youtube.com/watch?v=jf_5FaVFnrU
+* _Emby_: https://www.youtube.com/watch?v=lgY97D5nCek
+* _Jellyfin_: https://www.youtube.com/watch?v=lgY97D5nCek
+* _Plex_: https://plexamp.com/
+* mobile client https://github.com/jmshrv/finamp https://www.fintunes.app/
+* _Navidrome_: https://github.com/navidrome/navidrome too expensive to run on cloud https://www.youtube.com/watch?v=RSIvuyLDuvk 2:15
+
+---
+
 https://drewdevault.com/2013/08/24/Music-syncing-on-Android.html
+
+AUTOS
 * ❌ _headunit_: wedded to vehicle, can't rely on this being around much longer https://www.youtube.com/watch?v=AEm2WbSwRIA https://www.amazon.com/KENWOOD-KDC-BT282U-Car-Stereo-Illumination/dp/B09GWC9QYZ models https://www.youtube.com/watch?v=P7pUT0gbZZQ speakers https://www.youtube.com/watch?v=ADFOAAN9SIA
 * ❌ _home media server_: not oriented around file structure, streaming vs. on-device
 * ✅ Android: enough storage with microSD, good app https://fi.google.com/about/phones/moto-g-5g microSDs fail frequently https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
@@ -393,16 +410,6 @@ https://drewdevault.com/2013/08/24/Music-syncing-on-Android.html
 > I might not need an SD card bc current phone only has 32GB capacity and os/fs using 30GB, SD using 185GB. Music fs down to 150GB should fit me on to 
 
 * cd ripping https://news.ycombinator.com/item?id=33499646
-
-Spotify client https://github.com/Rigellute/spotify-tui https://github.com/hrkfdn/ncspot
-https://github.com/hajimehoshi/oto
-
-HOME MEDIA SERVERS
-* _Emby_: https://www.youtube.com/watch?v=lgY97D5nCek
-* _Jellyfin_: https://www.youtube.com/watch?v=lgY97D5nCek
-* _Plex_: https://plexamp.com/
-* _Navidrome_: https://github.com/navidrome/navidrome too expensive to run on cloud https://www.youtube.com/watch?v=RSIvuyLDuvk 2:15
-* BYO https://www.youtube.com/watch?v=jf_5FaVFnrU
 
 * fselect provides useful functionailty for music files 🗄 `shell.md` finder
 
@@ -584,7 +591,7 @@ CONSIDERATIONS
 * _Chromebook_: Linux beta https://uglyduck.ca/chromebook-web-development/
 * _Dell_: https://cfenollosa.com/blog/fed-up-with-the-mac-i-spent-six-months-with-a-linux-laptop-the-grass-is-not-greener-on-the-other-side.html break all the time https://news.ycombinator.com/item?id=32632720
 * _Framework_: https://frame.work/ broken https://news.ycombinator.com/item?id=33322143 https://news.ycombinator.com/item?id=28606962 https://news.ycombinator.com/item?id=27926425 better now? https://frame.work/products/laptop13-diy-intel-ultra-1 https://omakub.org/
-* _System76_: https://system76.com/ https://news.ycombinator.com/item?id=34599094 https://news.ycombinator.com/item?id=34599094
+* _System76_: more expensive than Apple https://system76.com/ https://news.ycombinator.com/item?id=34599094 https://news.ycombinator.com/item?id=34599094 https://zackproser.com/blog/why-I-buy-system-76-computers
 * _Thinkpad_: https://news.ycombinator.com/item?id=30241960 x200 https://drewdevault.com/2021/05/14/Pinebook-Pro-review.html beware machines after 2012, X60 can only deal w/ 32-bit os, X200/X220/X230 are popular https://www.youtube.com/watch?v=mxA9Gyyu6Rg 9:45 12:40 13:15
 * Linux laptops https://news.ycombinator.com/item?id=35355494
 
@@ -614,19 +621,29 @@ CONSIDERATIONS
 * 1080p vs. 4k for readability https://news.ycombinator.com/item?id=23551983 
 * _OLED_: most accurate, best for viewing from non-direct angle https://www.tomsguide.com/us/what-is-oled,news-25120.html
 
+ASPECT RATIO
+* https://www.jeffgeerling.com/blog/2020/making-terminal-window-right-aspect-ratio-streaming-or-recording
+* Apple retina standard, 3:2 aspect ratio https://news.ycombinator.com/item?id=40385371 https://news.ycombinator.com/item?id=40399662
+* 16:9
+
 MODELS
 * _Asus pa278cgv_: https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/ https://www.nytimes.com/wirecutter/reviews/best-monitors/
-* _BenQ_: $600 https://www.youtube.com/watch?v=784pFXYBqsg
+* _BenQ RD320UA_: 🎯 $600 https://www.youtube.com/watch?v=784pFXYBqsg https://www.youtube.com/watch?v=rp1fEKGkG2M
 * _Dell S2318HN_: ✅ $175, 23", 1080p
-* _Dell S2722QC_: $225, 27", 4k https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding
+* _Dell S2722QC_: $225, 27", 4k https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.amazon.com/dp/B09DTDRJWP/
 * _Dell U2515H_: $250 https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
 * _Dell U2723QE_: $600 https://www.nytimes.com/wirecutter/reviews/best-monitors/
 * _Dell U3223QE_: $600, 32", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/
-* _Spectrum black_: $750 https://www.dough.tech/pages/monitors
+* _Spectrum black_: 🎯 $750 https://www.dough.tech/pages/monitors
 
 ## phone
 
 🗄️ `km.md` music
+
+GOOGLE FI
+* apparently you cant have multiple numbers https://support.google.com/fi/answer/7322914?hl=en
+* no customer support
+> I tried to call your customer support number about this, the customer support chatbot said something about "standing by for your click"; was a text message supposed to be sent to my phone?. No message was sent and therefore couldn't even talk to a chatbot.
 
 ANDROID
 * main: keep, files by google, chrome, calls
@@ -641,6 +658,7 @@ ANDROID
 
 ---
 
+* retro case for iPhone https://www.printables.com/model/919133-iphone-retro-case
 * https://drewdevault.com/2019/12/18/PinePhone-review.html 
 * https://drewdevault.com/2017/11/24/Phone-maintenance.html
 * alternatives to Google Play https://news.ycombinator.com/item?id=41770193
@@ -693,6 +711,8 @@ __WhatsApp__ 🗓 summer 2018
 * https://git.herrbischoff.com/awesome-macos-command-line/about/
 
 ZA
+* `caffeinate` https://weiyen.net/articles/useful-macos-cmd-line-utilities
+* speech recognition https://github.com/sveinbjornt/hear `say` https://weiyen.net/articles/useful-macos-cmd-line-utilities
 * `.localized`: i18n e.g. show `/Library` as `/Biblioteca` https://discussions.apple.com/thread/252040
 * `scutil`: macOS tool to set hostname, etc.
 * disk format: disk utility > select outermost > erase > ExFAT https://www.youtube.com/watch?v=Rq0_PQa8Irs https://www.youtube.com/watch?v=rMkGdnUwvXE
@@ -734,7 +754,7 @@ CMD b  # bookmarks
 * _Chrome_: what's the extension you're using to Youtube playlist org? https://sponsor.ajay.app/
 * _Lynx_: 'reader mode' https://github.com/bensadeh/circumflex
 * _Firefox_: https://wesbos.com/uses https://www.mozilla.org/en-US/firefox/developer/
-* _Zen_: https://zen-browser.app/ https://www.youtube.com/watch?v=VshptkoKfQo
+* _Zen_: based on Firefox https://zen-browser.app/ can split panes within browser https://www.youtube.com/watch?v=VshptkoKfQo [6:30] https://x.com/mkennedy/status/1856416323447992381
 
 🔍 FINDER
 * preferences: sidebar items (desktop, documents, hard disks, external disks)
@@ -834,7 +854,6 @@ SYMBOLS
 
 ---
 
-* _memory usage_: Activity Monitor
 * _movie_: CMD SHIFT 5
 * _Spanish question mark_: SHIFT ALT ?
 * _Spanish exclamation mark_: ALT 1
@@ -993,3 +1012,38 @@ dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
   Reason: image not found
 /usr/local/bin/neofetch: line 4160: 11158 Trace/BPT trap: 5       awk -F'<|>' '/string/ {print $3}' "/System/Library/CoreServices/SystemVersion.plist"
 ```
+
+# 🟨️ ZA
+
+## cameras
+
+* kids https://www.youtube.com/watch?v=lTyRiO08xi8 https://www.amazon.com/Toddler-Digital-Instant-Childrens-Birthday/dp/B0CSW8719G
+* fancy https://www.youtube.com/watch?v=Z--EFPp5Yds https://daniel.lawrence.lu/blog/y2024m05d31/
+* iPhone: 🎯 camera https://www.youtube.com/watch?v=jjpylH_We_o video https://www.youtube.com/watch?v=M7paNi4UVDc
+* early film https://www.youtube.com/watch?v=O0YcfiSR-wg
+* how cameras work https://news.ycombinator.com/item?id=25357315
+* multiple camera angles https://www.jeffgeerling.com/blog/2020/recording-multiple-camera-angles-full-size-simultaneously-on-mac
+* DSLR camera https://www.youtube.com/watch?v=vQXmPlBskrk
+
+## screencast
+
+* livestream https://til.simonwillison.net/youtube/livestreaming
+* https://www.jeffgeerling.com/blog/2018/how-i-record-my-own-conference-presentations
+* OBS https://obsproject.com/ https://news.ycombinator.com/item?id=22748247 https://www.youtube.com/watch?v=QCpuTSFVohQ
+* ScreenFlow, Camtasia (Khan)
+* screenshare tool https://www.useloom.com/ https://www.youtube.com/playlist?list=PL4cUxeGkcC9hKBg2mU8Hat4-NedlubC3C https://github.com/wulkano/kap
+* https://news.ycombinator.com/item?id=41968863
+
+GEAR https://wesbos.com/uses
+* boom stand, mic https://www.youtube.com/watch?v=U1VjQ1NKpjg
+* camera app https://www.youtube.com/watch?v=nqvHPYIuUBQ
+* audio interface
+* laptop with dedicated graphics card
+* lighting https://www.youtube.com/watch?v=nqvHPYIuUBQ https://www.youtube.com/watch?v=-6VVf5DGqBU https://www.youtube.com/watch?v=jsmVL7SDp5Y https://www.youtube.com/watch?v=q-vZycP3dMI
+
+ZA
+* sync audio to video https://github.com/Rudrabha/Wav2Lip
+* lighting https://www.jeffgeerling.com/blog/2020/i-replaced-my-office-lights-get-better-video
+* overlay https://www.jeffgeerling.com/blog/2019/display-webcam-content-overlaid-on-your-presentation-on-mac
+* effects https://www.youtube.com/watch?v=Fr4ahylCjsw https://www.youtube.com/watch?v=izukmcD8_Kw 2:15
+* motion smoothing https://www.vulture.com/2019/07/motion-smoothing-is-ruining-cinema.html

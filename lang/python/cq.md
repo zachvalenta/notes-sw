@@ -262,8 +262,10 @@ https://talkpython.fm/episodes/show/287/testing-without-dependencies-mocking-in-
 📜 https://docs.pytest.org/en/latest/contents.html#toc
 
 PLUGINS
+* plugin metadata https://github.com/pytest-dev/pytest-metadata
 * randomize execution order https://github.com/pytest-dev/pytest-randomly 
 * port ward output to pytest https://github.com/darrenburns/ward/blob/master/ward/_terminal.py https://docs.pytest.org/en/7.1.x/how-to/writing_plugins.html#writing-your-own-plugin https://github.com/nicoddemus/pytest-rich/tree/main
+* failure https://mathspp.com/blog/til/pytest-selection-arguments-for-failing-tests
 * _pluggy_: framework for write plugins https://ward.readthedocs.io/en/latest/guide/plugins.html https://pluggy.readthedocs.io/en/latest/
 
 STDOUT

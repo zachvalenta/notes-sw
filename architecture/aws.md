@@ -289,22 +289,6 @@ tighten perms for S3 buckets
 
 * _ARN_: ID for resource https://everythingdevops.dev/what-is-amazon-resource-name-arn/
 
-CLI
-* _CloudShell_: in-broswer shell as alternative to CLI https://aws.amazon.com/blogs/aws/aws-cloudshell-command-line-access-to-aws-resources/
-* _saws_: official CLI + autocomplete https://github.com/donnemartin/saws 
-* _aws-shell_: official CLI https://github.com/awslabs/aws-shell 
-* eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
-* config: `~/.aws/config`
-```sh
-aws configure  # ~/.aws/config
-```
-
-LIBS
-* query w/ SQL https://github.com/turbot/steampipe https://www.hytradboi.com/2022/how-to-query-almost-everything https://github.com/stackql/stackql
-* _LocalStack_: run AWS locally https://github.com/localstack/localstack https://www.lastweekinaws.com/blog/localstack-why-local-development-for-cloud-workloads-makes-sense/
-* _boto3_: Python lib for AWS https://realpython.com/python-boto3-aws-s3/
-* _Moto_: mock resources https://github.com/spulec/moto https://news.ycombinator.com/item?id=34070272 
-
 CODE
 * _CodeCommmit_: Github
 * _Code Deploy_: mv code from CodeCommmit to EC2
@@ -319,6 +303,7 @@ MOBILE SVC
 * _Cognito_: OAuth
 * _Device Farm_: mobile testing across device types
 * _SNS_: Twilio (push notifications) https://github.com/nikoksr/notify https://github.com/caronc/apprise https://github.com/fonoster/fonos
+> An area where there’s unavoidable complexity for us is with telecom integrations. In theory, we would use a SaaS SMS provider for everything, but the major SaaS SMS provider doesn’t operate everywhere in Africa and the cost of using them everywhere would be prohibitive. The earlier comment on how the compensation cost of engineers dominates the cost of our systems wouldn’t be true if we used a SaaS SMS provider for all of our SMS needs; the team that provides telecom integrations pays for itself many times over. https://danluu.com/simple-architectures/
 
 ## certification 
 
@@ -397,6 +382,25 @@ can access across accounts? https://cloudonaut.io/my-mental-model-of-aws/
 internal accounts https://www.lastweekinaws.com/blog/the-aws-service-i-hate-the-most/
 * _Cognito_: https://www.lastweekinaws.com/blog/the-strange-too-familiar-tale-of-uncle-suitcase/
 * _SCP_: https://cloudonaut.io/my-mental-model-of-aws/
+
+## interfaces
+
+CLI
+* https://hackingthe.cloud/aws/general-knowledge/aws_cli_tips_and_tricks/
+* _CloudShell_: in-broswer shell as alternative to CLI https://aws.amazon.com/blogs/aws/aws-cloudshell-command-line-access-to-aws-resources/
+* _saws_: official CLI + autocomplete https://github.com/donnemartin/saws 
+* _aws-shell_: official CLI https://github.com/awslabs/aws-shell 
+* eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
+* config: `~/.aws/config`
+```sh
+aws configure  # ~/.aws/config
+```
+
+LIBS
+* query w/ SQL https://github.com/turbot/steampipe https://www.hytradboi.com/2022/how-to-query-almost-everything https://github.com/stackql/stackql
+* _LocalStack_: run AWS locally https://github.com/localstack/localstack https://www.lastweekinaws.com/blog/localstack-why-local-development-for-cloud-workloads-makes-sense/
+* _boto3_: Python lib for AWS https://realpython.com/python-boto3-aws-s3/
+* _Moto_: mock resources https://github.com/spulec/moto https://news.ycombinator.com/item?id=34070272 
 
 ## messaging
 

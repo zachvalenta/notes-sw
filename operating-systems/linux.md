@@ -446,8 +446,50 @@ problems
 📜 https://docs.brew.sh/Manpage
 > useful thing to know: when you catch a huge download like https://github.com/clarkema/x12pp can you interrupt install?
 
-TAPS
+---
+
+* Bundle, Brewfiles https://nickgerace.dev/posts/how-to-manage-rust-tools-and-applications/
+* un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew
+* GUI version https://news.ycombinator.com/item?id=37075730
+* fs: Homebrew `/usr/local/Homebrew` installs `/usr/local/Cellar` 🔗 `/usr/local/bin`
+* installs deps just for building pkg https://github.com/Homebrew/brew/issues/634#issue-169347205
+* `pin` https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/
+* switch to different installed version: `switch` https://github.com/thoughtbot/til/blob/master/homebrew/using_different_homebrew_formula_versions.md
+> `link` does the same? https://stackoverflow.com/a/54175781
+* _bottle_: pre-compiled i.e. you don't need to download and build, just download i.e. faster
+* _services_: integrates w/ MacOS launchctl to start program on OS boot
+```sh
+# INSTALL
+install # curls URL, compares download against checksum
+install -- prefix  # specific install location
+uninstall -s # uninstall + rm from cache
+upgrade # update; there's another cmd called `update` (akin to git fetch?)
+export HOMEBREW_NO_AUTO_UPDATE=1  # toggle off auto-update
+brew outdated | xargs brew upgrade  # updated all outdated
+
+# INFO
+commands  # list cmd
+help $CMD  # help per cmd
+doctor  # healthcheck
+search  # search available pkg
+leaves  # list installed (top-level) https://apple.stackexchange.com/a/279078
+ls  # list installed (transitive) https://github.com/Homebrew/brew/issues/8257
+info $PKG  # info on pkg
+deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/322371 https://github.com/martido/homebrew-graph
+```
+
+### constraints
+
+* packages that need Rust might/will cause Rust download (to build?), if you try to install Rust later it will fail due to conflict https://chatgpt.com/c/673544c8-978c-8004-bc38-c7c4d2efdba1
+* find older pkg versions in Homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
+> brew cleanup works against this
+
+### registries
+
 > vs Homebrew Core https://github.com/pythops/tenere/issues/31 https://chatgpt.com/c/671502a5-99d0-8004-a57c-98b0962fdfc9 https://github.com/nickgerace/gfold
+* _formula_: Ruby class that manages install https://www.youtube.com/watch?v=fbyrLo6yx8M
+
+TAPS
 * _tap_: repo of formulae not maintained by Homebrew https://stackoverflow.com/a/37973017 🗄️ terrastruct
 * examples taps https://github.com/GabAlpha/homebrew-tap https://github.com/Linus-Mussmaecher/homebrew-tap multiple https://github.com/lusingander/homebrew-tap
 * howto https://chatgpt.com/c/671502a5-99d0-8004-a57c-98b0962fdfc9 https://github.com/Boeing/config-file-validator/issues/184 https://github.com/AmmarAbouZor/tui-journal/issues/457
@@ -472,40 +514,6 @@ class Basilk < Formula
       bin.install "basilk"
     end
   end
-```
-* _formula_: Ruby class that manages install https://www.youtube.com/watch?v=fbyrLo6yx8M
-
----
-
-* un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew
-* GUI version https://news.ycombinator.com/item?id=37075730
-* fs: Homebrew `/usr/local/Homebrew` installs `/usr/local/Cellar` 🔗 `/usr/local/bin`
-* installs deps just for building pkg https://github.com/Homebrew/brew/issues/634#issue-169347205
-* `pin` https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/
-* find older pkg versions in Homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
-> brew cleanup works against this
-* switch to different installed version: `switch` https://github.com/thoughtbot/til/blob/master/homebrew/using_different_homebrew_formula_versions.md
-> `link` does the same? https://stackoverflow.com/a/54175781
-* _bottle_: pre-compiled i.e. you don't need to download and build, just download i.e. faster
-* _services_: integrates w/ MacOS launchctl to start program on OS boot
-```sh
-# INSTALL
-install # curls URL, compares download against checksum
-install -- prefix  # specific install location
-uninstall -s # uninstall + rm from cache
-upgrade # update; there's another cmd called `update` (akin to git fetch?)
-export HOMEBREW_NO_AUTO_UPDATE=1  # toggle off auto-update
-brew outdated | xargs brew upgrade  # updated all outdated
-
-# INFO
-commands  # list cmd
-help $CMD  # help per cmd
-doctor  # healthcheck
-search  # search available pkg
-leaves  # list installed (top-level) https://apple.stackexchange.com/a/279078
-ls  # list installed (transitive) https://github.com/Homebrew/brew/issues/8257
-info $PKG  # info on pkg
-deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/322371 https://github.com/martido/homebrew-graph
 ```
 
 ## managers
@@ -540,10 +548,12 @@ ALTERNATIVES 🗄️ `python/pkg.md` uv `frontend.md` javascript > runtimes
 * _pkgx_: from the creator of Homebrew https://www.youtube.com/watch?v=S9oHESiZyr0 https://dotenvx.com/docs/install#other https://www.youtube.com/watch?v=S9oHESiZyr0
 * _mise_: 🎯 https://github.com/jdx/mise
 
+* https://www.youtube.com/watch?v=5D3nUU1OVx8
 * can script everything (install GUI apps, CLI apps, write dotfiles)
 * nixpacks https://railway.app/
 * _Nix_: 🎯 https://github.com/NixOS/nix
 > The point of nix is just to create completely reproducible builds and package management, including support for multiple versions of packages side-by-size with no issues. It's sort of a next-generation package management system that tries to avoid most of the pitfalls that OS package managers have fumbled with up to this point. https://news.ycombinator.com/item?id=23251754
+* https://www.youtube.com/watch?v=w_hqmmcufNc
 * can use in place of Homebrew, provides one-off shell without having to install pkg https://www.youtube.com/watch?v=m4ST2dq10no
 * isolate pkg by user/shell https://github.com/jetpack-io/devbox can do via flakes? https://www.youtube.com/watch?v=m4ST2dq10no
 * use in tmp env (vs. full install) https://wickedchicken.github.io/post/macos-nix-setup/ like pipx https://pipx.pypa.io/stable/#inject-a-package
@@ -782,6 +792,7 @@ BOOT
 
 ---
 
+`date -u`
 * https://github.com/jarun/pdd
 * backup w/ timestamp: `touch "$(date +%Y%m%d_%H%M%S).bak"` https://unix.stackexchange.com/a/96383/331460
 * _touch_: make new file or update timestamp
@@ -1238,7 +1249,7 @@ LOCATION
 PERMS 📙 Evans linux https://chatgpt.com/c/672cbc33-dabc-8004-bbac-7c5050f53879
 * categories: `u` (user/owner) `g` (group) `o` (other) `a` (all)
 * mv: `chmod` + group + `r|w|x` e.g. `u=rw` (user gains rw) `+x` (all gain x) `o-w` (other loses w)
-* mv file leaves: `find $ROOT -type f -exec chmod 644 {} +`
+* mv file leaves: `find . -type f -exec chmod 644 {} +`
 * get as octal: `stat -f "%A" $FILE`
 * default: `666` (file) `777` (dir)
 * _umask_: set perms on new files via "mask" (subtraction) from default perms; can be set as user or distro level https://www.digitalocean.com/community/tutorials/linux-permissions-basics-and-how-to-use-umask-on-a-vps

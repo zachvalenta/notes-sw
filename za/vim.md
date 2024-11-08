@@ -16,24 +16,15 @@
 
 ## 进步
 
-* move LSP and ctags to `plt.md`?
-* VS Code: indentation rainbow, bookmarks, project manager https://switowski.com/blog/plugins-for-python-in-vscode/
-
----
-
-Neovim just too fragile?
-> Every now and then I would update a plugin in Neovim and everything would break, and I would have to spend time fixing it instead of getting work done. This resulted in slimming down my config more and more, but there was still so much that went into making all the basics work. I stuck with it because it was still better than using VSCode, which I did try for a two week sprint to see if it could be any better. It was also key to a terminal based workflow that other editors couldn’t really match. The sentiment started to shift again not too long ago as I started working in some really large code bases, and boy Neovim was struggling. I would have random hang ups, frozen screens, stuff that just drove me nuts when productivity was king. I tried switching to other terminal emulators too such as Alacritty and Wezterm but it didn’t help much. https://stevedylan.dev/posts/leaving-neovim-for-zed/
-
+* VS Code plugins: indentation rainbow, bookmarks, project manager https://switowski.com/blog/plugins-for-python-in-vscode/
 https://www.youtube.com/watch?v=VljhZ0e9zGE
+https://www.youtube.com/watch?v=oo_I5lAmdi0
 https://news.ycombinator.com/item?id=41637286
 note-taking in Markdown https://www.youtube.com/watch?v=DgKI4hZ4EEI
 basic setup https://www.youtube.com/watch?v=VljhZ0e9zGE
 https://www.youtube.com/watch?v=zHTeCSVAFNY
-
-
 https://stevedylan.dev/posts/leaving-neovim-for-zed/
 * Codi
-* text objects in treesitter https://www.youtube.com/watch?v=CEMPq_r8UYQ
 
 * _24_: try Zed
 * _23_: try mv to Neovim, stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
@@ -98,6 +89,8 @@ ZA
 * `H/M/L`
 
 # 🦚 ALTERNATIVES
+
+* _kibi_: https://github.com/ilai-deutel/kibi
 
 ## design
 
@@ -367,25 +360,40 @@ keybindings
 
 📜 https://zed.dev/
 
-FEATURES
-* can be more keyboard drive using Vim mode? https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode--keybindings
+VIM
+* https://zed.dev/blog/zed-decoded-vim
+* use Vim normal mode to drive Zed itself https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode--keybindings
 > I’ll likely get into this further into the post, but the way you can structure keybindings for Vim mode in Zed is fantastic. The structure allows for your typical VScode style config, but with the ability to scope a keybinding to a Vim mode is such a huge win for Neovim users. For instance, I can cheat my way into using a leader key when in normal mode and get things like space d to see diagnostics, or space t to open a full window terminal. It’s a pattern many Vim users will appreciate and I wish there was more docs for it as I’ve had to figure some of it out myself. https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode
-* basics: very fast, runs on macOS and Linux https://zed.dev/releases/stable/0.143.6
-* document outline https://github.com/zed-industries/zed/discussions/13421 https://zed.dev/releases/stable/0.141.2
-* feedback: notebooks, REPL https://zed.dev/releases/stable/0.146.3
-* remote dev 🗄️ `src.md` denv > cloud
-* GPT built-in https://zed.dev/releases/stable/0.147.2 https://zed.dev/releases/stable/0.149.3 https://zed.dev/blog/replhttps://zed.dev/blog/zed-ai
-* collab https://zed.dev/docs/collaboration
-* project mgmt https://stevedylan.dev/posts/leaving-neovim-for-zed/#plugin-replacements https://zed.dev/docs/channels
-* pkg mgmt: just works with Poetry
-* remote dev https://zed.dev/releases/stable/0.145.1
-* search https://zed.dev/releases/stable/0.152.3
-* themes https://zed.dev/blog/user-themes-now-in-preview
-* Vim emulation https://zed.dev/blog/zed-decoded-vim
-* ❌ makes itself default editor (broot)
 
 DESIGN
-* just works https://stevedylan.dev/posts/leaving-neovim-for-zed/
+* fast and cross-platform https://zed.dev/releases/stable/0.143.6
+* just works™️: no Neomvim config hell, Python pkg mgmt with Poetry https://stevedylan.dev/posts/leaving-neovim-for-zed/
+* ❌ makes itself default editor (broot)
+
+---
+
+visual component semantics https://github.com/zed-industries/zed/discussions/9763
+
+FEATURES - BASICS
+* document outline https://github.com/zed-industries/zed/discussions/13421 https://zed.dev/releases/stable/0.141.2
+* search https://zed.dev/releases/stable/0.152.3
+* themes https://zed.dev/blog/user-themes-now-in-preview
+* ❌ workspaces https://github.com/zed-industries/zed/discussions/17278 https://github.com/zed-industries/zed/discussions/7194
+> In my experience, Zed does not keep track of multiple repos (i.e. folders) within a single "Project" as they call it. From what I gather, Zed's concept of a "Project" is the root folder of a single git repo. So it's not that "Zed needs to support VS Code workspace documents" as much as it's that Zed needs to support a "workspace" concept altogether. In other words, we need a "Workspace" that can keep track of multiple "Projects" (repos/folders) at the same time. Then and only then can we have a .zed-workspace file (and support its analogue from VS Code). https://github.com/zed-industries/zed/issues/9459
+
+📍 FEATURES - EXPLORE
+* feedback: notebooks, REPL https://zed.dev/releases/stable/0.146.3
+* remote dev 🗄️ `src.md` denv > cloud
+* collab https://zed.dev/docs/collaboration
+* project mgmt https://stevedylan.dev/posts/leaving-neovim-for-zed/#plugin-replacements https://zed.dev/docs/channels
+* remote dev https://zed.dev/releases/stable/0.145.1
+
+AI 🗄️ `ml.md` code assist
+* https://zed.dev/releases/stable/0.147.2
+* https://zed.dev/releases/stable/0.149.3
+* https://zed.dev/blog/replhttps://zed.dev/blog/zed-ai
+
+DESIGN
 * https://zed.dev/blog/between-editors-and-ides
 * https://zed.dev/blog/we-have-to-start-over 
 * https://registerspill.thorstenball.com/p/from-vim-to-zed
@@ -796,19 +804,36 @@ select_tab_drop             # open in new tab, only available on master https://
 * error lens https://switowski.com/blog/plugins-for-python-in-vscode/
 * https://github.com/facebookincubator/bowler
 
-LSP
-* how this works in Neovim: `nvim-lspconfig` configs nvim client, `vim.lsp` as framework for tooling to connect to language servers, tool for language server mgmt (mason) https://www.youtube.com/watch?v=3a1PCir_aHs
-* _lsp-zero_: ✅ wrapper around `nvim-lspconfig`, `nvim-cmp`, and `mason` https://github.com/VonHeikemen/lsp-zero.nvim https://www.youtube.com/watch?v=3a1PCir_aHs 2:15
-* keybindings: things that don't work so far are `gd` but maybe this is because poetry build broken https://github.com/VonHeikemen/lsp-zero.nvim?tab=readme-ov-file#keybindings
-* install: for some reason pyright needs `npm`, installed with `nodenv` and then ran `nodenv init` (need to restart terminal) https://github.com/VonHeikemen/lsp-zero.nvim/issues/91#issuecomment-1364608056
-* _mason_: ✅ mgmt for language servers, DAP, linters, formatters https://github.com/williamboman/mason.nvim
-* alternative https://github.com/neoclide/coc.nvim https://www.youtube.com/watch?v=OXEVhnY621M https://news.ycombinator.com/item?id=33210247
-* _nvim-cmp_: ✅ code completion, catppuccin https://github.com/hrsh7th/nvim-cmp
-
 GIT 🗄️ `git.md` tooling
 * _gitgutter_: https://github.com/airblade/vim-gitgutter
 * _gitsigns_: catppuccin integration https://github.com/lewis6991/gitsigns.nvim
 * _gitlens_: https://switowski.com/blog/plugins-for-python-in-vscode/
+
+FOLDING
+* _ufo_: https://github.com/kevinhwang91/nvim-ufo
+* https://realpython.com/vim-and-python-a-match-made-in-heaven/#code-folding http://vimcasts.org/episodes/archive/
+* https://github.com/iggredible/Learn-Vim/blob/master/ch17_fold.md
+
+Python indentation https://vimtricks.substack.com/p/vimtrick-column-highlighting 
+Python terminal, debugger https://github.com/AstroNvim/AstroNvim
+
+LINTING 📙 Neil practical ch. 20
+* functions: autocorrect, spellcheck, thesaurus, dictionary, grammar
+* https://www.youtube.com/watch?v=3TX3kV3TICU
+* https://github.com/preservim/vim-lexical
+* https://github.com/preservim/vim-litecorrect
+* https://github.com/preservim/vim-wordy
+* grammar https://www.youtube.com/watch?v=tIvdLeeW6pM https://github.com/caderek/gramma
+* https://github.com/languagetool-org/languagetool
+* linting https://github.com/errata-ai/vale
+```vimrc
+# https://www.moolenaar.net/habits.html
+:abbr Lunix Linux
+:abbr accross across
+:abbr hte the
+```
+
+### highlight
 
 MISC PLUGINS
 * _aerial_: ✅ outliner https://github.com/stevearc/aerial.nvim (catppuccin theme, Telescope integration)
@@ -820,20 +845,26 @@ MISC PLUGINS
 * install: you'll get a install error from vim-plug, open neovim again and it should download language parsers
 * can use for code folding https://www.youtube.com/watch?v=Ku-m7eEbWas 4:30
 * https://news.ycombinator.com/item?id=27292237
+* text objects in treesitter https://www.youtube.com/watch?v=CEMPq_r8UYQ
+* https://github.com/nvim-treesitter/nvim-treesitter-context
 
 HIGHLIGHT PLUGINS
 * ✅ cursorword https://github.com/RRethy/vim-illuminate https://github.com/itchyny/vim-cursorword https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-cursorword.md
 * ✅ scope https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-indentscope.md
 * todos https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-hipatterns.md
 
-folding
-* _ufo_: https://github.com/kevinhwang91/nvim-ufo
-* https://realpython.com/vim-and-python-a-match-made-in-heaven/#code-folding http://vimcasts.org/episodes/archive/
-* folding https://github.com/iggredible/Learn-Vim/blob/master/ch17_fold.md
+### LSP
 
-https://github.com/nvim-treesitter/nvim-treesitter-context
-Python indentation https://vimtricks.substack.com/p/vimtrick-column-highlighting 
-Python terminal, debugger https://github.com/AstroNvim/AstroNvim
+🗄️ `plt.md` LSP
+
+* people hate this https://www.youtube.com/watch?v=G1_Y5hLTfgw [2:00,7:30]
+* how this works in Neovim: `nvim-lspconfig` configs nvim client, `vim.lsp` as framework for tooling to connect to language servers, tool for language server mgmt (mason) https://www.youtube.com/watch?v=3a1PCir_aHs
+* _lsp-zero_: ✅ wrapper around `nvim-lspconfig`, `nvim-cmp`, and `mason` https://github.com/VonHeikemen/lsp-zero.nvim https://www.youtube.com/watch?v=3a1PCir_aHs 2:15
+* keybindings: things that don't work so far are `gd` but maybe this is because poetry build broken https://github.com/VonHeikemen/lsp-zero.nvim?tab=readme-ov-file#keybindings
+* install: for some reason pyright needs `npm`, installed with `nodenv` and then ran `nodenv init` (need to restart terminal) https://github.com/VonHeikemen/lsp-zero.nvim/issues/91#issuecomment-1364608056
+* _mason_: ✅ mgmt for language servers, DAP, linters, formatters https://github.com/williamboman/mason.nvim
+* alternative https://github.com/neoclide/coc.nvim https://www.youtube.com/watch?v=OXEVhnY621M https://news.ycombinator.com/item?id=33210247
+* _nvim-cmp_: ✅ code completion, catppuccin https://github.com/hrsh7th/nvim-cmp
 
 📍 todo LSP plugins
 * _ALE_: real-time linting via LSP https://github.com/dense-analysis/ale
@@ -852,22 +883,6 @@ AUTOCOMPLETE 📙 Neil practical ch. 19
 * https://vimtricks.com/p/autocomplete-word-for-word/
 * text expansion / abbreviations https://vimtricks.substack.com/p/vimtrick-type-less-with-abbreviations http://vimcasts.org/episodes/enhanced-abbreviations-with-abolish/
 * copilot https://www.youtube.com/watch?v=7k0KZsheLP4
-
-LINTING 📙 Neil practical ch. 20
-* functions: autocorrect, spellcheck, thesaurus, dictionary, grammar
-* https://www.youtube.com/watch?v=3TX3kV3TICU
-* https://github.com/preservim/vim-lexical
-* https://github.com/preservim/vim-litecorrect
-* https://github.com/preservim/vim-wordy
-* grammar https://www.youtube.com/watch?v=tIvdLeeW6pM https://github.com/caderek/gramma
-* https://github.com/languagetool-org/languagetool
-* linting https://github.com/errata-ai/vale
-```vimrc
-# https://www.moolenaar.net/habits.html
-:abbr Lunix Linux
-:abbr accross across
-:abbr hte the
-```
 
 ## search
 
@@ -967,9 +982,12 @@ NEOVIM
 * https://github.com/tpope/vim-sensible
 * https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 
+Neovim just too fragile? https://www.youtube.com/watch?v=G1_Y5hLTfgw
+> Every now and then I would update a plugin in Neovim and everything would break, and I would have to spend time fixing it instead of getting work done. This resulted in slimming down my config more and more, but there was still so much that went into making all the basics work. I stuck with it because it was still better than using VSCode, which I did try for a two week sprint to see if it could be any better. It was also key to a terminal based workflow that other editors couldn’t really match. The sentiment started to shift again not too long ago as I started working in some really large code bases, and boy Neovim was struggling. I would have random hang ups, frozen screens, stuff that just drove me nuts when productivity was king. I tried switching to other terminal emulators too such as Alacritty and Wezterm but it didn’t help much. https://stevedylan.dev/posts/leaving-neovim-for-zed/
+
 NEOVIM SETUPS
 * DIY https://www.youtube.com/watch?v=x__SZUuLOxw https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn https://www.youtube.com/watch?v=6pAG3BHurdM
-* _Astro_: 12k stars; strong maintainer https://github.com/mehalter https://github.com/AstroNvim/AstroNvim
+* _Astro_: 🎯 12k stars; strong maintainer https://github.com/mehalter https://github.com/AstroNvim/AstroNvim https://zackproser.com/blog/astronvim-overview
 * _LazyVim_: 15k stars https://www.lazyvim.org/
 * _Lunar_: 17.5k stars; more open issues, heavy setup (req: npm, cargo, rg) https://www.lunarvim.org/
 * _NVChad_: 🎯 23.5 stars https://nvchad.com/

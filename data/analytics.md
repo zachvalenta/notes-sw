@@ -4,6 +4,7 @@
 
 🛣️ https://roadmap.sh/data-analyst
 > A number of companies (large crossover funds, startups, etc.) in The Diff network are looking for data scientists that love wrangling and analyzing alt. data to help inform investment decisions. (Remote) https://www.thediff.co/archive/longreads-open-thread-96/
+📙 https://www.manning.com/books/advanced-analytics-for-business https://www.manning.com/books/effective-data-analysis
 🗄
 * `protocols.md` file fmt
 * `telemetry.md` analytics
@@ -19,7 +20,7 @@ TOOLING
 * visualize https://github.com/man-group/dtale
 
 ZA
-* _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog https://realpython.com/podcasts/rpp/224/
+* _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog https://realpython.com/podcasts/rpp/224/ https://github.com/benrutter/wimsey
 > Chances are, you’ve never heard of Narwhals. That’s because it’s a tool targeted at tool builders, rather than at end users. Specifically, it allows library maintainers to support multiple dataframe libraries as inputs, without having to make any of them required. https://pola.rs/posts/lightweight_plotting/
 
 ---
@@ -37,7 +38,6 @@ ZA
 * tables https://posit-dev.github.io/great-tables
 * _dataframe_: result set + operations https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://github.com/go-gota/gota/blob/master/dataframe/dataframe.go
 * Dataframe Interchange Protocol, Dataframe API Standard https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/ https://pythonspeed.com/articles/polars-pandas-interopability/
-* _series_: rows from a single column https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://pandas.pydata.org/docs/user_guide/10min.html#getting
 
 ### 🏹 Arrow
 
@@ -125,6 +125,11 @@ assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height
 📙 McKinney data analysis https://wesmckinney.com/book/
 🔍 howto https://github.com/jvns/pandas-cookbook https://github.com/kxzk/an-embarrassment-of-pandas https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
 📹 guide https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS
+
+SEMANTICS
+* _series_: a column, all rows from a single column https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://pandas.pydata.org/docs/user_guide/10min.html#getting
+* `name`: series header
+* _index_: row number https://realpython.com/pandas-reset-index/
 
 BASICS
 ```python
@@ -547,9 +552,11 @@ ALTERNATIVES
 * BYO https://jamesg.blog/2024/08/21/spreadsheet-engine/
 * TUI https://github.com/andmarti1424/sc-im
 * OSS https://github.com/gristlabs/grist-core
-* webapp https://equals.app/ https://rowzero.io/ https://rows.com/
+* webapp https://equals.app/ https://rows.com/
 * in Python https://pyspread.gitlab.io/ https://news.ycombinator.com/item?id=40284219
-* _pysheets_: https://pysheets.app/about https://github.com/PySheets/pysheets https://realpython.com/podcasts/rpp/226/
+* _IronCalc_: https://news.ycombinator.com/item?id=42095292 https://github.com/ironcalc/ironcalc
+* _rowzero_: https://rowzero.io/ https://grantslatton.com/
+* _pysheets_: uses pyodide https://pysheets.app/about https://realpython.com/podcasts/rpp/226/
 * _visicalc_: predecessor to Lotus123, Excel http://www.paulgraham.com/mac.html
 * _UltOrg_: spreadsheet on top of dbms https://news.ycombinator.com/item?id=30868696 🔍 `Ultorg beta`
 

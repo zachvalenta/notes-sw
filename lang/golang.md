@@ -3,12 +3,17 @@
 ## 参考
 
 📚
+* ⭐️ https://www.manning.com/books/learn-go-with-pocket-sized-projects
+* Arundel https://bitfieldconsulting.com/books/love https://bitfieldconsulting.com/posts/best-go-books
 * Butcher in practice
 * Chang web
 * Kennedy in action
 * Kernighan go programming language
 
 ## 进步
+
+https://bitfieldconsulting.com/posts/bit
+https://bitfieldconsulting.com/posts/tdd-programming-confidence
 
 https://www.youtube.com/watch?v=kNavnhzZHtk
 https://www.willem.dev/articles/
@@ -29,6 +34,9 @@ BASICS 📙 Ball
 # 📝 LANG
 
 🗄️ `plt.md` concurrency
+📚
+* https://www.manning.com/books/go-by-example
+* https://www.manning.com/books/go-in-practice-second-edition
 📜
 * https://github.com/uber-go/guide/blob/master/style.md
 * https://golang.org/doc/effective_go.html
@@ -97,6 +105,46 @@ mySlice := primes[1:4]
 fmt.Println(mySlice) // [3 5 7]
 ```
 
+## design
+
+FEATURES 📙 Jeffrey [3]
+* concurrency
+* more modern than C e.g. modules
+* cross-compilation/cross-platform binaries (although trickier re: cgo) https://jvns.ca/til/cross-compiling-in-go-just-works/
+* usage: CLI (charm) distributed systems (Docker, Kubernetes, Prometheus)
+
+
+---
+
+> That sounds familiar to Go programmers, right? Go is almost brutally pragmatic. It’s not a beautiful language at all, at least on a surface level. Programming language theorists hate it! It may be fine in practice, they say, but it’ll never work in theory. Go is designed to be easy to parse, quick to compile, and simple to implement, just like Unix itself. It’s not aimed at programmers who want to express themselves in rich and byzantine hierarchies of type systems, or who need the compiler to catch all possible bugs. It’s just a plain, non-fancy language for getting useful programs written and running as quickly as possible. I appreciate that about it. https://bitfieldconsulting.com/posts/not-real-developer
+
+https://drewdevault.com/2021/04/02/Go-is-a-great-language.html
+* https://drewdevault.com/2018/10/08/Go-1.11.html
+* governance https://changelog.com/gotime/333 https://www.youtube.com/watch?v=pLvZRnK2WRE
+* https://commandcenter.blogspot.com/2024/01/what-we-got-right-what-we-got-wrong.html
+* governance: controlled by Google https://news.ycombinator.com/item?id=27610108 https://drewdevault.com/2022/05/25/Google-has-been-DDoSing-sourcehut.html * https://sourcehut.org/blog/2023-01-09-gomodulemirror/
+> If you must read the rest of this document to understand the behavior of your program, you are being too clever. https://go.dev/ref/mem
+* is not easy https://www.arp242.net/go-easy.html
+* https://golang.design/history/
+* https://www.evanmiller.org/four-days-of-go.html
+* https://www.fredrikholmqvist.com/posts/articles/brooks-wirth-go/
+* releases every 6 months https://golang.org/project/
+* https://blog.golang.org/open-source https://news.ycombinator.com/item?id=12889302 https://utcc.utoronto.ca/~cks/space/blog/programming/GoIsGooglesLanguage
+* no exceptions
+* user-defined inheritance https://www.capitalone.com/tech/software-engineering/go-is-boring/
+* composition over inheritance (non-magical, good for maintenance) https://talks.golang.org/2012/splash.article https://python-patterns.guide/gang-of-four/composition-over-inheritance/
+* cleanliness: won't compile if formatting guidelines not met, can't import packages that aren't used, can’t declare variables that aren’t used
+* speed arbitrage (dev time faster than C, run time faster than dynamic)
+* have to build API yourself https://www.arp242.net/go-easy.html https://drewdevault.com/2021/04/02/Go-is-a-great-language.html
+> More concisely, I think of Go as an "internet programming language", distinct from the systems programming languages that inspired it. Its design shines especially in this context, but its value-add is less pronounced for other tasks in the systems programming domain - compilers, operating systems, etc https://drewdevault.com/2021/02/21/On-the-traits-of-good-replacements.html
+* _pain points_: module system is weird limited to services and CLIs
+> Where scripting languages got started as an effective way to write small programs and gradually scaled up, Rust and Go were positioned from the start as ways to reduce defect rates in really large projects. Like, Google’s search service and Facebook’s real-time-chat multiplexer. - http://esr.ibiblio.org/?p=7724
+> The single best property of Go is that it is basically non-magical. With very few exceptions, a straight-line reading of Go code leaves no ambiguity about definitions, dependency relationships, or runtime behavior. This makes Go relatively easy to read, which in turn makes it relatively easy to maintain, which is the single highest virtue of industrial programming. - https://peter.bourgon.org/blog/2017/06/09/theory-of-modern-go.html
+* Ken Thompson has been right
+> I will finally note that Ken Thompson has a history of designs that look like minimal solutions to near problems but turn out to have an amazing quality of openness to the future, the capability to be improved. Unix is like this, of course. It makes me very cautious about supposing that any of the obvious annoyances in Go that look like future-blockers to me (like, say, the lack of generics) actually are. Because for that to be true, I’d have to be smarter than Ken, which is not an easy thing to believe. - http://esr.ibiblio.org/?p=7745
+* Ken Thompson has been wrong
+> To be clear, I'm not saying that I or anyone else could have done better with the knowledge available in the 70s in terms of making a system that was practically useful at the time that would be elegant today. It's easy to look back and find issues with the benefit of hindsight. What I disagree with are comments from Unix mavens speaking today; comments like McIlroy's, which imply that we just forgot or don't understand the value of simplicity, or Ken Thompson saying that C is as safe a language as any and if we don't want bugs we should just write bug-free code. These kinds of comments imply that there's not much to learn from hindsight; in the 70s, we were building systems as effectively as anyone can today; five decades of collective experience, tens of millions of person-years, have taught us nothing; if we just go back to building systems like the original Unix mavens did, all will be well. I respectfully disagree. https://danluu.com/cli-complexity/#maven
+
 ## functions
 
 * _naked returns_: return all; don't use for longer functions https://tour.golang.org/basics/7
@@ -156,7 +204,7 @@ var myInt // 0
 > https://matthewsanabria.dev/posts/start-with-the-go-standard-library/
 
 * used in Python https://last9.io/blog/using-golang-package-in-python-using-gopy/
-* datetime https://github.com/golang-module/carbon
+* datetime https://github.com/golang-module/carbon https://github.com/olebedev/when
 * game engine https://ebiten.org/
 * GUI https://github.com/fyne-io/fyne https://github.com/AllenDang/giu https://github.com/gizak/termui
 * _debug_: can use gdb but delve recommended https://golang.org/doc/gdb https://www.youtube.com/watch?v=r033vEzL6a4
@@ -186,12 +234,14 @@ var myInt // 0
 
 ## CLI
 
+* _Bubble Tea_: inspired by Elm? https://github.com/charmbracelet/bubbletea
+* tutorials https://leg100.github.io/en/posts/building-bubbletea-programs/ https://www.youtube.com/watch?v=ERaZi0YvBRs
+* components https://github.com/charmbracelet/bubbles 
 * _gum_: Charm utils for Bash https://github.com/charmbracelet/gum https://www.youtube.com/watch?v=tnikefEuArQ
 
 ---
 
 * animation https://github.com/charmbracelet/harmonica
-* _bubbletea_: https://github.com/charmbracelet/bubbletea https://github.com/charmbracelet/bubbles https://leg100.github.io/en/posts/building-bubbletea-programs/ https://www.youtube.com/watch?v=ERaZi0YvBRs
 * frameworks https://github.com/noahgorstein/jqp https://www.youtube.com/watch?v=ZA93qgdLUzM https://github.com/rivo/tview/ https://github.com/jroimartin/gocui 
 * color https://github.com/fatih/color
 * tables https://github.com/jedib0t/go-pretty
@@ -201,6 +251,7 @@ var myInt // 0
 
 ---
 
+* testing, golden files https://changelog.com/gotime/337
 * https://www.dolthub.com/blog/2023-03-29-interactive-shell-golang/
 
 
@@ -299,41 +350,11 @@ CMDS
 * _style_: https://github.com/golang/go/wiki/CodeReviewComments
 * plugins https://eli.thegreenplace.net/2021/plugins-in-go/
 
-## design
+## packaging
 
 ---
 
-https://drewdevault.com/2021/04/02/Go-is-a-great-language.html
-* https://drewdevault.com/2018/10/08/Go-1.11.html
-* governance https://changelog.com/gotime/333 https://www.youtube.com/watch?v=pLvZRnK2WRE
-* https://commandcenter.blogspot.com/2024/01/what-we-got-right-what-we-got-wrong.html
-* governance: controlled by Google https://news.ycombinator.com/item?id=27610108 https://drewdevault.com/2022/05/25/Google-has-been-DDoSing-sourcehut.html * https://sourcehut.org/blog/2023-01-09-gomodulemirror/
-> If you must read the rest of this document to understand the behavior of your program, you are being too clever. https://go.dev/ref/mem
-* is not easy https://www.arp242.net/go-easy.html
-* https://golang.design/history/
-* https://www.evanmiller.org/four-days-of-go.html
-* https://www.fredrikholmqvist.com/posts/articles/brooks-wirth-go/
-* releases every 6 months https://golang.org/project/
-* https://blog.golang.org/open-source https://news.ycombinator.com/item?id=12889302 https://utcc.utoronto.ca/~cks/space/blog/programming/GoIsGooglesLanguage
-* no exceptions
-* user-defined inheritance https://www.capitalone.com/tech/software-engineering/go-is-boring/
-* composition over inheritance (non-magical, good for maintenance) https://talks.golang.org/2012/splash.article https://python-patterns.guide/gang-of-four/composition-over-inheritance/
-* cleanliness: won't compile if formatting guidelines not met, can't import packages that aren't used, can’t declare variables that aren’t used
-* speed arbitrage (dev time faster than C, run time faster than dynamic)
-* have to build API yourself https://www.arp242.net/go-easy.html https://drewdevault.com/2021/04/02/Go-is-a-great-language.html
-> More concisely, I think of Go as an "internet programming language", distinct from the systems programming languages that inspired it. Its design shines especially in this context, but its value-add is less pronounced for other tasks in the systems programming domain - compilers, operating systems, etc https://drewdevault.com/2021/02/21/On-the-traits-of-good-replacements.html
-* _pain points_: module system is weird limited to services and CLIs
-> Where scripting languages got started as an effective way to write small programs and gradually scaled up, Rust and Go were positioned from the start as ways to reduce defect rates in really large projects. Like, Google’s search service and Facebook’s real-time-chat multiplexer. - http://esr.ibiblio.org/?p=7724
-> The single best property of Go is that it is basically non-magical. With very few exceptions, a straight-line reading of Go code leaves no ambiguity about definitions, dependency relationships, or runtime behavior. This makes Go relatively easy to read, which in turn makes it relatively easy to maintain, which is the single highest virtue of industrial programming. - https://peter.bourgon.org/blog/2017/06/09/theory-of-modern-go.html
-* Ken Thompson has been right
-> I will finally note that Ken Thompson has a history of designs that look like minimal solutions to near problems but turn out to have an amazing quality of openness to the future, the capability to be improved. Unix is like this, of course. It makes me very cautious about supposing that any of the obvious annoyances in Go that look like future-blockers to me (like, say, the lack of generics) actually are. Because for that to be true, I’d have to be smarter than Ken, which is not an easy thing to believe. - http://esr.ibiblio.org/?p=7745
-* Ken Thompson has been wrong
-> To be clear, I'm not saying that I or anyone else could have done better with the knowledge available in the 70s in terms of making a system that was practically useful at the time that would be elegant today. It's easy to look back and find issues with the benefit of hindsight. What I disagree with are comments from Unix mavens speaking today; comments like McIlroy's, which imply that we just forgot or don't understand the value of simplicity, or Ken Thompson saying that C is as safe a language as any and if we don't want bugs we should just write bug-free code. These kinds of comments imply that there's not much to learn from hindsight; in the 70s, we were building systems as effectively as anyone can today; five decades of collective experience, tens of millions of person-years, have taught us nothing; if we just go back to building systems like the original Unix mavens did, all will be well. I respectfully disagree. https://danluu.com/cli-complexity/#maven
-
-## packaging
-
-🗣 `golang-packaging.md`
-🗄 `golang/packaging`
+https://chatgpt.com/c/67327c2b-0a34-8004-9b0a-3c4d6c45dc92
 📜 https://golang.org/ref/mod https://github.com/golang/go/wiki/Modules#table-of-contents
 🔍 https://pkg.go.dev/
 🔗 https://encore.dev/guide/go.mod
@@ -431,18 +452,34 @@ design, legacy
 * _minimum version selection (MVS)_: get the lowest version that will satisfy needs i.e. if `go.mod` needs 1.2 Go won't download an available higher version https://ukiahsmith.com/blog/a-gentle-introduction-to-golang-modules/
 
 * _semantic import versioning_: what would be a new major version of same package in semver becomes a new module https://research.swtch.com/vgo-import 'adding a dependency on a new major version'
-> At the same time, allowing different major versions of a module (because they have different paths) gives module consumers the ability to upgrade to a new major version incrementally. In this example, we wanted to use quote.Concurrency from rsc/quote/v3 v3.1.0 but are not yet ready to migrate our uses of rsc.io/quote v1.5.2. The ability to migrate incrementally is especially important in a large program or codebase. - https://blog.golang.org/using-go-modules
+> At the same time, allowing different major versions of a module (because they have different paths) gives module consumers the ability to upgrade to a new major version incrementally. In this example, we wanted to use quote. Concurrency from rsc/quote/v3 v3.1.0 but are not yet ready to migrate our uses of rsc.io/quote v1.5.2. The ability to migrate incrementally is especially important in a large program or codebase. - https://blog.golang.org/using-go-modules
 
 ## project structure
 
 > The standard way to do testing is to have a foo.go and foo_test.go file next to each other. https://www.arp242.net/jia-tan-go.html
 
+```sh
+├── dir
+│   └── go.mod
+│   └── foo.go
+│   └── foo_test.go
+```
+
+STANDARDS
+* big projects https://github.com/golang-standards/project-layout
+* tooling https://github.com/Melkeydev/go-blueprint
+
+PKG
+* https://github.com/jesseduffield/lazygit/tree/master/pkg
+* https://travisjeffery.com/b/2019/11/i-ll-take-pkg-over-internal/
+
+MODULES
+> With Go 1.14 Go Modules are finally ready for production. Use Go Modules unless you have a specific reason not to use them and if you do then you don’t need to worry about $GOPATH and where you put your project. The basic go.mod file in the repo assumes your project is hosted on GitHub, but it's not a requirement. The module path can be anything though the first module path component should have a dot in its name (the current version of Go doesn't enforce it anymore, but if you are using slightly older versions don't be surprised if your builds fail without it). See Issues 37554 and 32819 if you want to know more about it. https://github.com/golang-standards/project-layout
+
+ZA
+* `internal`: cannot be imported https://www.bytesizego.com/blog/golang-internal-package
+
 ---
-
-https://github.com/jesseduffield/lazygit/tree/master/pkg
-https://www.bytesizego.com/blog/golang-internal-package
-
-> I wish there was a good place to learn “the other parts” of C++, the build systems, using static analyzers, testing, dependency management, etc. https://news.ycombinator.com/item?id=34229802
 
 https://docs.go-blueprint.dev/
 
