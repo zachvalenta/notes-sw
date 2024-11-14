@@ -422,11 +422,15 @@ SPRING
 
 ## 🇧🇷 Lua
 
+USAGE
+* scripting with Redis https://redis.io/docs/latest/develop/interact/programmability/eval-intro/ https://www.youtube.com/watch?v=7EK06n485nk [6:30]
+* Neovim
+* Hammerspoon
+
 ---
 
 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua https://nvchad.com/docs/quickstart/learn-lua
 
-* usage: Neovim, Hammerspoon
 * pkg mgmt https://luarocks.org/
 * filepaths: use `.` separator, will handle forward/backslash on Linux, Windows https://www.youtube.com/watch?v=prnrwpOEsmo 9:45
 * functions: can omit parens if passing string or table as a single arg https://www.youtube.com/watch?v=prnrwpOEsmo 10:15
@@ -442,8 +446,10 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 
 ## 🔤 R
 
+🗄️ `stat.md` Gelman
+
 * vs. Prolog https://chatgpt.com/c/67336949-e2fc-8004-92cc-19f5e9e9f230
-* language for stats https://walker-data.com/census-r/index.html
+* language for stats https://walker-data.com/census-r/index.html https://gwern.net/resorter
 * run inside Python
 * _CRAN_: where you download R itself and also (?) R packages https://cran.r-project.org/
 * _packrat_: pkg manager https://rstudio.github.io/packrat/
@@ -468,7 +474,7 @@ memory management https://stackoverflow.com/a/3434252
 * _unmanaged code_: language w/ no memory management e.g. C, C++; sometimes used to mean "compiles directly to machine code" by people who do not understand that C has an abstract machine
 * _managed code_: language w/ memory management (Java); dynamic languages not typically described as such, more of a marketing term for enterprise languages
 * _garbage_: 
-* _garbage collection_: scheduled memory management; yes (Python, Java) no (Rust 'borrow checker') no-unless-you-hack-real-hard (C, C++) https://news.ycombinator.com/item?id=41963259
+* _garbage collection_: scheduled memory management; yes (Python, Java) no (Rust 'borrow checker') no-unless-you-hack-real-hard (C, C++) https://news.ycombinator.com/item?id=41963259 https://danluu.com/butler-lampson-1999/
 * _memory leak_: https://www.glean.com/blog/how-we-analyzed-and-fixed-a-golang-memory-leak
 * reference counting, prefetching https://signalsandthreads.com/memory-management/)
 
@@ -643,12 +649,13 @@ SYSTEMS PROGRAMMING
 ## functional
 
 📚
-* Normand https://www.amazon.com/dp/1617296201
+* Granin https://www.manning.com/books/functional-design-and-architecture
+* ⭐️ Normand https://www.amazon.com/dp/1617296201 https://www.manning.com/books/grokking-simplicity
 * Martin https://www.amazon.com/gp/product/0138176396
-* https://www.manning.com/books/functional-design-and-architecture
 
 ---
 
+https://danluu.com/butler-lampson-1999/
 https://us.pycon.org/2024/schedule/presentation/86/index.html
 https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell
 https://bytes.yingw787.com/posts/2018/11/07/data_driven_testing
@@ -769,6 +776,8 @@ SEMANTICS
 * _duck typing_: obj is type if it has properties/methods of that type (vs. nominative) https://docs.python.org/3/glossary.html#term-duck-typing https://realpython.com/podcasts/rpp/196/
 * _type inference_: figure out type based on context https://calpaterson.com/mypy-hints.html
 > aka implicit? https://go.dev/tour/basics/10
+* _reflection_: program's ability to examine type system of programming language + dynamically manipulate types/values at runtime https://drewdevault.com/2021/10/05/Reflection.html https://en.wikipedia.org/wiki/Reflective_programming
+> Clojure provides easy access to the Java frameworks, with optional type hints and type inference, to ensure that calls to Java can avoid reflection. https://clojure.org/
 
 PRO https://www.youtube.com/watch?v=YR5WdGrpoug https://news.ycombinator.com/item?id=42004756
 > [invariant violation] At point A, there's some assumption, and way over there at point B, that assumption is violated... Type systems prevent some invariant violations. Because that works, there are ongoing attempts to extend type systems to prevent still more invariant violations. That creates another layer of confusing abstraction. Some invariants are not well represented as types, and trying makes for a bad fit. What you're really trying to do is to substitute manual specification of attributes for global analysis. The Rust borrow checker is an invariant enforcer. It explicitly does automatic global analysis, and reports explicitly that what's going on at point B is inconsistent with what point A needs. This is real progress in programming language design, and is Rust's main contribution. https://news.ycombinator.com/item?id=29996240
@@ -789,13 +798,15 @@ CON https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/ http
 
 ---
 
+https://danluu.com/butler-lampson-1999/
+
 SEMANTICS https://www.destroyallsoftware.com/compendium/types?share_key=baf6b67369843fa2
 * dynamic https://gist.github.com/non/ec48b0a7343db8291b92
 * gradual typing: type hints/annotations in code checked by static analysis tooling, not compiler
 * inference https://news.ycombinator.com/item?id=36775644
 * implicit https://news.ycombinator.com/item?id=26671136 https://go.dev/tour/basics/10
 * _definitions_: strong/weak less rigorously defined than static/dynamic [Smallshire 1 @ 5.4]
-* _sink_: https://danluu.com/empirical-pl/ https://www.cs.uaf.edu/users/chappell/public_html/class/2018_spr/cs331/docs/types_primer.html https://eli.thegreenplace.net/2006/11/25/a-taxonomy-of-typing-systems vocab https://cdsmith.wordpress.com/2011/01/09/an-old-article-i-wrote/ https://danluu.com/empirical-pl/
+* _sink_: https://danluu.com/empirical-pl/ https://www.cs.uaf.edu/users/chappell/public_html/class/2018_spr/cs331/docs/types_primer.html https://eli.thegreenplace.net/2006/11/25/a-taxonomy-of-typing-systems vocab https://cdsmith.wordpress.com/2011/01/09/an-old-article-i-wrote/ https://danluu.com/empirical-pl/ https://danluu.com/empirical-pl/
 |   	    | static   	| dynamic   	    |
 |---	    |---	    |---	            |
 | strong   	| C++      	| Python, Ruby   	|
@@ -819,8 +830,6 @@ GENERICS
 * https://go.dev/blog/why-generics https://go.dev/blog/generics-next-step
 
 # 🟨 ZA
-
-https://drewdevault.com/2021/10/05/Reflection.html
 
 OVERLOADING
 * _function overloading_: same method name, different sig (i.e. diff params)
@@ -913,12 +922,12 @@ when you really love your favorite language 💜
 *️ `architecture/system.md` distributed
 * `python/runtime.md` concurrency
 📚
+* Bobrov https://www.manning.com/books/grokking-concurrency
 * Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
-* grokking https://www.amazon.com/gp/product/1633439771 https://www.manning.com/books/grokking-concurrency
 
 BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 * why: WebSockets https://channels.readthedocs.io/en/latest/
-* why not: hard to reason about, just use a queue or a WebSockets server https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
+* why not: hard to reason about, just use a queue or a WebSockets server https://www.david-dahan.com/blog/10-reasons-i-stick-to-django https://danluu.com/concurrency-bugs/
 * not worth it
 > We’re currently using boring, synchronous, Python, which means that our server processes block while waiting for I/O, like network requests. We previously tried Eventlet, an async framework that would, in theory, let us get more efficiency out of Python, but ran into so many bugs that we decided the CPU and latency cost of waiting for events wasn’t worth the operational pain we had to take on to deal with Eventlet issues. The are other well-known async frameworks for Python, but users of those at scale often also report significant fallout from using those frameworks at scale. Using synchronous Python is expensive, in the sense that we pay for CPU that does nothing but wait during network requests, but since we’re only handling billions of requests a month (for now), the cost of this is low even when using a slow language, like Python, and paying retail public cloud prices. The cost of our engineering team completely dominates the cost of the systems we operate. https://danluu.com/simple-architectures/ 
 > Rather than take on the complexity of making our monolith async we farm out long-running tasks (that we don’t want responses to block on) to a queue.
@@ -933,7 +942,7 @@ https://threedots.tech/post/go-test-parallelism/
 * _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
 * clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep
 * _callback_: another func to call after func finishes execution 🗄 `application.md` webhook
-* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/59370383#59370383
+* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/59370383#59370383 https://danluu.com/butler-lampson-1999/
 * https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/48530284#48530284
 * imperative programming fundamentally about order, which makes concurrency hard https://softwareengineeringdaily.com/2020/05/28/distributed-systems-research-with-peter-alvaro/ 7:00
 * concurrency is nearly always a bad idea https://www.arp242.net/go-easy.html

@@ -184,6 +184,8 @@ https://realpython.com/python-packages/#pudb-for-visual-debugging
 
 🗄 `km.md` notes
 
+> Jupyter Notebooks are files that combine two content types: text/Markdown and executable Python code. https://www.pinecone.io/learn/retrieval-augmented-generation/
+
 ALTERNATIVES
 * VS Code https://news.ycombinator.com/item?id=40899242
 * Zed https://zed.dev/blog/repl
@@ -214,6 +216,10 @@ ALTERNATIVES
 * reproducibility https://jvns.ca/blog/2017/11/12/binder--an-awesome-tool-for-hosting-jupyter-notebooks/ https://news.ycombinator.com/item?id=24943962
 * design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch https://news.ycombinator.com/item?id=41045834
 * https://www.singlestore.com/blog/how-we-made-notebooks-load-10-times-faster/
+
+## hosted
+
+https://deepnote.com/app/katkas-workspace/FaCT-721f3451-6e2e-4325-b2cc-0beeeb601c54?size_range=1000
 
 ## 🟧 Jupyter
 

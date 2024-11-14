@@ -76,12 +76,6 @@ ZA
 * _transaction set purpose codes_: "why is document being sent?", only shows up in (typically) a single segment, can apply to multiple document lists (832, 850)
 * `00` new `01` cancel previously sent doc `04` update `05` replace `06` ack receipt of sent doc `24` draft
 
-## items
-
-🧠 https://chatgpt.com/c/672a2132-cf28-8004-9afa-c0bd20a0ffa0
-
-* _LIN_: ID e.g. UPC, SKU
-
 ## ISA
 
 🧠 https://chatgpt.com/c/6723ec93-f688-8004-9390-f69468340e26 https://chatgpt.com/c/6723e31b-bf8c-8004-a801-41b1b4e52419
@@ -110,6 +104,12 @@ ZA
 > An X12 file starts with a fixed-length 106-byte header called an ISA segment. Among other things, this header specifies three different terminator characters to be used in the rest of the document...it's up to the author to ensure that the chosen terminators do not appear in any of the data fields. This is why each document can specify its own terminators. https://www.lambdafunctions.com/articles/racing-sed-with-rust
 
 ISA15 (usage - test|prod)
+
+## LIN
+
+🧠 https://chatgpt.com/c/672a2132-cf28-8004-9afa-c0bd20a0ffa0
+
+* _LIN_: ID e.g. UPC, SKU
 
 ## meta
 
@@ -707,7 +707,9 @@ SEMANTICS
 
 ## binary
 
-📚 Petzold code 3, 9, 12-13
+📚
+* Petzold code 3, 9, 12-13
+* Evans ints floats
 
 SCALE 📙 Kozierok 4.63
 * _bit_: binary digit; aka 'flag' [Kozierok 4.63]
@@ -722,8 +724,6 @@ SCALE 📙 Kozierok 4.63
 * _exabyte_: 1B GB
 
 ---
-
-* https://wizardzines.com/zines/integers-floats/
 
 * _bitmask_: toggling bit https://www.arp242.net/bitmask.html set (to 1) reset/clear (to 0) [Kozierok 4.63]
 * _nybble_: 4 bits [Petzold code 181]
@@ -751,12 +751,21 @@ f"{val:.{4}}"  # 13.5
 
 📚 Petzold code ch. 15
 
----
+📍 learn C, learn how to edit binary https://www.youtube.com/watch?v=-eDY7yh-CyA https://github.com/sharkdp/hexyl https://danluu.com/edit-binary/
 
-* _hexit_: hex digit (1 nybble) https://www.youtube.com/watch?v=dPxCGlW9lfM 4:30
 * used bc easier to convert to binary than decimal [Petzold code 181 https://www.youtube.com/watch?v=dPxCGlW9lfM 4:20]
-* _viewer_: https://github.com/sharkdp/hexyl https://github.com/wader/fq https://github.com/WerWolv/ImHex `hexdump -C <file>` https://www.youtube.com/watch?v=-eDY7yh-CyA 1:50 https://github.com/wader/fq
-* _editor_: online https://hexed.it/ macOS https://ridiculousfish.com/hexfiend/ hexedit https://news.ycombinator.com/item?id=23762626 https://github.com/thetacom/hexabyte
+* _hexit_: hex digit (1 nybble) https://www.youtube.com/watch?v=dPxCGlW9lfM [4:30]
+
+TOOLING
+* used for reverse engineering? https://github.com/radareorg/radare2
+* `hexdump -C <file>` https://www.youtube.com/watch?v=-eDY7yh-CyA 1:50
+* _fq_: query https://github.com/wader/fq 
+* _hexabyte_: 🎯 editor https://github.com/thetacom/hexabyte
+* _hexedit_: Ubuntu https://news.ycombinator.com/item?id=23762626
+* _hexed_: 🎯 browser https://hexed.it/
+* _HexFiend_: macOS https://github.com/HexFiend/HexFiend
+* _hexyl_: viewer https://github.com/sharkdp/hexyl
+* _ImHex_: 🎯 editor https://github.com/WerWolv/ImHex 
 
 # 🟨 ZA
 
@@ -805,7 +814,7 @@ FLAVORS
 * _MyST_: https://github.com/executablebooks/MyST-Parser
 
 PARSERS
-* _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/
+* _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/ re: Next https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
 * time suck https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
 * _markdown-it-py_: https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
 * _commonmark_: https://github.com/readthedocs/commonmark.py https://github.com/Textualize/rich/pull/2439/files

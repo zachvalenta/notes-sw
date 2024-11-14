@@ -2,7 +2,6 @@
 
 ## 参考
 
-📙 Bueno mature optimization https://carlos.bueno.org/optimization/
 🗄
 * `dbms.md` perf
 * `doc.md` viz / system
@@ -129,7 +128,6 @@ WALKTHROUGHS
 
 # 🎯 APPROACHES
 
-📙 Percival https://www.amazon.com/gp/product/1492052205
 > Also, as a general rule, you can at any given time get away with changing more than you think. Introducing change is like pulling off a bandage: the pain is a memory almost as soon as you feel it. http://paulgraham.com/popular.html
 🗄
 * `db.md` migrations, scaling
@@ -200,6 +198,20 @@ ZA
 * https://encore.dev/blog/event-driven-architecture
 * https://news.ycombinator.com/item?id=40619521
 
+## ⭕️ factors
+
+🗄️ `eng.md` factors
+
+* _clarity_: above all bc we're bulding information systems 📻 DHH (STT) https://www.youtube.com/watch?v=9LfmrkyP81M
+> And it's not only high performance hardware and software that's complex. Some domains are just really complicated. The tax code is 73k pages long. It's just not possible to reason effectively about something that complicated, and there are plenty of things that are that complicated. https://danluu.com/tests-v-reason/
+
+---
+
+https://gwern.net/choosing-software
+* maintenance
+* extensible
+* popularity
+
 ## jamstack
 
 * _static site_: content not generated on the fly i.e. no db/server interaction https://wsvincent.com/static-vs-dynamic-a-question-of-layers/
@@ -211,7 +223,6 @@ ZA
 
 ## KISS
 
-* DHH: clarity above all, we're bulding information systems https://www.youtube.com/watch?v=9LfmrkyP81M 📻 STT
 * monolith + db https://danluu.com/simple-architectures/
 > Wave is a $1.7B company with 70 engineers whose product is a CRUD app that adds and subtracts numbers. In keeping with this, our architecture is a standard CRUD app architecture, a Python monolith on top of Postgres. Starting with a simple architecture and solving problems in simple ways where possible has allowed us to scale to this size while engineers mostly focus on work that delivers value to users. Stackoverflow scaled up a monolith to good effect (2013 architecture / 2016 architecture), eventually getting acquired for $1.8B. If we look at traffic instead of market cap, Stackoverflow is among the top 100 highest traffic sites on the internet.
 > Despite the unreasonable effectiveness of simple architectures, most press goes to complex architectures. For example, at a recent generalist tech conference, there were six talks on how to build or deal with side effects of complex, microservice-based, architectures and zero on how one might build out a simple monolith. There were more talks on quantum computing (one) than talks on monoliths (zero). Larger conferences are similar; a recent enterprise-oriented conference in SF had a double-digit number of talks on dealing with the complexity of a sophisticated architecture and zero on how to build a simple monolith. Something that was striking to me the last time I attended that conference is how many attendees who worked at enterprises with low-scale applications that could’ve been built with simple architectures had copied the latest and greatest sophisticated techniques that are popular on the conference circuit and HN.
@@ -331,6 +342,7 @@ DESIGN
 
 DISTRIBUTED SYSTEMS
 * _distributed system_: no shared memory, no shared clock https://news.ycombinator.com/item?id=26089683
+* https://danluu.com/butler-lampson-1999/
 * needs coordination across network/cores 📙 Jeffrey distributed [4]
 * hard https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
 > You need whole new categories of instrumentation and logging to getting understanding that isn't quite as good as what you'd get from the logs of a monolithic application. https://pythonspeed.com/articles/dont-need-kubernetes/
@@ -363,9 +375,10 @@ za
 
 ## blockchain
 
-https://a16zcrypto.com/
+📙 https://www.manning.com/books/grokking-bitcoin
+🔗 https://a16zcrypto.com/
 
-* design https://unwttng.com/what-is-a-blockchain https://a16z.com/2018/02/10/crypto-readings-resources/ https://www.manning.com/books/grokking-bitcoin
+* design https://unwttng.com/what-is-a-blockchain https://a16z.com/2018/02/10/crypto-readings-resources/
 * https://cdixon.org/2018/02/18/why-decentralization-matters
 > Blockchains are special computers that anyone can access but no one owns. https://twitter.com/cdixon/status/1442201642338643969
 * BYO https://news.ycombinator.com/item?id=27594943 https://norswap.com/blockchain-how/ https://hackernoon.com/learn-blockchains-by-building-one-117428612f46 
@@ -384,6 +397,8 @@ https://a16zcrypto.com/
 
 ---
 
+https://danluu.com/cache-incidents/
+https://danluu.com/intel-cat/
 https://csvbase.com/blog/8
 https://www.youtube.com/watch?v=dGAgxozNWFE
 
@@ -413,7 +428,7 @@ eviction, expiry
 > Caching by TTL gives up correctness to gain speed.
 * _LFU_: 
 * random: 
-* _LRU_: ensures cache full/hot as possible; used by application caches https://calpaterson.com/ttl-hell.html https://jamesg.blog/2024/08/18/time-based-lru-cache-python/
+* _LRU_: ensures cache full/hot as possible; used by application caches https://calpaterson.com/ttl-hell.html https://jamesg.blog/2024/08/18/time-based-lru-cache-python/ https://danluu.com/2choices-eviction/
 ```python
 # There's nothing wrong with the above code but it only allows for strategy #1: never invalidate https://calpaterson.com/ttl-hell.html
 from functools import lru_cache
@@ -551,6 +566,7 @@ TYPES
 
 ### CDN
 
+> Oh, you want all your images to be cached at the edge so they're super snappy for everyone visiting your page, but you also want to bust your cache each time you publish a new version of your site? Fuck you! Figure it out and do it yourself. https://zackproser.com/blog/maintaining-this-site-fucking-sucks
 > Caching reverse proxies that you self-host, like Varnish and Apache Traffic Server, can use non-standard PUSH and PURGE verbs that let you explicitly control the cache contents. If you can invalidate explicitly you can use strategies #2 and #3 [update-on-write]. If you have the file on hand, why not also populate your reverse proxy's cache? The nice thing overall about caching at the HTTP level is that it takes work off the applications server's plate. https://calpaterson.com/ttl-hell.html
 * BYO https://github.com/leandromoreira/cdn-up-and-running https://news.ycombinator.com/item?id=41731720
 * https://jvns.ca/blog/2016/04/29/cdns-arent-just-for-caching/
@@ -559,6 +575,8 @@ TYPES
 * https://www.youtube.com/watch?v=6DXEPcXKQNY
 * _sink_: https://arp242.net/cdn.html https://css-tricks.com/adding-a-cdn-to-your-website/ http://highscalability.com/blog/2011/2/28/a-practical-guide-to-varnish-why-varnish-matters.html Whitenoise vs. nginx https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/ https://pasztor.at/blog/building-your-own-cdn
 * BYO https://dev.to/megajakob/how-to-build-your-own-cdn-io1 https://debugged.it/blog/building-your-own-cdn/
+* _files - static_: CSS, JS, fonts https://learndjango.com/tutorials/django-static-files
+* _files - media_: uploaded by user https://docs.djangoproject.com/en/3.1/topics/files/#managing-files
 
 ### load balancing
 

@@ -715,7 +715,9 @@ layout_dir "~/.config/zellij"
 
 ## window systems
 
-🗄️ `interfaces.md` terminal
+🗄️
+* `interfaces.md` terminal
+* `IT.md` machines
 
 WINDOW MANAGERS
 * _aerospace_: 🎯 https://github.com/nikitabobko/AeroSpace https://nikitabobko.github.io/AeroSpace/guide https://www.youtube.com/watch?v=-FoWClVHG5g https://www.youtube.com/watch?v=q4cexeIc3WA

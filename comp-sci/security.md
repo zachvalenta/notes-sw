@@ -4,7 +4,7 @@
 
 🔍 https://security.stackexchange.com/
 🗣 https://www.latacora.com/blog/ https://krebsonsecurity.com/ https://twitter.com/badthingsdaily
-📙 grokking https://www.amazon.com/gp/product/1633438260 https://www.manning.com/books/grokking-web-application-security
+📙 McDonald https://www.amazon.com/gp/product/1633438260 https://www.manning.com/books/grokking-web-application-security
 
 ## 进步
 

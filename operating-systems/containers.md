@@ -3,27 +3,25 @@
 ## 参考
 
 🗄
+* `aws.md` compute > containers
 * `django.md` denv
 * `linux.md` denv
 * `src.md` denv
 
 ## 进步
 
-TOOLING
-* cron, exec https://github.com/mcuadros/ofelia/
-* VSC Docker extension https://github.com/Microsoft/vscode-docker/issues/150#issuecomment-462079524 https://www.youtube.com/watch?v=dihfA7Ol6Mw
-* Dockerfile lint https://github.com/hadolint/hadolint https://hadolint.github.io/hadolint/ https://github.com/goodwithtech/dockle
-* image explore https://github.com/wagoodman/dive https://news.ycombinator.com/item?id=38913425
-* TUI: https://github.com/jesseduffield/lazydocker https://github.com/will-moss/isaiah https://github.com/pommee/Pocker https://github.com/bcicen/ctop https://github.com/mrjackwills/oxker https://github.com/moncho/dry https://github.com/amir20/dozzle https://github.com/robertpsoane/ducker
-* CLI https://github.com/j-bennet/wharfee
-* stop inactive jobs https://github.com/sablierapp/sablier
-* what files to ignore: `.git`, `local.db`, not `.dockerfile` https://gist.github.com/wassname/b25471b0f3bb2f9ff81f build context = tarball sent to daemon for image build https://codefresh.io/blog/not-ignore-dockerignore-2/
+get a handle on specs/OCI/CRI https://chatgpt.com/c/673a53d0-f3fc-8004-99ce-c0355d67d2f8
+
+INSTALL
+You said: "Docker volumes and metadata are stored in the virtualized disk image rather than directly in macOS's filesystem"
+How to inspect this location?
+The reason I'm asking about all this: before I install Docker on my machine, I wanted to create a textual snapshot of:
+* how much data I roughly have
+* what ports are open
 
 ---
 
 REPRO
-* 📍 monitoring tool before install
-* https://danluu.com/ballmer/
 * nix > apt? https://pythonspeed.com/articles/reproducible-docker-builds-python/
 * using Poetry and uv inside Docker 🗄️ Python
 
@@ -71,7 +69,14 @@ ZA
 * ssh: https://stackoverflow.com/q/18136389/6813490
 * socket https://blog.quarkslab.com/why-is-exposing-the-docker-socket-a-really-bad-idea.html
 
-## cmd
+## 🟩 cmd
+
+---
+
+* https://www.youtube.com/watch?v=3e8J_pv-xJI
+* cron, exec https://github.com/mcuadros/ofelia/
+* stop inactive jobs https://github.com/sablierapp/sablier
+* what files to ignore: `.git`, `local.db`, not `.dockerfile` https://gist.github.com/wassname/b25471b0f3bb2f9ff81f build context = tarball sent to daemon for image build https://codefresh.io/blog/not-ignore-dockerignore-2/
 
 workflow
 * _start_: compose (`make up`) single container (`make build`, `make start`)
@@ -117,7 +122,41 @@ volumes
 * _list all_: `volume ls` https://stackoverflow.com/a/31997267
 * _prune unused_: `volume prune` https://stackoverflow.com/a/40654726 all https://gist.github.com/evanscottgray/8571828#gistcomment-2866236 https://docs.docker.com/config/pruning/#prune-everything
 
+DEBUG
+* https://www.youtube.com/watch?v=YRt1aB0iAlM
+* `docker info`, attach to container process https://stackoverflow.com/q/19688314
+* run shell in container: `docker exec -it <name> bash` https://stackoverflow.com/a/30173220
+* run new container off snapshot image from existing container https://stackoverflow.com/a/20816397 seems like `run` just `start` + run cmd and typically used for debugging
+* cp container to host: `container cp <container>:/<project>/path/to/file` beware that shell autocomplete will be local fs, not container
+* send req from inside container https://stackoverflow.com/a/41752668
+* security scan https://github.com/quay/clair
+```sh
+make shell
+apt-get -y update
+apt-get install wget
+wget http://0.0.0.0:8000/healthcheck
+```
+* inspect
+```sh
+inspect <container_name>  # all
+inspect --format='{{ .Id }}' <container_name>  # top-level
+docker inspect --format='{{ .NetworkSettings.Networks.crud_default.Gateway }}' <container_name>  # drill down
+```
+logs
+* recap: `docker logs <container/id>` https://stackoverflow.com/a/41752668
+* tail: `logs --follow` https://github.com/zachvalenta/docker-flask/blob/master/Makefile#L57
+* show full output from dev server https://stackoverflow.com/a/36585076
+```yaml
+services:
+  web:
+    tty: true
+```
+
 ## components
+
+🗄️ engines
+
+---
 
 > my Docker version didn't have this GUI, diff btw Comunity Edition and Docker Desktop? https://docs.docker.com/desktop/mac/install/#uninstall-docker-desktop
 
@@ -265,41 +304,179 @@ services:
 * read this https://nickjanetakis.com/blog/best-practices-around-production-ready-web-apps-with-docker-compose
 * different db setups https://github.com/alexmacarthur/local-docker-db
 
-## debug
+## 🛠️ tooling
+
+* VSC Docker extension https://github.com/Microsoft/vscode-docker/issues/150#issuecomment-462079524 https://www.youtube.com/watch?v=dihfA7Ol6Mw
+* Dockerfile lint https://github.com/hadolint/hadolint https://hadolint.github.io/hadolint/ https://github.com/goodwithtech/dockle
+* image explore https://github.com/wagoodman/dive https://news.ycombinator.com/item?id=38913425
+* CLI https://github.com/j-bennet/wharfee
+
+TUI
+* 🎯 https://github.com/jesseduffield/lazydocker
+* https://github.com/will-moss/isaiah
+* https://github.com/pommee/Pocker
+* https://github.com/bcicen/ctop
+* 🎯 https://github.com/mrjackwills/oxker
+* https://github.com/moncho/dry
+* https://github.com/amir20/dozzle
+* https://github.com/robertpsoane/ducker
+
+## volumes
+
+📜 https://docs.docker.com/storage/
 
 ---
 
-https://www.youtube.com/watch?v=YRt1aB0iAlM
-* _sink_: `docker info`, attach to container process https://stackoverflow.com/q/19688314
+https://roadmap.sh/docker
 
-* run shell in container: `docker exec -it <name> bash` https://stackoverflow.com/a/30173220
-* run new container off snapshot image from existing container https://stackoverflow.com/a/20816397 seems like `run` just `start` + run cmd and typically used for debugging
-* cp container to host: `container cp <container>:/<project>/path/to/file` beware that shell autocomplete will be local fs, not container
-* send req from inside container https://stackoverflow.com/a/41752668
-* security scan https://github.com/quay/clair
-```sh
-make shell
-apt-get -y update
-apt-get install wget
-wget http://0.0.0.0:8000/healthcheck
-```
-
-* inspect
-```sh
-inspect <container_name>  # all
-inspect --format='{{ .Id }}' <container_name>  # top-level
-docker inspect --format='{{ .NetworkSettings.Networks.crud_default.Gateway }}' <container_name>  # drill down
-```
-
-logs
-* recap: `docker logs <container/id>` https://stackoverflow.com/a/41752668
-* tail: `logs --follow` https://github.com/zachvalenta/docker-flask/blob/master/Makefile#L57
-* show full output from dev server https://stackoverflow.com/a/36585076
+VOLUMES
+* share files from host to container https://stackoverflow.com/a/40568482
+* inspect https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
 ```yaml
 services:
   web:
-    tty: true
+    build: .
+    volumes:
+      - .:/docker-django
+  proxy:
+    depends_on:
+      - web
+    volumes:
+    - .:/docker-django/nginx.conf
 ```
+
+TYPES https://stackoverflow.com/a/55366707 https://www.youtube.com/watch?v=YFl2mCHdv24 8:27
+* _volume_: stored on host but managed by Docker
+* _bind mount_: not a good idea, allows container processes to touch host files
+* _tmpfs_: Linux version only; stored in-mem, not written to fs
+* _named pipe_: Windows version only
+
+---
+
+* _mount container to host fs_: `run -v` https://www.youtube.com/watch?v=YFl2mCHdv24 8:50 https://stackoverflow.com/a/23455537 docker-compose https://www.codemochi.com/blog/2019-08-27-nextjs-hmr https://www.zachjohnsondev.com/posts/go-docker-hot-reload-example/ http://engineering.conversantmedia.com/technology/2019/10/01/typescript-hot-reload/ https://stackoverflow.com/q/44342741/6813490 `--mount` https://docs.docker.com/storage/bind-mounts/
+* persist Postgres data Awad https://www.youtube.com/watch?v=AQj_Z1FzAfY
+* w/ docker-compose https://devopsheaven.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html
+* fs in container is itself just an alias to fs on Docker host [Wahlin 5.3 @ 2:30] 
+* persisted even if container deleted unless you explicity wipe it out
+* apparently for local dev you mount your src directory onto container file system but for prod you copy your src into container itself
+
+# 🟨 ZA
+
+## containerization
+
+🗄️ `linux.md` perms
+📚
+* Clinton linux in action
+* Evans containers
+* Galvin dinosaur ch 16
+* Takemura book of xen
+* Tanenbaum circus ch 7
+
+EVANS CONTAINERS https://x.com/b0rk/status/1227244309621215233 https://roadmap.sh/docker
+* why: avoid dependency diffs by separating host/container filesystem
+* _image_: tarball of OS + system libs (libc) + language (runtime, libs) + your src
+* _cgroup (control group)_: `cgroup_id` create ID `cgset` set CPU/mem limits `cgexec $ARGS unshare $ARGS` create cgroup 
+* v2 not supported on macOS https://github.com/facebookincubator/below/issues/8239 https://chatgpt.com/c/6734fc58-e87c-8004-a6aa-29f218382928 
+* _namespaces_: https://man7.org/conf/meetup/understanding-user-namespaces--Google-Munich-Kerrisk-2019-10-25.pdf
+* _seccomp_: 
+* _capability_: https://pythonspeed.com/articles/root-capabilities-docker-security/
+* _union filesystems_: overlay https://x.com/tim_raymond/status/1227250152248877056
+
+layers
+* _layer_: tarball i.e. files https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/
+* _build cache_: creates intermediates images along the way (w/ own ids https://cameronlonsdale.com/2018/11/26/whats-in-a-docker-image/) Dockerfile executed top to bottom so put stuff that will change most frequently (e.g. source) at the bottom so that it doesn't invalidate the build cache (any invalidated layer will invalidate all subsequent layers) https://pythonspeed.com/articles/docker-caching-model/ aka 'layer cache' https://testdriven.io/blog/faster-ci-builds-with-docker-cache/
+* caching https://roadmap.sh/docker
+* _rebuilding_: can use existing layers or force a fresh build https://stackoverflow.com/a/35595021
+
+---
+
+https://bitfieldconsulting.com/blog/container-security
+
+https://blog.lizzie.io/linux-containers-in-500-loc.html
+
+> Linux containers were not built to be secure isolated sandboxes (like Solaris Zones or FreeBSD Jails). Instead they’re built upon a shared kernel model that utilizes kernel features to provide basic process isolation http://tech.paulcz.net/blog/future-of-kubernetes-is-virtual-machines/ https://blog.jessfraz.com/post/containers-zones-jails-vms/
+
+* shared file system https://virtio-fs.gitlab.io/
+
+CONTAINERIZATION
+* _layer_: set of changes made to file system
+* _container_: thing that runs; writable layer above image [Wahlin 5.2 @ 2:15] lightweight VM administered to by shared kernel (vs. full os) and using slice of hardware (CPU, mem, persistence) [Clinton fig 2.4] https://jvns.ca/blog/2020/04/27/new-zine-how-containers-work/
+> A container is a combination of cgroups and namespaces. To a first approximation, namespaces control which processes the container can see and cgroups control how much of the system's resources the processes can consume.
+* how to prevent containers from stealing all CPU from host machine https://www.riverphillips.dev/blog/go-cfs/
+* _service_: processing running w/in container
+* _cluster_: n containers
+* setting it up is hard https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/ https://github.com/kelseyhightower/kubernetes-the-hard-way
+* _orchestration_: manages clusters
+* doesn't actually solve the 'works on my machine' problem as deployed container involves Kubernetes, networking, monitoring, config management https://www.youtube.com/watch?v=RB6MvSEaMK
+* can Dockerize surrounding services while keep web app non-Dockerized for REPL speed https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#24:14
+
+ALTERNATIVES TO CONTAINERS
+* microVMs https://github.com/firecracker-microvm/firecracker
+* isolates https://blog.cloudflare.com/cloud-computing-without-containers/
+* Solaris Zones
+* FreeBSD Jails
+* _unikernel_: composition of minimum number of OS libraries necessary to run app https://softwareengineeringdaily.com/2016/09/14/unikernels-with-idit-levine/
+* _sink_: https://medium.com/faun/the-missing-introduction-to-containerization-de1fbb73efc5 http://www.smashcompany.com/technology/why-would-anyone-choose-docker-over-fat-binaries 
+* Firecracker https://news.ycombinator.com/item?id=25883253 https://www.micahlerner.com/2021/06/17/firecracker-lightweight-virtualization-for-serverless-applications.html
+* LXC https://news.ycombinator.com/item?id=30385580
+* VirtualBox, qemu, hyper-V, Xen https://drewdevault.com/2022/09/02/2022-09-02-In-praise-of-qemu.html https://chatgpt.com/c/670fec7a-7cd4-8004-bc50-8b790c438edd https://www.qemu.org/ https://drewdevault.com/2018/09/10/Getting-started-with-qemu.html
+
+HYPERVISORS
+* _host_: os running hypervisor
+* _hypervisor_: emulates host for vm
+* _vm (guest)_: run atop hypervisor https://www.mattlayman.com/blog/2019/web-development-environments/ https://hacker-tools.github.io/virtual-machines/
+* types: type 1 (used in data center, boots before os; ESXi, Hyper-V, Xen, KVM) type 2 (personal machines; VirtualBox, Parallels)
+
+VMWARE
+* _ESXi_: VMWare version of Docker Engine https://en.wikipedia.org/wiki/VMware_ESXi
+* _VCenter_: manages ESXi hosts
+* _VRops_: telemetry for VCenter?
+* _OpenShift_: Kubernetes-aaS
+* _OpenStack_: general IaaS https://www.youtube.com/watch?v=_gWfFEuert8
+* _contention_: vm can't get resources scheduled from host
+
+## engines
+
+🗄
+*️ components
+* `aws.md` compute > containers
+
+---
+
+OCI vs. Docker, Docker Engine vs. Docker Desktop https://roadmap.sh/docker
+
+> tldr for now is that Docker for Desktop is slow/bad security/registry weirdness but also the best option for getting everyone up and running
+
+🧠 https://chatgpt.com/c/6724c43a-a9cc-8004-809b-2b53075f84af
+
+> desktop macos app too heavy https://github.com/docker/for-mac/issues/2297 https://news.ycombinator.com/item?id=41987857
+
+HN AGG
+* https://news.ycombinator.com/item?id=33539019
+* https://news.ycombinator.com/item?id=33538199
+* https://news.ycombinator.com/item?id=28369570
+* registry weirdness https://news.ycombinator.com/item?id=35166317
+* dont use https://www.youtube.com/watch?v=wVil7wG-1yg https://news.ycombinator.com/item?id=26746280
+* next-gen images https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/
+
+RUNTIMES
+* _container engine_: runtime
+* mostly Docker for now, but things like the Open Container Initiative (OCI) and the Runtime Spec could lead to a new runtime https://blog.technodrone.cloud/2019/02/goodbye-docker-and-thanks-for-all-fish.html https://github.com/containers/skopeo
+* _containerd_: container engine
+* used in Kubernetes https://www.thoughtworks.com/radar/platforms?blipid=202203015
+* used in Colima https://www.thoughtworks.com/radar/platforms?blipid=202203015
+* used to be Docker but now OSS https://news.ycombinator.com/item?id=26479921 https://github.com/containerd/containerd https://github.com/google/gvisor
+* BYO https://github.com/kelseyhightower/kubernetes-the-hard-way
+* _runC_: Docker's runtime https://www.docker.com/blog/runc/
+* API to Docker daemon https://github.com/fussybeaver/bollard https://github.com/mrjackwills/oxker https://docker-py.readthedocs.io/en/stable/index.html
+
+DOCKER DESKTOP ALTERNATIVES
+* _Colima_: https://github.com/abiosoft/colima
+> Colima is becoming a popular open alternative to Docker Desktop. It provisions the Docker container run time in a Lima VM, configures the Docker CLI on macOS and handles port-forwarding and volume mounts. Colima uses containerd as its run time, which is also the run time on most managed Kubernetes services — improving the important dev-prod parity. With Colima you can easily use and test the latest features of containerd, such as lazy loading for container images. We've been having good results with Colima in our projects. When in the Kubernetes space, we also use nerdctl, a Docker-compatible CLI for containerd. Since Kubernetes has deprecated Docker as container run time and most managed-services (EKS, GKE, etc) are following its lead, more people will be looking to containerd native tools, hence the importance of tools like nerdctl. In our opinion, Colima is realizing its strong potential and becoming a go-to option as an alternative to Docker Desktop.
+* _Lima_: containerd for macOS https://jvns.ca/blog/2023/07/10/lima--a-nice-way-to-run-linux-vms-on-mac/
+* _Podman_: no daemon, rootless, Red Hat https://news.ycombinator.com/item?id=20542915 `podman play kube` = `docker-compose up` https://www.thoughtworks.com/radar/tools?blipid=202104064
+* _Packer_: build VM/container for use on cloud provider https://news.ycombinator.com/item?id=22491170
+* _Vagrant_: build VM/container for local dev env using VirtualBox as sandbox https://www.mattlayman.com/blog/2019/web-development-environments/ used to be more popular https://news.ycombinator.com/item?id=15395601
 
 ## images
 
@@ -344,11 +521,6 @@ COPY --from=builder /usr/src/app/wheels /wheels
 COPY --from=builder /usr/src/app/requirements.txt .
 RUN pip install --no-cache /wheels/*
 ```
-
-layers
-* _layer_: tarball i.e. files https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/
-* _build cache_: creates intermediates images along the way (w/ own ids https://cameronlonsdale.com/2018/11/26/whats-in-a-docker-image/) Dockerfile executed top to bottom so put stuff that will change most frequently (e.g. source) at the bottom so that it doesn't invalidate the build cache (any invalidated layer will invalidate all subsequent layers) https://pythonspeed.com/articles/docker-caching-model/ aka 'layer cache' https://testdriven.io/blog/faster-ci-builds-with-docker-cache/
-* _rebuilding_: can use existing layers or force a fresh build https://stackoverflow.com/a/35595021
 
 * reproducibility 
 ```dockerfile
@@ -439,182 +611,10 @@ COPY . /$my_project
 CMD flask run --host 0.0.0.0
 ```
 
-## secrets
-
-https://www.youtube.com/watch?v=MlzbHXMQZY4
-* _docker-compose_: https://pythonspeed.com/articles/build-secrets-docker-compose https://keepgrowing.in/tools/set-up-a-postgresql-database-with-docker/ https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/ https://blog.rogs.me/2020/05/how-i-manage-multiple-development-environments-in-my-django-workflow-using-docker-compose/ https://vsupalov.com/docker-arg-env-variable-guide/
-
-runtime
-* passed to container on startup https://stackoverflow.com/a/59143768
-```sh
-# single
-make start user="my_user"  # shell
-docker run -e "USER_NAME=$(user)"  # Makefile
-
-# multiple
-make start user="my_user" pass="my_pass"  # shell
-docker run -e "USER_NAME=$(user)" -e "PW=$(pass)" # Makefile
-
-# from file https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file
-# need to use .dockerignore as well
-```
-
-buildtime
-* present in image layer
-* _good idea_: over the network, either from vault or your own workaround https://pythonspeed.com/articles/docker-build-secrets/
-* _not yet_: BuildKit and `--secret` https://docs.docker.com/develop/develop-images/build_enhancements/#new-docker-build-secret-information https://ponderosa.io/blog/docker/2019/04/13/secrets-in-docker-builds/ leaves trace of image file https://github.com/moby/moby/issues/38667
-* _bad ideas_: `ARG`/`ENV` https://docs.docker.com/engine/reference/builder/#arg https://vsupalov.com/docker-arg-env-variable-guide/ env file https://stackoverflow.com/a/46919859 `–build-arg` https://pythonspeed.com/articles/docker-build-secrets/
-
-## storage
-
-📜 https://docs.docker.com/storage/
-
-volumes
-* share files from host to container https://stackoverflow.com/a/40568482
-* inspect https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/
-```yaml
-services:
-  web:
-    build: .
-    volumes:
-      - .:/docker-django
-  proxy:
-    depends_on:
-      - web
-    volumes:
-    - .:/docker-django/nginx.conf
-```
-
-types https://stackoverflow.com/a/55366707 https://www.youtube.com/watch?v=YFl2mCHdv24 8:27
-* _volume_: stored on host but managed by Docker
-* _bind mount_: not a good idea, allows container processes to touch host files
-* _tmpfs_: Linux version only; stored in-mem, not written to fs
-* _named pipe_: Windows version only
-
----
-
-* _mount container to host fs_: `run -v` https://www.youtube.com/watch?v=YFl2mCHdv24 8:50 https://stackoverflow.com/a/23455537 docker-compose https://www.codemochi.com/blog/2019-08-27-nextjs-hmr https://www.zachjohnsondev.com/posts/go-docker-hot-reload-example/ http://engineering.conversantmedia.com/technology/2019/10/01/typescript-hot-reload/ https://stackoverflow.com/q/44342741/6813490 `--mount` https://docs.docker.com/storage/bind-mounts/
-* persist Postgres data Awad https://www.youtube.com/watch?v=AQj_Z1FzAfY
-* w/ docker-compose https://devopsheaven.com/docker/docker-compose/volumes/2018/01/16/volumes-in-docker-compose.html
-* fs in container is itself just an alias to fs on Docker host [Wahlin 5.3 @ 2:30] 
-* persisted even if container deleted unless you explicity wipe it out
-* apparently for local dev you mount your src directory onto container file system but for prod you copy your src into container itself
-
-# 🟨 ZA
-
-## containerization
-
-🗄️ `linux.md` perms
-📚
-* Clinton linux in action
-* Evans containers
-* Galvin dinosaur ch 16
-* Takemura book of xen
-* Tanenbaum circus ch 7
-
-EVANS CONTAINERS
-* why: avoid dependency diffs by separating host/container filesystem
-* _image_: tarball of OS + system libs (libc) + language (runtime, libs) + your src
-* _cgroup (control group)_: `cgroup_id` create ID `cgset` set CPU/mem limits `cgexec $ARGS unshare $ARGS` create cgroup 
-
----
-
-https://bitfieldconsulting.com/blog/container-security
-
-https://blog.lizzie.io/linux-containers-in-500-loc.html
-
-> Linux containers were not built to be secure isolated sandboxes (like Solaris Zones or FreeBSD Jails). Instead they’re built upon a shared kernel model that utilizes kernel features to provide basic process isolation http://tech.paulcz.net/blog/future-of-kubernetes-is-virtual-machines/ https://blog.jessfraz.com/post/containers-zones-jails-vms/
-
-* shared file system https://virtio-fs.gitlab.io/
-
-CONTAINERIZATION
-* _layer_: set of changes made to file system
-* _container_: thing that runs; writable layer above image [Wahlin 5.2 @ 2:15] lightweight VM administered to by shared kernel (vs. full os) and using slice of hardware (CPU, mem, persistence) [Clinton fig 2.4] https://jvns.ca/blog/2020/04/27/new-zine-how-containers-work/
-> A container is a combination of cgroups and namespaces. To a first approximation, namespaces control which processes the container can see and cgroups control how much of the system's resources the processes can consume.
-* how to prevent containers from stealing all CPU from host machine https://www.riverphillips.dev/blog/go-cfs/
-* _service_: processing running w/in container
-* _cluster_: n containers
-* setting it up is hard https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/ https://github.com/kelseyhightower/kubernetes-the-hard-way
-* _orchestration_: manages clusters
-* under the hood: namespace, seccomp, bpf https://twitter.com/b0rk/status/1227244309621215233 namespaces, union filesystems https://roadmap.sh/docker
-* doesn't actually solve the 'works on my machine' problem as deployed container involves Kubernetes, networking, monitoring, config management https://www.youtube.com/watch?v=RB6MvSEaMK
-* can Dockerize surrounding services while keep web app non-Dockerized for REPL speed https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#24:14
-
-ALTERNATIVES TO CONTAINERS
-* microVMs https://github.com/firecracker-microvm/firecracker
-* isolates https://blog.cloudflare.com/cloud-computing-without-containers/
-* Solaris Zones
-* FreeBSD Jails
-* _unikernel_: composition of minimum number of OS libraries necessary to run app https://softwareengineeringdaily.com/2016/09/14/unikernels-with-idit-levine/
-* _sink_: https://medium.com/faun/the-missing-introduction-to-containerization-de1fbb73efc5 http://www.smashcompany.com/technology/why-would-anyone-choose-docker-over-fat-binaries 
-* Firecracker https://news.ycombinator.com/item?id=25883253 https://www.micahlerner.com/2021/06/17/firecracker-lightweight-virtualization-for-serverless-applications.html
-* LXC https://news.ycombinator.com/item?id=30385580
-* VirtualBox, qemu, hyper-V, Xen https://drewdevault.com/2022/09/02/2022-09-02-In-praise-of-qemu.html https://chatgpt.com/c/670fec7a-7cd4-8004-bc50-8b790c438edd https://www.qemu.org/ https://drewdevault.com/2018/09/10/Getting-started-with-qemu.html
-
-HYPERVISORS
-* _host_: os running hypervisor
-* _hypervisor_: emulates host for vm
-* _vm (guest)_: run atop hypervisor https://www.mattlayman.com/blog/2019/web-development-environments/ https://hacker-tools.github.io/virtual-machines/
-* types: type 1 (used in data center, boots before os; ESXi, Hyper-V, Xen, KVM) type 2 (personal machines; VirtualBox, Parallels)
-
-VMWARE
-* _ESXi_: VMWare version of Docker Engine https://en.wikipedia.org/wiki/VMware_ESXi
-* _VCenter_: manages ESXi hosts
-* _VRops_: telemetry for VCenter?
-* _OpenShift_: Kubernetes-aaS
-* _OpenStack_: general IaaS https://www.youtube.com/watch?v=_gWfFEuert8
-* _contention_: vm can't get resources scheduled from host
-
-## engines
-
-EC2
-```sh
-# INSTALL ON INSTANCE
-sudo amazon-linux-extras install docker
-sudo service docker start
-# AWS USER TO DOCKER GROUP
-sudo usermod -aG docker ec2-user
-```
-
----
-
-> tldr for now is that Docker for Desktop is slow/bad security/registry weirdness but also the best option for getting everyone up and running
-
-🧠 https://chatgpt.com/c/6724c43a-a9cc-8004-809b-2b53075f84af
-
-> desktop macos app too heavy https://github.com/docker/for-mac/issues/2297 https://news.ycombinator.com/item?id=41987857
-
-HN AGG
-* https://news.ycombinator.com/item?id=33539019
-* https://news.ycombinator.com/item?id=33538199
-* https://news.ycombinator.com/item?id=28369570
-* registry weirdness https://news.ycombinator.com/item?id=35166317
-* dont use https://www.youtube.com/watch?v=wVil7wG-1yghttps://news.ycombinator.com/item?id=26746280
-* next-gen images https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/
-
-RUNTIMES
-* _container engine_: runtime
-* mostly Docker for now, but things like the Open Container Initiative (OCI) and the Runtime Spec could lead to a new runtime https://blog.technodrone.cloud/2019/02/goodbye-docker-and-thanks-for-all-fish.html https://github.com/containers/skopeo
-* _containerd_: container engine
-* used in Kubernetes https://www.thoughtworks.com/radar/platforms?blipid=202203015
-* used in Colima https://www.thoughtworks.com/radar/platforms?blipid=202203015
-* used to be Docker but now OSS https://news.ycombinator.com/item?id=26479921 https://github.com/containerd/containerd https://github.com/google/gvisor
-* BYO https://github.com/kelseyhightower/kubernetes-the-hard-way
-* _runC_: Docker's runtime https://www.docker.com/blog/runc/
-* API to Docker daemon https://github.com/fussybeaver/bollard https://github.com/mrjackwills/oxker https://docker-py.readthedocs.io/en/stable/index.html
-
-DOCKER DESKTOP ALTERNATIVES
-* _Colima_: https://github.com/abiosoft/colima
-> Colima is becoming a popular open alternative to Docker Desktop. It provisions the Docker container run time in a Lima VM, configures the Docker CLI on macOS and handles port-forwarding and volume mounts. Colima uses containerd as its run time, which is also the run time on most managed Kubernetes services — improving the important dev-prod parity. With Colima you can easily use and test the latest features of containerd, such as lazy loading for container images. We've been having good results with Colima in our projects. When in the Kubernetes space, we also use nerdctl, a Docker-compatible CLI for containerd. Since Kubernetes has deprecated Docker as container run time and most managed-services (EKS, GKE, etc) are following its lead, more people will be looking to containerd native tools, hence the importance of tools like nerdctl. In our opinion, Colima is realizing its strong potential and becoming a go-to option as an alternative to Docker Desktop.
-* _Lima_: containerd for macOS https://jvns.ca/blog/2023/07/10/lima--a-nice-way-to-run-linux-vms-on-mac/
-* _Podman_: no daemon, rootless, Red Hat https://news.ycombinator.com/item?id=20542915 `podman play kube` = `docker-compose up` https://www.thoughtworks.com/radar/tools?blipid=202104064
-* _Packer_: build VM/container for use on cloud provider https://news.ycombinator.com/item?id=22491170
-* _Vagrant_: build VM/container for local dev env using VirtualBox as sandbox https://www.mattlayman.com/blog/2019/web-development-environments/ used to be more popular https://news.ycombinator.com/item?id=15395601
-
 ## Kubernetes
 
 * good for on-prem? https://danluu.com/simple-architectures/
-> As for Kubernetes, we use Kubernetes because knew that, if the business was successful (which it has been) and we kept expanding, we’d eventually expand to countries that require us to operate our services in country. The exact regulations vary by country, but we’re already expanding into one major African market that requires we operate our “primary datacenter” in the country and there are others with regulations that, e.g., require us to be able to fail over to a datacenter in the country.
+> As for Kubernetes, we use Kubernetes because knew that, if the business was successful (which it has been) and we kept expanding, we'd eventually expand to countries that require us to operate our services in country. The exact regulations vary by country, but we're already expanding into one major African market that requires we operate our “primary datacenter” in the country and there are others with regulations that, e.g., require us to be able to fail over to a datacenter in the country.
 
 ---
 
@@ -689,7 +689,7 @@ ZA
 * static scan https://www.thoughtworks.com/radar/tools?blipid=202203022
 * test config https://github.com/open-policy-agent/conftest https://www.thoughtworks.com/radar/tools?blipid=202110014
 
-## Python
+## 🐍 Python
 
 * https://hynek.me/articles/docker-virtualenv/
 * can install Poetry into the container and use it to install deps (vs. export deps from Poetry to `reqs.txt` bc Poetry doesn't current have a way to export only prod deps) https://jacobian.org/2019/nov/11/python-environment-2020/
@@ -711,3 +711,31 @@ FROM python:3.7-alpine
 FROM alpine:latest
 RUN apk add --no-cache python3-dev
 ```
+
+## secrets
+
+---
+
+RUNTIME
+* passed to container on startup https://stackoverflow.com/a/59143768
+```sh
+# single
+make start user="my_user"  # shell
+docker run -e "USER_NAME=$(user)"  # Makefile
+
+# multiple
+make start user="my_user" pass="my_pass"  # shell
+docker run -e "USER_NAME=$(user)" -e "PW=$(pass)" # Makefile
+
+# from file https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file
+# need to use .dockerignore as well
+```
+
+BUILDTIME
+* present in image layer
+* _good idea_: over the network, either from vault or your own workaround https://pythonspeed.com/articles/docker-build-secrets/
+* _not yet_: BuildKit and `--secret` https://docs.docker.com/develop/develop-images/build_enhancements/#new-docker-build-secret-information https://ponderosa.io/blog/docker/2019/04/13/secrets-in-docker-builds/ leaves trace of image file https://github.com/moby/moby/issues/38667
+* _bad ideas_: `ARG`/`ENV` https://docs.docker.com/engine/reference/builder/#arg https://vsupalov.com/docker-arg-env-variable-guide/ env file https://stackoverflow.com/a/46919859 `–build-arg` https://pythonspeed.com/articles/docker-build-secrets/
+
+https://www.youtube.com/watch?v=MlzbHXMQZY4
+* _docker-compose_: https://pythonspeed.com/articles/build-secrets-docker-compose https://keepgrowing.in/tools/set-up-a-postgresql-database-with-docker/ https://testdriven.io/blog/dockerizing-flask-with-postgres-gunicorn-and-nginx/ https://blog.rogs.me/2020/05/how-i-manage-multiple-development-environments-in-my-django-workflow-using-docker-compose/ https://vsupalov.com/docker-arg-env-variable-guide/

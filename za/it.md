@@ -6,6 +6,7 @@
 
 ## 进步
 
+* swap mac mini? external storage for mac much slower than internal until thunderbolt 5 comes out https://www.youtube.com/watch?v=I3Jg9pInnag [11:30] https://www.jeffgeerling.com/blog/2024/m4-mac-minis-efficiency-incredible
 * get the best albums in FLAC
 * backups https://wesbos.com/uses HDD https://www.amazon.com/dp/B07VTWX8MN/
 * replace previous (huge) email export with personal only https://www.google.com/search?hl=en&q=gmail%20export%20only%20subset https://webapps.stackexchange.com/a/67379
@@ -110,7 +111,7 @@ TIME MACHINE
 * parking tickets
 
 MAT
-* se: rm mckinney book, wayne logic for programmers, network, kent data and reality, evans containers
+* se: rm mckinney book, wayne logic for programmers, network, kent data and reality, evans containers and ints/floats
 * math
 * za
 * science
@@ -118,13 +119,13 @@ MAT
 MUSIC
 * dance: francis harris, jamie xx, danilov
 * electronic: drone
-* jazz: christian scott, alice coltrane, bill frisell
+* jazz: christian scott, alice coltrane, bill frisell, ahmad jamal
 * far: Aster Aweke
 * za/blues: hendrix
 * za/gospel: hank jones
 * dance/techno: all
 > za (chemical brothers et al.)
-* rock: singles, dylan, band, minutemen, dinosaur jr, dr john to psych, ritter to pop, neil young
+* rock: singles, dylan, band, minutemen, dinosaur jr, dr john to psych, ritter to pop, neil young 75-2002, wilco
 > loud soft loud out of punk + import meat puppets
 
 ### air-capp ➡️ mini23
@@ -184,6 +185,27 @@ install from bootable disk
 
 ## sync
 
+🗄️ `git.md` lazygit
+
+CURRENT WORKFLOW
+```yaml
+# NOTES: SW, DOM
+- /Users/zach/Documents/zv/notes/domains
+- /Users/zach/Documents/zv/notes/sw
+
+# CAPP: TM, HB, WLR
+- /Users/zach/Documents/zv/capp/handbook
+- /Users/zach/Documents/zv/capp/task-mgmt
+- /Users/zach/Documents/zv/capp/worklogs
+
+# ZA: BASILK, UR, MYB
+- /Users/zach/Library/Application Support/basilk
+- /Users/zach/Documents/zv/materials/sw/lang/html-css/myblog
+- /Users/zach/Documents/zv/materials/sw/svc/ur-repo
+```
+* problem: slow workflow (git) + too many repos to sync (sw, dom, site, worklogs, task-mgmt, handbook)
+* solution: lazygit multiple reops -> manually add all repos to lazygit `state.yaml` and then your sync workflow can be done with no cd-ing around + through lazygit's status pane you have a catalog of all the repos you need to sync
+
 ---
 
 * is hard https://sirupsen.com/napkin/problem-14-using-checksums-to-verify
@@ -218,36 +240,22 @@ MOVIES
 * notebook [83,86]
 * `doc.md` notes, task mgmt
 * `git.md` submodules
-* `linux.md` denv
 
-### coordination
-
-🗄️ `git.md` lazygit
-
-```yaml
-# NOTES: SW, DOM
-- /Users/zach/Documents/zv/notes/domains
-- /Users/zach/Documents/zv/notes/sw
-
-# CAPP: TM, HB, WLR
-- /Users/zach/Documents/zv/capp/handbook
-- /Users/zach/Documents/zv/capp/task-mgmt
-- /Users/zach/Documents/zv/capp/worklogs
-
-# ZA: BASILK, UR, MYB
-- /Users/zach/Library/Application Support/basilk
-- /Users/zach/Documents/zv/materials/sw/lang/html-css/myblog
-- /Users/zach/Documents/zv/materials/sw/svc/ur-repo
-```
-
-* problem: slow workflow (git) + too many repos to sync (sw, dom, site, worklogs, task-mgmt, handbook)
-* solution: lazygit multiple reops -> manually add all repos to lazygit `state.yaml` and then your sync workflow can be done with no cd-ing around + through lazygit's status pane you have a catalog of all the repos you need to sync
-
-### tree
-
+CURRENT
+> next time, denv inside zv
 ```sh
 # /Users/zach/Documents
 ├── denv
+│   └── bin
+│   └──── news  # symlink
+│   └─────── repos/news/main.py  # symlink src
+│   └──── sysinfo
+│   └──── vimv
+│   └── dotfiles
+│   └── fonts
+│   └──── fira code
+│   └──── fira mono
+│   └── logs
 ├── telescope-workspace
 ├── zv
 │   └── 🗄️ ADMIN
@@ -499,10 +507,13 @@ ROUGH PLAN
 * buy used mini for golf ($150)
 * buy used reg for procreate ($170 + pencil $80)
 
-USAGE
-* drawing
-* golf
-* music
+USE CASES
+> procreate/garageband storage needs
+> any special reqs for recording guitar?
+* procreate https://www.creativebloq.com/buying-guides/best-ipad-for-procreate
+* golf https://apps.apple.com/us/app/onform-video-analysis-app/id1490334045 https://apps.apple.com/us/app/swing-profile-golf-analyzer/id1039981052 https://apps.apple.com/us/app/v1-golf-golf-swing-analyzer/id349715369
+* skate
+* garageband
 * travel https://github.com/rand-net/khan-dl
 
 https://buyersguide.macrumors.com/#iPad-Air
@@ -517,19 +528,29 @@ PENCIL
 * https://en.wikipedia.org/wiki/Apple_Pencil
 * https://www.lifewire.com/apple-pencil-compatibility-with-ipad-5189841
 
-> procreate/garageband storage needs
-> any special reqs for recording guitar?
-
 * reg: $425 11" (with pencil) 64GB
 * air: $725 11" 128GB; $800 13"
 
-USE CASES
-* procreate https://www.creativebloq.com/buying-guides/best-ipad-for-procreate
-* golf https://apps.apple.com/us/app/onform-video-analysis-app/id1490334045 https://apps.apple.com/us/app/swing-profile-golf-analyzer/id1039981052 https://apps.apple.com/us/app/v1-golf-golf-swing-analyzer/id349715369
-* skate
-* garageband
-
 ## machines
+
+MINI23
+```sh
+zach@zachs-mac-mini.lan
+OS: macOS 13.4 22F66 arm64
+Host: Mac14,3
+Kernel: 22.5.0
+Packages: 187 (brew)
+Shell: zsh 5.9
+Resolution: 1920x1080
+DE: Aqua
+WM: Quartz Compositor
+WM Theme: Blue (Dark)
+Terminal: iTerm2
+Terminal Font: FiraMonoNerdFontComplete-Regular 14
+CPU: Apple M2
+GPU: Apple M2
+Memory: 1267MiB / 8192MiB
+```
 
 MBP14 🗄 `python-3.10-youtube-ffmpeg.md`
 * left behind: Ableton, Human Japanese
@@ -562,6 +583,40 @@ neofetch
   .XMMMMMMMMMMMMMMMMMMMMMMMMK.   Terminal: iTerm2
     kMMMMMMMMMMMMMMMMMMMMMMd     Terminal Font: FiraMonoNerdFontComplete-Regular 15
      ;KMMMMMMMWXXWMMMMMMMk.
+```
+
+COMPATIBILITY https://en.wikipedia.org/wiki/MacOS_version_history#Releases
+* current version: v10.14 (Mojave)
+* v11 (Big Sur) works for mbp2014 https://support.apple.com/en-us/HT211238
+* v12 (Monterey) doesn't work for mbp2014 https://support.apple.com/en-us/HT212551
+* can run Mojave (10.14) on anything 2012 and higher https://www.techjunkie.com/macos-mojave-system-requirements/
+* probably can't run 11 on 2012 Macs https://www.youtube.com/watch?v=8jM1brvJhzg 10:20
+* Apple prevents downloads of older OS versions if you're on Mojave; on other versions, to have access to previous OS you need to have them previously installed and available from the App Store's 'Previously Purchased' tab or find someone who does https://www.macworld.co.uk/how-to/mac-software/download-old-os-x-3629363/#toc-3629363-1
+
+❌ BIG SUR UPGRADE
+* said it need 12gb
+* had 18gb
+* installed 12gb
+* said it needed another 28gb
+* I'm out 12gb
+
+✅ MOJAVE UPGRADE
+* 10.10 to 10.14 bc Sublime and Homebrew started to break and the answer threads looked grim
+* caused when I tried to install Vim and it ended up breaking some core libs
+* Sublime error -
+```sh
+# Sublime error https://stackoverflow.com/a/26044247/6813490
+plugin_host has exited unexpectedly, plugin functionality wont be available until Sublime Text has been restarted
+# Homebrew error https://github.com/Homebrew/homebrew-core/issues/5799
+dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
+Referenced from: /usr/local/bin/awk
+Reason: image not found
+#  Bash/Neofetch error
+$ neofetch
+dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
+  Referenced from: /usr/local/bin/awk
+  Reason: image not found
+/usr/local/bin/neofetch: line 4160: 11158 Trace/BPT trap: 5       awk -F'<|>' '/string/ {print $3}' "/System/Library/CoreServices/SystemVersion.plist"
 ```
 
 ## manufacturers
@@ -611,8 +666,20 @@ CONSIDERATIONS
 ## monitors
 
 🔗 https://www.apple.com/mac-mini/specs/
+🗜️ dimensions https://chatgpt.com/c/6737a255-6780-8004-8741-77accad98212
+
+FACTORS 🗄️ machines
+* aspect ratio
+* scaling
+* size
+* refresh rate
 
 ---
+
+COLORATION
+* dark mode: set from terminal https://stefan.sofa-rockers.org/2018/10/23/macos-dark-mode-terminal-vim/
+* Flux https://justgetflux.com/ https://news.ycombinator.com/item?id=30626803
+* NightShift https://shifty.natethompson.io/en/
 
 * https://registerspill.thorstenball.com/p/joy-and-curiosity-13 https://daniel.lawrence.lu/blog/y2023m12d15/
 * https://news.ycombinator.com/item?id=41987359
@@ -735,27 +802,6 @@ INVENTORY 🗄 `/Applications`
 * util: Android File Transfer, Airdroid https://www.youtube.com/watch?v=D6gE-W9oUz0 AppCleaner, DriveDX, Disk Drill, Monodraw, Flux, Battery Health 2 https://www.youtube.com/watch?v=UGOJmN3Lc2U 4:30
 * za: Human Japanese
 
-🕸️ BROWSERS 🗄 `js.md` browser
-* set default: system preferences > general
-* settings: zoom to 110, font fize large, downloads to desktop, switch search to DuckDuckGo, startup to open previous tabs
-* extensions: Vimium, Mercury Reader, EditThisCookie, PocketTube
-* clean pages: archive.vn, https://12ft.io/ https://github.com/wasi-master/13ft https://chromewebstore.google.com/detail/archive-page/gcaimhkfmliahedmeklebabdgagipbia?pli=1
-* `python -m webbrowser pseudorandom.name` https://dev.to/dmahely/one-bash-command-to-start-the-day-2fni
-* _Arc_: https://en.wikipedia.org/wiki/Arc_(web_browser) https://www.youtube.com/watch?v=E9yZ0JusME4 https://news.ycombinator.com/item?id=36863925 https://news.ycombinator.com/item?id=41597250
-* _awrit_: in terminal?!? https://github.com/chase/awrit
-* _Brave_: way less storage hit (150M) than Chrome (1.2GB) 🗄️ `/Users/$USER/Library/Application Support`
-* commands
-```sh
-CMD t  # restore tab
-CMD r  # reload
-CMD ALT i  # dev tools
-CMD b  # bookmarks
-```
-* _Chrome_: what's the extension you're using to Youtube playlist org? https://sponsor.ajay.app/
-* _Lynx_: 'reader mode' https://github.com/bensadeh/circumflex
-* _Firefox_: https://wesbos.com/uses https://www.mozilla.org/en-US/firefox/developer/
-* _Zen_: based on Firefox https://zen-browser.app/ can split panes within browser https://www.youtube.com/watch?v=VshptkoKfQo [6:30] https://x.com/mkennedy/status/1856416323447992381
-
 🔍 FINDER
 * preferences: sidebar items (desktop, documents, hard disks, external disks)
 * set default window size: hold CMD when resizing window, then hold ALT and right click Finder in Dock to relaunch https://apple.stackexchange.com/a/192959 
@@ -797,11 +843,6 @@ SPOTLIGHT
 * folders to search: apps, calculator, definition, documents, folder, music, pdf documents, system preferences
 * NLP = can no longer turn off web search https://forums.macrumors.com/threads/spotlight-how-to-remove-web-search-from-results.2271616/
 * alternatives https://news.ycombinator.com/item?id=22849208 Alfred https://switowski.com/blog/favorite-mac-tools/
-
-COLORATION
-* dark mode: set from terminal https://stefan.sofa-rockers.org/2018/10/23/macos-dark-mode-terminal-vim/
-* Flux https://justgetflux.com/ https://news.ycombinator.com/item?id=30626803
-* NightShift https://shifty.natethompson.io/en/
 
 PREVIEW
 * alternative https://getpolarized.io/
@@ -914,6 +955,17 @@ Update them from Software Update in System Preferences or run:
   softwareupdate --all --install --force
 ```
 
+## provision
+
+🗄️ `linux.md` denv
+
+PKGS
+> when to install command line tools?
+> does Git come with macOS? Homebrew?
+* pyenv/pipx, bun, rust
+* neovim
+* Homebrew last 🗄️ `linux.md` Homebrew > constraints
+
 ## rosetta
 
 * _Rosetta_: gets Intel apps to work on M1 https://news.ycombinator.com/item?id=30799686 https://news.ycombinator.com/item?id=31696447
@@ -975,48 +1027,11 @@ $ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 * silence beep: iTerm (profiles > terminal > notifications > silence bell) http://codingshower.com/how-to-disable-mac-os-annoying-beep-alert-bell-sound-in-terminal-and-iterm2/ global https://apple.stackexchange.com/questions/384025/why-is-my-macbook-pro-beeping-when-performing-a-keyboard-shortcut VS Code https://stackoverflow.com/a/62581536
 
-## versions
-
----
-
-COMPATIBILITY https://en.wikipedia.org/wiki/MacOS_version_history#Releases
-* current version: v10.14 (Mojave)
-* v11 (Big Sur) works for mbp2014 https://support.apple.com/en-us/HT211238
-* v12 (Monterey) doesn't work for mbp2014 https://support.apple.com/en-us/HT212551
-* can run Mojave (10.14) on anything 2012 and higher https://www.techjunkie.com/macos-mojave-system-requirements/
-* probably can't run 11 on 2012 Macs https://www.youtube.com/watch?v=8jM1brvJhzg 10:20
-* Apple prevents downloads of older OS versions if you're on Mojave; on other versions, to have access to previous OS you need to have them previously installed and available from the App Store's 'Previously Purchased' tab or find someone who does https://www.macworld.co.uk/how-to/mac-software/download-old-os-x-3629363/#toc-3629363-1
-
-❌ BIG SUR UPGRADE
-* said it need 12gb
-* had 18gb
-* installed 12gb
-* said it needed another 28gb
-* I'm out 12gb
-
-✅ MOJAVE UPGRADE
-* 10.10 to 10.14 bc Sublime and Homebrew started to break and the answer threads looked grim
-* caused when I tried to install Vim and it ended up breaking some core libs
-* Sublime error -
-```sh
-# Sublime error https://stackoverflow.com/a/26044247/6813490
-plugin_host has exited unexpectedly, plugin functionality wont be available until Sublime Text has been restarted
-# Homebrew error https://github.com/Homebrew/homebrew-core/issues/5799
-dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
-Referenced from: /usr/local/bin/awk
-Reason: image not found
-#  Bash/Neofetch error
-$ neofetch
-dyld: Library not loaded: /usr/local/opt/readline/lib/libreadline.7.dylib
-  Referenced from: /usr/local/bin/awk
-  Reason: image not found
-/usr/local/bin/neofetch: line 4160: 11158 Trace/BPT trap: 5       awk -F'<|>' '/string/ {print $3}' "/System/Library/CoreServices/SystemVersion.plist"
-```
-
 # 🟨️ ZA
 
 ## cameras
 
+* series https://deannadikeman.com/leaving-and-waving
 * kids https://www.youtube.com/watch?v=lTyRiO08xi8 https://www.amazon.com/Toddler-Digital-Instant-Childrens-Birthday/dp/B0CSW8719G
 * fancy https://www.youtube.com/watch?v=Z--EFPp5Yds https://daniel.lawrence.lu/blog/y2024m05d31/
 * iPhone: 🎯 camera https://www.youtube.com/watch?v=jjpylH_We_o video https://www.youtube.com/watch?v=M7paNi4UVDc

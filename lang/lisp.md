@@ -28,6 +28,51 @@
 * mutual interop w/ Java https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
 * Golang https://funcall.blogspot.com/2024/10/lisp-vs-golang.html
 
+# 👽 LISPS
+
+* _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
+* _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
+* _Janet_: https://github.com/janet-lang/janet https://github.com/cfoust/cy
+* _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
+
+## 🟩 Clojure
+
+📚
+* Borgatti reference https://www.manning.com/books/clojure-the-essential-reference
+> MEAP started December 2016, expected publication 2025!
+* Fogus joy of clojure https://www.manning.com/books/the-joy-of-clojure-second-edition
+* Higginbotham clojure for the brave and true https://www.braveclojure.com/
+
+USED BY
+* https://github.com/damn/core
+
+---
+
+* http://cleancoder.com/a-little-clojure
+* https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
+* https://news.ycombinator.com/item?id=20844978
+* https://tonsky.me/blog/utils/
+* http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html
+
+## 🟦 Racket
+
+📜 https://racket-lang.org/
+
+USED BY
+* https://docs.racket-lang.org/pollen/
+* https://github.com/DarrenN/cuttlefish
+
+---
+
+* based off Scheme
+* async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html
+* https://news.ycombinator.com/item?id=7823337
+* https://news.ycombinator.com/item?id=19952714
+* https://news.ycombinator.com/item?id=23132621
+* https://news.ycombinator.com/item?id=8206038
+* https://news.ycombinator.com/item?id=13881535
+* https://news.ycombinator.com/item?id=32723784
+
 # 🦑 RELATIVES
 
 * _Elm_: https://elm-lang.org/examples 🗄️ `goland.md` CLI > Bubble Tea
@@ -44,6 +89,7 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 ## 🐘 Haskell
 
 * https://learnyouahaskell.com/ https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
+* https://gwern.net/resilient-software
 * https://www.manning.com/books/functional-design-and-architecture
 * https://www.manning.com/books/learn-haskell-by-example
 
@@ -69,13 +115,3 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 * s-expressions https://news.ycombinator.com/item?id=5654398 https://notes.eatonphil.com/compiler-basics-lisp-to-assembly.html
 * no loops https://www.lvguowei.me/post/sicp-goodness-looping/
 * prefix notation: operator comes first https://www.braveclojure.com/getting-started/
-
-## Lisps
-
-* _Clojure_: http://cleancoder.com/a-little-clojure https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html https://tonsky.me/blog/utils/ Joy of Clojure better than Clojure for the Brave and True? http://ahungry.com/blog/2018-12-26-Clojure-is-Capable.html https://news.ycombinator.com/item?id=20844978 check out this book, Dan Luu recommended https://twitter.com/ctford/status/1345798531119009792 https://www.manning.com/books/clojure-the-essential-reference
-* https://github.com/damn/core
-* _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
-* _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
-* _Janet_: https://github.com/janet-lang/janet https://github.com/cfoust/cy
-* _Racket_: based off Scheme, async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=19952714 https://news.ycombinator.com/item?id=23132621 https://news.ycombinator.com/item?id=8206038 https://news.ycombinator.com/item?id=13881535 https://news.ycombinator.com/item?id=32723784 https://docs.racket-lang.org/pollen/
-* _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 

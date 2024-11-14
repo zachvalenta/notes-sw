@@ -32,6 +32,8 @@ PG http://paulgraham.com/popular.html
 
 ## benchmark
 
+🎗️ https://danluu.com/anon-benchmark/ https://danluu.com/why-benchmark/
+
 LINUX
 * _time_: `/usr/bin/time -v` eetailed output w/ memory stats https://github.com/egoist/dum https://news.ycombinator.com/item?id=30226742
 * _timedatectl_: nanoseconds
@@ -130,11 +132,16 @@ if __name__=='__main__':
 
 ## types
 
+* _sampling_: interrupts program, snapshots stack trace, aggregates sample of these interruptions and tells you where you're spending most of your time
+> Sampling profilers, the most common performance debugging tool, are notoriously bad at debugging problems caused by tail latency because they aggregate events into averages. But tail latency is, by definition, not average. https://danluu.com/perf-tracing/
+> The general shape of it is you take a system and you point a tool at it that stops the world every so often. Let's say every hundred microseconds maybe. And it stops the world and asks, where are you right now? And it looks at where the instruction pointer is, what are we currently executing? And it generally looks at the stack trace, how did you get here? And then it writes this down and it lets the program keep going. And profilers only really differ on how do they stop the world and how do they write this down. My favorite is the Linux kernel profiler. It's called perf, and it just uses a bunch of hardware features to get an interrupt at exactly the right moment in time. And then it just very quickly writes down the stack trace in this compressed format. It's very optimized. And then you take all these stack traces. The profile is really just a list of stack traces and sometimes a little bit of augmented information, but that's fundamentally the core idea. And then you present it to the user in some way that adds them up. And like I say, the key thing is it tells you, okay, 30% of the stack traces ended in the function foo. That's a hotspot. You're spending 30% of your time there. https://signalsandthreads.com/performance-engineering-on-hard-mode/
+
+---
+
 * BYO https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://pythonspeed.com/articles/custom-python-profiler/
 * statistical profiler https://www.youtube.com/watch?v=d5SGUscT2GA Linux perf https://realpython.com/python312-perf-profiler/ https://github.com/brendangregg/FlameGraph https://hacker-tools.github.io/program-introspection/
 * performance profiler https://www.youtube.com/watch?v=CjG_Ub_gCL4 [2:10]
 * sampling profiler
-> So you talked about sampling profilers as one common tool. Can you actually just go in a little more detail of what is a sampling profiler and how does it actually work at a low level? -> So there’s a lot of different implementations of this, but the general shape of it is you take a system and you point a tool at it that stops the world every so often. Let’s say every hundred microseconds maybe. And it stops the world and asks, where are you right now? And it looks at where the instruction pointer is, what are we currently executing? And it generally looks at the stack trace, how did you get here? And then it writes this down and it lets the program keep going. And profilers only really differ on how do they stop the world and how do they write this down. My favorite is the Linux kernel profiler. It’s called perf, and it just uses a bunch of hardware features to get an interrupt at exactly the right moment in time. And then it just very quickly writes down the stack trace in this compressed format. It’s very optimized. And then you take all these stack traces. The profile is really just a list of stack traces and sometimes a little bit of augmented information, but that’s fundamentally the core idea. And then you present it to the user in some way that adds them up. And like I say, the key thing is it tells you, okay, 30% of the stack traces ended in the function foo. That’s a hotspot. You’re spending 30% of your time there. https://signalsandthreads.com/performance-engineering-on-hard-mode/
 
 # 🔬 TEST
 

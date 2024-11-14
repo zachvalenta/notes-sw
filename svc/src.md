@@ -399,7 +399,7 @@ as red flag https://news.ycombinator.com/item?id=30675182
 
 📚
 * ✅ Evans domain-driven design https://github.com/nickgerace/gfold/pull/149/files
-* Percival https://www.amazon.com/gp/product/1492052205
+* Percival https://www.amazon.com/gp/product/1492052205 https://www.youtube.com/watch?v=niMybnzmzqc [1:15]
 
 ## DSLs
 
@@ -558,7 +558,31 @@ URL shortener 🗄 `fd url-short`
 BYO
 * https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/ https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/ https://github.com/itsthejoker/spiderweb/ https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://dev.to/brunociccarino/how-i-wrote-express-go-in-19-hours-3ndh https://blog.dimitarandreev.com/posts/writing-an-http-router-for-aws-lambda-functions-from-scratch-with-go/
 
-CHECKLIST
+## checklist / scaffold
+
+* UV
+* healthcheck
+* REPL
+* make/task
+* web server
+
+* CICD
+* admin
+
+* auth
+* dotenvx
+* feature flag
+
+* CDN
+* load balancing
+* cache
+
+* Celery
+* htmx
+
+---
+
+https://github.com/zachvalenta?tab=repositories&q=docker&type=&language=&sort=
 * env: config, Docker, ❌ auth
 * CQ: testing, hooks
 * data: seed, repl, ❌ migrations, serialization, ORM
@@ -574,10 +598,7 @@ WORLD'S DUMBEST COMPLETE SAAS
 * https://news.ycombinator.com/item?id=34530052
 * https://news.ycombinator.com/item?id=34483294
 * https://pocketbase.io/
-* BYO Saas https://www.datasette.cloud/blog/2023/welcome/
-
-* _files - static_: CSS, JS, fonts https://learndjango.com/tutorials/django-static-files
-* _files - media_: uploaded by user https://docs.djangoproject.com/en/3.1/topics/files/#managing-files
+* BYO Saas https://www.datasette.cloud/blog/2023/welcome/ https://simonwillison.net/2020/Jan/14/stanford-planning-datasette-cloud/ https://simonwillison.net/tags/datasette-cloud/?page=2
 
 ## internationalization (i18n)
 

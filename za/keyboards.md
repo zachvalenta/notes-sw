@@ -8,16 +8,16 @@
 
 ## 进步
 
-https://www.youtube.com/watch?v=9P74eCU19d0
+finish zsa and choose btw moonlander and voyager (leaning voyager in everything but keycount)https://www.youtube.com/watch?v=9P74eCU19d0
+
+* _24_: models (Apple refurbished, nuphy air 75, keychron k8)
+
+# 🟨 ZA
 
 STORAGE
 > just use boxes for now
 * shelves https://www.reddit.com/r/MechanicalKeyboards/comments/7vz7lr/what_is_everyones_keyboard_storage_situation_like/?rdt=58394 https://www.ikea.com/us/en/p/alex-drawer-unit-on-casters-white-80485423/
 * https://www.reddit.com/r/MechanicalKeyboards/comments/6jm453/help_for_those_that_have_multiple_keyboards_how/ https://imgur.com/a/keyboard-storage-Ym4An https://www.amazon.com/dp/B01K07MZPK/ref=cm_sw_r_cp_apip_fyUmiTPzneJiH
-
-* _24_: models (Apple refurbished, nuphy air 75, keychron k8)
-
-# 🟨 ZA
 
 ## features
 
@@ -89,6 +89,7 @@ LETTERING
 ## models
 
 🏪
+> prebuilt cheaper in time and money https://www.youtube.com/watch?v=N_mZEbJmKYg
 * https://keeb-finder.com/
 * https://mechanicalkeyboards.com/
 * https://novelkeys.com/
@@ -162,7 +163,6 @@ https://people.zsa.io/emma-anderson/
 LAYOUT https://www.youtube.com/watch?v=WpuwhQy5cGg https://configure.zsa.io/voyager/layouts/
 * 52 keys
 * thumb cluster is too busy https://www.youtube.com/watch?v=KlyMuZIEOOw [2:10]
-
 * can BYO, beware second-hand https://www.youtube.com/watch?v=KlyMuZIEOOw
 
 #### 🌚 moonlander
@@ -170,12 +170,12 @@ LAYOUT https://www.youtube.com/watch?v=WpuwhQy5cGg https://configure.zsa.io/voya
 LAYOUT https://configure.zsa.io/voyager/layouts/ https://www.youtube.com/watch?v=5AqXjVrnI2E
 * 72 keys
 * layout
-* thumb cluster still too busy
+* thumb cluster still too busy; mods https://www.youtube.com/watch?v=SVCFSe6NozU
 * more keys on R side for ENTER, shift
 * zip kit = too many keys period? https://www.youtube.com/watch?v=BK_ezYCgIpY
 
 ERGO
-* tenting https://www.youtube.com/watch?v=y3lnLcb-nPo
+* tenting https://www.youtube.com/watch?v=y3lnLcb-nPo https://www.youtube.com/watch?v=SVCFSe6NozU
 * more adjustable out of the box
 * wrist rest comes with
 
@@ -187,12 +187,13 @@ LAYOUT https://configure.zsa.io/voyager/layouts/
 * 52 keys
 * pinky keys should be big buttons https://www.youtube.com/watch?v=KlyMuZIEOOw [3:30]
 * no wasted inside buttons https://www.youtube.com/watch?v=KlyMuZIEOOw [4:00]
-* not enough keys?
+* ❓ not enough keys?
 > I need at least [ ] ; ' \ , . to be separate physical keys (because they are also letters/essential punctuation in other languages), and ideally arrows too, and more thumb buttons than just 2 (ideally ctrl/win/alt/altGr and backspace/delete/space/enter). Also quite important for gaming to have modifiers and the usual keys (spacebar, tab, etc) easily available without layers, tap hold or tapdance.
 
 ERGO
 * ✅ portable
 > you can use k8 at work, workshop voyager at home, and then when you're good just bring voyager everywhere
+* ❌ wish it didnt have choc switches
 * tripod mount https://www.zsa.io/voyager/tripod-mount https://www.youtube.com/watch?v=rY2D4G4krRQ more tenting https://www.youtube.com/watch?v=II3Wm5P6fOU
 * 3d printing for greater tenting https://www.zsa.io/voyager/printables https://chatgpt.com/c/673357a3-c144-8004-b9c4-7ace2f0cd9c3
 
@@ -238,9 +239,9 @@ ZSA KEYS https://configure.zsa.io/voyager/layouts/ https://configure.zsa.io/moon
 * https://milktooth.com/products/switches
 * https://switches.mx/
 
-SOUNDS https://www.youtube.com/watch?v=xtadlynfAZ8 https://pacificparadiseprints.shop
+SOUNDS https://www.youtube.com/watch?v=xtadlynfAZ8 https://pacificparadiseprints.shop https://www.youtube.com/@kineticlabskb/videos
 * _clicky_: high pitched; Gateron blue
-* _creamy_: ✅ quiet, more resistance; Gateron brown|milky yellow
+* _creamy_: ✅ quiet, more resistance; Gateron brown|milky yellow https://www.youtube.com/watch?v=EzKB-__6IW0 [13:00]
 * _thocky_: clacky, less resistance; Gateron red
 
 SEMANTICS
@@ -256,7 +257,7 @@ TYPES
 > ALPS switches have been considered by enthusiasts to be one of the rarest type key switches. They are not as popular as mechanical switches, membrane switches, and even Topre switches. In fact, they can only be seen in vintage keyboards that were produced before the rise of membrane keyboards in the 1990s. https://keyboardsexpert.com/what-are-alps-switches/
 * _mechanical_: 
 * _membrane_: 
-* _Topre_: https://duarteocarmo.com/blog/happy-hacking-keyboard-review https://gizmodo.com/this-is-the-perfect-keyboard-1845258727
+* _Topre_: https://duarteocarmo.com/blog/happy-hacking-keyboard-review https://gizmodo.com/this-is-the-perfect-keyboard-1845258727 HHKB https://www.youtube.com/watch?v=EzKB-__6IW0 [3:50]
 > Switch makers also make low-profile switches, which aren’t as tall and have less travel. You can also find other, completely different types of switches, such as Topre, buckling spring, and Alps clones. None of these switch types are compatible with the wide pool of keycaps designed for MX stems, but they all have their own unique appeal. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
 
 ---
@@ -281,13 +282,16 @@ MX vs. choc
 
 ## typing
 
+ZA
+* WPM calculation https://www.speedtypingonline.com/typing-equations https://github.com/AnirudhG07/typeinc?ref=terminaltrove#3-grading-and-typeinc-score-
+> seems like I'm ~85wpm as of 24.11 on Keychron k8
+* features: export, individual keys
+* Oryx training https://www.youtube.com/watch?v=e6krxDENYOM
 * _keycastr_: keystroke visualizer https://github.com/keycastr/keycastr https://switowski.com/blog/favorite-mac-tools/
 
-PRACTICE
-* WPM calculation https://www.speedtypingonline.com/typing-equations https://github.com/AnirudhG07/typeinc?ref=terminaltrove#3-grading-and-typeinc-score-
-* 📍 features: export, individual keys
-* Oryx training https://www.youtube.com/watch?v=e6krxDENYOM
+TEST
 * _keybr_: web, lightweight https://www.keybr.com/
+* _monkeytype_: zach_v https://monkeytype.com/ https://www.youtube.com/watch?v=EzKB-__6IW0 [2:23]
 * _smassh_: 🐍 https://github.com/kraanzu/smassh
 * _ttyper_: local, no Homebrew install, no saved results https://github.com/max-niederman/ttyper
 * _typingclub_: web https://www.typingclub.com/sportal/

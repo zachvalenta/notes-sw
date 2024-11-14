@@ -36,7 +36,9 @@ topologies
 * _network inferface_: https://jvns.ca/blog/2017/09/03/network-interfaces/
 * _out-of-band interface_: robot that can physically manipulate server (something wrong w/ RAID array)
 
-## data center
+## data centers
+
+https://danluu.com/datacenter-power/
 
 semantics
 * _placement_: determine ability to provision based on cpu/mem/storage
@@ -144,59 +146,6 @@ Saunders also claimed that, had Bush been in Manhattan during the 9/11 attacks, 
 In 2011, CenturyLink acquired Qwest as part of a $12.2 billion merger deal.
 
 Twenty-five miles north of Seattle, there is a major intercontinental undersea cable called Pacific Crossing-1 https://www.submarinecablemap.com/
-
-## speed
-
-re: wifi
-* 搜 'internet speed test' https://news.ycombinator.com/item?id=26343394 https://news.ycombinator.com/item?id=31062799 https://www.lambdafunctions.com/articles/make-internet-connection-worse
-* https://news.ycombinator.com/item?id=24478149 https://dailywireless.org/internet/what-is-mbps/
-* 115/4.5 at Wilmington apartment
-```sh
-# https://weiyen.net/articles/useful-macos-cmd-line-utilities
-networkQuality
-networksetup
-```
-
-📍 rf using Kleppmann, Data Networking Made Easy, sou (networking, system design)
-
-latency
-> number of seconds it takes for an operation to complete https://leanpub.com/systemdesignmanual/read_sample
-> if your latency is 500ms https://jvns.ca/blog/2017/04/01/slow-down-your-internet-with-tc/
-> time delay in packet delivery [Data Networking Made Easy 26]
-https://github.com/apenwarr/blip
-
-jitter https://gafferongames.com/post/fixing_the_internet_for_games/
-> variablility in latency https://networkengineering.stackexchange.com/a/22826
-> out-of-sequence packets [Data Networking Made Easy 26]
-
-* _latency_: how long it takes the data to get to the place it needs to be computed https://www.moderndescartes.com/essays/data_oriented_python/ https://github.com/nakabonne/ali geography https://calpaterson.com/latency.html
-
-throughput definitions
-* https://sirupsen.com/napkin/problem-4
-> a system that is designed to handle 100,000 requests per second, each 1 kB in size, looks very different from a system that is designed for three requests per minute, each 2 GB in size—even though the two systems have the same data throughput [Kleppmann 24]
-* how long it takes the data to be computed https://www.moderndescartes.com/essays/data_oriented_python/
-* amount e.g. RPS [Kleppmann 13, 20] https://calpaterson.com/async-python-is-not-faster.html
-* actual bitrate https://networkengineering.stackexchange.com/a/57428 https://gafferongames.com/post/fixing_the_internet_for_games/
-* how much you can get done 📙 Christian 124
-
----
-
-* _walltime_: time as humans generally perceive it [Mature Optimization Handbook]
-
-https://leanpub.com/systemdesignmanual/read_sample
-> throughput is the number of operations per second, where an operation is an application-specific unit of work.
-
-* _bandwidth_: optimal bitrate (bits over network per second); measured in Gbps https://hpbn.co/primer-on-latency-and-bandwidth/
-
-* _latency_: time that req waiting to be handled; people use as a synonym for response time [Kleppmann 14]
-* _latency_: https://robertovitillo.com/why-you-should-measure-tail-latencies/
-
-https://networkengineering.stackexchange.com/questions/52232/whats-the-difference-between-latency-and-round-trip-time
-
-* _response time_: time btw client sending req and receiving res [Kleppmann 13-14] speed e.g. how fast does single req come back?; 100M dash
-* _service time_: time to process client req i.e. compute [Kleppmann 14]
-
-* _tail latencies_: synonym for the higher percentiles of response times; hard to reduce bc easily affected by random stuff beyond your control [Kleppmann 15]
 
 ## transmissions
 

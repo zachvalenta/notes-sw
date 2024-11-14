@@ -128,9 +128,13 @@ STORAGE ENGINES 🗄 `design.md` transactions
 * `algos.md` search engine
 * `vim.md` ctags
 
+WHY NOT
+* if writes are frequent
+* if reads are rare
 > When I worked in ads I would often need to debug issues using production logs, and would use Dremel to run a distributed scan of very large amounts of data at interactive speeds. Because queries were relatively rare, an index would have been far more expensive to maintain. https://www.jefftk.com/p/you-dont-always-need-indexes
 
 START HERE
+* https://news.ycombinator.com/item?id=42134964
 * https://calpaterson.com/how-a-sql-database-works.html
 * https://www.jefftk.com/p/you-dont-always-need-indexes
 * make invisible > delete https://sqlfordevs.com/invisible-index-before-delete
@@ -899,44 +903,35 @@ HOWTO
 
 📜 https://sqlite.org/cli.html
 
-* cmd
-```sh
-# OPEN /  CLOSE
-sqlite3 / .quit
-# CREATE EMPTY
-sqlite3 <name.db>
-# OPEN / RELOAD https://github.com/dbcli/litecli/issues/76
-.open <file>
-
-# SHOW FILE
-l
-# LIST DB
-.da  # .databases (litecli)
-# LIST TABLES
-.tables
-# DESCRIBE SCHEMA
-.schema <table>
-
-# COLUMNS AND HEADERS https://sqlite.org/cli.html#changing_output_formats https://dba.stackexchange.com/a/40672
-.mode column  # overrides `.mode csv`
-.headers on
-.width  # https://dba.stackexchange.com/a/40672
-
-# QUERY CSV https://news.ycombinator.com/item?id=28299729
-.mode csv
-.import my.csv <alias>
-select * from alias
-```
-
-za
+ZA
 * config location: `~/.sqliterc`
 * cmd history: `~/.sqlite_history`
-* archives https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html
+
+CMD
 ```sh
-# dump
-sqlite3 my_database .dump | gzip -c > my_database.dump.gz
-# restore
-cat my_database.dump.gz | sqlite3 my_database
+# IO
+sqlite3 / .quit # open/close
+sqlite3 <name.db> # create empty
+.open <file> # open / reload https://github.com/dbcli/litecli/issues/76
+
+# LIST
+l  # show file
+.da  #  # list db; .databases (litecli)
+.tables # list tables
+.schema <table> # describe schema
+
+# MODES
+.mode column  # overrides `.mode csv`  https://sqlite.org/cli.html#changing_output_formats https://dba.stackexchange.com/a/40672
+.headers on
+.width  # https://dba.stackexchange.com/a/40672
+.mode csv # query csv https://news.ycombinator.com/item?id=28299729
+.import my.csv <alias>
+select * from alias
+
+# BACKUP https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html
+sqlite3 $DB .dump > $DUMP.sql
+sqlite3 my_database .dump | gzip -c > my_database.dump.gz  # dump
+cat my_database.dump.gz | sqlite3 my_database  # restore
 ```
 
 ---
@@ -1015,15 +1010,7 @@ constraints
 
 # 🟨 ZA
 
-TAXNOMY https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
-* data structures e.g. relational, document
-* scale e.g. single node, distributed
-* storage e.g. relational, column store
-* consistency guarantee
-* transaction isolation 🗄 `system.md` transactions
-* _temporality_: real-time vs. historical 📻 Macey 8:30
-* _embedded_: https://en.wikipedia.org/wiki/List_of_in-memory_databases https://www.openmymind.net/2011/2/10/Do-Relational-Database-Vendors-Care-About-Devs/
-* _client-server_: when you have multiple clients (vs. multithreaded) or need thousands of writes/second https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html
+* checksums https://news.ycombinator.com/item?id=42094663&utm_term=comment
 
 ## MySQL
 

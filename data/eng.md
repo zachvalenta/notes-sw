@@ -85,9 +85,6 @@ TIMEZONES
 * https://drewdevault.com/2019/01/13/Backups-and-redundancy-at-sr.ht.html
 * https://github.com/eduardolat/pgbackweb
 * hard drive health: 2% annual fail rate https://drewdevault.com/2020/04/22/How-to-store-data-forever.html DriveDX https://binaryfruit.com/drivedx/usb-drive-support Wear_Leveling_Count https://superuser.com/q/1037644 SMART https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology https://news.ycombinator.com/item?id=11110902
-* version control data: DVC https://github.com/iterative/dvc https://realpython.com/python-data-version-control/ Dolt https://github.com/dolthub/dolt https://www.youtube.com/watch?v=ITvSs23lTQE
-> people don't really care about this https://news.ycombinator.com/item?id=22731928
-* diff https://github.com/datafold/data-diff
 * https://news.ycombinator.com/item?id=38961463
 * _snapshot_: backup whole table
 * _date-based_: backup portion of table i.e. acts as an immutable log
@@ -136,6 +133,14 @@ TIMEZONES
 * howto https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/ 📙 Conery imposter 343
 * https://stackoverflow.com/questions/20771435/database-sharding-vs-partitioning https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6 https://news.ycombinator.com/item?id=28425379
 * _shard_: node in cluster 📙 Bradshaw [290]
+
+## version control
+
+🧠 https://chatgpt.com/c/673a8de0-7cd8-8004-9325-7943f380d4d7
+
+* people don't really care about this https://news.ycombinator.com/item?id=22731928
+* _DVC_ https://github.com/iterative/dvc https://www.youtube.com/watch?v=ITvSs23lTQE https://realpython.com/python-data-version-control/
+* _Dolt_ https://github.com/dolthub/dolt
 
 # 🌊 PIPELINE
 
@@ -208,7 +213,7 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 
 * _data contract_: https://github.com/benrutter/wimsey
 * https://pycon-archive.python.org/2024/schedule/presentation/46/index.html
-* compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff
+* compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff 
 * _Pandera_: type checking for dataframes https://endjin.com/blog/2023/03/a-look-into-pandera-and-great-expectations-for-data-validation https://www.peterbaumgartner.com/blog/testing-for-data-science/ https://www.union.ai/blog-post/pandera-joins-union-ai https://www.youtube.com/watch?v=Ax4pWz6kUDw
 > From there, I create v2 of the schema, which adds Checks to the columns. Checks are information we gain after exploring the data - for example, whether a column should always be positive, whether the column name should be formatted a certain way, or whether a column should only contain certain values (e.g. a bool represented as a 0/1 int). https://www.peterbaumgartner.com/blog/testing-for-data-science/
 * _GX (Great Expectations)_: assert against schema https://github.com/great-expectations/great_expectations https://softwareengineeringdaily.com/2020/02/17/great-expectations-data-pipeline-testing-with-abe-gong/ https://www.youtube.com/watch?v=8K6bU_AlUb8
@@ -250,6 +255,22 @@ SIZE
 * ways of thinking about data sizes: 1MB vs. 1M seconds (12 days) 1GB vs. 1B seconds (31 years) 1TB vs. 1T seconds (317 centuries) 📙 Conery [345]
 > the term Big Data is so over-used and under-defined that it is not useful in a serious engineering discussion. 📙 Kleppmann 1.9
 > There are diminishing returns to the amount of information you can extract from data. The tenth gigabyte is worth much less than the second gigabyte. https://www.evanmiller.org/small-data.html
+
+## ⭕️ factors
+
+🗄️
+* `modeling.md`
+* `system.md` architecture
+
+https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
+* data structures e.g. relational, document
+* scale e.g. single node, distributed
+* storage e.g. relational, column store
+* consistency guarantee
+* transaction isolation 🗄 `system.md` transactions
+* _temporality_: real-time vs. historical 📻 Macey 8:30
+* _embedded_: https://en.wikipedia.org/wiki/List_of_in-memory_databases https://www.openmymind.net/2011/2/10/Do-Relational-Database-Vendors-Care-About-Devs/
+* _client-server_: when you have multiple clients (vs. multithreaded) or need thousands of writes/second https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html
 
 ## houses
 

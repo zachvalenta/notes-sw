@@ -32,9 +32,11 @@ POLITICS
 * https://x.com/steveklabnik https://bsky.app/profile/steveklabnik.com
 * https://kjaymiller.com/blog/blog1.html
 > As a community, we want to be friendly too. People from around the world, of all backgrounds, genders, and experience levels are welcome and respected equally. See our community code of conduct for more. Black lives matter. Trans rights are human rights. No nazi bullsh*t. https://gleam.run/
+* https://danluu.com/ai-bias/
 
 ---
 
+* coaching https://zackproser.com/blog/why-ive-been-successful
 "have taken up farming" https://github.com/dylanaraps
 
 MGMT https://jacobian.org/posts/
@@ -127,6 +129,7 @@ STANDARDS BODIES
 * as builders (vs. scientists) https://news.ycombinator.com/item?id=23565429
 * software engineers https://www.hillelwayne.com/post/crossover-project/are-we-really-engineers/ https://chriskiehl.com/article/thoughts-after-6-years
 * https://www.kitchensoap.com/2012/10/25/on-being-a-senior-engineer/
+* https://danluu.com/butler-lampson-1999/
 
 ## funding
 
@@ -182,6 +185,7 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 > I wouldn't be a hacker at heart if I wasn't willing to spend a few hours automating a task that takes 3 extra seconds. https://eli.thegreenplace.net/2018/command-line-autocomplete-for-go-documentation/
 
 * dang https://news.ycombinator.com/newsguidelines.html https://news.ycombinator.com/item?id=42057647
+* https://danluu.com/hn-comments/
 * big kids https://news.ycombinator.com/item?id=41970407
 * https://news.ycombinator.com/item?id=41966197
 * https://xkcd.com/378/ https://xkcd.com/386/ https://xkcd.com/2030/
@@ -227,6 +231,8 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 * Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/ https://www.amazon.com/Cathedral-Bazaar-Musings-Accidental-Revolutionary/dp/0596001088
 * https://pragprog.com/titles/vbfoss/business-success-with-open-source/
 
+* more broken builds than enterprise https://danluu.com/broken-builds/
+
 ---
 
 * floss vs. foss vs. oss https://opensource.stackexchange.com/questions/262/what-is-the-difference-between-foss-and-floss https://www.gnu.org/philosophy/floss-and-foss.en.html
@@ -246,7 +252,7 @@ MY PROMPTS
 > Check out this short guide https://stackoverflow.com/help/minimal-reproducible-example most questions that garner helpful answers use its advice in some way or another.
 
 ASKING QUESTIONS
-> Our general rule is that if the correct length of an answer is a whole book you are asking too much. - https://www.joelonsoftware.com/2018/04/23/strange-and-maddening-rules/
+> Our general rule is that if the correct length of an answer is a whole book you are asking too much. https://www.joelonsoftware.com/2018/04/23/strange-and-maddening-rules/
 * for beginners https://stackoverflow.com/staging-ground
 * minimal, complete, verifiable https://stackoverflow.com/help/mcve if not, you're being inconsiderate https://github.com/mkdocs/mkdocs/issues/243#issuecomment-64760836
 * async https://capnfabs.net/posts/ask-questions-well-asynchronously/
@@ -473,7 +479,7 @@ One thing I think I do well is technical communication. This shows up in:
 
 ---
 
-https://bitfieldconsulting.com/books/horrible
+https://bitfieldconsulting.com/books/horrible https://bitfieldconsulting.com/posts/master-domain
 
 pull in stack overflow questions as writing examples https://github.com/jesseduffield/lazygit/issues/4017
 
@@ -588,7 +594,7 @@ LANGUAGES I KNOW (TO ONE DEGREE OR ANOTHER) https://www.petermcconnell.com/showc
 > try Haskell and Lisp for the math https://news.ycombinator.com/item?id=41861304
 * _C_: 🎯 to understand Linux better
 * _Golang_: PLT + tooling
-* _Haskell_: 🎯 learned pursuant a general interest in category theory / data modeling / type systems
+* _Haskell_: 🎯 learned pursuant a general interest in category theory / data modeling / type systems + hakyll
 * Golang: learned in order to write a compiler and play around with a web framework (Pocketbase) 📙 Ball
 * _Javascript_: I'm a total punk rock user. I've used Angular professionally back when that was more popular. I've kept reasonable track of the ecosystem and think the htmx/hypermedia approach is preferable for the majority of websites i.e. 90% of sites don't need a SPA.
 * _Lisp_: 🎯 learned in order to read SICP and general interest in programming languages

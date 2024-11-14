@@ -9,6 +9,7 @@
 
 ## 进步
 
+https://github.com/zackproser/automations
 https://www.gitkraken.com/gitlens https://www.youtube.com/watch?v=oJdlGtsbc3U https://switowski.com/blog/plugins-for-python-in-vscode/
 
 * _24_: pager (delta, diffnav) porcelain (lazygit)
@@ -166,7 +167,7 @@ gh alias list
 
 * project logos https://github.com/PaulJuliusMartinez/jless https://chatgpt.com/share/66eb331c-04e4-8004-9b25-b7bb5d5a5b78 https://github.com/lambda-fairy/maud https://github.com/cosimameyer
 * how to link to images outside of repo https://github.com/textualize/toolong
-* _profile README_: create repo with same name as user, add README https://github.com/willmcgugan/willmcgugan
+* _profile README_: create repo with same name as user, add README https://github.com/willmcgugan/willmcgugan https://github.com/mrjackwills
 * _video_: https://github.com/textualize/toolong
 
 ## repos

@@ -222,6 +222,91 @@ pyclean () {
         find . -type d -name "__pycache__" -delete
 }
 ```
+
+# 🔬 MONITORING
+
+ARCHITECTURE
+* `python -m platform` https://www.pythonmorsels.com/cli-tools/#platform
+* _cpufetch_: https://github.com/Dr-Noob/cpufetch
+* _neofetch_: https://github.com/dylanaraps/neofetch https://github.com/dylanaraps/pfetch
+
+DASHBOARDS
+* https://github.com/wtfutil/wtf
+* https://github.com/Phantas0s/devdash
+* https://github.com/gizak/termui
+
+ZA
+> why is air-capp slow? Google Drive? age (2020 machine)?
+* _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
+
+## disk
+
+🧠 https://chatgpt.com/c/6733cbae-092c-8004-801c-25fbe5b8076e
+
+```sh
+├── /System/Volumes/
+│   └── Data # user files
+│   └── Proboot # BIOS
+│   └── VM # virtual memory swap files (manage memory usage)
+│   └── Update # system updates
+```
+* _df_: ✅ view of mounts https://danyspin97.org/blog/colorize-your-cli/
+* _duf_: ✅ JSON https://github.com/muesli/duf
+* _diskonaut_: treemap https://github.com/imsnif/diskonaut
+* _du_: `du -sh $DIR` https://unix.stackexchange.com/a/185777
+* _dust_: ✅ JSON https://github.com/bootandy/dust
+* _ncdu_: ✅ JSON `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
+
+## mem/CPU
+
+* features: JSON, aggregation per app
+* alternatives: free (UNIX) top (macos), in iTerm, Activity Monitor https://wompa.land/articles/iterm-status-bar
+* _below_: 🎯 JSON https://github.com/facebookincubator/below no Homebrew https://github.com/facebookincubator/below/issues/8239
+* _bottom_: 🎯 GUI https://github.com/ClementTsang/bottom
+* _btop_: https://github.com/aristocratos/btop
+* _glances_: ✅ JSON https://nicolargo.github.io/glances/ https://tech.marksblogg.com/top-htop-glances.html
+* _gotop_: 🎯 JSON export https://github.com/xxxserxxx/gotop/issues/50 https://asciinema.org/a/spxxHKMf3MBR8OfUYwsbZurXq
+* _htop_: https://tech.marksblogg.com/top-htop-glances.html
+* _procs_: ✅ modes (snapshot, watch) ❓ how to sum cpu/mem across PID by app name https://github.com/dalance/procs
+```sh
+# how to reduce Chrome tab mem usage
+procs iterm --sortd mem
+procs --sortd mem | awk '{ print substr($0, 1, 100) }' | head -n 100 > $DENV_DIR/logs/sys-info/"$(date +'%y%m%d_%H%M%S').txt"
+```
+* _tiptop_: installed on capp machine https://github.com/nschloe/tiptop
+* _vtop_: ❌ sudo https://github.com/MrRio/vtop
+* _ytop_: 💀 https://github.com/cjbassi/ytop
+* _zenith_: 🎯 https://github.com/bvaisvil/zenith
+
+---
+
+* see what's running `ps aux | grep crond` https://missing.csail.mit.edu/2019/automation/
+* `lsof`: open files https://danielmiessler.com/study/lsof/ GUI https://github.com/sveinbjornt/Sloth
+* _PID by port_: `lsof -i :<port>`
+* _$CWD by PID_: `lsof -p <PID> | grep cwd` https://unix.stackexchange.com/a/94359/331460
+* `pstree`: tree of processes
+* pgrep https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
+* `ps`: processes associated with current shell
+* pgrep https://hacker-tools.github.io/shell/
+* `ps -u`: associated with specific user
+* `ps -e`: associated with all users
+* `ps -f`: info on PPID
+* `ps -ejH`: show trees
+
+## ports
+
+* _havn_: ✅ https://github.com/mrjackwills/havn
+
+---
+
+PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c4dea2c 🗄️ `tcp-ip.md` network monitor
+* control internet access for apps https://tripmode.ch/ https://www.obdev.at/products/littlesnitch/index.html
+* port viewer https://github.com/allyring/pvw
+* LAN port scanner nmap https://github.com/RustScan/RustScan https://github.com/aceberg/WatchYourLAN
+* monitor, Slack notification on completion (or to Twilio) https://github.com/variadico/noti
+* _bandwhich_: https://github.com/imsnif/bandwhich
+* _rustscan_: https://github.com/RustScan/RustScan
+
 # ✏️ TEXT
 
 ## fuzzy find (fzf)
@@ -290,6 +375,8 @@ cdf() {
 procs --sortd mem | awk '{ print substr($0, 1, 100) }' | head -n 100 > "procs_$(date +'%y%m%d_%H%M%S').txt"
 ```
 
+* macOS version doesn't fully support multidimensional arrays https://chatgpt.com/c/6733cbae-092c-8004-801c-25fbe5b8076e
+
 ---
 
 * _awk_: process columnar data https://missing.csail.mit.edu/2020/data-wrangling/ https://kadekillary.work/note/awk/ https://benhoyt.com/writings/goawk/ https://kadekillary.work/post/cli-4-ds/ https://neowaylabs.github.io/programming/unix-shell-for-data-scientists/ 📙 Kernighan https://github.com/thewhitetulip/awk-anti-textbook/ https://en.wikipedia.org/wiki/The_AWK_Programming_Language https://blog.jpalardy.com/posts/why-learn-awk/ https://gregable.com/2010/09/why-you-should-know-just-little-awk.html http://www.grymoire.com/Unix/Awk.html
@@ -320,12 +407,13 @@ mt ps | awk '{print $1}' # https://askubuntu.com/a/161803
 END { print "TOTAL USERS: " NR}  # NR = num rows
 ```
 
-### stream edit
+### stream edit (sed)
 
 ---
 
 🗄 `vim.md` argdo
 
+* _scooter_: https://github.com/thomasschafer/scooter
 * _sed_: stream editor = filter/transform text
 * _sd_: Rust rewrite https://github.com/chmln/sd
 * rename symbol across files https://news.ycombinator.com/item?id=34071811
@@ -640,84 +728,3 @@ $ nq make depends
 $ nq make all
 $ fq  # look at output without stopping the build
 ```
-
-## monitoring
-
-STATS
-> why is air-capp slow? Google Drive? age (2020 machine)?
-* iTerm: 15%
-* VS Code: 10%
-
-SYSTEM INFO
-* features: JSON, aggregation per app
-* alternatives: free (UNIX) top (macos), in iTerm, Activity Monitor https://wompa.land/articles/iterm-status-bar
-* _below_: 🎯 JSON https://github.com/facebookincubator/below no Homebrew https://github.com/facebookincubator/below/issues/8239
-* _bottom_: 🎯 GUI https://github.com/ClementTsang/bottom
-* _btop_: https://github.com/aristocratos/btop
-* _glances_: ✅ JSON https://nicolargo.github.io/glances/ https://tech.marksblogg.com/top-htop-glances.html
-* _gotop_: 🎯 JSON export https://github.com/xxxserxxx/gotop/issues/50 https://asciinema.org/a/spxxHKMf3MBR8OfUYwsbZurXq
-* _htop_: https://tech.marksblogg.com/top-htop-glances.html
-* _procs_: ✅ modes (snapshot, watch) ❓ how to sum cpu/mem across PID by app name https://github.com/dalance/procs
-```sh
-# how to reduce Chrome tab mem usage
-procs iterm --sortd mem
-procs --sortd mem | awk '{ print substr($0, 1, 100) }' | head -n 100 > $DENV_DIR/logs/sys-info/"$(date +'%y%m%d_%H%M%S').txt"
-```
-* _tiptop_: installed on capp machine https://github.com/nschloe/tiptop
-* _vtop_: ❌ sudo https://github.com/MrRio/vtop
-* _ytop_: 💀 https://github.com/cjbassi/ytop
-* _zenith_: 🎯 https://github.com/bvaisvil/zenith
-
-DISK USAGE
-```sh
-#  https://chatgpt.com/c/6733cbae-092c-8004-801c-25fbe5b8076e
-├── /System/Volumes/
-│   └── Data # user files
-│   └── Proboot # BIOS
-│   └── VM # virtual memory swap files (manage memory usage)
-│   └── Update # system updates
-```
-* _df_: view of mounts https://danyspin97.org/blog/colorize-your-cli/
-* _duf_: ✅ JSON https://github.com/muesli/duf
-* _diskonaut_: treemap https://github.com/imsnif/diskonaut
-* _du_: `du -sh $DIR` https://unix.stackexchange.com/a/185777
-* _dust_: ✅ JSON https://github.com/bootandy/dust
-* _ncdu_: ✅ JSON `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
-
-SYSTEM ARCHITECTURE
-* `python -m platform` https://www.pythonmorsels.com/cli-tools/#platform
-* _cpufetch_: https://github.com/Dr-Noob/cpufetch
-* _neofetch_: https://github.com/dylanaraps/neofetch https://github.com/dylanaraps/pfetch
-
-ZA
-* _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
-
----
-
-PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c4dea2c 🗄️ `tcp-ip.md` network monitor
-* control internet access for apps https://tripmode.ch/ https://www.obdev.at/products/littlesnitch/index.html
-* port viewer https://github.com/allyring/pvw
-* LAN port scanner nmap https://github.com/RustScan/RustScan https://github.com/aceberg/WatchYourLAN
-* monitor, Slack notification on completion (or to Twilio) https://github.com/variadico/noti
-* _bandwhich_: https://github.com/imsnif/bandwhich
-* _havn_: 🎯 https://github.com/mrjackwills/havn
-* _rustscan_: https://github.com/RustScan/RustScan
-
-DASHBOARDS
-* https://github.com/wtfutil/wtf
-* https://github.com/Phantas0s/devdash
-* https://github.com/gizak/termui
-
-MORE PROCESSES
-* see what's running `ps aux | grep crond` https://missing.csail.mit.edu/2019/automation/
-* `lsof`: open files https://danielmiessler.com/study/lsof/ GUI https://github.com/sveinbjornt/Sloth
-* _PID by port_: `lsof -i :<port>`
-* _$CWD by PID_: `lsof -p <PID> | grep cwd` https://unix.stackexchange.com/a/94359/331460
-* `pstree`: tree of processes
-* pgrep https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
-* `ps`: processes associated with current shell
-* pgrep https://hacker-tools.github.io/shell/
-* `ps -u`: associated with specific user
-* `ps -e`: associated with all users
-* `ps -f`: info on PPID
-* `ps -ejH`: show trees

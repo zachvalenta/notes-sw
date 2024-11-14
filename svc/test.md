@@ -9,6 +9,9 @@
 * literate testing, literate programming https://simonw.substack.com/p/video-scraping-using-google-gemini
 * https://bitfieldconsulting.com/posts/test-names
 * https://bitfieldconsulting.com/posts/testing-legacy-code
+* https://danluu.com/tests-v-reason/
+* https://danluu.com/testing/
+> But when it comes to testing, hardware is way ahead of software. When I write software, fuzzing is considered a state of the art technique. But in hardware land, fuzzing doesn't have a special name. It's just testing, and why should there be a special name for "testing that uses randomness"? That's like having a name for "testing by running code". Well over a decade ago, I did hardware testing via a tool that used constrained randomness on inputs, symbolic execution, with state reduction via structural analysis. For small units, the tool was able to generate a formal proof of correctness. For larger units, the tool automatically generated and used coverage statistics and used them to exhaustively search over as diverse a state space as possible. In the case of a bug, a short, easy to debug, counter example would be produced. And hardware testing tools have gotten a lot better since then. https://danluu.com/bugalytics/
 
 * _24_: rf + approaches (fuzz, mutation, property-based)
 * _20_: pre-commit for Git hooks, behave for bdd
@@ -46,6 +49,7 @@ Then I should see a welcome message
 
 ---
 
+https://danluu.com/butler-lampson-1999/
 https://buttondown.com/hillelwayne/archive/tla-from-first-principles/
 https://news.ycombinator.com/item?id=41866752
 https://buttondown.com/hillelwayne/archive/how-to-convince-engineers-that-formal-methods-is/

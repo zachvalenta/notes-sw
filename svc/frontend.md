@@ -5,9 +5,10 @@
 ## 进步
 
 ZOLA DEPLOYMENT
+> use hakyll instead given how fully-featured Gwern site is? https://gwern.net/about#importance-tags
 * email/RSS https://travisjeffery.com/subscribe/
 > blog auth? what is really the point of your site? 🗄️ `tmp.md`
-> syndication? “POSSE” (“post on your own site, syndicate elsewhere”) https://jvns.ca/blog/2024/11/09/new-microblog/ https://www.youtube.com/watch?v=WYqnxCFJoLE https://x.com/jeremyjkun/status/1798789885966602419 no traffic from Google -> "whatever Google and Twitter are doing right now, unless your blog post lands on Hacker News front page, you basically get no more traffic anymore." https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
+> syndication? “POSSE” (“post on your own site, syndicate elsewhere”) https://jvns.ca/blog/2024/11/09/new-microblog/ https://www.youtube.com/watch?v=WYqnxCFJoLE https://x.com/jeremyjkun/status/1798789885966602419 no traffic from Google -> "whatever Google and Twitter are doing right now, unless your blog post lands on Hacker News front page, you basically get no more traffic anymore." https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://zackproser.com/blog/run-your-own-tech-blog https://zackproser.com/blog/2023-wins https://danluu.com/corp-eng-blogs/
 * DNS tools to diff `zachvalenta.com` vs. `zjayv.com`
 * learn Github actions
 * specify `index.html` for GH Pages: `publish_dir` https://chatgpt.com/share/66f4a7c1-ea3c-8004-8327-46a9840bf1d5 https://github.com/shalzz/zola-deploy-action/blob/master/README.md#custom-domain symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying https://stackoverflow.com/questions/42941170/how-to-set-up-github-pages-to-look-for-index-html-in-a-different-location https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository or Cloudflare https://chevyray.dev/blog/how-this-site-is-made/ or Netlify https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/
@@ -50,6 +51,8 @@ TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-develop
 * PETAL, Alpine, LiveView, Hotwire, htmx https://news.ycombinator.com/item?id=30325030 https://www.thoughtworks.com/radar/techniques?blipid=202203006
 
 SPA tradeoffs
+* https://htmx.org/essays/you-cant/
+> Then there are the Node.js and Vue.js version upgrades, which feel like a relentless, never-ending battle. I swear, it's as if every single time I sit down to write a blog post, there's a new version of something absolutely critical to my site lurking in the shadows, waiting to pounce. With each upgrade comes the inevitable breaking changes, followed by the torturous debugging sessions that send me on a wild goose chase through the darkest, most obscure corners of Stack Overflow. And just when I think I've tamed the beast, another update appears, accompanied by a fresh set of dependency conflicts, deprecated methods, and newly introduced bugs that leave me questioning my very existence as a developer. Manual labor wasn't _that_ bad. Security upgrades are another beast entirely. Just when I think I've got everything under control, I load up GitHub to review and merge my latest pull request, but I'm beset instead by a dozen new CVE issues that dependabot is trying to patch via its own programmatic pull requests. Cue the panic, followed by the mad dash to patch and test the affected components. The other week I saw a guy drive up to my neighbor's house with a giant powerwashing setup and proceed to clean the entire exterior himself over the course of 4 hours. I could do that, too. https://zackproser.com/blog/maintaining-this-site-fucking-sucks
 * no one cares about page reloads https://news.ycombinator.com/item?id=39471221
 * JS framework vendor lock-in https://news.ycombinator.com/item?id=34613039
 * history https://www.pzuraq.com/blog/four-eras-of-javascript-frameworks
@@ -375,6 +378,27 @@ STATE
 
 ---
 
+BROWSERS
+* set default: system preferences > general
+* settings: zoom to 110, font fize large, downloads to desktop, switch search to DuckDuckGo, startup to open previous tabs
+* extensions: Vimium, Mercury Reader, EditThisCookie, PocketTube
+* clean pages: archive.vn, https://12ft.io/ https://github.com/wasi-master/13ft https://chromewebstore.google.com/detail/archive-page/gcaimhkfmliahedmeklebabdgagipbia?pli=1
+* `python -m webbrowser pseudorandom.name` https://dev.to/dmahely/one-bash-command-to-start-the-day-2fni
+* _Arc_: split panes https://en.wikipedia.org/wiki/Arc_(web_browser) https://www.youtube.com/watch?v=E9yZ0JusME4 https://news.ycombinator.com/item?id=36863925 https://news.ycombinator.com/item?id=41597250
+* _awrit_: in terminal?!? https://github.com/chase/awrit
+* _Brave_: way less storage hit (150M) than Chrome (1.2GB) 🗄️ `/Users/$USER/Library/Application Support`
+* commands
+```sh
+CMD t  # restore tab
+CMD r  # reload
+CMD ALT i  # dev tools
+CMD b  # bookmarks
+```
+* _Chrome_: what's the extension you're using to Youtube playlist org? https://sponsor.ajay.app/
+* _Lynx_: 'reader mode' https://github.com/bensadeh/circumflex
+* _Firefox_: https://wesbos.com/uses https://www.mozilla.org/en-US/firefox/developer/
+* _Zen_: based on Firefox https://zen-browser.app/ can split panes within browser https://www.youtube.com/watch?v=VshptkoKfQo [6:30] https://x.com/mkennedy/status/1856416323447992381
+
 * https://github.com/pyscript/pyscript https://realpython.com/pyscript-python-in-browser/
 * Jest, https://github.com/capricorn86/happy-dom
 * colors https://news.ycombinator.com/item?id=31107643
@@ -610,7 +634,7 @@ SSGs 🗄️ `algos.md` tree / treebuilders
 * _Django_: 🎯 https://simonwillison.net/about/#subscribe
 * _Eleventy_: https://www.11ty.dev/ https://www.erichgrunewald.com/ https://news.ycombinator.com/item?id=31293971 https://angeliqueweger.com/
 * _Lanyon_: server, same guy that did termgraph https://github.com/mkaz/lanyon
-* _hakyll_: Haskell https://jaspervdj.be/hakyll/ https://blog.moertel.com/
+* _hakyll_: 🎯 Haskell https://jaspervdj.be/hakyll/ https://blog.moertel.com/ https://github.com/gwern/gwern.net https://gwern.net/design
 * _Hugo_: https://gitlab.com/gitlab-com/content-sites/handbook
 * popular https://blog.golang.org/8years
 * bad docs https://yawpitchroll.com/posts/hugo-probably-is-not-for-you/ https://twitter.com/danluu/status/1244024025019342851

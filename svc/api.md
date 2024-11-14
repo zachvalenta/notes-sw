@@ -4,7 +4,6 @@
 
 📙 Masse api rulebook
 🗄️ `sql.md` code gen
-🔍 https://github.com/public-apis/public-apis https://rapidapi.com/hub
 
 ## 进步
 
@@ -93,6 +92,7 @@ https://softwareengineeringdaily.com/2024/10/16/the-end-of-graphql-matt-bessey/
 
 ---
 
+* https://danluu.com/butler-lampson-1999/
 * used more for internal services 📙 Jeffrey distributed [5]
 * BYO https://github.com/travisjeffery/proglog
 * https://stackoverflow.blog/2022/11/28/when-to-use-grpc-vs-graphql/
@@ -225,6 +225,14 @@ API STAR 📜 https://docs.apistar.com/ https://github.com/zachvalenta/flask-ope
 * _paginate_: return subset of records
 * why: server (reduced load) client (more granular query)
 * howto: req `api/widgets?page=42` res can return header `x-total-count=<num>` https://slack.engineering/evolving-api-pagination-at-slack-1c1f644f8e12 https://www.reverb-api.com/docs#section-pagination
+
+## public
+
+🗄️ `stat.md` datasets
+
+https://github.com/public-apis/public-apis
+https://rapidapi.com/hub
+planes https://github.com/mrjackwills/adsbdb
 
 ## rate limiting
 

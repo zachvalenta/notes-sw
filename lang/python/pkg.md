@@ -33,6 +33,20 @@ PYPI ALTERNATIVES
 
 📜 https://peps.python.org/pep-0711/ https://news.ycombinator.com/item?id=35687895 https://github.com/mitsuhiko/rye/discussions/6
 
+ALTERNATIVES
+* `python -m zipapp` https://www.pythonmorsels.com/cli-tools/
+* https://github.com/cole-wilson/sailboat
+* Beeware https://github.com/beeware/ https://www.youtube.com/watch?v=WjMDXDHBn1I
+* _auto-py-to-exe_: https://pythonbytes.fm/episodes/show/160/your-json-shall-be-streamed
+* _Bazel_: https://news.ycombinator.com/item?id=23338316 https://github.com/google/subpar
+* _bbfreeze_: https://stackoverflow.com/a/29515965/6813490
+* _Cython_: compiles to C extension and runs that https://tryexceptpass.org/article/package-python-as-executable/ http://shvbsle.in/computers-are-fast-but-you-dont-know-it-p1/
+* _Nuitka_: https://tryexceptpass.org/article/package-python-as-executable/ https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/ https://snarky.ca/what-is-the-core-of-the-python-programming-language
+* _PEX_: https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/ https://news.ycombinator.com/item?id=42148220
+* _py2exe_: https://stackoverflow.com/a/5458807/6813490
+* _Shiv_: https://pythonbytes.fm/episodes/show/114/what-should-be-in-the-python-standard-library https://jhermann.github.io/blog/python/deployment/2020/03/08/ship_libs_with_shiv.html https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/
+* _XAR_: https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/
+
 PYINSTALLER https://github.com/pyinstaller/pyinstaller https://realpython.com/pyinstaller-python/
 * tldr: tars up src/interpreter, then upacks on user's computer and runs
 * gets pkgs from your env
@@ -72,20 +86,6 @@ PYOXIDIZER
 * can produce binaries for all operating systems https://pythonbytes.fm/episodes/show/138/will-pyoxidizer-weld-shut-one-of-python-s-major-gaps
 * https://www.pythonpodcast.com/pyoxidizer-python-package-creation-episode-282/
 
-ALTERNATIVES
-* `python -m zipapp` https://www.pythonmorsels.com/cli-tools/
-* https://github.com/cole-wilson/sailboat
-* Beeware https://github.com/beeware/ https://www.youtube.com/watch?v=WjMDXDHBn1I
-* _auto-py-to-exe_: https://pythonbytes.fm/episodes/show/160/your-json-shall-be-streamed
-* _Bazel_: https://news.ycombinator.com/item?id=23338316 https://github.com/google/subpar
-* _bbfreeze_: https://stackoverflow.com/a/29515965/6813490
-* _Cython_: compiles to C extension and runs that https://tryexceptpass.org/article/package-python-as-executable/ http://shvbsle.in/computers-are-fast-but-you-dont-know-it-p1/
-* _Nuitka_: https://tryexceptpass.org/article/package-python-as-executable/ https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/ https://snarky.ca/what-is-the-core-of-the-python-programming-language
-* _PEX_: https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/
-* _py2exe_: https://stackoverflow.com/a/5458807/6813490
-* _Shiv_: https://pythonbytes.fm/episodes/show/114/what-should-be-in-the-python-standard-library https://jhermann.github.io/blog/python/deployment/2020/03/08/ship_libs_with_shiv.html https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/
-* _XAR_: https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/
-
 ## project structure
 
 🔍 email to Robert Heaton
@@ -96,6 +96,7 @@ ALTERNATIVES
 ---
 
 * https://travisjeffery.com/b/2019/11/i-ll-take-pkg-over-internal/
+* https://www.youtube.com/watch?v=niMybnzmzqc&t=330s
 * even Prolog uses src/test https://github.com/dnmfarrell/dict
 * dupe https://github.com/simonw/files-to-prompt
 * https://github.com/fpgmaas/cookiecutter-uv
@@ -121,7 +122,26 @@ https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.h
 
 ---
 
-REGISTRY 🗄️ `frontend.md` packaging
+HOWTO 📙 https://pypackages.com/ 📜 https://docs.python.org/3/distributing/index.html https://www.manning.com/books/publishing-python-packages
+* `MANIFEST.ini` https://chatgpt.com/c/67181d59-63f4-8004-ba67-ff251c9cb141
+* Flit, Poetry, Twine https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:00
+* fork https://github.com/zachvalenta/anytree https://github.com/zachvalenta/capp-prod-cat-alt
+```toml
+[tool.poetry.dependencies]
+python = "^3.12"
+anytree = {git = "https://github.com/zachvalenta/anytree.git"}
+```
+* PSF https://packaging.python.org/en/latest/tutorials/packaging-projects/
+* Real Python https://realpython.com/pypi-publish-python-package/
+* Poetry
+* Twine https://github.com/pypa/twine
+> see termgraph
+> do people use? https://talkpython.fm/episodes/transcript/208/packaging-making-the-most-of-pycon-and-more
+> tool to replace `stup.py` upload https://talkpython.fm/episodes/transcript/64/inside-the-python-package-index
+
+### registries 🗄️ `frontend.md` packaging
+
+* PyPI getting tied to Github https://news.ycombinator.com/item?id=42136375
 * https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you
 * stats https://pepy.tech/
 * https://pypi.org/manage/account/
@@ -139,23 +159,6 @@ pip3 download -r /Users/zach/Desktop/zvmac/materials/sw/lang/python/create-pytho
 # use index for new project
 pip3 install --no-index --find-links=~/Desktop/pypi-local coverage
 ```
-
-HOWTO 📙 https://pypackages.com/ 📜 https://docs.python.org/3/distributing/index.html https://www.manning.com/books/publishing-python-packages
-* `MANIFEST.ini` https://chatgpt.com/c/67181d59-63f4-8004-ba67-ff251c9cb141
-* Flit, Poetry, Twine https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:00
-* fork https://github.com/zachvalenta/anytree https://github.com/zachvalenta/capp-prod-cat-alt
-```toml
-[tool.poetry.dependencies]
-python = "^3.12"
-anytree = {git = "https://github.com/zachvalenta/anytree.git"}
-```
-* PSF https://packaging.python.org/en/latest/tutorials/packaging-projects/
-* Real Python https://realpython.com/pypi-publish-python-package/
-* Poetry
-* Twine https://github.com/pypa/twine
-> see termgraph
-> do people use? https://talkpython.fm/episodes/transcript/208/packaging-making-the-most-of-pycon-and-more
-> tool to replace `stup.py` upload https://talkpython.fm/episodes/transcript/64/inside-the-python-package-index
 
 # 📦 MGMT
 
@@ -517,6 +520,7 @@ https://www.youtube.com/watch?v=_FdjW47Au30
 > They leverage years and years of work that went into migrating the Python ecosystems from setup.py files to eggs and finally wheels. From not having a metadata standard to having one. From coupled to decoupled build systems. Much of what makes Rye so enjoyable were individuals that worked towards making redistributable and downloadable Python binaries a possibility. There was a lot of work that was put into building out an amazing ecosystem of Rust crates and Python libraries needed to make these tools work. All of that brought us to that point where we are today. https://lucumr.pocoo.org/2024/8/21/harvest-season/
 
 PROGRESSION
+* Python2 to Python3 https://www.pinecone.io/blog/pain-poetry-python/
 * `setup.py`: https://github.com/freestream/pyedi
 * _setuptools_: https://github.com/azoner/pyx12 not part of 3.12 https://chatgpt.com/c/6728df32-9ed8-8004-af28-b44b9bebb96c https://github.com/AnirudhG07/Typeinc/issues/3
 * _egg_:

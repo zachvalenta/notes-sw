@@ -21,6 +21,7 @@ THINGS TO KNOW https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * _SNI(server name indication)_: first HTTP message in connection, client tells server who it wants to connect to https://www.agwa.name/blog/post/writing_an_sni_proxy_in_go https://jvns.ca/blog/2016/07/14/whats-sni/
 
 WHAT HAPPENS WHEN 📙 `evans-networking-ack.pdf` https://www.youtube.com/watch?v=AlkDbnbv7dk
+* https://danluu.com/navigate-url/
 * https://drewdevault.com/2016/12/06/A-broad-intro-to-networking.html
 * https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls
 * https://github.com/reorx/httpstat
@@ -431,6 +432,8 @@ ZA
 * _whois_: get info on domain https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 
 ---
+
+> First, let's talk about the DNS management. You would think that something as simple as pointing a domain name to an IP address would be straightforward, but no. There's always some bizarre propagation delay or weird caching issue that makes you question your sanity. https://zackproser.com/blog/maintaining-this-site-fucking-sucks
 
 * https://jpetazzo.github.io/2024/05/12/understanding-kubernetes-dns-hostnetwork-dnspolicy-dnsconfigforming/
 * https://entropicthoughts.com/secure-dns-on-a-laptop-with-debian

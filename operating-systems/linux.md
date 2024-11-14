@@ -2,6 +2,7 @@
 
 ## 参考
 
+📜 https://man7.org/linux/man-pages/index.html
 🔍
 * https://serverfault.com/
 * https://unix.stackexchange.com/
@@ -144,18 +145,12 @@ cmd:
 # 🪐 DENV
 
 🗄
-* `it.md` macos, fs
+* `it.md` fs, provision
 * `src.md` denv
-
-ENV SETUP ORDER
-* Homebrew
-* git
-* pyenv
-* nvm
 
 ## dotfiles
 
-🗄 `linux.md` denv
+🗄️ `it.md` fs
 
 * `XDG_CONFIG_HOME`: typically `$HOME/.config` https://github.com/lusingander/serie/issues/25 https://github.com/kraanzu/dooit/issues/195
 > On macOS, `$XDG_CONFIG_HOME` maps to $HOME/.config. Another popular path for config files is `/Users/USER/Library/Application\ Support`. Does this file path have a env var name in the way that $XDG_CONFIG_HOME does?
@@ -239,36 +234,6 @@ unset $FOO            # unset
 foo.sh  # echo $LOGNAME 
 ./foo.sh           # stdout: $LOGNAME
 envsubst < foo.sh  # stdout: zach
-```
-
-## fs
-
-```sh
-# /Users/zach/Documents/denv
-│   └── bin
-│   └──────── fr
-│   └──────── jb
-│   └──────── jbc
-│   └──────── kcm
-│   └──────── news  # symlink
-│   └───────────── repos/news/main.py
-│   └──────── this-week
-│   └──────── upper-structures
-│   └──────── vimv
-│   └── dotfiles  # mv pkg to logs
-│   └──────── db  # psqlrc, sqliterc, visidatarc, litecli.conf, pgcli.conf
-│   └──────── editors  # vimrc, settings, keybindings, markdown
-│   └──────── poetry  # pdb, Poetry
-│   └──────── shell  # bash/zh (profile, rc), powerline/starship/git-prompt
-│   └── fonts
-│   └──────── fira-code
-│   └──────── fira-mono
-│   └── logs
-│   └──────── brew
-│   └──────── bun
-│   └──────── pyenv
-│   └─────────── pip
-│   └─────────── pipx
 ```
 
 ## path
@@ -444,20 +409,25 @@ problems
 ## 🍺 Homebrew
 
 📜 https://docs.brew.sh/Manpage
-> useful thing to know: when you catch a huge download like https://github.com/clarkema/x12pp can you interrupt install?
+
+SEMANTICS
+* _bottle_: pre-compiled i.e. you don't need to download and build, just download i.e. faster
+* _key-only_: for Homebrew internal use https://chatgpt.com/c/673a0019-ccf0-8004-a613-6469c1eae461
+* _services_: integrates w/ MacOS launchctl to start program on OS boot
+
+FS
+* Homebrew itself `/usr/local/Homebrew`
+* installs `/usr/local/Cellar` 
+* binaries `/opt/Homebrew/bin`
 
 ---
 
 * Bundle, Brewfiles https://nickgerace.dev/posts/how-to-manage-rust-tools-and-applications/
 * un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew
 * GUI version https://news.ycombinator.com/item?id=37075730
-* fs: Homebrew `/usr/local/Homebrew` installs `/usr/local/Cellar` 🔗 `/usr/local/bin`
-* installs deps just for building pkg https://github.com/Homebrew/brew/issues/634#issue-169347205
 * `pin` https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/
 * switch to different installed version: `switch` https://github.com/thoughtbot/til/blob/master/homebrew/using_different_homebrew_formula_versions.md
 > `link` does the same? https://stackoverflow.com/a/54175781
-* _bottle_: pre-compiled i.e. you don't need to download and build, just download i.e. faster
-* _services_: integrates w/ MacOS launchctl to start program on OS boot
 ```sh
 # INSTALL
 install # curls URL, compares download against checksum
@@ -480,9 +450,22 @@ deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/32
 
 ### constraints
 
-* packages that need Rust might/will cause Rust download (to build?), if you try to install Rust later it will fail due to conflict https://chatgpt.com/c/673544c8-978c-8004-bc38-c7c4d2efdba1
-* find older pkg versions in Homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
+* hard to find older pkg versions in Homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
 > brew cleanup works against this
+* packages that need Rust might/will cause Rust download (to build?), if you try to install Rust later it will fail due to conflict https://chatgpt.com/c/673544c8-978c-8004-bc38-c7c4d2efdba1 https://github.com/zachvalenta/logs-mini23/commit/94d0bd7992c91018af6c1f783cb59eeec49209d4 installs deps just for building pkg https://github.com/Homebrew/brew/issues/634#issue-169347205
+* deprecated repos unavailable
+```sh
+Warning: neofetch has been deprecated because it has an archived upstream repository! It will be disabled on 2025-05-04.
+```
+* `brew uses` doesn't work
+```sh
+$ brew uses --installed python # cairo, cmus, ffmpeg, glib, harfbuzz, libass, llvm, pango, rust, tesseract, yt-dlp
+$ brew uses --installed rust # no stdout
+```
+
+---
+
+when you catch a huge download like https://github.com/clarkema/x12pp can you interrupt install?
 
 ### registries
 
@@ -605,7 +588,7 @@ segments [LPI 31]
 > less sure about this definition
 * _stack_: 🗄 `architecture.md` memory
 * _heap_: 🗄 `architecture.md` memory 📙 Evans linux [16]
-* _memory allocator_: keep track of memory usage and get more when necessary from OS; malloc, calloc, et al. 📙 Evans linux [16]
+* _memory allocator_: keep track of memory usage and get more when necessary from OS; malloc, calloc, et al. 📙 Evans linux [16] https://danluu.com/malloc-tutorial/
 
 creation
 * `fork()`: called by existing process (parent) to create new process (child), which is a duplicate [LPI 2.7 31]
@@ -675,7 +658,7 @@ storage problems
 
 single-threaded + multicast https://signalsandthreads.com/multicast-and-the-markets/
 
-* _copy on write_: processes share memory until they need to write, at which point make copy of memory section and write to it (thereby avoiding a page fault) 🗄 `evans-linux.pdf` [3] https://brandur.org/ruby-memory
+* _copy on write_: processes share memory until they need to write, at which point make copy of memory section and write to it (thereby avoiding a page fault) 🗄 `evans-linux.pdf` [3] https://brandur.org/ruby-memory https://github.com/kentonv/lanparty
 * _mutex_: OS version of a lock https://jvns.ca/blog/2016/01/23/sendfile-a-new-to-me-system-call/ https://lwn.net/Articles/827180/ https://mortoray.com/2019/02/20/how-does-a-mutex-work-what-does-it-cost/
 * _serial_: execution inside single thread https://pre-commit.com/#hooks-require_serial
 * _history_: end of Moore's Law (clock speed increases slowing) = more cores per machine = more parallelization [Kleppmann 6]
@@ -793,7 +776,6 @@ BOOT
 ---
 
 `date -u`
-* https://github.com/jarun/pdd
 * backup w/ timestamp: `touch "$(date +%Y%m%d_%H%M%S).bak"` https://unix.stackexchange.com/a/96383/331460
 * _touch_: make new file or update timestamp
 * create dir with current date
@@ -908,7 +890,7 @@ ZA
 
 ---
 
-FILES
+FILES https://danluu.com/deconstruct-files/ https://danluu.com/file-consistency/ https://danluu.com/filesystem-errors/
 * _file_: sequence of bytes https://netflixtechblog.com/building-netflixs-distributed-tracing-infrastructure-bb856c319304
 * or a name in a hierachy, or a file descriptor https://blog.sunfishcode.online/is-everything-is-a-file/?utm_source=pocket_saves
 * _file handle_: https://stackoverflow.com/a/3385261/6813490 https://danluu.com/file-consistency/

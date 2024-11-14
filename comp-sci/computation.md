@@ -31,7 +31,7 @@ https://github.com/lusingander/enigma
 * Nisan elements https://github.com/zachvalenta/nand2tetris
 * Petzold code; second edition https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0137909101
 * Petzold annotated turing
-* Wayne logic for programmers
+* Wayne logic for programmers; circuits, branch prediction, speculative execution https://danluu.com/branch-prediction/ https://pythonspeed.com/articles/speeding-up-numba/
 
 > A computer is a clock with benefits. They all work the same, doing second-grade math, one step at a time - Ford what is code?
 > Everything ultimately has to get down to things in little boxes pointing to each other. That's just how things work. - Ford what is code?
@@ -138,6 +138,7 @@ else state == done:
 ```
 
 STATE MACHINE
+* https://zackproser.com/blog/bubbletea-state-machine
 * diagrams https://github.com/statecharts/statecharts.github.io/issues/44 https://en.wikipedia.org/wiki/State_diagram
 * _finite state machine (FSM)_: machine w/ fixed set of possible states 📙 Conery 66 https://nullprogram.com/blog/2020/12/31/ https://arpitbhayani.me/blogs/fsm
 * input not idempotent e.g. ball point pen https://www.youtube.com/watch?v=4rNYAvsSkwk https://arpitbhayani.me/blogs/fsm https://www.youtube.com/watch?v=nG_ZsNxRz0o
@@ -166,13 +167,12 @@ za
 * _acceleration_: hw for specialized tasks e.g. TPU https://en.wikipedia.org/wiki/Hardware_acceleration https://danluu.com/learning-to-program/
 * _embedded system_: os for larger mechanical device, probably doesn’t have file system or long-term storage
 * _ESP8266_: system on a chip, MicroPython, PikaScript https://news.ycombinator.com/item?id=31433815
-* _FPGA_: things you can program with Verilog, VHDL https://danluu.com/why-hardware-development-is-hard/
+* _FPGA_: things you can program with Verilog, VHDL https://danluu.com/why-hardware-development-is-hard/ https://news.ycombinator.com/item?id=42156516
 * _laptop_: non-unibody (easier to repair) unibody (Macbook; harder to switch battery, repair) https://www.netbooknews.com/tips/what-is-a-unibody-laptop/
 * _microcontroller_: special-purpose computer, often embedded in another device 📙 Shibuya chapter 6
 * _quantum_: used for physics simulations; qubit (like traditional bit 0/1 when observed, but when not observed represents probability of 0/1) https://news.ycombinator.com/item?id=22994468 📚 Gleick 13 https://quantum.country/ https://academy.meetiqm.com/curriculum/index.html
 * _transparent_: not visible/controllable e.g. L1 cache transparent to compiler https://www.reddit.com/r/compsci/comments/95ns21/what_is_difference_between_register_and_l1_cache/ confusing terminologically https://en.wikipedia.org/wiki/Transparency_(human%E2%80%93computer_interaction)
 * _UPS_: uninterruptible power supply (backup juice for proper shutdown)
-* circuits, branch prediction https://danluu.com/branch-prediction/
 
 ## chips
 
@@ -274,7 +274,7 @@ bits
 
 ---
 
-speculative execution, branch prediction https://pythonspeed.com/articles/speeding-up-numba/
+https://danluu.com/new-cpu-features/
 
 ALU
 * _ALU_: executes on opcode [Manga 1.23] https://en.wikipedia.org/wiki/Arithmetic_logic_unit#Implementation
@@ -290,7 +290,7 @@ ISA 📙 Bryant ch. 4 https://en.wikipedia.org/wiki/Instruction_set_architecture
 * _x86_: https://github.com/cirosantilli/x86-bare-metal-examples#china
 📍 port in notes from 'memory'
 * https://drewdevault.com/2021/03/19/A-new-systems-language.html
-* ARM, RISC V https://riscv.org/ https://www.youtube.com/watch?v=Lo63uDIiCH0
+* ARM, RISC V https://riscv.org/ https://www.youtube.com/watch?v=Lo63uDIiCH0 https://danluu.com/butler-lampson-1999/
 * https://www.jeffgeerling.com/blog/2020/raspberry-pi-cluster-episode-4-minecraft-pi-hole-grafana-and-more
 * https://www.jeffgeerling.com/blog/2020/what-does-apple-silicon-mean-raspberry-pi-and-arm64
 
@@ -298,6 +298,7 @@ scheduling 🗄 `linux.md` processes
 * https://wizardzines.com/comics/cpu-scheduling/
 
 * _processor_: aka CPU; can have n cores (i.e. parallelism) https://stackoverflow.com/q/19225859 can only add and subtract [Manga 1.15] https://www.righto.com/2024/08/pentium-navajo-fairchild-shiprock.html
+> No human can possibly hope to understand a modern high-performance CPU well enough to informally reason about its correctness. That's not only true now, it's been true for decades. It becomes true the moment someone introduces any sort of speculative execution or caching. These things are inherently stateful and complicated. They're so complicated that the only way to model performance (in order to run experiments to design high performance chips) is to simulate precisely what will happen, since the exact results are too complex for humans to reason about and too messy to be mathematically tractable. It's possible to make a simple CPU, but not one that's fast and simple. https://danluu.com/tests-v-reason/
 * _core_: main component that reads from memory, maintains execution order and state, and uses ALU to perform operations https://stackoverflow.com/a/19314303 https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
 * _core types_: physical (what it sounds like) logical (abstraction to facilitate hyperthreading) https://stackoverflow.com/q/1715580 https://forums.tomshardware.com/threads/what-is-the-difference-between-physical-core-and-logical-core.1534416/
 * _hyperthreading_: single core that can execute n instructions simultaneously

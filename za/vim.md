@@ -16,6 +16,11 @@
 
 ## 进步
 
+https://www.youtube.com/watch?v=VljhZ0e9zGE&list=WL&index=10&pp=gAQBiAQB
+https://www.youtube.com/watch?v=Qf9gfx7gWEY&list=WL&index=1&pp=gAQBiAQB
+https://www.youtube.com/watch?v=bb3UqIzd7L0&list=WL&index=2&pp=gAQBiAQB
+markdown https://www.youtube.com/watch?v=1Lmyh0YRH-w&list=WL&index=7&pp=gAQBiAQB
+
 * VS Code plugins: indentation rainbow, bookmarks, project manager https://switowski.com/blog/plugins-for-python-in-vscode/
 https://www.youtube.com/watch?v=VljhZ0e9zGE
 https://www.youtube.com/watch?v=oo_I5lAmdi0
@@ -220,7 +225,7 @@ THINGS I'M NOTICING ABOUT VSC
 * autocomplete works for any word in the workspace
 * prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421
 * constantly wipes out the outliner and requires Vim action to prompt redraw
-* symbol search doesn't work after git pull
+* symbol search doesn't work after git pull of new files | movement of headers
 
 WORKSPACES 📜 https://code.visualstudio.com/docs/editor/multi-root-workspaces 
 * _workspace_: dir(s) in scope for search https://stackoverflow.com/a/50185038
@@ -857,7 +862,7 @@ HIGHLIGHT PLUGINS
 
 🗄️ `plt.md` LSP
 
-* people hate this https://www.youtube.com/watch?v=G1_Y5hLTfgw [2:00,7:30]
+* people hate this https://www.youtube.com/watch?v=G1_Y5hLTfgw [2:00,7:30] https://www.youtube.com/watch?v=IRd2zwF527M
 * how this works in Neovim: `nvim-lspconfig` configs nvim client, `vim.lsp` as framework for tooling to connect to language servers, tool for language server mgmt (mason) https://www.youtube.com/watch?v=3a1PCir_aHs
 * _lsp-zero_: ✅ wrapper around `nvim-lspconfig`, `nvim-cmp`, and `mason` https://github.com/VonHeikemen/lsp-zero.nvim https://www.youtube.com/watch?v=3a1PCir_aHs 2:15
 * keybindings: things that don't work so far are `gd` but maybe this is because poetry build broken https://github.com/VonHeikemen/lsp-zero.nvim?tab=readme-ov-file#keybindings

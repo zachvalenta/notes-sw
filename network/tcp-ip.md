@@ -130,6 +130,7 @@ https://news.ycombinator.com/item?id=41930628
 
 🗄 `practical-packet-analysis.pdf` chapter 6
 
+* FAANG doesn't use any more https://news.ycombinator.com/item?id=42168997
 * _TCP_: one-to-one communication btw two nodes, have to establish connection before msg sent, msg acked i.e. reliable; can arrive in wrong order but works out somehow
 * _SYN_: first packet in TCP https://jvns.ca/blog/2022/09/06/send-network-packets-python-tun-tap/
 * _connection settings_: https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/

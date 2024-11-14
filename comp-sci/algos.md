@@ -231,7 +231,7 @@ ZA
 
 ## neural networks
 
-🗄️ `graphs.md` https://www.manning.com/books/graph-neural-networks-in-action https://www.manning.com/books/math-and-architectures-of-deep-learning
+🗄️ `graphs.md` https://www.manning.com/books/graph-neural-networks-in-action https://www.manning.com/books/math-and-architectures-of-deep-learning https://fleetwood.dev/posts/you-could-have-designed-SOTA-positional-encoding
 BYO https://www.manning.com/books/design-a-machine-learning-system-design-from-scratch
 
 FUNCTIONS
@@ -436,6 +436,7 @@ quicksort https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsor
 
 ---
 
+* https://gwern.net/resorter
 * _bubble_: https://realpython.com/sorting-algorithms-python/
 * _heap_: https://favtutor.com/blogs/heap-in-python
 * _insertion_: https://realpython.com/sorting-algorithms-python/

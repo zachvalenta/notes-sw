@@ -4,10 +4,12 @@
 
 🛣️ https://roadmap.sh/data-analyst
 > A number of companies (large crossover funds, startups, etc.) in The Diff network are looking for data scientists that love wrangling and analyzing alt. data to help inform investment decisions. (Remote) https://www.thediff.co/archive/longreads-open-thread-96/
-📙 https://www.manning.com/books/advanced-analytics-for-business https://www.manning.com/books/effective-data-analysis
 🗄
 * `protocols.md` file fmt
 * `telemetry.md` analytics
+📚
+* https://www.manning.com/books/advanced-analytics-for-business
+* https://www.manning.com/books/effective-data-analysis
 
 ## 进步
 
@@ -353,6 +355,7 @@ https://www.youtube.com/playlist?list=PLxu7QdBkC7drrAGfYzatPGVHIpv4Et46W
 
 https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
 
+* agg: set type (`%` for float) `z+` + agg https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
 * goto: `c $COL_REGEX`
 * search records: `/`
 * nav: `hl`, `gh/gl`
@@ -419,6 +422,8 @@ https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
 * view deleted `gS`
 
 ## entry (dataclerk)
+
+🧠 Django-based? https://chatgpt.com/c/673b721c-4174-8004-8973-6e0ccc5bad2c
 
 ---
 

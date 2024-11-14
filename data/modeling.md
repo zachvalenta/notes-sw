@@ -2,9 +2,11 @@
 
 ## 参考
 
-🗄️ `protocols.md`
 > All models are wrong, but some are useful - George Box 📙 Zuckerman simons [245]
 > Good programmers worry about data structures. https://softwareengineering.stackexchange.com/q/163185
+🗄️
+* `protocols.md`
+* `data/eng.md` factors
 📚
 * Alexopoulos semantic https://www.amazon.com/gp/product/1492054275
 * Kent data/reality https://www.amazon.com/Data-Reality-Perspective-Perceiving-Information/dp/1935504215
@@ -365,20 +367,23 @@ dbms
 
 ## vector
 
+🗄️ `ml.md`
 🧠 https://chatgpt.com/c/6733b490-8d1c-8004-aa20-c1c6722b0247
+
+* _ChromaDB_: https://www.youtube.com/watch?v=QSW2L8dkaZk&list=PL58zEckBH8fA-R1ifTjTIjrdc3QKSk6hI&pp=iAQB
+* _Pinecone_: https://zackproser.com/blog/i-am-joining-pinecone-io https://zackproser.com/blog/vector-databases-compared
 
 ---
 
 * for recommendation systems, NLP
-* _ChromaDB_: https://www.youtube.com/watch?v=QSW2L8dkaZk&list=PL58zEckBH8fA-R1ifTjTIjrdc3QKSk6hI&pp=iAQB
-* Pinecone, Milvus, Chroma, Weaviate, FAISS https://zackproser.com/blog/vector-databases-compared
+* Milvus, Chroma, Weaviate, FAISS https://zackproser.com/blog/vector-databases-compared
 * LanceDB https://www.youtube.com/watch?v=hB7sGE0W8CI
 * https://news.ycombinator.com/item?id=41985176
 * https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/ https://github.com/asg017/sqlite-vec https://github.com/qdrant/qdrant https://www.youtube.com/watch?v=awIm3rQOBxE
 
 # 🕸️ RELATIONAL
 
-📙 https://www.manning.com/books/grokking-relational-database-design
+📙 Hao https://www.manning.com/books/grokking-relational-database-design
 
 RELATIONS
 * _relationship_: what ties tables together https://twobithistory.org/2017/12/29/codd-relational-model.html

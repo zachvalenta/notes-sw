@@ -12,6 +12,7 @@
 
 ## 进步
 
+https://zackproser.com/blog/bubbletea-state-machine
 https://bitfieldconsulting.com/posts/bit
 https://bitfieldconsulting.com/posts/tdd-programming-confidence
 
@@ -41,6 +42,8 @@ BASICS 📙 Ball
 * https://github.com/uber-go/guide/blob/master/style.md
 * https://golang.org/doc/effective_go.html
 > Effective Go continues to be useful, but the reader should understand it is far from a complete guide.
+
+* _embed_: good for distributed libs packaging the files they need vs. relying on the host OS fs https://www.youtube.com/watch?v=7EK06n485nk
 
 ---
 
@@ -237,7 +240,7 @@ var myInt // 0
 * _Bubble Tea_: inspired by Elm? https://github.com/charmbracelet/bubbletea
 * tutorials https://leg100.github.io/en/posts/building-bubbletea-programs/ https://www.youtube.com/watch?v=ERaZi0YvBRs
 * components https://github.com/charmbracelet/bubbles 
-* _gum_: Charm utils for Bash https://github.com/charmbracelet/gum https://www.youtube.com/watch?v=tnikefEuArQ
+* _gum_: Charm utils for Bash https://github.com/charmbracelet/gum https://www.youtube.com/watch?v=tnikefEuArQ https://github.com/zackproser/automations
 
 ---
 

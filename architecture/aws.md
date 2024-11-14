@@ -2,6 +2,7 @@
 
 ## 参考
 
+🗄️ `infra.md` cloud
 🛣️ https://roadmap.sh/aws
 📊 https://console.aws.amazon.com/console/home
 🩻 https://health.aws.amazon.com/health/status
@@ -25,11 +26,7 @@ https://www.youtube.com/watch?v=jFrGhodqC08
 
 # 🤖 COMPUTE
 
-CONTAINERS 🗄️ `containers.md`
-* _ECS (Elastic Container Svc)_: run Docker containers on EC2, autoscales, can be used for jobs or service mesh https://www.youtube.com/watch?v=I9VAMGEjW-Q
-* howto: Dockerfile, build image and put to ECR, define ECS task (how to start container, what ports to open, what to connect to)
-* _Fargate_: serverless ECS
-* _EKS_: managed Kubernetes https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html
+🔗 https://aws.amazon.com/products/compute/
 
 DATA ENG 🗄️ storage / data eng
 * _Athena_: how is this different than CloudSearch? https://docs.aws.amazon.com/athena/latest/ug/what-is.html
@@ -53,12 +50,33 @@ CORPORATE
 ---
 
 https://www.lastweekinaws.com/blog/why-your-cpu-based-utilisation-metric-is-absolute-nonsense/
-https://www.lastweekinaws.com/blog/17-final-ways-to-run-containers/
 
 * _scaling_: ElasticBeanstalk (autoconf mem) IaaS (set CloudWatch alert for cluster and add instances behind LB when load triggers alert)
-* _Compute Engine_: EC2; compare prices https://ec2.shop/
+
+## containers
+
+🗄️ `containers.md`
+
+* EC2
+```sh
+# INSTALL ON INSTANCE
+sudo amazon-linux-extras install docker
+sudo service docker start
+# AWS USER TO DOCKER GROUP
+sudo usermod -aG docker ec2-user
+```
+* _ECS (Elastic Container Svc)_: run Docker containers on EC2, autoscales, can be used for jobs or service mesh https://www.youtube.com/watch?v=I9VAMGEjW-Q
+* howto: Dockerfile, build image and put to ECR, define ECS task (how to start container, what ports to open, what to connect to)
+* _Fargate_: serverless ECS
+* _EKS_: managed Kubernetes https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html
+
+---
+
+https://www.lastweekinaws.com/blog/17-final-ways-to-run-containers/
 
 ## EC2
+
+🔍 https://ec2.shop/
 
 * sizing https://x.com/dvassallo/status/1154516923335376896
 * log into instance by name https://github.com/jessebye/awser
@@ -287,6 +305,8 @@ tighten perms for S3 buckets
 
 # 🟨 ZA
 
+* aaS
+> For the past 3 years, I've been working at Gruntwork, a DevOps startup that accelerates your launch into AWS by giving you best-practice architectures defined in Terraform, and standing them up in your accounts in about a day. https://zackproser.com/blog/why-ive-been-successful
 * _ARN_: ID for resource https://everythingdevops.dev/what-is-amazon-resource-name-arn/
 
 CODE
@@ -312,6 +332,7 @@ MOBILE SVC
 * https://www.reddit.com/r/AWSCertifications/
 * https://www.exampro.co/ https://tutorialsdojo.com/
 * questions https://www.youtube.com/watch?v=8zsdpwvTxos
+* https://cantrill.io/ https://zackproser.com/blog/why-ive-been-successful
 
 CERTS
 * _cloud practioner (CCP/CLF-C02)_: replaced CLF-C01 in 2024 https://www.pluralsight.com/resources/blog/cloud/new-aws-clf-c02-exam0
@@ -325,6 +346,39 @@ CERTS
 ZA
 * show on your LinkedIn https://www.linkedin.com/in/joshua-kelley-058b284a/ https://www.linkedin.com/posts/derhabicht_aws-certified-developer-associate-was-issued-activity-7190907898024071169-186-
 * job board https://iq.aws.amazon.com/
+
+## 🌈 GCP
+
+* https://softwareengineeringdaily.com/2021/06/09/gcp-with-liz-fong-jones/
+
+* _App Engine_: PaaS https://testdriven.io/blog/django-gae
+* _RTDN_: notifcations from GP app https://developer.android.com/google/play/billing/rtdn-reference
+* howto https://developer.android.com/google/play/billing/getting-ready#enable-rtdn
+* _Cloud Pub/Sub_: MQ btw GCP apps https://cloud.google.com/pubsub/docs/publish-receive-messages-console https://console.cloud.google.com/cloudpubsub/topic/list https://console.cloud.google.com/cloudpubsub/subscription/list
+* multiple topics for GP app: possible? https://stackoverflow.com/q/72688883 yes https://stackoverflow.com/a/52759477 https://stackoverflow.com/a/71740580 no https://stackoverflow.com/a/70986770
+* https://stackoverflow.com/questions/6991135/what-does-it-mean-to-hydrate-an-object
+
+IAM
+* _principal_: user account, service account, group
+* _role_: collection of perms
+* _condition_: further constraint on role i.e. no write access if req lacks key
+* _allow policy_: mapping of principal to role per resource https://cloud.google.com/iam/docs/policies
+* _service account_: account for service (vs. user) https://cloud.google.com/iam/docs/service-accounts
+* GCP also has service accounts for itself e.g. to publish RTDN https://stackoverflow.com/a/64184564
+
+IAP Proxy https://www.youtube.com/watch?v=xM9-FSU5MoY
+* type of access: public, authed users, authed employees [2:00]
+* = identity service in front of site [3:30]
+* uses Google (or Active Directory) as SSoT for identity [4:15]
+
+za
+* unreliable https://news.ycombinator.com/item?id=24169044 Azure unreliable as well? https://news.ycombinator.com/item?id=41898723
+* bad customer supprt https://calpaterson.com/amazon-premium.html
+* GCS = S3
+* Cloud SQL = RDS
+* Cloud Spanner = Aurora
+* _BigQuery_: serverless db, good for GIS https://news.ycombinator.com/item?id=40052172
+* _BigTable_: BigQuery but NoSQL https://cloud.google.com/free/docs/map-aws-google-cloud-platform
 
 ## IaC
 
@@ -345,6 +399,8 @@ ZA
 * _Config_: track overall AWS setup
 
 ## IAM
+
+🗄️ GCP > IAM
 
 SEMANTICS https://stackoverflow.com/a/51888634/6813490
 * _account_: ID, alias

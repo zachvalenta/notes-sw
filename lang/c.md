@@ -21,7 +21,7 @@
 * courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
 * design: https://saagarjha.com/blog/2020/05/10/why-we-at-famous-company-switched-to-hyped-technology/ https://eev.ee/blog/2016/12/01/lets-stop-copying-c/ https://nullprogram.com/tags/c/
 * sysroot, undefined behavior (UB) https://news.ycombinator.com/item?id=30488979
-* _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron
+* _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron https://news.ycombinator.com/item?id=42146338 https://begriffs.com/posts/2022-07-17-debugging-gdb-ddd.html
 * Postgres codebase is supposed to be a good guide https://news.ycombinator.com/item?id=20556336
 * `#define`: constants https://www.youtube.com/watch?v=hsmGp3cp_50 0:50
 
@@ -31,18 +31,22 @@
 
 🔗 https://github.com/hackclub/some-assembly-required
 📚
-* Petzold code (24)
-* Nisan nand2tetris (4, 6)
+* Petzold code 24
+* Nisan nand2tetris 4, 6
+
+* _assembly_: shorthand for whatever binary the CPU understands 📙 `evans-linux.pdf` 1
+* _HLA (high-level assembly)_: just a Randall Hyde thing https://news.ycombinator.com/item?id=7143409
+* _intrinsics_: function that corresponds to paricular assembly instructions https://danluu.com/assembly-intrinsics/
+
+---
 
 * https://shikaan.github.io/assembly/x86/guide/2024/09/08/x86-64-introduction-hello.html
 * ARM https://www.youtube.com/watch?v=gfmRrPjnEw4
 * compiler explorer https://godbolt.org/
-* _assembly_: shorthand for whatever binary the CPU understands 📙 `evans-linux.pdf` 1
 * _learning_: 📍 finish second chapter of Manga Microprocessors 🗄 Duntemann https://news.ycombinator.com/item?id=7143585 Latacora CTF https://news.ycombinator.com/item?id=7145479 🗄 Bryant https://news.ycombinator.com/item?id=7143866 microcontrollers https://news.ycombinator.com/item?id=7147009
 https://wizardzines.com/comics/assembly/
 * most assembly scoped to particular machine architecture; assembly used to be what OS were written in until Unix [LPI 1.1]
 * macOS https://news.ycombinator.com/item?id=7144020
-* _HLA (high-level assembly)_: just a Randall Hyde thing https://news.ycombinator.com/item?id=7143409
 * https://news.ycombinator.com/item?id=26311722
 
 ## ➕ C++
@@ -118,6 +122,7 @@ STDLIB
 * _GUI_ https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html
 * _TUI_: https://github.com/ratatui-org/ratatui https://github.com/mrjackwills/oxker cursive https://github.com/gyscos/cursive https://github.com/Builditluc/wiki-tui https://github.com/fdehau/tui-rs https://github.com/lusingander/stu
 * _web_: https://news.ycombinator.com/item?id=41914544 https://www.leptos.dev/ https://dioxuslabs.com/ https://loco.rs/
+* _tauri_: crossplatform (mobile, desktop, web) https://github.com/tauri-apps/tauri https://blog.gitbutler.com/open-source-pledge-2024/ https://github.com/mrjackwills/obliqoro
 
 COMMUNITY
 * good graphic design taste https://rustlab.it/
@@ -136,7 +141,6 @@ https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUC
 * incomplete bc no BDFL https://news.ycombinator.com/item?id=41656463 https://doc.rust-lang.org/unstable-book/the-unstable-book.html
 > Maybe this is by design. Good languages are stable languages. It might be time to think of rust as a fully baked language - warts and all. Python 2.7 for life. https://josephg.com/blog/rewriting-rust/
 * release, editions https://blog.rust-lang.org/2014/10/30/Stability.html https://doc.rust-lang.org/edition-guide/editions/
-* desktop framework https://github.com/tauri-apps/tauri https://blog.gitbutler.com/open-source-pledge-2024/
 * Neovim https://www.youtube.com/watch?v=mh_EJhH49Ms
 * example project https://github.com/nate-sys/tuime https://github.com/swsnr/mdcat
 * books https://news.ycombinator.com/item?id=34556318 https://github.com/plabayo/learn-rust-101/blob/main/README.md

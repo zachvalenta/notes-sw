@@ -9,7 +9,7 @@
 * Anathaswamy https://www.amazon.com/gp/product/0593185749 https://www.thediff.co/archive/longreads-open-thread-90/
 * Ferguson game of go
 * Perrota programming ML https://www.amazon.com/Programming-Machine-Learning-Zero-Deep/dp/1680506609/ref=sr_1_1
-* Trask grok deep learning https://github.com/iamtrask/Grokking-Deep-Learning
+* Trask deep learning https://github.com/iamtrask/Grokking-Deep-Learning
 
 ## 进步
 
@@ -33,8 +33,12 @@ Can you give a taxonomy of $FOO in the form of a tree, like this?
 
 > sort these
 
+NON-CLI/TUI
 * DDG offers bang (`ai`), slightly faster REPL but loses all org functionality
 * emacs https://github.com/karthink/gptel
+* https://chatboxai.app/en
+
+CLI/TUI
 * _aichat_: 🎯 multichat https://github.com/sigoden/aichat/issues/924 https://github.com/sigoden/aichat 
 * _ch_: 🎯 https://github.com/dnmfarrell/ch https://blog.dnmfarrell.com/post/chatgpt-at-the-terminal/
 * _chat-macOS_: https://github.com/huggingface/chat-macOS https://news.ycombinator.com/item?id=41927624
@@ -68,9 +72,9 @@ OPTIONS 🗄️ `vim.md` zed
 * impl https://news.ycombinator.com/item?id=42078536
 * _Aide_: IDE https://news.ycombinator.com/item?id=42063346
 * _aider_: CLI https://aider.chat/
-* _Avante_: Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835
+* _Avante_: Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835 https://www.youtube.com/watch?v=r-3o35-5hlg https://www.youtube.com/watch?v=4kzSV2xctjc https://www.youtube.com/watch?v=iyftGvVs86E
 * _Cline_: https://github.com/cline/cline
-* _Codeium_: https://zackproser.com/blog/codeium-analysis-4-2024
+* _Codeium_: https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
 * _Copilot_: multi-model https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
 * _Cursor_: closed source, Chromium https://www.cursor.com/
 * https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203 https://news.ycombinator.com/item?id=41988211 https://news.ycombinator.com/item?id=41987367
@@ -146,7 +150,7 @@ Say you have a CLI program that needs a secret (e.g. an API key). The secret nee
 
 ## features
 
-browser interaction https://news.ycombinator.com/item?id=42052432
+browser interaction https://news.ycombinator.com/item?id=42052432 https://news.ycombinator.com/item?id=42052432
 > Claude from the browser https://news.ycombinator.com/item?id=42012412
 
 > get API tier, try mods, export current conversations https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a do you really need to export current? just incorporate into your notes and delete, leaving anything outstanding. your notes is the final downstream for everything (excluding code, music, etc.), hence LLMs are upstream. the goal with this is to 1) reduce friction re: queries 2) better...system message / prompts / RAG 3) history / stats 4) tags
@@ -166,6 +170,8 @@ FILE FMT https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a https://chat
 
 # 🧠 MODELS
 
+🗄️ `modeling.md` vector
+📙 build LLM from scratch https://www.manning.com/books/build-a-large-language-model-from-scratch
 🔍 https://a16z.com/100-gen-ai-apps-3/
 🛠️ benchmark https://arena.lmsys.org/
 
@@ -227,12 +233,16 @@ NO
 
 ## RAG
 
-📙 https://www.amazon.com/gp/product/1098150961
+📚
+* https://www.amazon.com/gp/product/1098150961
+* build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch
 
+> Retrieval augmented generation (RAG) is an architecture that provides the most relevant and contextually-important proprietary, private or dynamic data to your Generative AI application's large language model (LLM) when it is performing tasks to enhance its accuracy and performance. https://www.pinecone.io/learn/retrieval-augmented-generation/
 * howto: Python in a sidecar and then your server in another language (that lacks Python's ML stdlib) talks to that https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
 
 ---
 
+* BYO https://www.youtube.com/@zackproser/videos https://aws.amazon.com/bedrock/
 * _RAG_: document-based interactions https://github.com/sigoden/aichat#rag-chat-with-your-documents TTS https://changelog.com/practicalai/288 https://zackproser.com/blog/how-are-embeddings-models-trained-for-rag https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation knowledge graph https://www.manning.com/books/knowledge-graph-enhanced-rag
 * when you need more than either aaS or OSS
 > If such a customized LLM is a suitable solution for your project, consider just running Ollama or Llamafile and using their REST APIs to communicate with the model. If you need higher degrees of customization, read on. https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
@@ -256,6 +266,20 @@ https://www.amazon.com/gp/product/1098107969
 * PDF https://dev.to/jagroop2001/building-a-chat-with-pdfs-using-pinataopenai-and-streamlit-3jb7
 * papers to podcasts https://www.fwdaudio.com/ https://x.com/barbell_fi
 * https://www.assemblyai.com/
+
+BYO
+* https://www.youtube.com/watch?v=kCc8FmEb1nY
+* https://news.ycombinator.com/item?id=41412256&utm_term=comment
+* https://spreadsheets-are-all-you-need.ai/index.html
+* https://iamjoshknox.com/2023/12/06/econeats-an-ai-dining-guide/
+* https://www.saaspegasus.com/guides/django-websockets-chatgpt-channels-htmx
+* https://github.com/langgenius/dify
+* https://github.com/BerriAI/litellm
+
+> https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse
+
+* _langchain_: https://zackproser.com/blog/office-oracle-overview
+> We mentioned some of the emerging criticisms about LangChain in the previous Radar. Since then, we’ve become even more wary of it. While the framework offers a powerful set of features for building applications with large language models (LLMs), we’ve found it to be hard to use and overcomplicated. LangChain gained early popularity and attention in the space, which turned it into a default for many developers. However, as LangChain is trying to evolve and keep up with the fast pace of change, it has become harder and harder to navigate those changes of concepts and patterns as a developer. We’ve also found the API design to be inconsistent and verbose. As such, it often obscures what is actually going on under the hood, making it hard for developers to understand and control how LLMs and the various patterns around them actually work. We’re moving LangChain to the Hold ring to reflect this. In many of our use cases, we’ve found that an implementation with minimum use of specialized frameworks is sufficient. Depending on your use case, you may also want to consider other frameworks such as Semantic Kernel, Haystack or LiteLLM.  https://www.thoughtworks.com/radar/languages-and-frameworks/langchain
 
 # 🏗️ USAGE
 
@@ -295,7 +319,7 @@ TYPES https://elevenlabs.io/
 ## img
 
 * image to video https://www.vidifyapp.com/
-* _OCR_: image to text e.g. PDF to plaintext https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194 https://getomni.ai/ocr-demo https://news.ycombinator.com/item?id=41971614
+* _OCR_: image to text e.g. PDF to plaintext https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194 https://getomni.ai/ocr-demo https://news.ycombinator.com/item?id=41971614 https://github.com/Nutlope/llama-ocr
 
 ---
 
@@ -314,7 +338,6 @@ TYPES https://elevenlabs.io/
 ## projects
 
 * algos https://github.com/ritchie46/vanilla-machine-learning https://www.manning.com/books/optimization-algorithms
-* BYO https://www.manning.com/books/build-a-large-language-model-from-scratch https://www.manning.com/books/build-llm-applications-from-scratch
 * Iris dataset https://www.youtube.com/results?search_query=iris+dataset https://docs.pola.rs/user-guide/misc/visualization/#altair
 * get familiar https://simonwillison.net/2024/Apr/17/ai-for-data-journalism/
 * https://www.freecodecamp.org/news/customer-segmentation-python-machine-learning/
@@ -415,18 +438,6 @@ https://stratechery.com/2023/ai-and-the-big-five/
 * supervised https://www.youtube.com/watch?v=j9kcEuGcC2Y
 * CRISP-DM https://www.youtube.com/watch?v=dCa3JvmJbr0
 * model selection https://www.youtube.com/watch?v=OH_R0Sl9neM
-
-BYO
-* https://www.youtube.com/watch?v=kCc8FmEb1nY
-* https://news.ycombinator.com/item?id=41412256&utm_term=comment
-* https://spreadsheets-are-all-you-need.ai/index.html
-* https://iamjoshknox.com/2023/12/06/econeats-an-ai-dining-guide/
-* https://www.saaspegasus.com/guides/django-websockets-chatgpt-channels-htmx
-* https://github.com/langgenius/dify
-* https://github.com/BerriAI/litellm
-
-> https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse
-https://www.thoughtworks.com/radar/languages-and-frameworks/langchain
 
 https://karpathy.ai/zero-to-hero.html
 https://www.youtube.com/watch?v=fuMKrKlaku4
@@ -578,13 +589,14 @@ https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willi
 SEMANTICS
 * _prompt engineering_: asking specific questions https://marginalrevolution.com/marginalrevolution/2023/05/how-to-use-gpt-4-plus-web-browsing.html https://www.youtube.com/watch?v=hB7sGE0W8CI
 * _prompt injection_: getting model to do something its creators don't want
-* _system message_: hidden instruction that defines the behavior/goals/tone of the model https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b
+* _system message_: hidden instruction that defines the behavior/goals/tone of the model; aka system prompt https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b
+* BYO your own characters https://news.ycombinator.com/item?id=42107113
 > "You are a helpful assistant named Elia."
 
 ## stdlib
 
-* _Tensorflow_: tensor (array) flow (operations) https://github.com/Hvass-Labs/TensorFlow-Tutorials
-* _Keras_: less verbose Tensorflow (will eventually be packaged w/) https://victorzhou.com/blog/keras-neural-network-tutorial/
+* _Tensorflow_: tensor (array) flow (operations) https://github.com/Hvass-Labs/TensorFlow-Tutorials https://news.ycombinator.com/item?id=42133844
+* _Keras_: less verbose Tensorflow (will eventually be packaged w/) https://victorzhou.com/blog/keras-neural-network-tutorial/ https://news.ycombinator.com/item?id=42133844
 * _PyTorch_: superceded Tensorflow https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/ NumPy that can run in parallel on GPUs; tensor (array 类似 NumPy array) scalar (single value) vector (array) matrix (2d array) tensor (multi-dimensional array) https://aiweirdness.com/post/189170306297/how-to-begin-a-novel alternative https://github.com/geohot/tinygrad https://github.com/Lightning-AI/lightning
 * _CUDA_: GPUs aaS
 * _sci-kit learn_: https://jakevdp.github.io/PythonDataScienceHandbook/

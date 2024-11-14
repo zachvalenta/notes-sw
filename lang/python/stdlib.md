@@ -522,6 +522,9 @@ ALTERNATIVES
 * _urwid_: used by pudb, Zulip http://urwid.org/ https://github.com/zulip/zulip-terminal/blob/main/zulipterminal/ui_tools/boxes.py
 * _pytermgui_: https://github.com/bczsalba/pytermgui
 
+PROJECTS THAT USE
+* https://github.com/thetacom/hexabyte
+
 ---
 
 * https://realpython.com/contact-book-python-textual/
@@ -585,11 +588,12 @@ res = requests.delete(url, auth=(user, pw))
 🗄 `html-css.md`
 
 aaS
+> have to use headless browser for SPAs? https://github.com/zackproser/pageripper-v2 https://zackproser.com/blog/api-cicd-pulumi-github
 * _ScrapingBee_: https://www.scrapingbee.com/
 * _Zenrows_: https://www.zenrows.com/solutions/scraper-api
 
 LIBS
-* scrapling: https://github.com/D4Vinci/Scrapling
+* _scrapling_: https://github.com/D4Vinci/Scrapling
 
 ---
 
@@ -872,6 +876,10 @@ sha.hexdigest()  # 'fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba6259
 ```python
 from datetime import datetime
 print(f"today's date is {datetime.now().strftime('%y%m%d')}")  ## YYMMDD
+```
+* _pdd_: ✅ diff https://github.com/jarun/pdd
+```sh
+pdd 0 0 60 --add  # 60 days from today
 ```
 
 ---

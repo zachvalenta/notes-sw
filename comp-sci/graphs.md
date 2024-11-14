@@ -158,6 +158,8 @@ adit       manning
 📚
 * Cheng joy of abstraction https://www.amazon.com/gp/product/1108477224
 
+* _centrality_: see email to Cowen re: Jamie Brandon https://en.wikipedia.org/wiki/Centrality Gwern https://news.ycombinator.com/item?id=42134708 TC https://danluu.com/broken-builds/
+
 ---
 
 > Yes - the value of functional programming isn't that working in OCAML, or F#, or Haskell is 10x as productive as other languages. But that it can teach you worthwhile lessens about designing software that apply equally to imperative languages. Modelling the business domain, reasoning and managing side effects, avoiding common imperative bugs, these are all valuable skills to develop. https://news.ycombinator.com/item?id=40702146
@@ -178,6 +180,7 @@ https://www.amazon.com/How-Bake-Pi-Exploration-Mathematics/dp/0465097677
 
 ## dbms
 
+https://danluu.com/yegge-predictions/
 DBMS
 * embedded w/ Datalog https://news.ycombinator.com/item?id=33518320 https://github.com/cozodb/cozo
 * Mongo offers as well https://www.mongodb.com/databases/mongodb-graph-database
