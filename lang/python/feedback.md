@@ -182,6 +182,7 @@ https://realpython.com/python-packages/#pudb-for-visual-debugging
 
 # 📔 NOTEBOOK
 
+💡 Romer econ textbook idea
 🗄 `km.md` notes
 
 > Jupyter Notebooks are files that combine two content types: text/Markdown and executable Python code. https://www.pinecone.io/learn/retrieval-augmented-generation/

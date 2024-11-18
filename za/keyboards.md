@@ -8,7 +8,13 @@
 
 ## 进步
 
-finish zsa and choose btw moonlander and voyager (leaning voyager in everything but keycount)https://www.youtube.com/watch?v=9P74eCU19d0
+---
+
+* where to source parts https://www.youtube.com/watch?v=co1rJaErdrI
+* small boards https://www.youtube.com/watch?v=XwgoZcRi4ek
+* home office https://www.youtube.com/watch?v=Lt6R6kNjVNU
+* BYO takes forever https://www.youtube.com/watch?v=9P74eCU19d0 https://www.youtube.com/watch?v=3n28JNSizvo https://www.youtube.com/watch?v=cnZEcnlyGyg
+* space bar https://www.youtube.com/watch?v=VLnH61NCi9Y https://www.youtube.com/watch?v=QKQMPF15mgE
 
 * _24_: models (Apple refurbished, nuphy air 75, keychron k8)
 
@@ -151,12 +157,46 @@ https://people.zsa.io/stephen-perera/
 https://people.zsa.io/pulin-agrawal/
 https://people.zsa.io/emma-anderson/
 
-#### existing functionality
+#### decision
 
-> with the understanding that you'll eventually move away from this for macros/layers https://www.youtube.com/watch?v=WfIfxaXC_Q4
+💡 voyager (portable) moonlander (key count + zip kit)
 
-* L side: tilde/backtick, TAB, ESC, SHIFT, CTRL, CMD
-* R side: hyphen, equals, brackets, colon, quote, period, comma, slash, ENTER, SHIFT, CMD
+ERGO WORTH IT
+* RSI
+* space in center of desk for notebook
+
+ZA
+* space bar: thumb paddle (outer)
+* CMD: thumb paddle (inner)
+* ✅ arrows: layer + Vim
+
+L SIDE
+* ✅ tilde/backtick
+* tilde
+* TAB
+* ESC
+* SHIFT
+* CTRL
+
+R side
+* ✅ hyphen
+* ❌ equals
+* ❌ brackets
+* ✅ colon
+* ✅ quote
+* ✅ period / comma / angle bracket
+* ✅ slash / question
+* ENTER
+* SHIFT
+
+---
+
+* https://www.youtube.com/watch?v=IKKsREAlkoE @ 3:35
+* https://www.youtube.com/watch?v=WfIfxaXC_Q4
+* https://www.youtube.com/watch?v=KTWzwXg9Ra8
+* no wasted inside buttons https://www.youtube.com/watch?v=KlyMuZIEOOw [4:00]
+* keys the voyager has
+> I need at least [ ] ; ' \ , . to be separate physical keys (because they are also letters/essential punctuation in other languages), and ideally arrows too, and more thumb buttons than just 2 (ideally ctrl/win/alt/altGr and backspace/delete/space/enter). Also quite important for gaming to have modifiers and the usual keys (spacebar, tab, etc) easily available without layers, tap hold or tapdance.
 
 #### 🆇 ergodox
 
@@ -169,26 +209,22 @@ LAYOUT https://www.youtube.com/watch?v=WpuwhQy5cGg https://configure.zsa.io/voya
 
 LAYOUT https://configure.zsa.io/voyager/layouts/ https://www.youtube.com/watch?v=5AqXjVrnI2E
 * 72 keys
-* layout
-* thumb cluster still too busy; mods https://www.youtube.com/watch?v=SVCFSe6NozU
+* zip kit = too many keys period? https://www.youtube.com/watch?v=BK_ezYCgIpY https://www.zsa.io/moonlander/zip-kit
 * more keys on R side for ENTER, shift
-* zip kit = too many keys period? https://www.youtube.com/watch?v=BK_ezYCgIpY
+* thumb cluster still too busy; mods https://www.youtube.com/watch?v=SVCFSe6NozU
 
 ERGO
-* tenting https://www.youtube.com/watch?v=y3lnLcb-nPo https://www.youtube.com/watch?v=SVCFSe6NozU
+* tenting https://www.youtube.com/watch?v=y3lnLcb-nPo https://www.youtube.com/watch?v=SVCFSe6NozU doesn't work bc poor build quality https://www.youtube.com/watch?v=l-qkKIpHu9A [21:00]
 * more adjustable out of the box
 * wrist rest comes with
 
 #### 🛶 voyager
 
-> probably makes more sense to buy as ZSA themselves uses their own stuff and figured out how to improve the Moonlander
+> probably makes more sense to buy as ZSA themselves uses their own stuff and figured out how to improve the Moonlander + Moonlander already came with zip kit to reduce number of keys
 
 LAYOUT https://configure.zsa.io/voyager/layouts/
-* 52 keys
+* 52 keys; ❓ not enough?
 * pinky keys should be big buttons https://www.youtube.com/watch?v=KlyMuZIEOOw [3:30]
-* no wasted inside buttons https://www.youtube.com/watch?v=KlyMuZIEOOw [4:00]
-* ❓ not enough keys?
-> I need at least [ ] ; ' \ , . to be separate physical keys (because they are also letters/essential punctuation in other languages), and ideally arrows too, and more thumb buttons than just 2 (ideally ctrl/win/alt/altGr and backspace/delete/space/enter). Also quite important for gaming to have modifiers and the usual keys (spacebar, tab, etc) easily available without layers, tap hold or tapdance.
 
 ERGO
 * ✅ portable
@@ -200,7 +236,6 @@ ERGO
 ## programmable
 
 🗄️ `interfaces.md` terminals > features
-🏔️ https://www.youtube.com/watch?v=WfIfxaXC_Q4
 
 PROGRAMS
 * _kanata_: https://github.com/jtroo/kanata

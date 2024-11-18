@@ -27,6 +27,7 @@ ZA
 
 ---
 
+design https://news.ycombinator.com/item?id=42193043
 Dask dataframe https://www.youtube.com/watch?v=bbtK3aCQ3C0
 https://calpaterson.com/bank-python.html
 https://tibble.tidyverse.org/

@@ -570,12 +570,6 @@ pgcli postgres://postgres:pw@127.0.0.1:9998/db
 mobile OS
 * https://news.ycombinator.com/item?id=25429278
 
-browsers
-* browser fingerprinting https://kevq.uk/how-browser-fingerprinting-works/ https://freedom-to-tinker.com/2018/06/29/against-privacy-defeatism-why-browsers-can-still-stop-fingerprinting/
-* https://superuser.com/questions/1298062/chrome-clear-cookies-on-exit-feature-does-not-work can't use adblockers https://9to5google.com/2019/05/29/chrome-ad-blocking-enterprise-manifest-v3/ doesn't index old stuff https://www.tbray.org/ongoing/When/201x/2018/01/15/Google-is-losing-its-memory better memory https://blog.mozilla.org/firefox/firefox-uses-less-memory-chrome-edge-safari/ tree-style tabs https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/ also has Vimium https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/ old version of Vimium for Firefox https://nullprogram.com/blog/2018/09/20/
-* ad blocking https://www.jefftk.com/p/thoughts-on-ad-blocking https://news.ycombinator.com/item?id=27060898
-* _Firefox_: https://www.mozilla.org/en-US/firefox/accounts/ http://ask-leo.com/why_isnt_my_browser_remembering_my_usernames_any_more.html https://marko.fyi/firefox/ https://www.troyhunt.com/were-baking-have-i-been-pwned-into-firefox-and-1password/ comes w/ VPN? https://premium.firefox.com/vpn/ 
-
 cell phone data
 * https://www.wsj.com/articles/academic-project-used-marketing-data-to-monitor-russian-military-sites-11595073601?mod=hp_lead_pos7
 * https://www.nytimes.com/2018/06/19/technology/verizon-att-cellphone-tracking.html

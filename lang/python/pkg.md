@@ -95,8 +95,8 @@ PYOXIDIZER
 
 ---
 
+* https://www.youtube.com/watch?v=niMybnzmzqc
 * https://travisjeffery.com/b/2019/11/i-ll-take-pkg-over-internal/
-* https://www.youtube.com/watch?v=niMybnzmzqc&t=330s
 * even Prolog uses src/test https://github.com/dnmfarrell/dict
 * dupe https://github.com/simonw/files-to-prompt
 * https://github.com/fpgmaas/cookiecutter-uv
@@ -115,8 +115,6 @@ https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.h
 * structure https://www.pythonpapers.com/p/how-to-publish-a-python-package-to
 * https://www.pybitespodcast.com/1501156/12592983-110-dane-hillard-on-python-packaging-and-effective-developer-tooling
 * lockfile https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
-* https://www.youtube.com/watch?v=niMybnzmzqc
-* https://www.youtube.com/watch?v=dlCcnJdh4c4
 
 ## publish
 

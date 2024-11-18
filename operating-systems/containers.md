@@ -10,14 +10,10 @@
 
 ## 进步
 
-get a handle on specs/OCI/CRI https://chatgpt.com/c/673a53d0-f3fc-8004-99ce-c0355d67d2f8
-
-INSTALL
-You said: "Docker volumes and metadata are stored in the virtualized disk image rather than directly in macOS's filesystem"
-How to inspect this location?
-The reason I'm asking about all this: before I install Docker on my machine, I wanted to create a textual snapshot of:
-* how much data I roughly have
-* what ports are open
+PLAN GOING FORWARD
+* air-capp: Docker Desktop
+* mini23: Colima + see if you can run `product-workflow`
+* get a handle on specs/OCI/CRI https://chatgpt.com/c/673a53d0-f3fc-8004-99ce-c0355d67d2f8
 
 ---
 
@@ -54,11 +50,6 @@ HOWTO https://pythonspeed.com/docker/
 💻 repos (SQLite, Postgres, gunicorn, secrets) https://github.com/zachvalenta?tab=repositories&q=docker HTTPS https://testdriven.io/blog/django-docker-traefik/ https://www.youtube.com/watch?v=-hfejNXqOzA
 
 ---
-
-OS STORAGE
-* `docker.raw`: allocated 32GB but only 3-4GB of images https://apple.stackexchange.com/q/391377
-> reset mine from 64 to 32GB
-* cleanup https://stackoverflow.com/a/39890025
 
 ZA
 * running as root https://blog.bejarano.io/how-to-write-great-container-images/ https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/ https://pythonspeed.com/articles/root-capabilities-docker-security/ https://pythonspeed.com/articles/vscode-broken-docker/ https://github.com/genuinetools/img 🗄 Docker alternatives
@@ -156,71 +147,31 @@ services:
 
 🗄️ engines
 
+DOCKER DESKTOP COMPONENTS https://docs.docker.com/desktop/ 🧠 https://chatgpt.com/c/673bb2a2-0114-8004-86c3-c6e64defd3b3
+> uninstall via AppCleaner? https://docs.docker.com/desktop/uninstall/
+> start from shell https://stackoverflow.com/a/35979292
+* Engine https://docs.docker.com/engine/install/
+* GUI
+* CLI
+* Docker Compose
+* Kubernetes client/server https://docs.docker.com/desktop/features/kubernetes/
+
+FS
+* images/containers/volumes: `~/Library/Containers/com.docker.docker`
+* settings/metadata: `~/Library/Application Support/Docker`
+
 ---
 
-> my Docker version didn't have this GUI, diff btw Comunity Edition and Docker Desktop? https://docs.docker.com/desktop/mac/install/#uninstall-docker-desktop
+OS STORAGE
+* `docker.raw`: allocated 32GB but only 3-4GB of images https://apple.stackexchange.com/q/391377
+> reset mine from 64 to 32GB
+* cleanup https://stackoverflow.com/a/39890025
 
-✅ Community Edition
-* native version for Win/macOS
-* comes w/ client, server/Engine and `docker-compose` (and sometimes `docker-machine`)
-* installation: get download from release notes (vs creating DockerHub account) https://docs.docker.com/docker-for-mac/release-notes/ for M1 https://docs.docker.com/desktop/mac/apple-silicon/ https://docs.docker.com/desktop/mac/apple-silicon/ https://docs.docker.com/desktop/mac/install/
-* uninstall: App Cleaner + 
-> doesn't seem like you need to be signed in to use
-* start: can use CLI but most people use GUI https://stackoverflow.com/a/35979292
-```txt
-Version 2.0.0.3 (31259)
-8858db33c8
-Engine: 18.09.2
-Compose: 1.23.2
-Machine: 0.16.1
-Notary: 0.6.1
-Credential Helper: 0.6.0
-Kubernetes: v1.10.11
-```
-
-config
+CONFIG
 * CLI: `~/.docker/config.json` https://docs.docker.com/engine/reference/commandline/cli/#configuration-files https://docs.docker.com/engine/reference/commandline/config/
 * daemon: `/etc/docker/daemon.json` https://docs.docker.com/config/daemon/#configure-the-docker-daemon
 > why does `~/.docker` also have `daemon.json`?
-
-* snippets
-```sh
-#
-# VERSIONS
-#
-
-# Docker version 18.09.2, build 6247962
-$ docker --version
-
-# docker-compose version 1.23.2, build 1110ad01
-$ docker-compose --version
-
-# docker-machine version 0.16.1, build cce350d7
-$ docker-machine --version
-
-#
-# GOTCHAS
-#
-
-# toomanyrequests -> fixed by rm `config.json` and restarting daemon https://github.com/docker/hub-feedback/issues/1250
-
-# failed to dial gRPC -> fixed bytoggled on 'experimental features' (preferences > daemon) https://github.com/docker-library/docker/issues/71#issuecomment-457757840
-/U/z/D/docker-flask-skeleton $ make image
-docker build -t docker-flask-skeleton .
-ERRO[0000] failed to dial gRPC: unable to upgrade to h2c, received 502
-context canceled
-```
-
-❌ Machine
-* wrapper for Mac/Win before native Docker
-* requires VirtualBox https://stackoverflow.com/a/38624540
-* not required for Docker CE [Wahlin 3.1 @ 4:45-5:45] but seems to come w/ Docker CE https://realpython.com/docker-in-action-fitter-happier-more-productive/#docker-setup
-* afaik no one else mentions this except the Real Python tutorials https://realpython.com/dockerizing-flask-with-compose-and-machine-from-localhost-to-the-cloud/
-* my work machine has Docker 19.03 and doesn't have docker-machine bundled
-
-❌ Toolbox
-* for Windows 7/8 and macOS 10.8
-* requires VirtualBox
+* toomanyrequests -> fixed by rm `config.json` and restarting daemon https://github.com/docker/hub-feedback/issues/1250
 
 ## compose
 
@@ -323,6 +274,7 @@ TUI
 
 ## volumes
 
+🗄️ `system.md` Capp data eng
 📜 https://docs.docker.com/storage/
 
 ---
@@ -440,6 +392,10 @@ VMWARE
 🗄
 *️ components
 * `aws.md` compute > containers
+
+HOW DOCKER WORKS 🧠 https://chatgpt.com/c/673bb2a2-0114-8004-86c3-c6e64defd3b3
+* macOS: macOS Hypervisor Framework (Desktop) VirtualBox (Docker Toolbox, Docker Machine) https://stackoverflow.com/a/38624540
+* Windows: Hyper-V, WSL2
 
 ---
 
@@ -690,6 +646,8 @@ ZA
 * test config https://github.com/open-policy-agent/conftest https://www.thoughtworks.com/radar/tools?blipid=202110014
 
 ## 🐍 Python
+
+---
 
 * https://hynek.me/articles/docker-virtualenv/
 * can install Poetry into the container and use it to install deps (vs. export deps from Poetry to `reqs.txt` bc Poetry doesn't current have a way to export only prod deps) https://jacobian.org/2019/nov/11/python-environment-2020/

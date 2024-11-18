@@ -50,6 +50,13 @@ FILE WATCHERS
 
 ## find (fd)
 
+FIND 📜 https://man7.org/linux/man-pages/man1/find.1.html
+```sh
+find . -type f -exec chmod 644 {} +  # mv file perms
+find . -name ".DS_Store" | wc -l  # list all filename
+find . -name ".DS_Store" -exec rm {} +  # rm all filename
+```
+
 FD 📜 https://github.com/sharkdp/fd
 ```sh
 -E <exclude>
@@ -92,6 +99,7 @@ fselect path, mime from /home/user where is_audio = 1
 
 ALTERNATIVES
 * file explorer = TUI for file system e.g. Finder (mv, rm, preview); aka file browser, file manager
+* BYO https://github.com/willmcgugan/terminal-tree
 * _bt_: https://github.com/LeperGnome/bt
 * _fff_: 💀 https://github.com/dylanaraps/fff/issues/135 
 * _lf_: https://github.com/gokcehan/lf https://www.youtube.com/c/BrodieRobertson/search?query=lf
@@ -99,9 +107,12 @@ ALTERNATIVES
 * _nnn_: https://github.com/jarun/nnn
 * _telescope_: 🎯 https://github.com/nvim-telescope/telescope.nvim https://www.youtube.com/watch?v=OhnLevLpGB4 https://www.youtube.com/watch?v=indguFY7wJ0
 * _superfile_: ❌ no way to enter directory you've navigated to https://github.com/MHNightCat/superfile https://news.ycombinator.com/item?id=40323101
+* cant mv files https://superfile.netlify.app/getting-started/tutorial/#file-operations
+* _tere_: https://github.com/mgunyho/tere
 * _vifm_: https://github.com/vifm/vifm https://www.youtube.com/watch?v=RGOsE3UWqhI https://www.youtube.com/watch?v=6eyFXcyosu8
 * _walk_: ❌ no way to enter directory you've navigated to https://github.com/antonmedv/walk
 * _xlpr_: 🎯 https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020
+* batch file mv? https://github.com/sayanarijit/map.xplr
 * _yazi_: 🎯 PDF preview via poppler https://github.com/sxyazi/yazi
 
 ### broot
@@ -235,15 +246,19 @@ DASHBOARDS
 * https://github.com/Phantas0s/devdash
 * https://github.com/gizak/termui
 
+DATA
+* _tar_: https://switowski.com/blog/favorite-mac-tools/
+* _dd_: copy/rm data https://github.com/akavel/up
+* _caligula_: dd alternative https://github.com/ifd3f/caligula
+
 ZA
 > why is air-capp slow? Google Drive? age (2020 machine)?
 * _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
 
 ## disk
 
-🧠 https://chatgpt.com/c/6733cbae-092c-8004-801c-25fbe5b8076e
-
 ```sh
+# macOS
 ├── /System/Volumes/
 │   └── Data # user files
 │   └── Proboot # BIOS
@@ -254,7 +269,9 @@ ZA
 * _duf_: ✅ JSON https://github.com/muesli/duf
 * _diskonaut_: treemap https://github.com/imsnif/diskonaut
 * _du_: `du -sh $DIR` https://unix.stackexchange.com/a/185777
+* _dusage_: https://github.com/mihaigalos/dusage
 * _dust_: ✅ JSON https://github.com/bootandy/dust
+* _gdu_: catppuccin theme https://github.com/dundee/gdu https://github.com/catppuccin/catppuccin/discussions/1851
 * _ncdu_: ✅ JSON `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
 
 ## mem/CPU
@@ -370,12 +387,14 @@ cdf() {
 
 ### awk
 
+📜 https://eradman.com/posts/awk-programming.html
+
 * trim line length, dynamic date
 ```sh
 procs --sortd mem | awk '{ print substr($0, 1, 100) }' | head -n 100 > "procs_$(date +'%y%m%d_%H%M%S').txt"
 ```
 
-* macOS version doesn't fully support multidimensional arrays https://chatgpt.com/c/6733cbae-092c-8004-801c-25fbe5b8076e
+* macOS version doesn't fully support multidimensional arrays
 
 ---
 
@@ -587,21 +606,17 @@ CLIPBOARD
 
 CORE
 * versions: Linux uses GNU, macOS uses BSD (get w/ `brew install coreutils`) 📙 Evans shell [4]
-* _dd_: copy/rm data https://github.com/akavel/up
-* _df_: free disk space
 * _file_: info on encoding, if executable
 * _free_: disk space? free memory? `df` memory https://apple.stackexchange.com/q/4286/328389 or `duf` https://github.com/ibraheemdev/modern-unix `top` on macOS
 * _bc_: do math on stdin https://missing.csail.mit.edu/2020/data-wrangling/
 * _head_: 类似 SQL `limit` e.g. `ls <query> | head -4` or `kaiff` (`ls | sort -f | head -1 | xargs open`) https://stackoverflow.com/a/14510257/6813490
 * _which_: search for executables on $PATH https://github.com/Idnan/bash-guide#d-which full path https://nil.wallyjones.com/what-shell-am-i-using/
-* _tar_: https://switowski.com/blog/favorite-mac-tools/
-* _w_: who is logged in and what they're doing https://rachelbythebay.com/w/2018/03/26/w/
+*m_w_: who is logged in and what they're doing https://rachelbythebay.com/w/2018/03/26/w/
 
 COREUTILS
 * _coreutils_: ls, rm, cat, et al. https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands https://github.com/Gandalf-/coreutils
 * aka userland https://bitfieldconsulting.com/golang/scripting
-* aka "modern UNIX" https://www.thoughtworks.com/radar/tools/modern-unix-commands
-* Rust rewrite https://news.ycombinator.com/item?id=26396798 https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/ https://github.com/ibraheemdev/modern-Unix
+* Rust rewrites aka "modern UNIX" https://github.com/ibraheemdev/modern-unix https://github.com/ibraheemdev/modern-unix https://news.ycombinator.com/item?id=26396798 https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/ https://github.com/ibraheemdev/modern-Unix
 
 CP
 * dir: `cp -r <dir> <path/to>`

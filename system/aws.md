@@ -153,6 +153,8 @@ REGIONS
 
 ## Route53
 
+🗄️ `application.md` DNS
+
 ---
 
 * https://terminaltrove.com/dns53/

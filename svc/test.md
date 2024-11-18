@@ -221,6 +221,9 @@ BROWSER AUTOMATION
 
 ---
 
+* http://eradman.com/posts/database-test-isolation.html
+* https://conroy.org/per-test-database-isolation-in-postgres
+
 https://jackevans.bearblog.dev/auto-rollback-database-transactions-with-flask-sqlalchemy-and-pytest/
 * _dummy data_: fake/seed data for development https://github.com/zachvalenta/flask-CRUD/blob/master/db_seed.py https://github.com/joke2k/faker#providers https://mimesis.name/ https://mockaroo.com/ https://github.com/Qovery/replibyte
 * _synthetic data_: real data but anonymized https://softwareengineeringdaily.com/2021/02/16/synthetic-data-with-ian-coe-andrew-colombi-and-adam-kamor/ https://gretel.ai/blog/what-is-synthetic-data https://github.com/GreenmaskIO/greenmask
@@ -237,7 +240,6 @@ approaches
 * speed up by disabling `fsync` (system call to write to disk) bc you don't care if the data is actually written to disk https://pythonspeed.com/articles/faster-db-tests/ http://aosabook.org/en/nosql.html https://www.mongodb.com/docs/manual/reference/glossary/#std-term-fsync
 * db in container https://github.com/orlangure/gnomock https://www.dudley.codes/posts/2020.10.02-golang-docker-integration-tests/ https://github.com/testcontainers https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=201911027 https://www.youtube.com/watch?v=sNg0bnMF_qY
 > Imagine you have some application code that opens a connection to a Postgres database and queries some customer data. The customary way to test this code would be to create a test database and populate it with test customer data. However, what if application code modifies rows in the database, like removing customers? If the above code runs on a modified database, it may not return the expected customer. Therefore, it's important to reset the state of the database between test cases so that tests behave predictably. But connecting to a database is slow. Running queries is slow. And resetting the state of an entire database between every test is really slow. Various mocking libraries are another alternative to using a test database. These libraries intercept calls at some layer of the application or data access stack, and return canned responses without needing to touch the database. The problem with many of these libraries is that they require the developer to manually construct the canned responses, which is time-consuming and fragile when application changes occur. copyist includes a Go sql package driver that records the low-level SQL calls made by application and test code. When a Go test using copyist is invoked with the "-record" command-line flag, then the copyist driver will record all SQL calls. When the test completes, copyist will generate a custom text file that contains the recorded SQL calls. The Go test can then be run again without the "-record" flag. This time the copyist driver will play back the recorded calls, without needing to access the database. The Go test is none the wiser, and runs as if it was using the database. https://github.com/cockroachdb/copyist
-* testing writes http://eradman.com/posts/database-test-isolation.html
 * broken connection https://neilkakkar.com/test-database-connection-django.html
 
 # 🟨 ZA

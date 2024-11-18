@@ -46,6 +46,220 @@ CLEAN UP
 * _20_: TLS (openssl, debug openssl)
 * _17_: 📙 Ross network know how
 
+# 📖 DNS
+
+🗄 `aws.md` Route53
+📚
+* Kozierok guide ch. 52-57
+* Liu dns and bind
+* Sanders packet analyis
+> You would think that something as simple as pointing a domain name to an IP address would be straightforward, but no. There's always some bizarre propagation delay or weird caching issue that makes you question your sanity. https://zackproser.com/blog/maintaining-this-site-fucking-sucks
+
+START HERE
+* Evans https://wizardzines.com/zines/dns/
+* https://powerdns.org/hello-dns/
+* https://www.youtube.com/watch?v=LUFn-QVcmB8
+* https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
+* https://www.roguelynn.com/words/explain-like-im-5-dns/
+* https://jvns.ca/blog/how-updating-dns-works/
+* https://howdns.works/
+* https://news.ycombinator.com/item?id=36909427
+* https://jvns.ca/blog/2021/12/15/mess-with-dns/ https://messwithdns.net/
+* https://jvns.ca/blog/2024/08/19/migrating-mess-with-dns-to-use-powerdns/
+* https://jvns.ca/blog/2021/11/04/how-do-you-tell-if-a-problem-is-caused-by-dns/
+> Subsequent requests can (but don't always) reuse the DNS, TCP and TLS setup but a new roundtrip is still needed each time the server is consulted, for example for an API call or a new page. https://calpaterson.com/latency.html
+* TTL https://news.ycombinator.com/item?id=26620730 https://calpaterson.com/ttl-hell.html
+* levels of understanding https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
+* https://www.roguelynn.com/words/spotifys-love-hate-relationship-with-dns/
+* https://softwareengineeringdaily.com/2017/06/06/dns-with-phil-stanhope/
+
+TOOLS
+* https://github.com/trimstray/the-book-of-secret-knowledge?tab=readme-ov-file#domain-resolve
+* https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-network-dns
+* BYO resolver https://jvns.ca/blog/2022/02/01/a-dns-resolver-in-80-lines-of-go/
+* _altdns_: generator https://github.com/infosec-au/altdns
+* _dig_
+* _dnsgen_: generator https://github.com/AlephNullSK/dnsgen
+* _dog_: https://github.com/ogham/dog
+* _doggo_: https://github.com/mr-karan/doggo
+* _gping_: https://github.com/orf/gping
+* _massdns_: resolver https://github.com/blechschmidt/massdns
+* _q_: https://github.com/natesales/q
+* _ripgen_: generator https://github.com/resyncgg/ripgen
+
+ZA
+* settings: `/etc/resolv.conf` https://hacker-tools.github.io/machine-introspection/
+* find domains https://www.domainsfortherestofus.com/
+* check record config https://github.com/fcambus/dnc
+* _whois_: get info on domain https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
+
+---
+
+* _impl_: unencrypted
+* _ICANN_: authority on domains 艘 Namecheap email
+* _registrar_: buy rights to domain from ICANN, sells domains to consumers; most popular services (Name Cheap) are actually middlemen between registrars (like eNom) and consumer
+* _providers_: DNS Simple, Google, OpenDNS; ❓ what do they actually provide?
+* _server_: resolves query for domain w/ IP address https://news.ycombinator.com/item?id=24886120
+* _poisoning_: provide malformed translation of domain/IP to DNS server
+📝 [iterative query](https://www.raspberrypi.org/learning/networking-lessons/lesson-4/plan/): initial DNS server passes along to other server(s) to resolve; first server will cache resolved query for next time
+* _recursive service_: provided by ISP, will cache lookups by TTL
+* apex/root domain: `example.com`; [cannot be aliased](https://news.ycombinator.com/item?id=8825519) + https://help.github.com/articles/about-supported-custom-domains/
+BYO https://github.com/kahun/awesome-sysadmin#dns
+https://github.com/tanrax/maza-ad-blocking
+https://www.youtube.com/watch?v=kV1u701wxgg
+https://blog.codepen.io/2016/02/23/078-com/ how do people steal domains? how do people get control of host?
+* https://jpetazzo.github.io/2024/05/12/understanding-kubernetes-dns-hostnetwork-dnspolicy-dnsconfigforming/
+* https://entropicthoughts.com/secure-dns-on-a-laptop-with-debian
+* whitelist/blacklist https://github.com/plutov/ultrafocus
+* https://www.youtube.com/watch?v=27r4Bzuj5NQ
+* https://news.ycombinator.com/item?id=37531801&utm_term=comment
+* DNS, ints/floats https://jvns.ca/blog/2023/06/23/new-zine--how-integers-and-floats-work/
+* TLD https://textslashplain.com/2023/05/13/new-tlds-not-bad-actually/
+* https://www.netmeister.org/blog/nsauth-diversity.html
+* use in Python + ICMP https://news.ycombinator.com/item?id=33494386
+* is a DNS service like Route53 serving anything or is this just loose semantics? https://vickiboykis.com/2022/01/08/migrating-to-hugo/
+* domain security https://news.ycombinator.com/item?id=30818950
+* https://www.youtube.com/watch?v=Wj0od2ag5sk
+* https://www.youtube.com/watch?v=7lxgpKh_fRY
+* https://www.nslookup.io/learning/the-life-of-a-dns-query-in-kubernetes/
+* https://cuddly-octo-palm-tree.com/posts/2021-10-17-dns/
+* Namecheap https://news.ycombinator.com/item?id=30504812
+* https://news.ycombinator.com/item?id=29812736
+* https://news.ycombinator.com/item?id=34485815
+
+## records
+
+TYPES
+* _A_: maps name to 32-bit IPV4 address
+* _AAAA_: maps name to 128-bit IPV6 address
+* _CNAME_: maps name to another name
+* _MX_: mail server
+
+---
+
+* _A record_: map of URL to IP address
+* _CNAME_: alias e.g. `www.zachvalenta.com` -> `https:///www.zachvalenta.com` [`evans-linux.pdf` 5]
+* _NS record_: DNS server that has more info on sub-hosts for domain https://serverfault.com/a/224924/415712
+
+## URLs
+
+* _URI_: identifier e.g. page in a book
+* _URL_: URI + protocol e.g. `https://google.com` https://danielmiessler.com/study/difference-between-uri-url/ https://wsvincent.com/url-vs-uri/
+* trailing slash: problem is that users might accidentally add/forget, mitigated by some browsers (Chrome) and server might be able to figure out (Django) https://learndjango.com/blog/trailing-url-slashes-django
+* should be case sensitive https://stackoverflow.com/a/7996997
+* _well-known URL_: name space for serving static files for other systems e.g. `/.well-known/security.txt` for security policy https://adamj.eu/tech/2020/06/28/how-to-add-a-well-known-url-to-your-django-site
+
+FQDN
+* _FQDN_: `http://math.mit.edu/about`
+* _scheme/protocol_: `http://` http, https, et al.
+* _sub/domain_: `math.mit` namespace
+* domain: 
+* subdomain: https://www.shortcut.com/blog/building-a-saas-app-you-should-probably-stick-to-a-single-subdomain
+* _TLD_: `.edu` set of domains doled out by the same authority https://tech.marksblogg.com/rdns-domain-name-tld-extract-golang.html https://tech.marksblogg.com/rdns-domain-name-tld-extract-rust.html
+* _path_: `about` namespace targeting specific resource
+* _query string_: `?prof=lambeau` way to filter resources https://stackoverflow.com/a/31261026 way to send KV to server (if you don't want to put in HTTP body)
+* _fragment_: `#will-hunting` navigation internal to page
+
+## zones
+
+* _zone_: single domain inside the DNS
+* _zone file_: mapping of subdomains to IP https://help.dyn.com/how-to-format-a-zone-file/
+* _record_: entity inside of zone file i.e. instructions on what to do with each request
+
+---
+
+* _zone_: https://stackoverflow.com/questions/22440582/difference-between-a-dns-zone-and-dns-domain/22440611#22440611
+* `@` in zone file https://serverfault.com/questions/83874/whats-the-meaning-of-in-a-dns-zone-file
+
+# 📫 EMAIL
+
+---
+
+* https://www.twilio.com/blog/2017/04/wedding-at-scale-how-i-used-twilio-python-and-google-to-automate-my-wedding.html
+* https://github.com/SkullTech/drymail
+
+* _Maddy_: send email https://blog.healthchecks.io/2023/08/notes-on-self-hosted-transactional-email/
+https://github.com/sdushantha/tmpmail
+
+SPF, DKIM, and DMARC https://news.ycombinator.com/item?id=40708476
+* content/templates https://news.ycombinator.com/item?id=40280490
+* archive: Mailstore https://news.ycombinator.com/item?id=34070957 sync https://news.ycombinator.com/item?id=27446156
+* images: https://news.ycombinator.com/item?id=26661430
+* HTML: https://news.ycombinator.com/item?id=26659553
+* spam: Google, spamhaus https://news.ycombinator.com/item?id=33595442 https://news.ycombinator.com/item?id=34865695
+* popular addresses are trouble https://news.ycombinator.com/item?id=24359980
+
+for SMB
+* https://myemma.com/
+* https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
+
+components https://www.youtube.com/watch?v=obY1um6ehDM https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/
+* _client_: CLI (mutt, neomutt, aerc) native (macOS, Thunderbird requires extension https://askubuntu.com/a/912985) -> neomutt seems like only viable option https://www.youtube.com/watch?v=2U3vRbF7v5A Emacs https://www.erichgrunewald.com/posts/setting-up-gmail-in-doom-emacs-using-mbsync-and-mu4e/
+> watch out for clients that use intermediate servers https://news.ycombinator.com/item?id=24423032
+* _services_: Fastmail, Gmail, Zoho https://www.jefftk.com/p/dont-let-personal-domains-expire Hey https://twitter.com/patio11/status/1274576125394513921 https://drewdevault.com/2020/06/19/Mail-service-provider-recommendations.html
+
+🔍 https://restoreprivacy.com/google-alternatives/ https://nullprogram.com/blog/2013/09/03/ https://nullprogram.com/blog/2017/06/15/
+* _sending_: from app (via Postmark) or setup email server https://www.openmymind.net/2010/7/21/Using-PostMark-To-Send-Mail/
+https://kevq.uk/how-to-host-email-with-your-own-domain/
+* _decouple_: email (Google) browser (Firefox) search engine (DDG) mobile OS (Android) https://kevq.uk/about/ ask him about this
+ https://tutanota.com/blog/posts/gmail-end-to-end-encryption-is-dead/
+* _options_: Fastmail, Posteo, Protonmail https://cmpwn.com/@sir/100419028736559194 https://lukesmith.xyz/blog/a-script-that-automatically-sets-up-your-personal-mail-server.html https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-mail https://superhuman.com/
+* _auth_: https://blog.jonlu.ca/posts/spf-dkim
+* _servers_: Postfix, Sendmail https://github.com/kahun/awesome-sysadmin#mail-servers https://prefet.ch/blog/2020/email-server/ https://aosabook.org/en/v1/sendmail.html
+* _self-hosting_: https://www.garron.blog/posts/host-your-email-server.html https://github.com/foxcpp/maddy
+* search: notmuch https://www.reddit.com/r/commandline/comments/ddkyap/can_some_give_me_the_dummies_guide_to_properly/ http://richardmavis.info/so-long-macbook-hello-again-linux
+> I wish Gmail had better search re: links. I think other people solve this by using things like Pinboard https://pinboard.in/
+mbsync https://www.c0ffee.net/blog/mail-server-guide/
+
+## leaving Gmail
+
+🗄 `security.md` privacy
+
+* https://www.youtube.com/watch?v=iH626CXyNtE
+* https://drewdevault.com/2020/06/19/Mail-service-provider-recommendations.html
+* don't bikeshed https://news.ycombinator.com/item?id=23423548 bc accounts tied to email are hard to move https://news.ycombinator.com/item?id=24245817
+* howto: try out new service with some newsletters and the zjayv.com domain
+> eventually: clean out Gmail, export business/personal to separate accounts, and then can continually export personal to local mbox viewer
+* why: search ('in:sent label:personal' doesn't show recent emails w/ YQ or Ellen but 'in:sent' shows)
+* why: lose account https://news.ycombinator.com/item?id=24791357 https://news.ycombinator.com/item?id=34581090
+* why not: works well, only marginal return for time invested, apparently Gmail search is better than others https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/
+* shared https://news.ycombinator.com/item?id=42119042
+* _Hey_: https://www.hey.com/
+* _Fastmail_: https://news.ycombinator.com/item?id=24245817
+* _pop_: https://github.com/charmbracelet/pop
+
+LEAVING GMAIL
+* lockout https://www.jefftk.com/p/how-likely-is-losing-a-google-account
+* off Google https://news.ycombinator.com/item?id=34581090
+* get away from Microsoft, too https://www.jeffgeerling.com/blog/2023/my-daughters-school-took-over-my-personal-microsoft-account
+* Shotgun, AWS SES, Postal https://github.com/postalserver/postal https://news.ycombinator.com/item?id=14201562 Sendgrid https://news.ycombinator.com/item?id=18223645 https://news.ycombinator.com/item?id=24317634 https://news.ycombinator.com/item?id=30358290
+* tldr https://explained-from-first-principles.com/email/
+
+thing to do #2: email resiliency
+* _what I want_: avoid possibility of arbitrary account lockout https://blog.viktomas.com/posts/losing-google-account/ https://myaccount.google.com/privacycheckup
+* _questions_: what's the reputation of Fastmail here? should you just host email server? worth it given risk of lockout?
+* self-hosting is near impossible https://news.ycombinator.com/item?id=31180379 email servers https://news.ycombinator.com/item?id=34908528
+* don't forget all your Gmail emails forwarding to Microsoft
+
+backup
+* _manual_: Gmail export
+* _automated_: https://news.ycombinator.com/item?id=22846851
+* _reading old email_: periodic export from Gmail, `neomutt -f <file>.mbox` https://askubuntu.com/a/114083 can also just read old email and convert to docs like `hu-xiaodi.md`
+
+## SMTP
+
+https://mailpit.axllent.org/
+> It acts as an SMTP server to which mail can be sent and provides a Web interface to read the mails. And being written in Go, it can be compiled to a single binary and put on whichever server you like. https://golangweekly.com/issues/532
+
+https://news.ycombinator.com/item?id=42175560
+
+PROTCOLS https://news.ycombinator.com/item?id=22989186 https://valyent.substack.com/p/build-your-own-smtp-server-in-go
+* _mbox_: Gmail export fmt; most clients support if they support IMAP https://www.quora.com/How-can-one-open-mbox-files-on-Mac viewer https://softwarerecs.stackexchange.com/q/11177
+* _SMTP_: used for sending and receiving emails between mail servers https://nullprogram.com/blog/2017/06/15/ https://jetmore.org/john/code/swaks/
+* _IMAP_: allows users to read and manage emails directly from the server
+* _POP3_: downloads emails from the server to the local device, typically removing them from the server
+* _JMAP_: email protocol https://fastmail.blog/2018/12/27/jmap-is-on-the-home-straight/ https://news.ycombinator.com/item?id=36127703
+
 # 📡 HTTP
 
 🗄️ `infra.md` web servers
@@ -384,186 +598,6 @@ WWW
 * _clear web_: accessible to web crawlers; 4% of WWW
 * _deep web_: not accessible to web crawlers; 90% of WWW
 * _dark web_: accessible to TOR browser; 6% of WWW
-
-## DNS
-
-🗄 `aws.md` Route53
-🛠 https://jvns.ca/blog/2021/12/15/mess-with-dns/ https://messwithdns.net/
-🔗 https://news.ycombinator.com/item?id=36909427
-📚
-* Evans https://wizardzines.com/zines/dns/
-* Kozierok guide ch. 52-57
-* Liu dns and bind
-* Sanders packet analyis
-
-ZONE DATA
-* _zone_: single domain inside the DNS
-* _zone file_: mapping of subdomains to IP https://help.dyn.com/how-to-format-a-zone-file/
-* _record_: entity inside of zone file i.e. instructions on what to do with each request
-
-RECORD TYPES
-* _A_: maps name to 32-bit IPV4 address
-* _AAAA_: maps name to 128-bit IPV6 address
-* _CNAME_: maps name to another name
-* _MX_: mail server
-
-URL RESOURCES
-* _URI_: identifier e.g. page in a book
-* _URL_: URI + protocol e.g. `https://google.com` https://danielmiessler.com/study/difference-between-uri-url/ https://wsvincent.com/url-vs-uri/
-* trailing slash: problem is that users might accidentally add/forget, mitigated by some browsers (Chrome) and server might be able to figure out (Django) https://learndjango.com/blog/trailing-url-slashes-django
-* should be case sensitive https://stackoverflow.com/a/7996997
-* _well-known URL_: name space for serving static files for other systems e.g. `/.well-known/security.txt` for security policy https://adamj.eu/tech/2020/06/28/how-to-add-a-well-known-url-to-your-django-site
-
-URL FQDN
-* _FQDN_: `http://math.mit.edu/about`
-* _scheme/protocol_: `http://` http, https, et al.
-* _sub/domain_: `math.mit` namespace
-* domain: 
-* subdomain: https://www.shortcut.com/blog/building-a-saas-app-you-should-probably-stick-to-a-single-subdomain
-* _TLD_: `.edu` set of domains doled out by the same authority https://tech.marksblogg.com/rdns-domain-name-tld-extract-golang.html https://tech.marksblogg.com/rdns-domain-name-tld-extract-rust.html
-* _path_: `about` namespace targeting specific resource
-* _query string_: `?prof=lambeau` way to filter resources https://stackoverflow.com/a/31261026 way to send KV to server (if you don't want to put in HTTP body)
-* _fragment_: `#will-hunting` navigation internal to page
-
-ZA
-* settings: `/etc/resolv.conf` https://hacker-tools.github.io/machine-introspection/
-* find domains https://www.domainsfortherestofus.com/
-* check record config https://github.com/fcambus/dnc
-* _whois_: get info on domain https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
-
----
-
-> First, let's talk about the DNS management. You would think that something as simple as pointing a domain name to an IP address would be straightforward, but no. There's always some bizarre propagation delay or weird caching issue that makes you question your sanity. https://zackproser.com/blog/maintaining-this-site-fucking-sucks
-
-* https://jpetazzo.github.io/2024/05/12/understanding-kubernetes-dns-hostnetwork-dnspolicy-dnsconfigforming/
-* https://entropicthoughts.com/secure-dns-on-a-laptop-with-debian
-* whitelist/blacklist https://github.com/plutov/ultrafocus
-* https://www.youtube.com/watch?v=27r4Bzuj5NQ
-* https://jvns.ca/blog/2024/08/19/migrating-mess-with-dns-to-use-powerdns/
-* https://github.com/mr-karan/doggo
-* https://news.ycombinator.com/item?id=37531801&utm_term=comment
-* DNS, ints/floats https://jvns.ca/blog/2023/06/23/new-zine--how-integers-and-floats-work/
-* TLD https://textslashplain.com/2023/05/13/new-tlds-not-bad-actually/
-* client https://github.com/natesales/q
-* https://www.netmeister.org/blog/nsauth-diversity.html
-* use in Python + ICMP https://news.ycombinator.com/item?id=33494386
-* is a DNS service like Route53 serving anything or is this just loose semantics? https://vickiboykis.com/2022/01/08/migrating-to-hugo/
-* domain security https://news.ycombinator.com/item?id=30818950
-* https://www.youtube.com/watch?v=Wj0od2ag5sk
-* https://www.youtube.com/watch?v=7lxgpKh_fRY
-* https://www.nslookup.io/learning/the-life-of-a-dns-query-in-kubernetes/
-* resolver https://jvns.ca/blog/2022/02/01/a-dns-resolver-in-80-lines-of-go/
-* https://github.com/resyncgg/ripgen
-* https://cuddly-octo-palm-tree.com/posts/2021-10-17-dns/
-* Namecheap https://news.ycombinator.com/item?id=30504812
-* https://news.ycombinator.com/item?id=29812736&utm_term=comment
-* https://news.ycombinator.com/item?id=34485815
-* https://jvns.ca/blog/2021/11/04/how-do-you-tell-if-a-problem-is-caused-by-dns/
-clients: dig, dog https://github.com/ibraheemdev/modern-unix https://github.com/ogham/dog
-> Subsequent requests can (but don't always) reuse the DNS, TCP and TLS setup but a new roundtrip is still needed each time the server is consulted, for example for an API call or a new page. https://calpaterson.com/latency.html
-* TTL https://news.ycombinator.com/item?id=26620730 https://calpaterson.com/ttl-hell.html
-* levels of understanding https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
-
-* _impl_: unencrypted
-* _A record_: map of URL to IP address
-* _CNAME_: alias e.g. `www.zachvalenta.com` -> `https:///www.zachvalenta.com` [`evans-linux.pdf` 5]
-* _NS record_: DNS server that has more info on sub-hosts for domain https://serverfault.com/a/224924/415712
-* _ICANN_: authority on domains 艘 Namecheap email
-* _registrar_: buy rights to domain from ICANN, sells domains to consumers; most popular services (Name Cheap) are actually middlemen between registrars (like eNom) and consumer
-* _providers_: DNS Simple, Google, OpenDNS; ❓ what do they actually provide?
-* _server_: resolves query for domain w/ IP address https://news.ycombinator.com/item?id=24886120
-* _zone_: https://stackoverflow.com/questions/22440582/difference-between-a-dns-zone-and-dns-domain/22440611#22440611
-* `@` in DNS zone file https://serverfault.com/questions/83874/whats-the-meaning-of-in-a-dns-zone-file
-* _poisoning_: provide malformed translation of domain/IP to DNS server
-* _sink_: https://jvns.ca/blog/how-updating-dns-works/ https://danielmiessler.com/study/dns/ https://www.youtube.com/watch?v=LUFn-QVcmB8 Nick Janetakis course, https://www.roguelynn.com/words/explain-like-im-5-dns/ https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/ https://https://blog.ironbastion.com.au/abandoned-domain-names-are-risk-to-businesses/ https://howdns.works/ https://softwareengineeringdaily.com/2017/06/06/dns-with-phil-stanhope/ https://powerdns.org/hello-dns/ https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-network-dns https://eradman.com/posts/run-your-own-server.html
-📝 [iterative query](https://www.raspberrypi.org/learning/networking-lessons/lesson-4/plan/): initial DNS server passes along to other server(s) to resolve; first server will cache resolved query for next time
-* _recursive service_: provided by ISP, will cache lookups by TTL
-* apex/root domain: `example.com`; [cannot be aliased](https://news.ycombinator.com/item?id=8825519) + https://help.github.com/articles/about-supported-custom-domains/
-BYO https://github.com/kahun/awesome-sysadmin#dns
-📙 TCP/IP Guide - chapters 50-57
-https://github.com/tanrax/maza-ad-blocking
-https://www.roguelynn.com/words/explain-like-im-5-dns/  
-https://www.youtube.com/watch?v=kV1u701wxgg
-https://blog.codepen.io/2016/02/23/078-com/ how do people steal domains? how do people get control of host?
-
-## email
-
-PROTCOLS https://news.ycombinator.com/item?id=22989186 https://valyent.substack.com/p/build-your-own-smtp-server-in-go
-* _mbox_: Gmail export fmt; most clients support if they support IMAP https://www.quora.com/How-can-one-open-mbox-files-on-Mac viewer https://softwarerecs.stackexchange.com/q/11177
-* _SMTP_: used for sending and receiving emails between mail servers https://nullprogram.com/blog/2017/06/15/ https://jetmore.org/john/code/swaks/
-* _IMAP_: allows users to read and manage emails directly from the server
-* _POP3_: downloads emails from the server to the local device, typically removing them from the server
-* _JMAP_: email protocol https://fastmail.blog/2018/12/27/jmap-is-on-the-home-straight/ https://news.ycombinator.com/item?id=36127703
-
-GMAIL ALTERNATIVES 🗄 `security.md` privacy
-* https://www.youtube.com/watch?v=iH626CXyNtE
-* https://drewdevault.com/2020/06/19/Mail-service-provider-recommendations.html
-* don't bikeshed https://news.ycombinator.com/item?id=23423548 bc accounts tied to email are hard to move https://news.ycombinator.com/item?id=24245817
-* howto: try out new service with some newsletters and the zjayv.com domain
-> eventually: clean out Gmail, export business/personal to separate accounts, and then can continually export personal to local mbox viewer
-* why: search ('in:sent label:personal' doesn't show recent emails w/ YQ or Ellen but 'in:sent' shows)
-* why: lose account https://news.ycombinator.com/item?id=24791357 https://news.ycombinator.com/item?id=34581090
-* why not: works well, only marginal return for time invested, apparently Gmail search is better than others https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/
-* shared https://news.ycombinator.com/item?id=42119042
-* _Hey_: https://www.hey.com/
-* _Fastmail_: https://news.ycombinator.com/item?id=24245817
-* _pop_: https://github.com/charmbracelet/pop
-
----
-
-* https://www.twilio.com/blog/2017/04/wedding-at-scale-how-i-used-twilio-python-and-google-to-automate-my-wedding.html
-* https://github.com/SkullTech/drymail
-
-* _Maddy_: send email https://blog.healthchecks.io/2023/08/notes-on-self-hosted-transactional-email/
-https://github.com/sdushantha/tmpmail
-
-SPF, DKIM, and DMARC https://news.ycombinator.com/item?id=40708476
-* content/templates https://news.ycombinator.com/item?id=40280490
-* archive: Mailstore https://news.ycombinator.com/item?id=34070957 sync https://news.ycombinator.com/item?id=27446156
-* images: https://news.ycombinator.com/item?id=26661430
-* HTML: https://news.ycombinator.com/item?id=26659553
-* spam: Google, spamhaus https://news.ycombinator.com/item?id=33595442 https://news.ycombinator.com/item?id=34865695
-* popular addresses are trouble https://news.ycombinator.com/item?id=24359980
-
-for SMB
-* https://myemma.com/
-* https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
-
-LEAVING GMAIL
-* lockout https://www.jefftk.com/p/how-likely-is-losing-a-google-account
-* off Google https://news.ycombinator.com/item?id=34581090
-* get away from Microsoft, too https://www.jeffgeerling.com/blog/2023/my-daughters-school-took-over-my-personal-microsoft-account
-* Shotgun, AWS SES, Postal https://github.com/postalserver/postal https://news.ycombinator.com/item?id=14201562 Sendgrid https://news.ycombinator.com/item?id=18223645 https://news.ycombinator.com/item?id=24317634 https://news.ycombinator.com/item?id=30358290
-* tldr https://explained-from-first-principles.com/email/
-
-thing to do #2: email resiliency
-* _what I want_: avoid possibility of arbitrary account lockout https://blog.viktomas.com/posts/losing-google-account/ https://myaccount.google.com/privacycheckup
-* _questions_: what's the reputation of Fastmail here? should you just host email server? worth it given risk of lockout?
-* self-hosting is near impossible https://news.ycombinator.com/item?id=31180379 email servers https://news.ycombinator.com/item?id=34908528
-* don't forget all your Gmail emails forwarding to Microsoft
-
-backup
-* _manual_: Gmail export
-* _automated_: https://news.ycombinator.com/item?id=22846851
-* _reading old email_: periodic export from Gmail, `neomutt -f <file>.mbox` https://askubuntu.com/a/114083 can also just read old email and convert to docs like `hu-xiaodi.md`
-
-components https://www.youtube.com/watch?v=obY1um6ehDM https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/
-* _client_: CLI (mutt, neomutt, aerc) native (macOS, Thunderbird requires extension https://askubuntu.com/a/912985) -> neomutt seems like only viable option https://www.youtube.com/watch?v=2U3vRbF7v5A Emacs https://www.erichgrunewald.com/posts/setting-up-gmail-in-doom-emacs-using-mbsync-and-mu4e/
-> watch out for clients that use intermediate servers https://news.ycombinator.com/item?id=24423032
-* _services_: Fastmail, Gmail, Zoho https://www.jefftk.com/p/dont-let-personal-domains-expire Hey https://twitter.com/patio11/status/1274576125394513921 https://drewdevault.com/2020/06/19/Mail-service-provider-recommendations.html
-
-🔍 https://restoreprivacy.com/google-alternatives/ https://nullprogram.com/blog/2013/09/03/ https://nullprogram.com/blog/2017/06/15/
-* _sending_: from app (via Postmark) or setup email server https://www.openmymind.net/2010/7/21/Using-PostMark-To-Send-Mail/
-https://kevq.uk/how-to-host-email-with-your-own-domain/
-* _decouple_: email (Google) browser (Firefox) search engine (DDG) mobile OS (Android) https://kevq.uk/about/ ask him about this
- https://tutanota.com/blog/posts/gmail-end-to-end-encryption-is-dead/
-* _options_: Fastmail, Posteo, Protonmail https://cmpwn.com/@sir/100419028736559194 https://lukesmith.xyz/blog/a-script-that-automatically-sets-up-your-personal-mail-server.html https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-mail https://superhuman.com/
-* _auth_: https://blog.jonlu.ca/posts/spf-dkim
-* _servers_: Postfix, Sendmail https://github.com/kahun/awesome-sysadmin#mail-servers https://prefet.ch/blog/2020/email-server/ https://aosabook.org/en/v1/sendmail.html
-* _self-hosting_: https://www.garron.blog/posts/host-your-email-server.html https://github.com/foxcpp/maddy
-* search: notmuch https://www.reddit.com/r/commandline/comments/ddkyap/can_some_give_me_the_dummies_guide_to_properly/ http://richardmavis.info/so-long-macbook-hello-again-linux
-> I wish Gmail had better search re: links. I think other people solve this by using things like Pinboard https://pinboard.in/
-mbsync https://www.c0ffee.net/blog/mail-server-guide/
 
 ## file transfer
 

@@ -120,7 +120,7 @@ CLOUD
 * _Coder_: https://github.com/coder/coder
 * _Daytona_: https://www.daytona.io/
 * _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://cli.github.com/manual/gh_codespace
-* _Gitpod_: 🎯 https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15 https://news.ycombinator.com/item?id=42041917
+* _Gitpod_: 🎯 runs on your own AWS env (per This Week in AWS) https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15 https://news.ycombinator.com/item?id=42041917
 * _Zed_: https://zed.dev/releases/stable/0.145.1 https://www.youtube.com/watch?v=F9sQPpVVLeQ
 
 ---
@@ -294,15 +294,11 @@ toggle=
 
 🗄️ `api.md`
 📚
-* Beck extreme programming https://explaining.software/archive/the-death-of-the-architect/
-> It makes me happy to know there’s someone out there comparing first and second editions of Extreme Programming. https://registerspill.thorstenball.com/p/joy-and-curiosity-13
-* Buelta python architecture
 * Dibernardo 500 lines or less http://aosabook.org/en/index.html
 * Fowler refactoring https://www.amazon.com/dp/0134757599/ https://registerspill.thorstenball.com/p/skin-shedding-code
+> Also, as a general rule, you can at any given time get away with changing more than you think. Introducing change is like pulling off a bandage: the pain is a memory almost as soon as you feel it. http://paulgraham.com/popular.html
 * Martin clean code https://qntm.org/clean
 * McConnell code complete
-* Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
-* Tornhill https://pragprog.com/titles/atcrime2/your-code-as-a-crime-scene-second-edition/
 
 ---
 
@@ -518,15 +514,6 @@ HOOKS
 
 * CRD DDD 🗄 notebook 22.12.13
 * DRY, single responsibility https://news.ycombinator.com/item?id=35151088
-
-COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtime/
-* _backwards compatible_: new code can handle old data 📙 Kleppmann [112]
-> is the old data really old?
-> e.g. add attr, previous records don't have value for attr but have attr itself
-> client/server can just massage data to handle null values
-* aka open-closed principle (from SOLID) https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
-* _forward compatibility_: old code can handle new data; typically harder to do 📙 Kleppmann [112] typically old code doesn't touch new fields [129]
-> how would this happen unless you logged in
 
 https://news.ycombinator.com/item?id=33999191
 * _fat model, skinny controller_: modularity around data access; != "all logic in model" http://blog.joncairns.com/2013/04/fat-model-skinny-controller-is-a-load-of-rubbish/

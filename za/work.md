@@ -24,7 +24,6 @@
 # 🪐️ INDUSTRY
 
 🔍 https://newsletter.pragmaticengineer.com/p/state-of-eng-market-2024
-📙 Seibel coders at work
 
 POLITICS
 * codes of conduct
@@ -481,6 +480,7 @@ One thing I think I do well is technical communication. This shows up in:
 
 https://bitfieldconsulting.com/books/horrible https://bitfieldconsulting.com/posts/master-domain
 
+https://eradman.com/resume/eric_radman.html
 pull in stack overflow questions as writing examples https://github.com/jesseduffield/lazygit/issues/4017
 
 https://michaelengen.com/posts/my-eleventy-resume/

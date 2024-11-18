@@ -73,11 +73,21 @@ https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 * AWS is more expensive https://calpaterson.com/amazon-premium.html https://bravenewgeek.com/multi-cloud-is-a-trap/
 * switching https://news.ycombinator.com/item?id=30942698
 * https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
-* if it's not your data center you're not really self-hosting https://news.ycombinator.com/item?id=27674726 https://github.com/khuedoan/homelab https://github.com/tiagoad/docker-homeserver
 > But the thing is in most of the companies you don't have full control over the whole stack. Even if you have "full control" over the database, you don't have control over networking, firewall, OS, "security" patching, VMs, Docker, Kubernetes, Load balancers, vendors managing parts of the infra, internet provider, hosting provider ... Not even datacenter team may have control over all of it, but at least that's their job and their area of expertise.
 * _benefits_: cost (sometimes) scalability (most times) geographic DR (nearly always)
 * _consultants_: https://aws.amazon.com/iq/ https://www.gruntwork.io/
 * _cost control_: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ https://www.lastweekinaws.com/ https://github.com/mlabouardy/komiser https://www.infracost.io/
+
+## self host
+
+* https://news.ycombinator.com/item?id=27674726
+* https://github.com/khuedoan/homelab
+* https://github.com/tiagoad/docker-homeserver
+* https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0
+* https://world.hey.com/dhh/the-big-cloud-exit-faq-20274010 https://www.reddit.com/r/programming/comments/y7zz2u/dhh_why_we_are_leaving_the_cloud/
+* https://world.hey.com/dhh/our-cloud-exit-savings-will-now-top-ten-million-over-five-years-c7d9b5bd
+* https://thenewstack.io/why-companies-are-ditching-the-cloud-the-rise-of-cloud-repatriation/
+* https://meta.stackexchange.com/questions/404231/we-re-finally-going-to-the-cloud
 
 ## IaaS
 
@@ -688,6 +698,9 @@ uwsgi --http :9090 --wsgi-file foobar.py --master --processes 4 --threads 2 --st
 * BYO https://github.com/codecrafters-io/build-your-own-x#build-your-own-web-server https://news.ycombinator.com/item?id=41642151 https://doc.rust-lang.org/book/ch20-00-final-project-a-web-server.html
 * mock server: https://smocker.dev/
 * comment server: Disqus, isso https://avi.im/blag/about/ https://posativ.org/isso/docs/
+* Nginx - https://github.com/zachvalenta/nginx-wsgi https://serverfault.com/q/821284/415712 https://stackoverflow.com/a/25486871/6813490
+* Nginx - tune https://blog.codeship.com/tuning-nginx/
+* BYO https://defn.io/2018/02/25/web-app-from-scratch-01/ http://joaoventura.net/blog/2017/python-webserver/
 
 ## Caddy
 

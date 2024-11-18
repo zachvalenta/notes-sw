@@ -385,6 +385,12 @@ dbms
 
 📙 Hao https://www.manning.com/books/grokking-relational-database-design
 
+COMPONENTS 📙 Beaulieu [1.6]
+* _entity_: thing you're trying to describe e.g. customer, order, et al. 📙 Beaulieu [8]
+* _attribute_: column 📙 Hao
+* _row_: aka record
+* _value_: aka cell, field
+
 RELATIONS
 * _relationship_: what ties tables together https://twobithistory.org/2017/12/29/codd-relational-model.html
 * _relational model_: Codd 📙 Kent data/reality [155] Beaulieu [5]
@@ -480,23 +486,6 @@ IT103    |   2009-2   | 120      | Web Design   |
 -- todo
 ```
 * _5NF (Boyce-Codd)_: when you're going too far 📙 Winand [5]
-
-## ORM
-
----
-
-* _ORM (object-relational mapper)_: obj as frontend to relational data store
-* why: dbms portability, terseness, getting data into obj https://monadical.com/posts/why-use-orm.html https://news.ycombinator.com/item?id=37118633
-* why not: SQL is more durable, more help on SO, easier for complicated relationships https://news.ycombinator.com/item?id=21961214 https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://sirupsen.com/stop-relying-on-your-orm-and-learn-sql https://news.ycombinator.com/item?id=36497613
-* write thin DSL over ORM vs. modifying default ORM methods https://rtpg.co/2016/09/12/orms-are-scary.html
-* _data mapper_: https://en.wikipedia.org/wiki/SQLAlchemy https://www.openmymind.net/2011/11/18/I-Just-Dont-Like-Object-Mappers/
-* _active record_: wrapper (row + DSL) https://www.martinfowler.com/eaaCatalog/activeRecord.html http://calpaterson.com/activerecord.html https://github.com/sdispater/orator
-* ActiveRecord for Golang https://github.com/volatiletech/sqlboiler
-* _N+1 problem_: https://roadmap.sh/backend https://macwright.org/2020/05/10/spa-fatigue.html https://stackoverflow.com/q/97197/6813490 https://www.sqlalchemy.org/features.html https://tech.yplanapp.com/2016/09/26/introducing-django-perf-rec/ https://www.youtube.com/watch?v=uCbFMZYQbxE https://github.com/jmcarp/nplusone https://news.ycombinator.com/item?id=26151302 https://fly.io/blog/introducing-litefs/ https://github.com/superfly/litefs
-> The 1+N database anti-pattern is common: fetch some rows from the database then re-fetch specific rows to get all the items. An ORM can hide this away and make you not realize it is happening. https://suor.github.io/blog/2023/03/26/ban-1-plus-n-in-django/
-* solved with eager loading https://news.learnenough.com/eager-loading
-* _impedance mismatch_: difficulty of object-relational mapping [Kleppmann 1.33] multiple ways to aproach http://blogs.tedneward.com/post/the-vietnam-of-computer-science/
-> In the database community it has been conventional wisdom for nearly half a century now (basically since the invention of the relational model) that in designing your database schema you should be careful to avoid any kind of redundancy. That's what database normalization theory is all about. For some unfathomable reason, the same kind of thinking is never (or almost never) applied to software construction, even though it would be as beneficial (possibly even more so) as it is for databases. So, before we countinue our discussion, it's a good idea to talk a bit about redundancy, and to explain what's so harmful about it. https://www.cell-lang.net/relations.html
 
 # 🟨 ZA
 

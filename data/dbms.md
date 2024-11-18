@@ -24,8 +24,6 @@
 
 ---
 
-json https://news.ycombinator.com/item?id=41914845
-
 SQL engines https://chatgpt.com/share/6706c793-1428-8004-af11-613cff56c5af https://news.ycombinator.com/item?id=34189422
 
 ACID https://www.youtube.com/watch?v=GAe5oB742dw
@@ -108,7 +106,7 @@ STORAGE ENGINES 🗄 `design.md` transactions
 * _journal_: journaling i.e. keep track of transactions? https://fly.io/blog/sqlite-internals-rollback-journal/
 * _storage engine_: handle transactions, maintain index https://stackoverflow.com/a/39204302
 * row-oriented vs. column-oriented 📙 Kleppmann 586
-* log-structured (Riak Bitcask) 📙 Kleppmann 72
+* log-structured (Riak Bitcask) 📙 Kleppmann 72 https://news.ycombinator.com/item?id=42187766
 > RocksDB uses a log structured database engine, written entirely in C++, for maximum performance. Keys and values are just arbitrarily-sized byte streams. https://rocksdb.org/
 * page-oriented 📙 Kleppmann 70 https://sirupsen.com/napkin/problem-6 https://news.ycombinator.com/item?id=32250426
 * _Berkeley DB_: https://corecursive.com/066-sqlite-with-richard-hipp/
@@ -275,6 +273,7 @@ https://www.timescale.com/blog/13-tips-to-improve-postgresql-insert-performance/
 📜
 * Mongo https://www.mongodb.com/docs/manual https://learn.mongodb.com/
 * PyMongo https://pymongo.readthedocs.io/en/stable/tutorial.html
+* Beanie (async) https://github.com/BeanieODM/beanie
 
 ---
 
@@ -611,6 +610,7 @@ show collections  # view collections
 * design https://news.ycombinator.com/item?id=35599118 Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf https://drewdevault.com/2021/08/05/In-praise-of-Postgres.html
 
 HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https://news.ycombinator.com/item?id=39273954
+* admin https://eradman.com/posts/pg-admin-queries.html
 * monitor / metrics https://github.com/CrunchyData/pgmonitor-extension
 * duckdb extension https://motherduck.com/blog/pg_duckdb-postgresql-extension-for-duckdb-motherduck/ https://github.com/duckdb/pg_duckdb
 * copy btw tables https://ongres.com/blog/fastest_way_copy_data_between_postgres_tables/
@@ -628,33 +628,10 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * delete data from table: `DELETE FROM <tab>` https://www.postgresql.org/docs/11/dml-delete.html
 * drop all tables: `DROP SCHEMA <schema> CASCADE`
 * get date from timestamp: `SELECT date(startime) FROM bookings` https://stackoverflow.com/a/6133147
-* write rows as JSON obj to file
-```sql
-SELECT foo.x, bar.y, baz.z
-SELECT json_agg(json_build_object('x', foo.x, 'y', bar.y, 'z', baz.z))
-
--- write stdout to file (only seemed to work for psql, not pgcli)
-\o output.json  -- start
-\o  -- stop
-```
-* write IDs as quoted, delimited string to text file
-```sql
-\o artist-ids.txt
-SELECT '"' || foo.x || '",'
-\o
-```
 
 SEMANTICS
 * _cluster_: server instance managing n databases https://www.postgresql.org/docs/12/tutorial-concepts.html https://www.crunchydata.com/blog/postgres-databases-and-schemas
 * _foreign data wrapper_: access data from another data store e.g. document store for a relational db https://github.com/pgspider/sqlite_fdw
-* `json`: text field; slow to search
-* `jsonb`: binary; slower writes, faster reads https://pganalyze.com/blog/postgres-jsonb-django-python
-```sql
--- all keys for json obj
-select jsonb_object_keys(json_col) from table
--- nested key
-select json_col -> 'top_level_key' ->> 'nested_key' from table
-```
 * _system columns_: ctid, xmin, xmax https://www.youtube.com/watch?v=AveRgUrC7FM
 
 UTILS
@@ -979,7 +956,6 @@ EXTENSIONS
 * fewer functions than other dbms
 * bundled https://github.com/nalgeon/sqlean https://github.com/zachvalenta/golf
 * _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ https://www.philipotoole.com/building-a-highly-available-search-engine-using-sqlite/ 🗄 `algos.md` FTS
-* JSON https://dba.stackexchange.com/questions/122198/is-it-possible-to-store-and-query-json-in-sqlite https://news.ycombinator.com/item?id=30486052
 
 TYPES
 * types: text, blob, null, int (whole num) real (decimal)
@@ -1011,6 +987,42 @@ constraints
 # 🟨 ZA
 
 * checksums https://news.ycombinator.com/item?id=42094663&utm_term=comment
+
+## JSON
+
+---
+
+https://eradman.com/posts/json-in-sql.html
+https://news.ycombinator.com/item?id=41914845
+
+SQLITE
+* https://dba.stackexchange.com/questions/122198/is-it-possible-to-store-and-query-json-in-sqlite
+* https://news.ycombinator.com/item?id=30486052
+
+POSTGRES
+* write rows as JSON obj to file
+```sql
+SELECT foo.x, bar.y, baz.z
+SELECT json_agg(json_build_object('x', foo.x, 'y', bar.y, 'z', baz.z))
+
+-- write stdout to file (only seemed to work for psql, not pgcli)
+\o output.json  -- start
+\o  -- stop
+```
+* write IDs as quoted, delimited string to text file
+```sql
+\o artist-ids.txt
+SELECT '"' || foo.x || '",'
+\o
+```
+* `json`: text field; slow to search
+* `jsonb`: binary; slower writes, faster reads https://pganalyze.com/blog/postgres-jsonb-django-python
+```sql
+-- all keys for json obj
+select jsonb_object_keys(json_col) from table
+-- nested key
+select json_col -> 'top_level_key' ->> 'nested_key' from table
+```
 
 ## MySQL
 

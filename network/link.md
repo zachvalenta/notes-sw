@@ -27,6 +27,8 @@ topologies
 
 ---
 
+* undersea cables get snapped all the time? https://news.ycombinator.com/item?id=42176496
+
 * _layer 1_: electrical engineering, wires, frequencies 
 * _data link_: physical medium for transmission of signal btw nodes [NKH 30]
 * _materials_: radiowaves over air, light over glass (fiberoptic; lowest signal loss) electricity over copper (Ethernet; degrades over even short distances; DSL is copper wires from ISP) https://www.youtube.com/watch?v=lUo45NqPyq8 https://www.youtube.com/watch?v=XaGXPObx2Gs

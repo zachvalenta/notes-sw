@@ -110,7 +110,7 @@ implementations https://github.com/marcpaq/b1fipl
 * _SQL_: http://aosabook.org/en/sqlalchemy.html
 
 clean up
-* new languages https://www.youtube.com/@codetothemoon/videos mojo https://www.fast.ai/posts/2023-05-03-mojo-launch.html
+* https://conroy.org/generating-code-examples
 * _compiled_: src type checked, then run
 * _reference implementation_: primary implementation of language (CPython) as compared to other alternate implementations (PyPy, Jython)
 * need to have same errors
@@ -302,7 +302,7 @@ https://increment.com/programming-languages/language-history/
 * _1996_: OCaml
 * _2015_: Rust
 * _2016_: Zig
-* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/
+* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/ https://www.youtube.com/@codetothemoon/videos https://www.fast.ai/posts/2023-05-03-mojo-launch.html
 
 ## stdlib
 
@@ -324,6 +324,7 @@ https://increment.com/programming-languages/language-history/
 
 ## ☕️ Java
 
+* Kotlin only barely does scripting? https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/
 * abstraction run wild https://news.ycombinator.com/item?id=8420314
 * Flask for Java https://javalin.io/
 * version mgmt: sdkman https://www.youtube.com/watch?v=rouaKVAH3iM
@@ -913,72 +914,6 @@ learn a few languages well
 
 when you really love your favorite language 💜
 > My favorite programming language is C. It’s fast, simple, and compiles very quickly. Unlike many other languages, it’s quite reasonable for an individual to have a comprehensive understanding of the entire language. C is my default choice unless something else is particularly better suited (Python, shell script, etc.). There’s also a special place in my heart for Emacs Lisp, a venerable goofball language that’s so much fun to discuss. https://nullprogram.com/about/
-
-## concurrency
-
-🗄
-* `golang.md`
-* `linux.md` threads
-*️ `architecture/system.md` distributed
-* `python/runtime.md` concurrency
-📚
-* Bobrov https://www.manning.com/books/grokking-concurrency
-* Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
-
-BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
-* why: WebSockets https://channels.readthedocs.io/en/latest/
-* why not: hard to reason about, just use a queue or a WebSockets server https://www.david-dahan.com/blog/10-reasons-i-stick-to-django https://danluu.com/concurrency-bugs/
-* not worth it
-> We’re currently using boring, synchronous, Python, which means that our server processes block while waiting for I/O, like network requests. We previously tried Eventlet, an async framework that would, in theory, let us get more efficiency out of Python, but ran into so many bugs that we decided the CPU and latency cost of waiting for events wasn’t worth the operational pain we had to take on to deal with Eventlet issues. The are other well-known async frameworks for Python, but users of those at scale often also report significant fallout from using those frameworks at scale. Using synchronous Python is expensive, in the sense that we pay for CPU that does nothing but wait during network requests, but since we’re only handling billions of requests a month (for now), the cost of this is low even when using a slow language, like Python, and paying retail public cloud prices. The cost of our engineering team completely dominates the cost of the systems we operate. https://danluu.com/simple-architectures/ 
-> Rather than take on the complexity of making our monolith async we farm out long-running tasks (that we don’t want responses to block on) to a queue.
-
----
-
-https://jacko.io/async_intro.html
-https://threedots.tech/post/go-test-parallelism/
-
-* MVCC https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html
-* async IO https://registerspill.thorstenball.com/p/joy-and-curiosity-7
-* _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
-* clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep
-* _callback_: another func to call after func finishes execution 🗄 `application.md` webhook
-* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/59370383#59370383 https://danluu.com/butler-lampson-1999/
-* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/48530284#48530284
-* imperative programming fundamentally about order, which makes concurrency hard https://softwareengineeringdaily.com/2020/05/28/distributed-systems-research-with-peter-alvaro/ 7:00
-* concurrency is nearly always a bad idea https://www.arp242.net/go-easy.html
-* [concurrency != parallelism](https://blog.golang.org/concurrency-is-not-parallelism)
-* [multi-threading != parallelism](https://stackoverflow.com/a/806506/6813490) https://news.ycombinator.com/item?id=4495305
-* https://news.ycombinator.com/item?id=23496994
-* _sleeping barber problem_ http://kachayev.github.io/talks/kharkivpy%230/#/
-* reactive in Python https://blog.oakbits.com/introduction-to-rxpy.html
-* [the guy who wrote SQLAlchemy thinks async is kinda bs](https://news.ycombinator.com/item?id=18113889) + https://techspot.zzzeek.org/2015/02/15/asynchronous-python-and-databases/
-* https://return.co.de/blog/articles/dont-drink-too-much-reactive-cool-aid/
-* [asyncio problems](https://www.roguelynn.com/words/asyncio-we-did-it-wrong/)
-* most (web) things are bound by network, not CPU https://talkpython.fm/episodes/show/225/can-subinterpreters-free-us-from-python-s-gil
-* concurrency is a bad thing https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
-
-GOLANG
-* _goroutine_: thread but... https://github.com/uber-go/goleak
-scheduled by Go runtime instead of OS
-* 2KB vs. 1MB for OS thread [ibid @ 1:10]
-* _channels_: communication between go routines [‘Go in Action’ 1.1.2]
-```golang
-# _defer_: execute after surrounding code block returns
-func hey() {
-	defer fmt.Println("world")
-	fmt.Println("hello")
-}
-
-# _mutex_: only one goroutine can 
-func hi() {
-    mutex.Lock() 
-    defer mutex.Unlock()
-    x = x + 1
-}
-```
-* https://threedots.tech/post/go-test-parallelism/
-* vs. concurrency in other languages https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
-* http://www.doxsey.net/blog/go-concurrency-from-the-ground-up https://rcoh.me/posts/why-you-can-have-a-million-go-routines-but-only-1000-java-threads/ https://utcc.utoronto.ca/~cks/space/blog/programming/GoConcurrencyStillNotEasy https://divan.dev/posts/go_concurrency_visualize/
 
 ## control flow
 

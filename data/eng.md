@@ -82,6 +82,7 @@ TIMEZONES
 
 ---
 
+* _DR (disaster recovery)_: https://www.lastweekinaws.com/blog/the-cold-hard-truth-about-your-cloud-dr-strategy/?ck_subscriber_id=512830619
 * https://drewdevault.com/2019/01/13/Backups-and-redundancy-at-sr.ht.html
 * https://github.com/eduardolat/pgbackweb
 * hard drive health: 2% annual fail rate https://drewdevault.com/2020/04/22/How-to-store-data-forever.html DriveDX https://binaryfruit.com/drivedx/usb-drive-support Wear_Leveling_Count https://superuser.com/q/1037644 SMART https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology https://news.ycombinator.com/item?id=11110902
@@ -111,6 +112,7 @@ TIMEZONES
 * _lag_: when secondaries fall behind primary 📙 Bradshaw [235]
 * will refuse read requests to avoid serving stale data
 * _RAID_: form of replication https://www.kalzumeus.com/2010/04/20/building-highly-reliable-websites-for-small-companies/ https://news.ycombinator.com/item?id=28405695 use ZFS/Zed https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
+* _ZFS_: https://eradman.com/posts/zfs-quickstart.html
 * backup https://github.com/benbjohnson/litestream https://github.com/maxpert/marmot https://news.ycombinator.com/item?id=30883015 SQLite for edge computing https://news.ycombinator.com/item?id=33081159
 * using Redis https://andrewbrookins.com/python/scaling-django-with-postgres-read-replicas/
 * Cassandra https://stackoverflow.com/questions/17348558/does-an-update-become-an-implied-insert
@@ -127,6 +129,7 @@ TIMEZONES
 🗄️ `dbms.md` Mongo
 
 * _partition_: diff data on diff nodes 📙 Kleppmann 199
+* pruning https://eradman.com/posts/partition-pruning.html
 * why: horizontal scaling, put more frequently accessed data on better hardware or more geographically proximate 📙 Bradshaw [289]
 * aka sharding https://news.ycombinator.com/item?id=28776786 📙 Bradshaw [289] Kleppmann [199]
 * avoid by scaling vertically as long as you can 📙 Conery imposter 343 https://news.ycombinator.com/item?id=28430852

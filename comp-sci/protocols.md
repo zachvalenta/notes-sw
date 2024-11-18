@@ -284,7 +284,7 @@ https://github.com/abhimanyu003/sttr
 > Each byte represents some text character in the program. 📙 Bryant 1.1
 * multibyte = n byte per/char e.g. Japanese 📙 Beaulieu 2.19
 * can be anything e.g. Morse code (dot/dash to text) 📙 Sweigart 1.3
-* QR/bar code https://boonepeter.github.io/posts/2020-11-10-spotify-codes/ https://news.ycombinator.com/item?id=32837565&utm_term=comment
+* QR/bar code https://boonepeter.github.io/posts/2020-11-10-spotify-codes/ https://news.ycombinator.com/item?id=32837565 https://github.com/fumiyas/qrc
 * _decode_: 动 convert back to original fmt https://stackoverflow.com/a/31322359
 ```yaml
 1: "A"  # encode
@@ -456,6 +456,7 @@ cue vet person.cue
 🛠 https://github.com/burningtree/awesome-json
 🗄️
 * `algos.md` tree
+* `dbms.md` JSON
 * `python/stdlib.md` serde
 
 OPERATIONS
@@ -718,7 +719,7 @@ SCALE 📙 Kozierok 4.63
 * 255 possible values https://www.youtube.com/watch?v=dPxCGlW9lfM 5:10
 * _kilobyte (KB)_: 1k bytes
 * _megabyte (MB)_: 
-* _gigabyte (GB)_: 1024^3 bytes https://chatgpt.com/c/6733cbae-092c-8004-801c-25fbe5b8076e
+* _gigabyte (GB)_: 1024^3 bytes
 * _terabyte (TB)_: 
 * _petabyte_: 1024 TB?
 * _exabyte_: 1B GB
@@ -777,9 +778,51 @@ CASES
 
 ## identifiers
 
-* _ASIN_: https://inventlikeanowner.com/blog/the-story-behind-asins-amazon-standard-identification-numbers/
-* _SKU_: https://chatgpt.com/c/672e0fc3-36d8-8004-b52c-7aefbcd25e7f
-* _UPC_:
+* _SKU_: internal to retailer/warehouse; variable length, fmt repr product characteristics/location
+* _ASIN_: Amazon SKU; 10 char; per product i.e. if multiple sellers sell same product they use same ASIN https://inventlikeanowner.com/blog/the-story-behind-asins-amazon-standard-identification-numbers/
+* _UPC_: unique across retailers; 12 char; overseen by GS1
+* syntax: manufacturer + product + check digit (proof of correct reading of previous digits)
+```sh
+049000000156  # coke classic 12 oz can
+049000000163  # coke diet 12 oz can
+049000000187  # sprite 12 oz can
+```
+```python
+def calculate_check_digit(upc_without_check_digit):
+    """
+    calculate check digit for given UPC w/ Modulo 10 algo
+    args: upc_without_check_digit (str): first 11 digits of the UPC w/o the check digit
+    returns: int: calculated check digit
+    """
+    # convert input string to list of ints
+    digits = [int(d) for d in upc_without_check_digit]
+    # multiply odd-positioned digits (0-indexed) by 3 and even-positioned digits by 1
+    total = 0
+    for i, digit in enumerate(digits):
+        if i % 2 == 0:  # Odd positions in 0-indexed (1, 3, 5...)
+            total += digit * 3
+        else:  # Even positions in 0-indexed (2, 4, 6...)
+            total += digit
+    # calc check digit
+    remainder = total % 10
+    check_digit = (10 - remainder) if remainder != 0 else 0
+    return check_digit
+
+# diet coke 12 oz can
+upc_input_diet_coke = "049000028911"
+# extract first 11 digits (excluding the check digit)
+upc_without_check_digit_diet_coke = upc_input_diet_coke[:11]
+# calc check digit for the provided UPC
+calculated_check_digit_diet_coke = calculate_check_digit(upc_without_check_digit_diet_coke)
+# construct full UPC with the calculated check digit
+full_upc_diet_coke = upc_without_check_digit_diet_coke + str(calculated_check_digit_diet_coke)
+# output
+print(f"UPC without check digit: {upc_without_check_digit_diet_coke}")
+print(f"Calculated check digit: {calculated_check_digit_diet_coke}")
+print(f"Full UPC: {full_upc_diet_coke}")
+```
+
+---
 
 UUID https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/ https://en.wikipedia.org/wiki/Universally_unique_identifier https://taskwarrior.org/docs/dom/
 ```sh
@@ -832,6 +875,7 @@ EDITOR
 
 ---
 
+* writing on mobile, comments for editing https://conroy.org/blogging-on-paper
 * vs. RST https://buttondown.com/hillelwayne/archive/why-i-prefer-rst-to-markdown/
 * use image (w/ Github renderer) https://github.com/catppuccin/python/blob/main/README.md
 
@@ -939,6 +983,13 @@ BINARY
 * https://www.youtube.com/watch?v=kq_JCVcHJLE
 
 ### protobuf
+
+🗄️ `api.md` RPC
+🧠 https://chatgpt.com/c/673cf346-ae54-8004-84c2-fd989e922c51
+
+* _wireman_: client https://github.com/preiter93/wireman
+
+---
 
 * convert/query https://github.com/dflemstr/rq
 * like BSON https://bsonspec.org/ https://github.com/bufbuild/buf

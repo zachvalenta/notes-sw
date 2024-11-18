@@ -16,10 +16,11 @@
 
 ## 进步
 
-https://www.youtube.com/watch?v=VljhZ0e9zGE&list=WL&index=10&pp=gAQBiAQB
-https://www.youtube.com/watch?v=Qf9gfx7gWEY&list=WL&index=1&pp=gAQBiAQB
-https://www.youtube.com/watch?v=bb3UqIzd7L0&list=WL&index=2&pp=gAQBiAQB
-markdown https://www.youtube.com/watch?v=1Lmyh0YRH-w&list=WL&index=7&pp=gAQBiAQB
+* markdown https://www.youtube.com/watch?v=1Lmyh0YRH-w
+* config https://github.com/jdhao/nvim-config
+https://www.youtube.com/watch?v=VljhZ0e9zGE
+https://www.youtube.com/watch?v=Qf9gfx7gWEY
+https://www.youtube.com/watch?v=bb3UqIzd7L0
 
 * VS Code plugins: indentation rainbow, bookmarks, project manager https://switowski.com/blog/plugins-for-python-in-vscode/
 https://www.youtube.com/watch?v=VljhZ0e9zGE

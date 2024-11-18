@@ -104,6 +104,18 @@ TIME MACHINE
 
 ### mini23 ➡️ exfatmain
 
+MUSIC
+> songs of the month: Ramones swallow my pride
+* dance: francis harris, jamie xx, danilov, techno
+> za (chemical brothers et al.)
+* electronic: drone
+* far: Aster Aweke
+* jazz: christian scott, alice coltrane, bill frisell, ahmad jamal
+* rock: singles, dylan, band, dinosaur jr, dr john to psych, ritter to pop, neil young 75-2002, wilco, punk (minutemen, buzzcocks, cramps, ramones)
+> loud soft loud out of punk + import meat puppets
+* za/blues: hendrix
+* za/gospel: hank jones
+
 > 📍 clean up DS files `fd -HI DS`
 * 23 taxes
 * golf
@@ -111,22 +123,10 @@ TIME MACHINE
 * parking tickets
 
 MAT
-* se: rm mckinney book, wayne logic for programmers, network, kent data and reality, evans containers and ints/floats
+* sw: rm mckinney book, wayne logic for programmers, network, kent data and reality, evans containers and ints/floats, Bueno mature optimization
 * math
 * za
 * science
-
-MUSIC
-* dance: francis harris, jamie xx, danilov
-* electronic: drone
-* jazz: christian scott, alice coltrane, bill frisell, ahmad jamal
-* far: Aster Aweke
-* za/blues: hendrix
-* za/gospel: hank jones
-* dance/techno: all
-> za (chemical brothers et al.)
-* rock: singles, dylan, band, minutemen, dinosaur jr, dr john to psych, ritter to pop, neil young 75-2002, wilco
-> loud soft loud out of punk + import meat puppets
 
 ### air-capp ➡️ mini23
 
@@ -378,6 +378,7 @@ config
 
 ### metadata
 
+* is there a dataset for lyrics 🗄️ project idea for lyrics for Babatunde et. al.
 * https://github.com/azuline/rose
 * music brainz, picard, discogs https://community.metabrainz.org/
 * https://tedium.co/2016/09/20/allmusic-database-historic-importance/?utm_source=substack&utm_medium=email
@@ -493,6 +494,15 @@ USB https://en.wikipedia.org/wiki/USB
 ## iPad
 
 🔗 versions https://en.wikipedia.org/wiki/IPad#iPad
+🗄️
+* `audio.md` garageband
+* `draw.md` digital
+* `golf.md` analysis
+
+FACTORS https://www.youtube.com/watch?v=2RqaNTPjzQ8
+* size: mini is too small
+* storage: at least 256GB
+* mem: 8GB https://www.youtube.com/watch?v=988Jua0fMms [1:00]
 
 ---
 
@@ -824,6 +834,7 @@ system register https://github.com/TermiT/Flycut
 Firevim https://github.com/glacambre/firenvim
 
 VIMIUM
+> sites where Vimium search doesn't work: Github, Stedi
 * alternatives https://news.ycombinator.com/item?id=34071191 https://news.ycombinator.com/item?id=34149340 https://news.ycombinator.com/item?id=34150016
 * help: `?`
 * omnibar: `o`
@@ -847,6 +858,7 @@ SPOTLIGHT
 PREVIEW
 * alternative https://getpolarized.io/
 * ToC: CMD ALT 3
+* hightlight: CTRL CMD h
 * higlights: CMD ALT 4
 * full screen: CMD SHIFT f
 * _views_: cmd <num>
@@ -958,6 +970,7 @@ Update them from Software Update in System Preferences or run:
 ## provision
 
 🗄️ `linux.md` denv
+🔗 https://www.roguelynn.com/words/m1-dev-setup/
 
 PKGS
 > when to install command line tools?
@@ -969,6 +982,8 @@ PKGS
 ## rosetta
 
 * _Rosetta_: gets Intel apps to work on M1 https://news.ycombinator.com/item?id=30799686 https://news.ycombinator.com/item?id=31696447
+> Rosetta 2 is an “emulator” or a translator for software built for Intel-based processors to run on Apple’s Silicon/M1 processors. While many apps for macOS have transitioned to running on M1 machines, there are still a lot of non-user-facing (a.k.a developer-facing) software and tools that do not play nicely. For instance, for Python, there are many packages with C-extensions whose binaries are not yet built for the M1, causing a lot of headaches (I’m looking at you, grpcio, tensorflow, librosa). Then there’s Docker, which will run fine on Apple Silicon, but can cause frustration when trying to build & deploy to a non-M1 environment. Enter: Rosetta 2. https://www.roguelynn.com/words/m1-dev-setup/
+> You may find it a lot easier to have two copies of iTerm.app (or Terminal.app), one that runs with Rosetta, and one that does not. Having both makes it easy to visually separate which environment you’re working in, as you can now customize the look and theme of each terminal app.
 * installed on mini23 for Android File Transfer
 * iTerm/Terminal > get info > open using Rosetta
 ```sh
@@ -1042,6 +1057,7 @@ $ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 ## screencast
 
+* howto https://www.youtube.com/watch?v=AzVn5H0ZNVM https://www.youtube.com/watch?v=K5GeaoJCsoI
 * livestream https://til.simonwillison.net/youtube/livestreaming
 * https://www.jeffgeerling.com/blog/2018/how-i-record-my-own-conference-presentations
 * OBS https://obsproject.com/ https://news.ycombinator.com/item?id=22748247 https://www.youtube.com/watch?v=QCpuTSFVohQ

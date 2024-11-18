@@ -11,6 +11,11 @@
 
 ## 进步
 
+📙 Wayne logic for programmers circuits, branch prediction, speculative execution https://danluu.com/branch-prediction/ https://pythonspeed.com/articles/speeding-up-numba/
+++ like verilog? sequential logic https://github.com/cjdrake/seqlogic
+
+---
+
 https://www.youtube.com/watch?v=lX4CrbXMsNQ
 https://github.com/hackclub/RAM-a-thon
 https://www.youtube.com/playlist?list=PL77441A2ED0D0B6A8
@@ -31,7 +36,6 @@ https://github.com/lusingander/enigma
 * Nisan elements https://github.com/zachvalenta/nand2tetris
 * Petzold code; second edition https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0137909101
 * Petzold annotated turing
-* Wayne logic for programmers; circuits, branch prediction, speculative execution https://danluu.com/branch-prediction/ https://pythonspeed.com/articles/speeding-up-numba/
 
 > A computer is a clock with benefits. They all work the same, doing second-grade math, one step at a time - Ford what is code?
 > Everything ultimately has to get down to things in little boxes pointing to each other. That's just how things work. - Ford what is code?
@@ -123,7 +127,8 @@ ZA
 * _incompleteness theorem_: https://tigyog.app/d/C:tWWwvJDWlo/r/busy-beavers
 * _Von Neumann architecture_: model for hardware that allowed for data input via memory vs. rewiring hardware itself https://blog.robertelder.org/computer-science-for-engineers/
 
-TURING MACHINE
+### turing machine
+
 * https://snarky.ca/mvpy-minimum-viable-python/
 * https://news.ycombinator.com/item?id=41633551
 * _Turing complete_: functional parity w/ Turing machine https://www.youtube.com/watch?v=dNRDvLACg5Q
@@ -137,7 +142,9 @@ else state == done:
     goto(halting_state)
 ```
 
-STATE MACHINE
+### state machine
+
+* https://github.com/kyleconroy/lua-state-machine
 * https://zackproser.com/blog/bubbletea-state-machine
 * diagrams https://github.com/statecharts/statecharts.github.io/issues/44 https://en.wikipedia.org/wiki/State_diagram
 * _finite state machine (FSM)_: machine w/ fixed set of possible states 📙 Conery 66 https://nullprogram.com/blog/2020/12/31/ https://arpitbhayani.me/blogs/fsm

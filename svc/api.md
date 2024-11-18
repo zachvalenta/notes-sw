@@ -7,7 +7,7 @@
 
 ## 进步
 
-* https://roadmap.sh/api-design https://pycon-archive.python.org/2024/schedule/presentation/25/index.html 🗄️ `src.md`
+* https://roadmap.sh/api-design https://pycon-archive.python.org/2024/schedule/presentation/25/index.html 🗄️ `src.md` https://conroy.org/writing-api-clients-in-go
 * https://roadmap.sh/backend
 *️ https://roadmap.sh/best-practices/api-security https://us.pycon.org/2024/schedule/presentation/5/index.html https://www.manning.com/books/secure-apis https://nostarch.com/hacking-apis
 * https://news.ycombinator.com/item?id=41432101
@@ -66,19 +66,6 @@ https://softwareengineeringdaily.com/2024/10/16/the-end-of-graphql-matt-bessey/
 > In a REST API, an API provider must assume that for any given API resource, every field is in use by every user because they have no insight at all into which ones they’re actually using. https://brandur.org/graphql#explicitness
 * _sink_: https://retool.com/blog/a-beginners-guide-to-the-graphql-ecosystem/ https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/ https://www.howtographql.com/ https://graphql.org/learn/ https://pganalyze.com/blog/efficient-graphql-queries-in-ruby-on-rails-and-postgres https://brandur.org/api-paradigms https://brandur.org/graphql https://news.ycombinator.com/item?id=23758367 https://news.ycombinator.com/item?id=25432233 https://scattered-thoughts.net/writing/against-sql 
 
-## JSON:API
-
-📜  https://jsonapi.org
-
----
-
-* req/res data fmt + more precise HTTP semantics https://changelog.com/podcast/189 46:30
-* helps client not make unnecessary requests https://news.ycombinator.com/item?id=5654390
-* the name is an annoying land grab https://news.ycombinator.com/item?id=5654375 
-* other projects that aim for the same thing https://news.ycombinator.com/item?id=5653976
-* ❓ diverges from OpenAPI https://phil.tech/api/2018/03/30/openapi-and-json-schema-divergence/
-* _alternatives_: HAL https://jsonapi.org/faq/
-
 ## REST
 
 * hypermedia is REST https://htmx.org/essays/
@@ -89,6 +76,8 @@ https://softwareengineeringdaily.com/2024/10/16/the-end-of-graphql-matt-bessey/
 > RESTful API design consequently suffers the same problems as Active Record ORMs. The problem is most severe when fundamentalist RESTafarians get involved, as they advocate using hypertext-style links between API endpoints - HATEOAS ("Hypermedia As The Engine Of Application State"). Under HATEOAS, applications "browse" the API, moving from link to link to accomplish their goal. https://calpaterson.com/activerecord.html
 
 ## RPC
+
+🗄️ `protocols.md` protobuf
 
 ---
 
@@ -121,9 +110,52 @@ https://news.ycombinator.com/item?id=41939027
 * _spec_: doc explaining schema https://www.youtube.com/watch?v=1lo7idI7uq8
 * generate spec from API and vice versa https://www.youtube.com/watch?v=1lo7idI7uq8 3:00
 
+## JSON:API
+
+📜  https://jsonapi.org
+
+---
+
+> was there ever adoption of this? also, Klabnik/Katz involved? https://news.ycombinator.com/item?id=5653706 the name grab makes it hard to tell 🧠 https://chatgpt.com/c/673ca597-ed10-8004-83a3-0dc3251aad7b
+
+* req/res data fmt + more precise HTTP semantics https://changelog.com/podcast/189 46:30
+* helps client not make unnecessary requests https://news.ycombinator.com/item?id=5654390
+* the name is an annoying land grab https://news.ycombinator.com/item?id=5654375 
+* other projects that aim for the same thing https://news.ycombinator.com/item?id=5653976
+* ❓ diverges from OpenAPI https://phil.tech/api/2018/03/30/openapi-and-json-schema-divergence/
+* _alternatives_: HAL https://jsonapi.org/faq/
+
 ## JSON Schema
 
 📜 https://json-schema.org/
+
+CONTINUE HERE
+https://json-schema.org/learn/getting-started-step-by-step
+https://github.com/python-jsonschema/jsonschema
+https://github.com/python-jsonschema/check-jsonschema
+
+* _instance_: JSON doc being validated
+* _schema_: doc containing description
+```json
+// INSTANCE
+{
+  "productId": 1,
+  "productName": "A green door",
+  "price": 12.50,
+  "tags": [ "home", "green" ]
+}
+// SCHEMA
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",  // version of JSON Schema
+  "$id": "https://example.com/product.schema.json",  // why would you need a URL 
+  "title": "Product",
+  "description": "A product in the catalog",
+  "type": "object"
+}
+
+```
+
+---
 
 TOOLS https://json-schema.org/tools
 * _fastjsonschema_: https://github.com/horejsek/python-fastjsonschema https://horejsek.github.io/python-fastjsonschema/

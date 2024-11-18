@@ -191,7 +191,11 @@ TOOLS
 * repo stats https://github.com/o2sh/onefetch https://github.com/oleander/git-fame-rb
 * heat map https://github.com/jmforsythe/Git-Heat-Map
 
-TUI for quick sustainability assessment of Github repo: https://chatgpt.com/c/671692f3-9ca8-8004-8b71-8ae027bdbbad
+### assessment tool
+
+💡 TUI for quick sustainability assessment of Github repo https://chatgpt.com/c/671692f3-9ca8-8004-8b71-8ae027bdbbad
+💻 https://github.com/zachvalenta/capp-denv-bin/blob/main/ghgj
+
 > stars https://github.com/github/feedback/discussions/8293 https://github.com/korosuke613/gh-user-stars https://webapps.stackexchange.com/a/41800 https://github.com/maguowei/starred#use-awesome-stars-as-template https://github.com/maguowei/awesome-stars/blob/master/topics.md https://github.com/DaveParr/starpilot https://github.com/den-is/gh-stars-scraper
 > good for: https://github.com/veggiemonk/awesome-docker
 > Terminal Trove
@@ -474,8 +478,12 @@ strategies
 
 🗄️ `doc.md` repo
 
+```sh
+# https://github.com/charmbracelet/gum
+gum choose "fix" "feat" "docs" "style" "refactor" "test" "chore" "revert"
+```
+
 commits as documentation https://mislav.net/2014/02/hidden-documentation/
-> https://github.com/charmbracelet/gum
 > https://github.com/SKalt/git-cc/
 > https://github.com/muandane/goji
 > https://gitmoji.dev/ https://github.com/juftin/browsr

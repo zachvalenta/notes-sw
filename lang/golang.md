@@ -34,7 +34,7 @@ BASICS 📙 Ball
 
 # 📝 LANG
 
-🗄️ `plt.md` concurrency
+🗄️ `linux.md` concurrency
 📚
 * https://www.manning.com/books/go-by-example
 * https://www.manning.com/books/go-in-practice-second-edition

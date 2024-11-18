@@ -625,6 +625,73 @@ telemetry
 * lookup PID using process name https://stackoverflow.com/a/11547409/6813490
 * _PPID_: parent process ID
 
+## concurrency
+
+🗄
+*️ `architecture/system.md` distributed
+* `python/runtime.md` concurrency
+📚
+* Bobrov https://www.manning.com/books/grokking-concurrency
+* Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
+
+---
+
+* [concurrency != parallelism](https://blog.golang.org/concurrency-is-not-parallelism)
+* [multi-threading != parallelism](https://stackoverflow.com/a/806506/6813490) https://news.ycombinator.com/item?id=4495305
+* [the guy who wrote SQLAlchemy thinks async is kinda bs](https://news.ycombinator.com/item?id=18113889) + https://techspot.zzzeek.org/2015/02/15/asynchronous-python-and-databases/
+
+BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
+* why: WebSockets https://channels.readthedocs.io/en/latest/
+* why not: hard to reason about, just use a queue or a WebSockets server https://www.david-dahan.com/blog/10-reasons-i-stick-to-django https://danluu.com/concurrency-bugs/
+* not worth it
+> We’re currently using boring, synchronous, Python, which means that our server processes block while waiting for I/O, like network requests. We previously tried Eventlet, an async framework that would, in theory, let us get more efficiency out of Python, but ran into so many bugs that we decided the CPU and latency cost of waiting for events wasn’t worth the operational pain we had to take on to deal with Eventlet issues. The are other well-known async frameworks for Python, but users of those at scale often also report significant fallout from using those frameworks at scale. Using synchronous Python is expensive, in the sense that we pay for CPU that does nothing but wait during network requests, but since we’re only handling billions of requests a month (for now), the cost of this is low even when using a slow language, like Python, and paying retail public cloud prices. The cost of our engineering team completely dominates the cost of the systems we operate. https://danluu.com/simple-architectures/ 
+> Rather than take on the complexity of making our monolith async we farm out long-running tasks (that we don’t want responses to block on) to a queue.
+
+https://jacko.io/async_intro.html
+https://threedots.tech/post/go-test-parallelism/
+
+* MVCC https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html
+* async IO https://registerspill.thorstenball.com/p/joy-and-curiosity-7
+* _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
+* clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep
+* _callback_: another func to call after func finishes execution 🗄 `application.md` webhook
+* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/59370383#59370383 https://danluu.com/butler-lampson-1999/
+* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/48530284#48530284
+* imperative programming fundamentally about order, which makes concurrency hard https://softwareengineeringdaily.com/2020/05/28/distributed-systems-research-with-peter-alvaro/ 7:00
+* concurrency is nearly always a bad idea https://www.arp242.net/go-easy.html
+* https://news.ycombinator.com/item?id=23496994
+* _sleeping barber problem_ http://kachayev.github.io/talks/kharkivpy%230/#/
+* reactive in Python https://blog.oakbits.com/introduction-to-rxpy.html
+* https://return.co.de/blog/articles/dont-drink-too-much-reactive-cool-aid/
+* most (web) things are bound by network, not CPU https://talkpython.fm/episodes/show/225/can-subinterpreters-free-us-from-python-s-gil
+* concurrency is a bad thing https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
+
+### golang
+
+---
+
+* _goroutine_: thread but... https://github.com/uber-go/goleak
+scheduled by Go runtime instead of OS
+* 2KB vs. 1MB for OS thread [ibid @ 1:10]
+* _channels_: communication between go routines [‘Go in Action’ 1.1.2]
+```golang
+# _defer_: execute after surrounding code block returns
+func hey() {
+	defer fmt.Println("world")
+	fmt.Println("hello")
+}
+
+# _mutex_: only one goroutine can 
+func hi() {
+    mutex.Lock() 
+    defer mutex.Unlock()
+    x = x + 1
+}
+```
+* https://threedots.tech/post/go-test-parallelism/
+* vs. concurrency in other languages https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
+* http://www.doxsey.net/blog/go-concurrency-from-the-ground-up https://rcoh.me/posts/why-you-can-have-a-million-go-routines-but-only-1000-java-threads/ https://utcc.utoronto.ca/~cks/space/blog/programming/GoConcurrencyStillNotEasy https://divan.dev/posts/go_concurrency_visualize/
+
 ## threads
 
 🔍 https://softwareengineering.stackexchange.com/questions/tagged/concurrency
@@ -818,6 +885,7 @@ function tz(){
 * _mint_: https://drewdevault.com/2021/12/14/Linux-Mint-and-elementary-OS.html
 * _omakub_: https://github.com/basecamp/omakub https://omakub.org/ https://www.youtube.com/watch?v=g2vcIRavtqY
 * _Red Hat_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html
+* _OpenBSD_: https://eradman.com/posts/openbsd-workstation.html https://unixsheikh.com/articles/openbsd-6.9-has-been-released-kudos-to-all-involved.html doesn't do bluetooth https://news.ycombinator.com/item?id=25949784 https://danielmiessler.com/blog/the-differences-between-bsd-and-system-v-unix/ https://dataswamp.org/~solene/2024-11-15-why-i-stopped-using-openbsd.html
 
 ---
 
@@ -831,9 +899,7 @@ function tz(){
 * how to keep Linux distros consistent? The Linux Standard Base [LPI 1.3.8]
 * _distros_: Ubuntu (default) Debian (tricky config) Red Hat (Enterprise, Fedora, CentOS and fork https://changelog.com/podcast/427) Kali (security) Arch, Mint (personal) Raspian (IoT) Alpine (lightweight) https://distrochooser.de/ https://news.ycombinator.com/item?id=23816007 https://news.ycombinator.com/item?id=16315087
 * _Linux Foundation_: sponsors Linux, Cloud Foundry, Cloud Native Computing Foundation (which itself maintains Kubernetes) 
-* OpenBSD https://unixsheikh.com/articles/openbsd-6.9-has-been-released-kudos-to-all-involved.html
-* _Unices_: enterprise (Unix, Solaris) open (BSD, Linux) BSD doesn't do bluetooth https://news.ycombinator.com/item?id=25949784
-* BSD: http://eradman.com/posts/openbsd-workstation.html
+* _Unices_: enterprise (Unix, Solaris) open (BSD, Linux)
 * _Nix_: https://news.ycombinator.com/item?id=31557430
 
 history
@@ -842,7 +908,7 @@ history
 * _1979_: Seventh Edition; awk, sed, tar, Bourne shell [LPI 1.1]
 * _1979_: BSD (Ken Thompson); TCP/IP implementation, sockets API
 * _1983_: Sun OS (based off BSD), followed up Solaris
-* _1983_: System V proceeds from AT&T breakup https://danielmiessler.com/blog/the-differences-between-bsd-and-system-v-unix/
+* _1983_: System V proceeds from AT&T breakup
 * _1984_: macOS; similar to FreeBSD https://wiki.freebsd.org/Myths http://www.paulgraham.com/mac.html
 * _1985_: Stallman starts GNU and FSF, by early 90s has OS sans kernel
 * _1993_: Novell acquires UNIX from AT&T
@@ -1228,15 +1294,16 @@ LOCATION
 
 🗄️ `containers.md`
 
-PERMS 📙 Evans linux https://chatgpt.com/c/672cbc33-dabc-8004-bbac-7c5050f53879
+PERMS 📙 Evans linux https://chatgpt.com/c/672cbc33-dabc-8004-bbac-7c5050f53879 🗄️ `tools.md` find
 * categories: `u` (user/owner) `g` (group) `o` (other) `a` (all)
 * mv: `chmod` + group + `r|w|x` e.g. `u=rw` (user gains rw) `+x` (all gain x) `o-w` (other loses w)
-* mv file leaves: `find . -type f -exec chmod 644 {} +`
 * get as octal: `stat -f "%A" $FILE`
 * default: `666` (file) `777` (dir)
 * _umask_: set perms on new files via "mask" (subtraction) from default perms; can be set as user or distro level https://www.digitalocean.com/community/tutorials/linux-permissions-basics-and-how-to-use-umask-on-a-vps
 
 ---
+
+https://eradman.com/posts/unix-group-membership.html
 
 PERMS
 * read/write/execute have slightly different meanings when applied to directories 📙 Kerrisk lpi [2.5]

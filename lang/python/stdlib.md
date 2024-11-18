@@ -507,6 +507,7 @@ if i % 100 == 0:
 * `os/tools.md` browsr
 
 HOWTO
+* debug https://www.pythonpapers.com/p/how-to-debug-your-textual-application
 * publish to web https://github.com/Textualize/textual-web
 * run examples
 ```sh
@@ -852,7 +853,7 @@ os.getenv("FOO_VAR")
 
 * `eval()`: take string and evaluate as if expression from language
 
-* rise of 3rd-party packages, dead batteries http://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html https://www.python.org/dev/peps/pep-0594/ provisional API https://docs.python.org/3/glossary.html#term-provisional-API
+* rise of 3rd-party packages, dead batteries http://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html https://www.python.org/dev/peps/pep-0594/ provisional API https://docs.python.org/3/glossary.html#term-provisional-API PEP 594 https://conroy.org/breaking-python-packages
 
 * _hashing_: passlib https://passlib.readthedocs.io/en/stable/ https://pythonbytes.fm/episodes/show/21/python-has-a-new-star-framework-for-restful-apis passlib is bad now? https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 ```python

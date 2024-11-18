@@ -19,7 +19,9 @@ CODE STATS
 
 # 🔬 PROFILING
 
-📙 Beazley ch. 14
+📙
+* Beazley ch. 14
+* Tornhill https://pragprog.com/titles/atcrime2/your-code-as-a-crime-scene-second-edition/
 🗄
 * `feedback.md` debug
 * `linux.md` tracing

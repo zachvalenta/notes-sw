@@ -71,6 +71,7 @@ SPA tradeoffs
 > But the cultural tides are strong. Building a company on Django in 2020 seems like the equivalent of driving a PT Cruiser and blasting Faith Hill’s “Breathe” on a CD while your friends are listening to The Weeknd in their Teslas. Swimming against this current isn’t easy, and not in a trendy contrarian way. https://macwright.org/2020/05/10/spa-fatigue.html
 
 ZA
+* _PWA (progressive enhancement)_: layering functionality i.e. site works fine using HTML but adds CSS and JS if user agent supports https://technology.blog.gov.uk/2016/09/19/why-we-use-progressive-enhancement-to-build-gov-uk/ https://conroy.org/progressively-worse-apps
 * page reloads are ok
 > We ran Basecamp on a single server for the first year...most of the problems we feared weren't that big of a deal to customers. As long as you keep people in the loop, and are honest about the situation, they'll understand. - 📙 Getting Real [44]
 taxonomy
@@ -82,6 +83,7 @@ taxonomy
 
 ## htmx
 
+> But as browsers proliferated and the Web grew from a document-delivery platform into a software-delivery platform, JavaScript became, arguably, the most widely deployed language runtime in the world. 📰 Ford what is code?
 📜
 > https://pragprog.com/titles/mvhtmx/server-driven-web-apps-with-htmx/
 * https://htmx.org/
@@ -366,8 +368,6 @@ fi
 * `it.md` macos/app
 * `security.md` privacy
 
-> But as browsers proliferated and the Web grew from a document-delivery platform into a software-delivery platform, JavaScript became, arguably, the most widely deployed language runtime in the world. 📰 Ford what is code?
-
 STATE
 > Speaking of data, there's a lot more data a website has to deal with that doesn't come from a database or an API. Which tab is active right now? Is this modal dialog open or closed? https://increment.com/frontend/when-frontend-means-full-stack/
 * `window.localStorage` way to save state in browser https://www.w3schools.com/html/html5_webstorage.asp https://news.ycombinator.com/item?id=20855275
@@ -375,8 +375,6 @@ STATE
 * _cookie_: less than web storage (4k); sent to server on each request
 * _web/DOM storage_: save data on per origin, available for different pages/tabs or even after restarting machine; isn't sent to server
 * _IndexedDB_: in-browser obj db
-
----
 
 BROWSERS
 * set default: system preferences > general
@@ -398,6 +396,14 @@ CMD b  # bookmarks
 * _Lynx_: 'reader mode' https://github.com/bensadeh/circumflex
 * _Firefox_: https://wesbos.com/uses https://www.mozilla.org/en-US/firefox/developer/
 * _Zen_: based on Firefox https://zen-browser.app/ can split panes within browser https://www.youtube.com/watch?v=VshptkoKfQo [6:30] https://x.com/mkennedy/status/1856416323447992381
+
+---
+
+browsers
+* browser fingerprinting https://kevq.uk/how-browser-fingerprinting-works/ https://freedom-to-tinker.com/2018/06/29/against-privacy-defeatism-why-browsers-can-still-stop-fingerprinting/
+* https://superuser.com/questions/1298062/chrome-clear-cookies-on-exit-feature-does-not-work can't use adblockers https://9to5google.com/2019/05/29/chrome-ad-blocking-enterprise-manifest-v3/ doesn't index old stuff https://www.tbray.org/ongoing/When/201x/2018/01/15/Google-is-losing-its-memory better memory https://blog.mozilla.org/firefox/firefox-uses-less-memory-chrome-edge-safari/ tree-style tabs https://addons.mozilla.org/en-US/firefox/addon/tree-style-tab/ also has Vimium https://addons.mozilla.org/en-US/firefox/addon/vimium-ff/ old version of Vimium for Firefox https://nullprogram.com/blog/2018/09/20/
+* ad blocking https://www.jefftk.com/p/thoughts-on-ad-blocking https://news.ycombinator.com/item?id=27060898
+* _Firefox_: https://www.mozilla.org/en-US/firefox/accounts/ http://ask-leo.com/why_isnt_my_browser_remembering_my_usernames_any_more.html https://marko.fyi/firefox/ https://www.troyhunt.com/were-baking-have-i-been-pwned-into-firefox-and-1password/ comes w/ VPN? https://premium.firefox.com/vpn/ 
 
 * https://github.com/pyscript/pyscript https://realpython.com/pyscript-python-in-browser/
 * Jest, https://github.com/capricorn86/happy-dom
@@ -544,7 +550,6 @@ SEMANTICS
 * _attribute_: metadata
 * _canvas_: draw, make charts
 * _EME (encrypted media extensions)_: DRM https://stackoverflow.com/questions/46212264/example-encrypted-media-extensions-encryption/46374671#46374671
-* _PWA (progressive enhancement)_: layering functionality i.e. site works fine using HTML but adds CSS and JS if user agent supports https://technology.blog.gov.uk/2016/09/19/why-we-use-progressive-enhancement-to-build-gov-uk/
 * _semantic web_: element describes content e.g. `<footer>` `<section>` https://twobithistory.org/2018/06/10/birth-of-the-web.html#fnref:11 https://twobithistory.org/2018/05/27/semantic-web.html https://news.ycombinator.com/item?id=30166788 https://news.ycombinator.com/item?id=41307011 https://csvbase.com/blog/13
 
 FORMS
@@ -600,7 +605,7 @@ ZOLA 📜 https://github.com/getzola/zola
 
 FEATURES
 * hot reload
-* social/comments via Github https://zackproser.com/blog/autocomplete-is-not-all-you-need
+* social/comments via Github https://zackproser.com/blog/autocomplete-is-not-all-you-need https://eradman.com/posts/sidecomment-web-stack.html
 * browser `python -m http.server` https://www.pythonmorsels.com/cli-tools/
 * sitemap https://otterwiki.com/-/index https://werc.cat-v.org/sitemap
 * _metadata_: title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/ linking https://github.com/erwald/blog/blob/master/_data/series.json https://danilafe.com/blog/blog_microfeatures/

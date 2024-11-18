@@ -60,6 +60,8 @@ CLI/TUI
 
 ## code assist
 
+> LLMs are good at explaining code. Give it code in a language you don't understand and it will explain it with 90% accuracy. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
+
 FEATURES https://zackproser.com/blog/cursor-review
 * autocomplete vs. natural language
 > If copy and pasting back and forth between ChatGPT.com is crawling, then Cursor's interface is sprinting. Being able to discuss the code, architecture, a single file, or to tell Cursor to use a file as inspiration when making other changes is my favorite feature of Cursor.
@@ -114,8 +116,6 @@ https://visualstudiomagazine.com/articles/2024/01/25/copilot-research.aspx
 https://www.youtube.com/watch?v=MzFr7iXsESs
 https://www.youtube.com/watch?v=dkV01hBdhZE
 
-> LLMs are good at explaining code. Give it code in a language you don't understand and it will explain it with 90% accuracy. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
-
 * math: https://ollama.com/blog/wizardmath-examples
 * Copilot
 * Cody https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
@@ -150,15 +150,18 @@ Say you have a CLI program that needs a secret (e.g. an API key). The secret nee
 
 ## features
 
+FEATURES
+> one annoying thing about ChatGPT is when you open a chat it's not reflected in the sidebar so if you want to rename or delete it you have to scroll sidebar and manually find it
+* folders: https://chatgpt.com/c/67108642-c0cc-8004-b985-28773a5764fb
+* search: 
+* export: 🗄️ Elia
+
+---
+
 browser interaction https://news.ycombinator.com/item?id=42052432 https://news.ycombinator.com/item?id=42052432
 > Claude from the browser https://news.ycombinator.com/item?id=42012412
 
 > get API tier, try mods, export current conversations https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a do you really need to export current? just incorporate into your notes and delete, leaving anything outstanding. your notes is the final downstream for everything (excluding code, music, etc.), hence LLMs are upstream. the goal with this is to 1) reduce friction re: queries 2) better...system message / prompts / RAG 3) history / stats 4) tags
-
-FEATURES
-* folders: ❓ does anyone offer? https://chatgpt.com/c/67108642-c0cc-8004-b985-28773a5764fb
-* search: ❓ does anyone offer?
-* export: 🗄️ Elia
 
 FILE FMT https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a https://chatgpt.com/c/671ebbd6-c110-8004-a519-0f723970d64c
 * streaming https://til.simonwillison.net/llms/streaming-llm-apis
@@ -323,6 +326,7 @@ TYPES https://elevenlabs.io/
 
 ---
 
+* video https://x.com/bilawalsidhu/status/1857816146688217099
 * video scraping https://simonw.substack.com/p/video-scraping-using-google-gemini
 * image recognition https://www.youtube.com/watch?v=XPA213k8G_U
 * image to spreadsheet https://news.ycombinator.com/item?id=41059821 https://en.wikipedia.org/wiki/IFTTT
@@ -349,10 +353,6 @@ TYPES https://elevenlabs.io/
 # 🟨️ ZA
 
 ## cleanup
-
-GREAT ANSWERS
-* computer eng https://chatgpt.com/c/671121b1-633c-8004-88ee-bcc142ac24f5
-* Python packaging history https://chatgpt.com/c/67111dbc-0964-8004-9e50-41fa41875da8
 
 ---
 
@@ -382,7 +382,6 @@ ZA
 * use to study math https://news.ycombinator.com/item?id=37963453
 * pretty transparent https://twitter.com/zoink/status/1599281052115034113
 * tooling https://github.com/eth-sri/lmql
-* _constitution_: heuristic for LLM https://www.anthropic.com/index/claudes-constitution
 * impact on software dev https://about.sourcegraph.com/blog/cheating-is-all-you-need https://github.com/jiggy-ai/pair https://news.ycombinator.com/item?id=35470915&utm_term=comment ChatGPT https://kadekillary.work/posts/1000x-eng/ https://news.ycombinator.com/item?id=35385019 https://news.ycombinator.com/item?id=35493631 https://news.ycombinator.com/item?id=35612494 https://news.ycombinator.com/item?id=35638552  https://www.phind.com/
 * how it works https://www.jonstokes.com/p/chatgpt-explained-a-guide-for-normies
 * LLM https://news.ycombinator.com/item?id=34726115 https://marginalrevolution.com/marginalrevolution/2023/11/the-single-best-introduction-to-llms.html
@@ -483,7 +482,7 @@ za
 * _TinyML_: ML on devices e.g. phones, IoT https://www.thoughtworks.com/radar/techniques?blipid=202203070
 * _computer vision_: ability of computer to process visual input; aka image recognition http://aiplaybook.a16z.com/docs/guides/vision
 * _OCR_: map picture to text [Bhargava 10.199] aka image recognition https://news.ycombinator.com/item?id=26207049
-* _VGA (visual question answering)_: answer open-ended question about image https://victorzhou.com/blog/easy-vqa/
+* _VQA (visual question answering)_: answer open-ended question about image https://victorzhou.com/blog/easy-vqa/
 * overlap btw stat and ML https://news.columbia.edu/news/top-10-ideas-statistics-ai
 * multi-armed bandit, Gittins Index, upper confidence bound 📙 Christian chapter 2
 * math: stat/probability, linear algebra https://nostarch.com/math-deep-learning
@@ -510,58 +509,6 @@ how to use https://realpython.com/generate-images-with-dalle-openai-api/
 * _deep learning_: subset of ML using neural networks [Trask 2.10] just stats and calculus https://news.ycombinator.com/item?id=24593529
 * _cybernetic_: https://en.wikipedia.org/wiki/Johns_Hopkins_Beast
 
-OVERRATED
-* https://news.ycombinator.com/item?id=30764701
-* stagnation https://softwareengineeringdaily.com/2021/06/04/machine-learning-the-great-stagnation-with-mark-saroufim/
-* ML hasn't solved radiology https://news.ycombinator.com/item?id=27422610
-* as oracle https://marginalrevolution.com/marginalrevolution/2022/06/are-we-entering-an-age-of-oracles.html
-* you mostly just need SQL + regression http://aiplaybook.a16z.com/docs/guides/dl https://news.ycombinator.com/item?id=25775872 https://www.youtube.com/watch?v=qw5dBdTXLEs https://ai.google/research/pubs/pub43146 https://nullprogram.com/blog/2020/11/24/
-* job market has collapse for data science, big data, ML https://news.ycombinator.com/item?id=24330326 https://news.ycombinator.com/item?id=25775740
-* ML doesn't think, only answers, and therefore can be hacked
-> In 2017, M.I.T.’s LabSix—a research group of undergraduate and graduate students—succeeded in altering the pixels of a photograph of a cat so that, although it looked like a cat to human eyes, Inception became 99.99-per-cent sure it had been given a photograph of guacamole. (There was, it calculated, a slim chance that the photograph showed broccoli, or mortar.) Inception, of course, can’t explain what features led it to conclude that a cat is a cat; as a result, there’s no easy way to predict how it might fail when presented with specially crafted or corrupted data. Such a system is likely to have unknown gaps in its accuracy that amount to vulnerabilities for a smart and determined attacker. - https://www.newyorker.com/tech/annals-of-technology/the-hidden-costs-of-automated-thinking
-> Well, in the past, if a software engineer wanted to create a system to recognise something, they would write logical steps (‘rules’). To recognise a cat in a picture, you would write rules to find edges, fur, legs, eyes, pointed ears and so on, and bolt them all together and hope it worked. The trouble was that though this works in theory, in practice it’s rather like trying to make a mechanical horse - it’s theoretically possible, but the decree of complexity required is impractical. We can’t actually describe all of the logical steps we use to walk, or to recognise a cat. With machine learning, instead of writing rules, you give examples (lots of examples) to a statistical engine, and that engine generates a model that can tell the difference. You give it 100,000 pictures labelled ‘cat’ and 100,000 labelled ‘no cat’ and the machine works out the difference. ML replaces hand-written logical steps with automatically determined patterns in data, and works much better for a very broad class of question - https://www.ben-evans.com/benedictevans/2018/12/19/does-ai-make-strong-tech-companies-stronger
-* need data specific to problem
-> First, though you need a lot of data for machine learning, the data you use is very specific to the problem that you’re trying to solve. GE has lots of telemetry data from gas turbines, Google has lots of search data, and Amex has lots of credit card fraud data. You can’t use the turbine data as examples to spot fraudulent transactions, and you can’t use web searches to spot gas turbines that are about to fail. https://www.ben-evans.com/benedictevans/2018/12/19/does-ai-make-strong-tech-companies-stronger
-
-SCIKIT
-* https://calmcode.io/labs/scikit-partial
-
-## NLP
-
-📙 https://www.manning.com/books/natural-language-processing-in-action-second-edition
-🛠️ https://spacy.io/ https://training.talkpython.fm/courses/build-an-audio-ai-app-with-python-and-assemblyai
-🗄
-* `literature.md` distant reading
-* `psychology.md` reading
-* `system.md` search engine
-
-BASICS
-* _Eliza_: https://web.njit.edu/~ronkowit/eliza.html
-* _NLP_: linguistics + CS
-* rule system (noun phrase can be followed by noun, article, etc.) to construct parse tree
-* use cases: speech synthesis http://aiplaybook.a16z.com/docs/guides/nlp speech to text https://www.fullstackpython.com/blog/transcribe-recordings-speech-text-assemblyai.html
-* libraries: nltk, spaCy
-* _language detection_: https://github.com/pemistahl/lingua-go
-* _sentiment analysis_: determine emotional content https://aeon.co/ideas/why-are-pop-songs-getting-sadder-than-they-used-to-be https://matthagy.github.io/rh_comment_categories/
-* _word cloud_: https://dataanalysis.substack.com/p/generating-a-word-cloud-in-python?s=r
-* clean up https://nostarch.com/NLPPython https://codewords.recurse.com/issues/seven/data-driven-literary-analysis https://www.fast.ai/2019/07/08/fastai-nlp/ https://speakerdeck.com/pycon2015/adam-palay-words-words-words-reading-shakespeare-with-python https://victorzhou.com/blog/better-profanity-detection-with-scikit-learn/
-* word2vec, byte-pair encoding, LSTM https://arpit.substack.com/p/how-zomato-improved-its-search-using https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm 
-* https://github.com/rspeer/wordfreq
-
-SEMANTICS
-* _tokenize_: break into words or subsets of words
-* _span_: section of text https://rajpurkar.github.io/SQuAD-explorer/ https://0x65.dev/blog/2019-12-05/a-new-search-engine.html#fn1
-* _stemming_: rm pre/suffix; can also mean to include related results from search engine e.g. search 'fish', get back results for 'fishy', 'fishing' https://news.ycombinator.com/item?id=24051229
-* _parts of speech_: tokenization but for syntax
-* _stopword removal_: strip out non-semantic words (articles, &c.)
-* _n-gram_: items (word, phraes) collected from text https://en.wikipedia.org/wiki/N-gram
-* used for finding most commonly occuring words https://news.ycombinator.com/item?id=24286844
-* used for language detection https://github.com/pemistahl/lingua-go
-* _disambiguation_: teach the machine context ('cool' indicates temperature and social prestige)
-* _stylometry_: analyze writing style https://news.ycombinator.com/item?id=33755016
-* _text classification_: https://www.youtube.com/watch?v=VtRLrQ3Ev-U
-* _speech recognition_: https://www.youtube.com/watch?v=mYUyaKmvu6Y
-
 ## prompts
 
 📙 https://www.manning.com/books/prompt-engineering-in-practice
@@ -569,10 +516,11 @@ SEMANTICS
 * `psychology.md` interviewing
 * `work.md` industry > Stack Overflow
 
+HOWTO
 * discrete pieces
 * ask it to ask clarifying questions to help it make better decisions
-* use a framework
-> analyze this report by first summarizing key points, then evaluating the data, and finally suggesting improvements
+* use a framework e.g. "analyze this report by first summarizing key points, then evaluating the data, and finally suggesting improvements"
+> isn't this just a user-defined system prompt? is there a separate word for that?
 * when working with documents, ask it to extract the relevant quotes
 * ask to give options
 * ask it to do better
@@ -581,6 +529,10 @@ Can you analyze a book for me: $BOOK
 By first summarizing key points in a succinct and logical way i.e. I care most about the claims made by the author and how they are logically supported (or not).
 And then summarizing criticism of the book (positive or negative) in a similar manner.
 ```
+
+GREAT ANSWERS
+* computer eng https://chatgpt.com/c/671121b1-633c-8004-88ee-bcc142ac24f5
+* Python packaging history https://chatgpt.com/c/67111dbc-0964-8004-9e50-41fa41875da8
 
 ---
 
@@ -592,22 +544,3 @@ SEMANTICS
 * _system message_: hidden instruction that defines the behavior/goals/tone of the model; aka system prompt https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b
 * BYO your own characters https://news.ycombinator.com/item?id=42107113
 > "You are a helpful assistant named Elia."
-
-## stdlib
-
-* _Tensorflow_: tensor (array) flow (operations) https://github.com/Hvass-Labs/TensorFlow-Tutorials https://news.ycombinator.com/item?id=42133844
-* _Keras_: less verbose Tensorflow (will eventually be packaged w/) https://victorzhou.com/blog/keras-neural-network-tutorial/ https://news.ycombinator.com/item?id=42133844
-* _PyTorch_: superceded Tensorflow https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/ NumPy that can run in parallel on GPUs; tensor (array 类似 NumPy array) scalar (single value) vector (array) matrix (2d array) tensor (multi-dimensional array) https://aiweirdness.com/post/189170306297/how-to-begin-a-novel alternative https://github.com/geohot/tinygrad https://github.com/Lightning-AI/lightning
-* _CUDA_: GPUs aaS
-* _sci-kit learn_: https://jakevdp.github.io/PythonDataScienceHandbook/
-* _Matplotlib_: eaten by Python https://realpython.com/podcasts/rpp/197/
-* Matlab for Python https://jakevdp.github.io/PythonDataScienceHandbook/
-* _MLX_: numpy for Apple silicon https://github.com/ml-explore/mlx
-* _Numpy_: subset of scipy https://jakevdp.github.io/PythonDataScienceHandbook/ 📙 Trask 44
-```python
-# numpy.array.dot https://stackoverflow.com/a/35208273 📙 Trask 3.35
-def dot(v1, v2):  # vectors
-    return sum(x*y for x,y in zip(v1,v2))
-
-dot([1,2,3], [4,5,6])
-```
