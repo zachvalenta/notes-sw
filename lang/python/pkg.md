@@ -18,7 +18,6 @@ PYPI ALTERNATIVES
 * internal https://www.pythonpodcast.com/pulp-with-bihan-zhang-and-austin-macdonald-episode-168/ https://twitter.com/brianokken/status/1402631045107707908
 * external https://peps.python.org/pep-0759/ https://realpython.com/podcasts/rpp/227/
 
-* editable installs `pip install -e` https://pgjones.dev/blog/packaging-without-setup-py-2020 https://talkpython.fm/episodes/transcript/208/packaging-making-the-most-of-pycon-and-more 🔍 Twine
 * _distribution_: archived package (lib) or binary (executable) https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 6:00 distribution != release https://pydist.com/blog/distributions-vs-releases
 * _how to_: create archive and put on PyPI https://pgjones.dev/blog/packaging-without-setup-py-2020 https://packaging.python.org/guides/tool-recommendations/#packaging-tool-recommendations don't delete a build from PyPI https://pydist.com/blog/never-delete-a-release https://dustingram.com/articles/2019/04/02/pypi-as-a-service/ https://snarky.ca/how-do-you-verify-pypi-can-be-trusted/ https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 14:30 https://www.youtube.com/watch?v=P3dY3uDmnkU https://www.python.org/dev/peps/pep-0518/ PyPI doesn't have good search mechanism https://github.com/pipxproject/pipx/issues/249#issuecomment-636019556 https://jwodder.github.io/kbits/posts/pypkg-mistakes/ https://news.ycombinator.com/item?id=26733423 fix bad release https://snarky.ca/what-to-do-when-you-botch-a-release-on-pypi/
 * example https://github.com/tfeldmann/simplematch
@@ -122,7 +121,6 @@ https://nedbatchelder.com/blog/202402/one_way_to_package_python_code_right_now.h
 
 HOWTO 📙 https://pypackages.com/ 📜 https://docs.python.org/3/distributing/index.html https://www.manning.com/books/publishing-python-packages
 * `MANIFEST.ini` https://chatgpt.com/c/67181d59-63f4-8004-ba67-ff251c9cb141
-* Flit, Poetry, Twine https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:00
 * fork https://github.com/zachvalenta/anytree https://github.com/zachvalenta/capp-prod-cat-alt
 ```toml
 [tool.poetry.dependencies]
@@ -157,6 +155,14 @@ pip3 download -r /Users/zach/Desktop/zvmac/materials/sw/lang/python/create-pytho
 # use index for new project
 pip3 install --no-index --find-links=~/Desktop/pypi-local coverage
 ```
+
+### Twine
+
+---
+
+* https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html
+* Flit, Poetry, Twine https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:00
+* editable installs `pip install -e` https://pgjones.dev/blog/packaging-without-setup-py-2020 https://talkpython.fm/episodes/transcript/208/packaging-making-the-most-of-pycon-and-more https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html
 
 # 📦 MGMT
 
@@ -522,7 +528,8 @@ PROGRESSION
 * `setup.py`: https://github.com/freestream/pyedi
 * _setuptools_: https://github.com/azoner/pyx12 not part of 3.12 https://chatgpt.com/c/6728df32-9ed8-8004-af28-b44b9bebb96c https://github.com/AnirudhG07/Typeinc/issues/3
 * _egg_:
-* _wheel_:
+* _wheel_: https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html
+* _sdist_: https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html
 
 PEPS https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 * _PEP 427_: wheel packaging
@@ -590,7 +597,7 @@ PAST
 PRESENT
 * _PEP 517_: API for build tools https://testandcode.com/52 @ 15:00
 * _PEP 518_: https://testandcode.com/52 @ 14:00
-* `pyproject.toml`: spec for using something other than `setup.py`; used by Poetry, Flit https://realpython.com/courses/packaging-with-pyproject-toml/ https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/
+* _pyproject.toml_: spec for using something other than `setup.py`; used by Poetry, Flit https://realpython.com/courses/packaging-with-pyproject-toml/ https://lincolnloop.com/insights/using-pyprojecttoml-in-your-django-project/ https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html
 
 * _PEP 517_: build backend https://github.com/pdm-project/pdm
 * _PEP 582_: https://medium.com/@grassfedcode/goodbye-virtual-environments-b9f8115bc2b6 https://pythonbytes.fm/episodes/show/117/is-this-the-end-of-python-virtual-environments https://chriswarrick.com/blog/2023/01/15/how-to-improve-python-packaging/

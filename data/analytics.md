@@ -289,6 +289,7 @@ STATE
 * create: sheet `A` attr `za` record `a` n records `ga` https://www.youtube.com/watch?v=yK3qgOIx4x0 [0:25,1:30]
 * undo: `U`
 * save current sheet: `CTRL S`
+> super slow for half GB TSV file
 * save current row: `Y`
 * save selected rows: `gY`
 

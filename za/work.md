@@ -23,6 +23,7 @@
 
 # 🪐️ INDUSTRY
 
+📙 http://www.catb.org/~esr/jargon/html/index.html
 🔍 https://newsletter.pragmaticengineer.com/p/state-of-eng-market-2024
 
 POLITICS
@@ -32,6 +33,7 @@ POLITICS
 * https://kjaymiller.com/blog/blog1.html
 > As a community, we want to be friendly too. People from around the world, of all backgrounds, genders, and experience levels are welcome and respected equally. See our community code of conduct for more. Black lives matter. Trans rights are human rights. No nazi bullsh*t. https://gleam.run/
 * https://danluu.com/ai-bias/
+* cant take the heat get out of the kitchen https://www.espn.com/nba/story/_/id/42511415/lakers-star-lebron-james-says-taking-social-media-break
 
 ---
 

@@ -9,6 +9,54 @@
 * _22_: terminal (Fira Mono for iTerm) shell (try starship, try/fail vi mode for readline)
 * _21_: shell (exposure to readline, fzf for bash history https://hacker-tools.github.io/lectures/)
 
+# 🖥️ DESKTOP ENVIRONMENT
+
+ENVS
+* rainmeter https://modkavartini.github.io/catppuccin/ https://www.rainmeter.net/
+* _GNOME_: https://blog.edfloreshz.dev/articles/linux/system76/rust-based-desktop-environment/
+* _KDE_:
+* _Material Shell_: https://news.ycombinator.com/item?id=24491091
+* _Cinnamon_: https://news.ycombinator.com/item?id=24491091
+
+SEMANTICS 🧠 https://chatgpt.com/c/67409094-34c0-8004-ad28-45ac4b94f67a
+* _desktop environment_: mouse-driven GUI riding on top of window system https://askubuntu.com/a/20435
+* _display server_: ❓ e.g. Quartz Compositor (aka WindowServer) https://en.wikipedia.org/wiki/Quartz_Compositor https://unix.stackexchange.com/a/1016
+* _window system_: server that displays graphics https://en.wikipedia.org/wiki/Windowing_system
+* protocols: x11 https://unix.stackexchange.com/q/517 Wayland, pipewire https://www.youtube.com/watch?v=jFxwPJpUwl0 https://github.com/sharkdp/pastel#get-a-list-of-all-x11--css-color-names https://en.wikipedia.org/wiki/Wayland_(display_server_protocol) https://www.youtube.com/watch?v=lpowigSQthg https://en.wikipedia.org/wiki/X_Window_System
+* _window manager_: control windows displayed by window system https://en.wikipedia.org/wiki/Window_manager https://news.ycombinator.com/item?id=34591661 https://news.ycombinator.com/item?id=36880235 https://www.youtube.com/watch?v=xWIDvnNFl5I
+* _tiling window manager_: keyboard-driven arrangement of and switching btw windows
+> https://www.youtube.com/watch?v=bdumjiHabhQ on i3 convinced me that this was potentially worthwhile just to not have to scroll for VS Code (and break dependency on iTerm auto hotkey)
+
+## compositors
+
+---
+
+* _aerospace_: 🎯 https://github.com/nikitabobko/AeroSpace https://nikitabobko.github.io/AeroSpace/guide https://www.youtube.com/watch?v=5nwnJjr5eOo https://www.youtube.com/watch?v=-FoWClVHG5g https://www.youtube.com/watch?v=q4cexeIc3WA
+* _hyprland_: https://www.youtube.com/watch?v=2CP_9-jCV6A config hell https://www.youtube.com/watch?v=T__INNgTW1M
+* _yabai_: 🎯 https://github.com/koekeishiya/yabai https://daniel.lawrence.lu/blog/y2023m12d15/
+
+## managers
+
+---
+
+* window manager https://news.ycombinator.com/item?id=34591661
+* for Windows https://news.ycombinator.com/item?id=33168263
+* for macOS https://magnet.crowdcafe.com/ https://news.ycombinator.com/item?id=22852157 https://faun.pub/yabai-macos-tile-window-manager-833ce1be396a?gi=132df1bca0e1 https://github.com/koekeishiya/yabai https://news.ycombinator.com/item?id=36368990
+* AlwaysOnTop https://www.youtube.com/watch?v=6IxRlaTWsoQ
+* _alt-tab_: https://alt-tab-macos.netlify.app/
+* _Amethyst_: macOS https://github.com/ianyh/Amethyst https://www.reddit.com/r/xmonad/comments/3j4tnt/is_it_possible_to_use_xmonad_on_os_x/ https://switowski.com/blog/favorite-mac-tools/
+* _dwm_: https://dwm.suckless.org/
+* _i3_: tiling + hotkeys https://www.youtube.com/watch?v=bdumjiHabhQ 3:30 https://www.youtube.com/watch?v=bdumjiHabhQ 1:30
+* _Magnet_: https://switowski.com/blog/favorite-mac-tools/
+* _PaperWM_: https://jvns.ca/blog/2020/01/05/paperwm/
+* _Slate_: unmaintained https://github.com/jigish/slate
+* _Sway_: https://swaywm.org/
+* _Rectangle_: macOS https://rectangleapp.com/ https://switowski.com/blog/favorite-mac-tools/ https://github.com/rxhanson/Rectangle
+* _X.org_: https://www.x.org/wiki/
+* _XQuartz_: port of X.org for macOS https://www.xquartz.org/
+* _xmonad_: x11, no macOS https://news.ycombinator.com/item?id=30402358 https://xmonad.org/
+> I've mellowed as I've aged, but still fondly remember the thrill of the XMonad tiling window manager on multiple monitors — in particular, its responsiveness. With a few fast keyboard shortcuts, I could throw windows between monitors, arrange windows side-by-side, and immediately move focus to exactly the window I had in mind. XMonad also supports "virtual desktops", which I used to organize windows by task. For example, when working on a web app I'd put a terminal window, Emacs window, two web browsers (one for my app, the other for looking up documentation) all on the same virtual desktop. Then, when I wanted to do something else, I could switch to an empty virtual desktop, effectively saving my previous one "away for later". https://kevinlynagh.com/newsletter/2020_04_keyboards_rethinking_desktops/
+
 # 🐚 SHELL
 
 SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell-what-are-they.html
@@ -450,7 +498,7 @@ OPTIONS
 * trailing percent sign thing https://unix.stackexchange.com/a/167600
 * startup speed https://news.ycombinator.com/item?id=33580350
 
-# 🖥️ TERMINAL
+# 🪟️ TERMINAL
 
 🗄️ `IT.md` window systems
 
@@ -710,52 +758,3 @@ layout_dir "~/.config/zellij"
 * 类似 tabs but for stuff you don't need going all the time https://www.youtube.com/watch?v=gtjPeTCkm-8 3:45
 * mgmt https://zellij.dev/news/session-manager-protobuffs/
 * resurrect https://zellij.dev/news/session-resurrection-ui-components/
-
-# 🟨 ZA
-
-## window systems
-
-🗄️
-* `interfaces.md` terminal
-* `IT.md` machines
-
-WINDOW MANAGERS
-* _aerospace_: 🎯 https://github.com/nikitabobko/AeroSpace https://nikitabobko.github.io/AeroSpace/guide https://www.youtube.com/watch?v=-FoWClVHG5g https://www.youtube.com/watch?v=q4cexeIc3WA
-* _hyprland_: https://www.youtube.com/watch?v=2CP_9-jCV6A config hell https://www.youtube.com/watch?v=T__INNgTW1M
-* _yabai_: 🎯 https://github.com/koekeishiya/yabai https://daniel.lawrence.lu/blog/y2023m12d15/
-
-SEMANTICS
-* _window system_: server that displays graphics https://en.wikipedia.org/wiki/Windowing_system
-* protocols: x11 https://unix.stackexchange.com/q/517 Wayland, pipewire https://www.youtube.com/watch?v=jFxwPJpUwl0 https://github.com/sharkdp/pastel#get-a-list-of-all-x11--css-color-names https://en.wikipedia.org/wiki/Wayland_(display_server_protocol) https://www.youtube.com/watch?v=lpowigSQthg https://en.wikipedia.org/wiki/X_Window_System
-* _window manager_: control windows displayed by window system https://en.wikipedia.org/wiki/Window_manager https://news.ycombinator.com/item?id=34591661 https://news.ycombinator.com/item?id=36880235 https://www.youtube.com/watch?v=xWIDvnNFl5I
-* _tiling window manager_: keyboard-driven arrangement of and switching btw windows
-> https://www.youtube.com/watch?v=bdumjiHabhQ on i3 convinced me that this was potentially worthwhile just to not have to scroll for VS Code (and break dependency on iTerm auto hotkey)
-* _desktop environment_: mouse-driven GUI riding on top of window system https://askubuntu.com/a/20435
-* _display server_: ❓ e.g. Quartz Compositor (aka WindowServer) https://en.wikipedia.org/wiki/Quartz_Compositor https://unix.stackexchange.com/a/1016
-
-DESKTOP ENV
-* rainmeter https://modkavartini.github.io/catppuccin/ https://www.rainmeter.net/
-* _GNOME_: https://blog.edfloreshz.dev/articles/linux/system76/rust-based-desktop-environment/
-* _Material Shell_: https://news.ycombinator.com/item?id=24491091
-* _Cinnamon_: https://news.ycombinator.com/item?id=24491091
-
----
-
-WINDOW MANAGERS
-* window manager https://news.ycombinator.com/item?id=34591661
-* for Windows https://news.ycombinator.com/item?id=33168263
-* for macOS https://magnet.crowdcafe.com/ https://news.ycombinator.com/item?id=22852157 https://faun.pub/yabai-macos-tile-window-manager-833ce1be396a?gi=132df1bca0e1 https://github.com/koekeishiya/yabai https://news.ycombinator.com/item?id=36368990
-* AlwaysOnTop https://www.youtube.com/watch?v=6IxRlaTWsoQ
-* _alt-tab_: https://alt-tab-macos.netlify.app/
-* _Amethyst_: macOS https://github.com/ianyh/Amethyst https://www.reddit.com/r/xmonad/comments/3j4tnt/is_it_possible_to_use_xmonad_on_os_x/ https://switowski.com/blog/favorite-mac-tools/
-* _dwm_: https://dwm.suckless.org/
-* _i3_: tiling + hotkeys https://www.youtube.com/watch?v=bdumjiHabhQ 3:30 https://www.youtube.com/watch?v=bdumjiHabhQ 1:30
-* _Magnet_: https://switowski.com/blog/favorite-mac-tools/
-* _PaperWM_: https://jvns.ca/blog/2020/01/05/paperwm/
-* _Slate_: unmaintained https://github.com/jigish/slate
-* _Sway_: https://swaywm.org/
-* _Rectangle_: macOS https://rectangleapp.com/ https://switowski.com/blog/favorite-mac-tools/ https://github.com/rxhanson/Rectangle
-* _X.org_: https://www.x.org/wiki/
-* _XQuartz_: port of X.org for macOS https://www.xquartz.org/
-* _xmonad_: x11, no macOS https://news.ycombinator.com/item?id=30402358 https://xmonad.org/
-> I've mellowed as I've aged, but still fondly remember the thrill of the XMonad tiling window manager on multiple monitors — in particular, its responsiveness. With a few fast keyboard shortcuts, I could throw windows between monitors, arrange windows side-by-side, and immediately move focus to exactly the window I had in mind. XMonad also supports "virtual desktops", which I used to organize windows by task. For example, when working on a web app I'd put a terminal window, Emacs window, two web browsers (one for my app, the other for looking up documentation) all on the same virtual desktop. Then, when I wanted to do something else, I could switch to an empty virtual desktop, effectively saving my previous one "away for later". https://kevinlynagh.com/newsletter/2020_04_keyboards_rethinking_desktops/

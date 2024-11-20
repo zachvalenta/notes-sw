@@ -305,8 +305,8 @@ history
 ## caching
 
 🗄 
-* `system.md` caching
-* `system.md` proxy
+* `distributed.md` proxy
+* `security.md` cookies/tokens
 
 design
 * TTL https://calpaterson.com/ttl-hell.html
@@ -317,6 +317,7 @@ design
 
 ---
 
+https://grayduck.mn/2021/09/13/cache-control-recommendations/
 * https://www.youtube.com/watch?v=HiBDZgTNpXY
 
 etag
@@ -584,42 +585,17 @@ function htp(){
 }
 ```
 
-# 🟨 ZA
+# 🔐 SECURE
 
-* audio https://github.com/xehl/campus-fm/blob/main/src/stations.js https://www.campus-fm.com/ https://news.ycombinator.com/item?id=33608892
-* video https://tyrrrz.me/blog/reverse-engineering-youtube-revisited
-* _BGP_: how things get routed https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
-* _CSP_: header returned by server; to prevent XSS and other attacks; if browser doesn't support defaults to same-origin policy https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP way to beef up security; don't turn on right away, `tf plan` and see what would be blocked before applying https://www.laac.dev/blog/content-security-policy-using-django
-* _dat_: p2p HTTP https://beakerbrowser.com
-* _Gemini_: alternative web protocol https://news.ycombinator.com/item?id=23161922
+🗄️ `security.md`
+🧠 https://chatgpt.com/c/67409262-12e0-8004-b9c8-12f0aff4e357
 
-WWW
-* _WWW_: internet + protocols + hypertext https://twobithistory.org/2018/06/10/birth-of-the-web.html
-* _clear web_: accessible to web crawlers; 4% of WWW
-* _deep web_: not accessible to web crawlers; 90% of WWW
-* _dark web_: accessible to TOR browser; 6% of WWW
-
-## file transfer
-
-TOOLING
-* _aim_: client https://github.com/mihaigalos/aim
-* _aria_: ❌ client, bad presentation https://github.com/aria2/aria2
-* _croc_: 🎯 relay via PAKE https://github.com/schollz/croc
-> Yes, all data goes through the relay. I haven't found a way that can reliably send data directly between two computers that don't have port-forwarding enabled. croc differs from a utility like scp because it doesn't require any two computers to have enabled port-forwarding, nor does it require computers having any server setup. Instead, croc will uses a relay - a temporary server setup locally (if both computers are on LAN) or publicly (default is at croc4.schollz.com). Any two computers can connect to the relay, and after securing their channel with PAKE, they can transfer encrypted metadata and data through the relay. The relay works by first having the computers communicate the PAKE protocol via websockets, and then exchanging encrypted metadata, and then stapling the TCP connections directly so that they can transfer directly. https://github.com/schollz/croc/issues/104
-* _Cyberduck_: ❌ looks like malware https://cyberduck.io/ https://fabiensanglard.net/html/index.html
-* _filestash_: GUI client https://github.com/mickael-kerjean/filestash
-* _FileZilla_: 🎯 client, used in first job! https://filezilla-project.org/
-* _magic wormhole_: relay https://github.com/magic-wormhole/magic-wormhole impl https://www.youtube.com/watch?v=oFrTqQw0_3c
-* _portal_: relay via PAKE https://github.com/SpatiumPortae/portal
-* _sftpgo_: server https://github.com/drakkan/sftpgo
-* _sshfs_: client? server? both https://github.com/libfuse/sshfs https://fabiensanglard.net/html/index.html
-> SSHFS allows you to mount a remote filesystem using SFTP. Most SSH servers support and enable this SFTP access by default, so SSHFS is very simple to use - there's nothing to do on the server-side.
-* _tran_: ❌ https://github.com/abdfnx/tran 
-* _termscp_: 🎯 SFTP client https://github.com/veeso/termscp
-* _VSFTPD_: FTP server
+## file transfer (SFTP)
 
 PROTOCOLS
 * _FTP_: sends binary instead of metadata https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2
+* _PAKE_:
+* _Samba_:
 * _SFTP_: FTP + security https://goteleport.com/blog/scp-familiar-simple-insecure-slow/
 ```sh
 $ sftp sftp://user@hostname:port
@@ -640,21 +616,24 @@ scp /local/file.txt user@host:/src
 scp user@host:/src/file.txt /local/
 ```
 
-## NTP
+---
 
-🗄️ `python/stdlib/datetime.md`
-
-* https://buttondown.com/hillelwayne/archive/time-zones-are-hard-because-people-are-hard/
-* YYYY-MM-DD is the only correct answer https://twitter.com/VitalikButerin/status/1547161382373756928
-* https://www.libertysys.com.au/2024/05/aws-microsecond-accurate-time-second-look/?ck_subscriber_id=512830619
-* _Internet Time Service_: current time as provided by NIST https://news.ycombinator.com/item?id=37778496
-* _NTP_: protocol to handle keeping correct time packets move geographically [Network Flow Analysis 6] https://sookocheff.com/post/time/how-does-ntp-work/
-* _NTPsec_: fork meant to replace NTP
-* _UTC_: Iceland right on it, UK +1, NYC -4; typically the default https://stackoverflow.com/a/19801806/6813490
-* _bit slip_: lost bit from clock drift https://www.youtube.com/watch?v=8BhjXqw9MqI 3:00 https://en.wikipedia.org/wiki/Bit_slip
-* atomic clocks, earth spinning faster by milliseconds https://news.ycombinator.com/item?id=25684661
-* IANA, daylight savings https://news.ycombinator.com/item?id=24951473
-* _sink_: https://zachholman.com/talk/utc-is-enough-for-everyone-right https://alexwlchan.net/2019/05/falsehoods-programmers-believe-about-unix-time/ https://app.pluralsight.com/library/courses/date-time-fundamentals/table-of-contents https://news.ycombinator.com/item?id=24746836 timezones https://pyvideo.org/pycon-us-2019/working-with-time-zones-everything-you-wish-you-didnt-need-to-know.html
+TOOLING
+* _aim_: client https://github.com/mihaigalos/aim
+* _aria_: ❌ client, bad presentation https://github.com/aria2/aria2
+* _croc_: 🎯 relay via PAKE https://github.com/schollz/croc
+> Yes, all data goes through the relay. I haven't found a way that can reliably send data directly between two computers that don't have port-forwarding enabled. croc differs from a utility like scp because it doesn't require any two computers to have enabled port-forwarding, nor does it require computers having any server setup. Instead, croc will uses a relay - a temporary server setup locally (if both computers are on LAN) or publicly (default is at croc4.schollz.com). Any two computers can connect to the relay, and after securing their channel with PAKE, they can transfer encrypted metadata and data through the relay. The relay works by first having the computers communicate the PAKE protocol via websockets, and then exchanging encrypted metadata, and then stapling the TCP connections directly so that they can transfer directly. https://github.com/schollz/croc/issues/104
+* _Cyberduck_: ❌ looks like malware https://cyberduck.io/ https://fabiensanglard.net/html/index.html
+* _filestash_: GUI client https://github.com/mickael-kerjean/filestash
+* _FileZilla_: 🎯 client, used in first job! https://filezilla-project.org/
+* _magic wormhole_: relay https://github.com/magic-wormhole/magic-wormhole impl https://www.youtube.com/watch?v=oFrTqQw0_3c
+* _portal_: relay via PAKE https://github.com/SpatiumPortae/portal
+* _sftpgo_: server https://github.com/drakkan/sftpgo
+* _sshfs_: client? server? both https://github.com/libfuse/sshfs https://fabiensanglard.net/html/index.html
+> SSHFS allows you to mount a remote filesystem using SFTP. Most SSH servers support and enable this SFTP access by default, so SSHFS is very simple to use - there's nothing to do on the server-side.
+* _tran_: ❌ https://github.com/abdfnx/tran 
+* _termscp_: 🎯 SFTP client https://github.com/veeso/termscp
+* _VSFTPD_: FTP server
 
 ## SSH
 
@@ -831,6 +810,37 @@ Traceback (most recent call last):
   File "/usr/local/Cellar/python@2/2.7.15_2/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 147, in <module>
 ValueError: unsupported hash type md5
 ```
+
+# 🟨 ZA
+
+* audio https://github.com/xehl/campus-fm/blob/main/src/stations.js https://www.campus-fm.com/ https://news.ycombinator.com/item?id=33608892
+* video https://tyrrrz.me/blog/reverse-engineering-youtube-revisited
+* _BGP_: how things get routed https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
+* _CSP_: header returned by server; to prevent XSS and other attacks; if browser doesn't support defaults to same-origin policy https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP way to beef up security; don't turn on right away, `tf plan` and see what would be blocked before applying https://www.laac.dev/blog/content-security-policy-using-django
+* _dat_: p2p HTTP https://beakerbrowser.com
+* _Gemini_: alternative web protocol https://news.ycombinator.com/item?id=23161922
+
+WWW
+* _WWW_: internet + protocols + hypertext https://twobithistory.org/2018/06/10/birth-of-the-web.html
+* _clear web_: accessible to web crawlers; 4% of WWW
+* _deep web_: not accessible to web crawlers; 90% of WWW
+* _dark web_: accessible to TOR browser; 6% of WWW
+
+## NTP
+
+🗄️ `python/stdlib/datetime.md`
+
+* https://buttondown.com/hillelwayne/archive/time-zones-are-hard-because-people-are-hard/
+* YYYY-MM-DD is the only correct answer https://twitter.com/VitalikButerin/status/1547161382373756928
+* https://www.libertysys.com.au/2024/05/aws-microsecond-accurate-time-second-look/?ck_subscriber_id=512830619
+* _Internet Time Service_: current time as provided by NIST https://news.ycombinator.com/item?id=37778496
+* _NTP_: protocol to handle keeping correct time packets move geographically [Network Flow Analysis 6] https://sookocheff.com/post/time/how-does-ntp-work/
+* _NTPsec_: fork meant to replace NTP
+* _UTC_: Iceland right on it, UK +1, NYC -4; typically the default https://stackoverflow.com/a/19801806/6813490
+* _bit slip_: lost bit from clock drift https://www.youtube.com/watch?v=8BhjXqw9MqI 3:00 https://en.wikipedia.org/wiki/Bit_slip
+* atomic clocks, earth spinning faster by milliseconds https://news.ycombinator.com/item?id=25684661
+* IANA, daylight savings https://news.ycombinator.com/item?id=24951473
+* _sink_: https://zachholman.com/talk/utc-is-enough-for-everyone-right https://alexwlchan.net/2019/05/falsehoods-programmers-believe-about-unix-time/ https://app.pluralsight.com/library/courses/date-time-fundamentals/table-of-contents https://news.ycombinator.com/item?id=24746836 timezones https://pyvideo.org/pycon-us-2019/working-with-time-zones-everything-you-wish-you-didnt-need-to-know.html
 
 ## WebSocket
 

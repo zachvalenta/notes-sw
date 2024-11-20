@@ -19,15 +19,15 @@
 * file/dir name linter https://github.com/loeffel-io/ls-lint https://ls-lint.org/
 
 FILE/DIR DIFF 🗄️ `protocols.md` JSON `algos.md` tree walkers https://chatgpt.com/c/67327ac8-4b10-8004-869b-f31305dd5189
+* BeyondCompare https://scootersoftware.com/ https://news.ycombinator.com/item?id=22850711
 * _filecmp_: https://www.pythonmorsels.com/cli-tools/#filecmp
 ```sh
 $ python -m filecmp dir1 dir2
 ```
+* _diff_: https://danyspin97.org/blog/colorize-your-cli/
+* _difftastic_: diff + syntax https://github.com/Wilfred/difftastic https://www.nathaniel.ai/myers-diff
 * _vimdiff_: `vim -d <file1> <file2>` https://stackoverflow.com/a/113328/6813490
 * wraps Vim's diff mode for use in other tools, notably Git's mergetool https://vi.stackexchange.com/a/626 https://www.youtube.com/watch?v=kFVjoIish0E
-* _diff_: https://danyspin97.org/blog/colorize-your-cli/
-* BeyondCompare https://scootersoftware.com/ https://news.ycombinator.com/item?id=22850711
-* _difftastic_: diff + syntax https://github.com/Wilfred/difftastic https://www.nathaniel.ai/myers-diff
 
 FILE NAME EDITING
 * file manager (nnn, ranger, et al.)
@@ -251,28 +251,36 @@ DATA
 * _dd_: copy/rm data https://github.com/akavel/up
 * _caligula_: dd alternative https://github.com/ifd3f/caligula
 
-ZA
-> why is air-capp slow? Google Drive? age (2020 machine)?
+PROGRESS BARS
 * _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
+* _pv_: same as progress? https://catonmat.net/unix-utilities-pipe-viewer
 
 ## disk
 
-```sh
-# macOS
-├── /System/Volumes/
-│   └── Data # user files
-│   └── Proboot # BIOS
-│   └── VM # virtual memory swap files (manage memory usage)
-│   └── Update # system updates
-```
 * _df_: ✅ view of mounts https://danyspin97.org/blog/colorize-your-cli/
+* _du_: ✅
 * _duf_: ✅ JSON https://github.com/muesli/duf
 * _diskonaut_: treemap https://github.com/imsnif/diskonaut
 * _du_: `du -sh $DIR` https://unix.stackexchange.com/a/185777
 * _dusage_: https://github.com/mihaigalos/dusage
 * _dust_: ✅ JSON https://github.com/bootandy/dust
+```sh
+├── Applications
+├── Library
+├── System
+│   └── Volumes
+│   └──── Data  # user files; symlinked to /Users/user/Documents?
+│   └──── Preboot  # BIOS
+│   └──── VM  # virtual memory swap files (manage memory usage)
+│   └──── Update  # system updates
+├── Users
+│   └── Shared
+│   └── ur-user
+```
 * _gdu_: catppuccin theme https://github.com/dundee/gdu https://github.com/catppuccin/catppuccin/discussions/1851
 * _ncdu_: ✅ JSON `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
+> why diff versions (and much more deps) btw mini23 and air-capp? https://github.com/zachvalenta/logs-mini23/commit/e1945af0ccb30f5212feb8616ef10e6eca29e3ad https://github.com/zachvalenta/capp-denv-logs/commit/7ffaff08b1a9a63aa88b1e8eeef108b853341c98
+> 📍 align config btw machines
 
 ## mem/CPU
 
@@ -523,6 +531,7 @@ ZA
 * _symbex_: Python symbols https://github.com/simonw/symbex
 
 RG 📜 https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
+> 🚧 query `GIS` deson't return `science.md/geography/GIS` in domains repo; thought it was lack of config on `air-capp` but didn't solve
 * `I`: don't output filename
 * `N`: don't output line number
 * `s`: case-sensitive 🗄 `.bash_profile` mq

@@ -79,6 +79,8 @@ INTERVIEWING
 
 🗄️ `sql.md` query builders
 
+* Django influential https://github.com/GothenburgBitFactory/tasklib/
+
 ---
 
 ALTERNATIVES TO SQLALCHEMY 🗄️ `django.md` db

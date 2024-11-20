@@ -106,6 +106,88 @@ https://drewdevault.com/2020/11/06/Utility-vs-usability.html
 * caching https://mattsegal.dev/simple-django-deployment.html
 * infra https://mattsegal.dev/simple-django-deployment.html
 
+# 💡 HEURISTICS
+
+* separation of concerns: HTML for content/semantics, CSS for style
+
+## ⭕️ factors
+
+🗄️ `eng.md` factors
+
+---
+
+FACTORS
+* throughput, availability
+* data immutable (events, analytics)
+
+https://gwern.net/choosing-software
+* maintenance
+* extensible
+* popularity
+
+COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtime/ 🗄️ `sql.md` migrations
+* _backwards compatible_: new code can handle old data 📙 Kleppmann [112]
+> is the old data really old?
+> e.g. add attr, previous records don't have value for attr but have attr itself
+> client/server can just massage data to handle null values
+* aka open-closed principle (from SOLID) https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
+* _forward compatibility_: old code can handle new data; typically harder to do 📙 Kleppmann [112] typically old code doesn't touch new fields [129]
+> how would this happen unless you logged in
+
+KLEPPMANN
+* _reliability_: works even if hw/sw failure [6]
+* _scalability_: able to deal w/ growth (data, traffic, complexity)
+* _maintainability_: other devs able to work on system
+> it is well know that the majority of the cost of software is not in its intial development, but its ongoing maintenance [Kleppmann 18] https://www.jefftk.com/p/designing-low-upkeep-software
+* _db on 1 machine_: requires planned downtime [8]
+* _db on n machines_: can do rolling upgrade [8]
+* _n db_:
+* _things that can go wrong_: runaway process (consuming too much memory) [8] unresponsive downstream service [9] operator error [9]
+* _how to prevent things going wrong_: testing https://danluu.com/why-benchmark/ easy rollback, monitoring
+* _fan out_: num of req to other services to handle one incoming req [11]
+📍 need to review SQL of Twitter example
+* _evolvability_: ability to change different parts of system independently [Kleppmann 4.128]
+
+## KISS
+
+* hidden control flow, PHP vs. Zig https://news.ycombinator.com/item?id=42203084
+* _clarity_: above all bc we're bulding information systems 📻 DHH (STT) https://www.youtube.com/watch?v=9LfmrkyP81M
+> And it's not only high performance hardware and software that's complex. Some domains are just really complicated. The tax code is 73k pages long. It's just not possible to reason effectively about something that complicated, and there are plenty of things that are that complicated. https://danluu.com/tests-v-reason/
+
+---
+
+> "Bad engineering" in adhoc ways tends to mean new ideas are being explored. Sophisticated deployments, logistics, procedures, tends to mean you're optimizing or extending existing system. That's not to disparage the latter. making things work at scale is hard engineering. But when people praise the glory days, it may be a preference for working on new ideas in small projects. https://news.ycombinator.com/item?id=41278907
+
+* boring technology https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
+* aka transitional architecture https://www.thoughtworks.com/radar/techniques?blipid=202203071
+> But the cultural tides are strong. Building a company on Django in 2020 seems like the equivalent of driving a PT Cruiser and blasting Faith Hill’s “Breathe” on a CD while your friends are listening to The Weeknd in their Teslas. Swimming against this current isn’t easy, and not in a trendy contrarian way. https://macwright.com/2020/05/10/spa-fatigue.html
+* https://martinfowler.com/bliki/Yagni.html https://www.jefftk.com/p/designing-low-upkeep-software
+* https://thorstenball.com/blog/2020/09/15/the-context-in-which-we-build-software/
+* https://news.ycombinator.com/item?id=26071906
+* boring tech has well-understood failure modes https://news.ycombinator.com/item?id=23444594 https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
+* https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
+* https://josephg.com/blog/databases-have-failed-the-web/
+* https://twitter.com/b0rk/status/1229860328139296768
+* https://wizardzines.com/about/
+* https://blog.cerebralab.com/Imaginary_Problems_Are_the_Root_of_Bad_Software https://blog.cerebralab.com/Stop_future_proofing_software
+* https://blog.cerebralab.com/Bimodal_programming_%E2%80%93_why_design_patterns_fail
+* Hickey simple made easy https://news.ycombinator.com/item?id=38433358 https://www.youtube.com/watch?v=LKtk3HCgTa8 data is not easy https://grishaev.me/en/ddd-lie https://news.ycombinator.com/item?id=41290189
+* https://www.benkuhn.net/progessays/
+* one dev's edge cases are another's entire project 📙 Kleppmann 491
+* listen to Knuth -> fast code matters less than you think https://www.youtube.com/watch?v=PhUb7y9WZGs
+> We should forget about small efficiencies, say about 97% of the time; premature optimization is the root of all evil. - Donald Knuth
+> To be attractive to hackers, a language must be good for writing the kinds of programs they want to write. And that means, perhaps surprisingly, that it has to be good for writing throwaway programs. - http://paulgraham.com/popular.html
+* don't cargo cult 'best practices'
+> Sophisticated design principles can make your code faster, more flexible, more modular, and all of the other positive adjectives that people use to describe high-quality software. But they also make it more complex. `AbstractSyntaxRenderers` and `DoubleBackflipDatabaseTransmogrophiers` do make some programs clearer and easier to understand, especially large ones. But they can also be the equivalent of using a metrics-oriented, fully agile, stakeholder-prioritized development flow for working on a jigsaw puzzle with your dad. Sure you’re following best practices, but you probably didn’t need to, and now your dad thinks you’re a Scientologist. - https://robertheaton.com/2018/12/02/programming-project-5-snake/
+* wait for shared concerns to emerge -> repeat yourself until you find the right abstraction https://programmingisterrible.com/post/176657481103/repeat-yourself-do-more-than-one-thing-and
+> There seemed to be a tendency to extract tiny packages first instead of waiting for a shared concern to emerge from the code and only then extracting a package. https://commandercoriander.net/blog/2017/12/31/writing-go/
+> The problem with always using an abstraction is that you’re preemptively guessing which parts of the codebase need to change together. “Don’t Repeat Yourself” will lead to a rigid, tightly coupled mess of code. Repeating yourself is the best way to discover which abstractions, if any, you actually need.
+> Beware of arguments related to programming speed. All things being equal, faster is better. But all things are never equal. Do you need the kind of speed that lets you get a website up and running quickly? Or the kind that allows you to rotate a few thousand polygons in 3D in real time? Do you need to convert 10,000 PDFs into text per hour? Or 10 million PDFs into text once? These are different problems. - Ford what is code?
+
+## sketching
+
+> In the intersection of the hardware and software industry, we just continuously run into [patterns like this]. A lot of things are defined by finding some process that works, scaling it up 10x and then it breaking in ways that you did not realize things could break. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
+
 # ⠎ PATTERNS
 
 * top 5 https://www.youtube.com/watch?v=f6zXyq4VPP8
@@ -151,6 +233,14 @@ WALKTHROUGHS
 * microservices https://entropicthoughts.com/getting-used-to-microservices https://entropicthoughts.com/benefits-of-microservices
 
 ## monolith
+
+* monolith + db https://danluu.com/simple-architectures/
+> Wave is a $1.7B company with 70 engineers whose product is a CRUD app that adds and subtracts numbers. In keeping with this, our architecture is a standard CRUD app architecture, a Python monolith on top of Postgres. Starting with a simple architecture and solving problems in simple ways where possible has allowed us to scale to this size while engineers mostly focus on work that delivers value to users. Stackoverflow scaled up a monolith to good effect (2013 architecture / 2016 architecture), eventually getting acquired for $1.8B. If we look at traffic instead of market cap, Stackoverflow is among the top 100 highest traffic sites on the internet.
+> Despite the unreasonable effectiveness of simple architectures, most press goes to complex architectures. For example, at a recent generalist tech conference, there were six talks on how to build or deal with side effects of complex, microservice-based, architectures and zero on how one might build out a simple monolith. There were more talks on quantum computing (one) than talks on monoliths (zero). Larger conferences are similar; a recent enterprise-oriented conference in SF had a double-digit number of talks on dealing with the complexity of a sophisticated architecture and zero on how to build a simple monolith. Something that was striking to me the last time I attended that conference is how many attendees who worked at enterprises with low-scale applications that could’ve been built with simple architectures had copied the latest and greatest sophisticated techniques that are popular on the conference circuit and HN.
+> The cost of our engineering team completely dominates the cost of the systems we operate.
+> A place where we can’t be as boring as we’d like is with our on-prem datacenters. When we were operating solely in Senegal and Côte d'Ivoire, we operated fully in the cloud, but as we expand into Uganda (and more countries in the future), we’re having to split our backend and deploy on-prem to comply with local data residency laws and regulations. That's not exactly a simple operation, but as anyone who's done the same thing with a complex service-oriented architecture knows, this operation is much simpler than it would've been if we had a complex service-oriented architecture.
+* transistors
+> With computing, there have been a couple different cases of scaling breakthroughs. One of them was the discovery of the vacuum tube, where you actually have a device that can do fairly simple logical operations such that you can implement it in a machine. Then we ran into this problem of, the vacuum tubes are mechanical, they do break, and so the bigger your machine, the more likely it is that it breaks; the more complicated your algorithm is, the more likely it is that something breaks down. So you have one of those dynamics where you're scaling your inputs a lot faster than you're scaling your outputs and you're doing things less and less efficiently over time. Then transistors do not actually have moving parts, so they don't have that particular problem – but they run into their own scaling obstacle. It's really fun to read about the early days of this: one of the books that I cite in Boom has an excerpt from, not Scientific American but a magazine of that type in the 50s, where it's speculating that perhaps in the future computers could be the size of a small house, and that's how much we could shrink them. But people ran into this problem with transistors, where the more of them that you connect – and you need all of them to be connected and working for that particular cluster of them to do anything useful – the more of them you connect, the more likely it is that you have one little issue somewhere that makes the whole thing not work. Then it turned out that there was a way around that too, which is that you don't actually plug together individual discrete devices, you actually etch the entire set of connections chemically, and now with many other things – but yeah, you etch it, a one shot [process] where you create one solid thing. That turned out to be a much more scalable architecture. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
 
 ---
 
@@ -217,15 +307,18 @@ DESIGN
 
 # 🟨 ZA
 
-## Capp data eng
+## Docker db data mgmt
 
-🧠 https://chatgpt.com/c/673ce340-ca14-8004-b5ee-320faa5c9866
 🗄️ `containers.md` volumes
+🧠
+* https://chatgpt.com/c/673ce340-ca14-8004-b5ee-320faa5c9866
+* https://chatgpt.com/c/6724db6b-b820-8004-b8b4-f73f4e6a3c73
+* https://chatgpt.com/c/6724c43a-a9cc-8004-809b-2b53075f84af
 
 EXTERNAL
 * run Postgres as normal
 * Amazon RDS
-> Regarding RDS, you mentioned: "Adds network dependency and potential latency for remote storage." -> Wouldn't that already be the case given that RDS is a service?
+> 📍 Regarding RDS, you mentioned: "Adds network dependency and potential latency for remote storage." -> Wouldn't that already be the case given that RDS is a service?
 
 VOLUMES
 * just save to volume, which persist even if container destroyed
@@ -246,85 +339,6 @@ do you have creds for the m
 If you're running an app in Docker, and it includes both a backend and a database [let's say Postgres] that it writes to, what are the options for storing that data? Just store in a Docker volume? Save elsewhere?
 
 Let's say that this Dockerized app is hosted on an EC2 instance. How would that change your above assessment?
-
-## ⭕️ factors
-
-🗄️ `eng.md` factors
-
-* _clarity_: above all bc we're bulding information systems 📻 DHH (STT) https://www.youtube.com/watch?v=9LfmrkyP81M
-> And it's not only high performance hardware and software that's complex. Some domains are just really complicated. The tax code is 73k pages long. It's just not possible to reason effectively about something that complicated, and there are plenty of things that are that complicated. https://danluu.com/tests-v-reason/
-
----
-
-FACTORS
-* throughput, availability
-* data immutable (events, analytics)
-
-https://gwern.net/choosing-software
-* maintenance
-* extensible
-* popularity
-
-COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtime/ 🗄️ `sql.md` migrations
-* _backwards compatible_: new code can handle old data 📙 Kleppmann [112]
-> is the old data really old?
-> e.g. add attr, previous records don't have value for attr but have attr itself
-> client/server can just massage data to handle null values
-* aka open-closed principle (from SOLID) https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
-* _forward compatibility_: old code can handle new data; typically harder to do 📙 Kleppmann [112] typically old code doesn't touch new fields [129]
-> how would this happen unless you logged in
-
-KLEPPMANN
-* _reliability_: works even if hw/sw failure [6]
-* _scalability_: able to deal w/ growth (data, traffic, complexity)
-* _maintainability_: other devs able to work on system
-> it is well know that the majority of the cost of software is not in its intial development, but its ongoing maintenance [Kleppmann 18] https://www.jefftk.com/p/designing-low-upkeep-software
-* _db on 1 machine_: requires planned downtime [8]
-* _db on n machines_: can do rolling upgrade [8]
-* _n db_:
-* _things that can go wrong_: runaway process (consuming too much memory) [8] unresponsive downstream service [9] operator error [9]
-* _how to prevent things going wrong_: testing https://danluu.com/why-benchmark/ easy rollback, monitoring
-* _fan out_: num of req to other services to handle one incoming req [11]
-📍 need to review SQL of Twitter example
-* _evolvability_: ability to change different parts of system independently [Kleppmann 4.128]
-
-## KISS
-
-* monolith + db https://danluu.com/simple-architectures/
-> Wave is a $1.7B company with 70 engineers whose product is a CRUD app that adds and subtracts numbers. In keeping with this, our architecture is a standard CRUD app architecture, a Python monolith on top of Postgres. Starting with a simple architecture and solving problems in simple ways where possible has allowed us to scale to this size while engineers mostly focus on work that delivers value to users. Stackoverflow scaled up a monolith to good effect (2013 architecture / 2016 architecture), eventually getting acquired for $1.8B. If we look at traffic instead of market cap, Stackoverflow is among the top 100 highest traffic sites on the internet.
-> Despite the unreasonable effectiveness of simple architectures, most press goes to complex architectures. For example, at a recent generalist tech conference, there were six talks on how to build or deal with side effects of complex, microservice-based, architectures and zero on how one might build out a simple monolith. There were more talks on quantum computing (one) than talks on monoliths (zero). Larger conferences are similar; a recent enterprise-oriented conference in SF had a double-digit number of talks on dealing with the complexity of a sophisticated architecture and zero on how to build a simple monolith. Something that was striking to me the last time I attended that conference is how many attendees who worked at enterprises with low-scale applications that could’ve been built with simple architectures had copied the latest and greatest sophisticated techniques that are popular on the conference circuit and HN.
-> The cost of our engineering team completely dominates the cost of the systems we operate.
-> A place where we can’t be as boring as we’d like is with our on-prem datacenters. When we were operating solely in Senegal and Côte d'Ivoire, we operated fully in the cloud, but as we expand into Uganda (and more countries in the future), we’re having to split our backend and deploy on-prem to comply with local data residency laws and regulations. That's not exactly a simple operation, but as anyone who's done the same thing with a complex service-oriented architecture knows, this operation is much simpler than it would've been if we had a complex service-oriented architecture.
-
----
-
-> "Bad engineering" in adhoc ways tends to mean new ideas are being explored. Sophisticated deployments, logistics, procedures, tends to mean you're optimizing or extending existing system. That's not to disparage the latter. making things work at scale is hard engineering. But when people praise the glory days, it may be a preference for working on new ideas in small projects. https://news.ycombinator.com/item?id=41278907
-
-* boring technology https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
-* aka transitional architecture https://www.thoughtworks.com/radar/techniques?blipid=202203071
-> But the cultural tides are strong. Building a company on Django in 2020 seems like the equivalent of driving a PT Cruiser and blasting Faith Hill’s “Breathe” on a CD while your friends are listening to The Weeknd in their Teslas. Swimming against this current isn’t easy, and not in a trendy contrarian way. https://macwright.com/2020/05/10/spa-fatigue.html
-* https://martinfowler.com/bliki/Yagni.html https://www.jefftk.com/p/designing-low-upkeep-software
-* https://thorstenball.com/blog/2020/09/15/the-context-in-which-we-build-software/
-* https://news.ycombinator.com/item?id=26071906
-* boring tech has well-understood failure modes https://news.ycombinator.com/item?id=23444594 https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
-* https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
-* https://josephg.com/blog/databases-have-failed-the-web/
-* https://twitter.com/b0rk/status/1229860328139296768
-* https://wizardzines.com/about/
-* https://blog.cerebralab.com/Imaginary_Problems_Are_the_Root_of_Bad_Software https://blog.cerebralab.com/Stop_future_proofing_software
-* https://blog.cerebralab.com/Bimodal_programming_%E2%80%93_why_design_patterns_fail
-* Hickey simple made easy https://news.ycombinator.com/item?id=38433358 https://www.youtube.com/watch?v=LKtk3HCgTa8 data is not easy https://grishaev.me/en/ddd-lie https://news.ycombinator.com/item?id=41290189
-* https://www.benkuhn.net/progessays/
-* one dev's edge cases are another's entire project 📙 Kleppmann 491
-* listen to Knuth -> fast code matters less than you think https://www.youtube.com/watch?v=PhUb7y9WZGs
-> We should forget about small efficiencies, say about 97% of the time; premature optimization is the root of all evil. - Donald Knuth
-> To be attractive to hackers, a language must be good for writing the kinds of programs they want to write. And that means, perhaps surprisingly, that it has to be good for writing throwaway programs. - http://paulgraham.com/popular.html
-* don't cargo cult 'best practices'
-> Sophisticated design principles can make your code faster, more flexible, more modular, and all of the other positive adjectives that people use to describe high-quality software. But they also make it more complex. `AbstractSyntaxRenderers` and `DoubleBackflipDatabaseTransmogrophiers` do make some programs clearer and easier to understand, especially large ones. But they can also be the equivalent of using a metrics-oriented, fully agile, stakeholder-prioritized development flow for working on a jigsaw puzzle with your dad. Sure you’re following best practices, but you probably didn’t need to, and now your dad thinks you’re a Scientologist. - https://robertheaton.com/2018/12/02/programming-project-5-snake/
-* wait for shared concerns to emerge -> repeat yourself until you find the right abstraction https://programmingisterrible.com/post/176657481103/repeat-yourself-do-more-than-one-thing-and
-> There seemed to be a tendency to extract tiny packages first instead of waiting for a shared concern to emerge from the code and only then extracting a package. https://commandercoriander.net/blog/2017/12/31/writing-go/
-> The problem with always using an abstraction is that you’re preemptively guessing which parts of the codebase need to change together. “Don’t Repeat Yourself” will lead to a rigid, tightly coupled mess of code. Repeating yourself is the best way to discover which abstractions, if any, you actually need.
-> Beware of arguments related to programming speed. All things being equal, faster is better. But all things are never equal. Do you need the kind of speed that lets you get a website up and running quickly? Or the kind that allows you to rotate a few thousand polygons in 3D in real time? Do you need to convert 10,000 PDFs into text per hour? Or 10 million PDFs into text once? These are different problems. - Ford what is code?
 
 ## semantics
 

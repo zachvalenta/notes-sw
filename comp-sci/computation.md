@@ -14,6 +14,9 @@
 📙 Wayne logic for programmers circuits, branch prediction, speculative execution https://danluu.com/branch-prediction/ https://pythonspeed.com/articles/speeding-up-numba/
 ++ like verilog? sequential logic https://github.com/cjdrake/seqlogic
 
+* Verilog, VHDL https://danluu.com/why-hardware-development-is-hard/ https://news.ycombinator.com/item?id=42156516
+* XLS, HardCaml https://rachit.pl/
+
 ---
 
 https://www.youtube.com/watch?v=lX4CrbXMsNQ
@@ -174,7 +177,7 @@ za
 * _acceleration_: hw for specialized tasks e.g. TPU https://en.wikipedia.org/wiki/Hardware_acceleration https://danluu.com/learning-to-program/
 * _embedded system_: os for larger mechanical device, probably doesn’t have file system or long-term storage
 * _ESP8266_: system on a chip, MicroPython, PikaScript https://news.ycombinator.com/item?id=31433815
-* _FPGA_: things you can program with Verilog, VHDL https://danluu.com/why-hardware-development-is-hard/ https://news.ycombinator.com/item?id=42156516
+* _FPGA_: things you can program with Verilog, VHDL
 * _laptop_: non-unibody (easier to repair) unibody (Macbook; harder to switch battery, repair) https://www.netbooknews.com/tips/what-is-a-unibody-laptop/
 * _microcontroller_: special-purpose computer, often embedded in another device 📙 Shibuya chapter 6
 * _quantum_: used for physics simulations; qubit (like traditional bit 0/1 when observed, but when not observed represents probability of 0/1) https://news.ycombinator.com/item?id=22994468 📚 Gleick 13 https://quantum.country/ https://academy.meetiqm.com/curriculum/index.html
@@ -188,6 +191,8 @@ za
 * _wafer_: larger piece of processed silicon
 * _diode_: is a conductor that allows current flow in one direction
 * _semiconductor_: https://www.youtube.com/watch?v=qCSIGejNT4M https://twitter.com/szeloof/status/1280249239495479297 https://blog.robertelder.org/semiconductor-example-uses/
+
+> With computing, there have been a couple different cases of scaling breakthroughs. One of them was the discovery of the vacuum tube, where you actually have a device that can do fairly simple logical operations such that you can implement it in a machine. Then we ran into this problem of, the vacuum tubes are mechanical, they do break, and so the bigger your machine, the more likely it is that it breaks; the more complicated your algorithm is, the more likely it is that something breaks down. So you have one of those dynamics where you're scaling your inputs a lot faster than you're scaling your outputs and you're doing things less and less efficiently over time. Then transistors do not actually have moving parts, so they don't have that particular problem – but they run into their own scaling obstacle. It's really fun to read about the early days of this: one of the books that I cite in Boom has an excerpt from, not Scientific American but a magazine of that type in the 50s, where it's speculating that perhaps in the future computers could be the size of a small house, and that's how much we could shrink them. But people ran into this problem with transistors, where the more of them that you connect – and you need all of them to be connected and working for that particular cluster of them to do anything useful – the more of them you connect, the more likely it is that you have one little issue somewhere that makes the whole thing not work. Then it turned out that there was a way around that too, which is that you don't actually plug together individual discrete devices, you actually etch the entire set of connections chemically, and now with many other things – but yeah, you etch it, a one shot [process] where you create one solid thing. That turned out to be a much more scalable architecture. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
 
 MANUFACTURING https://doxa.substack.com/p/why-a-chinese-invasion-of-taiwan
 * https://news.ycombinator.com/item?id=42051968

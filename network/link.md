@@ -85,6 +85,10 @@ misc
 
 📙 Gleick ch. 6
 
+* _toner_: tone generator|signal used for testing/troubleshooting telephone lines|circuits; often part of a toolset called a tone and probe kit, which is used by technicians to locate and identify cables or wires
+
+---
+
 * open RAN, architecture in general https://www.youtube.com/watch?v=-fVHO_WCGF8
 * PSTN https://news.ycombinator.com/item?id=27602383
 * packet switched (internet: non-deterministic) vs. circuit switched (analog telephony: dedicated connection per call)

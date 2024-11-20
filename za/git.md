@@ -9,8 +9,11 @@
 
 ## 进步
 
-https://github.com/zackproser/automations
-https://www.gitkraken.com/gitlens https://www.youtube.com/watch?v=oJdlGtsbc3U https://switowski.com/blog/plugins-for-python-in-vscode/
+* need way to toggle git diff away from delta for copying plaintext
+> or can delta itself provide a toggle?
+* Git Town https://www.youtube.com/watch?v=oLaUsUlFfTo https://github.com/git-town/git-town
+* https://github.com/zackproser/automations
+* https://www.gitkraken.com/gitlens https://www.youtube.com/watch?v=oJdlGtsbc3U https://switowski.com/blog/plugins-for-python-in-vscode/
 
 * _24_: pager (delta, diffnav) porcelain (lazygit)
 * _21_: prepopulate commit msg
@@ -560,34 +563,21 @@ tags
 
 ## log
 
-* all commits that touched LOC: `log -Lstart,end:path/to/file` https://stackoverflow.com/a/27108677
-* overview of commits: `shortlog -sne`
-* color fmt https://stackoverflow.com/questions/5889878/color-in-git-log https://git-scm.com/docs/git-config#Documentation/git-config.txt-color https://github.com/zachvalenta/bin-mini23/commit/5fba7f8e3d24a449e18287ba884619571340bea0
-
 SEARCH https://www.youtube.com/watch?v=BaBKBy2vHmM
 * `-- <file>` (commits that touched file)
 ```sh
-# src
-log --S $QUERY
-
-# regex
-log --S $REGEX
-
-# all Markdown
-log --S $QUERY -- **/*.md
-
-# src across all branches
-log --S $QUERY --all
-
-# header
-log --oneline | grep PATTERN
-
-# header + message
-log --grep $QUERY
-
-# header + message + patches
-log --grep $QUERY -p
+log --grep $QUERY # header + message
+log --grep $QUERY -p # header + message + patches
+log --S $QUERY # src
+log --S $QUERY --all # src across all branches
+log --S $QUERY -- **/*.md # all Markdown
+log --S $REGEX # regex
 ```
+
+ZA
+* all commits that touched LOC: `log -Lstart,end:path/to/file` https://stackoverflow.com/a/27108677
+* overview of commits: `shortlog -sne`
+* color fmt https://stackoverflow.com/questions/5889878/color-in-git-log https://git-scm.com/docs/git-config#Documentation/git-config.txt-color https://github.com/zachvalenta/bin-mini23/commit/5fba7f8e3d24a449e18287ba884619571340bea0
 
 ---
 
@@ -688,6 +678,12 @@ squash c211c5b third
 ## remotes
 
 📜 https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes
+
+* force pull
+```sh
+git fetch --all
+git reset --hard origin/main
+```
 
 ---
 

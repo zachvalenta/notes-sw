@@ -206,7 +206,8 @@ class HelloWorldUser(HttpUser):
 * capture disappearing element https://stackoverflow.com/a/38783090/6813490
 * cross browser https://www.browserling.com/
 
-BROWSER AUTOMATION
+AUTOMATION
+* _Browserling_: https://www.browserling.com/ https://catonmat.net/about
 * _Cypress_: https://github.com/cypress-io/cypress
 * _Puppeteer_: https://github.com/puppeteer/puppeteer https://switowski.com/blog/web-automation/
 * _Selenium_: https://github.com/SeleniumHQ/selenium

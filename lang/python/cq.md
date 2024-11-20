@@ -79,6 +79,7 @@ if __name__=='__main__':
 
 ## start here
 
+* _path_: heuristic for thinking about what to optimize i.e. 99% of your app's execution branches can probably be pretty slow https://blog.phusion.nl/2018/09/18/migrating-passenger-from-cxx-to-go/
 * https://martinheinz.dev/blog/13
 * https://rednafi.com/python/preallocated_list/
 * https://tech.marksblogg.com/faster-python.html
@@ -124,7 +125,7 @@ if __name__=='__main__':
 * _pyflame_: https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 
 * _pyheat_: https://github.com/csurfer/pyheat
 * _pyinstrument_: 🎯 https://news.ycombinator.com/item?id=41910590 https://github.com/joerick/pyinstrument
-* _pyroscope_: https://github.com/pyroscope-io/pyroscope https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
+* _pyroscope_: https://github.com/pyroscope-io/pyroscope https://github.com/grafana/pyroscope https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
 * _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
 * _pyspy_: 🎯 https://github.com/benfred/py-spy/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust https://tinkering.xyz/fmo-optimization-story/ https://www.youtube.com/watch?v=1EZ8oqjLun0 https://jvns.ca/blog/2018/12/23/2018--year-in-review/
 * _tracy_: https://github.com/wolfpld/tracy

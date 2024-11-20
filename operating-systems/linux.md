@@ -412,8 +412,9 @@ problems
 
 SEMANTICS
 * _bottle_: pre-compiled i.e. you don't need to download and build, just download i.e. faster
-* _key-only_: for Homebrew internal use https://chatgpt.com/c/673a0019-ccf0-8004-a613-6469c1eae461
+* _keg-only_: for Homebrew internal use https://chatgpt.com/c/673a0019-ccf0-8004-a613-6469c1eae461
 * _services_: integrates w/ MacOS launchctl to start program on OS boot
+* _cask_: install macOS apps (`.dmg`) e.g. Inkscape
 
 FS
 * Homebrew itself `/usr/local/Homebrew`
@@ -469,7 +470,7 @@ when you catch a huge download like https://github.com/clarkema/x12pp can you in
 
 ### registries
 
-> vs Homebrew Core https://github.com/pythops/tenere/issues/31 https://chatgpt.com/c/671502a5-99d0-8004-a57c-98b0962fdfc9 https://github.com/nickgerace/gfold
+* _core_: requires more legwork from maintainer https://github.com/pythops/tenere/issues/31 https://chatgpt.com/c/671502a5-99d0-8004-a57c-98b0962fdfc9 https://github.com/nickgerace/gfold
 * _formula_: Ruby class that manages install https://www.youtube.com/watch?v=fbyrLo6yx8M
 
 TAPS
@@ -635,6 +636,9 @@ telemetry
 * Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
 
 ---
+
+start here https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/
+> 
 
 * [concurrency != parallelism](https://blog.golang.org/concurrency-is-not-parallelism)
 * [multi-threading != parallelism](https://stackoverflow.com/a/806506/6813490) https://news.ycombinator.com/item?id=4495305
@@ -814,6 +818,7 @@ ports 🗄 `tcp-ip.md` packet
 
 Raspberry Pi
 * use for Funkwhale
+* https://news.ycombinator.com/item?id=42200099
 * https://uglyduck.ca/my-pi-desktop/
 * https://news.ycombinator.com/item?id=24965614
 * https://www.canakit.com/raspberry-pi-4-8gb.html
@@ -870,53 +875,6 @@ function tz(){
     TZ='Pacific/Auckland' date --rfc-3339=s
 }
 ```
-
-## distros
-
-📙
-* Galvin dinosaur 18-20
-* Kerrisk 1
-
-* _alpine_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html https://drewdevault.com/2021/05/06/Praise-for-Alpine-Linux.html
-* _asahi_: linux for Mac https://asahilinux.org/ https://www.youtube.com/watch?v=PHFhyqYav5M
-* _arch_: 
-* _CentOS_: https://taskwarrior.org/docs/workflow/
-* _Fedora_: https://nickgerace.dev/posts/why-i-use-fedora/
-* _mint_: https://drewdevault.com/2021/12/14/Linux-Mint-and-elementary-OS.html
-* _omakub_: https://github.com/basecamp/omakub https://omakub.org/ https://www.youtube.com/watch?v=g2vcIRavtqY
-* _Red Hat_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html
-* _OpenBSD_: https://eradman.com/posts/openbsd-workstation.html https://unixsheikh.com/articles/openbsd-6.9-has-been-released-kudos-to-all-involved.html doesn't do bluetooth https://news.ycombinator.com/item?id=25949784 https://danielmiessler.com/blog/the-differences-between-bsd-and-system-v-unix/ https://dataswamp.org/~solene/2024-11-15-why-i-stopped-using-openbsd.html
-
----
-
-* https://drewdevault.com/2017/05/05/Building-a-real-Linux-distro.html
-* desktop https://drewdevault.com/2021/12/05/What-desktop-Linux-needs.html
-* non-C operating systems e.g. SerenityOS https://news.ycombinator.com/item?id=30851955
-* _DOS (disk os)_: os that came after punch cards and magnetic drums i.e. computers 1980s to mid 90s
-* _Plan9_: os from Bell Labs after UNIX https://seh.dev/go-legacy/ https://drewdevault.com/2022/11/12/In-praise-of-Plan-9.html relationship to Golang https://registerspill.thorstenball.com/p/joy-and-curiosity-12
-* [Rob Pike talk](https://www.youtube.com/watch?v=_2NI6t2r_Hs&t=1105s)
-* The Open Group, an industry consortium (IBM Huawei DoD) controls UNIX name and compliance; no Linux distro qualifies [LPI 1, 1.3.3, 1.3.8]
-* how to keep Linux distros consistent? The Linux Standard Base [LPI 1.3.8]
-* _distros_: Ubuntu (default) Debian (tricky config) Red Hat (Enterprise, Fedora, CentOS and fork https://changelog.com/podcast/427) Kali (security) Arch, Mint (personal) Raspian (IoT) Alpine (lightweight) https://distrochooser.de/ https://news.ycombinator.com/item?id=23816007 https://news.ycombinator.com/item?id=16315087
-* _Linux Foundation_: sponsors Linux, Cloud Foundry, Cloud Native Computing Foundation (which itself maintains Kubernetes) 
-* _Unices_: enterprise (Unix, Solaris) open (BSD, Linux)
-* _Nix_: https://news.ycombinator.com/item?id=31557430
-
-history
-* _1969_: Unix (Bell Labs; Ken Thompson)
-* _1975_: Sixth Edition, first to be used widely outside AT&T [LPI 1.1]
-* _1979_: Seventh Edition; awk, sed, tar, Bourne shell [LPI 1.1]
-* _1979_: BSD (Ken Thompson); TCP/IP implementation, sockets API
-* _1983_: Sun OS (based off BSD), followed up Solaris
-* _1983_: System V proceeds from AT&T breakup
-* _1984_: macOS; similar to FreeBSD https://wiki.freebsd.org/Myths http://www.paulgraham.com/mac.html
-* _1985_: Stallman starts GNU and FSF, by early 90s has OS sans kernel
-* _1993_: Novell acquires UNIX from AT&T
-* _1994_: Linux 1.0 released
-* _1995_: Debian; buster (current LTS) stretch, slim (previous) https://wiki.debian.org/DebianReleases#Production_Releases
-* _2000_: RHEL
-* _2004_: Ubuntu (Canonical is company behind it)
-* _2011_: Elementary https://news.ycombinator.com/item?id=26658317
 
 ## file system
 
@@ -1009,7 +967,7 @@ FILE SYSTEM
 * written to before action taken
 * in event of power outage can just restart from the journal
 * _file metadata_: name, type, size, location, timestamps (create, access, modify)
-* _virtual file system_: https://github.com/jedevc https://stackoverflow.com/questions/2910229/what-is-a-virtual-file-system-or-a-file-system-in-userspace https://github.com/rianhunter/dbxfs
+* _virtual file system_: https://github.com/jedevc https://stackoverflow.com/questions/2910229/what-is-a-virtual-file-system-or-a-file-system-in-userspace https://github.com/rianhunter/dbxfs  https://github.com/azuline/rose
 * _NFS (network file system)_: access files over network as if they were on local storage; uses ONC protocol https://en.wikipedia.org/wiki/Network_File_System https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols
 * _timestamps_: access (file opened) modify (contents of file edited) change (inode modified i.e. permissions) https://unix.stackexchange.com/a/132661/240456
 * _file corruption_: see if things are weird `cat -v` fix w/ `dos2unix`

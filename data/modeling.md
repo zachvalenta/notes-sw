@@ -387,7 +387,7 @@ dbms
 
 COMPONENTS 📙 Beaulieu [1.6]
 * _entity_: thing you're trying to describe e.g. customer, order, et al. 📙 Beaulieu [8]
-* _attribute_: column 📙 Hao
+* _attribute_: column 📙 Hao grokking
 * _row_: aka record
 * _value_: aka cell, field
 
@@ -453,6 +453,12 @@ CREATE TABLE band_musician(
 ## normalization
 
 * _normalization_: process of extracting entities from other entities https://en.wikipedia.org/wiki/Database_normalization#Normal_forms
+
+ANOMOLIES
+* delete https://chatgpt.com/c/673e02ab-1b78-8004-9684-a5936111266b 🟧 Hao grokking
+
+### forms
+
 * _form_: step in normalization
 * avoids redundancy (no `author` in `book` bc you'd repeat Jane Austen for each novel)
 * saves space (no dupes) 📙 Kleppmann [33]

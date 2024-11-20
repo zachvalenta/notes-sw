@@ -20,11 +20,14 @@ workflow engine or task queue https://news.ycombinator.com/item?id=34163888 http
 * `aws.md`
 * `system.md` factors
 
-TAXONOMY 🧠 https://chatgpt.com/c/673a5946-7948-8004-9a56-e3b60009dccd https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
+## taxonomy
+
+🧠 https://chatgpt.com/c/673a5946-7948-8004-9a56-e3b60009dccd https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
+
 * _cloud-native_: dependent on cloud services
-* _lift-and-shift_: on-prem but on a smart cloud instance
+* _lift-and-shift_: on-prem but on a dumb cloud instance
 > Did you have one huge server in the office? Well, now you get one huge server in AWS EC2 and copy your app to it. You’ll also pay extreme prices for that privilege.
-* _stack-native_: on-prem but on a dumb cloud instance
+* _stack-native_: on-prem but on a smart cloud instance https://www.youtube.com/watch?v=fuZoxuBiL9o
 > Here’s the crazy part. All of our infrastructure is running on one medium-sized server in a US-based data center from Hetzner. We have a single 8 CPU / 16 GB RAM server that we partition up across 17 apps and databases using docker. Most of these apps are as simple or simpler than the stack-native diagram above. For this entire setup, including bandwidth, we pay $65/month. That’s $25/mo for the server and another $40 for bandwidth. I just finished doing some tentative load testing using the amazing Locust.io framework. At its peak, this setup running Nginx + Granian + Python + Pyramid + MongoDB would handle over 100M Python requests / month. For $25. In contrast, what would this setup cost in AWS? Well, the server is about $205 / month. The bandwidth out of that server is another $100/mo. If we put all our bandwidth through AWS (for example mp3s and videos through S3) the price jumps up by another whopping $921. This brings the total to $1,226/mo. The contrast is stark. If we chose cloud-native, we’d be tied into cloud-front, EKS, S3, EC2, etc. That’s the way you use the cloud, you noobie. Let’ the company cover the monthly costs. But stack-native can move. We can run it in Digital Ocean for a few years as we did. When a company like Hetzner opens a data center in the US with 1/6th pricing, we can take our setup and move. The hardest part of this is Let’s Encrypt and DNS. There is nearly zero lock-in.
 
 ## cost control
@@ -80,6 +83,15 @@ https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 
 ## self host
 
+CONSIDERATIONS
+* data locality restrictions re: geography https://signoz.io/ https://danluu.com/simple-architectures/
+
+---
+
+* https://news.ycombinator.com/item?id=34860655
+* https://news.ycombinator.com/item?id=34867314
+* https://www.jotaen.net/anA6o/self-hosting-guide-docker-haproxy-lets-encrypt/
+* https://knhash.in/gentle-guide-to-self-hosting/
 * https://news.ycombinator.com/item?id=27674726
 * https://github.com/khuedoan/homelab
 * https://github.com/tiagoad/docker-homeserver
@@ -115,8 +127,6 @@ STATIC SITE
 
 ---
 
-* self-hosting https://www.jotaen.net/anA6o/self-hosting-guide-docker-haproxy-lets-encrypt/ https://knhash.in/gentle-guide-to-self-hosting/
-* hosting https://news.ycombinator.com/item?id=34860655 https://news.ycombinator.com/item?id=34867314
 * Cloudflare https://rutar.org/writing/how-to-build-a-personal-webpage-from-scratch/ https://rutar.org/writing/previewing-a-development-branch-on-cloudflare-pages/ https://news.ycombinator.com/item?id=34639212
 * https://adamj.eu/colophon/
 * Netlify https://uglyduck.ca/articles/
@@ -174,6 +184,18 @@ web: ./manage.py runserver
 worker: celery worker --app new_hot_thing:celeryapp --loglevel info
 frontend: webpack --watch
 ```
+
+### static
+
+🗄️ `frontend.md` SSG
+
+* _AWS amplify_: https://aws.amazon.com/amplify/
+* _Cloudflare pages_:
+* _Github pages_:
+* _Netlify_: https://www.netlify.com/
+* _Render_:
+* _Surge_: https://surge.sh/
+* _Vercel_: https://vercel.com/
 
 ### CF
 

@@ -111,6 +111,7 @@ SEMANTICS
 
 ## types
 
+* https://news.ycombinator.com/item?id=42201936
 * _ordered_: Markdown, DOM, fs, AST, config mgmt, version control, NLP parse trees, task mgmt, window mgmt https://nikitabobko.github.io/AeroSpace/guide#tree https://chatgpt.com/c/67202b04-6aec-8004-92c2-1af3c5fce7de
 * _b-tree_: two branches for each node https://stackoverflow.com/a/6380314 🗄 `db.md` indexing https://avi.im/blag/ https://build-your-own.org/ https://build-your-own.org/database/04_btree_code_1 https://planetscale.com/blog/btrees-and-database-indexes
 * balanced = min height and max height differ by 1 (at most) https://www.youtube.com/watch?v=Aagf3RyK3Lw @ 0:50

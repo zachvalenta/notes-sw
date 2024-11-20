@@ -124,18 +124,9 @@ HISTORY
 
 ## Emacs
 
-ORG MODE https://en.wikipedia.org/wiki/Org-mode
-* killer features: traversal, exec code snippets https://www.youtube.com/watch?v=cxoE2FhOIgI
-* calendar https://www.youtube.com/watch?v=3V3wIJgMeqE
-* _Roam_: Zettelkasten https://www.youtube.com/watch?v=AyhPmypHDEw don't like the journal functionality bc don't want journal and domain notes intermixed https://www.youtube.com/watch?v=3-sLBaJAtew Vim port https://github.com/chipsenkbeil/org-roam.nvim
+🗄️ `doc.md` notes > tooling > Org Mode
 
-VIM PORTS
-* _neorg_: feature incomplete, uses new package manager, doesn't have Roam https://news.ycombinator.com/item?id=39828963 https://github.com/nvim-neorg/neorg https://vhyrro.github.io/posts/neorg-and-luarocks/ https://github.com/nvim-neorocks/rocks.nvim
-* _nvim-orgmode_: 🎯 https://github.com/nvim-orgmode/orgmode
-* _vimwiki_: dislike syntax https://github.com/vimwiki/vimwiki
-
----
-
+* AI client https://github.com/karthink/gptel
 * https://entropicthoughts.com/why-you-should-buy-into-the-emacs-platform
 * https://www.youtube.com/@SystemCrafters/videos
 * https://lwn.net/Articles/832429/
@@ -821,7 +812,7 @@ FOLDING
 * https://github.com/iggredible/Learn-Vim/blob/master/ch17_fold.md
 
 Python indentation https://vimtricks.substack.com/p/vimtrick-column-highlighting 
-Python terminal, debugger https://github.com/AstroNvim/AstroNvim
+Python terminal, debugger https://github.com/AstroNvim/AstroNvim https://zackproser.com/blog/codeium-analysis-4-2024
 
 LINTING 📙 Neil practical ch. 20
 * functions: autocorrect, spellcheck, thesaurus, dictionary, grammar

@@ -26,6 +26,7 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 
 ---
 
+> start with Armin article in `linux.md`
 📍 define 'asynchronous', 'concurrent', 'parallel' https://pythonbytes.fm/episodes/show/161/sloppy-python-can-mean-fast-answers
 * 📺 https://training.talkpython.fm/courses/explore_async_python/async-in-python-with-threading-and-multiprocessing
 
@@ -45,7 +46,6 @@ https://news.ycombinator.com/item?id=41001951
 
 * https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#overcoming-gil-with-subinterpreters-and-immutability
 * JIT https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#building-a-jit-compiler-for-cpython
-* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#unlocking-the-parallel-universe-subinterpreters-and-free-threading-in-python-313
 
 SEMANTICS https://python.hamel.dev/concurrency/
 * thread
@@ -243,8 +243,14 @@ CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-g
 
 start here https://pycon-archive.python.org/2024/schedule/presentation/72/index.html
 
+FREE-THREADING
+* https://codspeed.io/blog/state-of-python-3-13-performance-free-threading
+* https://pycon-archive.python.org/2024/schedule/presentation/128/index.html
+* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#unlocking-the-parallel-universe-subinterpreters-and-free-threading-in-python-313
+* https://til.simonwillison.net/python/trying-free-threaded-python
+* https://blog.changs.co.uk/free-threaded-python-with-asyncio.html=
+
 https://softwareengineeringdaily.com/2024/10/29/the-big-changes-in-python-3-13-with-lukasz-langa/
-free-thread https://pycon-archive.python.org/2024/schedule/presentation/128/index.html
 * experimental features https://realpython.com/podcasts/rpp/223/
 
 https://realpython.com/python313-new-features/
@@ -281,8 +287,6 @@ thread-safe https://realpython.com/python-thread-lock/
 * https://news.ycombinator.com/item?id=41677131
 * https://realpython.com/python313-free-threading-jit/
 * https://drew.silcock.dev/blog/everything-you-need-to-know-about-python-3-13/
-* https://blog.changs.co.uk/free-threaded-python-with-asyncio.html=
-* https://til.simonwillison.net/python/trying-free-threaded-python
 
 # 🟨️ ZA
 
@@ -300,6 +304,7 @@ auditing hooks https://stackoverflow.com/questions/63350394/how-to-set-up-and-us
 * simplistic interpreter = C extensions = Python for datascience https://lucumr.pocoo.org/2018/7/13/python/
 * can write extensions in Rust https://towardsdatascience.com/nine-rules-for-writing-python-extensions-in-rust-d35ea3a4ec29 https://github.com/RustPython/RustPython https://blog.jerrycodes.com/python-trends-in-2023/ https://www.peterbaumgartner.com/blog/wrapping-a-rust-crate-in-a-python-package/ https://github.com/fulcrum-so/ziggy-pydust https://pythonspeed.com/articles/intro-rust-python-extensions https://pythonspeed.com/articles/intro-rust-python-extensions/
 * Rust https://rustpython.github.io/
+* using other language in Python e.g. Julia https://www.peterbaumgartner.com/blog/incorporating-julia-into-python-programs/
 
 ### PyO3
 

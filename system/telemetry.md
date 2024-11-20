@@ -2,90 +2,26 @@
 
 ## 参考
 
-📙 Bueno mature optimization https://carlos.bueno.org/optimization/
-📙 Google SRE book https://sre.google/sre-book/table-of-contents/ https://danluu.com/google-sre-book/
+📚
+* Bueno mature optimization https://carlos.bueno.org/optimization/
+* Google SRE book https://sre.google/sre-book/table-of-contents/ https://danluu.com/google-sre-book/
 > aka platform engineering https://www.manning.com/books/effective-platform-engineering
 
 ## 进步
 
+* _24_: big rf, ready to start implementing myself
 * _23_: Datadog with CRD
 * _17_: Google SRE book first 20 chapters
 
-# 🩻 MONITORING
-
-🗄 `python.md` profiling
+# 📊 METRICS
 
 ---
 
-HOW TO START
-* status page https://github.com/harsxv/tinystatus https://statusgator.com/
-* ⭐️ https://github.com/ankorstore/yokai
-* _get metrics_: point Uptime Robot at a URL https://www.youtube.com/watch?v=o9ekAeoBXDs Lighthouse https://forgeperf.org/ https://www.thoughtworks.com/radar/tools?blipid=1158
-* _measure metrics_: https://news.ycombinator.com/item?id=23360794
-* _sink_: https://serversforhackers.com/s/process-monitoring https://blog.appoptics.com/the-four-golden-signals-for-monitoring-distributed-systems/ https://infrequently.org/2018/09/the-developer-experience-bait-and-switch/ https://3perf.com/talks/web-perf-101/ https://medium.baqend.com/web-performance-made-simple-fc61d81d0c0e http://mediatemple.net/blog/tips/low-hanging-fruit-web-performance/ https://medium.com/observability/want-to-debug-latency-7aa48ecbe8f7 https://ferdychristant.com/amp-the-missing-controversy-3b424031047 https://medium.freecodecamp.org/a-beginners-guide-to-website-optimization-2185edca0b72 https://panic.com/blog/mystery-of-the-slow-downloads/ https://github.com/monitoror/monitoror
+https://vadimkravcenko.com/shorts/habits-of-great-software-engineers/#the-art-of-approximation https://vadimkravcenko.com/technical-manager-guide/
+https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services
+* https://danluu.com/metrics-analytics/ https://www.kalzumeus.com/greatest-hits/ https://danluu.com/web-bloat https://thoughtbot.com/upcase/analytics-for-developers 
 
-* https://en.wikipedia.org/wiki/Seven_basic_tools_of_quality
-
-TAXONOMY
-* user sessions https://news.ycombinator.com/item?id=40318542 https://jam.dev/ https://trackjs.com/
-* tracing
-
-https://www.thediff.co/archive/the-data-business-at-three-resolutions/
-
-* _chaos engineering_: trigger fault to see if it causes a failure https://github.com/powerfulseal/powerfulseal
-* https://news.ycombinator.com/item?id=40573790&utm_term=comment
-
-https://github.com/pydantic/logfire
-https://news.ycombinator.com/item?id=36469147&
-https://jvns.ca/blog/2022/07/09/monitoring-small-web-services/
-have a health check page https://www.thoughtworks.com/radar/techniques/health-check-pages
-https://www.ryancheley.com/2023/10/29/error-culture/
-
-* Datadog alternative https://news.ycombinator.com/item?id=33049046 https://github.com/SigNoz/signoz
-* users online https://analytics.usa.gov/
-* uptime https://news.ycombinator.com/item?id=25553445 depends on system component https://www.openmymind.net/Im-Not-Sold-On-High-Availability/
-* _dead man's switch_: cease operation in absence of human operator e.g. carts at airport [Conery 6; think his usage wrong]
-
-🗄 `link.md` speed
-> rf `link.md` then this section
-
-https://www.semicolonandsons.com/episode/error-tracking-and-monitoring
-* exception reporting
-* logging (production, retention, search)
-* downtime alerting
-* system monitoring
-* financial reporting
-
-* https://hodovi.ch/blog/monitoring-django-applications
-* _path_: heuristic for thinking about what to optimize i.e. 99% of your app's execution branches can probably be pretty slow https://blog.phusion.nl/2018/09/18/migrating-passenger-from-cxx-to-go/
-
-https://news.ycombinator.com/item?id=24006697
-
-* _statsd_: https://github.com/jsocol/pystatsd https://www.youtube.com/watch?v=-6Hk9rcgM94 https://www.datadoghq.com/blog/statsd/ https://docs.datadoghq.com/developers/dogstatsd/ https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd https://www.youtube.com/watch?v=R4kMwckrUlg Graphite visualization tool for statsd https://www.digitalocean.com/community/tutorials/how-to-configure-statsd-to-collect-arbitrary-stats-for-graphite-on-ubuntu-14-04
-
-black box
-* _black box_: user-facing; symptom-oriented
-* _options_: https://news.ycombinator.com/item?id=23880071
-
-white box
-* _white box_: internals; cause-oriented
-
-## incidents
-
-* _fault_: when something goes wrong [Kleppmann 7]
-* _incident_: when system stops serving user https://softwareengineeringdaily.com/2019/10/16/incident-reproduction-with-tammy-butow/ 
-* _monitor_: metric you care about
-* _alert_: conditional re: monitor
-* _notification fatigue_: when alerts stop mattering https://brandur.org/alerting
-* _management_: https://github.com/monzo/response https://response.pagerduty.com/ https://netflixtechblog.com/introducing-dispatch-da4b8a2a8072 Pager Duty alternative https://github.com/target/goalert
-* _post-mortem_: https://blog.github.com/2018-10-30-oct21-post-incident-analysis/ https://status.sr.ht/issues/2020-10-08-git.sr.ht-disk-usage/
-
-## metrics
-
----
-
-warm throughput 🧠 https://chatgpt.com/c/673e0350-b5dc-8004-b222-e85277b89921
-> sort this entire section out with GPT
+https://news.ycombinator.com/item?id=42203501
 
 * Kleppmann chapter 1 notes @ 14 -> `math.md` distributions
 bandwindth and CPU https://talkpython.fm/blog/posts/we-have-moved-to-hetzner/
@@ -93,43 +29,10 @@ bandwindth and CPU https://talkpython.fm/blog/posts/we-have-moved-to-hetzner/
 https://www.roguelynn.com/words/tracing-fast-and-slow/
 https://www.roguelynn.com/words/metrics-driven-development/
 
-LOAD PARAMETERS
-* _load parameter_: metric; way to describe load on system [Kleppmann 11]
-* _node_: CPU, mem, storage 
-* _service_: req volume (RPS https://stackexchange.com/performance), simultaneously active users, error rate (5xx per M req), uptime (five nines https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/)
-* _db_: queries per req (statsd) https://www.youtube.com/watch?v=-6Hk9rcgM94 ratio of reads to write, hit rate on cache [Kleppmann 11]
-
-* _percentiles_: p50 (median) p90 (worst case); mean doesn't tell you how many nodes/users
-* _skew_: uneven distibution re: load across worker processes [Kleppmann 20] what prevents run time of batch job being data divided by throughput
-
-* _frecency_: frequency + recency https://missing.csail.mit.edu/2020/shell-tools/ https://github.com/rupa/z
-
-* utilization, system metrics https://entropicthoughts.com/predicting-resource-usage-from-increased-traffic https://entropicthoughts.com/response-time-is-the-system-talking
-* latency throughput https://entropicthoughts.com/typing-fast-is-about-latency-not-throughput
-
 SEMANTICS https://www.datadoghq.com/ebook/monitoring-modern-infrastructure/
 * _event_: change to system e.g. build, release, add/substract host/container, alert going off
 * _metric_: value from system at a particlar point in time
-* _throughput_: amount of work per unit of time e.g. RPS
-> Amazon DynamoDB introduces warm throughput for tables and indexes - Ooh, you mean we can (finally) find out what the actual limits are for when a table will stop accepting reads or writes? Without having to fly to Seattle and make someone extremely uncomfortably by asking them from well within their personal space? For free?! Plus you can set that value higher for a one time fee? WHY ARE WE STILL TALKING? Take my money already! https://aws.amazon.com/about-aws/whats-new/2024/11/amazon-dynamodb-warm-throughput-ondemand-provisioned-tables/
-* _latency_: time required to complete unit of work e.g. % of requests returns with X time e.g. 99% of requests return w/in 0.2 ms https://www.youtube.com/watch?v=FqR5vESuKe0 https://danluu.com/keyboard-latency/
 * metrics: success rate, error rate
-* _utilization_: % of time resource is busy
-* _saturation_: amount of work resource cannot yet service i.e. how much stuff is queued up waiting
-* _availability_: how often resource responds to request
-
-* _p$NUM_: what percentage of requests below a certain latency https://www.youtube.com/watch?v=3JdQOExKtUY 1:55
-```sh
-# p99: 99% of req below 400MS
-
-80%    90%    95%    98%    99%    99.9%  99.99% 100%
-------|------|------|------|------|------|------|------
-100    110    110    120    400    400    400    400
-```
-* _QPS (queries per second)_: https://www.youtube.com/watch?v=kEShMV4VfWE
-* _RPS_: 
-
----
 
 re: wifi
 * 搜 'internet speed test' https://news.ycombinator.com/item?id=26343394 https://news.ycombinator.com/item?id=31062799 https://www.lambdafunctions.com/articles/make-internet-connection-worse https://danluu.com/octopress-speedup/ https://www.webpagetest.org/
@@ -141,7 +44,54 @@ networkQuality
 networksetup
 ```
 
+* _walltime_: time as humans generally perceive it [Mature Optimization Handbook]
+* _bandwidth_: optimal bitrate (bits over network per second); measured in Gbps https://hpbn.co/primer-on-latency-and-bandwidth/
+* _response time_: time btw client sending req and receiving res [Kleppmann 13-14] speed e.g. how fast does single req come back?; 100M dash
+* _service time_: time to process client req i.e. compute [Kleppmann 14]
+
+## bandwidth
+
+> I will retell an anecdote because I love it so much: it's so hard to get a wire down the hole in a fashion that the wire survives, that rather than using wires to communicate with the drill bit that is 10 kilometers down, they use modems. The modem doesn't make acoustic sound over the wire or an electrical sound that approximates an acoustic sound at any point – no, they send an acoustic signal vibrating through the mud in the hole and then listen for that acoustic signal on the other end, and use a decoupler to turn that back into a waveform to get a very small number of bits per second of signal from the machine that is deep down the hole and which they are attempting not to break.  https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
+
+## ⭕️ factors
+
+---
+
+* https://news.ycombinator.com/item?id=23880071 https://simpleops.io/
+* users online https://analytics.usa.gov/
+* uptime https://news.ycombinator.com/item?id=25553445 depends on system component https://www.openmymind.net/Im-Not-Sold-On-High-Availability/
+
+https://www.semicolonandsons.com/episode/error-tracking-and-monitoring
+* exception reporting
+* logging (production, retention, search)
+* downtime alerting
+* system monitoring
+* financial reporting
+
+* https://www.thediff.co/archive/the-data-business-at-three-resolutions/
+* _chaos engineering_: trigger fault to see if it causes a failure https://github.com/powerfulseal/powerfulseal
+* https://news.ycombinator.com/item?id=40573790
+* https://www.ryancheley.com/2023/10/29/error-culture/
+
+* https://en.wikipedia.org/wiki/Seven_basic_tools_of_quality
+
+TAXONOMY
+* user sessions https://news.ycombinator.com/item?id=40318542 https://jam.dev/ https://trackjs.com/
+* tracing
+
+* _dead man's switch_: cease operation in absence of human operator e.g. carts at airport [Conery 6; think his usage wrong]
+
+## latency
+
+---
+
+* latency throughput https://entropicthoughts.com/typing-fast-is-about-latency-not-throughput
+* _throughput_: amount of work per unit of time e.g. RPS
+> Amazon DynamoDB introduces warm throughput for tables and indexes - Ooh, you mean we can (finally) find out what the actual limits are for when a table will stop accepting reads or writes? Without having to fly to Seattle and make someone extremely uncomfortably by asking them from well within their personal space? For free?! Plus you can set that value higher for a one time fee? WHY ARE WE STILL TALKING? Take my money already! https://aws.amazon.com/about-aws/whats-new/2024/11/amazon-dynamodb-warm-throughput-ondemand-provisioned-tables/
+
 📍 rf using Kleppmann, Data Networking Made Easy, sou (networking, system design)
+
+* _latency_: time required to complete unit of work e.g. % of requests returns with X time e.g. 99% of requests return w/in 0.2 ms https://www.youtube.com/watch?v=FqR5vESuKe0 https://danluu.com/keyboard-latency/
 
 latency
 > number of seconds it takes for an operation to complete https://leanpub.com/systemdesignmanual/read_sample
@@ -149,12 +99,63 @@ latency
 > time delay in packet delivery [Data Networking Made Easy 26]
 https://github.com/apenwarr/blip
 
+https://networkengineering.stackexchange.com/questions/52232/whats-the-difference-between-latency-and-round-trip-time
+* _latency_: time that req waiting to be handled; people use as a synonym for response time [Kleppmann 14]
+* _latency_: https://robertovitillo.com/why-you-should-measure-tail-latencies/
+* _tail latencies_: synonym for the higher percentiles of response times; hard to reduce bc easily affected by random stuff beyond your control [Kleppmann 15]
+
+* _latency_: how long it takes the data to get to the place it needs to be computed https://www.moderndescartes.com/essays/data_oriented_python/ https://github.com/nakabonne/ali geography https://calpaterson.com/latency.html https://danluu.com/term-latency/
+
 jitter https://gafferongames.com/post/fixing_the_internet_for_games/
 > variablility in latency https://networkengineering.stackexchange.com/a/22826
 > out-of-sequence packets [Data Networking Made Easy 26]
 
-* _latency_: how long it takes the data to get to the place it needs to be computed https://www.moderndescartes.com/essays/data_oriented_python/ https://github.com/nakabonne/ali geography https://calpaterson.com/latency.html https://danluu.com/term-latency/
+## load parameters
 
+* _load parameter_: metric; way to describe load on system [Kleppmann 11]
+* _node_: CPU, mem, storage 
+* _service_: req volume (RPS https://stackexchange.com/performance), simultaneously active users, error rate (5xx per M req), uptime (five nines https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/)
+* _db_: queries per req (statsd) https://www.youtube.com/watch?v=-6Hk9rcgM94 ratio of reads to write, hit rate on cache [Kleppmann 11]
+
+* _utilization_: % of time resource is busy
+* _saturation_: amount of work resource cannot yet service i.e. how much stuff is queued up waiting
+* _availability_: how often resource responds to request
+* _p$NUM_: what percentage of requests below a certain latency https://www.youtube.com/watch?v=3JdQOExKtUY 1:55
+```sh
+# p99: 99% of req below 400MS
+80%    90%    95%    98%    99%    99.9%  99.99% 100%
+------|------|------|------|------|------|------|------
+100    110    110    120    400    400    400    400
+```
+* _QPS (queries per second)_: https://www.youtube.com/watch?v=kEShMV4VfWE
+* _RPS_: 
+
+* _percentiles_: p50 (median) p90 (worst case); mean doesn't tell you how many nodes/users
+* _skew_: uneven distibution re: load across worker processes [Kleppmann 20] what prevents run time of batch job being data divided by throughput
+
+* _frecency_: frequency + recency https://missing.csail.mit.edu/2020/shell-tools/ https://github.com/rupa/z
+
+* utilization, system metrics https://entropicthoughts.com/predicting-resource-usage-from-increased-traffic https://entropicthoughts.com/response-time-is-the-system-talking
+
+## perf
+
+🗄️ `databases.md` perf
+📙 Gregg systems performance
+
+---
+
+https://blog.pecar.me/sqlite-wal
+https://blog.pecar.me/django-sqlite-benchmark
+https://blog.pecar.me/django-sqlite-dblock
+https://testdriven.io/blog/django-performance-optimization-tips/
+https://www.youtube.com/watch?v=gpbpVheR3gM
+https://blog.pecar.me/django-streaming-responses
+## throughput
+
+---
+
+https://leanpub.com/systemdesignmanual/read_sample
+> throughput is the number of operations per second, where an operation is an application-specific unit of work.
 
 throughput definitions
 * https://sirupsen.com/napkin/problem-4
@@ -164,72 +165,14 @@ throughput definitions
 * actual bitrate https://networkengineering.stackexchange.com/a/57428 https://gafferongames.com/post/fixing_the_internet_for_games/
 * how much you can get done 📙 Christian 124
 
----
+warm throughput 🧠 https://chatgpt.com/c/673e0350-b5dc-8004-b222-e85277b89921
+> sort this entire section out with GPT
 
-* _walltime_: time as humans generally perceive it [Mature Optimization Handbook]
-
-https://leanpub.com/systemdesignmanual/read_sample
-> throughput is the number of operations per second, where an operation is an application-specific unit of work.
-
-* _bandwidth_: optimal bitrate (bits over network per second); measured in Gbps https://hpbn.co/primer-on-latency-and-bandwidth/
-
-* _latency_: time that req waiting to be handled; people use as a synonym for response time [Kleppmann 14]
-* _latency_: https://robertovitillo.com/why-you-should-measure-tail-latencies/
-
-https://networkengineering.stackexchange.com/questions/52232/whats-the-difference-between-latency-and-round-trip-time
-
-* _response time_: time btw client sending req and receiving res [Kleppmann 13-14] speed e.g. how fast does single req come back?; 100M dash
-* _service time_: time to process client req i.e. compute [Kleppmann 14]
-
-* _tail latencies_: synonym for the higher percentiles of response times; hard to reduce bc easily affected by random stuff beyond your control [Kleppmann 15]
-
-## tracing
-
-🗄 `linux.md` tracing
+# 🩻 MONITORING
 
 ---
 
-UM
-* previous https://developers.signalfx.com/basics/apm.html
-> Datadog under hood uses monkey patches whereas signalfx required manual monkey patch
-> how does Datadog work under the hood?
-* __span__: unit of tracing https://www.elastic.co/guide/en/apm/get-started/current/transaction-spans.html https://docs.splunk.com/observability/apm/span-formats.html
-* start/end time, span ID
-* can contain / be contained by other spans
-* use trace IDs
-* tracing system can send span information across network between systems, so you can track a thread of execution across multiple systems
-* https://www.youtube.com/watch?v=idDu_jXqf4E https://www.youtube.com/watch?v=YGWA54nEEy0 https://www.youtube.com/watch?v=r8UvWSX3KA8
-
-za
-* https://github.com/itamarst/eliot
-* https://www.brandur.org/request-ids
-* https://microservices.io/patterns/observability/distributed-tracing.html
-* https://softwareengineering.stackexchange.com/questions/158198/http-response-header-for-a-unique-request-id-for-rest-service
-* https://www.roguelynn.com/words/tracing-fast-and-slow/
-* https://danluu.com/perf-tracing/
-* https://github.com/JonasKs/django-guid
-* https://danluu.com/tracing-analytics/
-* https://netflixtechblog.com/building-netflixs-distributed-tracing-infrastructure-bb856c319304
-
-## uptime / healthcheck
-
----
-
-UPTIME / HEALTHCHECK / HEARTBEAT
-* https://status.calmcode.io/
-* https://news.ycombinator.com/item?id=41452339
-* https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
-* baseline https://healthchecks.io/
-* db connection https://www.youtube.com/watch?v=GT9WmExDbXQ
-* downstream services
-* aaS: UptimeRobot, Checkly, lcurl https://www.youtube.com/watch?v=um24VlkkqGo https://github.com/brotandgames/ciao
-> I setup a 3rd party service to monitor the heartbeats and the return code to validate they are up and properly returning what I expect, notify me if not. I don't have to do sophisticated response processing at the 3rd party service because I can just use http return codes 99% of the time. The detailed response checking is done at the heartbeat level, then a response code generated. https://news.ycombinator.com/item?id=22823230
-* https://updown.io/
-* https://github.com/megaease/easeprobe
-
-# 🛠️ TOOLS
-
-PROVIDERS https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services
+PROVIDERS
 * _Checkly_: https://bitfieldconsulting.com/blog/dips-and-wiggles https://www.checklyhq.com/
 * _HyperDX_: 🎯 https://github.com/hyperdxio/hyperdx
 > HyperDX is an open-source observability platform that unifies all three pillars of observability: logs, metrics and tracing. With it, you can correlate end-to-end and go from browser session replay to logs and traces in just a few clicks. The platform leverages ClickHouse as a central data store for all telemetry data, and it scales to aggregate log patterns and condense billions of events into distinctive clusters. Although you can choose from several observability platforms, we want to highlight HyperDX for its unified developer experience. https://www.thoughtworks.com/radar/platforms/hyperdx
@@ -268,11 +211,6 @@ PROVIDERS
 * _Spindl_: https://www.spindl.xyz/
 * _trench_: https://github.com/FrigadeHQ/trench
 * _Umami_: https://github.com/umami-software/umami
-
----
-
-ZA
-* https://danluu.com/metrics-analytics/ https://www.kalzumeus.com/greatest-hits/ https://danluu.com/web-bloat https://thoughtbot.com/upcase/analytics-for-developers 
 
 ## Clickhouse
 
@@ -382,8 +320,38 @@ ZA
 
 ## Grafana
 
-* _Grafana_: visualize metrics https://www.youtube.com/watch?v=9TJx7QTrTyo [14:00] https://www.reddit.com/r/devops/comments/sevtqs/whats_your_monitoring_stack/
+* _Grafana_: visualize metrics https://www.youtube.com/watch?v=9TJx7QTrTyo [14:00]
 > replace with Textual? TUIs out there?
+* https://www.reddit.com/r/devops/comments/sevtqs/whats_your_monitoring_stack/
+* profiling https://github.com/grafana/pyroscope
+
+## 🪨 Graphite
+
+📜 https://github.com/graphite-project/graphite-web
+
+---
+
+https://www.youtube.com/results?search_query=graphite+metrics
+
+* _statsd_: https://github.com/jsocol/pystatsd https://www.youtube.com/watch?v=-6Hk9rcgM94 https://www.datadoghq.com/blog/statsd/ https://docs.datadoghq.com/developers/dogstatsd/ https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd https://www.youtube.com/watch?v=R4kMwckrUlg Graphite visualization tool for statsd https://www.digitalocean.com/community/tutorials/how-to-configure-statsd-to-collect-arbitrary-stats-for-graphite-on-ubuntu-14-04
+
+## 🔥 Logfire
+
+📜 https://github.com/pydantic/logfire
+
+---
+
+HOW TO START
+* https://news.ycombinator.com/item?id=24006697
+* have a health check page https://www.thoughtworks.com/radar/techniques/health-check-pages
+* https://hodovi.ch/blog/monitoring-django-applications
+* https://news.ycombinator.com/item?id=36469147&
+* https://jvns.ca/blog/2022/07/09/monitoring-small-web-services/
+* status page https://github.com/harsxv/tinystatus https://statusgator.com/
+* ⭐️ https://github.com/ankorstore/yokai
+* _get metrics_: point Uptime Robot at a URL https://www.youtube.com/watch?v=o9ekAeoBXDs Lighthouse https://forgeperf.org/ https://www.thoughtworks.com/radar/tools?blipid=1158
+* _measure metrics_: https://news.ycombinator.com/item?id=23360794
+* _sink_: https://serversforhackers.com/s/process-monitoring https://blog.appoptics.com/the-four-golden-signals-for-monitoring-distributed-systems/ https://infrequently.org/2018/09/the-developer-experience-bait-and-switch/ https://3perf.com/talks/web-perf-101/ https://medium.baqend.com/web-performance-made-simple-fc61d81d0c0e http://mediatemple.net/blog/tips/low-hanging-fruit-web-performance/ https://medium.com/observability/want-to-debug-latency-7aa48ecbe8f7 https://ferdychristant.com/amp-the-missing-controversy-3b424031047 https://medium.freecodecamp.org/a-beginners-guide-to-website-optimization-2185edca0b72 https://panic.com/blog/mystery-of-the-slow-downloads/ https://github.com/monitoror/monitoror
 
 ## OpenTelemetry
 
@@ -408,6 +376,68 @@ ZA
 ---
 
 * https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services/ https://github.com/yolossn/Prometheus-Basics https://softwareengineeringdaily.com/2020/07/09/chronosphere-scalable-metrics-database-with-rob-skillington/ https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://monzo.com/blog/2018/07/27/how-we-monitor-monzo/ https://www.youtube.com/watch?v=9TJx7QTrTyo [13:00]
+
+## 🟧 Signoz
+
+📜 https://github.com/SigNoz/signoz
+
+* they really dont want you to self-host https://signoz.io/docs/install/docker/
+> The easiest way to run SigNoz is to use SigNoz Cloud - no installation, maintenance, or scaling needed.
+
+PRICING 🗄️ `business.md` pricing
+* $200/month sub per org 
+* usage: logs ($0.3/GB ingested) traces ($0.3/GB ingested) metrics ($0.1/M samples)
+* rentention: 15 days
+
+---
+
+> marking them as viable for now just so you can see how OpenTelemetry spec works
+
+* https://news.ycombinator.com/item?id=33049046
+
+## tracing
+
+🗄 `linux.md` tracing
+
+---
+
+UM
+* previous https://developers.signalfx.com/basics/apm.html
+> Datadog under hood uses monkey patches whereas signalfx required manual monkey patch
+> how does Datadog work under the hood?
+* __span__: unit of tracing https://www.elastic.co/guide/en/apm/get-started/current/transaction-spans.html https://docs.splunk.com/observability/apm/span-formats.html
+* start/end time, span ID
+* can contain / be contained by other spans
+* use trace IDs
+* tracing system can send span information across network between systems, so you can track a thread of execution across multiple systems
+* https://www.youtube.com/watch?v=idDu_jXqf4E https://www.youtube.com/watch?v=YGWA54nEEy0 https://www.youtube.com/watch?v=r8UvWSX3KA8
+
+za
+* https://github.com/itamarst/eliot
+* https://www.brandur.org/request-ids
+* https://microservices.io/patterns/observability/distributed-tracing.html
+* https://softwareengineering.stackexchange.com/questions/158198/http-response-header-for-a-unique-request-id-for-rest-service
+* https://www.roguelynn.com/words/tracing-fast-and-slow/
+* https://danluu.com/perf-tracing/
+* https://github.com/JonasKs/django-guid
+* https://danluu.com/tracing-analytics/
+* https://netflixtechblog.com/building-netflixs-distributed-tracing-infrastructure-bb856c319304
+
+## uptime / healthcheck
+
+---
+
+UPTIME / HEALTHCHECK / HEARTBEAT
+* https://status.calmcode.io/
+* https://news.ycombinator.com/item?id=41452339
+* https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
+* baseline https://healthchecks.io/
+* db connection https://www.youtube.com/watch?v=GT9WmExDbXQ
+* downstream services
+* aaS: UptimeRobot, Checkly, lcurl https://www.youtube.com/watch?v=um24VlkkqGo https://github.com/brotandgames/ciao
+> I setup a 3rd party service to monitor the heartbeats and the return code to validate they are up and properly returning what I expect, notify me if not. I don't have to do sophisticated response processing at the 3rd party service because I can just use http return codes 99% of the time. The detailed response checking is done at the heartbeat level, then a response code generated. https://news.ycombinator.com/item?id=22823230
+* https://updown.io/
+* https://github.com/megaease/easeprobe
 
 # 🟨 ZA
 
@@ -436,6 +466,17 @@ SEMANTICS
 > waitlist -(bool) did they signup for the waitlist?
 * _clickstream_: path of links/buttons followed by user
 * personal analytics: for personal site, likes on social sites https://www.arp242.net/personal-analytics.html
+
+## incidents
+
+* _fault_: when something goes wrong [Kleppmann 7]
+* _incident_: when system stops serving user https://softwareengineeringdaily.com/2019/10/16/incident-reproduction-with-tammy-butow/ 
+* _monitor_: metric you care about
+* _alert_: conditional re: monitor
+* _notification fatigue_: when alerts stop mattering https://brandur.org/alerting
+* _management_: https://github.com/monzo/response https://response.pagerduty.com/ https://netflixtechblog.com/introducing-dispatch-da4b8a2a8072 Pager Duty alternative https://github.com/target/goalert
+* https://x.com/ycombinator/status/1858555769513537751
+* _post-mortem_: https://blog.github.com/2018-10-30-oct21-post-incident-analysis/ https://status.sr.ht/issues/2020-10-08-git.sr.ht-disk-usage/
 
 ## logging
 
@@ -483,17 +524,3 @@ https://news.ycombinator.com/item?id=30394152
 * _formats_: CLF, Amazon, Nginx https://github.com/allinurl/goaccess common log format https://vicki.substack.com/p/logs-were-our-lifeblood-now-theyre https://brandur.org/logfmt https://medium.com/hiredscore-engineering/logging-lets-do-it-right-41d568d3bfcd
 * _tools_: Logstash, Fluentd https://github.com/itamarst/eliot https://news.ycombinator.com/item?id=21461617 https://github.com/rcoh/angle-grinder https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-log-analyzers https://github.com/allinurl/goaccess psutil (get system info like CPU, mem, users) Honeycomb https://www.honeycomb.io/blog/tell-me-more-nginx/ https://hynek.me/talks/beyond-grep/
 * _sink_: log growth roughly linear https://www.youtube.com/watch?v=-6Hk9rcgM94 https://stripe.com/gb/blog/canonical-log-lines
-
-## perf
-
-🗄️ `databases.md` perf
-📙 Gregg systems performance
-
----
-
-https://blog.pecar.me/sqlite-wal
-https://blog.pecar.me/django-sqlite-benchmark
-https://blog.pecar.me/django-sqlite-dblock
-https://testdriven.io/blog/django-performance-optimization-tips/
-https://www.youtube.com/watch?v=gpbpVheR3gM
-https://blog.pecar.me/django-streaming-responses

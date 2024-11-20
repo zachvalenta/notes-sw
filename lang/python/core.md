@@ -644,6 +644,12 @@ reduce(mul, nums)  # 6
 
 🗄 functools/partial
 
+* _inner_:
+* considered harmful
+> Although writing your helper functions as inner functions achieves the desired result, you’ll probably be better served by extracting them as top-level functions. In this case, you could use a leading underscore (_) in the name of the function to indicate that it’s private to the current module or class. https://realpython.com/inner-functions-what-are-they-good-for/#encapsulation
+
+---
+
 https://realpython.com/python-closure/
 
 https://www.youtube.com/watch?v=jXugs4B3lwU
@@ -1605,6 +1611,7 @@ any([''])  # False
 
 ---
 
+* local, nonlocal https://realpython.com/inner-functions-what-are-they-good-for/#encapsulation
 * _nested scope_: https://docs.python.org/3/glossary.html#term-nested-scope
 🔗 https://blog.araj.me/til-nonlocal-statement-in-python/ https://realpython.com/python-namespaces-scope/ https://muhammadraza.me/2023/Python-Namespace/
 
@@ -1665,5 +1672,3 @@ https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com/text/whi
 * _20_: Python 2 EoL
 * _3.11_: specializing adaptive interpreter https://peps.python.org/pep-0659/
 * _3.13_: JIT https://tonybaloney.github.io/posts/python-gets-a-jit.html
-
-* using other language in Python e.g. Julia https://www.peterbaumgartner.com/blog/incorporating-julia-into-python-programs/

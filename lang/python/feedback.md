@@ -51,6 +51,8 @@ def simple_tracer(frame, event):  # 4:30
 
 ---
 
+https://github.com/leapingio/leaping
+
 IPYTHON
 * https://switowski.com/blog/ipython-debugging/
 * https://adamj.eu/tech/2021/02/21/improve-your-django-experience-with-ipython/

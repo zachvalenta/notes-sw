@@ -51,27 +51,23 @@ STEDI THE COMPANY
 
 # 🟪️ EDI
 
-COMPONENTS
-* versions https://x12.org/news-and-events/release-schedule https://www.stedi.com/edi/x12-008050 https://www.stedi.com/blog/getting-started-with-the-x12-file-format
-* _mailbag_: n envelopes
-* _envelope_: a single x12 document and its transmission
-* _segment_: LOC; terminated w/ `~`
-* order: ISA, GSA (metadata), IEA comes last (InterchangeEnvelope)
-* _element_: segment subcomponent; separated w/ `*`, dupe `**` = blank el
+🎗️ versions https://x12.org/news-and-events/release-schedule https://www.stedi.com/edi/x12-008050 https://www.stedi.com/blog/getting-started-with-the-x12-file-format
 
-DOCUMENT LISTS
-* _document list (DL)_: type of x12 document https://en.wikipedia.org/wiki/X12_Document_List
-* aka transaction set https://www.stedi.com/edi/x12 https://x12.org/products/transaction-sets https://en.wikipedia.org/wiki/X12_Document_List
-* each company picks a subset that they want to work with https://static.fishersci.com/cmsassets/downloads/segment/Scientific/pdf/WebServices/EDIspecGuideCust832.pdf
+COMPONENTS
+* _element_: segment subcomponent; separated w/ `*`, dupe `**` = blank el
+* _segment_: LOC; terminated w/ `~`
+* order: ISA (initial), GSA (metadata), IEA (InterchangeEnvelope; terminal)
+* _loop_: list of common segments
+* _envelope_: a single x12 document and its transmission
+* _mailbag_: n envelopes
+* _transaction set (TS)_: type of x12 doc https://www.stedi.com/edi/x12 https://en.wikipedia.org/wiki/X12_Document_List https://x12.org/products/transaction-sets 
 * file extension: `.edi`, `.x12`, `.dat`, `.txt`
-* _832_: DL for catalog
-* _850_: DL purchase order
-* _855_: DL purchase order (= HTTP 200)
-* _997_: DL for ack https://github.com/azoner/pyx12
-* _999_: ? https://github.com/azoner/pyx12
+* examples: 832 catalog 850 purchase order 885 HTTP 200 997 ack
+* _implementation guideline_: additional instructions from receiver re: how sender should impl transaction set 🧠 https://chatgpt.com/c/673d0121-f4d8-8004-b903-4d083157a552
+* _guideline position_: location of segment w/in implementation guideline e.g. CTP at position 170 in Fastenal 823 implementation guideline
 
 ZA
-* _qualifiers_: type for ID https://chatgpt.com/c/671fa56b-6de4-8004-a31a-7dc361d40c8b
+* _qualifiers_: type for ID
 * `ZZ` custom `01` DUNS `20` Health Industry Number (HIN) `30` U.S. Federal Tax Identification
 * _transaction set purpose codes_: "why is document being sent?", only shows up in (typically) a single segment, can apply to multiple document lists (832, 850)
 * `00` new `01` cancel previously sent doc `04` update `05` replace `06` ack receipt of sent doc `24` draft
@@ -105,11 +101,50 @@ ZA
 
 ISA15 (usage - test|prod)
 
-## LIN
+## products
 
-🧠 https://chatgpt.com/c/672a2132-cf28-8004-9afa-c0bd20a0ffa0
+LIN
+* _LIN_: UUDI e.g. UPC|SKU
+* _LIN01_: internal line number for tracking
+* _LIN02_: qualifier
+* _LIN03_: ID itself
+```sh
+# UP = UPC, ID = 012345678905
+LIN**UP*012345678905
+```
 
-* _LIN_: ID e.g. UPC, SKU
+PID
+* _PID_: desc
+* _PID01_: desc type e.g. `F` free-form `S` structured
+* _PID05_: actual desc
+```sh
+# F = free-form
+PID*F****Blue T-Shirt, Size Large
+```
+
+CTP
+* _CTP_: price
+* _CTP01_: price tier e.g. CN consumer WS wholesale RT retail IN industrial GO government HV healthcare
+* _CTP02_: qualifier e.g. UCP (unit cost price)
+* _CTP03_: unit price
+* _CTP05_: unit type (composite unit of measure) e.g. each, dozen
+```sh
+CTP**UCP*10.50**1*EA
+```
+
+ZA
+* _G53_: CRUD ("maintenance operation"); `001` update `002` delete `003` create
+* _DTM_: date range for CTP
+* _LDT_: lead time
+```sh
+# type * quantity * unit of time
+# from date of purchase order to shipment * 10 * workdays
+LDT*AE*10*DW~
+
+# valid 2024.11.01-30
+DTM*196*20241101~
+DTM*197*20241130~
+```
 
 ## meta
 
@@ -154,6 +189,7 @@ ATTEMPTS AT REPLACEMENT https://chatgpt.com/c/670d82d9-c488-8004-967f-2a987b16c9
 🔍 https://github.com/michaelachrisco/Electronic-Interchange-Github-Resources
 
 YES
+* _edifabric_: https://www.edifabric.com/
 * _pyedi_: parse (x12-JSON) https://github.com/freestream/pyedi 💻 https://github.com/zachvalenta/capp-pyedi
 * not on PyPI; fork and publish? https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 ```python
@@ -778,6 +814,7 @@ CASES
 
 ## identifiers
 
+* _DUNS_: unique for businesses as legal entities; require for government contracts, to be a supplier to big businesses, for SSL certs; e.g. `00-186-7803` for Apple
 * _SKU_: internal to retailer/warehouse; variable length, fmt repr product characteristics/location
 * _ASIN_: Amazon SKU; 10 char; per product i.e. if multiple sellers sell same product they use same ASIN https://inventlikeanowner.com/blog/the-story-behind-asins-amazon-standard-identification-numbers/
 * _UPC_: unique across retailers; 12 char; overseen by GS1

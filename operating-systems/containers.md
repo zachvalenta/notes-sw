@@ -10,7 +10,7 @@
 
 ## 进步
 
-PLAN GOING FORWARD
+PLAN GOING FORWARD 🗄️ `architecture.md` Capp db data mgmt
 * air-capp: Docker Desktop
 * mini23: Colima + see if you can run `product-workflow`
 * get a handle on specs/OCI/CRI https://chatgpt.com/c/673a53d0-f3fc-8004-99ce-c0355d67d2f8

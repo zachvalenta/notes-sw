@@ -10,123 +10,65 @@
 * Ferguson game of go
 * Perrota programming ML https://www.amazon.com/Programming-Machine-Learning-Zero-Deep/dp/1680506609/ref=sr_1_1
 * Trask deep learning https://github.com/iamtrask/Grokking-Deep-Learning
+* Wolfram https://www.amazon.com/What-ChatGPT-Doing-Does-Work/dp/1579550819 https://bookoverflow.io/
 
 ## 进步
 
-* cleanup
-* boundaries: operationalizing, projects, NLP, stdlib
+* get API tier [see aichat/mods notes?]
+> export current chats first | incorporate old chats into notes and gradually rm over time
+> llm only add new chats? assume so.
+* CLI: llm
+* code assist
+* model: 4o, o1-preview, Claude
 
-* _24_: usage (regex, stdlib, EDI) tooling (clients)
+* _24_: usage (regex, stdlib, EDI) tooling (clients in general, taxonomize, start with llm/aider/msty)
 > using a lot, much progress -> had this in notes from before! https://realpython.com/chatgpt-coding-mentor-python/ 
 * _23_: few random queries
 
 # 🤖 CLIENTS
 
+FILE FMT
+* API spec
+> ch works with any compatible chat completion API that has the same interface as ChatGPT https://github.com/dnmfarrell/ch
+> Projects such as LocalAI offer a REST API that imitates the OpenAI API but can be used to run other models, including models that can be installed on your own machine. These can be added using the same configuration mechanism. https://llm.datasette.io/en/stable/other-models.html#openai-compatible-models
+* Claude JSON export https://simonwillison.net/2024/Oct/21/claude-artifacts/
+
+ZA
+> one annoying thing about ChatGPT is when you open a chat it's not reflected in the sidebar so if you want to rename or delete it you have to scroll sidebar and manually find it
+* search: filename, file contents
+* organization: https://chatgpt.com/c/67108642-c0cc-8004-b985-28773a5764fb
+
 ---
 
-Can you give a taxonomy of $FOO in the form of a tree, like this?
-```sh
-├── root
-│   └── nodes
-│   └──── leaves
-```
+FILE FMT
+https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a https://chatgpt.com/c/671ebbd6-c110-8004-a519-0f723970d64c
+* streaming https://til.simonwillison.net/llms/streaming-llm-apis
+* _JSON_: Superpower ChatGPT, Claude https://github.com/simonw/claude-to-sqlite https://simonw.substack.com/p/everything-i-built-with-claude-artifacts https://support.anthropic.com/en/articles/9450526-how-can-i-export-my-claude-ai-data
+> you've more in Elia about JSON export
+* _Markdown_: https://simonw.substack.com/p/video-scraping-using-google-gemini https://github.com/kardolus/chatgpt-cli?tab=readme-ov-file#markdown-rendering
+> don't forget you should be able to parse JSON to Markdown as well
+* _XML_: https://github.com/simonw/files-to-prompt
 
-> sort these
+browser interaction https://news.ycombinator.com/item?id=42052432 https://news.ycombinator.com/item?id=42052432
+> Claude from the browser https://news.ycombinator.com/item?id=42012412
 
-NON-CLI/TUI
-* DDG offers bang (`ai`), slightly faster REPL but loses all org functionality
-* emacs https://github.com/karthink/gptel
-* https://chatboxai.app/en
+## CLI (llm)
 
-CLI/TUI
-* _aichat_: 🎯 multichat https://github.com/sigoden/aichat/issues/924 https://github.com/sigoden/aichat 
+LLM 📜 https://llm.datasette.io
+* guide https://simonwillison.net/2024/Jun/17/cli-language-models/
+* logs https://simonwillison.net/2024/Mar/22/claude-and-chatgpt-case-study/ https://llm.datasette.io/en/stable/logging.html
+* working with audio https://simonw.substack.com/p/video-scraping-using-google-gemini https://simonw.substack.com/p/run-prompts-against-images-audio
+* models: default is ChatGPT https://llm.datasette.io/en/stable/openai-models.html others https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3 https://simonw.substack.com/p/claude-35-haiku
+
+PROSPECTIVE
+* _aichat_: 🎯 multichat https://github.com/sigoden/aichat https://github.com/sigoden/aichat/issues/924
 * _ch_: 🎯 https://github.com/dnmfarrell/ch https://blog.dnmfarrell.com/post/chatgpt-at-the-terminal/
-* _chat-macOS_: https://github.com/huggingface/chat-macOS https://news.ycombinator.com/item?id=41927624
-* _chatgpt-cli_: 🎯 Markdown https://github.com/kardolus/chatgpt-cli
-* _ell_: Bash https://github.com/simonmysun/ell
-* _gpt4all_: local https://github.com/nomic-ai/gpt4all
-* _lmstudio_: https://lmstudio.ai/
-* _jan_: 🎯 https://github.com/janhq/jan
-* _khoj_: 🎯 https://github.com/khoj-ai/khoj
-* _llm_: 🎯 https://llm.datasette.io/en/stable/ https://datasette.io/tools/llm https://simonw.substack.com/p/video-scraping-using-google-gemini plugins for models https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3 https://simonw.substack.com/p/run-prompts-against-images-audio https://simonw.substack.com/p/claude-35-haiku
-* _msty_: https://msty.app/
-* _mods_: 🎯 Markdown output https://github.com/charmbracelet/mods
-* continue conversation https://github.com/charmbracelet/mods/issues/197
-* _oterm_: for Ollama https://github.com/ggozad/oterm
-* _tenere_: 🎯 file output, no Homebrew install yet https://github.com/pythops/tenere https://github.com/pythops/tenere/issues/31
-* _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
-
----
-
-## code assist
-
-> LLMs are good at explaining code. Give it code in a language you don't understand and it will explain it with 90% accuracy. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
-
-FEATURES https://zackproser.com/blog/cursor-review
-* autocomplete vs. natural language
-> If copy and pasting back and forth between ChatGPT.com is crawling, then Cursor's interface is sprinting. Being able to discuss the code, architecture, a single file, or to tell Cursor to use a file as inspiration when making other changes is my favorite feature of Cursor.
-* model interop
-> Users want control over which model they're running and want to be able to swap them quickly or provide their own API keys as needed to avoid limits.
-* at-mention specific files (Aider) vs. just saying what you want done
-
-OPTIONS 🗄️ `vim.md` zed
-> retry Claude for Zed integration
-* impl https://news.ycombinator.com/item?id=42078536
-* _Aide_: IDE https://news.ycombinator.com/item?id=42063346
-* _aider_: CLI https://aider.chat/
-* _Avante_: Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835 https://www.youtube.com/watch?v=r-3o35-5hlg https://www.youtube.com/watch?v=4kzSV2xctjc https://www.youtube.com/watch?v=iyftGvVs86E
-* _Cline_: https://github.com/cline/cline
-* _Codeium_: https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
-* _Copilot_: multi-model https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
-* _Cursor_: closed source, Chromium https://www.cursor.com/
-* https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203 https://news.ycombinator.com/item?id=41988211 https://news.ycombinator.com/item?id=41987367
-* _TypingMind_: https://news.ycombinator.com/item?id=41988306
-* _Void_: https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
-
-PROJECTS
-* gfold https://github.com/nickgerace/gfold/issues/261
-* basilk: alphabetic sort projects, JSON output
-* lazygit (option to not add dir to recently_visited) https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
-
----
-
-https://til.simonwillison.net/clickhouse/github-public-history
-https://www.thediff.co/archive/offshoring-and-ai-agents/
-
-* https://news.ycombinator.com/item?id=41732634
-> It’s worth noting that AI tools are intimately familiar with Next.js and not so much with htmx, due to the lack of open-source training data. This is similar to the issue Rails faces. While not a dealbreaker, it did impact our development speed and the ease of finding solutions to problems. When we encountered issues, the wealth of resources available for React/Next.js made troubleshooting much faster. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
-
-https://news.ycombinator.com/item?id=41563958
-
-* legacy codebases https://bloop.ai/ https://www.driverai.com/
-
-https://aider.chat/ https://news.ycombinator.com/item?id=41453237
-https://news.ycombinator.com/item?id=41929174&utm_term=comment
-
-https://github.com/guywaldman/magic-cli https://news.ycombinator.com/item?id=40980715
-
-wilder, vimgpt https://www.youtube.com/watch?v=WeulqMMJgrs
-
-https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
-
-> The crux of my raging hatred is not that I hate LLMs or the generative AI craze. I had my fun with Copilot before I decided that it was making me stupider - it's impressive, but not actually suitable for anything more than churning out boilerplate. Nothing wrong with that, but it did not end up being the crazy productivity booster that I thought it would be, because programming is designing and these tools aren't good enough (yet) to assist me with this seriously. https://ludic.mataroa.blog/blog/i-will-fucking-piledrive-you-if-you-mention-ai-again/
-
-https://github.com/leapingio/leaping
-https://visualstudiomagazine.com/articles/2024/01/25/copilot-research.aspx
-https://www.youtube.com/watch?v=MzFr7iXsESs
-https://www.youtube.com/watch?v=dkV01hBdhZE
-
-* math: https://ollama.com/blog/wizardmath-examples
-* Copilot
-* Cody https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
-* https://stratechery.com/2024/gemini-1-5-and-googles-nature/
-* https://news.ycombinator.com/item?id=37940572
-* https://www.youtube.com/watch?v=MzFr7iXsESs
-* https://simonwillison.net/2023/Dec/31/ai-in-2023/
-
-## elia
+* _mods_: 🎯 Markdown output https://github.com/charmbracelet/mods continue conversation https://github.com/charmbracelet/mods/issues/197
+* _tenere_: 🎯 file output, create Homebrew install yet https://github.com/pythops/tenere https://github.com/pythops/tenere/issues/31
 
 ELIA 📜 https://github.com/darrenburns/elia
+* API key 🗄️ `src.md` secrets https://github.com/darrenburns/elia/issues/52 https://github.com/darrenburns/elia/issues/73
+> open a PR to document this
 * config fs: `$HOME/.config`
 * design: slow startup
 * themes https://github.com/darrenburns/elia/issues/72
@@ -135,41 +77,63 @@ ELIA 📜 https://github.com/darrenburns/elia
 > ❌ no way to do this through the UI https://chatgpt.com/c/67106b06-8884-8004-ab78-84e5bce7dea9
 > how does this work under the hood? https://github.com/darrenburns/elia?tab=readme-ov-file#wiping-the-database
 
----
+LOW ADOPTION | FEATURE POOR
+> BYO examples
+* _chatgpt-cli_: 🎯 Markdown https://github.com/kardolus/chatgpt-cli
+* _ell_: 🎯 Bash https://github.com/simonmysun/ell
+* _Magic CLI_: https://github.com/guywaldman/magic-cli
+* _oterm_: for Ollama https://github.com/ggozad/oterm
+* _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
+* _zsh codex_: https://github.com/tom-doerr/zsh_codex
 
-ELIA API KEY
-> open a PR to document this
-* https://github.com/darrenburns/elia/issues/52
-* https://github.com/darrenburns/elia/issues/73
-* 🗄️ `src.md` secrets
-```txt
-Say you have a CLI program that needs a secret (e.g. an API key). The secret needs to be exposed as a Linux environment variable. You don't want to store the secret in your .bash_profile because:
-* you have your environment variables version controlled
-* the secret would be exposed to all other programs running on your machine
-```
+## 🏥 code assist (aider)
 
-## features
+📙 Brosseau LLMs in production https://www.manning.com/books/llms-in-production
+🎗️ use AI to write docs and understand the entire architecture of the system https://www.driver.ai/
 
-FEATURES
-> one annoying thing about ChatGPT is when you open a chat it's not reflected in the sidebar so if you want to rename or delete it you have to scroll sidebar and manually find it
-* folders: https://chatgpt.com/c/67108642-c0cc-8004-b985-28773a5764fb
-* search: 
-* export: 🗄️ Elia
+ORDER OF OPERATIONS
+* Aider
+* Zed
+* Codeium
+* Cline
+* Cursor
 
----
+OPTIONS 🗄️ `vim.md` zed
+> retry Claude for Zed integration
+* impl https://news.ycombinator.com/item?id=42078536
+* _Aide_: ❌ VSC-fork https://aide.dev/ https://news.ycombinator.com/item?id=42063346
+* _aider_: 🎯 CLI https://aider.chat/
+* _Avante_: ❌ Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835 https://www.youtube.com/watch?v=r-3o35-5hlg https://www.youtube.com/watch?v=4kzSV2xctjc https://www.youtube.com/watch?v=iyftGvVs86E
+* _Cline_: 🎯 VSC extension https://github.com/cline/cline
+* _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
+* _Cody_: https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
+* _Copilot_: ❌ VSC-native, multi-model https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
+* Continue: autocomplete https://ollama.com/blog/continue-code-assistant
+* _Cursor_: 🎯 closed source, Chromium (VSC fork?) https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203 https://news.ycombinator.com/item?id=41988211 https://news.ycombinator.com/item?id=41987367
+* _Void_: ❌ Cursor alternative, unfinished https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
 
-browser interaction https://news.ycombinator.com/item?id=42052432 https://news.ycombinator.com/item?id=42052432
-> Claude from the browser https://news.ycombinator.com/item?id=42012412
+FEATURES https://zackproser.com/blog/cursor-review
+* niche: COBOL to Java https://bloop.ai/
+* at-mention specific files (Aider) vs. just saying what you want done
+* CLI|in-editor|standalone
+> I'd much, much prefer Aide to continue as a CLI tool or as a VSCode plugin. Every fork of VSCode ends up with IDE maintenance bugs that never get addressed and slowly the effort implodes as the bug surface becomes too wide. https://news.ycombinator.com/item?id=42063346
+* autocomplete vs. natural language
+> If copy and pasting back and forth between ChatGPT.com is crawling, then Cursor's interface is sprinting. Being able to discuss the code, architecture, a single file, or to tell Cursor to use a file as inspiration when making other changes is my favorite feature of Cursor.
+* model interop
+> Users want control over which model they're running and want to be able to swap them quickly or provide their own API keys as needed to avoid limits.
 
-> get API tier, try mods, export current conversations https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a do you really need to export current? just incorporate into your notes and delete, leaving anything outstanding. your notes is the final downstream for everything (excluding code, music, etc.), hence LLMs are upstream. the goal with this is to 1) reduce friction re: queries 2) better...system message / prompts / RAG 3) history / stats 4) tags
+## 🟦 GUI (msty)
 
-FILE FMT https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a https://chatgpt.com/c/671ebbd6-c110-8004-a519-0f723970d64c
-* streaming https://til.simonwillison.net/llms/streaming-llm-apis
-* JSON: Superpower ChatGPT, Claude https://github.com/simonw/claude-to-sqlite https://simonw.substack.com/p/everything-i-built-with-claude-artifacts https://support.anthropic.com/en/articles/9450526-how-can-i-export-my-claude-ai-data
-> you've more in Elia about JSON export
-* Markdown: https://simonw.substack.com/p/video-scraping-using-google-gemini
-> don't forget you should be able to parse JSON to Markdown as well
-* XML: https://github.com/simonw/files-to-prompt
+* _Chatbox_: desktop app https://chatboxai.app/en
+* _chat-macOS_: spotlight, Homebrew https://github.com/huggingface/chat-macOS https://news.ycombinator.com/item?id=41927624
+* _DDG_: ❌ `!ai` = slightly faster REPL but loses all org functionality
+* _gpt4all_: 🎯 local https://github.com/nomic-ai/gpt4all
+* _janAI_: local https://jan.ai/ https://msty.app/as/janai-alternative
+* _khoj_: 🎯 https://github.com/khoj-ai/khoj
+* _lmstudio_: 🎯 local https://lmstudio.ai/ https://msty.app/as/lmstudio-alternative
+* _msty_: 🎯 aaS and local https://msty.app/
+* _SillyTavern_: 🎯 https://github.com/SillyTavern/SillyTavern
+* _TypingMind_: web app https://www.typingmind.com/ https://news.ycombinator.com/item?id=41988306
 
 # 🧠 MODELS
 
@@ -181,7 +145,8 @@ FILE FMT https://chatgpt.com/c/671bf6dc-3058-8004-8e67-fff34d61eb1a https://chat
 ## aaS
 
 YES
-* _ChatGPT_:  native client (global hotkey conflicts with iterm but you get search https://openai.com/chatgpt/mac/)
+* _ChatGPT_: 22.11 GPT 23.03 GPT4 24.05 GPT4o 24.09 o1-preview 
+* native client: global hotkey conflicts with iterm https://openai.com/chatgpt/mac
 * web client: search added 241031 (intra-doc but slow, none by title), no tags/org/page up, dark mode is bad for seeing prompt
 * _Mistral_: less polished but fast + search https://chat.mistral.ai/chat
 * _Perplexity_: search/org https://www.perplexity.ai/
@@ -195,18 +160,31 @@ NO
 
 ---
 
+* YiCoder: https://news.ycombinator.com/item?id=41453237
 * features: moderation, tuning to domain
 * Mixtral
 * Haiku
 
 ## OSS
 
+🗄️ `hw.md` Apple 
+
+HARDWARE https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can
+> 🎗️ llamafile https://simonwillison.net/2024/Jun/17/cli-language-models/ https://simonwillison.net/2023/Nov/29/llamafile/
+* mini23 uses 8B just w/ VS Code + browser + macOS core services
+* Qwen req 32B
+* Simon has 64B
+
+MODELS https://simonwillison.net/2024/Jun/17/cli-language-models/
+* BYO https://github.com/pingcap/autoflow
+* _Codestral_: https://ollama.com/blog/continue-code-assistant
 * _Centaur_: https://x.com/marcel_binz/status/1850806691958313160
 * _Gemma_: https://ai.google.dev/gemma
+* _jan_: 🎯 https://github.com/janhq/jan
 * _Llama_: Meta https://en.wikipedia.org/wiki/Llama_(language_model) uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
 * _ollama_: ⭐️ https://ollama.com/
-* can run any model e.g. Qwen but might need a computer with more CPU/GPU https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can
-> Ollama lets us customize an LLM through a Modelfile, which includes things like setting model parameters, system prompts etc. If we fine-tuned a model [2], it can also be loaded into Ollama by specifying our own GGUF file. https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
+> customize through a Modelfile, incl model parameters, system prompts etc. https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
+* multimodal, OCR https://ollama.com/blog/llama3.2-vision
 * _Qwen_: https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can
 
 ---
@@ -214,12 +192,16 @@ NO
 * run locally https://github.com/getumbrel/llama-gpt
 * run locally https://github.com/Mozilla-Ocho/llamafile
 * running locally, llamafile https://news.ycombinator.com/item?id=40424519
-* code prompt: https://ollama.com/blog/how-to-prompt-code-llama https://ollama.com/blog/run-code-llama-locally Codestral https://ollama.com/blog/continue-code-assistant
+* code prompt: https://ollama.com/blog/how-to-prompt-code-llama https://ollama.com/blog/run-code-llama-locally
+
+## ⭐️ Nueco
+
+📙 Brosseau LLMs in production https://www.manning.com/books/llms-in-production
+https://changelog.com/practicalai/295
 
 ## operationalizing
 
 🛣️ https://roadmap.sh/mlops
-📙 https://www.manning.com/books/llms-in-production
 
 * gradient-boosted trees better for audit than neural nets
 * https://roadmap.sh/mlops
@@ -236,15 +218,19 @@ NO
 
 ## RAG
 
+🗄️ `doc.md` notes
 📚
 * https://www.amazon.com/gp/product/1098150961
 * build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch
 
-> Retrieval augmented generation (RAG) is an architecture that provides the most relevant and contextually-important proprietary, private or dynamic data to your Generative AI application's large language model (LLM) when it is performing tasks to enhance its accuracy and performance. https://www.pinecone.io/learn/retrieval-augmented-generation/
+* BYO https://github.com/bhavnicksm/chonkie https://github.com/explosion/spacy-layout https://github.com/DS4SD/docling https://x.com/_inesmontani
+> I said earlier that building an LLM was still out of reach of hobbyists. That may be true for training from scratch, but fine-tuning one of those models is another matter entirely.  There’s now a fascinating ecosystem of people training their own models on top of these foundations, publishing those models, building fine-tuning datasets and sharing those too. The Hugging Face Open LLM Leaderboard is one place that tracks these. I can’t even attempt to count them, and any count would be out-of-date within a few hours. https://simonwillison.net/2023/Dec/31/ai-in-2023/
 * howto: Python in a sidecar and then your server in another language (that lacks Python's ML stdlib) talks to that https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
 
 ---
 
+* _Guru_: https://www.getguru.com/
+> Retrieval augmented generation (RAG) is an architecture that provides the most relevant and contextually-important proprietary, private or dynamic data to your Generative AI application's large language model (LLM) when it is performing tasks to enhance its accuracy and performance. https://www.pinecone.io/learn/retrieval-augmented-generation/
 * BYO https://www.youtube.com/@zackproser/videos https://aws.amazon.com/bedrock/
 * _RAG_: document-based interactions https://github.com/sigoden/aichat#rag-chat-with-your-documents TTS https://changelog.com/practicalai/288 https://zackproser.com/blog/how-are-embeddings-models-trained-for-rag https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation knowledge graph https://www.manning.com/books/knowledge-graph-enhanced-rag
 * when you need more than either aaS or OSS
@@ -254,6 +240,7 @@ NO
 > You talked a lot about this distinction between LLM benchmarks and evaluating LLM applications. Could you talk a little bit about the differences? Maybe there are software engineers in the audience, that maybe they’re used to writing unit tests and integration tests for their software. Now as a consumer, as you said, they’re integrating some LLM functionality, or maybe a chain of reasoning with LLMs into their software. From a practical standpoint, what are the new types of things that they might need to consider that are different maybe from the way that they’ve unit-tested in the past, or written tests in the past, now that they’re working with these LLM workflows? https://changelog.com/practicalai/284#transcript
 > Generative AI models struggle when you ask them about facts not covered in their training data. Retrieval Augmented Generation—or RAG—enhances an LLM’s available data by adding context from an external knowledge base, so it can answer accurately about proprietary content, recent information, and even live conversations. https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation
 > Claude's extensive context window has also transformed their approach to handling large codebases. When the 200K context window was released, Hedley notes they "ripped out the entire RAG and just put it in the context window instead and it went from 60 percent accuracy to 98. It was quicker, cheaper, better, everything." This combination of automation, speed, and accuracy has fundamentally changed how Headstart approaches software development. https://www.anthropic.com/customers/headstart
+https://openai.com/index/introducing-canvas/
 * https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
 * RAG, vector https://news.ycombinator.com/item?id=41105130 https://en.wikipedia.org/wiki/Retrieval-augmented_generation https://retool.com/blog/retrieval-augmented-generation https://www.youtube.com/watch?v=Q75JgLEXMsM https://www.youtube.com/watch?v=PJaqp5Kdwz0
 * how to teach https://news.ycombinator.com/item?id=38759877
@@ -267,7 +254,6 @@ https://www.amazon.com/gp/product/1098107969
 * ingest all your notes https://news.ycombinator.com/item?id=41732634
 * analyze research papers https://elicit.com/
 * PDF https://dev.to/jagroop2001/building-a-chat-with-pdfs-using-pinataopenai-and-streamlit-3jb7
-* papers to podcasts https://www.fwdaudio.com/ https://x.com/barbell_fi
 * https://www.assemblyai.com/
 
 BYO
@@ -286,6 +272,8 @@ BYO
 
 # 🏗️ USAGE
 
+usage aka modality e.g. GPT understanding images with GPT4 examples of multimodality i.e. text and images
+
 ---
 
 ZA
@@ -296,12 +284,23 @@ ZA
 
 https://platform.openai.com/docs/overview https://cookbook.openai.com/
 
+## agents
+
+---
+
+https://www.thediff.co/archive/offshoring-and-ai-agents/
+https://github.com/ishan0102/vimGPT
+* _agent_: give it a dataset, it writes the paper https://www.oneusefulthing.org/p/almost-an-agent-what-gpts-can-do
+https://edwardbenson.com/2024/06/how-to-reason-about-agent-performance#user-content-fn-1
+https://edwardbenson.com/2024/11/the-worlds-first-ai-street-hawker
+https://edwardbenson.com/lollm
+
 ## audio
 
 TYPES https://elevenlabs.io/
 * dubbing
 * voice clone
-* _TTS_: https://notebooklm.google/ https://news.ycombinator.com/item?id=41964980 multistage https://simonw.substack.com/p/verdad-tracking-misinformation-in
+* _TTS_: https://notebooklm.google/ https://news.ycombinator.com/item?id=41964980 PDF to audio https://www.fwdaudio.com/ https://x.com/barbell_fi multistage https://simonw.substack.com/p/verdad-tracking-misinformation-in
 > Everyone is talking about the new hashtag#AI Notebook LM tool from Google that lets you create podcasts from articles and other sources. I decided to try it for myself, using one of my prior pieces, The Upside and Downside of AI, as the basis for the podcast. The result, which you can listen to in the article, is simply amazing. It doesn't just read the article - it has a discussion between two "people" about it that is very engaging. https://arnoldkling.substack.com/p/llm-links-b9d
 > Meta recently introduced NotebookLlama, an "open" version of Google’s podcast-generating feature found in NotebookLM. Leveraging Meta's Llama models, NotebookLlama is capable of creating conversational, podcast-style digests of uploaded text files, such as PDFs of news articles or blog posts. This technology aims to replicate the interactive storytelling aspect of Google's viral tool, adding its own elements of dramatization and interruptions to make the content sound more dynamic. https://www.superpowerdaily.com/p/google-preps-jarvis-ai-agent-that-works-in-chrome
 * _STT_: https://news.ycombinator.com/item?id=41941845
@@ -356,6 +355,9 @@ TYPES https://elevenlabs.io/
 
 ---
 
+> It’s worth noting that AI tools are intimately familiar with Next.js and not so much with htmx, due to the lack of open-source training data. This is similar to the issue Rails faces. While not a dealbreaker, it did impact our development speed and the ease of finding solutions to problems. When we encountered issues, the wealth of resources available for React/Next.js made troubleshooting much faster. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
+* trained on hacked data, really good for coding https://simonwillison.net/2023/Dec/31/ai-in-2023/ https://til.simonwillison.net/clickhouse/github-public-history
+https://en.wikipedia.org/wiki/Generative_artificial_intelligence
 https://www.apricitas.io/archive https://github.com/zillow/luminaire https://github.com/zillow/fair-housing-guardrail
 https://forklightning.substack.com/
 https://treyhunner.com/2024/07/chatgpt-and-claude-from-your-browser-url-bar/
@@ -377,7 +379,6 @@ ZA
 * use when reading https://www.reddit.com/r/ChatGPT/comments/17p968u/leaving_chatgpt_voice_on_while_reading_a_book_is/?rdt=52836 https://marginalrevolution.com/marginalrevolution/2023/11/the-early-days.html
 * https://twitter.com/patio11/status/1728018125398978659/photo/1
 * training on literature https://news.ycombinator.com/item?id=25607809 https://news.ycombinator.com/item?id=24884789 
-* _agent_: give it a dataset, it writes the paper https://www.oneusefulthing.org/p/almost-an-agent-what-gpts-can-do
 * respond to social pressure https://twitter.com/AndrewCurran_/status/1720177766283505724
 * use to study math https://news.ycombinator.com/item?id=37963453
 * pretty transparent https://twitter.com/zoink/status/1599281052115034113
@@ -509,6 +510,10 @@ how to use https://realpython.com/generate-images-with-dalle-openai-api/
 * _deep learning_: subset of ML using neural networks [Trask 2.10] just stats and calculus https://news.ycombinator.com/item?id=24593529
 * _cybernetic_: https://en.wikipedia.org/wiki/Johns_Hopkins_Beast
 
+## meta
+
+* output first, gimme impl https://austinhenley.com/blog/mirrorlang.html
+
 ## prompts
 
 📙 https://www.manning.com/books/prompt-engineering-in-practice
@@ -516,23 +521,29 @@ how to use https://realpython.com/generate-images-with-dalle-openai-api/
 * `psychology.md` interviewing
 * `work.md` industry > Stack Overflow
 
-HOWTO
-* discrete pieces
-* ask it to ask clarifying questions to help it make better decisions
-* use a framework e.g. "analyze this report by first summarizing key points, then evaluating the data, and finally suggesting improvements"
-> isn't this just a user-defined system prompt? is there a separate word for that?
-* when working with documents, ask it to extract the relevant quotes
-* ask to give options
-* ask it to do better
+STOCK
+* taxonomy
+```txt
+Can you give a taxonomy of $FOO in the form of a tree, like this?
+├── root
+│   └── nodes
+│   └──── leaves
+```
+* summary
 ```txt
 Can you analyze a book for me: $BOOK
-By first summarizing key points in a succinct and logical way i.e. I care most about the claims made by the author and how they are logically supported (or not).
-And then summarizing criticism of the book (positive or negative) in a similar manner.
+First, summarize key points in a succinct and logical way i.e. I care most about the claims made by the author and how they are logically supported (or not).
+Next, summarize criticism of the book (positive or negative) in a similar manner.
+Finally, extract relevant quotes, both indicative of the books arguments and anything that marks its writing style as specific e.g. an airport business book probably has little to mark it stylistically interesting, whereas Proust does.
 ```
 
-GREAT ANSWERS
-* computer eng https://chatgpt.com/c/671121b1-633c-8004-88ee-bcc142ac24f5
-* Python packaging history https://chatgpt.com/c/67111dbc-0964-8004-9e50-41fa41875da8
+STRATEGY
+* use a framework e.g. "analyze this report by first summarizing key points, then evaluating the data, and finally suggesting improvements"
+> isn't this just a user-defined system prompt? is there a separate word for that?
+* discrete pieces
+* ask it to ask clarifying questions to help it make better decisions
+* ask to give options
+* ask it to do better
 
 ---
 
@@ -540,7 +551,7 @@ https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willi
 
 SEMANTICS
 * _prompt engineering_: asking specific questions https://marginalrevolution.com/marginalrevolution/2023/05/how-to-use-gpt-4-plus-web-browsing.html https://www.youtube.com/watch?v=hB7sGE0W8CI
-* _prompt injection_: getting model to do something its creators don't want
+* _prompt injection_: getting model to do something its creators don't want https://simonwillison.net/2023/Dec/31/ai-in-2023/
 * _system message_: hidden instruction that defines the behavior/goals/tone of the model; aka system prompt https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b
 * BYO your own characters https://news.ycombinator.com/item?id=42107113
 > "You are a helpful assistant named Elia."

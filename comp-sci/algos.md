@@ -367,6 +367,11 @@ TYPES
 * _recurrent_: https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm https://victorzhou.com/blog/intro-to-rnns/
 * _convolutional_: https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/how-convolutional-neural-networks-work https://victorzhou.com/blog/intro-to-cnns-part-1/ good for computer vision https://www.youtube.com/watch?v=aircAruvnKk 2:10
 
+## 🇿🇲 ChatZJV
+
+> import `ml.md` cleanup
+Markov chains https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html#installing-your-plugin-to-try-it-out
+
 ## features
 
 * _feature_: metadata 📙 Bueno [25]
@@ -389,7 +394,7 @@ TYPES
 * _supervised_: labeled data during training, unlabeled during predication [Trask 2.11]
 * _unsupervised_: unlabeled data during training and prediction [Trask 13]
 * _reinforcement_: no labels but algo can tell if it's getting hotter or colder http://aiplaybook.a16z.com/docs/guides/dl-learning#user-content-reinforcementlearning
-* _parameters_: https://www.youtube.com/watch?v=BbZ2m8mfwYU
+* _parameters_: https://www.youtube.com/watch?v=BbZ2m8mfwYU https://01-ai.github.io/blog.html?post=en/2024-09-05-A-Small-but-Mighty-LLM-for-Code.md
 * _parametric_: modeler derives parameters [Trask 2.14, 2.18]
 * _nonparametric_: model derives parameters [Trask 2.14, 2.18]
 
@@ -550,8 +555,9 @@ SEMANTICS
 * _breadth-first (bfs)_: 🗄 `/algos` https://healeycodes.com/practical-intro-to-graphs/
 * _depth-first (dfs)_:
 > Doing great work is a depth-first search whose root node is the desire to. So "If at first you don't succeed, try, try again" isn't quite right. It should be: If at first you don't succeed, either try again, or backtrack and then try again. http://paulgraham.com/greatwork.html
-* _Aho-Corasick_: trie https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm https://www.lambdafunctions.com/articles/racing-sed-with-rust
+* _Aho-Corasick_: trie https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm https://www.lambdafunctions.com/articles/racing-sed-with-rust https://github.com/BurntSushi/aho-corasick
 * _bm25_: full text, used by Lucene and SQLite https://emschwartz.me/understanding-the-bm25-full-text-search-algorithm/
+> Spent the last week looking into search — embeddings, BM25, how LLMs fit into the picture, and so on — and then, surprise, this popped up on HackerNews: FastGraphRAG. I haven’t even looked at the project itself yet, because this comment tripped me up: “Hypothetical answer generation from a query using an LLM, and then using that hypothetical answer to query for embeddings works really well.” They use an LLM to generate hypothetical answers to a query and then use those answers to find relevant documents by comparing them in vector space. Don’t know how else to put it, so pardonnez mon langage, but that’s fucking nuts. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 
 ---
 

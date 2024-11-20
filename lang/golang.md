@@ -237,6 +237,8 @@ var myInt // 0
 
 ## CLI
 
+📹 https://www.youtube.com/watch?v=_gzypL-Qv-g
+
 * _Bubble Tea_: inspired by Elm? https://github.com/charmbracelet/bubbletea
 * tutorials https://leg100.github.io/en/posts/building-bubbletea-programs/ https://www.youtube.com/watch?v=ERaZi0YvBRs
 * components https://github.com/charmbracelet/bubbles 

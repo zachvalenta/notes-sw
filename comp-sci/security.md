@@ -129,6 +129,8 @@ __in action__
 
 # 🧮 CRYPTOGRAPHY
 
+🗄️ `application.md` secure
+
 ---
 
 🎗 Aumasson serious cryptography https://eli.thegreenplace.net/2019/summary-of-reading-october-december-2019/ https://nostarch.com/seriouscrypto https://www.amazon.com/Serious-Cryptography-2nd-Introduction-Encryption/dp/1718503849
@@ -321,9 +323,13 @@ Kerberos https://www.roguelynn.com/words/explain-like-im-5-kerberos/ https://web
 
 ## cookies
 
+🗄 `application.md` caching
 📚 `gourley-http.pdf` chapter 11
 🔗 https://tools.ietf.org/html/rfc7235 
 
+---
+
+https://grayduck.mn/2024/11/21/handling-cookies-is-a-minefield/ shadowing https://news.ycombinator.com/item?id=42206556
 * _cookie_: val set by server
 ```python
 from http import cookies
@@ -360,6 +366,7 @@ diff btw cookie and token
 * does user/pw on Django use cookies?
 * token (identification) cookie (association); sites arent' after whether you are really you, just want to know associations around you (age, credit worthiness) in order to server ads?
 * https://stackoverflow.com/a/38470665
+* SSO https://workos.com
 * https://stackoverflow.com/a/50002308
 * https://testdriven.io/blog/web-authentication-methods/
 * https://www.youtube.com/watch?v=dinuA2KM3B4

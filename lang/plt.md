@@ -155,6 +155,7 @@ gcc foo.c -Wall -o my_program m -std='c99'
 > D2 has an API built on top of its AST for programmatically creating diagrams in Go. This package is d2/d2oracle.  https://d2lang.com/tour/api
 
 * _parser_: generates AST from src https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html https://astral.sh/blog/ruff-v0.4.0 https://drewdevault.com/2021/04/22/Our-self-hosted-parser-design.html
+* https://ohmjs.org/ https://dubroy.com/blog/ https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 * date/time parser https://github.com/olebedev/when
 * JSON parser https://news.ycombinator.com/item?id=38150833 https://blog.sylver.dev/building-a-json-validator-with-sylver-part13-writing-a-json-parser-in-49-lines-of-code 
 * _AST_: src as tree https://sadh.life/post/ast/ https://d2lang.com/tour/api
@@ -280,11 +281,13 @@ FACTORS
 * _C#_: .NET big in game dev https://news.ycombinator.com/item?id=41936001
 * with Alpine https://news.ycombinator.com/item?id=34365515
 * _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/ https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/ https://www.manning.com/books/julia-as-a-second-language
+* _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter small stdlib = Python will get fast before Nim gets big https://news.ycombinator.com/item?id=36958900
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _Perl_: https://buttondown.com/hillelwayne/archive/raku-a-language-for-gremlins/ https://buttondown.com/hillelwayne/archive/five-unusual-raku-features/ https://raku.org/
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
 * _Prolog_: https://chatgpt.com/c/672d18fc-66cc-8004-94ba-23928fa2110c https://www.swi-prolog.org/ https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/ https://news.ycombinator.com/item?id=42004756 https://blog.dnmfarrell.com/
-* _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter small stdlib = Python will get fast before Nim gets big https://news.ycombinator.com/item?id=36958900
+* _Ruby_:
+> Somewhere, someone (bless them) linked to mousehole, a why the lucky stiff project. When I started programming in Ruby, _why was already gone and I only learned about him through the Slate article, but echos of him are still ringing through the Ruby world. This project is a sweet reminder. Just look at that README. “MouseHole can either intrude completely upon your browsing experience or you can keep it off in the outskirts, for whenever you’ve got a second to duck into that little crack in the wall” https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 
 ## history
 
@@ -475,7 +478,7 @@ memory management https://stackoverflow.com/a/3434252
 * _unmanaged code_: language w/ no memory management e.g. C, C++; sometimes used to mean "compiles directly to machine code" by people who do not understand that C has an abstract machine
 * _managed code_: language w/ memory management (Java); dynamic languages not typically described as such, more of a marketing term for enterprise languages
 * _garbage_: 
-* _garbage collection_: scheduled memory management; yes (Python, Java) no (Rust 'borrow checker') no-unless-you-hack-real-hard (C, C++) https://news.ycombinator.com/item?id=41963259 https://danluu.com/butler-lampson-1999/
+* _garbage collection_: scheduled memory management; yes (Python, Java) no (Rust 'borrow checker') no-unless-you-hack-real-hard (C, C++) https://news.ycombinator.com/item?id=41963259 https://danluu.com/butler-lampson-1999/ BYO https://jennyjams.net/blog/copygc/
 * _memory leak_: https://www.glean.com/blog/how-we-analyzed-and-fixed-a-golang-memory-leak
 * reference counting, prefetching https://signalsandthreads.com/memory-management/)
 

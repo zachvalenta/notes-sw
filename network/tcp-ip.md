@@ -67,6 +67,10 @@ request spoofing
 
 ## packet
 
+---
+
+https://news.ycombinator.com/item?id=42171146
+
 🗄 `evans-networking-ack.pdf` page 4
 
 🗄 `practical-packet-analysis.pdf` chapters 1

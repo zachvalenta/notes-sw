@@ -121,6 +121,7 @@ CLOUD
 * _Daytona_: https://www.daytona.io/
 * _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://cli.github.com/manual/gh_codespace
 * _Gitpod_: 🎯 runs on your own AWS env (per This Week in AWS) https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15 https://news.ycombinator.com/item?id=42041917
+* _Theia_: https://github.com/eclipse-theia/theia https://news.ycombinator.com/item?id=41563958
 * _Zed_: https://zed.dev/releases/stable/0.145.1 https://www.youtube.com/watch?v=F9sQPpVVLeQ
 
 ---
@@ -158,8 +159,10 @@ TOOLING
 * _unleash_: https://github.com/Unleash/unleash
 * _waffle_: https://waffle.readthedocs.io/en/stable/
 
-## secrets
+## secrets (dotenvx)
 
+❓ env var, fs, manager https://news.ycombinator.com/item?id=40789353
+> just exporting env var for now
 🗄
 * `security.md` users/ passwords
 * `shell.md` env var
@@ -172,7 +175,7 @@ CLIENTS
 * how to share https://github.com/dotenvx/dotenvx/issues/267
 * _whispr_: can fetch from vaults https://github.com/narenaryan/whispr
 * _dotenv_: ✅ started using in 2019 with Flask https://github.com/theskumar/python-dotenv
-* _dotenvx_: https://github.com/dotenvx/dotenvx https://dotenvx.com/blog/2024/06/24/dotenvx-next-generation-config-management.html https://news.ycombinator.com/item?id=40789353
+* _dotenvx_: https://github.com/dotenvx/dotenvx https://dotenvx.com/blog/2024/06/24/dotenvx-next-generation-config-management.html
 * check out extensions https://github.com/dotenvx/dotenvx/pull/426
 * decrypt: pw into manager (BitWarden) https://github.com/dotenvx/dotenvx/issues/223
 ```sh
@@ -299,6 +302,7 @@ toggle=
 > Also, as a general rule, you can at any given time get away with changing more than you think. Introducing change is like pulling off a bandage: the pain is a memory almost as soon as you feel it. http://paulgraham.com/popular.html
 * Martin clean code https://qntm.org/clean
 * McConnell code complete
+* Ousterhout https://www.amazon.com/Philosophy-Software-Design-2nd/dp/173210221X against uncle bob https://www.youtube.com/watch?v=k0kTux_YNHw
 
 ---
 
