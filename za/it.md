@@ -106,17 +106,18 @@ TIME MACHINE
 ### mini23 ➡️ exfatmain
 
 MUSIC
-> songs of the month: Ramones swallow my pride
+> songs of the month: Ramones swallow my pride, The Clean i wait around
 * dance: francis harris, jamie xx, danilov, techno
 > za (chemical brothers et al.)
 * electronic: drone
 * far: Aster Aweke
 * jazz: christian scott, alice coltrane, bill frisell, ahmad jamal
 > loud soft loud out of punk + import meat puppets
-* rock: singles, dylan, band, dinosaur jr, dr john to psych, ritter to pop, neil young 75-2002, wilco, punk (minutemen, buzzcocks, cramps, ramones, johnny thunders, elvis costello) 📍 80s, post
+* rock: singles, dylan, band, dinosaur jr, dr john to psych, ritter to pop, neil young 75-2002, wilco, fairport convention, punk (minutemen, buzzcocks, cramps, ramones, johnny thunders, elvis costello, sonic youth, death grips)
 > 🎗️ Capp 24.11.21-22: pere ubu, public image ltd + kendrick rich
 * za/blues: hendrix
 * za/gospel: hank jones
+* bruno mars
 
 > 📍 clean up DS files `fd -HI DS`
 * 23 taxes
@@ -131,6 +132,9 @@ MAT
 * science
 
 ### air-capp ➡️ mini23
+
+* electronic: we-as-is, the orb 
+* rock/80s-jangle: The Clean, Pale Saints 📍 smiths
 
 ## reimage
 
@@ -231,10 +235,22 @@ rsync --rsync-path 'sudo -u app rsync' -arvR --exclude '.*' --exclude '*~' .  ${
 fswatch --recursive --one-per-batch . | xargs -L1 -II rsync --rsync-path 'sudo -u app rsync' -arvR --exclude '.*' --exclude '*~' .  ${DEST_HOST}:/opt/t3 # on file change
 ```
 
-# 🗂 FILE MGMT
+# 🗂 HOMELAB
 
-MOVIES
-* Handbrake https://superuser.com/a/12779/728972 https://unix.stackexchange.com/questions/224277/is-it-better-to-use-cat-dd-pv-or-another-procedure-to-copy-a-cd-dvd and `libdvdcss` (made by people behind VLC, has Homebrew install) https://www.howtogeek.com/102886/how-to-decrypt-dvds-with-hardbrake-so-you-can-rip-them/ which allows Handbrake to decrypt and then transcode (i.e. take DRM fmt and output OSS codec)
+🗄️ `infra.md` self host
+
+---
+
+SKETCH
+* ethernet
+* DNS
+* storage
+* compute
+
+* https://github.com/khuedoan/homelab
+* containers, Plex https://www.youtube.com/watch?v=yFuTAKq_j3Q
+* rack https://www.youtube.com/watch?v=akJ97oqmQlU
+* https://nielscautaerts.xyz/we-have-cloud-at-home.html
 
 ## fs
 
@@ -284,6 +300,45 @@ CURRENT
 │   └──── tracking   # 📦 tracking.git
 ```
 
+## media server
+
+HOME MEDIA SERVERS
+* Spotify client https://github.com/Rigellute/spotify-tui https://github.com/hrkfdn/ncspot
+* BYO https://www.youtube.com/watch?v=jf_5FaVFnrU
+* _Emby_: https://www.youtube.com/watch?v=lgY97D5nCek
+* _Jellyfin_: https://www.youtube.com/watch?v=lgY97D5nCek
+* _Plex_: https://plexamp.com/
+* mobile client https://github.com/jmshrv/finamp https://www.fintunes.app/
+* _Navidrome_: https://github.com/navidrome/navidrome too expensive to run on cloud https://www.youtube.com/watch?v=RSIvuyLDuvk 2:15
+
+---
+
+https://drewdevault.com/2013/08/24/Music-syncing-on-Android.html
+
+AUTOS
+* ❌ _headunit_: wedded to vehicle, can't rely on this being around much longer https://www.youtube.com/watch?v=AEm2WbSwRIA https://www.amazon.com/KENWOOD-KDC-BT282U-Car-Stereo-Illumination/dp/B09GWC9QYZ models https://www.youtube.com/watch?v=P7pUT0gbZZQ speakers https://www.youtube.com/watch?v=ADFOAAN9SIA
+* ❌ _home media server_: not oriented around file structure, streaming vs. on-device
+* ✅ Android: enough storage with microSD, good app https://fi.google.com/about/phones/moto-g-5g microSDs fail frequently https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
+> needs headphone jack and expandable memory e.g. Song xperia 10 IV https://www.androidcentral.com/best-android-phones-expandable-storage https://www.androidcentral.com/best-android-phone-headphone-jack
+> I might not need an SD card bc current phone only has 32GB capacity and os/fs using 30GB, SD using 185GB. Music fs down to 150GB should fit me on to 
+
+* cd ripping https://news.ycombinator.com/item?id=33499646
+
+* fselect provides useful functionailty for music files 🗄 `shell.md` finder
+
+SELF-HOSTED STREAMING
+* _NAS (network attached storage)_: aka 'home media server' 🗄 `network-know-how.pdf`
+* https://nicolasbouliane.com/projects/home-server
+* aka home server https://www.youtube.com/watch?v=yFuTAKq_j3Q
+* options (Plex, cmus remote) https://www.youtube.com/results?search_query=cmus+remote&page=&utm_source=opensearch https://www.youtube.com/watch?v=UJw9YU_SBzo https://blog.dave.tf/post/building-nas-1/ https://www.youtube.com/results?search_query=build+a+nas https://www.youtube.com/results?search_query=buy+a+nas https://kevq.uk/my-home-server-2-months-on/
+* https://selfhostedsource.tech/category/self-hosted/audio-streaming
+> all this work just to stream music doesn't make sense, just keep rolling w/ backups and your $60 thumb drive
+* https://news.ycombinator.com/item?id=30118273
+
+## movies
+
+* Handbrake https://superuser.com/a/12779/728972 https://unix.stackexchange.com/questions/224277/is-it-better-to-use-cat-dd-pv-or-another-procedure-to-copy-a-cd-dvd and `libdvdcss` (made by people behind VLC, has Homebrew install) https://www.howtogeek.com/102886/how-to-decrypt-dvds-with-hardbrake-so-you-can-rip-them/ which allows Handbrake to decrypt and then transcode (i.e. take DRM fmt and output OSS codec)
+
 ## music
 
 ---
@@ -317,6 +372,12 @@ repeated.export("mashup.mp3", format="mp3")
 * 2.12: progress bar (percentage counter doesn't work though) library view (played song highlights yellow)
 
 ---
+
+* playlists 🗄️ `/Users/zach/Documents/zv/materials/music/za/music-library/lib.txt`
+```sh
+# not yet sure how to refresh; updating and reloading library and then re-running cmd doesn't do it
+cat ~/.config/cmus/playlists/default > lib.txt
+```
 
 https://github.com/hajimehoshi/oto
 * install: homebrew
@@ -419,45 +480,11 @@ SOURCES
 * if 403 run `--rm-cache-dir` https://github.com/ytdl-org/youtube-dl/issues/23638
 * _alternatives_: https://github.com/Miserlou/SoundScrape https://git hub.com/Marethyu12/gotube https://github.com/topics/youtube-downloader
 
-## media server
-
-HOME MEDIA SERVERS
-* Spotify client https://github.com/Rigellute/spotify-tui https://github.com/hrkfdn/ncspot
-* BYO https://www.youtube.com/watch?v=jf_5FaVFnrU
-* _Emby_: https://www.youtube.com/watch?v=lgY97D5nCek
-* _Jellyfin_: https://www.youtube.com/watch?v=lgY97D5nCek
-* _Plex_: https://plexamp.com/
-* mobile client https://github.com/jmshrv/finamp https://www.fintunes.app/
-* _Navidrome_: https://github.com/navidrome/navidrome too expensive to run on cloud https://www.youtube.com/watch?v=RSIvuyLDuvk 2:15
-
----
-
-https://drewdevault.com/2013/08/24/Music-syncing-on-Android.html
-
-AUTOS
-* ❌ _headunit_: wedded to vehicle, can't rely on this being around much longer https://www.youtube.com/watch?v=AEm2WbSwRIA https://www.amazon.com/KENWOOD-KDC-BT282U-Car-Stereo-Illumination/dp/B09GWC9QYZ models https://www.youtube.com/watch?v=P7pUT0gbZZQ speakers https://www.youtube.com/watch?v=ADFOAAN9SIA
-* ❌ _home media server_: not oriented around file structure, streaming vs. on-device
-* ✅ Android: enough storage with microSD, good app https://fi.google.com/about/phones/moto-g-5g microSDs fail frequently https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
-> needs headphone jack and expandable memory e.g. Song xperia 10 IV https://www.androidcentral.com/best-android-phones-expandable-storage https://www.androidcentral.com/best-android-phone-headphone-jack
-> I might not need an SD card bc current phone only has 32GB capacity and os/fs using 30GB, SD using 185GB. Music fs down to 150GB should fit me on to 
-
-* cd ripping https://news.ycombinator.com/item?id=33499646
-
-* fselect provides useful functionailty for music files 🗄 `shell.md` finder
-
-SELF-HOSTED STREAMING
-* _NAS (network attached storage)_: aka 'home media server' 🗄 `network-know-how.pdf`
-* https://nicolasbouliane.com/projects/home-server
-* aka home server https://www.youtube.com/watch?v=yFuTAKq_j3Q
-* options (Plex, cmus remote) https://www.youtube.com/results?search_query=cmus+remote&page=&utm_source=opensearch https://www.youtube.com/watch?v=UJw9YU_SBzo https://blog.dave.tf/post/building-nas-1/ https://www.youtube.com/results?search_query=build+a+nas https://www.youtube.com/results?search_query=buy+a+nas https://kevq.uk/my-home-server-2-months-on/
-* https://selfhostedsource.tech/category/self-hosted/audio-streaming
-> all this work just to stream music doesn't make sense, just keep rolling w/ backups and your $60 thumb drive
-* https://news.ycombinator.com/item?id=30118273
-
 ## photos
 
 ---
 
+* https://immich.app/
 * metadata https://stefaniemolin.com/articles/devx/pre-commit/exif-stripper/
 * viewer https://github.com/karlch/vimiv-qt
 * https://news.ycombinator.com/item?id=37670756

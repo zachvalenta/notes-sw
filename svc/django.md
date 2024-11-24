@@ -18,7 +18,7 @@
 * perf: https://openfolder.sh/django-faster-speed-tutorial
 * in a single file https://github.com/radiac/nanodjango
 TUI commands https://github.com/anze3db/django-tui
-TUI admin https://github.com/valberg/django-admin-tui
+TUI admin https://github.com/valberg/django-admin-tui https://github.com/valberg/django-htmx-admin
 
 * _24_: rf
 * _21_: rf, DML

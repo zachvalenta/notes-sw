@@ -16,6 +16,8 @@
 
 # 📄 FILE
 
+🗄️ `algos.md` edit distance
+
 * file/dir name linter https://github.com/loeffel-io/ls-lint https://ls-lint.org/
 
 FILE/DIR DIFF 🗄️ `protocols.md` JSON `algos.md` tree walkers https://chatgpt.com/c/67327ac8-4b10-8004-869b-f31305dd5189
@@ -251,9 +253,21 @@ DATA
 * _dd_: copy/rm data https://github.com/akavel/up
 * _caligula_: dd alternative https://github.com/ifd3f/caligula
 
-PROGRESS BARS
+## progress bars
+
+LINUX
 * _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
 * _pv_: same as progress? https://catonmat.net/unix-utilities-pipe-viewer
+
+PYTHON
+```python
+if i % 100 == 0:
+    progress = ((i + 1) / float(len(qd))) * 100.0
+    print('%.2f%%' % progress)
+```
+* _alive_: https://github.com/rsalmei/alive-progress
+* _rich_: https://realpython.com/python-rich-package/
+* _tqdm_: ✅ https://github.com/tqdm/tqdm
 
 ## disk
 
@@ -338,6 +352,7 @@ PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c
 
 🗄 `vim.md` fuzzy find
 📜 https://github.com/junegunn/fzf
+🧠 https://chatgpt.com/c/674624fd-2084-8004-bbf4-5de92b06f1ca
 > fzf is just a Unix filter https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
 
 USES https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff
@@ -650,6 +665,7 @@ TRASH
 ## jobs
 
 🗄 `infra.md` task
+🛠️ retry https://github.com/dbohdan/recur
 
 NOHUP
 * _nohup_: separates process and terminal https://unix.stackexchange.com/a/148698

@@ -3,9 +3,6 @@
 ## 参考
 
 📜 https://git-scm.com/docs `help <cmd>`
-🛠 https://github.com/initialcommit-com/git-sim https://initialcommit.com/blog/git-sim
-📙 Chacon pro git https://git-scm.com/book/en/v2 @ ch. 3
-🎨 https://onlywei.github.io/explain-git-with-d3
 
 ## 进步
 
@@ -199,6 +196,7 @@ TOOLS
 💡 TUI for quick sustainability assessment of Github repo https://chatgpt.com/c/671692f3-9ca8-8004-8b71-8ae027bdbbad
 💻 https://github.com/zachvalenta/capp-denv-bin/blob/main/ghgj
 
+* profile views instead of stars? https://github.com/xnacly
 > stars https://github.com/github/feedback/discussions/8293 https://github.com/korosuke613/gh-user-stars https://webapps.stackexchange.com/a/41800 https://github.com/maguowei/starred#use-awesome-stars-as-template https://github.com/maguowei/awesome-stars/blob/master/topics.md https://github.com/DaveParr/starpilot https://github.com/den-is/gh-stars-scraper
 > good for: https://github.com/veggiemonk/awesome-docker
 > Terminal Trove
@@ -239,52 +237,60 @@ https://docs.github.com/en/github/searching-for-information-on-github/searching-
 
 # 🔬️ INTERNALS
 
-🙂 punk rock https://xkcd.com/1597/
+> No idea. Just memorize these shell commands and type them to sync up. If you get errors, save your work elsewhere, delete the project, and download a fresh copy https://xkcd.com/1597/
+🪚 BYO
+* https://maryrosecook.com/
+* https://www.leshenko.net/p/ugit/
+🎨
+* https://onlywei.github.io/explain-git-with-d3
+* https://github.com/initialcommit-com/git-sim https://initialcommit.com/blog/git-sim
+📚
+* https://xosh.org/explain-git-in-simple-words/
+* https://zwischenzugs.com/2018/05/14/beyond-punk-rock-git-in-eleven-steps/
+* Chacon https://git-scm.com/book/en/v2
+* Evans https://wizardzines.com/zines/git/
+* Perrotta https://www.pluralsight.com/courses/how-git-works
 
-https://wizardzines.com/zines/git/
+---
+
+CLEANUP
+* https://smusamashah.github.io/explain-git-in-simple-words
+* http://www-cs-students.stanford.edu/~blynn/gitmagic/
+* https://thoughtbot.com/upcase/mastering-git
+* https://news.ycombinator.com/item?id=22200222
+* https://betterexplained.com/articles/aha-moments-when-learning-git/
+* https://rachelcarmena.github.io/2018/12/12/how-to-teach-git.html
+* design http://aosabook.org/en/git.html
+* write your own https://wyag.thb.lt/
+* https://benhoyt.com/writings/pygit/
+* https://codewords.recurse.com/issues/two/git-from-the-inside-out
+* https://www.kenneth-truyers.net/2016/10/13/git-nosql-database/
+
+EVANS
+* https://jvns.ca/blog/2024/01/26/inside-git/
+* https://jvns.ca/blog/2023/11/23/branches-intuition-reality/
+* https://jvns.ca/blog/2023/09/14/in-a-git-repository--where-do-your-files-live-/
+* https://jvns.ca/blog/2023/11/01/confusing-git-terminology/
+* https://jvns.ca/blog/2023/10/20/some-miscellaneous-git-facts/
+* https://jvns.ca/blog/2024/02/16/popular-git-config-options/#core-pager-delta
 
 * _snapshot_: files at particular time e.g. a commit https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository
 * `checkout`: will move rm changes to file in working tree e.g. if file is updated and staged, then updated again, checkout will only rm most recently updates i.e. changes in staging area won't be affected
 > use switch instead https://martinheinz.dev/blog/109 https://adamj.eu/tech/2023/10/04/boost-your-git-dx-out-now/
 * _reference_: human-readable name acting as point to commit SHA-1
 
----
-
-* explain to non-user
-```
+EXPLAIN TO NON-USER
+```yaml
 working tree = current state of the files
-
 sprint so far = commits so far
-
 think of a commit as a named save. could be updates to single file or many, and then you save the current state of the file system and write a message e.g. "learn about string theory".
-
 "sprint" is just the name of a branch.
-
 think of a branch as a version.
-
 for example, you have a bundle of notes for a novel. your branch is called "chanels-big-novel".
-
 you get chantel to provide feedback. she makes a branch for herself, "chantels-edits".
-
 she can then edit away and it won't touch your work.
-
 she can propose merging the two branches i.e. her edits would become part of "chanels-big-novel."
 ```
-
-* https://jvns.ca/blog/2024/01/26/inside-git/
-* https://jvns.ca/blog/2023/11/23/branches-intuition-reality/
-* internals https://www.leshenko.net/p/ugit/ https://jvns.ca/blog/2023/09/14/in-a-git-repository--where-do-your-files-live-/
-* https://jvns.ca/blog/2023/11/01/confusing-git-terminology/
-* https://jvns.ca/blog/2023/10/20/some-miscellaneous-git-facts/
-* https://maryrosecook.com/
-* https://xosh.org/explain-git-in-simple-words/
-plumbing - clean up notas history
-* https://www.leshenko.net/p/ugit
-* https://smusamashah.github.io/explain-git-in-simple-words http://www-cs-students.stanford.edu/~blynn/gitmagic/ https://thoughtbot.com/upcase/mastering-git https://news.ycombinator.com/item?id=22200222 https://betterexplained.com/articles/aha-moments-when-learning-git/ https://rachelcarmena.github.io/2018/12/12/how-to-teach-git.html design http://aosabook.org/en/git.html write your own https://wyag.thb.lt/ https://benhoyt.com/writings/pygit/ Recurse Center article https://codewords.recurse.com/issues/two/git-from-the-inside-out Stanford https://www.kenneth-truyers.net/2016/10/13/git-nosql-database/ https://thoughtbot.com/upcase/mastering-git https://zwischenzugs.com/2018/05/14/beyond-punk-rock-git-in-eleven-steps/
-* Perrota https://app.pluralsight.com/library/courses/how-git-works/table-of-contents https://www.pluralsight.com/courses/master-git
-> do w/ his ML course
-* https://github.com/github/git-sizer
-* https://jvns.ca/blog/2024/02/16/popular-git-config-options/#core-pager-delta
 
 ## states
 
@@ -386,6 +392,7 @@ LAZYGIT 📜 https://github.com/jesseduffield/lazygit https://git-how.com/
 * working with multiple repos: locking `state.yml` https://github.com/jesseduffield/lazygit/issues/4017
 * working with multiple repos: check out gfold! https://github.com/nickgerace/gfold/issues/261
 * readline for commit pane still pending https://github.com/jesseduffield/lazygit/issues/1712
+> litecli allows emacs|vi readline
 
 ALTERNATIVES
 * _bit_: 💀 unmaintained, autcomplete https://github.com/chriswalz/bit
@@ -939,6 +946,8 @@ GITIGNORE https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Rep
 * `logs`, on the other hand, will ignore anything in *any* `logs` directory located *anywhere* in your project
 
 ## monorepo
+
+🔍 keeping size down https://github.com/github/git-sizer
 
 CONSIDERATIONS
 * activity: thousands of commits / day

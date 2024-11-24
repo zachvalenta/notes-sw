@@ -729,23 +729,23 @@ sorted(colors, key=lambda c: (len(c), c.lower()))  # can also use tuple for comb
 
 ## metaprogramming
 
-📜 https://docs.python.org/3/library/language.html
-🗄 `language.md` design / metaprogramming
+🗄
+* `plt.md` typing
+* `src.md` frameworks
 📚
 * Beazley ch. 9
 * Ramalho ch. 22-24
+* Perrotta metaprogramming ruby https://news.ycombinator.com/item?id=24935242
+> might be worthwhile to buy the first edition
 
 ---
 
-https://chatgpt.com/c/6720e992-860c-8004-a2dd-2cc826753ecf
-
+🧠 https://chatgpt.com/c/6720e992-860c-8004-a2dd-2cc826753ecf
 * https://dev.to/karishmashukla/a-practical-guide-to-metaprogramming-in-python-691
 * Flask debugger, typing, metaprogramming vs monkey patching https://news.ycombinator.com/item?id=34611969
 * _metaprogramming_: functions that manipulate existing code e.g. decorators, inspection 📙 Beazley 329
+* function that takes some other code, wraps it, and returns https://medium.com/@saurabhkukade_96600/meta-programming-in-python-7fb94c8c7152
 * also synonym for process (build tools, dep mgmt) https://missing.csail.mit.edu/2020/metaprogramming/
-* in Ruby (Perrotta) https://news.ycombinator.com/item?id=24935242 
-
-* _meta programming_: function that takes some other code, wraps it, and returns https://medium.com/@saurabhkukade_96600/meta-programming-in-python-7fb94c8c7152
 
 ### decorators
 

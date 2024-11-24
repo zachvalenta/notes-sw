@@ -376,6 +376,10 @@ OPTIONS https://chatgpt.com/c/670d2ddc-9e9c-8004-a9a5-1852da15b853
 
 # 🔍 QUERY ENGINES
 
+🗄️
+* `aws.md` compute > Athena
+* `telemetry.md` Clickhouse
+
 * _CrateDB_: https://github.com/crate/crate https://www.youtube.com/watch?v=mGxm1WPR3O8
 > Modest CrateDB clusters can ingest tens of thousands of records per second without breaking a sweat. You can run ad-hoc queries using standard SQL. CrateDB's blazing-fast distributed query execution engine parallelizes query workloads across the whole cluster.
 
@@ -402,13 +406,6 @@ ALTERNATIVES
 * apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
 * can build dashboards off queries
 * _Trino_: https://github.com/trinodb/trino https://ibis-project.org/ https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
-
-## ⦊ Presto
-
----
-
-* _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
-* beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
 
 ## 🦆 DuckDB
 
@@ -441,6 +438,13 @@ https://duckdb.org/
 * interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html
 * https://news.ycombinator.com/item?id=39141652
 * https://www.nikolasgoebel.com/2024/05/28/duckdb-doesnt-need-data.html
+
+## ⦊ Presto
+
+---
+
+* _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
+* beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
 
 ## ✰ Spark
 

@@ -42,6 +42,9 @@ SEMANTICS
 * general usage: table names + column name/type https://news.ycombinator.com/item?id=22723277
 * Postgres usage: container for obj such as table or view https://news.ycombinator.com/item?id=22721914
 
+https://news.ycombinator.com/item?id=42245927
+abstraction and math https://neugierig.org/content/dfw/
+
 # 🏺 DATA STRUCTURES
 
 🔍 https://xlinux.nist.gov/dads/

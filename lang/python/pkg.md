@@ -41,7 +41,7 @@ ALTERNATIVES
 * _bbfreeze_: https://stackoverflow.com/a/29515965/6813490
 * _Cython_: compiles to C extension and runs that https://tryexceptpass.org/article/package-python-as-executable/ http://shvbsle.in/computers-are-fast-but-you-dont-know-it-p1/
 * _Nuitka_: https://tryexceptpass.org/article/package-python-as-executable/ https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/ https://snarky.ca/what-is-the-core-of-the-python-programming-language
-* _PEX_: https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/ https://news.ycombinator.com/item?id=42148220
+* _PEX_: https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/ https://news.ycombinator.com/item?id=42148220 https://github.com/pex-tool/pex
 * _py2exe_: https://stackoverflow.com/a/5458807/6813490
 * _Shiv_: https://pythonbytes.fm/episodes/show/114/what-should-be-in-the-python-standard-library https://jhermann.github.io/blog/python/deployment/2020/03/08/ship_libs_with_shiv.html https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/
 * _XAR_: https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/
@@ -94,6 +94,8 @@ PYOXIDIZER
 
 ---
 
+* https://github.com/copyleftdev/x12-edi-tools
+* https://github.com/gergelyk/para-cada
 * https://www.youtube.com/watch?v=niMybnzmzqc
 * https://travisjeffery.com/b/2019/11/i-ll-take-pkg-over-internal/
 * even Prolog uses src/test https://github.com/dnmfarrell/dict
@@ -173,6 +175,8 @@ pip3 install --no-index --find-links=~/Desktop/pypi-local coverage
 ---
 
 * https://www.b-list.org/weblog/2022/may/13/boring-python-dependencies/ https://www.b-list.org/weblog/2022/dec/19/boring-python-code-quality/
+
+using Github URL like Golang https://github.com/seatgeek/thefuzz
 
 https://pycon-archive.python.org/2024/schedule/presentation/61/index.html
 > While other language ecosystems have a streamlined workflow that involves a single tool like Rust's Cargo and JavaScript's npm, maintaining Python projects has historically involved learning and using an ever-growing set of tools:

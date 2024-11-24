@@ -493,12 +493,6 @@ OUTPUT
 * colors https://github.com/timofurrer/colorful https://github.com/erikrose/blessings
 * syntax highlighting https://github.com/pygments/pygments
 * tables https://github.com/astanin/python-tabulate https://realpython.com/python-rich-package/
-* progress bar https://realpython.com/python-rich-package/ https://github.com/rsalmei/alive-progress https://github.com/tqdm/tqdm
-```python
-if i % 100 == 0:
-    progress = ((i + 1) / float(len(qd))) * 100.0
-    print('%.2f%%' % progress)
-```
 
 ## TUI (Textual)
 

@@ -219,10 +219,13 @@ https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-
 
 ## LSP
 
-🗄️ `vim.md` LSP
+🗄️
+* `protocols.md`
+* `vim.md` LSP
 
 ---
 
+* https://langserver.org/
 * https://rust-analyzer.github.io/ https://nickgerace.dev/posts/how-i-read-the-rust-programming-language/
 * _language server_: provides editor with code completion, syntax highlighting https://github.com/echasnovski/mini.nvim#general-principles
 * enables: analysis, completion, navigation, linting https://www.youtube.com/watch?v=3a1PCir_aHs 0:40
@@ -305,7 +308,7 @@ https://increment.com/programming-languages/language-history/
 * _1996_: OCaml
 * _2015_: Rust
 * _2016_: Zig
-* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/ https://www.youtube.com/@codetothemoon/videos https://www.fast.ai/posts/2023-05-03-mojo-launch.html
+* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/ https://www.youtube.com/@codetothemoon/videos https://www.fast.ai/posts/2023-05-03-mojo-launch.html Lobster https://github.com/aardappel/lobster https://www.youtube.com/watch?v=uuPeBKdnBOI
 
 ## stdlib
 
@@ -470,6 +473,7 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 🔍 https://softwareengineering.stackexchange.com/questions/tagged/memory
 🗄
 * `architecture.md` memory
+* `c.md` Rust > design
 * `python.md` memory
 
 > port from `python.md`
@@ -769,19 +773,13 @@ class Player:
         print(f"pts {self.points} fatigue {self.fatigue}")
 ```
 
-## typing
+# 🔡 TYPING
 
-🔗 https://en.wikipedia.org/wiki/Type_system
+🗄 `python/core.md` typing, metaprogramming
 📙 Friedman little typer https://www.amazon.com/Little-Typer-MIT-Press/dp/0262536439
-🗄 `python.md` typing
+🔗 https://en.wikipedia.org/wiki/Type_system
 
-SEMANTICS
-* _nominative typing_: obj type explicitly declared https://en.wikipedia.org/wiki/Nominal_type_system
-* _duck typing_: obj is type if it has properties/methods of that type (vs. nominative) https://docs.python.org/3/glossary.html#term-duck-typing https://realpython.com/podcasts/rpp/196/
-* _type inference_: figure out type based on context https://calpaterson.com/mypy-hints.html
-> aka implicit? https://go.dev/tour/basics/10
-* _reflection_: program's ability to examine type system of programming language + dynamically manipulate types/values at runtime https://drewdevault.com/2021/10/05/Reflection.html https://en.wikipedia.org/wiki/Reflective_programming
-> Clojure provides easy access to the Java frameworks, with optional type hints and type inference, to ensure that calls to Java can avoid reflection. https://clojure.org/
+## debate
 
 PRO https://www.youtube.com/watch?v=YR5WdGrpoug https://news.ycombinator.com/item?id=42004756
 > [invariant violation] At point A, there's some assumption, and way over there at point B, that assumption is violated... Type systems prevent some invariant violations. Because that works, there are ongoing attempts to extend type systems to prevent still more invariant violations. That creates another layer of confusing abstraction. Some invariants are not well represented as types, and trying makes for a bad fit. What you're really trying to do is to substitute manual specification of attributes for global analysis. The Rust borrow checker is an invariant enforcer. It explicitly does automatic global analysis, and reports explicitly that what's going on at point B is inconsistent with what point A needs. This is real progress in programming language design, and is Rust's main contribution. https://news.ycombinator.com/item?id=29996240
@@ -799,6 +797,26 @@ CON https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/ http
 * a programming language is for sketching
 > A programming language is for thinking of programs, not for expressing programs you've already thought of. It should be a pencil, not a pen. 📙 Graham hackers painters [22]
 > Have you ever noticed that when you sit down to write something, half the ideas that end up in it are ones you thought of while writing? The same thing happens with software. Working to implement one idea gives you more ideas. 📙 Graham hackers painters [68]
+
+## generics
+
+* https://www.dolthub.com/blog/2024-11-22-are-golang-generics-simple-or-incomplete-1/
+* _generics_: prevent type errors in Collections (bc Collections can contain any obj type e.g. str, int, et al.)
+* e.g. reverse array of any type
+* in Python https://stackoverflow.com/questions/6725868/generics-templates-in-python https://mypy.readthedocs.io/en/stable/generics.html https://www.youtube.com/watch?v=LcfxUU1A-RQ
+* https://news.ycombinator.com/item?id=29705134
+* https://news.ycombinator.com/item?id=29702607
+* https://drewdevault.com/2019/02/18/Generics-arent-ready-for-Go.html
+* https://go.dev/blog/why-generics https://go.dev/blog/generics-next-step
+
+## terminology
+
+* _nominative typing_: obj type explicitly declared https://en.wikipedia.org/wiki/Nominal_type_system
+* _duck typing_: obj is type if it has properties/methods of that type (vs. nominative) https://docs.python.org/3/glossary.html#term-duck-typing https://realpython.com/podcasts/rpp/196/
+* _type inference_: figure out type based on context https://calpaterson.com/mypy-hints.html
+> aka implicit? https://go.dev/tour/basics/10
+* _reflection_: program's ability to examine type system of programming language + dynamically manipulate types/values at runtime https://drewdevault.com/2021/10/05/Reflection.html https://en.wikipedia.org/wiki/Reflective_programming
+> Clojure provides easy access to the Java frameworks, with optional type hints and type inference, to ensure that calls to Java can avoid reflection. https://clojure.org/
 
 ---
 
@@ -824,15 +842,6 @@ SEMANTICS https://www.destroyallsoftware.com/compendium/types?share_key=baf6b673
 * metaprogramming and dynamic typing vs monkey patching https://news.ycombinator.com/item?id=34611969
 * _null_: https://2ality.com/2013/10/typeof-null.html https://www.fluentpython.com/lingo/#fail_fast
     
-GENERICS
-* _generics_: prevent type errors in Collections (bc Collections can contain any obj type e.g. str, int, et al.)
-* e.g. reverse array of any type
-* in Python https://stackoverflow.com/questions/6725868/generics-templates-in-python https://mypy.readthedocs.io/en/stable/generics.html https://www.youtube.com/watch?v=LcfxUU1A-RQ
-* https://news.ycombinator.com/item?id=29705134
-* https://news.ycombinator.com/item?id=29702607
-* https://drewdevault.com/2019/02/18/Generics-arent-ready-for-Go.html
-* https://go.dev/blog/why-generics https://go.dev/blog/generics-next-step
-
 # 🟨 ZA
 
 OVERLOADING

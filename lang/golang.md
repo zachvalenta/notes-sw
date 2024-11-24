@@ -179,6 +179,8 @@ func multi(num int) (x, y int) {
 
 ## variables
 
+🔗 https://aardappel.github.io/lobster/C_style%20language%20Cheat%20Sheet%20for%20Lobster.html
+
 * declare: `var x int` https://go.dev/tour/basics/8
 * assign: `=` https://gist.github.com/prologic/5f6afe9c1b98016ca278f4d507e65510
 * initialize: `var x int = 42` https://go.dev/tour/basics/9
@@ -210,6 +212,7 @@ var myInt // 0
 * datetime https://github.com/golang-module/carbon https://github.com/olebedev/when
 * game engine https://ebiten.org/
 * GUI https://github.com/fyne-io/fyne https://github.com/AllenDang/giu https://github.com/gizak/termui
+* _datetime_: https://github.com/dromara/carbon
 * _debug_: can use gdb but delve recommended https://golang.org/doc/gdb https://www.youtube.com/watch?v=r033vEzL6a4
 * _env var_ https://endaphelan.me/guides/golang/a-no-nonsense-guide-to-environment-variables-in-go/ https://github.com/caarlos0/env https://github.com/joho/godotenv https://github.com/knadh/koanf to structs https://github.com/caarlos0/env
 * _fake data_: https://github.com/brianvoe/gofakeit

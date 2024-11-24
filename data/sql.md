@@ -37,6 +37,11 @@ INTERVIEWING
 
 🗄️ `eng.md` dataframes
 
+---
+
+REPLACEMENTS
+* _Trilogy_: dimension tables, canonical dataset for OLTP https://news.ycombinator.com/item?id=42231325
+
 * boring and durable https://josephg.com/blog/databases-have-failed-the-web
 * outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/
 > The relational data model enables those things. None of them require the language to be SQL...LINQ, spark, flink, kafka streams, pandas, dataframes are all widely used examples of an expression-based language-embedded approach to relational queries. https://www.scattered-thoughts.net/writing/against-sql
@@ -352,7 +357,10 @@ CREATE TABLE products (
 );
 ```
 
-PRIMARY KEY (PK) 🗄 indexing `connolly.pdf`
+### primary key (PK)
+
+🗄 indexing `connolly.pdf`
+
 * _candidate key_: key(s) that could serve as PK https://stackoverflow.com/a/12813385 📙 Winand [5]
 * _primary key_: attr w/ unique constraint that serves as ID of record 📙 Beaulieu [6]
 * _composite key_: n keys unique together used as PK
@@ -364,22 +372,23 @@ PRIMARY KEY (PK) 🗄 indexing `connolly.pdf`
 * e.g. join table https://www.youtube.com/watch?v=vsGDtnBCwgg
 * sometimes used interchangeably w/ 'composite' https://dba.stackexchange.com/a/3137/201798 https://www.youtube.com/watch?v=lnfrcHdE_HI 1:40
 ```sql
-
+-- TODO
 ```
 * _natural key_: attr that goes together with other attr in table (vs. surrogate key) https://news.ycombinator.com/item?id=40580549
 * _surrogate key_: unrelated to table attr https://stackoverflow.com/a/36773462
 * typically auto-incremented but doesn't necessarily have to be 📙 Beaulieu [34]
 ```sql
-
+-- TODO
 ```
 * _sequence_: https://stackoverflow.com/a/1649128 📙 Beaulieu [34] Karwin ch. 4
 * don't expose via API, use uuid https://0of1.com/blog/posts/django-staples/
 * auto-increment https://retool.com/blog/how-to-work-with-auto-increment-in-sql-query/ aka identity column https://www.sqltutorial.org/sql-identity/
 ```sql
-
+-- TODO
 ```
 
-FOREIGN KEY (FK)
+### foreign key (FK)
+
 * _foreign key_: constraint enforcing reference to another table's PK 📙 Beaulieu [33,39]
 ```sql
 foreign key (band) references bands (band_id)
@@ -662,7 +671,7 @@ select count(*) over (), track, sum(share), count(*) from splits group by track 
 🗄 `math.md` stat
 
 GROUP BY
-* _group by_: rs w/ 1 record for each group 📙 Evans [8]
+* _group by_: rs w/ 1 record for each group 📙 Evans [8] https://labs.quansight.org/blog/dataframe-group-by
 * group data by column value 📙 Beaulieu [60]
 * aka binning https://hakibenita.com/sql-for-data-analysis#binning
 * aka pivot table https://hakibenita.com/sql-for-data-analysis#pivot-tables https://realpython.com/how-to-pandas-pivot-table/

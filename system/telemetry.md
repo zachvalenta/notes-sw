@@ -144,12 +144,15 @@ jitter https://gafferongames.com/post/fixing_the_internet_for_games/
 
 ---
 
-https://blog.pecar.me/sqlite-wal
-https://blog.pecar.me/django-sqlite-benchmark
-https://blog.pecar.me/django-sqlite-dblock
-https://testdriven.io/blog/django-performance-optimization-tips/
-https://www.youtube.com/watch?v=gpbpVheR3gM
-https://blog.pecar.me/django-streaming-responses
+* https://docs.djangoproject.com/en/5.1/topics/performance/
+* https://blog.pecar.me/sqlite-wal
+* https://blog.pecar.me/django-sqlite-benchmark
+* https://blog.pecar.me/django-sqlite-dblock
+* https://testdriven.io/blog/django-performance-optimization-tips/
+* https://www.youtube.com/watch?v=gpbpVheR3gM
+* https://blog.pecar.me/django-streaming-responses
+* https://xnacly.me/posts/2024/optimizing-a-dependency/
+
 ## throughput
 
 ---
@@ -212,7 +215,10 @@ PROVIDERS
 * _trench_: https://github.com/FrigadeHQ/trench
 * _Umami_: https://github.com/umami-software/umami
 
-## Clickhouse
+## 🌕 Clickhouse
+
+🗄️ `eng.md` query engines
+📜 https://clickhouse.com/ https://github.com/ClickHouse/ClickHouse
 
 * Visidata https://www.visidata.org/blog/2022/connect-visidata-to-sql-databases-with-vdsql/
 * DuckDB alternative? https://github.com/chdb-io/chdb

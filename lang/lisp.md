@@ -4,7 +4,7 @@
 
 📚
 * Barski land of lisp
-* Friedman little schemer https://www.amazon.com/dp/0262560992/
+* Friedman little schemer
 * Sussman sicp https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
 
 ## 进步
@@ -64,6 +64,7 @@ USED BY
 
 ---
 
+* https://herecomesthemoon.net/2024/11/leetcode-with-racket/
 * based off Scheme
 * async database https://notes.eatonphil.com/walking-through-a-basic-racket-web-service.html
 * https://news.ycombinator.com/item?id=7823337
@@ -109,6 +110,8 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 
 ## language
 
+* _homoiconicity_: code = data https://news.ycombinator.com/item?id=42272433
+* with Pythonic syntax https://news.ycombinator.com/item?id=42272433
 * little syntax https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
 * https://tryclojure.org/
 * https://stackoverflow.com/questions/47482349/what-characterizes-a-lisp-dialect

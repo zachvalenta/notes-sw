@@ -9,7 +9,14 @@
 
 ## 进步
 
+OPTIONS
+* REPL
+* repo + comments: based on REPL history
+* notebook: when you want to share
+
+* look into hosted
 * can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
+* pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html 🗄️ `architecture.md` baked data
 * add to startup https://www.pythonmorsels.com/cli-tools/#pyclbr
 
 * _24_: iPython
@@ -185,7 +192,9 @@ https://realpython.com/python-packages/#pudb-for-visual-debugging
 # 📔 NOTEBOOK
 
 💡 Romer econ textbook idea
-🗄 `km.md` notes
+🗄
+* `analytics.md` GUI
+* `doc.md` notes
 
 > Jupyter Notebooks are files that combine two content types: text/Markdown and executable Python code. https://www.pinecone.io/learn/retrieval-augmented-generation/
 
@@ -213,6 +222,7 @@ ALTERNATIVES
 
 ---
 
+* https://pypi.org/project/nbformat/
 * https://news.ycombinator.com/item?id=41580166
 * https://www.reddit.com/r/Python/comments/6hwa22/what_is_the_point_of_jupyter/ https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.html
 * notebooks as articles https://news.ycombinator.com/item?id=27367948 as books https://executablebooks.org/en/latest/ https://jupyterbook.org/en/stable/intro.html
@@ -223,6 +233,7 @@ ALTERNATIVES
 ## hosted
 
 https://deepnote.com/app/katkas-workspace/FaCT-721f3451-6e2e-4325-b2cc-0beeeb601c54?size_range=1000
+https://deepnote.com/app/katkas-workspace/Vector-animations-with-Python-6642dc15-9d7d-40cc-8e5e-c4eb2238cbf2
 
 ## 🟧 Jupyter
 

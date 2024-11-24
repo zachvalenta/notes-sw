@@ -408,6 +408,11 @@ TYPES
 * _Matplotlib_: eaten by Python https://realpython.com/podcasts/rpp/197/
 * Matlab for Python https://jakevdp.github.io/PythonDataScienceHandbook/
 * _MLX_: numpy for Apple silicon https://github.com/ml-explore/mlx
+
+### numpy
+
+https://realpython.com/numpy-example/
+
 * _Numpy_: subset of scipy https://jakevdp.github.io/PythonDataScienceHandbook/ 📙 Trask 44
 ```python
 # numpy.array.dot https://stackoverflow.com/a/35208273 📙 Trask 3.35
@@ -416,6 +421,7 @@ def dot(v1, v2):  # vectors
 
 dot([1,2,3], [4,5,6])
 ```
+
 ## transformers
 
 * https://www.manning.com/books/transformers-in-action
@@ -440,7 +446,6 @@ dot([1,2,3], [4,5,6])
 * _codec_: algo for video file compression https://github.com/leandromoreira/digital_video_introduction#how-does-a-video-codec-work https://news.ycombinator.com/item?id=25328622  https://github.com/ablwr/my-recurse-center-syllabus
 * _Fibonacci_: 🗄 `classic-compsci.pdf` https://docs.python.org/3/tutorial/modules.html https://www.youtube.com/watch?v=anrOzOapJ2E @ 34:00 https://realpython.com/fibonacci-sequence-python/
 * _Fisher-Jenks_: https://pbpython.com/natural-breaks.html
-* _Huffman coding_: algo used to generate prefix code https://news.ycombinator.com/item?id=22474850
 * _hyper log_: count unique items in large set 📙 Bhargava 11.213
 * _Morris counter_: https://arpitbhayani.me/blogs/morris-counter
 * _Prim's algorithm:_ find MST
@@ -448,16 +453,31 @@ dot([1,2,3], [4,5,6])
 * _simulated annealing_: https://matthewstrom.com/writing/how-to-pick-the-least-wrong-colors/
 * _Towers of Hanoi_: 🗄 `classic-compsci.pdf` https://en.wikipedia.org/wiki/Dynamic_programming#Tower_of_Hanoi_puzzle
 
-## autocorrect
+## edit distance
 
-* _Levenshtein distance_: https://blog.paperspace.com/implementing-levenshtein-distance-word-autocomplete-autocorrect/ https://github.com/hbollon/go-edlib https://github.com/seatgeek/fuzzywuzzy https://www.youtube.com/watch?v=kTS2b6pGElE 🗄 `system.md` search https://towardsdatascience.com/text-similarity-w-levenshtein-distance-in-python-2f7478986e75 🗄 difftastic
-* people use DP?
-* _substring_: common contiguous char [Bhargava 9.179, 182]
+🗄️ `tools.md` files > dir diff
+
+TOOLS
+* _thefuzz_: ✅ https://github.com/seatgeek/thefuzz https://github.com/seatgeek/fuzzywuzzy https://github.com/zachvalenta/capp-matchme
+* _edlib_: https://github.com/hbollon/go-edlib 
+
+---
+
+🧠 https://chatgpt.com/c/67462297-d568-8004-a102-3db4a41ab1eb
+
+LEVENSHTEIN DISTANCE
+* https://blog.paperspace.com/implementing-levenshtein-distance-word-autocomplete-autocorrect/
+* https://www.youtube.com/watch?v=kTS2b6pGElE
+* https://towardsdatascience.com/text-similarity-w-levenshtein-distance-in-python-2f7478986e75
+* https://xnacly.me/posts/2024/making-sql-keyword-suggestions-work/
+
+SEMANTICS
+* _substring_: common contiguous char 📙 Bhargava [179,182]
 ```markdown
 y _bcd_ af 
 x _bcd_ edf
 ```
-* _subsequence_: discontiguous char; used for autocorrect [Bhargava 9.184]
+* _subsequence_: discontiguous char; used for autocorrect 📙 Bhargava [184]
 ```markdown
 y _bcd_ a _f_
 x _bcd_ ed _f_
@@ -547,20 +567,30 @@ SEMANTICS
 
 ## search
 
-🗄 `math.md` linear algebra
+🗄
+* `math.md` linear algebra
+* `system.md` search 
 
 * _search space_: set of possible solutions to the problem constraints https://en.wikipedia.org/wiki/Feasible_region
+
+TOP OF MIND 🧠 https://chatgpt.com/c/67461bc1-0414-8004-af66-535909317a42
+* _bm25_: full text, used by Lucene and SQLite https://emschwartz.me/understanding-the-bm25-full-text-search-algorithm/
+* alternative: Okapi BM25F
+> Spent the last week looking into search - embeddings, BM25, how LLMs fit into the picture, and so on - and then, surprise, this popped up on HackerNews: FastGraphRAG. I haven’t even looked at the project itself yet, because this comment tripped me up: "Hypothetical answer generation from a query using an LLM, and then using that hypothetical answer to query for embeddings works really well." They use an LLM to generate hypothetical answers to a query and then use those answers to find relevant documents by comparing them in vector space. Don't know how else to put it, so pardonnez mon langage, but that's fucking nuts. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
+* _PageRank_: ranking algo that weights on number of incoming links (and their popularity)
+* _TF-IDF_: ranking https://jamesg.blog/2024/08/17/tf-idf-python/ https://simonwillison.net/2020/Dec/19/dogsheep-beta/ 🗄 `algos.md` Levenshtein https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
+* _Word2Vec_: vector db
+
+ZA
 * _simple_: 🗄 `/algos`
 * _binary_: 🗄 `/algos`; using BST (❌ log O of n average case and O of n worst case, sequential access ✅ faster mutative operations) [Bhargava 11.205]
 * _breadth-first (bfs)_: 🗄 `/algos` https://healeycodes.com/practical-intro-to-graphs/
 * _depth-first (dfs)_:
 > Doing great work is a depth-first search whose root node is the desire to. So "If at first you don't succeed, try, try again" isn't quite right. It should be: If at first you don't succeed, either try again, or backtrack and then try again. http://paulgraham.com/greatwork.html
-* _Aho-Corasick_: trie https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm https://www.lambdafunctions.com/articles/racing-sed-with-rust https://github.com/BurntSushi/aho-corasick
-* _bm25_: full text, used by Lucene and SQLite https://emschwartz.me/understanding-the-bm25-full-text-search-algorithm/
-> Spent the last week looking into search — embeddings, BM25, how LLMs fit into the picture, and so on — and then, surprise, this popped up on HackerNews: FastGraphRAG. I haven’t even looked at the project itself yet, because this comment tripped me up: “Hypothetical answer generation from a query using an LLM, and then using that hypothetical answer to query for embeddings works really well.” They use an LLM to generate hypothetical answers to a query and then use those answers to find relevant documents by comparing them in vector space. Don’t know how else to put it, so pardonnez mon langage, but that’s fucking nuts. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 
 ---
 
+* _Aho-Corasick_: trie https://en.wikipedia.org/wiki/Aho%E2%80%93Corasick_algorithm https://www.lambdafunctions.com/articles/racing-sed-with-rust https://github.com/BurntSushi/aho-corasick
 * index https://jamesg.blog/2024/07/16/build-a-search-index/
 * semantic https://news.ycombinator.com/item?id=41088273 https://github.com/arunsupe/semantic-grep https://blog.elicit.com/semantic-search/
 * shazam https://github.com/cgzirim/seek-tune https://news.ycombinator.com/item?id=41127726
@@ -580,8 +610,6 @@ ENGINE 🗄 `za/search-engine` (port data to query sandbox)
 User-agent: *
 Disallow: /
 ```
-* _PageRank_: ranking algo that weights on number of incoming links (and their popularity)
-* _TF-IDF_: ranking  https://jamesg.blog/2024/08/17/tf-idf-python/
 * _instant answer_: display text from top result in overall results https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html
 * _indexer_: writes/updates keys https://drewdevault.com/2020/11/17/Better-than-DuckDuckGo.html
 * _full text search (FTS)_: search all text https://en.wikipedia.org/wiki/Full-text_search 📙 Karwin ch 17
@@ -619,8 +647,6 @@ Theres none stands under more calumnious tongues
 * document:	Did you know that eggplant dishes cannot be refrigerated?
 ```
 * _relevance_: order matches 📙 MacCormick 11
-* algos https://simonwillison.net/2020/Dec/19/dogsheep-beta/ 🗄 `algos.md` Levenshtein
-* aka ranking, content match https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
 * _query logs_: map of query to URL clicked e.g. query 'boxing' URL 'espn.com/boxing' https://0x65.dev/blog/2019-12-05/a-new-search-engine.html
 > Ranking is where it gets controversial. When you rank, you pick winners and losers. https://news.ycombinator.com/item?id=20286953
 > The big problem with all the off-the-shelf search solutions (RDBMS full-text search, ES, Algolia) is that search ranking is a complicated and subtle problem, and frequently depends on signals that are not in the document itself. Google's big insight is that how other people talk about a website is more important than how the website talks about itself, and its ranking algorithm weights accordingly. https://news.ycombinator.com/item?id=27978505

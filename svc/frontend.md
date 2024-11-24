@@ -34,6 +34,7 @@ MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 ## design
 
 TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
+* history: jQuery, Backbone, React, Next.js (built on top of React) https://blog.codepen.io/2024/11/11/chris-corner-our-eras-tour/
 * components https://github.com/wrabit/django-cotton
 * Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer
 * _CRUD-and-forms_: Django https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/ 
@@ -396,6 +397,7 @@ CMS
 * sitemap https://otterwiki.com/-/index https://werc.cat-v.org/sitemap
 * _metadata_: title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/ linking https://github.com/erwald/blog/blob/master/_data/series.json https://danilafe.com/blog/blog_microfeatures/
 * advanced metadata https://gwern.net/metadata/annotation/backlink/https%253A%252F%252Fpublicdomainreview.org%252Fessay%252Four-masterpiece-is-the-private-life-in-pursuit-of-the-real-chateaubriand%252F.html
+* SQL https://news.ycombinator.com/item?id=42244987
 * _template engine_: page structure e.g. Jinja, Tera https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola
 * _HTML preprocessor_: turn Markdown in HTML e.g. Nunjucks https://css-tricks.com/killer-features-of-nunjucks/ https://github.com/erwald/blog
 ```sh
@@ -421,6 +423,9 @@ SEARCH
 📜 https://jaspervdj.be/hakyll/
 
 https://gwern.net/about#importance-tags
+
+> tags or tree? both? https://www.jonashietala.se/blog/tags/neovim/
+structure https://rknight.me/
 
 ## 🪴 Quartz
 
@@ -450,7 +455,7 @@ https://jzhao.xyz/posts/networked-thought https://x.com/_jzhao/status/1815280245
 * _polyfill_: replacement for Web API
 * _sourcemap_: map from minified code to source for purpose of debugging
 * _tree shaking_: remove dead code
-* _WASM_: compilation target for browsers that supports non-JS languages https://words.steveklabnik.com/is-webassembly-the-return-of-java-applets-flash https://sqlite.org/wasm/doc/tip/about.md https://rsms.me/wasm-intro
+* _WASM_: compilation target for browsers that supports non-JS languages https://words.steveklabnik.com/is-webassembly-the-return-of-java-applets-flash https://sqlite.org/wasm/doc/tip/about.md https://rsms.me/wasm-intro https://neugierig.org/software/blog/2024/04/rust-wasm-to-js.html
 * _WebRTC_: browser-to-browser communication (for high-speed A/V) e.g. Facetime https://hpbn.co/webrtc/ https://pragprog.com/titles/ksrtc/programming-webrtc/
 * _Webpack_: creates bundle (all libs in single file); preceded by Browserify, succeeded by Snowpack
 * editors: Code Mirror, Monaco (what repl.it used before Code Mirror)
@@ -524,7 +529,7 @@ browsers
 * _JS engine_: V8 for Chrome, SpiderMonkey for Firefox
 > ❓ aka web engine? browser engine? https://servo.org/ https://github.com/gosub-io/gosub-engine
 * _layout engine_: parses XML/HTML into a DOM
-* scrolling https://news.ycombinator.com/item?id=23994619
+* scrolling https://news.ycombinator.com/item?id=23994619 https://dontfuckwithscroll.com/
 * _service worker_: API to run background scripts; diff than AJAX bc allow for push notifications and sync from emanating from server https://whatisjasongoldstein.com/writing/service-workers-of-the-world-unite/
 * `<script>`: now (inside `<head>` bc with async and defer can download script and parse HTML at the same time) then (at the end of <body> because browser stops parsing HTML while waiting for script to load) https://stackoverflow.com/a/24070373/6813490
 * _SVG_: XML for drawing https://www.getmotion.io/blog/where-are-all-the-animated-svgs

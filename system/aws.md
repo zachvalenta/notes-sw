@@ -29,7 +29,7 @@ https://www.youtube.com/watch?v=jFrGhodqC08
 🔗 https://aws.amazon.com/products/compute/
 
 DATA ENG 🗄️ storage / data eng
-* _Athena_: how is this different than CloudSearch? https://docs.aws.amazon.com/athena/latest/ug/what-is.html
+* _Athena_: how is this different than CloudSearch? https://docs.aws.amazon.com/athena/latest/ug/what-is.html CLI https://github.com/dbcli/athenacli 🗄️ `eng.md` query engines > Presto
 * _Data Pipeline_: ETL
 * _CloudSearch_: search plaintext in S3/RDS; 类似 ElasticSearch
 * _EMR_: Spark i.e. MapReduce over huge text files
@@ -252,7 +252,7 @@ ZA
 * you used to get charged for 400 requests https://medium.com/@maciej.pocwierz/how-an-empty-s3-bucket-can-make-your-aws-bill-explode-934a383cb8b1 https://aws.amazon.com/about-aws/whats-new/2024/05/amazon-s3-no-charge-http-error-codes/
 > So, if I were to open my terminal now and type: `aws s3 cp ./file.txt s3://your-bucket-name/random_key` I would receive an AccessDenied error, but you would be the one to pay for that request. And I don't even need an AWS account to do so.
 * _Glacier_: S3 but cheaper in exchange for higher latency
-* _MinIO_: https://tech.marksblogg.com/minio-aws-s3-hdfs.html
+* _MinIO_: OSS alternative https://tech.marksblogg.com/minio-aws-s3-hdfs.html
 
 ---
 

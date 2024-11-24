@@ -277,7 +277,7 @@ $ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 * _alpine_: https://drewdevault.com/2023/07/25/Alpine-does-not-make-news.html https://drewdevault.com/2021/05/06/Praise-for-Alpine-Linux.html
 * _asahi_: linux for Mac https://asahilinux.org/ https://www.youtube.com/watch?v=PHFhyqYav5M
-* _arch_: 
+* _arch_: manjaro https://www.youtube.com/watch?v=Dg2Lek-xN70
 * _CentOS_: https://taskwarrior.org/docs/workflow/
 * _Fedora_: https://nickgerace.dev/posts/why-i-use-fedora/
 * _mint_: https://drewdevault.com/2021/12/14/Linux-Mint-and-elementary-OS.html

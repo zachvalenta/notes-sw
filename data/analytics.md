@@ -73,7 +73,7 @@ ZA
 
 📜 https://docs.pola.rs/ https://docs.pola.rs/api/python/stable/reference/index.html
 
-* faster than Pandas https://pola.rs/posts/benchmarks/
+* copmared to Pandas: query optimization, group by https://labs.quansight.org/blog/dataframe-group-by https://pola.rs/posts/benchmarks/
 * better semantics than Pandas? https://arilamstein.com/blog/2024/09/04/why-im-switching-to-polars/
 * plotting https://pola.rs/posts/lightweight_plotting/ https://realpython.com/python-news-october-2024/
 > couldn't get this to work; try `pipx inject`
@@ -210,6 +210,12 @@ SQL FROM SHELL
 * _q_: https://github.com/harelba/q
 * _sq_ https://github.com/neilotoole/sq https://news.ycombinator.com/item?id=41760697 
 
+CSVKIT 📜 https://github.com/wireservice/csvkit https://csvkit.readthedocs.io/en/latest/
+* install broken via pyenv https://github.com/zachvalenta/logs-capp/blob/main/pyenv/pipx/csvkit.log#L36
+```sh
+in2csv $EXCEL > $CSV
+```
+
 CONVERSION / GENERATION
 * tabular to JSON https://github.com/jazzband/tablib
 * JSON to tabular https://duckduckgo.com/?q=json+to+pandas&ia=web
@@ -233,13 +239,18 @@ LINTING
 ## BI (csvbase)
 
 🗄
+* `architecture.md` no code, baked data
 * `doc.md` viz > chart
 * `math.md` stat / distributions
-* `system.md` no code
 
 > Analysis, even SQL-based analysis, isn't like design, where a handful of people create stuff and everyone else is a consumer, with clear lines between them. It's much, much fuzzier. Though analysts were always our first adopters, lots of people - PMs, engineers, marketing managers, executives, support agents, operations leads, and all job titles in between - periodically wrote queries. These people occupied the middle part of the distribution between analysts and non-analysts that we thought would be vacant. Users weren't bimodal like we expected, but continuous. https://benn.substack.com/p/work-like-an-analyst
 
 ---
+
+CANDIDATES FOR CAPP https://chatgpt.com/c/674796f6-286c-8004-b0d5-6ae4d0decccc
+* Metabase
+
+https://github.com/finos/perspective
 
 * AI / plain English https://news.ycombinator.com/item?id=41907719
 
@@ -247,16 +258,19 @@ LINTING
 * SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
 
 TOOLS / DASHBOARDS
-* text to SQL https://github.com/vanna-ai/vanna
+* RAG https://github.com/vanna-ai/vanna
 * _Blazer_: https://github.com/ankane/blazer
 * _Briefer_: https://github.com/briefercloud/briefer https://pythonbytes.fm/episodes/show/405/oh-really
 * _csvbase_: 🎯 https://csvbase.com/ https://csvbase.com/blog/10
 * _Dash_: 🎯 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE
+* callback = update chart https://dash.plotly.com/tutorial#controls-and-callbacks
+* control = hit callback
+* Dash Design Kit (DDK) = no need for HTML/CSS
 * _Dataherald_: query using natural language via LLM https://github.com/Dataherald/dataherald
-* _Datalens_: run locally https://news.ycombinator.com/item?id=37657772
+* _Datalens_: 🎯 run locally https://datalens.tech/ https://news.ycombinator.com/item?id=37657772
 * _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872
 * _Hex_: https://hex.tech/ https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift
-* _Lightdash_: https://github.com/lightdash/lightdash
+* _Lightdash_: Kubernetes https://github.com/lightdash/lightdash
 * _Looker_: Looker Studio is the free dashboard component
 > Everything builds on top of Looker. Looker Studio is a way to access and build reports on that trusted, underlying data model. https://www.cobry.co.uk/looker-vs-looker-studio
 * _Kviklet_: queries + perms https://github.com/kviklet/kviklet
@@ -272,156 +286,6 @@ TOOLS / DASHBOARDS
 > Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
 * _Superset_: 🎯 popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset https://news.ycombinator.com/item?id=37661872
 * _Taipy_: https://github.com/Avaiga/taipy
-
-## EDA (visidata)
-
-🗄️ `protocols.md` CSV
-🔍 https://stackoverflow.com/questions/tagged/visidata
-* help: `ctrl h` jumps to man page https://jsvine.github.io/intro-to-visidata/basics/getting-out-of-trouble/
-* available cmds: `z ctrl h`
-📜
-* repo https://github.com/saulpw/visidata
-* docs https://www.visidata.org
-* guide https://jsvine.github.io/intro-to-visidata/
-* ref https://jsvine.github.io/visidata-cheat-sheet/en/
-
-STATE
-* create: sheet `A` attr `za` record `a` n records `ga` https://www.youtube.com/watch?v=yK3qgOIx4x0 [0:25,1:30]
-* undo: `U`
-* save current sheet: `CTRL S`
-> super slow for half GB TSV file
-* save current row: `Y`
-* save selected rows: `gY`
-
-CMDLOG
-* stored at `~/.visidata/history`
-* play: `vd -p cmd_log.vd` https://www.youtube.com/watch?v=yK3qgOIx4x0 [5:20]
-* view: `D`
-* save: `ctrl s`
-
-SESSION
-* save session: `CTRL d` https://www.visidata.org/docs/save-restore/
-* restore session: `vd - <file>`
-
-CONFIG
-* fs: `~/.visidatarc` https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata/
-* cache: `~/.visidata`
-* config: `shift o` global options sheet `z shift o` sheet-specific `~/.visidatrc` persistent https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata/
-
-BROKEN FILE CONVERSION 🚧 file conversion doesn't work
-* using csvkit instead 🗄️ query-sandbox, capp
-* cause: `vd` not being callable? https://github.com/saulpw/visidata/issues/1406 `sh: /Users/zach/.local/bin/vd: bad interpreter: /Users/zach/Library/Application: no such file or directory`
-* cause: pyenv issue
-```sh
-$ vd foo.xlsx -b -o foo.csv
-
-saul.pw/VisiData v3.0.2
-opening foo.xlsx as xlsx
-I wonder what they'll do next!
-saving 1 sheets to foo.csv as csv
-```
-```sh
-$ cat foo.csv
-```
-```csv
-sheet,nRows,nCols,active
-Cateogry_Updates,1,2,True
-Sheet1,1048575,5,False
-Sheet2,1048575,2,False
-```
----
-
-https://datasette.io/for/exploratory-analysis
-https://cosimameyer.com/post/2024-09-05-pythonistr-a-match-made-in-data-heaven/
-https://github.com/cosimameyer/overviewpy
-
-* dealing with large files https://jsvine.github.io/intro-to-visidata/intermediate/large-files/
-* plugin for get duplicates https://jsvine.github.io/intro-to-visidata/advanced/extending-visidata/?highlight=duplicate
-* pass cells to function https://www.youtube.com/watch?v=yhunJc8Nu4g 5:00
-
-* load data: `vd <file>` https://www.visidata.org/docs/loading/ https://www.visidata.org/formats/
-* convert data: `vd <.json/csv> -b -o <name>.db` 🗄 export sheet
-* graphing https://www.youtube.com/watch?v=Ozap_numsjI https://www.visidata.org/docs/graph/ https://www.youtube.com/watch?v=j0qn8OIiV-w
-> check out deciles from aggregates
-* munge delimited data https://www.youtube.com/watch?v=yhunJc8Nu4g
-* _melt_: mv from 1 record n attr to n records 1 attr https://www.youtube.com/watch?v=yhunJc8Nu4g 2:30
-
-* rf using Paul's playlist https://www.youtube.com/playlist?list=PLxu7QdBkC7drrAGfYzatPGVHIpv4Et46W
-https://www.youtube.com/playlist?list=PLxu7QdBkC7drrAGfYzatPGVHIpv4Et46W
-* `:q` to exit vd itself vs. just quitting a sheet https://github.com/saulpw/visidata/issues/538 https://github.com/saulpw/visidata/issues/483 https://github.com/saulpw/visidata/issues/389 https://github.com/saulpw/visidata/issues/212
-* connect to postgres https://www.visidata.org/formats/#postgres
-* load subset of file https://jsvine.github.io/intro-to-visidata/intermediate/large-files/#from-the-command-line
-* select random subset https://jsvine.github.io/intro-to-visidata/intermediate/large-files/#select-a-random-sample-of-rows
-
-### attr
-
-https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
-
-* agg: set type (`%` for float) `z+` + agg https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
-* goto: `c $COL_REGEX`
-* search records: `/`
-* nav: `hl`, `gh/gl`
-* rename: `^`
-* mv: `H/L`
-* create blank: `za` https://jsvine.github.io/intro-to-visidata/intermediate/creating-new-columns
-* hide/unhide: `-` / `gv`
-* expand width to fit text: `_` (single) `g_` (all)
-* shrink by 1/2: `z-`
-* expand json: `()`
-
----
-
-* key: `!`; pins + certain cmd only apply to them https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-designate-key-columns
-* aggregates: sum `z +` https://www.youtube.com/watch?v=yhunJc8Nu4g 4:20
-* set type: `~` string `#` int `$` currency https://www.visidata.org/docs/graph/
-* set value `g=` https://www.youtube.com/watch?v=yK3qgOIx4x0 3:20
-> so even if underlying attr type is non-numeric can change type in sheet
-
-* sort col `[` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#how-to-sort-rows
-* filter col `| <filter>` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
-* _go to_: ❓ https://jsvine.github.io/intro-to-visidata/basics/navigating-visidata/#how-to-move-via-searching0
-* _set type_: https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#manipulating-columns-from-the-columns-sheet
-* _joins_: https://jsvine.github.io/intro-to-visidata/intermediate/joining-sheets/
-* _aggregation_: https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#adding-aggregators https://sqlfordevs.com/multiple-aggregates-in-one-query?ref=Newsletter
-* _aggregate on column_: https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
-
-* _select all records that match on current cell_: `| <val>` https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#by-matching-patterns
-* _filter on selected_: `"` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#using-frequency-tables-to-select-and-filter-for-multiple-values
-* https://jsvine.github.io/intro-to-visidata/basics/navigating-visidata/#how-to-move-via-searching https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#via-expressions
-
-### records
-
----
-
-* null = those yellow crossed out circles https://www.visidata.org/docs/rows/
-* mv: `SHIFT j/k`
-* sort: `[]`
-* page: `ctrl b/f`
-* select: `s/u` (single) `gs/gu` (all)
-* rm: `d` (doesn't work for selected)
-* goto: `zr <num>`
-> can use Vim https://www.youtube.com/watch?v=yhunJc8Nu4g
-* edit: `e` https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#editing-row-cells
-* edit w/ regex: `g*` https://www.youtube.com/watch?v=l2Bpmm0yAGw 4:24 https://www.visidata.org/docs/edit/
-
-### sheets
-
----
-
-* pull values into new sheet https://www.youtube.com/watch?v=yhunJc8Nu4g 3:00
-* create sheet from selected records: `"` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
-* _sheet_: god component https://jsvine.github.io/intro-to-visidata/basics/understanding-sheets/
-* _meta sheet_: combo columns `C` sheets `S` summary `I`
-* frequency `F` combo frequency `gF` https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#multi-column-frequencies
-* pivot table https://jsvine.github.io/intro-to-visidata/intermediate/reshaping-data/#creating-pivot-tables
-* _source sheet_: actual data
-* _derived sheet_: derived data off source sheet
-* reload/reset `ctrl r`
-* toggle `ctrl 6`
-* save `ctrl s` https://www.youtube.com/watch?v=j0qn8OIiV-w 4:30
-* exit: `q` single `gq` all `gs` view recently exited
-* rm: `d`
-* view deleted `gS`
 
 ## entry (dataclerk)
 
@@ -460,32 +324,57 @@ SELECT * FROM pragma_foreign_key_list('reading');
 # next step is running this from sqlite3
 ```
 
-## munge (xsv, et al.)
+## GUI (dbeaver)
 
-🗄️
-* `shell.md` munge
-* `protocols.md` file fmt
+🗄️ `python/feedback.md` notebook
 
-CSVKIT 📜 https://github.com/wireservice/csvkit https://csvkit.readthedocs.io/en/latest/
-* install broken via pyenv https://github.com/zachvalenta/logs-capp/blob/main/pyenv/pipx/csvkit.log#L36
+---
+
+OPTIONS
+* NoSQL: Table Plus https://news.ycombinator.com/item?id=22908224 DbGate https://github.com/dbgate/dbgate
+* SQLite: DB4S https://github.com/sqlitebrowser/sqlitebrowser https://github.com/coleifer/sqlite-web https://sqlitestudio.pl/
+* Postgres: pgAdmin, PGweb https://github.com/centerofci/mathesar
+* _Beekeeper_: $7/month https://www.beekeeperstudio.io/
+* _Datagrip_: 🎯 $10/month, ERD https://www.jetbrains.com/datagrip/
+* _Datasette_: 🎯 SQLite only https://github.com/simonw/datasette/issues/670 https://github.com/simonw/datasette-upload-csvs https://github.com/simonw/dclient https://github.com/datasette/datasette-create-view https://github.com/simonw/sqlite-utils-ask https://github.com/datasette/datasette-query-assistant
+* _DBeaver_: OSS, ERD https://dbeaver.io/ https://stackoverflow.com/a/48397209
+* _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
+
+FEATURES
+* notebooks https://github.com/electroly/sqlnotebook
+* autocomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
+* follow FKs https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
+* data catalog https://harlequin.sh
+* ERD 🗄 `info.md` viz / entities / ERD
+* _query editor_: save, autocomplete
+* _results viewer_: result set
+
+## 🍞 miller
+
+📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
+
+FILTERING
 ```sh
-in2csv $EXCEL > $CSV
+filter '$header != ""' $CSV  # filter out nulls
 ```
 
-XSV 📜 https://github.com/BurntSushi/xsv
+CONFIG https://miller.readthedocs.io/en/latest/customization/
+* `$HOME/.mlrrc`
 ```sh
-fmt $TSV > $CSV  # Capp
-count songs.csv # count records
-headers -j $CSV # get headers
-split -s <records_per_file> <output-dir> <csv> # split into n files
-select "header" <csv> # all from header
-search -i -s "header" "query" <csv> # search within header (case insensitive)
-stats <table> | xsv table # stats (sum, min, max)
-xsv sample 50 full.csv > sample.csv # get sampled subset
-xsv slice -i 0 csv | xsv flatten # get line of data and display as two columns
+--list-color-names # view colors https://miller.readthedocs.io/en/latest/output-colorization/
+c2p  # --c2p
+allow-ragged-csv-input  # if data line fields > header line, insert empty val instead of err (CSV header/data length mismatch)
+
+# IO
+--icsv    # input csv
+--tsv     # input tsv
+--opprint # output pprint
+--c2p     # combine --icsv and --opprint https://miller.readthedocs.io/en/latest/keystroke-savers/#short-format-specifiers-including-c2p
+--csv     # IO csv
 ```
 
-MILLER 📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
+---
+
 ```sh
 # BASICS
 cat $FILE # select *
@@ -501,29 +390,20 @@ uniq -g <header> <csv> | wc -l # uniq for header
 most-frequent -f col -n 1000 example.csv # most frequent value by header
 most-frequent -f col -n 1000 example.csv | mlr --opprint sort -f col # most frequent value by header + group by header
 --c2p cut -o -f "21.08","21.09" then put '${total} = ${21.08} + ${21.09}' <csv> # put = computed fields; ${field} for fields w/ spaces
-filter '$header == "value"' example.csv # select * where header = val
+filter '$header == "value"' $CSV # select * where header = val
 filter '$header1 == "value-foo"' && '$header2 == "value-bar"' example.csv
 filter 'is_null($header)' example.csv # https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
 filter '$earnings > 0.0' example.csv
-
-# IO
---icsv    # input csv
---tsv     # input tsv
---opprint # output pprint
---c2p     # combine --icsv and --opprint https://miller.readthedocs.io/en/latest/keystroke-savers/#short-format-specifiers-including-c2p
---csv     # IO csv
-
-# CONFIG (.mlrrc) https://miller.readthedocs.io/en/latest/customization/
---list-color-names # view colors https://miller.readthedocs.io/en/latest/output-colorization/
-c2p  # --c2p
-allow-ragged-csv-input  # if data line fields > header line, insert empty val instead of err (CSV header/data length mismatch)
 ```
 
 ## REPL (dbcli)
 
+📜 https://www.dbcli.com/
+
+---
+
 🛠️ CLI query https://github.com/neilotoole/sq https://github.com/PeepDB-dev/peepdb
 
-DBCLI 📜 https://litecli.com/ https://www.pgcli.com
 * open with env var: `cli -h`
 * exit: `exit`, `\q`
 * list tables: `\dt`
@@ -587,6 +467,7 @@ ALTERNATIVES
 * use from Python https://github.com/xlwings/xlwings
 * use from Golang https://github.com/qax-os/excelize
 * Visual Basic https://retool.com/visual-basic/ https://retool.com/blog/the-history-and-legacy-of-visual-basic
+
 ## TUI (harlequin)
 
 TUI
@@ -594,24 +475,6 @@ TUI
 * _harlequin_: ✅ query editor https://harlequin.sh
 * _GoBang_: perpetual alpha https://github.com/TaKO8Ki/gobang
 * _rainfrog_: Postgres https://github.com/achristmascarl/rainfrog
-
-GUI
-* NoSQL: Table Plus https://news.ycombinator.com/item?id=22908224 DbGate https://github.com/dbgate/dbgate
-* SQLite: DB4S https://github.com/sqlitebrowser/sqlitebrowser https://github.com/coleifer/sqlite-web
-* Postgres: pgAdmin, PGweb https://github.com/centerofci/mathesar
-* _Beekeeper_: $7/month https://www.beekeeperstudio.io/
-* _Datagrip_: $25/month, ERD
-* _Datasette_: 🎯 SQLite only https://github.com/simonw/datasette/issues/670 https://github.com/simonw/datasette-upload-csvs https://github.com/simonw/dclient https://github.com/datasette/datasette-create-view https://github.com/simonw/sqlite-utils-ask https://github.com/datasette/datasette-query-assistant
-* _DBeaver_: OSS, ERD https://stackoverflow.com/a/48397209
-* _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
-
-FEATURES
-* autocomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
-* follow FKs https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
-* data catalog https://harlequin.sh
-* ERD 🗄 `info.md` viz / entities / ERD
-* _query editor_: save, autocomplete
-* _results viewer_: result set
 
 ---
 
@@ -623,3 +486,171 @@ HARLEQUIN 📜 https://harlequin.sh
 * have to import CSV files after opening harlequin? import via data catalog? via `conn_str = ["local.db"]`? https://github.com/tconbeer/harlequin/discussions/314
 * profiles: sqlite, duckdb, postgres
 * Django https://adamj.eu/tech/2024/05/07/django-harlequin/
+
+## ❎ xsv
+
+📜 https://github.com/BurntSushi/xsv
+
+---
+
+```sh
+fmt $TSV > $CSV  # Capp
+count songs.csv # count records
+headers -j $CSV # get headers
+split -s <records_per_file> <output-dir> <csv> # split into n files
+select "header" <csv> # all from header
+search -i -s "header" "query" $CSV # search within header (case insensitive)
+stats <table> | xsv table # stats (sum, min, max)
+xsv sample 50 full.csv > sample.csv # get sampled subset
+xsv slice -i 0 csv | xsv flatten # get line of data and display as two columns
+```
+
+# 🟦 VISIDATA
+
+🗄️ `protocols.md` CSV
+🔍 https://stackoverflow.com/questions/tagged/visidata
+* help: `ctrl h` jumps to man page https://jsvine.github.io/intro-to-visidata/basics/getting-out-of-trouble/
+* available cmds: `z ctrl h`
+📜
+* repo https://github.com/saulpw/visidata
+* docs https://www.visidata.org
+* guide https://jsvine.github.io/intro-to-visidata/
+* ref https://jsvine.github.io/visidata-cheat-sheet/en/
+
+STATE
+* create: sheet `A` attr `za` record `a` n records `ga` https://www.youtube.com/watch?v=yK3qgOIx4x0 [0:25,1:30]
+* undo: `U`
+* save current sheet: `CTRL S`
+> super slow for half GB TSV file
+* save current row: `Y`
+* save selected rows: `gY`
+
+CMDLOG
+* stored at `~/.visidata/history`
+* play: `vd -p cmd_log.vd` https://www.youtube.com/watch?v=yK3qgOIx4x0 [5:20]
+* view: `D`
+* save: `ctrl s`
+
+SESSION
+* save session: `CTRL d` https://www.visidata.org/docs/save-restore/
+* restore session: `vd - <file>`
+
+CONFIG https://github.com/zachvalenta/dotfiles/blob/7f843714b3c3d6eb531dfb292e91214c051ef82e/db/.visidatarc
+* fs: `~/.visidatarc` https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata/
+* cache: `~/.visidata`
+* config: `shift o` global options sheet `z shift o` sheet-specific `~/.visidatrc` persistent https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata/
+
+BROKEN FILE CONVERSION 🚧 file conversion doesn't work
+* using csvkit instead 🗄️ query-sandbox, capp
+* cause: `vd` not being callable? https://github.com/saulpw/visidata/issues/1406 `sh: /Users/zach/.local/bin/vd: bad interpreter: /Users/zach/Library/Application: no such file or directory`
+* cause: pyenv issue
+```sh
+$ vd foo.xlsx -b -o foo.csv
+
+saul.pw/VisiData v3.0.2
+opening foo.xlsx as xlsx
+I wonder what they'll do next!
+saving 1 sheets to foo.csv as csv
+```
+```sh
+$ cat foo.csv
+```
+```csv
+sheet,nRows,nCols,active
+Cateogry_Updates,1,2,True
+Sheet1,1048575,5,False
+Sheet2,1048575,2,False
+```
+---
+
+https://datasette.io/for/exploratory-analysis
+https://cosimameyer.com/post/2024-09-05-pythonistr-a-match-made-in-data-heaven/
+https://github.com/cosimameyer/overviewpy
+
+* dealing with large files https://jsvine.github.io/intro-to-visidata/intermediate/large-files/
+* plugin for get duplicates https://jsvine.github.io/intro-to-visidata/advanced/extending-visidata/?highlight=duplicate
+* pass cells to function https://www.youtube.com/watch?v=yhunJc8Nu4g 5:00
+
+* load data: `vd <file>` https://www.visidata.org/docs/loading/ https://www.visidata.org/formats/
+* convert data: `vd <.json/csv> -b -o <name>.db` 🗄 export sheet
+* graphing https://www.youtube.com/watch?v=Ozap_numsjI https://www.visidata.org/docs/graph/ https://www.youtube.com/watch?v=j0qn8OIiV-w
+> check out deciles from aggregates
+* munge delimited data https://www.youtube.com/watch?v=yhunJc8Nu4g
+* _melt_: mv from 1 record n attr to n records 1 attr https://www.youtube.com/watch?v=yhunJc8Nu4g 2:30
+
+* rf using Paul's playlist https://www.youtube.com/playlist?list=PLxu7QdBkC7drrAGfYzatPGVHIpv4Et46W
+https://www.youtube.com/playlist?list=PLxu7QdBkC7drrAGfYzatPGVHIpv4Et46W
+* `:q` to exit vd itself vs. just quitting a sheet https://github.com/saulpw/visidata/issues/538 https://github.com/saulpw/visidata/issues/483 https://github.com/saulpw/visidata/issues/389 https://github.com/saulpw/visidata/issues/212
+* connect to postgres https://www.visidata.org/formats/#postgres
+* load subset of file https://jsvine.github.io/intro-to-visidata/intermediate/large-files/#from-the-command-line
+* select random subset https://jsvine.github.io/intro-to-visidata/intermediate/large-files/#select-a-random-sample-of-rows
+
+## attr
+
+https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
+
+* agg: set type (`%` for float) `z+` + agg https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
+* goto: `c $COL_REGEX`
+* search records: `/`
+* nav: `hl`, `gh/gl`
+* rename: `^`
+* mv: `H/L`
+* create blank: `za` https://jsvine.github.io/intro-to-visidata/intermediate/creating-new-columns
+* hide/unhide: `-` / `gv`
+* expand width to fit text: `_` (single) `g_` (all)
+* shrink by 1/2: `z-`
+* expand json: `()`
+
+---
+
+* key: `!`; pins + certain cmd only apply to them https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-designate-key-columns
+* aggregates: sum `z +` https://www.youtube.com/watch?v=yhunJc8Nu4g 4:20
+* set type: `~` string `#` int `$` currency https://www.visidata.org/docs/graph/
+* set value `g=` https://www.youtube.com/watch?v=yK3qgOIx4x0 3:20
+> so even if underlying attr type is non-numeric can change type in sheet
+
+* sort col `[` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#how-to-sort-rows
+* filter col `| <filter>` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
+* _go to_: ❓ https://jsvine.github.io/intro-to-visidata/basics/navigating-visidata/#how-to-move-via-searching0
+* _set type_: https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#manipulating-columns-from-the-columns-sheet
+* _joins_: https://jsvine.github.io/intro-to-visidata/intermediate/joining-sheets/
+* _aggregation_: https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#adding-aggregators https://sqlfordevs.com/multiple-aggregates-in-one-query?ref=Newsletter
+* _aggregate on column_: https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
+
+* _select all records that match on current cell_: `| <val>` https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#by-matching-patterns
+* _filter on selected_: `"` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#using-frequency-tables-to-select-and-filter-for-multiple-values
+* https://jsvine.github.io/intro-to-visidata/basics/navigating-visidata/#how-to-move-via-searching https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#via-expressions
+
+## records
+
+---
+
+* null = those yellow crossed out circles https://www.visidata.org/docs/rows/
+* mv: `SHIFT j/k`
+* sort: `[]`
+* page: `ctrl b/f`
+* select: `s/u` (single) `gs/gu` (all)
+* rm: `d` (doesn't work for selected)
+* goto: `zr <num>`
+> can use Vim https://www.youtube.com/watch?v=yhunJc8Nu4g
+* edit: `e` https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#editing-row-cells
+* edit w/ regex: `g*` https://www.youtube.com/watch?v=l2Bpmm0yAGw 4:24 https://www.visidata.org/docs/edit/
+
+## sheets
+
+---
+
+* pull values into new sheet https://www.youtube.com/watch?v=yhunJc8Nu4g 3:00
+* create sheet from selected records: `"` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
+* _sheet_: god component https://jsvine.github.io/intro-to-visidata/basics/understanding-sheets/
+* _meta sheet_: combo columns `C` sheets `S` summary `I`
+* frequency `F` combo frequency `gF` https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#multi-column-frequencies
+* pivot table https://jsvine.github.io/intro-to-visidata/intermediate/reshaping-data/#creating-pivot-tables
+* _source sheet_: actual data
+* _derived sheet_: derived data off source sheet
+* reload/reset `ctrl r`
+* toggle `ctrl 6`
+* save `ctrl s` https://www.youtube.com/watch?v=j0qn8OIiV-w 4:30
+* exit: `q` single `gq` all `gs` view recently exited
+* rm: `d`
+* view deleted `gS`

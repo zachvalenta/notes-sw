@@ -169,7 +169,7 @@ else state == done:
 FIRMWARE
 * _firmware_: software embedded in and specific to its hardware host
 * _BIOS (basic IO)_: firmware that gives option of where to boot from; can boot from vinyl https://news.ycombinator.com/item?id=25177045
-* _UEFI_: newer version of BIOS that's apparently more of a pain https://www.youtube.com/watch?v=mxA9Gyyu6Rg 5:45
+* _UEFI_: newer version of BIOS that's apparently more of a pain https://www.youtube.com/watch?v=mxA9Gyyu6Rg 5:45 https://news.ycombinator.com/item?id=42264345
 * _boot_: BIOS -> bootloader (GRUB) -> OS
 * _CMOS_: chip that holds BIOS
 

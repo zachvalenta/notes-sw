@@ -117,6 +117,7 @@ CLOUD
 * why local https://nickgerace.dev/posts/theres-nothing-like-local-development/ https://news.ycombinator.com/item?id=42043130
 * why cloud: CPU/mem intensive e.g. 2TB mem for computational biology https://realpython.com/podcasts/rpp/197/
 > I don't understand the need for "cloud development environments" though. Isn't the point of containerized apps is to avoid the need for synchronizing dev envs amongst teams?...It's to ensure a consistent environment for all developers, with the resources required. E.g. they mention GPUs, for developers working with GPU-intensive workloads. You can ship all developers gaming laptops with 64GB RAM and proper GPUs, and have them fight the environment to get the correct libraries as you have in prod (even with containers that's not trivial), or you can ship them Macbook Airs and similar, and have them run consistent (the same) dev environments remotely (you can self-host gitpod, it's not only a cloud service, it's more the API/environment to get consistent remote dev enviornments). https://news.ycombinator.com/item?id=42042522
+* 🎯 Omakub on a spot instance?
 * _Coder_: https://github.com/coder/coder
 * _Daytona_: https://www.daytona.io/
 * _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://cli.github.com/manual/gh_codespace
@@ -134,6 +135,7 @@ CLOUD
 
 ---
 
+England https://x.com/nabeelqu/status/1861479746929897572
 https://news.ycombinator.com/item?id=41941493
 
 🗄 `infra.md` analytics
@@ -163,9 +165,11 @@ TOOLING
 
 ❓ env var, fs, manager https://news.ycombinator.com/item?id=40789353
 > just exporting env var for now
+> 💡 point config to file holding pw = you can version control config https://www.youtube.com/watch?v=2yplBzPCghA [7:30]
 🗄
 * `security.md` users/ passwords
 * `shell.md` env var
+* `spec.md` config
 
 VAULTS
 * _BitWarden_: has their own vault?
@@ -302,7 +306,7 @@ toggle=
 > Also, as a general rule, you can at any given time get away with changing more than you think. Introducing change is like pulling off a bandage: the pain is a memory almost as soon as you feel it. http://paulgraham.com/popular.html
 * Martin clean code https://qntm.org/clean
 * McConnell code complete
-* Ousterhout https://www.amazon.com/Philosophy-Software-Design-2nd/dp/173210221X against uncle bob https://www.youtube.com/watch?v=k0kTux_YNHw
+* Ousterhout https://www.amazon.com/Philosophy-Software-Design-2nd/dp/173210221X against uncle bob https://www.youtube.com/watch?v=k0kTux_YNHw shallow vs. deep https://lobste.rs/s/qpzubc/don_t_refactor_like_uncle_bob_please
 
 ---
 
@@ -536,6 +540,8 @@ URL shortener 🗄 `fd url-short`
 * https://blog.codinghorror.com/url-shortening-hashes-in-practice/
 
 ## frameworks
+
+🗄 `python/core.md` functions > metaprogramming
 
 > Web development is often broad, not deep - problems span many domains. https://docs.djangoproject.com/en/2.0/intro/whatsnext/
 > A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html

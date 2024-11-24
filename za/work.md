@@ -96,29 +96,6 @@ ZA
 > write libraries not services https://news.ycombinator.com/item?id=26398960
 > Example: my A/Bingo was once probably the best option for Rails A/B testing, by dint of being the only serious option for Rails A/B testing. It is a little old in the tooth now, but being The A/B Testing Guy got me several consulting gigs. The effort to make e.g. documentation, a quickstart guide, a logo, and a branded web presence beats the heck out of having a junior engineer at a potential client just git clone my Github URL and never have my work exposed to a decisionmaker there at all. https://training.kalzumeus.com/newsletters/archive/do-not-end-the-week-with-nothing
 
-STANDARDS BODIES
-* how RFCs work https://stackoverflow.com/a/1961018
-> There are standards track documents and non-standard track (informational) documents. The entire process, including descriptions, processes and rules for IETF issued documents is defined by RFC2026 with some follow on amendments. Every RFC will specify at the beginning which track it is on. https://datatracker.ietf.org/doc/html/rfc2026
-> RFC is an acronym that stands for "Request For Comments," meaning it is intended on gathering feedback from the community. That being said, almost the entire internet runs on unratified RFCs, or less. The CSV "standard" itself is essentially undefined without RFC4180. It is the most definitive model we have although it might change someday. As it stands, RFC4180 has no provisions for inserting comments. If you add your own commenting mechanism to the format, don't expect interoperability with other reader/writers that follow RFC4180. https://datatracker.ietf.org/doc/html/rfc4180
-* "technical committees, international standards organizations, and government agencies that manage the Internet" - Network Know-How [36]
-* why USSR didn't invent the internet http://web.mit.edu/slava/homepage/articles/Gerovitch-InterNyet.pdf
-* _sink_: https://en.wikipedia.org/wiki/Internet_Society RFCs https://tangentsoft.net/rfcs/by-tla.html
-* _IETF_: HTTP https://tools.ietf.org/html/rfc7617
-* _ANSI (American National Standards Institute)_: SQL; used to do C [Beaulieu 5.86] escape codes https://notes.burke.libbey.me/ansi-escape-codes/
-* _ISO (International Standards Org)_: does C now, created OSI, does C++ https://www.iso.org/standard/68564.html
-* _IEEE (Institute for Electrical Electronic Engineers)_: POSIX (standard for UNIX-like OS, C, Bash) [LPI 1.3.2]
-* _Open Group_: controls UNIX (which is just a spec; Solaris, macOS); IBM Huawei DoD Nasa that controls; no Linux distro qualifies [LPI 1, 1.3.3]
-* https://diff.substack.com/p/sharing-and-owning-standards
-* [Cloud Native Computing Foundation](https://changelog.com/podcast/314)
-* [how to read an RFC](https://www.mnot.net/blog/2018/07/31/read_rfc)
-* https://wiki.creativecommons.org/wiki/Case_Studies/StackOverflow.com
-* http://www.ieee802.org/3/ --> people that do work for the IEEE work for semiconductor companies
-* http://yehudakatz.com/about/
-* http://yehudakatz.com/podcasts/
-* https://softwareengineeringdaily.com/host/
-* https://blogs.windows.com/msedgedev/2017/10/18/documenting-web-together-mdn-web-docs/
-* Linux Programming Interface: chapter 1
-
 ## defining eng
 
 🗄️ `built.md` engineering

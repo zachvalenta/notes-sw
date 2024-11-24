@@ -290,7 +290,11 @@ end
 ```
 ## slugs
 
+🗄️ `application.md` URLs
+
 ---
+
+URL obfuscation https://chatgpt.com/c/6749cb63-5a28-8004-8ffa-cc1a50c7b8da
 
 REPRESENTING INDIVIDUAL RESOURCES IN URL
 https://news.ycombinator.com/item?id=41243992&utm_term=comment

@@ -203,6 +203,8 @@ TACTICS
 
 ---
 
+* Polars https://chatgpt.com/c/6749f200-3d60-8004-a2ab-1dc8e2c636bb
+* use numpy https://realpython.com/numpy-example
 * https://substack.com/home/post/p-150506520 https://explain.saby.dev/en/
 * https://nchammas.com/writing/database-access-patterns
 * tuning aaS https://ottertune.com/ https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html
@@ -768,11 +770,12 @@ app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{user}:{pw}@db:5432/{name
 
 ## CLI
 
-cmd
+CMD
 * Postgres specific cmd: `\h`
 
-
 ---
+
+https://github.com/zachvalenta/dotfiles/blob/7f843714b3c3d6eb531dfb292e91214c051ef82e/db/.sqliterc
 
 * SQL/psql tips https://psql-tips.org/psql_tips_143.html https://news.ycombinator.com/item?id=34909670
 > psql more specific about semicolons? `DELETE FROM $TABLE` works in pgcli but need semicolon in psql
@@ -901,8 +904,8 @@ l  # show file
 .mode column  # overrides `.mode csv`  https://sqlite.org/cli.html#changing_output_formats https://dba.stackexchange.com/a/40672
 .headers on
 .width  # https://dba.stackexchange.com/a/40672
-.mode csv # query csv https://news.ycombinator.com/item?id=28299729
-.import my.csv <alias>
+.mode csv # query csv https://news.ycombinator.com/item?id=28299729 -> this doesn't work in litecli?
+.import foo.csv $ALIAS
 select * from alias
 
 # BACKUP https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html

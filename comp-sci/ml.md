@@ -6,11 +6,11 @@
 * https://ai.stackexchange.com/
 * https://datascience.stackexchange.com/
 📚
-* Anathaswamy https://www.amazon.com/gp/product/0593185749 https://www.thediff.co/archive/longreads-open-thread-90/
+* Anathaswamy https://www.thediff.co/archive/longreads-open-thread-90/
 * Ferguson game of go
-* Perrota programming ML https://www.amazon.com/Programming-Machine-Learning-Zero-Deep/dp/1680506609/ref=sr_1_1
+* Perrotta programming ML https://www.amazon.com/Little-Learner-Straight-Line-Learning/dp/026254637X
 * Trask deep learning https://github.com/iamtrask/Grokking-Deep-Learning
-* Wolfram https://www.amazon.com/What-ChatGPT-Doing-Does-Work/dp/1579550819 https://bookoverflow.io/
+* Wolfram https://bookoverflow.io/
 
 ## 进步
 
@@ -18,6 +18,7 @@
 > export current chats first | incorporate old chats into notes and gradually rm over time
 > llm only add new chats? assume so.
 * CLI: llm
+> export from GPT https://chatgpt.com/c/6723e31b-bf8c-8004-a801-41b1b4e52419
 * code assist
 * model: 4o, o1-preview, Claude
 
@@ -27,16 +28,43 @@
 
 # 🤖 CLIENTS
 
-FILE FMT
+## features
+
+GENERAL
+* Vim
+* file find
+* grep
+* dirs
+* tags
+
+CODE ASSIST https://zackproser.com/blog/cursor-review
+* niche: COBOL to Java https://bloop.ai/
+* at-mention specific files (Aider) vs. just saying what you want done
+* CLI|in-editor|standalone
+> I'd much, much prefer Aide to continue as a CLI tool or as a VSCode plugin. Every fork of VSCode ends up with IDE maintenance bugs that never get addressed and slowly the effort implodes as the bug surface becomes too wide. https://news.ycombinator.com/item?id=42063346
+* autocomplete vs. natural language
+> If copy and pasting back and forth between ChatGPT.com is crawling, then Cursor's interface is sprinting. Being able to discuss the code, architecture, a single file, or to tell Cursor to use a file as inspiration when making other changes is my favorite feature of Cursor.
+* model interop
+> Users want control over which model they're running and want to be able to swap them quickly or provide their own API keys as needed to avoid limits.
+
+COMPLAINTS
+* ChatGPT native client: global hotkey conflicts with iterm https://openai.com/chatgpt/mac
+* ChatGPT web client: search added 241031 (intra-doc but slow, none by title), no tags/org/page up, dark mode is bad for seeing prompt, when you open a chat it's not reflected in the sidebar so if you want to rename or delete it you have to scroll sidebar and manually find it
+
+## interchange
+
 * API spec
 > ch works with any compatible chat completion API that has the same interface as ChatGPT https://github.com/dnmfarrell/ch
 > Projects such as LocalAI offer a REST API that imitates the OpenAI API but can be used to run other models, including models that can be installed on your own machine. These can be added using the same configuration mechanism. https://llm.datasette.io/en/stable/other-models.html#openai-compatible-models
 * Claude JSON export https://simonwillison.net/2024/Oct/21/claude-artifacts/
 
-ZA
-> one annoying thing about ChatGPT is when you open a chat it's not reflected in the sidebar so if you want to rename or delete it you have to scroll sidebar and manually find it
-* search: filename, file contents
-* organization: https://chatgpt.com/c/67108642-c0cc-8004-b985-28773a5764fb
+MODEL CONTEXT PROTOCOL
+* _MCP (model context protocol)_: spec for comms btw hosted model and data to enable RAG https://news.ycombinator.com/item?id=42237424 https://glama.ai/blog/2024-11-25-model-context-protocol-quickstart
+> Today, we're open-sourcing the Model Context Protocol (MCP), a new standard for connecting AI assistants to the systems where data lives, including content repositories, business tools, and development environments. Its aim is to help frontier models produce better, more relevant responses. https://www.anthropic.com/news/model-context-protocol
+> But none of the examples seem to indicate what the protocol is, whether it's a RAG sort of thing, do I need to prompt, etc.
+> From what I understand, "servers" are data sources that an LLM can query at will to answer questions, using this new protocol. They're connectors to external information that the LLM can process on the fly.
+> The gist of it is: you have an llm application such as Claude desktop. You want to have it interact (read or write) with some system you have. MCP solves this.
+> An attempt to create a standard protocol to plug tools to LLM app via the good ol' tools/function calling mechanism. It's not introducing new capabilities, just solving the NxM problem, hopefully leading to more tools being written.
 
 ---
 
@@ -89,38 +117,36 @@ LOW ADOPTION | FEATURE POOR
 ## 🏥 code assist (aider)
 
 📙 Brosseau LLMs in production https://www.manning.com/books/llms-in-production
-🎗️ use AI to write docs and understand the entire architecture of the system https://www.driver.ai/
+💡️ use AI to write docs and understand the entire architecture of the system https://www.driver.ai/
 
-ORDER OF OPERATIONS
+TODO
 * Aider
 * Zed
 * Codeium
 * Cline
 * Cursor
 
-OPTIONS 🗄️ `vim.md` zed
-> retry Claude for Zed integration
-* impl https://news.ycombinator.com/item?id=42078536
-* _Aide_: ❌ VSC-fork https://aide.dev/ https://news.ycombinator.com/item?id=42063346
-* _aider_: 🎯 CLI https://aider.chat/
+### extension
+
 * _Avante_: ❌ Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835 https://www.youtube.com/watch?v=r-3o35-5hlg https://www.youtube.com/watch?v=4kzSV2xctjc https://www.youtube.com/watch?v=iyftGvVs86E
 * _Cline_: 🎯 VSC extension https://github.com/cline/cline
-* _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
+* _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://codeium.com/windsurf https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
 * _Cody_: https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
+* _Continue_: autocomplete https://ollama.com/blog/continue-code-assistant
 * _Copilot_: ❌ VSC-native, multi-model https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
-* Continue: autocomplete https://ollama.com/blog/continue-code-assistant
+
+### IDE
+
+🗄️ `vim.md` Zed
+
+* _Aide_: ❌ VSC-fork https://aide.dev/ https://news.ycombinator.com/item?id=42063346
 * _Cursor_: 🎯 closed source, Chromium (VSC fork?) https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203 https://news.ycombinator.com/item?id=41988211 https://news.ycombinator.com/item?id=41987367
 * _Void_: ❌ Cursor alternative, unfinished https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
 
-FEATURES https://zackproser.com/blog/cursor-review
-* niche: COBOL to Java https://bloop.ai/
-* at-mention specific files (Aider) vs. just saying what you want done
-* CLI|in-editor|standalone
-> I'd much, much prefer Aide to continue as a CLI tool or as a VSCode plugin. Every fork of VSCode ends up with IDE maintenance bugs that never get addressed and slowly the effort implodes as the bug surface becomes too wide. https://news.ycombinator.com/item?id=42063346
-* autocomplete vs. natural language
-> If copy and pasting back and forth between ChatGPT.com is crawling, then Cursor's interface is sprinting. Being able to discuss the code, architecture, a single file, or to tell Cursor to use a file as inspiration when making other changes is my favorite feature of Cursor.
-* model interop
-> Users want control over which model they're running and want to be able to swap them quickly or provide their own API keys as needed to avoid limits.
+### terminal
+
+* _aider_: 🎯 CLI https://aider.chat/
+* _codebuff_: https://news.ycombinator.com/item?id=42078536
 
 ## 🟦 GUI (msty)
 
@@ -146,8 +172,6 @@ FEATURES https://zackproser.com/blog/cursor-review
 
 YES
 * _ChatGPT_: 22.11 GPT 23.03 GPT4 24.05 GPT4o 24.09 o1-preview 
-* native client: global hotkey conflicts with iterm https://openai.com/chatgpt/mac
-* web client: search added 241031 (intra-doc but slow, none by title), no tags/org/page up, dark mode is bad for seeing prompt
 * _Mistral_: less polished but fast + search https://chat.mistral.ai/chat
 * _Perplexity_: search/org https://www.perplexity.ai/
 
@@ -165,6 +189,14 @@ NO
 * Mixtral
 * Haiku
 
+## BYO
+
+* https://eli.thegreenplace.net/2024/gomlx-ml-in-go-without-python/
+* learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
+* https://medium.com/@msouza.os/llm-from-scratch-with-pytorch-9f21808c6319
+* https://youtu.be/kCc8FmEb1nY
+* https://github.com/pingcap/autoflow
+
 ## OSS
 
 🗄️ `hw.md` Apple 
@@ -176,7 +208,6 @@ HARDWARE https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can
 * Simon has 64B
 
 MODELS https://simonwillison.net/2024/Jun/17/cli-language-models/
-* BYO https://github.com/pingcap/autoflow
 * _Codestral_: https://ollama.com/blog/continue-code-assistant
 * _Centaur_: https://x.com/marcel_binz/status/1850806691958313160
 * _Gemma_: https://ai.google.dev/gemma
@@ -218,7 +249,9 @@ https://changelog.com/practicalai/295
 
 ## RAG
 
-🗄️ `doc.md` notes
+🗄️
+* `doc.md` notes
+* `algos.md` search > bm25
 📚
 * https://www.amazon.com/gp/product/1098150961
 * build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch
@@ -228,6 +261,11 @@ https://changelog.com/practicalai/295
 * howto: Python in a sidecar and then your server in another language (that lacks Python's ML stdlib) talks to that https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
 
 ---
+
+https://github.com/D-Star-AI/dsRAG/
+https://haystack.deepset.ai/overview/quick-start
+https://github.com/snexus/llm-search
+https://zackproser.com/blog/i-am-joining-pinecone-io
 
 * _Guru_: https://www.getguru.com/
 > Retrieval augmented generation (RAG) is an architecture that provides the most relevant and contextually-important proprietary, private or dynamic data to your Generative AI application's large language model (LLM) when it is performing tasks to enhance its accuracy and performance. https://www.pinecone.io/learn/retrieval-augmented-generation/
@@ -364,6 +402,7 @@ https://treyhunner.com/2024/07/chatgpt-and-claude-from-your-browser-url-bar/
 building into projects https://news.ycombinator.com/item?id=40857589
 
 ZA
+* scraping https://chatgpt.com/c/6723e31b-bf8c-8004-a801-41b1b4e52419
 * structured output https://news.ycombinator.com/item?id=40713952
 * Claude https://www.anthropic.com/ https://x.com/AnthropicAI/status/1803790681971859473
 * https://news.ycombinator.com/item?id=40441945
@@ -428,8 +467,6 @@ https://stratechery.com/2023/ai-and-the-big-five/
 
 * legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html
 * contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
-* BYO https://medium.com/@msouza.os/llm-from-scratch-with-pytorch-9f21808c6319 https://youtu.be/kCc8FmEb1nY
-* learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
 * price per token https://x.com/drorpoleg/status/1847686346078368006
 * tokens, read whole thing
 > The big challenge for traditional LLMs is that they are path-dependent; while they can consider the puzzle as a whole, as soon as they commit to a particular guess they are locked in, and doomed to failure. This is a fundamental weakness of what are known as “auto-regressive large language models”, which to date, is all of them. To grossly simplify, a large language model generates a token (usually a word, or part of a word) based on all of the tokens that preceded the token being generated; the specific token is the most statistically likely next possible token derived from the model’s training (this also gets complicated, as the “temperature” of the output determines what level of randomness goes into choosing from the best possible options; a low temperature chooses the most likely next token, while a higher temperature is more “creative”). The key thing to understand, though, is that this is a serial process: once a token is generated it influences what token is generated next. https://stratechery.com/2024/enterprise-philosophy-and-the-first-wave-of-ai/

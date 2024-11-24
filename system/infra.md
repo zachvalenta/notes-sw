@@ -83,8 +83,11 @@ https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 
 ## self host
 
+🗄️ `it.md` home lab
+
 CONSIDERATIONS
 * data locality restrictions re: geography https://signoz.io/ https://danluu.com/simple-architectures/
+* ability to move to best price https://news.ycombinator.com/item?id=42269059
 
 ---
 
@@ -93,7 +96,6 @@ CONSIDERATIONS
 * https://www.jotaen.net/anA6o/self-hosting-guide-docker-haproxy-lets-encrypt/
 * https://knhash.in/gentle-guide-to-self-hosting/
 * https://news.ycombinator.com/item?id=27674726
-* https://github.com/khuedoan/homelab
 * https://github.com/tiagoad/docker-homeserver
 * https://world.hey.com/dhh/why-we-re-leaving-the-cloud-654b47e0
 * https://world.hey.com/dhh/the-big-cloud-exit-faq-20274010 https://www.reddit.com/r/programming/comments/y7zz2u/dhh_why_we_are_leaving_the_cloud/
@@ -146,8 +148,10 @@ OPTIONS https://testdriven.io/blog/heroku-alternatives/
 * _Knative_: https://knative.dev/docs/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
 * _Netlify_: 
 * _Piku_: 🎯 6k https://github.com/piku/piku
-* _Render_: https://kamal-deploy.org/
+* _Render_: https://dashboard.render.com/
+* metabase deploy failed bc free-tier instance didn't have enough memory https://dashboard.render.com/project/prj-ct4ro05umphs73e7nfjg
 * _Platform.sh_:
+* _PythonAnywhere_: https://www.pythonanywhere.com/
 * _Railway_: https://railway.app/ https://docs.railway.app/guides/gin
 * _Sidekick_: 🎯 https://github.com/MightyMoud/sidekick https://news.ycombinator.com/item?id=41591018
 * _sst_: 🎯 https://sst.dev/
@@ -614,7 +618,7 @@ ZA
 * chron jobs https://github.com/Nukesor/pueue
 * Postgres https://github.com/procrastinate-org/procrastinate https://brandur.org/river https://github.com/riverqueue/river https://news.ycombinator.com/item?id=41284703
 * BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
-* _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io
+* _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io https://github.com/RealOrangeOne/django-tasks
 * _Hatchet_: https://github.com/hatchet-dev/hatchet
 * _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey
 

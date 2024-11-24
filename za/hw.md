@@ -175,6 +175,8 @@ USB https://en.wikipedia.org/wiki/USB
 
 ## cameras
 
+💡 Delco photo book https://jaapgrolleman.com/shanghai-before-the-foreigners/ https://loosejoints.biz/collections/current-titles/products/holy-island https://loosejoints.biz/collections/current-titles/products/robin-graubard-road-to-nowhere https://loosejoints.biz/collections/current-titles/products/office https://www.newyorker.com/culture/photo-booth/the-frightening-familiarity-of-late-nineties-office-photos https://news.ycombinator.com/item?id=41926849
+
 * series https://deannadikeman.com/leaving-and-waving
 * kids https://www.youtube.com/watch?v=lTyRiO08xi8 https://www.amazon.com/Toddler-Digital-Instant-Childrens-Birthday/dp/B0CSW8719G
 * fancy https://www.youtube.com/watch?v=Z--EFPp5Yds https://daniel.lawrence.lu/blog/y2024m05d31/
@@ -186,18 +188,34 @@ USB https://en.wikipedia.org/wiki/USB
 
 ## iPad
 
-🔗 versions https://en.wikipedia.org/wiki/IPad#iPad
-🗄️
-* `audio.md` garageband
-* `draw.md` digital
-* `golf.md` analysis
-
-FACTORS https://www.youtube.com/watch?v=2RqaNTPjzQ8
+DRAW 🗄️ `draw.md` digital https://www.youtube.com/watch?v=2RqaNTPjzQ8 https://www.creativebloq.com/buying-guides/best-ipad-for-procreate
+> pencil compatibility
 * size: mini is too small
 * storage: at least 256GB
 * mem: 8GB https://www.youtube.com/watch?v=988Jua0fMms [1:00]
 
+GOLF 🗄️ `golf.md` analysis
+> 📍 https://apps.apple.com/us/app/onform-video-analysis-app/id1490334045 https://apps.apple.com/us/app/swing-profile-golf-analyzer/id1039981052 https://apps.apple.com/us/app/v1-golf-golf-swing-analyzer/id349715369
+* size: mini good for stand but bad for viewing
+* storage:
+* mem:
+
+MUSIC 🗄️ `audio.md` garageband
+> need a keyboard?
+> any special reqs for recording guitar?
+* size: bigger = better
+* storage:
+* mem:
+
+SKATE 🗄️ `skate.md`
+* size: mini good for stand but bad for viewing
+* storage:
+* mem:
+
 ---
+
+💻 https://github.com/zachvalenta/apple-models-data-analysis
+> make new version for this
 
 | IPAD   | STATUS  | USED  | NEW | DISPLAY | STORAGE | PENCIL |
 |--------|---------|-------|-----|---------|---------|--------|
@@ -206,23 +224,10 @@ FACTORS https://www.youtube.com/watch?v=2RqaNTPjzQ8
 | air    | buy     | ---   | --- | 11      |  --     | ?      |
 | pro    | neutral | ---   | --- | --      |  --     | ?      |
 
-ROUGH PLAN
-* buy used mini for golf ($150)
-* buy used reg for procreate ($170 + pencil $80)
-
-USE CASES
-> procreate/garageband storage needs
-> any special reqs for recording guitar?
-* procreate https://www.creativebloq.com/buying-guides/best-ipad-for-procreate
-* golf https://apps.apple.com/us/app/onform-video-analysis-app/id1490334045 https://apps.apple.com/us/app/swing-profile-golf-analyzer/id1039981052 https://apps.apple.com/us/app/v1-golf-golf-swing-analyzer/id349715369
-* skate
-* garageband
-* travel https://github.com/rand-net/khan-dl
-
-https://buyersguide.macrumors.com/#iPad-Air
-https://www.amazon.com/dp/B09G9FPHY6 
-https://www.ebay.com/itm/144379058448?itmmeta=01HYK52QFWFVWA6GQWZJ4QHAPJ
-https://www.ebay.com/sch/i.html?_dkr=1&iconV2Request=true&_blrs=recall_filtering&_ssn=guaranteecellular&store_cat=0&store_name=guaranteecellular&_oac=1&_nkw=mini
+MODELS
+* buy old version? https://www.amazon.com/dp/B09G9FPHY6 🔗 versions https://en.wikipedia.org/wiki/IPad#iPad https://www.ebay.com/str/guaranteecellular
+* buy used mini for golf ($150)?
+* buy used reg for procreate ($170 + pencil $80)?
 
 PENCIL
 * can just buy on amazon https://www.youtube.com/watch?v=MQnejB-SLWw [5:15]
@@ -230,9 +235,6 @@ PENCIL
 * https://support.apple.com/en-us/108937
 * https://en.wikipedia.org/wiki/Apple_Pencil
 * https://www.lifewire.com/apple-pencil-compatibility-with-ipad-5189841
-
-* reg: $425 11" (with pencil) 64GB
-* air: $725 11" 128GB; $800 13"
 
 ## KVM
 

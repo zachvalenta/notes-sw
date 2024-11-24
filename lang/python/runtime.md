@@ -26,6 +26,7 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 
 ---
 
+* https://realpython.com/python-concurrency/
 > start with Armin article in `linux.md`
 📍 define 'asynchronous', 'concurrent', 'parallel' https://pythonbytes.fm/episodes/show/161/sloppy-python-can-mean-fast-answers
 * 📺 https://training.talkpython.fm/courses/explore_async_python/async-in-python-with-threading-and-multiprocessing
@@ -52,7 +53,6 @@ SEMANTICS https://python.hamel.dev/concurrency/
 * process
 * _coroutine_ https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/ https://www.fluentpython.com/extra/classic-coroutines/ prime https://www.fluentpython.com/lingo https://www.fluentpython.com/lingo/#coroutine https://docs.python.org/3/glossary.html#term-coroutine-function https://docs.python.org/3/glossary.html#term-coroutine https://news.ycombinator.com/item?id=40097681&utm_term=comment
 
-https://realpython.com/python-concurrency/
 https://realpython.com/intro-to-python-threading/
 
 https://www.youtube.com/watch?v=Wvh5C3NbQtA
@@ -93,7 +93,6 @@ https://news.ycombinator.com/item?id=22901856
 https://www.cloudcity.io/blog/2019/02/27/things-i-wish-they-told-me-about-multiprocessing-in-python/ https://github.com/sybrenjansen/mpire what does multiprocessing mean exactly? https://news.ycombinator.com/item?id=25220674
 multiprocessing https://github.com/spotify/pedalboard
 https://realpython.com/intro-to-python-threading/
-https://realpython.com/python-concurrency/
 * _sink_: 搜 Gmail 'maestro system design'
 https://news.ycombinator.com/item?id=22396740
 https://news.ycombinator.com/item?id=22514004
@@ -108,7 +107,6 @@ https://news.ycombinator.com/item?id=22514004
 * https://www.youtube.com/watch?v=MCs5OvhV9S4&t=4s
 * https://www.youtube.com/watch?v=5dMOYf0b_20
 * https://www.youtube.com/watch?v=w2nKIGhXPAM
-* https://realpython.com/python-concurrency/
 * https://realpython.com/intro-to-python-threading/
 * https://www.youtube.com/watch?v=bckD_GK80oY
 * https://www.youtube.com/watch?v=9zinZmE3Ogk

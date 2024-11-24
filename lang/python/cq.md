@@ -80,6 +80,7 @@ if __name__=='__main__':
 ## start here
 
 * _path_: heuristic for thinking about what to optimize i.e. 99% of your app's execution branches can probably be pretty slow https://blog.phusion.nl/2018/09/18/migrating-passenger-from-cxx-to-go/
+* https://blog.miguelgrinberg.com/post/is-python-really-that-slow
 * https://martinheinz.dev/blog/13
 * https://rednafi.com/python/preallocated_list/
 * https://tech.marksblogg.com/faster-python.html
@@ -476,22 +477,11 @@ self.assertEqual(x.exception.code, 1)
 
 # 🟨 ZA
 
-## docs
+## docstring
 
 ---
 
-https://rdrn.me/postmodern-python/
-
-LIB
-* _pdoc_: thing that pdoc3 forked from https://github.com/mitmproxy/pdoc
-* _pdoc3_: https://pdoc3.github.io/pdoc/ some controversy https://github.com/pdoc3/pdoc/issues/64 https://github.com/pdoc3/pdoc/issues/87 even worse than first blush, apparently he is a fascist https://news.ycombinator.com/item?id=20800157
-* _pdocs_: https://github.com/timothycrosley/pdocs/issues/3
-* _portray_: built on pdoc3 https://github.com/timothycrosley/portray/
-* _pydoc_: https://docs.python.org/3/library/pydoc.html https://stackoverflow.com/a/13043765/6813490 
-* _pycco_: pretty but don't see use case https://pycco-docs.github.io/pycco/ https://realpython.com/generating-code-documentation-with-pycco/
-* _Sphinx_: `sphinx-apidoc` 缺点 RST, not geared towards APIs https://realpython.com/courses/documenting-python-projects-sphinx-read-the-docs/ can now use Markdown https://www.youtube.com/watch?v=YclYtM56qjo&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=38
-
-DOCSTRING https://github.com/copyleftdev/x12-edi-tools
+BASICS
 * tooling https://switowski.com/blog/plugins-for-python-in-vscode/
 * _triple quoted string (TQS)_: https://docs.python.org/3/glossary.html
 * _doctring_: TQS as first line of class/function https://github.com/econchick/interrogate https://www.fluentpython.com/lingo/#docstring
@@ -513,6 +503,29 @@ def foo(my_arg):
     :return: what this function is returning
     """
 ```
+
+EXAMPLES
+https://github.com/copyleftdev/x12-edi-tools
+```python
+"""
+Compute the Levenshtein distance between two strings.
+
+:param s1: First string
+:param s2: Second string
+:return: Levenshtein distance
+"""
+```
+
+https://rdrn.me/postmodern-python/
+
+LIB
+* _pdoc_: thing that pdoc3 forked from https://github.com/mitmproxy/pdoc
+* _pdoc3_: https://pdoc3.github.io/pdoc/ some controversy https://github.com/pdoc3/pdoc/issues/64 https://github.com/pdoc3/pdoc/issues/87 even worse than first blush, apparently he is a fascist https://news.ycombinator.com/item?id=20800157
+* _pdocs_: https://github.com/timothycrosley/pdocs/issues/3
+* _portray_: built on pdoc3 https://github.com/timothycrosley/portray/
+* _pydoc_: https://docs.python.org/3/library/pydoc.html https://stackoverflow.com/a/13043765/6813490 
+* _pycco_: pretty but don't see use case https://pycco-docs.github.io/pycco/ https://realpython.com/generating-code-documentation-with-pycco/
+* _Sphinx_: `sphinx-apidoc` 缺点 RST, not geared towards APIs https://realpython.com/courses/documenting-python-projects-sphinx-read-the-docs/ can now use Markdown https://www.youtube.com/watch?v=YclYtM56qjo&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=38
 
 ## lint / fmt
 

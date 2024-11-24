@@ -35,7 +35,7 @@ BUILD SYSTEMS
 * _Bazel_: Make for FANG https://eng.uber.com/go-monorepo-bazel/ https://github.com/bazelbuild/bazel https://testdriven.io/blog/bazel-builds/ https://www.youtube.com/watch?v=zaymCO1A1dM
 * _cmake_: 不明觉厉 https://stackoverflow.com/a/25790020 http://aosabook.org/en/cmake.html
 * _Meson_: https://mesonbuild.com/
-* _ninja_: https://github.com/ninja-build/ninja https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/
+* _ninja_: https://github.com/ninja-build/ninja https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/ https://news.ycombinator.com/item?id=42268310
 * _Nx_: monorepos https://github.com/nrwl/nx
 * _Pants_: https://github.com/pantsbuild/pants https://rdrn.me/postmodern-python/
 * _redo_: https://github.com/apenwarr/redo https://fzakaria.com/2020/06/08/my-love-letter-to-redo.html
@@ -256,6 +256,8 @@ TOOLS
 ## profiles
 
 ---
+
+📍 https://github.com/zachvalenta/dotfiles-mini23/commit/8be5846e05a964dd5f7f1de716271268331dde09
 
 ZSH https://unix.stackexchange.com/a/71258
 * `.zshenv`: src for all shells
@@ -638,7 +640,10 @@ telemetry
 ---
 
 start here https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/
-> 
+
+> Yes, goroutines and channels are great: a super-lightweight task abstraction that’s very cheap compared to traditional multithreading. On the other hand, Go only gives us the fundamental building blocks: it’s up to us to make sure we use them safely, avoiding data races or deadlocks. And that can be hard to do! Rust doesn’t have goroutines, but it does have async tasks, which are much like goroutines, only with the usual Rust safety guarantees. There are also some excellent third-party frameworks such as Tokio and Rayon that can just take a bunch of data and automatically figure out the most efficient way to crunch it in parallel. https://bitfieldconsulting.com/posts/rust-and-go
+
+https://anishathalye.com/testing-distributed-systems-for-linearizability/ https://github.com/anishathalye/porcupine
 
 * [concurrency != parallelism](https://blog.golang.org/concurrency-is-not-parallelism)
 * [multi-threading != parallelism](https://stackoverflow.com/a/806506/6813490) https://news.ycombinator.com/item?id=4495305
@@ -651,6 +656,7 @@ BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
 > We’re currently using boring, synchronous, Python, which means that our server processes block while waiting for I/O, like network requests. We previously tried Eventlet, an async framework that would, in theory, let us get more efficiency out of Python, but ran into so many bugs that we decided the CPU and latency cost of waiting for events wasn’t worth the operational pain we had to take on to deal with Eventlet issues. The are other well-known async frameworks for Python, but users of those at scale often also report significant fallout from using those frameworks at scale. Using synchronous Python is expensive, in the sense that we pay for CPU that does nothing but wait during network requests, but since we’re only handling billions of requests a month (for now), the cost of this is low even when using a slow language, like Python, and paying retail public cloud prices. The cost of our engineering team completely dominates the cost of the systems we operate. https://danluu.com/simple-architectures/ 
 > Rather than take on the complexity of making our monolith async we farm out long-running tasks (that we don’t want responses to block on) to a queue.
 
+what is a rendering engine? https://github.com/volfpeter/htmy
 https://jacko.io/async_intro.html
 https://threedots.tech/post/go-test-parallelism/
 
@@ -704,6 +710,8 @@ func hi() {
 * Bryant ch. 12
 
 ---
+
+https://neugierig.org/software/blog/2024/05/threading-two-ways.html
 
 basics
 * _concurrency_: design tasks that can be independently executed
@@ -846,6 +854,8 @@ BOOT
 🗄️ `application.md` NTP
 
 ---
+
+https://github.com/cdown/tzupdate
 
 `date -u`
 * backup w/ timestamp: `touch "$(date +%Y%m%d_%H%M%S).bak"` https://unix.stackexchange.com/a/96383/331460
@@ -1155,8 +1165,8 @@ cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
 * _sink_: https://softwareengineeringdaily.com/2019/03/14/linux-kernel-development-with-shuah-khan/
 * protection rings 📙 Conery [380]
 
-system calls
-* aka syscall
+SYSTEM CALLS (SYSCALL)
+* https://neugierig.org/software/blog/2024/09/retrowin32-syscalls.html
 * https://blog.cerebralab.com/If_I_were_to_select_the_worst_Linux_syscall
 * API for kernel space e.g. create file, spawn process http://thevivekpandey.github.io/posts/2017-09-25-linux-system-calls.html
 * actually pretty tricky, hence most common sys calls being wrapped by glibc

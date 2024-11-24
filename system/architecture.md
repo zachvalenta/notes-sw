@@ -44,6 +44,7 @@ https://drewdevault.com/2020/11/06/Utility-vs-usability.html
 
 * algos https://www.youtube.com/watch?v=xbgzl2maQUU
 
+* https://newsletter.pragmaticengineer.com/p/bluesky-engineering-culture
 * https://www.youtube.com/watch?v=HruBoinmPBA
 * Discord msgs https://www.youtube.com/watch?v=O3PwuzCvAjI
 * Stackoverflow https://www.youtube.com/watch?v=fKc050dvNIE
@@ -119,6 +120,8 @@ https://drewdevault.com/2020/11/06/Utility-vs-usability.html
 FACTORS
 * throughput, availability
 * data immutable (events, analytics)
+* memory usage https://news.ycombinator.com/item?id=42244111
+* CPU usage https://metoro.io/blog/go-production-performance-gotcha-gomaxprocs
 
 https://gwern.net/choosing-software
 * maintenance
@@ -153,6 +156,7 @@ KLEPPMANN
 * hidden control flow, PHP vs. Zig https://news.ycombinator.com/item?id=42203084
 * _clarity_: above all bc we're bulding information systems 📻 DHH (STT) https://www.youtube.com/watch?v=9LfmrkyP81M
 > And it's not only high performance hardware and software that's complex. Some domains are just really complicated. The tax code is 73k pages long. It's just not possible to reason effectively about something that complicated, and there are plenty of things that are that complicated. https://danluu.com/tests-v-reason/
+> I used to tolerate and expect complexity. Working on Go the past 10 years has changed my perspective, though. I now value simplicity above almost all else and tolerate complexity only when it's well isolated, well documented, well tested, and necessary to make things simpler overall at other layers for most people. - Brad Fitzpatrick (Go team member 2010-2020) https://golangweekly.com/issues/533
 
 ---
 
@@ -269,6 +273,8 @@ WALKTHROUGHS
 
 ## baked data
 
+🗄️ `analytics.md` tooling > BI
+
 * _baked data_: data embedded as static asset https://simonwillison.net/2020/Dec/13/datasette-io/ https://news.ycombinator.com/item?id=28015980 https://postlight.com/insights/big-data-small-effort
 * bc full stack SQL doesn't work https://news.ycombinator.com/item?id=26822884 https://simonwillison.net/2021/Jul/28/baked-data/
 * aka flat data https://news.ycombinator.com/item?id=27197950
@@ -306,6 +312,9 @@ DESIGN
 * 📍 clean up --> https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/ apparently good for SEO as well Netlify, Gridsome https://redwoodjs.com/ deployment on Zeit, Netlify https://softwareengineeringdaily.com/2020/04/30/jamstack-content-management-with-scott-gallant-jordan-patterson-and-nolan-phillips/ 15:00 https://hacks.mozilla.org/2020/10/mdn-web-docs-evolves-lowdown-on-the-upcoming-new-platform  what it means for backend dev https://www.youtube.com/watch?v=Z2JK7SS82wE https://www.youtube.com/watch?v=grSxHfGoaeg https://scotch.io/@sw-yx/python-the-jamstack
 
 # 🟨 ZA
+
+MOBILE
+* https://www.bestinclassiosapp.com/ https://www.swiftjectivec.com/
 
 ## Docker db data mgmt
 

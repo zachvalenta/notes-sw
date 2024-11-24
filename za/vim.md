@@ -216,8 +216,10 @@ edit
 THINGS I'M NOTICING ABOUT VSC
 * autocomplete works for any word in the workspace
 * prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421
-* constantly wipes out the outliner and requires Vim action to prompt redraw
-* symbol search doesn't work after git pull of new files | movement of headers
+* ❌ constantly wipes out the outliner and requires Vim action to prompt redraw
+* ❌ symbol search doesn't work after git pull of new files | movement of headers
+* ❌ Vim plugin fails on big CSV files
+* ❌ no tab groups https://github.com/microsoft/vscode/issues/100335
 
 WORKSPACES 📜 https://code.visualstudio.com/docs/editor/multi-root-workspaces 
 * _workspace_: dir(s) in scope for search https://stackoverflow.com/a/50185038
@@ -356,6 +358,7 @@ keybindings
 ## Zed
 
 📜 https://zed.dev/
+🗄️ `ml.md` code assist > IDE
 
 VIM
 * https://zed.dev/blog/zed-decoded-vim

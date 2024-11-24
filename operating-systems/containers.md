@@ -326,13 +326,17 @@ TYPES https://stackoverflow.com/a/55366707 https://www.youtube.com/watch?v=YFl2m
 
 EVANS CONTAINERS https://x.com/b0rk/status/1227244309621215233 https://roadmap.sh/docker
 * why: avoid dependency diffs by separating host/container filesystem
+* _container_: group of Linux processes + namespaces (networks, PIDs, hostname, mounts, users) + restrictions (cgroup CPU/mem limits, cant run some syscalls)
 * _image_: tarball of OS + system libs (libc) + language (runtime, libs) + your src
-* _cgroup (control group)_: `cgroup_id` create ID `cgset` set CPU/mem limits `cgexec $ARGS unshare $ARGS` create cgroup 
+* _cgroup (control group)_: limit CPU/mem for group of processes
+* `cgroup_id` create ID `cgset` set CPU/mem limits `cgexec $ARGS unshare $ARGS` create cgroup 
 * v2 not supported on macOS https://github.com/facebookincubator/below/issues/8239 https://chatgpt.com/c/6734fc58-e87c-8004-a6aa-29f218382928 
+* on macOS, containers are actually running inside Linux VM
+* _pivot root_: process's root dir = container imagine CWD
 * _namespaces_: https://man7.org/conf/meetup/understanding-user-namespaces--Google-Munich-Kerrisk-2019-10-25.pdf
-* _seccomp_: 
+* _seccomp_: prevent dangerous syscalls
 * _capability_: https://pythonspeed.com/articles/root-capabilities-docker-security/
-* _union filesystems_: overlay https://x.com/tim_raymond/status/1227250152248877056
+* _union/overlay filesystems_: saves disk space https://x.com/tim_raymond/status/1227250152248877056
 
 layers
 * _layer_: tarball i.e. files https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/
@@ -378,6 +382,7 @@ HYPERVISORS
 * _hypervisor_: emulates host for vm
 * _vm (guest)_: run atop hypervisor https://www.mattlayman.com/blog/2019/web-development-environments/ https://hacker-tools.github.io/virtual-machines/
 * types: type 1 (used in data center, boots before os; ESXi, Hyper-V, Xen, KVM) type 2 (personal machines; VirtualBox, Parallels)
+> KVM still a going concern https://world.hey.com/dhh/we-have-left-the-cloud-251760fb
 
 VMWARE
 * _ESXi_: VMWare version of Docker Engine https://en.wikipedia.org/wiki/VMware_ESXi

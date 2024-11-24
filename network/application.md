@@ -143,6 +143,8 @@ TYPES
 
 ## URLs
 
+🗄️ `api.md` slugs
+
 * _URI_: identifier e.g. page in a book
 * _URL_: URI + protocol e.g. `https://google.com` https://danielmiessler.com/study/difference-between-uri-url/ https://wsvincent.com/url-vs-uri/
 * trailing slash: problem is that users might accidentally add/forget, mitigated by some browsers (Chrome) and server might be able to figure out (Django) https://learndjango.com/blog/trailing-url-slashes-django
@@ -585,6 +587,32 @@ function htp(){
 }
 ```
 
+# 🫸 PUSH
+
+## SSE
+
+🧠 https://chatgpt.com/c/6749eacf-f434-8004-8a65-e5ef7621af60
+https://github.com/valberg/django-sse
+
+## WebSockets
+
+🗄 `system.md` servers
+
+* _WebSockets_: protocol to send msg to client outside req-res cycle e.g. pub-sub to push data to frontend i.e. way to do full duplex
+* next gen alternative https://www.thoughtworks.com/radar/platforms/webtransport
+
+---
+
+* https://gotify.net/
+* https://discord.com/blog/how-discord-reduced-websocket-traffic-by-40-percent
+* Sendgrid (send emails to customers) Braze (Sendgrid++?)
+* IETF RFC 6455 and browser API https://hpbn.co/websocket/
+* compared to `Keep-Alive` https://stackoverflow.com/questions/7620620/whats-the-behavioral-difference-between-http-stay-alive-and-websockets
+* _HTTP2_: multiplexed i.e n assets from single request; servers can push (in same way as Web Sockets); binary instead of HTTP's text https://serversforhackers.com/s/http2 https://hpbn.co/http2/ https://news.ycombinator.com/item?id=26263085
+* _libraries_: Pusher https://www.youtube.com/watch?v=h4kIkPxhXPs
+* _multiplex_: combine multiple signals into one
+* perf: only sends 2 bytes instead of 100s of bytes for HTTP
+* _sink_: https://www.fullstackpython.com/websockets.html Django https://www.untangled.dev/2020/08/02/django-websockets-minimal-setup
 # 🔐 SECURE
 
 🗄️ `security.md`
@@ -637,8 +665,12 @@ TOOLING
 
 ## SSH
 
-🗄
-* `barrett-ssh.pdf`
+📙 Barrett
+
+TOOLS
+* _sshclick_: https://github.com/karlot/sshclick
+
+---
 
 * basics
 ```sh
@@ -664,6 +696,7 @@ ssh -NL local-port:env-host.domain.io:remove-port env-jumpbox.domain.io
 ```
 
 za
+* key shape? https://news.ycombinator.com/item?id=42251958
 * https://news.ycombinator.com/item?id=41785511
 * https://github.com/quantumsheep/sshs
 * https://www.youtube.com/watch?v=5JvLV2-ngCI
@@ -841,23 +874,3 @@ WWW
 * atomic clocks, earth spinning faster by milliseconds https://news.ycombinator.com/item?id=25684661
 * IANA, daylight savings https://news.ycombinator.com/item?id=24951473
 * _sink_: https://zachholman.com/talk/utc-is-enough-for-everyone-right https://alexwlchan.net/2019/05/falsehoods-programmers-believe-about-unix-time/ https://app.pluralsight.com/library/courses/date-time-fundamentals/table-of-contents https://news.ycombinator.com/item?id=24746836 timezones https://pyvideo.org/pycon-us-2019/working-with-time-zones-everything-you-wish-you-didnt-need-to-know.html
-
-## WebSocket
-
-🗄 `system.md` servers
-
-* _WebSockets_: protocol to send msg to client outside req-res cycle e.g. pub-sub to push data to frontend i.e. way to do full duplex
-* next gen alternative https://www.thoughtworks.com/radar/platforms/webtransport
-
----
-
-* https://gotify.net/
-* https://discord.com/blog/how-discord-reduced-websocket-traffic-by-40-percent
-* Sendgrid (send emails to customers) Braze (Sendgrid++?)
-* IETF RFC 6455 and browser API https://hpbn.co/websocket/
-* compared to `Keep-Alive` https://stackoverflow.com/questions/7620620/whats-the-behavioral-difference-between-http-stay-alive-and-websockets
-* _HTTP2_: multiplexed i.e n assets from single request; servers can push (in same way as Web Sockets); binary instead of HTTP's text https://serversforhackers.com/s/http2 https://hpbn.co/http2/ https://news.ycombinator.com/item?id=26263085
-* _libraries_: Pusher https://www.youtube.com/watch?v=h4kIkPxhXPs
-* _multiplex_: combine multiple signals into one
-* perf: only sends 2 bytes instead of 100s of bytes for HTTP
-* _sink_: https://www.fullstackpython.com/websockets.html Django https://www.untangled.dev/2020/08/02/django-websockets-minimal-setup

@@ -512,6 +512,7 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 * _multiplexer_: window manager + session mgmt for terminal 📙 Hogan [x]
 * multiplexers w/out sessions e.g. dvtm
 * sessions w/out window mgmt e.g. abduco https://www.youtube.com/watch?v=GbZFwpmr230 0:45
+* _escape sequences_: https://en.wikipedia.org/wiki/ANSI_escape_code https://github.com/charmbracelet/sequin
 
 ## alternatives
 

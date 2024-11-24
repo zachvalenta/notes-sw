@@ -40,6 +40,7 @@ https://github.com/brohrer/pacemaker
 INDEXES
 * https://docs.python.org/3/tutorial/datastructures.html#looping-techniques
 * https://treyhunner.com/2016/04/how-to-loop-with-indexes-in-python/
+* https://nedbatchelder.com/blog/202411/loop_targets.html
 ```python
 # sequence
 for val in seq:
@@ -646,6 +647,7 @@ fruit | veg   # avocado, banana, tomato, beet, carrot
 ## string
 
 📙 Beazley ch. 1
+🗄️ `algos.md` edit distance
 
 ---
 
@@ -654,7 +656,7 @@ parse https://realpython.com/python-packages/#parse-for-matching-strings
 * https://www.youtube.com/watch?v=EimoZHDcQMA
 * textwrap https://martinheinz.dev/blog/108
 * f-strings https://martinheinz.dev/blog/103 https://martinheinz.dev/blog/70
-* fuzzy comparison: difflib, thefuzz https://martinheinz.dev/blog/96 https://florian-dahlitz.de/articles/create-your-own-diff-tool-using-python
+* fuzzy comparison: difflib https://martinheinz.dev/blog/96 https://florian-dahlitz.de/articles/create-your-own-diff-tool-using-python
 
 * munge
 ```python

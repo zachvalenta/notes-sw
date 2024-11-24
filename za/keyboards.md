@@ -18,53 +18,71 @@
 
 * _24_: models (Apple refurbished, nuphy air 75, keychron k8)
 
-# ⌨️ MODELS
+# 📐 LAYOUTS
 
-🏪
-> prebuilt cheaper in time and money https://www.youtube.com/watch?v=N_mZEbJmKYg
-* https://keeb-finder.com/
-* https://mechanicalkeyboards.com/
-* https://novelkeys.com/
-* https://www.boardsource.xyz
+🔗 https://www.keyboard.university/100-courses/keyboard-sizes-layouts-gdeby
 
-KEYCHRON
-> amazed how quickly low-profile feels strange after moving to normal profile
-* ✅ case https://www.keychron.com/products/keychron-keyboard-carrying-case
-* _c1_: $75 https://www.keychron.com/products/keychron-c1-pro-qmk-via-wired-mechanical-keyboard?variant=40615797391449
-* _k1_: stockout https://www.reddit.com/r/NuPhy/comments/1brdzgy/will_there_ever_be_low_profile_tkl_80_layout/
-* _k8_: ✅ $110 Jack https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?variant=39755425349721 https://www.amazon.com/Keychron-Wireless-Mechanical-Hot-Swappable-Programmable/dp/B0B97JZV99
-* _v3_: $110: TKL, normal profile https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/ https://www.amazon.com/dp/B0CW5B5KL8
+ERGO https://www.youtube.com/watch?v=pK41Mr4Kdd0 [1:45] https://www.youtube.com/watch?v=rnnNNLaFZ9Y
+* thumb under palm e.g. CMD
+* leaving home row e.g. BACKSPACE
+* spacebar a waste of space
+* ESC too far away
 
-NUPHY
-* _halo75_: less scrunched layout than air75? https://www.amazon.com/nuphy-Mechancial-Kyeboard-Swappable-Bluetooth/dp/B0D5Q891F1
-* _air75 v2_: ✅ $125; 75%/scrunched, low profile (2.3mm) slow shipping (but next time you can just buy from Amazon?) https://nuphy.com/products/air75-v2
-* _gem 80_: $150; TKL, normal profile https://nuphy.com/collections/keyboards/products/gem80
+FACTORS
+* diagonal (QWERTY)
+* ortholinear (grid) https://www.youtube.com/watch?v=pK41Mr4Kdd0 [4:00]
+* column stagger (straight + pinky stagger) https://www.youtube.com/watch?v=grg-_DNqoNo [1:15]
+* thumb cluster https://www.youtube.com/watch?v=grg-_DNqoNo [2:30]
+* tenting
 
-ZA
-* _Apple wired_: ✅ $60; 100%, low profile (2.3mm) https://www.amazon.com/dp/B07K7V1FWC
-* _Logitech mx mini_: https://www.logitech.com/en-us/products/keyboards/mx-keys-mini.920-010475.html
-* _Varmilo mac_: https://varmilo.com/products/mac?variant=45350805405915 keycaps https://varmilo.com/products/shurikey-gear-keycaps-sets-167-keys?pr_prod_strat=jac&pr_rec_id=c6579d995&pr_rec_pid=7642777518299&pr_ref_pid=8195613425883&pr_seq=uniform
+TYPES
+* BYO https://www.youtube.com/watch?v=RtYJYFMWjNM https://news.ycombinator.com/item?id=41972550
+* _Alice_: ergo
+* _Neo_: for German + English https://dariogoetz.github.io/noted-layout/
+* _TKL_: 87 keys; aka 80% https://www.keychron.com/blogs/archived/keyboard-buying-guide
+* _100%_: 104 keys
 
-## ergo
+LETTERING
+* _Colemak_: https://colemak.com/ https://people.zsa.io/andreas-tacke/
+* _Dvorak_: 
+* _QWERTY_: Anglosphere + western Europe https://en.wikipedia.org/wiki/QWERTY
+* _QWERTZ_: https://en.wikipedia.org/wiki/QWERTZ
+* _Workman_: 
 
-MAYBE
-* _Boardsource corne_: https://www.boardsource.xyz/products/Corne https://www.youtube.com/watch?v=riqmW3UHqPY
-* _Dygma defy_: 🎯 $370; featureful, bad taste https://dygma.com/pages/defy https://www.youtube.com/watch?v=R9YTQn1ik9I
-* _Glove80_: $400 low-profile, expensive, ugly https://www.moergo.com/collections/glove80-keyboards https://www.youtube.com/watch?v=QLb3ewK8R2Y
-* _Keebio iris_: 🎯 ZSA voyager replacement https://keeb.io/ https://keeb.io/products/iris-ce-keyboard https://keeb.io/products/iris-keyboard-pre-built
-* _Keychron q8_: 🎯 $210 cant swap the one cmd keycap https://www.keychron.com/products/keychron-q8-alice-layout-qmk-custom-mechanical-keyboard?variant=40077527122009
-* _Keychron v8_: ✅ $90 https://www.keychron.com/products/keychron-v8-max-alice-layout-qmk-custom-mechanical-keyboard
-* _Keychron k11_: $115; low profile https://www.keychron.com/products/keychron-k11-pro-alice-layout-qmk-via-wireless-custom-mechanical-keyboard programmable but only through Keychron (vs. QMK/VIA) https://www.youtube.com/watch?v=zqRBxioJIRI [5:00]
+## programmable
 
-DOESN'T SOLVE RSI 
-* _Akko alice_: $130 cmd key not symmetric https://en.akkogear.com/product/acr-pro-alice-plus-mechanical-keyboard/
-* _Kinensis freestyle_: ✅ https://www.amazon.com/Kinesis-Freestyle2-Ergonomic-Keyboard-Separation/dp/B009ZNBJK8
-* _Matias ergo_: https://matias.ca/ergopro/programmable/
+🗄️ `interfaces.md` terminals > features
 
-TOO SMALL|STRANGE
-* _Bastard charybdis_: https://bastardkb.com/charybdis/ https://www.youtube.com/watch?v=riqmW3UHqPY
-* _Splitkb elora_: https://splitkb.com/products/elora?variant=47357022699867 https://www.youtube.com/watch?v=grg-_DNqoNo
-* _TOMEM_: https://github.com/GEIGEIGEIST/TOTEM https://www.youtube.com/watch?v=riqmW3UHqPY
+PROGRAMS
+* _kanata_: https://github.com/jtroo/kanata
+* _Oryx_ built off of QMK https://blog.zsa.io/whack-a-key/ https://www.youtube.com/watch?v=FcFYv_dHIiQ
+* _QMK_: firmware; C impl https://www.youtube.com/watch?v=D05B6NXV504
+* _ZMK_: https://www.youtube.com/watch?v=riqmW3UHqPY https://github.com/eigatech/zmk-config https://www.youtube.com/watch?v=pK41Mr4Kdd0 [9:00]
+
+ZSA KEYS https://configure.zsa.io/voyager/layouts/ https://configure.zsa.io/moonlander/layouts/default/latest/2/
+> you'd presume most of ZSA is Vim users
+* 📍 example https://www.youtube.com/watch?v=6blfyl2Q0ag [12:00]
+* z = CTRL
+* quote = CMD
+* 📍 double tap (aka tapdancing) in lieu of CMD + key https://www.youtube.com/watch?v=6blfyl2Q0ag [10:30,11:50]
+> maybe better to start out keeping the CMD workflow
+> can tune the time btw tapping to get around ambiguation
+* 📍 thumb cluster meant to be used by index figure (for Vim escape?)
+* Colemak backspace = QWERTY caps
+* _hyper_: ALT CMD CONTROL SHIFT = global hotekey
+* _meh_: ALT CONTROL SHIFT = global hotekey
+* _layer_: SHIFT + customization
+* _macro_: sequential https://www.youtube.com/watch?v=JydEeUEw8d8 [1:00]
+* _combo_: 类似 Vim https://blog.zsa.io/2212-combos/ conflicts https://www.youtube.com/watch?v=5vYhPitiU2I
+
+---
+
+> 🎗️ learn how to use programmable so you can avoid RSI
+> https://www.youtube.com/results?search_query=macos+to+zsa+keyboard
+> current RSI threats: thumbs on CMD
+> I think for generalist usage they can be adapted to pretty easily, but as a developer, the lack of dedicated keys for [, ] and ' is an insurmountable obstacle for me. Those keys are in my opinion perfectly placed on regular keyboards and no amount of layering, tap dancing or anything else will ever come close. https://news.ycombinator.com/item?id=37391934
+* QMK|VIA https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard https://www.youtube.com/watch?v=EWiOIVnrmMs
+* home row mods https://www.youtube.com/watch?v=sLWQ4Gx88h4 https://www.youtube.com/watch?v=CLiZ5rAEx3A https://github.com/dreamsofcode-io/home-row-mods https://www.youtube.com/watch?v=pK41Mr4Kdd0 [6:30]
 
 ## mapping
 
@@ -101,6 +119,60 @@ R side
 * keys the voyager has
 > I need at least [ ] ; ' \ , . to be separate physical keys (because they are also letters/essential punctuation in other languages), and ideally arrows too, and more thumb buttons than just 2 (ideally ctrl/win/alt/altGr and backspace/delete/space/enter). Also quite important for gaming to have modifiers and the usual keys (spacebar, tab, etc) easily available without layers, tap hold or tapdance.
 
+# ⌨️ MODELS
+
+🏪
+> prebuilt cheaper in time and money https://www.youtube.com/watch?v=N_mZEbJmKYg
+* https://keeb-finder.com/
+* https://mechanicalkeyboards.com/
+* https://novelkeys.com/
+* https://www.boardsource.xyz
+
+KEYCHRON
+> amazed how quickly low-profile feels strange after moving to normal profile
+* ✅ case https://www.keychron.com/products/keychron-keyboard-carrying-case
+* _c1_: $75 https://www.keychron.com/products/keychron-c1-pro-qmk-via-wired-mechanical-keyboard?variant=40615797391449
+* _k1_: stockout https://www.reddit.com/r/NuPhy/comments/1brdzgy/will_there_ever_be_low_profile_tkl_80_layout/
+* _k8_: ✅ $110 Jack https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?variant=39755425349721 https://www.amazon.com/Keychron-Wireless-Mechanical-Hot-Swappable-Programmable/dp/B0B97JZV99
+* _v3_: $110: TKL, normal profile https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/ https://www.amazon.com/dp/B0CW5B5KL8
+
+NUPHY
+* _halo75_: less scrunched layout than air75? https://www.amazon.com/nuphy-Mechancial-Kyeboard-Swappable-Bluetooth/dp/B0D5Q891F1
+* _air75 v2_: ✅ $125; 75%/scrunched, low profile (2.3mm) slow shipping (but next time you can just buy from Amazon?) https://nuphy.com/products/air75-v2
+* _gem 80_: $150; TKL, normal profile https://nuphy.com/collections/keyboards/products/gem80
+
+ZA
+* _Apple wired_: ✅ $60; 100%, low profile (2.3mm) https://www.amazon.com/dp/B07K7V1FWC
+* _Logitech mx mini_: https://www.logitech.com/en-us/products/keyboards/mx-keys-mini.920-010475.html
+* _Varmilo mac_: https://varmilo.com/products/mac?variant=45350805405915 keycaps https://varmilo.com/products/shurikey-gear-keycaps-sets-167-keys?pr_prod_strat=jac&pr_rec_id=c6579d995&pr_rec_pid=7642777518299&pr_ref_pid=8195613425883&pr_seq=uniform
+
+## BYO
+
+https://www.youtube.com/watch?v=FJgvi7WShxY
+https://www.youtube.com/watch?v=7UXsD7nSfDY
+
+## ergo
+
+MAYBE
+* _Boardsource corne_: https://www.boardsource.xyz/products/Corne https://www.youtube.com/watch?v=riqmW3UHqPY
+* _Chocofi_: Voyager-esque https://www.youtube.com/watch?v=pK41Mr4Kdd0 [12:00]
+* _Dygma defy_: 🎯 $370; featureful, bad taste https://dygma.com/pages/defy https://www.youtube.com/watch?v=R9YTQn1ik9I
+* _Glove80_: $400 low-profile, expensive, ugly https://www.moergo.com/collections/glove80-keyboards https://www.youtube.com/watch?v=QLb3ewK8R2Y
+* _Keebio iris_: 🎯 ZSA voyager replacement https://keeb.io/ https://keeb.io/products/iris-ce-keyboard https://keeb.io/products/iris-keyboard-pre-built https://www.youtube.com/watch?v=pK41Mr4Kdd0 [4:25]
+* _Keychron q8_: 🎯 $210 cant swap the one cmd keycap https://www.keychron.com/products/keychron-q8-alice-layout-qmk-custom-mechanical-keyboard?variant=40077527122009
+* _Keychron v8_: ✅ $90 https://www.keychron.com/products/keychron-v8-max-alice-layout-qmk-custom-mechanical-keyboard
+* _Keychron k11_: $115; low profile https://www.keychron.com/products/keychron-k11-pro-alice-layout-qmk-via-wireless-custom-mechanical-keyboard programmable but only through Keychron (vs. QMK/VIA) https://www.youtube.com/watch?v=zqRBxioJIRI [5:00]
+
+DOESN'T SOLVE RSI 
+* _Akko alice_: $130 cmd key not symmetric https://en.akkogear.com/product/acr-pro-alice-plus-mechanical-keyboard/
+* _Kinensis freestyle_: ✅ https://www.amazon.com/Kinesis-Freestyle2-Ergonomic-Keyboard-Separation/dp/B009ZNBJK8
+* _Matias ergo_: https://matias.ca/ergopro/programmable/
+
+TOO SMALL|STRANGE
+* _Bastard charybdis_: https://bastardkb.com/charybdis/ https://www.youtube.com/watch?v=riqmW3UHqPY
+* _Splitkb elora_: https://splitkb.com/products/elora?variant=47357022699867 https://www.youtube.com/watch?v=grg-_DNqoNo
+* _TOMEM_: https://github.com/GEIGEIGEIST/TOTEM https://www.youtube.com/watch?v=riqmW3UHqPY
+
 ## 🪐 ZSA
 
 💡 voyager (portable) moonlander (key count + zip kit)
@@ -110,6 +182,7 @@ MODELS https://configure.zsa.io/voyager/layouts/
 * _Ergodox_: 2015 https://ergodox-ez.com/ layout 52 keys, thumb cluster is too busy https://www.youtube.com/watch?v=KlyMuZIEOOw [2:10] https://www.youtube.com/watch?v=wpuwhqy5cgg https://configure.zsa.io/voyager/layouts/
 * _Moonlander_: 2020 https://www.zsa.io/moonlander 72 keys https://www.youtube.com/watch?v=5AqXjVrnI2E zip kit = too many keys period? https://www.youtube.com/watch?v=BK_ezYCgIpY https://www.zsa.io/moonlander/zip-kit  https://www.youtube.com/watch?v=SVCFSe6NozU more keys on R side for ENTER/shift; tenting doesn't work bc poor build quality https://www.youtube.com/watch?v=y3lnLcb-nPo https://www.youtube.com/watch?v=SVCFSe6NozU https://www.youtube.com/watch?v=l-qkKIpHu9A [21:00]
 * _Voyager_: 2023 https://www.zsa.io/voyager https://www.reddit.com/r/zsaVoyager/ https://www.youtube.com/watch?v=sLWQ4Gx88h4 [2:00]
+> better angle for thumb cluster
 > probably makes more sense to buy as ZSA themselves uses their own stuff and figured out how to improve the Moonlander + Moonlander already came with zip kit to reduce number of keys
 * 52 keys not enough? https://configure.zsa.io/voyager/layouts/
 * pinky keys should be big buttons https://www.youtube.com/watch?v=KlyMuZIEOOw [3:30]
@@ -181,64 +254,6 @@ ZA
 * less options for low profile https://www.youtube.com/watch?v=BWQFUPm6XE0
 * _PBT_: more durable
 * _ABS_: less durable
-
-## layouts
-
-🔗 https://www.keyboard.university/100-courses/keyboard-sizes-layouts-gdeby
-
-TYPES
-* BYO https://www.youtube.com/watch?v=RtYJYFMWjNM https://news.ycombinator.com/item?id=41972550
-* _Alice_: ergo
-* _Neo_: for German + English https://dariogoetz.github.io/noted-layout/
-* _TKL_: 87 keys; aka 80% https://www.keychron.com/blogs/archived/keyboard-buying-guide
-* _100%_: 104 keys
-
-FACTORS
-* stagger: horizontal (QWERTY) vs. vertical/ortholinear (pinky stretch) https://www.youtube.com/watch?v=grg-_DNqoNo [1:15]
-* thumb cluster https://www.youtube.com/watch?v=grg-_DNqoNo [2:30]
-* tenting
-
-LETTERING
-* _Colemak_: https://colemak.com/ https://people.zsa.io/andreas-tacke/
-* _Dvorak_: 
-* _QWERTY_: Anglosphere + western Europe https://en.wikipedia.org/wiki/QWERTY
-* _QWERTZ_: https://en.wikipedia.org/wiki/QWERTZ
-* _Workman_: 
-
-## programmable
-
-🗄️ `interfaces.md` terminals > features
-
-PROGRAMS
-* _kanata_: https://github.com/jtroo/kanata
-* _Oryx_ built off of QMK https://blog.zsa.io/whack-a-key/ https://www.youtube.com/watch?v=FcFYv_dHIiQ
-* _QMK_: firmware; C impl https://www.youtube.com/watch?v=D05B6NXV504
-* _ZMK_: https://www.youtube.com/watch?v=riqmW3UHqPY https://github.com/eigatech/zmk-config
-
-ZSA KEYS https://configure.zsa.io/voyager/layouts/ https://configure.zsa.io/moonlander/layouts/default/latest/2/
-> you'd presume most of ZSA is Vim users
-* 📍 example https://www.youtube.com/watch?v=6blfyl2Q0ag [12:00]
-* z = CTRL
-* quote = CMD
-* 📍 double tap (aka tapdancing) in lieu of CMD + key https://www.youtube.com/watch?v=6blfyl2Q0ag [10:30,11:50]
-> maybe better to start out keeping the CMD workflow
-> can tune the time btw tapping to get around ambiguation
-* 📍 thumb cluster meant to be used by index figure (for Vim escape?)
-* Colemak backspace = QWERTY caps
-* _hyper_: ALT CMD CONTROL SHIFT = global hotekey
-* _meh_: ALT CONTROL SHIFT = global hotekey
-* _layer_: SHIFT + customization
-* _macro_: sequential https://www.youtube.com/watch?v=JydEeUEw8d8 [1:00]
-* _combo_: 类似 Vim https://blog.zsa.io/2212-combos/ conflicts https://www.youtube.com/watch?v=5vYhPitiU2I
-
----
-
-> 🎗️ learn how to use programmable so you can avoid RSI
-> https://www.youtube.com/results?search_query=macos+to+zsa+keyboard
-> current RSI threats: thumbs on CMD
-> I think for generalist usage they can be adapted to pretty easily, but as a developer, the lack of dedicated keys for [, ] and ' is an insurmountable obstacle for me. Those keys are in my opinion perfectly placed on regular keyboards and no amount of layering, tap dancing or anything else will ever come close. https://news.ycombinator.com/item?id=37391934
-* QMK|VIA https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard https://www.youtube.com/watch?v=EWiOIVnrmMs
-* home row mods https://www.youtube.com/watch?v=sLWQ4Gx88h4 https://www.youtube.com/watch?v=CLiZ5rAEx3A https://github.com/dreamsofcode-io/home-row-mods
 
 ## switches
 
