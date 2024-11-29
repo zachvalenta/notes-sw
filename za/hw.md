@@ -144,7 +144,7 @@ https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=34180508
 * lack of support for Ableton, might not have audio interface drivers https://news.ycombinator.com/item?id=20745072
 * _Chromebook_: Linux beta https://uglyduck.ca/chromebook-web-development/
 * _Dell_: https://cfenollosa.com/blog/fed-up-with-the-mac-i-spent-six-months-with-a-linux-laptop-the-grass-is-not-greener-on-the-other-side.html break all the time https://news.ycombinator.com/item?id=32632720
-* _Framework_: https://frame.work/ broken https://news.ycombinator.com/item?id=33322143 https://news.ycombinator.com/item?id=28606962 https://news.ycombinator.com/item?id=27926425 better now? https://frame.work/products/laptop13-diy-intel-ultra-1 https://omakub.org/
+* _Framework_: https://frame.work/ broken https://news.ycombinator.com/item?id=33322143 https://news.ycombinator.com/item?id=28606962 https://news.ycombinator.com/item?id=27926425 better now? https://frame.work/products/laptop13-diy-intel-ultra-1 https://omakub.org/ bad https://news.ycombinator.com/item?id=42163518
 * _System76_: more expensive than Apple https://system76.com/ https://news.ycombinator.com/item?id=34599094 https://news.ycombinator.com/item?id=34599094 https://zackproser.com/blog/why-I-buy-system-76-computers
 * _Thinkpad_: https://news.ycombinator.com/item?id=30241960 x200 https://drewdevault.com/2021/05/14/Pinebook-Pro-review.html beware machines after 2012, X60 can only deal w/ 32-bit os, X200/X220/X230 are popular https://www.youtube.com/watch?v=mxA9Gyyu6Rg 9:45 12:40 13:15
 * Linux laptops https://news.ycombinator.com/item?id=35355494
@@ -177,6 +177,7 @@ USB https://en.wikipedia.org/wiki/USB
 
 💡 Delco photo book https://jaapgrolleman.com/shanghai-before-the-foreigners/ https://loosejoints.biz/collections/current-titles/products/holy-island https://loosejoints.biz/collections/current-titles/products/robin-graubard-road-to-nowhere https://loosejoints.biz/collections/current-titles/products/office https://www.newyorker.com/culture/photo-booth/the-frightening-familiarity-of-late-nineties-office-photos https://news.ycombinator.com/item?id=41926849
 
+* https://news.ycombinator.com/item?id=42273518
 * series https://deannadikeman.com/leaving-and-waving
 * kids https://www.youtube.com/watch?v=lTyRiO08xi8 https://www.amazon.com/Toddler-Digital-Instant-Childrens-Birthday/dp/B0CSW8719G
 * fancy https://www.youtube.com/watch?v=Z--EFPp5Yds https://daniel.lawrence.lu/blog/y2024m05d31/
@@ -297,8 +298,10 @@ MODELS
 * _Asus pa278cgv_: https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/ https://www.nytimes.com/wirecutter/reviews/best-monitors/
 * _BenQ RD320UA_: 🎯 $600 https://www.youtube.com/watch?v=784pFXYBqsg https://www.youtube.com/watch?v=rp1fEKGkG2M
 * _Dell S2318HN_: ✅ $175, 23", 1080p
+* _Dell S2721QS_: https://people.zsa.io/leon-si/
 * _Dell S2722QC_: $225, 27", 4k https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.amazon.com/dp/B09DTDRJWP/
-* _Dell U2515H_: $250 https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
+* _Dell U2515H_: 🎯 $250 https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development
+* _Dell U2518D_: 🎯 https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development
 * _Dell U2723QE_: $600 https://www.nytimes.com/wirecutter/reviews/best-monitors/
 * _Dell U3223QE_: $600, 32", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/
 * _Spectrum black_: 🎯 $750 https://www.dough.tech/pages/monitors
@@ -325,6 +328,7 @@ ANDROID
 
 ---
 
+* iPhone https://www.youtube.com/watch?v=10iUIoVBRI8
 * retro case for iPhone https://www.printables.com/model/919133-iphone-retro-case
 * https://drewdevault.com/2019/12/18/PinePhone-review.html 
 * https://drewdevault.com/2017/11/24/Phone-maintenance.html

@@ -93,6 +93,7 @@ book := Book{Title: "Go in Action", Author: "William Kennedy"}
 ```
 
 * _slice_: resizable; doesn't store array data, but manipulating alters underlying array https://www.openmymind.net/The-Minimum-You-Need-To-Know-About-Arrays-And-Slices-In-Go/ https://github.com/elliotchance/pie
+* bad https://build-your-own.org/blog/20241125_go_slice_surprise/ https://0x46.net/thoughts/2024/12/03/go-a-fractal-of-bad-design/
 ```go
 []bool{true, true, false}  // build array and slice on top all in one go w/ slice literal
 // https://tour.golang.org/moretypes/10 --> same syntax as Python
@@ -115,6 +116,11 @@ FEATURES 📙 Jeffrey [3]
 * more modern than C e.g. modules
 * cross-compilation/cross-platform binaries (although trickier re: cgo) https://jvns.ca/til/cross-compiling-in-go-just-works/
 * usage: CLI (charm) distributed systems (Docker, Kubernetes, Prometheus)
+
+https://0x46.net/thoughts/2024/12/03/go-a-fractal-of-bad-design/
+> And it's not necessarily very readable, at some point your brain just filters out all the boilerplate, sure, but if your brain just filters it out what's the point of typing it out? Just to possibly make a mistake in it?...a lot of the code we write in Go is written just because it has to be written and has nothing to do with what we are doing e.g. endless manual error handling. Using a linter just deals with the symptoms and doesn't solve the underlying problem. Languages should make making mistakes difficult.
+> The absolute denial that generics are a useful feature comes to mind. I'm sure those people would also rather use arrays, slices and hash maps which aren't "generic" and require you to .(TypeAssert) the values you get out of them all the time. Want to create some data structures e.g. a heap? Good luck making a type safe library out of it! See, Go is a simple language so it can't have generics because that would make it no longer simple. It's the error prone code with no type safety which forces you to put type assertions all over the place or code mindlessly generated from unreadable templates that's simple!
+> writing if err != nil every single time is tiring
 
 
 ---
@@ -293,10 +299,10 @@ var myInt // 0
 
 ## web
 
+* https://pocketbase.io/ 
 * start here https://www.youtube.com/watch?v=F9H6vYelYyU
 * https://github.com/mikestefanello/pagoda
 * https://github.com/nikolaydubina/go-recipes
-* https://pocketbase.io/ 
 * https://github.com/livebud/bud
 * https://www.allhandsontech.com/programming/golang/web-app-sqlite-go/
 * URL shortener https://jrstupkadev.medium.com/golang-url-shortener-22ba6c970792 https://blog.pratimbhosale.com/building-a-url-shortener-using-go-and-sqlite#heading-project-setup

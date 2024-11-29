@@ -43,7 +43,7 @@ ST
 SE*6*0001~
 ```
 
-### ISA
+### ISA (who)
 
 > An X12 file starts with a fixed-length 106-byte header called an ISA segment...specifies three different terminator characters to be used in the rest of the document. https://www.lambdafunctions.com/articles/racing-sed-with-rust
 
@@ -58,7 +58,7 @@ SE*6*0001~
 * _ISA14_: request for ack
 * _ISA15_: indicator whether test|prod
 
-### GS
+### GS (type)
 
 * _GS01_: transaction set type; `SC` 832 `PO` 850
 * _GS02_: sender code; `014654966`
@@ -69,7 +69,7 @@ SE*6*0001~
 * _GS07_: standards body; `X` for ASC x12
 * _GS08_: version; `004010`
 
-### summary
+### summary (sum)
 
 * _CTT01_: sum of line items (e.g. `LIN`)
 * _CTT02_: hash of total
@@ -94,7 +94,7 @@ DTM*196*20241101~
 DTM*197*20241130~
 ```
 
-### BCT
+### BCT (purpose)
 
 ```sh
 BCT*05*CAT123*V1~
@@ -105,7 +105,7 @@ BCT*05*CAT123*V1~
 * _BCT02_: catalog id
 * _BCT03_: catalog version
 
-### LIN
+### LIN (ID)
 
 * _LIN_: UUID e.g. UPC|SKU
 * _LIN01_: internal line number for tracking
@@ -116,7 +116,7 @@ BCT*05*CAT123*V1~
 LIN**UP*012345678905
 ```
 
-### PID
+### PID (desc)
 
 * _PID_: desc
 * _PID01_: desc type e.g. `F` free-form `S` structured
@@ -126,7 +126,7 @@ LIN**UP*012345678905
 PID*F****Blue T-Shirt, Size Large
 ```
 
-### CTP
+### CTP (price)
 
 * _CTP_: price
 * _CTP01_: price tier e.g. CN consumer WS wholesale RT retail IN industrial GO government HV healthcare
@@ -223,11 +223,12 @@ STANDARDS BODIES
 
 MIDDLEMEN https://chatgpt.com/share/9b405f7d-4879-4985-be22-39fc267349f7
 * new guys: https://www.stedi.com/edi/network https://www.orderful.com/
+* _VAN_: middleman, alternative to P2P, provides message tracking
+> To simplify the complexity of managing multiple EDI direct connections, a company can use a single connection to an EDI VAN, which provides partner connections.  The EDI VAN is simply a secure network where EDI documents can be exchanged between a network of business partners. An organization will be provided with a mailbox by the EDI VAN provider. Documents are sent and received from there and the organization checks the mailbox periodically to retrieve its documents. Most EDI VAN providers offer an alerting service that informs the sender when messages have been sent successfully and also notifies the recipient that a new message is waiting. https://www.edibasics.com/types-of-edi/edi-via-van/
+* _AS2_: HTTPS for EDI, can just use SFTP
 * _Conexiom_: PDF to EDI https://conexiom.com/
 * _Kleinschmidt_: does EDI for Steersman
 * _SPS_: does EDI for ERPs (Odoo) https://www.spscommerce.com/
-* _AS2_: HTTPS for EDI, can just use SFTP
-* _VAN_: third-party that provides message tracking
 
 BIG PICTURE
 * who uses: GSA, B2B (healthcare, manufacturing, railroad frieight) https://www.remedi.com/blog/edi-for-railway-freight

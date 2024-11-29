@@ -4,14 +4,10 @@
 
 ## 进步
 
-DEPLOYMENT
-* bibtex citation?!? https://www.milesmcbain.com/posts/zsa-moonlander-review/
-* email/RSS https://travisjeffery.com/subscribe/
-> blog auth? what is really the point of your site? 🗄️ `tmp.md`
-> syndication? “POSSE” (“post on your own site, syndicate elsewhere”) https://jvns.ca/blog/2024/11/09/new-microblog/ https://www.youtube.com/watch?v=WYqnxCFJoLE https://x.com/jeremyjkun/status/1798789885966602419 no traffic from Google -> "whatever Google and Twitter are doing right now, unless your blog post lands on Hacker News front page, you basically get no more traffic anymore." https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://zackproser.com/blog/run-your-own-tech-blog https://zackproser.com/blog/2023-wins https://danluu.com/corp-eng-blogs/ https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
-* DNS tools to diff `zachvalenta.com` vs. `zjayv.com`
+DEPLOYMENT 🗄 `dns.md` Zola deployment
+- [x] DNS tools to diff `zachvalenta.com` vs. `zjayv.com`
 * learn Github actions
-* specify `index.html` for GH Pages: `publish_dir` https://chatgpt.com/share/66f4a7c1-ea3c-8004-8327-46a9840bf1d5 https://github.com/shalzz/zola-deploy-action/blob/master/README.md#custom-domain symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying https://stackoverflow.com/questions/42941170/how-to-set-up-github-pages-to-look-for-index-html-in-a-different-location https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository or Cloudflare https://chevyray.dev/blog/how-this-site-is-made/ or Netlify https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/
+* specify `index.html` for GH Pages: `publish_dir` https://chatgpt.com/c/66f4a787-5a40-8004-bda8-c9c207ae0e88 https://github.com/shalzz/zola-deploy-action/blob/master/README.md#custom-domain symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying https://stackoverflow.com/questions/42941170/how-to-set-up-github-pages-to-look-for-index-html-in-a-different-location https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository or Cloudflare https://chevyray.dev/blog/how-this-site-is-made/ or Netlify https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/
 
 MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 * tags
@@ -48,7 +44,7 @@ TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-develop
 > They [McMaster Carr] are server rendering all of their HTML...the server is very good at rendering HTML. https://www.youtube.com/watch?v=-Ln-8QM8KhQ
 * _progressive enhancement_: content first, then sprinkle in some JS if the user-agent allows for it
 * options: InstantPage (load pages before user even clicks) Turbolinks (fast nav w/out SPA) https://macwright.com/2020/10/28/if-not-spas.html 
-* _wysiwyg_: https://news.ycombinator.com/item?id=27516212
+* _wysiwyg_: https://news.ycombinator.com/item?id=27516212 https://github.com/facebook/lexical CodeMirror https://github.com/viebel/klipse
 * PETAL, Alpine, LiveView, Hotwire, htmx https://news.ycombinator.com/item?id=30325030 https://www.thoughtworks.com/radar/techniques?blipid=202203006
 
 SPA tradeoffs
@@ -393,6 +389,7 @@ CMS
 
 * hot reload
 * social/comments via Github https://zackproser.com/blog/autocomplete-is-not-all-you-need https://eradman.com/posts/sidecomment-web-stack.html
+> syndication? “POSSE” (“post on your own site, syndicate elsewhere”) https://jvns.ca/blog/2024/11/09/new-microblog/ https://www.youtube.com/watch?v=WYqnxCFJoLE https://x.com/jeremyjkun/status/1798789885966602419 no traffic from Google -> "whatever Google and Twitter are doing right now, unless your blog post lands on Hacker News front page, you basically get no more traffic anymore." https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://zackproser.com/blog/run-your-own-tech-blog https://zackproser.com/blog/2023-wins https://danluu.com/corp-eng-blogs/ https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
 * browser `python -m http.server` https://www.pythonmorsels.com/cli-tools/
 * sitemap https://otterwiki.com/-/index https://werc.cat-v.org/sitemap
 * _metadata_: title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/ linking https://github.com/erwald/blog/blob/master/_data/series.json https://danilafe.com/blog/blog_microfeatures/
@@ -435,7 +432,7 @@ https://jzhao.xyz/posts/networked-thought https://x.com/_jzhao/status/1815280245
 
 ## 🔲 Zola
 
-📜 https://github.com/getzola/zola
+📜 https://github.com/getzola/zola https://www.getzola.org/
 
 * features: hot reload, tags, TOC https://chevyray.dev/blog/creating-175-fonts/
 * used by https://github.com/ChevyRay/chevyray.dev https://haskellbook.com/
@@ -517,7 +514,6 @@ browsers
 
 * browser on remote box = you can have slow internet at home but use the faster connection in data center https://news.ycombinator.com/item?id=25129747
 * be nice if they stopped developing https://drewdevault.com/2020/08/13/Web-browsers-need-to-stop.html
-* code snippets in browser, CodeMirror https://github.com/viebel/klipse
 * `blur`: event fired when tabs switched https://blog.acolyer.org/2018/09/05/who-left-open-the-cookie-jar-a-comprehensive-evaluation-of-third-party-cookie-policies/
 * _Chromium_: good for healthy standardization? https://dev.to/kenbellows/chromium-and-the-browser-monoculture-problem-420n
 * _CLI_: googler/ddgr
@@ -629,7 +625,7 @@ ZA
 HOWTO
 * real-time editor https://github.com/urin/vscode-web-visual-editor
 * footnotes https://stackoverflow.com/a/29384216/6813490 
-* dropdown/collapsible https://news.ycombinator.com/item?id=29669812 🗄 `personal-site` nested
+* dropdown/collapsible https://news.ycombinator.com/item?id=29669812 🗄 `personal-site` nested https://www.youtube.com/watch?v=MA9WAHEEfGM
 * link as button https://stackoverflow.com/q/2906582/6813490
 * Youtube preview https://stackoverflow.com/a/18681824/6813490
 * password protect a page https://github.com/robinmoisson/staticrypt

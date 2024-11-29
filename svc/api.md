@@ -2,8 +2,10 @@
 
 ## 参考
 
-📙 Masse api rulebook
 🗄️ `sql.md` code gen
+📚
+* Gross hypermedia systems https://www.amazon.com/gp/product/B0C9S88QV6
+* Masse api rulebook
 
 ## 进步
 
@@ -32,6 +34,7 @@ DONE
 📙 https://www.manning.com/books/the-design-of-web-apis-second-edition
 
 * KISS: if data is static, use web server like Nginx, don't even need a backend https://blog.pecar.me/faster-api
+* _Hyrums Law_: https://news.ycombinator.com/item?id=42201892
 
 ## GraphQL
 

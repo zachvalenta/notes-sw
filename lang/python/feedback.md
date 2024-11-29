@@ -267,8 +267,9 @@ COMPONENTS
 
 📻 https://github.com/marimo-team/marimo
 
+https://www.youtube.com/watch?v=ANIu4l9_FB8
 * no ToC
-* design https://marimo.io/blog/lessons-learned https://pythonbytes.fm/episodes/show/393/dare-enter-the-bash-dungeon
+* design https://marimo.io/blog/lessons-learned https://pythonbytes.fm/episodes/show/393/dare-enter-the-bash-dungeon https://realpython.com/podcasts/rpp/230/ https://realpython.com/podcasts/rpp/230/
 * commands
 ```bash
 poetry init -n

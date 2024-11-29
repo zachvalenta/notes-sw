@@ -163,6 +163,8 @@ adit       manning
 
 ---
 
+https://news.ycombinator.com/item?id=42291141 https://docs.racket-lang.org/ctp/index.html
+
 > Yes - the value of functional programming isn't that working in OCAML, or F#, or Haskell is 10x as productive as other languages. But that it can teach you worthwhile lessens about designing software that apply equally to imperative languages. Modelling the business domain, reasoning and managing side effects, avoiding common imperative bugs, these are all valuable skills to develop. https://news.ycombinator.com/item?id=40702146
 * https://www.amazon.com/How-Bake-Pi-Exploration-Mathematics/dp/0465097677
 https://chatgpt.com/c/670933eb-bfe0-8004-aca0-fb048ba5ede0

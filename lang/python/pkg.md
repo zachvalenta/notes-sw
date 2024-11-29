@@ -89,11 +89,15 @@ PYOXIDIZER
 
 🔍 email to Robert Heaton
 🗄️
+* `doc.md` dev
 * `golang.md` project structure
 * `plt.md` Rust
 
+* `src/$NAME`: https://github.com/Zaloog/kanban-tui
+
 ---
 
+* https://github.com/mikeckennedy/listmonk
 * https://github.com/copyleftdev/x12-edi-tools
 * https://github.com/gergelyk/para-cada
 * https://www.youtube.com/watch?v=niMybnzmzqc
@@ -101,6 +105,7 @@ PYOXIDIZER
 * even Prolog uses src/test https://github.com/dnmfarrell/dict
 * dupe https://github.com/simonw/files-to-prompt
 * https://github.com/fpgmaas/cookiecutter-uv
+* https://www.youtube.com/watch?v=dlCcnJdh4c4
 
 https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
 
@@ -233,6 +238,10 @@ freeze --user > $FILE  # per user
 
 ---
 
+```sh
+python -m pip install -U --upgrade-strategy only-if-needed aider-chat  # https://aider.chat/docs/install/install.html
+
+```
 * freeze alternative https://github.com/bndr/pipreqs
 * install from lockfile: `pip install -r requirements.txt`; run from inside activated virtualenv
 * uninstall from requirements: `pip uninstall -r requirements.txt -y` https://stackoverflow.com/a/53032141
@@ -492,6 +501,8 @@ DESIGN
 
 https://www.youtube.com/watch?v=8UuW8o4bHbw
 https://www.youtube.com/watch?v=_FdjW47Au30
+https://micro.webology.dev/2024/11/03/uv-does-everything.html https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
+https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
 
 > There was, over on Python Bytes, we covered this thing by Simon Willison, where he kind of summarized a Mastodon thread about UV and whether it being written in Rust is detrimental to the Python ecosystem or not and all of those things.  But I think it was there.  Your take was, look, fast is interesting.  But one of the really powerful things, I think, is here is a single binary that, if it's on your computer, you can do all things Python, right?  And right now, it's super, without UV, it's been really challenging, right?  Maybe I want to use pip-tools or I want to use pip to install something or all of those things are predicated on several steps.  Do you have Python?  Do you have a right version of Python?  Have you realized you've got to create a virtual environment because you don't have right access to where there's just, before you can get started, like, well, here's a whole set of conversations you need to have about not terribly complicated things, but things that people might not care about.  And now with UV, it's just UV, run.  And you can even put in the comment in the top, like, these are the three libraries I need to run.  And it'll just run.  Oh, so they don't break.  That's what I meant with the one binary, right?  Like, I think most of Python's bad reputation around packaging is that things just break.  Because Homebrew updated your Python or because you didn't activate your virtual length, accidentally installed something into your global thing.  Or you used pip install --user and now it's in all your virtual lengths and you don't know why.  And there's so much unpredictability around these things.  And now suddenly we have, like, this one thing that behaves in certain ways that people understand, that people expect it to behave.  As I said before, this is not necessarily the way I would like it to behave, but I understand why it's so important to just narrow the envelope of packaging of the behaviors that we expect and that we as a community endorse. https://talkpython.fm/episodes/transcript/481/python-opinions-and-zeitgeist-with-hynek
 
@@ -542,8 +553,10 @@ PEPS https://realpython.com/pypi-publish-python-package/#prepare-your-package-fo
 * _PEP 517_: build backends
 * _PEP 518_: specifying build systems
 * _PEP 621_: specifying project metadata
+* _PEP 639_: https://bsky.app/profile/hynek.me/post/3lc5n7g6kr22f https://pythonbytes.fm/episodes/show/411/tls-client-hello-guitar-solo
 * _PEP 660_: editable installs
 * _PEP 735_: didn't Poetry already have this? https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight
+* _PEP 751_: metadata https://lucumr.pocoo.org/2024/11/26/python-packaging-metadata/ https://discuss.python.org/t/pep-751-now-with-graphs/69721
 * _PEP 777_: wheel backwards compatibility (to enable new functionality to be added to wheels) https://peps.python.org/pep-0777/
 
 ---

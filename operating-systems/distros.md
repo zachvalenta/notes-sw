@@ -30,7 +30,7 @@ ZA
 
 INVENTORY 🗄 `/Applications`
 * full list of applications: `about this mac > system report > sw > applications` --> 32-bit apps may not be compatible with macOS 10.14
-* menu bar: iTerm, VS Code, Brave; Bitbar https://switowski.com/blog/favorite-mac-tools/
+* menu bar: iTerm, VS Code, Brave; Bitbar https://switowski.com/blog/favorite-mac-tools/ https://github.com/FelixKratz/SketchyBar https://www.youtube.com/watch?v=8W06wMNZmo8
 * dev: iTerm, VS Code, GitUp
 * audio: cmus, Sound Source
 > have to enable keyboard volume through the app itself
@@ -79,6 +79,7 @@ VIMIUM
 * restore tab: `X`
 
 SPOTLIGHT
+> Raycast also an app launcher https://omakub.org/
 * access: `CMD SPACE`
 * folders to search: apps, calculator, definition, documents, folder, music, pdf documents, system preferences
 * NLP = can no longer turn off web search https://forums.macrumors.com/threads/spotlight-how-to-remove-web-search-from-results.2271616/
@@ -202,8 +203,8 @@ Update them from Software Update in System Preferences or run:
 🔗 https://www.roguelynn.com/words/m1-dev-setup/
 
 PKGS
-> when to install command line tools?
-> does Git come with macOS? Homebrew?
+* questions: Git (bundled with macOS?), install coreutils separately, alternative to installing command line tools from Apple?
+* set `XDG_CONFIG_HOME`
 * pyenv/pipx, bun, rust
 * neovim
 * Homebrew last 🗄️ `linux.md` Homebrew > constraints

@@ -448,7 +448,6 @@ workflow https://robertheaton.com/2019/08/12/programming-projects-for-advanced-b
 * _reset_: update for user who cannot login 📙 Osborn 1.10
 
 * GPG https://www.youtube.com/watch?v=1vVIpIvboSg
-* pwgen https://www.youtube.com/watch?v=G3aH2WYJxGA
 
 password protected files
 * current: pw protection via Pages (on HD not pw-protected themselves) and plain text on pw-protected HD https://security.stackexchange.com/a/128495/160351

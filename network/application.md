@@ -3,46 +3,13 @@
 ## 参考
 
 🔍 https://networkengineering.stackexchange.com/
-📙 Kozierok tcp-ip guide
+📚
+* Kozierok tcp-ip guide
+* Stevens tcp/ip illustrated
 
 ## 进步
 
-DNS 🗄 `html-css.md` Zola deployment
-* go through books
-* maybe buy other Evans zines https://wizardzines.com/zines/bite-size-networking/ https://wizardzines.com/zines/dns/
-* clean up below
-
-THINGS TO KNOW https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
-* what HTTP request looks like
-* send HTTP request from scratch - netcat https://jvns.ca/blog/2016/07/14/whats-sni/
-* how to inspect network packet
-* how TCP works - inspect packet, BYO
-* how DNS works - inspect query
-* _SNI(server name indication)_: first HTTP message in connection, client tells server who it wants to connect to https://www.agwa.name/blog/post/writing_an_sni_proxy_in_go https://jvns.ca/blog/2016/07/14/whats-sni/
-
-WHAT HAPPENS WHEN 📙 `evans-networking-ack.pdf` https://www.youtube.com/watch?v=AlkDbnbv7dk
-* https://danluu.com/navigate-url/
-* https://drewdevault.com/2016/12/06/A-broad-intro-to-networking.html
-* https://www.warp.dev/blog/what-happens-when-you-open-a-terminal-and-enter-ls
-* https://github.com/reorx/httpstat
-* _request flow_: browser cache, hosts file (`/private/etc/hosts` on macOS) router [`evans-tcpdump.pdf`], DNS cache, DNS server (local ISP, then eventually if you're unlucky to a root server, who point your query to the .coms or .govs or what have you)
-* https://eater.net/inet
-* https://wsvincent.com/what-happens-when-url/ DNS, req, res, render HTML, go get further (css, img, js), async as necessary
-* https://wsvincent.com/how-does-the-internet-work/ https://wsvincent.com/how-the-web-works/ 
-
-CLEAN UP
-* https://www.youtube.com/watch?v=j9QmMEWmcfo
-* https://softwareengineeringdaily.com/2023/10/11/the-future-of-http/
-* https://www.charlesproxy.com/
-* https://twobithistory.org/2018/06/10/birth-of-the-web.html
-* HTTP  https://news.ycombinator.com/item?id=33280605
-* https://adhoc.team/2022/01/18/covidtests-usps-aws-managed-services/
-* packet switching 📙 Christian chapter 10
-* 📙 Evans http
-* CORS
-* das protocols https://explained-from-first-principles.com/internet
-* https://news.ycombinator.com/item?id=31509523
-
+* _24_: mv DNS to TLH
 * _20_: TLS (openssl, debug openssl)
 * _17_: 📙 Ross network know how
 
@@ -50,82 +17,35 @@ CLEAN UP
 
 🗄 `aws.md` Route53
 📚
+* Evans dns
 * Kozierok guide ch. 52-57
 * Liu dns and bind
 * Sanders packet analyis
 > You would think that something as simple as pointing a domain name to an IP address would be straightforward, but no. There's always some bizarre propagation delay or weird caching issue that makes you question your sanity. https://zackproser.com/blog/maintaining-this-site-fucking-sucks
 
+EVANS
+* https://www.youtube.com/watch?v=kV1u701wxgg
+* https://news.ycombinator.com/item?id=36909427
+* https://jvns.ca/blog/2021/12/15/mess-with-dns/ https://messwithdns.net/
+* https://jvns.ca/blog/2024/08/19/migrating-mess-with-dns-to-use-powerdns/
+* https://jvns.ca/blog/2021/11/04/how-do-you-tell-if-a-problem-is-caused-by-dns/
+* https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
+* https://news.ycombinator.com/item?id=29812736
+* use in Python + ICMP https://news.ycombinator.com/item?id=33494386
+
 START HERE
-* Evans https://wizardzines.com/zines/dns/
+* https://cuddly-octo-palm-tree.com/posts/2021-10-17-dns/
 * https://powerdns.org/hello-dns/
 * https://www.youtube.com/watch?v=LUFn-QVcmB8
 * https://hacks.mozilla.org/2018/05/a-cartoon-intro-to-dns-over-https/
 * https://www.roguelynn.com/words/explain-like-im-5-dns/
 * https://jvns.ca/blog/how-updating-dns-works/
 * https://howdns.works/
-* https://news.ycombinator.com/item?id=36909427
-* https://jvns.ca/blog/2021/12/15/mess-with-dns/ https://messwithdns.net/
-* https://jvns.ca/blog/2024/08/19/migrating-mess-with-dns-to-use-powerdns/
-* https://jvns.ca/blog/2021/11/04/how-do-you-tell-if-a-problem-is-caused-by-dns/
-> Subsequent requests can (but don't always) reuse the DNS, TCP and TLS setup but a new roundtrip is still needed each time the server is consulted, for example for an API call or a new page. https://calpaterson.com/latency.html
+* https://www.youtube.com/watch?v=27r4Bzuj5NQ
+* encryption https://entropicthoughts.com/secure-dns-on-a-laptop-with-debian
 * TTL https://news.ycombinator.com/item?id=26620730 https://calpaterson.com/ttl-hell.html
-* levels of understanding https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * https://www.roguelynn.com/words/spotifys-love-hate-relationship-with-dns/
 * https://softwareengineeringdaily.com/2017/06/06/dns-with-phil-stanhope/
-
-TOOLS
-* https://github.com/trimstray/the-book-of-secret-knowledge?tab=readme-ov-file#domain-resolve
-* https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-network-dns
-* BYO resolver https://jvns.ca/blog/2022/02/01/a-dns-resolver-in-80-lines-of-go/
-* _altdns_: generator https://github.com/infosec-au/altdns
-* _dig_
-* _dnsgen_: generator https://github.com/AlephNullSK/dnsgen
-* _dog_: https://github.com/ogham/dog
-* _doggo_: https://github.com/mr-karan/doggo
-* _gping_: https://github.com/orf/gping
-* _massdns_: resolver https://github.com/blechschmidt/massdns
-* _q_: https://github.com/natesales/q
-* _ripgen_: generator https://github.com/resyncgg/ripgen
-
-ZA
-* settings: `/etc/resolv.conf` https://hacker-tools.github.io/machine-introspection/
-* find domains https://www.domainsfortherestofus.com/
-* check record config https://github.com/fcambus/dnc
-* _whois_: get info on domain https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
-
----
-
-* _impl_: unencrypted
-* _ICANN_: authority on domains 艘 Namecheap email
-* _registrar_: buy rights to domain from ICANN, sells domains to consumers; most popular services (Name Cheap) are actually middlemen between registrars (like eNom) and consumer
-* _providers_: DNS Simple, Google, OpenDNS; ❓ what do they actually provide?
-* _server_: resolves query for domain w/ IP address https://news.ycombinator.com/item?id=24886120
-* _poisoning_: provide malformed translation of domain/IP to DNS server
-📝 [iterative query](https://www.raspberrypi.org/learning/networking-lessons/lesson-4/plan/): initial DNS server passes along to other server(s) to resolve; first server will cache resolved query for next time
-* _recursive service_: provided by ISP, will cache lookups by TTL
-* apex/root domain: `example.com`; [cannot be aliased](https://news.ycombinator.com/item?id=8825519) + https://help.github.com/articles/about-supported-custom-domains/
-BYO https://github.com/kahun/awesome-sysadmin#dns
-https://github.com/tanrax/maza-ad-blocking
-https://www.youtube.com/watch?v=kV1u701wxgg
-https://blog.codepen.io/2016/02/23/078-com/ how do people steal domains? how do people get control of host?
-* https://jpetazzo.github.io/2024/05/12/understanding-kubernetes-dns-hostnetwork-dnspolicy-dnsconfigforming/
-* https://entropicthoughts.com/secure-dns-on-a-laptop-with-debian
-* whitelist/blacklist https://github.com/plutov/ultrafocus
-* https://www.youtube.com/watch?v=27r4Bzuj5NQ
-* https://news.ycombinator.com/item?id=37531801&utm_term=comment
-* DNS, ints/floats https://jvns.ca/blog/2023/06/23/new-zine--how-integers-and-floats-work/
-* TLD https://textslashplain.com/2023/05/13/new-tlds-not-bad-actually/
-* https://www.netmeister.org/blog/nsauth-diversity.html
-* use in Python + ICMP https://news.ycombinator.com/item?id=33494386
-* is a DNS service like Route53 serving anything or is this just loose semantics? https://vickiboykis.com/2022/01/08/migrating-to-hugo/
-* domain security https://news.ycombinator.com/item?id=30818950
-* https://www.youtube.com/watch?v=Wj0od2ag5sk
-* https://www.youtube.com/watch?v=7lxgpKh_fRY
-* https://www.nslookup.io/learning/the-life-of-a-dns-query-in-kubernetes/
-* https://cuddly-octo-palm-tree.com/posts/2021-10-17-dns/
-* Namecheap https://news.ycombinator.com/item?id=30504812
-* https://news.ycombinator.com/item?id=29812736
-* https://news.ycombinator.com/item?id=34485815
 
 ## records
 
@@ -140,6 +60,85 @@ TYPES
 * _A record_: map of URL to IP address
 * _CNAME_: alias e.g. `www.zachvalenta.com` -> `https:///www.zachvalenta.com` [`evans-linux.pdf` 5]
 * _NS record_: DNS server that has more info on sub-hosts for domain https://serverfault.com/a/224924/415712
+* https://adhoc.team/2022/01/18/covidtests-usps-aws-managed-services/
+
+## registrars / servers
+
+---
+
+* https://news.ycombinator.com/item?id=42307604
+> Subsequent requests can (but don't always) reuse the DNS, TCP and TLS setup but a new roundtrip is still needed each time the server is consulted, for example for an API call or a new page. https://calpaterson.com/latency.html
+* hosts https://blog.codepen.io/2016/02/23/078-com/ how do people steal domains? how do people get control of host? whitelist/blacklist https://github.com/plutov/ultrafocus
+* https://github.com/kahun/awesome-sysadmin#dns
+* _ICANN_: authority on domains 艘 Namecheap email
+* _registrar_: buy rights to domain from ICANN, sells domains to consumers; most popular services (Name Cheap) are actually middlemen between registrars (like eNom) and consumer
+* _providers_: DNS Simple, Google, OpenDNS; ❓ what do they actually provide?
+* _server_: resolves query for domain w/ IP address https://news.ycombinator.com/item?id=24886120
+* _poisoning_: provide malformed translation of domain/IP to DNS server
+* Namecheap https://news.ycombinator.com/item?id=30504812
+* find domains https://www.domainsfortherestofus.com/
+* check record config https://github.com/fcambus/dnc
+* _whois_: get info on domain https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
+* domain security https://news.ycombinator.com/item?id=30818950
+* https://www.netmeister.org/blog/nsauth-diversity.html
+📝 [iterative query](https://www.raspberrypi.org/learning/networking-lessons/lesson-4/plan/): initial DNS server passes along to other server(s) to resolve; first server will cache resolved query for next time
+* _recursive service_: provided by ISP, will cache lookups by TTL
+
+## 🐶 tooling (doggo)
+
+RESOLVERS
+* BYO https://jvns.ca/blog/2022/02/01/a-dns-resolver-in-80-lines-of-go/
+* _dig_: 📙 Evans dns
+* _dog_: https://github.com/ogham/dog
+* _doggo_: ✅ https://github.com/mr-karan/doggo
+```sh
+$ doggo zjayv.com  # prior to Github action i.e. browser would should DNS lookup failure at this point
+NAME	TYPE	CLASS	TTL	ADDRESS	NAMESERVER
+
+$ doggo zachvalenta.com --time
+NAME            	TYPE	CLASS	TTL  	ADDRESS        	NAMESERVER     	TIME TAKEN
+zachvalenta.com.	A   	IN   	1799s	192.30.252.154 	192.168.86.1:53	36ms
+zachvalenta.com.	A   	IN   	1799s	192.30.252.153 	192.168.86.1:53	36ms
+zachvalenta.com.	A   	IN   	1800s	162.255.119.249	192.168.86.1:53	36ms
+
+$ doggo zachvalenta.com MX  # no longer remember how MX works if I ever did
+NAME	TYPE	CLASS	TTL	ADDRESS	NAMESERVER	TIME TAKEN
+```
+```sh
+$ doggo liyasthomas.github.io
+NAME                  	TYPE	CLASS	TTL  	ADDRESS        	NAMESERVER
+liyasthomas.github.io.	A   	IN   	3600s	185.199.109.153	192.168.86.1:53
+liyasthomas.github.io.	A   	IN   	3600s	185.199.108.153	192.168.86.1:53
+liyasthomas.github.io.	A   	IN   	3600s	185.199.110.153	192.168.86.1:53
+liyasthomas.github.io.	A   	IN   	3600s	185.199.111.153	192.168.86.1:53
+
+$ doggo zjayv.github.io  # after Github action but site still throwing 404 at this point
+NAME            	TYPE	CLASS	TTL  	ADDRESS        	NAMESERVER
+zjayv.github.io.	A   	IN   	3600s	185.199.108.153	192.168.86.1:53
+zjayv.github.io.	A   	IN   	3600s	185.199.110.153	192.168.86.1:53
+zjayv.github.io.	A   	IN   	3600s	185.199.111.153	192.168.86.1:53
+zjayv.github.io.	A   	IN   	3600s	185.199.109.153	192.168.86.1:53
+```
+* _massdns_: https://github.com/blechschmidt/massdns
+* _puddy_: https://www.netmeister.org/puddy/
+* _q_: https://github.com/natesales/q
+
+GENERATORS
+* _altdns_: https://github.com/infosec-au/altdns
+* _dnsgen_: https://github.com/AlephNullSK/dnsgen
+* _ripgen_: https://github.com/resyncgg/ripgen
+
+---
+
+* aaS https://news.ycombinator.com/item?id=34485815
+* https://github.com/trimstray/the-book-of-secret-knowledge?tab=readme-ov-file#domain-resolve
+* https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-network-dns
+* _gping_: https://github.com/orf/gping
+
+BLOCK
+* https://github.com/plutov/ultrafocus
+* pi-hole
+* https://github.com/tanrax/maza-ad-blocking
 
 ## URLs
 
@@ -152,11 +151,13 @@ TYPES
 * _well-known URL_: name space for serving static files for other systems e.g. `/.well-known/security.txt` for security policy https://adamj.eu/tech/2020/06/28/how-to-add-a-well-known-url-to-your-django-site
 
 FQDN
+* https://textslashplain.com/2023/05/13/new-tlds-not-bad-actually/
 * _FQDN_: `http://math.mit.edu/about`
 * _scheme/protocol_: `http://` http, https, et al.
+* apex/root domain: `example.com`; [cannot be aliased](https://news.ycombinator.com/item?id=8825519) + https://help.github.com/articles/about-supported-custom-domains/
 * _sub/domain_: `math.mit` namespace
 * domain: 
-* subdomain: https://www.shortcut.com/blog/building-a-saas-app-you-should-probably-stick-to-a-single-subdomain
+* subdomain: https://www.shortcut.com/blog/building-a-saas-app-you-should-probably-stick-to-a-single-subdomain https://news.ycombinator.com/item?id=37531801
 * _TLD_: `.edu` set of domains doled out by the same authority https://tech.marksblogg.com/rdns-domain-name-tld-extract-golang.html https://tech.marksblogg.com/rdns-domain-name-tld-extract-rust.html
 * _path_: `about` namespace targeting specific resource
 * _query string_: `?prof=lambeau` way to filter resources https://stackoverflow.com/a/31261026 way to send KV to server (if you don't want to put in HTTP body)
@@ -172,6 +173,7 @@ FQDN
 
 * _zone_: https://stackoverflow.com/questions/22440582/difference-between-a-dns-zone-and-dns-domain/22440611#22440611
 * `@` in zone file https://serverfault.com/questions/83874/whats-the-meaning-of-in-a-dns-zone-file
+* https://www.netmeister.org/tldstats/
 
 # 📫 EMAIL
 
@@ -197,6 +199,7 @@ for SMB
 
 components https://www.youtube.com/watch?v=obY1um6ehDM https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/
 * _client_: CLI (mutt, neomutt, aerc) native (macOS, Thunderbird requires extension https://askubuntu.com/a/912985) -> neomutt seems like only viable option https://www.youtube.com/watch?v=2U3vRbF7v5A Emacs https://www.erichgrunewald.com/posts/setting-up-gmail-in-doom-emacs-using-mbsync-and-mu4e/
+* https://notmuchmail.org/ https://github.com/skeeto/elfeed
 > watch out for clients that use intermediate servers https://news.ycombinator.com/item?id=24423032
 * _services_: Fastmail, Gmail, Zoho https://www.jefftk.com/p/dont-let-personal-domains-expire Hey https://twitter.com/patio11/status/1274576125394513921 https://drewdevault.com/2020/06/19/Mail-service-provider-recommendations.html
 
@@ -217,6 +220,9 @@ mbsync https://www.c0ffee.net/blog/mail-server-guide/
 
 🗄 `security.md` privacy
 
+---
+
+* Gmail API? https://github.com/zycyc/LAMBDA
 * https://www.youtube.com/watch?v=iH626CXyNtE
 * https://drewdevault.com/2020/06/19/Mail-service-provider-recommendations.html
 * don't bikeshed https://news.ycombinator.com/item?id=23423548 bc accounts tied to email are hard to move https://news.ycombinator.com/item?id=24245817
@@ -262,331 +268,6 @@ PROTCOLS https://news.ycombinator.com/item?id=22989186 https://valyent.substack.
 * _POP3_: downloads emails from the server to the local device, typically removing them from the server
 * _JMAP_: email protocol https://fastmail.blog/2018/12/27/jmap-is-on-the-home-straight/ https://news.ycombinator.com/item?id=36127703
 
-# 📡 HTTP
-
-🗄️ `infra.md` web servers
-🛠️ debug requests https://github.com/cle-b/httpdbg
-📜 https://httpwg.org/specs/
-🔍 dummy endpoints https://example.org/ https://http.cat/ https://httpstat.us https://httpbin.org/ https://dogapi.dog/ https://news.ycombinator.com/item?id=41371170
-📚
-* Eloquent Javascript
-* Evans http
-* Gourley http
-* Hafner where wizards stay up late
-* Kozeriok tcp-ip guide (ch. 79-84)
-
-BYO transport?!?
-> Some areas where we’re happy with our choices even though they may not sound like the simplest feasible solution is with our API, where we use GraphQL, with our transport protocols, where we had a custom protocol for a while, and our host management, where we use Kubernetes. For our transport protocols, we used to use a custom protocol that runs on top of UDP, with an SMS and USSD fallback, for the performance reasons described in this talk. With the rollout of HTTP/3, we’ve been able to replace our custom protocol with HTTP/3 and we generally only need USSD for events like the recent internet shutdowns in Mali. https://danluu.com/simple-architectures/
-BYO server https://news.ycombinator.com/item?id=40642865
-
-message structure https://developer.mozilla.org/en-US/docs/Web/HTTP/Messages
-* encodings: ascii (start-line, header keys) octet (header value, body) https://stackoverflow.com/q/818122 🗄 `math.md` encoding/info theory
-```sh
-# START-LINE = resource + verb, protocol version
-GET /item?id=23588896 HTTP/1.1
-
-# HEADERS = metadata
-Host: news.ycombinator.com  # server
-Connection: keep-alive
-
-# BLANK LINE DELIMITS END OF HEADERS
-
-# BODY = data
-{
-    "name": "alice"
-}
-```
-
-history
-* 0.9 (1991): methods
-* 1.1 (1996): + user-agent, Accept
-* 1.1. (1999): Connection: keep-alive https://tools.ietf.org/html/rfc7230 https://tools.ietf.org/html/rfc7231
-* _Gopher_: predecessor of HTTP https://drewdevault.com/2020/11/01/What-is-Gemini-anyway.html https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2
-* _Gemini_: alternative to HTTP https://www.youtube.com/watch?v=PQBWkkXSfSY https://drewdevault.com/gemini.html https://sotiris.papatheodorou.xyz/
-
-## caching
-
-🗄 
-* `distributed.md` proxy
-* `security.md` cookies/tokens
-
-design
-* TTL https://calpaterson.com/ttl-hell.html
-> just set an absurdly long TTL and browsers and CDNs will obey it - to the extent they care to.
-* namespacing/cache busting https://calpaterson.com/ttl-hell.html
-> A common usage is to put version strings or release timestamps into URL paths or query-strings to ensure the that the browser downloads only the latest JavaScript bundle.
-* adverts not cached bc clients want those fresh bc each counts
-
----
-
-https://grayduck.mn/2021/09/13/cache-control-recommendations/
-* https://www.youtube.com/watch?v=HiBDZgTNpXY
-
-etag
-* _etag_: id for specific version of resource
-* used to prevent update conflicts
-* used w/ HEAD verb
-
-* https://fideloper.com/quick-caching-explanation
-* https://blog.octo.com/en/cache-me-if-you-can-1/
-* ❓ why would GET w/ payload break caching? https://stackoverflow.com/questions/978061/http-get-with-request-body/983458#983458
-
-## CORS
-
-📙 Zalewski chapters 9-11
-
-* only for browsers, not other REST clients https://stackoverflow.com/a/57712789
-
----
-
-https://github.com/simonw/datasette-cors
-* http://eradman.com/posts/cross-origin-requests.html
-https://jakearchibald.com/2021/cors/
-https://ieftimov.com/post/deep-dive-cors-history-how-it-works-best-practices/
-header as well?
-
-* _CORS_: ❓ your domain (`mydomain.com`) can serve resources under its control (`mydomain/img/foo.png`) or redirect elsewhere (`s3://bardomain/img/bar.png`)
-
-https://fosterelli.co/developers-dont-understand-cors
-
-* some people don't like https://news.ycombinator.com/item?id=18767767
-
-📙 Eloquent JavaScript chap. 17 ‘HTTP Sandboxing'
-
-🔗 https://frontendian.co/cors
-
-* https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html
-* origin: host that serves initial resource
-    * same-origin: further resources come from same host
-    * cross-origin: ‘’ can come from different hosts
-    * cross-origin resource sharing (CORS): 
-        * = Access-Control-Allow-Origin: <otherDomain>
-        * header that server adds to tell browser (who by default normally block CORS) to whitelist other domains from whom further resources can be fetched
-* difference btw ‘method’ and ‘access-control-request-method’ and relationship to preflight requests
-* https://www.html5rocks.com/en/tutorials/cors/
-
-## headers
-
-🔗
-* https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
-* https://questions.wizardzines.com/http-request-headers.html
-
-* _header_: KV pair of req/res meta data
-* will have data types soon https://dunglas.fr/2020/08/a-structured-http-fields-parser-and-serializer-for-the-go-programming-language/
-
-za
-* _Content-Type_: set on both req and res https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type
-* multipart/form-data for binary https://stackoverflow.com/a/4073451
-* application/x-www-form-urlencoded for everything else
-* application/json for json
-
----
-
-* security headers https://github.com/TypeError/secure
-* `Accept-Language` https://news.ycombinator.com/item?id=41497139
-
-req
-```yaml
-Host: examplecat.com  # req destination
-User-Agent: curl      # software sending req
-Accept: */*           # https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept also used to hold API version number
-Content-Type: multipart/form-data;
-```
-* _Accept-Encoding_: compression algos browser can unzip; Brotil allows for smaller sizes that gzip
-
-res
-```yaml
-
-```
-* _Content-Type_: what media type is being sent
-
-----
-
-accept-language https://borretti.me/article/uselessness-accept-language-header
-* range https://github.com/psanford/sqlite3vfshttp
-* `Cache-Control`: tells client how long to wait before fetching new copy of resource
-* won't stop browser requesting, but if resource still fresh server res w/ 304
-* `Expires`: time after which response should be considered stale i.e "browser store this response in browser cache until then"
-* e.g. Wikipedia homepage featured article, instead of every user requesting all day long, set an expires header so that after first visit to homepage each subsequent visit will just use the browser cache
-
-* https://www.twilio.com/blog/a-http-headers-for-the-responsible-developer https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers https://www.fastly.com/blog/headers-we-dont-want
-
-* _media type_: serialization; json `application/json` form `application/x-www-form-urlencoded` file `multipart/form-data` https://github.com/zachvalenta/pacific-flask/blob/master/templates/index.html#L22 mimetype https://stackoverflow.com/a/9277778 https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types https://drewdevault.com/2022/01/28/Implementing-mime-in-xxxx.html https://www.pythonmorsels.com/cli-tools/#mimetypes
-
-misc
-* do not track: sites just ignore https://lwn.net/Articles/826575/
-* _Allow_: what verbs applicable for endpoint
-* _Location_: for 301 or 3xx 🗄 `book-db`
-* _User-Agent_: info on client 🗄️ crawlers
-* _Keep-Alive_: keeps the underlying TCP connection open for period of time
-* normally this would close after each request https://lob.com/blog/use-http-keep-alive
-
-## methods / verbs
-
-📜 https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
-🗄 `system.md` REST
-
-IDEMPOTENT
-* _GET_: retrieve; should not handle the body https://stackoverflow.com/a/983458
-* _OPTIONS_: see what verbs allowed for resource i.e. prompt `Allow` header https://stackoverflow.com/a/47602072
-* _HEAD_: GET sans body; useful for seeing size of resource, last update https://stackoverflow.com/a/6660062 just use GET though https://www.jefftk.com/p/debug-headers-with-get
-* _QUERY_: proposed https://www.ietf.org/archive/id/draft-ietf-httpbis-safe-method-w-body-05.html
-
-MUTATIVE
-* _PUT_: idempotent (`x = 5`) create/update specific resource (`PUT /expense-report/10929`) https://stackoverflow.com/a/2691891
-* _POST_: not idempotent (`x++`) ask for create/update from resource 'factory' (`POST /expense-report`)
-* _PATCH_: updates only part of resource
-* _DELETE_: rm
-```makefile
-patch:
-	poetry run http PATCH $(api_url)/1/ team="$(team)"
-put:
-	poetry run http PUT $(api_url)/1/ team="$(team)" playbook="$(play)"
-```
-
-DESIGN
-* unclear https://changelog.com/podcast/189
-* GET and POST sufficient https://www.freecodecamp.org/news/rest-is-the-new-soap-97ff6c09896d/
-
-## security
-
-🗄 `security.md` auth
-
-* https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Authentication_schemes https://tools.ietf.org/html/rfc7235#section-2.1
-* _WWW-Authenticate_: res to auth https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate
-* _Authorization_: req w/ credentials in the form `<scheme> <credentials>` https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Authorization
-
-security https://securityheaders.com/
-* _Access-Control-Allow-Headers_: headers accepted by server; if doesn't support method from client, server throws error https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Headers
-* _CORS_: 
-* _Strict-Transport-Security (HSTS)_: tell browser only use HTTPS (browser automatically makes subsequent requests using HTTPS) https://jvns.ca/blog/2017/04/30/using-strict-transport-security/
-
-## status codes
-
-🔗
-* https://developer.mozilla.org/en-US/docs/Web/HTTP/Status
-* https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
-* https://www.youtube.com/watch?v=_qKgO8BPHWc
-* https://wompa.land/articles/http-status-codes
-
-* _100s_: info
-
-200 SUCCESS
-* _200_: "GET/PUT worked + data for you"
-* _201_: "POST worked"
-* _204_: "PUT/PATCH/DELETE worked"
-
-300 REDIRECT
-* _301_: "what you're looking for isn't there, here is it's actual URL" (e.g. Django when trailing slash is missing)
-* _302_: "POST worked, let's go there now" (followed by a GET from the browser and 200 from server i.e. POST-redirect-GET)
-* _303_: "can't POST bc resource already exists"; could also be a 409 https://stackoverflow.com/q/3825990/6813490
-* _304_: "based on `Cache-Control` the resource hasn't change so I'll redirect you to browser cache"
-
-400 CLIENT ERROR
-* _400_: bad request e.g. sent POST but missing required field
-* _401_: "plz authenticate"
-* _403_: "ur not authorized" https://stackoverflow.com/a/6937030
-* _404_: resource not found
-* _405_: auth-ed, resource found, but method unallowed
-* _406_: can't find resource with right content type
-
-500 SERVER ERROR
-* _500_: ❓general (in the same way 200 and 400 are general)
-* _501_: client not supported e.g. you want to tell Android client it needs to upgrade
-* _502_: server handling your request got an error from a downstream
-* _503_: server down
-> I think a 503 response is usually from the load balancer when it has no downstream to proxy the request to
-> 502-504 all have similar meanings and it ends up being that the service you're trying to reach can't respond to the request
-* _504_: server handling your request is tired of waiting for a downstream
-* _522_: time out; TCP connection btw web server and CDN (bc server is overloaded) https://www.youtube.com/watch?v=axYMNCuL_hE
-
-## tooling
-
-🗄 `shell.md` userland
-
-https://news.ycombinator.com/item?id=41650905
-https://github.com/dnaeon/go-vcr
-postman alternative https://github.com/darrenburns/posting https://github.com/Julien-cpsn/ATAC
-https://readme.com/
-https://github.com/ducaale/xh
-https://github.com/Julien-cpsn/ATAC
-https://github.com/qustavo/httplab
-https://github.com/usebruno/bruno
-https://github.com/Orange-OpenSource/hurl
-* query w/ SQL https://github.com/turbot/steampipe https://www.hytradboi.com/2022/how-to-query-almost-everything
-
-HTTPIE 📜 https://httpie.org/doc
-* no ability to yet config base URL https://github.com/httpie/httpie/pull/1377
-* _CLI_: http://docs.http-prompt.com/en/latest/
-* _post_: use `POST` or include payload
-* _form_: `http --form POST http://localhost:5000 user_email="testing from shell"` https://httpie.org/doc#regular-forms
-* _config file_: `~/.httpie/config.json`; find via `http --debug` https://httpie.org/docs/0.9.7#configurable-options can set per project (`export HTTPIE_CONFIG_DIR=./http-local-conf.json`) but in absence of project-local conf will just use global conf
-* _output_: `-v` all `-print=HhBb` show headers/body `--body` only show JSON [docs 14] `--style` (monokai, native, autumn)
-* _json_: https://httpie.org/doc#json
-```sh
-# simple
-http POST httpbin.org/post title=hi description="hi desc"
-# use quotes in Makefile for strings with spaces
-http PATCH $(api_url)/1/ team="$(team)"
-# boolean https://httpie.org/doc#non-string-json-fields
-http POST httpbin.org/post toogle:=true array:="[]"
-# from file https://stackoverflow.com/a/63343972
-http POST httpbin.org/post < post.json
-# stdin https://stackoverflow.com/a/37266537
-echo '{ "user": { "name": "john", "age": 10 } }' | http httpbin.org/post
-```
-
-CURL
-* https://github.com/rs/curlie
-* https://martinheinz.dev/blog/113
-* guide https://catonmat.net/cookbooks/curl https://everything.curl.dev/
-```sh
-# basic
-curl -X <method> <URL>
-
-# input
--d / -F  # form data
--T foo.txt
--d '{"k": "v"}; type=application/json'  # https://daniel.haxx.se/blog/2022/02/02/curl-dash-dash-json/
-
-# auth
-- u user:pw
--H "Authorization: Bearer {token}"
--k  # HTTP vs. HTTPS
-
-# output
--s       # don't show progress bar
--f       # swallow server error
--w "\n"  # add newline
--w "timing: %{time_total}"
-```
-* convert to scripting language https://github.com/NickCarneiro/curlconverter/
-* might need quotes for url https://stackoverflow.com/a/22906231
-
-HTTP-PROMPT 📜 http://http-prompt.com/ https://docs.http-prompt.com/en/latest/
-* uses httpie config
-* _conf_: `~/.config/http-prompt/config.py` https://docs.http-prompt.com/en/latest/user-guide.html#configuration
-```sh
-# specify initial path
-http-prompt http://localhost:8000
-# add to URL path
-cd ../api  #  http://localhost:8000/api
-# make req
-get
-```
-```bash_profile
-function htp(){
-    if [ $# -eq 0 ]; then
-        port=8000
-    else
-        port="$1"
-    fi
-    base_url="http://localhost"
-    full_url="${base_url}:${port}"
-    http-prompt "${full_url}"
-}
-```
-
 # 🫸 PUSH
 
 ## SSE
@@ -613,6 +294,7 @@ https://github.com/valberg/django-sse
 * _multiplex_: combine multiple signals into one
 * perf: only sends 2 bytes instead of 100s of bytes for HTTP
 * _sink_: https://www.fullstackpython.com/websockets.html Django https://www.untangled.dev/2020/08/02/django-websockets-minimal-setup
+
 # 🔐 SECURE
 
 🗄️ `security.md`
@@ -743,7 +425,9 @@ process https://help.ubuntu.com/community/SSH/OpenSSH/Keys
 
 ---
 
+* https://www.youtube.com/watch?v=j9QmMEWmcfo
 https://questions.wizardzines.com/tls-certificates.html
+https://www.netmeister.org/whatsthatcert
 https://news.ycombinator.com/item?id=41876741
 
 * certs for local dev https://github.com/FiloSottile/mkcert

@@ -8,14 +8,8 @@
 
 ## 进步
 
----
-
-* where to source parts https://www.youtube.com/watch?v=co1rJaErdrI
-* small boards https://www.youtube.com/watch?v=XwgoZcRi4ek
-* home office https://www.youtube.com/watch?v=Lt6R6kNjVNU
-* BYO takes forever https://www.youtube.com/watch?v=9P74eCU19d0 https://www.youtube.com/watch?v=3n28JNSizvo https://www.youtube.com/watch?v=cnZEcnlyGyg
-* space bar https://www.youtube.com/watch?v=VLnH61NCi9Y https://www.youtube.com/watch?v=QKQMPF15mgE
-
+* learn how to program k8
+* learn how to program v8
 * _24_: models (Apple refurbished, nuphy air 75, keychron k8)
 
 # 📐 LAYOUTS
@@ -56,8 +50,10 @@ LETTERING
 PROGRAMS
 * _kanata_: https://github.com/jtroo/kanata
 * _Oryx_ built off of QMK https://blog.zsa.io/whack-a-key/ https://www.youtube.com/watch?v=FcFYv_dHIiQ
+* can access QMK directly https://blog.zsa.io/oryx-custom-qmk-features/
 * _QMK_: firmware; C impl https://www.youtube.com/watch?v=D05B6NXV504
-* _ZMK_: https://www.youtube.com/watch?v=riqmW3UHqPY https://github.com/eigatech/zmk-config https://www.youtube.com/watch?v=pK41Mr4Kdd0 [9:00]
+* code > configurator https://www.youtube.com/watch?v=AA8fw2MbpYg
+* _ZMK_: https://www.youtube.com/watch?v=riqmW3UHqPY https://github.com/eigatech/zmk-config https://www.youtube.com/watch?v=pK41Mr4Kdd0 [9:00] https://www.youtube.com/watch?v=wTMcH7u-vu0
 
 ZSA KEYS https://configure.zsa.io/voyager/layouts/ https://configure.zsa.io/moonlander/layouts/default/latest/2/
 > you'd presume most of ZSA is Vim users
@@ -148,19 +144,42 @@ ZA
 
 ## BYO
 
-https://www.youtube.com/watch?v=FJgvi7WShxY
-https://www.youtube.com/watch?v=7UXsD7nSfDY
+🔍 serviced https://www.keyboardconcierge.com https://get-switched.com/ https://www.avikeebs.com/
+
+COMPONENTS https://www.youtube.com/watch?v=7UXsD7nSfDY @ 4:45
+* controller https://nicekeyboards.com/nice-nano/ [2:55]
+* _PCB_: plastic + copper paths to allow current flow [3:05]
+* program layout of PCB with ergogen https://github.com/ergogen/ergogen [4:30]
+* _switch_: connects metal to PCB [3:20]
+
+MODELS
+* _Boardsource corne_: 🎯 https://www.youtube.com/watch?v=wTMcH7u-vu0 https://www.youtube.com/watch?v=j41G25VORmI https://www.boardsource.xyz/products/Corne https://www.youtube.com/watch?v=riqmW3UHqPY
+* find someone to do soldering https://www.youtube.com/watch?v=vzDTdLaAzXc
+* case https://www.youtube.com/watch?v=gMTfkPxcoEk
+* layout https://www.youtube.com/watch?v=uy7_lswgb6A
+* _Chocofi_: Voyager-esque https://www.youtube.com/watch?v=pK41Mr4Kdd0 [12:00]
+* _Keebio iris_: 🎯 ZSA voyager replacement https://keeb.io/ https://keeb.io/products/iris-ce-keyboard https://keeb.io/products/iris-keyboard-pre-built https://www.youtube.com/watch?v=pK41Mr4Kdd0 [4:25] https://www.youtube.com/watch?v=wTMcH7u-vu0
+* _Lily_: 🎯 https://www.youtube.com/watch?v=l5kAx08Iom4 https://typeractive.xyz/pages/build/lily58_mx
+
+---
+
+* where to source parts https://www.youtube.com/watch?v=co1rJaErdrI
+* small boards https://www.youtube.com/watch?v=XwgoZcRi4ek
+* home office https://www.youtube.com/watch?v=Lt6R6kNjVNU
+* takes forever https://www.youtube.com/watch?v=9P74eCU19d0 https://www.youtube.com/watch?v=3n28JNSizvo https://www.youtube.com/watch?v=cnZEcnlyGyg
+* space bar https://www.youtube.com/watch?v=VLnH61NCi9Y https://www.youtube.com/watch?v=QKQMPF15mgE
+
+HOWTO
+* https://www.youtube.com/watch?v=FJgvi7WShxY
+* https://www.youtube.com/watch?v=7UXsD7nSfDY
 
 ## ergo
 
 MAYBE
-* _Boardsource corne_: https://www.boardsource.xyz/products/Corne https://www.youtube.com/watch?v=riqmW3UHqPY
-* _Chocofi_: Voyager-esque https://www.youtube.com/watch?v=pK41Mr4Kdd0 [12:00]
 * _Dygma defy_: 🎯 $370; featureful, bad taste https://dygma.com/pages/defy https://www.youtube.com/watch?v=R9YTQn1ik9I
 * _Glove80_: $400 low-profile, expensive, ugly https://www.moergo.com/collections/glove80-keyboards https://www.youtube.com/watch?v=QLb3ewK8R2Y
-* _Keebio iris_: 🎯 ZSA voyager replacement https://keeb.io/ https://keeb.io/products/iris-ce-keyboard https://keeb.io/products/iris-keyboard-pre-built https://www.youtube.com/watch?v=pK41Mr4Kdd0 [4:25]
 * _Keychron q8_: 🎯 $210 cant swap the one cmd keycap https://www.keychron.com/products/keychron-q8-alice-layout-qmk-custom-mechanical-keyboard?variant=40077527122009
-* _Keychron v8_: ✅ $90 https://www.keychron.com/products/keychron-v8-max-alice-layout-qmk-custom-mechanical-keyboard
+* _Keychron v8_: ✅ $90; Gateron jupiter brown https://www.keychron.com/products/keychron-v8-max-alice-layout-qmk-custom-mechanical-keyboard
 * _Keychron k11_: $115; low profile https://www.keychron.com/products/keychron-k11-pro-alice-layout-qmk-via-wireless-custom-mechanical-keyboard programmable but only through Keychron (vs. QMK/VIA) https://www.youtube.com/watch?v=zqRBxioJIRI [5:00]
 
 DOESN'T SOLVE RSI 
@@ -237,7 +256,6 @@ ZA
 * chicklet https://www.youtube.com/watch?v=8jM1brvJhzg 5:20 butterfly started with 2015 12' Macbook https://www.theverge.com/2020/5/4/21246223/macbook-keyboard-butterfly-magic-pro-apple-design https://support.apple.com/keyboard-service-program-for-mac-notebooks returned to normal scissor keyboard (aka 'magic') with 2020 16' Macbook Pro https://www.wsj.com/articles/apple-updates-ipad-macbook-air-with-new-keyboard-11584538891
 * remapping https://missing.csail.mit.edu/2019/os-customization/
 * stenography for transcription https://www.openstenoproject.org/plover/
-* BYO https://www.youtube.com/watch?v=7UXsD7nSfDY
 
 ## keycaps
 
@@ -249,6 +267,7 @@ ZA
 
 * size
 > Keycap sizes are described in terms of a "u. width. For example, 1u is the size of each of the number and alphabet keys on a keyboard. A 2u key, like Backspace, is twice the size of those 1u keys...compact keyboards often have a 1.75u right Shift key in place of the standard 2.75u right Shift key as well as 1u modifiers in the bottom row. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
+* color https://blog.zsa.io/how-to-dye-keycaps/
 * _legend_: character on key; double-shot (more expensive) dye-sub (PBT only, non-transparent)
 * _profile_: height * shape https://thekeeblog.com/overview-of-different-keycap-profiles/
 * less options for low profile https://www.youtube.com/watch?v=BWQFUPm6XE0

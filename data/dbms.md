@@ -665,6 +665,7 @@ misc
 > Benchmarking is a dark art of deceiving yourself with highly precise numbers. And benchmarketing datastores is even more fraught. Every single flipping database benchmark I've ever seen has been covered in a layer of asterisks and qualifications, and the comments on HN are full of "if you'd just set this flag when compiling it, you'd get 3% more speed out of reads, and the fact that the people running this didn't do this is proof that they were paid off and that they actively sell shady NFT scams of deranged yacht rock Harambe memes. https://wafris.org/blog/rearchitecting-for-sqlite
 * _diagram_: https://pgmodeler.io/ https://github.com/akarki15/dbdot
 * _extensions_: https://news.ycombinator.com/item?id=23821112 https://github.com/zombodb/pgx https://tech.marksblogg.com/postgresql-extension-rust.html distributed https://github.com/citusdata/citus ydb https://news.ycombinator.com/item?id=31081272 https://tech.marksblogg.com/postgresql-extension-rust.html https://github.com/tcdi/pgx
+* build in Rust https://github.com/pgcentralfoundation/pgrx
 * _GUI_: pgadmin https://retool.com/blog/best-postgresql-guis-in-2020/
 * _GraphQL_: https://github.com/graphile/postgraphile
 * _import_: pgloader https://www.twilio.com/blog/sqlite-postgresql-complicated https://github.com/dimitri/pgloader https://www.youtube.com/watch?v=DA1Trq51JZs https://www.youtube.com/watch?v=yDtgk_OLHUc http://www.postgresqltutorial.com/import-csv-file-into-posgresql-table/ https://stackoverflow.com/questions/2987433/how-to-import-csv-file-data-into-a-postgresql-table/2987451#2987451 https://mattsegal.dev/restore-django-local-database.html https://bigmachine.io/all/importing-a-csv-into-postgresql-like-a-pro/
@@ -931,6 +932,7 @@ COMPONENTS
 * _SQLite_: library https://tech.marksblogg.com/sqlite3-tutorial-and-guide.html
 * Go port https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
 * plumbing https://jvns.ca/blog/2014/09/27/how-does-sqlite-work-part-1-pages/ https://jvns.ca/blog/2014/10/02/how-does-sqlite-work-part-2-btrees/
+* BYO https://github.com/alexpasmantier/resql hex dump https://blog.jabid.in/2024/11/24/sqlite.html
 * _sqlite3_: CLI
 * _sqlite3_: also the name of the Python lib/driver https://github.com/zachvalenta/sqlite3-demo https://github.com/zachvalenta/bookcase-sjk https://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html
 
@@ -1063,7 +1065,7 @@ mysql -u $USER $DB < $BACKUP.sql
 ## Oracle
 
 * apparently still much more feature rich than Postgres https://news.ycombinator.com/item?id=24582937
-* CLI: seems like you need an account and the docs are shoddy https://dba.stackexchange.com/questions/65032/connect-to-sql-plus-from-command-line-using-connection-string but maybe this will work https://github.com/xo/usql
+* CLI: seems like you need an account and the docs are shoddy https://dba.stackexchange.com/questions/65032/connect-to-sql-plus-from-command-line-using-connection-string
 * account: same as work / phone 123456789 / ABC Corp 100 Commerce Blvd Orlando FL 32801
 * GUI: SQL Developer; comment `CMD ALT /` exec `CTRL /`
 * Oracle dev https://stackoverflow.com/users/146325/apc

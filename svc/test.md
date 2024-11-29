@@ -49,6 +49,7 @@ Then I should see a welcome message
 
 ---
 
+> constraint solving here or somewhere else https://www.stephendiehl.com/posts/minizinc/
 https://danluu.com/butler-lampson-1999/
 https://buttondown.com/hillelwayne/archive/tla-from-first-principles/
 https://news.ycombinator.com/item?id=41866752

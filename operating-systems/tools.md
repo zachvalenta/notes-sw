@@ -10,7 +10,7 @@
 
 ## 进步
 
-* _24_: forced switch to eza, try difftastic
+* _24_: forced switch to eza, try difftastic, monitoring (tqdm, dust, procs, havn), uniq
 * _20_: broot
 * _19_: try out eza, z, fish, tig, fzf, ranger, ripgrep
 
@@ -97,27 +97,138 @@ fselect duration, path from /home/user/music where genre = Rap and bitrate = 320
 fselect path, mime from /home/user where is_audio = 1
 ```
 
+## fuzzy find
+
+### 🌸 fzf
+
+🗄 `vim.md` fuzzy find
+📜 https://github.com/junegunn/fzf
+🧠 https://chatgpt.com/c/674624fd-2084-8004-bbf4-5de92b06f1ca
+> fzf is just a Unix filter https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
+
+USES https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff
+* file preview/open aka picker https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-pick.md
+> can replace broot
+* autojump
+> can replace aliases
+
+---
+
+* https://www.youtube.com/watch?v=mmqDYw9C30I
+* used by dbcli https://github.com/amjith/fuzzyfinder
+https://github.com/peco/peco
+https://www.youtube.com/watch?v=MvLQor1Ck3M
+* https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
+> As well as filtering the list of matches, the fuzzy finder also sorts the results using a ranking algorithm 📙 Neil modern [3.2   6]
+
+* https://jvns.ca/blog/2023/08/08/what-helps-people-get-comfortable-on-the-command-line-/
+* https://news.ycombinator.com/item?id=35248098
+* setup using vim, bat, rg, fzf https://www.youtube.com/watch?v=aLMepxvUj4s
+> you should finish Vim config and plugin mgmt and Neovim before doing this
+* find all files containing text w/ rg, fzf for filter, bat for preview matches https://stackoverflow.com/questions/61740910/how-do-i-fuzzy-find-all-files-containing-specific-text-using-ripgrep-and-fzf-and
+* seems like more documentation on how to do this within Vim https://sidneyliebrand.medium.com/how-fzf-and-ripgrep-improved-my-workflow-61c7ca212861 https://www.youtube.com/watch?v=fP_ckZ30gbs https://www.youtube.com/watch?v=loNdGAnKEf8
+```sh
+# https://www.linuxuprising.com/2021/03/a-quick-introduction-to-fzf-interactive.html
+fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'
+```
+* config https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
+* select git branches https://seb.jambor.dev/posts/improving-shell-workflows-with-fzf
+* can be used to replace broot file preview https://www.youtube.com/watch?v=aLMepxvUj4s
+* alternatives: https://github.com/mptre/pick https://github.com/facebook/PathPicker https://github.com/lotabout/skim
+* uses `find` under the hood https://github.com/junegunn/fzf/issues/1625#issuecomment-507674106
+* as broot alternative (cd to dir of file) https://github.com/junegunn/fzf/wiki/Examples#changing-directory https://mike.place/2017/fzf-fd/
+```sh
+# cdf - cd into the directory of the selected file, suggested by @harelba and @dimonomid:
+cdf() {
+   local file
+   local dir
+   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
+}
+```
+* https://seb.jambor.dev/posts/improving-shell-workflows-with-fzf/
+* can use to cd w/ `alt c` although broot does better here https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
+* can use for tab completion w/ `<cmd>**` https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/ cant figure out yet how to ignore hidden dir in music-usb https://github.com/junegunn/fzf.vim/issues/453#issuecomment-526791474
+* ignore files https://github.com/junegunn/fzf/issues/1625#issuecomment-507674106
+* _alternatives_: dmenu https://eli.thegreenplace.net/2018/command-line-autocomplete-for-go-documentation/
+* `--preview` unable to use the preview command despite following installation instructions https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew https://github.com/junegunn/fzf/issues/1743 📍 https://github.com/junegunn/fzf/issues/1743#issuecomment-593052202
+* _keybindings_: Emacs; ctrl j/k to scroll https://github.com/junegunn/fzf/issues/1716#issuecomment-542756200 but just type a few more char https://github.com/junegunn/fzf/issues/1716#issuecomment-542784884 more scroll bindings https://github.com/junegunn/fzf.vim/issues/211#issuecomment-497943378 https://github.com/junegunn/fzf.vim/issues/358#issuecomment-296737223 https://github.com/junegunn/fzf/blob/master/CHANGELOG.md#0152
+* _Vim_: 🗄 `fzf.log`
+
+### 🔭 Telescope
+
+📜 https://github.com/nvim-telescope/telescope.nvim
+
+---
+
+https://www.youtube.com/watch?v=OhnLevLpGB4
+https://www.youtube.com/watch?v=indguFY7wJ0
+
+https://github.com/nvim-telescope/telescope.nvim 🗄 `shell.md` explorer
+
+```sh
+# https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
+# 📍 update mappings like this https://github.com/malob/nixpkgs/blob/bc3924254db722ce5d1e44389e0702ddf3398e60/configs/nvim/lua/malo/telescope-nvim.lua#L22
+
+select_horizontal/vertical  # open in split
+select_tab                  # open in tab
+select_tab_drop             # open in new tab, only available on master https://github.com/nvim-telescope/telescope.nvim/issues/2799
+```
+* semantics: picker = function, sorter = algo for sorting results, previewer = preview pane
+* `select_tab_drop` only on master https://github.com/nvim-telescope/telescope.nvim/issues/2799
+* theme https://www.reddit.com/r/neovim/comments/xcsatv/how_can_i_configure_telescope_to_look_like_this/
+* layout https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/pickers/layout_strategies.lua
+* open Telescope on start https://www.youtube.com/watch?v=qN6BuJpsFbQ https://neovim.io/doc/user/autocmd.html#autocmd-define https://www.reddit.com/r/neovim/comments/13b7kfq/how_execute_a_command_at_start_nvim/ https://www.reddit.com/r/neovim/comments/zco47a/open_neovim_into_folder_with_telescope_open_in/
+* result window (breadcrumb filenames, no column/line number), `--follow` coupled to others options
+* alternatives: https://github.com/wincent/command-t https://github.com/ctrlpvim/ctrlp.vim https://github.com/junegunn/fzf.vim OOB https://www.youtube.com/watch?v=XA2WjJbmmoM 06:45
+* Vim native commands
+```sh
+:e path/to/file  # open
+:b  # fuzzy find https://drewdevault.com/2020/12/12/Shell-literacy.html
+:bp # open previous
+:e . # list
+:pwd # get CWD
+:cd path/to/dir # set CWD; Vim adopts CWD from shell 📙 Neil practical [7.100]
+# create file/dir https://vimtricks.com/p/creating-files-and-directories/
+```
+
+### 📺 Television
+
+https://github.com/alexpasmantier/television
+
+CONFIG
+* fs: `$HOME/Library/Application Support/com.television/config.toml`
+* base: https://github.com/alexpasmantier/television/blob/main/.config/config.toml
+* uses same color themes at bat
+* color theme doesn't cover main pane https://github.com/alexpasmantier/television/issues/80
+
 ## explorer
 
-ALTERNATIVES
-* file explorer = TUI for file system e.g. Finder (mv, rm, preview); aka file browser, file manager
+FEATURES
+* nav via Vim
+* nav via fuzzy find
+* enter dir
+* file operations
+* file preview
+* _file explorer_: nav
+* _file manager_: explorer + operations https://github.com/mgunyho/tere
+
+MAYBE
+* _mini_: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
+* _nnn_: https://github.com/jarun/nnn
+* _tere_: https://github.com/mgunyho/tere
+* _xlpr_: https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020 batch file operations https://github.com/sayanarijit/map.xplr
+* _yazi_: 🎯 PDF preview via poppler https://github.com/sxyazi/yazi
+
+NO
 * BYO https://github.com/willmcgugan/terminal-tree
 * _bt_: https://github.com/LeperGnome/bt
 * _fff_: 💀 https://github.com/dylanaraps/fff/issues/135 
 * _lf_: https://github.com/gokcehan/lf https://www.youtube.com/c/BrodieRobertson/search?query=lf
-* _mini_: 🎯 https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
-* _nnn_: https://github.com/jarun/nnn
-* _telescope_: 🎯 https://github.com/nvim-telescope/telescope.nvim https://www.youtube.com/watch?v=OhnLevLpGB4 https://www.youtube.com/watch?v=indguFY7wJ0
-* _superfile_: ❌ no way to enter directory you've navigated to https://github.com/MHNightCat/superfile https://news.ycombinator.com/item?id=40323101
-* cant mv files https://superfile.netlify.app/getting-started/tutorial/#file-operations
-* _tere_: https://github.com/mgunyho/tere
+* _superfile_: can't enter dir https://github.com/MHNightCat/superfile `spf` as alias https://news.ycombinator.com/item?id=40323101
 * _vifm_: https://github.com/vifm/vifm https://www.youtube.com/watch?v=RGOsE3UWqhI https://www.youtube.com/watch?v=6eyFXcyosu8
-* _walk_: ❌ no way to enter directory you've navigated to https://github.com/antonmedv/walk
-* _xlpr_: 🎯 https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020
-* batch file mv? https://github.com/sayanarijit/map.xplr
-* _yazi_: 🎯 PDF preview via poppler https://github.com/sxyazi/yazi
+* _walk_: can't enter dir https://github.com/antonmedv/walk
 
-### broot
+### 🟦 broot
 
 📜 https://dystroy.org/broot/ https://github.com/Canop/broot
 
@@ -152,7 +263,7 @@ INSTALL
 * ❓ how to turn file preview on by default? https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
 * set Vim as editor https://missing.csail.mit.edu/2020/editors/
 
-### browsr
+### 🗄️ browsr
 
 📜 https://github.com/juftin/browsr
 
@@ -176,7 +287,7 @@ DESIGN
 * _autojump_: 🎯 mature https://github.com/wting/autojump
 * _wd_: manually add https://github.com/mfaerevaag/wd
 * _z_: https://github.com/rupa/z
-* _zoxide_: ❌ tried out and init in zsh didn't work, requires fzf https://github.com/ajeetdsouza/zoxide
+* _zoxide_: ❌ tried out and init in zsh didn't work, requires fzf https://github.com/ajeetdsouza/zoxide https://www.youtube.com/watch?v=mmqDYw9C30I
 
 ## list (eza)
 
@@ -253,7 +364,7 @@ DATA
 * _dd_: copy/rm data https://github.com/akavel/up
 * _caligula_: dd alternative https://github.com/ifd3f/caligula
 
-## progress bars
+## progress bars (tqdm)
 
 LINUX
 * _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
@@ -269,7 +380,7 @@ if i % 100 == 0:
 * _rich_: https://realpython.com/python-rich-package/
 * _tqdm_: ✅ https://github.com/tqdm/tqdm
 
-## disk
+## disk (dust/df)
 
 * _df_: ✅ view of mounts https://danyspin97.org/blog/colorize-your-cli/
 * _du_: ✅
@@ -291,18 +402,21 @@ if i % 100 == 0:
 │   └── Shared
 │   └── ur-user
 ```
+* _dysk_: 🎯 https://github.com/Canop/dysk
 * _gdu_: catppuccin theme https://github.com/dundee/gdu https://github.com/catppuccin/catppuccin/discussions/1851
 * _ncdu_: ✅ JSON `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
 > why diff versions (and much more deps) btw mini23 and air-capp? https://github.com/zachvalenta/logs-mini23/commit/e1945af0ccb30f5212feb8616ef10e6eca29e3ad https://github.com/zachvalenta/capp-denv-logs/commit/7ffaff08b1a9a63aa88b1e8eeef108b853341c98
 > 📍 align config btw machines
 
-## mem/CPU
+## mem/CPU (ps/procs)
 
 * features: JSON, aggregation per app
-* alternatives: free (UNIX) top (macos), in iTerm, Activity Monitor https://wompa.land/articles/iterm-status-bar
+* alternatives: free (UNIX) top (macos), iTerm https://wompa.land/articles/iterm-status-bar
+* _Activity Monitor_: macOS GUI
 * _below_: 🎯 JSON https://github.com/facebookincubator/below no Homebrew https://github.com/facebookincubator/below/issues/8239
 * _bottom_: 🎯 GUI https://github.com/ClementTsang/bottom
 * _btop_: https://github.com/aristocratos/btop
+* _dstat_: https://missing.csail.mit.edu/2019/machine-introspection/
 * _glances_: ✅ JSON https://nicolargo.github.io/glances/ https://tech.marksblogg.com/top-htop-glances.html
 * _gotop_: 🎯 JSON export https://github.com/xxxserxxx/gotop/issues/50 https://asciinema.org/a/spxxHKMf3MBR8OfUYwsbZurXq
 * _htop_: https://tech.marksblogg.com/top-htop-glances.html
@@ -332,9 +446,11 @@ procs --sortd mem | awk '{ print substr($0, 1, 100) }' | head -n 100 > $DENV_DIR
 * `ps -f`: info on PPID
 * `ps -ejH`: show trees
 
-## ports
+## ports (havn)
 
 * _havn_: ✅ https://github.com/mrjackwills/havn
+* _ss_: https://missing.csail.mit.edu/2019/machine-introspection/
+> To figure out what network connections you have open, ss is the way to go. ss -t will show all open TCP connections. ss -tl will show all listening (i.e., server) ports on your system. -p will also include which process is using that connection, and -n will give you the raw port numbers.
 
 ---
 
@@ -348,75 +464,23 @@ PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c
 
 # ✏️ TEXT
 
-## fuzzy find (fzf)
-
-🗄 `vim.md` fuzzy find
-📜 https://github.com/junegunn/fzf
-🧠 https://chatgpt.com/c/674624fd-2084-8004-bbf4-5de92b06f1ca
-> fzf is just a Unix filter https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
-
-USES https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff
-* file preview/open aka picker https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-pick.md
-> can replace broot
-* autojump
-> can replace aliases
-
----
-
-* used by dbcli https://github.com/amjith/fuzzyfinder
-https://github.com/peco/peco
-https://www.youtube.com/watch?v=MvLQor1Ck3M
-* https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
-> As well as filtering the list of matches, the fuzzy finder also sorts the results using a ranking algorithm 📙 Neil modern [3.2   6]
-
-* https://jvns.ca/blog/2023/08/08/what-helps-people-get-comfortable-on-the-command-line-/
-* https://news.ycombinator.com/item?id=35248098
-* setup using vim, bat, rg, fzf https://www.youtube.com/watch?v=aLMepxvUj4s
-> you should finish Vim config and plugin mgmt and Neovim before doing this
-* find all files containing text w/ rg, fzf for filter, bat for preview matches https://stackoverflow.com/questions/61740910/how-do-i-fuzzy-find-all-files-containing-specific-text-using-ripgrep-and-fzf-and
-* seems like more documentation on how to do this within Vim https://sidneyliebrand.medium.com/how-fzf-and-ripgrep-improved-my-workflow-61c7ca212861 https://www.youtube.com/watch?v=fP_ckZ30gbs https://www.youtube.com/watch?v=loNdGAnKEf8
-```sh
-# https://www.linuxuprising.com/2021/03/a-quick-introduction-to-fzf-interactive.html
-fzf --preview 'bat --style=numbers --color=always --line-range :500 {}'
-```
-* config https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
-* select git branches https://seb.jambor.dev/posts/improving-shell-workflows-with-fzf
-* can be used to replace broot file preview https://www.youtube.com/watch?v=aLMepxvUj4s
-* alternatives: https://github.com/mptre/pick https://github.com/facebook/PathPicker https://github.com/lotabout/skim
-* uses `find` under the hood https://github.com/junegunn/fzf/issues/1625#issuecomment-507674106
-* as broot alternative (cd to dir of file) https://github.com/junegunn/fzf/wiki/Examples#changing-directory https://mike.place/2017/fzf-fd/
-```sh
-# cdf - cd into the directory of the selected file, suggested by @harelba and @dimonomid:
-cdf() {
-   local file
-   local dir
-   file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
-}
-```
-* https://seb.jambor.dev/posts/improving-shell-workflows-with-fzf/
-* can use to cd w/ `alt c` although broot does better here https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
-* can use for tab completion w/ `<cmd>**` https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/ cant figure out yet how to ignore hidden dir in music-usb https://github.com/junegunn/fzf.vim/issues/453#issuecomment-526791474
-* ignore files https://github.com/junegunn/fzf/issues/1625#issuecomment-507674106
-* _alternatives_: dmenu https://eli.thegreenplace.net/2018/command-line-autocomplete-for-go-documentation/
-* `--preview` unable to use the preview command despite following installation instructions https://github.com/junegunn/fzf#using-homebrew-or-linuxbrew https://github.com/junegunn/fzf/issues/1743 📍 https://github.com/junegunn/fzf/issues/1743#issuecomment-593052202
-* _keybindings_: Emacs; ctrl j/k to scroll https://github.com/junegunn/fzf/issues/1716#issuecomment-542756200 but just type a few more char https://github.com/junegunn/fzf/issues/1716#issuecomment-542784884 more scroll bindings https://github.com/junegunn/fzf.vim/issues/211#issuecomment-497943378 https://github.com/junegunn/fzf.vim/issues/358#issuecomment-296737223 https://github.com/junegunn/fzf/blob/master/CHANGELOG.md#0152
-* _Vim_: 🗄 `fzf.log`
-
-## munge
-
-🗄 `eng.md` munge
-
-* _cut_: rm columns https://blog.balthazar-rouberol.com/text-processing-in-the-shell#cut https://kadekillary.work/posts/cli-4-ds/ https://github.com/theryangeary/choose https://github.com/ibraheemdev/modern-unix
-
-### awk
+## awk
 
 📜 https://eradman.com/posts/awk-programming.html
 
-* trim line length, dynamic date
+SNIPPETS
 ```sh
+# read first column from CSV
+awk -F, '{print $1}' file.csv
+
+# read column by name
+awk -F, 'NR==1 {for (i=1; i<=NF; i++) if ($i == "NAME") col=i} NR > 1 {print $col}' example.csv
+
+# trim line length, dynamic date
 procs --sortd mem | awk '{ print substr($0, 1, 100) }' | head -n 100 > "procs_$(date +'%y%m%d_%H%M%S').txt"
 ```
 
+ZA
 * macOS version doesn't fully support multidimensional arrays
 
 ---
@@ -449,54 +513,6 @@ mt ps | awk '{print $1}' # https://askubuntu.com/a/161803
 END { print "TOTAL USERS: " NR}  # NR = num rows
 ```
 
-### stream edit (sed)
-
----
-
-🗄 `vim.md` argdo
-
-* _scooter_: https://github.com/thomasschafer/scooter
-* _sed_: stream editor = filter/transform text
-* _sd_: Rust rewrite https://github.com/chmln/sd
-* rename symbol across files https://news.ycombinator.com/item?id=34071811
-* rm newline `sed "s/\r$//" file.txt > out.txt`
-* rm lines https://www.youtube.com/watch?v=Ix24Hh_SfO4
-* 📍 use sed to replace 'board' w/ 'now' https://stackoverflow.com/a/4824742
-* https://jvns.ca/blog/2018/05/11/batch-editing-files-with-ed/ https://blog.balthazar-rouberol.com/text-processing-in-the-shell#sed https://kadekillary.work/post/cli-4-ds/
-* macOS version is BSD, which doesn't work with any further examples from article https://unix.stackexchange.com/a/13716/331460 https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux https://github.com/tanrax/maza-ad-blocking
-* all but last line `sed \$d` https://stackoverflow.com/a/18127797/6813490
-* syntax
-```sh
-sed $OPTIONS $COMMANDS $INPUT
-sed '' BSD  # no cmd i.e. just send to stdout
-```
-* print range: `sed -n '1,5p' bsd.txt` (specific) `sed -n '1,5p' bsd.txt` (relative)
-
-ZA
-* _tail_: `tail -n +42 $FILE` view file starting from 42 line https://askubuntu.com/a/410207
-* _tr_: string edit e.g. case, add newline https://github.com/Idnan/bash-guide#k-tr https://shapeshed.com/unix-tr/ https://blog.balthazar-rouberol.com/text-processing-in-the-shell#tr
-```sh
-cat example.txt | tr 'a-z' 'A-Z'  # uppercase
-cat example.txt | tr ' ' '\n'  # replace spaces with newlines
-cat example.txt | tr '\n' ','  # concat n lines into single comma-delineated line
-```
-* _join_: SQL join on files https://kadekillary.work/posts/cli-4-ds/
-* _paste_: merge sorted files https://kadekillary.work/posts/cli-4-ds/ https://blog.balthazar-rouberol.com/text-processing-in-the-shell#paste
-```sh
-# 📍 todo
-```
-* _shuf_: https://neowaylabs.github.io/programming/unix-shell-for-data-scientists/
-* _sort_: sort lines https://github.com/Idnan/bash-guide#j-sort https://kadekillary.work/posts/cli-4-ds/ https://blog.balthazar-rouberol.com/text-processing-in-the-shell#sort
-* `LC_COLLATE`: determine sort order https://unix.stackexchange.com/q/75341/331460
-```sh
-# 📍 todo
-```
-* _split_: split file into chunks https://kadekillary.work/posts/cli-4-ds/ https://tech.marksblogg.com/importing-data-from-s3-into-redshift.html
-* _uniq_: rm dupes https://github.com/Idnan/bash-guide#l-uniq https://kadekillary.work/posts/cli-4-ds/ https://blog.balthazar-rouberol.com/text-processing-in-the-shell#uniq
-```sh
-# 📍 todo
-```
-
 ## pager (bat)
 
 🗄️ `git.md` tooling / pager
@@ -515,6 +531,8 @@ cat example.txt | tr '\n' ','  # concat n lines into single comma-delineated lin
 yaml2json .travis.yml | json_pp | bat -l json
 # MULTIPLE
 bat src/*.rs
+# THEMES
+bat --list-themes
 ```
 
 ---
@@ -601,9 +619,111 @@ $QUERY $PATH
 '^user' $PATH  # begins w/
 ```
 
+## stream edit (sed)
+
+---
+
+🗄 `vim.md` argdo
+
+* _scooter_: https://github.com/thomasschafer/scooter
+* _sed_: stream editor = filter/transform text
+* _sd_: Rust rewrite https://github.com/chmln/sd
+* rename symbol across files https://news.ycombinator.com/item?id=34071811
+* rm newline `sed "s/\r$//" file.txt > out.txt`
+* rm lines https://www.youtube.com/watch?v=Ix24Hh_SfO4
+* 📍 use sed to replace 'board' w/ 'now' https://stackoverflow.com/a/4824742
+* https://jvns.ca/blog/2018/05/11/batch-editing-files-with-ed/ https://blog.balthazar-rouberol.com/text-processing-in-the-shell#sed https://kadekillary.work/post/cli-4-ds/
+* macOS version is BSD, which doesn't work with any further examples from article https://unix.stackexchange.com/a/13716/331460 https://www.digitalocean.com/community/tutorials/the-basics-of-using-the-sed-stream-editor-to-manipulate-text-in-linux https://github.com/tanrax/maza-ad-blocking
+* all but last line `sed \$d` https://stackoverflow.com/a/18127797/6813490
+* syntax
+```sh
+sed $OPTIONS $COMMANDS $INPUT
+sed '' BSD  # no cmd i.e. just send to stdout
+```
+* print range: `sed -n '1,5p' bsd.txt` (specific) `sed -n '1,5p' bsd.txt` (relative)
+
+## string processing
+
+🗄️ `data/analytics.md` miller, xsv
+🔗 https://blog.balthazar-rouberol.com/text-processing-in-the-shell
+
+CHUNK
+* _head/tail_: https://github.com/zachvalenta/interview-capp/blob/main/Makefile
+```sh
+$ tail -n +2 $FILE  # start from line 2
+$ tail -n +42 $FILE  # start from line 42
+```
+* _split_: https://tech.marksblogg.com/importing-data-from-s3-into-redshift.html
+```sh
+split -l 100 $FILE
+```
+
+EDIT
+* _echo_: create CSV header line
+```sh
+echo "manufacturer" > aaon.csv
+```
+* _cut_: 📍 rm columns https://blog.balthazar-rouberol.com/text-processing-in-the-shell#cut https://github.com/theryangeary/choose https://github.com/ibraheemdev/modern-unix
+* _tr_: edit e.g. case, add newline https://shapeshed.com/unix-tr/ https://github.com/zachvalenta/interview-capp/blob/main/Makefile
+```sh
+$ cat example.txt | tr 'a-z' 'A-Z'  # uppercase
+$ cat example.txt | tr ' ' '\n'  # replace spaces with newlines
+$ cat example.txt | tr '\n' ','  # concat n lines into single comma-delineated line
+```
+
+FILTER
+* _look_: find words by prefix
+* _uniq_: report/filter adjacent dupe lines i.e. need to use with `sort`
+```sh
+$ cat foo.txt
+
+and one
+and one
+and two
+and one
+and two
+and one, two, three
+
+$ uniq foo.txt  # only filters line #2
+$ sort foo.txt | uniq  # filters lines #2/4/5
+$ sort foo.txt | uniq -c  # count occurences
+$ sort foo.txt | uniq -d  # dupes to stdout
+```
+
+MERGE
+* _cat_: combine sequentially
+```sh
+$ cat <(tail -n +2 aaon.csv) <(tail -n +2 baldor.csv)
+```
+* _join_: combine on join key
+* 📍 understand how `-` works https://github.com/zachvalenta/capp-looker
+```sh
+$ join foo.txt bar.txt
+
+1 apple red
+2 banana yellow
+3 cherry red
+```
+* _paste_: combine columns
+```sh
+$ paste -d, baz.txt qux.txt  # set delimiter
+$ paste -d ','  # alt syntax
+
+HY6O,HRHG
+LL6N,5KQ7
+57OZ,4LAS
+```
+
+ORDER
+* _shuf_: not available on macOS but can replace with `sort -R`
+* _sort_: LC_COLLATE: determine sort order https://unix.stackexchange.com/q/75341/331460
+```sh
+$ sort -n  # by numerical value
+$ sort -R  # random; not always random for reason's I don't yet understand
+```
+
 # 🟨️ ZA
 
-🐍 in Python https://github.com/bugen/pypipe
 🔍
 * https://www.commandlinefu.com
 * https://explainshell.com/ https://github.com/akavel/up

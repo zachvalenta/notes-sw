@@ -13,6 +13,10 @@
 
 ## 进步
 
+REWRITE SJK FOR BOTH MODELING AND USING SQL
+* canonical datasets for OLTP https://news.ycombinator.com/item?id=42231325 Sakila https://sq.io/docs/tutorial
+* * NYC taxi dataset https://mattpo.pe/posts/sql-llvm/
+
 https://roadmap.sh/sql
 https://gvwilson.github.io/sql-tutorial/
 * Bealieau: port notes to digital copy, domains
@@ -41,6 +45,7 @@ INTERVIEWING
 
 REPLACEMENTS
 * _Trilogy_: dimension tables, canonical dataset for OLTP https://news.ycombinator.com/item?id=42231325
+* Sakila also canonical https://sq.io/docs/tutorial
 
 * boring and durable https://josephg.com/blog/databases-have-failed-the-web
 * outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/
@@ -87,6 +92,8 @@ REPLACEMENTS
 * Django influential https://github.com/GothenburgBitFactory/tasklib/
 
 ---
+
+pydantic as validation before handing over to sqlite3 https://github.com/Zaloog/kanban-tui/blob/main/src/kanban_tui/database.py
 
 ALTERNATIVES TO SQLALCHEMY 🗄️ `django.md` db
 * _dataset_: 🎯 sqlite3 wrapper, good taste, not an ORM https://github.com/pudo/dataset https://dataset.readthedocs.io/en/latest/index.html 
@@ -526,7 +533,7 @@ TYPES
 ```sql
 -- casting
 select cast (avg(price) as integer) as "average sale price" from house;
--- timestamp https://pgexercises.com/questions/basic/date.html non-overlapping times https://sqlfordevs.com/non-overlapping-time-ranges?ref=Newsletter
+-- timestamp https://pgexercises.com/questions/basic/date.html non-overlapping times https://sqlfordevs.com/non-overlapping-time-ranges more on times https://simonwillison.net/2024/Nov/27/storing-times-for-human-events
 YYYY-MM-DD HH:MM:SS  -- fmt
 where foo_date > '1962-07-03' -- compare
 -- user names
@@ -1167,6 +1174,7 @@ YPES
 with  -- https://github.com/enochtangg/quick-SQL-cheatsheet#find https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
 ```
 * recursion http://www.jeffwidman.com/blog/ https://dba.stackexchange.com/q/14490 https://medium.com/swlh/recursion-in-sql-explained-graphically-679f6a0f143b https://aiven.io/blog/solving-the-knapsack-problem-in-postgresql https://pgexercises.com/questions/recursive/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
+* https://news.ycombinator.com/item?id=42230384
 * https://github.com/enochtangg/quick-SQL-cheatsheet#find
 * https://hakibenita.com/sql-for-data-analysis#common-table-expressions https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance 
 * https://news.ycombinator.com/item?id=34603691

@@ -41,6 +41,8 @@ GITOPS
 
 ---
 
+* build times https://entropicthoughts.com/build-failure-rate-from-build-times
+https://github.com/kehoecj/validate-configs-action
 https://github.com/zillow/tycho
 
 * validate configs https://github.com/kehoecj/validate-configs-action
@@ -52,7 +54,82 @@ https://github.com/zillow/tycho
 * _staged deployment_: deploy to a few nodes at a time 📙 Kleppmann 4.112
 * _blue-green deployment_: split traffic btw new and old; aka red-black https://fly.io/django-beats/smooth-database-changes-in-blue-green-deployments/?utm_campaign=Django%2BNewsletter&utm_medium=email&utm_source=Django_Newsletter_198 https://news.ycombinator.com/item?id=39048317
 
-https://gitlab.com/zachvalenta/pre-commit-test.git https://docs.gitlab.com/ee/ci/yaml/ https://docs.gitlab.com/ https://docs.gitlab.com/runner/
+### Actions
+
+📜 https://docs.github.com/en/actions
+🔬 example https://github.com/GothenburgBitFactory/taskwarrior/actions
+
+DEPLOYING ZJAYV https://zjayv.github.io/ 🧠 https://chatgpt.com/c/66f4a787-5a40-8004-bda8-c9c207ae0e88
+> start here https://www.getzola.org/documentation/deployment/github-pages/
+```txt
+things I've already tried
+
+- publish_dir
+- specify branch (settings > pages)
+```
+* workflows https://github.com/zachvalenta/zjayv.github.io/actions
+> why do they have two different names?
+* site that works https://liyasthomas.github.io/
+* need cname? https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME.txt
+* docs https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+* more docs https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
+
+SEMANTICS https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
+* use on AWS https://github.com/CloudSnorkel/cdk-github-runners
+* _workflow_: collection of jobs
+* triggered by event, chron, API
+* defined in `.github/workflows`
+* e.g. test PR, deployment, add labels when issue opened
+* _job_: collection of step
+* _step_: user-defined (script) or action
+> Steps are executed in order and are dependent on each other. Since each step is executed on the same runner, you can share data from one step to another. For example, you can have a step that builds your application followed by a step that tests the application that was built.
+* _action_: GH-defined extension
+> An action is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task. Use an action to help reduce the amount of repetitive code that you write in your workflow files. An action can pull your Git repository from GitHub, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
+* _runner_: container in which steps are run
+> A runner is a server that runs your workflows when they're triggered. Each runner can run a single job at a time.
+
+EVENT PROPERTIES
+* id
+* type
+* payload
+* _actor_: user triggering event
+* _repo_: where the event occurred
+
+EVENT TYPES https://docs.github.com/en/rest/using-the-rest-api/github-event-types
+> yet more? https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
+* `CreateEvent`: branch|tag created
+* `GollumEvent`: wiki page created|updated
+* `IssueCommentEvent`: comment on issue|PR
+* `IssuesEvent`: opened, edited, closed, assigned, labeled
+* `PullRequestEvent`: opened, edited, closed, review_requested
+* `PushEvent`: commits pushed to branch
+
+---
+
+telemetry https://github.com/catchpoint/workflow-telemetry-action/issues/39 https://blog.smidt.dev/posts/0003/
+can manipulate tags, create releases in repo using CLI https://cli.github.com/manual/gh_release
+
+TOOLING
+* _act_: run locally https://github.com/nektos/act
+* _gama_: https://github.com/termkit/gama
+
+* linking https://blog.github.com/2011-10-12-introducing-issue-mentions/
+* draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
+* https://hynek.me/articles/python-github-actions/
+* https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow
+* https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml
+* https://github.com/github/super-linter
+* https://www.youtube.com/watch?v=E1OunoCyuhY
+* https://news.ycombinator.com/item?id=30060765
+* https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a
+* python https://brntn.me/blog/open-source-python-ci/
+* https://github.com/carderne/postmodern-python/blob/main/.github/workflows/pr.yml
+
+### Gitlab
+
+💻 https://gitlab.com/zachvalenta/pre-commit-test.git 
+📜 https://docs.gitlab.com/ee/ci/yaml/ https://docs.gitlab.com/ https://docs.gitlab.com/runner/
+
 * _job_: declarative series of steps
 * _stage_: grouping mechanism for jobs e.g. test, deploy
 * _pipeline_: collection of stages; can force manual interaction https://docs.gitlab.com/ee/ci/pipelines/index.html#add-manual-interaction-to-your-pipeline to run without, toggle off in project (visibility and merge requests)
@@ -72,7 +149,9 @@ unit_tests:
 ax2: "${ax2}"
 ```
 
-HOOKS 📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks https://githooks.com/
+### hooks
+
+GIT HOOKS 📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks https://githooks.com/
 * BYO https://stefaniemolin.com/articles/devx/pre-commit/hook-creation-guide/
 * https://rdrn.me/postmodern-python/
 * actions: client-side (commit, merge) server (push)
@@ -119,6 +198,7 @@ CLOUD
 > I don't understand the need for "cloud development environments" though. Isn't the point of containerized apps is to avoid the need for synchronizing dev envs amongst teams?...It's to ensure a consistent environment for all developers, with the resources required. E.g. they mention GPUs, for developers working with GPU-intensive workloads. You can ship all developers gaming laptops with 64GB RAM and proper GPUs, and have them fight the environment to get the correct libraries as you have in prod (even with containers that's not trivial), or you can ship them Macbook Airs and similar, and have them run consistent (the same) dev environments remotely (you can self-host gitpod, it's not only a cloud service, it's more the API/environment to get consistent remote dev enviornments). https://news.ycombinator.com/item?id=42042522
 * 🎯 Omakub on a spot instance?
 * _Coder_: https://github.com/coder/coder
+* _Devpod_: 🎯 https://www.youtube.com/watch?v=ceDrFx2K3jE
 * _Daytona_: https://www.daytona.io/
 * _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://cli.github.com/manual/gh_codespace
 * _Gitpod_: 🎯 runs on your own AWS env (per This Week in AWS) https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15 https://news.ycombinator.com/item?id=42041917
@@ -167,6 +247,7 @@ TOOLING
 > just exporting env var for now
 > 💡 point config to file holding pw = you can version control config https://www.youtube.com/watch?v=2yplBzPCghA [7:30]
 🗄
+* `ml.md` clients > llm
 * `security.md` users/ passwords
 * `shell.md` env var
 * `spec.md` config
@@ -301,10 +382,11 @@ toggle=
 
 🗄️ `api.md`
 📚
+* Beck tidy first? https://www.youtube.com/watch?v=QN-azRUAToc
 * Dibernardo 500 lines or less http://aosabook.org/en/index.html
-* Fowler refactoring https://www.amazon.com/dp/0134757599/ https://registerspill.thorstenball.com/p/skin-shedding-code
+* Fowler refactoring https://www.amazon.com/dp/0134757599/ https://registerspill.thorstenball.com/p/skin-shedding-code https://www.youtube.com/watch?v=ZsPDz_BGbtE https://www.youtube.com/watch?v=CjCJ76oZXTE
 > Also, as a general rule, you can at any given time get away with changing more than you think. Introducing change is like pulling off a bandage: the pain is a memory almost as soon as you feel it. http://paulgraham.com/popular.html
-* Martin clean code https://qntm.org/clean
+* Martin clean code https://qntm.org/clean https://www.youtube.com/watch?v=wf68VDObVX0 https://www.youtube.com/watch?v=RkxVB1eNdCc
 * McConnell code complete
 * Ousterhout https://www.amazon.com/Philosophy-Software-Design-2nd/dp/173210221X against uncle bob https://www.youtube.com/watch?v=k0kTux_YNHw shallow vs. deep https://lobste.rs/s/qpzubc/don_t_refactor_like_uncle_bob_please
 
@@ -318,6 +400,8 @@ extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.
 ## dependency injection (DI)
 
 ---
+
+https://github.com/hynek/svcs/ https://svcs.hynek.me/en/stable/ https://www.youtube.com/watch?v=d1elMD9WgpA
 
 loose coupling https://www.youtube.com/watch?v=uWTvMCra-_Y
 
@@ -511,7 +595,7 @@ HOOKS
 * aka event handler, callback 📙 Chacon [402] https://stackoverflow.com/a/11087727
 * _webhook_: res/ack (vs. req/res); 3rd streams > 1st polls https://sendgrid.com/blog/whats-webhook
 * route known as "receiver" https://adamj.eu/tech/2021/05/09/how-to-build-a-webhook-receiver-in-django/
-* further considerations https://brandur.org/webhooks
+* further considerations https://brandur.org/webhooks https://www.svix.com/blog/webhooks-are-harder-than-they-seem/
 
 ---
 
@@ -551,6 +635,8 @@ URL shortener 🗄 `fd url-short`
 > It's productive, it's fast enough, it scales just fine, and perhaps most importantly there's a "right" way to do just about everything your web application will ever need to do: background jobs, websockets, read-only database replicas. https://news.ycombinator.com/item?id=42014906
 
 ---
+
+https://github.com/CrocoFactory/sensei
 
 BYO
 * https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/ https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/ https://github.com/itsthejoker/spiderweb/ https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://dev.to/brunociccarino/how-i-wrote-express-go-in-19-hours-3ndh https://blog.dimitarandreev.com/posts/writing-an-http-router-for-aws-lambda-functions-from-scratch-with-go/
@@ -594,7 +680,7 @@ WORLD'S DUMBEST COMPLETE SAAS
 > scaffold (deployment, monitoring), accounts (individual, teams), auth (registration, login/logout, pw update, account removal), subscriptions
 * https://news.ycombinator.com/item?id=34530052
 * https://news.ycombinator.com/item?id=34483294
-* https://pocketbase.io/
+* https://pocketbase.io/ https://github.com/trailbaseio/trailbase https://news.ycombinator.com/item?id=42336207
 * BYO Saas https://www.datasette.cloud/blog/2023/welcome/ https://simonwillison.net/2020/Jan/14/stanford-planning-datasette-cloud/ https://simonwillison.net/tags/datasette-cloud/?page=2
 
 ## internationalization (i18n)

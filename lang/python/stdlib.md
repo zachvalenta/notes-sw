@@ -503,6 +503,7 @@ OUTPUT
 HOWTO
 * debug https://www.pythonpapers.com/p/how-to-debug-your-textual-application
 * publish to web https://github.com/Textualize/textual-web
+* file tree https://github.com/willmcgugan/terminal-tree
 * run examples
 ```sh
 python -m pip install --user textual
@@ -588,6 +589,7 @@ aaS
 * _Zenrows_: https://www.zenrows.com/solutions/scraper-api
 
 LIBS
+* _katana_: https://github.com/projectdiscovery/katana
 * _scrapling_: https://github.com/D4Vinci/Scrapling
 
 ---
@@ -662,7 +664,6 @@ http://www.zachvalenta.com/1996-fielding-bridget-jones.html
 * change detection! https://github.com/dgtlmoon/changedetection.io
 * Instant Data Scraper https://news.ycombinator.com/item?id=34069680
 * sessions, cookies https://github.com/MechanicalSoup/MechanicalSoup
-* https://github.com/projectdiscovery/katana
 * _shot-scraper_: automated screenshots https://github.com/simonw/shot-scraper
 🔗 https://realpython.com/python-web-scraping-practical-introduction/
 
@@ -821,7 +822,7 @@ WSGI
 
 ASGI
 * _ASGI_: async alternative to WSGI
-* frameworks: Django (Channels) Quart (Flask on async) Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
+* frameworks: Django (Channels) Quart (Flask on async) https://talkpython.fm/blog/posts/talk-python-rewritten-in-quart-async-flask/ Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
 * servers: uvicorn, Daphne
 * FastAPI https://github.com/pomponchik/cbfa
 * sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us

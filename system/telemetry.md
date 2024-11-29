@@ -144,11 +144,16 @@ jitter https://gafferongames.com/post/fixing_the_internet_for_games/
 
 ---
 
+DJANGO
+* https://medium.com/django-unleashed/django-application-performance-optimization-a-checklist-63e2c6d69e4e
+* https://loadforge.com/guides/the-ultimate-guide-to-django-performance-best-practices-for-scaling-and-optimization
 * https://docs.djangoproject.com/en/5.1/topics/performance/
-* https://blog.pecar.me/sqlite-wal
 * https://blog.pecar.me/django-sqlite-benchmark
 * https://blog.pecar.me/django-sqlite-dblock
 * https://testdriven.io/blog/django-performance-optimization-tips/
+
+ZA
+* https://blog.pecar.me/sqlite-wal
 * https://www.youtube.com/watch?v=gpbpVheR3gM
 * https://blog.pecar.me/django-streaming-responses
 * https://xnacly.me/posts/2024/optimizing-a-dependency/
@@ -202,17 +207,17 @@ PROVIDERS
 * BYO https://minimalanalytics.com/
 * Countly https://thomashunter.name/posts/2018-12-28-migrating-from-google-analytics
 * Fathom https://usefathom.com/
-* Plausible https://plausible.io/privacy-focused-web-analytics https://www.erichgrunewald.com/posts/ravi-zacharias-solves-the-problem-of-evil/ https://plausible.io/blog/remove-google-analytics
 * Shynet https://github.com/milesmcc/shynet
 * Simple https://simpleanalytics.io
 * _Heap_: https://satchel.com/web-analytics/
 * _Highlight_: https://news.ycombinator.com/item?id=34897645
 * _LogRocket_: https://news.ycombinator.com/item?id=34897645
 * _Mixpanel_: https://satchel.com/web-analytics/ https://news.ycombinator.com/item?id=40432213
-* _Plausible_: https://plausible.io/calmcode.io
+* _Plausible_: https://plausible.io/calmcode.io https://plausible.io/privacy-focused-web-analytics https://www.erichgrunewald.com/posts/ravi-zacharias-solves-the-problem-of-evil/ https://plausible.io/blog/remove-google-analytics
 * _Posthog_: https://github.com/posthog/posthog https://www.pythonpodcast.com/posthog-product-analytics-episode-266/
 * _Spindl_: https://www.spindl.xyz/
 * _trench_: https://github.com/FrigadeHQ/trench
+* _Vince_: https://github.com/vinceanalytics/vince https://www.vinceanalytics.com/
 * _Umami_: https://github.com/umami-software/umami
 
 ## 🌕 Clickhouse
@@ -363,6 +368,7 @@ HOW TO START
 
 ---
 
+* https://www.jvt.me/posts/2024/11/17/cobra-otel-lessons/
 * https://rdrn.me/observability/
 * https://opentelemetry.io/ 
 * https://github.blog/2021-05-26-why-and-how-github-is-adopting-opentelemetry/
@@ -486,9 +492,13 @@ SEMANTICS
 
 ## logging
 
-🗄 `python/stdlib.md` logging
+📙 Kreps i love logs
+🗄
+* `python/stdlib.md` logging
+* `serde.md` JSON
 
 LOG STORES
+* BYO https://avi.im/blag/2024/s3-log/
 * _parseable_: https://github.com/parseablehq/parseable
 
 FORMAT
@@ -496,8 +506,14 @@ FORMAT
 
 TOOLING
 * _Axiom_: https://axiom.co/ https://github.com/axiomhq https://repobeats.axiom.co/ cheaper than CloudWatch? https://x.com/AxiomFM/status/1842206872813674807
+* _fblog_: JSON log viewer https://github.com/brocode/fblog
 * _hl_: https://github.com/pamburus/hl
 * _toolong_: https://github.com/textualize/toolong
+
+FS LOCATIONS https://missing.csail.mit.edu/2019/machine-introspection/ 🗄️ `linux.md` fs
+> Traditionally, logs were all stored in `/var/log`, and many still are. Usually there's a file or folder per program.
+> There's also a kernel log that you can see using the `dmesg` command. This used to be available as a plain-text file, but nowadays you often have to go through `dmesg`.
+> Finally, there is the "system log", which is increasingly where all of your log messages go. On most, though not all, Linux systems, that log is managed by `systemd`, the "system daemon", which controls all the services that run in the background (and much much more at this point). That log is accessible through the somewhat inconvenient `journalctl` tool if you are root, or part of the admin or wheel groups.
 
 ---
 

@@ -32,8 +32,9 @@ SEMANTICS 🧠 https://chatgpt.com/c/67409094-34c0-8004-ad28-45ac4b94f67a
 ---
 
 * _aerospace_: 🎯 https://github.com/nikitabobko/AeroSpace https://nikitabobko.github.io/AeroSpace/guide https://www.youtube.com/watch?v=5nwnJjr5eOo https://www.youtube.com/watch?v=-FoWClVHG5g https://www.youtube.com/watch?v=q4cexeIc3WA
-* _hyprland_: https://www.youtube.com/watch?v=2CP_9-jCV6A config hell https://www.youtube.com/watch?v=T__INNgTW1M
-* _yabai_: 🎯 https://github.com/koekeishiya/yabai https://daniel.lawrence.lu/blog/y2023m12d15/
+* _hyprland_: https://www.youtube.com/watch?v=2CP_9-jCV6A config hell https://www.youtube.com/watch?v=T__INNgTW1M https://hyprpanel.com/
+* _Raycast_: 🎯 also acts as a compositor? https://www.youtube.com/watch?v=DBifQv9AYhc [1:30]
+* _yabai_: 🎯 https://github.com/koekeishiya/yabai https://daniel.lawrence.lu/blog/y2023m12d15/ https://www.youtube.com/watch?v=k94qImbFKWE
 
 ## managers
 
@@ -72,7 +73,7 @@ ALTERNATIVES https://github.com/oilshell/oil/wiki/Alternative-Shells
 * BYO https://www.destroyallsoftware.com/screencasts/catalog https://github.com/elves/elvish
 * POSIX compatability https://www.youtube.com/watch?v=Yva_nTXzTTw https://drewdevault.com/2018/02/05/Introduction-to-POSIX-shell.html https://drewdevault.com/2017/11/13/Portability-matters.html
 * _elvish_: https://news.ycombinator.com/item?id=18778681 https://news.ycombinator.com/item?id=41401463
-* _nushell_: structured data https://www.nushell.sh/ https://www.youtube.com/watch?v=uJsZATwQ3R8
+* _nushell_: structured data https://www.nushell.sh/ https://www.youtube.com/watch?v=uJsZATwQ3R8 config hell https://www.youtube.com/watch?v=LFBOLx5KiME
 * _oil_: https://github.com/oilshell/oil
 * _Powershell_: supports some Bash commands but no arguments https://yehudakatz.com/2019/04/24/powershell-lets-get-started
 * good at working with structured text like CSV https://news.ycombinator.com/item?id=28306401
@@ -223,6 +224,89 @@ A || B # if not A then B
 A & B # A and B simultaneously
 ```
 
+### execution
+
+---
+
+https://github.com/sachaos/viddy
+* file operators: exists `-e` is a regular file not dir `-f` https://ss64.com/bash/syntax-file-operators.html
+
+* _eval_: use str as cmd https://www.youtube.com/watch?v=0A4Kjr8ThJA 1:45
+```sh
+x="date"
+echo $x  # date
+eval $x  # Tue Feb 22 18:33:49 EST 2022
+
+# use to set multiple exports at once
+eval "$(brew shellenv)"
+```
+
+* sudo https://bsago.me/tech-notes/sudo-with-aliases-in-fish
+* keep script from consuming too many resources: `nice myscript`
+* add location: `./myscript` doesn't need to be on $PATH
+* as a cmd: `myscript` (script need shebang and perm to exec)
+* using bash: `bash myscript` (doesn't need shebang or perm to exec, can debug this way using `bash -x myscript`)
+```sh
+$ foo
+-bash: zv/bin/foo: Permission denied
+$ l
+-rw-r--r-- foo # no perm
+
+$ bash foo
+hi zjv # can still exec w/ `bash`
+```
+
+```sh
+# 📍 'Automate' appendix B
+
+# as .py
+`python script.py`
+# with shebang
+`./script.py`  # apparently this only works if file is executable, where `bash script.sh` always works
+```
+
+📍 re: `suan` https://stackoverflow.com/questions/874452/change-the-current-directory-from-a-bash-script
+
+* __call script directly__: `<script>`
+* __dot command__: . `<script>`
+* __dot + forward slash__: . `<script>`
+* __sh command__: sh `<script>` 
+* __bash command__: bash `<script>`
+
+[source vs. execute](https://superuser.com/a/795838)
+
+* put on $PATH
+* make executable `chmod u+x script.sh`
+* if bash, remove `.sh` (`script.sh` ➡️ `script`) and call (`script`)
+* if python, keep `.py` and call (`script.py`)
+
+📝 get tab completion from terminal if put on $PATH
+
+__dot command__: `. fooScript.sh`
+
+```sh
+# diff btw `source` and `./` 
+# ➡️ https://stackoverflow.com/a/9640736/6813490
+
+# use `exit`
+🈚️ ☞☞☞ ./git-hooks/test_zv.sh
+
+# use `return`
+🈚️ ☞☞☞ source git-hooks/test_zv.sh
+```
+
+❓ diff btw this and all the other ways 😄
+❓ why does Python script require `./script.py`
+
+```sh
+code
+<script>
+. <script>
+./ <script>
+sh <script> 
+bash <script>
+```
+
 ### snippets
 
 * modes
@@ -315,6 +399,18 @@ echo "hi, ${alice}. look at these random numbers: ${randomNum}"
 📝 always quote your variables
 
 https://stackoverflow.com/a/673940/6813490
+
+## xargs
+
+---
+
+* _xargs_: construct list of args for cmd (bc some cmds only take args, not stdin) https://thorstenball.com/blog/2012/10/24/command-line-ride/ https://www.oilshell.org/blog/2021/08/xargs.html
+> can also just input `./myscript.py < somefile.txt` (semantics for operator names) https://stackoverflow.com/a/11853307
+```sh
+LOGS_DIR/20 $ fd tracking | tail -n 3 | xargs bat  # open 3 most recent tracking files
+ls | sort -f | head -1 | xargs open  # kaiff - open first file in directory; used to open Youtube talks downloaded as pods
+fd tracking | xargs rg music  # from logs/20 -> get tracking info for music
+```
 
 ## 🐠 fish
 
@@ -516,21 +612,28 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 
 ## alternatives
 
-https://chatgpt.com/c/671abdee-ccec-8004-958e-6dd5bf9f6ed9
+🧠 https://chatgpt.com/c/671abdee-ccec-8004-958e-6dd5bf9f6ed9
 
-* _Alacritty_: 🎯 YAML config, fastest, cross-platform, no global hotkey but Hammerspoon/Karabiner workaround https://github.com/alacritty/alacritty/issues/3313 https://github.com/alacritty/alacritty/issues/862 https://alacritty.org/index.html
+MAYBE
+* _Alacritty_: YAML config, fastest, cross-platform, no global hotkey but Hammerspoon/Karabiner workaround https://github.com/alacritty/alacritty/issues/3313 https://github.com/alacritty/alacritty/issues/862 https://alacritty.org/index.html https://www.youtube.com/watch?v=uOnL4fEnldA
 * doesnt work on mac? https://www.youtube.com/watch?v=3wq0RFYAvNo [2:20]
 * works with Zellij copy/paste https://zellij.dev/documentation/faq#copy--paste-isnt-working-how-can-i-fix-this
-* _gotty_: term as web app https://github.com/yudai/gotty
-* _ghostty_: 🎯 private beta, written in Zig, coming out in 2025 https://mitchellh.com/writing/ghostty-is-coming https://mitchellh.com/ghostty https://www.youtube.com/watch?v=7Jon_cAK_to
-* _Hyper_: ❌ Electron https://hyper.is/
-* _kitty_: 🎯 https://sw.kovidgoyal.net/kitty/
+* _ghostty_: private beta, written in Zig, coming out in 2025 https://mitchellh.com/writing/ghostty-is-coming https://mitchellh.com/ghostty https://www.youtube.com/watch?v=7Jon_cAK_to
+* _kitty_: https://sw.kovidgoyal.net/kitty/
 * great integrations https://sw.kovidgoyal.net/kitty/integrations/ https://github.com/chase/awrit https://github.com/mpv-player/mpv/commit/874e28f4a41a916bb567a882063dd2589e9234e1
 * opinionated maintainer https://news.ycombinator.com/item?id=41223934 https://kovidgoyal.net/ https://kovidgoyal.net/
 * doesnt work on mac? https://www.youtube.com/watch?v=3wq0RFYAvNo [2:20]
+* _Wezterm_: no global hotkey, Lua config for macros https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751 https://www.youtube.com/watch?v=TTgQV21X0SQ
+* keybindings for built-in multiplex are bad https://wezfurlong.org/wezterm/features.html#available-features
+
+COLLAB
+* _gotty_: term as web app https://github.com/yudai/gotty
 * _sshx_: real-time collaboration https://github.com/ekzhang/sshx
-* _Tabby_: ❌ Electron https://news.ycombinator.com/item?id=35111397 https://github.com/Eugeny/tabby?tab=readme-ov-file#what-tabby-is-and-isnt
-* _Warp_: ❌ https://www.warp.dev/
+
+NO
+* _Hyper_: Electron https://hyper.is/
+* _Tabby_: Electron https://news.ycombinator.com/item?id=35111397 https://github.com/Eugeny/tabby?tab=readme-ov-file#what-tabby-is-and-isnt
+* _Warp_: https://www.warp.dev/
 * good community? https://news.ycombinator.com/item?id=30926360
 * you need to login?!? https://app.warp.dev/login/
 * trying to move gen AI to shell https://www.warp.dev/ai
@@ -538,16 +641,21 @@ https://chatgpt.com/c/671abdee-ccec-8004-958e-6dd5bf9f6ed9
 * autocomplete is cool, esp. Git branches https://www.warp.dev/modern-terminal
 * terminal block is interesting https://www.warp.dev/modern-terminal
 * launch configurations 类似 iterm profiles
-* _Wezterm_: 🎯 no global hotkey, Lua config for macros https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751 https://www.youtube.com/watch?v=TTgQV21X0SQ
-* keybindings for built-in multiplex are bad https://wezfurlong.org/wezterm/features.html#available-features
-
----
-
-https://www.youtube.com/watch?v=WxzYtdIcHnQ
 
 ## color
 
-🗄 `viz.md` color
+🗄
+* `art/design.md` color
+* `os/tools.md` Television
+
+COLORS EVERYWHERE https://jvns.ca/blog/2024/10/01/terminal-colours/ https://news.ycombinator.com/item?id=41727971 https://chatgpt.com/c/67508349-ca34-8004-a587-50e598116f8f
+```sh
+echo $TERM  # xterm-256color
+echo $COLORTERM  # truecolor
+eval "$(oh-my-posh init zsh --config $(brew --prefix oh-my-posh)/themes/multiverse-neon.omp.json)"  # prompt
+export LS_COLORS="$(vivid generate catppuccin-mocha)"  # ls/eza
+--theme="Catppuccin-mocha"  # bat
+```
 
 ICON/FONT/COLOR INTERPLAY
 * eza/exa use different icons (setup screenshots on air22)
@@ -559,8 +667,6 @@ ICON/FONT/COLOR INTERPLAY
 
 https://danyspin97.org/blog/colorize-your-cli/
 color themes https://realpython.com/courses/custom-vs-code-color-themes/
-
-https://news.ycombinator.com/item?id=41727971 https://jvns.ca/blog/2024/10/01/terminal-colours/
 
 > The default terminal app is limited to 256 colors. We recommend installing a newer terminal such as iterm2, Kitty, or WezTerm. https://textual.textualize.io/getting_started/#macos
 

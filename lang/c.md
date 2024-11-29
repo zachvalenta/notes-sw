@@ -90,6 +90,11 @@ https://wizardzines.com/comics/assembly/
 
 https://ziglang.org/
 
+USE FOR BUILDS
+* https://jakstys.lt/2022/how-uber-uses-zig/
+* https://mitchellh.com/writing/zig-comptime-tagged-union-subset
+* https://goreleaser.com/ https://goreleaser.com/customization/rust-builds/ https://goreleaser.com/customization/zig-builds/
+
 * https://www.youtube.com/watch?v=ug-KuDlMTYw
 * compared to Rust https://www.youtube.com/watch?v=Vxq6Qc-uAmE
 * overview https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203010 https://kristoff.it/blog/maintain-it-with-zig/
@@ -100,7 +105,6 @@ https://ziglang.org/
 * seems way easier than Rust https://scattered-thoughts.net/writing/assorted-thoughts-on-zig-and-rust/ https://kevinlynagh.com/rust-zig/
 * smart users https://github.com/jamii
 * current state of affairs https://news.ycombinator.com/item?id=36149462
-* use as compiler https://jakstys.lt/2022/how-uber-uses-zig/ https://mitchellh.com/writing/zig-comptime-tagged-union-subset
 * as a teaching language https://news.ycombinator.com/item?id=32752383
 
 # 🦀 RUST
@@ -124,6 +128,8 @@ PROJECT STRUCTURE
 * https://github.com/b1rger/carl
 
 STDLIB
+* cq/LSP https://github.com/rust-lang/rust-clippy https://github.com/Canop/bacon
+* render Markdown in terminal https://github.com/Canop/termimad
 * _db_: https://github.com/launchbadge/sqlx
 * _GUI_ https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html
 * _TUI_: https://github.com/ratatui-org/ratatui https://github.com/mrjackwills/oxker cursive https://github.com/gyscos/cursive https://github.com/Builditluc/wiki-tui https://github.com/fdehau/tui-rs https://github.com/lusingander/stu
@@ -155,7 +161,7 @@ https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUC
 * used for: CPU intensive, not API https://news.ycombinator.com/item?id=25798008
 * governance problems https://news.ycombinator.com/item?id=28513130
 * what people love: packaging, DX https://stackoverflow.blog/2020/06/05/why-the-developers-who-use-rust-love-it-so-much parallelization https://news.ycombinator.com/item?id=26443768 CLI (jless) https://news.ycombinator.com/item?id=30273940 correctness
-* lifetimes, safety profiles in C++ https://en.wikipedia.org/wiki/Erlang_(programming_language)
+* lifetimes, safety profiles in C++ https://en.wikipedia.org/wiki/Erlang_(programming_language) https://news.ycombinator.com/item?id=42302673
 
 ## borrow checker
 
@@ -212,6 +218,8 @@ https://github.com/lusingander/cargo-selector
 
 ## design
 
+* rewrite: Django templates https://github.com/LilyFoote/django-rusty-templates
+* building postgres extensions https://github.com/pgcentralfoundation/pgrx
 > Go is perfectly suited for plain, ordinary, everyday software: command-line tools, business processes, database applications, web services. It’s fairly easy to write Go programs; they build fast, and they run very fast. For probably 80% of the software we write, Go gets the job done just fine. Rust, on the other hand, neatly fills the gaps where Go isn’t an ideal choice: kernels, firmware, embedded devices, real-time systems. It gives you all the keys to the hardware, and to ultimate performance. Its relentless focus on memory safety and program correctness make Rust the obvious choice for safety-critical applications: industrial, medical, aerospace. https://bitfieldconsulting.com/posts/rust-and-go
 
 ---

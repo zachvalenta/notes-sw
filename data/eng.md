@@ -5,6 +5,7 @@
 🔍 
 * https://dba.stackexchange.com
 * https://roadmap.sh/postgresql-dba
+* https://github.com/DataExpert-io/data-engineer-handbook
 📚
 * Kleppmann data intensive applications
 * Reis fundamentals of data eng
@@ -27,7 +28,7 @@ https://news.ycombinator.com/item?id=42078067
 * https://ngrok.com/blog-post/how-we-built-ngroks-data-platform https://github.com/amalshaji/portr
 * https://www.youtube.com/@jayzern/videos
 * Arrow partitioning https://r4ds.hadley.nz/arrow#partitioning
-* NYC taxi dataset, Parquet https://duckdb.org/2021/12/03/duck-arrow.html https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page https://tech.marksblogg.com/billion-nyc-taxi-rides-redshift.html https://iceberg.apache.org/spark-quickstart/#creating-a-table
+* NYC taxi dataset, Parquet https://duckdb.org/2021/12/03/duck-arrow.html https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page https://tech.marksblogg.com/billion-nyc-taxi-rides-redshift.html https://iceberg.apache.org/spark-quickstart/#creating-a-table https://mattpo.pe/posts/sql-llvm/
 * 📻 Macey https://softwareengineeringdaily.com/2019/07/23/data-engineering-with-tobias-macey/ https://www.dataengineeringpodcast.com/six-year-retrospective-episode-361
 * course https://www.youtube.com/playlist?list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb https://r4ds.hadley.nz/
 * start with data eng https://uwekorn.com/2019/10/19/taking-duckdb-for-a-spin.html https://adamdrake.com/command-line-tools-can-be-235x-faster-than-your-hadoop-cluster.html facets https://datasette.io/for/exploratory-analysis plugins https://datasette.io/tools https://datasette.io/plugins Timescale https://aliramadhan.me/2024/03/31/trillion-rows.html https://www.freecodecamp.org/learn/data-analysis-with-python/#data-analysis-with-python-course https://www.youtube.com/watch?v=v65n9yQWfVs https://www.youtube.com/watch?v=qowFCmaNFp4
@@ -346,6 +347,7 @@ https://www.youtube.com/watch?v=ifXpOn0NJWk
 https://medium.com/expedia-group-tech/a-short-introduction-to-apache-iceberg-d34f628b6799
 * _table format_:
 * _Iceberg_: SQL for table formats https://iceberg.apache.org/ https://www.thoughtworks.com/radar/platforms?blipid=202203012 https://news.ycombinator.com/item?id=34342190
+* AWS S3 tables https://meltware.com/2024/12/04/s3-tables.html
 * https://medium.com/expedia-group-tech/a-short-introduction-to-apache-iceberg-d34f628b6799
 > Table formats have slowly been stealing the spotlight across the big data space as projects like Apache Hudi, Delta Lake and Apache Iceberg mature and disrupt the tried-and-tested legacy data lake technologies in use at most companies worldwide.
 > The project [Iceberg] was originally developed at Netflix to solve long-standing issues with their usage of huge, petabyte-scale tables. It was open-sourced in 2018 as an Apache Incubator project and graduated from the incubator on the 19th of May 2020.

@@ -13,6 +13,7 @@
 
 ## 进步
 
+* Task Warrior vs. kanbai-tui
 * structures taxonomy https://chatgpt.com/c/6706989f-02a4-8004-9933-bbe525f36b55 https://www.interviewcake.com/data-structures-reference https://roadmap.sh/datastructures-and-algorithms
 * modeling taxonomy
 
@@ -295,7 +296,43 @@ HIERARCHICAL
 
 ---
 
-REDIS 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
+EMBEDDED
+* disk for storage https://github.com/peterbourgon/diskv
+* _pickledb_: https://github.com/patx/pickledb
+* _sled_: https://github.com/spacejam/sled
+* _skate_: https://github.com/charmbracelet/skate
+* _badger_: https://github.com/dgraph-io/badger
+
+* _KV store_: hash map + persistence 📙 Kleppmann [72]
+* distributed KV store used for service discovery (etcd) ()
+* used for metadata, counters
+> ZippyDB serves a number of use cases, ranging from metadata for a distributed filesystem, counting events for both internal and external purposes, to product data that’s used for various app features https://engineering.fb.com/2021/08/06/core-data/zippydb/
+* impl: hash index; faster not bc they don't have to go to disk but bc don't have to translate in-mem data structure to something that can be written to disk 📙 Kleppmann [89]
+* typed values allow for in/decrement, push/pop from list
+* used for caching db result set e.g. memcached 📙 Kleppmann [89] https://github.com/akrylysov/pogreb
+* RocksDB, memcached used as storage for distributed KV https://github.com/bitleak/kvrocks https://engineering.fb.com/2021/08/06/core-data/zippydb/ https://www.micahlerner.com/2021/05/31/scaling-memcache-at-facebook.html
+* RocksDB alternative https://github.com/cockroachdb/pebble
+* BYO: https://aosabook.org/en/500L/dbdb-dog-bed-database.html https://notes.eatonphil.com/2023-05-25-raft.html Bitcask https://github.com/avinassh/py-caskdb
+> In short, keys are stored in a hash table in RAM, k/v pairs are written to log files. Dead simple, but powerful enough. https://news.ycombinator.com/item?id=31306678
+
+za
+* _object store_: KV in which K is ID and V is blob (file, binary) 🗄 `infra.md` AWS/S3
+* can only create/update, not append https://stackoverflow.com/a/47524241
+* sink https://ceph.io/ceph-storage/ https://github.com/minio/minio https://stackoverflow.com/questions/56627446/docker-compose-how-to-use-minio-in-and-outside-of-the-docker-network https://alexwlchan.net/2020/08/s3-keys-are-not-file-paths
+* _flat file_: meant for config, no way to represent relationships or handle concurrency (e.g. prevent dirty read); some structure via delimiters, new lines https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37
+
+### memcached
+
+* _is?_: volatile cache https://news.ycombinator.com/item?id=23689549 aka application caching layer
+* _how?_: distributed hash table i.e. n instances of app share 1 distributed instance of memcached
+* _why?_: so you don't have to read from db
+* _disadvantages_: doesn't track cache misses; meant for simple data, not tables or objects; not durable http://aosabook.org/en/nosql.html
+* _sink_: https://realpython.com/python-memcache-efficient-caching/ https://github.com/thadeusb/flask-cache Django has OOB support for memcached https://docs.djangoproject.com/en/2.1/topics/cache/
+
+### Redis
+
+📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
+
 > just use postgres https://martinheinz.dev/blog/105
 * https://www.youtube.com/watch?v=WQ61RL1GpEE
 * https://www.youtube.com/watch?v=5TRFpFBccQM
@@ -308,31 +345,6 @@ REDIS 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
 * alternative https://github.com/dragonflydb/dragonfly https://github.com/buraksezer/olric#installing
 * embedded https://github.com/symisc/vedis https://news.ycombinator.com/item?id=19464144
 > You can either set Redis up as a "data-structures" server or you set it up right as a cache. You can't do both. If you choose to use Redis as your cache, ensure that the cache instance is only serving as your cache. Your inter-system message bus should be on a different Redis with a different configuration. https://calpaterson.com/ttl-hell.html
-
-MEMCACHED
-* _is?_: volatile cache https://news.ycombinator.com/item?id=23689549 aka application caching layer
-* _how?_: distributed hash table i.e. n instances of app share 1 distributed instance of memcached
-* _why?_: so you don't have to read from db
-* _disadvantages_: doesn't track cache misses; meant for simple data, not tables or objects; not durable http://aosabook.org/en/nosql.html
-* _sink_: https://realpython.com/python-memcache-efficient-caching/ https://github.com/thadeusb/flask-cache Django has OOB support for memcached https://docs.djangoproject.com/en/2.1/topics/cache/
-
-* _KV store_: hash map + persistence 📙 Kleppmann [72]
-* distributed KV store used for service discovery (etcd) ()
-* used for metadata, counters
-> ZippyDB serves a number of use cases, ranging from metadata for a distributed filesystem, counting events for both internal and external purposes, to product data that’s used for various app features https://engineering.fb.com/2021/08/06/core-data/zippydb/
-* impl: hash index; faster not bc they don't have to go to disk but bc don't have to translate in-mem data structure to something that can be written to disk 📙 Kleppmann [89]
-* typed values allow for in/decrement, push/pop from list
-* used for caching db result set e.g. memcached 📙 Kleppmann [89] https://github.com/akrylysov/pogreb
-* dbms: embedded https://github.com/patx/pickledb https://github.com/spacejam/sled https://github.com/charmbracelet/skate https://github.com/dgraph-io/badger disk for storage https://github.com/peterbourgon/diskv
-* RocksDB, memcached used as storage for distributed KV https://github.com/bitleak/kvrocks https://engineering.fb.com/2021/08/06/core-data/zippydb/ https://www.micahlerner.com/2021/05/31/scaling-memcache-at-facebook.html
-* BYO: https://aosabook.org/en/500L/dbdb-dog-bed-database.html https://notes.eatonphil.com/2023-05-25-raft.html Bitcask https://github.com/avinassh/py-caskdb
-> In short, keys are stored in a hash table in RAM, k/v pairs are written to log files. Dead simple, but powerful enough. https://news.ycombinator.com/item?id=31306678
-
-za
-* _object store_: KV in which K is ID and V is blob (file, binary) 🗄 `infra.md` AWS/S3
-* can only create/update, not append https://stackoverflow.com/a/47524241
-* sink https://ceph.io/ceph-storage/ https://github.com/minio/minio https://stackoverflow.com/questions/56627446/docker-compose-how-to-use-minio-in-and-outside-of-the-docker-network https://alexwlchan.net/2020/08/s3-keys-are-not-file-paths
-* _flat file_: meant for config, no way to represent relationships or handle concurrency (e.g. prevent dirty read); some structure via delimiters, new lines https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37
 
 ## time series
 
@@ -508,6 +520,7 @@ IT103    |   2009-2   | 120      | Web Design   |
 
 ONTOLOGY https://chatgpt.com/c/67324db1-c8f8-8004-bb93-3f516203f81b
 > semantic web, ML https://owlready2.readthedocs.io/en/latest/intro.html
+* https://www.stephendiehl.com/posts/bfo/
 * https://www.amazon.com/gp/product/1484265513
 * https://www.amazon.com/gp/product/0262527812
 

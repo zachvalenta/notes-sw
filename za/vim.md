@@ -18,9 +18,11 @@
 
 * markdown https://www.youtube.com/watch?v=1Lmyh0YRH-w
 * config https://github.com/jdhao/nvim-config
+https://www.youtube.com/watch?v=6pAG3BHurdM
 https://www.youtube.com/watch?v=VljhZ0e9zGE
 https://www.youtube.com/watch?v=Qf9gfx7gWEY
 https://www.youtube.com/watch?v=bb3UqIzd7L0
+https://github.com/folke/snacks.nvim https://www.youtube.com/watch?v=rc3LMw4QCec
 
 * VS Code plugins: indentation rainbow, bookmarks, project manager https://switowski.com/blog/plugins-for-python-in-vscode/
 https://www.youtube.com/watch?v=VljhZ0e9zGE
@@ -428,7 +430,7 @@ MODES
 SEMANTICS https://github.com/iggredible/Learn-Vim/blob/master/ch04_vim_grammar.md
 * _syntax_: operator + count + motion; order can change e.g. `3dd` for delete 3 lines [VT 2.6]
 * _change_: anything from any mode that modifies text in document [PV 2.8]
-* _macro_: save series of commands as single cmd https://hacker-tools.github.io/editors/ https://www.youtube.com/watch?v=futay9NjOac 📙 Neil practical ch. 11 https://github.com/iggredible/Learn-Vim/blob/master/ch09_macros.md https://stackoverflow.com/questions/8745514/concept-of-index-in-vim
+* _macro_: save series of commands as single cmd https://hacker-tools.github.io/editors/ https://www.youtube.com/watch?v=K4PoBfz3WLA https://www.youtube.com/watch?v=futay9NjOac 📙 Neil practical ch. 11 https://github.com/iggredible/Learn-Vim/blob/master/ch09_macros.md https://stackoverflow.com/questions/8745514/concept-of-index-in-vim
 > need macro to `zt` on nav motions
 * _word_: char, num, underscore [Neil pv 8.119]
 * _WORD_: word but incl. delimiters [Neil pv 8.119]
@@ -733,36 +735,6 @@ vim -S ~/.vim/sessions/foo.vim
 * restore https://github.com/rmagatti/auto-session
 * porcelain https://github.com/tpope/vim-obsession
 
-## Telescope
-
-https://github.com/nvim-telescope/telescope.nvim 🗄 `shell.md` explorer
-
-```sh
-# https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/mappings.lua
-# 📍 update mappings like this https://github.com/malob/nixpkgs/blob/bc3924254db722ce5d1e44389e0702ddf3398e60/configs/nvim/lua/malo/telescope-nvim.lua#L22
-
-select_horizontal/vertical  # open in split
-select_tab                  # open in tab
-select_tab_drop             # open in new tab, only available on master https://github.com/nvim-telescope/telescope.nvim/issues/2799
-```
-* semantics: picker = function, sorter = algo for sorting results, previewer = preview pane
-* `select_tab_drop` only on master https://github.com/nvim-telescope/telescope.nvim/issues/2799
-* theme https://www.reddit.com/r/neovim/comments/xcsatv/how_can_i_configure_telescope_to_look_like_this/
-* layout https://github.com/nvim-telescope/telescope.nvim/blob/master/lua/telescope/pickers/layout_strategies.lua
-* open Telescope on start https://www.youtube.com/watch?v=qN6BuJpsFbQ https://neovim.io/doc/user/autocmd.html#autocmd-define https://www.reddit.com/r/neovim/comments/13b7kfq/how_execute_a_command_at_start_nvim/ https://www.reddit.com/r/neovim/comments/zco47a/open_neovim_into_folder_with_telescope_open_in/
-* result window (breadcrumb filenames, no column/line number), `--follow` coupled to others options
-* alternatives: https://github.com/wincent/command-t https://github.com/ctrlpvim/ctrlp.vim https://github.com/junegunn/fzf.vim OOB https://www.youtube.com/watch?v=XA2WjJbmmoM 06:45
-* Vim native commands
-```sh
-:e path/to/file  # open
-:b  # fuzzy find https://drewdevault.com/2020/12/12/Shell-literacy.html
-:bp # open previous
-:e . # list
-:pwd # get CWD
-:cd path/to/dir # set CWD; Vim adopts CWD from shell 📙 Neil practical [7.100]
-# create file/dir https://vimtricks.com/p/creating-files-and-directories/
-```
-
 ## windows
 
 * _viewport_: what's in view 📙 Neil practical [6.92] https://developer.mozilla.org/en-US/docs/Web/CSS/Viewport_concepts https://vimtricks.com/p/navigating-around-the-screen/
@@ -818,6 +790,7 @@ Python indentation https://vimtricks.substack.com/p/vimtrick-column-highlighting
 Python terminal, debugger https://github.com/AstroNvim/AstroNvim https://zackproser.com/blog/codeium-analysis-4-2024
 
 LINTING 📙 Neil practical ch. 20
+* null-ls https://www.youtube.com/watch?v=ybUE4D80XSk
 * functions: autocorrect, spellcheck, thesaurus, dictionary, grammar
 * https://www.youtube.com/watch?v=3TX3kV3TICU
 * https://github.com/preservim/vim-lexical
@@ -948,7 +921,7 @@ let g:markdown_fenced_languages = ['html', 'python', 'ruby', 'vim']
 
 ZA
 * highlight TODO/FIXME/NOTE https://switowski.com/blog/plugins-for-python-in-vscode/
-* devicons ✅ https://github.com/nvim-tree/nvim-web-devicons
+* devicons ✅ https://github.com/nvim-tree/nvim-web-devicons https://github.com/alexpasmantier/rust-devicons
 * highlight current line: Rigel https://github.com/junegunn/limelight.vim
 * dim other code blocks https://github.com/folke/twilight.nvim Markdown preview https://github.com/junegunn/goyo.vim https://www.youtube.com/watch?v=zbguTldYkCw
 * _line number mode_: relative or absolute https://vimtricks.substack.com/p/vimtrick-toggle-line-number-mode

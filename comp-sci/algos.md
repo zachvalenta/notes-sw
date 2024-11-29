@@ -7,6 +7,7 @@
 * https://github.com/TheAlgorithms/Python
 * https://xlinux.nist.gov/dads/
 📚
+* https://www.amazon.com/Coding-Interview-Patterns-Nail-Your/dp/1736049135
 * ✅ Bhargava grokking algorithms
 * Christian algorithms to live by
 * Dasgupta algorithms
@@ -17,6 +18,7 @@
 
 ## 进步
 
+topological sort, dynamic programming https://blog.danielh.cc/blog/leetcode
 https://www.manning.com/books/optimization-algorithms
 🛣️ https://roadmap.sh/datastructures-and-algorithms https://roadmap.sh/computer-science https://roadmap.sh/python
 
@@ -292,6 +294,7 @@ def get_db_port():
 * ops/100: 100k 
 * traversing 2D array e.g. selection sort (❓ bubble, insertion)
 * quadratic complexity 🗄 branching factor, power set https://www.natemeyvis.com/writing/on-quadratic-complexity/
+> With just two banks, you only need one connection. Add a third, and now you have three connections in a triangle. With four, it’s six connections. Life gets very complicated very fast, in what technologists would recognize as an N-squared relationship. [Patrick notes: Many readers have passed geometry at some point and know this  is the number of edges of an N-sided polygon plus the number of diagonals you could draw, which is (of course) N * (N - 1) / 2. In CS, we say “Eh, for sufficiently large N, that’s basically N^2.”]  https://www.complexsystemspodcast.com/episodes/money-movement-erik-torenberg/
 ```python
 def selection_sort(unsorted_list):
     unsorted_list_len = len(unsorted_list)
@@ -330,112 +333,6 @@ def set_covering(states_needed, stations):
 ```python
 
 ```
-
-# 🧠 NEURAL NETWORKS
-
-🗄️ `graphs.md` https://www.manning.com/books/graph-neural-networks-in-action https://www.manning.com/books/math-and-architectures-of-deep-learning https://fleetwood.dev/posts/you-could-have-designed-SOTA-positional-encoding
-BYO https://www.manning.com/books/design-a-machine-learning-system-design-from-scratch
-
-FUNCTIONS
-```python
-def af(arg, weight):
-    activation = arg * weight
-    return activation
-```
-* _activation function (AF)_: arg * weight = activation 📙 Trask 9.162 https://stats.stackexchange.com/a/307295
-* _weight_: importance of arg 📙 Trask 3.23, 3.27
-* _activation_: return of AF https://stats.stackexchange.com/a/307295 https://www.youtube.com/watch?v=aircAruvnKk 3:25 📙 Trask 3.46
-* _weighted sum_: multiply input by weights and sum; aka dot product 📙 Trask 3.30
-
-PROPAGATION
-* _datapoint_: arg to network as a whole (vs. weight) 📙 Trask 3.22
-* _shape_: types of datapoints 📙 Trask 3.23
-* _propagate_: pass datapoint to network 📙 Trask 3.22 e.g. pass n pixels for computer vision neural network
-* _forward propagation_: datapoints go straight through network 📙 Trask 3.46
-* _back propagation_: figuring out which weight from previous layer contributed to increased error at higher layer and updating it 📙 Trask 6.119 https://www.youtube.com/watch?v=Ilg3gGewQ5U
-* _prediction_: return of neural network 📙 Trask 3.25
-
-BASICS https://www.youtube.com/watch?v=aircAruvnKk https://karpathy.ai/zero-to-hero.html
-* _neural network_: graph (network) that mimics the brain (neural) https://victorzhou.com/blog/intro-to-neural-networks/
-* in NN, just a var holding boolean value https://www.youtube.com/watch?v=aircAruvnKk 2:55
-* akin to logic gate https://victorzhou.com/blog/intro-to-neural-networks/
-* as non-leaky abstraction https://blog.cerebralab.com/Neural_networks_as_non-leaky_mathematical_abstraction
-* _LLM_: type of neural network, predict some likely output based on a given input https://www.seangoedecke.com/how-llms-work/
-
-TYPES
-* _deep_: https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/how-deep-neural-networks-work
-* _recurrent_: https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm https://victorzhou.com/blog/intro-to-rnns/
-* _convolutional_: https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/how-convolutional-neural-networks-work https://victorzhou.com/blog/intro-to-cnns-part-1/ good for computer vision https://www.youtube.com/watch?v=aircAruvnKk 2:10
-
-## 🇿🇲 ChatZJV
-
-> import `ml.md` cleanup
-Markov chains https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html#installing-your-plugin-to-try-it-out
-
-## features
-
-* _feature_: metadata 📙 Bueno [25]
-
----
-
-* _feature extraction_: key attr e.g. semantic meaning, syntax, sentiment analysis https://zackproser.com/blog/introduction-to-embeddings
-* _Naive Bayes_: priors + data; naive bc assume every feature has same weight [Bhargava 10.200]
-* softmax https://victorzhou.com/blog/softmax/
-* visualization in Jupyter https://kylekizirian.github.io/prims-algorithm.html
-
-## labels
-
-* https://calmcode.io/datasets/clinc
-* https://calmcode.io/labs/doubtlab
-* https://labelerrors.com/
-* https://www.manning.com/books/data-without-labels
-
-TYPES
-* _supervised_: labeled data during training, unlabeled during predication [Trask 2.11]
-* _unsupervised_: unlabeled data during training and prediction [Trask 13]
-* _reinforcement_: no labels but algo can tell if it's getting hotter or colder http://aiplaybook.a16z.com/docs/guides/dl-learning#user-content-reinforcementlearning
-* _parameters_: https://www.youtube.com/watch?v=BbZ2m8mfwYU https://01-ai.github.io/blog.html?post=en/2024-09-05-A-Small-but-Mighty-LLM-for-Code.md
-* _parametric_: modeler derives parameters [Trask 2.14, 2.18]
-* _nonparametric_: model derives parameters [Trask 2.14, 2.18]
-
-## stdlib
-
-* _Tensorflow_: tensor (array) flow (operations) https://github.com/Hvass-Labs/TensorFlow-Tutorials https://news.ycombinator.com/item?id=42133844
-* _Keras_: less verbose Tensorflow (will eventually be packaged w/) https://victorzhou.com/blog/keras-neural-network-tutorial/ https://news.ycombinator.com/item?id=42133844
-* _PyTorch_: superceded Tensorflow https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/ NumPy that can run in parallel on GPUs; tensor (array 类似 NumPy array) scalar (single value) vector (array) matrix (2d array) tensor (multi-dimensional array) https://aiweirdness.com/post/189170306297/how-to-begin-a-novel alternative https://github.com/geohot/tinygrad https://github.com/Lightning-AI/lightning
-* _CUDA_: GPUs aaS
-* _sci-kit learn_: https://jakevdp.github.io/PythonDataScienceHandbook/
-* _Matplotlib_: eaten by Python https://realpython.com/podcasts/rpp/197/
-* Matlab for Python https://jakevdp.github.io/PythonDataScienceHandbook/
-* _MLX_: numpy for Apple silicon https://github.com/ml-explore/mlx
-
-### numpy
-
-https://realpython.com/numpy-example/
-
-* _Numpy_: subset of scipy https://jakevdp.github.io/PythonDataScienceHandbook/ 📙 Trask 44
-```python
-# numpy.array.dot https://stackoverflow.com/a/35208273 📙 Trask 3.35
-def dot(v1, v2):  # vectors
-    return sum(x*y for x,y in zip(v1,v2))
-
-dot([1,2,3], [4,5,6])
-```
-
-## transformers
-
-* https://www.manning.com/books/transformers-in-action
-* https://www.amazon.com/gp/product/1098134184
-* https://realpython.com/huggingface-transformers/
-
-## vectors
-
-* _scalar_: single value 📙 Trask [3.45] Bradshaw [62]
-* _vector_: list 📙 Trask 3.31
-* _matrix_: list of lists 📙 Trask 3.41 e.g. NumPy array, Pandas dataframe
-* _elementwise operation_: perform same operation on two vectors of equal length 📙 Trask 3.31 i.e. zip
-* _dimensionality_: number of components in a vector https://zackproser.com/blog/introduction-to-dimensionality#what-is-dimensionality-
-* _embedding_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings/ https://blog.wilsonl.in/hackerverse/ https://www.youtube.com/watch?v=zzY64Qu8HHc https://news.ycombinator.com/item?id=41473518 https://www.youtube.com/watch?v=hB7sGE0W8CI https://news.ycombinator.com/item?id=42013762 try it out https://github.com/taylorai/aiq
 
 # 🦋 TYPES
 
@@ -499,6 +396,8 @@ https://en.wikipedia.org/wiki/knapsack_problem
 
 🗄 `math.md` regression
 
+https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
+
 * _k-nearest neighbors_: taxonomize based on proximate elements i.e. those that have similar attributes
 * form of supervised learning https://stats.stackexchange.com/a/56504
 * used for recommendation system, regression, OCR 📙 Bhargava [186,195,196]
@@ -515,6 +414,8 @@ https://en.wikipedia.org/wiki/knapsack_problem
 
 🗄 `math.md` Markov chain
 
+https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
+
 * _Monte Carlo tree search (MCTS)_: domain independent https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 12:00
 * tree: roots = next moves, branches = n order paths
 * search: takes weights from neural net, traverse branches, report back
@@ -528,49 +429,13 @@ https://en.wikipedia.org/wiki/knapsack_problem
 * https://conversationswithtyler.com/episodes/annie-duke/
 * _minimax_: predecessor to MCTS https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 1:15 used in chess 4:30 https://marginalrevolution.com/marginalrevolution/2021/05/maradona-plays-minimax.html
 
-## NLP
-
-📙 https://www.manning.com/books/natural-language-processing-in-action-second-edition
-🛠️ https://spacy.io/ https://training.talkpython.fm/courses/build-an-audio-ai-app-with-python-and-assemblyai
-🗄
-* `literature.md` distant reading
-* `psychology.md` reading
-* `system.md` search engine
-
-BASICS
-* _Eliza_: https://web.njit.edu/~ronkowit/eliza.html
-* _NLP_: linguistics + CS
-* rule system (noun phrase can be followed by noun, article, etc.) to construct parse tree
-* use cases: speech synthesis http://aiplaybook.a16z.com/docs/guides/nlp speech to text https://www.fullstackpython.com/blog/transcribe-recordings-speech-text-assemblyai.html
-* libraries: nltk, spaCy
-* _language detection_: https://github.com/pemistahl/lingua-go
-* _sentiment analysis_: determine emotional content https://aeon.co/ideas/why-are-pop-songs-getting-sadder-than-they-used-to-be https://matthagy.github.io/rh_comment_categories/
-* _word cloud_: https://dataanalysis.substack.com/p/generating-a-word-cloud-in-python?s=r
-* clean up https://nostarch.com/NLPPython https://codewords.recurse.com/issues/seven/data-driven-literary-analysis https://www.fast.ai/2019/07/08/fastai-nlp/ https://speakerdeck.com/pycon2015/adam-palay-words-words-words-reading-shakespeare-with-python https://victorzhou.com/blog/better-profanity-detection-with-scikit-learn/ https://calmcode.io/labs/scikit-partial
-* word2vec, byte-pair encoding, LSTM https://arpit.substack.com/p/how-zomato-improved-its-search-using https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm 
-* https://github.com/rspeer/wordfreq
-
-SEMANTICS
-* phoneme recognition https://github.com/persephone-tools/persephone
-* _tokenize_: break into words or subsets of words
-* _span_: section of text https://rajpurkar.github.io/SQuAD-explorer/ https://0x65.dev/blog/2019-12-05/a-new-search-engine.html#fn1
-* _stemming_: rm pre/suffix; can also mean to include related results from search engine e.g. search 'fish', get back results for 'fishy', 'fishing' https://news.ycombinator.com/item?id=24051229
-* _parts of speech_: tokenization but for syntax
-* _stopword removal_: strip out non-semantic words (articles, &c.)
-* _n-gram_: items (word, phraes) collected from text https://en.wikipedia.org/wiki/N-gram
-* used for finding most commonly occuring words https://news.ycombinator.com/item?id=24286844
-* used for language detection https://github.com/pemistahl/lingua-go
-* _disambiguation_: teach the machine context ('cool' indicates temperature and social prestige)
-* _stylometry_: analyze writing style https://news.ycombinator.com/item?id=33755016
-* _text classification_: https://www.youtube.com/watch?v=VtRLrQ3Ev-U
-* _speech recognition_: https://www.youtube.com/watch?v=mYUyaKmvu6Y
-
 ## search
 
 🗄
 * `math.md` linear algebra
 * `system.md` search 
 
+https://github.com/tsenart/kth
 * _search space_: set of possible solutions to the problem constraints https://en.wikipedia.org/wiki/Feasible_region
 
 TOP OF MIND 🧠 https://chatgpt.com/c/67461bc1-0414-8004-af66-535909317a42

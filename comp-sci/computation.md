@@ -11,7 +11,7 @@
 
 ## 进步
 
-📙 Wayne logic for programmers circuits, branch prediction, speculative execution https://danluu.com/branch-prediction/ https://pythonspeed.com/articles/speeding-up-numba/
+circuits, branch prediction, speculative execution https://danluu.com/branch-prediction/ https://pythonspeed.com/articles/speeding-up-numba/
 ++ like verilog? sequential logic https://github.com/cjdrake/seqlogic
 
 * Verilog, VHDL https://danluu.com/why-hardware-development-is-hard/ https://news.ycombinator.com/item?id=42156516
@@ -55,6 +55,37 @@ TIME
 * 📚 Kleppmann chapter 8 https://www.youtube.com/watch?v=U612mx16j7U
 > Time is nature's way to keep everything from happening all at once - John Wheeler https://lwn.net/Articles/827180/
 
+## gates
+
+🗄 `philosophy.md` logic
+📚
+* Nisan nand2tetris ch. 1-3
+* Petzold code ch. 10-11, 14
+* Shibuya microprocessors ch. 1
+
+---
+
+todo
+* https://reasonablypolymorphic.com/book/preface
+* Ben Eater https://eater.net/8bit + 📚 Petzold code 17
+
+BASICS
+* _wire_: carries inputs and outputs https://reasonablypolymorphic.com/book/machine-diagrams
+* _machine_: transform input to output https://reasonablypolymorphic.com/book/machine-diagrams
+
+GATES
+* gate/relay - abstraction for controlling current that can implement boolean logical operations
+* transistor - gate impl; wire
+* _gate_: controls path of current https://www.youtube.com/watch?v=gI-qXk7XojA 4:40 🗄 `science.md` engineering / valve
+* physical implementation of boolean logic 
+* components: wires (input, output)
+* _transistor_: current from control wire connects current from two electrodes https://www.youtube.com/watch?v=gI-qXk7XojA 3:10 input (control wire) output (current) germanium  https://www.youtube.com/watch?v=LUXR8UnYhzc 📚 Petzold code 18
+
+OPERATIONS
+* _not_: move output in front of control wire, so input turned on (i.e. control wire touching electrodes) the current will flow to ground and not to output https://www.youtube.com/watch?v=gI-qXk7XojA 4:05
+* _and_: two transistors in a row https://www.youtube.com/watch?v=gI-qXk7XojA 5:20
+* _or_: two transistors in a parallel https://www.youtube.com/watch?v=gI-qXk7XojA 6:15
+
 ## information theory
 
 🗄 `sociology.md` linguistics
@@ -85,36 +116,21 @@ ENTROPY
 * https://www.youtube.com/results?search_query=khan+academy+entropy
 * used to build decision trees https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
 
-## logic gates
+## logic
 
-🗄 `philosophy.md` logic
-📚
-* Nisan nand2tetris ch. 1-3
-* Petzold code ch. 10-11, 14
-* Shibuya microprocessors ch. 1
+📙 Wayne logic for programmers
 
 ---
 
-todo
-* https://reasonablypolymorphic.com/book/preface
-* Ben Eater https://eater.net/8bit + 📚 Petzold code 17
+* _conjunction_: https://en.wikipedia.org/wiki/Logical_conjunction
+* _SAT solver_:
 
-BASICS
-* _wire_: carries inputs and outputs https://reasonablypolymorphic.com/book/machine-diagrams
-* _machine_: transform input to output https://reasonablypolymorphic.com/book/machine-diagrams
-
-GATES
-* gate/relay - abstraction for controlling current that can implement boolean logical operations
-* transistor - gate impl; wire
-* _gate_: controls path of current https://www.youtube.com/watch?v=gI-qXk7XojA 4:40 🗄 `science.md` engineering / valve
-* physical implementation of boolean logic 
-* components: wires (input, output)
-* _transistor_: current from control wire connects current from two electrodes https://www.youtube.com/watch?v=gI-qXk7XojA 3:10 input (control wire) output (current) germanium  https://www.youtube.com/watch?v=LUXR8UnYhzc 📚 Petzold code 18
-
-OPERATIONS
-* _not_: move output in front of control wire, so input turned on (i.e. control wire touching electrodes) the current will flow to ground and not to output https://www.youtube.com/watch?v=gI-qXk7XojA 4:05
-* _and_: two transistors in a row https://www.youtube.com/watch?v=gI-qXk7XojA 5:20
-* _or_: two transistors in a parallel https://www.youtube.com/watch?v=gI-qXk7XojA 6:15
+https://blog.danielh.cc/blog/sat https://news.ycombinator.com/item?id=42261166
+* https://en.wikipedia.org/wiki/Conjunctive_normal_form
+https://chatgpt.com/c/6752e532-0960-8004-8d1e-766cda9729f4
+https://blog.danielh.cc/blog/numbers
+https://blog.danielh.cc/blog/classes
+> I wish I went to school for English and CS
 
 ## machines
 
@@ -233,7 +249,7 @@ timeline
 * Petzold code ch. 16
 * Galvin ch. 8-9
 🗄
-* `language.md` memory
+* `plt.md` memory
 * `linux.md` processes
 
 RAM
@@ -257,6 +273,7 @@ VIRTUAL https://questions.wizardzines.com/virtual-memory.html
 
 ---
 
+* Babbage is overrated https://lcamtuf.substack.com/p/memory-the-forgotten-history
 * _zero-copy_: op in which data not copied to another memory area https://en.wikipedia.org/wiki/Zero-copy https://duckdb.org/2021/12/03/duck-arrow.html
 
 bits

@@ -18,6 +18,8 @@
 
 ---
 
+https://bytebytego.com/ https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119 https://www.youtube.com/watch?v=jPKTo1iGQiE
+
 ROADMAPS
 * https://roadmap.sh/system-design
 * https://roadmap.sh/software-architect

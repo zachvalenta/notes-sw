@@ -6,6 +6,17 @@
 
 ## 进步
 
+* What might be the cause of autocompletions around Git just stopping working?
+> this doesn't happen in every dir, just `capp/mapper`
+```sh
+git --version
+# git version 2.39.3 (Apple Git-146)
+# most current version is 2.47
+
+# If using Zsh, the completion cache might be corrupted.
+rm -f ~/.zcompdump* && compinit
+```
+
 * need way to toggle git diff away from delta for copying plaintext
 > or can delta itself provide a toggle?
 * Git Town https://www.youtube.com/watch?v=oLaUsUlFfTo https://github.com/git-town/git-town
@@ -22,6 +33,7 @@
 
 # 🐙 GITHUB
 
+🗄️ `src.md` CICD > Actions
 📜 https://docs.github.com
 🔗 https://github.com/github/roadmap
 
@@ -42,62 +54,6 @@ gh api "/users/zachvalenta/events" | jq 'map(select(.created_at | startswith("20
 * all forks are public https://news.ycombinator.com/item?id=41060102
 * _repo language_: https://github.com/github/linguist#overrides
 * _repo config_: branch protections http://blog.jaredsinclair.com/post/183676881105/think-twice-before-downgrading-to-a-free-github owners https://blog.github.com/2017-07-06-introducing-code-owners/
-
-## Actions
-
-🗄️ `src.md` deployment / CICD
-📜 https://docs.github.com/en/actions
-🔬 example https://github.com/GothenburgBitFactory/taskwarrior/actions
-
-SEMANTICS https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
-* use on AWS https://github.com/CloudSnorkel/cdk-github-runners
-* _workflow_: collection of jobs
-* triggered by event, chron, API
-* defined in `.github/workflows`
-* e.g. test PR, deployment, add labels when issue opened
-* _job_: collection of step
-* _step_: user-defined (script) or action
-> Steps are executed in order and are dependent on each other. Since each step is executed on the same runner, you can share data from one step to another. For example, you can have a step that builds your application followed by a step that tests the application that was built.
-* _action_: GH-defined extension
-> An action is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task. Use an action to help reduce the amount of repetitive code that you write in your workflow files. An action can pull your Git repository from GitHub, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
-* _runner_: container in which steps are run
-> A runner is a server that runs your workflows when they're triggered. Each runner can run a single job at a time.
-
-EVENT PROPERTIES
-* id
-* type
-* payload
-* _actor_: user triggering event
-* _repo_: where the event occurred
-
-EVENT TYPES https://docs.github.com/en/rest/using-the-rest-api/github-event-types
-> yet more? https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
-* `CreateEvent`: branch|tag created
-* `GollumEvent`: wiki page created|updated
-* `IssueCommentEvent`: comment on issue|PR
-* `IssuesEvent`: opened, edited, closed, assigned, labeled
-* `PullRequestEvent`: opened, edited, closed, review_requested
-* `PushEvent`: commits pushed to branch
-
----
-
-can manipulate tags, create releases in repo using CLI https://cli.github.com/manual/gh_release
-
-TOOLING
-* _act_: run locally https://github.com/nektos/act
-* _gama_: https://github.com/termkit/gama
-
-* linking https://blog.github.com/2011-10-12-introducing-issue-mentions/
-* draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
-* https://hynek.me/articles/python-github-actions/
-* https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow
-* https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml
-* https://github.com/github/super-linter
-* https://www.youtube.com/watch?v=E1OunoCyuhY
-* https://news.ycombinator.com/item?id=30060765
-* https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a
-* python https://brntn.me/blog/open-source-python-ci/
-* https://github.com/carderne/postmodern-python/blob/main/.github/workflows/pr.yml
 
 ## CLI
 
@@ -332,7 +288,7 @@ HISTORY https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 > used by Facebook, Unity https://news.ycombinator.com/item?id=20745393
 > Mercurial design https://news.ycombinator.com/item?id=18029498
 * Git for everything https://news.ycombinator.com/item?id=30522175
-* _fourth generation_: https://github.com/martinvonz/jj https://tonyfinn.com/blog/jj/
+* _fourth generation_: https://github.com/martinvonz/jj https://tonyfinn.com/blog/jj/ https://v5.chriskrycho.com/essays/jj-init/ https://news.ycombinator.com/item?id=42310386
 
 LINKABLE LIBRARIES 🗄 `python.md` Git
 * reference impl of Git doesn't include i.e. can only as an executable, not as lib https://medium.com/@willhayjr/the-architecture-and-history-of-git-a-distributed-version-control-system-62b17dd37742 
@@ -361,6 +317,8 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * good for granular stages
 * switch views `cmd #`
 * open commit into quick view `space`
+* _SmartGit_: https://www.syntevo.com/smartgit/ https://news.ycombinator.com/item?id=42262047
+* _Recon_: https://retcon.app/ https://news.ycombinator.com/item?id=42262047
 * _Tower_: 🎯 reorder commits https://www.git-tower.com
 
 ---
@@ -882,7 +840,7 @@ VERSION MGMT / INSTALL https://git-scm.com/book/en/v2/Getting-Started-Installing
 `.gitattributes`: specify EOL https://stackoverflow.com/questions/73086622/is-a-gitattributes-file-really-necessary-for-git
 
 SUBMODULES
-* _submodules_: `.gitmodules` separate Git repo w/in main repo
+* _submodules_: `.gitmodules` separate Git repo w/in main repo https://news.ycombinator.com/item?id=42291833
 * for pulling dependencies https://longair.net/blog/2010/06/02/git-submodules-explained/ https://github.com/sharkdp/bat/blob/master/.gitmodules https://www.youtube.com/watch?v=8Z4Cmhji_FQ https://www.youtube.com/watch?v=ZYq3NJnO08U https://www.youtube.com/watch?v=iv7WwDgyb0U https://www.youtube.com/watch?v=De8Bc1VxcGQ
 * howto: add child dir to parent dir `.gitignore`, init new Git repo in child https://stackoverflow.com/a/4660048 🗄️ `denv/bin`
 * my use case: sharing dev notes btw personal/work machines, just `.gitignore` subdir and make subdir it's own repo 🗄 `km.md` file system https://github.com/zachvalenta/test-biji https://github.com/zachvalenta/test-keji
@@ -979,10 +937,12 @@ CONSIDERATIONS
 
 FORGES
 * BYO https://github.com/honza/smithy
+* avoid centralization https://gitlab.com/pdfgrep/pdfgrep/-/issues/36#note_2232721446
 * _Bitbucket_: 💀 https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 * _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965
 * _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717
 * now for-profit and licensing issues https://news.ycombinator.com/item?id=34011581
+* _Gitlab_: selling soon https://news.ycombinator.com/item?id=42333052
 * _Gitweb_: built-in GUI for server https://git-scm.com/book/en/v2/Git-on-the-Server-GitWeb
 * _Gogs_: https://gogs.io/
 * _soft-serve_: https://github.com/charmbracelet/soft-serve https://www.youtube.com/watch?v=9xCwBdlo85g
@@ -991,7 +951,6 @@ FORGES
 ---
 
 * https://gemini.nytpu.com/gemlog/2021-03-07.gmi
-* https://github.com/charmbracelet/soft-serve
 * admin setup: create bare repository, scp to server with Git installed, if devs on your team have ssh access to server you're set https://git-scm.com/book/en/v2/Git-on-the-Server-Getting-Git-on-a-Server
 * user setup: add public key
 
@@ -999,7 +958,7 @@ FORGES
 * _snippets_: Gist, pastebin https://softwareengineeringdaily.com/2020/06/08/tilt-kubernetes-tooling-with-dan-bentley/ 46:45
 
 AUTH
-* identity: https://www.micah.soy/posts/setting-up-git-identities/
+* identity: https://www.micah.soy/posts/setting-up-git-identities/ https://news.ycombinator.com/item?id=42233524
 * store credentials using macos Keychain https://gist.github.com/nepsilon/0fd0c779f76d7172f12477ba9d71bb66 https://github.com/thoughtbot/til/blob/master/git/osx-keychain.md
 
 protocols for data transfer https://git-scm.com/book/en/v2/Git-on-the-Server-The-Protocols https://git-scm.com/book/en/v2/GitHub-Account-Setup-and-Configuration
@@ -1020,8 +979,7 @@ git clone https://gitlab.com/zachvalenta/dummy-repo.git  # ❌ yours
 git clone https://gitlab.com/pulphead/film-censorship.git  # ❌ others
 ```
 
-GITLAB
-🔐 tokens and keys https://gist.github.com/zachvalenta/d7187130c63c75aa7ea86465e82198ec 🗄 `gitlab-deploy-token.md` `python.md` libs/Git
+GITLAB TOKENS AND KEYS https://gist.github.com/zachvalenta/d7187130c63c75aa7ea86465e82198ec 🗄 `gitlab-deploy-token.md` `python.md` libs/Git
 |  type        | protocol | ownership     | scope | actions           | notes
 | ------------ | -------- | ------------- | ----- | ---------------   | --------------
 | access token | https    | user          | ?     | API, read, write  | https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#limiting-scopes-of-a-personal-access-token

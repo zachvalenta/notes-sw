@@ -1166,6 +1166,8 @@ def get_config_value(key: str): Optional[str]:
 
 ---
 
+can use as validation before handing over to sqlite3 https://github.com/Zaloog/kanban-tui/blob/main/src/kanban_tui/database.py
+
 DESIGN
 * https://chatgpt.com/c/67115402-236c-8004-b283-04e97eb8c541
 * https://chatgpt.com/c/6711674f-be44-8004-be07-0236079e05c6
@@ -1222,7 +1224,8 @@ USAGE 💡 second-best for everything
 * finance https://www.openbb.co/
 * architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * GPU simulation https://news.ycombinator.com/item?id=40680737
-* game engine https://github.com/kitao/pyxel https://github.com/Broderick-Westrope/tetrigo
+* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo
+* mesh analysis https://github.com/pyvista/pyvista
 * browser https://www.youtube.com/watch?v=Vh77_2-Z0vc
 
 GOVERNANCE

@@ -34,12 +34,12 @@ PG http://paulgraham.com/popular.html
 
 ## benchmark
 
-🎗️ https://danluu.com/anon-benchmark/ https://danluu.com/why-benchmark/
+🎗️ https://danluu.com/anon-benchmark/ https://danluu.com/why-benchmark/ https://jpcamara.com/2024/12/01/speeding-up-ruby.html
 
 LINUX
 * _time_: `/usr/bin/time -v` eetailed output w/ memory stats https://github.com/egoist/dum https://news.ycombinator.com/item?id=30226742
 * _timedatectl_: nanoseconds
-* _hyperfine_: https://github.com/sharkdp/hyperfine
+* _hyperfine_: https://github.com/sharkdp/hyperfine inode caching https://news.ycombinator.com/item?id=42179600
 
 PYTHON
 * https://www.pythonmorsels.com/cli-tools/#timeit
@@ -80,6 +80,7 @@ if __name__=='__main__':
 ## start here
 
 * _path_: heuristic for thinking about what to optimize i.e. 99% of your app's execution branches can probably be pretty slow https://blog.phusion.nl/2018/09/18/migrating-passenger-from-cxx-to-go/
+* https://thume.ca/2023/12/02/tracing-methods/
 * https://blog.miguelgrinberg.com/post/is-python-really-that-slow
 * https://martinheinz.dev/blog/13
 * https://rednafi.com/python/preallocated_list/
@@ -142,6 +143,7 @@ if __name__=='__main__':
 
 ---
 
+* "perf matters": stablizer, memory layout https://www.youtube.com/watch?v=r-TLSBdHe1A
 * BYO https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://pythonspeed.com/articles/custom-python-profiler/
 * statistical profiler https://www.youtube.com/watch?v=d5SGUscT2GA Linux perf https://realpython.com/python312-perf-profiler/ https://github.com/brendangregg/FlameGraph https://hacker-tools.github.io/program-introspection/
 * performance profiler https://www.youtube.com/watch?v=CjG_Ub_gCL4 [2:10]

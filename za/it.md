@@ -106,19 +106,23 @@ TIME MACHINE
 ### mini23 ➡️ exfatmain
 
 MUSIC
+* dru hill
 > songs of the month: Ramones swallow my pride, The Clean i wait around
-* dance: francis harris, jamie xx, danilov, techno
+* dance: francis harris, jamie xx, danilov, techno, Herbert this time
 > za (chemical brothers et al.)
 * electronic: drone
 * far: Aster Aweke
 * jazz: christian scott, alice coltrane, bill frisell, ahmad jamal
 > loud soft loud out of punk + import meat puppets
-* rock: singles, dylan, band, dinosaur jr, dr john to psych, ritter to pop, neil young 75-2002, wilco, fairport convention, punk (minutemen, buzzcocks, cramps, ramones, johnny thunders, elvis costello, sonic youth, death grips)
+* rock: singles, dylan, band, dinosaur jr, dr john to psych, ritter to pop, neil young 75-2002, wilco, fairport convention, punk (minutemen, buzzcocks, cramps, ramones, johnny thunders, elvis costello, sonic youth, death grips), Dehd desire, fugazi
 > 🎗️ Capp 24.11.21-22: pere ubu, public image ltd + kendrick rich
+* rock/80s-jangle: rm the soft boys, The Clean, Pale Saints
 * za/blues: hendrix
 * za/gospel: hank jones
 * bruno mars
 
+* mat/sw: system, ai, vincent django, hogan tmux
+* Evans git, int/bit, containers, dns, bite size networking
 > 📍 clean up DS files `fd -HI DS`
 * 23 taxes
 * golf
@@ -133,8 +137,7 @@ MAT
 
 ### air-capp ➡️ mini23
 
-* electronic: we-as-is, the orb 
-* rock/80s-jangle: The Clean, Pale Saints 📍 smiths
+* Alex Danilov
 
 ## reimage
 
@@ -328,6 +331,7 @@ AUTOS
 
 SELF-HOSTED STREAMING
 * _NAS (network attached storage)_: aka 'home media server' 🗄 `network-know-how.pdf`
+* https://www.youtube.com/watch?v=EYEPIDceoB0 [7:55]
 * https://nicolasbouliane.com/projects/home-server
 * aka home server https://www.youtube.com/watch?v=yFuTAKq_j3Q
 * options (Plex, cmus remote) https://www.youtube.com/results?search_query=cmus+remote&page=&utm_source=opensearch https://www.youtube.com/watch?v=UJw9YU_SBzo https://blog.dave.tf/post/building-nas-1/ https://www.youtube.com/results?search_query=build+a+nas https://www.youtube.com/results?search_query=buy+a+nas https://kevq.uk/my-home-server-2-months-on/

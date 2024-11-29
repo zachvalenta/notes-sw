@@ -248,9 +248,10 @@ LINTING
 ---
 
 CANDIDATES FOR CAPP https://chatgpt.com/c/674796f6-286c-8004-b0d5-6ae4d0decccc
+* Dash
+* https://github.com/finos/perspective https://perspective.finos.org/
+* https://github.com/datasette/datasette-queries
 * Metabase
-
-https://github.com/finos/perspective
 
 * AI / plain English https://news.ycombinator.com/item?id=41907719
 
@@ -262,8 +263,10 @@ TOOLS / DASHBOARDS
 * _Blazer_: https://github.com/ankane/blazer
 * _Briefer_: https://github.com/briefercloud/briefer https://pythonbytes.fm/episodes/show/405/oh-really
 * _csvbase_: 🎯 https://csvbase.com/ https://csvbase.com/blog/10
-* _Dash_: 🎯 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE
+* _Dash_: 🎯 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
 * callback = update chart https://dash.plotly.com/tutorial#controls-and-callbacks
+* https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
+* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable
 * control = hit callback
 * Dash Design Kit (DDK) = no need for HTML/CSS
 * _Dataherald_: query using natural language via LLM https://github.com/Dataherald/dataherald
@@ -338,6 +341,7 @@ OPTIONS
 * _Datagrip_: 🎯 $10/month, ERD https://www.jetbrains.com/datagrip/
 * _Datasette_: 🎯 SQLite only https://github.com/simonw/datasette/issues/670 https://github.com/simonw/datasette-upload-csvs https://github.com/simonw/dclient https://github.com/datasette/datasette-create-view https://github.com/simonw/sqlite-utils-ask https://github.com/datasette/datasette-query-assistant
 * _DBeaver_: OSS, ERD https://dbeaver.io/ https://stackoverflow.com/a/48397209
+* _Outerbase_: 🎯 browser https://github.com/outerbase/studio https://news.ycombinator.com/item?id=42320032
 * _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
 
 FEATURES
@@ -351,6 +355,7 @@ FEATURES
 
 ## 🍞 miller
 
+🗄️ `os/tools.md` string processing
 📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
 
 FILTERING
@@ -402,6 +407,7 @@ filter '$earnings > 0.0' example.csv
 
 ---
 
+usql as alternative https://news.ycombinator.com/item?id=42161987
 🛠️ CLI query https://github.com/neilotoole/sq https://github.com/PeepDB-dev/peepdb
 
 * open with env var: `cli -h`
@@ -425,7 +431,9 @@ filter '$earnings > 0.0' example.csv
 
 ## spreadsheet (Excel)
 
-🗄 `python.md` REPL
+🗄
+* `finance/corporate.md` accounting > tooling
+* `python.md` REPL
 
 DESIGN
 * good REPL for single table https://www.ultorg.com/
@@ -443,7 +451,8 @@ ALTERNATIVES
 * in Python https://pyspread.gitlab.io/ https://news.ycombinator.com/item?id=40284219
 * _IronCalc_: https://news.ycombinator.com/item?id=42095292 https://github.com/ironcalc/ironcalc
 * _rowzero_: https://rowzero.io/ https://grantslatton.com/
-* _pysheets_: uses pyodide https://pysheets.app/about https://realpython.com/podcasts/rpp/226/
+* _pysheets_: 🎯 uses pyodide https://pysheets.app/about https://realpython.com/podcasts/rpp/226/
+* _sc-im_: 🎯 clone TUI https://github.com/andmarti1424/sc-im
 * _visicalc_: predecessor to Lotus123, Excel http://www.paulgraham.com/mac.html
 * _UltOrg_: spreadsheet on top of dbms https://news.ycombinator.com/item?id=30868696 🔍 `Ultorg beta`
 
@@ -489,6 +498,7 @@ HARLEQUIN 📜 https://harlequin.sh
 
 ## ❎ xsv
 
+🗄️ `os/tools.md` string processing
 📜 https://github.com/BurntSushi/xsv
 
 ---
@@ -539,6 +549,8 @@ CONFIG https://github.com/zachvalenta/dotfiles/blob/7f843714b3c3d6eb531dfb292e91
 * fs: `~/.visidatarc` https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata/
 * cache: `~/.visidata`
 * config: `shift o` global options sheet `z shift o` sheet-specific `~/.visidatrc` persistent https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata/
+* turn off status messages https://github.com/saulpw/visidata/issues/2567 https://github.com/saulpw/visidata/issues/2621
+* turn off DOS newline / carriage return https://github.com/saulpw/visidata/issues/387
 
 BROKEN FILE CONVERSION 🚧 file conversion doesn't work
 * using csvkit instead 🗄️ query-sandbox, capp

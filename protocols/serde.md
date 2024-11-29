@@ -19,6 +19,7 @@
 * `algos.md` tree
 * `dbms.md` JSON
 * `python/stdlib.md` serde
+* `telemetry.md` logging
 
 OPERATIONS
 * fmt: `python3 -m json.tool music-lib.json > music-lib-fmt.json` https://orbifold.xyz/check-in-json.html
@@ -200,6 +201,7 @@ DESIGN
 * gaining in popularity https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html#fnref:2 
 * some parsers don't impl escaping rules correctly 📙 Kleppmann 4.145
 * comments: no standard from RFC 4180, parser can set https://stackoverflow.com/a/14428538 https://stackoverflow.com/a/1961018
+* newline / carriage return https://github.com/saulpw/visidata/issues/387
 * _DSV_: same as `.dat` https://en.wikipedia.org/wiki/Delimiter-separated_values https://www.thoughtspot.com/blog/csv-vs-delimited-flat-files-how-choose
 * _TSV_: https://news.ycombinator.com/item?id=40622760
 

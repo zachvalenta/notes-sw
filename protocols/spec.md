@@ -192,7 +192,7 @@ DIGRAPHS
 * digraph: two letters forming single phoneme e.g. "ea" in "bread"
 * __digraph__: Unicode char not on typical keyboard e.g. °∆ http://vimdoc.sourceforge.net/htmldoc/digraph.html#digraph-table
 * specified in RFC 1345 https://datatracker.ietf.org/doc/html/rfc1345
-* `^M` = newline/carriage return
+* `^M` = DOS newline/carriage return; rm with `sed -i '' 's/\r//g'` (can also use vim, tr) 🗄️ `analytics.md` visidata
 
 https://en.wikipedia.org/wiki/Mojibake
 https://terminaltrove.com/lemmeknow/
@@ -302,6 +302,7 @@ https://text.makeup/about/
 * _Unicode_: char set https://stackoverflow.com/a/13212528/6813490 https://github.com/arp242/uni https://www.youtube.com/watch?v=MijmeoH9LT4 https://rentafounder.com/how-to-count-unicode-string-characters/ https://www.dampfkraft.com/ghost-characters.html code point, glyph, octal, hex https://realpython.com/courses/python-unicode/ `unicode-standard.pdf` https://www.joelonsoftware.com/2003/10/08/the-absolute-minimum-every-software-developer-absolutely-positively-must-know-about-unicode-and-character-sets-no-excuses/ https://en.wikipedia.org/wiki/Code_point CLI tool https://github.com/arp242/uni/ in Python https://blog.phylum.io/malicious-actors-use-unicode-support-in-python-to-evade-detection https://news.ycombinator.com/item?id=37735801 https://realpython.com/python-sort-unicode-strings/
 * unicode, emoji in the terminal https://news.ycombinator.com/item?id=37047785
 > Since the distinction between string and unicode has been done away with in Python 3, __unicode__ is gone and __bytes__ (which behaves similarly to __str__ and __unicode__ in 2.7) exists for a new built-in for constructing byte arrays. https://rszalski.github.io/magicmethods/#appendix2
+* Hangul https://news.ycombinator.com/item?id=42228903
 
 ## prefix codes
 
@@ -420,8 +421,21 @@ CASES
 * kebab: `hello-world`
 * camel: `helloWorld`
 * Pascal: `HelloWorld`
+* Sponge Bob: `hElOo wOrLd`
+* Brad: `hello.world`
 
 ## identifiers
+
+TOOLS
+```python
+python -c "import random, string; print('\n'.join(''.join(random.choices(string.ascii_uppercase + string.digits, k=4)) for _ in range(20)))"
+```
+* _pwgen_: Brew https://www.youtube.com/watch?v=G3aH2WYJxGA
+* _shortuuid_: 🎯 https://github.com/lithammer/shortuuid
+* _uuidgen_: https://weiyen.net/articles/useful-macos-cmd-line-utilities
+```sh
+uuidgen | tr '[:upper:]' '[:lower:]' | pbcopy
+```
 
 * _DUNS_: unique for businesses as legal entities; require for government contracts, to be a supplier to big businesses, for SSL certs; e.g. `00-186-7803` for Apple
 * _SKU_: internal to retailer/warehouse; variable length, fmt repr product characteristics/location
@@ -471,11 +485,6 @@ print(f"Full UPC: {full_upc_diet_coke}")
 ---
 
 UUID https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/ https://en.wikipedia.org/wiki/Universally_unique_identifier https://taskwarrior.org/docs/dom/
-```sh
-# https://weiyen.net/articles/useful-macos-cmd-line-utilities
-uuidgen
-uuidgen | tr '[:upper:]' '[:lower:]' | pbcopy
-```
 * version 1: generated from timestamp, monotonic counter, and a MAC address
 > don't use
 * version 2: reserved for security IDs with no known details
@@ -496,6 +505,14 @@ uuidgen | tr '[:upper:]' '[:lower:]' | pbcopy
 
 🔗 https://www.markdownguide.org/
 
+SPEC
+* footnotes https://github.blog/changelog/2021-09-30-footnotes-now-supported-in-markdown-fields/
+```md
+Here is a simple footnote[^1].
+
+[^1]: My reference.
+```
+
 FLAVORS
 * _Djot_: https://djot.net/ https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 * _CommonMark_: https://meta.stackexchange.com/q/348746
@@ -503,6 +520,7 @@ FLAVORS
 * _MyST_: https://github.com/executablebooks/MyST-Parser
 
 PARSERS
+* _micromark_: https://github.com/micromark/micromark
 * _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/ re: Next https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
 * time suck https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
 * _markdown-it-py_: https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
@@ -521,6 +539,7 @@ EDITOR
 
 ---
 
+* https://codehike.org/blog/the-curse-of-markdown
 * writing on mobile, comments for editing https://conroy.org/blogging-on-paper
 * vs. RST https://buttondown.com/hillelwayne/archive/why-i-prefer-rst-to-markdown/
 * use image (w/ Github renderer) https://github.com/catppuccin/python/blob/main/README.md

@@ -2,18 +2,21 @@
 
 ## 参考
 
-📜 https://docs.djangoproject.com/en/stable https://github.com/HackSoftware/Django-Styleguide
-🗣 https://djangochat.com/episodes https://forum.djangoproject.com/
 🧪 https://github.com/zachvalenta?tab=repositories&q=django
+🗣 https://djangochat.com/episodes https://forum.djangoproject.com/ https://groups.google.com/g/django-users
+🍞 starters https://github.com/wsvincent/lithium https://www.saaspegasus.com/
+📜
+* https://docs.djangoproject.com/en/stable
+* https://github.com/HackSoftware/Django-Styleguide
 📚
-* https://www.saaspegasus.com/
-* https://www.manning.com/books/django-in-action
-* Vincent beginners https://treypiepmeier.com/words/2024/08/django-is-for-everyone
-> new edition
-* Vincent professionals
 * Layman https://www.mattlayman.com/understand-django/
+* Trudeau https://www.manning.com/books/django-in-action https://learndjango.com/courses/django-for-beginners https://github.com/wsvincent/djangoforbeginners
+* Vincent beginners (3.0)
+> (no longer available as PDF) https://wsvincent.com/year-in-review-2024/
 
 ## 进步
+
+---
 
 * perf: https://openfolder.sh/django-faster-speed-tutorial
 * in a single file https://github.com/radiac/nanodjango
@@ -327,6 +330,230 @@ class IndexView(generic.ListView):
         return Question.objects.order_by('-pub_date')[:5]
 ```
 
+# ⚙️ CONFIG
+
+---
+
+* https://docs.djangoproject.com/en/stable/topics/settings/
+* https://www.mattlayman.com/understand-django/settings/
+* https://news.ycombinator.com/item?id=40688336
+* https://docs.djangoproject.com/en/stable/ref/settings/
+
+## auth
+
+---
+
+> Django's leaky battery is its recommendation that you create a custom user model. Auth is so central and so standard that, into the high-nines (99.99%?), the vast majority of projects should never need to customise the central auth model. This is a battery that Django should very much provide. There's a complexity tax from exposing the auth model. There's a performance tax as the auth model becomes a generic dumping ground for User related data that has nothing to do with authentication. There's a learning tax as users hit the custom user model, and the (frankly, misplaced) warnings about it's importance. https://github.com/carltongibson/django-unique-user-email
+
+https://github.com/jazzband/django-axes
+* auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas https://testdriven.io/blog/django-rest-authjs/
+* keep track of failed logins https://github.com/jazzband/django-axes
+https://testdriven.io/blog/django-rest-auth/
+https://www.photondesigner.com/articles/email-sign-in
+
+VINCENT
+* basic https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication https://tech.marksblogg.com/passwords-in-django.html
+* login/out https://learndjango.com/tutorials/django-login-and-logout-tutorial
+* signup https://learndjango.com/tutorials/django-signup-tutorial
+* reset https://learndjango.com/tutorials/django-password-reset-tutorial
+* with email https://learndjango.com/tutorials/django-log-in-email-not-username
+
+__approaches__ 搜 'Re: TestDriven.io - new feedback message'
+* built-in https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/ 
+* registration-redux [Osborn 1.10] 
+* all-auth https://wsvincent.com/django-allauth-tutorial/ https://learndjango.com/tutorials/django-allauth-tutorial
+* email https://wsvincent.com/django-login-with-email-not-username/
+* this https://github.com/aaugustin/django-sesame
+> ❓ where does Django look to resolve calls to url pattern names besides `urls.py`? re: https://github.com/zachvalenta/hello-django1/commit/0cd06134c640fb67df03d8f0a54fcb61925b0faa `password_reset_confirm` calls internal urlpattern named `password_reset_complete`; even if we specify a url pattern named `password_reset_complete` in `urls.py` Django will still route to its own internal url pattern of this name (figured out bc when I was following Osborn on reset complete the url route still changed to `accounts/password/reset/complete` vs. her route `accounts/password/complete`)
+
+BUILT-IN
+* _convention > conf_: Django will serve your templates provided they are in `templates/registration` and have the expected name, otherwise will serve its own default https://github.com/zachvalenta/hello-django1/commit/6503b460490fb85f085f3a277fbdd80360291fa0
+
+* `pw_reset_form.html`: prompt email to send reset link [Osborn 72]
+* `pw_reset_done.html`: ack of email sent
+* `pw_reset_email.txt`: email user link to reset
+* `pw_reset_confirm.html`: input new pass; doesn't seem to do any validation re: proximity to previous pw
+* `pw_reset_complete.html`: ack new
+
+REGISTRATION-REDUX
+* _routes_: Registration Redux owns everything under `accounts/` except when overridden by built-in auth [Osborn 1.10.69]
+* sequence diagram
+```
+title Django auth flows w/ Registration Redux
+
+group #orange change (logged in)
+client->server:req reset
+note right of server:validate
+note right of server:update db
+client<-server:ack
+end
+
+group #pink reset (can't login)
+client->server:req reset
+note right of server:update db
+client<-server:email
+
+group #lightgreen registration (new user)
+client->server:input credentials
+note right of server:validate
+note right of server:update db (if not part of reset)
+client<-server:ack
+end
+
+end
+```
+> 💡 RR is just view impl validation logic, so templates need to conform to RR names so that their views can render 
+* _Osborn chapter 10_: `templates/registration/registration_form.html` and `registration_complete.html` are unnecessary, `/accounts/register` is owned by Registration Redux, we link to it from our `base.html` but after that RR calls its own view and renders its own templates, neither of which are overriden by the aforementioned ones
+* _migrations_: let RR know about your user models
+* _URLs_: add base domain to `urls.py` and reference subdomain URL pattern names in templates e.g. `base.html/auth_logout`
+* _views_: you don't interact with these, but presumably implement password constraint validation 
+what is this for? ⬇️
+* 💡 this is a mix of Registration Redux and Django's built-in auth
+* _registration_: `base.html` links to pattern name `registration_register` which is owned by Registration Redux, so clicking that matches the route to which the pattern name is mapped (`accounts/register`) and invokes that pattern's view, which handles the validation logic
+* _login_: `base.html` links to pattern name `auth_login` (route `/accounts/login`) which is owned by Registration Redux, so it calls its own view and renders `registration/login.html` (if we've placed that template in that directory location, that is) --> `login.html` on POST will be handled by the same RR view that renders its GET and if successful will redirect to whatever we've specified in `settings.py/LOGIN_REDIRECT_URL` [Osborn 65]
+* _reset_: `login.html` also kicks off our reset flow with a link to pattern name `password_reset`, which sends out an email using `pw_reset_email.txt` and then calls ` password_reset_done`, which just renders a template to ack; when the user follows the link they've been emailed they'll hit the `password_reset_confirm` view and if their guid is still valid that view will render `password_reset_confirm.html` and allow them to input a new pw (idk if same view is used for validation or if separate validation -only view is hit e.g. doesn't care about link validity) and if everything goes well 
+
+## denv
+
+🗄️ `src.md` denv
+
+---
+
+https://blog.pecar.me/django-tui
+* https://adamj.eu/tech/2021/12/08/pre-order-boost-your-django-dx/
+* https://blog.ovalerio.net/archives/2420
+* reload: watchman instead of django file watcher https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman/ https://github.com/adamchainz/django-browser-reload
+
+DEV SERVER ON REMOTE
+* start cmd: `python manage.py runserver 0.0.0.0:8000`
+* `ALLOWED_HOSTS`: if running on server need to add hostname; `localhost` seems to be implicit https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts https://stackoverflow.com/a/46443432/6813490
+* Docker: set `DEBUG=False` https://stackoverflow.com/a/60832028
+
+🐚 SHELL https://docs.djangoproject.com/en/3.0/ref/django-admin/#shell https://docs.bpython-interpreter.org/en/latest/django.html
+* kill server: https://startcodingnow.com/kill-django-development-server
+```sh
+ps aux | head --lines=1 && ps aux | grep 'manage.py runserver' | kill
+```
+* run script: `./manage.py shell < myscript.py` https://stackoverflow.com/a/16853799
+* run script w/ env: https://django-extensions.readthedocs.io/en/latest/runscript.html https://www.b-list.org/weblog/2007/sep/22/standalone-django-scripts/
+* autload models: `poetry run python manage.py shell_plus --bpython` https://django-extensions.readthedocs.io/en/latest/shell_plus.html
+* `dbshell`: passes env var from `settings.py` to default CLI for dbms; https://github.com/dbcli/pgcli.com/blob/2f7a5aac0a9f5fa81670019301a12e9394a416da/content/django-pgcli.md 
+
+🩻 SYSTEM CHECK
+* https://github.com/metalogico/django-sonar
+* https://adamj.eu/tech/2024/03/23/django-optimizing-system-checks/
+* introspection for coding standards https://lukeplant.me.uk/blog/posts/enforcing-conventions-in-django-projects-with-introspection/
+* https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
+
+## project structure
+
+* https://www.mostlypython.com/django-from-first-principles/ https://news.ycombinator.com/item?id=40140396
+* https://noumenal.es/notes/django/single-folder-layout/
+* `django-admin`: CLI for project https://docs.djangoproject.com/en/3.0/ref/django-admin/
+* `manage.py`: CLI for app https://docs.djangoproject.com/en/3.0/ref/django-admin/
+* _project_: thing w/ settings.py https://stackoverflow.com/q/50090341 create (`django-admin startproject <name> .`)
+* _app_: unit of functionality https://forum.djangoproject.com/t/why-do-we-need-apps/827 don't overdo it https://news.ycombinator.com/item?id=26492798
+* check https://docs.djangoproject.com/en/3.0/ref/django-admin/#check https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
+* different ways to structure https://learndjango.com/tutorials/hello-world-5-different-ways
+* create `django-admin startapp <name>` https://hellowebbooks.com/setup/ `python manage.py startapp <name>` https://djangoforbeginners.com/hello-world/
+* multiple ways to register app with project https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api https://wsvincent.com/django-rest-framework-tutorial/
+* naming conventions https://stackoverflow.com/a/3101894
+* people are too keen to make everything an app https://news.ycombinator.com/item?id=26492043
+* API in own app https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api in main app https://wsvincent.com/django-rest-framework-tutorial/
+
+## security
+
+---
+
+https://snyk.io/blog/django-security-tips
+* throttle auth
+* don't use raw queries
+* cookies over HTTPS
+* no user uploads https://news.ycombinator.com/item?id=40221210
+* mv admin url from `/admin/`; csrf = necessary for stuff w/ `POST` [📙 Osborn 1 9.59] 
+* https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/web_application_security
+* https://www.mattlayman.com/understand-django/secure-apps
+* https://www.ponycheckup.com/ https://www.youtube.com/watch?v=8W4MGggwgfM https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/web_application_security generate secret key https://humberto.io/blog/tldr-generate-django-secret-key https://github.com/jamesturk/django-honeypot https://learndjango.com/tutorials/django-search-tutorial
+
+## settings
+
+* `settings.py`: just a Python module w/ buncha attributes; fmt installed apps same as imports https://wsvincent.com/django-rest-framework-tutorial/ uses pathlib as of 3.1 https://learndjango.com/tutorials/whats-new-django-31
+* https://adamj.eu/tech/2022/11/24/django-settings-patterns-to-avoid/
+* use OS https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment
+* django-environ https://github.com/joke2k/django-environ
+* python-dotenv https://www.untangled.dev/2020/05/31/django-environment-variables/
+
+```conf
+# dev
+ENV=dev
+SQLITE_DB_FILE="local.db"
+
+# prod
+ENV=prod
+HOST=db
+PORT=5432
+NAME=postgres
+USER=postgres
+PASSWORD=postgres
+```
+```python
+# https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
+from dotenv import load_dotenv
+load_dotenv()
+if os.getenv("APP_ENV") == "dev":
+    DEBUG = True
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": os.path.join(BASE_DIR, os.getenv("SQLITE_DB_FILE"))
+        }
+    }
+if os.getenv("APP_ENV") == "prod":
+    DEBUG = False
+    DATABASES = {
+        "default": {
+            "ENGINE": 'django.db.backends.postgresql',
+            "HOST": os.getenv("HOST"),
+            "PORT": os.getenv("PORT"),
+            "NAME": os.getenv("NAME"),
+            "USER": os.getenv("USER"),
+            "PASSWORD": os.getenv("PASSWORD"),
+        }
+    }
+```
+
+## static files
+
+* `collectstatic`: rifle through `static` of each app and copy assets to project-level `static` https://www.smashingmagazine.com/2020/06/django-highlights-wrangling-static-assets-media-files-part-4/
+* default is app-level `static` dir but everyone uses project-level directory `static` dir
+* in production: WhiteNoise handles first request and subsequent hit Cloudflare cache https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#49:30 S3 https://0of1.com/blog/posts/django-staples/ https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/ https://www.youtube.com/watch?v=E613X3RBegI more cache https://testdriven.io/blog/django-low-level-cache https://news.ycombinator.com/item?id=30324608
+```python
+# this is where admin static images are located -> django/contrib/admin/static/admin/img/icon-addlink.svg
+# idk how it works but maybe something to do with installed_apps
+INSTALLED_APPS = [
+    "django.contrib.admin",
+    "django.contrib.staticfiles",
+]
+```
+
+## users
+
+🗄 `security.md` users
+
+* email https://github.com/carltongibson/django-unique-user-email
+* https://github.com/zsoldosp/django-currentuser
+* custom user model https://brntn.me/blog/six-things-i-do-every-time-i-start-a-django-project/
+* https://simpleisbetterthancomplex.com/article/2021/07/08/what-you-should-know-about-the-django-user-model.html
+* groups https://github.com/bennylope/django-organizations
+* automate admin user creation https://stackoverflow.com/a/26091252
+* mimic user's account https://www.mattlayman.com/blog/2020/hijack-to-help-customers/
+* referencing user model https://learndjango.com/tutorials/django-best-practices-referencing-user-model
+* _default_: `AbstactUser` + `PermissionsMixin` https://www.youtube.com/watch?v=458KmAKq0bQ @ 14:10 follows first-last antipattern 🗄 `db.md` 'modeling' https://www.youtube.com/watch?v=458KmAKq0bQ
+* `AbstractUser`: everything from default user model except `PermissionsMixin`
+* `AbstractBaseUser`: gives you pw and last_login, necessary for pw refresh tokens https://www.youtube.com/watch?v=458KmAKq0bQ @ 14:00 
+* _custom model_: use from start, harder to bolt on afterwards https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/ https://learndjango.com/tutorials/django-custom-user-model https://learndjango.com/tutorials/django-custom-user-model
+* _permissions_: https://learndjango.com/tutorials/django-best-practices-user-permissions https://wsvincent.com/django-tips-user-permissions/ https://coderbook.com/@marcus/how-to-restrict-access-with-django-permissions https://testdriven.io/blog/drf-permissions/
+* _sink_: https://testdriven.io/blog/django-custom-user-model/ https://wsvincent.com/django-referencing-the-user-model/ https://wsvincent.com/django-custom-user-model-tutorial/ https://wsvincent.com/django-tips-custom-user-model https://testdriven.io/blog/django-custom-user-model/ https://www.roguelynn.com/words/django-custom-user-models/
 # 🍱 DB
 
 🗄 `sql.md` SQLAlchemy
@@ -387,6 +614,7 @@ how to
 
 * TUI https://github.com/valberg/django-admin-tui
 * theme https://github.com/sjbitcode/django-admin-dracula
+* management commands https://adamj.eu/tech/2024/08/14/django-management-command-sub-commands/
 * https://github.com/cuducos/django-public-admin
 * https://github.com/simonw/django-sql-dashboard
 * https://roman.pt/posts/django-admin-and-service-layer/
@@ -617,187 +845,25 @@ misc
 
 📰 GOVERNANCE / COMMUNITY
 * creators: Simon https://news.ycombinator.com/user?id=simonw Adrian https://www.soundslice.com/ Jacob https://jacobian.org/ Andrew Godwin (did south and migrations)
-* versions: https://www.codestasis.com/
 * history https://jacobian.org/2024/mar/20/django-chat/ https://buttondown.com/carlton/archive/thoughts-on-djangos-core/
 * alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016
+* versions: https://www.codestasis.com/
+> Django 5.0 was released in December 2023...Django's versioning policy is time-based rather than feature-based. Roughly every eight months, a new feature release occurs, along with monthly bug fixes and security patches as needed...meaning you can expect Django 5.1 in August 2024, Django 5.2 in April 2025, Django 6.0 in December 2025, and so on. Django has such a large and active community of contributors that the decision was made years ago to focus on regular rollouts rather than wait for specific features to be completed...Specific releases (those that end in .2, like Django 5.2 and 6.2) are designated as long-term support (LTS) releases and receive security and data loss fixes applied for a guaranteed period, typically three years. This policy is designed for larger companies struggling to keep up with Django's rapid release schedule. https://learndjango.com/courses/django-for-beginners/introduction/
 * _DSF_: admin https://wsvincent.com/how-django-works-behind-the-scenes/ 501 non-profit https://www.b-list.org/weblog/2018/nov/20/core/
 * _DEP_: PEP for Django https://github.com/django/deps
 * _fellows_: paid devs https://www.b-list.org/weblog/2018/nov/20/core/
 * _technical board_: engineering; replaced core teams https://jacobian.org/2020/mar/12/django-governance/
 
-SIGNALS https://docs.djangoproject.com/en/5.0/topics/signals/
-* https://blinker.readthedocs.io/en/stable/
-* _signals_: emit/consume msgs (btw separate Django apps) e.g. pre/post-save https://stackoverflow.com/a/17658156
-* are not async i.e. consumer(s) must finish before further execution https://www.mattlayman.com/blog/2023/django-signals-async/
-* hooks as replacement https://monadical.com/posts/django-packages.html
-
 ---
 
 * deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge
-* management commands https://adamj.eu/tech/2024/08/14/django-management-command-sub-commands/
-
-## auth
-
----
-
-> Django's leaky battery is its recommendation that you create a custom user model. Auth is so central and so standard that, into the high-nines (99.99%?), the vast majority of projects should never need to customise the central auth model. This is a battery that Django should very much provide. There's a complexity tax from exposing the auth model. There's a performance tax as the auth model becomes a generic dumping ground for User related data that has nothing to do with authentication. There's a learning tax as users hit the custom user model, and the (frankly, misplaced) warnings about it's importance. https://github.com/carltongibson/django-unique-user-email
-
-https://github.com/jazzband/django-axes
-* auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas https://testdriven.io/blog/django-rest-authjs/
-* keep track of failed logins https://github.com/jazzband/django-axes
-https://testdriven.io/blog/django-rest-auth/
-https://www.photondesigner.com/articles/email-sign-in
-
-VINCENT
-* basic https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication https://tech.marksblogg.com/passwords-in-django.html
-* login/out https://learndjango.com/tutorials/django-login-and-logout-tutorial
-* signup https://learndjango.com/tutorials/django-signup-tutorial
-* reset https://learndjango.com/tutorials/django-password-reset-tutorial
-* with email https://learndjango.com/tutorials/django-log-in-email-not-username
-
-__approaches__ 搜 'Re: TestDriven.io - new feedback message'
-* built-in https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/ 
-* registration-redux [Osborn 1.10] 
-* all-auth https://wsvincent.com/django-allauth-tutorial/ https://learndjango.com/tutorials/django-allauth-tutorial
-* email https://wsvincent.com/django-login-with-email-not-username/
-* this https://github.com/aaugustin/django-sesame
-> ❓ where does Django look to resolve calls to url pattern names besides `urls.py`? re: https://github.com/zachvalenta/hello-django1/commit/0cd06134c640fb67df03d8f0a54fcb61925b0faa `password_reset_confirm` calls internal urlpattern named `password_reset_complete`; even if we specify a url pattern named `password_reset_complete` in `urls.py` Django will still route to its own internal url pattern of this name (figured out bc when I was following Osborn on reset complete the url route still changed to `accounts/password/reset/complete` vs. her route `accounts/password/complete`)
-
-BUILT-IN
-* _convention > conf_: Django will serve your templates provided they are in `templates/registration` and have the expected name, otherwise will serve its own default https://github.com/zachvalenta/hello-django1/commit/6503b460490fb85f085f3a277fbdd80360291fa0
-
-* `pw_reset_form.html`: prompt email to send reset link [Osborn 72]
-* `pw_reset_done.html`: ack of email sent
-* `pw_reset_email.txt`: email user link to reset
-* `pw_reset_confirm.html`: input new pass; doesn't seem to do any validation re: proximity to previous pw
-* `pw_reset_complete.html`: ack new
-
-REGISTRATION-REDUX
-* _routes_: Registration Redux owns everything under `accounts/` except when overridden by built-in auth [Osborn 1.10.69]
-* sequence diagram
-```
-title Django auth flows w/ Registration Redux
-
-group #orange change (logged in)
-client->server:req reset
-note right of server:validate
-note right of server:update db
-client<-server:ack
-end
-
-group #pink reset (can't login)
-client->server:req reset
-note right of server:update db
-client<-server:email
-
-group #lightgreen registration (new user)
-client->server:input credentials
-note right of server:validate
-note right of server:update db (if not part of reset)
-client<-server:ack
-end
-
-end
-```
-> 💡 RR is just view impl validation logic, so templates need to conform to RR names so that their views can render 
-* _Osborn chapter 10_: `templates/registration/registration_form.html` and `registration_complete.html` are unnecessary, `/accounts/register` is owned by Registration Redux, we link to it from our `base.html` but after that RR calls its own view and renders its own templates, neither of which are overriden by the aforementioned ones
-* _migrations_: let RR know about your user models
-* _URLs_: add base domain to `urls.py` and reference subdomain URL pattern names in templates e.g. `base.html/auth_logout`
-* _views_: you don't interact with these, but presumably implement password constraint validation 
-what is this for? ⬇️
-* 💡 this is a mix of Registration Redux and Django's built-in auth
-* _registration_: `base.html` links to pattern name `registration_register` which is owned by Registration Redux, so clicking that matches the route to which the pattern name is mapped (`accounts/register`) and invokes that pattern's view, which handles the validation logic
-* _login_: `base.html` links to pattern name `auth_login` (route `/accounts/login`) which is owned by Registration Redux, so it calls its own view and renders `registration/login.html` (if we've placed that template in that directory location, that is) --> `login.html` on POST will be handled by the same RR view that renders its GET and if successful will redirect to whatever we've specified in `settings.py/LOGIN_REDIRECT_URL` [Osborn 65]
-* _reset_: `login.html` also kicks off our reset flow with a link to pattern name `password_reset`, which sends out an email using `pw_reset_email.txt` and then calls ` password_reset_done`, which just renders a template to ack; when the user follows the link they've been emailed they'll hit the `password_reset_confirm` view and if their guid is still valid that view will render `password_reset_confirm.html` and allow them to input a new pw (idk if same view is used for validation or if separate validation -only view is hit e.g. doesn't care about link validity) and if everything goes well 
-
-## config
-
-📜 https://docs.djangoproject.com/en/stable/topics/settings/ https://docs.djangoproject.com/en/stable/ref/settings/ https://www.mattlayman.com/understand-django/settings/
-
-https://news.ycombinator.com/item?id=40688336
-
-* `settings.py`: just a Python module w/ buncha attributes; fmt installed apps same as imports https://wsvincent.com/django-rest-framework-tutorial/ uses pathlib as of 3.1 https://learndjango.com/tutorials/whats-new-django-31
-* https://adamj.eu/tech/2022/11/24/django-settings-patterns-to-avoid/
-* use OS https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment
-* django-environ https://github.com/joke2k/django-environ
-* python-dotenv https://www.untangled.dev/2020/05/31/django-environment-variables/
-
-```conf
-# dev
-ENV=dev
-SQLITE_DB_FILE="local.db"
-
-# prod
-ENV=prod
-HOST=db
-PORT=5432
-NAME=postgres
-USER=postgres
-PASSWORD=postgres
-```
-```python
-# https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
-from dotenv import load_dotenv
-load_dotenv()
-if os.getenv("APP_ENV") == "dev":
-    DEBUG = True
-    DATABASES = {
-        "default": {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": os.path.join(BASE_DIR, os.getenv("SQLITE_DB_FILE"))
-        }
-    }
-if os.getenv("APP_ENV") == "prod":
-    DEBUG = False
-    DATABASES = {
-        "default": {
-            "ENGINE": 'django.db.backends.postgresql',
-            "HOST": os.getenv("HOST"),
-            "PORT": os.getenv("PORT"),
-            "NAME": os.getenv("NAME"),
-            "USER": os.getenv("USER"),
-            "PASSWORD": os.getenv("PASSWORD"),
-        }
-    }
-```
 
 ## design
 
+https://treypiepmeier.com/words/2024/08/django-is-for-everyone
 https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
 https://lukeplant.me.uk/blog/posts/mvc-is-not-a-helpful-analogy-for-django/
 https://lukeplant.me.uk/
-
-## denv
-
-🗄️ `src.md` denv
-
----
-
-https://blog.pecar.me/django-tui
-* https://adamj.eu/tech/2021/12/08/pre-order-boost-your-django-dx/
-* https://blog.ovalerio.net/archives/2420
-* reload: watchman instead of django file watcher https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman/ https://github.com/adamchainz/django-browser-reload
-
-DEV SERVER ON REMOTE
-* start cmd: `python manage.py runserver 0.0.0.0:8000`
-* `ALLOWED_HOSTS`: if running on server need to add hostname; `localhost` seems to be implicit https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts https://stackoverflow.com/a/46443432/6813490
-* Docker: set `DEBUG=False` https://stackoverflow.com/a/60832028
-
-🐚 SHELL https://docs.djangoproject.com/en/3.0/ref/django-admin/#shell https://docs.bpython-interpreter.org/en/latest/django.html
-* kill server: https://startcodingnow.com/kill-django-development-server
-```sh
-ps aux | head --lines=1 && ps aux | grep 'manage.py runserver' | kill
-```
-* run script: `./manage.py shell < myscript.py` https://stackoverflow.com/a/16853799
-* run script w/ env: https://django-extensions.readthedocs.io/en/latest/runscript.html https://www.b-list.org/weblog/2007/sep/22/standalone-django-scripts/
-* autload models: `poetry run python manage.py shell_plus --bpython` https://django-extensions.readthedocs.io/en/latest/shell_plus.html
-* `dbshell`: passes env var from `settings.py` to default CLI for dbms; https://github.com/dbcli/pgcli.com/blob/2f7a5aac0a9f5fa81670019301a12e9394a416da/content/django-pgcli.md 
-
-🩻 SYSTEM CHECK
-* https://github.com/metalogico/django-sonar
-* https://adamj.eu/tech/2024/03/23/django-optimizing-system-checks/
-* introspection for coding standards https://lukeplant.me.uk/blog/posts/enforcing-conventions-in-django-projects-with-introspection/
-* https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
 
 ## libs
 
@@ -835,50 +901,6 @@ https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-djan
 * _tracing_: https://github.com/dabapps/django-log-request-id
 * _type checking_ https://sobolevn.me/2019/08/typechecking-django-and-drf
 
-## project structure
-
-* https://www.mostlypython.com/django-from-first-principles/ https://news.ycombinator.com/item?id=40140396
-* https://noumenal.es/notes/django/single-folder-layout/
-* `django-admin`: CLI for project https://docs.djangoproject.com/en/3.0/ref/django-admin/
-* `manage.py`: CLI for app https://docs.djangoproject.com/en/3.0/ref/django-admin/
-* _project_: thing w/ settings.py https://stackoverflow.com/q/50090341 create (`django-admin startproject <name> .`)
-* _app_: unit of functionality https://forum.djangoproject.com/t/why-do-we-need-apps/827 don't overdo it https://news.ycombinator.com/item?id=26492798
-* check https://docs.djangoproject.com/en/3.0/ref/django-admin/#check https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
-* different ways to structure https://learndjango.com/tutorials/hello-world-5-different-ways
-* create `django-admin startapp <name>` https://hellowebbooks.com/setup/ `python manage.py startapp <name>` https://djangoforbeginners.com/hello-world/
-* multiple ways to register app with project https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api https://wsvincent.com/django-rest-framework-tutorial/
-* naming conventions https://stackoverflow.com/a/3101894
-* people are too keen to make everything an app https://news.ycombinator.com/item?id=26492043
-* API in own app https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api in main app https://wsvincent.com/django-rest-framework-tutorial/
-
-## security
-
----
-
-https://snyk.io/blog/django-security-tips
-* throttle auth
-* don't use raw queries
-* cookies over HTTPS
-* no user uploads https://news.ycombinator.com/item?id=40221210
-* mv admin url from `/admin/`; csrf = necessary for stuff w/ `POST` [📙 Osborn 1 9.59] 
-* https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/web_application_security
-* https://www.mattlayman.com/understand-django/secure-apps
-* https://www.ponycheckup.com/ https://www.youtube.com/watch?v=8W4MGggwgfM https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/web_application_security generate secret key https://humberto.io/blog/tldr-generate-django-secret-key https://github.com/jamesturk/django-honeypot https://learndjango.com/tutorials/django-search-tutorial
-
-## static files
-
-* `collectstatic`: rifle through `static` of each app and copy assets to project-level `static` https://www.smashingmagazine.com/2020/06/django-highlights-wrangling-static-assets-media-files-part-4/
-* default is app-level `static` dir but everyone uses project-level directory `static` dir
-* in production: WhiteNoise handles first request and subsequent hit Cloudflare cache https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#49:30 S3 https://0of1.com/blog/posts/django-staples/ https://testdriven.io/blog/storing-django-static-and-media-files-on-amazon-s3/ https://www.youtube.com/watch?v=E613X3RBegI more cache https://testdriven.io/blog/django-low-level-cache https://news.ycombinator.com/item?id=30324608
-```python
-# this is where admin static images are located -> django/contrib/admin/static/admin/img/icon-addlink.svg
-# idk how it works but maybe something to do with installed_apps
-INSTALLED_APPS = [
-    "django.contrib.admin",
-    "django.contrib.staticfiles",
-]
-```
-
 ## templates
 
 ---
@@ -907,6 +929,15 @@ TEMPLATES = [{ 'DIRS': [os.path.join(BASE_DIR, 'templates')] }]
 # render with context
 return render(request, 'thing_detail.html', context={'thing':thing})
 ```
+
+## signals
+
+https://docs.djangoproject.com/en/5.0/topics/signals/
+
+* https://blinker.readthedocs.io/en/stable/
+* _signals_: emit/consume msgs (btw separate Django apps) e.g. pre/post-save https://stackoverflow.com/a/17658156
+* are not async i.e. consumer(s) must finish before further execution https://www.mattlayman.com/blog/2023/django-signals-async/
+* hooks as replacement https://monadical.com/posts/django-packages.html
 
 ## testing
 
@@ -952,22 +983,3 @@ python3 manage.py test app.tests.mod  # module
 python3 manage.py test app.tests.mod.cls  # class
 python3 manage.py test app.tests.tests.mod.cls:my_method  # method
 ```
-
-## users
-
-🗄 `security.md` users
-
-* email https://github.com/carltongibson/django-unique-user-email
-* https://github.com/zsoldosp/django-currentuser
-* custom user model https://brntn.me/blog/six-things-i-do-every-time-i-start-a-django-project/
-* https://simpleisbetterthancomplex.com/article/2021/07/08/what-you-should-know-about-the-django-user-model.html
-* groups https://github.com/bennylope/django-organizations
-* automate admin user creation https://stackoverflow.com/a/26091252
-* mimic user's account https://www.mattlayman.com/blog/2020/hijack-to-help-customers/
-* referencing user model https://learndjango.com/tutorials/django-best-practices-referencing-user-model
-* _default_: `AbstactUser` + `PermissionsMixin` https://www.youtube.com/watch?v=458KmAKq0bQ @ 14:10 follows first-last antipattern 🗄 `db.md` 'modeling' https://www.youtube.com/watch?v=458KmAKq0bQ
-* `AbstractUser`: everything from default user model except `PermissionsMixin`
-* `AbstractBaseUser`: gives you pw and last_login, necessary for pw refresh tokens https://www.youtube.com/watch?v=458KmAKq0bQ @ 14:00 
-* _custom model_: use from start, harder to bolt on afterwards https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/ https://learndjango.com/tutorials/django-custom-user-model https://learndjango.com/tutorials/django-custom-user-model
-* _permissions_: https://learndjango.com/tutorials/django-best-practices-user-permissions https://wsvincent.com/django-tips-user-permissions/ https://coderbook.com/@marcus/how-to-restrict-access-with-django-permissions https://testdriven.io/blog/drf-permissions/
-* _sink_: https://testdriven.io/blog/django-custom-user-model/ https://wsvincent.com/django-referencing-the-user-model/ https://wsvincent.com/django-custom-user-model-tutorial/ https://wsvincent.com/django-tips-custom-user-model https://testdriven.io/blog/django-custom-user-model/ https://www.roguelynn.com/words/django-custom-user-models/

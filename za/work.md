@@ -163,6 +163,7 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 > I wouldn't be a hacker at heart if I wasn't willing to spend a few hours automating a task that takes 3 extra seconds. https://eli.thegreenplace.net/2018/command-line-autocomplete-for-go-documentation/
 
 * dang https://news.ycombinator.com/newsguidelines.html https://news.ycombinator.com/item?id=42057647
+> All: if you're going to comment, please make sure you're following the site guidelines (https://news.ycombinator.com/newsguidelines.html). That means posting out of curiosity, not indignation. Internet indignation is addictive, repetitive, and boring (and there's already too much of it here). https://news.ycombinator.com/item?id=42301128
 * https://danluu.com/hn-comments/
 * big kids https://news.ycombinator.com/item?id=41970407
 * https://news.ycombinator.com/item?id=41966197
@@ -210,6 +211,7 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 * https://pragprog.com/titles/vbfoss/business-success-with-open-source/
 
 * more broken builds than enterprise https://danluu.com/broken-builds/
+* how to screw up a project and how to fork a project https://github.com/ActiveState/appdirs/issues/79 https://github.com/tox-dev/platformdirs
 
 ---
 
@@ -286,7 +288,6 @@ STRENGTHS AND WEAKNESSES
 * _mistakes_: no (never accidentally dropped tables or taken down services) yes (scoping stories, which is why I'm now determined to have the smallest possible tickets)
 * _staying up to date_: devs (newsletter for Python, Django, Golang, podcasts) https://www.thoughtworks.com/radar 🗄 keeping up
 * _good leader_: point guard https://news.ycombinator.com/item?id=20236685
-> I've spent a lot of time asking about why things are the way they are, both in areas where things are working well, and in areas where things are going badly. Where things are going badly, everyone has ideas. But where things are going well...almost no one has any idea why things work. It's magic. If you ask, people will literally tell you that it seems really similar to some other place they've worked, except that things are magically good instead of being terrible for reasons they don't understand. https://danluu.com/wat/
 
 ## questions
 
@@ -327,7 +328,7 @@ CAREER ADVICE
 > Worse still, anything you work on changes you. If you work too long on tedious stuff, it will rot your brain. And the best paying jobs are most dangerous, because they require your full attention. http://www.paulgraham.com/love.html
 * strong interest is a skill http://paulgraham.com/hwh.html
 * be top 25% in two domains https://scholars-stage.org/how-to-save-the-institutional-humanities/
-> McKenzie says the sam 
+> McKenzie says the same
 * http://paulgraham.com/fn.html
 > seek out organizations and types of work where getting the right answer matters more than preserving social harmony. In practice that means small groups working on hard problems. Which fortunately is the most fun kind of environment anyway.
 > In the past century we've seen a continuous transfer of power from dealmakers to technicians — from the charismatic to the competent.
@@ -404,9 +405,13 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 
 🗄 `sjk/jobs`
 
+---
+
+Send Byrne/The Diff my updated skill set.
+
 COMPANIES
-- [ ] steady: Capp USA
-- [ ] reach: Composer
+* Perpay
+* Composer
 > who else? Palantir https://news.ycombinator.com/item?id=41855006 https://www.thediff.co/archive/longreads-open-thread-97/A https://registerspill.thorstenball.com/p/joy-and-curiosity-11
 
 NETWORK
@@ -456,6 +461,8 @@ One thing I think I do well is technical communication. This shows up in:
 ## resume
 
 ---
+
+Things I can do:...I only want to be in the trenches.
 
 https://bitfieldconsulting.com/books/horrible https://bitfieldconsulting.com/posts/master-domain
 

@@ -6,6 +6,11 @@
 
 ## 进步
 
+DOCKER / KAMAL/ IAAS
+* downtime from docker compose (just for restart, and potentially longer if err) https://www.youtube.com/watch?v=fuZoxuBiL9o
+
+---
+
 https://www.youtube.com/watch?v=x4k1XEjNzYQ
 workflow engine or task queue https://news.ycombinator.com/item?id=34163888 https://www.reddit.com/r/golang/comments/1as23yb/when_to_use_a_workflow_tool_temporal_vs_a_job/ https://www.inngest.com/blog/how-durable-workflow-engines-work https://www.reddit.com/r/golang/comments/xa25ed/workflow_engine_vs_task_queue/
 
@@ -27,7 +32,7 @@ workflow engine or task queue https://news.ycombinator.com/item?id=34163888 http
 * _cloud-native_: dependent on cloud services
 * _lift-and-shift_: on-prem but on a dumb cloud instance
 > Did you have one huge server in the office? Well, now you get one huge server in AWS EC2 and copy your app to it. You’ll also pay extreme prices for that privilege.
-* _stack-native_: on-prem but on a smart cloud instance https://www.youtube.com/watch?v=fuZoxuBiL9o
+* _stack-native_: on-prem but on a smart cloud instance
 > Here’s the crazy part. All of our infrastructure is running on one medium-sized server in a US-based data center from Hetzner. We have a single 8 CPU / 16 GB RAM server that we partition up across 17 apps and databases using docker. Most of these apps are as simple or simpler than the stack-native diagram above. For this entire setup, including bandwidth, we pay $65/month. That’s $25/mo for the server and another $40 for bandwidth. I just finished doing some tentative load testing using the amazing Locust.io framework. At its peak, this setup running Nginx + Granian + Python + Pyramid + MongoDB would handle over 100M Python requests / month. For $25. In contrast, what would this setup cost in AWS? Well, the server is about $205 / month. The bandwidth out of that server is another $100/mo. If we put all our bandwidth through AWS (for example mp3s and videos through S3) the price jumps up by another whopping $921. This brings the total to $1,226/mo. The contrast is stark. If we chose cloud-native, we’d be tied into cloud-front, EKS, S3, EC2, etc. That’s the way you use the cloud, you noobie. Let’ the company cover the monthly costs. But stack-native can move. We can run it in Digital Ocean for a few years as we did. When a company like Hetzner opens a data center in the US with 1/6th pricing, we can take our setup and move. The hardest part of this is Let’s Encrypt and DNS. There is nearly zero lock-in.
 
 ## cost control
@@ -122,7 +127,6 @@ TAXONOMY https://www.youtube.com/watch?v=NhDYbskXRgc [48:00]
 
 STATIC SITE
 * _AWS_: https://brandur.org/aws-intrinsic-static S3 and Cloudfront https://www.benkuhn.net/about/ https://github.com/s3tools/s3cmd s3-website https://bedford.io/misc/about/
-* _Firebase_: https://tinyprojects.dev/projects/tiny_website
 * _Github_: source has to be public
 * _pico_: https://pico.sh/pgs
 * _Netlify_: https://wsvincent.com/site-design/ https://adamwathan.me/uses/
@@ -139,55 +143,39 @@ STATIC SITE
 
 ## PaaS
 
-OPTIONS https://testdriven.io/blog/heroku-alternatives/
-* _Coolify_: https://coolify.io/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
-* _Dokku_: 🎯 https://github.com/dokku/dokku https://dokku.com/
-* _Fly.io_: 🎯 https://www.youtube.com/watch?v=0eP98xkLj9w
-* _Kamal_: 🎯 https://kamal-deploy.org/
-> Rare opening to join our excellent ops team. Help us run Basecamp, HEY, and the heritage suite of apps on our own hardware with Kamal, MySQL, ElasticSearch, Prometheus, Grafana, KVM, Chef. https://x.com/dhh/status/1848544864436162705
-* _Knative_: https://knative.dev/docs/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
-* _Netlify_: 
-* _Piku_: 🎯 6k https://github.com/piku/piku
-* _Render_: https://dashboard.render.com/
-* metabase deploy failed bc free-tier instance didn't have enough memory https://dashboard.render.com/project/prj-ct4ro05umphs73e7nfjg
-* _Platform.sh_:
-* _PythonAnywhere_: https://www.pythonanywhere.com/
-* _Railway_: https://railway.app/ https://docs.railway.app/guides/gin
-* _Sidekick_: 🎯 https://github.com/MightyMoud/sidekick https://news.ycombinator.com/item?id=41591018
-* _sst_: 🎯 https://sst.dev/
-* _Tau_: https://github.com/taubyte/tau
-* _Vercel_: https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
-
----
-
+DESIGN
+* simplicity
 > With something like Heroku, you can have multiple VM's in staging and production, w/ a deployment pipeline that supports rollbacks, monitoring, alerting, autoscaling, all in a managed environment w/ a managed, highly available Postgres setup, with very little effort and 0 maintenance. This is what I've setup at my current startup. My last company was on K8's and I loved it - but this is nearly as good and requires literally no maintenance and far less expertise / setup. https://news.ycombinator.com/item?id=22493873 
-relisten from 29:30 for limitations https://softwareengineeringdaily.com/2019/06/17/render-high-level-cloud-with-anurag-goel/
-> my playbook: Heroku for experiments, Render for most work, AWS for work
-
-HEROKU
-
-cmd
-* login: `login`
-* create app: `create`
-* push: `git push heroku master` [Vincent 📍]
-* start: `ps:scale web=1` [Vincent 📍]
-* open: `open`
-* stop: `ps:scale web=0` https://stackoverflow.com/a/10231477/6813490
-
-* https://www.accordbox.com/blog/deploy-django-project-heroku-using-docker/
-* _pricing_: 2GB RAM is hundreds of dollars; they're owned by Salesforce now https://softwareengineeringdaily.com/2019/06/17/render-high-level-cloud-with-anurag-goel/ 29:15
-* _dyno_: VM running on top of EC2 instance https://stackoverflow.com/questions/21462439/what-exactly-is-a-single-heroku-web-dyno
-* _Git_: seems like when you're logged Heroku automatically becomes a Git remote [Vincent page 📍]
-* _scale_: serves 2M req/month pretty easily https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around
-* _virtual environments_: doesn't support Poetry yet https://github.com/heroku/heroku-buildpack-python/issues/796 need `requirements.txt` in root https://devcenter.heroku.com/articles/python-support#recognizing-a-python-app https://devcenter.heroku.com/articles/python-support#build-behavior
-* _Python version_: `runtime.txt` https://devcenter.heroku.com/articles/python-runtimes#selecting-a-runtime
-
-* analogous to `docker-compose.yml` https://www.mattlayman.com/blog/2019/web-development-environments/
+* built on larger cloud providers e.g. Heroku dyno just VM running on top of EC2 instance https://stackoverflow.com/questions/21462439/what-exactly-is-a-single-heroku-web-dyno
+* pricey if you're moving lots of data
+* can serve lots of traffic for not so much e.g. 4M req/month for $700 https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around
+* deployment analogous to `docker-compose.yml` https://www.mattlayman.com/blog/2019/web-development-environments/
 ```Procfile
 web: ./manage.py runserver
 worker: celery worker --app new_hot_thing:celeryapp --loglevel info
 frontend: webpack --watch
 ```
+
+OPTIONS https://testdriven.io/blog/heroku-alternatives/
+* _Coolify_: https://coolify.io/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
+* _Dokku_: 🎯 https://github.com/dokku/dokku https://dokku.com/
+* _Firebase_: https://tinyprojects.dev/projects/tiny_website
+* _Fly.io_: 🎯 https://www.youtube.com/watch?v=0eP98xkLj9w
+* _Kamal_: 🎯 https://kamal-deploy.org/ https://www.youtube.com/watch?v=7lkJmElHkSw
+> Rare opening to join our excellent ops team. Help us run Basecamp, HEY, and the heritage suite of apps on our own hardware with Kamal, MySQL, ElasticSearch, Prometheus, Grafana, KVM, Chef. https://x.com/dhh/status/1848544864436162705
+* _Knative_: https://knative.dev/docs/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
+* _Netlify_: https://www.netlify.com/
+* _Piku_: 🎯 6k https://github.com/piku/piku
+* _Render_: https://dashboard.render.com/
+* metabase deploy failed bc free-tier instance didn't have enough memory https://dashboard.render.com/project/prj-ct4ro05umphs73e7nfjg
+* _Platform.sh_: https://platform.sh/
+* _PythonAnywhere_: https://www.pythonanywhere.com/
+* _Railway_: https://railway.app/ https://docs.railway.app/guides/gin
+* _Sidekick_: 🎯 https://github.com/MightyMoud/sidekick https://news.ycombinator.com/item?id=41591018
+* _sst_: 🎯 https://sst.dev/
+* _Supabase_: https://supabase.com/
+* _Tau_: https://github.com/taubyte/tau
+* _Vercel_: https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
 
 ### static
 
@@ -511,6 +499,11 @@ PUB/SUB 📙 Narkhede ch. 1
 
 ---
 
+TOOLING
+* _kaskade_: TUI https://github.com/sauljabin/kaskade
+* _kplay_: message inspection https://github.com/dhth/kplay
+* _plumber_: CLI https://github.com/batchcorp/plumber
+
 event sourcing, sagas https://github.com/ThreeDotsLabs/watermill
 
 https://www.warpstream.com/ https://changelog.com/podcast/606#transcript + sponsors
@@ -559,7 +552,6 @@ ALTERNATIVES
 * _ZeroMQ_: http://aosabook.org/en/zeromq.html
 
 za
-* tooling https://github.com/batchcorp/plumber https://github.com/sauljabin/kaskade
 * BYO https://github.com/travisjeffery/jocko
 * https://developer.confluent.io/what-is-apache-kafka/#intro-to-ak
 * https://www.confluent.io/blog/author/martin-kleppmann/
@@ -620,7 +612,7 @@ ZA
 * BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
 * _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io https://github.com/RealOrangeOne/django-tasks
 * _Hatchet_: https://github.com/hatchet-dev/hatchet
-* _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey
+* _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey https://www.youtube.com/watch?v=TV7jHHpvGvA
 
 CELERY 📹 https://www.youtube.com/@NickJanetakis/search?query=celery
 * chron job
@@ -921,6 +913,7 @@ each with a URL for
 * _Meilisearch_: https://github.com/meilisearch/MeiliSearch https://news.ycombinator.com/item?id=22685831 https://github.com/valeriansaliou/sonic https://softwareengineeringdaily.com/2019/03/20/elasticsearch-at-scale-with-volkan-yazici/ https://github.com/typesense/typesense https://news.ycombinator.com/item?id=25414389 https://tech.marksblogg.com/meilisearch-full-text-search.html https://tech.marksblogg.com/meilisearch-full-text-search.html
 * _RediSearch_: built on Redis https://oss.redislabs.com/redisearch/
 * _Redka_: Redis fork using SQLite https://github.com/nalgeon/redka
+* _SeekStorm_: https://github.com/SeekStorm/SeekStorm https://news.ycombinator.com/item?id=42295792
 * _Solr_: built on Lucene https://blog.codepen.io/2016/05/24/091-solr/
 * _Typesense_: https://github.com/typesense/typesense https://xkcd-search.typesense.org/ https://www.thoughtworks.com/radar/tools?blipid=202203031
 * _whoosh_: project is dead https://github.com/gyllstromk/Flask-WhooshAlchemy/issues/69 https://stackoverflow.com/a/53338666/6813490 

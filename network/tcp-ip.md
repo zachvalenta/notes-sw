@@ -6,12 +6,17 @@ https://en.wikipedia.org/wiki/Internet_protocol_suite
 📚 
 * https://explained-from-first-principles.com/internet
 * https://intronetworks.cs.luc.edu/
+* Evans
+* Stevens tcp/ip illustrated
 * Kozierok tcp-ip guide
 
 🔍 https://networkengineering.stackexchange.com/
 
 ## 进步
 
+* write a webserver with Julia Evans https://www.youtube.com/watch?v=1HF-UAGcuvs
+
+* packet switching 📙 Christian chapter 10
 https://www.youtube.com/watch?v=dV8mjZd1OtU
 https://www.youtube.com/watch?v=F5rni9fr1yE
 https://www.youtube.com/watch?v=37AFBZv4_6Y
@@ -38,6 +43,8 @@ foundational
 # 📡 IP
 
 📙 Sanders packet analysis (ch 6)
+
+> If you want to configure your network, the ip command lets you do that. Its arguments take on a slightly weird form, but ip help command will get you pretty far. ip addr shows you information about your network interfaces and how they’re configured (IP addresses and such), and ip route shows you how network traffic is routed to different network hosts. Network problems can often be resolved purely through the ip tool. There’s also iw for managing wireless network interfaces. ping is a handy tool for checking how deeply things are broken. Try pinging a hostname (google.com), an external IP address (1.1.1.1), and an internal IP address (192.168.1.1 or default gw). https://missing.csail.mit.edu/2019/machine-introspection/
 
 https://github.com/bschaatsbergen/cidr
 * https://tech.marksblogg.com/where-are-ip-addresses-ipinfo.html https://tech.marksblogg.com/fast-ip-to-hostname-clickhouse-postgresql.html
@@ -81,6 +88,7 @@ how they work
 * _MTU_: when packets get too big https://www.youtube.com/watch?v=Y6IMlPSl4fI https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 
 tools - inspect
+* _Charles_: https://www.charlesproxy.com/
 * _Fiddler_: app layer only
 * _Wireshark_: https://bsago.me/blog/waltzing-with-wireshark https://jvns.ca/blog/2018/06/19/what-i-use-wireshark-for https://jvns.ca/blog/2016/03/16/tcpdump-is-amazing/ https://news.ycombinator.com/item?id=30743141
 * intercept outgoing requests https://httptoolkit.tech/
@@ -134,6 +142,7 @@ https://news.ycombinator.com/item?id=41930628
 
 🗄 `practical-packet-analysis.pdf` chapter 6
 
+* handshakes https://www.pixelstech.net/article/1727412048-Why-TCP-needs-3-handshakes
 * FAANG doesn't use any more https://news.ycombinator.com/item?id=42168997
 * _TCP_: one-to-one communication btw two nodes, have to establish connection before msg sent, msg acked i.e. reliable; can arrive in wrong order but works out somehow
 * _SYN_: first packet in TCP https://jvns.ca/blog/2022/09/06/send-network-packets-python-tun-tap/

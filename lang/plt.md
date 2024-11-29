@@ -10,6 +10,7 @@
 
 ## 进步
 
+* https://en.wikipedia.org/wiki/TempleOS
 * BYO assembly https://zserge.com/posts/langs-asm/
 * macros, AST https://news.ycombinator.com/item?id=42084603
 
@@ -54,7 +55,7 @@ TYPES OF COMPILATION
 TYPES OF CODE 📙 Bryant computer systems (3)
 * _machine code_: binary; handled by compiler's backend https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ via `objdump` 📙 Erickson hacking [21]
 * _instuction set_: pattern of bits/int/char that map to cmd https://en.wikipedia.org/wiki/Machine_code#Instruction_set https://steveklabnik.com/writing/is-webassembly-the-return-of-java-applets-flash
-* _intermediate representation (IR)_: final step before machine code; handled by compiler's front end https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ MIR https://softwareengineeringdaily.com/2024/10/23/rust-vs-c-with-steve-klabnik-herb-sutter/
+* _intermediate representation (IR)_: final step before machine code; handled by compiler's front end https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ MIR https://softwareengineeringdaily.com/2024/10/23/rust-vs-c-with-steve-klabnik-herb-sutter/ https://mattpo.pe/posts/sql-llvm/
 * _instruction_: individual line of machine code https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
 * _bytecode_: step after src but before IR? uses hex? https://www.youtube.com/watch?v=QU158nGABxI 23:55 🗄 `python.md` interpreter https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md injection https://stackoverflow.com/questions/3470949/what-is-java-bytecode-injection https://github.com/yiblet/inquest  https://docs.python.org/3/glossary.html#term-bytecode
 
@@ -143,7 +144,7 @@ gcc foo.c -Wall -o my_program m -std='c99'
 * _header file_: imports
 
 * https://drewdevault.com/2017/02/22/cozy-devnotes-machine-specs.html
-* _bootstrapping_: wrote core of compiler in another language and then use that core to build the rest of the compiler in the source language i.e. self-compilation https://softwareengineering.stackexchange.com/a/76640 https://stackoverflow.com/a/18126181
+* _bootstrapping_: wrote core of compiler in another language and then use that core to build the rest of the compiler in the source language i.e. self-compilation https://softwareengineering.stackexchange.com/a/76640 https://stackoverflow.com/a/18126181 https://news.ycombinator.com/item?id=42311031
 * _executable_: runtime + binary compatible with user os architecture
 * for user's machine vs. your server https://testandcode.com/52 @ 29:00
 * aka freeze in Python land https://docs.python-guide.org/shipping/freezing/
@@ -286,7 +287,7 @@ FACTORS
 * _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/ https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/ https://www.manning.com/books/julia-as-a-second-language
 * _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter small stdlib = Python will get fast before Nim gets big https://news.ycombinator.com/item?id=36958900
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
-* _Perl_: https://buttondown.com/hillelwayne/archive/raku-a-language-for-gremlins/ https://buttondown.com/hillelwayne/archive/five-unusual-raku-features/ https://raku.org/
+* _Perl_: https://buttondown.com/hillelwayne/archive/raku-a-language-for-gremlins/ https://buttondown.com/hillelwayne/archive/five-unusual-raku-features/ https://raku.org/ https://news.ycombinator.com/item?id=42307223
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
 * _Prolog_: https://chatgpt.com/c/672d18fc-66cc-8004-94ba-23928fa2110c https://www.swi-prolog.org/ https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/ https://news.ycombinator.com/item?id=42004756 https://blog.dnmfarrell.com/
 * _Ruby_:
@@ -308,7 +309,7 @@ https://increment.com/programming-languages/language-history/
 * _1996_: OCaml
 * _2015_: Rust
 * _2016_: Zig
-* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/ https://www.youtube.com/@codetothemoon/videos https://www.fast.ai/posts/2023-05-03-mojo-launch.html Lobster https://github.com/aardappel/lobster https://www.youtube.com/watch?v=uuPeBKdnBOI
+* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/ https://www.youtube.com/@codetothemoon/videos https://www.fast.ai/posts/2023-05-03-mojo-launch.html Lobster https://github.com/aardappel/lobster https://www.youtube.com/watch?v=uuPeBKdnBOI BYO https://www.scattered-thoughts.net/
 
 ## stdlib
 
@@ -472,8 +473,8 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 
 🔍 https://softwareengineering.stackexchange.com/questions/tagged/memory
 🗄
-* `architecture.md` memory
 * `c.md` Rust > design
+* `computation.md` memory
 * `python.md` memory
 
 > port from `python.md`
@@ -535,6 +536,7 @@ id(counter)  # 4304845312
 
 ---
 
+https://victoriametrics.com/blog/go-weak-pointer/
 https://us.pycon.org/2024/schedule/presentation/80/index.html
 https://pythonbytes.fm/episodes/show/375/pointing-at-countries
 
@@ -841,6 +843,7 @@ SEMANTICS https://www.destroyallsoftware.com/compendium/types?share_key=baf6b673
 * Liskov (from SOLID) https://en.wikipedia.org/wiki/Liskov_substitution_principle
 * metaprogramming and dynamic typing vs monkey patching https://news.ycombinator.com/item?id=34611969
 * _null_: https://2ality.com/2013/10/typeof-null.html https://www.fluentpython.com/lingo/#fail_fast
+* _dependent_: https://www.stephendiehl.com/posts/calculus_of_constructions_python/
     
 # 🟨 ZA
 

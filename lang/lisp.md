@@ -5,7 +5,7 @@
 📚
 * Barski land of lisp
 * Friedman little schemer
-* Sussman sicp https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323
+* Sussman sicp https://wizardforcel.gitbooks.io/sicp-in-python/content/ https://mitpress.mit.edu/sites/default/files/sicp/index.html https://www.youtube.com/playlist?list=PLE18841CABEA24090 http://www.sicpdistilled.com/ https://xuanji.appspot.com/isicp/ https://corecursive.com/039-hal-abelson-sicp/ https://news.ycombinator.com/item?id=24428907 https://thorstenball.com/blog/2016/11/30/why-i-wrote-a-book-about-interpreters/ https://news.ycombinator.com/item?id=30016323 https://news.ycombinator.com/item?id=42157558
 
 ## 进步
 
@@ -32,7 +32,7 @@
 
 * _Common Lisp_: less Lisp-y, really fast compiler https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
 * _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
-* _Janet_: https://github.com/janet-lang/janet https://github.com/cfoust/cy
+* _Janet_: https://github.com/janet-lang/janet https://github.com/cfoust/cy https://news.ycombinator.com/item?id=42253241
 * _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
 
 ## 🟩 Clojure
@@ -83,12 +83,13 @@ USED BY
 
 https://elixir-lang.org/
 https://en.wikipedia.org/wiki/Elixir_(programming_language)
-* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html https://github.com/sile/erldash Erlang https://en.wikipedia.org/wiki/Erlang_(programming_language)
+* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html https://github.com/sile/erldash https://news.ycombinator.com/item?id=42312301 Erlang https://en.wikipedia.org/wiki/Erlang_(programming_language)
 * https://gleam.run/
 * https://www.lambdafunctions.com/articles/elixir-and-rust
 
 ## 🐘 Haskell
 
+* https://github.com/sdiehl/wiwinwlh
 * https://learnyouahaskell.com/ https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
 * https://gwern.net/resilient-software
 * https://www.manning.com/books/functional-design-and-architecture
@@ -103,6 +104,7 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 * design: part of ML family tree, related to F# https://en.wikipedia.org/wiki/ML_(programming_language)
 * written in: Google Drive FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace#Remote/distributed_file_system_clients
 * transpiles to Javascript https://melange.re/v4.0.0/ https://www.youtube.com/watch?v=QrtRihR0Av4
+* https://news.ycombinator.com/item?id=42302426
 
 # 🟨 ZA
 

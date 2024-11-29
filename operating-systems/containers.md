@@ -14,6 +14,7 @@ PLAN GOING FORWARD 🗄️ `architecture.md` Capp db data mgmt
 * air-capp: Docker Desktop
 * mini23: Colima + see if you can run `product-workflow`
 * get a handle on specs/OCI/CRI https://chatgpt.com/c/673a53d0-f3fc-8004-99ce-c0355d67d2f8
+* deployment via registry https://www.youtube.com/watch?v=D9sG8mC-ioE
 
 ---
 
@@ -23,6 +24,7 @@ REPRO
 
 HOWTO https://pythonspeed.com/docker/
 * https://danielquinn.org/blog/developing-with-docker/ https://news.ycombinator.com/item?id=41935741
+* telemetry video by Julia Evans https://www.youtube.com/watch?v=YCVSdnYzH34
 * basic https://www.youtube.com/watch?v=Ud7Npgi6x8E https://www.youtube.com/watch?v=YFl2mCHdv24
 * ergonomics https://www.youtube.com/watch?v=3e8J_pv-xJI https://github.com/deluan/zsh-in-docker https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog
 * compose https://www.youtube.com/watch?v=HGKfE-cn9y4
@@ -579,6 +581,8 @@ CMD flask run --host 0.0.0.0
 
 ---
 
+* DNS https://www.nslookup.io/learning/the-life-of-a-dns-query-in-kubernetes/ https://jpetazzo.github.io/2024/05/12/understanding-kubernetes-dns-hostnetwork-dnspolicy-dnsconfigforming/
+https://news.ycombinator.com/item?id=42252872
 https://github.com/vladimirvivien/ktop
 https://roadmap.sh/kubernetes
 https://github.com/ghik/kubernetes-the-harder-way https://news.ycombinator.com/item?id=41393160

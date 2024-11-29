@@ -232,7 +232,9 @@ data transfer https://www.lastweekinaws.com/blog/aws-data-transfer-charges-ingre
 ---
 
 * _RDS_:  https://www.lastweekinaws.com/blog/running-relational-databases-on-aws/
-* _Aurora_: dbms; can migrate from/to MySQL/Postgres; fastest growing service
+* _Aurora_: serverless dbms https://news.ycombinator.com/item?id=42308716
+* can migrate from/to MySQL/Postgres
+* fastest growing service
 * RDS but https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/ https://softwareengineeringdaily.com/2022/10/05/open-source-serverless-postgres/ http://blog.cleverelephant.ca/2019/07/aws-aurora.html https://www.lastweekinaws.com/blog/no-aws-aurora-serverless-v2-is-not-serverless/
 
 ## S3
