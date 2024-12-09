@@ -4,7 +4,9 @@
 
 🔍 https://security.stackexchange.com/
 🗣 https://www.latacora.com/blog/ https://krebsonsecurity.com/ https://twitter.com/badthingsdaily
-📙 McDonald https://www.amazon.com/gp/product/1633438260 https://www.manning.com/books/grokking-web-application-security
+📚
+* McDonald https://www.manning.com/books/grokking-web-application-security https://www.amazon.com/gp/product/1633438260
+* Seitz black hat https://news.ycombinator.com/item?id=42361793
 
 ## 进步
 

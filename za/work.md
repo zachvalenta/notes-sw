@@ -23,8 +23,12 @@
 
 # 🪐️ INDUSTRY
 
-📙 http://www.catb.org/~esr/jargon/html/index.html
 🔍 https://newsletter.pragmaticengineer.com/p/state-of-eng-market-2024
+📚
+* Martin we programmers
+* Moody rebel code
+* Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/ http://www.catb.org/~esr/jargon/html/index.html
+* Seibel coders at work
 
 POLITICS
 * codes of conduct
@@ -207,7 +211,6 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 
 📚
 * Eghbal working in public https://www.amazon.com/gp/product/0578675862 https://drewdevault.com/2024/07/16/2024-07-16-So-you-want-to-compete-with-FOSS.html https://drewdevault.com/2023/12/26/2023-12-26-Prusa-is-floundering.html
-* Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/ https://www.amazon.com/Cathedral-Bazaar-Musings-Accidental-Revolutionary/dp/0596001088
 * https://pragprog.com/titles/vbfoss/business-success-with-open-source/
 
 * more broken builds than enterprise https://danluu.com/broken-builds/

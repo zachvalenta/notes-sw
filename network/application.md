@@ -66,6 +66,7 @@ TYPES
 
 ---
 
+* https://bsky.app/profile/itch.io/post/3lcu6h465bs2n
 * https://news.ycombinator.com/item?id=42307604
 > Subsequent requests can (but don't always) reuse the DNS, TCP and TLS setup but a new roundtrip is still needed each time the server is consulted, for example for an API call or a new page. https://calpaterson.com/latency.html
 * hosts https://blog.codepen.io/2016/02/23/078-com/ how do people steal domains? how do people get control of host? whitelist/blacklist https://github.com/plutov/ultrafocus

@@ -18,6 +18,7 @@
 
 ---
 
+JSON5 https://json5.org/
 https://drewdevault.com/2021/07/28/The-next-YAML.html
 
 QUERY TOOLS
