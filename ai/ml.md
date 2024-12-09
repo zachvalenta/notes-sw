@@ -143,11 +143,27 @@ dot([1,2,3], [4,5,6])
 
 ## embeddings
 
+💡 calc relatedness of strings
+
+USAGE https://platform.openai.com/docs/guides/embeddings
+* search (where results are ranked by relevance to a query string)
+* clustering (where text strings are grouped by similarity)
+* recommendations (where items with related text strings are recommended)
+* anomaly detection (where outliers with little relatedness are identified)
+* diversity measurement (where similarity distributions are analyzed)
+* classification (where text strings are classified by their most similar label)
+
+---
+
 * _embedding_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings
 * try it out https://github.com/taylorai/aiq
 * https://www.youtube.com/watch?v=XPA213k8G_U
 * https://www.youtube.com/watch?v=pfRA3Scz3Fw
-* https://blog.wilsonl.in/hackerverse/ https://www.youtube.com/watch?v=zzY64Qu8HHc https://news.ycombinator.com/item?id=41473518 https://www.youtube.com/watch?v=hB7sGE0W8CI https://news.ycombinator.com/item?id=42013762
+* https://blog.wilsonl.in/hackerverse/
+* https://www.youtube.com/watch?v=zzY64Qu8HHc
+* https://news.ycombinator.com/item?id=41473518
+* https://www.youtube.com/watch?v=hB7sGE0W8CI
+* https://news.ycombinator.com/item?id=42013762
 
 # 🟨️ ZA
 

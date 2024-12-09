@@ -46,7 +46,7 @@ CHATGPT 🔑 https://platform.openai.com/api-keys
 
 🗄️ `hw.md` Apple 
 
-HARDWARE https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can
+HARDWARE https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonwillison.net/2024/Dec/9/llama-33-70b/
 > 🎗️ llamafile https://simonwillison.net/2024/Jun/17/cli-language-models/ https://simonwillison.net/2023/Nov/29/llamafile/ "this should be technically impossible" (having a single unmodified binary run across mac/Windows/linux) https://www.youtube.com/watch?v=QUXQNi6jQ30 [20:00] inference https://github.com/samuel-vitorino/lm.rs https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * mini23 uses 8B just w/ VS Code + browser + macOS core services
 * Qwen req 32B
@@ -102,6 +102,7 @@ https://x.com/SullyOmarr/status/1864697992261062690/photo/1
 
 ## RAG
 
+💡 core model enhanced by access to specific docs
 🗄️
 * `doc.md` notes
 * `algos.md` search > bm25
@@ -109,11 +110,21 @@ https://x.com/SullyOmarr/status/1864697992261062690/photo/1
 * https://www.amazon.com/gp/product/1098150961
 * build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch
 
+HOWTO (LEARN BY BUILDING FOR DROR) 🧠 https://chatgpt.com/c/6756f3e6-1260-8004-9363-655f156489d9
+```txt
+I'm still new to the space, so take with a grain of salt https://chatgpt.com/share/6756f806-27c4-8004-8768-b94f879a8b5e
+
+* data prep: I have a good library in mind https://github.com/chonkie-ai/chonkie
+* embeddings: would probably do with model aaS (GPT, Claude)
+* vector db: I've been keeping tabs of the vector db ecosystem but that means ~20 links I haven't yet read and need to. Hopefully I can find either an embedded option or a good hosted service.
+* training: assume we'd use transfer | reinforcement learning vs. getting into the weeds with adjusting the weights (finetuning, LoRA, PEFT)
+```
+
+---
+
 * BYO https://github.com/bhavnicksm/chonkie https://github.com/explosion/spacy-layout https://training.talkpython.fm/courses/getting-started-with-spacy https://github.com/DS4SD/docling https://x.com/_inesmontani
 > I said earlier that building an LLM was still out of reach of hobbyists. That may be true for training from scratch, but fine-tuning one of those models is another matter entirely.  There’s now a fascinating ecosystem of people training their own models on top of these foundations, publishing those models, building fine-tuning datasets and sharing those too. The Hugging Face Open LLM Leaderboard is one place that tracks these. I can’t even attempt to count them, and any count would be out-of-date within a few hours. https://simonwillison.net/2023/Dec/31/ai-in-2023/ more on Hugging Face https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * howto: Python in a sidecar and then your server in another language (that lacks Python's ML stdlib) talks to that https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
-
----
 
 START HERE 🗄️ `algos.md` neural networks
 https://github.com/Shubhamsaboo/awesome-llm-apps https://www.theunwindai.com/p/build-a-personal-health-and-fitness-ai-agent-using-google-gemini
@@ -171,7 +182,15 @@ BYO
 
 ## train
 
-📙 Brosseau LLMs in production https://www.manning.com/books/llms-in-production
+📙
+* Brosseau LLMs in production https://www.manning.com/books/llms-in-production
+* Labonne https://github.com/PacktPublishing/LLM-Engineers-Handbook https://www.amazon.com/gp/product/1836200072
+🧠 https://chatgpt.com/c/6756f73a-9d68-8004-9ef8-34d9744f767d
+
+---
+
+> assume we'd use transfer or reinforcement learning vs. getting into the weeds with adjusting the weights (finetuning, LoRA, PEFT)
+
 https://changelog.com/practicalai/295
 
 # 🏗️ USAGE
