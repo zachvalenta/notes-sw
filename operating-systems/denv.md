@@ -369,6 +369,7 @@ ALTERNATIVES 🗄️ `python/pkg.md` uv `frontend.md` javascript > runtimes
 * _pkgx_: from the creator of Homebrew https://www.youtube.com/watch?v=S9oHESiZyr0 https://dotenvx.com/docs/install#other https://www.youtube.com/watch?v=S9oHESiZyr0
 * _mise_: 🎯 https://github.com/jdx/mise
 
+* https://github.com/sxyazi/yazi
 * as an alternative to Docker https://mtlynch.io/notes/simple-go-web-service-nixos/
 * https://entropicthoughts.com/using-nix-to-try-tools
 * https://www.youtube.com/watch?v=5D3nUU1OVx8

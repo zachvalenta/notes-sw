@@ -99,9 +99,12 @@ fselect path, mime from /home/user where is_audio = 1
 
 ## fuzzy find
 
+🗄️
+* grep
+* `vim.md` fuzzy find
+
 ### 🌸 fzf
 
-🗄 `vim.md` fuzzy find
 📜 https://github.com/junegunn/fzf
 🧠 https://chatgpt.com/c/674624fd-2084-8004-bbf4-5de92b06f1ca
 > fzf is just a Unix filter https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
@@ -194,6 +197,7 @@ select_tab_drop             # open in new tab, only available on master https://
 ### 📺 Television
 
 https://github.com/alexpasmantier/television
+grep https://github.com/darrenldl/docfd
 
 CONFIG
 * fs: `$HOME/Library/Application Support/com.television/config.toml`
@@ -556,7 +560,9 @@ bat --line-range 227:236 $NOTES_DIR/sw/za/algos.md
 
 ## search (ripgrep)
 
-🗄 `vim.md` utils
+🗄
+* fuzzy find
+* `vim.md` utils
 
 ZA
 * _rga_: PDFs, Microsoft Office https://github.com/phiresky/ripgrep-all https://pdfgrep.org/

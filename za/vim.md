@@ -220,6 +220,7 @@ THINGS I'M NOTICING ABOUT VSC
 * prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421
 * ❌ constantly wipes out the outliner and requires Vim action to prompt redraw
 * ❌ symbol search doesn't work after git pull of new files | movement of headers
+> sometimes not at all
 * ❌ Vim plugin fails on big CSV files
 * ❌ no tab groups https://github.com/microsoft/vscode/issues/100335
 

@@ -581,15 +581,25 @@ add styles
 
 ## PDF
 
-TOOLING
+READERS
 * _baca_: ebook/epub TUI reader https://github.com/wustho/baca
-* _poppler_: https://github.com/sxyazi/yazi
 * _tdf_: https://github.com/itsjunetime/tdf
 * _termpdf_: kitty https://github.com/dsanson/termpdf.py
 
+TO TEXT
+* _parsr_: https://github.com/axa-group/Parsr
+* _poppler_: https://poppler.freedesktop.org/
+```sh
+$ brew info poppler
+Conflicts with:
+  pdf2image (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
+  pdftohtml (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
+  xpdf (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
+```
+* everything else seems to rely on it https://github.com/sxyazi/yazi https://github.com/search?q=repo%3Amodesty%2Fpdf2json%20poppler&type=code https://github.com/search?q=repo%3Ajalan%2Fpdftotext%20poppler&type=code https://github.com/jalan/pdftotext
+
 ---
 
-* grep https://github.com/darrenldl/docfd
 * Sioyek https://news.ycombinator.com/item?id=34069804
 * https://docs.racket-lang.org/quad/
 * Markdown https://docs.racket-lang.org/quad/
