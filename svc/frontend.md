@@ -93,6 +93,7 @@ taxonomy
 
 ---
 
+https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
 https://github.com/maddalax/htmgo
 https://news.ycombinator.com/item?id=41781457 https://chrisdone.com/posts/htmx-critique/
 https://github.com/AnswerDotAI/fasthtml https://www.youtube.com/watch?v=4En57Zw6gU4

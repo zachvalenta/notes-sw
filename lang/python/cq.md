@@ -34,6 +34,7 @@ PG http://paulgraham.com/popular.html
 
 ## benchmark
 
+> There are lies, damned lies and benchmarks. https://github.com/pydantic/jiter
 🎗️ https://danluu.com/anon-benchmark/ https://danluu.com/why-benchmark/ https://jpcamara.com/2024/12/01/speeding-up-ruby.html
 
 LINUX

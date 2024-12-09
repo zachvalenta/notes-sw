@@ -249,6 +249,7 @@ https://www.timescale.com/blog/13-tips-to-improve-postgresql-insert-performance/
 
 ## query engine
 
+🗄️ `data/eng.md` query engines
 🔗 https://pganalyze.com/blog/how-postgres-chooses-index
 
 * _database engine_: container for components https://www.sqlite.org/draft/queryplanner.html https://www.practical-mongodb-aggregations.com/intro/introducing-aggregations.html

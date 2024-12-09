@@ -349,8 +349,13 @@ https://www.youtube.com/results?search_query=graphite+metrics
 ## 🔥 Logfire
 
 📜 https://github.com/pydantic/logfire
+🗄️ `data/eng.md` query engines > DataFusion
 
 ---
+
+https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
+> I suppose the two things that make it different from some of the stuff that's come before is Logfire is built on Open Telemetry...the rails of where the data is being transferred are on an open standard. And if you decide you didn't want to use the Logfire platform anymore, you can send that data to anything else that supports Open Telemetry. But unlike lots of other companies in our space, instead of using open telemetry as an excuse to abandon the SDK space and just say, use the horrible open telemetry SDK directly, we have the Logfire package, which tries to make that super nice and easy to use.
+> So instead of having to use ClickOps...there are things you can do in Logfire that you cannot and never been able to do in like one of the big incumbents like Datadog because it's just SQL. And it's obviously much easier to learn for you, much easier for LLMs to write...that's the hardest bit, there is SQL you can write which is enormously heavy to compute. And so we have to be able to find ways to process that without taking down other customers. The definition of DOS is that like the effort required to DOS is significantly lower than the effort required to process it.
 
 HOW TO START
 * https://news.ycombinator.com/item?id=24006697

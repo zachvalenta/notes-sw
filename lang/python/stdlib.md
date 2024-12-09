@@ -713,8 +713,9 @@ Selenium
 
 ALTERNATIVES
 * dataclasses
+* _jiter_: 🎯 written in Rust by works with Python objs https://github.com/pydantic/jiter https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
+* _msgspec_: 🎯 https://github.com/jcrist/msgspec 🗄️ pydantic
 * _orjson_: https://github.com/ijl/orjson
-* _msgspec_: 🎯 https://github.com/jcrist/msgspec
 * _pickle_: ❌  https://docs.python.org/3/library/persistence.html no one uses any more https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html
 * _pydantic_: https://docs.pydantic.dev/latest/concepts/serialization/ https://news.ycombinator.com/item?id=14477434
 

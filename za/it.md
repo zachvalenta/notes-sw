@@ -106,7 +106,7 @@ TIME MACHINE
 ### mini23 ➡️ exfatmain
 
 MUSIC
-* dru hill
+* dru hill, alice coltrane sings
 > songs of the month: Ramones swallow my pride, The Clean i wait around
 * dance: francis harris, jamie xx, danilov, techno, Herbert this time
 > za (chemical brothers et al.)

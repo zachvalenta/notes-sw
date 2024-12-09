@@ -380,6 +380,7 @@ OPTIONS https://chatgpt.com/c/670d2ddc-9e9c-8004-a9a5-1852da15b853
 
 🗄️
 * `aws.md` compute > Athena
+*️ `data/dbms.md` query engine
 * `telemetry.md` Clickhouse
 
 * _CrateDB_: https://github.com/crate/crate https://www.youtube.com/watch?v=mGxm1WPR3O8
@@ -408,6 +409,13 @@ ALTERNATIVES
 * apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
 * can build dashboards off queries
 * _Trino_: https://github.com/trinodb/trino https://ibis-project.org/ https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
+
+## ☢️ DataFusion
+
+https://github.com/apache/datafusion
+https://datafusion.apache.org/
+
+used by Logfire, no indexes https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
 
 ## 🦆 DuckDB
 
