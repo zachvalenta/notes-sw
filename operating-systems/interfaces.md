@@ -131,34 +131,59 @@ SEMANTICS
 
 ### args
 
+* access
 ```sh
-# DEFAULT https://stackoverflow.com/a/33419280
+$@  # all e.g. for file in "{$files[@]}"
+$#  # get by number
+$_  # get previous arg https://www.youtube.com/watch?v=vt-IvdFP5ZA
+
+# get positional
+$ cmd arg1 arg2 # $0 = cmd, $1 = arg1, $2 = arg2, $@ = all args
+
+# set default https://stackoverflow.com/a/33419280
 function agg(){
-# e.g. `agg` -> YEAR = 23; `agg 21` -> YEAR = 21
+    # e.g. `agg` -> YEAR = 23; `agg 21` -> YEAR = 21
     YEAR=${1:-23}
     rg foo "$YEAR"/??.dat
 }
+```
 
-# get previous arg https://www.youtube.com/watch?v=vt-IvdFP5ZA
-$_
+* checks
+```sh
+if [ $# -eq 0 ]  # none
+if [ "$var" = "$var" ]  # equality
+if [ -z "$var" ]  # empty string: -z (true if empty) -n (true if not empty) https://stackoverflow.com/a/18096739
+if [[ "$var" =~ ^-?[0-9]+[.,]?[0-9]*$ ]]  # integer https://stackoverflow.com/a/28898213
+```
 
-# positional
-$ cmd arg1 arg2 # $0 = cmd, $1 = arg1, $2 = arg2, $@ = all args
+### checks
 
-$#  # number
-$@  # all e.g. for file in "{$files[@]}"
+```sh
+# TYPE INFO https://www.youtube.com/watch?v=hrbV5WGxxdY
+file $FILE
 
-# none
-if [ $# -eq 0 ]; then
+# ENV VAR SET
+if [ -z "$OPENAI_API_KEY" ]; then
+    echo "OPENAI_API_KEY not set. Set in aider.env."
+    exit 1
+fi
 
-# equality
-if [ "$var" = "$var" ]; then
+# CHECK FILE EXISTS
+test -f ~/.netrc && echo "~/.netrc already exists"
 
-# empty string: -z (true if empty) -n (true if not empty) https://stackoverflow.com/a/18096739
-if [ -z "$var" ]; then
+# CHECK FILE DOESN'T EXIST https://stackoverflow.com/a/638980
+if [ ! -f /tmp/foo.txt ]; then  # test can also be written as braces e.g. [ ! -f /tmp/foo.txt ]
+    echo "File not found!"
+fi
 
-# integer https://stackoverflow.com/a/28898213
-if [[ "$var" =~ ^-?[0-9]+[.,]?[0-9]*$ ]]
+# CHECK PORT IN USE https://stackoverflow.com/a/50108745
+bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; npm start'
+
+# CHECK CMD EXISTS
+if ! type -f fswatch >/dev/null ; then
+  echo "fswatch not installed: install with `brew install fswatch`" >&2
+  exit 2
+fi
 ```
 
 ### control flow
@@ -323,29 +348,6 @@ IFS=$'\n\t'
 # NEW LINE
 echo -e "foo bar \n"
 echo -en "\n"
-```
-
-* checks
-```sh
-# GET TYPE INFO https://www.youtube.com/watch?v=hrbV5WGxxdY
-file $FILE
-
-# CHECK FILE EXISTS
-test -f ~/.netrc && echo "~/.netrc already exists"
-
-# CHECK FILE DOESN'T EXIST https://stackoverflow.com/a/638980
-if [ ! -f /tmp/foo.txt ]; then  # test can also be written as braces e.g. [ ! -f /tmp/foo.txt ]
-    echo "File not found!"
-fi
-
-# CHECK PORT IN USE https://stackoverflow.com/a/50108745
-bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; npm start'
-
-# CHECK CMD EXISTS
-if ! type -f fswatch >/dev/null ; then
-  echo "fswatch not installed: install with `brew install fswatch`" >&2
-  exit 2
-fi
 ```
 
 ---

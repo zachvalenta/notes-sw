@@ -715,7 +715,9 @@ LOCATION
 
 PERMS 📙 Evans linux https://chatgpt.com/c/672cbc33-dabc-8004-bbac-7c5050f53879 🗄️ `tools.md` find
 * categories: `u` (user/owner) `g` (group) `o` (other) `a` (all)
-* mv: `chmod` + group + `r|w|x` e.g. `u=rw` (user gains rw) `+x` (all gain x) `o-w` (other loses w)
+* mv granular: `chmod` + group + `r|w|x` e.g. `u=rw` (user gains rw) `+x` (all gain x) `o-w` (other loses w)
+* mv wholesale: `chmod $OCTAL`
+* test: rw-only for owner `sudo -u nobody cat $FILE`
 * get as octal: `stat -f "%A" $FILE`
 * default: `666` (file) `777` (dir)
 * _umask_: set perms on new files via "mask" (subtraction) from default perms; can be set as user or distro level https://www.digitalocean.com/community/tutorials/linux-permissions-basics-and-how-to-use-umask-on-a-vps

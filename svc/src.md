@@ -243,14 +243,17 @@ TOOLING
 
 ## secrets (dotenvx)
 
-❓ env var, fs, manager https://news.ycombinator.com/item?id=40789353
-> just exporting env var for now
-> 💡 point config to file holding pw = you can version control config https://www.youtube.com/watch?v=2yplBzPCghA [7:30]
 🗄
-* `ml.md` clients > llm
 * `security.md` users/ passwords
 * `shell.md` env var
 * `spec.md` config
+
+WORKFLOWS
+* secrets to `.env` + read from client (set perms on `.env` to 600) 🗄️ `ai.md` aider
+* just export + remove from shell history 🗄️ `ai.md` llm
+* 📍 to grok
+> env var, fs, manager https://news.ycombinator.com/item?id=40789353
+> 💡 point config to file holding pw = you can version control config https://www.youtube.com/watch?v=2yplBzPCghA [7:30]
 
 VAULTS
 * _BitWarden_: has their own vault?

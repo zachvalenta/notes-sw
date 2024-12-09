@@ -17,6 +17,12 @@
 
 ## closed
 
+🔑 https://gist.github.com/zachvalenta/d3b7cd172dd2d3d8ff7340bd458c6fe2
+
+CHATGPT 🔑 https://platform.openai.com/api-keys
+* versions: 22.11 GPT 23.03 GPT4 24.05 GPT4o 24.09 o1-preview 24.12 pro https://x.com/mckaywrigley/status/1865089975802646857
+* https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665 https://news.ycombinator.com/item?id=42330732
+
 * _Amazon nova_: https://news.ycombinator.com/item?id=42309121 https://news.ycombinator.com/item?id=42309121 https://simonwillison.net/2024/Dec/4/amazon-nova/
 * _Anthropic claude_: 🎯 web client has search + fast input / good UI
 * allegedly the best but GPT legacy model beat it and the other time I tried it admitted to fabricating data https://x.com/emollick/status/1849168452914938082 https://simonwillison.net/2024/Oct/21/claude-artifacts/ https://darioamodei.com/
@@ -25,7 +31,6 @@
 * backed by Amazon https://news.ycombinator.com/item?id=42215126
 * _Google Gemini_: no search/tags/org, looks low-effort https://simonw.substack.com/p/video-scraping-using-google-gemini
 * _Mistral codestral_: less polished but fast + search https://chat.mistral.ai/chat
-* _OpenAI chatgpt_: ✅ 22.11 GPT 23.03 GPT4 24.05 GPT4o 24.09 o1-preview 24.12 pro https://x.com/mckaywrigley/status/1865089975802646857 https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665 https://news.ycombinator.com/item?id=42330732
 * _Perplexity api_: search/org https://www.perplexity.ai/
 * Mixtral https://mistral.ai/news/mixtral-of-experts/
 * _X grok_: seems tied to Twitter https://grok.x.ai/ 
