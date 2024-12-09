@@ -41,6 +41,8 @@ SEMANTICS
 
 ---
 
+start here https://www.achaq.dev/blog/artemis https://www.achaq.dev/blog/compilers
+
 GRAMMAR
 * BNF, notation, grammar https://langdev.stackexchange.com/questions/2692/how-should-i-read-type-system-notation
 * _grammar_: syntax for programming language https://blog.robertelder.org/computer-science-for-engineers/
@@ -51,13 +53,6 @@ TYPES OF COMPILATION
 * _just-in-time (JIT)_: https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction https://pycon-archive.python.org/2024/schedule/presentation/124/index.html
 * _ahead-of-time (AOT)_: https://news.ycombinator.com/item?id=22346540
 * _adaptive_: quickening https://realpython.com/python311-new-features/#faster-code-execution https://github.com/brandtbucher/specialist
-
-TYPES OF CODE 📙 Bryant computer systems (3)
-* _machine code_: binary; handled by compiler's backend https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ via `objdump` 📙 Erickson hacking [21]
-* _instuction set_: pattern of bits/int/char that map to cmd https://en.wikipedia.org/wiki/Machine_code#Instruction_set https://steveklabnik.com/writing/is-webassembly-the-return-of-java-applets-flash
-* _intermediate representation (IR)_: final step before machine code; handled by compiler's front end https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ MIR https://softwareengineeringdaily.com/2024/10/23/rust-vs-c-with-steve-klabnik-herb-sutter/ https://mattpo.pe/posts/sql-llvm/
-* _instruction_: individual line of machine code https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
-* _bytecode_: step after src but before IR? uses hex? https://www.youtube.com/watch?v=QU158nGABxI 23:55 🗄 `python.md` interpreter https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md injection https://stackoverflow.com/questions/3470949/what-is-java-bytecode-injection https://github.com/yiblet/inquest  https://docs.python.org/3/glossary.html#term-bytecode
 
 COMPILERS
 * _cc_: original compiler https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
@@ -274,6 +269,17 @@ tokens = {
 }
 ```
 
+## output
+
+📙 Bryant computer systems (3)
+🧠 https://chatgpt.com/c/675884d8-9ac8-8004-9fb2-86345bc67c84
+
+* _machine code_: binary; handled by compiler's backend https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ via `objdump` 📙 Erickson hacking [21]
+* _instuction set_: pattern of bits/int/char that map to cmd https://en.wikipedia.org/wiki/Machine_code#Instruction_set https://steveklabnik.com/writing/is-webassembly-the-return-of-java-applets-flash
+* _intermediate representation (IR)_: final step before machine code; handled by compiler's front end https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ MIR https://softwareengineeringdaily.com/2024/10/23/rust-vs-c-with-steve-klabnik-herb-sutter/ https://mattpo.pe/posts/sql-llvm/
+* _instruction_: individual line of machine code https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/
+* _bytecode_: step after src but before IR? uses hex? https://www.youtube.com/watch?v=QU158nGABxI 23:55 🗄 `python.md` interpreter https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md injection https://stackoverflow.com/questions/3470949/what-is-java-bytecode-injection https://github.com/yiblet/inquest  https://docs.python.org/3/glossary.html#term-bytecode
+
 # 📚 LANGUAGES
 
 FACTORS
@@ -480,6 +486,7 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 > port from `python.md`
 
 memory management https://stackoverflow.com/a/3434252
+* models https://news.ycombinator.com/item?id=42397737
 * _unmanaged code_: language w/ no memory management e.g. C, C++; sometimes used to mean "compiles directly to machine code" by people who do not understand that C has an abstract machine
 * _managed code_: language w/ memory management (Java); dynamic languages not typically described as such, more of a marketing term for enterprise languages
 * _garbage_: 
@@ -827,7 +834,8 @@ https://danluu.com/butler-lampson-1999/
 SEMANTICS https://www.destroyallsoftware.com/compendium/types?share_key=baf6b67369843fa2
 * dynamic https://gist.github.com/non/ec48b0a7343db8291b92
 * gradual typing: type hints/annotations in code checked by static analysis tooling, not compiler
-* inference https://news.ycombinator.com/item?id=36775644
+* inference https://news.ycombinator.com/item?id=36775644 OCaml https://borretti.me/article/type-inference-was-a-mistake
+> I don’t want to infer types from my code. I’d rather infer the code from the types. Types are the spec, they are small and low in expressiveness, code is big and has infinitely more degrees of freedom than types. The bug surface area is smaller with types. https://borretti.me/article/type-inference-was-a-mistake
 * implicit https://news.ycombinator.com/item?id=26671136 https://go.dev/tour/basics/10
 * _definitions_: strong/weak less rigorously defined than static/dynamic [Smallshire 1 @ 5.4]
 * _sink_: https://danluu.com/empirical-pl/ https://www.cs.uaf.edu/users/chappell/public_html/class/2018_spr/cs331/docs/types_primer.html https://eli.thegreenplace.net/2006/11/25/a-taxonomy-of-typing-systems vocab https://cdsmith.wordpress.com/2011/01/09/an-old-article-i-wrote/ https://danluu.com/empirical-pl/ https://danluu.com/empirical-pl/

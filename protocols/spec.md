@@ -18,6 +18,7 @@
 
 ---
 
+JSON5 https://json5.org/
 https://drewdevault.com/2021/07/28/The-next-YAML.html
 
 QUERY TOOLS
@@ -240,12 +241,6 @@ https://github.com/abhimanyu003/sttr
 * _protocol_: rules for communication system https://en.wikipedia.org/wiki/Communication_protocol
 * sometimes used synonymously with "encoding" https://blainsmith.com/articles/plain-text-protocols/
 
-* _unstructured text_: e.g. Unix tools
-* flexible http://www.catb.org/~esr/writings/taoup/html/ch05s01.html https://news.ycombinator.com/item?id=23630640
-* leads to complexity https://danluu.com/cli-complexity/ 
-* _structured text_: e.g. Powershell, JSON, CSV, XML, HTTP/1 https://news.ycombinator.com/item?id=27431998
-* operating systems use of https://news.ycombinator.com/item?id=28301646
-
 * _codec_: https://www.fluentpython.com/lingo/#codec https://en.wikipedia.org/wiki/Code
 
 semantics https://stackoverflow.com/a/41217889
@@ -295,6 +290,7 @@ https://codepoints.net/
 https://www.pythonmorsels.com/cli-tools/#quopri
 https://pyatl.dev/2024/09/01/bitten-by-unicode/
 https://text.makeup/about/
+https://github.com/AncientNLP/potnia
 📍 utf-8 vs. unicode https://youtu.be/SM9gJv08dm0 2:30 https://stackoverflow.com/questions/643694/what-is-the-difference-between-utf-8-and-unicode https://nbviewer.org/gist/guocheng/1ae6c2d76461a66cfc5ec6009b5791d1 https://docs.python.org/3/howto/unicode.html
 * emoji, kanji https://www.fluentpython.com/extra/multi-character-emojis/ https://www.textualize.io/blog/posts/7-things-about-terminals how emojis make it into the standard https://www.unicode.org/emoji/proposals.html#frequency-evidence https://news.ycombinator.com/item?id=41844624
 
@@ -407,6 +403,7 @@ TOOLING
 * used for reverse engineering? https://github.com/radareorg/radare2
 * `hexdump -C <file>` https://www.youtube.com/watch?v=-eDY7yh-CyA 1:50
 * _fq_: query https://github.com/wader/fq 
+* _hevi_: https://github.com/Arnau478/hevi
 * _hexabyte_: 🎯 editor https://github.com/thetacom/hexabyte
 * _hexedit_: Ubuntu https://news.ycombinator.com/item?id=23762626
 * _hexed_: 🎯 browser https://hexed.it/
@@ -427,16 +424,14 @@ CASES
 ## identifiers
 
 TOOLS
-```python
+* identify: UUID, Snowflake https://github.com/Racum/uuinfo
+* generate: pwgen https://www.youtube.com/watch?v=G3aH2WYJxGA shortuuid https://github.com/skorokithakis/shortuuid https://github.com/lithammer/shortuuid
+```sh
+uuidgen | tr '[:upper:]' '[:lower:]' | pbcopy  #  https://weiyen.net/articles/useful-macos-cmd-line-utilities
 python -c "import random, string; print('\n'.join(''.join(random.choices(string.ascii_uppercase + string.digits, k=4)) for _ in range(20)))"
 ```
-* _pwgen_: Brew https://www.youtube.com/watch?v=G3aH2WYJxGA
-* _shortuuid_: 🎯 https://github.com/lithammer/shortuuid
-* _uuidgen_: https://weiyen.net/articles/useful-macos-cmd-line-utilities
-```sh
-uuidgen | tr '[:upper:]' '[:lower:]' | pbcopy
-```
 
+TYPES
 * _DUNS_: unique for businesses as legal entities; require for government contracts, to be a supplier to big businesses, for SSL certs; e.g. `00-186-7803` for Apple
 * _SKU_: internal to retailer/warehouse; variable length, fmt repr product characteristics/location
 * _ASIN_: Amazon SKU; 10 char; per product i.e. if multiple sellers sell same product they use same ASIN https://inventlikeanowner.com/blog/the-story-behind-asins-amazon-standard-identification-numbers/
@@ -580,15 +575,28 @@ add styles
 
 ## PDF
 
-TOOLING
+GENERATE
+* _invoice_: https://github.com/maaslalani/invoice https://github.com/charmbracelet/pop
+
+READERS
 * _baca_: ebook/epub TUI reader https://github.com/wustho/baca
-* _poppler_: https://github.com/sxyazi/yazi
 * _tdf_: https://github.com/itsjunetime/tdf
 * _termpdf_: kitty https://github.com/dsanson/termpdf.py
 
+TO TEXT
+* _parsr_: https://github.com/axa-group/Parsr
+* _poppler_: https://poppler.freedesktop.org/
+```sh
+$ brew info poppler
+Conflicts with:
+  pdf2image (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
+  pdftohtml (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
+  xpdf (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
+```
+* everything else seems to rely on it https://github.com/sxyazi/yazi https://github.com/search?q=repo%3Amodesty%2Fpdf2json%20poppler&type=code https://github.com/search?q=repo%3Ajalan%2Fpdftotext%20poppler&type=code https://github.com/jalan/pdftotext
+
 ---
 
-* grep https://github.com/darrenldl/docfd
 * Sioyek https://news.ycombinator.com/item?id=34069804
 * https://docs.racket-lang.org/quad/
 * Markdown https://docs.racket-lang.org/quad/
@@ -637,3 +645,11 @@ https://news.ycombinator.com/item?id=26691626
 * https://softwareengineeringdaily.com/host/
 * https://blogs.windows.com/msedgedev/2017/10/18/documenting-web-together-mdn-web-docs/
 * Linux Programming Interface: chapter 1
+
+## structure
+
+* _unstructured text_: e.g. Unix tools
+* flexible http://www.catb.org/~esr/writings/taoup/html/ch05s01.html https://news.ycombinator.com/item?id=23630640
+* leads to complexity https://danluu.com/cli-complexity/ 
+* _structured text_: e.g. Powershell, JSON, CSV, XML, HTTP/1 https://news.ycombinator.com/item?id=27431998
+* operating systems use of https://news.ycombinator.com/item?id=28301646

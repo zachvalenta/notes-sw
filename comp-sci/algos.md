@@ -444,7 +444,6 @@ TOP OF MIND 🧠 https://chatgpt.com/c/67461bc1-0414-8004-af66-535909317a42
 > Spent the last week looking into search - embeddings, BM25, how LLMs fit into the picture, and so on - and then, surprise, this popped up on HackerNews: FastGraphRAG. I haven’t even looked at the project itself yet, because this comment tripped me up: "Hypothetical answer generation from a query using an LLM, and then using that hypothetical answer to query for embeddings works really well." They use an LLM to generate hypothetical answers to a query and then use those answers to find relevant documents by comparing them in vector space. Don't know how else to put it, so pardonnez mon langage, but that's fucking nuts. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 * _PageRank_: ranking algo that weights on number of incoming links (and their popularity)
 * _TF-IDF_: ranking https://jamesg.blog/2024/08/17/tf-idf-python/ https://simonwillison.net/2020/Dec/19/dogsheep-beta/ 🗄 `algos.md` Levenshtein https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
-* _Word2Vec_: vector db
 
 ZA
 * _simple_: 🗄 `/algos`

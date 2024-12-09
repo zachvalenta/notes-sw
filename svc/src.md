@@ -56,49 +56,24 @@ https://github.com/zillow/tycho
 
 ### Actions
 
+🗄️ `git.md` Pages
 📜 https://docs.github.com/en/actions
-🔬 example https://github.com/GothenburgBitFactory/taskwarrior/actions
+🔬 https://github.com/GothenburgBitFactory/taskwarrior/actions
 
-DEPLOYING ZJAYV https://zjayv.github.io/ 🧠 https://chatgpt.com/c/66f4a787-5a40-8004-bda8-c9c207ae0e88
-> start here https://www.getzola.org/documentation/deployment/github-pages/
-```txt
-things I've already tried
-
-- publish_dir
-- specify branch (settings > pages)
-```
-* workflows https://github.com/zachvalenta/zjayv.github.io/actions
-> why do they have two different names?
-* site that works https://liyasthomas.github.io/
-* need cname? https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME.txt
-* docs https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-* more docs https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
-
-SEMANTICS https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
-* use on AWS https://github.com/CloudSnorkel/cdk-github-runners
-* _workflow_: collection of jobs
-* triggered by event, chron, API
-* defined in `.github/workflows`
-* e.g. test PR, deployment, add labels when issue opened
-* _job_: collection of step
-* _step_: user-defined (script) or action
+SEMANTICS
+* _workflow_: collection of jobs (test|deploy|add label to issue) defined in `.github/workflows`; triggered by event|chron|API
+* _job_: collection of steps
+* _step_: user-defined action (script) https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
 > Steps are executed in order and are dependent on each other. Since each step is executed on the same runner, you can share data from one step to another. For example, you can have a step that builds your application followed by a step that tests the application that was built.
-* _action_: GH-defined extension
-> An action is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task. Use an action to help reduce the amount of repetitive code that you write in your workflow files. An action can pull your Git repository from GitHub, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
 * _runner_: container in which steps are run
 > A runner is a server that runs your workflows when they're triggered. Each runner can run a single job at a time.
+* _action_: GH-defined extension
+> An action is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task. Use an action to help reduce the amount of repetitive code that you write in your workflow files. An action can pull your Git repository from GitHub, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
 
-EVENT PROPERTIES
-* id
-* type
-* payload
-* _actor_: user triggering event
-* _repo_: where the event occurred
-
-EVENT TYPES https://docs.github.com/en/rest/using-the-rest-api/github-event-types
-> yet more? https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
-* `CreateEvent`: branch|tag created
-* `GollumEvent`: wiki page created|updated
+EVENTS
+* properties: id, type, payload, actor (user that triggers), repo (where event happens)
+* `CreateEvent`: branch|tag created https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
+* `GollumEvent`: wiki page created|updated https://docs.github.com/en/rest/using-the-rest-api/github-event-types?apiVersion=2022-11-28#gollumevent
 * `IssueCommentEvent`: comment on issue|PR
 * `IssuesEvent`: opened, edited, closed, assigned, labeled
 * `PullRequestEvent`: opened, edited, closed, review_requested
@@ -106,6 +81,7 @@ EVENT TYPES https://docs.github.com/en/rest/using-the-rest-api/github-event-type
 
 ---
 
+* use on AWS https://github.com/CloudSnorkel/cdk-github-runners
 telemetry https://github.com/catchpoint/workflow-telemetry-action/issues/39 https://blog.smidt.dev/posts/0003/
 can manipulate tags, create releases in repo using CLI https://cli.github.com/manual/gh_release
 
@@ -243,14 +219,17 @@ TOOLING
 
 ## secrets (dotenvx)
 
-❓ env var, fs, manager https://news.ycombinator.com/item?id=40789353
-> just exporting env var for now
-> 💡 point config to file holding pw = you can version control config https://www.youtube.com/watch?v=2yplBzPCghA [7:30]
 🗄
-* `ml.md` clients > llm
 * `security.md` users/ passwords
 * `shell.md` env var
 * `spec.md` config
+
+WORKFLOWS
+* secrets to `.env` + read from client (set perms on `.env` to 600) 🗄️ `ai.md` aider
+* just export + remove from shell history 🗄️ `ai.md` llm
+* 📍 to grok
+> env var, fs, manager https://news.ycombinator.com/item?id=40789353
+> 💡 point config to file holding pw = you can version control config https://www.youtube.com/watch?v=2yplBzPCghA [7:30]
 
 VAULTS
 * _BitWarden_: has their own vault?
@@ -396,6 +375,56 @@ extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.
 * application boundaries https://morizbuesing.com/blog/greppability-code-metric/
 * Richard Gabriel https://www.jwz.org/doc/worse-is-better.html https://bitfieldconsulting.com/posts/not-real-developer
 > Simplicity beats even strict correctness, in this view: it’s better to be simple (and handle the easy 90% of cases in a nice way) than to be totally correct (and handle the awkward edge cases, at the expense of making the code much more complex).
+
+## CLI/TUI
+
+🗄
+* `denv.md` Make
+* `linux.md` http://gnu.ist.utl.pt/prep/standards/html_node/Command_002dLine-Interfaces.html
+> I will finally note that Ken Thompson has a history of designs that look like minimal solutions to near problems but turn out to have an amazing quality of openness to the future, the capability to be improved. Unix is like this, of course. It makes me very cautious about supposing that any of the obvious annoyances in Go that look like future-blockers to me (like, say, the lack of generics) actually are. Because for that to be true, I’d have to be smarter than Ken, which is not an easy thing to believe. http://esr.ibiblio.org/?p=7745
+* `python.md` Click, functions
+* `serde.md`
+
+24.12.11
+* positional for one|two obvious args
+* keyword for options
+
+---
+
+https://jvns.ca/blog/2024/11/26/terminal-rules/
+https://danluu.com/cli-complexity/
+
+TUI
+* https://news.ycombinator.com/item?id=40273177
+* _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
+* ncurses
+* https://news.ycombinator.com/item?id=37418424
+* TUI for bash https://github.com/charmbracelet/gum
+* design https://www.micahlerner.com/2021/07/14/unix-shell-programming-the-next-50-years.html 🗣 Dan Luu https://borretti.me/article/shells-are-two-things extensions https://github.com/dotenvx/dotenvx/pull/426
+
+CLI IMPL LANGUAGE
+> use Rust for CLI and Python for business logic? https://github.com/chubin/wttr.in
+* tracking user info https://www.visidata.org/blog/2021/usage-graphs/
+> build modern CLI applications without worrying about user accounts, data storage and encryption https://github.com/charmbracelet/charm#charm-kv
+* fuzzy find https://github.com/denisidoro/navi
+* C: ✅ fast ❌ development speed
+* Nim: ✅ distribution ❌ maturity https://ssalewski.de/nimprogramming.html
+* Python: ✅ exploratory ❌ distribution
+* Go: ✅ distribution, fast startup https://news.ycombinator.com/item?id=23319684 ❌ stdlib lib lib not good
+* Rust: ✅ speed, Clap library https://news.ycombinator.com/item?id=23320411 better for cross platform https://cuchi.me/posts/go-vs-rust ❌ language itself
+
+OPTIONS 🔗 http://www.catb.org/~esr/writings/taoup/html/ch10s05.html
+* _short option_: single dash prefix + single letter e.g. `-y`
+* _option set_: n short options e.g. `-baz` = `-b`, `a`, `z`
+* _long option_: double dash prefix + word e.g. `--foo-bar`
+* options with a value are separated by their option by a space or an `=`
+* `--`: ends option processing.
+
+INPUT https://news.ycombinator.com/item?id=31293032
+* https://nullprogram.com/blog/2020/08/01/
+* _flag_: hyphen e.g. `cmd --from here --to there`
+* letter (`-h`) word (`--help`) https://www.youtube.com/watch?v=FOQHGz__OLs
+* _arg_: no hypen `cmd here there`; less clear than flags bc have to remember which is src and which is target https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46
 
 ## dependency injection (DI)
 

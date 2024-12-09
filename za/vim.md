@@ -216,12 +216,14 @@ edit
 * switch dir, switch project in IDE https://github.com/dandavison/wormhole
 
 THINGS I'M NOTICING ABOUT VSC
-* autocomplete works for any word in the workspace
-* prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421
 * ❌ constantly wipes out the outliner and requires Vim action to prompt redraw
 * ❌ symbol search doesn't work after git pull of new files | movement of headers
+> sometimes not at all, even after you've just opened file and navigated to header
 * ❌ Vim plugin fails on big CSV files
 * ❌ no tab groups https://github.com/microsoft/vscode/issues/100335
+* when you uninstall an extension you need to close and reopen VSC for that extesion to be removed from `$HOME/.vscode/extensions`
+* autocomplete works for any word in the workspace
+* prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421
 
 WORKSPACES 📜 https://code.visualstudio.com/docs/editor/multi-root-workspaces 
 * _workspace_: dir(s) in scope for search https://stackoverflow.com/a/50185038
@@ -368,7 +370,8 @@ VIM
 > I’ll likely get into this further into the post, but the way you can structure keybindings for Vim mode in Zed is fantastic. The structure allows for your typical VScode style config, but with the ability to scope a keybinding to a Vim mode is such a huge win for Neovim users. For instance, I can cheat my way into using a leader key when in normal mode and get things like space d to see diagnostics, or space t to open a full window terminal. It’s a pattern many Vim users will appreciate and I wish there was more docs for it as I’ve had to figure some of it out myself. https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode
 
 DESIGN
-* fast and cross-platform https://zed.dev/releases/stable/0.143.6
+* cross-platform https://zed.dev/releases/stable/0.143.6
+* fast input 🗄️ `models.md` Claude
 * just works™️: no Neomvim config hell, Python pkg mgmt with Poetry https://stevedylan.dev/posts/leaving-neovim-for-zed/
 * ❌ makes itself default editor (broot)
 

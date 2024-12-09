@@ -4,10 +4,53 @@
 
 🔍 https://security.stackexchange.com/
 🗣 https://www.latacora.com/blog/ https://krebsonsecurity.com/ https://twitter.com/badthingsdaily
-📙 McDonald https://www.amazon.com/gp/product/1633438260 https://www.manning.com/books/grokking-web-application-security
+📚
+> what does manning have in this space?
+* Ball hacking APIs https://www.amazon.com/Hacking-APIs-Application-Programming-Interfaces/dp/1718502443 https://www.amazon.com/Black-Hat-GraphQL-Attacking-Generation/dp/1718502842
+* Erickson art of exploitation https://www.amazon.com/Hacking-Art-Exploitation-Jon-Erickson/dp/1593271441
+> do you already have this as PDF?
+* Forshaw https://www.amazon.com/Attacking-Network-Protocols-Analysis-Exploitation/dp/1593277504
+> in Python
+* Hoffman https://www.amazon.com/Web-Application-Security-Exploitation-Countermeasures/dp/1098143930
+* Li bug bounty bootcamp https://www.amazon.com/Bug-Bounty-Bootcamp-Reporting-Vulnerabilities/dp/1718501544
+> buy from No Starch? https://nostarch.com/bug-bounty-bootcamp
+* McDonald https://www.manning.com/books/grokking-web-application-security https://www.amazon.com/gp/product/1633438260 wrote the same book in 2020? https://www.amazon.com/Web-Security-Developers-Malcolm-McDonald/dp/1593279949 https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470
+* Seitz black hat https://news.ycombinator.com/item?id=42361793
 
 ## 进步
 
+ATTRIBUTE BASED ACCESS CONTROL (ABAC)
+* Django Guardian
+* Flask Principal
+* FastAPI has built-in security?
+* https://www.achaq.dev/blog/iamjs
+* https://casbin.org/
+```python
+import casbin
+# Initialize the enforcer
+enforcer = casbin.Enforcer("model.conf", "policy.csv")
+# Check permissions
+is_allowed = enforcer.enforce("alice", "data1", "read")
+# Add policy
+enforcer.add_policy("bob", "data2", "write")
+# Add role
+enforcer.add_grouping_policy("alice", "admin")
+```
+* https://github.com/kolotaev/vakt
+* https://docs.permit.io/
+
+ROLES https://www.netmeister.org/blog/infosec-skillsets.html
+* _security engineering_: meta/mgmt 🗄 `google-sre-security.pdf` https://danielmiessler.com/study/ https://news.ycombinator.com/item?id=24031632
+* _cryptography_: academics https://web.engr.oregonstate.edu/~rosulekm/crypto/
+* _web_: knowing about SQL injection, XSS, CORS 🗄 `zalewski.pdf`
+* _hacking_: Kali Linux, MetaSploit 🗄 `weidman-pen-testing.pdf` https://news.ycombinator.com/item?id=24718078
+* _reverse engineering_: disassemblers/decompilers, C++, Windows 🗄 `python-grey-hat.pdf` https://www.begin.re/ https://nostarch.com/GhidraBook https://news.ycombinator.com/item?id=29084716 https://reverseengineering.stackexchange.com/ https://malwareunicorn.org/workshops/re101.html
+
+CLEAN THESE UP BEFORE BUYING BOOKS
+* things to know https://www.netmeister.org/blog/infosec-competencies.html https://jacobian.org/2021/jul/8/appsec-pagnis https://latacora.github.io/careers/
+* BYO RCE https://github.com/Narasimha1997/py4jshell
+* BYO w/ Django https://www.youtube.com/watch?v=bvLJTNRpnt8
+* https://www.latacora.com/blog/2024/09/13/datomic-and-content-addressable-techniques/
 * https://github.com/Ragnt/AngryOxide
 * https://www.stedi.com/blog/stedi-achieves-soc-2-type-ii-and-hipaa-eligibility-certification
 * encrypt file https://github.com/70sh1/eddy
@@ -36,23 +79,17 @@
 * https://nostarch.com/hacks-leaks-and-revelations
 * EDR endpoint detection https://nostarch.com/evading-edr
 * disclosures https://news.ycombinator.com/item?id=41916246
-
-things to know https://www.netmeister.org/blog/infosec-competencies.html https://jacobian.org/2021/jul/8/appsec-pagnis https://latacora.github.io/careers/
-
-roles https://www.netmeister.org/blog/infosec-skillsets.html
-* _security engineering_: meta/mgmt 🗄 `google-sre-security.pdf` https://danielmiessler.com/study/ https://news.ycombinator.com/item?id=24031632
-* _cryptography_: academics https://web.engr.oregonstate.edu/~rosulekm/crypto/
-* _web_: knowing about SQL injection, XSS, CORS 🗄 `zalewski.pdf`
-* _hacking_: Kali Linux, MetaSploit 🗄 `weidman-pen-testing.pdf` https://news.ycombinator.com/item?id=24718078
-* _reverse engineering_: disassemblers/decompilers, C++, Windows 🗄 `python-grey-hat.pdf` https://www.begin.re/ https://nostarch.com/GhidraBook https://news.ycombinator.com/item?id=29084716 https://reverseengineering.stackexchange.com/ https://malwareunicorn.org/workshops/re101.html
-
-* clean up https://cryptopals.com/ https://github.com/AntonKueltz/cryptopals https://www.hacker101.com/playlists/newcomers https://krebsonsecurity.com/2012/06/how-to-break-into-security-ptacek-edition/#more-15594 https://www.freecodecamp.org/learn/information-security/python-for-penetration-testing/ https://www.youtube.com/c/HackerSploit/playlists https://krebsonsecurity.com/2012/10/the-scrap-value-of-a-hacked-pc-revisited/ https://news.ycombinator.com/item?id=26071906 https://danielmiessler.com/blog/build-successful-infosec-career/ https://danielmiessler.com/study/information-security-definitions/
-* https://sre.google/books/
-* w/ Django https://www.youtube.com/watch?v=bvLJTNRpnt8
-* ad blocking https://blog.codinghorror.com/an-exercise-program-for-the-fat-web/ https://news.ycombinator.com/item?id=23521399 https://blog.maskys.com/my-best-chrome-extensions/ https://hacker-tools.github.io/web/ https://hacker-tools.github.io/security/
+* https://cryptopals.com/ https://github.com/AntonKueltz/cryptopals
+* https://www.hacker101.com/playlists/newcomers
+* https://krebsonsecurity.com/2012/06/how-to-break-into-security-ptacek-edition/#more-15594
+* https://www.freecodecamp.org/learn/information-security/python-for-penetration-testing/
+* https://www.youtube.com/c/HackerSploit/playlists
+* https://krebsonsecurity.com/2012/10/the-scrap-value-of-a-hacked-pc-revisited/
+* https://news.ycombinator.com/item?id=26071906
+* https://danielmiessler.com/blog/build-successful-infosec-career/
+* https://danielmiessler.com/study/information-security-definitions/
 
 DONE
-* _22_: switch to Brave
 * _20_: second pass at auth
 * _19_: first path at auth
 * _17_: Networking for Dummies
@@ -61,11 +98,12 @@ DONE
 
 🛠 scan https://observatory.mozilla.org/ https://securityheaders.com/ https://snyk.io/
 
-* _rootkit_: privilege escalation to root https://jvns.ca/blog/2013/10/08/day-6-i-wrote-a-rootkit/
-* _remote code execution (RCE)_: getting access to someone's server and executing arbitrary commands https://news.ycombinator.com/item?id=23308945
-* e.g. log4j https://github.com/Narasimha1997/py4jshell
-* _zero-day_: attacker knows before owner knows
 * _DoS (denial of service)_: designed to crash system vs. extracting data https://jacobian.org/2020/sep/11/analyzing-dos-vulnerabilities/ 
+* _phishing_: elicit secrets via mimicry of legimate resource e.g. set up page to mimic company internal portal
+> Humans are always the weakest link. It sounds like some internal person opened a link to an email and went to a site that spoofed internal portal. He/she was prompted to login so they got a set of creds that way. Sent an email from initial mark to another internal person. "Hey Greg, log in here and check this out for me." Type of thing. But now the email doesn't have all of the red flags like THIS EMAIL IS AN EXTERNAL ACCOUNT. So the 2nd+ people blindly trusted the link because it was coming from a trusted colleague. - Roberto 24.12.10
+* _remote code execution (RCE)_: getting access to someone's server and executing arbitrary commands https://news.ycombinator.com/item?id=23308945
+* _rootkit_: privilege escalation to root https://jvns.ca/blog/2013/10/08/day-6-i-wrote-a-rootkit/
+* _zero-day_: attacker knows before owner knows
 
 ---
 
@@ -74,11 +112,9 @@ DONE
 * _command injection_: input causes system call on server
 * _dictionary attack_: go through list of common passwords; form of brute force
 * _directory traversal_: improper validation of user input leads to read access of directory (not the file itself; that’s LFI) --> http://www.example.com?file=../../etc/passwd
-* _phishing_: elicit secrets via mimicry of legimate resource e.g. set up page to mimic company internal portal https://www.wsj.com/articles/the-teenager-behind-the-twitter-hack-and-how-he-did-it-11596563449
 * _Spectre, Meltdown_: programs reading data from other programs, all the way down to kernel memory 
 * _sim swap_: convince telco to assign number to new phone https://www.wsj.com/articles/the-teenager-behind-the-twitter-hack-and-how-he-did-it-11596563449
 * _worm_: self-propagating sw [`tcp-ip-illustrated.pdf` 18.1]
-
 * _packet sniffing_: if packets are sent in unencrypted fashion, can see session info https://github.com/pythops/oryx
 * _sensitive data_: https://github.com/hisxo/gitGraber https://github.com/trufflesecurity/trufflehog
 * _tmi_: passwords in your repo, `debug!=true` in PROD https://github.com/6IX7ine/djangohunter
@@ -264,13 +300,9 @@ pass
 
 🗄 `application.md` security
 
-https://www.cerbos.dev/blog/how-to-implement-authorization-in-go https://github.com/cerbos/cerbos
-https://roadmap.sh/backend
-https://github.com/goauthentik/authentik
-https://github.com/lucia-auth/lucia/discussions/1707 https://news.ycombinator.com/item?id=41801883
-https://sso.tax/
+---
 
-vocab
+SEMANTICS
 https://ntietz.com/blog/lets-say-instead-of-auth/
 * _authorization_: identity
 * _authentication_: access
@@ -281,34 +313,21 @@ https://ntietz.com/blog/lets-say-instead-of-auth/
 * role-based e.g. dba has full access to all fields to db but app dev will not see any personally identifiable info e.g. in Postgres can set permissions at the column level https://softwareengineeringdaily.com/2020/07/28/access-control-management-with-fouad-matin-and-dan-gillespie/
 * ACL https://www.stedi.com/blog/how-stedi-uses-automated-reasoning-for-access-control-policy-verification
 
-OAuth https://www.youtube.com/watch?v=xHFzhBjnMPI https://news.ycombinator.com/item?id=35713518&utm_term=comment https://www.youtube.com/watch?v=ZV5yTm4pT8g
-* OPenID https://www.youtube.com/watch?app=desktop&v=996OiexHze0
-* is now Okta? https://www.okta.com/okta-and-auth0/
-* allow 3rd party to use data from service (e.g. Github) w/out exposing user creds from service to 3rd party https://stackoverflow.com/a/33704657
-* authorization, not authentication e.g. 3rd party uses Github for OAuth to establish an identity for a new user https://stackoverflow.com/a/33704657
-* OAuth2 simpler than OAuth1, which required non-standard client (couldn't curl) and had its own security layer (vs. HTTPS) https://brandur.org/accessible-apis
-* framework, not protocol 🗄 `link.md`
-* sometimes known as passwordless https://dzone.com/articles/how-passwordless-authentication-works
-* _token types_: access token, id token https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/
-* _components_: resource owner (user) client (app that user wants to use) server/provider (authenticates user, grants token to client, which I presume is then handed to user) https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2 https://stackoverflow.com/a/10282020
-> When a user logs into our site with their Github account, we will redirect them to Github which then sends us a token that represents the user. https://learndjango.com/tutorials/django-allauth-tutorial
+https://www.cerbos.dev/blog/how-to-implement-authorization-in-go https://github.com/cerbos/cerbos
+https://roadmap.sh/backend
+https://github.com/goauthentik/authentik
+https://github.com/lucia-auth/lucia/discussions/1707 https://news.ycombinator.com/item?id=41801883
+https://sso.tax/
 
-za
-* _LDAP_: protocol to store/query directory of users/groups/perms; used for both authorization and authentication; services that use LDAP incl Active Directory and OpenLDAP https://news.ycombinator.com/item?id=23868081 https://news.ycombinator.com/item?id=32053961
-```yaml
-# https://www.youtube.com/watch?v=G6OhnMDU1J4
-dn: CN=Alice, OU=sysadmin
-# dn = distinguised name i.e. ID
-# CN = common name i.e. human readable name
-# OU = organization unit
-```
 * _Auth0_: sells platform built on OAuth https://stackoverflow.com/a/46782752 https://geniepy.com/blog/how-to-configure-auth0-in-starlette/
 * _OpenID Connect_: newer version of OpenID that uses OAuth https://security.stackexchange.com/a/182083 https://security.stackexchange.com/a/130411 📍 https://www.youtube.com/watch?v=xHFzhBjnMPI https://stackoverflow.com/questions/1087031/whats-the-difference-between-openid-and-oauth
 * _OpenID_: dead https://www.wired.com/2011/01/openid-the-webs-most-successful-failure/
 * _Zanzibar_: https://github.com/warrant-dev/warrant
 * _Zitadel_: https://github.com/zitadel/zitadel
 
-Kerberos https://www.roguelynn.com/words/explain-like-im-5-kerberos/ https://web.mit.edu/kerberos/krb5-1.12/doc/index.html https://web.mit.edu/kerberos/www/dialogue.html
+### Kerberos
+
+https://www.roguelynn.com/words/explain-like-im-5-kerberos/ https://web.mit.edu/kerberos/krb5-1.12/doc/index.html https://web.mit.edu/kerberos/www/dialogue.html
 * single sign-on (SSO) for corporate networks https://stackoverflow.com/a/46188971
 * https://news.ycombinator.com/item?id=41943589
 * authentication
@@ -320,6 +339,32 @@ Kerberos https://www.roguelynn.com/words/explain-like-im-5-kerberos/ https://web
 * uses symmetric encryption [`oreilly-ssh.pdf` 11.5.2]
 * uses KDC as active trusted third-party, active insofar as each message has to go through KDC, unlike PKI in which client/server can talk to each other once certificate granted [`oreilly-ssh.pdf` 11.5.2]
 * kinit
+
+### LDAP
+
+* _LDAP_: protocol to store/query directory of users/groups/perms; used for both authorization and authentication; services that use LDAP incl Active Directory and OpenLDAP https://news.ycombinator.com/item?id=23868081 https://news.ycombinator.com/item?id=32053961
+```yaml
+# https://www.youtube.com/watch?v=G6OhnMDU1J4
+dn: CN=Alice, OU=sysadmin
+# dn = distinguised name i.e. ID
+# CN = common name i.e. human readable name
+# OU = organization unit
+```
+
+### OAuth
+
+https://www.youtube.com/watch?v=xHFzhBjnMPI https://news.ycombinator.com/item?id=35713518&utm_term=comment https://www.youtube.com/watch?v=ZV5yTm4pT8g
+* https://news.ycombinator.com/item?id=42388870
+* OPenID https://www.youtube.com/watch?app=desktop&v=996OiexHze0
+* is now Okta? https://www.okta.com/okta-and-auth0/
+* allow 3rd party to use data from service (e.g. Github) w/out exposing user creds from service to 3rd party https://stackoverflow.com/a/33704657
+* authorization, not authentication e.g. 3rd party uses Github for OAuth to establish an identity for a new user https://stackoverflow.com/a/33704657
+* OAuth2 simpler than OAuth1, which required non-standard client (couldn't curl) and had its own security layer (vs. HTTPS) https://brandur.org/accessible-apis
+* framework, not protocol 🗄 `link.md`
+* sometimes known as passwordless https://dzone.com/articles/how-passwordless-authentication-works
+* _token types_: access token, id token https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/
+* _components_: resource owner (user) client (app that user wants to use) server/provider (authenticates user, grants token to client, which I presume is then handed to user) https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2 https://stackoverflow.com/a/10282020
+> When a user logs into our site with their Github account, we will redirect them to Github which then sends us a token that represents the user. https://learndjango.com/tutorials/django-allauth-tutorial
 
 ## cookies
 
@@ -549,6 +594,7 @@ pgcli postgres://postgres:pw@127.0.0.1:9998/db
 
 ## privacy
 
+* ad blocking https://blog.codinghorror.com/an-exercise-program-for-the-fat-web/ https://news.ycombinator.com/item?id=23521399 https://blog.maskys.com/my-best-chrome-extensions/ https://hacker-tools.github.io/web/ https://hacker-tools.github.io/security/
 * get away from Google, email providers, Obsidian https://news.ycombinator.com/item?id=30855065
 > post on Facebook and redirect to your site, put your email, too
 > business@zachvalenta, jay@zachvalenta, zach@valenta
@@ -628,4 +674,3 @@ __monitoring exposure__
 * https://monitor.firefox.com/
 * https://www.stopdatamining.me/
 * [Have I Been Pwned](https://www.troyhunt.com/the-legitimisation-of-have-i-been-pwned/)
-

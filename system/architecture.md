@@ -10,9 +10,9 @@
 * `telemtry.md` perf
 📚
 * Buelta python architecture
-* Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
-* Richards fundamentals of software architecture
-> they have another book together https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894
+* Ford fundamentals of software architecture
+> they have more books together https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894 https://www.amazon.com/Building-Evolutionary-Architectures-Automated-Governance/dp/1492097543
+* Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
 
 ## 进步
 
@@ -275,14 +275,23 @@ WALKTHROUGHS
 
 ## baked data
 
-🗄️ `analytics.md` tooling > BI
+🗄️
+* `analytics.md` tooling > BI
+* `sql.md` pedagogy
 
 * _baked data_: data embedded as static asset https://simonwillison.net/2020/Dec/13/datasette-io/ https://news.ycombinator.com/item?id=28015980 https://postlight.com/insights/big-data-small-effort
 * bc full stack SQL doesn't work https://news.ycombinator.com/item?id=26822884 https://simonwillison.net/2021/Jul/28/baked-data/
 * aka flat data https://news.ycombinator.com/item?id=27197950
-* sql.js https://github.com/sql-js/sql.js/ https://selectstarsql.com/frontmatter.html#technicals https://jvns.ca/blog/2019/09/30/notes-on-building-sql-exercises/ https://news.ycombinator.com/item?id=27016630
 * query SQLite over HTTP https://github.com/psanford/sqlite3vfshttp
 * https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html
+
+* _Datasette_: https://csvbase.com/ fetching https://github.com/fatiando/pooch
+* _sql.js_: https://github.com/sql-js/sql.js https://selectstarsql.com/frontmatter.html#technicals https://jvns.ca/blog/2019/09/30/notes-on-building-sql-exercises/ https://news.ycombinator.com/item?id=27016630 https://github.com/NUKnightLab/sql-mysteries
+
+* https://news.ycombinator.com/item?id=34558054 https://news.ycombinator.com/item?id=34630153
+* https://sqlbolt.com/
+* https://dataschool.com/learn-sql/basic-practice/
+* https://sql-playground.wizardzines.com/
 
 ## no code
 

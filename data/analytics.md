@@ -8,18 +8,22 @@
 * `protocols.md` file fmt
 * `telemetry.md` analytics
 📚
-* https://www.manning.com/books/advanced-analytics-for-business
+* https://www.manning.com/books/advanced-analytics-for-business https://www.youtube.com/watch?v=scY7PTxNSr4
 * https://www.manning.com/books/effective-data-analysis
 
 ## 进步
 
 # 🧮 DATAFRAMES
 
-🗄️ `sql.md` design
+🗄️
+* `eng.md` pipeline > test
+* `sql.md` design
 
 TOOLING
 * compare https://github.com/capitalone/datacompy https://www.thoughtworks.com/radar/languages-and-frameworks/datacompy
 * visualize https://github.com/man-group/dtale
+* diff https://www.youtube.com/watch?v=5Rc9xkeHth0
+* GPU acceleration https://www.youtube.com/watch?v=86nMARKN7ho https://www.youtube.com/watch?v=Aumh3evLSKc https://www.youtube.com/watch?v=PH7ExhXYkxQ
 
 ZA
 * _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog https://realpython.com/podcasts/rpp/224/ https://github.com/benrutter/wimsey
@@ -27,7 +31,7 @@ ZA
 
 ---
 
-design https://news.ycombinator.com/item?id=42193043
+design https://news.ycombinator.com/item?id=42193043 https://www.youtube.com/watch?v=cgWHPTx0wjw
 Dask dataframe https://www.youtube.com/watch?v=bbtK3aCQ3C0
 https://calpaterson.com/bank-python.html
 https://tibble.tidyverse.org/
@@ -63,6 +67,12 @@ ZA
 
 📜 https://ibis-project.org/
 
+to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
+> different semantics/interface than Pandas though so would assume - maybe even for simple stuff - you're not porting from Pandas but rather rewriting
+> one way around the pandas/polars interop problem (and others like it) https://ibis-project.org/
+> relatively new-ish but from the guy who wrote Pandas (Wes McKinney)
+> SQL is the longest lasting thing that still gets used for new projects (sorry, C) but it's kinda like Bash in that it's ugly/verbose to read and harder to write than ORM/dataframe code. tons of SQL out in the world so great use case for LLMs (like regex) but Ibis a great compromise, SQL becomes akin to compiler output, you can always dig into the assembly if need be [yes, compilers output bytecode, IR, etc.] but in most cases you're can happily plug away in a much better DSL. https://www.scattered-thoughts.net/writing/against-sql
+
 * dataframe API
 * transpiles to SQL i.e. works with SQL-based query engines (BigQuery, Clickhouse, Postgres, Snowflake) https://realpython.com/podcasts/rpp/201/
 * compiles to Python i. e https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
@@ -73,8 +83,10 @@ ZA
 
 📜 https://docs.pola.rs/ https://docs.pola.rs/api/python/stable/reference/index.html
 
-* copmared to Pandas: query optimization, group by https://labs.quansight.org/blog/dataframe-group-by https://pola.rs/posts/benchmarks/
+* converting Pandas to Polars https://www.youtube.com/watch?v=B2Ljp2Fb-l0
+* compared to Pandas: query optimization, group by https://labs.quansight.org/blog/dataframe-group-by https://pola.rs/posts/benchmarks/
 * better semantics than Pandas? https://arilamstein.com/blog/2024/09/04/why-im-switching-to-polars/
+* more on design https://www.youtube.com/watch?v=q3o2IdFQTOE
 * plotting https://pola.rs/posts/lightweight_plotting/ https://realpython.com/python-news-october-2024/
 > couldn't get this to work; try `pipx inject`
 
@@ -501,14 +513,21 @@ HARLEQUIN 📜 https://harlequin.sh
 🗄️ `os/tools.md` string processing
 📜 https://github.com/BurntSushi/xsv
 
+```sh
+# MUNGE
+fmt $TSV > $CSV
+
+# DML
+headers $CSV # get headers with index
+headers -j $CSV # get headers w/out index
+select "header" $CSV # select all from header
+```
+
 ---
 
 ```sh
-fmt $TSV > $CSV  # Capp
 count songs.csv # count records
-headers -j $CSV # get headers
 split -s <records_per_file> <output-dir> <csv> # split into n files
-select "header" <csv> # all from header
 search -i -s "header" "query" $CSV # search within header (case insensitive)
 stats <table> | xsv table # stats (sum, min, max)
 xsv sample 50 full.csv > sample.csv # get sampled subset

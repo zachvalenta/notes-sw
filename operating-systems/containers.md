@@ -45,7 +45,7 @@ HOWTO https://pythonspeed.com/docker/
 * _19_: another course, Flask skeleton
 * _17_: Pluralsight course, explain what a container is in a work meeting :)
 
-# 🚢 DOCKER
+# ⛵️ DOCKER
 
 📜 https://docs.docker.com/reference/
 🔍 https://github.com/veggiemonk/awesome-docker
@@ -259,13 +259,16 @@ services:
 
 ## 🛠️ tooling
 
+* _lazydocker_: 🎯 https://github.com/jesseduffield/lazydocker logs only https://github.com/Lifailon/lazyjournal
+
+---
+
 * VSC Docker extension https://github.com/Microsoft/vscode-docker/issues/150#issuecomment-462079524 https://www.youtube.com/watch?v=dihfA7Ol6Mw
 * Dockerfile lint https://github.com/hadolint/hadolint https://hadolint.github.io/hadolint/ https://github.com/goodwithtech/dockle
 * image explore https://github.com/wagoodman/dive https://news.ycombinator.com/item?id=38913425
 * CLI https://github.com/j-bennet/wharfee
 
 TUI
-* 🎯 https://github.com/jesseduffield/lazydocker
 * https://github.com/will-moss/isaiah
 * https://github.com/pommee/Pocker
 * https://github.com/bcicen/ctop
@@ -313,6 +316,94 @@ TYPES https://stackoverflow.com/a/55366707 https://www.youtube.com/watch?v=YFl2m
 * fs in container is itself just an alias to fs on Docker host [Wahlin 5.3 @ 2:30] 
 * persisted even if container deleted unless you explicity wipe it out
 * apparently for local dev you mount your src directory onto container file system but for prod you copy your src into container itself
+
+# 🚢 KUBERNETES
+
+🗄 `system.md` distributed
+📜 https://kubespec.dev/ https://news.ycombinator.com/item?id=42399701
+🔍 https://ramitsurana.github.io/awesome-kubernetes/
+📚
+* Luksa kubernetes in action
+* basics https://cloud.google.com/kubernetes-engine/kubernetes-comic
+* design https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/
+* course https://testdriven.io/blog/running-flask-on-kubernetes/
+* https://roadmap.sh/kubernetes
+* https://github.com/ghik/kubernetes-the-harder-way https://news.ycombinator.com/item?id=41393160
+
+---
+
+SEMANTICS
+* _Kubernetes_: declaratively run multiple containers and load balance btw
+* _container_: app runtime/deps https://www.mattlayman.com/blog/2019/web-development-environments
+* _pod_: define CPU, mem https://www.mattlayman.com/blog/2019/web-development-environments
+* smallest obj in K8s obj model https://cloud.google.com/kubernetes-engine/kubernetes-comic
+* container in which other containers (typically 1) are running
+* _group_: n pods running on a node
+* _node_: machine (physical, virtual) w/ container runtime (Docker, containerd) + Kubes agent
+* _cluster_: n nodes https://www.mattlayman.com/blog/2019/web-development-environments 
+* _etcd_: db on cluser state https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/ use Postgres https://martinheinz.dev/blog/100
+* _Helm_: pkg manager for cluster; Cue https://github.com/stefanprodan/timoni
+* _chart_: Helm pkg
+* _Rancher_: hardened K8s for enterprise https://www.rancher.com/
+* _controller_: program that talks to K8s API e.g. "start new server for each branch in GH repo" https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
+* also how K8S internals work? https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
+
+ZA
+* DNS https://www.nslookup.io/learning/the-life-of-a-dns-query-in-kubernetes/ https://jpetazzo.github.io/2024/05/12/understanding-kubernetes-dns-hostnetwork-dnspolicy-dnsconfigforming/
+* https://news.ycombinator.com/item?id=42252872
+* networking https://jvns.ca/blog/2016/12/22/container-networking/
+* certificates https://jvns.ca/blog/2017/08/05/how-kubernetes-certificates-work/
+* certification https://www.cncf.io/certification/ckad/ https://www.youtube.com/watch?v=AplluksKvzI
+* static scan https://www.thoughtworks.com/radar/tools?blipid=202203022
+* test config https://github.com/open-policy-agent/conftest https://www.thoughtworks.com/radar/tools?blipid=202110014
+* _dstack_: OSS alternative https://github.com/dstackai/dstack https://www.youtube.com/watch?v=Kqp_LI85qVQ
+
+## design
+
+* good for on-prem? https://danluu.com/simple-architectures/
+> As for Kubernetes, we use Kubernetes because knew that, if the business was successful (which it has been) and we kept expanding, we'd eventually expand to countries that require us to operate our services in country. The exact regulations vary by country, but we're already expanding into one major African market that requires we operate our “primary datacenter” in the country and there are others with regulations that, e.g., require us to be able to fail over to a datacenter in the country.
+
+---
+
+* anti-pattern https://changelog.com/shipit/126
+* once you have cluster set up, easy to add services https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
+* easy to see exact state of all services https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
+* use when you have more services than docker-compose
+> Kubernetes sees itself as solving a problem statement closer to "CloudFormation" - in the sense that it wants to be sufficient to define your entire infrastructure - except that it also attempts to do so in a way that is generic over the underlying cloud provider or hardware. https://buttondown.email/nelhage/archive/two-reasons-kubernetes-is-so-complex/
+* complexity https://k8s.af/ easier if managed https://news.ycombinator.com/item?id=22491794 https://www.lastweekinaws.com/blog/the-baffling-maze-of-kubernetes/ https://www.lastweekinaws.com/blog/a-brief-history-of-kubernetes-its-use-cases-and-its-problems/ https://www.lastweekinaws.com/blog/how-to-learn-something-new-kubernetes-the-much-harder-way/
+* history: emerges from Borg (C++ 100M LOC) and moved to Linux Foundation (CNCF) in 2014
+* previous competition: Swarm, Mesos, Nomad, Marathon https://technodrone.blogspot.com/2019/02/goodbye-docker-and-thanks-for-all-fish.html
+* https://news.ycombinator.com/item?id=30767393
+* https://news.ycombinator.com/item?id=42042163
+
+## util
+
+* _k9s_: TUI https://github.com/derailed/k9s
+* _kl_: logs https://github.com/robinovitch61/kl/
+* _ktop_: https://github.com/vladimirvivien/ktop
+
+---
+
+* debugging Python https://martinheinz.dev/blog/99
+* https://www.faizanbashir.me/interacting-with-kubernetes-deployments-and-services-using-python-sdk
+* https://terminaltrove.com/kubecolor/
+* GUI https://aptakube.com/
+* _caretta_: dependency map https://github.com/groundcover-com/caretta
+* _minikube_: run locally https://kubernetes.io/docs/tasks/tools/#minikube
+* alternatives https://github.com/windmilleng/tilt https://github.com/kubernetes-sigs/kind
+* _Karpenter_: autoscale nodes https://www.thoughtworks.com/radar/tools?blipid=202210013 https://karpenter.sh/
+* _kubectl_: CLI
+* switched btw namespaces and contexts/clusters https://github.com/ahmetb/kubectx
+* _Lens_: Electron app https://k8slens.dev/
+* _mizu_: view API traffic https://www.thoughtworks.com/radar/tools?blipid=202210007 https://github.com/kubeshark/kubeshark/tree/main
+* _skaffold_: https://github.com/GoogleContainerTools/skaffold https://www.mattlayman.com/blog/2019/web-development-environments
+> run a process that will watch code files for changes and build and deploy to a Kubernetes cluster when changes are detected.
+* tracing https://github.com/keyval-dev/odigos
+* GUI https://github.com/lensapp/lens view as graph https://github.com/nevalla/lens-resource-map-extension/ web UI https://github.com/kinvolk/headlamp
+* edit pod code locally https://github.com/metalbear-co/mirrord
+* viz network policies https://editor.cilium.io/?id=keEeyzaunMgYXczJ https://artturik.github.io/network-policy-viewer/
+* viz roles/RBAC https://github.com/appvia/krane https://github.com/alcideio/rbac-tool
+* create roles/RBAC https://github.com/sighupio/permission-manager/ https://github.com/sighupio/permission-manager/tree/master/docs/assets
 
 # 🟨 ZA
 
@@ -573,86 +664,6 @@ COPY . /$my_project
 # syntax https://stackoverflow.com/a/27615958
 CMD flask run --host 0.0.0.0
 ```
-
-## Kubernetes
-
-* good for on-prem? https://danluu.com/simple-architectures/
-> As for Kubernetes, we use Kubernetes because knew that, if the business was successful (which it has been) and we kept expanding, we'd eventually expand to countries that require us to operate our services in country. The exact regulations vary by country, but we're already expanding into one major African market that requires we operate our “primary datacenter” in the country and there are others with regulations that, e.g., require us to be able to fail over to a datacenter in the country.
-
----
-
-* DNS https://www.nslookup.io/learning/the-life-of-a-dns-query-in-kubernetes/ https://jpetazzo.github.io/2024/05/12/understanding-kubernetes-dns-hostnetwork-dnspolicy-dnsconfigforming/
-https://news.ycombinator.com/item?id=42252872
-https://github.com/vladimirvivien/ktop
-https://roadmap.sh/kubernetes
-https://github.com/ghik/kubernetes-the-harder-way https://news.ycombinator.com/item?id=41393160
-* _dstack_: OSS alternative https://github.com/dstackai/dstack https://www.youtube.com/watch?v=Kqp_LI85qVQ
-
-🗄 `system.md` distributed
-🔍 https://ramitsurana.github.io/awesome-kubernetes/
-📚
-* Luksa kubernetes in action
-* basics https://cloud.google.com/kubernetes-engine/kubernetes-comic
-* design https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/
-* course https://testdriven.io/blog/running-flask-on-kubernetes/
-
-BASICS
-* _Kubernetes_: declaratively run multiple containers and load balance btw
-* _container_: app runtime/deps https://www.mattlayman.com/blog/2019/web-development-environments
-* _pod_: define CPU, mem https://www.mattlayman.com/blog/2019/web-development-environments
-* smallest obj in K8s obj model https://cloud.google.com/kubernetes-engine/kubernetes-comic
-* container in which other containers (typically 1) are running
-* _group_: n pods running on a node
-* _node_: machine (physical, virtual) w/ container runtime (Docker, containerd) + Kubes agent
-* _cluster_: n nodes https://www.mattlayman.com/blog/2019/web-development-environments 
-* _etcd_: db on cluser state https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/ use Postgres https://martinheinz.dev/blog/100
-* _Helm_: pkg manager for cluster; Cue https://github.com/stefanprodan/timoni
-* _chart_: Helm pkg
-* _Rancher_: hardened K8s for enterprise https://www.rancher.com/
-* _controller_: program that talks to K8s API e.g. "start new server for each branch in GH repo" https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
-* also how K8S internals work? https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
-
-DESIGN
-* anti-pattern https://changelog.com/shipit/126
-* once you have cluster set up, easy to add services https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
-* easy to see exact state of all services https://jvns.ca/blog/2017/10/05/reasons-kubernetes-is-cool/
-* use when you have more services than docker-compose
-> Kubernetes sees itself as solving a problem statement closer to "CloudFormation" - in the sense that it wants to be sufficient to define your entire infrastructure - except that it also attempts to do so in a way that is generic over the underlying cloud provider or hardware. https://buttondown.email/nelhage/archive/two-reasons-kubernetes-is-so-complex/
-* complexity https://k8s.af/ easier if managed https://news.ycombinator.com/item?id=22491794 https://www.lastweekinaws.com/blog/the-baffling-maze-of-kubernetes/ https://www.lastweekinaws.com/blog/a-brief-history-of-kubernetes-its-use-cases-and-its-problems/ https://www.lastweekinaws.com/blog/how-to-learn-something-new-kubernetes-the-much-harder-way/
-* history: emerges from Borg (C++ 100M LOC) and moved to Linux Foundation (CNCF) in 2014
-* previous competition: Swarm, Mesos, Nomad, Marathon https://technodrone.blogspot.com/2019/02/goodbye-docker-and-thanks-for-all-fish.html
-* https://news.ycombinator.com/item?id=30767393
-* https://news.ycombinator.com/item?id=42042163
-
-UTIL
-* debugging Python https://martinheinz.dev/blog/99
-* https://www.faizanbashir.me/interacting-with-kubernetes-deployments-and-services-using-python-sdk
-* https://terminaltrove.com/kubecolor/
-* GUI https://aptakube.com/
-* _caretta_: dependency map https://github.com/groundcover-com/caretta
-* _minikube_: run locally https://kubernetes.io/docs/tasks/tools/#minikube
-* alternatives https://github.com/windmilleng/tilt https://github.com/kubernetes-sigs/kind
-* _Karpenter_: autoscale nodes https://www.thoughtworks.com/radar/tools?blipid=202210013 https://karpenter.sh/
-* _kubectl_: CLI
-* switched btw namespaces and contexts/clusters https://github.com/ahmetb/kubectx
-* _k9s_: better CLI https://github.com/derailed/k9s
-* _Lens_: Electron app https://k8slens.dev/
-* _mizu_: view API traffic https://www.thoughtworks.com/radar/tools?blipid=202210007 https://github.com/kubeshark/kubeshark/tree/main
-* _skaffold_: https://github.com/GoogleContainerTools/skaffold https://www.mattlayman.com/blog/2019/web-development-environments
-> run a process that will watch code files for changes and build and deploy to a Kubernetes cluster when changes are detected.
-* tracing https://github.com/keyval-dev/odigos
-* GUI https://github.com/lensapp/lens view as graph https://github.com/nevalla/lens-resource-map-extension/ web UI https://github.com/kinvolk/headlamp
-* edit pod code locally https://github.com/metalbear-co/mirrord
-* viz network policies https://editor.cilium.io/?id=keEeyzaunMgYXczJ https://artturik.github.io/network-policy-viewer/
-* viz roles/RBAC https://github.com/appvia/krane https://github.com/alcideio/rbac-tool
-* create roles/RBAC https://github.com/sighupio/permission-manager/ https://github.com/sighupio/permission-manager/tree/master/docs/assets
-
-ZA
-* networking https://jvns.ca/blog/2016/12/22/container-networking/
-* certificates https://jvns.ca/blog/2017/08/05/how-kubernetes-certificates-work/
-* certification https://www.cncf.io/certification/ckad/ https://www.youtube.com/watch?v=AplluksKvzI
-* static scan https://www.thoughtworks.com/radar/tools?blipid=202203022
-* test config https://github.com/open-policy-agent/conftest https://www.thoughtworks.com/radar/tools?blipid=202110014
 
 ## 🐍 Python
 

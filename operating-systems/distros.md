@@ -64,7 +64,7 @@ Firevim https://github.com/glacambre/firenvim
 
 VIMIUM
 > sites where Vimium search doesn't work: Github, Stedi
-* alternatives https://news.ycombinator.com/item?id=34071191 https://news.ycombinator.com/item?id=34149340 https://news.ycombinator.com/item?id=34150016
+* alternatives https://news.ycombinator.com/item?id=34071191 https://news.ycombinator.com/item?id=34149340 https://news.ycombinator.com/item?id=34150016 https://news.ycombinator.com/item?id=42396336
 * help: `?`
 * omnibar: `o`
 * tab - search: `T`

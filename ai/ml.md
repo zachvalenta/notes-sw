@@ -78,6 +78,7 @@ TYPES
 
 ---
 
+* https://www.hopsworks.ai/post/pandas2-and-polars-for-feature-engineering
 * _feature extraction_: key attr e.g. semantic meaning, syntax, sentiment analysis https://zackproser.com/blog/introduction-to-embeddings
 * _Naive Bayes_: priors + data; naive bc assume every feature has same weight [Bhargava 10.200]
 * softmax https://victorzhou.com/blog/softmax/
@@ -105,7 +106,6 @@ TYPES
 * _Tensorflow_: tensor (array) flow (operations) https://github.com/Hvass-Labs/TensorFlow-Tutorials https://news.ycombinator.com/item?id=42133844
 * _Keras_: less verbose Tensorflow (will eventually be packaged w/) https://victorzhou.com/blog/keras-neural-network-tutorial/ https://news.ycombinator.com/item?id=42133844
 * _PyTorch_: superceded Tensorflow https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/ NumPy that can run in parallel on GPUs; tensor (array 类似 NumPy array) scalar (single value) vector (array) matrix (2d array) tensor (multi-dimensional array) https://aiweirdness.com/post/189170306297/how-to-begin-a-novel alternative https://github.com/geohot/tinygrad https://github.com/Lightning-AI/lightning
-* _CUDA_: GPUs aaS
 * _sci-kit learn_: https://jakevdp.github.io/PythonDataScienceHandbook/
 * _Matplotlib_: eaten by Python https://realpython.com/podcasts/rpp/197/
 * Matlab for Python https://jakevdp.github.io/PythonDataScienceHandbook/
@@ -135,6 +135,11 @@ dot([1,2,3], [4,5,6])
 
 ## vectors
 
+---
+
+* word2vec, byte-pair encoding, LSTM https://arpit.substack.com/p/how-zomato-improved-its-search-using https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm * _Word2Vec_: vector db https://www.youtube.com/watch?v=a8Oz6Mz8pk0
+
+SEMANTICS
 * _scalar_: single value 📙 Trask [3.45] Bradshaw [62]
 * _vector_: list 📙 Trask 3.31
 * _matrix_: list of lists 📙 Trask 3.41 e.g. NumPy array, Pandas dataframe
@@ -143,11 +148,27 @@ dot([1,2,3], [4,5,6])
 
 ## embeddings
 
+💡 calc relatedness of strings
+
+USAGE https://platform.openai.com/docs/guides/embeddings
+* search (where results are ranked by relevance to a query string)
+* clustering (where text strings are grouped by similarity)
+* recommendations (where items with related text strings are recommended)
+* anomaly detection (where outliers with little relatedness are identified)
+* diversity measurement (where similarity distributions are analyzed)
+* classification (where text strings are classified by their most similar label)
+
+---
+
 * _embedding_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings
 * try it out https://github.com/taylorai/aiq
 * https://www.youtube.com/watch?v=XPA213k8G_U
 * https://www.youtube.com/watch?v=pfRA3Scz3Fw
-* https://blog.wilsonl.in/hackerverse/ https://www.youtube.com/watch?v=zzY64Qu8HHc https://news.ycombinator.com/item?id=41473518 https://www.youtube.com/watch?v=hB7sGE0W8CI https://news.ycombinator.com/item?id=42013762
+* https://blog.wilsonl.in/hackerverse/
+* https://www.youtube.com/watch?v=zzY64Qu8HHc
+* https://news.ycombinator.com/item?id=41473518
+* https://www.youtube.com/watch?v=hB7sGE0W8CI
+* https://news.ycombinator.com/item?id=42013762
 
 # 🟨️ ZA
 
@@ -332,7 +353,6 @@ BASICS
 * _sentiment analysis_: determine emotional content https://aeon.co/ideas/why-are-pop-songs-getting-sadder-than-they-used-to-be https://matthagy.github.io/rh_comment_categories/
 * _word cloud_: https://dataanalysis.substack.com/p/generating-a-word-cloud-in-python?s=r
 * clean up https://nostarch.com/NLPPython https://codewords.recurse.com/issues/seven/data-driven-literary-analysis https://www.fast.ai/2019/07/08/fastai-nlp/ https://speakerdeck.com/pycon2015/adam-palay-words-words-words-reading-shakespeare-with-python https://victorzhou.com/blog/better-profanity-detection-with-scikit-learn/ https://calmcode.io/labs/scikit-partial
-* word2vec, byte-pair encoding, LSTM https://arpit.substack.com/p/how-zomato-improved-its-search-using https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm 
 * https://github.com/rspeer/wordfreq
 
 SEMANTICS

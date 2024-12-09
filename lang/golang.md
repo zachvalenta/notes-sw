@@ -111,6 +111,8 @@ fmt.Println(mySlice) // [3 5 7]
 
 ## design
 
+📙 Kernighan/Pike practice of programming https://www.amazon.com/Practice-Programming-Addison-Wesley-Professional-Computing/dp/020161586X
+
 FEATURES 📙 Jeffrey [3]
 * concurrency
 * more modern than C e.g. modules
@@ -150,7 +152,7 @@ https://drewdevault.com/2021/04/02/Go-is-a-great-language.html
 > Where scripting languages got started as an effective way to write small programs and gradually scaled up, Rust and Go were positioned from the start as ways to reduce defect rates in really large projects. Like, Google’s search service and Facebook’s real-time-chat multiplexer. - http://esr.ibiblio.org/?p=7724
 > The single best property of Go is that it is basically non-magical. With very few exceptions, a straight-line reading of Go code leaves no ambiguity about definitions, dependency relationships, or runtime behavior. This makes Go relatively easy to read, which in turn makes it relatively easy to maintain, which is the single highest virtue of industrial programming. - https://peter.bourgon.org/blog/2017/06/09/theory-of-modern-go.html
 * Ken Thompson has been right
-> I will finally note that Ken Thompson has a history of designs that look like minimal solutions to near problems but turn out to have an amazing quality of openness to the future, the capability to be improved. Unix is like this, of course. It makes me very cautious about supposing that any of the obvious annoyances in Go that look like future-blockers to me (like, say, the lack of generics) actually are. Because for that to be true, I’d have to be smarter than Ken, which is not an easy thing to believe. - http://esr.ibiblio.org/?p=7745
+> I will finally note that Ken Thompson has a history of designs that look like minimal solutions to near problems but turn out to have an amazing quality of openness to the future, the capability to be improved. Unix is like this, of course. It makes me very cautious about supposing that any of the obvious annoyances in Go that look like future-blockers to me (like, say, the lack of generics) actually are. Because for that to be true, I’d have to be smarter than Ken, which is not an easy thing to believe. http://esr.ibiblio.org/?p=7745
 * Ken Thompson has been wrong
 > To be clear, I'm not saying that I or anyone else could have done better with the knowledge available in the 70s in terms of making a system that was practically useful at the time that would be elegant today. It's easy to look back and find issues with the benefit of hindsight. What I disagree with are comments from Unix mavens speaking today; comments like McIlroy's, which imply that we just forgot or don't understand the value of simplicity, or Ken Thompson saying that C is as safe a language as any and if we don't want bugs we should just write bug-free code. These kinds of comments imply that there's not much to learn from hindsight; in the 70s, we were building systems as effectively as anyone can today; five decades of collective experience, tens of millions of person-years, have taught us nothing; if we just go back to building systems like the original Unix mavens did, all will be well. I respectfully disagree. https://danluu.com/cli-complexity/#maven
 
@@ -244,14 +246,33 @@ var myInt // 0
 * _TOML_: https://github.com/pelletier/go-toml
 * _YAML_: https://github.com/goccy/go-yaml
 
-## CLI
+## 🦄 Charm
+
+🔗 https://charm.sh/
+
+* _Bubbles_: standalone UI components from Bubbletea https://github.com/charmbracelet/bubbles
+* text input (does it support readline?) https://github.com/charmbracelet/bubbles?tab=readme-ov-file#text-input
+* _Bubbletea_: TUI framework https://github.com/charmbracelet/bubbletea https://github.com/charmbracelet/bubbletea#bubble-tea-in-the-wild
+* _huh_: forms; used in gum https://github.com/charmbracelet/huh
+* _gum_: ✅ components for Bash scripts https://github.com/charmbracelet/gum examples https://github.com/charmbracelet/gum/blob/main/examples/test.sh
+* can use in Python https://github.com/charmbracelet/gum/blob/main/examples/gum.py
+```sh
+# welcome msg -> yet wilder here https://github.com/charmbracelet/gum#join
+gum style --foreground 212 --border-foreground 212 --border double \
+	--align center --width 50 --margin "1 2" --padding "2 2" 'generate' 'dataset' 'for' 'crudite'
+```
+* _log_: structured logs https://github.com/charmbracelet/log
+* used in gum https://github.com/charmbracelet/gum#log
+
+---
 
 📹 https://www.youtube.com/watch?v=_gzypL-Qv-g
 
 * _Bubble Tea_: inspired by Elm? https://github.com/charmbracelet/bubbletea
 * tutorials https://leg100.github.io/en/posts/building-bubbletea-programs/ https://www.youtube.com/watch?v=ERaZi0YvBRs
 * components https://github.com/charmbracelet/bubbles 
-* _gum_: Charm utils for Bash https://github.com/charmbracelet/gum https://www.youtube.com/watch?v=tnikefEuArQ https://github.com/zackproser/automations
+
+## CLI
 
 ---
 
@@ -267,7 +288,6 @@ var myInt // 0
 
 * testing, golden files https://changelog.com/gotime/337
 * https://www.dolthub.com/blog/2023-03-29-interactive-shell-golang/
-
 
 * https://clig.dev/ https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46 https://www.youtube.com/watch?v=eMz0vni6PAw https://eryb.space/2020/05/27/diving-into-go-by-building-a-cli-application.html https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ email author -> 艘 'Golang article typo'
 ```sh

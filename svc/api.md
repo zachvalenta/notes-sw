@@ -36,6 +36,10 @@ DONE
 * KISS: if data is static, use web server like Nginx, don't even need a backend https://blog.pecar.me/faster-api
 * _Hyrums Law_: https://news.ycombinator.com/item?id=42201892
 
+---
+
+> In some sense, deprecated methods and parameters are relatively easy because it's relatively clear to see what's happened. It's when it's subtle changes in behavior.  Like, do you apply an integer constraint before or after a function that wraps the integer validation?...you decide to change it because you're like this is marginally more correct? https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
+
 ## GraphQL
 
 ---

@@ -3,6 +3,7 @@
 ## 参考
 
 🗄
+* `computation.md` state machines
 * `eng.md` replicate
 * `infra.md` queues
 📚
@@ -15,6 +16,8 @@
 * Takada fun/profit http://book.mixu.net/distsys/index.html
 
 ## 进步
+
+* start here https://www.achaq.dev/blog/distributed-systems-state-machines-special-relativity
 
 # 🤝 CONSENSUS
 

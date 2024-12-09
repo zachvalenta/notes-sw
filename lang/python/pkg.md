@@ -499,6 +499,8 @@ DESIGN
 
 ---
 
+scripts https://koaning.io/til/pyperclip/
+build standalone https://gregoryszorc.com/blog/2024/12/03/transferring-python-build-standalone-stewardship-to-astral/
 https://www.youtube.com/watch?v=8UuW8o4bHbw
 https://www.youtube.com/watch?v=_FdjW47Au30
 https://micro.webology.dev/2024/11/03/uv-does-everything.html https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
@@ -555,6 +557,7 @@ PEPS https://realpython.com/pypi-publish-python-package/#prepare-your-package-fo
 * _PEP 621_: specifying project metadata
 * _PEP 639_: https://bsky.app/profile/hynek.me/post/3lc5n7g6kr22f https://pythonbytes.fm/episodes/show/411/tls-client-hello-guitar-solo
 * _PEP 660_: editable installs
+* _PEP 767_: read-only attributes https://peps.python.org/pep-0767/
 * _PEP 735_: didn't Poetry already have this? https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight
 * _PEP 751_: metadata https://lucumr.pocoo.org/2024/11/26/python-packaging-metadata/ https://discuss.python.org/t/pep-751-now-with-graphs/69721
 * _PEP 777_: wheel backwards compatibility (to enable new functionality to be added to wheels) https://peps.python.org/pep-0777/

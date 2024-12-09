@@ -23,10 +23,15 @@
 
 # 🪐️ INDUSTRY
 
-📙 http://www.catb.org/~esr/jargon/html/index.html
 🔍 https://newsletter.pragmaticengineer.com/p/state-of-eng-market-2024
+📚
+* Kernighan unix a history 🗄️ Raymond unix programming
+* Martin we programmers https://www.amazon.com/Turings-Cathedral-Origins-Digital-Universe/dp/1400075998
+* Moody rebel code
+* Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/ http://www.catb.org/~esr/jargon/html/index.html
+* Seibel coders at work
 
-POLITICS
+POLITICS 🗄️ `denv.md` Nix
 * codes of conduct
 * masking in 2025 https://us.pycon.org/2025/about/health-safety-guidelines/
 * https://x.com/steveklabnik https://bsky.app/profile/steveklabnik.com
@@ -48,7 +53,7 @@ MGMT https://jacobian.org/posts/
 > even people who should know better https://x.com/danluu/status/1244051446313574402
 * DORA https://jacobian.org/2022/jun/17/dora-metrics/
 
-* https://www.trevorlasn.com/blog/software-engineer-titles-have-almost-lost-all-their-meaning
+* https://www.trevorlasn.com/blog/software-engineer-titles-have-almost-lost-all-their-meaning https://blog.alexewerlof.com/p/staff-engineer-vs-engineering-manager
 * in-house https://news.ycombinator.com/item?id=41161315
 * freelance: https://www.racketracer.com/2019/07/11/why-data-scientists-should-never-use-upwork https://andyadams.org/everything-i-know-about-freelancing https://news.ycombinator.com/item?id=19455224 https://github.com/engineerapart/TheRemoteFreelancer https://plainfreelancecontract.com/ https://news.ycombinator.com/item?id=18945658 contracting https://ochagavia.nl/blog/becoming-a-contractor
 * pair programming: https://news.ycombinator.com/item?id=2050552 http://mwilden.blogspot.com/2010/12/why-i-love-solo-programming-and-why-i.html http://mwilden.blogspot.com/2009/11/why-i-dont-like-pair-programming-and.html https://codeburst.io/pair-programming-is-hard-a5da3449b67a https://gitduck.com/ https://tuple.app/
@@ -145,7 +150,7 @@ https://drewdevault.com/2018/10/30/Its-not-okay-to-pretend-youre-open-source.htm
 https://csvbase.com/blog/14
 https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 * https://drewdevault.com/2021/07/04/Is-GitHub-a-derivative-work.html
-* CLA https://drewdevault.com/2023/07/04/Dont-sign-a-CLA-2.html https://odoo-community.org/about/cla https://github.com/odoo/odoo/tree/18.0/doc/cla/corporate
+* CLA https://drewdevault.com/2023/07/04/Dont-sign-a-CLA-2.html https://odoo-community.org/about/cla https://github.com/odoo/odoo/tree/18.0/doc/cla/corporate https://github.com/martinvonz/jj/discussions/4849
 * https://drewdevault.com/2023/06/19/Reforming-the-free-software-message.html
 * https://drewdevault.com/2022/09/16/Open-source-matters.html
 * https://drewdevault.com/2022/03/01/Open-source-is-defined-by-the-OSD.html
@@ -207,11 +212,11 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 
 📚
 * Eghbal working in public https://www.amazon.com/gp/product/0578675862 https://drewdevault.com/2024/07/16/2024-07-16-So-you-want-to-compete-with-FOSS.html https://drewdevault.com/2023/12/26/2023-12-26-Prusa-is-floundering.html
-* Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/ https://www.amazon.com/Cathedral-Bazaar-Musings-Accidental-Revolutionary/dp/0596001088
 * https://pragprog.com/titles/vbfoss/business-success-with-open-source/
 
 * more broken builds than enterprise https://danluu.com/broken-builds/
 * how to screw up a project and how to fork a project https://github.com/ActiveState/appdirs/issues/79 https://github.com/tox-dev/platformdirs
+* can always maintain your own patches in main repo doesn't want PRs https://drewdevault.com/2024/12/10/2024-12-10-Daily-driving-jujutsu.html
 
 ---
 
@@ -461,6 +466,8 @@ One thing I think I do well is technical communication. This shows up in:
 ## resume
 
 ---
+
+https://github.com/koaning
 
 Things I can do:...I only want to be in the trenches.
 

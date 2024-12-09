@@ -44,6 +44,7 @@ INTERVIEWING
 ---
 
 REPLACEMENTS
+* Ibis
 * _Trilogy_: dimension tables, canonical dataset for OLTP https://news.ycombinator.com/item?id=42231325
 * Sakila also canonical https://sq.io/docs/tutorial
 
@@ -1131,6 +1132,8 @@ KEYWORDS https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html https://
 
 ## pedagogy
 
+🗄️ `architecture.md` serverless > baked data
+
 * tldr: better at SQL if data 1) local 2) interesting
 * small databases https://news.ycombinator.com/item?id=34558054
 * example databases: Spanish, Sakila https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql 📙 Beaulieau [41]
@@ -1143,14 +1146,6 @@ CONNECT TO ACTUAL SERVER
 PLAYGROUNDS
 * PG exercises https://github.com/zachvalenta/pg-exercises
 * https://jvns.ca/blog/2023/04/17/a-list-of-programming-playgrounds/
-
-BAKED DATA
-* Datasette https://csvbase.com/ fetching https://github.com/fatiando/pooch
-* SQL.js https://selectstarsql.com/frontmatter.html#technicals https://github.com/sql-js/sql.js https://github.com/NUKnightLab/sql-mysteries
-* https://news.ycombinator.com/item?id=34558054 https://news.ycombinator.com/item?id=34630153
-* https://sqlbolt.com/
-* https://dataschool.com/learn-sql/basic-practice/
-* https://sql-playground.wizardzines.com/
 
 ## tables
 

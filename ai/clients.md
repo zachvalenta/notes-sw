@@ -68,17 +68,69 @@ locality
 > export current chats first | incorporate old chats into notes and gradually rm over time
 > llm only add new chats? assume so.
 
+## open source contrib
+
+* _aider_: dynamic local/global history/input files, readline
+* _basilk_: alphabetic sort projects, JSON output
+* _gfold_: specify multiple directories via config https://github.com/nickgerace/gfold/issues/261
+* _kanban-tui_: CLI, readline
+* _lazygit_: readline, option to not add dir to recently_visited https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
+
 ## 🟠 aichat
 
 * _aichat_: https://github.com/sigoden/aichat https://github.com/sigoden/aichat/issues/924
 
-## 🐲 aider
+## ⏳🐲 aider
 
 📜 https://aider.chat/
 
+CONTEXT
+* conventions https://aider.chat/docs/usage/conventions.html https://github.com/zachvalenta/dotfiles-mini23/tree/main/ai
+* history/input files
+```sh
+bigger picture question about aider's history files:
+
+By default, aider tries to write these files to the $CWD. This should provide good context if, say, I'm returning to a repo where I've previously used aider.
+
+On the other hand, let's say I just have an off-hand question and I happen to be outside a Git repo in a random directory on my filesystem (`~/Desktop`, for example). If I start aider in this directory (or *any dir* not under version control), my filesystem will soon be littered with `.aider.chat.history.md` files and I won't notice they're being created (unless I'm in the habit of `ls -al` after every `cd`).
+
+The other thing is that a global history file would provide its *own* context i.e. if I've been thinking a bunch about, say, DataFusion or the semantic web or whatever over a series of queries during the past month, the global history file would have that entire context vs. a bunch of `.aider.chat.history.md` files scattered around the file system.
+
+One way around this filesystem clutter is to use a single unified history file by setting AIDER_CHAT_HISTORY_FILE. The potential downside of this solution, however,  is that it will reduce aider's efficacy when it comes to specific repos, given that they won't have their own `.aider.chat.history.md`
+
+Is there a way around this trade-off? I'd like for aider to use a .aider.chat.history.md if it exists in the $CWD but otherwise default to a global .aider.chat.history.md, which I'd like to store in my dotfiles.
+```
+* repo map https://aider.chat/docs/faq.html#how-do-i-turn-on-the-repository-map
+* Git repo history https://aider.chat/docs/faq.html#how-do-i-include-the-git-history-in-the-context
+
+CONS
+* slow startup
+* prompts (to upgrade, to create git repo)
+* `.aider.conf.yml` as a filename
+* are they sending usage analytics?
+```json
+// .aider/analytics.json
+{
+    "uuid": "8e79949d-d9a5-4a7d-9fe0-5392518fcda5",
+    "permanently_disable": null,
+    "asked_opt_in": null
+}
+```
+* just exit already and don't make me pay for it!
+```python
+def keyboard_interrupt(self):
+    self.io.tool_warning("\n\n^C again to exit")
+```
+```sh
+exit
+
+Goodbye! If you need further assistance, feel free to return. Have a great day!
+Tokens: 2.8k sent, 19 received. Cost: $0.0073 message, $0.02 session.
+```
+
 ZA
-* bad: slow startup, prompts (to upgrade, to create git repo), `.aider.conf.yml` as a filename
-* you can't store secrets in config and version control, so thinking I'll version control sans secrets and then use that as a template for actual machine-specific file
+* 📍 you can't store secrets in config and version control, so thinking I'll version control sans secrets and then use that as a template for actual machine-specific file
+* workflows https://aider.chat/examples/2048-game.html https://aider.chat/examples/hello-world-flask.html
 * _codebuff_: alternative https://news.ycombinator.com/item?id=42078536
 
 ## 🟢 elia
@@ -95,7 +147,7 @@ ZA
 > ❌ no way to do this through the UI https://chatgpt.com/c/67106b06-8884-8004-ab78-84e5bce7dea9
 > how does this work under the hood? https://github.com/darrenburns/elia?tab=readme-ov-file#wiping-the-database
 
-## ♎️ llm
+## ⏳♎️ llm
 
 📜 https://llm.datasette.io
 
@@ -124,13 +176,19 @@ https://www.youtube.com/watch?v=QUXQNi6jQ30 @ 20:30
 LLM
 * guide https://simonwillison.net/2024/Jun/17/cli-language-models/
 * logs https://simonwillison.net/2024/Mar/22/claude-and-chatgpt-case-study/ https://llm.datasette.io/en/stable/logging.html
-* working with databases locally https://simonw.substack.com/p/ask-questions-of-sqlite-databases
+* working with databases locally https://simonw.substack.com/p/ask-questions-of-sqlite-databases https://github.com/Sinaptik-AI/pandas-ai
 * working with audio https://simonw.substack.com/p/video-scraping-using-google-gemini https://simonw.substack.com/p/run-prompts-against-images-audio
 * models: default is ChatGPT https://llm.datasette.io/en/stable/openai-models.html others https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3 https://simonw.substack.com/p/claude-35-haiku
 
 ## 💄 mods
 
 * _mods_: Markdown output, system prompt https://github.com/charmbracelet/mods continue conversation https://github.com/charmbracelet/mods/issues/197
+
+## 😺 smartcat
+
+📜 https://github.com/efugier/smartcat
+
+* conversations as Markdown
 
 # 🟨️ ZA
 
@@ -167,6 +225,7 @@ COMPLAINTS
 * _Amazon bedrock_: API for all models https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html
 
 MODEL CONTEXT PROTOCOL
+* impl https://pypi.org/project/mcp/
 * _MCP (model context protocol)_: spec for comms btw hosted model and data to enable RAG https://news.ycombinator.com/item?id=42237424 https://glama.ai/blog/2024-11-25-model-context-protocol-quickstart
 > Today, we're open-sourcing the Model Context Protocol (MCP), a new standard for connecting AI assistants to the systems where data lives, including content repositories, business tools, and development environments. Its aim is to help frontier models produce better, more relevant responses. https://www.anthropic.com/news/model-context-protocol
 > But none of the examples seem to indicate what the protocol is, whether it's a RAG sort of thing, do I need to prompt, etc.

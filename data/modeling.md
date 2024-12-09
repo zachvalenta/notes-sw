@@ -13,6 +13,8 @@
 
 ## 进步
 
+* mixing trees and tags https://borretti.me/article/the-design-space-of-wikis#pages
+* goofiness https://calmcode.io/data-science-fiction
 * Task Warrior vs. kanbai-tui
 * structures taxonomy https://chatgpt.com/c/6706989f-02a4-8004-9933-bbe525f36b55 https://www.interviewcake.com/data-structures-reference https://roadmap.sh/datastructures-and-algorithms
 * modeling taxonomy
@@ -292,6 +294,13 @@ HIERARCHICAL
 * can be done in relational as well https://hoverbear.org/blog/postgresql-hierarchical-structures/
 * _IMS_: https://twobithistory.org/2017/10/07/the-most-important-database.html
 
+## graph
+
+> just had to create this header again, pretty sure it existed when all this was in `dbms.md`, not sure where it is now
+
+https://www.youtube.com/watch?v=PkFpFCqIdZ8
+https://www.youtube.com/watch?v=_mk78aQhWPM
+
 ## key
 
 ---
@@ -373,6 +382,7 @@ libs
 * _sktime_: https://github.com/alan-turing-institute/sktime
 
 dbms
+* https://github.com/man-group/arctic https://github.com/man-group/ArcticDB https://www.youtube.com/watch?v=-QwbIM6lxIw
 * _Influx_: https://softwareengineeringdaily.com/2019/08/21/time-series-databases-with-rob-skillington/ https://softwareengineeringdaily.com/2021/08/19/influxdata-time-series-data-with-russ-savage/
 * _Husky_: event store https://www.datadoghq.com/blog/engineering/husky-deep-dive/
 * _Lin_: https://github.com/lindb/lindb
@@ -390,6 +400,7 @@ dbms
 
 ---
 
+* https://www.youtube.com/watch?v=OM1CHD89jqw
 * for recommendation systems, NLP
 * Milvus, Chroma, Weaviate, FAISS https://zackproser.com/blog/vector-databases-compared
 * LanceDB https://www.youtube.com/watch?v=hB7sGE0W8CI

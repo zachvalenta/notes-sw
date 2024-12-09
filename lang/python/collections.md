@@ -19,8 +19,15 @@
 
 # 🎡 ITERATION
 
+```python
+# aka elementwise operation https://docs.python.org/3/library/functions.html#enumerate
+# can use `start` but might as well specify but using slice on sequence itself
+for ind, val in enumerate(seq, start=starting_index):
+```
+
 ---
 
+https://news.ycombinator.com/item?id=42392267
 https://www.youtube.com/watch?v=Xd760PcgfPg
 https://www.youtube.com/watch?v=YC-12-0sXR8
 https://martinheinz.dev/blog/103
@@ -44,7 +51,6 @@ INDEXES
 ```python
 # sequence
 for val in seq:
-for ind, val in enumerate(seq):  # aka elementwise operation
 for artist, album in zip(artists, album):
 
 # mapping https://realpython.com/iterate-through-dictionary-python
@@ -279,6 +285,10 @@ LODASH-ESQUE LIBRARIES
 * https://github.com/dgilland/fnc
 * https://github.com/seperman/deepdiff
 
+## query
+
+https://github.com/mkalioby/leopards
+
 ## slice
 
 * _slice_: subset of sequence type https://www.fluentpython.com/lingo/#slicing
@@ -363,9 +373,6 @@ sorted(musicians, key=attrgetter('instrument', 'genre'))  # nas in front of mick
 SEMANTICS
 * _collection_: data structures in which items can be accessed individually https://www.fluentpython.com/lingo/#collection
 * _container_: holds ref to other objs e.g. list, tuple, dict https://www.fluentpython.com/lingo/#container
-* _flat sequence_: physically stores the values of its items, and not references to other objects e.g. str, bytes, array https://www.fluentpython.com/lingo/#flat_sequence
-* _binary sequence_: sequence + byte e.g. byte, bytearray, memoryview https://www.fluentpython.com/lingo/#binary_sequence https://docs.python.org/3/glossary.html#term-bytes-like-object
-* `bytearray`: used for HTTP response, passing files around
 
 MUTABLE
 * can be altered i.e. updated values still use same obj/ID https://docs.python.org/3/glossary.html#term-mutable
@@ -387,9 +394,14 @@ id(bar)  # 4458076080
 
 ---
 
+SEQUENCES
+* _sequence_: https://www.fluentpython.com/lingo/#sequence https://docs.python.org/3/glossary.html#term-sequence
+* _flat sequence_: physically stores the values of its items, and not references to other objects e.g. str, bytes, array https://www.fluentpython.com/lingo/#flat_sequence
+* _binary sequence_: sequence + byte e.g. byte, bytearray, memoryview https://www.fluentpython.com/lingo/#binary_sequence https://docs.python.org/3/glossary.html#term-bytes-like-object
+* `bytearray`: used for HTTP response, passing files around
+
 https://www.b-list.org/weblog/2023/dec/24/python-container-types/
 
-* _sequence_: https://www.fluentpython.com/lingo/#sequence https://docs.python.org/3/glossary.html#term-sequence
 * _trailing commas_: for last el in collection https://docs.python.org/3/faq/design.html#why-does-python-allow-commas-at-the-end-of-lists-and-tuples https://www.python.org/dev/peps/pep-0008/#when-to-use-trailing-commas
 
 | CLASS   | TYPE    | MUTABLE | HASHABLE       | SUBSCRIPTABLE |  NOTES              |
@@ -651,6 +663,7 @@ fruit | veg   # avocado, banana, tomato, beet, carrot
 
 ---
 
+* check if a string consists entirely of zeros and ones https://nedbatchelder.com/blog/202412/testing_some_tidbits.html
 * template https://peps.python.org/pep-0750/ https://realpython.com/podcasts/rpp/227/
 parse https://realpython.com/python-packages/#parse-for-matching-strings
 * https://www.youtube.com/watch?v=EimoZHDcQMA

@@ -85,6 +85,15 @@ with open("input.csv", mode="r") as f:
     for row in reader:
         pass
 
+def load_csv(filename):
+    """Load CSV file into a list of dictionaries"""
+    records = []
+    with open(filename, 'r') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            records.append(row)
+    return records
+
 # WRITE
 with open("output.csv", mode="w") as f:
     writer = csv.writer(f)
@@ -513,6 +522,7 @@ python json_tree.py
 
 ALTERNATIVES
 > Textual inherently slow? Both browsr and elia crawl on open. Find Golang-like alternative
+> prefer the way Golang/Rust TUI libs look (gocui, ratatui) https://github.com/charmbracelet/bubbles
 * _blessed_: https://github.com/jquast/blessed
 * _asciimatics_: https://github.com/peterbrittain/asciimatics
 * _urwid_: used by pudb, Zulip http://urwid.org/ https://github.com/zulip/zulip-terminal/blob/main/zulipterminal/ui_tools/boxes.py
@@ -523,6 +533,7 @@ PROJECTS THAT USE
 
 ---
 
+* close to CSS, Tailwind https://calmcode.io/labs/tuilwind-css
 * https://realpython.com/contact-book-python-textual/
 * functionality: tables, color, layout
 * _Textual_: complaints https://news.ycombinator.com/item?id=35123383 animation https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#demonstrating-animation dropdown https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#dropdown-autocompletion-menu file manager https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#a-file-manager-powered-by-textual graphics https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#pixel-art layout https://textual.textualize.io/blog/2022/12/11/version-060/#placeholder tabs https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#tabs-with-animated-underline testing https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#developer-console https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#snapshot-testing-for-terminal-apps example https://github.com/learnbyexample/TUI-apps/tree/main/CLI-Exercises https://www.blog.pythonlibrary.org/2024/02/06/creating-a-modal-dialog-for-your-tuis-in-textual/
@@ -713,8 +724,9 @@ Selenium
 
 ALTERNATIVES
 * dataclasses
+* _jiter_: 🎯 written in Rust by works with Python objs https://github.com/pydantic/jiter https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
+* _msgspec_: 🎯 https://github.com/jcrist/msgspec 🗄️ pydantic
 * _orjson_: https://github.com/ijl/orjson
-* _msgspec_: 🎯 https://github.com/jcrist/msgspec
 * _pickle_: ❌  https://docs.python.org/3/library/persistence.html no one uses any more https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html
 * _pydantic_: https://docs.pydantic.dev/latest/concepts/serialization/ https://news.ycombinator.com/item?id=14477434
 

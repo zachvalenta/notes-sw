@@ -22,6 +22,7 @@
 * in a single file https://github.com/radiac/nanodjango
 TUI commands https://github.com/anze3db/django-tui
 TUI admin https://github.com/valberg/django-admin-tui https://github.com/valberg/django-htmx-admin
+REPL https://github.com/selectnull/django-pyrepl/
 
 * _24_: rf
 * _21_: rf, DML
@@ -847,6 +848,7 @@ misc
 * creators: Simon https://news.ycombinator.com/user?id=simonw Adrian https://www.soundslice.com/ Jacob https://jacobian.org/ Andrew Godwin (did south and migrations)
 * history https://jacobian.org/2024/mar/20/django-chat/ https://buttondown.com/carlton/archive/thoughts-on-djangos-core/
 * alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016
+* users: https://octopus.energy/ https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
 * versions: https://www.codestasis.com/
 > Django 5.0 was released in December 2023...Django's versioning policy is time-based rather than feature-based. Roughly every eight months, a new feature release occurs, along with monthly bug fixes and security patches as needed...meaning you can expect Django 5.1 in August 2024, Django 5.2 in April 2025, Django 6.0 in December 2025, and so on. Django has such a large and active community of contributors that the decision was made years ago to focus on regular rollouts rather than wait for specific features to be completed...Specific releases (those that end in .2, like Django 5.2 and 6.2) are designated as long-term support (LTS) releases and receive security and data loss fixes applied for a guaranteed period, typically three years. This policy is designed for larger companies struggling to keep up with Django's rapid release schedule. https://learndjango.com/courses/django-for-beginners/introduction/
 * _DSF_: admin https://wsvincent.com/how-django-works-behind-the-scenes/ 501 non-profit https://www.b-list.org/weblog/2018/nov/20/core/

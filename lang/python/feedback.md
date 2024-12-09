@@ -18,6 +18,7 @@ OPTIONS
 * can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
 * pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html 🗄️ `architecture.md` baked data
 * add to startup https://www.pythonmorsels.com/cli-tools/#pyclbr
+* https://ericmjl.github.io/blog/2024/11/8/disposable-environments-for-ad-hoc-analyses/
 
 * _24_: iPython
 * _21_: pdb
@@ -265,7 +266,16 @@ COMPONENTS
 
 ## 🟩 Marimo
 
+🗄️ blog / little ideas (弄明白)
 📻 https://github.com/marimo-team/marimo
+
+SHARING
+* hosted
+* sidebar ToC
+
+---
+
+https://calmcode.io/course/marimo/introduction
 
 https://www.youtube.com/watch?v=ANIu4l9_FB8
 * no ToC

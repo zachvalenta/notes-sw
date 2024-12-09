@@ -99,9 +99,12 @@ fselect path, mime from /home/user where is_audio = 1
 
 ## fuzzy find
 
+🗄️
+* grep
+* `vim.md` fuzzy find
+
 ### 🌸 fzf
 
-🗄 `vim.md` fuzzy find
 📜 https://github.com/junegunn/fzf
 🧠 https://chatgpt.com/c/674624fd-2084-8004-bbf4-5de92b06f1ca
 > fzf is just a Unix filter https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
@@ -194,6 +197,7 @@ select_tab_drop             # open in new tab, only available on master https://
 ### 📺 Television
 
 https://github.com/alexpasmantier/television
+grep https://github.com/darrenldl/docfd
 
 CONFIG
 * fs: `$HOME/Library/Application Support/com.television/config.toml`
@@ -300,15 +304,23 @@ FEATURES
 * highlight outliers (size, last accessed)
 * conditional logic (if in `yin`, use `ll` instead of `l`)
 
+LLA https://github.com/triyanox/lla
+> 📍 config, plugins
+> 🚧 broken build https://github.com/triyanox/lla/issues/47
+* size map `-S`
+* timeline `--timeline`
+* git commit `-G`
+
 OPTIONS
-* _exa_: ✅ https://github.com/ogham/exa https://the.exa.website/
+* _exa_: 💀 kicked off Homebrew https://github.com/ogham/exa https://the.exa.website/
 * _eza_: ✅ Makefile icon broken, absentee maintainers? https://github.com/eza-community/eza https://github.com/eza-community/eza/pull/554
+> 📍 do you not have this configged at all? also, theme support now?
 * _logols_: 💀 https://github.com/Yash-Handa/logo-ls
-* _lsd_: 🎯 https://github.com/lsd-rs/lsd
-* _pls_: 🎯 https://github.com/pls-rs/pls
+* _lsd_: https://github.com/lsd-rs/lsd
+* _pls_: 🎯 https://pls.cli.rs/
 
 TREE
-* eza
+* eza/exa
 * _tre_: Rust https://github.com/dduan/tre
 * _tree_: ignore multiple https://unix.stackexchange.com/a/47806/331460 https://superuser.com/questions/772567/how-to-get-tree-a-to-ignore-git-directories
 ```sh
@@ -556,7 +568,9 @@ bat --line-range 227:236 $NOTES_DIR/sw/za/algos.md
 
 ## search (ripgrep)
 
-🗄 `vim.md` utils
+🗄
+* fuzzy find
+* `vim.md` utils
 
 ZA
 * _rga_: PDFs, Microsoft Office https://github.com/phiresky/ripgrep-all https://pdfgrep.org/
@@ -565,6 +579,7 @@ ZA
 
 RG 📜 https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md
 > 🚧 query `GIS` deson't return `science.md/geography/GIS` in domains repo; thought it was lack of config on `air-capp` but didn't solve
+* `.rgignore`: to ignore a specific file
 * `I`: don't output filename
 * `N`: don't output line number
 * `s`: case-sensitive 🗄 `.bash_profile` mq
@@ -646,6 +661,16 @@ sed '' BSD  # no cmd i.e. just send to stdout
 
 🗄️ `data/analytics.md` miller, xsv
 🔗 https://blog.balthazar-rouberol.com/text-processing-in-the-shell
+💡 no editing in-place per Claude
+```txt
+No, standard Unix text processing tools like cat, join, and paste don't actually modify files in-place. They all output to stdout and can't directly modify their input files. That's why they're typically used with redirection (>) or in pipelines. Even sed -i (in-place edit) and perl -i actually work by creating a temporary file behind the scenes, though they hide this detail from the user. The fundamental issue is that Unix file operations can't simultaneously read from and write to the same file position. Any tool that appears to modify a file "in-place" is actually:
+
+* creating a temporary file
+* writing the modified content to it
+* moving it over the original file
+
+This is true for all the standard Unix text processing tools: sed, awk, cat, join, paste, cut, etc. The only true in-place modifications are at the byte level using tools like dd or through specific filesystem operations, but those aren't suitable for text processing tasks like what you're trying to do.
+```
 
 CHUNK
 * _head/tail_: https://github.com/zachvalenta/interview-capp/blob/main/Makefile

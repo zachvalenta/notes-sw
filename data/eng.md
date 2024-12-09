@@ -202,7 +202,6 @@ TOOLS
 * https://blog.codepen.io/2023/02/01/399-data-munging/
 * unstructured https://news.ycombinator.com/item?id=41236273
 * anonymize/differential privacy https://www.youtube.com/watch?v=PC0bF5tstvI
-* _Zingg_: entity resolution i.e. fix data integrity problems https://github.com/zinggAI/zingg
 
 SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data
 * https://developer.wordpress.org/apis/security/sanitizing/ https://developer.wordpress.org/apis/security/data-validation/ https://developer.wordpress.org/apis/security/escaping/
@@ -227,6 +226,10 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 validator.expect_column_values_to_not_be_null(column="passenger_count")
 validator.expect_column_values_to_be_between(column="congestion_surcharge", min_value=0, max_value=1000)
 ```
+
+## reconciliation
+
+* _Zingg_: entity resolution i.e. fix data integrity problems https://github.com/zinggAI/zingg
 
 # 📦 STORE
 
@@ -318,6 +321,7 @@ https://karenjex.blogspot.com/2024/09/optimising-your-database-for-analytics.htm
 
 💧 LAKE
 * = structured + unstructed for analytics 类似 file system e.g. Redshift
+* https://www.youtube.com/watch?v=PpGivTOyawY
 * https://www.youtube.com/watch?v=V0GvZ_KAI70 https://news.ycombinator.com/item?id=32336977
 * table format = structure of files (Parquet) that make up lake https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
 * slower to access, has metadata (when was it produced, who owns it), batch writes, most reads will be humans doing analysis or exploration
@@ -380,6 +384,7 @@ OPTIONS https://chatgpt.com/c/670d2ddc-9e9c-8004-a9a5-1852da15b853
 
 🗄️
 * `aws.md` compute > Athena
+*️ `data/dbms.md` query engine
 * `telemetry.md` Clickhouse
 
 * _CrateDB_: https://github.com/crate/crate https://www.youtube.com/watch?v=mGxm1WPR3O8
@@ -409,12 +414,20 @@ ALTERNATIVES
 * can build dashboards off queries
 * _Trino_: https://github.com/trinodb/trino https://ibis-project.org/ https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
 
+## ☢️ DataFusion
+
+https://github.com/apache/datafusion
+https://datafusion.apache.org/
+
+used by Logfire, no indexes https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
+
 ## 🦆 DuckDB
 
 📙 https://www.manning.com/books/duckdb-in-action
 
 ---
 
+https://www.youtube.com/watch?v=yi2zgenIZm4
 https://pycon-archive.python.org/2024/schedule/presentation/130/index.html
 https://changelog.com/news/big-data-is-dead-analytics-is-alive-LGl0
 https://softwareengineeringdaily.com/2024/08/08/duckdb-with-hannes-muhleisen/
@@ -505,6 +518,7 @@ ROLES
 
 https://github.com/ebonnal/streamable
 https://www.npmjs.com/package/x12-parser
+https://www.youtube.com/watch?v=mDpS9J0-SQ4
 
 * streaming architecture https://news.ycombinator.com/item?id=31421004
 * streaming in Postgres https://github.com/sequinstream/sequin

@@ -14,50 +14,86 @@
 # 🥗 MENU
 
 🛠️ benchmark https://arena.lmsys.org/
+🔑 https://gist.github.com/zachvalenta/d3b7cd172dd2d3d8ff7340bd458c6fe2
 
-## closed
-
-* _Amazon nova_: https://news.ycombinator.com/item?id=42309121 https://news.ycombinator.com/item?id=42309121 https://simonwillison.net/2024/Dec/4/amazon-nova/
-* _Anthropic claude_: 🎯 web client has search + fast input / good UI
-* allegedly the best but GPT legacy model beat it and the other time I tried it admitted to fabricating data https://x.com/emollick/status/1849168452914938082 https://simonwillison.net/2024/Oct/21/claude-artifacts/ https://darioamodei.com/
-* Haiku, Opus https://www.youtube.com/watch?v=QUXQNi6jQ30 [5:30]
-> If Claude 3.5 Sonnet, the current champ of commercial LLMs for coding at this moment, failed to meet your needs in that last refactor request - you could try the exact same prompt with ChatGPT 4o in one click. https://zackproser.com/blog/cursor-review
-* backed by Amazon https://news.ycombinator.com/item?id=42215126
-* _Google Gemini_: no search/tags/org, looks low-effort https://simonw.substack.com/p/video-scraping-using-google-gemini
-* _Mistral codestral_: less polished but fast + search https://chat.mistral.ai/chat
-* _OpenAI chatgpt_: ✅ 22.11 GPT 23.03 GPT4 24.05 GPT4o 24.09 o1-preview 24.12 pro https://x.com/mckaywrigley/status/1865089975802646857 https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665 https://news.ycombinator.com/item?id=42330732
-* _Perplexity api_: search/org https://www.perplexity.ai/
-* Mixtral https://mistral.ai/news/mixtral-of-experts/
+ZA
 * _X grok_: seems tied to Twitter https://grok.x.ai/ 
 
 ---
 
+OPEN https://simonwillison.net/2024/Jun/17/cli-language-models/
+* _Codestral_: https://ollama.com/blog/continue-code-assistant
+* _Centaur_: https://x.com/marcel_binz/status/1850806691958313160
+* _Gemma_: https://ai.google.dev/gemma
+* _jan_: 🎯 https://github.com/janhq/jan
+* _Qwen_: https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can
+
+CLOSED
+* _Amazon nova_: https://news.ycombinator.com/item?id=42309121 https://news.ycombinator.com/item?id=42309121 https://simonwillison.net/2024/Dec/4/amazon-nova/
+* backed by Amazon https://news.ycombinator.com/item?id=42215126
+* _Mistral codestral_: less polished but fast + search https://chat.mistral.ai/chat
+* _Perplexity api_: search/org https://www.perplexity.ai/
+* Mixtral https://mistral.ai/news/mixtral-of-experts/
 * YiCoder: https://news.ycombinator.com/item?id=41453237
 * features: moderation, tuning to domain
 * Haiku
 * Genie https://news.ycombinator.com/item?id=42317903
 
-## open
+## ☸️ ChatGPT
+
+🔑 https://platform.openai.com/api-keys
+
+* versions: 22.11 GPT 23.03 GPT4 24.05 GPT4o 24.09 o1-preview 24.12 pro https://x.com/mckaywrigley/status/1865089975802646857
+* https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665 https://news.ycombinator.com/item?id=42330732
+* _o1_: https://thezvi.substack.com/p/o1-turns-pro
+
+## 🟫 Claude
+
+📜 https://docs.anthropic.com/en/home
+🔢 https://docs.anthropic.com/en/release-notes/overview
+
+WEB CLIENT
+* fast input 🗄️ `vim.md` Zed
+* good font
+* code syntax highlighting
+* retry
+* mass delete
+* controls (artifacts = output, content = attachments)
+* org: search/stars
+* ❌ can't follow URLs
+
+MODELS
+* _Sonnet_: smartest
+* _Haiku_: fastest, better than GPT 3.5 https://www.youtube.com/watch?v=QUXQNi6jQ30 [5:30]
+* _Opus_: writing
+
+---
+
+CONTEXT
+* system prompt https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts
+* developer console https://www.anthropic.com/news/evaluate-prompts
+* projects https://www.anthropic.com/news/projects
+
+* allegedly the best but GPT legacy model beat it and the other time I tried it admitted to fabricating data https://x.com/emollick/status/1849168452914938082 https://simonwillison.net/2024/Oct/21/claude-artifacts/ https://darioamodei.com/
+
+## 🌉 Gemini
+
+---
+
+* voice https://news.ycombinator.com/item?id=42397210
+* no search/tags/org, looks low-effort
+* https://simonw.substack.com/p/video-scraping-using-google-gemini
+
+## hardware
 
 🗄️ `hw.md` Apple 
 
-HARDWARE https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can
+https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonwillison.net/2024/Dec/9/llama-33-70b/
+
 > 🎗️ llamafile https://simonwillison.net/2024/Jun/17/cli-language-models/ https://simonwillison.net/2023/Nov/29/llamafile/ "this should be technically impossible" (having a single unmodified binary run across mac/Windows/linux) https://www.youtube.com/watch?v=QUXQNi6jQ30 [20:00] inference https://github.com/samuel-vitorino/lm.rs https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * mini23 uses 8B just w/ VS Code + browser + macOS core services
 * Qwen req 32B
 * Simon has 64B
-
-MODELS https://simonwillison.net/2024/Jun/17/cli-language-models/
-* _Codestral_: https://ollama.com/blog/continue-code-assistant
-* _Centaur_: https://x.com/marcel_binz/status/1850806691958313160
-* _Gemma_: https://ai.google.dev/gemma
-* _jan_: 🎯 https://github.com/janhq/jan
-* _Meta llama_: https://x.com/rowancheung/status/1865107700087980170 https://en.wikipedia.org/wiki/Llama_(language_model) uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
-* ccmake https://news.ycombinator.com/item?id=42274489
-* _ollama_: ⭐️ https://ollama.com/
-> customize through a Modelfile, incl model parameters, system prompts etc. https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
-* multimodal, OCR https://ollama.com/blog/llama3.2-vision
-* _Qwen_: https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can
 
 ---
 
@@ -66,9 +102,17 @@ MODELS https://simonwillison.net/2024/Jun/17/cli-language-models/
 * running locally, llamafile https://news.ycombinator.com/item?id=40424519
 * code prompt: https://ollama.com/blog/how-to-prompt-code-llama https://ollama.com/blog/run-code-llama-locally
 
+## 🦙 llama
+
+* _Meta llama_: https://x.com/rowancheung/status/1865107700087980170 https://en.wikipedia.org/wiki/Llama_(language_model) uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
+* ccmake https://news.ycombinator.com/item?id=42274489
+* _ollama_: ⭐️ https://ollama.com/
+> customize through a Modelfile, incl model parameters, system prompts etc. https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
+* multimodal, OCR https://ollama.com/blog/llama3.2-vision https://www.youtube.com/watch?v=wTukMgtkleA
+
 # 🏗️ OPERATIONALIZE
 
-* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666
+* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666 https://github.com/BCG-X-Official/artkit https://www.youtube.com/watch?v=pGZo9gR5q_M https://gentrace.ai/
 * gradient-boosted trees better for audit than neural nets
 * https://roadmap.sh/mlops
 * https://news.ycombinator.com/item?id=35438192
@@ -95,8 +139,15 @@ https://edwardbenson.com/lollm
 https://news.ycombinator.com/item?id=42299098
 https://x.com/SullyOmarr/status/1864697992261062690/photo/1
 
+## semantic search
+
+* https://koratkar.github.io/cwt-semantic-search/ https://x.com/whybyfire/status/1866239929732173846
+> So semantic search is often a component of RAG, but RAG goes beyond just search. Here's an analogy: semantic search is like having a really smart librarian who understands what you're looking for and can find relevant books. RAG is like having that librarian plus a subject matter expert who can read those books, synthesize the information, and explain it to you in your own terms. https://claude.ai/chat/18bc4333-ff09-45f8-8610-0c325ce11ecf
+> search methodology that focuses on understanding the intent and contextual meaning of a query, rather than just matching keywords. It uses...word embeddings to encode text meaning, vector similarity to find relevant matches in a corpus...semantic search is focused on retrieval, aiming to return the most relevant documents, snippets, or knowledge units in response to a query...RAG is focused on generating answers or synthesizing information, not just returning relevant documents. It's particularly useful in scenarios where: https://chatgpt.com/c/675b9317-4bc4-8004-a0a5-b9d683ebd3d8
+
 ## RAG
 
+💡 core model enhanced by access to specific docs
 🗄️
 * `doc.md` notes
 * `algos.md` search > bm25
@@ -104,11 +155,27 @@ https://x.com/SullyOmarr/status/1864697992261062690/photo/1
 * https://www.amazon.com/gp/product/1098150961
 * build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch
 
+HOWTO (LEARN BY BUILDING FOR DROR) 🧠 https://chatgpt.com/c/6756f3e6-1260-8004-9363-655f156489d9
+```txt
+I'm still new to the space, so take with a grain of salt https://chatgpt.com/share/6756f806-27c4-8004-8768-b94f879a8b5e
+
+* data prep: I have a good library in mind https://github.com/chonkie-ai/chonkie
+* embeddings: would probably do with model aaS (GPT, Claude)
+* vector db: I've been keeping tabs of the vector db ecosystem but that means ~20 links I haven't yet read and need to. Hopefully I can find either an embedded option or a good hosted service.
+* training: assume we'd use transfer | reinforcement learning vs. getting into the weeds with adjusting the weights (finetuning, LoRA, PEFT) https://www.youtube.com/watch?v=55guW-DZVM0
+```
+
+---
+
+⭐️ start here https://github.com/theam/rag-workshop-pydata-nyc-2024 https://www.youtube.com/watch?v=C4u1SjGiT_8
+
+https://github.com/koaning
+https://www.youtube.com/watch?v=kCCC-NlJgIA
+pipelines https://www.youtube.com/watch?v=YM3UrQd2wEA
+* https://lincolnloop.com/insights/building-a-chat-backend-for-wikipedia-articles-in-django/
 * BYO https://github.com/bhavnicksm/chonkie https://github.com/explosion/spacy-layout https://training.talkpython.fm/courses/getting-started-with-spacy https://github.com/DS4SD/docling https://x.com/_inesmontani
 > I said earlier that building an LLM was still out of reach of hobbyists. That may be true for training from scratch, but fine-tuning one of those models is another matter entirely.  There’s now a fascinating ecosystem of people training their own models on top of these foundations, publishing those models, building fine-tuning datasets and sharing those too. The Hugging Face Open LLM Leaderboard is one place that tracks these. I can’t even attempt to count them, and any count would be out-of-date within a few hours. https://simonwillison.net/2023/Dec/31/ai-in-2023/ more on Hugging Face https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * howto: Python in a sidecar and then your server in another language (that lacks Python's ML stdlib) talks to that https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
-
----
 
 START HERE 🗄️ `algos.md` neural networks
 https://github.com/Shubhamsaboo/awesome-llm-apps https://www.theunwindai.com/p/build-a-personal-health-and-fitness-ai-agent-using-google-gemini
@@ -166,7 +233,15 @@ BYO
 
 ## train
 
-📙 Brosseau LLMs in production https://www.manning.com/books/llms-in-production
+📙
+* Brosseau LLMs in production https://www.manning.com/books/llms-in-production
+* Labonne https://github.com/PacktPublishing/LLM-Engineers-Handbook https://www.amazon.com/gp/product/1836200072
+🧠 https://chatgpt.com/c/6756f73a-9d68-8004-9ef8-34d9744f767d
+
+---
+
+> assume we'd use transfer or reinforcement learning vs. getting into the weeds with adjusting the weights (finetuning, LoRA, PEFT)
+
 https://changelog.com/practicalai/295
 
 # 🏗️ USAGE
@@ -211,6 +286,7 @@ TYPES https://elevenlabs.io/
 
 ## img
 
+* TTV https://simonwillison.net/2024/Dec/9/sora/
 * image to video https://www.vidifyapp.com/
 * _OCR_: image to text e.g. PDF to plaintext https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194 https://getomni.ai/ocr-demo https://news.ycombinator.com/item?id=41971614 https://github.com/Nutlope/llama-ocr
 
@@ -249,6 +325,12 @@ TYPES https://elevenlabs.io/
 * `psychology.md` interviewing
 * `work.md` industry > Stack Overflow
 
+SEMANTICS
+* _prompt engineering_: asking specific questions https://marginalrevolution.com/marginalrevolution/2023/05/how-to-use-gpt-4-plus-web-browsing.html https://www.youtube.com/watch?v=hB7sGE0W8CI
+* _prompt injection_: getting model to do something its creators don't want https://simonwillison.net/2023/Dec/31/ai-in-2023/
+* _system message_: hidden instruction that defines the behavior/goals/tone of the model; aka system prompt https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b
+> "You are a helpful assistant named Elia."
+
 STOCK
 * taxonomy
 ```txt
@@ -277,10 +359,5 @@ STRATEGY
 
 https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
 
-SEMANTICS
-* _prompt engineering_: asking specific questions https://marginalrevolution.com/marginalrevolution/2023/05/how-to-use-gpt-4-plus-web-browsing.html https://www.youtube.com/watch?v=hB7sGE0W8CI
-* _prompt injection_: getting model to do something its creators don't want https://simonwillison.net/2023/Dec/31/ai-in-2023/
-* _system message_: hidden instruction that defines the behavior/goals/tone of the model; aka system prompt https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b
 * _chain of density_: broad to specific https://www.youtube.com/watch?v=9Ev208-Gc4c
 * BYO your own characters https://news.ycombinator.com/item?id=42107113
-> "You are a helpful assistant named Elia."

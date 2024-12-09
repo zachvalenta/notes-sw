@@ -38,6 +38,7 @@ TASK RUNNERS
 * _makedown_: Markdown https://github.com/tzador/makedown
 * _mise_: 🎯 https://github.com/jdx/mise https://github.com/shuru-project/shuru
 * _pypyr_: https://pypyr.io/
+* _run_: https://run.jotaen.net/ https://github.com/jotaen/run.sh
 * _Task_: 🎯 https://github.com/go-task/task
 * _Xc_: Markdown https://github.com/joerdav/xc https://news.ycombinator.com/item?id=34911216 https://news.ycombinator.com/item?id=34911216
 
@@ -59,6 +60,29 @@ https://pycon-archive.python.org/2024/schedule/presentation/112/index.html
 * faster deploys really save a lot of time https://github.blog/2022-12-08-experiment-the-hidden-costs-of-waiting-on-slow-build-times/
 
 ## just
+
+🚧 terminal output for help text too dark on macOS https://github.com/casey/just/issues/1294
+
+DESIGN
+* no named args https://github.com/casey/just/blob/master/README.md#recipe-parameters
+> although you lost readline autocomplete with Makefile named args
+* can use Bash vs. Make's own language
+> When my just recipes get too large, I turn them into an external file stored in a scripts folder, and I call them from a just recipe. This can be scripts/bootstrap.sh or scripts/bootstrap.py, depending on which language the recipe is written in. https://github.com/jefftriplett/scripts-to-rule-them-all
+* make vs gmake = more portable? https://github.com/jefftriplett/scripts-to-rule-them-all
+
+HOWTO
+```makefile
+@_default:
+    just --list
+
+# format and overwrite justfile
+@fmt:
+    just --fmt --unstable
+```
+* make it work with bat https://hynek.me/til/bat-justfile/
+* aliases https://just.systems/man/en/aliases.html?highlight=alias
+* fmt https://just.systems/man/en/formatting-and-dumping-justfiles.html https://github.com/jefftriplett/scripts-to-rule-them-all/blob/main/justfile
+* submodules https://just.systems/man/en/modules1190.html
 
 ---
 
@@ -364,11 +388,18 @@ apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythons
 
 ---
 
+https://www.youtube.com/watch?v=cDZyeEtt8kY
+
+GOVERNANCE 🗄️ `work.md` industry > work
+* founder forced out by wokes https://www.reddit.com/r/NixOS/comments/1dqxhvk/comment/law6rek/ https://news.ycombinator.com/item?id=40199153 https://save-nix-together.org/
+* founder himself a pain https://mastodon.delroth.net/@delroth/112310645064859357
+
 ALTERNATIVES 🗄️ `python/pkg.md` uv `frontend.md` javascript > runtimes
 * _asdf_: https://github.com/asdf-vm/asdf
 * _pkgx_: from the creator of Homebrew https://www.youtube.com/watch?v=S9oHESiZyr0 https://dotenvx.com/docs/install#other https://www.youtube.com/watch?v=S9oHESiZyr0
 * _mise_: 🎯 https://github.com/jdx/mise
 
+* https://github.com/sxyazi/yazi
 * as an alternative to Docker https://mtlynch.io/notes/simple-go-web-service-nixos/
 * https://entropicthoughts.com/using-nix-to-try-tools
 * https://www.youtube.com/watch?v=5D3nUU1OVx8

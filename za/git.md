@@ -6,6 +6,7 @@
 
 ## 进步
 
+* autogit https://github.com/zackproser/automations
 * What might be the cause of autocompletions around Git just stopping working?
 > this doesn't happen in every dir, just `capp/mapper`
 ```sh
@@ -126,6 +127,65 @@ gh alias list
 * _profile README_: create repo with same name as user, add README https://github.com/willmcgugan/willmcgugan https://github.com/mrjackwills
 * _video_: https://github.com/textualize/toolong
 
+## Pages
+
+🗄️ `src.md` CICD > Actions
+
+RULES https://www.getzola.org/documentation/deployment/github-pages/ https://github.com/shalzz/zola-deploy-action https://chatgpt.com/c/675a107f-ecac-8004-97eb-1fecff5fb9c0
+* `index.html` in root of branches `master`|`main`|`gh-pages`
+* specify branch `repo/settings/pages/branch`
+* don't need to do anything with `GITHUB_TOKEN` if the job only needs to access the repo it is running in
+* site named `<username>.github.io` must correspond to repo named `<username>.github.io`
+
+WORKLOG
+- [x] commit `d5072df` + `settings/pages/branch` to `gh-pages` got the site deployed but the URL nested under my user name (`https://www.zachvalenta.com/zjayv.github.io/`), presumably bc a single user can only have a single `github.io` site?
+- [x] adding CNAME broke site bc you have to add CNAME config in registrar (in my case, Name Cheap) https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain
+- [x] zjay.github.io: CNAME still broken i.e. not serving actual site (but stock pages from Name Cheap?)
+- [ ] zjay.github.io: unpublish
+> this maybe wiped out all previous commits on the `gh-pages` branch?
+- [ ] zjay.github.io: roll back to `d5072df`
+- [ ] zjay.github.io: use as playground
+- [ ] zjay.com: set up CNAME in Name Cheap
+- [ ] zachvalenta.com: import Zola blog (DNS already set up)
+- [ ] zjay.com: unpublish (do you need to take down DNS from Name Cheap?)
+
+---
+
+* attempt to specify build dir
+```yaml
+name: deploy to GH Pages
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+      - name: deploy to GH Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+```
+
+DEPLOYING ZJAYV https://zjayv.github.io/ 🧠 https://chatgpt.com/c/66f4a787-5a40-8004-bda8-c9c207ae0e88
+> start here https://www.getzola.org/documentation/deployment/github-pages/
+```txt
+things I've already tried
+
+- publish_dir
+- specify branch (settings > pages)
+```
+* workflows https://github.com/zachvalenta/zjayv.github.io/actions
+> why do they have two different names?
+* site that works https://liyasthomas.github.io/
+* need cname? https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME.txt
+* docs https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+* more docs https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
+
 ## repos
 
 > https://github.com/rubysolo/brows
@@ -185,6 +245,7 @@ https://docs.github.com/en/github/searching-for-information-on-github/searching-
 * https://github.blog/2021-12-08-improving-github-code-search/ https://github.com/features/code-search 🗄 `vim.md` code completion
 * files in repo: `t`
 * filters: `org:freeCodeCamp language:python filename:.tigrc user:zachvalenta extension:py` https://stackoverflow.com/a/28347129 https://stackoverflow.com/a/42418887
+> path:**/Makefile -> this the current query syntax as of 24.12?
 > doesn't seem to work for hidden files
 > doesn't seem to work for exact searches e.g. `[behave]`
 * can use regex https://news.ycombinator.com/item?id=22396824
@@ -289,6 +350,7 @@ HISTORY https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 > Mercurial design https://news.ycombinator.com/item?id=18029498
 * Git for everything https://news.ycombinator.com/item?id=30522175
 * _fourth generation_: https://github.com/martinvonz/jj https://tonyfinn.com/blog/jj/ https://v5.chriskrycho.com/essays/jj-init/ https://news.ycombinator.com/item?id=42310386
+> Jujutsu is a version control system. They aim to be independent at some point but for now it is a heady frontend on top of git (a big advantage – all of your existing git repos and tools are trivially compatible with it). https://drewdevault.com/2024/12/10/2024-12-10-Daily-driving-jujutsu.html
 
 LINKABLE LIBRARIES 🗄 `python.md` Git
 * reference impl of Git doesn't include i.e. can only as an executable, not as lib https://medium.com/@willhayjr/the-architecture-and-history-of-git-a-distributed-version-control-system-62b17dd37742 
@@ -430,7 +492,7 @@ default
 strategies
 * _Gitflow_: https://news.ycombinator.com/item 
 * _trunk based_: https://trunkbaseddevelopment.com/ https://dev.to/alediaferia/git-tips-for-trunk-based-development-1i1g
-* Linux kernel and other email-based workflows https://stackoverflow.com/a/23108169/6813490 https://drewdevault.com/2020/08/27/Microsoft-plays-their-hand.html
+* Linux kernel and other email-based workflows https://stackoverflow.com/a/23108169/6813490 https://drewdevault.com/2020/08/27/Microsoft-plays-their-hand.html https://drewdevault.com/2024/12/10/2024-12-10-Daily-driving-jujutsu.html https://git-send-email.io/
 
 ---
 
@@ -446,27 +508,12 @@ strategies
 
 🗄️ `doc.md` repo
 
-```sh
-# https://github.com/charmbracelet/gum
-gum choose "fix" "feat" "docs" "style" "refactor" "test" "chore" "revert"
-```
-
-commits as documentation https://mislav.net/2014/02/hidden-documentation/
-> https://github.com/SKalt/git-cc/
-> https://github.com/muandane/goji
-> https://gitmoji.dev/ https://github.com/juftin/browsr
-
-MESSAGE https://github.com/cococonscious/koji
+MESSAGE
 * msg components: subject/header, description
 * _COMMIT EDITMSG_: tmp file storing commit msg
 * fmt: subject 50 col, desc 72 col https://drewdevault.com/2019/02/25/Using-git-with-discipline.html automate https://github.com/commitizen/cz-cli
-* `shortlog` should tell a story https://news.ycombinator.com/item?id=22518813
-* how to https://drewdevault.com/2021/08/05/In-praise-of-Postgres.html
-* prepopulate
-```sh
-# https://stackoverflow.com/a/53804934
-git config commit.template <template_file.txt>
-```
+
+CONVENTIONAL COMMIT
 * labels: lowers cognitive overhead = enables more frequent commits https://github.com/commitizen/cz-cli https://github.com/zachvalenta/interview-capp/commits/main/
 ```sh
 src: func|fix|rf
@@ -474,8 +521,24 @@ test
 dep
 doc
 ```
+* tried out the Gum impl but didn't like loss of readline and didn't understand what scope was doing https://github.com/charmbracelet/gum https://github.com/zachvalenta/capp-denv-bin/blob/main/jx
+> 📍 gotta think Charm has a realine component somewhere
 
 ---
+
+commits as documentation https://mislav.net/2014/02/hidden-documentation/
+> https://github.com/SKalt/git-cc/
+> https://github.com/muandane/goji
+> https://gitmoji.dev/ https://github.com/juftin/browsr
+
+MESSAGE https://github.com/cococonscious/koji
+* `shortlog` should tell a story https://news.ycombinator.com/item?id=22518813
+* how to https://drewdevault.com/2021/08/05/In-praise-of-Postgres.html
+* prepopulate
+```sh
+# https://stackoverflow.com/a/53804934
+git config commit.template <template_file.txt>
+```
 
 delete git push origin HEAD --force https://stackoverflow.com/questions/1338728/how-do-i-delete-a-commit-from-a-branch
 * prepare message beforehand https://stackoverflow.com/a/20447988/6813490

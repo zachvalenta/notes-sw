@@ -108,6 +108,7 @@ COMPRESSION
 * video streaming https://news.ycombinator.com/item?id=40408515
 
 ENTROPY
+* https://github.com/Racum/uuinfo
 * https://math.ucr.edu/home/baez/what_is_entropy.pdf https://johncarlosbaez.wordpress.com/2024/07/20/what-is-entropy/
 * entropy per word https://entropicthoughts.com/reading-slightly-more-incrementally
 > got here from "how to create session ID in Python?" 🗄 `http.md` https://stackoverflow.com/questions/817882/unique-session-id-in-python https://unix.stackexchange.com/a/361789
@@ -163,6 +164,9 @@ else state == done:
 
 ### state machine
 
+🗄️ `system/distributed.md`
+
+* start here https://www.achaq.dev/blog/distributed-systems-state-machines-special-relativity
 * https://github.com/kyleconroy/lua-state-machine
 * https://zackproser.com/blog/bubbletea-state-machine
 * diagrams https://github.com/statecharts/statecharts.github.io/issues/44 https://en.wikipedia.org/wiki/State_diagram
@@ -202,6 +206,8 @@ za
 
 ## chips
 
+📙 Miller chip war
+
 * _silica_: mineral extracted from sand
 * _silicon_: element formed by rm oxygen from silica; btw aluminum and phosphorus; by itself only a semiconductor
 * _wafer_: larger piece of processed silicon
@@ -211,6 +217,7 @@ za
 > With computing, there have been a couple different cases of scaling breakthroughs. One of them was the discovery of the vacuum tube, where you actually have a device that can do fairly simple logical operations such that you can implement it in a machine. Then we ran into this problem of, the vacuum tubes are mechanical, they do break, and so the bigger your machine, the more likely it is that it breaks; the more complicated your algorithm is, the more likely it is that something breaks down. So you have one of those dynamics where you're scaling your inputs a lot faster than you're scaling your outputs and you're doing things less and less efficiently over time. Then transistors do not actually have moving parts, so they don't have that particular problem – but they run into their own scaling obstacle. It's really fun to read about the early days of this: one of the books that I cite in Boom has an excerpt from, not Scientific American but a magazine of that type in the 50s, where it's speculating that perhaps in the future computers could be the size of a small house, and that's how much we could shrink them. But people ran into this problem with transistors, where the more of them that you connect – and you need all of them to be connected and working for that particular cluster of them to do anything useful – the more of them you connect, the more likely it is that you have one little issue somewhere that makes the whole thing not work. Then it turned out that there was a way around that too, which is that you don't actually plug together individual discrete devices, you actually etch the entire set of connections chemically, and now with many other things – but yeah, you etch it, a one shot [process] where you create one solid thing. That turned out to be a much more scalable architecture. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
 
 MANUFACTURING https://doxa.substack.com/p/why-a-chinese-invasion-of-taiwan
+* https://stratechery.com/2024/intels-death-and-potential-revival
 * https://news.ycombinator.com/item?id=42051968
 * _fabless_: you design, someone else manufacturers (AMD, Nvidia, Qualcomm, Apple) https://www.youtube.com/watch?v=Jyp6jFCzW44
 * _foundry_: manufacturing (TSMC, Intel, Samsung, GlobalFoundries) https://stratechery.com/2020/chips-and-geopolitics Intel one of the few that does both design and manufacturing https://stratechery.com/2022/the-intel-split/
@@ -293,63 +300,6 @@ bits
 * _buffer overflow_: buffer writes to adjacent memory instead of intended location; useful to escalate privilege e.g. Morris worm
 * _continguous_: buffer https://docs.python.org/3/glossary.html#term-contiguous
 
-## processor
-
-🔗 https://cpu.land/
-📚
-* Christian chapter 5
-* Galvin chapter 6
-* Tanenbaum chapter 8
-
----
-
-https://danluu.com/new-cpu-features/
-
-ALU
-* _ALU_: executes on opcode [Manga 1.23] https://en.wikipedia.org/wiki/Arithmetic_logic_unit#Implementation
-* _opcode_: operator and operand https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ https://tech.marksblogg.com/faster-python.html
-* _data path_: how much data moves around circuit e.g. computer data pathes generally 1 byte wide [Petzold 180]
-* _cache_: caches RAM for processor, needs a few more cycles to read than registers https://www.reddit.com/r/compsci/comments/95ns21/what_is_difference_between_register_and_l1_cache/e3u4tlt e.g. L1 cache https://www.ardanlabs.com/blog/2023/07/getting-friendly-with-cpu-caches.html https://news.ycombinator.com/item?id=40365248
-* _register_: internal to processor i.e. not memory https://stackoverflow.com/a/9287273 size can vary on data type held e.g. 80 bits for floating point https://lock.cmpxchg8b.com/zenbleed.html
-
-ISA 📙 Bryant ch. 4 https://en.wikipedia.org/wiki/Instruction_set_architecture
-* _ISA_: interface for processor 📙 Evans Linux 1, PG hackers and painters 179
-* defines processor instructions, virtual memory, etc. https://en.wikipedia.org/wiki/Instruction_set_architecture
-* _ARM64_: ARM for desktops
-* _x86_: https://github.com/cirosantilli/x86-bare-metal-examples#china
-📍 port in notes from 'memory'
-* https://drewdevault.com/2021/03/19/A-new-systems-language.html
-* ARM, RISC V https://riscv.org/ https://www.youtube.com/watch?v=Lo63uDIiCH0 https://danluu.com/butler-lampson-1999/
-* https://www.jeffgeerling.com/blog/2020/raspberry-pi-cluster-episode-4-minecraft-pi-hole-grafana-and-more
-* https://www.jeffgeerling.com/blog/2020/what-does-apple-silicon-mean-raspberry-pi-and-arm64
-
-scheduling 🗄 `linux.md` processes
-* https://wizardzines.com/comics/cpu-scheduling/
-
-* _processor_: aka CPU; can have n cores (i.e. parallelism) https://stackoverflow.com/q/19225859 can only add and subtract [Manga 1.15] https://www.righto.com/2024/08/pentium-navajo-fairchild-shiprock.html
-> No human can possibly hope to understand a modern high-performance CPU well enough to informally reason about its correctness. That's not only true now, it's been true for decades. It becomes true the moment someone introduces any sort of speculative execution or caching. These things are inherently stateful and complicated. They're so complicated that the only way to model performance (in order to run experiments to design high performance chips) is to simulate precisely what will happen, since the exact results are too complex for humans to reason about and too messy to be mathematically tractable. It's possible to make a simple CPU, but not one that's fast and simple. https://danluu.com/tests-v-reason/
-* _core_: main component that reads from memory, maintains execution order and state, and uses ALU to perform operations https://stackoverflow.com/a/19314303 https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
-* _core types_: physical (what it sounds like) logical (abstraction to facilitate hyperthreading) https://stackoverflow.com/q/1715580 https://forums.tomshardware.com/threads/what-is-the-difference-between-physical-core-and-logical-core.1534416/
-* _hyperthreading_: single core that can execute n instructions simultaneously
-* _NPU_: good for lower power consumption? https://news.ycombinator.com/item?id=41863460
-* _GPU_: https://news.ycombinator.com/item?id=23986925 https://lwn.net/Articles/827596/ https://codeconfessions.substack.com/p/gpu-computing https://codeconfessions.substack.com/p/gpu-computing https://news.ycombinator.com/item?id=42042016
-> GPUs are much less complex than CPUs; that means they can execute instructions much more quickly, but those instructions have to be much simpler. At the same time, you can run a lot of them at the same time to achieve outsized results. Graphics is, unsurprisingly, the most obvious example: every "shader" - the primary processing component of a GPU - calculates what will be displayed on a single portion of the screen; the size of the portion is a function of how many shaders you have available. If you have 1,024 shaders, each shader draws 1/1,024 of the screen. Ergo, if you have 2,048 shaders, you can draw the screen twice as fast. Graphics performance is "embarrassingly parallel", which is to say it scales with the number of processors you apply to the problem. https://stratechery.com/2023/china-chips-and-moores-law/
-* _Apple silicon_: processor that uses ARM64
-
-❓ how do chips relate to processor
-* _chip_: piece of silicon holding approx B transistor; made by Intel, ARM, AMD, Qualcomm
-* _processor_: main chip https://blog.robertelder.org/how-to-make-a-cpu/
-* _chip set_: other chips that help out processor
-* _PCB_: holds chips and all the wiring; made of fiberglass; motherboartd is a type of https://www.youtube.com/watch?v=Z2LgmIGE2nI
-* _trace_: copper wires carrying electricity around PCB
-
-operations
-* _clock speed/rate/cycle_: interval at which processor can do something; ARM (1 clock cycle per instruction; efficient) x86 (n clock cycle per instruction; performant)
-* _speed_: measured in gigahertz i.e. how many billion cycles happen per second; base speed and turbo https://www.bhphotovideo.com/explora/computers/tips-and-solutions/boost-processors
-* _idling_: entering a lower power stage when no instructions to execute; cost to enter/exit idle, so don't want to do for overly short periods
-
-* modern microprocessors https://news.ycombinator.com/item?id=27014027
-
 ## storage
 
 📚
@@ -379,3 +329,73 @@ operations
 | flash     | -           | fastest; non-volatile RAM 
 | long-term | -           | https://archiveprogram.github.com/ https://spectrum.ieee.org/computing/hardware/why-the-future-of-data-storage-is-still-magnetic-tape
 | --------- | ----------- | ------------------------- 
+
+# 🌌 PROCESSORS
+
+🔗 https://cpu.land/
+📚
+* Christian chapter 5
+* Galvin chapter 6
+* Tanenbaum chapter 8
+
+---
+
+https://danluu.com/new-cpu-features/
+
+scheduling 🗄 `linux.md` processes
+* https://wizardzines.com/comics/cpu-scheduling/
+
+* _processor_: aka CPU; can have n cores (i.e. parallelism) https://stackoverflow.com/q/19225859 can only add and subtract [Manga 1.15] https://www.righto.com/2024/08/pentium-navajo-fairchild-shiprock.html
+> No human can possibly hope to understand a modern high-performance CPU well enough to informally reason about its correctness. That's not only true now, it's been true for decades. It becomes true the moment someone introduces any sort of speculative execution or caching. These things are inherently stateful and complicated. They're so complicated that the only way to model performance (in order to run experiments to design high performance chips) is to simulate precisely what will happen, since the exact results are too complex for humans to reason about and too messy to be mathematically tractable. It's possible to make a simple CPU, but not one that's fast and simple. https://danluu.com/tests-v-reason/
+* _core_: main component that reads from memory, maintains execution order and state, and uses ALU to perform operations https://stackoverflow.com/a/19314303 https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
+* _core types_: physical (what it sounds like) logical (abstraction to facilitate hyperthreading) https://stackoverflow.com/q/1715580 https://forums.tomshardware.com/threads/what-is-the-difference-between-physical-core-and-logical-core.1534416/
+* _hyperthreading_: single core that can execute n instructions simultaneously
+* _NPU_: good for lower power consumption? https://news.ycombinator.com/item?id=41863460
+* _Apple silicon_: processor that uses ARM64
+
+❓ how do chips relate to processor
+* _chip_: piece of silicon holding approx B transistor; made by Intel, ARM, AMD, Qualcomm
+* _processor_: main chip https://blog.robertelder.org/how-to-make-a-cpu/
+* _chip set_: other chips that help out processor
+* _PCB_: holds chips and all the wiring; made of fiberglass; motherboartd is a type of https://www.youtube.com/watch?v=Z2LgmIGE2nI
+* _trace_: copper wires carrying electricity around PCB
+
+operations
+* _clock speed/rate/cycle_: interval at which processor can do something; ARM (1 clock cycle per instruction; efficient) x86 (n clock cycle per instruction; performant)
+* _speed_: measured in gigahertz i.e. how many billion cycles happen per second; base speed and turbo https://www.bhphotovideo.com/explora/computers/tips-and-solutions/boost-processors
+* _idling_: entering a lower power stage when no instructions to execute; cost to enter/exit idle, so don't want to do for overly short periods
+
+* modern microprocessors https://news.ycombinator.com/item?id=27014027
+
+## ALU
+
+---
+
+* _ALU_: executes on opcode [Manga 1.23] https://en.wikipedia.org/wiki/Arithmetic_logic_unit#Implementation
+* _opcode_: operator and operand https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ https://tech.marksblogg.com/faster-python.html
+* _data path_: how much data moves around circuit e.g. computer data pathes generally 1 byte wide [Petzold 180]
+* _cache_: caches RAM for processor, needs a few more cycles to read than registers https://www.reddit.com/r/compsci/comments/95ns21/what_is_difference_between_register_and_l1_cache/e3u4tlt e.g. L1 cache https://www.ardanlabs.com/blog/2023/07/getting-friendly-with-cpu-caches.html https://news.ycombinator.com/item?id=40365248
+* _register_: internal to processor i.e. not memory https://stackoverflow.com/a/9287273 size can vary on data type held e.g. 80 bits for floating point https://lock.cmpxchg8b.com/zenbleed.html
+
+## ISA
+
+📙 Bryant ch. 4 https://en.wikipedia.org/wiki/Instruction_set_architecture
+
+* _ISA_: interface for processor 📙 Evans Linux 1, PG hackers and painters 179
+* defines processor instructions, virtual memory, etc. https://en.wikipedia.org/wiki/Instruction_set_architecture
+* _ARM64_: ARM for desktops
+* _x86_: https://github.com/cirosantilli/x86-bare-metal-examples#china
+📍 port in notes from 'memory'
+* https://drewdevault.com/2021/03/19/A-new-systems-language.html
+* ARM, RISC V https://riscv.org/ https://www.youtube.com/watch?v=Lo63uDIiCH0 https://danluu.com/butler-lampson-1999/
+* https://www.jeffgeerling.com/blog/2020/raspberry-pi-cluster-episode-4-minecraft-pi-hole-grafana-and-more
+* https://www.jeffgeerling.com/blog/2020/what-does-apple-silicon-mean-raspberry-pi-and-arm64
+
+## GPU
+
+---
+
+* _CUDA_: GPUs aaS https://www.youtube.com/watch?v=hh0hK6UDQw0
+* not always faster https://news.ycombinator.com/item?id=42389383
+* _GPU_: https://news.ycombinator.com/item?id=23986925 https://lwn.net/Articles/827596/ https://codeconfessions.substack.com/p/gpu-computing https://codeconfessions.substack.com/p/gpu-computing https://news.ycombinator.com/item?id=42042016
+> GPUs are much less complex than CPUs; that means they can execute instructions much more quickly, but those instructions have to be much simpler. At the same time, you can run a lot of them at the same time to achieve outsized results. Graphics is, unsurprisingly, the most obvious example: every "shader" - the primary processing component of a GPU - calculates what will be displayed on a single portion of the screen; the size of the portion is a function of how many shaders you have available. If you have 1,024 shaders, each shader draws 1/1,024 of the screen. Ergo, if you have 2,048 shaders, you can draw the screen twice as fast. Graphics performance is "embarrassingly parallel", which is to say it scales with the number of processors you apply to the problem. https://stratechery.com/2023/china-chips-and-moores-law/
