@@ -111,6 +111,8 @@ fmt.Println(mySlice) // [3 5 7]
 
 ## design
 
+📙 Kernighan/Pike practice of programming https://www.amazon.com/Practice-Programming-Addison-Wesley-Professional-Computing/dp/020161586X
+
 FEATURES 📙 Jeffrey [3]
 * concurrency
 * more modern than C e.g. modules

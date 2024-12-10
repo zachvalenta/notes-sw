@@ -509,7 +509,7 @@ LOG STORES
 FORMAT
 * _JSONL_: https://github.com/textualize/toolong
 
-TOOLING
+TOOLING 🗄️ `golang.md` `python.md`
 * _Axiom_: https://axiom.co/ https://github.com/axiomhq https://repobeats.axiom.co/ cheaper than CloudWatch? https://x.com/AxiomFM/status/1842206872813674807
 * _fblog_: JSON log viewer https://github.com/brocode/fblog
 * _hl_: https://github.com/pamburus/hl

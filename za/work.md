@@ -25,7 +25,8 @@
 
 🔍 https://newsletter.pragmaticengineer.com/p/state-of-eng-market-2024
 📚
-* Martin we programmers
+* Kernighan unix a history 🗄️ Raymond unix programming
+* Martin we programmers https://www.amazon.com/Turings-Cathedral-Origins-Digital-Universe/dp/1400075998
 * Moody rebel code
 * Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/ http://www.catb.org/~esr/jargon/html/index.html
 * Seibel coders at work

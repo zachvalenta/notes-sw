@@ -581,6 +581,9 @@ add styles
 
 ## PDF
 
+GENERATE
+* _invoice_: https://github.com/maaslalani/invoice https://github.com/charmbracelet/pop
+
 READERS
 * _baca_: ebook/epub TUI reader https://github.com/wustho/baca
 * _tdf_: https://github.com/itsjunetime/tdf

@@ -10,9 +10,9 @@
 * `telemtry.md` perf
 📚
 * Buelta python architecture
-* Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
-* Richards fundamentals of software architecture
-> they have another book together https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894
+* Ford fundamentals of software architecture
+> they have more books together https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894 https://www.amazon.com/Building-Evolutionary-Architectures-Automated-Governance/dp/1492097543
+* Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
 
 ## 进步
 
