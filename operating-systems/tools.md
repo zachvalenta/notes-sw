@@ -304,15 +304,22 @@ FEATURES
 * highlight outliers (size, last accessed)
 * conditional logic (if in `yin`, use `ll` instead of `l`)
 
+LLA https://github.com/triyanox/lla
+> 📍 config, plugins
+* size map `-S`
+* timeline `--timeline`
+* git commit `-G`
+
 OPTIONS
-* _exa_: ✅ https://github.com/ogham/exa https://the.exa.website/
+* _exa_: 💀 kicked off Homebrew https://github.com/ogham/exa https://the.exa.website/
 * _eza_: ✅ Makefile icon broken, absentee maintainers? https://github.com/eza-community/eza https://github.com/eza-community/eza/pull/554
+> 📍 do you not have this configged at all? also, theme support now?
 * _logols_: 💀 https://github.com/Yash-Handa/logo-ls
-* _lsd_: 🎯 https://github.com/lsd-rs/lsd
-* _pls_: 🎯 https://github.com/pls-rs/pls
+* _lsd_: https://github.com/lsd-rs/lsd
+* _pls_: 🎯 https://pls.cli.rs/
 
 TREE
-* eza
+* eza/exa
 * _tre_: Rust https://github.com/dduan/tre
 * _tree_: ignore multiple https://unix.stackexchange.com/a/47806/331460 https://superuser.com/questions/772567/how-to-get-tree-a-to-ignore-git-directories
 ```sh
