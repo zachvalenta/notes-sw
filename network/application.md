@@ -180,6 +180,8 @@ FQDN
 
 ---
 
+https://github.com/pimalaya https://pimalaya.org/ https://github.com/pimalaya/himalaya
+
 * https://www.twilio.com/blog/2017/04/wedding-at-scale-how-i-used-twilio-python-and-google-to-automate-my-wedding.html
 * https://github.com/SkullTech/drymail
 
@@ -217,9 +219,13 @@ https://kevq.uk/how-to-host-email-with-your-own-domain/
 > I wish Gmail had better search re: links. I think other people solve this by using things like Pinboard https://pinboard.in/
 mbsync https://www.c0ffee.net/blog/mail-server-guide/
 
-## leaving Gmail
+## clients
 
 🗄 `security.md` privacy
+
+* _Fastmail_: https://news.ycombinator.com/item?id=24245817
+* _Hey_: https://www.hey.com/
+* _pop_: https://github.com/charmbracelet/pop https://resend.com/customers/charm
 
 ---
 
@@ -233,9 +239,6 @@ mbsync https://www.c0ffee.net/blog/mail-server-guide/
 * why: lose account https://news.ycombinator.com/item?id=24791357 https://news.ycombinator.com/item?id=34581090
 * why not: works well, only marginal return for time invested, apparently Gmail search is better than others https://hobo.house/2015/09/09/take-control-of-your-email-with-mutt-offlineimap-notmuch/
 * shared https://news.ycombinator.com/item?id=42119042
-* _Hey_: https://www.hey.com/
-* _Fastmail_: https://news.ycombinator.com/item?id=24245817
-* _pop_: https://github.com/charmbracelet/pop
 
 LEAVING GMAIL
 * lockout https://www.jefftk.com/p/how-likely-is-losing-a-google-account
@@ -254,6 +257,13 @@ backup
 * _manual_: Gmail export
 * _automated_: https://news.ycombinator.com/item?id=22846851
 * _reading old email_: periodic export from Gmail, `neomutt -f <file>.mbox` https://askubuntu.com/a/114083 can also just read old email and convert to docs like `hu-xiaodi.md`
+
+## delivery
+
+* _Braze_: email + analytics; used at United Masters
+* _Resend_: https://resend.com/customers/charm https://resend.com/home https://github.com/charmbracelet/pop
+* _Sendgrid_: used at United Masters
+* _Twilio_:
 
 ## SMTP
 
@@ -287,7 +297,6 @@ https://github.com/valberg/django-sse
 
 * https://gotify.net/
 * https://discord.com/blog/how-discord-reduced-websocket-traffic-by-40-percent
-* Sendgrid (send emails to customers) Braze (Sendgrid++?)
 * IETF RFC 6455 and browser API https://hpbn.co/websocket/
 * compared to `Keep-Alive` https://stackoverflow.com/questions/7620620/whats-the-behavioral-difference-between-http-stay-alive-and-websockets
 * _HTTP2_: multiplexed i.e n assets from single request; servers can push (in same way as Web Sockets); binary instead of HTTP's text https://serversforhackers.com/s/http2 https://hpbn.co/http2/ https://news.ycombinator.com/item?id=26263085
