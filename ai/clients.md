@@ -175,13 +175,19 @@ https://www.youtube.com/watch?v=QUXQNi6jQ30 @ 20:30
 LLM
 * guide https://simonwillison.net/2024/Jun/17/cli-language-models/
 * logs https://simonwillison.net/2024/Mar/22/claude-and-chatgpt-case-study/ https://llm.datasette.io/en/stable/logging.html
-* working with databases locally https://simonw.substack.com/p/ask-questions-of-sqlite-databases
+* working with databases locally https://simonw.substack.com/p/ask-questions-of-sqlite-databases https://github.com/Sinaptik-AI/pandas-ai
 * working with audio https://simonw.substack.com/p/video-scraping-using-google-gemini https://simonw.substack.com/p/run-prompts-against-images-audio
 * models: default is ChatGPT https://llm.datasette.io/en/stable/openai-models.html others https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3 https://simonw.substack.com/p/claude-35-haiku
 
 ## 💄 mods
 
 * _mods_: Markdown output, system prompt https://github.com/charmbracelet/mods continue conversation https://github.com/charmbracelet/mods/issues/197
+
+## 😺 smartcat
+
+📜 https://github.com/efugier/smartcat
+
+* conversations as Markdown
 
 # 🟨️ ZA
 
