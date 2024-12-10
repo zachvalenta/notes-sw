@@ -86,6 +86,16 @@ POINT TO POINT IS INHERENTLY COMPLEX https://www.stedi.com/blog/what-makes-edi-s
 # 🧬 SEGMENTS
 
 SEQUENCE
+```sh
+├── ISA  # interchange header
+│   └── GS  # functional header
+│   └────── ST  # transaction set #1
+│   └────── SE  # transaction set trailer
+│   └────── ST  # transaction set #2
+│   └────── SE  # transaction set trailer
+│   └── GE  # functional trailer
+├── IEA  # interchange trailer
+```
 * high-level: ISA (initial), GSA (metadata) IEA (InterchangeEnvelope; terminal)
 * _implementation guideline_: additional instructions from receiver re: how sender should impl 🧠 https://chatgpt.com/c/673d0121-f4d8-8004-b903-4d083157a552
 * fmt of PDF is standard https://www.stedi.com/blog/transaction-set-variants-in-the-amazon-850-purchase-order
@@ -118,17 +128,6 @@ ZA
 
 ## ☸️ metadata
 
-ST
-* _ST01_: transaction set type; `832`
-> don't understand how this isn't duping GS01
-* _ST02_: control number
-> don't understand how this isn't duping GS06
-* _SE_: closes transaction set
-```sh
-# SE * number of segments * same control number as ST
-SE*6*0001~
-```
-
 ### ISA (who)
 
 > An X12 file starts with a fixed-length 106-byte header called an ISA segment...specifies three different terminator characters to be used in the rest of the document. https://www.lambdafunctions.com/articles/racing-sed-with-rust
@@ -144,8 +143,12 @@ SE*6*0001~
 * _ISA14_: request for ack
 * _ISA15_: indicator whether test|prod
 
-### GS (type)
+### transaction sets
 
+GS
+```sh
+GS*SC*014654966*TST1FASTENAL*20241210*1255*1*X*004010~
+```
 * _GS01_: transaction set type; `SC` 832 `PO` 850
 * _GS02_: sender code; `014654966`
 * _GS03_: receiver code; `Fastenal`
@@ -154,6 +157,17 @@ SE*6*0001~
 * _GS06_: control number
 * _GS07_: standards body; `X` for ASC x12
 * _GS08_: version; `004010`
+
+ST
+```sh
+# SE * number of segments * same control number as ST
+SE*6*0001~
+```
+* _ST01_: transaction set type; `832`
+> don't understand how this isn't duping GS01
+* _ST02_: control number
+> don't understand how this isn't duping GS06
+* _SE_: closes transaction set
 
 ### summary (sum)
 
@@ -169,7 +183,7 @@ SE*6*0001~
 
 * _DTM_: date range (for both LIN and CTP)
 
-## BCT (pupose)
+### BCT (pupose)
 
 * _BCT01_: catalog purpose code
 * 02 add 04 change 05 replace ("used for full updates, such as a monthly refresh")
