@@ -80,7 +80,7 @@ DONE
 
 * _DoS (denial of service)_: designed to crash system vs. extracting data https://jacobian.org/2020/sep/11/analyzing-dos-vulnerabilities/ 
 * _phishing_: elicit secrets via mimicry of legimate resource e.g. set up page to mimic company internal portal
-> Humans are always the weakest link. It sounds like some internal person opened a link to an email and went to a site that spoofed internal portal. He/she was prompted to login so they got a set of creds that way. From there they now had an internal person email others with higher levels of access.
+> Humans are always the weakest link. It sounds like some internal person opened a link to an email and went to a site that spoofed internal portal. He/she was prompted to login so they got a set of creds that way. Sent an email from initial mark to another internal person. "Hey Greg, log in here and check this out for me." Type of thing. But now the email doesn't have all of the red flags like THIS EMAIL IS AN EXTERNAL ACCOUNT. So the 2nd+ people blindly trusted the link because it was coming from a trusted colleague. - Roberto 24.12.10
 * _remote code execution (RCE)_: getting access to someone's server and executing arbitrary commands https://news.ycombinator.com/item?id=23308945
 * _rootkit_: privilege escalation to root https://jvns.ca/blog/2013/10/08/day-6-i-wrote-a-rootkit/
 * _zero-day_: attacker knows before owner knows
