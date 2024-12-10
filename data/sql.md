@@ -44,6 +44,7 @@ INTERVIEWING
 ---
 
 REPLACEMENTS
+* Ibis
 * _Trilogy_: dimension tables, canonical dataset for OLTP https://news.ycombinator.com/item?id=42231325
 * Sakila also canonical https://sq.io/docs/tutorial
 
