@@ -56,49 +56,24 @@ https://github.com/zillow/tycho
 
 ### Actions
 
+🗄️ `git.md` Pages
 📜 https://docs.github.com/en/actions
-🔬 example https://github.com/GothenburgBitFactory/taskwarrior/actions
+🔬 https://github.com/GothenburgBitFactory/taskwarrior/actions
 
-DEPLOYING ZJAYV https://zjayv.github.io/ 🧠 https://chatgpt.com/c/66f4a787-5a40-8004-bda8-c9c207ae0e88
-> start here https://www.getzola.org/documentation/deployment/github-pages/
-```txt
-things I've already tried
-
-- publish_dir
-- specify branch (settings > pages)
-```
-* workflows https://github.com/zachvalenta/zjayv.github.io/actions
-> why do they have two different names?
-* site that works https://liyasthomas.github.io/
-* need cname? https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME.txt
-* docs https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-* more docs https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
-
-SEMANTICS https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
-* use on AWS https://github.com/CloudSnorkel/cdk-github-runners
-* _workflow_: collection of jobs
-* triggered by event, chron, API
-* defined in `.github/workflows`
-* e.g. test PR, deployment, add labels when issue opened
-* _job_: collection of step
-* _step_: user-defined (script) or action
+SEMANTICS
+* _workflow_: collection of jobs (test|deploy|add label to issue) defined in `.github/workflows`; triggered by event|chron|API
+* _job_: collection of steps
+* _step_: user-defined action (script) https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
 > Steps are executed in order and are dependent on each other. Since each step is executed on the same runner, you can share data from one step to another. For example, you can have a step that builds your application followed by a step that tests the application that was built.
-* _action_: GH-defined extension
-> An action is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task. Use an action to help reduce the amount of repetitive code that you write in your workflow files. An action can pull your Git repository from GitHub, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
 * _runner_: container in which steps are run
 > A runner is a server that runs your workflows when they're triggered. Each runner can run a single job at a time.
+* _action_: GH-defined extension
+> An action is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task. Use an action to help reduce the amount of repetitive code that you write in your workflow files. An action can pull your Git repository from GitHub, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
 
-EVENT PROPERTIES
-* id
-* type
-* payload
-* _actor_: user triggering event
-* _repo_: where the event occurred
-
-EVENT TYPES https://docs.github.com/en/rest/using-the-rest-api/github-event-types
-> yet more? https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
-* `CreateEvent`: branch|tag created
-* `GollumEvent`: wiki page created|updated
+EVENTS
+* properties: id, type, payload, actor (user that triggers), repo (where event happens)
+* `CreateEvent`: branch|tag created https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
+* `GollumEvent`: wiki page created|updated https://docs.github.com/en/rest/using-the-rest-api/github-event-types?apiVersion=2022-11-28#gollumevent
 * `IssueCommentEvent`: comment on issue|PR
 * `IssuesEvent`: opened, edited, closed, assigned, labeled
 * `PullRequestEvent`: opened, edited, closed, review_requested
@@ -106,6 +81,7 @@ EVENT TYPES https://docs.github.com/en/rest/using-the-rest-api/github-event-type
 
 ---
 
+* use on AWS https://github.com/CloudSnorkel/cdk-github-runners
 telemetry https://github.com/catchpoint/workflow-telemetry-action/issues/39 https://blog.smidt.dev/posts/0003/
 can manipulate tags, create releases in repo using CLI https://cli.github.com/manual/gh_release
 

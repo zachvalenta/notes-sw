@@ -126,6 +126,32 @@ gh alias list
 * _profile README_: create repo with same name as user, add README https://github.com/willmcgugan/willmcgugan https://github.com/mrjackwills
 * _video_: https://github.com/textualize/toolong
 
+## Pages
+
+🗄️ `src.md` CICD > Actions
+
+https://www.getzola.org/documentation/deployment/github-pages/
+* `index.html` in root of branches `master`|`main`|`gh-pages`
+* can specify branch in repo settings
+* site named `<username>.github.io` must correspond to repo named `<username>.github.io`
+
+---
+
+DEPLOYING ZJAYV https://zjayv.github.io/ 🧠 https://chatgpt.com/c/66f4a787-5a40-8004-bda8-c9c207ae0e88
+> start here https://www.getzola.org/documentation/deployment/github-pages/
+```txt
+things I've already tried
+
+- publish_dir
+- specify branch (settings > pages)
+```
+* workflows https://github.com/zachvalenta/zjayv.github.io/actions
+> why do they have two different names?
+* site that works https://liyasthomas.github.io/
+* need cname? https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME.txt
+* docs https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+* more docs https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
+
 ## repos
 
 > https://github.com/rubysolo/brows
