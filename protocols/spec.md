@@ -408,6 +408,7 @@ TOOLING
 * used for reverse engineering? https://github.com/radareorg/radare2
 * `hexdump -C <file>` https://www.youtube.com/watch?v=-eDY7yh-CyA 1:50
 * _fq_: query https://github.com/wader/fq 
+* _hevi_: https://github.com/Arnau478/hevi
 * _hexabyte_: 🎯 editor https://github.com/thetacom/hexabyte
 * _hexedit_: Ubuntu https://news.ycombinator.com/item?id=23762626
 * _hexed_: 🎯 browser https://hexed.it/
@@ -428,16 +429,14 @@ CASES
 ## identifiers
 
 TOOLS
-```python
+* identify: UUID, Snowflake https://github.com/Racum/uuinfo
+* generate: pwgen https://www.youtube.com/watch?v=G3aH2WYJxGA shortuuid https://github.com/skorokithakis/shortuuid https://github.com/lithammer/shortuuid
+```sh
+uuidgen | tr '[:upper:]' '[:lower:]' | pbcopy  #  https://weiyen.net/articles/useful-macos-cmd-line-utilities
 python -c "import random, string; print('\n'.join(''.join(random.choices(string.ascii_uppercase + string.digits, k=4)) for _ in range(20)))"
 ```
-* _pwgen_: Brew https://www.youtube.com/watch?v=G3aH2WYJxGA
-* _shortuuid_: 🎯 https://github.com/lithammer/shortuuid
-* _uuidgen_: https://weiyen.net/articles/useful-macos-cmd-line-utilities
-```sh
-uuidgen | tr '[:upper:]' '[:lower:]' | pbcopy
-```
 
+TYPES
 * _DUNS_: unique for businesses as legal entities; require for government contracts, to be a supplier to big businesses, for SSL certs; e.g. `00-186-7803` for Apple
 * _SKU_: internal to retailer/warehouse; variable length, fmt repr product characteristics/location
 * _ASIN_: Amazon SKU; 10 char; per product i.e. if multiple sellers sell same product they use same ASIN https://inventlikeanowner.com/blog/the-story-behind-asins-amazon-standard-identification-numbers/
