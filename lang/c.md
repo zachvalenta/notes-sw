@@ -95,6 +95,9 @@ USE FOR BUILDS
 * https://mitchellh.com/writing/zig-comptime-tagged-union-subset
 * https://goreleaser.com/ https://goreleaser.com/customization/rust-builds/ https://goreleaser.com/customization/zig-builds/
 
+PROJECTS
+* https://github.com/Arnau478/hevi
+
 * https://www.youtube.com/watch?v=ug-KuDlMTYw
 * compared to Rust https://www.youtube.com/watch?v=Vxq6Qc-uAmE
 * overview https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203010 https://kristoff.it/blog/maintain-it-with-zig/
@@ -118,6 +121,7 @@ USE FOR BUILDS
 * internals https://www.amazon.com/dp/B0D7FQB3DH
 
 CODEBASES TO LEARN FROM
+* plugin interface https://github.com/triyanox/lla
 * tests with the source code https://github.com/b1rger/carl
 * https://github.com/lusingander/serie
 * not so hard to read after all https://github.com/raphlinus/font-rs/blob/master/src/accumulate.rs

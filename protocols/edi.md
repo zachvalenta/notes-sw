@@ -85,6 +85,37 @@ POINT TO POINT IS INHERENTLY COMPLEX https://www.stedi.com/blog/what-makes-edi-s
 
 # 🧬 SEGMENTS
 
+SEQUENCE
+* high-level: ISA (initial), GSA (metadata) IEA (InterchangeEnvelope; terminal)
+* _implementation guideline_: additional instructions from receiver re: how sender should impl 🧠 https://chatgpt.com/c/673d0121-f4d8-8004-b903-4d083157a552
+* fmt of PDF is standard https://www.stedi.com/blog/transaction-set-variants-in-the-amazon-850-purchase-order
+* doesn't align to actual document e.g. Fastenal
+* _guideline position_: location of segment w/in implementation guideline e.g. CTP at position 170 in Fastenal 823 implementation guideline
+
+SEMANTICS
+* _element_: segment subcomponent; `*` delimiter, `**` = blank
+* data types: ID + NO (numeric) AN (alphanumeric) DT (date) TM (time)
+* _segment_: ID + data; `~` terminal delimiter
+* _loop_: list of common segments
+* _envelope_: a single x12 document and its transmission; file extensions incl `.edi`, `.x12`, `.dat`, `.txt`
+* _mailbag_: n envelopes
+* _transaction set (TS)_: group of segments https://en.wikipedia.org/wiki/X12_Document_List https://x12.org/products/transaction-sets 
+```csv
+number,code,type
+810,IN,invoice
+820,RA,payment order
+832,SC,catalog
+850,PO,purchase order
+870,RS,order status
+997,FA,ack
+```
+
+ZA
+* _transaction set purpose codes_: "why is document being sent?", only shows up in (typically) a single segment, can apply to multiple document lists (832, 850)
+* `00` new `01` cancel previously sent doc `04` update `05` replace `06` ack receipt of sent doc `24` draft
+* _qualifiers_: type for ID
+* `ZZ` custom `01` DUNS `20` Health Industry Number (HIN) `30` U.S. Federal Tax Identification
+
 ## ☸️ metadata
 
 ST
@@ -136,29 +167,20 @@ SE*6*0001~
 
 🔍 https://www.stedi.com/edi/x12/transaction-set/832
 
-* _G53_: CRUD ("maintenance operation"); `001` update `002` delete `003` create
-* _DTM_: date range for CTP
-* _LDT_: lead time
-```sh
-# type * quantity * unit of time
-# from date of purchase order to shipment * 10 * workdays
-LDT*AE*10*DW~
+* _DTM_: date range (for both LIN and CTP)
 
-# valid 2024.11.01-30
-DTM*196*20241101~
-DTM*197*20241130~
-```
+## BCT (pupose)
 
-### BCT (purpose)
-
-```sh
-BCT*05*CAT123*V1~
-```
-* _BCT01_: purpose code
+* _BCT01_: catalog purpose code
 * 02 add 04 change 05 replace ("used for full updates, such as a monthly refresh")
 * `SC` sales catalog PS price sheet PC catalog
 * _BCT02_: catalog id
 * _BCT03_: catalog version
+* _BCT03_: catalog version
+* _BCT10_: transaction set purpose code e.g. `02` add `04` change
+```sh
+BCT*05*CAT123*V1*02~
+```
 
 ### LIN (ID)
 
@@ -171,6 +193,10 @@ BCT*05*CAT123*V1~
 LIN**UP*012345678905
 ```
 
+### G53
+
+* _G53_: CRUD ("maintenance operation"); `001` update `002` delete `003` create
+
 ### PID (desc)
 
 * _PID_: desc
@@ -179,6 +205,19 @@ LIN**UP*012345678905
 ```sh
 # F = free-form
 PID*F****Blue T-Shirt, Size Large
+```
+
+### LDT (lead time)
+
+* _LDT_: lead time
+```sh
+# type * quantity * unit of time
+# from date of purchase order to shipment * 10 * workdays
+LDT*AE*10*DW~
+
+# valid 2024.11.01-30
+DTM*196*20241101~
+DTM*197*20241130~
 ```
 
 ### CTP (price)
@@ -235,33 +274,3 @@ with open("data.json", "w") as f:
 🔍 https://www.stedi.com/edi
 
 * syntax highlight https://www.stedi.com/edi/inspector
-
-# 🟨 ZA
-
-## components
-
-* file extension: `.edi`, `.x12`, `.dat`, `.txt`
-* _implementation guideline_: additional instructions from receiver re: how sender should impl 🧠 https://chatgpt.com/c/673d0121-f4d8-8004-b903-4d083157a552
-* fmt of PDF is standard https://www.stedi.com/blog/transaction-set-variants-in-the-amazon-850-purchase-order
-* _guideline position_: location of segment w/in implementation guideline e.g. CTP at position 170 in Fastenal 823 implementation guideline
-* _element_: segment subcomponent; `*` delimiter, `**` = blank
-* data types: ID + NO (numeric) AN (alphanumeric) DT (date) TM (time)
-* _segment_: ID + data; `~` terminal delimiter
-* order: ISA (initial), GSA (metadata), IEA (InterchangeEnvelope; terminal)
-* _loop_: list of common segments
-* _envelope_: a single x12 document and its transmission
-* _mailbag_: n envelopes
-* _transaction set (TS)_: group of segments https://en.wikipedia.org/wiki/X12_Document_List https://x12.org/products/transaction-sets 
-```csv
-number,code,type
-810,IN,invoice
-820,RA,payment order
-832,SC,catalog
-850,PO,purchase order
-870,RS,order status
-997,FA,ack
-```
-* _transaction set purpose codes_: "why is document being sent?", only shows up in (typically) a single segment, can apply to multiple document lists (832, 850)
-* `00` new `01` cancel previously sent doc `04` update `05` replace `06` ack receipt of sent doc `24` draft
-* _qualifiers_: type for ID
-* `ZZ` custom `01` DUNS `20` Health Industry Number (HIN) `30` U.S. Federal Tax Identification

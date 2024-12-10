@@ -108,6 +108,7 @@ COMPRESSION
 * video streaming https://news.ycombinator.com/item?id=40408515
 
 ENTROPY
+* https://github.com/Racum/uuinfo
 * https://math.ucr.edu/home/baez/what_is_entropy.pdf https://johncarlosbaez.wordpress.com/2024/07/20/what-is-entropy/
 * entropy per word https://entropicthoughts.com/reading-slightly-more-incrementally
 > got here from "how to create session ID in Python?" 🗄 `http.md` https://stackoverflow.com/questions/817882/unique-session-id-in-python https://unix.stackexchange.com/a/361789

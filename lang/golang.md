@@ -254,6 +254,7 @@ var myInt // 0
 * tutorials https://leg100.github.io/en/posts/building-bubbletea-programs/ https://www.youtube.com/watch?v=ERaZi0YvBRs
 * components https://github.com/charmbracelet/bubbles 
 * _gum_: Charm utils for Bash https://github.com/charmbracelet/gum https://www.youtube.com/watch?v=tnikefEuArQ https://github.com/zackproser/automations
+* _huh_: forms; used in gum https://github.com/charmbracelet/huh
 
 ---
 

@@ -78,6 +78,7 @@ TYPES
 
 ---
 
+* https://www.hopsworks.ai/post/pandas2-and-polars-for-feature-engineering
 * _feature extraction_: key attr e.g. semantic meaning, syntax, sentiment analysis https://zackproser.com/blog/introduction-to-embeddings
 * _Naive Bayes_: priors + data; naive bc assume every feature has same weight [Bhargava 10.200]
 * softmax https://victorzhou.com/blog/softmax/

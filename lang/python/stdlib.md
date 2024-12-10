@@ -513,7 +513,7 @@ python json_tree.py
 
 ALTERNATIVES
 > Textual inherently slow? Both browsr and elia crawl on open. Find Golang-like alternative
-> prefer the way Golang/Rust TUI libs look https://github.com/charmbracelet/bubbles
+> prefer the way Golang/Rust TUI libs look (gocui, ratatui) https://github.com/charmbracelet/bubbles
 * _blessed_: https://github.com/jquast/blessed
 * _asciimatics_: https://github.com/peterbrittain/asciimatics
 * _urwid_: used by pudb, Zulip http://urwid.org/ https://github.com/zulip/zulip-terminal/blob/main/zulipterminal/ui_tools/boxes.py
