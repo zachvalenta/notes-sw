@@ -5,11 +5,32 @@
 🔍 https://security.stackexchange.com/
 🗣 https://www.latacora.com/blog/ https://krebsonsecurity.com/ https://twitter.com/badthingsdaily
 📚
-* McDonald https://www.manning.com/books/grokking-web-application-security https://www.amazon.com/gp/product/1633438260
+> what does manning have in this space?
+* Ball hacking APIs https://www.amazon.com/Hacking-APIs-Application-Programming-Interfaces/dp/1718502443 https://www.amazon.com/Black-Hat-GraphQL-Attacking-Generation/dp/1718502842
+* Erickson art of exploitation https://www.amazon.com/Hacking-Art-Exploitation-Jon-Erickson/dp/1593271441
+> do you already have this as PDF?
+* Forshaw https://www.amazon.com/Attacking-Network-Protocols-Analysis-Exploitation/dp/1593277504
+> in Python
+* Hoffman https://www.amazon.com/Web-Application-Security-Exploitation-Countermeasures/dp/1098143930
+* Li bug bounty bootcamp https://www.amazon.com/Bug-Bounty-Bootcamp-Reporting-Vulnerabilities/dp/1718501544
+> buy from No Starch? https://nostarch.com/bug-bounty-bootcamp
+* McDonald https://www.manning.com/books/grokking-web-application-security https://www.amazon.com/gp/product/1633438260 wrote the same book in 2020? https://www.amazon.com/Web-Security-Developers-Malcolm-McDonald/dp/1593279949 https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470
 * Seitz black hat https://news.ycombinator.com/item?id=42361793
 
 ## 进步
 
+ROLES https://www.netmeister.org/blog/infosec-skillsets.html
+* _security engineering_: meta/mgmt 🗄 `google-sre-security.pdf` https://danielmiessler.com/study/ https://news.ycombinator.com/item?id=24031632
+* _cryptography_: academics https://web.engr.oregonstate.edu/~rosulekm/crypto/
+* _web_: knowing about SQL injection, XSS, CORS 🗄 `zalewski.pdf`
+* _hacking_: Kali Linux, MetaSploit 🗄 `weidman-pen-testing.pdf` https://news.ycombinator.com/item?id=24718078
+* _reverse engineering_: disassemblers/decompilers, C++, Windows 🗄 `python-grey-hat.pdf` https://www.begin.re/ https://nostarch.com/GhidraBook https://news.ycombinator.com/item?id=29084716 https://reverseengineering.stackexchange.com/ https://malwareunicorn.org/workshops/re101.html
+
+CLEAN THESE UP BEFORE BUYING BOOKS
+* things to know https://www.netmeister.org/blog/infosec-competencies.html https://jacobian.org/2021/jul/8/appsec-pagnis https://latacora.github.io/careers/
+* BYO RCE https://github.com/Narasimha1997/py4jshell
+* BYO w/ Django https://www.youtube.com/watch?v=bvLJTNRpnt8
+* https://www.latacora.com/blog/2024/09/13/datomic-and-content-addressable-techniques/
 * https://github.com/Ragnt/AngryOxide
 * https://www.stedi.com/blog/stedi-achieves-soc-2-type-ii-and-hipaa-eligibility-certification
 * encrypt file https://github.com/70sh1/eddy
@@ -38,23 +59,17 @@
 * https://nostarch.com/hacks-leaks-and-revelations
 * EDR endpoint detection https://nostarch.com/evading-edr
 * disclosures https://news.ycombinator.com/item?id=41916246
-
-things to know https://www.netmeister.org/blog/infosec-competencies.html https://jacobian.org/2021/jul/8/appsec-pagnis https://latacora.github.io/careers/
-
-roles https://www.netmeister.org/blog/infosec-skillsets.html
-* _security engineering_: meta/mgmt 🗄 `google-sre-security.pdf` https://danielmiessler.com/study/ https://news.ycombinator.com/item?id=24031632
-* _cryptography_: academics https://web.engr.oregonstate.edu/~rosulekm/crypto/
-* _web_: knowing about SQL injection, XSS, CORS 🗄 `zalewski.pdf`
-* _hacking_: Kali Linux, MetaSploit 🗄 `weidman-pen-testing.pdf` https://news.ycombinator.com/item?id=24718078
-* _reverse engineering_: disassemblers/decompilers, C++, Windows 🗄 `python-grey-hat.pdf` https://www.begin.re/ https://nostarch.com/GhidraBook https://news.ycombinator.com/item?id=29084716 https://reverseengineering.stackexchange.com/ https://malwareunicorn.org/workshops/re101.html
-
-* clean up https://cryptopals.com/ https://github.com/AntonKueltz/cryptopals https://www.hacker101.com/playlists/newcomers https://krebsonsecurity.com/2012/06/how-to-break-into-security-ptacek-edition/#more-15594 https://www.freecodecamp.org/learn/information-security/python-for-penetration-testing/ https://www.youtube.com/c/HackerSploit/playlists https://krebsonsecurity.com/2012/10/the-scrap-value-of-a-hacked-pc-revisited/ https://news.ycombinator.com/item?id=26071906 https://danielmiessler.com/blog/build-successful-infosec-career/ https://danielmiessler.com/study/information-security-definitions/
-* https://sre.google/books/
-* w/ Django https://www.youtube.com/watch?v=bvLJTNRpnt8
-* ad blocking https://blog.codinghorror.com/an-exercise-program-for-the-fat-web/ https://news.ycombinator.com/item?id=23521399 https://blog.maskys.com/my-best-chrome-extensions/ https://hacker-tools.github.io/web/ https://hacker-tools.github.io/security/
+* https://cryptopals.com/ https://github.com/AntonKueltz/cryptopals
+* https://www.hacker101.com/playlists/newcomers
+* https://krebsonsecurity.com/2012/06/how-to-break-into-security-ptacek-edition/#more-15594
+* https://www.freecodecamp.org/learn/information-security/python-for-penetration-testing/
+* https://www.youtube.com/c/HackerSploit/playlists
+* https://krebsonsecurity.com/2012/10/the-scrap-value-of-a-hacked-pc-revisited/
+* https://news.ycombinator.com/item?id=26071906
+* https://danielmiessler.com/blog/build-successful-infosec-career/
+* https://danielmiessler.com/study/information-security-definitions/
 
 DONE
-* _22_: switch to Brave
 * _20_: second pass at auth
 * _19_: first path at auth
 * _17_: Networking for Dummies
@@ -63,11 +78,12 @@ DONE
 
 🛠 scan https://observatory.mozilla.org/ https://securityheaders.com/ https://snyk.io/
 
-* _rootkit_: privilege escalation to root https://jvns.ca/blog/2013/10/08/day-6-i-wrote-a-rootkit/
-* _remote code execution (RCE)_: getting access to someone's server and executing arbitrary commands https://news.ycombinator.com/item?id=23308945
-* e.g. log4j https://github.com/Narasimha1997/py4jshell
-* _zero-day_: attacker knows before owner knows
 * _DoS (denial of service)_: designed to crash system vs. extracting data https://jacobian.org/2020/sep/11/analyzing-dos-vulnerabilities/ 
+* _phishing_: elicit secrets via mimicry of legimate resource e.g. set up page to mimic company internal portal
+> Humans are always the weakest link. It sounds like some internal person opened a link to an email and went to a site that spoofed internal portal. He/she was prompted to login so they got a set of creds that way. From there they now had an internal person email others with higher levels of access.
+* _remote code execution (RCE)_: getting access to someone's server and executing arbitrary commands https://news.ycombinator.com/item?id=23308945
+* _rootkit_: privilege escalation to root https://jvns.ca/blog/2013/10/08/day-6-i-wrote-a-rootkit/
+* _zero-day_: attacker knows before owner knows
 
 ---
 
@@ -76,11 +92,9 @@ DONE
 * _command injection_: input causes system call on server
 * _dictionary attack_: go through list of common passwords; form of brute force
 * _directory traversal_: improper validation of user input leads to read access of directory (not the file itself; that’s LFI) --> http://www.example.com?file=../../etc/passwd
-* _phishing_: elicit secrets via mimicry of legimate resource e.g. set up page to mimic company internal portal https://www.wsj.com/articles/the-teenager-behind-the-twitter-hack-and-how-he-did-it-11596563449
 * _Spectre, Meltdown_: programs reading data from other programs, all the way down to kernel memory 
 * _sim swap_: convince telco to assign number to new phone https://www.wsj.com/articles/the-teenager-behind-the-twitter-hack-and-how-he-did-it-11596563449
 * _worm_: self-propagating sw [`tcp-ip-illustrated.pdf` 18.1]
-
 * _packet sniffing_: if packets are sent in unencrypted fashion, can see session info https://github.com/pythops/oryx
 * _sensitive data_: https://github.com/hisxo/gitGraber https://github.com/trufflesecurity/trufflehog
 * _tmi_: passwords in your repo, `debug!=true` in PROD https://github.com/6IX7ine/djangohunter
@@ -551,6 +565,7 @@ pgcli postgres://postgres:pw@127.0.0.1:9998/db
 
 ## privacy
 
+* ad blocking https://blog.codinghorror.com/an-exercise-program-for-the-fat-web/ https://news.ycombinator.com/item?id=23521399 https://blog.maskys.com/my-best-chrome-extensions/ https://hacker-tools.github.io/web/ https://hacker-tools.github.io/security/
 * get away from Google, email providers, Obsidian https://news.ycombinator.com/item?id=30855065
 > post on Facebook and redirect to your site, put your email, too
 > business@zachvalenta, jay@zachvalenta, zach@valenta
@@ -630,4 +645,3 @@ __monitoring exposure__
 * https://monitor.firefox.com/
 * https://www.stopdatamining.me/
 * [Have I Been Pwned](https://www.troyhunt.com/the-legitimisation-of-have-i-been-pwned/)
-
