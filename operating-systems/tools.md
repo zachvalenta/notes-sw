@@ -203,7 +203,7 @@ CONFIG
 * fs: `$HOME/Library/Application Support/com.television/config.toml`
 * base: https://github.com/alexpasmantier/television/blob/main/.config/config.toml
 * uses same color themes at bat
-* color theme doesn't cover main pane https://github.com/alexpasmantier/television/issues/80
+* color theme doesn't cover main pane https://github.com/alexpasmantier/television/issues/80 PR didn't work for me https://github.com/alexpasmantier/television/issues/117
 
 ## explorer
 
