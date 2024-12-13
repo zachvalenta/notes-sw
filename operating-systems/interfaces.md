@@ -171,11 +171,17 @@ replace atuin for scrolling commands https://www.youtube.com/watch?v=uOnL4fEnldA
 * impl https://github.com/chzyer/readline
 * view keybindings: `bind -P` https://catonmat.net/bash-vi-editing-mode-cheat-sheet
 * exec previous cmd: `!!` https://bsago.me/tech-notes/a-replacement-for-!!-in-fish
+> is this readline or bash?
 
 MODES
 * set mode: `set -o <emacs/vi>`
 * _vi_: doesn't support text obj e.g. `cw` works but `ciw` doesn't https://vi.stackexchange.com/a/9876 https://catonmat.net/bash-vi-editing-mode-cheat-sheet
 * scroll history: `j/k`
+
+INPUTRC https://claude.ai/chat/27433018-36d2-4574-888e-131cc5b24fdc
+```sh
+bash --noediting  # use readline without any config https://www.baeldung.com/linux/inputrc-file
+```
 
 ---
 

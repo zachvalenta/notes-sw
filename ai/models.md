@@ -60,6 +60,7 @@ WEB CLIENT
 * mass delete
 * controls (artifacts = output, content = attachments)
 * org: search/stars
+* outputs code in a sidebar to prevent tons of scrolling in the main chat
 * ❌ can't follow URLs
 
 MODELS

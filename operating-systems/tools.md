@@ -378,17 +378,14 @@ DATA
 
 ## progress bars (tqdm)
 
-LINUX
-* _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
-* _pv_: same as progress? https://catonmat.net/unix-utilities-pipe-viewer
-
-PYTHON
 ```python
 if i % 100 == 0:
     progress = ((i + 1) / float(len(qd))) * 100.0
     print('%.2f%%' % progress)
 ```
 * _alive_: https://github.com/rsalmei/alive-progress
+* _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
+* _pv_: same as progress? https://catonmat.net/unix-utilities-pipe-viewer
 * _rich_: https://realpython.com/python-rich-package/
 * _tqdm_: ✅ https://github.com/tqdm/tqdm
 
