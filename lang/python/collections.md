@@ -17,16 +17,93 @@
 * _19_: first pass (tuple unpacking, iteration, shallow vs. copy)
 * _17_: PSF install, PS beginner course
 
+# 🧬 CHARACTERISTICS
+
+## hashable
+
+---
+
+* hash value never changes (`__hash__`) and can be compared to other objects (`__eq__`) https://docs.python.org/3/glossary.html#term-hashable
+* https://stackoverflow.com/questions/1957396/why-dict-objects-are-unhashable-in-python
+* https://realpython.com/python-hash-table/
+* impl `__eq__` and `__hash__` (immutable) https://www.fluentpython.com/lingo/#hashable 📍📙 Ramalho [84,415]
+* if `a == b` + also `hash(a) and hash(b)`
+* enums https://realpython.com/python-enum/ https://florian-dahlitz.de/blog/why-you-should-use-more-enums-in-python
+```python
+from enum import Enum
+class Color(Enum):
+    GREEN = 1
+    BLUE = 2
+# hashable
+hash(Color.BLUE) == hash(Color.BLUE)  # True
+Color.BLUE == Color.BLUE              # True
+# not hashable
+[2] == [2]                            # True
+hash([2]) == hash([2])                # TypeError: unhashable type: 'list'
+```
+* all immutable are hashable but not vice versa https://realpython.com/lessons/immutable-vs-hashable/
+* hashable: immutable + immutable collections w/ hashable el (tuples, frozenset) https://www.fluentpython.com/lingo/#hashable https://docs.python.org/3/glossary.html#term-hashable
+* unhashable: mutable collections https://docs.python.org/3/glossary.html#term-hashable
+```python
+# unhashable collections still need hashable el e.g. set https://www.youtube.com/watch?v=opijuVoq3Kk 1:10
+{[1,2,3], [42,13,7]}  # TypeError: unhashable type: 'list'
+{"hey", "hi"}         # ok
+```
+
+## mutable
+
+---
+
+* https://www.youtube.com/watch?v=vBH6GRJ1REM [5:15]
+* dict keys have to be immutable https://www.youtube.com/watch?v=vBH6GRJ1REM [5:30]
+* can be altered i.e. updated values still use same obj/ID https://docs.python.org/3/glossary.html#term-mutable
+* vs. updated values using new obj/ID https://docs.python.org/3/glossary.html#term-immutable
+```python
+# MUTABLE
+foo = list()
+id(foo)  # 4339427648
+foo.append("hey")
+id(foo)  # 4339427648
+
+# IMMUTABLE
+bar = "hi"
+bar[0] = "b"  # TypeError: 'str' object does not support item assignment
+id(bar)  # 4440141744
+bar = "hey"
+id(bar)  # 4458076080
+```
+
+## subscriptable
+
+---
+
+* read by key or index (indexing)
+* impl via `__getitem__` https://stackoverflow.com/a/216980
+```python
+myd = dict(magic=32, larry=33)
+myd["magic"]
+```
+```python
+from enum import Enum
+
+class Color(Enum):
+    GREEN = "green"
+
+Color.GREEN[0]  # TypeError: 'Color' object is not subscriptable
+```
+
 # 🎡 ITERATION
 
+* _enumerate_: returns index and value https://docs.python.org/3/library/functions.html#enumerate
 ```python
-# aka elementwise operation https://docs.python.org/3/library/functions.html#enumerate
-# can use `start` but might as well specify but using slice on sequence itself
 for ind, val in enumerate(seq, start=starting_index):
+for ind, val in enumerate(seq[start_index:stop_index]):
 ```
 
 ---
 
+> Iterators allow for operations on each of its elements without allocating memory for a collection. https://blog.changs.co.uk/customising-pattern-matching-behaviour.html
+https://www.gingerbill.org/article/2024/06/17/go-iterator-design/ https://github.com/golang/go/issues/61897
 https://news.ycombinator.com/item?id=42392267
 https://www.youtube.com/watch?v=Xd760PcgfPg
 https://www.youtube.com/watch?v=YC-12-0sXR8
@@ -370,27 +447,19 @@ sorted(musicians, key=attrgetter('instrument', 'genre'))  # nas in front of mick
 
 # 🦜 TYPES
 
+🗄 `math.md` set theory > operations
+
 SEMANTICS
 * _collection_: data structures in which items can be accessed individually https://www.fluentpython.com/lingo/#collection
 * _container_: holds ref to other objs e.g. list, tuple, dict https://www.fluentpython.com/lingo/#container
 
-MUTABLE
-* can be altered i.e. updated values still use same obj/ID https://docs.python.org/3/glossary.html#term-mutable
-* vs. updated values using new obj/ID https://docs.python.org/3/glossary.html#term-immutable
-```python
-# MUTABLE
-foo = list()
-id(foo)  # 4339427648
-foo.append("hey")
-id(foo)  # 4339427648
-
-# IMMUTABLE
-bar = "hi"
-bar[0] = "b"  # TypeError: 'str' object does not support item assignment
-id(bar)  # 4440141744
-bar = "hey"
-id(bar)  # 4458076080
-```
+| CLASS   | TYPE    | MUTABLE | HASHABLE       | SUBSCRIPTABLE |  NOTES              |
+|---------|---------|---------|----------------|---------------|---------------------|
+| list    | seq     | yes     | no             | byes          | for iteration       |
+| tuple   | seq     | no      | if el hashable | yes           | list + immutable    |
+| string  | seq     | no      | yes            | yes           | tuple + for text    |
+| dict    | mapping | yes     | no             | yes           | place for ur stuff  |
+| set     | set     | yes     | no             | no            | for set operations  |
 
 ---
 
@@ -404,61 +473,11 @@ https://www.b-list.org/weblog/2023/dec/24/python-container-types/
 
 * _trailing commas_: for last el in collection https://docs.python.org/3/faq/design.html#why-does-python-allow-commas-at-the-end-of-lists-and-tuples https://www.python.org/dev/peps/pep-0008/#when-to-use-trailing-commas
 
-| CLASS   | TYPE    | MUTABLE | HASHABLE       | SUBSCRIPTABLE |  NOTES              |
-|---------|---------|---------|----------------|---------------|---------------------|
-| list    | seq     | yes     | no             | byes          | for iteration       |
-| tuple   | seq     | no      | if el hashable | yes           | list + immutable    |
-| string  | seq     | no      | yes            | yes           | tuple + for text    |
-| dict    | mapping | yes     | no             | yes           | place for ur stuff  |
-| set     | set     | yes     | no             | no            | for set operations  |
-
-SUBSCRIPTABLE
-* read by key or index (indexing)
-* impl via `__getitem__` https://stackoverflow.com/a/216980
-```python
-myd = dict(magic=32, larry=33)
-myd["magic"]
-```
-```python
-from enum import Enum
-
-class Color(Enum):
-    GREEN = "green"
-
-Color.GREEN[0]  # TypeError: 'Color' object is not subscriptable
-```
-
-HASHABLE
-* hash value never changes (`__hash__`) and can be compared to other objects (`__eq__`) https://docs.python.org/3/glossary.html#term-hashable
-* https://stackoverflow.com/questions/1957396/why-dict-objects-are-unhashable-in-python
-* https://realpython.com/python-hash-table/
-* impl `__eq__` and `__hash__` (immutable) https://www.fluentpython.com/lingo/#hashable 📍📙 Ramalho [84,415]
-* if `a == b` + also `hash(a) and hash(b)`
-```python
-from enum import Enum
-class Color(Enum):
-    GREEN = 1
-    BLUE = 2
-# hashable
-hash(Color.BLUE) == hash(Color.BLUE)  # True
-Color.BLUE == Color.BLUE              # True
-# not hashable
-[2] == [2]                            # True
-hash([2]) == hash([2])                # TypeError: unhashable type: 'list'
-```
-* all immutable are hashable but not vice versa https://realpython.com/lessons/immutable-vs-hashable/
-* hashable: immutable + immutable collections w/ hashable el (tuples, frozenset) https://www.fluentpython.com/lingo/#hashable https://docs.python.org/3/glossary.html#term-hashable
-* unhashable: mutable collections https://docs.python.org/3/glossary.html#term-hashable
-```python
-# unhashable collections still need hashable el e.g. set https://www.youtube.com/watch?v=opijuVoq3Kk 1:10
-{[1,2,3], [42,13,7]}  # TypeError: unhashable type: 'list'
-{"hey", "hi"}         # ok
-```
-
 ## dict
 
 ---
 
+* dictview, lru_cache https://death.andgravity.com/caching-methods namedtuple, frozen dataclasses, fractions over floats https://www.textualize.io/blog/posts/7-things-about-terminals multiset https://www.youtube.com/watch?v=b-K1ujf8u_k&pp=ygUQcHl0aG9uIGZyb3plbnNldA%3D%3D
 https://treyhunner.com/2021/11/how-to-sort-a-dictionary-in-python/
 https://www.youtube.com/watch?v=oUt1feRoyvI
 * _mapping_: https://docs.python.org/3/glossary.html#term-mapping
@@ -512,7 +531,7 @@ recipes
 * _check if empty_: cast to bool https://stackoverflow.com/a/54179636/6813490
 * _check in key present_: `<key> in <dict>`
 * _get all keys_: cast to list `list({'name': 'alice'})` https://docs.python.org/3/tutorial/datastructures.html#dictionaries
-* _merge_: `{**dict1, **dict2}` https://realpython.com/iterate-through-dictionary-python/#using-the-dictionary-unpacking-operator https://treyhunner.com/2016/02/how-to-merge-dictionaries-in-python/
+* _merge_: `{**dict1, **dict2}` https://realpython.com/iterate-through-dictionary-python/#using-the-dictionary-unpacking-operator https://treyhunner.com/2016/02/how-to-merge-dictionaries-in-python/ https://www.pythonmorsels.com/merging-dictionaries/
 * _sort_: `sorted(ur_dict.items(), key=lambda x: x[1])` (sorts by V) https://jeffknupp.com/blog/2018/12/13/how-to-do-just-about-anything-with-python-lists/
 
 * read
@@ -607,7 +626,7 @@ print(*ur_list, sep="\n")  # https://stackoverflow.com/a/22695369
 """
 ```
 * 📍 https://docs.python.org/3/tutorial/stdlib2.html#tools-for-working-with-lists flatten https://realpython.com/python-flatten-list/
-* specialized array storage: array (typed) bytes (immutable, single byte i.e. 0-256) bytearray (byte but mutable) https://dbader.org/blog/python-arrays
+* specialized array storage: array (typed) bytes (immutable, single byte i.e. 0-256) bytearray (byte but mutable) https://dbader.org/blog/python-arrays https://realpython.com/python-array
 * impl as dynamic array https://docs.python.org/3/faq/design.html#how-are-lists-implemented-in-cpython
 * finding stuff
 ```python
@@ -623,47 +642,17 @@ else:
     return QueryNotFoundException()
 ```
 
-## set
-
-```python
-# CREATE
-ur_set = set()  # have to use parens for empty bc braces creates empty dictionary https://docs.python.org/3/tutorial/datastructures.html#sets
-ur_set = {1, 1, 2, 3}  # literal
-ur_set = set(['foo', 'foo', 'baz', 'foo'])  # constructor
-
-# UPDATE: no way to read sans mutation bc sets are unordered don't support indexing https://stackoverflow.com/q/59825
-my_set.add(el)  # push - single
-my_set.pop()  # shift
-my_set.update(iterable)  # push - n
-
-# DELETE
-ur_set.remove('foo_el')
-
-# OPERATIONS 📍 pick SSoT between here and 🗄 `math.md` and 🗄 `sql.md` operations / set
-fruit =  {"avocado", "banana", "tomato"}
-veg = {"beet", "carrot", "tomato"}
-# difference: el unique to first set 📙 Bhargava [150]
-fruit - veg  # avocado, banana
-# intersection: el shared 📙 Beaulieu [1000]
-fruit & veg  # tomato
-# symmetric difference: el not shared https://www.idiotinside.com/2017/08/19/set-theory-and-python-tips-tricks/
-fruit ^ veg  # avocado, banana, beet, carrot
-# union: el across sets sans dupes 📙 Beaulieu [99]
-fruit | veg   # avocado, banana, tomato, beet, carrot
-
-# SUB/SUPER
-{42, 7}.issubset({13, 7, 42})  # true
-{1,2,3}.issuperset({1,2})      # true
-```
-
 ## string
 
 📙 Beazley ch. 1
 🗄️ `algos.md` edit distance
 
+LIBS
+* https://calmcode.io/shorts/humanize.py
+
 ---
 
-* check if a string consists entirely of zeros and ones https://nedbatchelder.com/blog/202412/testing_some_tidbits.html
+* check if a string consists entirely of zeros and ones https://nedbatchelder.com/blog/202412/testing_some_tidbits.html https://pythonbytes.fm/episodes/show/415/just-put-the-fries-in-the-bag-bro https://pythontest.com/pytest/testing-tidbits-pytest/
 * template https://peps.python.org/pep-0750/ https://realpython.com/podcasts/rpp/227/
 parse https://realpython.com/python-packages/#parse-for-matching-strings
 * https://www.youtube.com/watch?v=EimoZHDcQMA

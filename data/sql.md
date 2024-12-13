@@ -52,6 +52,7 @@ REPLACEMENTS
 * outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/
 > The relational data model enables those things. None of them require the language to be SQL...LINQ, spark, flink, kafka streams, pandas, dataframes are all widely used examples of an expression-based language-embedded approach to relational queries. https://www.scattered-thoughts.net/writing/against-sql
 > SQL is the most popular to communicate with databases but isn't always the easiest to write. I've been writing SQL statements since the 1990s and even in 2024, I can find myself needing to refer to documentation and spending 30 minutes or more getting more complex statements to run as I wish. https://tech.marksblogg.com/heavyiq-faa-ai-llm-gpu-database.html
+* attempts at rewrite https://news.ycombinator.com/item?id=42231325 https://github.com/totalhack/zillion
 * ISO, ANSI standard 📙 Beaulieu [86-87]
 * SQL92 📙 Beaulieu [91]
 * SQL2023 http://peter.eisentraut.org/blog/2023/04/04/sql-2023-is-finished-here-is-whats-new
@@ -105,7 +106,7 @@ ALTERNATIVES TO SQLALCHEMY 🗄️ `django.md` db
 * _piccolo_: 🎯 async, active, admin https://github.com/piccolo-orm/piccolo
 * _Pony_: 🎯 https://github.com/ponyorm/pony
 * _SQLmodel_: 🎯 SQLAlchemy wrapper, big enough you have to give a try https://github.com/tiangolo/sqlmodel
-* _sqlc_: 🎯 Golang https://github.com/sqlc-dev/sqlc
+* _sqlc_: 🎯 Golang https://github.com/sqlc-dev/sqlc https://www.youtube.com/watch?v=A_3MP_V-kB4
 > You write queries in SQL. You run sqlc to generate code with type-safe interfaces to those queries. You write application code that calls the generated code.
 * _Tortoise_: async, bad docs, CLI https://github.com/tortoise/tortoise-orm https://github.com/tortoise/tortoise-cli
 ```csv
@@ -414,11 +415,15 @@ foreign key (band) references bands (band_id)
 
 💻 `lang/python/django/migrations-sandbox`
 🗄
+*️ `api.md` schema
 * `task-mgmt.md` Task Warrior > database https://github.com/zachvalenta/dotfiles-mini23/blob/main/cli/taskwarrior.sql
 * `data/eng.md` pipelines
 * `django.md` migrations
 * `src.md` deployment
 * `system.md` factors > compatibility
+
+TOOLS
+* pgroll, squitch https://news.ycombinator.com/item?id=42388973
 
 DATA
 * _data migration_: DML i.e. change data itself
@@ -523,7 +528,7 @@ TYPES
 * _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
 * _varchar_: variable 📙 Beaulieu [21]
 * _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485
-* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf`
+* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf` https://news.ycombinator.com/item?id=42364372
 * _integer_: 
 > The type integer is the common choice, as it offers the best balance between range, storage size, and performance. The smallint type is generally only used if disk space is at a premium. The bigint type is designed to be used when the range of the integer type is insufficient. https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-INT
 * _boolean_: 
@@ -619,24 +624,28 @@ INSERT INTO danzi(customer, price) VALUES ('alice', 15)
 INSERT INTO danzi(customer, price) VALUES ('alice', 15), ('bob', 10);
 
 UPDATE <tab> SET <col>=0 WHERE id=3;
-DELETE FROM <tab> WHERE id=3;
+DELETE FROM <tab> WHERE id=3;  -- https://notso.boringsql.com/posts/deletes-are-difficult/
 ```
 
 ## functions
+
+💡 better to have this in application code https://www.youtube.com/watch?v=atwwf0qWpYg [20:30]
 
 FUNCTION
 * _function_: built-in function provided by dbms
 * has return value https://stackoverflow.com/a/771959
 * e.g. SQLite `substr()`
 
-PROC
+### proc
+
 * _procedure_: user-defined function
 * no return value https://stackoverflow.com/a/771959
 * aka stored procedure
 * impl via procedural language availble in dbms
 * too many and you've got business logic split btw application and db https://news.ycombinator.com/item?id=24845300
 
-TRIGGER
+### trigger
+
 * _trigger_: hook e.g. on record update write previous state to archive/audit table https://www.youtube.com/watch?v=LFIAqFt9z2s
 * alternative to audit table is abadoning update-in-place entirely https://www.hytradboi.com/2022/baking-in-time-at-the-bottom-of-the-database
 * avoid data updates by tracking things from which current info can be derived i.e. DOB instead of age
@@ -649,7 +658,10 @@ CREATE TRIGGER actor_trigger AFTER INSERT ON actor
 ;
 ```
 
-AGGREGATE 📙 Beaulieu ch. 8
+### aggregate
+
+📙 Beaulieu ch. 8
+
 * _aggregate_: function that returns single val from result set https://www.postgresql.org/docs/12/tutorial-agg.html 🗄 scalar
 * operates on whole table or on group 📙 Beaulieu 8.149
 * can't use in WHERE clause
@@ -873,44 +885,15 @@ where h.house_id not in (select house from deal)
 
 ## operations
 
-🗄 `language.md` semantics
+🗄
+* `language.md` semantics
+* `math.md` set theory > operations
 
 RELATIONAL 📙 Takahashi [43]
 * _projection_: filter on attr i.e. `SELECT` https://stackoverflow.com/a/1031101 📙 Takahashi [43] Beaulieu [44-5]
 * _selection_: filter on value i.e. `WHERE` 📙 Beaulieu [52-54]
 * _division_: extract records that exist in both numerator/denomenator table but only the columns that exist only in numerator 📙 Takahashi [45]
 * + join
-
-SET 🗄 `math.md` set theory 📙 Beaulieu ch. 6
-* combine inputs to produce output [Takahashi 2.39]
-* except https://github.com/enochtangg/quick-SQL-cheatsheet#1-finding-data-queries
-* https://github.com/enochtangg/quick-SQL-cheatsheet#find
-```sql
--- DATA
--- customers: alice bob candace erin
--- employees: bob david frank
-
--- FMT
--- SELECT person FROM customer
--- <KEYWORD>
--- SELECT person FROM employee
-
-UNION
--- el from both incl dupes https://stackoverflow.com/a/49928
--- alice, bob, bob, candace, david, erin, frank
-
-UNION ALL
--- el from both minus dupes https://hakibenita.com/sql-dos-and-donts#know-the-difference-between-union-and-union-all
--- alice, bob, candace, david, erin, frank
-
-INTERSECT
--- el shared [Beaulieu 6.100]
--- bob
-
-MINUS
--- el unique to first set; aka difference [Bhargava 8.150]
--- alice, candace, erin
-```
 
 ## predicates
 
@@ -1071,7 +1054,9 @@ SEMANTICS
 * _deterministic matching_: https://github.com/zinggAI/zingg
 * _generated column_: col whose value generated based on other columns https://chatgpt.com/c/6734cd95-6754-8004-b89c-8d25d8da8048 https://news.ycombinator.com/item?id=31396578
 * virtual = doesn't store computed value, stored = does store computed value
+> same as a virtual table https://llm.datasette.io/en/stable/logging.html
 * in Django https://realpython.com/podcasts/rpp/227/ https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/#tldr
+* _enrichment_: https://simonwillison.net/2024/Dec/5/datasette-enrichments-llm/
 
 STYLE 📜 https://www.sqlstyle.guide/
 * ✅ constraints next to the attr they constrain https://www.sqlstyle.guide/#layout-and-order
@@ -1127,6 +1112,14 @@ TYPES
 KEYWORDS https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html https://www.sqlstyle.guide/#reserved-keyword-reference
 * _reserved_: word that cannot use as identifier e.g. `create`
 * _non-reserved_: word that you can use as identifier but should use backtickets for e.g. `assertion`, `name`
+```sql
+-- SQLite and SQL Server use brackets instead of quotes/backticks for this https://llm.datasette.io/en/stable/logging.html
+CREATE TABLE [conversations] (
+  [id] TEXT PRIMARY KEY,
+  [name] TEXT,
+  [model] TEXT
+);
+```
 * _keyword_: reserved + non-reserved; case-insensitive
 > As a general rule, if you get spurious parser errors for commands that contain any of the listed key words as an identifier you should try to quote the identifier to see if the problem goes away. - https://www.postgresql.org/docs/8.1/static/sql-keywords-appendix.html
 

@@ -106,7 +106,7 @@ https://drewdevault.com/2020/02/18/Fucking-laptops.html
 
 CONSIDERATIONS
 * ✅ Mac: familiarity, hardware
-* ❌ Windows: pyenv is second-class citizen, WSL just something else to debug, unused to keybindings
+* ❌ Windows: WSL just something else to debug, unused to keybindings
 * ❌ Linux: no Ableton, hardware, apps, bluetooth https://github.com/darkhz/bluetuith but if you do... https://www.youtube.com/@optimumtech/videos
 > be like having American Express
 
@@ -174,6 +174,8 @@ USB https://en.wikipedia.org/wiki/USB
 * works w/ USB-C https://www.youtube.com/watch?v=H4Z67HfHkN4 6:00
 
 ## cameras
+
+can just use an iPhone for youtube https://www.youtube.com/watch?v=UjxD6zn33t0
 
 💡 Delco photo book https://jaapgrolleman.com/shanghai-before-the-foreigners/ https://loosejoints.biz/collections/current-titles/products/holy-island https://loosejoints.biz/collections/current-titles/products/robin-graubard-road-to-nowhere https://loosejoints.biz/collections/current-titles/products/office https://www.newyorker.com/culture/photo-booth/the-frightening-familiarity-of-late-nineties-office-photos https://news.ycombinator.com/item?id=41926849
 
@@ -267,7 +269,20 @@ box1     box2
 ## monitors
 
 🔗 https://www.apple.com/mac-mini/specs/
-🗜️ dimensions https://chatgpt.com/c/6737a255-6780-8004-8741-77accad98212
+
+DIMENSIONS & DISTANCE
+```txt
+Can you give me a rough formula for how far a computer monitor should be from your eyes (assuming average eyesight) given:
+
+* aspect ratio
+* monitor size
+* monitor resolution
+```
+```python
+# measurements in inches
+distance = (diagonal_screen_size * PPI) / 60  # 60 = approximate pixels per degree of human vision for average eyesight at comfortable viewing
+ppi = math.sqrt((horizontal_res ** 2) + (vertical_res ** 2)) / diagonal_screen size
+```
 
 FACTORS 🗄️ machines
 * aspect ratio
@@ -378,7 +393,6 @@ __WhatsApp__ 🗓 summer 2018
 
 * howto https://www.youtube.com/watch?v=AzVn5H0ZNVM https://www.youtube.com/watch?v=K5GeaoJCsoI
 * livestream https://til.simonwillison.net/youtube/livestreaming
-* https://www.jeffgeerling.com/blog/2018/how-i-record-my-own-conference-presentations
 * OBS https://obsproject.com/ https://news.ycombinator.com/item?id=22748247 https://www.youtube.com/watch?v=QCpuTSFVohQ
 * ScreenFlow, Camtasia (Khan)
 * screenshare tool https://www.useloom.com/ https://www.youtube.com/playlist?list=PL4cUxeGkcC9hKBg2mU8Hat4-NedlubC3C https://github.com/wulkano/kap

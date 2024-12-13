@@ -16,6 +16,10 @@
 
 ## 进步
 
+sketch out what you still remember of your previous config and then restart https://www.youtube.com/@teej_dv/videos
+
+https://www.youtube.com/playlist?list=PLhlaLyAlbLlq9xWf2xm_9p422GgqvATXk
+
 * markdown https://www.youtube.com/watch?v=1Lmyh0YRH-w
 * config https://github.com/jdhao/nvim-config
 https://www.youtube.com/watch?v=6pAG3BHurdM
@@ -35,7 +39,7 @@ https://stevedylan.dev/posts/leaving-neovim-for-zed/
 * Codi
 
 * _24_: try Zed
-* _23_: try mv to Neovim, stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
+* _23_: try mv to Neovim, stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme https://github.com/zachvalenta/dotfiles-air22/blob/main/vim/user/markdown_fmt.lua, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
 * _22_: built-in pkg mgmt
 * _20_: VS Code (Markdown extensions break, pinned to 1.41 since 20.12.17)
 * _19_: VS Code + vim emulation 📙 Neil practical vim 1.1-3, 2.7-9, 3.13-15, 4.20-22, 5.27-28, 8.47-53, 9.56-57, 10.60-62
@@ -98,6 +102,8 @@ ZA
 
 # 🦚 ALTERNATIVES
 
+* https://news.ycombinator.com/item?id=42447012
+* _dte_: https://github.com/craigbarnes/dte
 * _kibi_: https://github.com/ilai-deutel/kibi
 
 ## design
@@ -120,7 +126,7 @@ HISTORY
 * 2006: Vim 7.0
 * 2013: Vim 8.0 📙 PV [5.27]
 * 2015: Neovim
-* 2020s: Zed, Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 https://www.youtube.com/watch?v=tGYvUXYN-c0 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
+* 2020s: Zed, Helix https://helix-editor.com/ Helix matcher https://github.com/alexpasmantier/television https://news.ycombinator.com/item?id=33147270 https://www.youtube.com/watch?v=tGYvUXYN-c0 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
 > select + action and space mode makes me think helix is worth learning https://www.youtube.com/watch?v=xHebvTGOdH8 https://www.youtube.com/watch?v=5WLlLxU2EZE
 > https://anvil-editor.net/ http://acme.cat-v.org/ https://news.ycombinator.com/item?id=41923018
 
@@ -212,13 +218,19 @@ edit
 
 🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
 
+* shift right: `>`
+* comment out: `CMD /`
 * walled garden https://news.ycombinator.com/item?id=41907350
 * switch dir, switch project in IDE https://github.com/dandavison/wormhole
+* open at file and LOC: `code -g data/eng.md:419`
 
 THINGS I'M NOTICING ABOUT VSC
+* ❌ weird overlay when using checkboxes
+* ❌ strange way of getting on `$PATH` -> command pallete > search 'shell command'
 * ❌ constantly wipes out the outliner and requires Vim action to prompt redraw
 * ❌ symbol search doesn't work after git pull of new files | movement of headers
 > sometimes not at all, even after you've just opened file and navigated to header
+> this is getting worse in my notes; maybe some perf/data integrity thing with more headers
 * ❌ Vim plugin fails on big CSV files
 * ❌ no tab groups https://github.com/microsoft/vscode/issues/100335
 * when you uninstall an extension you need to close and reopen VSC for that extesion to be removed from `$HOME/.vscode/extensions`
@@ -583,6 +595,9 @@ rf
 * `]m`: next method https://vimtricks.substack.com/p/vimtrick-jump-to-next-method
 * `H/M/L`: mv to new cursor line at top/mid/btm of viewport 📙 Neil practical [9.136]
 * `$NUM G`: goto line 📙 Neil practical [9.136]
+```sh
+:num  # goto line
+```
 * _motion_: mv w/in buffer 📙 Neil practical [113,9.135]
 * vs. jumps as long-range motions 📙 Neil practical [9.136]
 

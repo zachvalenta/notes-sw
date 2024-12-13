@@ -4,20 +4,6 @@
 
 ## 进步
 
-DEPLOYMENT 🗄 `dns.md` Zola deployment
-- [x] DNS tools to diff `zachvalenta.com` vs. `zjayv.com`
-* learn Github actions
-* specify `index.html` for GH Pages: `publish_dir` https://chatgpt.com/c/66f4a787-5a40-8004-bda8-c9c207ae0e88 https://github.com/shalzz/zola-deploy-action/blob/master/README.md#custom-domain symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying https://stackoverflow.com/questions/42941170/how-to-set-up-github-pages-to-look-for-index-html-in-a-different-location https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository or Cloudflare https://chevyray.dev/blog/how-this-site-is-made/ or Netlify https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/
-
-MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
-* tags
-* RSS
-* search
-* styling from https://chevyray.dev/blog/test-post/
-* template inheritance
-* SSoT for book notes
-> complication: some things you don't want to publish e.g. Austen notes
-
 * _24_: big rf, port site to Zola and rm old dirs for content/drafts
 * _22_: rf fs, try Pelican, redesign
 * _19_: water.css, Vue for BNY test runner
@@ -31,6 +17,7 @@ MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 
 TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
 * history: jQuery, Backbone, React, Next.js (built on top of React) https://blog.codepen.io/2024/11/11/chris-corner-our-eras-tour/
+* templating, JSX https://news.ycombinator.com/item?id=42464310
 * components https://github.com/wrabit/django-cotton
 * Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer
 * _CRUD-and-forms_: Django https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/ 
@@ -81,6 +68,7 @@ taxonomy
 ## htmx
 
 > But as browsers proliferated and the Web grew from a document-delivery platform into a software-delivery platform, JavaScript became, arguably, the most widely deployed language runtime in the world. 📰 Ford what is code?
+💻 https://github.com/zachvalenta/flask-htmx
 📜
 > https://pragprog.com/titles/mvhtmx/server-driven-web-apps-with-htmx/
 * https://htmx.org/
@@ -93,6 +81,8 @@ taxonomy
 
 ---
 
+https://calmcode.io/course/htmx/introduction
+* people are using less Javascript https://blog.jetbrains.com/pycharm/2024/12/the-state-of-python/#trend-1-python-usage-with-other-languages-drops-as-general-adoption-grows
 https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
 https://github.com/maddalax/htmgo
 https://news.ycombinator.com/item?id=41781457 https://chrisdone.com/posts/htmx-critique/
@@ -156,7 +146,7 @@ https://roadmap.sh/react
 ## state
 
 * `pushState()`: change browser history https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
-* used in SPAs (and McMaster Carr) to change history even when you're only rerendering part of the page https://chatgpt.com/c/67167486-b528-8004-b44c-89de54e2fded https://www.youtube.com/watch?v=-Ln-8QM8KhQ
+* used in SPAs (and McMaster Carr) to change history even when you're only rerendering part of the page https://www.youtube.com/watch?v=-Ln-8QM8KhQ
 
 ---
 
@@ -234,7 +224,7 @@ STDLIB
 * site tour https://github.com/shipshapecode/shepherd
 * datatable https://github.com/handsontable/handsontable https://appliku.com/post/django-rest-framework-and-datatable-example https://github.com/pivotal-energy-solutions/django-datatable-view https://news.ycombinator.com/item?id=30919257
 * HTTP: Fetch, XHR/AJAX https://eloquentjavascript.net/18_http.html
-* native: JS (Cordova/PhoneGap, Ionic, React Native, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter https://news.ycombinator.com/item?id=41975047) Golang (Wails https://github.com/wailsapp/wails) Rust https://dioxuslabs.com/
+* native: JS (Cordova/PhoneGap, Ionic, React Native, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter https://news.ycombinator.com/item?id=41975047) Golang (https://github.com/wailsapp/wails https://github.com/cogentcore/core) Rust https://dioxuslabs.com/
 * typing: Typescript beat Elm/Flow
 * Typescript, Civet https://news.ycombinator.com/item?id=41885940
 * vizualization: https://www.chartjs.org/ https://testdriven.io/blog/django-charts/#prepare-and-serve-the-data https://github.com/airbnb/visx https://github.com/recharts/recharts -> https://openbb.co/open#social-media-metrics 🗄 `math.md` graphs
@@ -347,100 +337,6 @@ fi
 * _nvm_: https://github.com/creationix/nvm#important-notes
 * _volta_: https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039
 
-# SSG
-
-🗄️
-* `infra.com` cloud > static
-* `sociology.com` RSS
-
-## alternatives
-
-🗄️️ `algos.md` tree / treebuilders
-
-* Emacs org mode
-* BYO https://www.youtube.com/watch?v=Ph7oJDR71Jc https://github.com/mitsuhiko/rstblog https://til.simonwillison.net/django/building-a-blog-in-django dynamic https://realpython.com/build-a-blog-from-scratch-django/ https://dev.to/chasefleming/building-a-go-static-site-generator-using-elem-go-3fhh https://github.com/jeffkaufman/webscripts https://github.com/PaulJuliusMartinez/jless/tree/website or just HTML https://fabiensanglard.net/html/index.html
-* _Astro micro_: 🎯 https://drew.silcock.dev/about/ https://github.com/drewsilcock/silcock-dev https://astro.build/themes/details/astro-micro/ https://astro-nano-demo.vercel.app/ https://www.bytedrum.com/about/ https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/
-* _aurora_: 🎯 https://github.com/capjamesg/aurora
-* _Bearclaw_: https://github.com/donuts-are-good/bearclaw
-* _Django_: 🎯 https://simonwillison.net/about/#subscribe
-* _Eleventy_: https://www.11ty.dev/ https://www.erichgrunewald.com/ https://news.ycombinator.com/item?id=31293971 https://angeliqueweger.com/
-* _Lanyon_: server, same guy that did termgraph https://github.com/mkaz/lanyon
-* _hakyll_: 🎯 Haskell https://jaspervdj.be/hakyll/ https://blog.moertel.com/ https://github.com/gwern/gwern.net https://gwern.net/design
-* _Hugo_: https://gitlab.com/gitlab-com/content-sites/handbook
-* popular https://blog.golang.org/8years
-* bad docs https://yawpitchroll.com/posts/hugo-probably-is-not-for-you/ https://twitter.com/danluu/status/1244024025019342851
-* _Lektor_: Python https://www.getlektor.com/ https://lucumr.pocoo.org/2015/12/21/introducing-lektor/
-* _Lume_: https://lume.land/
-* _m2h_: exec + move html from `content` to `src` https://github.com/zachvalenta/markdown-2-html
-* _Makesite_: 🎯 https://github.com/sunainapai/makesite
-* _Markata_: Python https://github.com/WaylonWalker/markata
-* _Metalsmith_: Javascript https://github.com/metalsmith/metalsmith
-* _Nikola_: https://getnikola.com/ not a blog https://getnikola.com/creating-a-site-not-a-blog-with-nikola.html
-* _Pelican_: 🎯 no TOC, blog-oriented https://pirsquared.org/blog/pelican-transition.html https://pirsquared.org/blog/pelican-tags-vs-categories.html https://chat.openai.com/c/25d8a905-4ff4-4905-b63f-126f60ec9c75
-* _Shite_: Bash https://github.com/adityaathalye/shite
-
-CMS
-* _website builder_: optimized for non-dev e.g. Wix, SquareSpace https://news.ycombinator.com/item?id=41337356
-* _CMS_: client-server, content creation via UI, requires some dev e.g. Wordpress https://kevq.uk/the-case-for-wordpress https://blot.im/how https://bearblog.dev/ https://tunalog.org/en-us/index.html
-* _headless CMS_: SPA gets content via API https://softwareengineeringdaily.com/2020/04/30/jamstack-content-management-with-scott-gallant-jordan-patterson-and-nolan-phillips/
-* Ghost: hosting, newsletters, Stripe, membership https://softwareengineeringdaily.com/2018/07/26/ghost-open-source-publishing-platform-with-john-onolan/
-* Netlify, Wagtail, Django, Perch
-
-## features
-
-* hot reload
-* social/comments via Github https://zackproser.com/blog/autocomplete-is-not-all-you-need https://eradman.com/posts/sidecomment-web-stack.html
-> syndication? “POSSE” (“post on your own site, syndicate elsewhere”) https://jvns.ca/blog/2024/11/09/new-microblog/ https://www.youtube.com/watch?v=WYqnxCFJoLE https://x.com/jeremyjkun/status/1798789885966602419 no traffic from Google -> "whatever Google and Twitter are doing right now, unless your blog post lands on Hacker News front page, you basically get no more traffic anymore." https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://zackproser.com/blog/run-your-own-tech-blog https://zackproser.com/blog/2023-wins https://danluu.com/corp-eng-blogs/ https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
-* browser `python -m http.server` https://www.pythonmorsels.com/cli-tools/
-* sitemap https://otterwiki.com/-/index https://werc.cat-v.org/sitemap
-* _metadata_: title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/ linking https://github.com/erwald/blog/blob/master/_data/series.json https://danilafe.com/blog/blog_microfeatures/
-* advanced metadata https://gwern.net/metadata/annotation/backlink/https%253A%252F%252Fpublicdomainreview.org%252Fessay%252Four-masterpiece-is-the-private-life-in-pursuit-of-the-real-chateaubriand%252F.html
-* SQL https://news.ycombinator.com/item?id=42244987
-* _template engine_: page structure e.g. Jinja, Tera https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola
-* _HTML preprocessor_: turn Markdown in HTML e.g. Nunjucks https://css-tricks.com/killer-features-of-nunjucks/ https://github.com/erwald/blog
-```sh
-# https://fvsch.com/static-site-generators
-├── content
-│   ├── 2018-09-07-cool-blog-post.txt
-│   └── 2018-10-01-other-blog-post.txt
-└── output
-    ├── cool-blog-post.html
-    ├── index.html
-    ├── other-blog-post.html
-    └── rss.xml
-```
-
-SEARCH
-* DDG https://vadosware.io/ https://ddg.patdryburgh.com/
-* _lunr.js_: https://github.com/olivernn/lunr.js https://clearerthinkingpodcast.com/#episodes
-* _Stork_: https://stork-search.net/ https://danilafe.com/search/
-* _TinySearch_: https://github.com/tinysearch/tinysearch https://news.ycombinator.com/item?id=23474134
-
-## ♾️ Hakyll
-
-📜 https://jaspervdj.be/hakyll/
-
-related at the end of article https://til.simonwillison.net/django/just-with-django
-https://gwern.net/about#importance-tags
-
-> tags or tree? both? https://www.jonashietala.se/blog/tags/neovim/
-structure https://rknight.me/
-
-## 🪴 Quartz
-
-📜 https://quartz.jzhao.xyz/
-
-https://jzhao.xyz/posts/networked-thought https://x.com/_jzhao/status/1815280245764751465 https://jzhao.xyz/ examples https://patternlanguage.cc/ https://aarnphm.xyz/ search https://glossary.airbyte.com/ https://glossary.airbyte.com/ this guy showed up on Hacker News, no? https://www.ssp.sh/brain/data-engineering/ no URLs? https://git-how.com/
-
-## 🔲 Zola
-
-📜 https://github.com/getzola/zola https://www.getzola.org/
-
-* features: hot reload, tags, TOC https://chevyray.dev/blog/creating-175-fonts/
-* used by https://github.com/ChevyRay/chevyray.dev https://haskellbook.com/
-* tags https://inputusername.github.io/zola-hook/
-* themes https://www.getzola.org/themes/zola-easydocs-theme/ https://www.getzola.org/themes/dinkleberg/ https://www.getzola.org/themes/hook/ https://www.getzola.org/themes/zola-386/
-
 # 🟨 ZA
 
 ---
@@ -482,6 +378,7 @@ BROWSERS
 * _Arc_: split panes https://en.wikipedia.org/wiki/Arc_(web_browser) https://www.youtube.com/watch?v=E9yZ0JusME4 https://news.ycombinator.com/item?id=36863925 https://news.ycombinator.com/item?id=41597250
 * _awrit_: in terminal?!? https://github.com/chase/awrit
 * _Brave_: switched to in 2022, way less storage hit (150M) than Chrome (1.2GB) 🗄️ `/Users/$USER/Library/Application Support`
+* bad actors? https://news.ycombinator.com/item?id=18734999
 * commands
 ```sh
 CMD t  # restore tab
@@ -492,6 +389,7 @@ CMD b  # bookmarks
 * _Chrome_: what's the extension you're using to Youtube playlist org? https://sponsor.ajay.app/
 * _Lynx_: 'reader mode' https://github.com/bensadeh/circumflex
 * _Firefox_: https://wesbos.com/uses https://www.mozilla.org/en-US/firefox/developer/
+* _Nyxt_: 🎯 https://news.ycombinator.com/item?id=42354691
 * _Zen_: based on Firefox https://zen-browser.app/ can split panes within browser https://www.youtube.com/watch?v=VshptkoKfQo [6:30] https://x.com/mkennedy/status/1856416323447992381
 
 ---
@@ -526,11 +424,11 @@ browsers
 * _headless_: browser sans UI
 * _JS engine_: V8 for Chrome, SpiderMonkey for Firefox
 > ❓ aka web engine? browser engine? https://servo.org/ https://github.com/gosub-io/gosub-engine
-* _layout engine_: parses XML/HTML into a DOM
+* Blink, Servo https://news.ycombinator.com/item?id=42506569
+* _layout engine_: parses XML/HTML into a DOM https://simonwillison.net/2024/Dec/21/clay-ui-library/
 * scrolling https://news.ycombinator.com/item?id=23994619 https://dontfuckwithscroll.com/
 * _service worker_: API to run background scripts; diff than AJAX bc allow for push notifications and sync from emanating from server https://whatisjasongoldstein.com/writing/service-workers-of-the-world-unite/
 * `<script>`: now (inside `<head>` bc with async and defer can download script and parse HTML at the same time) then (at the end of <body> because browser stops parsing HTML while waiting for script to load) https://stackoverflow.com/a/24070373/6813490
-* _SVG_: XML for drawing https://www.getmotion.io/blog/where-are-all-the-animated-svgs
 * _WebGL_: 3D for the browser https://bits.coop/
 
 ## CSS
@@ -564,6 +462,7 @@ FRAMEWORKS
 * _Bulma_: https://bulma.io/ 
 * _halfmoon_: https://github.com/redimp/otterwiki
 * _Magick_: sidenotes https://css.winterveil.net/
+* _mpv_: 🎯 https://calmcode.io/shorts/mvp.css
 * _Pure_: 🎯 https://purecss.io/
 * _Tailwind_: https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/ for TUIs https://github.com/koaning/tuilwindcss https://calmcode.io/labs/tuilwind-css
 * _water_: ✅ https://github.com/kognise/water.css https://github.com/kognise/water.css/issues/160 

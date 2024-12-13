@@ -54,6 +54,7 @@ def simple_tracer(frame, event):  # 4:30
 * BYO https://www.timdbg.com/posts/writing-a-debugger-from-scratch-part-5/
 * https://werat.dev/blog/what-a-good-debugger-can-do/
 * https://wizardzines.com/zines/debugging-guide/
+* https://peps.python.org/pep-0768/
 
 ## alternatives
 
@@ -101,7 +102,36 @@ ZA
 
 ## inspect
 
-📜 https://docs.python.org/3/library/inspect.html https://www.youtube.com/watch?v=NIyljVEcJKw
+💡 examine class contents, retrieve method src, extract/fmt func arg list, get traceback info
+
+```python
+# GET METHODS IMPL ON CLASS
+from dataclasses import dataclass
+from inspect import getmembers
+
+@dataclass()
+class Person:
+    name: str
+    age: int
+    hobbies: list
+
+getmembers(Person, inspect.isfunction)
+```
+
+---
+
+EXPLORE THESE METHODS 📜 https://docs.python.org/3/library/inspect.html 
+* getmodulename
+* ismodule
+* isbuiltin
+* getdoc
+* getcomments
+* getfile
+* getmodule
+* getsourcefile
+* getsource
+
+https://www.youtube.com/watch?v=NIyljVEcJKw
 * rich vs. iypthon's `obj?` https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#exploring-your-objects
 * wat https://github.com/igrek51/wat
 ```python
@@ -194,7 +224,7 @@ https://realpython.com/python-packages/#pudb-for-visual-debugging
 
 💡 Romer econ textbook idea
 🗄
-* `analytics.md` GUI
+* `analytics.md` BI, GUI
 * `doc.md` notes
 
 > Jupyter Notebooks are files that combine two content types: text/Markdown and executable Python code. https://www.pinecone.io/learn/retrieval-augmented-generation/
@@ -223,6 +253,8 @@ ALTERNATIVES
 
 ---
 
+* https://news.ycombinator.com/item?id=42451938
+* as integration tests https://rakhim.exotext.com/jupyter-notebooks-as-e2e-tests
 * https://pypi.org/project/nbformat/
 * https://news.ycombinator.com/item?id=41580166
 * https://www.reddit.com/r/Python/comments/6hwa22/what_is_the_point_of_jupyter/ https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.html
@@ -230,6 +262,7 @@ ALTERNATIVES
 * reproducibility https://jvns.ca/blog/2017/11/12/binder--an-awesome-tool-for-hosting-jupyter-notebooks/ https://news.ycombinator.com/item?id=24943962
 * design https://news.ycombinator.com/item?id=25538454 https://www.fast.ai/2019/12/02/nbdev/ http://willcrichton.net/notes/programming-in-the-debugger https://ljvmiranda921.github.io/notebook/2020/03/06/jupyter-notebooks-in-2020/ Somers https://www.theatlantic.com/science/archive/2018/04/the-scientific-paper-is-obsolete/556676/ https://github.com/naklecha/llama3-from-scratch https://news.ycombinator.com/item?id=41045834
 * https://www.singlestore.com/blog/how-we-made-notebooks-load-10-times-faster/
+* widgets https://calmcode.io/course/ipywidgets/introduction
 
 ## hosted
 
@@ -262,7 +295,7 @@ COMPONENTS
 * _IPython Notebook_: IPython + persistence, web browser, visualizations (chart, Markdown); predecessor to contemporary Jupyter
 * _Jupyter_: IPython Notebook + kernels for other languages (R, F#, Java)
 * _kernel_: runtime
-* _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304 https://satyrn.app/
+* _Jupyter Lab_: pretty UI, less features https://stackoverflow.com/a/52392304 https://satyrn.app/ https://news.ycombinator.com/item?id=42572057
 
 ## 🟩 Marimo
 
@@ -275,6 +308,8 @@ SHARING
 
 ---
 
+https://calmcode.io/shorts/drawdata.py
+lint https://calmcode.io/shorts/nbqa
 https://calmcode.io/course/marimo/introduction
 
 https://www.youtube.com/watch?v=ANIu4l9_FB8
@@ -321,6 +356,7 @@ STACK TRACES 🗄️ stdlib/profiling
 
 ## features
 
+* global ipython that has it's own startup + can dynamically figure out what the project's deps are and import those as well
 * block-level history https://treyhunner.com/2024/05/my-favorite-python-3-dot-13-feature/
 * paste https://treyhunner.com/2024/05/my-favorite-python-3-dot-13-feature/
 * autocomplete

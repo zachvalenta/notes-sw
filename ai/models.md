@@ -11,12 +11,18 @@
 
 ## 进步
 
+* _24_: ChatGPT (regex and Polars, then incorporate research) Claude (switch after GPT outage)
+* _23_: few random queries
+
 # 🥗 MENU
 
 🛠️ benchmark https://arena.lmsys.org/
+🔍 compare https://news.ycombinator.com/item?id=42348513 https://simonwillison.net/2024/Dec/16/webdev-arena/
 🔑 https://gist.github.com/zachvalenta/d3b7cd172dd2d3d8ff7340bd458c6fe2
 
 ZA
+* _BERT_: https://simonwillison.net/2024/Dec/31/alexis-gallagher/
+* _DeepSeek_: https://thezvi.substack.com/p/deekseek-v3-the-six-million-dollar
 * _X grok_: seems tied to Twitter https://grok.x.ai/ 
 
 ---
@@ -29,7 +35,7 @@ OPEN https://simonwillison.net/2024/Jun/17/cli-language-models/
 * _Qwen_: https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can
 
 CLOSED
-* _Amazon nova_: https://news.ycombinator.com/item?id=42309121 https://news.ycombinator.com/item?id=42309121 https://simonwillison.net/2024/Dec/4/amazon-nova/
+* _Amazon nova_: https://news.ycombinator.com/item?id=42309121 https://news.ycombinator.com/item?id=42309121 https://simonwillison.net/2024/Dec/4/amazon-nova/ https://simonwillison.net/2024/Dec/4/amazon-nova/
 * backed by Amazon https://news.ycombinator.com/item?id=42215126
 * _Mistral codestral_: less polished but fast + search https://chat.mistral.ai/chat
 * _Perplexity api_: search/org https://www.perplexity.ai/
@@ -43,9 +49,24 @@ CLOSED
 
 🔑 https://platform.openai.com/api-keys
 
-* versions: 22.11 GPT 23.03 GPT4 24.05 GPT4o 24.09 o1-preview 24.12 pro https://x.com/mckaywrigley/status/1865089975802646857
-* https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665 https://news.ycombinator.com/item?id=42330732
-* _o1_: https://thezvi.substack.com/p/o1-turns-pro
+MODELS
+* legacy: 22.11 GPT 23.03 GPT4
+* _4o_: 24.05
+* _o1_: https://simonwillison.net/2024/Dec/7/prompts-js/ https://marginalrevolution.com/marginalrevolution/2024/12/dean-ball-speaks.html
+* _o1 pro_: 24.12 (preview in 24.09) https://thezvi.substack.com/p/o1-turns-pro https://x.com/mckaywrigley/status/1865089975802646857 https://news.ycombinator.com/item?id=42330732
+
+ZA
+* 1-800-CHATGPT https://help.openai.com/en/articles/10193193-1-800-chatgpt-calling-and-messaging-chatgpt-with-your-phone
+* internal libraries, `ace_tools` https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665
+* native client: global hotkey conflicts with iterm https://openai.com/chatgpt/mac
+* ❌ started having uptime issues 24.12
+
+WEB CLIENT
+* search added 241031 (intra-doc but slow, none by title)
+* projects added 241214
+* when you open a chat it's not reflected in the sidebar so if you want to rename or delete it you have to scroll sidebar and manually find it
+* ❌ no page up/down, no home/end
+* dark mode is bad for seeing prompt
 
 ## 🟫 Claude
 
@@ -60,9 +81,17 @@ WEB CLIENT
 * mass delete
 * controls (artifacts = output, content = attachments)
 * org: search/stars
+* outputs code in a sidebar to prevent tons of scrolling in the main chat
+* interop with Google Docs
+* ✅ yes page up/down, yes home/end
+* ❌ conventions: user-level and per project
+> doesn't listen, continues to gen typed Python
+> conversations bleed, starts giving me Click CLIs when I haven't asked for them
+* ❌ projects: can't add chat to project after the fact, can't view chats as part of projects
 * ❌ can't follow URLs
 
 MODELS
+> built on AWS https://simonwillison.net/2024/Dec/5/claude-35-haiku-price-drops-by-20/
 * _Sonnet_: smartest
 * _Haiku_: fastest, better than GPT 3.5 https://www.youtube.com/watch?v=QUXQNi6jQ30 [5:30]
 * _Opus_: writing
@@ -80,6 +109,7 @@ CONTEXT
 
 ---
 
+* https://thezvi.substack.com/p/the-second-gemini
 * voice https://news.ycombinator.com/item?id=42397210
 * no search/tags/org, looks low-effort
 * https://simonw.substack.com/p/video-scraping-using-google-gemini
@@ -90,7 +120,7 @@ CONTEXT
 
 https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonwillison.net/2024/Dec/9/llama-33-70b/
 
-> 🎗️ llamafile https://simonwillison.net/2024/Jun/17/cli-language-models/ https://simonwillison.net/2023/Nov/29/llamafile/ "this should be technically impossible" (having a single unmodified binary run across mac/Windows/linux) https://www.youtube.com/watch?v=QUXQNi6jQ30 [20:00] inference https://github.com/samuel-vitorino/lm.rs https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
+> 🎗️ llamafile https://simonwillison.net/2024/Jun/17/cli-language-models/ https://simonwillison.net/2023/Nov/29/llamafile/ "this should be technically impossible" (having a single unmodified binary run across mac/Windows/linux) https://www.youtube.com/watch?v=QUXQNi6jQ30 [20:00]
 * mini23 uses 8B just w/ VS Code + browser + macOS core services
 * Qwen req 32B
 * Simon has 64B
@@ -112,7 +142,14 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 # 🏗️ OPERATIONALIZE
 
-* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666 https://github.com/BCG-X-Official/artkit https://www.youtube.com/watch?v=pGZo9gR5q_M https://gentrace.ai/
+📙
+* Clinton obsolete gen AI
+* https://www.amazon.com/gp/product/1736049127
+* https://www.amazon.com/dp/1736049143
+
+* retrieval vs. generative https://cohere.com/
+* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666 https://github.com/BCG-X-Official/artkit https://www.youtube.com/watch?v=pGZo9gR5q_M https://gentrace.ai/ https://github.com/traceloop/openllmetry https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse https://news.ycombinator.com/item?id=42441258
+
 * gradient-boosted trees better for audit than neural nets
 * https://roadmap.sh/mlops
 * https://news.ycombinator.com/item?id=35438192
@@ -125,11 +162,18 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 * quants can't code, coders can't quant https://news.ycombinator.com/item?id=23941075
 * 90% of the job is munging data, models are implemented by people w/ PhDs https://towardsdatascience.com/the-cold-start-problem-how-to-build-your-machine-learning-portfolio-6718b4ae83e9 https://spectrum.ieee.org/view-from-the-valley/artificial-intelligence/machine-learning/andrew-ng-xrays-the-ai-hype more on job market https://evjang.com/2022/04/25/rome.html
 * https://www.youtube.com/watch?v=JLTYNPoK7nw https://www.youtube.com/watch?v=pvaIi0l1GME https://softwareengineeringdaily.com/2019/06/13/stripe-machine-learning-infrastructure-with-rob-story-and-kelley-rivoire/
+* this seems dumb but maybe I don't understand yet https://calmcode.io/course/deon/introduction
 
 ## agents
 
+🔍 https://mychaelangelo.github.io/ai_agents_marketmap/
+
 ---
 
+> They discuss "agentic systems" as a parent term, then define a distinction between "workflows" - systems where multiple LLMs are orchestrated together using pre-defined patterns - and "agents", where the LLMs "dynamically direct their own processes and tool usage". https://simonwillison.net/2024/Dec/20/building-effective-agents/
+* as judge https://registerspill.thorstenball.com/p/joy-and-curiosity-20
+* LLM controlling your browser?
+https://ai.pydantic.dev/
 https://www.thediff.co/archive/offshoring-and-ai-agents/
 https://github.com/ishan0102/vimGPT
 * _agent_: give it a dataset, it writes the paper https://www.oneusefulthing.org/p/almost-an-agent-what-gpts-can-do
@@ -139,11 +183,38 @@ https://edwardbenson.com/lollm
 https://news.ycombinator.com/item?id=42299098
 https://x.com/SullyOmarr/status/1864697992261062690/photo/1
 
+## keyword search
+
+https://www.youtube.com/watch?v=d5i5Lc9X4Og
+> 122 views 3 weeks after upload! what are people doing with their time!
+
+> Keyword search is the traditional approach where the search engine looks for exact matches or close variants of the words in the query. For example, if you search "red car," it finds documents containing those exact words. It's fast and straightforward but can miss relevant results that use different terminology (like "crimson automobile").
+
+## hybrid search
+
+> Hybrid search combines both approaches to leverage their respective strengths. It typically uses keyword search for precise matches and high-confidence results, while incorporating semantic search to catch relevant results that wouldn't be found through exact word matching alone. For instance, an e-commerce site might use keyword search to find products with exact name matches, while using semantic search to suggest related items that might interest the user even if they don't contain the exact search terms.
+
+> A practical example: If you search "how to treat a headache," a hybrid system would:
+> Use keyword matching to find articles containing "headache" and "treat"
+> Use semantic search to also find relevant content about "migraine remedies" or "pain relief techniques"
+> Combine and rank these results based on both literal relevance and semantic meaning
+
 ## semantic search
+
+BYO + RAG https://claude.ai/chat/ec4dbe09-e48a-466f-9e35-a7e430af0265
+
+---
+
+> Semantic search understands the meaning and intent behind queries rather than just matching words. It uses techniques like word embeddings and neural networks to understand context and relationships. For example, a semantic search for "red car" might also return results about "scarlet vehicles" or even "burgundy SUVs" because it understands these are conceptually related. It's particularly good at handling natural language queries and understanding synonyms, but can be more computationally intensive.
 
 * https://koratkar.github.io/cwt-semantic-search/ https://x.com/whybyfire/status/1866239929732173846
 > So semantic search is often a component of RAG, but RAG goes beyond just search. Here's an analogy: semantic search is like having a really smart librarian who understands what you're looking for and can find relevant books. RAG is like having that librarian plus a subject matter expert who can read those books, synthesize the information, and explain it to you in your own terms. https://claude.ai/chat/18bc4333-ff09-45f8-8610-0c325ce11ecf
-> search methodology that focuses on understanding the intent and contextual meaning of a query, rather than just matching keywords. It uses...word embeddings to encode text meaning, vector similarity to find relevant matches in a corpus...semantic search is focused on retrieval, aiming to return the most relevant documents, snippets, or knowledge units in response to a query...RAG is focused on generating answers or synthesizing information, not just returning relevant documents. It's particularly useful in scenarios where: https://chatgpt.com/c/675b9317-4bc4-8004-a0a5-b9d683ebd3d8
+
+https://chatgpt.com/c/675b9317-4bc4-8004-a0a5-b9d683ebd3d8 (now deleted)
+> Semantic search is a search methodology that focuses on understanding the intent and contextual meaning of a query, rather than just matching keywords. It uses techniques like: Word embeddings to encode text meaning. Vector similarity to find relevant matches in a corpus. Contextual models, often based on transformers like BERT or Sentence-BERT, to retrieve results based on semantic relevance. Semantic search is focused on retrieval, aiming to return the most relevant documents, snippets, or knowledge units in response to a query.
+> RAG is a hybrid system that combines two key stages: Retrieval: Uses semantic search or similar retrieval mechanisms to fetch relevant documents or knowledge pieces in response to a query. Generation: Uses a generative model (e.g., GPT or another transformer) to produce a response. The model conditions its output on both the query and the retrieved content.
+
+https://news.ycombinator.com/item?id=42507116
 
 ## RAG
 
@@ -153,7 +224,9 @@ https://x.com/SullyOmarr/status/1864697992261062690/photo/1
 * `algos.md` search > bm25
 📚
 * https://www.amazon.com/gp/product/1098150961
-* build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch
+* build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch https://www.alldayta.com/#product-demo
+
+https://github.com/Cinnamon/kotaemon
 
 HOWTO (LEARN BY BUILDING FOR DROR) 🧠 https://chatgpt.com/c/6756f3e6-1260-8004-9363-655f156489d9
 ```txt
@@ -167,10 +240,12 @@ I'm still new to the space, so take with a grain of salt https://chatgpt.com/sha
 
 ---
 
-⭐️ start here https://github.com/theam/rag-workshop-pydata-nyc-2024 https://www.youtube.com/watch?v=C4u1SjGiT_8
+⭐️ start here https://github.com/theam/rag-workshop-pydata-nyc-2024 https://www.youtube.com/watch?v=C4u1SjGiT_8 https://www.youtube.com/watch?v=XU2xhCHqILE
 
+https://news.ycombinator.com/item?id=42360685
 https://github.com/koaning
 https://www.youtube.com/watch?v=kCCC-NlJgIA
+https://simonwillison.net/2024/Dec/6/roaming-rag/
 pipelines https://www.youtube.com/watch?v=YM3UrQd2wEA
 * https://lincolnloop.com/insights/building-a-chat-backend-for-wikipedia-articles-in-django/
 * BYO https://github.com/bhavnicksm/chonkie https://github.com/explosion/spacy-layout https://training.talkpython.fm/courses/getting-started-with-spacy https://github.com/DS4SD/docling https://x.com/_inesmontani
@@ -190,7 +265,7 @@ https://github.com/Shubhamsaboo/awesome-llm-apps https://www.theunwindai.com/p/b
 * https://openai.com/12-days/
 * _Guru_: https://www.getguru.com/
 > Retrieval augmented generation (RAG) is an architecture that provides the most relevant and contextually-important proprietary, private or dynamic data to your Generative AI application's large language model (LLM) when it is performing tasks to enhance its accuracy and performance. https://www.pinecone.io/learn/retrieval-augmented-generation/
-* BYO https://www.youtube.com/@zackproser/videos https://aws.amazon.com/bedrock/
+* BYO https://www.youtube.com/@zackproser/videos https://aws.amazon.com/bedrock/ https://simonwillison.net/2024/Dec/6/llama-33/
 * _RAG_: document-based interactions https://github.com/sigoden/aichat#rag-chat-with-your-documents TTS https://changelog.com/practicalai/288 https://zackproser.com/blog/how-are-embeddings-models-trained-for-rag https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation knowledge graph https://www.manning.com/books/knowledge-graph-enhanced-rag
 * when you need more than either aaS or OSS
 > If such a customized LLM is a suitable solution for your project, consider just running Ollama or Llamafile and using their REST APIs to communicate with the model. If you need higher degrees of customization, read on. https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
@@ -201,7 +276,6 @@ https://github.com/Shubhamsaboo/awesome-llm-apps https://www.theunwindai.com/p/b
 > Claude's extensive context window has also transformed their approach to handling large codebases. When the 200K context window was released, Hedley notes they "ripped out the entire RAG and just put it in the context window instead and it went from 60 percent accuracy to 98. It was quicker, cheaper, better, everything." This combination of automation, speed, and accuracy has fundamentally changed how Headstart approaches software development. https://www.anthropic.com/customers/headstart
 https://openai.com/index/introducing-canvas/
 * https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
-* train on your own emails https://github.com/zycyc/LAMBDA
 https://zackproser.com/blog/i-am-joining-pinecone-io
 * RAG, vector https://news.ycombinator.com/item?id=41105130 https://en.wikipedia.org/wiki/Retrieval-augmented_generation https://retool.com/blog/retrieval-augmented-generation https://www.youtube.com/watch?v=Q75JgLEXMsM https://www.youtube.com/watch?v=PJaqp5Kdwz0
 * how to teach https://news.ycombinator.com/item?id=38759877
@@ -226,8 +300,6 @@ BYO
 * https://github.com/langgenius/dify
 * https://github.com/BerriAI/litellm
 
-> https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse
-
 * _langchain_: https://zackproser.com/blog/office-oracle-overview https://www.amazon.com/dp/1835083463
 > We mentioned some of the emerging criticisms about LangChain in the previous Radar. Since then, we’ve become even more wary of it. While the framework offers a powerful set of features for building applications with large language models (LLMs), we’ve found it to be hard to use and overcomplicated. LangChain gained early popularity and attention in the space, which turned it into a default for many developers. However, as LangChain is trying to evolve and keep up with the fast pace of change, it has become harder and harder to navigate those changes of concepts and patterns as a developer. We’ve also found the API design to be inconsistent and verbose. As such, it often obscures what is actually going on under the hood, making it hard for developers to understand and control how LLMs and the various patterns around them actually work. We’re moving LangChain to the Hold ring to reflect this. In many of our use cases, we’ve found that an implementation with minimum use of specialized frameworks is sufficient. Depending on your use case, you may also want to consider other frameworks such as Semantic Kernel, Haystack or LiteLLM.  https://www.thoughtworks.com/radar/languages-and-frameworks/langchain
 
@@ -238,11 +310,17 @@ BYO
 * Labonne https://github.com/PacktPublishing/LLM-Engineers-Handbook https://www.amazon.com/gp/product/1836200072
 🧠 https://chatgpt.com/c/6756f73a-9d68-8004-9ef8-34d9744f767d
 
+* _train_: further training pretrained model on specific domains using labeled data or prompts 📙 Clinton obsolete gen AI
+
 ---
 
+* train on your own emails https://github.com/zycyc/LAMBDA
+data prep kit https://www.youtube.com/watch?v=tqRvmg2F_gI https://github.com/IBM/data-prep-kit
 > assume we'd use transfer or reinforcement learning vs. getting into the weeds with adjusting the weights (finetuning, LoRA, PEFT)
 
 https://changelog.com/practicalai/295
+
+* inference scaling vs. model scaling https://simonwillison.net/2024/Dec/19/is-ai-progress-slowing-down/
 
 # 🏗️ USAGE
 
@@ -284,9 +362,15 @@ TYPES https://elevenlabs.io/
 * mastering https://www.youtube.com/watch?v=wZRV2H4PK0Q
 * tone https://x.com/ilanbigio/status/1861913173432946808
 
+## forecasting
+
+https://arxiv.org/pdf/2411.01582
+> use to build stock market
+
 ## img
 
-* TTV https://simonwillison.net/2024/Dec/9/sora/
+* _TTV_: https://simonwillison.net/2024/Dec/9/sora/
+* _TFI_: https://calmcode.io/shorts/pytesseract.py
 * image to video https://www.vidifyapp.com/
 * _OCR_: image to text e.g. PDF to plaintext https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194 https://getomni.ai/ocr-demo https://news.ycombinator.com/item?id=41971614 https://github.com/Nutlope/llama-ocr
 
@@ -301,7 +385,7 @@ TYPES https://elevenlabs.io/
 * https://github.com/GabAlpha/basilk https://perchance.org/ai-pixel-art-generator
 * Midjourney https://midlibrary.io/styles
 * DALL-E
-* Stable Diffusion
+* Stable Diffusion https://www.youtube.com/watch?v=kG9l41Dtuyo
 * https://news.ycombinator.com/item?id=40437641
 * https://github.com/orhun/menyoki
 
@@ -320,15 +404,19 @@ TYPES https://elevenlabs.io/
 
 ## prompts
 
-📙 https://www.manning.com/books/prompt-engineering-in-practice
+📙
+* https://www.manning.com/books/prompt-engineering-in-practice
+* https://www.manning.com/books/prompt-engineering-in-action
 🗄️
 * `psychology.md` interviewing
 * `work.md` industry > Stack Overflow
 
 SEMANTICS
+* _prompt_: question
+* _completion_: answer 📙 Clinton obsolete gen AI
 * _prompt engineering_: asking specific questions https://marginalrevolution.com/marginalrevolution/2023/05/how-to-use-gpt-4-plus-web-browsing.html https://www.youtube.com/watch?v=hB7sGE0W8CI
 * _prompt injection_: getting model to do something its creators don't want https://simonwillison.net/2023/Dec/31/ai-in-2023/
-* _system message_: hidden instruction that defines the behavior/goals/tone of the model; aka system prompt https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b
+* _system message_: hidden instruction that defines the behavior/goals/tone of the model; aka system prompt https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b https://github.com/charmbracelet/mods#custom-roles
 > "You are a helpful assistant named Elia."
 
 STOCK

@@ -12,16 +12,17 @@
 
 ## 进步
 
-* start here https://realpython.com/c-for-python-programmers/ https://chatgpt.com/c/673363d3-885c-8004-b7fe-083b927e6999
-> Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
+* _24_: start using Rust to manage CLIs, first PR!, build gfold to realize design diff https://github.com/nickgerace/gfold/issues/261
 
 ---
 
+* start here https://realpython.com/c-for-python-programmers/ https://chatgpt.com/c/673363d3-885c-8004-b7fe-083b927e6999
+> Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
 * modules https://chatgpt.com/c/67336227-2d40-8004-8789-e8fc768f60a5 📙 Jeffrey [3]
 * courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
 * design: https://saagarjha.com/blog/2020/05/10/why-we-at-famous-company-switched-to-hyped-technology/ https://eev.ee/blog/2016/12/01/lets-stop-copying-c/ https://nullprogram.com/tags/c/
 * sysroot, undefined behavior (UB) https://news.ycombinator.com/item?id=30488979
-* _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron https://news.ycombinator.com/item?id=42146338 https://begriffs.com/posts/2022-07-17-debugging-gdb-ddd.html
+* _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron https://news.ycombinator.com/item?id=42146338 https://begriffs.com/posts/2022-07-17-debugging-gdb-ddd.html TUI https://github.com/wcampbell0x2a/heretek
 * Postgres codebase is supposed to be a good guide https://news.ycombinator.com/item?id=20556336
 * `#define`: constants https://www.youtube.com/watch?v=hsmGp3cp_50 0:50
 
@@ -33,6 +34,14 @@ PROJECTS
 * BYO text editor https://viewsourcecode.org/snaptoken/kilo/01.setup.html https://github.com/codecrafters-io/build-your-own-x#build-your-own-text-editor
 
 # 📝 LANG
+
+## compilers
+
+COMPILERS
+* _cc_: original AT&T https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
+* _cl_: Microsoft
+* _gcc_: aliased to Clang
+* _Clang_: frontend
 
 ## design
 
@@ -48,9 +57,59 @@ PROJECTS
 
 ## stdlib
 
+* how to use third-part deps https://github.com/benhoyt/inih
 * _libc_: POSIX spec for os stdlib; used by higher-levels languages for everything from networking to memory management https://wizardzines.com/comics/libc/ https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
 * _glibc_: most common impl of libc https://stackoverflow.com/a/11373143
 * _musl_: used by Alpine https://www.musl-libc.org/ https://news.ycombinator.com/item?id=23819500 https://www.etalabs.net/compare_libcs.html cleaner? https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
+
+## packaging
+
+🗄️ `comilers.md` linking
+
+file types I know about in C:
+* header files
+* source code
+* object files
+* library files
+
+which of these are development files and which of these are runtime files?
+
+DEVELOPMENT FILES
+* _header file (.h)_: lib
+```c
+int add(int a, int b);
+```
+* _source (.c)_: impl
+```c
+#include <stdio.h>
+#include "math_utils.h"
+int main() {
+    int sum = add(5, 3);
+    printf("Sum: %d\n", sum);
+}
+```
+* _object file (.o)_: compiled
+* _library file (.lib/.so)_: collection of obj files
+
+---
+
+HOW IMPORTS WORK IN OTHER LANGUAGES
+* Python: imports directly reference module files
+* Go: source files include both declarations and implementations
+* Java: JARs contain bytecode + metadata
+
+WHY C DOES THIS
+* needs to know types/signatures at compile time
+* C has separate compilation + linking phase
+* C was designed when computers had very limited memory
+
+This leads to that split between:
+
+Runtime files: What you need to run programs
+Development files: What you need to build programs
+
+Most package managers (apt, yum, brew) maintain this split with separate runtime vs -dev/-devel packages.
+
 # 🦑 RELATIVES
 
 ## 🧱 assembly
@@ -66,6 +125,7 @@ PROJECTS
 
 ---
 
+* https://zserge.com/posts/langs-asm/
 * https://shikaan.github.io/assembly/x86/guide/2024/09/08/x86-64-introduction-hello.html
 * ARM https://www.youtube.com/watch?v=gfmRrPjnEw4
 * compiler explorer https://godbolt.org/
@@ -77,6 +137,7 @@ https://wizardzines.com/comics/assembly/
 
 ## ➕ C++
 
+* https://learncodethehardway.com/blog/31-c-plus-plus-is-an-absolute-blast/
 * https://news.ycombinator.com/item?id=42231489
 * https://ccc.codes/
 * https://github.com/green7ea/cpp-compilation
@@ -86,9 +147,111 @@ https://wizardzines.com/comics/assembly/
 * https://news.ycombinator.com/item?id=34588340
 * https://news.ycombinator.com/item?id=34643530
 
+## ☕️ Java
+
+* looking at Eclipse brings back memories https://horstmann.com/unblog/2024-12-11/index.html https://simonwillison.net/2024/Dec/18/java-in-the-small
+* Kotlin only barely does scripting? https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/
+* abstraction run wild https://news.ycombinator.com/item?id=8420314
+* Flask for Java https://javalin.io/
+* version mgmt: sdkman https://www.youtube.com/watch?v=rouaKVAH3iM
+* 🎗 emailed self books on Maven and Spring Boot
+* HTTP client https://github.com/square/okhttp
+* dev env https://news.ycombinator.com/item?id=30841581
+* relearn https://maxmautner.com/2019/09/12/java-primer-for-python-developers.html
+* concurrency: https://return.co.de/blog/articles/programming-languages/
+* exceptions: Object > Throwable > Error, Exception; checked (compile time) vs. unchecked (runtime)
+* governance https://headcrashing.wordpress.com/2019/05/03/negotiations-failed-how-oracle-killed-java-ee/ https://docs.google.com/document/d/1nFGazvrCvHMZJgFstlbzoHjpAVwv5DEdnaBr_5pKuHo/preview
+* GUI: AWT -> FX -> Swing
+* imports: can't alias imports, so if you have 2 classes w/ same name, pick one and instead of importing, refer to using fully-qualified name https://stackoverflow.com/a/35686734/6813490
+* primitives: everything that's not an object
+* _JNDI_: API to lookup on fs or db
+* naming: `DefaultJmsListenerContainerFactoryConfigurer` https://spring.io/guides/gs/messaging-jms/
+* testing: beware of EasyMock and PowerMock https://return.co.de/blog/articles/java-development-fast/
+* run from shell
+```sh
+# ❗️ "Class JavaLaunchHelper is implemented in both" is [Java on Mac bug](https://stackoverflow.com/a/43003231/6813490)
+# from $CWD https://stackoverflow.com/a/3692235/6813490
+javac Hello.java
+java -cp . Hello
+
+# from package root i.e. `.com` https://stackoverflow.com/a/3081700/6813490
+java -cp . com.zachvalenta.Main
+```
+
+PACKAGES
+* package naming convention to create globally unique namespace
+* full class name includes the package name
+* technically no correlation btw package name and file structure but IDE will complain, which is why we get comically deep directory nesting
+* _classpath_: Java's answer to $PATH i.e. where it looks for `.class` files https://stackoverflow.com/a/2396513/6813490
+
+HIBERNATE
+* _DTO/DAO_ https://stackoverflow.com/a/35079306/6813490
+* _JPA_: spec for ORM https://stackoverflow.com/a/11881732/6813490
+* _ORM_: Hibernate (impl of JPA) JDBC (connect, query w/ SQL) https://www.jooq.org
+* pull from db and map onto the `@Entitiy` class
+* `validate`: validates that entities compatible against db (checks presence of tables, columns, id generators) https://stackoverflow.com/a/44479455/6813490
+* [default value for column](https://www.daveperrett.com/articles/2007/12/05/default-values-with-hibernate-annotations/)
+* `none`: do nothing; same effect as elision from `app.props`
+* `validate`: [validate entities against DDL](https://stackoverflow.com/q/43965089/6813490)
+* `create`: run DDL based on entities when app boots
+* `create-drop`: " " + then rm on shutdown
+* `update`: update schema according to entities (but won't rm columns)
+❗️ `update` not for PROD https://stackoverflow.com/a/221422/6813490 + https://stackoverflow.com/a/21113195/6813490 + https://stackoverflow.com/a/42147995/6813490
+* create table
+```java
+@Entity
+@Table(name = "ZV_TEST_TABLE")
+public class ZVTestTable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+    private String foocol;
+    private String barcol;
+}
+```
+
+JVM
+* _Java_: language + JDK
+* _JDK_: JRE + compiler; `/usr/libexec/java_home`
+* _JRE_: JVM + libs (Collections, IO)
+* _JVM_: src to bytecode, env to run byte; handles IO, threading; [written in C](https://stackoverflow.com/a/1220931)
+* _classloader_: pull `.class` files into JVM
+* workaround for JVM cold start https://medium.com/teads-engineering/jvm-and-cache-warm-up-strategy-for-high-traffic-services-4b5016f8b565
+* keeps getting faster https://stackoverflow.blog/2020/07/30/java-at-25-features-that-made-an-impact-and-a-look-to-the-future
+
+MAVEN
+* better than Gradle: https://return.co.de/blog/articles/java-development-fast/ https://blog.philipphauer.de/moving-back-from-gradle-to-maven/ but Gradle uses Groovy instead of XML, back in the day there was Ant
+* _bill of materials_: define parent POM, all lower transitive dependencies (child dependencies [test, web, Jackson] and their children) will all be compatible) https://www.thoughtworks.com/radar/techniques?blipid=202110076
+* build: `package`
+* fix all your problems: `clean install`
+* skip tests: `-DskipTests=true`
+* rebuild w/out deps update: `-o`
+* `target`: where compiled code goes
+* _plugin_: kinda like a class
+* _goal_: kinda like a method on a class
+* _phase_: series of goals strung together e.g. `mvn package` runs all goals up to and incl. `package`; `install` (installs to local `~/.m2`) `deploy` same as install except pushes to internal repo
+
+SPRING
+* _Spring_: next gen EE
+* _Spring Boot_ : Spring (MVC) + OOB config
+* _wiring_: use IDE to make Maven project, parent POM to `spring-boot-starter-parent` https://www.youtube.com/watch?v=bDtZvYAT5Sc
+* _aspect-oriented_: afaik encapsulation by another name; separate logging from business logic 📙 Ramalho 16
+* _bean_: obj
+* _boot_: init Spring context (looks around for `@Components`), starts Tomcat, runs app https://www.baeldung.com/running-setup-logic-on-startup-in-spring
+* _container_: manage beans i.e. create, config, connect, garbage collection
+* _dependencies_: https://docs.spring.io/spring-boot/docs/1.4.2.RELEASE/reference/htmlsingle/#appendix-dependency-versions
+* _history_: 2002 Rod Johnson publishes framework, turns into SpringSource 2003 Dell acquires VMWare 2009 VMWare acquires SpringSource 20013 Dell and GE form Pivotal
+* `@Bean`: init obj and keep track of it https://stackoverflow.com/a/34174782/6813490
+* `@Configuration`: seems similar to `@Bean`
+* `@Autowire`: use obj already init elsewhere (or from some 3rd-party lib)
+* `@Entity`: tells JPA to map class to table https://stackoverflow.com/a/29333628/6813490
+* `@Value`: pull in V from `.properties` into class
+
 ## ⚡️ Zig
 
-https://ziglang.org/
+📜 https://ziglang.org/
+
+https://codeberg.org/ziglings/exercises/
 
 USE FOR BUILDS
 * https://jakstys.lt/2022/how-uber-uses-zig/
@@ -125,6 +288,7 @@ CODEBASES TO LEARN FROM
 * tests with the source code https://github.com/b1rger/carl
 * https://github.com/lusingander/serie
 * not so hard to read after all https://github.com/raphlinus/font-rs/blob/master/src/accumulate.rs
+* Fish https://news.ycombinator.com/item?id=42535217
 
 PROJECT STRUCTURE
 * basic TUI https://github.com/lusingander/btox
@@ -172,8 +336,9 @@ https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUC
 
 🗄️ `plt.md` memory
 
-https://bitfieldconsulting.com/posts/rust-and-go
+> My experience with Rust is like this: make a seemingly small change, it balloons into a compile error that requires large refactoring to appease the borrow checker and type system. I suppose if you repeat this enough you learn how to write code that Rust is happy with first-time. I think my brain just doesn't like Rust. https://news.ycombinator.com/item?id=42485536
 
+https://bitfieldconsulting.com/posts/rust-and-go
 > Rust is a language for controlling elevators...we can't prevent all bugs, but we can at least use a programming language that eliminates some major categories of bugs, such as buffer overflows, data races, and "use after free" issues. So from the very beginning, Rust's focus has been on building reliable software, automating many of the safety checks that good programmers do anyway, and helping to catch mistakes before they reach production.
 > It reclaims memory automatically, but without having to pause the program. It can do this by keeping track of all the references to a particular piece of data that exist. When no part of the program can refer to the data any more, Rust knows that bit of memory can be safely recycled straight away.
 > Well, I have good news - if you’re already used to pointers in Go, then references in Rust work basically the same way, only safer. If you create a mutable reference to a variable, it works just like a Go pointer: you can pass it to a function, or store it somewhere.
@@ -185,19 +350,50 @@ https://bitfieldconsulting.com/posts/rust-and-go
 
 ## Cargo
 
+📦 https://crates.io/
+
+* _crate_: pkg
+* _rustup_: version mgmt
+
+INSTALL RUST
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 rustup self uninstall
+```
 
+LOCAL DEV
+```sh
 cargo build
-cargo run
-cargo test
-cargo doc
-cargo publish
+./target/debug/$BIN  # run
+RUST_LOG=debug ./target/debug/$BIN # print debug logs
+
+
+# further cmds: run, test, doc, publish
+```
+* don't execute using absolute paths
+```txt
+The binary is looking for config files in ~/.config and probably using its own path to determine paths for other resources. When executed via absolute path, it might be failing to properly resolve these relative paths. This is pretty common in Rust binaries where std::env::current_exe() or similar is used to find the binary's location for resource loading.
+```
+
+---
+
+* build from source
+```sh
+cargo install --git https://github.com/pls-rs/pls  # https://pls.cli.rs/guides/get_started/
 ```
 
 PACKAGING / VERSION MGMT 🧠 https://chatgpt.com/c/673544c8-978c-8004-bc38-c7c4d2efdba1 📙 https://doc.rust-lang.org/cargo/index.html
 > Cargo makes no distinction between managing dependencies for CLI tools and libraries. Every Rust project can be both a CLI and a library without extra configuration.
+```sh
+$ cargo install pls
+
+    Updating crates.io index
+  Downloaded pls v0.2.2
+  Downloaded 1 crate (7.9 KB) in 0.47s
+error: there is nothing to install in `pls v0.2.2`, because it has no binaries
+`cargo install` is only for installing programs, and can't be used with libraries.
+To use a library crate, add it as a dependency to a Cargo project with `cargo add`.
+```
 * no REPL!?! `evcxr_repl` as alternative
 * local install: `$PROJ/.cargo`
 * global install: `~/.cargo/bin`
@@ -214,10 +410,6 @@ cargo install-update -a
 ```
 * `--locked`: use lock file i.e. reproducible but no updates
 > have my experience using the tool or application to match that of the upstream developer's experience...using the dependencies they tested with https://nickgerace.dev/posts/how-to-manage-rust-tools-and-applications/
-* _crate_: pkg
-* _rustup_: version mgmt
-
----
 
 https://github.com/lusingander/cargo-selector
 
@@ -242,7 +434,10 @@ https://github.com/lusingander/cargo-selector
 
 # 🟨 ZA
 
-HISTORY https://news.ycombinator.com/item?id=24361469
+## history
+
+https://news.ycombinator.com/item?id=24361469
+
 * rose to prominence in the 1980s, now used for firmware and kernels but new stuff now in other languages http://esr.ibiblio.org/?p=7711
 * _c89_: aka ANSI C https://fabiensanglard.net/c/index.php
 * _c99_: not supported everywhere https://fabiensanglard.net/c/index.php
@@ -250,17 +445,3 @@ HISTORY https://news.ycombinator.com/item?id=24361469
 * _c23_:
 * _1972_: created https://www.bell-labs.com/usr/dmr/www/chist.html
 * _1978_: K&R spec
-
-## internals
-
----
-
-* _undefined behavior_: when an error happens but it's not thrown i.e. `TypeError` in Python might be mean the compiler just chugging along in C https://blog.regehr.org/archives/213 https://news.ycombinator.com/item?id=24363573
-> Rust also keeps track of the original data: when it goes out of scope, any references to it are no longer valid. So the compiler can detect many kinds of dangling pointer bugs where you try to use a reference to a value that doesn’t exist any more. That results in undefined behaviour, which is a nice way of saying that something horrible will happen, and part of Rust’s value proposition is “no undefined behaviour—ever”. https://bitfieldconsulting.com/posts/rust-and-go
-
-* call Python from C http://eradman.com/posts/extending-c-python.html
-* _ABI_: https://en.wikipedia.org/wiki/Application_binary_interface https://news.ycombinator.com/item?id=24140848 https://gankra.github.io/blah/c-isnt-a-language/ https://hpyproject.org/ https://news.ycombinator.com/item?id=41992899
-* _abstract machine_: C's version of a virtual machine https://words.steveklabnik.com/should-you-learn-c-to-learn-how-the-computer-works
-* _bitfield_: https://danluu.com/algorithms-interviews/
-* _compilation_: https://jvns.ca/blog/2019/10/28/sqlite-is-really-easy-to-compile/
-* _garbage collection_: (kinda) possible https://stackoverflow.com/a/5009966/6813490

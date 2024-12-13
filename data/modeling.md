@@ -163,7 +163,8 @@ queue.popleft()  # shift aka enque
 
 ---
 
-* mind map https://en.wikipedia.org/wiki/Mind_map
+* Doggerland, Bering Land Bridge https://gizmodo.com/the-famous-bering-land-bridge-was-more-like-a-swamp-geologists-say-2000539043 https://en.wikipedia.org/wiki/Doggerland
+* mind map https://en.wikipedia.org/wiki/Mind_map https://www.dendron.so/ https://github.com/vimwiki/vimwiki
 * concept map https://en.wikipedia.org/wiki/Concept_map https://cmap.ihmc.us/docs/learn.php
 
 hash tables
@@ -185,26 +186,60 @@ https://stackoverflow.com/questions/2061222/what-is-the-true-difference-between-
 * ADT: reference array via key https://calpaterson.com/how-a-sql-database-works.html
 * impl: BST, red-black https://jvns.ca/blog/2017/09/09/data-structure--the-treap-/
 
-hash tables 🗄 `security.md` `python.md`
-* _hash table_: hash function + array to put the results in [Bhargava 5.76-8, 5.90-2, 11.213]
-* hashing https://blog.codinghorror.com/url-shortening-hashes-in-practice/
-* aka map, dictionary, associative array https://docs.python.org/3/glossary.html#term-dictionary
-* alternatives incl. BST, skip list https://stackoverflow.com/a/301822 📙 Skiena 12.1
-
-bloom filter https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pzxngeLqw
-* _bloom filter_: like a hash table except takes up a lot less space and false positives are possible
-* use case is to see whether item already part of a very large set e.g. whether a key exists in a database 📙 11.210-11
-* https://vprusso.github.io/blog/2017/bloom-filters-and-pokemon/ 📙 Kleppmann 79 https://onatm.dev/2020/08/10/let-s-implement-a-bloom-filter/ http://aosabook.org/en/posa/working-with-big-data-in-bioinformatics.html https://luminousmen.com/post/building-a-bloom-filter
-
 https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictionaries-work/
 * _operations_: lookup, insert, delete
 * _O(1)_: Bhargava 5.90
 * _hash aggregate_: aggregate keys e.g. A 1 B 2 A 4 -> A 5 B 2 https://veekaybee.github.io/2021/06/06/hashaggregate/
 
+### 🏓 hash table
+
+🗄 `security.md` `python.md`
+
+* _hash table_: hash function + array to put the results in [Bhargava 5.76-8, 5.90-2, 11.213]
+* hashing https://blog.codinghorror.com/url-shortening-hashes-in-practice/
+* aka map, dictionary, associative array https://docs.python.org/3/glossary.html#term-dictionary
+* alternatives incl. BST, skip list https://stackoverflow.com/a/301822 📙 Skiena 12.1
+
+### 🐛 bloom filter
+
+mDCi1lXd9hc
+
+```txt
+A Bloom filter is a probabilistic data structure that's implemented using multiple hash functions and a bit array.
+
+PROBABILISTIC DATA STRUCTURES
+
+Membership Testing
+* Bloom Filter (allows false positives but no false negatives)
+* Cuckoo Filter (allows deletion unlike Bloom)
+
+Frequency Estimation
+* Count-Min Sketch
+* Count Sketch
+
+Cardinality Estimation
+* HyperLogLog
+
+The core tradeoff: Bloom filters trade perfect accuracy for extremely space-efficient membership testing. You can test if an element is "definitely not in the set" or "probably in the set".
+
+Common use cases:
+* Cache filtering (is this URL definitely not cached?)
+* Spell checkers (is this word definitely not in our dictionary?)
+* Network routing (is this packet definitely not for this subnet?)
+
+If you're dealing with any of these patterns - "check if X might be in large set Y to avoid expensive lookups" - a Bloom filter might help.
+```
+
+https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pzxngeLqw
+* _bloom filter_: like a hash table except takes up a lot less space and false positives are possible
+* https://simonwillison.net/2024/Dec/24/jeremy-edberg/
+* use case is to see whether item already part of a very large set e.g. whether a key exists in a database 📙 11.210-11
+* https://vprusso.github.io/blog/2017/bloom-filters-and-pokemon/ 📙 Kleppmann 79 https://onatm.dev/2020/08/10/let-s-implement-a-bloom-filter/ http://aosabook.org/en/posa/working-with-big-data-in-bioinformatics.html https://luminousmen.com/post/building-a-bloom-filter
+
 # 🗺️ NON
 
-🗄️ `algos.md` data structures
 📙 Kleppmann ch. 2
+🗄️ `data/graphs.md`
 
 > There are data stores that are also used as message queues (Redis), and there are message queues with database-like durability guarantees (Kafka), so the boundaries between the categories are becoming blurred 📙 Kleppmann [12]
 
@@ -294,13 +329,6 @@ HIERARCHICAL
 * can be done in relational as well https://hoverbear.org/blog/postgresql-hierarchical-structures/
 * _IMS_: https://twobithistory.org/2017/10/07/the-most-important-database.html
 
-## graph
-
-> just had to create this header again, pretty sure it existed when all this was in `dbms.md`, not sure where it is now
-
-https://www.youtube.com/watch?v=PkFpFCqIdZ8
-https://www.youtube.com/watch?v=_mk78aQhWPM
-
 ## key
 
 ---
@@ -330,33 +358,9 @@ za
 * sink https://ceph.io/ceph-storage/ https://github.com/minio/minio https://stackoverflow.com/questions/56627446/docker-compose-how-to-use-minio-in-and-outside-of-the-docker-network https://alexwlchan.net/2020/08/s3-keys-are-not-file-paths
 * _flat file_: meant for config, no way to represent relationships or handle concurrency (e.g. prevent dirty read); some structure via delimiters, new lines https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37
 
-### memcached
-
-* _is?_: volatile cache https://news.ycombinator.com/item?id=23689549 aka application caching layer
-* _how?_: distributed hash table i.e. n instances of app share 1 distributed instance of memcached
-* _why?_: so you don't have to read from db
-* _disadvantages_: doesn't track cache misses; meant for simple data, not tables or objects; not durable http://aosabook.org/en/nosql.html
-* _sink_: https://realpython.com/python-memcache-efficient-caching/ https://github.com/thadeusb/flask-cache Django has OOB support for memcached https://docs.djangoproject.com/en/2.1/topics/cache/
-
-### Redis
-
-📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
-
-> just use postgres https://martinheinz.dev/blog/105
-* https://www.youtube.com/watch?v=WQ61RL1GpEE
-* https://www.youtube.com/watch?v=5TRFpFBccQM
-* implementation http://aosabook.org/en/nosql.html
-* https://github.com/dragonflydb/dragonfly
-* test/mock https://github.com/cunla/fakeredis-py
-* use Postgres as impl https://github.com/alash3al/redix
-* governance https://news.ycombinator.com/item?id=23689549
-* key expiration https://news.ycombinator.com/item?id=30099572
-* alternative https://github.com/dragonflydb/dragonfly https://github.com/buraksezer/olric#installing
-* embedded https://github.com/symisc/vedis https://news.ycombinator.com/item?id=19464144
-> You can either set Redis up as a "data-structures" server or you set it up right as a cache. You can't do both. If you choose to use Redis as your cache, ensure that the cache instance is only serving as your cache. Your inter-system message bus should be on a different Redis with a different configuration. https://calpaterson.com/ttl-hell.html
-
 ## time series
 
+📙 https://www.manning.com/books/time-series-forecasting-using-foundation-models
 🗄
 * `math.md` graphs / uplot
 * `infra.md` analytics
@@ -389,23 +393,6 @@ dbms
 * _Timescale_: built on Postgres https://blog.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/ https://softwareengineeringdaily.com/2021/06/28/timescale-time-series-databases-with-mike-freedman/
 * _tstorage_: embedded https://github.com/nakabonne/tstorage BYO https://nakabonne.dev/posts/write-tsdb-from-scratch/ https://news.ycombinator.com/item?id=27730854
 * _Whisper_: embedded db for Graphite https://github.com/graphite-project/whisper
-
-## vector
-
-🗄️ `ml.md`
-🧠 https://chatgpt.com/c/6733b490-8d1c-8004-aa20-c1c6722b0247
-
-* _ChromaDB_: https://www.youtube.com/watch?v=QSW2L8dkaZk&list=PL58zEckBH8fA-R1ifTjTIjrdc3QKSk6hI&pp=iAQB
-* _Pinecone_: https://zackproser.com/blog/i-am-joining-pinecone-io https://zackproser.com/blog/vector-databases-compared
-
----
-
-* https://www.youtube.com/watch?v=OM1CHD89jqw
-* for recommendation systems, NLP
-* Milvus, Chroma, Weaviate, FAISS https://zackproser.com/blog/vector-databases-compared
-* LanceDB https://www.youtube.com/watch?v=hB7sGE0W8CI
-* https://news.ycombinator.com/item?id=41985176
-* https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/ https://github.com/asg017/sqlite-vec https://github.com/qdrant/qdrant https://www.youtube.com/watch?v=awIm3rQOBxE
 
 # 🕸️ RELATIONAL
 
@@ -481,7 +468,7 @@ CREATE TABLE band_musician(
 * _normalization_: process of extracting entities from other entities https://en.wikipedia.org/wiki/Database_normalization#Normal_forms
 
 ANOMOLIES
-* delete https://chatgpt.com/c/673e02ab-1b78-8004-9684-a5936111266b 🟧 Hao grokking
+* _delete_: delete causes loss of other important info e.g. if employee and project_id in same table, rm employee also removes project
 
 ### forms
 
@@ -529,11 +516,12 @@ IT103    |   2009-2   | 120      | Web Design   |
 
 ---
 
-ONTOLOGY https://chatgpt.com/c/67324db1-c8f8-8004-bb93-3f516203f81b
+ONTOLOGY
 > semantic web, ML https://owlready2.readthedocs.io/en/latest/intro.html
 * https://www.stephendiehl.com/posts/bfo/
 * https://www.amazon.com/gp/product/1484265513
 * https://www.amazon.com/gp/product/0262527812
+* OWL files
 
 relational to graph https://www.amazon.com/gp/product/1804618039 https://www.amazon.com/gp/product/1492044075
 knowledge graph https://www.amazon.com/gp/product/1098127102

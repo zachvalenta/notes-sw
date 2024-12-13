@@ -9,7 +9,7 @@
 📚
 * https://www.amazon.com/Coding-Interview-Patterns-Nail-Your/dp/1736049135
 * ✅ Bhargava grokking algorithms
-* Christian algorithms to live by
+* ✅ Christian algorithms to live by
 * Dasgupta algorithms
 * MacCormick computed
 * MacCormick nine algorithms
@@ -18,7 +18,7 @@
 
 ## 进步
 
-topological sort, dynamic programming https://blog.danielh.cc/blog/leetcode
+taxonomy https://livebook.manning.com/book/advanced-algorithms-and-data-structures of approaches https://www.amazon.com/gp/product/1736049135
 https://www.manning.com/books/optimization-algorithms
 🛣️ https://roadmap.sh/datastructures-and-algorithms https://roadmap.sh/computer-science https://roadmap.sh/python
 
@@ -334,6 +334,47 @@ def set_covering(states_needed, stations):
 
 ```
 
+# ⚔️ STRATEGIES
+
+🔗 https://en.wikipedia.org/wiki/Approximation_algorithm#Algorithm_design_techniques
+
+---
+
+* decision tree 📙 MacCormick chapter 6 https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/information-gain/ https://mlu-explain.github.io/
+* gini impurity https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/gini-impurity/
+* _genetic_: select best candidates from random population https://danielmiessler.com/blog/genetic-algorithms-could-be-more-significant-than-machine-learning/  evolutionary https://www.drorpoleg.com/books-to-read-in-2023-part-2/ there's also something called 'genetic programming' whose relationship to genetic algorithms is unclear https://stackoverflow.com/a/3821746
+* _divide and conquer (D&C)_: winnow to atomic case using recursion
+* most (but not all) recursive algos use D&C e.g. quicksort https://stackoverflow.com/a/53796319
+* _partition_: split list into two smaller sub-lists 🗄 `linux.md` split
+* _pivot_: el used to partition
+* _MapReduce_: map (apply func to each item in el) reduce (combine els) [Bhargava 11.209-10] parallel doesn't mean new runtime is old_runtime/cores bc have to load balance btw core and merge results [ibid 11.208] https://en.wikipedia.org/wiki/Parallel_algorithm 🗄 `language.md` concurrency
+
+GOOD ENOUGH
+* _hill-climbing_: local maxima https://diff.substack.com/p/big-tech-sees-like-a-state 📙 Christian 195
+* _approximation_: aim for good enough when optimal solution too expensive/NP [Bhargava 8.147] take local maximum https://en.wikipedia.org/wiki/Approximation_algorithm
+
+## brute force
+
+* _brute force_: enumerate all possible solutions
+
+## dynamic programming
+
+* _dynamic programming (DP)_: maximize X given constraint on Y or calculate optimum involves large numbers 📙 Bhargava 9.163, 178 https://www.youtube.com/watch?v=gK8KmTDtX8E
+* only works for independent problems 📙 Bhargava 9.177
+* used for Towers of Hanoi, Dikstra, longest substring/sequence, Fibonacci
+* must have optimal substructure and overlapping sub-problems https://en.wikipedia.org/wiki/Dynamic_programming#Computer_programming
+* clean up https://ngoldbaum.github.io/posts/dynamic-programming/ https://skerritt.blog/dynamic-programming/#why-is-dynamic-programming-called-dynamic-programmin https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/
+
+## greedy
+
+* _greedy_: recursively choose local optimum e.g. counting change, lightest edge in MST; might not lead to global optimum but that can be ok w/ NP [Bhargava 8.144-5] https://www.interviewcake.com/concept/python3/greedy
+
+## linear programming
+
+https://calmcode.io/course/cvxpy-one/the-stigler-diet
+https://en.wikipedia.org/wiki/Linear_programming
+* _linear programming_: maximize target given constraints 📙 Bhargava 11.218 https://www.jeremykun.com/2017/09/24/linear-programming-and-healthy-diets-part-2/
+
 # 🦋 TYPES
 
 ---
@@ -367,6 +408,7 @@ LEVENSHTEIN DISTANCE
 * https://www.youtube.com/watch?v=kTS2b6pGElE
 * https://towardsdatascience.com/text-similarity-w-levenshtein-distance-in-python-2f7478986e75
 * https://xnacly.me/posts/2024/making-sql-keyword-suggestions-work/
+* BK-tree https://github.com/benhoyt/pybktree
 
 SEMANTICS
 * _substring_: common contiguous char 📙 Bhargava [179,182]
@@ -392,42 +434,36 @@ https://en.wikipedia.org/wiki/knapsack_problem
 * ❓ version of set covering or different animal entirely?
 * ❓ howto: last column serves as optimal solution until cell at last row and column, at which you compare previous optimal against...power set of all other other items? 📙 Bhargava 9.168  https://www.youtube.com/watch?v=YRBON9sIZ2Y https://aiven.io/blog/solving-the-knapsack-problem-in-postgresql
 
-## KNN
+## PRNG
 
-🗄 `math.md` regression
+🗄️ `analytics.md` Polars > IO
+🔗 https://en.wikipedia.org/wiki/Linear_congruential_generator
 
-https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
+OVERVIEW
+> Using the seed, PRNG applies a mathematical function to generate a number. It then uses this number as input for the next step, repeating the process.
+> Given the same seed, the PRNG will always produce the same sequence of numbers. This is useful for debugging or testing.
+> Eventually, PRNGs repeat their sequences due to finite precision, but a good PRNG has a very long period before repeating.
+> Linear Congruential Generators (LCG): Simple algorithms like X_{n+1} = (aX_n + c) mod m.
+> Mersenne Twister: A popular PRNG with a long period and high-quality randomness.
+> Xoroshiro128+: A newer, fast PRNG with good statistical properties.
 
-* _k-nearest neighbors_: taxonomize based on proximate elements i.e. those that have similar attributes
-* form of supervised learning https://stats.stackexchange.com/a/56504
-* used for recommendation system, regression, OCR 📙 Bhargava [186,195,196]
-* recommendation systems https://github.com/gorse-io/gorse
-* https://philippmuens.com/k-nearest-neighbors-from-scratch/
-* https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
-* https://realpython.com/courses/knn-python/
-* https://news.ycombinator.com/item?id=26328958
-* https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
-* 📙 MacCormick chapter 6
-* _k means_: group points into K clusters; unsupervised https://stats.stackexchange.com/a/56504
+```python
+class SimplePRNG:
+    def __init__(self, seed):
+        self.state = seed  # Initialize the generator with a seed
 
-## Monte Carlo
+    def next(self):
+        # Parameters for the LCG
+        a = 1664525  # Multiplier
+        c = 1013904223  # Increment
+        m = 2**32  # Modulus
+        self.state = (a * self.state + c) % m
+        return self.state
 
-🗄 `math.md` Markov chain
-
-https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
-
-* _Monte Carlo tree search (MCTS)_: domain independent https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 12:00
-* tree: roots = next moves, branches = n order paths
-* search: takes weights from neural net, traverse branches, report back
-* _Monte Carlo_: 📙 Christian chapter 9 https://pbpython.com/monte-carlo.html https://news.ycombinator.com/item?id=27379310
-* determine weights for MCTS
-* weights = secret sauce https://github.com/leela-zero/leela-zero
-* https://easylang.dev/apps/tutorial_mcarlo.html
-* aka simulation 📙 Konnikova bluff Zuckerman simons
-* https://sirupsen.com/napkin/problem-16-simulation 
-* https://www.erichgrunewald.com/posts/simulations-of-diversity-hiring/
-* https://conversationswithtyler.com/episodes/annie-duke/
-* _minimax_: predecessor to MCTS https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 1:15 used in chess 4:30 https://marginalrevolution.com/marginalrevolution/2021/05/maradona-plays-minimax.html
+prng = SimplePRNG(seed=42)
+for _ in range(5):
+    print(prng.next())
+```
 
 ## search
 
@@ -447,7 +483,7 @@ TOP OF MIND 🧠 https://chatgpt.com/c/67461bc1-0414-8004-af66-535909317a42
 
 ZA
 * _simple_: 🗄 `/algos`
-* _binary_: 🗄 `/algos`; using BST (❌ log O of n average case and O of n worst case, sequential access ✅ faster mutative operations) [Bhargava 11.205]
+* _binary_: 🗄 `/algos`; using BST (❌ log O of n average case and O of n worst case, sequential access ✅ faster mutative operations) [Bhargava 11.205] https://avi.im/blag/2024/galloping-search/
 * _breadth-first (bfs)_: 🗄 `/algos` https://healeycodes.com/practical-intro-to-graphs/
 * _depth-first (dfs)_:
 > Doing great work is a depth-first search whose root node is the desire to. So "If at first you don't succeed, try, try again" isn't quite right. It should be: If at first you don't succeed, either try again, or backtrack and then try again. http://paulgraham.com/greatwork.html
@@ -571,12 +607,14 @@ Theres none stands under more calumnious tongues
 * Christian ch. 3
 * Conery ch. 8
 
-quicksort https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsort
+* natural: e.g. `2.txt` before `10.txt` https://github.com/triyanox/lla
+
+---
+
+QUICKSORT https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsort
 * strat: D&C via partition 📙 Bhargava 4.65 https://stackoverflow.com/q/164163
 * time: O(n log n); iterate input multiple times but smaller input each time; parallel versions can be O(n) 📙 Bhargava 11.208 https://softwareengineering.stackexchange.com/a/297161
 * space: O(n)
-
----
 
 * https://gwern.net/resorter
 * _bubble_: https://realpython.com/sorting-algorithms-python/
@@ -586,7 +624,7 @@ quicksort https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsor
 * _natural_: put like w/ like re: ints, strings https://github.com/SethMMorton/natsort
 * _selection_: 🗄 `algos`
 * _Timsort_: https://realpython.com/sorting-algorithms-python/
-* _topological_: [Bhargava 6.112]
+* _topological_: [Bhargava 6.112] https://calmcode.io/shorts/toposort.py
 
 # 🟨 ZA
 
@@ -603,7 +641,9 @@ quicksort https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsor
 
 ## recursion
 
-📙 https://www.amazon.com/gp/product/1718502028
+📙 Sweigart https://www.amazon.com/gp/product/1718502028
+
+https://calmcode.io/course/recursion/introduction
 
 * _base case_: case in which the function doesn't call itself
 * _recursive case_: case in which function calls itself
@@ -708,34 +748,3 @@ Ba  # match on 'a'
 * `^` exclude (when inside character set)
 * `^` anchor to start (when outside character set)
 * `$` anchor to end https://regex101.com/r/SF2Mpd/1
-
-## strategies
-
-🔗 https://en.wikipedia.org/wiki/Approximation_algorithm#Algorithm_design_techniques
-
----
-
-* _dynamic programming (DP)_: maximize X given constraint on Y or calculate optimum involves large numbers 📙 Bhargava 9.163, 178 https://www.youtube.com/watch?v=gK8KmTDtX8E
-* only works for independent problems 📙 Bhargava 9.177
-* used for Towers of Hanoi, Dikstra, longest substring/sequence, Fibonacci
-* must have optimal substructure and overlapping sub-problems https://en.wikipedia.org/wiki/Dynamic_programming#Computer_programming
-* clean up https://ngoldbaum.github.io/posts/dynamic-programming/ https://skerritt.blog/dynamic-programming/#why-is-dynamic-programming-called-dynamic-programmin https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/
-
-* _divide and conquer (D&C)_: winnow to atomic case using recursion
-* most (but not all) recursive algos use D&C e.g. quicksort https://stackoverflow.com/a/53796319
-
-* _brute force_: enumerate all possible solutions
-* _partition_: split list into two smaller sub-lists 🗄 `linux.md` split
-* _pivot_: el used to partition
-* _MapReduce_: map (apply func to each item in el) reduce (combine els) [Bhargava 11.209-10] parallel doesn't mean new runtime is old_runtime/cores bc have to load balance btw core and merge results [ibid 11.208] https://en.wikipedia.org/wiki/Parallel_algorithm 🗄 `language.md` concurrency
-* _hill-climbing_: local maxima https://diff.substack.com/p/big-tech-sees-like-a-state 📙 Christian 195
-
-* decision tree 📙 MacCormick chapter 6 https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/information-gain/ https://mlu-explain.github.io/
-* random forest https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/intro-to-random-forests/ https://mlu-explain.github.io/
-* gini impurity https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/gini-impurity/
-
-yet to use personally
-* _approximation_: aim for good enough when optimal solution too expensive/NP [Bhargava 8.147] take local maximum https://en.wikipedia.org/wiki/Approximation_algorithm
-* _genetic_: select best candidates from random population https://danielmiessler.com/blog/genetic-algorithms-could-be-more-significant-than-machine-learning/  evolutionary https://www.drorpoleg.com/books-to-read-in-2023-part-2/ there's also something called 'genetic programming' whose relationship to genetic algorithms is unclear https://stackoverflow.com/a/3821746
-* _greedy_: recursively choose local optimum e.g. counting change, lightest edge in MST; might not lead to global optimum but that can be ok w/ NP [Bhargava 8.144-5] https://www.interviewcake.com/concept/python3/greedy
-* _linear programming_: maximize target given constraints 📙 Bhargava 11.218 https://www.jeremykun.com/2017/09/24/linear-programming-and-healthy-diets-part-2/

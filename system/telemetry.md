@@ -2,6 +2,7 @@
 
 ## 参考
 
+🗄️ `os/tools.md` monitoring
 📚
 * Bueno mature optimization https://carlos.bueno.org/optimization/
 * Google SRE book https://sre.google/sre-book/table-of-contents/ https://danluu.com/google-sre-book/
@@ -9,14 +10,19 @@
 
 ## 进步
 
+🧠 https://claude.ai/chat/2f99faeb-79c6-4f49-8be8-b595a6ab1ff7
+
 * _24_: big rf, ready to start implementing myself
 * _23_: Datadog with CRD
 * _17_: Google SRE book first 20 chapters
 
 # 📊 METRICS
 
+🗄️ `architecture.md` Ford fitness functions
+
 ---
 
+https://simonwillison.net/2024/Dec/29/threads-ios-performance/
 https://vadimkravcenko.com/shorts/habits-of-great-software-engineers/#the-art-of-approximation https://vadimkravcenko.com/technical-manager-guide/
 https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services
 * https://danluu.com/metrics-analytics/ https://www.kalzumeus.com/greatest-hits/ https://danluu.com/web-bloat https://thoughtbot.com/upcase/analytics-for-developers 
@@ -133,7 +139,7 @@ jitter https://gafferongames.com/post/fixing_the_internet_for_games/
 * _percentiles_: p50 (median) p90 (worst case); mean doesn't tell you how many nodes/users
 * _skew_: uneven distibution re: load across worker processes [Kleppmann 20] what prevents run time of batch job being data divided by throughput
 
-* _frecency_: frequency + recency https://missing.csail.mit.edu/2020/shell-tools/ https://github.com/rupa/z
+* _frecency_: frequency + recency https://missing.csail.mit.edu/2020/shell-tools/ https://github.com/rupa/z https://github.com/ajeetdsouza/zoxide/wiki/Algorithm#matching
 
 * utilization, system metrics https://entropicthoughts.com/predicting-resource-usage-from-increased-traffic https://entropicthoughts.com/response-time-is-the-system-talking
 
@@ -143,6 +149,8 @@ jitter https://gafferongames.com/post/fixing_the_internet_for_games/
 📙 Gregg systems performance
 
 ---
+
+https://slimsaas.com/blog/django-scaling-performance
 
 DJANGO
 * https://medium.com/django-unleashed/django-application-performance-optimization-a-checklist-63e2c6d69e4e
@@ -188,6 +196,7 @@ PROVIDERS
 * _Logfire_: https://pydantic.dev/logfire https://pydantic.dev/articles/logfire-announcement
 * _Jam_: error reporting https://jam.dev/ https://news.ycombinator.com/item?id=40318542 🗄️ `test.md` friction logs
 * _Moderato_: 🎯 https://github.com/moderato-app/live-pprof
+* _Netdata_: https://github.com/netdata/netdata
 * _OpenObserve_: https://github.com/openobserve/openobserve https://news.ycombinator.com/item?id=41898910 https://sso.tax/
 * _New Relic_: 
 * _Rollbar_: https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you 
@@ -225,8 +234,8 @@ PROVIDERS
 🗄️ `eng.md` query engines
 📜 https://clickhouse.com/ https://github.com/ClickHouse/ClickHouse
 
-* Visidata https://www.visidata.org/blog/2022/connect-visidata-to-sql-databases-with-vdsql/
-* DuckDB alternative? https://github.com/chdb-io/chdb
+* design: columnar
+* _chdb_: Python library (in-process) https://github.com/chdb-io/chdb
 
 ---
 
@@ -342,6 +351,7 @@ ZA
 
 ---
 
+https://github.com/benhoyt/graphyte
 https://www.youtube.com/results?search_query=graphite+metrics
 
 * _statsd_: https://github.com/jsocol/pystatsd https://www.youtube.com/watch?v=-6Hk9rcgM94 https://www.datadoghq.com/blog/statsd/ https://docs.datadoghq.com/developers/dogstatsd/ https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd https://www.youtube.com/watch?v=R4kMwckrUlg Graphite visualization tool for statsd https://www.digitalocean.com/community/tutorials/how-to-configure-statsd-to-collect-arbitrary-stats-for-graphite-on-ubuntu-14-04
@@ -353,6 +363,7 @@ https://www.youtube.com/results?search_query=graphite+metrics
 
 ---
 
+https://www.bitecode.dev/p/samuel-colvin-on-logfire-mixing-python
 https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
 > I suppose the two things that make it different from some of the stuff that's come before is Logfire is built on Open Telemetry...the rails of where the data is being transferred are on an open standard. And if you decide you didn't want to use the Logfire platform anymore, you can send that data to anything else that supports Open Telemetry. But unlike lots of other companies in our space, instead of using open telemetry as an excuse to abandon the SDK space and just say, use the horrible open telemetry SDK directly, we have the Logfire package, which tries to make that super nice and easy to use.
 > So instead of having to use ClickOps...there are things you can do in Logfire that you cannot and never been able to do in like one of the big incumbents like Datadog because it's just SQL. And it's obviously much easier to learn for you, much easier for LLMs to write...that's the hardest bit, there is SQL you can write which is enormously heavy to compute. And so we have to be able to find ways to process that without taking down other customers. The definition of DOS is that like the effort required to DOS is significantly lower than the effort required to process it.
@@ -412,11 +423,237 @@ PRICING 🗄️ `business.md` pricing
 
 * https://news.ycombinator.com/item?id=33049046
 
-## tracing
+# 🔭 PROFILING
 
-🗄 `linux.md` tracing
+📙
+* Beazley ch. 14
+* Tornhill https://pragprog.com/titles/atcrime2/your-code-as-a-crime-scene-second-edition/
+🗄
+* `feedback.md` debug
+* `linux.md` tracing
+* `telemetry.md`
+
+PG http://paulgraham.com/popular.html
+> It might be a good idea to have an active profiler - to push performance data to the programmer instead of waiting for him to come asking for it.
+> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem.
+> A good language, as everyone knows, should generate fast code. But in practice I don't think fast code comes primarily from things you do in the design of the language. As Knuth pointed out long ago, speed only matters in certain critical bottlenecks. And as many programmers have observed since, one is very often mistaken about where these bottlenecks are. So, in practice, the way to get fast code is to have a very good profiler, rather than by, say, making the language strongly typed. You don't need to know the type of every argument in every call in the program. You do need to be able to declare the types of arguments in the bottlenecks. And even more, you need to be able to find out where the bottlenecks are.
+
+## benchmark
+
+> There are lies, damned lies and benchmarks. https://github.com/pydantic/jiter https://news.ycombinator.com/item?id=42501532
+🎗️ https://danluu.com/anon-benchmark/ https://danluu.com/why-benchmark/ https://jpcamara.com/2024/12/01/speeding-up-ruby.html https://benhoyt.com/writings/go-version-performance-2024/
+
+LINUX
+* _time_: `/usr/bin/time -v` detailed output w/ memory stats https://github.com/egoist/dum https://news.ycombinator.com/item?id=30226742
+```sh
+cmd:
+	@time ur makefile cmd
+```
+* _timedatectl_: nanoseconds
+* _hyperfine_: https://github.com/sharkdp/hyperfine inode caching https://news.ycombinator.com/item?id=42179600
+
+PYTHON
+* https://www.pythonmorsels.com/cli-tools/#timeit
+* _fastero_: 🎯 timeit alternative https://github.com/wasi-master/fastero
+* _time_: https://superfastpython.com/benchmark-execution-time * https://wsvincent.com/algorithms-binary-search/
+* _timeit_: 🎯 https://www.pythonmorsels.com/cli-tools/ https://www.blog.pythonlibrary.org/2020/04/14/an-overview-of-profiling-tools-for-python/ https://realpython.com/python-f-strings/#comparing-performance-f-string-vs-traditional-tools
+```python
+# try this instead
+
+# The "timeit" module lets you measure the execution
+# time of small bits of Python code
+# https://www.youtube.com/watch?v=EcGWDNlGTNg
+import timeit
+timeit.timeit('"-".join(str(n) for n in range(100))', number=10000)
+timeit.timeit('"-".join([str(n) for n in range(100)])', number=10000)
+timeit.timeit('"-".join(map(str, range(100)))', number=10000)
+
+# https://stackoverflow.com/a/7523810/6813490
+from timeit import Timer
+# doesn't manifest savings in small collections
+names_list = ['alice', 'bob', 'candace']
+names_set = set(['alice', 'bob', 'candace'])
+
+# setup large collection of numbers and see what happens then
+def lookup_list(l):
+    return 'alice' in l
+def lookup_set(s):
+    return 'alice' in s
+def cast_to_timer(func, args):
+	return Timer(lambda: func(args))
+def timeit_ms(func):
+	return print(func.timeit(number=1000))
+if __name__=='__main__':
+    timeit_ms(cast_to_timer(lookup_list, names_list))
+    timeit_ms(cast_to_timer(lookup_set, names_set))
+```
+
+## timeit
+
+https://github.com/koaning/memo/
+https://calmcode.io/course/memo/introduction
 
 ---
+https://github.com/zachvalenta/capp-brand-enablement
+
+I have a decorator:
+```python
+@dataclass
+class Util:
+    @staticmethod
+    def timeit(func=None, *, name=None):
+        if func is None:
+            return partial(timeit, name=name)
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            start = time()
+            result = func(*args, **kwargs)
+            end = time()
+            logger.info(f"{name or func.__name__} took {round(end - start, 1)} seconds")
+            return result
+        return wrapper
+```
+
+that I'm using to annotate other methods:
+```python
+@staticmethod
+@Util.timeit
+def load_eclipse_tsv():
+```
+
+I'd like to make some updates:
+* make it just a normal function instead of a class-based static method
+* so that it can be used in the REPL: `timeit(load_eclipse_tsv())`
+* the function should just print execution time but the return value is coming from whatever function/method it wraps
+
+
+## start here
+
+* https://claude.ai/chat/dd676259-77ee-4cb7-b35d-193695eb80d6
+* https://claude.ai/chat/cb57a07d-5aa4-48f2-a568-d75bf3ca2350
+> you've extracted everything else from this prompt other than the benchmarking code
+```python
+from memory_profiler import profile
+
+@profile
+def read_standard(path):
+    return pl.read_csv(path)
+
+@profile
+def read_chunked(path, chunk_size=100_000):
+    chunks = []
+    for chunk in pl.read_csv(path, rechunk=True).iter_chunks(chunk_size):
+        chunks.append(chunk)
+    return pl.concat(chunks)
+```
+* https://byroot.github.io/ruby/json/2024/12/15/optimizing-ruby-json-part-1.html
+* _path_: heuristic for thinking about what to optimize i.e. 99% of your app's execution branches can probably be pretty slow https://blog.phusion.nl/2018/09/18/migrating-passenger-from-cxx-to-go/
+* https://calmcode.io/shorts/perfplot
+* https://thume.ca/2023/12/02/tracing-methods/
+* https://blog.miguelgrinberg.com/post/is-python-really-that-slow
+* https://martinheinz.dev/blog/13
+* https://rednafi.com/python/preallocated_list/
+* https://computers-are-fast.github.io/
+* https://tech.marksblogg.com/faster-python.html
+* https://pycon-archive.python.org/2024/schedule/presentation/36/index.html
+* https://github.com/tonybaloney/perflint 
+* https://realpython.com/python-timer/
+* https://www.roguelynn.com/words/tracing-fast-and-slow/
+* https://pythonspeed.com/articles/faster-json-library/
+* https://wsvincent.com/python-optimizations-with-guido/
+* https://madebyme.today/blog/python-dict-vs-curly-brackets/
+* https://realpython.com/python-profiling/
+* https://pythonspeed.com/articles/measuring-python-performance/
+* https://pythonspeed.com/memory/
+* https://switowski.com/blog/how-to-benchmark-python-code/
+* https://pythonspeed.com/articles/blocking-cpu-or-io/
+* https://pythonspeed.com/articles/live-debugging-python/
+* https://log.beshr.com/python-311-speedup-part-1/
+* https://www.markkeller.dev/2018-07-14-optimize_python/
+* https://codesolid.com/how-do-i-profile-python-code/
+* https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
+* A/B test https://www.bwplotka.dev/2024/go-microbenchmarks-benchstat/
+* `py3 -m trace --trace example.py`
+* https://www.petermcconnell.com/posts/perf_eng_with_py12/
+* https://www.youtube.com/watch?v=2hWfLiRGaNM
+* where to put perf? https://roadmap.sh/best-practices/backend-performance
+> The notes on benchmark performance graphs often read "higher is better" and performance improvements are even called "optimisations". But the truth is, at least as a user, once performance reaches a satisfactory level - enough for your own data analysis to complete in a reasonable about of time - there is no further benefit from increased speed. Instead of being called "performance optimisation" it should probably be called "performance satisfaction" as once it is satisfactory you have finished. Usability is different. The whole point of computers is as an aid to productivity so user-friendliness is actually the bit you want to optimise. Unlike speed, being easier to use is always better and there is very little limit to that. So it's "usability improvements" that should be called "optimisations" but perhaps the relevant ships on all of these terms have sailed. https://csvbase.com/blog/6
+
+## options
+
+* _asv_: https://github.com/airspeed-velocity/asv
+* _austin_: frame stack sampler https://github.com/P403n1x87/austin https://github.com/P403n1x87/austin-tui https://talkpython.fm/episodes/show/265/why-is-python-slow 54:00
+* _cProfile_: 🎯 https://www.pythonmorsels.com/cli-tools/ https://martinheinz.dev/blog/64 https://hakibenita.com/django-rest-framework-slow https://stackabuse.com/why-does-python-code-run-faster-in-a-function/ https://adamj.eu/tech/2023/07/23/python-profile-section-cprofile/ https://www.pythonmorsels.com/cli-tools/#other-python-related-tools
+* _Fil_: https://pythonspeed.com/products/filmemoryprofiler/ https://pythonspeed.com/articles/memory-profiler-data-scientists/
+* _FunctionTrace_: 🎯 https://functiontrace.com/ https://news.ycombinator.com/item?id=36605730
+* _gosivy_: 🎯 CPU utilization, heap https://github.com/nakabonne/gosivy https://github.com/nakabonne/ali/releases/tag/v0.7.0
+* _hunter_: https://github.com/ionelmc/python-hunter
+* _instruments_: https://registerspill.thorstenball.com/p/did-you-know-about-instruments
+* _line profiler_: https://github.com/pyutils/line_profiler https://news.ycombinator.com/item?id=41910590
+* _memory profiler_: https://github.com/pythonprofilers/memory_profiler https://news.ycombinator.com/item?id=27025829
+* _memray_: 🎯 https://github.com/bloomberg/memray https://textual.textualize.io/blog/2024/02/20/remote-memory-profiling-with-memray/ https://realpython.com/podcasts/rpp/128/ https://talkpython.fm/episodes/show/425/memray-the-endgame-python-memory-profiler https://news.ycombinator.com/item?id=41910590
+* _perf_: Linux https://pycon-archive.python.org/2024/schedule/presentation/69/index.html
+* _phlare_: Grafana https://martinheinz.dev/blog/89
+* _pyflame_: https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 
+* _pyheat_: https://github.com/csurfer/pyheat
+* _pyinstrument_: 🎯 https://news.ycombinator.com/item?id=41910590 https://github.com/joerick/pyinstrument https://calmcode.io/course/pyinstrument/introduction
+* _pyroscope_: https://github.com/pyroscope-io/pyroscope https://github.com/grafana/pyroscope https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
+* _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
+* _pyspy_: 🎯 https://github.com/benfred/py-spy/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust https://tinkering.xyz/fmo-optimization-story/ https://www.youtube.com/watch?v=1EZ8oqjLun0 https://jvns.ca/blog/2018/12/23/2018--year-in-review/
+* _tracy_: https://github.com/wolfpld/tracy
+* _speedscope_: https://github.com/benfred/py-spy/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+* _Sciagraph_: https://news.ycombinator.com/item?id=31826872
+* _Valgrind_: https://github.com/benfred/py-spy/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+
+## types
+
+* _sampling_: interrupts program, snapshots stack trace, aggregates sample of these interruptions and tells you where you're spending most of your time
+> Sampling profilers, the most common performance debugging tool, are notoriously bad at debugging problems caused by tail latency because they aggregate events into averages. But tail latency is, by definition, not average. https://danluu.com/perf-tracing/
+> The general shape of it is you take a system and you point a tool at it that stops the world every so often. Let's say every hundred microseconds maybe. And it stops the world and asks, where are you right now? And it looks at where the instruction pointer is, what are we currently executing? And it generally looks at the stack trace, how did you get here? And then it writes this down and it lets the program keep going. And profilers only really differ on how do they stop the world and how do they write this down. My favorite is the Linux kernel profiler. It's called perf, and it just uses a bunch of hardware features to get an interrupt at exactly the right moment in time. And then it just very quickly writes down the stack trace in this compressed format. It's very optimized. And then you take all these stack traces. The profile is really just a list of stack traces and sometimes a little bit of augmented information, but that's fundamentally the core idea. And then you present it to the user in some way that adds them up. And like I say, the key thing is it tells you, okay, 30% of the stack traces ended in the function foo. That's a hotspot. You're spending 30% of your time there. https://signalsandthreads.com/performance-engineering-on-hard-mode/
+
+---
+
+* "perf matters": stablizer, memory layout https://www.youtube.com/watch?v=r-TLSBdHe1A
+* BYO https://blog.mattstuchlik.com/2024/02/16/counting-syscalls-in-python.html https://jvns.ca/blog/2017/12/02/taking-a-sabbatical-to-work-on-ruby-profiling-tools/ https://jvns.ca/blog/2017/12/17/how-do-ruby---python-profilers-work-/ https://pythonspeed.com/articles/custom-python-profiler/
+* statistical profiler https://www.youtube.com/watch?v=d5SGUscT2GA Linux perf https://realpython.com/python312-perf-profiler/ https://github.com/brendangregg/FlameGraph https://hacker-tools.github.io/program-introspection/
+* performance profiler https://www.youtube.com/watch?v=CjG_Ub_gCL4 [2:10]
+* sampling profiler
+
+# 🔬 TRACING
+
+🗄
+* processes
+* `python.md` profiling
+* `telemetry.md` tracing
+📚
+* Evans debug tools
+* Evans perf
+* Evans strace
+* Evans tracing
+
+VOCAB
+* _monitor_: track errors; continuous
+* _trace_: capture exact sequence of events/function calls with timestamps and context
+* _profile_: aggregate stats re: resource usage (CPU time, memory, etc.) by function/line
+
+TOOLS
+* _beetrace_: 🐍 https://github.com/furkanonder/beetrace
+
+---
+
+flamegraph https://github.com/laixintao/flameshow
+
+https://events.linuxfoundation.org/wp-content/uploads/2022/10/elena-zannoni-tracing-tutorial-LF-2021.pdf
+
+* strace, ptrace https://nullprogram.com/blog/2018/06/23/
+* magic trace https://github.com/janestreet/magic-trace
+* ptrace https://medium.com/@lizrice/a-debugger-from-scratch-part-1-7f55417bc85f
+* strace https://jvns.ca/blog/2021/04/03/what-problems-do-people-solve-with-strace/
+* dtruss https://blog.safia.rocks/post/173241985600/unraveling-rm-what-happens-when-you-run-it
+
+❌ normal debugging: know the language, look at src, print statements/debugger
+✅ `strace` debugging: 'these are the system calls your program is making'
+📝 don't run strace on production processes (or anything that needs to run at normal speed)
 
 UM
 * previous https://developers.signalfx.com/basics/apm.html
@@ -440,21 +677,24 @@ za
 * https://danluu.com/tracing-analytics/
 * https://netflixtechblog.com/building-netflixs-distributed-tracing-infrastructure-bb856c319304
 
-## uptime / healthcheck
+## bpf
 
----
-
-UPTIME / HEALTHCHECK / HEARTBEAT
-* https://status.calmcode.io/
-* https://news.ycombinator.com/item?id=41452339
-* https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
-* baseline https://healthchecks.io/
-* db connection https://www.youtube.com/watch?v=GT9WmExDbXQ
-* downstream services
-* aaS: UptimeRobot, Checkly, lcurl https://www.youtube.com/watch?v=um24VlkkqGo https://github.com/brotandgames/ciao
-> I setup a 3rd party service to monitor the heartbeats and the return code to validate they are up and properly returning what I expect, notify me if not. I don't have to do sophisticated response processing at the 3rd party service because I can just use http return codes 99% of the time. The detailed response checking is done at the heartbeat level, then a response code generated. https://news.ycombinator.com/item?id=22823230
-* https://updown.io/
-* https://github.com/megaease/easeprobe
+EBPF https://www.brendangregg.com/
+* https://blog.smidt.dev/posts/0003/
+* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions https://flamegraph.com/ https://github.com/laixintao/flameshow
+* https://www.youtube.com/watch?v=bGAVrtb_tFs
+* https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
+* https://github.com/ZingerLittleBee/netop
+* https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06
+* https://news.ycombinator.com/item?id=27435081
+* https://www.brendangregg.com/blog/2022-04-15/netflix-farewell-1.html
+* https://ebpf.io/what-is-ebpf/ https://softwareengineeringdaily.com/2023/03/06/ebpf-with-thomas-graf/
+* https://www.polarsignals.com/blog/posts/2023/10/04/profiling-python-and-ruby-with-ebpf
+* https://about.gitlab.com/blog/2022/11/28/how-we-diagnosed-and-resolved-redis-latency-spikes/
+* https://softwareengineeringdaily.com/2022/07/15/continuous-profiling-using-ebpf-with-frederic-branczyk/
+* https://github.com/keyval-dev/odigos
+* https://github.com/google/gops
+* https://thume.ca/2023/12/02/tracing-methods/
 
 # 🟨 ZA
 
@@ -520,7 +760,7 @@ TOOLING 🗄️ `golang.md` `python.md`
 * _Axiom_: https://axiom.co/ https://github.com/axiomhq https://repobeats.axiom.co/ cheaper than CloudWatch? https://x.com/AxiomFM/status/1842206872813674807
 * _fblog_: JSON log viewer https://github.com/brocode/fblog
 * _hl_: https://github.com/pamburus/hl
-* _toolong_: https://github.com/textualize/toolong
+* _toolong_: 🎯 https://github.com/textualize/toolong https://calmcode.io/shorts/toolong.py
 
 FS LOCATIONS https://missing.csail.mit.edu/2019/machine-introspection/ 🗄️ `linux.md` fs
 > Traditionally, logs were all stored in `/var/log`, and many still are. Usually there's a file or folder per program.
@@ -529,6 +769,7 @@ FS LOCATIONS https://missing.csail.mit.edu/2019/machine-introspection/ 🗄️ `
 
 ---
 
+* https://calmcode.io/course/vector/introduction
 * you'll need to rotate if you don't want to store everything 
 * live log view `tail -f foo.log`
 * https://github.com/ptmcg/logmerger
@@ -556,5 +797,22 @@ https://news.ycombinator.com/item?id=30394152
 * _sources_: clickstream, proxy, web server, app server
 * event streams https://apenwarr.ca/log/20190216
 * _formats_: CLF, Amazon, Nginx https://github.com/allinurl/goaccess common log format https://vicki.substack.com/p/logs-were-our-lifeblood-now-theyre https://brandur.org/logfmt https://medium.com/hiredscore-engineering/logging-lets-do-it-right-41d568d3bfcd
-* _tools_: Logstash, Fluentd https://github.com/itamarst/eliot https://news.ycombinator.com/item?id=21461617 https://github.com/rcoh/angle-grinder https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-log-analyzers https://github.com/allinurl/goaccess psutil (get system info like CPU, mem, users) Honeycomb https://www.honeycomb.io/blog/tell-me-more-nginx/ https://hynek.me/talks/beyond-grep/
+* _tools_: Logstash https://github.com/edmocosta/tuistash Fluentd https://github.com/itamarst/eliot https://news.ycombinator.com/item?id=21461617 https://github.com/rcoh/angle-grinder https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-log-analyzers https://github.com/allinurl/goaccess Honeycomb https://www.honeycomb.io/blog/tell-me-more-nginx/ https://hynek.me/talks/beyond-grep/
 * _sink_: log growth roughly linear https://www.youtube.com/watch?v=-6Hk9rcgM94 https://stripe.com/gb/blog/canonical-log-lines
+
+## uptime / healthcheck
+
+---
+
+* https://calmcode.io/course/better-uptime/overview
+UPTIME / HEALTHCHECK / HEARTBEAT
+* https://status.calmcode.io/
+* https://news.ycombinator.com/item?id=41452339
+* https://pythonbytes.fm/episodes/show/395/pythont-compatible-packages
+* baseline https://healthchecks.io/
+* db connection https://www.youtube.com/watch?v=GT9WmExDbXQ
+* downstream services
+* aaS: UptimeRobot, Checkly, lcurl https://www.youtube.com/watch?v=um24VlkkqGo https://github.com/brotandgames/ciao
+> I setup a 3rd party service to monitor the heartbeats and the return code to validate they are up and properly returning what I expect, notify me if not. I don't have to do sophisticated response processing at the 3rd party service because I can just use http return codes 99% of the time. The detailed response checking is done at the heartbeat level, then a response code generated. https://news.ycombinator.com/item?id=22823230
+* https://updown.io/
+* https://github.com/megaease/easeprobe

@@ -18,6 +18,8 @@
 
 ---
 
+generate from CLI usage https://github.com/nickgerace/gfold
+
 JSON5 https://json5.org/
 https://drewdevault.com/2021/07/28/The-next-YAML.html
 
@@ -33,9 +35,7 @@ QUERY TOOLS
 
 📜 https://cuelang.org/
 
-* use cases https://news.ycombinator.com/item?id=34074386 https://chatgpt.com/c/670d7768-62c8-8004-89e2-fd5a876700d7
-* alternative https://github.com/bazelbuild/starlark https://github.com/systeminit/si
-* not supported by VS Code's Markdown syntax highlighting https://stackoverflow.com/a/70456058/6813490 https://highlightjs.readthedocs.io/en/latest/language-requests.html
+SYNTAX 🎗️ can convert to JSON and YAML
 ```json
 // Define a schema for a person
 person: {
@@ -56,6 +56,13 @@ person: {
 cue vet person.cue
 ```
 
+---
+
+* parser https://github.com/benhoyt/inih
+* use cases https://news.ycombinator.com/item?id=34074386 https://chatgpt.com/c/670d7768-62c8-8004-89e2-fd5a876700d7
+* alternative https://github.com/bazelbuild/starlark https://github.com/systeminit/si
+* not supported by VS Code's Markdown syntax highlighting https://stackoverflow.com/a/70456058/6813490 https://highlightjs.readthedocs.io/en/latest/language-requests.html
+
 ## INI
 
 * used by `.gitconfig`
@@ -66,6 +73,22 @@ cue vet person.cue
 
 https://kdl.dev/ https://zellij.dev/documentation/layouts
 > this is what started me to split protocols into own file apart from `computation.md`
+
+## XML
+
+🗄️ `algos.md` tree
+
+* usage: EDI, Maven, Claude https://github.com/simonw/files-to-prompt
+* element types: prolog, root node/element, child node/elements, comments (same as HTML)
+* _XSLT_: CSS for XML https://github.com/azoner/pyx12
+* _XPath_: CSS selector for XML
+
+---
+
+HISTORY
+* _cXML_: owned by SAP https://en.wikipedia.org/wiki/CXML https://cxml.org/
+* https://news.ycombinator.com/item?id=35467711
+* previously more popular 📙 Beaulieu 2.34
 
 ## YAML
 
@@ -79,7 +102,7 @@ yq 'true' $FILE  # validate https://mikefarah.gitbook.io/yq/upgrading-from-v3#va
 ```
 
 SYNTAX 📜 https://yaml.org/
-* spacing err: `mapping values are not allowed in this context` https://chatgpt.com/c/671d7065-3644-8004-9967-e49a83ef4810
+* spacing/indentation err: `mapping values are not allowed in this context` https://chatgpt.com/c/671d7065-3644-8004-9967-e49a83ef4810
 * scalars
 ```yaml
 name: John Doe                # string
@@ -205,6 +228,7 @@ https://github.com/abhimanyu003/sttr
 * `\t`: in a string literal is an escape sequence for tab character, horizontal whitespace, ASCII codepoint 9 https://stackoverflow.com/a/22116523/6813490
 
 * _EOF_: not a char https://ruslanspivak.com/eofnotchar/
+* `%`: binary character indicating that there's no new line
 * _BOM_: https://www.fluentpython.com/lingo/#BOM
 * en-dash, m-dash, hyphen https://www.punctuationmatters.com/en-dash-em-dash-hyphen/
 
@@ -276,6 +300,10 @@ semantics
 ## Unicode
 
 📜 https://www.unicode.org/main.html
+
+```sh
+file -i $FILE  # make sure confirms to Unicode
+```
 
 ---
 
@@ -394,21 +422,25 @@ f"{val:.{4}}"  # 13.5
 
 📚 Petzold code ch. 15
 
-📍 learn C, learn how to edit binary https://www.youtube.com/watch?v=-eDY7yh-CyA https://github.com/sharkdp/hexyl https://danluu.com/edit-binary/
+TOOLING
+* _hexyl_: ✅ viewer https://github.com/sharkdp/hexyl 🗄️ uuinfo
 
-* used bc easier to convert to binary than decimal [Petzold code 181 https://www.youtube.com/watch?v=dPxCGlW9lfM 4:20]
+---
+
+📍 learn C, learn how to edit binary https://www.youtube.com/watch?v=-eDY7yh-CyA https://danluu.com/edit-binary/
+
+* used bc easier to convert to binary than decimal 📙 Petzold code [181] https://www.youtube.com/watch?v=dPxCGlW9lfM [4:20]
 * _hexit_: hex digit (1 nybble) https://www.youtube.com/watch?v=dPxCGlW9lfM [4:30]
+* used for reverse engineering? https://github.com/radareorg/radare2
 
 TOOLING
-* used for reverse engineering? https://github.com/radareorg/radare2
-* `hexdump -C <file>` https://www.youtube.com/watch?v=-eDY7yh-CyA 1:50
+* `hexdump -C <file>` https://www.youtube.com/watch?v=-eDY7yh-CyA [1:50]
 * _fq_: query https://github.com/wader/fq 
 * _hevi_: https://github.com/Arnau478/hevi
 * _hexabyte_: 🎯 editor https://github.com/thetacom/hexabyte
 * _hexedit_: Ubuntu https://news.ycombinator.com/item?id=23762626
 * _hexed_: 🎯 browser https://hexed.it/
 * _HexFiend_: macOS https://github.com/HexFiend/HexFiend
-* _hexyl_: viewer https://github.com/sharkdp/hexyl
 * _ImHex_: 🎯 editor https://github.com/WerWolv/ImHex 
 
 # 🟨 ZA
@@ -423,18 +455,22 @@ CASES
 
 ## identifiers
 
+🏔️ https://eieio.games/blog/writing-down-every-uuid/
+
 TOOLS
-* identify: UUID, Snowflake https://github.com/Racum/uuinfo
-* generate: pwgen https://www.youtube.com/watch?v=G3aH2WYJxGA shortuuid https://github.com/skorokithakis/shortuuid https://github.com/lithammer/shortuuid
 ```sh
 uuidgen | tr '[:upper:]' '[:lower:]' | pbcopy  #  https://weiyen.net/articles/useful-macos-cmd-line-utilities
 python -c "import random, string; print('\n'.join(''.join(random.choices(string.ascii_uppercase + string.digits, k=4)) for _ in range(20)))"
 ```
+* _uuinfo_: ✅ identify UUID, Snowflake IDs https://github.com/Racum/uuinfo 🗄️ hexyl
+* _pwgen_: generate https://www.youtube.com/watch?v=G3aH2WYJxGA
+* _shortuuid_: https://github.com/skorokithakis/shortuuid https://github.com/lithammer/shortuuid
 
 TYPES
 * _DUNS_: unique for businesses as legal entities; require for government contracts, to be a supplier to big businesses, for SSL certs; e.g. `00-186-7803` for Apple
 * _SKU_: internal to retailer/warehouse; variable length, fmt repr product characteristics/location
 * _ASIN_: Amazon SKU; 10 char; per product i.e. if multiple sellers sell same product they use same ASIN https://inventlikeanowner.com/blog/the-story-behind-asins-amazon-standard-identification-numbers/
+* _QR code_: https://calmcode.io/course/qr-code/generate
 * _UPC_: unique across retailers; 12 char; overseen by GS1
 * syntax: manufacturer + product + check digit (proof of correct reading of previous digits)
 ```sh
@@ -515,10 +551,11 @@ FLAVORS
 * _MyST_: https://github.com/executablebooks/MyST-Parser
 
 PARSERS
+* _markitdown_: 🎯 AI = 25k stars in a month https://github.com/microsoft/markitdown
 * _micromark_: https://github.com/micromark/micromark
 * _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/ re: Next https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
 * time suck https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
-* _markdown-it-py_: https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
+* _markdown-it-py_: used by rich https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
 * _commonmark_: https://github.com/readthedocs/commonmark.py https://github.com/Textualize/rich/pull/2439/files
 * _goldmark_: https://github.com/yuin/goldmark
 * HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown https://html-to-markdown.com/
@@ -534,6 +571,7 @@ EDITOR
 
 ---
 
+* _markdown_: https://pypi.org/project/markdown2/ used this one for `m2h` https://github.com/Python-Markdown/markdown had issues with ampersands in URLs, see repo commit `43e` https://stackoverflow.com/a/20593644/6813490 https://stackoverflow.com/questions/39086/search-and-replace-a-line-in-a-file-in-python
 * https://codehike.org/blog/the-curse-of-markdown
 * writing on mobile, comments for editing https://conroy.org/blogging-on-paper
 * vs. RST https://buttondown.com/hillelwayne/archive/why-i-prefer-rst-to-markdown/
@@ -597,6 +635,8 @@ Conflicts with:
 
 ---
 
+* https://realpython.com/pdf-python/
+* https://github.com/Halolegend94/pdf4py
 * Sioyek https://news.ycombinator.com/item?id=34069804
 * https://docs.racket-lang.org/quad/
 * Markdown https://docs.racket-lang.org/quad/
@@ -622,6 +662,16 @@ https://news.ycombinator.com/item?id=26691626
 
 🗄️ EDI > meta
 
+ANSI (American National Standards Institute)
+* SQL
+* used to do C 📙 Beaulieu [5.86]
+* escape codes https://notes.burke.libbey.me/ansi-escape-codes/
+
+ISO (International Standards Org)
+* does C now, C++ https://www.iso.org/standard/68564.html
+* created OSI
+* credit cards https://www.iso.org/standard/79451.html https://news.ycombinator.com/item?id=42442354
+
 ---
 
 * how RFCs work https://stackoverflow.com/a/1961018
@@ -631,8 +681,6 @@ https://news.ycombinator.com/item?id=26691626
 * why USSR didn't invent the internet http://web.mit.edu/slava/homepage/articles/Gerovitch-InterNyet.pdf
 * _sink_: https://en.wikipedia.org/wiki/Internet_Society RFCs https://tangentsoft.net/rfcs/by-tla.html
 * _IETF_: HTTP https://tools.ietf.org/html/rfc7617
-* _ANSI (American National Standards Institute)_: SQL; used to do C [Beaulieu 5.86] escape codes https://notes.burke.libbey.me/ansi-escape-codes/
-* _ISO (International Standards Org)_: does C now, created OSI, does C++ https://www.iso.org/standard/68564.html
 * _IEEE (Institute for Electrical Electronic Engineers)_: POSIX (standard for UNIX-like OS, C, Bash) [LPI 1.3.2]
 * _Open Group_: controls UNIX (which is just a spec; Solaris, macOS); IBM Huawei DoD Nasa that controls; no Linux distro qualifies [LPI 1, 1.3.3]
 * https://diff.substack.com/p/sharing-and-owning-standards

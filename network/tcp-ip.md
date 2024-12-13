@@ -130,7 +130,7 @@ https://news.ycombinator.com/item?id=41930628
 * _ARP_: 🗄 `practical-packet-analysis.pdf` chapter 6
 * _DMZ_: public-facing part of network https://en.wikipedia.org/wiki/DMZ_(computing)
 * _ICMP_: protocol for routers; used by ping to see if you can get a response from a server https://hacker-tools.github.io/machine-introspection/ https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/  🗄 `practical-packet-analysis.pdf` chapter 6
-* ping alternative: gping https://github.com/ibraheemdev/modern-unix https://github.com/pouriyajamshidi/tcping
+* ping alternative: gping https://github.com/ibraheemdev/modern-unix https://github.com/pouriyajamshidi/tcping https://github.com/laixintao/pingtop
 * _ISP_: people who own the wires https://news.ycombinator.com/item?id=22511417 BYO https://startyourownisp.com/ Starlink https://news.ycombinator.com/item?id=26760735 https://news.ycombinator.com/item?id=27919015
 > The simplest way to look at Starlink is to consider what costs it's avoiding. A typical ISP needs to run physical wires to physical houses, which requires an upfront expense. When Google was rolling out its fiber service, for example, researchers at Bernstein estimated that it was costing $564 per home just to pass homes so they'd be eligible for a connection, and another $464 to $794 to connect them. As a result of this, the industry tends to be concentrated: if one company passes a set of homes, it can name its own price; two companies can split the market; a third company has to pay the same capital expenditures but gets lower incremental returns. So most US households have little choice when they buy Internet service https://diff.substack.com/p/three-bull-cases-for-starlink
 * _UDP_: don't have to establish connection before message sent, msg not acked i.e. unreliable; used by streaming audio/video https://wsvincent.com/tcp-vs-udp/ https://hpbn.co/building-blocks-of-udp/
@@ -163,6 +163,7 @@ https://news.ycombinator.com/item?id=41930628
 
 ---
 
+> 50% of cybersecurity is endlessly explaining that consumer VPNs don’t address any real cybersecurity issues. They are basically only useful for bypassing geofences and making money telling people they need to buy a VPN. Man-in-the-middle attacks on Public WiFi networks haven't been a realistic threat in a decade. Almost all websites use encryption by default, and anything of value uses HSTS to prevent attackers from downgrading / disabling encryption. It's a non issue. https://simonwillison.net/2024/Dec/20/marcus-hutchins/
 * https://computer.rip/2024-09-08-private-lines.html
 * https://news.ycombinator.com/item?id=27939039
 * _VPN_: encrypted connection to VPS to proxy traffic https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn/

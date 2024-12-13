@@ -10,19 +10,40 @@
 
 ## 进步
 
-* _24_: forced switch to eza, try difftastic, monitoring (tqdm, dust, procs, havn), uniq
+* _24_: forced switch to eza, try difftastic, monitoring (tqdm, dust, procs, havn), uniq, get television working as reasonable substitute for text search in VS Code
 * _20_: broot
 * _19_: try out eza, z, fish, tig, fzf, ranger, ripgrep
 
 # 📄 FILE
 
-🗄️ `algos.md` edit distance
-
 * file/dir name linter https://github.com/loeffel-io/ls-lint https://ls-lint.org/
 
-FILE/DIR DIFF 🗄️ `protocols.md` JSON `algos.md` tree walkers https://chatgpt.com/c/67327ac8-4b10-8004-869b-f31305dd5189
+FILE NAME EDITING
+* file manager (nnn, ranger, et al.)
+* vimv https://news.ycombinator.com/item?id=13890944 https://github.com/thameera/vimv
+* https://github.com/yaa110/nomino
+* visidata https://www.visidata.org/blog/2020/ten/
+* `fne` (bulk, dry run, default for youtube-dl)
+
+## diff
+
+🗄️
+* `algos.md` edit distance
+* `protocols.md` JSON
+
+* tree walkers
+```sh
+# Are there any CLI/TUI tools to diff directories? I don't need to diff file contents, just whether the file is there or not. The directories are arbitrarily nested.
+
+diff --brief --recursive dir1 dir2
+rsync -av --dry-run --ignore-existing dir1/ dir2/
+
+fd --type f . dir1 > dir1_files.txt
+fd --type f . dir2 > dir2_files.txt
+diff dir1_files.txt dir2_files.txt
+```
 * BeyondCompare https://scootersoftware.com/ https://news.ycombinator.com/item?id=22850711
-* _filecmp_: https://www.pythonmorsels.com/cli-tools/#filecmp
+* _filecmp_: https://www.pythonmorsels.com/cli-tools/#filecmp https://chatgpt.com/c/5abbb7b1-ab77-4340-9d0d-d77de0d5ebd6
 ```sh
 $ python -m filecmp dir1 dir2
 ```
@@ -30,25 +51,6 @@ $ python -m filecmp dir1 dir2
 * _difftastic_: diff + syntax https://github.com/Wilfred/difftastic https://www.nathaniel.ai/myers-diff
 * _vimdiff_: `vim -d <file1> <file2>` https://stackoverflow.com/a/113328/6813490
 * wraps Vim's diff mode for use in other tools, notably Git's mergetool https://vi.stackexchange.com/a/626 https://www.youtube.com/watch?v=kFVjoIish0E
-
-FILE NAME EDITING
-* file manager (nnn, ranger, et al.)
-* vimv https://news.ycombinator.com/item?id=13890944 https://github.com/thameera/vimv
-* visidata https://www.visidata.org/blog/2020/ten/
-* `fne` (bulk, dry run, default for youtube-dl)
-
-FILE WATCHERS
-* watch sites https://github.com/vsoch/watchme/
-* Golang impl https://github.com/cespare/reflex https://github.com/cortesi/modd
-* exec code in response to fs change https://github.com/wtetsu/gaze https://github.com/watchexec/watchexec
-* application code in Python https://github.com/gorakhargosh/watchdog
-* _entr_: bad install https://github.com/eradman/entr https://jvns.ca/blog/2020/06/28/entr/ https://github.com/eradman/entr/issues/45 http://eradman.com/posts/repeatable-workspaces.html
-* _fswatch_: bad install https://github.com/emcrisostomo/fswatch https://slack.engineering/development-environments-at-slack/
-* _LiveReload_: https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight https://livereload.readthedocs.io/en/latest/index.html https://gist.github.com/mikeckennedy/4e1378477a6d174aa8d59921f8db89c3
-* _watch_: built-in https://linux.die.net/man/1/watch https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command
-* _watchman_: shaky install https://facebook.github.io/watchman/ https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman
-* _hwatch_: https://github.com/blacknon/hwatch
-* _viddy_: 🎯 https://github.com/sachaos/viddy
 
 ## find (fd)
 
@@ -196,14 +198,28 @@ select_tab_drop             # open in new tab, only available on master https://
 
 ### 📺 Television
 
-https://github.com/alexpasmantier/television
-grep https://github.com/darrenldl/docfd
+📜 https://github.com/alexpasmantier/television
+
+CONFIG FILESYSTEM STRANGENESS
+* originally [0.5.3] config (and logs) was `$HOME/Library/Application Support/com.television/config.toml`
+* `$XDG_CONFIG_HOME` is empty = based on docs the config should be at `$HOME/.config/television/config.toml`
+* I tried updating config and didn't register so I created `.config/television` and then config updates registered
+
+THEME
+* color theme didn't cover main pane https://github.com/alexpasmantier/television/issues/80
+* false alarm by me https://github.com/alexpasmantier/television/issues/117
+
+ZA
+* actual search itself kinda bad
+* piping stdout to command https://github.com/alexpasmantier/television/issues/16#issuecomment-2558615942 https://github.com/zachvalenta/dotfiles-mini23/commit/7175670d734ca1362ecfd8204682d2dddb162847
+
+---
+
+> wish you could configure the preview pane to be bigger
 
 CONFIG
-* fs: `$HOME/Library/Application Support/com.television/config.toml`
 * base: https://github.com/alexpasmantier/television/blob/main/.config/config.toml
-* uses same color themes at bat
-* color theme doesn't cover main pane https://github.com/alexpasmantier/television/issues/80
+grep https://github.com/darrenldl/docfd
 
 ## explorer
 
@@ -221,7 +237,6 @@ MAYBE
 * _nnn_: https://github.com/jarun/nnn
 * _tere_: https://github.com/mgunyho/tere
 * _xlpr_: https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020 batch file operations https://github.com/sayanarijit/map.xplr
-* _yazi_: 🎯 PDF preview via poppler https://github.com/sxyazi/yazi
 
 NO
 * BYO https://github.com/willmcgugan/terminal-tree
@@ -282,18 +297,37 @@ DESIGN
 * ❌ bad keybindings: parent directory cmd goes to root instead of parent, no jless/VSC-esqe fold all option no Vim https://github.com/juftin/browsr/issues/15
 * ❌ no search
 
-## jump
+### 🦆 yazi
 
-> currently do via aliases + atuin
+CONFIG
+* fs: `~/.config/yazi`
+* `ya`: CLI
 
-* `.bash_profile` aliases
+OPERATIONS
+* enter doesn't enter dir from shell but rather opens in Vim -> workaround? https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
+* 📍 good for file operations https://www.youtube.com/watch?v=iKb3cHDD9hw
+
+VIZ
+* 📍 theme https://github.com/catppuccin/yazi
+* 📍 PDF preview via poppler https://github.com/sxyazi/yazi
+
+## jump (zoxide)
+
+DESIGN
+* pro `.bash_profile`: better for staples (e.g. `sw`), specify post-`cd` behavior
+* pro jump: better for adhoc, ~25 fewer LOC in `.zprofile`, less time going through atuin
 * BYO https://news.ycombinator.com/item?id=22853119
+
+TOOLS
 * _autojump_: 🎯 mature https://github.com/wting/autojump
 * _wd_: manually add https://github.com/mfaerevaag/wd
 * _z_: https://github.com/rupa/z
-* _zoxide_: ❌ tried out and init in zsh didn't work, requires fzf https://github.com/ajeetdsouza/zoxide https://www.youtube.com/watch?v=mmqDYw9C30I
+* _zoxide_: ✅ https://github.com/ajeetdsouza/zoxide https://www.youtube.com/watch?v=mmqDYw9C30I
+* storage: `/Users/zach/Library/Application Support/zoxide/db.zo`
+* initial usage didn't work bc of user error on my part 🗄️ `os/denv.md` profiles
+* if you really go all in you can just `alias cd = z` https://www.youtube.com/watch?v=aghxkpyRVDY
 
-## list (eza)
+## list
 
 FEATURES
 * config e.g. way to avoid repetition of eza commands in `.zprofile`
@@ -304,20 +338,12 @@ FEATURES
 * highlight outliers (size, last accessed)
 * conditional logic (if in `yin`, use `ll` instead of `l`)
 
-LLA https://github.com/triyanox/lla
-> 📍 config, plugins
-> 🚧 broken build https://github.com/triyanox/lla/issues/47
-* size map `-S`
-* timeline `--timeline`
-* git commit `-G`
-
 OPTIONS
 * _exa_: 💀 kicked off Homebrew https://github.com/ogham/exa https://the.exa.website/
-* _eza_: ✅ Makefile icon broken, absentee maintainers? https://github.com/eza-community/eza https://github.com/eza-community/eza/pull/554
-> 📍 do you not have this configged at all? also, theme support now?
 * _logols_: 💀 https://github.com/Yash-Handa/logo-ls
 * _lsd_: https://github.com/lsd-rs/lsd
-* _pls_: 🎯 https://pls.cli.rs/
+* _pls_: 🎯 https://pls.cli.rs/ ability to group to solve repo cruft problem? https://pls.cli.rs/guides/paths/
+> what I want: cruft, non-cruft, immediate files, dirs
 
 TREE
 * eza/exa
@@ -359,7 +385,56 @@ pyclean () {
 }
 ```
 
+### 🪨 eza
+
+---
+
+* _eza_: ✅ Makefile icon broken, absentee maintainers? https://github.com/eza-community/eza https://github.com/eza-community/eza/pull/554
+> 📍 do you not have this configged at all? also, theme support now?
+
+### 🇲🇦 lla
+
+📜 https://github.com/triyanox/lla
+
+CMD
+* size map `-S`
+> doesn't work on large dirs e.g. yin
+* timeline `--timeline`
+* git commit `-G`
+
+CONFIG
+```sh
+├── $HOME/.config/lla
+│   └── config.toml
+│   └── themes
+│   └──── catppuccin_mocha.toml
+```
+* previously broken build https://github.com/triyanox/lla/issues/47
+
+---
+
+TODO
+* config
+* plugins
+* impl `.gitignore`
+
+## watchers
+
+* watch sites https://github.com/vsoch/watchme/
+* Golang impl https://github.com/cespare/reflex https://github.com/cortesi/modd
+* exec code in response to fs change https://github.com/wtetsu/gaze https://github.com/watchexec/watchexec
+* application code in Python https://github.com/gorakhargosh/watchdog
+* _entr_: bad install https://calmcode.io/course/entr/introduction https://github.com/eradman/entr https://jvns.ca/blog/2020/06/28/entr/ https://github.com/eradman/entr/issues/45 http://eradman.com/posts/repeatable-workspaces.html
+* _fswatch_: bad install https://github.com/emcrisostomo/fswatch https://slack.engineering/development-environments-at-slack/
+* _LiveReload_: https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight https://livereload.readthedocs.io/en/latest/index.html https://gist.github.com/mikeckennedy/4e1378477a6d174aa8d59921f8db89c3
+* _watch_: built-in https://calmcode.io/shorts/watch https://linux.die.net/man/1/watch https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command
+* _watchman_: shaky install https://facebook.github.io/watchman/ https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman
+* _hwatch_: https://github.com/blacknon/hwatch
+* _viddy_: 🎯 https://github.com/sachaos/viddy
+
 # 🔬 MONITORING
+
+🗄️ `telemetry.md`
 
 ARCHITECTURE
 * `python -m platform` https://www.pythonmorsels.com/cli-tools/#platform
@@ -375,22 +450,6 @@ DATA
 * _tar_: https://switowski.com/blog/favorite-mac-tools/
 * _dd_: copy/rm data https://github.com/akavel/up
 * _caligula_: dd alternative https://github.com/ifd3f/caligula
-
-## progress bars (tqdm)
-
-LINUX
-* _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
-* _pv_: same as progress? https://catonmat.net/unix-utilities-pipe-viewer
-
-PYTHON
-```python
-if i % 100 == 0:
-    progress = ((i + 1) / float(len(qd))) * 100.0
-    print('%.2f%%' % progress)
-```
-* _alive_: https://github.com/rsalmei/alive-progress
-* _rich_: https://realpython.com/python-rich-package/
-* _tqdm_: ✅ https://github.com/tqdm/tqdm
 
 ## disk (dust/df)
 
@@ -466,6 +525,8 @@ procs --sortd mem | awk '{ print substr($0, 1, 100) }' | head -n 100 > $DENV_DIR
 
 ---
 
+https://simonwillison.net/2024/Dec/11/rob-cheung/
+
 PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c4dea2c 🗄️ `tcp-ip.md` network monitor
 * control internet access for apps https://tripmode.ch/ https://www.obdev.at/products/littlesnitch/index.html
 * port viewer https://github.com/allyring/pvw
@@ -474,7 +535,83 @@ PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c
 * _bandwhich_: https://github.com/imsnif/bandwhich
 * _rustscan_: https://github.com/RustScan/RustScan
 
+## progress bars (tqdm)
+
+LINUX
+* _enlighten_: https://github.com/Rockhopper-Technologies/enlighten
+* _progress_: estimate remaining time on coretuil execution https://sirupsen.com/progress
+* _pv_: 🚧 couldn't get it to work with markitdown https://catonmat.net/unix-utilities-pipe-viewer Homebrew https://codeberg.org/a-j-wood/pv
+```txt
+The reason the progress bar in pv immediately goes to 100% is that pv doesn’t know the total size of the input when it is being piped directly. This often happens when pv processes a file in a streaming context without being able to assess its full size.
+
+If the progress bar still immediately jumps to 100%, it's likely due to how markitdown interacts with the input stream. When a program reads from the standard input (stdin), it might consume the entire input immediately, bypassing pv's progress-tracking capability.
+
+If the progress bar still jumps to 100% immediately, the issue might be related to how pv calculates and displays progress. When used in combination with certain tools, pv might not process the file linearly or as expected.
+```
+* color https://social.vivaldi.net/@ivarch/113659619955647945
+```sh
+gzip -c access.log > access.log.gz
+$CMD $STDIN $STDOUT
+pv $STDIN | $CMD $STDOUT
+
+cat > copy.dat
+$CMD $OPERATOR
+
+
+cat bigfile.dat | pv > copy.dat
+```
+
+PYTHON
+> how does pip do it? https://github.com/hynek/doc2dash
+```python
+if i % 100 == 0:
+    progress = ((i + 1) / float(len(qd))) * 100.0
+    print('%.2f%%' % progress)
+```
+* _alive_: https://github.com/rsalmei/alive-progress
+* _rich_: 🎯 https://realpython.com/python-rich-package/ https://realpython.com/python-rich-package/#animating-activities-with-progress-bars
+* _tqdm_: ✅ https://github.com/tqdm/tqdm https://calmcode.io/course/tqdm/files-and-descriptions
+* can't figure out how to work with reading CSV in Polars
+```python
+# https://github.com/zachvalenta/capp-mpn-match
+from tqdm import tqdm
+for foo in tqdm(iterable, desc="reading something big"):
+```
+
+## psutil
+
+📜 https://github.com/giampaolo/psutil https://matt.sh/netmatt#_what-if-we-replaced-90s-c-netstat-with-python
+
+* overview
+```txt
+psutil is a cross-platform library for retrieving info about running processes and system utilization (CPU, memory, disks, network, sensors).
+Key features:
+* Process management: creation, termination, status
+* System monitoring: CPU times, memory usage, disk I/O
+* Sensor readings: battery, fans, temperature
+* Network info: connections, interfaces, stats
+Benefits over shell:
+* More robust process identification
+* Cross-platform
+* Type safety
+* Better error handling
+```
+* could use for `kcm` (need to fix the control flow there anyway)
+```sh
+import psutil
+
+if "cmus" in (p.name() for p in psutil.process_iter()):
+    [p for p in psutil.process_iter() if p.name() == "cmus"][0].kill()
+else:
+    Path.home().joinpath(".config/cmus/socket").unlink(missing_ok=True)
+```
+
 # ✏️ TEXT
+
+---
+
+* _fold_: https://blog.balthazar-rouberol.com/text-processing-in-the-shell#fold
+* _fmt_: fmt stdout https://github.com/Idnan/bash-guide#f-fmt
 
 ## awk
 
@@ -806,110 +943,3 @@ TRASH
 * _recoverpy_: https://github.com/PabloLec/RecoverPy
 * _rm_: send to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives
 * _send2trash_: https://github.com/arsenetar/send2trash/issues https://github.com/arsenetar/send2trash/issues/56 
-
-## jobs
-
-🗄 `infra.md` task
-🛠️ retry https://github.com/dbohdan/recur
-
-NOHUP
-* _nohup_: separates process and terminal https://unix.stackexchange.com/a/148698
-* keeps process alive after terminal that started process is killed https://hacker-tools.github.io/remote-machines/
-* appends to `nohup.out`
-```sh
-# keep alive https://github.com/Idnan/bash-guide#d-nohup
-nohup <cmd>
-# keep alive + run in background
-nohup <cmd> &
-```
-
-CRON https://chatgpt.com/c/6728d6eb-b654-8004-acba-f5f0d6aa8055 https://www.youtube.com/watch?v=QZJ1drMQz1A
-* used for: backups, rotate log files
-* semantics: cron = daemon, crontab(le) = file
-* alternatives: launchd = macOS version? https://en.wikipedia.org/wiki/Launchd anachron runs even if machine powered off (unlike chron) https://ports.macports.org/port/anacron/ https://github.com/dshearer/jobber
-> It’s a simple text file with an ASCII table that will execute a command on schedule. 📙 Conery [422]
-* flags: `-l` list `-e` edit
-* fs: system `/etc/crontab` user `/tmp/crontab.$HASH`
-* macOS perms workaround https://www.bejarano.io/fixing-cron-jobs-in-mojave/
-* syntax https://crontab.guru/examples.html
-* env: does not load same env (.bashrc, .zshrc) so you should use absolute paths, does not log the output anywhere by default https://missing.csail.mit.edu/2019/automation/
-```sh
-$SCHEDULE $USER /path/to/script.sh >> /tmp/out.log 2>&1
-```
-```yaml
-tasks:
-  - name: "Backup"
-    command: "python3 backup.py"
-    interval: "daily"
-  - name: "Data Cleanup"
-    command: "python3 cleanup.py"
-    interval: "hourly"
-  - name: "Generate Report"
-    command: "python3 generate_report.py"
-    interval: "weekly"
-```
-```python
-import schedule
-import time
-import subprocess
-import yaml
-from datetime import datetime, timedelta
-
-def load_tasks(file_path='tasks.yaml'):
-    with open(file_path, 'r') as file:
-        config = yaml.safe_load(file)
-    return config['tasks']
-
-def schedule_task(task):
-    command = task['command']
-    def job():
-        print(f"Running: {task['name']} - {datetime.now()}")
-        subprocess.run(command, shell=True)
-    interval = task.get('interval', 'daily')
-    if interval == "hourly":
-        schedule.every().hour.do(job)
-    elif interval == "daily":
-        schedule.every().day.at("00:00").do(job)
-    elif interval == "weekly":
-        schedule.every().monday.at("00:00").do(job)
-    else:
-        minutes = int(interval)
-        schedule.every(minutes).minutes.do(job)
-
-def main():
-    tasks = load_tasks()
-    for task in tasks:
-        schedule_task(task)
-    while True:
-        schedule.run_pending()
-        time.sleep(300)
-
-if __name__ == "__main__":
-    main()
-```
-```python
-# alt impl
-import schedule
-import time
-def job1(): print("Job 1 executed")
-schedule.every().hour.do(job1)             # Every hour
-schedule.every().monday.at("13:15").do(job1)   # Every Monday at 1:15 PM
-while True:
-    schedule.run_pending()
-    time.sleep(1)
-```
-
----
-
-* wait https://www.youtube.com/watch?v=AHAAA7zfT7Q
-* _bg_: put job in background
-* _fg_: put background job into foreground https://hacker-tools.github.io/shell/
-* _&_: run in background
-* _nq_: queuing commands https://github.com/leahneukirchen/nq
-```sh
-# build targets without occupying the terminal
-$ nq make clean
-$ nq make depends
-$ nq make all
-$ fq  # look at output without stopping the build
-```

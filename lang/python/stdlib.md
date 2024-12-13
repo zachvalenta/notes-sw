@@ -9,6 +9,7 @@
 
 ## 进步
 
+* port Click into an example repo
 * _24_: split from `python.md`
 
 # 🤖 OS
@@ -60,6 +61,33 @@ with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
     for line in file:
         print(line.replace(text_to_search, replacement_text), end='')
 ```
+
+## env
+
+```python
+import getpass
+getpass.getuser()  # whoami
+```
+```python
+# DOTENV
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())  # .env
+
+# NATIVE
+import os
+with open(".env") as f:
+    for line in f:
+        line = line.strip()
+        if line and not line.startswith("#"):
+            key, value = line.split("=", 1)
+            os.environ[key] = value
+
+os.getenv("FOO_VAR")
+```
+
+---
+
+* config/env var: https://github.com/theskumar/python-dotenv https://github.com/sloria/environs https://github.com/facebookresearch/hydra https://rednafi.github.io/digressions/python/2020/06/03/python-configs.html less popular cousin https://github.com/sloria/environs
 
 ## files
 
@@ -269,19 +297,28 @@ for row in reader:
 
 📜 https://docs.python.org/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
 
-* _path-like object_: https://docs.python.org/3/glossary.html#term-path-like-object
-
+SNIPPETS
+* drill down
 ```python
-# ACCESS
 Path.cwd()
 Path.cwd().parent
 Path.cwd().parent / 'subdir'
-
-# ASSERTIONS
+```
+* assertions
+```python
 Path.exists(Path.cwd())
 Path.is_dir(Path.cwd() / 'sub1' / 'sub2')
 Path.is_file(Path.cwd() / 'sub1' / 'sub2' / 'foo.csv')
 ```
+* LOC to list
+```python
+p = Path('path/to/file')
+as_string = p.read_text()
+as_list = p.read_text().splitlines()
+```
+
+ZA
+* _path-like object_: obj repr fs path https://docs.python.org/3/glossary.html#term-path-like-object
 
 ---
 
@@ -335,9 +372,122 @@ shutil is good now https://www.bitecode.dev/p/python-313-what-didnt-make-the-hea
 OPTIONS
 * `os.system`
 * `subprocess`
-* _sh_: https://github.com/amoffat/sh https://martinheinz.dev/blog/96
+* _sh_: 🎯 run bash from Python https://github.com/amoffat/sh https://martinheinz.dev/blog/96 https://calmcode.io/shorts/sh.py
 * _suby_: https://github.com/pomponchik/suby
 * _Sultan_: https://github.com/aeroxis/sultan https://stackoverflow.com/a/56842257/6813490
+
+# 🛰️ SERDE
+
+📙 Beazley ch. 6
+🗄
+* `protocols.md` serde
+* `serde.md` wire
+* `svc/django.md` DRF
+
+ALTERNATIVES
+* dataclasses
+* _msgspec_: 🎯 https://github.com/jcrist/msgspec 🗄️ pydantic
+* _orjson_: https://github.com/ijl/orjson
+* _pickle_: ❌  https://docs.python.org/3/library/persistence.html no one uses any more https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html
+* _pydantic_: https://docs.pydantic.dev/latest/concepts/serialization/ https://news.ycombinator.com/item?id=14477434
+
+## 🪲 jiter
+
+* written in Rust but works with Python objs https://github.com/pydantic/jiter
+* https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
+* https://ai.pydantic.dev/
+* https://pythonbytes.fm/episodes/show/413/python-build-standalone-finds-a-home
+
+## json
+
+📜 https://docs.python.org/3/library/json.html
+🛠️ flatten https://github.com/simonw/json-flatten
+
+BASICS
+* dump = ser, load = de 
+* singular for file write, plural for string
+```python
+# SER
+import json
+data = {"name": "Alice", "age": 42}
+json.dumps(data)  # as string '{"name": "Alice", "age": 42}'
+with open("data.json", "w") as f:
+    json.dump(data, f)  # file write
+
+# DE
+with open("data.json", "r") as f:
+    data = json.load(f)  # file load
+data = json.loads('{"name": "Alice", "age": 42}')  # as dict
+```
+
+FMT
+```sh
+# in file https://orbifold.xyz/check-in-json.html
+# ❓ should be able to do this aside from CLI, right?
+python -m json.tool myfile.json > myfile.json.formatted
+```
+```python
+# stdout
+print(json.dumps(item, indent=4, sort_keys=True))  # only works when keys are primitives https://stackoverflow.com/a/47007417 https://stackoverflow.com/a/55179673
+```
+
+## 🍫 Marshmallow
+
+📜 https://marshmallow.readthedocs.io/en/stable/
+
+* _1-M_: https://stackoverflow.com/a/37802227/6813490 https://stackoverflow.com/a/44511616/6813490 https://marshmallow.readthedocs.io/en/latest/nesting.html 
+* _filter nested_: https://stackoverflow.com/q/57851811/6813490
+* _sink_: https://www.kimsereylam.com/python/2019/10/25/serialization-with-marshmallow.html https://www.pythonpodcast.com/marshmallow-data-validation-episode-200/
+
+* _alternatives_: https://news.ycombinator.com/item?id=14477434 stdlib https://news.ycombinator.com/item?id=14477434
+
+libs for Flask
+* _1 - Marshmallow_: base library https://github.com/marshmallow-code/marshmallow
+* _2 - Marshmallow-SQLAlchemy_: lib for SQLAlchemy https://github.com/marshmallow-code/marshmallow-sqlalchemy
+* _3 - Flask-Marshmallow_: lib for Flask-SQLAlchemy https://github.com/marshmallow-code/flask-marshmallow
+> ❓ need both 2 and 3 to work w/ Flask https://www.youtube.com/watch?v=kRNXKzfYrPU 7:00 or just base lib? https://marshmallow.readthedocs.io/en/2.x-line/examples.html#quotes-api-flask-sqlalchemy
+
+* Flask how to
+```python
+# CONNECT TO MODELS
+# declaration must come after model https://stackoverflow.com/questions/59455520/flask-sqlalchemy-marshmallow-error-on-relationship-one-to-many
+class Artist(db.Model):
+    artist_id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(30))
+    songs = db.relationship("Song", backref="artist")
+
+    def __repr__(self):
+        return f"id {self.artist_id} name {self.name}"
+
+class ArtistSchema(ma.ModelSchema):
+    class Meta:
+        model = Artist
+
+# nested
+class SongSchema(ma.ModelSchema):
+    class Meta:
+        model = Song
+
+    artist = ma.Nested(ArtistSchema)
+
+# INIT
+# Flask-SQLAlchemy before Flask-Marshmallow https://flask-marshmallow.readthedocs.io/en/latest/
+db = SQLAlchemy(app)
+ma = Marshmallow(app)
+
+# SERIALIZE
+# initialization must be <model>_schema
+artist_schema = ArtistSchema()  # 1
+artist_schema = ArtistSchema(many=True)  # n
+artist_schema = ArtistSchema(only=("name", "songs"))  # subset
+
+# DESERIALIZE https://marshmallow.readthedocs.io/en/3.0/quickstart.html#deserializing-objects-loading
+# validate https://www.cameronmacleod.com/blog/better-validation-flask-marshmallow https://medium.com/bitproject/recently-i-created-a-restful-api-with-flask-where-my-models-had-many-parameters-75da1db870b7
+```
+
+## orjson
+
+https://calmcode.io/shorts/orjson.py
 
 # 💻 UI
 
@@ -356,6 +506,86 @@ GUI
 ## CLI (Click)
 
 📜 https://click.palletsprojects.com/en/8.1.x
+
+### basic
+
+```python
+@click.group()
+def cli():
+    pass
+@cli.command()
+def command_one():
+    logger.info("this is command one!")
+if __name__ == "__main__":
+    cli()
+```
+```sh
+python $SCRIPT command-one
+```
+
+### args
+
+```sh
+make crud join=join.csv vend=aaon.csv
+```
+```Makefile
+crud:
+	python mapper.py $(join) $(vend)
+```
+```python
+@click.command()
+@click.argument("join_file", type=click.Path(exists=True))
+@click.argument("vendor_file", type=click.Path(exists=True))
+def process_files(join_file, vendor_file):
+```
+
+### default cmd
+
+```python
+# SANS DATACLASS
+@click.group(invoke_without_command=True)
+@click.pass_context
+def cli(ctx):
+    if ctx.invoked_subcommand is None:
+        ctx.invoke(command_one)
+@cli.command()
+def command_one():
+    logger.info("this is command one!")
+if __name__ == "__main__":
+    cli()
+# WITH DATACLASS
+@dataclass
+class Cmd:
+    @click.group(invoke_without_command=True)
+    @click.pass_context
+    def cli(ctx):
+        if ctx.invoked_subcommand is None:
+            ctx.invoke(Cmd.command_one)
+    @cli.command()
+    def command_one():
+        logger.info("this is command one!")
+if __name__ == '__main__':
+    Cmd.cli()
+```
+```sh
+python $SCRIPT
+```
+
+---
+
+* can encapsulate in dataclass
+```python
+@dataclass
+class Pipeline:
+    @click.group()
+    def cli():
+        pass
+    @cli.command()
+    def command_one():
+        Util.strip_metadata()
+if __name__ == '__main__':
+    Pipeline.cli()
+```
 
 * `python script.py`
 ```python
@@ -460,9 +690,23 @@ def main(in_path, out_file):
         with open(path_input, mode="r") as csv_in:
 ```
 
+## input (bullet, questionary)
+
+INPUT 🗄 `security.md` sanitization
+```python
+ur_in = input()
+```
+* Textual https://github.com/darrenburns/textual-autocomplete
+* _bullet_: https://github.com/Mckinsey666/bullet Golang alternative https://github.com/charmbracelet/huh
+* repos https://github.com/zachvalenta/news https://github.com/zachvalenta/capp-prod-cat/blob/link-nodes/tree_viz.py 🗄️ `git.md` Github / search
+* control flow https://github.com/shkey/killurp/blob/141d411d353ab46edf362ff6a33bfe9c5a5ad211/killurp.py#L8 https://github.com/chroma-core/chroma-migrate/blob/2a6e61ee7f2d717281075512b308c40616033189/chroma_migrate/cli.py#L2
+* _questionary_: https://github.com/tmbo/questionary https://calmcode.io/shorts/questionary
+* _prompt-toolkit_: used by pgcli, http-prompt https://github.com/j-bennet/wharfee/blob/master/setup.py https://github.com/wasi-master/fastero
+
 ## IO (rich)
 
 RICH 📜 https://github.com/Textualize/rich https://github.com/zachvalenta/dotfiles-mini23/blob/main/python/python_startup.py
+
 * html https://github.com/willmcgugan/willmcgugan/blob/master/willmcgugan.py
 * to try: repr for obj https://rich.readthedocs.io/en/latest/pretty.html#rich-repr-protocol
 https://rich.readthedocs.io/en/latest/introduction.html#ipython-extension
@@ -485,17 +729,6 @@ try:  # Rich output
 except Exception:
     console.print_exception(show_locals=True)
 ```
-
-INPUT 🗄 `security.md` sanitization
-```python
-ur_in = input()
-```
-* Textual https://github.com/darrenburns/textual-autocomplete
-* _bullet_: https://github.com/Mckinsey666/bullet Golang alternative https://github.com/charmbracelet/huh
-* repos https://github.com/zachvalenta/news https://github.com/zachvalenta/capp-prod-cat/blob/link-nodes/tree_viz.py 🗄️ `git.md` Github / search
-* control flow https://github.com/shkey/killurp/blob/141d411d353ab46edf362ff6a33bfe9c5a5ad211/killurp.py#L8 https://github.com/chroma-core/chroma-migrate/blob/2a6e61ee7f2d717281075512b308c40616033189/chroma_migrate/cli.py#L2
-* _questionary_: https://github.com/tmbo/questionary 
-* _prompt-toolkit_: used by pgcli, http-prompt https://github.com/j-bennet/wharfee/blob/master/setup.py https://github.com/wasi-master/fastero
 
 OUTPUT
 * animation 🎯 https://github.com/ChrisBuilds/terminaltexteffects https://realpython.com/python-rich-package/
@@ -522,7 +755,7 @@ python json_tree.py
 
 ALTERNATIVES
 > Textual inherently slow? Both browsr and elia crawl on open. Find Golang-like alternative
-> prefer the way Golang/Rust TUI libs look (gocui, ratatui) https://github.com/charmbracelet/bubbles
+> prefer the way Golang/Rust TUI libs look (gocui, ratatui, tokie) https://github.com/charmbracelet/bubbles https://github.com/alexpasmantier/television
 * _blessed_: https://github.com/jquast/blessed
 * _asciimatics_: https://github.com/peterbrittain/asciimatics
 * _urwid_: used by pudb, Zulip http://urwid.org/ https://github.com/zulip/zulip-terminal/blob/main/zulipterminal/ui_tools/boxes.py
@@ -600,6 +833,9 @@ aaS
 * _Zenrows_: https://www.zenrows.com/solutions/scraper-api
 
 LIBS
+* _crawlee_: https://github.com/apify/crawlee
+* _crawly_: Elixir https://github.com/elixir-crawly/crawly
+* _gazpacho_: https://github.com/maxhumber/gazpacho https://calmcode.io/course/gazpacho/introduction
 * _katana_: https://github.com/projectdiscovery/katana
 * _scrapling_: https://github.com/D4Vinci/Scrapling
 
@@ -635,7 +871,6 @@ scrape
 * Scrapy
 * table data https://www.visidata.org/blog/2020/ten/#4-scrape-html-table-data-from-a-webpage
 * _Git scraping_: version control your scrapes https://simonwillison.net/2020/Nov/14/personal-data-warehouses/ 16:15
-* _crawlee_: https://github.com/apify/crawlee
 
 parse
 * BeautifulSoup
@@ -683,7 +918,7 @@ http://www.zachvalenta.com/1996-fielding-bridget-jones.html
 
 alternatives
 * https://github.com/jamesturk/spatula
-* https://github.com/codelucas/newspaper/ https://www.pythonpodcast.com/newspaper-data-extraction-episode-280/ https://github.com/maxhumber/gazpacho https://github.com/howie6879/aspider https://github.com/MontFerret/ferret
+* https://github.com/codelucas/newspaper/ https://www.pythonpodcast.com/newspaper-data-extraction-episode-280/ https://github.com/howie6879/aspider https://github.com/MontFerret/ferret
 
 Scrapy
 * _Scrapy_: framework, not lib 🗄 `language.md` req are async
@@ -715,109 +950,7 @@ Selenium
 * finding binary https://stackoverflow.com/a/22130211/6813490
 * tutorial https://intoli.com/blog/running-selenium-with-headless-chrome/
 
-## serde
-
-📙 Beazley ch. 6
-🗄
-* `protocols.md` serde
-* `svc/django.md` DRF
-
-ALTERNATIVES
-* dataclasses
-* _jiter_: 🎯 written in Rust by works with Python objs https://github.com/pydantic/jiter https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
-* _msgspec_: 🎯 https://github.com/jcrist/msgspec 🗄️ pydantic
-* _orjson_: https://github.com/ijl/orjson
-* _pickle_: ❌  https://docs.python.org/3/library/persistence.html no one uses any more https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html
-* _pydantic_: https://docs.pydantic.dev/latest/concepts/serialization/ https://news.ycombinator.com/item?id=14477434
-
-### JSON
-
-📜 https://docs.python.org/3/library/json.html
-🛠️ flatten https://github.com/simonw/json-flatten
-
-BASICS
-* dump = ser, load = de 
-* singular for file write, plural for string
-```python
-# SER
-import json
-data = {"name": "Alice", "age": 42}
-json.dumps(data)  # as string '{"name": "Alice", "age": 42}'
-with open("data.json", "w") as f:
-    json.dump(data, f)  # file write
-
-# DE
-with open("data.json", "r") as f:
-    data = json.load(f)  # file load
-data = json.loads('{"name": "Alice", "age": 42}')  # as dict
-```
-
-FMT
-```sh
-# in file https://orbifold.xyz/check-in-json.html
-# ❓ should be able to do this aside from CLI, right?
-python -m json.tool myfile.json > myfile.json.formatted
-```
-```python
-# stdout
-print(json.dumps(item, indent=4, sort_keys=True))  # only works when keys are primitives https://stackoverflow.com/a/47007417 https://stackoverflow.com/a/55179673
-```
-
-### Marshmallow
-
-📜 https://marshmallow.readthedocs.io/en/stable/
-
-* _1-M_: https://stackoverflow.com/a/37802227/6813490 https://stackoverflow.com/a/44511616/6813490 https://marshmallow.readthedocs.io/en/latest/nesting.html 
-* _filter nested_: https://stackoverflow.com/q/57851811/6813490
-* _sink_: https://www.kimsereylam.com/python/2019/10/25/serialization-with-marshmallow.html https://www.pythonpodcast.com/marshmallow-data-validation-episode-200/
-
-* _alternatives_: https://news.ycombinator.com/item?id=14477434 stdlib https://news.ycombinator.com/item?id=14477434
-
-libs for Flask
-* _1 - Marshmallow_: base library https://github.com/marshmallow-code/marshmallow
-* _2 - Marshmallow-SQLAlchemy_: lib for SQLAlchemy https://github.com/marshmallow-code/marshmallow-sqlalchemy
-* _3 - Flask-Marshmallow_: lib for Flask-SQLAlchemy https://github.com/marshmallow-code/flask-marshmallow
-> ❓ need both 2 and 3 to work w/ Flask https://www.youtube.com/watch?v=kRNXKzfYrPU 7:00 or just base lib? https://marshmallow.readthedocs.io/en/2.x-line/examples.html#quotes-api-flask-sqlalchemy
-
-* Flask how to
-```python
-# CONNECT TO MODELS
-# declaration must come after model https://stackoverflow.com/questions/59455520/flask-sqlalchemy-marshmallow-error-on-relationship-one-to-many
-class Artist(db.Model):
-    artist_id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(30))
-    songs = db.relationship("Song", backref="artist")
-
-    def __repr__(self):
-        return f"id {self.artist_id} name {self.name}"
-
-class ArtistSchema(ma.ModelSchema):
-    class Meta:
-        model = Artist
-
-# nested
-class SongSchema(ma.ModelSchema):
-    class Meta:
-        model = Song
-
-    artist = ma.Nested(ArtistSchema)
-
-# INIT
-# Flask-SQLAlchemy before Flask-Marshmallow https://flask-marshmallow.readthedocs.io/en/latest/
-db = SQLAlchemy(app)
-ma = Marshmallow(app)
-
-# SERIALIZE
-# initialization must be <model>_schema
-artist_schema = ArtistSchema()  # 1
-artist_schema = ArtistSchema(many=True)  # n
-artist_schema = ArtistSchema(only=("name", "songs"))  # subset
-
-# DESERIALIZE https://marshmallow.readthedocs.io/en/3.0/quickstart.html#deserializing-objects-loading
-# validate https://www.cameronmacleod.com/blog/better-validation-flask-marshmallow https://medium.com/bitproject/recently-i-created-a-restful-api-with-flask-where-my-models-had-many-parameters-75da1db870b7
-```
-
-## SGI
+## server gateway (SGI)
 
 🗄️
 * `application.md` utils
@@ -844,37 +977,9 @@ RSGI
 
 # 🟨 ZA
 
-* auth: https://authlib.org/
-* config/env var: https://github.com/theskumar/python-dotenv https://github.com/sloria/environs https://github.com/facebookresearch/hydra https://rednafi.github.io/digressions/python/2020/06/03/python-configs.html less popular cousin https://github.com/sloria/environs
-```python
-import os
-from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv())  # if `.env` present in project
-os.getenv("FOO_VAR")
-```
-* cron / scheduling / daemon: https://github.com/zachvalenta/pypub https://github.com/maxhumber/hickory https://docs.python.org/3/library/sched.html https://github.com/dbader/schedule https://github.com/dbader/schedule https://schedule.readthedocs.io/en/stable/faq.html#how-to-continuously-run-the-scheduler-without-blocking-the-main-thread https://towardsdatascience.com/scheduling-all-kinds-of-recurring-jobs-with-python-b8784c74d5dc
-* URL: urllib, urlparse https://github.com/gruns/furl
-* validation (email, IP address) https://martinheinz.dev/blog/96
-
 ---
 
-* `eval()`: take string and evaluate as if expression from language
-
 * rise of 3rd-party packages, dead batteries http://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html https://www.python.org/dev/peps/pep-0594/ provisional API https://docs.python.org/3/glossary.html#term-provisional-API PEP 594 https://conroy.org/breaking-python-packages
-
-* _hashing_: passlib https://passlib.readthedocs.io/en/stable/ https://pythonbytes.fm/episodes/show/21/python-has-a-new-star-framework-for-restful-apis passlib is bad now? https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
-```python
-# https://pythonbytes.fm/episodes/show/21/python-has-a-new-star-framework-for-restful-apis
-import hashlib as hl
-sha = hl.sha256()
-sha.update(b'hey')
-sha.hexdigest()  # 'fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba62591204'
-```
-* _markdown_: https://pypi.org/project/markdown2/ used this one for `m2h` https://github.com/Python-Markdown/markdown had issues with ampersands in URLs, see repo commit `43e` https://stackoverflow.com/a/20593644/6813490 https://stackoverflow.com/questions/39086/search-and-replace-a-line-in-a-file-in-python
-* _networking_: Scapy https://www.youtube.com/watch?v=EnuF9ZR6MVc psutil https://matt.sh/netmatt#_what-if-we-replaced-90s-c-netstat-with-python
-* _notifications_: https://github.com/notifiers/notifiers https://ntfy.sh/ https://www.phillylinux.org/talks.html
-* _photos_: https://github.com/sedthh/pyxelate 
-* _PDF_: https://realpython.com/pdf-python/ https://github.com/Halolegend94/pdf4py
 
 ## datetime
 
@@ -892,6 +997,9 @@ pdd 0 0 60 --add  # 60 days from today
 
 ---
 
+* https://github.com/ariebovenberg/whenever
+* figure out what datetime fmt is based on string https://calmcode.io/shorts/datefinder.py
+* holidays by country https://calmcode.io/shorts/workalendar.py
 * great Golang library, parser https://github.com/olebedev/when
 * holidays https://github.com/GothenburgBitFactory/holidata
 https://realpython.com/python-packages/#dateutil-for-working-with-dates-and-times
@@ -1043,7 +1151,7 @@ repo.git.ls_remote("--heads", "origin", "master")
 ---
 
 * currency: https://github.com/pycountry/pycountry
-* unit conversion: https://pint.readthedocs.io/en/0.10.1/
+* unit conversion: https://pint.readthedocs.io/en/0.10.1/ https://calmcode.io/shorts/pint.py
 
 sum https://jcarlosroldan.com/post/329/my-latest-tils-about-python
 

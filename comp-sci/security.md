@@ -19,6 +19,8 @@
 
 ## 进步
 
+* Scapy https://www.youtube.com/watch?v=EnuF9ZR6MVc
+
 ATTRIBUTE BASED ACCESS CONTROL (ABAC)
 * Django Guardian
 * Flask Principal
@@ -47,6 +49,8 @@ ROLES https://www.netmeister.org/blog/infosec-skillsets.html
 * _reverse engineering_: disassemblers/decompilers, C++, Windows 🗄 `python-grey-hat.pdf` https://www.begin.re/ https://nostarch.com/GhidraBook https://news.ycombinator.com/item?id=29084716 https://reverseengineering.stackexchange.com/ https://malwareunicorn.org/workshops/re101.html
 
 CLEAN THESE UP BEFORE BUYING BOOKS
+* vulnerability scanner https://sansec.io/
+* stuxnet https://www.youtube.com/watch?v=WyBlh8Tq6_Q
 * things to know https://www.netmeister.org/blog/infosec-competencies.html https://jacobian.org/2021/jul/8/appsec-pagnis https://latacora.github.io/careers/
 * BYO RCE https://github.com/Narasimha1997/py4jshell
 * BYO w/ Django https://www.youtube.com/watch?v=bvLJTNRpnt8
@@ -64,6 +68,7 @@ CLEAN THESE UP BEFORE BUYING BOOKS
 * https://blog.projectdiscovery.io/projectdiscovery-best-kept-secrets/
 * auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas
 * https://www.youtube.com/watch?v=F5KJVuii0Yw
+* keylogger https://github.com/kernc/logkeys
 * mv email
 * hacking cloud databases, CIDR, port scanning https://infosecwriteups.com/how-i-discovered-thousands-of-open-databases-on-aws-764729aa7f32#836b port scan https://github.com/RustScan/RustScan https://terminaltrove.com/havn/
 * lab: VirtualBox for Windows on nix? https://nostarch.com/ethical-hacking
@@ -262,13 +267,23 @@ asymmetric
 * _memory-hard_: resistant to brute forcing with parallelism (hackers typically use GPUs) bc large mem requirements https://en.wikipedia.org/wiki/Memory-hard_function https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 
 ALGOS
-* _argon_: https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://en.wikipedia.org/wiki/Argon2
+* _argon_: https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://en.wikipedia.org/wiki/Argon2 https://github.com/hynek/argon2-cffi
 * _bcrypt_: https://en.wikipedia.org/wiki/Bcrypt
 * _crypt_: https://en.wikipedia.org/wiki/Crypt_(C)
 * _scrypt_: https://en.wikipedia.org/wiki/Scrypt
 * _yescrypt_: https://en.wikipedia.org/wiki/Yescrypt https://www.openwall.com/yescrypt/
 
 ---
+
+IN PYTHON
+* _hashing_: passlib https://passlib.readthedocs.io/en/stable/ https://pythonbytes.fm/episodes/show/21/python-has-a-new-star-framework-for-restful-apis passlib is bad now? https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
+```python
+# https://pythonbytes.fm/episodes/show/21/python-has-a-new-star-framework-for-restful-apis
+import hashlib as hl
+sha = hl.sha256()
+sha.update(b'hey')
+sha.hexdigest()  # 'fa690b82061edfd2852629aeba8a8977b57e40fcb77d1a7a28b26cba62591204'
+```
 
 BYO https://www.reddit.com/r/learnprogramming/comments/33s79p/what_is_the_best_way_to_start_writing_my_own_hash/
 hash function https://www.youtube.com/watch?v=cczlpiiu42M
@@ -301,6 +316,8 @@ pass
 🗄 `application.md` security
 
 ---
+
+* Python https://authlib.org/
 
 SEMANTICS
 https://ntietz.com/blog/lets-say-instead-of-auth/
@@ -468,7 +485,7 @@ PAK/PAKE https://en.wikipedia.org/wiki/Password-authenticated_key_agreement http
 
 macOS keychain https://chatgpt.com/c/67169518-4498-8004-9299-20713115c9e9
 
-* _passkey_: https://world.hey.com/dhh/passwords-have-problems-but-passkeys-have-more-95285df9
+* _passkey_: https://world.hey.com/dhh/passwords-have-problems-but-passkeys-have-more-95285df9 https://news.ycombinator.com/item?id=42413539 https://news.ycombinator.com/item?id=42516800
 
 PASSWORD MANAGER
 * _Bitwarden_: has a CLI; alternative https://github.com/AChep/keyguard-app

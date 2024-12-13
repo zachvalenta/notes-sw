@@ -11,17 +11,22 @@
 📚
 * Layman https://www.mattlayman.com/understand-django/
 * Trudeau https://www.manning.com/books/django-in-action https://learndjango.com/courses/django-for-beginners https://github.com/wsvincent/djangoforbeginners
-* Vincent beginners (3.0)
-> (no longer available as PDF) https://wsvincent.com/year-in-review-2024/
+* Vincent beginners (3.0) https://livebook.manning.com/book/django-in-action
+> (no longer available as PDF) but you have access to his course https://wsvincent.com/year-in-review-2024/
 
 ## 进步
 
 ---
 
+alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016 https://github.com/hbakri/django-ninja-crud
+Rails https://news.ycombinator.com/item?id=42569236
+https://www.loopwerk.io/articles/2024/django-vs-flask-vs-fastapi/
+https://www.bugsink.com/blog/better-error-tracking-in-django/
+https://realpython.com/django-user-management/
 * perf: https://openfolder.sh/django-faster-speed-tutorial
 * in a single file https://github.com/radiac/nanodjango
 TUI commands https://github.com/anze3db/django-tui
-TUI admin https://github.com/valberg/django-admin-tui https://github.com/valberg/django-htmx-admin
+TUI admin https://github.com/valberg/django-admin-tui https://github.com/valberg/django-htmx-admin https://github.com/adamghill/django-unicorn
 REPL https://github.com/selectnull/django-pyrepl/
 
 * _24_: rf
@@ -47,7 +52,6 @@ ZA
 * https://learndjango.com/tutorials/official-django-rest-framework-tutorial-beginners
 * refresh https://learndjango.com/tutorials/official-django-rest-framework-tutorial-beginners
 * https://www.youtube.com/watch?v=06DJBu1zwoY https://www.laceyhenschel.com/blog/2021/2/22/what-you-should-know-about-drf-part-1-modelviewset-attributes-and-methods
-* https://github.com/hbakri/django-ninja-crud
 * serialization can be expensive, can drop when you need perf https://hakibenita.com/django-rest-framework-slow
 * exclude field https://www.django-rest-framework.org/community/3.4-announcement/#use-fields-or-exclude-on-serializer-classes
 * fields defaults to string https://www.django-rest-framework.org/tutorial/1-serialization/#creating-a-serializer-class
@@ -73,7 +77,9 @@ if request.method == 'POST':
 
 ## middleware
 
-📜 https://docs.djangoproject.com/en/3.1/topics/http/middleware/
+📜
+* https://docs.djangoproject.com/en/3.1/topics/http/middleware/
+* https://docs.djangoproject.com/en/5.1/topics/db/instrumentation/ https://adamj.eu/tech/2024/12/05/django-sql-breakpoint/
 
 * hook in req/res cycle
 * middleware obj takes req and return res
@@ -847,9 +853,8 @@ misc
 📰 GOVERNANCE / COMMUNITY
 * creators: Simon https://news.ycombinator.com/user?id=simonw Adrian https://www.soundslice.com/ Jacob https://jacobian.org/ Andrew Godwin (did south and migrations)
 * history https://jacobian.org/2024/mar/20/django-chat/ https://buttondown.com/carlton/archive/thoughts-on-djangos-core/
-* alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016
 * users: https://octopus.energy/ https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
-* versions: https://www.codestasis.com/
+* versions: https://www.codestasis.com/ https://github.com/ambient-innovation/django-removals/
 > Django 5.0 was released in December 2023...Django's versioning policy is time-based rather than feature-based. Roughly every eight months, a new feature release occurs, along with monthly bug fixes and security patches as needed...meaning you can expect Django 5.1 in August 2024, Django 5.2 in April 2025, Django 6.0 in December 2025, and so on. Django has such a large and active community of contributors that the decision was made years ago to focus on regular rollouts rather than wait for specific features to be completed...Specific releases (those that end in .2, like Django 5.2 and 6.2) are designated as long-term support (LTS) releases and receive security and data loss fixes applied for a guaranteed period, typically three years. This policy is designed for larger companies struggling to keep up with Django's rapid release schedule. https://learndjango.com/courses/django-for-beginners/introduction/
 * _DSF_: admin https://wsvincent.com/how-django-works-behind-the-scenes/ 501 non-profit https://www.b-list.org/weblog/2018/nov/20/core/
 * _DEP_: PEP for Django https://github.com/django/deps

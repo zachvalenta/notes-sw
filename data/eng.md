@@ -12,6 +12,11 @@
 
 ## 进步
 
+* _24_: try harlequin, lots of rf
+* _22_: basic xsv/miller/Pandas
+* _21_: put together basic data eng notes
+* _18_: find visidata
+
 https://news.ycombinator.com/item?id=42078067
 > We love Postgres for its simplicity, power, and rich ecosystem. But engineers have to still get bogged down with heavyweight and expensive OLAP systems when connecting an analytics data stack.
 > Postgres is amazing at OLTP queries, but not for OLAP queries (large data scans and aggregations). Even in this case, we’ve still heard from countless scaling startups that they still try to use only a read replica to run analytics workloads since they don’t want to deal with the data engineering complexity of the alternative. This actually works surprising well initially, but starts to break for them as they scale or when integrating multiple data sources. Adding lots of indexes to support analytics also slows down their transactional write performance.
@@ -45,10 +50,16 @@ https://news.ycombinator.com/item?id=42078067
 * https://www.ssp.sh/brain/data-engineering/
 * Cassandra https://news.ycombinator.com/item?id=41683293
 
-* _24_: try harlequin, lots of rf
-* _22_: basic xsv/miller/Pandas
-* _21_: put together basic data eng notes
-* _18_: find visidata
+ROLES
+* _data scientist_: analytics
+> data scientist's job is to launder management's intuition using quantitative methods https://news.ycombinator.com/item?id=34694926
+* _data engineer_: shepard (ETL) librarian (catalog) https://www.youtube.com/watch?v=qqlbYDfqeI4 1:45
+> But if data analytics usually means extracting insights from existing data, data engineering means the process of building infrastructure to deliver, store and process the data. https://khashtamov.com/en/how-to-become-a-data-engineer/
+* vs. web dev https://tech.marksblogg.com/is-hadoop-dead.html
+> The above projects often aren't advertised in a way that web developers would be exposed to them. This is why someone could spend years working on new projects that are at the bottom of their S-curve in terms of both growth and data accumulated and largely never see a need for data processing outside of what could fit in RAM on a single machine.
+> Web Development was a big driver in the population growth of coders over the past 25 years. Most people that call themselves a coder are most often building web applications. I think a lot of the skillsets they possess overlap well with those needed in data engineering but often distributed computing, statistics and storytelling are lacking.
+> Websites often don't produce much load with any one user and often the aim is to keep the load on servers supporting a large number of users below the maximum hardware thresholds. The data world is made up of workloads where a single query is trying its best to maximize a large number of machines in order to finish as quickly as possible while keeping the infrastructure costs down.
+> Companies producing PBs of data often have a queue of experienced consultants and solutions providers at their door. I've rarely seen anyone plucked out of web development by their employer and brought into the data platform engineering space; it's almost always a lengthy, self-retraining exercise.
 
 # 🖲️ ADMIN
 
@@ -105,7 +116,7 @@ TIMEZONES
 * `system.md` distributed
 * `sql.md` migrations
 
-* postgres https://github.com/xataio/pgstream
+* postgres https://github.com/xataio/pgstream https://news.ycombinator.com/item?id=42383136
 * https://github.com/bruin-data/ingestr
 * _replication_: same data on diff nodes 📙 Kleppmann [199] https://news.ycombinator.com/item?id=37066284
 * secondaries only accept writes from primary 📙 Bradshaw [236]
@@ -148,12 +159,14 @@ TIMEZONES
 
 # 🌊 PIPELINE
 
+📙 Cayla https://www.manning.com/books/data-preparation-handbook
 🗄
 * `data/sql.md` migrations
 * `infra.md` task queue, workflow engine
 
 ---
 
+* Bruin, Cue https://news.ycombinator.com/item?id=42442812
 * https://www.youtube.com/watch?v=kGT4PcTEPP8
 * https://sre.google/sre-book/table-of-contents/ chapter 26
 * clean up https://news.ycombinator.com/item?id=34578324 https://en.wikipedia.org/wiki/Instruction_pipelining https://joblib.readthedocs.io/en/latest/index.html https://news.ycombinator.com/item?id=34578324 https://arpit.substack.com/p/how-grab-stores-and-processes-millions https://news.ycombinator.com/item?id=34483402 visidata https://www.visidata.org/blog/2020/ten/
@@ -206,7 +219,8 @@ TOOLS
 SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User_Data
 * https://developer.wordpress.org/apis/security/sanitizing/ https://developer.wordpress.org/apis/security/data-validation/ https://developer.wordpress.org/apis/security/escaping/
 * https://github.com/pyjanitor-devs/pyjanitor
-* _validation_: compare against rules
+* URL: urllib, urlparse https://github.com/gruns/furl
+* _validation_: compare against rules (email, IP address) https://martinheinz.dev/blog/96
 * _filter_: rm validation violations
 * _escape_: convert validation violations
 * _sanitize_: validate + filter/escape
@@ -214,6 +228,7 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 
 ## test
 
+https://www.milesmcbain.com/posts/assertive-programming-for-pipelines/
 * _data contract_: https://github.com/benrutter/wimsey
 * https://pycon-archive.python.org/2024/schedule/presentation/46/index.html
 * compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff 
@@ -338,6 +353,7 @@ https://karenjex.blogspot.com/2024/09/optimising-your-database-for-analytics.htm
 * _Hudi_: lakehouse https://news.ycombinator.com/item?id=34345408
 * _Iceberg_: lakehouse https://news.ycombinator.com/item?id=34345408
 * _Redshift_: warehouse https://aws.amazon.com/redshift/
+* _Snowflake_:
 
 ICEBERG 🔍 email
 https://www.youtube.com/watch?v=cI9zu5Rk_bQ
@@ -406,7 +422,6 @@ ALTERNATIVES
 * just use CLIs https://news.ycombinator.com/item?id=39136472
 * _BigQuery_: really fast https://tech.marksblogg.com/billion-nyc-taxi-rides-bigquery.html https://dataschool.com/sql-optimization/bigquery-optimization
 * _Hydra_: use Postgres https://github.com/hydradatabase/hydra
-* _Orc_: https://tech.marksblogg.com/faster-csv-to-orc-conversions.html
 * _Postgres_: https://news.ycombinator.com/item?id=39263760 https://brandur.org/warehouse https://tech.marksblogg.com/billion-nyc-taxi-rides-postgresql.html https://news.ycombinator.com/item?id=27109960
 > I've also heard arguments that row-oriented systems like MySQL and PostgreSQL can fit the needs of analytical workloads as well as their traditional transactional workloads. Both of these offerings can do analytics and if you're looking at less than 20 GB of data it's probably not worth the effort of having multiple pieces of software running your data platform. https://tech.marksblogg.com/is-hadoop-dead.html
 * _Snowflake_: users/investors like them https://news.ycombinator.com/item?id=24265041 https://dataschool.com/sql-optimization/snowflake/ https://www.youtube.com/watch?v=xojAXXRo_S0 OSS https://news.ycombinator.com/item?id=38038239 📙 https://www.manning.com/books/snowflake-data-engineering
@@ -416,47 +431,85 @@ ALTERNATIVES
 
 ## ☢️ DataFusion
 
-https://github.com/apache/datafusion
-https://datafusion.apache.org/
+📜 https://datafusion.apache.org/ https://github.com/apache/datafusion
 
-used by Logfire, no indexes https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
+* used by Logfire, no indexes https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
 
 ## 🦆 DuckDB
 
-📙 https://www.manning.com/books/duckdb-in-action
+📜 https://duckdb.org/docs/ https://github.com/duckdb/duckdb
+📙 Needham https://www.manning.com/books/duckdb-in-action
+
+DESIGN
+* design: columnar
+* data sources: CSV, Excel, Google Sheets, Parquet, S3, Postgres, SQLite, Iceberg https://duckdb.org/docs/data/data_sources.html https://duckdb.org/community_extensions/extensions/gsheets.html
+
+CLI
+* install: Homebrew
+* config fs: `$HOME/.duckdbrc`
+* extensions
+```sh
+INSTALL sqlite;  # $HOME/.duckdb/extensions
+```
+* from-first syntax https://duckdb.org/docs/sql/query_syntax/from.html#from-first-syntax
+* commands https://duckdb.org/docs/api/cli/overview.html
+```sh
+.exit
+.tables
+.schema $TABLE
+```
+* CSV https://duckdb.org/docs/data/csv/overview.html
+```sh
+duckdb stat-explore.db  # create db
+
+# create table, will be automatically added to db
+CREATE TABLE signups AS SELECT * FROM 'signups.csv'
+.import $CSV $TABLE
+
+.open path/to/stat-explore.db  # set as default
+```
+
+LIB
+* query dataframes
+```python
+import duckdb
+import pandas as pd
+df = pd.DataFrame(pd.read_csv($FILE))  # create df
+con = duckdb.connect()  # connect to DuckDB
+con.register("my_df", df)  # register df with DuckDB
+my_query = """ SELECT * FROM my_df """  # use registered df in query
+query_res = con.execute(my_query).df()  # exec query
+query_res.to_parquet('file/path.parquet')  # save
+```
 
 ---
 
-https://www.youtube.com/watch?v=yi2zgenIZm4
-https://pycon-archive.python.org/2024/schedule/presentation/130/index.html
-https://changelog.com/news/big-data-is-dead-analytics-is-alive-LGl0
-https://softwareengineeringdaily.com/2024/08/08/duckdb-with-hannes-muhleisen/
-
-https://www.youtube.com/watch?v=MCa0fAyfiRM
-https://www.youtube.com/watch?v=JoVHITW_WeE
-
 > DuckDB is a single file SQL database. https://csvbase.com/blog/6
-
 > DuckDB is a new analytical data management system that is designed to run complex SQL queries within other processes. DuckDB has bindings for R and Python, among others. DuckDB can query Arrow datasets directly and stream query results back to Arrow. This integration allows users to query Arrow data using DuckDB's SQL Interface and API, while taking advantage of DuckDB's parallel vectorized execution engine, without requiring any extra data copying. Additionally, this integration takes full advantage of Arrow's predicate and filter pushdown while scanning datasets. https://duckdb.org/2021/12/03/duck-arrow.html
-
-https://duckdb.org/
-
-* https://tech.marksblogg.com/duckdb-1b-taxi-rides.html
-* embedded
+* interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html
 * role in ecosystem https://wesmckinney.com/blog/looking-back-15-years/
 * for analytics https://news.ycombinator.com/item?id=24531085 https://news.ycombinator.com/item?id=23287278
 * own flavor of SQL https://duckdb.org/2022/05/04/friendlier-sql.html
+* BigFrame = BigQuery for dataframes https://www.youtube.com/watch?v=R6RYEKC0gW0 https://github.com/googleapis/python-bigquery-dataframes
+* https://news.ycombinator.com/item?id=39141652
+* https://www.nikolasgoebel.com/2024/05/28/duckdb-doesnt-need-data.html
+* https://www.youtube.com/watch?v=yi2zgenIZm4
+* https://pycon-archive.python.org/2024/schedule/presentation/130/index.html
+* https://changelog.com/news/big-data-is-dead-analytics-is-alive-LGl0
+* https://softwareengineeringdaily.com/2024/08/08/duckdb-with-hannes-muhleisen/
+* https://www.youtube.com/watch?v=MCa0fAyfiRM
+* https://www.youtube.com/watch?v=JoVHITW_WeE
+* https://tech.marksblogg.com/duckdb-1b-taxi-rides.html
 * https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/
 * https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf
 * https://kadekillary.work/note/duckdb/
 * https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html
-* interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html
-* https://news.ycombinator.com/item?id=39141652
-* https://www.nikolasgoebel.com/2024/05/28/duckdb-doesnt-need-data.html
 
 ## ⦊ Presto
 
 ---
+
+> That’s now rapidly changing; on the back-end, most modern enterprise software (e.g. Salesforce, Jira, etc.) now have good APIs for exporting data. ETL + data lakes are on the rise: Presto, for example, facilitates cross-database joins that weren’t possible just a few years ago. https://retool.com/blog/erp-for-engineers
 
 * _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
 * beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
@@ -478,7 +531,7 @@ BASICS
 * architecture: driver/lib -> executor -> operates on data https://www.youtube.com/watch?v=XrpSRCwISdk [5:10]
 * used for ML https://tech.marksblogg.com/is-hadoop-dead.html
 * _pyspark_: Python API to Spark https://www.youtube.com/watch?v=XrpSRCwISdk https://spark.apache.org/docs/latest/api/python/index.html
-* _Databricks_: Spark aaS from creators of Spark 🔍 see ChatGPT convo
+* _Databricks_: Spark aaS from creators of Spark; lakehouse, autoscaling, model training, interactive notebooks
 
 HADOOP
 * _Hadoop_: parallelization for large data 🗄 `infra.md` EMR https://aosabook.org/en/v1/hdfs.html
@@ -496,75 +549,3 @@ HADOOP
 * map (match) reduce (group) https://www.practical-mongodb-aggregations.com/intro/history.html
 * also a query language 📙 Kleppmann 46
 * PRQL = alternative query language https://news.ycombinator.com/item?id=30060784
-
-# 🟨 ZA
-
-ROLES
-* _data scientist_: analytics
-> data scientist's job is to launder management's intuition using quantitative methods https://news.ycombinator.com/item?id=34694926
-* _data engineer_: shepard (ETL) librarian (catalog) https://www.youtube.com/watch?v=qqlbYDfqeI4 1:45
-> But if data analytics usually means extracting insights from existing data, data engineering means the process of building infrastructure to deliver, store and process the data. https://khashtamov.com/en/how-to-become-a-data-engineer/
-* vs. web dev https://tech.marksblogg.com/is-hadoop-dead.html
-> The above projects often aren't advertised in a way that web developers would be exposed to them. This is why someone could spend years working on new projects that are at the bottom of their S-curve in terms of both growth and data accumulated and largely never see a need for data processing outside of what could fit in RAM on a single machine.
-> Web Development was a big driver in the population growth of coders over the past 25 years. Most people that call themselves a coder are most often building web applications. I think a lot of the skillsets they possess overlap well with those needed in data engineering but often distributed computing, statistics and storytelling are lacking.
-> Websites often don't produce much load with any one user and often the aim is to keep the load on servers supporting a large number of users below the maximum hardware thresholds. The data world is made up of workloads where a single query is trying its best to maximize a large number of machines in order to finish as quickly as possible while keeping the infrastructure costs down.
-> Companies producing PBs of data often have a queue of experienced consultants and solutions providers at their door. I've rarely seen anyone plucked out of web development by their employer and brought into the data platform engineering space; it's almost always a lengthy, self-retraining exercise.
-
-## streaming
-
-🗄️ `infra.md` queue / event (Kafka)
-
----
-
-https://github.com/ebonnal/streamable
-https://www.npmjs.com/package/x12-parser
-https://www.youtube.com/watch?v=mDpS9J0-SQ4
-
-* streaming architecture https://news.ycombinator.com/item?id=31421004
-* streaming in Postgres https://github.com/sequinstream/sequin
-
-https://www.youtube.com/watch?v=7AMRfNKwuYo
-
-dashboard visualization https://github.com/finos/perspective
-
-> A streaming SQL engine keeps queries’ results up to date without ever having to recalculate them, even as the underlying data changes. To explain this, imagine a simple query, such as SELECT count(*) FROM humans . A normal SQL engine (such as Postgres’s, MySQL’s) would need to go over all the different humans every time you ran that query- which could be quite costly and lengthy given our ever changing population count. With a streaming SQL engine, you would define that query once, and the engine would constantly keep the resulting count up to date as new humans were born and the old / sickly ones died off, without ever performing a recalculation of counting all humans in the world. https://news.ycombinator.com/item?id=37965319
-
-STREAMING / BLOCKING 🗄 `computation.md` serialization
-* https://www.scattered-thoughts.net/
-* https://github.com/ynqa/sig
-* blocking
-* https://ossinsight.io/blog/why-we-choose-tidb-to-support-ossinsight/
-* async https://www.b-list.org/weblog/2022/aug/16/async https://www.youtube.com/watch?v=bw1qeMoFBmw https://www.youtube.com/watch?v=0z74b3c63GA
-* batch: TQ, Airflow
-> port from `db.md`
-* streaming: Kafka https://www.youtube.com/watch?v=qi7uR3ItaOY 🗄 site/drafts/ddd.md
-* https://simonwillison.net/2021/Jul/1/pagnis/ https://news.ycombinator.com/item?id=38167423
-* forum software in 500 lines or less https://news.ycombinator.com/item?id=33153152
-> what is the relationship bte Kafka and faust? https://www.youtube.com/watch?v=Ik1PBbCWcTc
-> is flink streaming or batch? https://github.com/apache/flink https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
-> what is windowing? https://www.scattered-thoughts.net/writing/against-sql
-batch vs. streaming https://robertheaton.com/2020/02/08/pfab9-batch-vs-stream-processing/ 📙 Kleppmann section 3 🗄 `application.md` WebSocket
-> 📍 batch to ETL, streaming to where?
-* _batch_: more than one at a time 📍 Kleppmann chapter 9
-* requires fewer trips to data source
-* higher memory consumption
-> Since the data in parsed_messages is essentially the same as that in raw_log but in a different form, parsed_messages probably takes up about the same amount of memory again as raw_log. We’re therefore using at least 20MB of memory to process a 10MB file.
-```ruby
-raw_log = File.read("samplelog.txt")
-parsed_messages = parse_raw_log(raw_log)
-message_stats = calculate_stats(parsed_messages)
-```
-* temporal data, virtual time https://www.hytradboi.com/2022/working-with-virtual-time-in-sql https://github.com/frankmcsherry/blog/blob/master/posts/2021-02-11.md
-* _stream processing_: one at a time 📙 Kleppmann ch. 10 🗄 `system.md` Kafka
-* libraries: https://github.com/robinhood/faust https://github.com/apache/flink
-* sources: clickstream, IoT sensors, time series
-* https://www.hytradboi.com/2022/a-faster-inner-dev-loop-for-stream-processing
-* lower memory consumption
-> Once the block has finished executing, the Ruby interpreter is able to garbage collect the data for both the raw line and processed message, since it can see that the program won’t reference them again. This means that the Ruby interpreter can reuse the piece of memory in which they were stored.
-```ruby
-stats = {}
-File.open("samplelog.txt").each_line do |l|
-  message = parse_raw_log_line(l)
-  stats = add_message_to_stats(message, stats)
-end
-```

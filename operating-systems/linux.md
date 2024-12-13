@@ -24,354 +24,6 @@ BYO linux https://drewdevault.com/2024/05/24/2024-05-24-Bunnix.html
 * _19_: symlink dotfiles
 * _18_: scripts (`fne`, `qing`, `ding`, `qiu`, `jb`)
 
-# ‍🔥 BASH
-
-📚
-* Barrett https://www.amazon.com/gp/product/1098113403 https://fabiensanglard.net/bash/
-* Shotts linux command line https://www.linuxcommand.org/tlcl.php
-* Stutz cookbook
-🔗
-* https://github.com/dylanaraps/pure-bash-bible
-* https://github.com/anordal/shellharden/blob/master/how_to_do_things_safely_in_bash.md https://jvns.ca/blog/2023/08/08/what-helps-people-get-comfortable-on-the-command-line-/
-* https://leanpub.com/learnbashthehardway
-* https://wizardzines.com/zines/bite-size-bash/
-* https://mywiki.wooledge.org/BashGuide/Practices
-
-## args
-
-* access
-```sh
-$@  # all e.g. for file in "{$files[@]}"
-$#  # get by number
-$_  # get previous arg https://www.youtube.com/watch?v=vt-IvdFP5ZA
-
-# get positional
-$ cmd arg1 arg2 # $0 = cmd, $1 = arg1, $2 = arg2, $@ = all args
-
-# set default https://stackoverflow.com/a/33419280
-function agg(){
-    # e.g. `agg` -> YEAR = 23; `agg 21` -> YEAR = 21
-    YEAR=${1:-23}
-    rg foo "$YEAR"/??.dat
-}
-```
-
-* checks
-```sh
-if [ $# -eq 0 ]  # none
-if [ "$var" = "$var" ]  # equality
-if [ -z "$var" ]  # empty string: -z (true if empty) -n (true if not empty) https://stackoverflow.com/a/18096739
-if [[ "$var" =~ ^-?[0-9]+[.,]?[0-9]*$ ]]  # integer https://stackoverflow.com/a/28898213
-```
-
-## checks
-
-```sh
-# EMPTY / NON-EMPTY
-if [ "$var" ]  # assert non-empty
-if [ -z "$var" ]  # assert empty
-
-# TYPE INFO https://www.youtube.com/watch?v=hrbV5WGxxdY
-file $FILE
-
-# ENV VAR SET
-if [ -z "$OPENAI_API_KEY" ]; then
-    echo "OPENAI_API_KEY not set. Set in aider.env."
-    exit 1
-fi
-
-# CHECK FILE EXISTS
-test -f ~/.netrc && echo "~/.netrc already exists"
-
-# CHECK FILE DOESN'T EXIST https://stackoverflow.com/a/638980
-if [ ! -f /tmp/foo.txt ]; then  # test can also be written as braces e.g. [ ! -f /tmp/foo.txt ]
-    echo "File not found!"
-fi
-
-# CHECK PORT IN USE https://stackoverflow.com/a/50108745
-bash -c 'while !</dev/tcp/db/5432; do sleep 1; done; npm start'
-
-# CHECK CMD EXISTS
-if ! type -f fswatch >/dev/null ; then
-  echo "fswatch not installed: install with `brew install fswatch`" >&2
-  exit 2
-fi
-```
-
-## control flow
-
-📜 https://ss64.com/bash/if.html
-
-BOOLEAN OPERATORS
-```sh
-&&  # AND
-```
-
----
-
-```txt
-So you have to use double braces ([[) if you use boolean operators like &&?
-
-Not quite. The difference is more nuanced:
-
-Single square brackets [ ]:
-* Traditional POSIX shell syntax
-* Requires spaces around operators
-* Requires explicit -n or -z for string tests
-* Boolean operators (&&, ||) work best outside the brackets
-
-Double square brackets [[ ]]:
-
-* Bash-specific extended test command
-* More flexible string handling
-* Allows && and || directly inside the brackets
-* Provides some additional features like pattern matching
-
-So you can use boolean operators with single brackets, but you need to do it differently:
-```
-
-```sh
-A ; B # A then B (regardless of A exit code)
-A || B # if not A then B
-A & B # A and B simultaneously
-```
-
-ITERATION
-```sh
-my_array=(item1 item2 item3)
-
-# FOR
-for FILE in *; do echo $FILE; done  # files in dir https://www.digitalocean.com/community/tutorials/workflow-loop-through-files-in-a-directory
-for var in "$@"  # all args
-for var in "${arr[@]}"  # all arr el
-do
-    git add "$var"
-done
-
-# WHILE
-while [ -z "$ur_var" ]; do
-    thing
-done
-
-# UNTIL
-until [ -z "$ur_var" ]; do
-    thing
-done
-```
-
-* conditional
-> ternary https://run.jotaen.net/
-```sh
-# IF
-if [ -z "$ur_var" ]; then
-    echo "hey"
-else
-    echo "hi"
-fi
-
-# IF ELSE
-if [ -z "$ur_var" ]; then
-    echo "hey"
-else
-    echo "hi"
-fi
-
-# IF ELIF ELSE
-if [ ]; then
-    echo "hey"
-elif [ ]
-then
-    echo "hi"
-else
-    echo "hello"
-fi
-```
-
-## design
-
-📙 https://aosabook.org/en/v1/bash.html
-
----
-
-* inspired by Algol https://news.ycombinator.com/item?id=42020368 https://www.youtube.com/watch?v=olH-9b3VJfs https://shellhaters.org/talk
-* use other languages (like Golang) https://blog.kowalczyk.info/article/4b1f9201181340099b698246857ea98d/using-go-instead-of-bash-for-scripts.html
-* downsides: not great for scripting other than universality (which is great); crappy syntax, hard to test, limited data structures https://medium.com/capital-one-developers/bashing-the-bash-replacing-shell-scripts-with-python-d8d201bc0989 doesn't do autosuggestion, syntax highlighting https://danyspin97.org/blog/colorize-your-cli/
-> The opposite of "it's like riding a bike" is "it's like programming in bash". A phrase which means that no matter how many times you do something, you will have to re-learn it every single time. https://twitter.com/JakeWharton/status/1334177665356587008
-* mischief https://news.ycombinator.com/item?id=18902830
-* `reset`: bail out when things go crazy [Linux Cookbook 2.3.5]
-* template https://news.ycombinator.com/item?id=25428621
-* linting: https://github.com/koalaman/shellcheck https://github.com/anordal/shellharden https://www.youtube.com/watch?v=28Ygo05cLmo
-* testing https://github.com/sstephenson/bats https://github.com/amoffat/sh https://blog.esciencecenter.nl/testing-shell-commands-from-python-2a2ec87ebf71 https://github.com/bach-sh/bach 📙 Evans domain-driven [57] https://news.ycombinator.com/item?id=23268911
-* Python from command line https://github.com/hauntsaninja/pyp https://github.com/python-mario/mario 
-* pkg mgmt https://github.com/bpkg/bpkg 
-* Bash as C# https://github.com/niieani/bash-oo-framework
-* Python as declarative Bash https://github.com/tfeldmann/organize 
-
-## execution
-
----
-
-https://github.com/sachaos/viddy
-* file operators: exists `-e` is a regular file not dir `-f` https://ss64.com/bash/syntax-file-operators.html
-
-* _eval_: use str as cmd https://www.youtube.com/watch?v=0A4Kjr8ThJA 1:45
-```sh
-x="date"
-echo $x  # date
-eval $x  # Tue Feb 22 18:33:49 EST 2022
-
-# use to set multiple exports at once
-eval "$(brew shellenv)"
-```
-
-* sudo https://bsago.me/tech-notes/sudo-with-aliases-in-fish
-* keep script from consuming too many resources: `nice myscript`
-* add location: `./myscript` doesn't need to be on $PATH
-* as a cmd: `myscript` (script need shebang and perm to exec)
-* using bash: `bash myscript` (doesn't need shebang or perm to exec, can debug this way using `bash -x myscript`)
-```sh
-$ foo
--bash: zv/bin/foo: Permission denied
-$ l
--rw-r--r-- foo # no perm
-
-$ bash foo
-hi zjv # can still exec w/ `bash`
-```
-
-```sh
-# 📍 'Automate' appendix B
-
-# as .py
-`python script.py`
-# with shebang
-`./script.py`  # apparently this only works if file is executable, where `bash script.sh` always works
-```
-
-📍 re: `suan` https://stackoverflow.com/questions/874452/change-the-current-directory-from-a-bash-script
-
-* __call script directly__: `<script>`
-* __dot command__: . `<script>`
-* __dot + forward slash__: . `<script>`
-* __sh command__: sh `<script>` 
-* __bash command__: bash `<script>`
-
-[source vs. execute](https://superuser.com/a/795838)
-
-* put on $PATH
-* make executable `chmod u+x script.sh`
-* if bash, remove `.sh` (`script.sh` ➡️ `script`) and call (`script`)
-* if python, keep `.py` and call (`script.py`)
-
-📝 get tab completion from terminal if put on $PATH
-
-__dot command__: `. fooScript.sh`
-
-```sh
-# diff btw `source` and `./` 
-# ➡️ https://stackoverflow.com/a/9640736/6813490
-
-# use `exit`
-🈚️ ☞☞☞ ./git-hooks/test_zv.sh
-
-# use `return`
-🈚️ ☞☞☞ source git-hooks/test_zv.sh
-```
-
-❓ diff btw this and all the other ways 😄
-❓ why does Python script require `./script.py`
-
-```sh
-code
-<script>
-. <script>
-./ <script>
-sh <script> 
-bash <script>
-```
-
-## snippets
-
-* modes
-```sh
-# DEBUG https://github.com/Idnan/bash-guide#4-debugging https://wizardzines.com/comics/bash-debugging/
-#!/usr/bin/env bash - x
-
-# STRICT http://redsymbol.net/articles/unofficial-bash-strict-mode/ https://www.youtube.com/watch?v=kEJzqMfxZVI
-set -euo pipefail
-IFS=$'\n\t'
-```
-
-```sh
-# NEW LINE
-echo -e "foo bar \n"
-echo -en "\n"
-```
-
----
-
-* generate random string https://unix.stackexchange.com/a/230710/331460
-* fallback value https://run.jotaen.net/
-
-## variables
-
-STRINGS
-* remove char from front of string https://unix.stackexchange.com/a/194938
-* remove char from end of string https://unix.stackexchange.com/a/399397
-* store command in string and then run https://stackoverflow.com/a/2355242/6813490
-```sh
-alice="hi, alice"
-echo "${alice}"  # contents
-echo "${#alice}" # length
-
-# slice https://unix.stackexchange.com/a/47372
-alice="alice"
-nickName="$(echo "$alice" | cut -c3-)"
-echo "$nickName"
-```
-
----
-
-* parameters 🗄 `.bash_profile/tu` https://stackoverflow.com/questions/6212219/passing-parameters-to-a-bash-function
-> this function probably removed 22.12
-* `export`: propagates variable to child processes [LPI 34] https://unix.stackexchange.com/a/209581/331460
-* _$PWD_: output for `pwd`
-* _$EDITOR_: how os knows what to use to open text files https://github.com/dylanaraps/fff/issues/30#issuecomment-451484118 https://unix.stackexchange.com/a/251055/331460
-* braces https://www.youtube.com/watch?v=FzBdcKkvUg8
-* https://jvns.ca/blog/2017/03/26/bash-quirks/ https://zwischenzugs.com/2018/01/06/ten-things-i-wish-id-known-about-bash/ https://www.hackerrank.com/domains/shell/bash
-* [store command in string and then run](https://stackoverflow.com/a/2355242/6813490)
-* [plus command substitution](http://www.compciv.org/topics/bash/variables-and-substitution/)
-
-```sh
-# assign
-# AFAIK can't have spaces between var, equal operator, and value
-str="alice"
-arr=("one" "two" "three")
-
-# ref
-echo "$alice"
-
-# expand/concatenate
-echo "hi, ${alice}. look at these random numbers: ${randomNum}"
-```
-
-📝 use quotes around variables (if contains spaces, is empty &c. everything will break 😑)
-📝 always quote your variables
-
-https://stackoverflow.com/a/673940/6813490
-
-## xargs
-
----
-
-* _xargs_: construct list of args for cmd (bc some cmds only take args, not stdin) https://thorstenball.com/blog/2012/10/24/command-line-ride/ https://www.oilshell.org/blog/2021/08/xargs.html
-> can also just input `./myscript.py < somefile.txt` (semantics for operator names) https://stackoverflow.com/a/11853307
-```sh
-LOGS_DIR/20 $ fd tracking | tail -n 3 | xargs bat  # open 3 most recent tracking files
-ls | sort -f | head -1 | xargs open  # kaiff - open first file in directory; used to open Youtube talks downloaded as pods
-fd tracking | xargs rg music  # from logs/20 -> get tracking info for music
-```
-
 # 🗃️ FILES
 
 📙 Galvin dinosaur 11-13 https://news.ycombinator.com/item?id=38512248
@@ -463,7 +115,48 @@ FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace
 * `?`: single char 
 * `[]`: range; case-sensitive `cp [a-f]*.png` `rm 02[3-7].mp3`
 
-## IO / pipes
+## links
+
+* _symlink_: file pointing to source file
+* find all 🗄 `.bash_profile` sym
+* commands pass through to source file
+* deleting soft link doesn’t affect source
+* file w/ the name/path to another file in it 📙 `evans-linux.pdf` 4
+* syntax: `ln -sf /path/to/source /path/to/link`
+* `-f`: overwrite if file already exists at location
+* _hard link_: file pointing to inode
+* still works if original deleted (不明觉厉) https://hacker-tools.github.io/backups/
+* doesn't take up file space https://www.lifewire.com/create-symbolic-links-ln-command-4059723
+
+* `/var`: for [variable data files](https://unix.stackexchange.com/a/264345)
+* `~/.config`: config for CLIs (http-prompt, wireshark)
+* `/tmp`: can be either stored on disk or using tmpfs
+* `/dev/shm`: alternative to `/tmp` https://superuser.com/a/45509 https://pythonspeed.com/articles/gunicorn-in-docker/
+* `/dev/null`: special file for redirecting stuff you don't care about e.g. stderr `rm FILE 2> /dev/null` https://askubuntu.com/a/12099
+* _tmpfs_: looks like storage but is actually memory https://docs.gunicorn.org/en/stable/faq.html#how-do-i-avoid-gunicorn-excessively-blocking-in-os-fchmod
+* _FHS_: standard for where things should be located on Linux [‘Practical Guide to Linux Commands’ pg. 12] https://apple.stackexchange.com/a/119265/328389 https://www.youtube.com/watch?v=FSxab6etkzg
+* _Mac_: `/private/tmp` = 类似 Linux var/tmp, kinda https://apple.stackexchange.com/a/131080 `/usr/local` Homebrew, git, go `/Library` (SDKs) `/System/Library/Frameworks` (binaries)
+* _Linux_: `var`/`tmp` temp files `/etc` (settings files, third-party installs) [Clinton 'Linux in Action' 30] `/mnt` (additional volumes) [Sweigert Automate the Boring Stuff chapter 8]
+* throw away stdout: `2>/dev/null` https://askubuntu.com/q/350208
+* `/dev/null`: black hole `rm local.db 2> /dev/null; sqlite3 local.db < schema.sql`
+📝 [`/dev/null`](https://askubuntu.com/a/12099) special file for dumping this sort of thing
+
+## sockets
+
+* re: `kcm`
+```txt
+Unix domain sockets are like pipes but for processes to communicate on the same machine. They show up as files in the filesystem.
+When a process crashes instead of cleaning up properly, it can leave its socket file behind. Other processes then see this "stale" file and think the service is still running, refusing to start.
+Common pattern:
+
+Process A creates socket file
+Process A crashes
+Socket file remains
+Process B sees socket, assumes A is running
+Process B exits
+```
+
+# 🌊 FLOW
 
 SUBSTITUTION
 * _command substition_: capture the output of a command in a single variable
@@ -475,27 +168,17 @@ control_status=$(curl -o /dev/null -s -w "%{http_code}" "$control_url")
 $ paste <(tail -n +2 aaon.csv) <(tail -n +2 baldor.csv)
 ```
 
-OPERATORS
-> https://unix.stackexchange.com/a/170573
-* `1`: stdout
-* `2`: stderr
-* `&`: stdout + stderr
-* `>`: overwrite
-* `>>`: append
-* `<`: use file as input e.g. `sqlite3 local.db < schema.sql`
+## IO
+
+* grab stdout when you only get it after program closes https://github.com/alexpasmantier/television/issues/16#issuecomment-2558615942
 ```sh
-# stdout           | takes stdin
-echo "training 20" | termgraph
+alias ds='bash -c "tv | while read -r line; do code -g \"\$line\"; done"'
 ```
+* _stdout_: `1`
+* _stderr_: `2`
+* _stdout + stderr_: `&`
 
 ---
-
-* _pipe_: vmsplice https://qsantos.fr/2024/08/25/linux-pipes-are-slow/
-🐍 in Python https://github.com/bugen/pypipe
-* _pipe (|)_: directs stdout to stdin
-
-* _fold_: https://blog.balthazar-rouberol.com/text-processing-in-the-shell#fold
-* _fmt_: fmt stdout https://github.com/Idnan/bash-guide#f-fmt
 
 * stdout, stderr
 ```sh
@@ -513,310 +196,58 @@ echo "${OUTPUT}"
 cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
 ```
 
-## links
+## operators
 
-* _symlink_: file pointing to source file
-* find all 🗄 `.bash_profile` sym
-* commands pass through to source file
-* deleting soft link doesn’t affect source
-* file w/ the name/path to another file in it 📙 `evans-linux.pdf` 4
-* syntax: `ln -sf /path/to/source /path/to/link`
-* `-f`: overwrite if file already exists at location
-* _hard link_: file pointing to inode
-* still works if original deleted (不明觉厉) https://hacker-tools.github.io/backups/
-* doesn't take up file space https://www.lifewire.com/create-symbolic-links-ln-command-4059723
-
-## locations
-
----
-
-XDG
-```python
-# https://github.com/tox-dev/platformdirs
-from platformdirs import *
-user_config_dir()  # /Users/zach/Library/Application Support
-user_data_dir()  # /Users/zach/Library/Application Support
-site_data_dir()  # /Library/Application Support
-user_cache_dir()  # /Users/zach/Library/Caches
-user_log_dir()  # /Users/zach/Library/Logs
-user_documents_dir()  # /Users/zach/Documents
-user_downloads_dir()  # /Users/zach/Downloads
-user_pictures_dir()  # /Users/zach/Pictures
-user_videos_dir()  # /Users/zach/Movies
-user_music_dir()  # /Users/zach/Music
-user_desktop_dir()  # /Users/zach/Desktop
-user_runtime_dir()  # /Users/zach/Library/Caches/TemporaryItems
+REDIRECT
+* _redirect_: connect cmd and file
+* _output redirect_: `>`
+* _append redirect_: `>>`
+* _input redirect_: `<` e.g. ``
+```sh
+# $CMD $WHERE_TO_OUTPUT + "use schema.sql as input"
+sqlite3 local.db < schema.sql
 ```
-* https://0x46.net/thoughts/2019/02/01/dotfile-madness/
-* https://specifications.freedesktop.org/basedir-spec/latest/
-* https://github.com/tox-dev/platformdirs
-* https://github.com/Zaloog/kanban-tui
-* `XDG_CONFIG_HOME`: typically `$HOME/.config` https://github.com/lusingander/serie/issues/25 https://github.com/kraanzu/dooit/issues/195
-> On macOS, `$XDG_CONFIG_HOME` maps to `$HOME/.config`. Another popular path for config files is `/Users/USER/Library/Application\ Support`. Does this file path have a env var name in the way that $XDG_CONFIG_HOME does?
-* you have to manually specify?
-> If you want to change the config directory: macOS `export XDG_CONFIG_HOME="$HOME/.config` https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
-
-* `/var`: for [variable data files](https://unix.stackexchange.com/a/264345)
-* `~/.config`: config for CLIs (http-prompt, wireshark)
-* `/tmp`: can be either stored on disk or using tmpfs
-* `/dev/shm`: alternative to `/tmp` https://superuser.com/a/45509 https://pythonspeed.com/articles/gunicorn-in-docker/
-* `/dev/null`: special file for redirecting stuff you don't care about e.g. stderr `rm FILE 2> /dev/null` https://askubuntu.com/a/12099
-* _tmpfs_: looks like storage but is actually memory https://docs.gunicorn.org/en/stable/faq.html#how-do-i-avoid-gunicorn-excessively-blocking-in-os-fchmod
-* _FHS_: standard for where things should be located on Linux [‘Practical Guide to Linux Commands’ pg. 12] https://apple.stackexchange.com/a/119265/328389 https://www.youtube.com/watch?v=FSxab6etkzg
-* _Mac_: `/private/tmp` = 类似 Linux var/tmp, kinda https://apple.stackexchange.com/a/131080 `/usr/local` Homebrew, git, go `/Library` (SDKs) `/System/Library/Frameworks` (binaries)
-* _Linux_: `var`/`tmp` temp files `/etc` (settings files, third-party installs) [Clinton 'Linux in Action' 30] `/mnt` (additional volumes) [Sweigert Automate the Boring Stuff chapter 8]
-* throw away stdout: `2>/dev/null` https://askubuntu.com/q/350208
-* `/dev/null`: black hole `rm local.db 2> /dev/null; sqlite3 local.db < schema.sql`
-📝 [`/dev/null`](https://askubuntu.com/a/12099) special file for dumping this sort of thing
-
-# 🧵 PROCESSES
-
-🗄
-* `os/tools.md` monitoring
-* `python/runtime.md` concurrency
-* `src.md` concurrency
-📙
-* Arpaci ch. 13-23
-* Kerrisk lpi 2.7
-* Galvin dinosaur ch. 3-5
-
-TAXONOMY https://stackoverflow.com/a/47824267 https://pthorpe92.dev/programming/systems/threads-async-runtimes-part0/
-* _thread_: instance of executing program
-* incl: stack, heap, text (src) data (var)
-* _process_: group of threads [LPI 2.7] https://www.youtube.com/watch?v=4rLW7zg21gI
-* _job_: group of processes [LPI 2.13]
-
-ZA
-* _segmentation fault_: process tries to use inaccessible memory https://corecursive.com/066-sqlite-with-richard-hipp/
-* e.g. indexing array OOB, writing to memory address belonging to another process, dereferencing null pointer https://www.youtube.com/watch?v=XIhQYRNBAYs
 
 ---
 
-visualize https://github.com/joknarf/pgtree
-
-https://thorstenball.com/blog/2014/06/13/where-did-fork-go/
-> Every process running on a Unix system started out as a call to fork(2) followed by a call to execve(2). Well, not every process, since the first process, the init process, the one that starts up the rest of the operating system, didn’t. But every process that came after. The idea is rather simple: fork(2) creates a new process and execve(2) turns the new process into the kind of process you want it to be.
-> Let’s say you’re a shell and your user wants to start his productivity utility vimwonderhorse. Now, the first thing you’ve got to do is to start a new process. The reason for that is simple: when the user quits vimwonderhorse you should still be there and wait for the user’s input again. If you, as the shell, would have changed into vimwonderhorse and the user quit, well, then you would be gone, too. So you start a new process with fork(2).
-
-types
-* _privileged_: any process started by root
-* _single-threaded_: program in single thread, IO in separate threads e.g. JS [`go-in-practice.pdf` 1.3.4]
-* _multi-threaded_: program in n threads
-* _daemon_: long-running background process; no controlling terminal [LPI 34]
-
-segments [LPI 31]
-* _text_: program source code in machine-code form; read-only so process can't modify [LPI 6.115]
-* _data_: static variables (won't change so thread-safe) [LPI 6.116]
-> less sure about this definition
-* _stack_: 🗄 `architecture.md` memory
-* _heap_: 🗄 `architecture.md` memory 📙 Evans linux [16]
-* _memory allocator_: keep track of memory usage and get more when necessary from OS; malloc, calloc, et al. 📙 Evans linux [16] https://danluu.com/malloc-tutorial/
-
-creation
-* `fork()`: called by existing process (parent) to create new process (child), which is a duplicate [LPI 2.7 31]
-* inheritance: child process shares read-only access to parent's program data and gets copy of parent's get data, stack, heap [LPI 2.7 32]
-* `execve()`: syscall to load new program, which destroys parental segments [LPI 2.7 32] user-space wrappers incl `execv`, `execle` https://en.wikipedia.org/wiki/Exec_(system_call)#Nomenclature
-* _supervisord_: restart processes if they crash
-
----
-
-* each program executed by the shell starts a new process [LPI 2.13]
-* _location_: $CWD of their parent process [LPI 2.5]
-* _initial process_: PID 1, called `init` (or `systemd` on RHEL) [LPI 2.7]
-* _inheritance_: process created when parent calls `fork()`
-* child inherits UID/GID and stack, heap, data [LPI 2.7]
-* `execute()`: child gets their own stack, heap, data [LPI 2.7] 
-* _termination_: process calls `exit()` or killed by a signal [LPI 2.7] if parent process killed transitively kill child process https://github.com/jacek-kurlit/pik
-
-communcation
-* _signals_: restart `-HUP/-1` terminate (sent to process) `-TERM/-15` terminate/sigterm (sent to kernel) `kill -KILL/-9 <pid>`
-* _intra-process communication (IPC)_: signals, writing to disk (for slow apps), file locking, pipes, message queues 📙 Kerrisk [37,877]
-
-memory
-* _hard limit_: inherited from parent
-* _soft limit_: can be set by user [LPI 2.7]
-* _load average_: CPU capacity to deal w/ processes; view w/ `uptime`; 1.0 is perfect capacity but anything above 0.70 should be investigated bc otherwise won't have any headroom for increases https://scoutapm.com/blog/understanding-load-averages
-* _OOM killer (out-of-memory)_: https://unix.stackexchange.com/q/153585/331460 https://serverfault.com/a/571326/415712 https://lwn.net/Articles/391222/
-
-telemetry
-* _commands_: `uptime`, `top`
-* _debug_: strace, application logs 
-* _PID_: process ID
-* how to use https://will-keleher.com/posts/What-can-you-do-with-a-pid.html
-* written to file https://stackoverflow.com/a/8296204/6813490
-* lookup PID using process name https://stackoverflow.com/a/11547409/6813490
-* _PPID_: parent process ID
-
-## concurrency
-
-🗄
-*️ `architecture/system.md` distributed
-* `python/runtime.md` concurrency
-📚
-* Bobrov https://www.manning.com/books/grokking-concurrency
-* Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
-
----
-
-start here https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/ threads are evil https://www.sqlite.org/faq.html https://avi.im/blag/2024/s3-log/
-
-> Yes, goroutines and channels are great: a super-lightweight task abstraction that’s very cheap compared to traditional multithreading. On the other hand, Go only gives us the fundamental building blocks: it’s up to us to make sure we use them safely, avoiding data races or deadlocks. And that can be hard to do! Rust doesn’t have goroutines, but it does have async tasks, which are much like goroutines, only with the usual Rust safety guarantees. There are also some excellent third-party frameworks such as Tokio and Rayon that can just take a bunch of data and automatically figure out the most efficient way to crunch it in parallel. https://bitfieldconsulting.com/posts/rust-and-go
-
-https://anishathalye.com/testing-distributed-systems-for-linearizability/ https://github.com/anishathalye/porcupine
-
-* [concurrency != parallelism](https://blog.golang.org/concurrency-is-not-parallelism)
-* [multi-threading != parallelism](https://stackoverflow.com/a/806506/6813490) https://news.ycombinator.com/item?id=4495305
-* [the guy who wrote SQLAlchemy thinks async is kinda bs](https://news.ycombinator.com/item?id=18113889) + https://techspot.zzzeek.org/2015/02/15/asynchronous-python-and-databases/
-
-BIG PICTURE https://en.wikipedia.org/wiki/Concurrency_(computer_science)
-* why: WebSockets https://channels.readthedocs.io/en/latest/
-* why not: hard to reason about, just use a queue or a WebSockets server https://www.david-dahan.com/blog/10-reasons-i-stick-to-django https://danluu.com/concurrency-bugs/
-* not worth it
-> We’re currently using boring, synchronous, Python, which means that our server processes block while waiting for I/O, like network requests. We previously tried Eventlet, an async framework that would, in theory, let us get more efficiency out of Python, but ran into so many bugs that we decided the CPU and latency cost of waiting for events wasn’t worth the operational pain we had to take on to deal with Eventlet issues. The are other well-known async frameworks for Python, but users of those at scale often also report significant fallout from using those frameworks at scale. Using synchronous Python is expensive, in the sense that we pay for CPU that does nothing but wait during network requests, but since we’re only handling billions of requests a month (for now), the cost of this is low even when using a slow language, like Python, and paying retail public cloud prices. The cost of our engineering team completely dominates the cost of the systems we operate. https://danluu.com/simple-architectures/ 
-> Rather than take on the complexity of making our monolith async we farm out long-running tasks (that we don’t want responses to block on) to a queue.
-
-what is a rendering engine? https://github.com/volfpeter/htmy
-https://jacko.io/async_intro.html
-https://threedots.tech/post/go-test-parallelism/
-
-* MVCC https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html
-* async IO https://registerspill.thorstenball.com/p/joy-and-curiosity-7
-* _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
-* clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep
-* _callback_: another func to call after func finishes execution 🗄 `application.md` webhook
-* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/59370383#59370383 https://danluu.com/butler-lampson-1999/
-* https://stackoverflow.com/questions/4844637/what-is-the-difference-between-concurrency-parallelism-and-asynchronous-methods/48530284#48530284
-* imperative programming fundamentally about order, which makes concurrency hard https://softwareengineeringdaily.com/2020/05/28/distributed-systems-research-with-peter-alvaro/ 7:00
-* concurrency is nearly always a bad idea https://www.arp242.net/go-easy.html
-* https://news.ycombinator.com/item?id=23496994
-* _sleeping barber problem_ http://kachayev.github.io/talks/kharkivpy%230/#/
-* reactive in Python https://blog.oakbits.com/introduction-to-rxpy.html
-* https://return.co.de/blog/articles/dont-drink-too-much-reactive-cool-aid/
-* most (web) things are bound by network, not CPU https://talkpython.fm/episodes/show/225/can-subinterpreters-free-us-from-python-s-gil
-* concurrency is a bad thing https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
-
-### golang
-
----
-
-* _goroutine_: thread but... https://github.com/uber-go/goleak
-scheduled by Go runtime instead of OS
-* 2KB vs. 1MB for OS thread [ibid @ 1:10]
-* _channels_: communication between go routines [‘Go in Action’ 1.1.2]
-```golang
-# _defer_: execute after surrounding code block returns
-func hey() {
-	defer fmt.Println("world")
-	fmt.Println("hello")
-}
-
-# _mutex_: only one goroutine can 
-func hi() {
-    mutex.Lock() 
-    defer mutex.Unlock()
-    x = x + 1
-}
+PIPES
+* _pipe_: connects cmds
+* _pipe_: vmsplice https://qsantos.fr/2024/08/25/linux-pipes-are-slow/
+🐍 in Python https://github.com/bugen/pypipe
+* _pipe (|)_: directs stdout to stdin
+```sh
+# stdout           | takes stdin
+echo "training 20" | termgraph
 ```
-* https://threedots.tech/post/go-test-parallelism/
-* vs. concurrency in other languages https://eli.thegreenplace.net/2018/go-hits-the-concurrency-nail-right-on-the-head/
-* http://www.doxsey.net/blog/go-concurrency-from-the-ground-up https://rcoh.me/posts/why-you-can-have-a-million-go-routines-but-only-1000-java-threads/ https://utcc.utoronto.ca/~cks/space/blog/programming/GoConcurrencyStillNotEasy https://divan.dev/posts/go_concurrency_visualize/
 
-## threads
+LOGICAL OPERATORS
+&& AND (run second command only if first succeeds)
+|| OR (run second command only if first fails)
+! NOT
 
-🔍 https://softwareengineering.stackexchange.com/questions/tagged/concurrency
-📚
-* Arpaci ch. 26-33
-* Bryant ch. 12
+SEQUENCE OPERATORS
+; sequential execution (run commands in sequence regardless of success)
+& background execution (run command in background)
 
----
+GROUPING OPERATORS
+( ) subshell grouping
+{ } command grouping
 
-https://neugierig.org/software/blog/2024/05/threading-two-ways.html
-
-basics
-* _concurrency_: design tasks that can be independently executed
-* best for network-bound tasks e.g. callbacks, task queue
-* aka async
-* _parallelism_: execute tasks simultaneously
-* best for CPU/IO-bound tasks
-* aka multi-threading
-* https://nullprogram.com/blog/2020/04/30/
-
-problems 📙 Galvin chapters 5/7 Tanenbaum chapter 6
-* _deadlock_: each thread thinks the other is using resource, causing each to not use resource and wait indefinitely for other thread to "stop" using resource https://martinheinz.dev/blog/101 https://medium.com/a-journey-with-go/go-how-are-deadlocks-triggered-2305504ac019
-* _livelock_: hallway problem i.e. each thread constantly changing to resolve lock but making no progress
-* _race condition_: sequence of events screws up correctness
-* vs. data race https://stackoverflow.com/a/18049303 https://www.avanderlee.com/swift/race-condition-vs-data-race/ https://blog.regehr.org/archives/490
-> knock knock / race condition / who's there? https://twitter.com/iamdevloper/status/399991896862638081
-* _thread safety_: threads don't overwrite data from other threads
-
-storage problems
-* _split brain_: data inconsistencies https://en.wikipedia.org/wiki/Split-brain
-* e.g. two application instances write to database and search index such that each reads their own value from index 📙 Kleppmann 491/453
-* solutions is either serve inconsistencies or serve old results until system heals
-
-single-threaded + multicast https://signalsandthreads.com/multicast-and-the-markets/
-
-* _copy on write_: processes share memory until they need to write, at which point make copy of memory section and write to it (thereby avoiding a page fault) 🗄 `evans-linux.pdf` [3] https://brandur.org/ruby-memory https://github.com/kentonv/lanparty
-* _mutex_: OS version of a lock https://jvns.ca/blog/2016/01/23/sendfile-a-new-to-me-system-call/ https://lwn.net/Articles/827180/ https://mortoray.com/2019/02/20/how-does-a-mutex-work-what-does-it-cost/
-* _serial_: execution inside single thread https://pre-commit.com/#hooks-require_serial
-* _history_: end of Moore's Law (clock speed increases slowing) = more cores per machine = more parallelization [Kleppmann 6]
-* _actor model_: concurrency w/in single process [Kleppmann 4.138] https://news.ycombinator.com/item?id=27505267
-* polling/blocking https://drewdevault.com/2019/03/25/Rust-is-not-a-good-C-replacement.html https://cs61.seas.harvard.edu/site/2018/Shell3/ https://en.wikipedia.org/wiki/Polling_(computer_science)
-
-## tracing
-
-🗄
-* processes
-* `python.md` profiling
-* `telemetry.md` tracing
-📚
-* Evans debug tools
-* Evans perf
-* Evans strace
-* Evans tracing
-
-VOCAB
-* _monitor_: track errors; continuous
-* _trace_: explore errors; ad hoc
-* _profile_: measure perf (which LOC exec + exec time); ad hoc
-
-TOOLS
-* _beetrace_: 🐍 https://github.com/furkanonder/beetrace
+## xargs
 
 ---
 
-flamegraph https://github.com/laixintao/flameshow
-
-https://events.linuxfoundation.org/wp-content/uploads/2022/10/elena-zannoni-tracing-tutorial-LF-2021.pdf
-
-* strace, ptrace https://nullprogram.com/blog/2018/06/23/
-* magic trace https://github.com/janestreet/magic-trace
-* ptrace https://medium.com/@lizrice/a-debugger-from-scratch-part-1-7f55417bc85f
-* strace https://jvns.ca/blog/2021/04/03/what-problems-do-people-solve-with-strace/
-* dtruss https://blog.safia.rocks/post/173241985600/unraveling-rm-what-happens-when-you-run-it
-
-❌ normal debugging: know the language, look at src, print statements/debugger
-✅ `strace` debugging: 'these are the system calls your program is making'
-📝 don't run strace on production processes (or anything that needs to run at normal speed)
-
-### bpf
-
-EBPF https://www.brendangregg.com/
-* https://blog.smidt.dev/posts/0003/
-* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions https://flamegraph.com/ https://github.com/laixintao/flameshow
-* https://www.youtube.com/watch?v=bGAVrtb_tFs
-* https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
-* https://github.com/ZingerLittleBee/netop
-* https://sazak.io/articles/an-applied-introduction-to-ebpf-with-go-2024-06-06
-* https://news.ycombinator.com/item?id=27435081
-* https://www.brendangregg.com/blog/2022-04-15/netflix-farewell-1.html
-* https://ebpf.io/what-is-ebpf/ https://softwareengineeringdaily.com/2023/03/06/ebpf-with-thomas-graf/
-* https://www.polarsignals.com/blog/posts/2023/10/04/profiling-python-and-ruby-with-ebpf
-* https://about.gitlab.com/blog/2022/11/28/how-we-diagnosed-and-resolved-redis-latency-spikes/
-* https://softwareengineeringdaily.com/2022/07/15/continuous-profiling-using-ebpf-with-frederic-branczyk/
-* https://github.com/keyval-dev/odigos
-* https://github.com/google/gops
-* https://thume.ca/2023/12/02/tracing-methods/
+* _xargs_: construct list of args for cmd (bc some cmds only take args, not stdin) https://thorstenball.com/blog/2012/10/24/command-line-ride/ https://www.oilshell.org/blog/2021/08/xargs.html
+> can also just input `./myscript.py < somefile.txt` (semantics for operator names) https://stackoverflow.com/a/11853307
+```sh
+LOGS_DIR/20 $ fd tracking | tail -n 3 | xargs bat  # open 3 most recent tracking files
+ls | sort -f | head -1 | xargs open  # kaiff - open first file in directory; used to open Youtube talks downloaded as pods
+fd tracking | xargs rg music  # from logs/20 -> get tracking info for music
+```
+```sh
+echo "in.txt" | grep "txt"  # in.txt
+echo "in.txt" |  xargs cat  # foo bar baz
+```
 
 # 🟨 ZA
 
@@ -1046,7 +477,7 @@ PERMS 📙 Evans linux https://chatgpt.com/c/672cbc33-dabc-8004-bbac-7c5050f5387
 * categories: `u` (user/owner) `g` (group) `o` (other) `a` (all)
 * mv granular: `chmod` + group + `r|w|x` e.g. `u=rw` (user gains rw) `+x` (all gain x) `o-w` (other loses w)
 * mv wholesale: `chmod $OCTAL`
-* test: rw-only for owner `sudo -u nobody cat $FILE`
+* test: rw-only for owner `sudo -u nobody cat $FILE_WITH_PERMS_THAT_NOBODY_SHOULDNT_BE_ABLE_TO_READ`
 * get as octal: `stat -f "%A" $FILE`
 * default: `666` (file) `777` (dir)
 * _umask_: set perms on new files via "mask" (subtraction) from default perms; can be set as user or distro level https://www.digitalocean.com/community/tutorials/linux-permissions-basics-and-how-to-use-umask-on-a-vps

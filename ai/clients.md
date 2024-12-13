@@ -9,8 +9,7 @@
 
 ## 进步
 
-* _24_: ChatGPT in browser, lots of work to research/taxonomize tooling, start with llm and aider
-* _23_: few random queries
+* _24_: lots of work to research/taxonomize tooling, start with llm and aider
 
 # 🚃 CATEGORIES
 
@@ -39,6 +38,7 @@ LOW ADOPTION | FEATURE POOR
 * _khoj_: 🎯 https://github.com/khoj-ai/khoj
 * _lmstudio_: 🎯 local https://lmstudio.ai/ https://msty.app/as/lmstudio-alternative
 * _msty_: 🎯 aaS and local, parallel queries https://msty.app/
+* _OpenWebUI_: https://github.com/open-webui/open-webui
 * _SillyTavern_: 🎯 https://github.com/SillyTavern/SillyTavern
 * _TypingMind_: web app https://www.typingmind.com/ https://news.ycombinator.com/item?id=41988306
 
@@ -56,7 +56,7 @@ EXTENSIONS
 * _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://codeium.com/windsurf https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
 * _Cody_: https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
 * _Continue_: autocomplete https://ollama.com/blog/continue-code-assistant
-* _Copilot_: ❌ VSC-native, multi-model https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
+* _Copilot_: ❌ VSC-native, multi-model https://simonwillison.net/2024/Dec/18/free-tier-for-github-copilot/ https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
 * _Sage_: https://github.com/Storia-AI/sage
 
 # 🛸 IN USE
@@ -70,6 +70,12 @@ locality
 
 ## open source contrib
 
+TO SUBMIT
+* xmp
+* jiancha
+
+---
+
 * _aider_: dynamic local/global history/input files, readline
 * _basilk_: alphabetic sort projects, JSON output
 * _gfold_: specify multiple directories via config https://github.com/nickgerace/gfold/issues/261
@@ -78,32 +84,32 @@ locality
 
 ## 🟠 aichat
 
-* _aichat_: https://github.com/sigoden/aichat https://github.com/sigoden/aichat/issues/924
+📜 https://github.com/sigoden/aichat
+
+* killer feature https://github.com/sigoden/aichat#local-server-capabilities
+* https://github.com/sigoden/aichat/issues/924
 
 ## ⏳🐲 aider
 
 📜 https://aider.chat/
+🗄️ `task-mgmt.md` 2024 workflow
+
+* upgrade to latest version and see if that fixes bug where aider asks if you want to create a file and then errs out bc it tries to read a file it didn't create
+* workflows https://aider.chat/examples/2048-game.html https://aider.chat/examples/hello-world-flask.html https://aider.chat/docs/usage/tutorials.html
+* modes https://aider.chat/docs/usage/modes.html
+
+---
+
+* disable analytics
+* _codebuff_: alternative https://news.ycombinator.com/item?id=42078536
 
 CONTEXT
+* repo map https://aider.chat/docs/repomap.html#using-a-repo-map-to-provide-context
 * conventions https://aider.chat/docs/usage/conventions.html https://github.com/zachvalenta/dotfiles-mini23/tree/main/ai
-* history/input files
-```sh
-bigger picture question about aider's history files:
-
-By default, aider tries to write these files to the $CWD. This should provide good context if, say, I'm returning to a repo where I've previously used aider.
-
-On the other hand, let's say I just have an off-hand question and I happen to be outside a Git repo in a random directory on my filesystem (`~/Desktop`, for example). If I start aider in this directory (or *any dir* not under version control), my filesystem will soon be littered with `.aider.chat.history.md` files and I won't notice they're being created (unless I'm in the habit of `ls -al` after every `cd`).
-
-The other thing is that a global history file would provide its *own* context i.e. if I've been thinking a bunch about, say, DataFusion or the semantic web or whatever over a series of queries during the past month, the global history file would have that entire context vs. a bunch of `.aider.chat.history.md` files scattered around the file system.
-
-One way around this filesystem clutter is to use a single unified history file by setting AIDER_CHAT_HISTORY_FILE. The potential downside of this solution, however,  is that it will reduce aider's efficacy when it comes to specific repos, given that they won't have their own `.aider.chat.history.md`
-
-Is there a way around this trade-off? I'd like for aider to use a .aider.chat.history.md if it exists in the $CWD but otherwise default to a global .aider.chat.history.md, which I'd like to store in my dotfiles.
-```
-* repo map https://aider.chat/docs/faq.html#how-do-i-turn-on-the-repository-map
 * Git repo history https://aider.chat/docs/faq.html#how-do-i-include-the-git-history-in-the-context
 
 CONS
+* history/input files should be dynamic https://aider.chat/docs/config/options.html#history-files https://github.com/Aider-AI/aider/issues/2684
 * slow startup
 * prompts (to upgrade, to create git repo)
 * `.aider.conf.yml` as a filename
@@ -117,21 +123,19 @@ CONS
 }
 ```
 * just exit already and don't make me pay for it!
+```sh
+exit
+Goodbye! If you need further assistance, feel free to return. Have a great day!
+Tokens: 2.8k sent, 19 received. Cost: $0.0073 message, $0.02 session.
+```
 ```python
 def keyboard_interrupt(self):
     self.io.tool_warning("\n\n^C again to exit")
 ```
-```sh
-exit
 
-Goodbye! If you need further assistance, feel free to return. Have a great day!
-Tokens: 2.8k sent, 19 received. Cost: $0.0073 message, $0.02 session.
-```
+## 🎙️ chorus
 
-ZA
-* 📍 you can't store secrets in config and version control, so thinking I'll version control sans secrets and then use that as a template for actual machine-specific file
-* workflows https://aider.chat/examples/2048-game.html https://aider.chat/examples/hello-world-flask.html
-* _codebuff_: alternative https://news.ycombinator.com/item?id=42078536
+https://news.ycombinator.com/item?id=42543601
 
 ## 🟢 elia
 
@@ -151,36 +155,66 @@ ZA
 
 📜 https://llm.datasette.io
 
-* design: faster write REPL, better search, org via SQL, compare responses from diff models
-* working with local models [15:00]
+CONFIG
+* XDG: `export LLM_USER_PATH="$XDG_CONFIG_HOME/llm"` https://llm.datasette.io/en/stable/setup.html#setting-a-custom-directory-location
 ```sh
+llm keys
 llm keys set openai
-llm keys  # list
+```
 
-llm -c  # continue existing conversation
-
-llm logs -c  # logs from existing conversation
-llm logs path
-
-llm plugins  # list
-llm models  # list
-llm models default  # list
-llm models default $MODEL  # update
+LOGS https://llm.datasette.io/en/stable/logging.html
+```sh
+logs -n 10  # view
+$PROMPT -n  # dont log
+logs -q $QUERY  # grep
+logs -m $MODEL  # logs by model
 ```
 
 ---
 
+```sh
+llm logs path
+llm -c  # continue existing conversation
+llm logs -c  # logs from existing conversation
+
+llm plugins
+llm models
+llm models default
+llm models default $MODEL  # set
+```
+
+ZA
+* design: faster write REPL, better search, org via SQL, compare responses from diff models
+* working with local models [15:00]
+
+TTS usage https://simonwillison.net/2024/Dec/19/q-and-qv-zsh-functions/ https://retool.com/blog/air-travel-software
 https://www.youtube.com/watch?v=QUXQNi6jQ30 @ 20:30
 
 > 🎗️ opportunity to use Datasette https://www.youtube.com/watch?v=QUXQNi6jQ30 [9:00]
 LLM
 * guide https://simonwillison.net/2024/Jun/17/cli-language-models/
 * logs https://simonwillison.net/2024/Mar/22/claude-and-chatgpt-case-study/ https://llm.datasette.io/en/stable/logging.html
+* models: https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3 https://simonw.substack.com/p/claude-35-haiku
 * working with databases locally https://simonw.substack.com/p/ask-questions-of-sqlite-databases https://github.com/Sinaptik-AI/pandas-ai
 * working with audio https://simonw.substack.com/p/video-scraping-using-google-gemini https://simonw.substack.com/p/run-prompts-against-images-audio
-* models: default is ChatGPT https://llm.datasette.io/en/stable/openai-models.html others https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3 https://simonw.substack.com/p/claude-35-haiku
 
 ## 💄 mods
+
+CONFIG
+```sh
+Wrote config file to: /Users/zvalenta/Library/Application Support/mods/mods.yml
+```
+```sh
+$ mods --settings
+
+├── $HOME/.config/mods
+│   └── mods.yml
+│   └── conversations
+│   └──── mods.db
+```
+
+
+---
 
 * _mods_: Markdown output, system prompt https://github.com/charmbracelet/mods continue conversation https://github.com/charmbracelet/mods/issues/197
 
@@ -211,13 +245,10 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 * speed
 > If copy and pasting back and forth between ChatGPT.com is crawling, then Cursor's interface is sprinting. Being able to discuss the code, architecture, a single file, or to tell Cursor to use a file as inspiration when making other changes is my favorite feature of Cursor.
 
-COMPLAINTS
-* ChatGPT native client: global hotkey conflicts with iterm https://openai.com/chatgpt/mac
-* ChatGPT web client: search added 241031 (intra-doc but slow, none by title), no tags/org/page up, dark mode is bad for seeing prompt, when you open a chat it's not reflected in the sidebar so if you want to rename or delete it you have to scroll sidebar and manually find it, doesn't support page up|down
-
 ## interchange
 
 * GPT code completions API https://www.youtube.com/watch?v=g9tIm50VO4g
+* GPT as standard https://simonwillison.net/2024/Dec/22/openai-openapi/
 * API spec
 > ch works with any compatible chat completion API that has the same interface as ChatGPT https://github.com/dnmfarrell/ch
 > Projects such as LocalAI offer a REST API that imitates the OpenAI API but can be used to run other models, including models that can be installed on your own machine. These can be added using the same configuration mechanism. https://llm.datasette.io/en/stable/other-models.html#openai-compatible-models

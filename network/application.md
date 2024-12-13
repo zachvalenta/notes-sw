@@ -47,6 +47,22 @@ START HERE
 * https://www.roguelynn.com/words/spotifys-love-hate-relationship-with-dns/
 * https://softwareengineeringdaily.com/2017/06/06/dns-with-phil-stanhope/
 
+## packets
+
+💡 DNS query packet ask "what's the IP address for this domain?" and the DNS server responds packet containing the answer
+💻 https://github.com/zachvalenta/proj-dns
+🔗 https://stripe.com/blog/secret-life-of-dns
+
+SECTIONS
+* binary but not encrypted
+* _header_: metadata incl query id (to match responses with requests) flags (query | response, recursive query desired)
+* _question_: domain name being looked up, query type (like A for ipv4 address, AAAA for ipv6, MX for mail servers)
+* _answer_: resolved records (e.g. ip addresses), ttl, record type and class
+* _authority_: info about authoritative nameservers
+
+TOOLING
+* _dnspython_: create https://github.com/rthalley/dnspython
+
 ## records
 
 TYPES
@@ -66,6 +82,7 @@ TYPES
 
 ---
 
+* tons expire everyday https://www.domcop.com/ https://github.com/tonywangcn/ten-million-domains https://medium.com/@tonywangcn/27-6-of-the-top-10-million-sites-are-dead-6bc7805efa85
 * https://bsky.app/profile/itch.io/post/3lcu6h465bs2n
 * https://news.ycombinator.com/item?id=42307604
 > Subsequent requests can (but don't always) reuse the DNS, TCP and TLS setup but a new roundtrip is still needed each time the server is consulted, for example for an API call or a new page. https://calpaterson.com/latency.html
@@ -155,6 +172,7 @@ BLOCK
 
 FQDN
 * https://textslashplain.com/2023/05/13/new-tlds-not-bad-actually/
+* parse https://calmcode.io/shorts/yarl.py
 * _FQDN_: `http://math.mit.edu/about`
 * _scheme/protocol_: `http://` http, https, et al.
 * apex/root domain: `example.com`; [cannot be aliased](https://news.ycombinator.com/item?id=8825519) + https://help.github.com/articles/about-supported-custom-domains/
@@ -265,7 +283,8 @@ backup
 * _Braze_: email + analytics; used at United Masters
 * _Resend_: https://resend.com/customers/charm https://resend.com/home https://github.com/charmbracelet/pop
 * _Sendgrid_: used at United Masters
-* _Twilio_:
+* _Twilio_: https://github.com/notifiers/notifiers https://ntfy.sh/ https://www.phillylinux.org/talks.html
+
 
 ## SMTP
 
@@ -316,8 +335,7 @@ https://github.com/valberg/django-sse
 
 PROTOCOLS
 * _FTP_: sends binary instead of metadata https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2
-* _PAKE_:
-* _Samba_:
+* _Samba_: impl SMB/CIFS i.e. allows Linux to share with Windows
 * _SFTP_: FTP + security https://goteleport.com/blog/scp-familiar-simple-insecure-slow/
 ```sh
 $ sftp sftp://user@hostname:port
@@ -349,6 +367,7 @@ TOOLING
 * _filestash_: GUI client https://github.com/mickael-kerjean/filestash
 * _FileZilla_: 🎯 client, used in first job! https://filezilla-project.org/
 * _magic wormhole_: relay https://github.com/magic-wormhole/magic-wormhole impl https://www.youtube.com/watch?v=oFrTqQw0_3c
+* _pooch_: https://github.com/fatiando/pooch
 * _portal_: relay via PAKE https://github.com/SpatiumPortae/portal
 * _sftpgo_: server https://github.com/drakkan/sftpgo
 * _sshfs_: client? server? both https://github.com/libfuse/sshfs https://fabiensanglard.net/html/index.html
@@ -366,6 +385,7 @@ TOOLS
 
 ---
 
+https://keypub.sh/
 * basics
 ```sh
 # FILES
@@ -390,6 +410,7 @@ ssh -NL local-port:env-host.domain.io:remove-port env-jumpbox.domain.io
 ```
 
 za
+* https://github.com/joknarf/ssh-para
 * key shape? https://news.ycombinator.com/item?id=42251958
 * https://news.ycombinator.com/item?id=41785511
 * https://github.com/quantumsheep/sshs

@@ -19,6 +19,120 @@
 
 * start here https://www.achaq.dev/blog/distributed-systems-state-machines-special-relativity
 
+# 💾 CACHING
+
+📙 Christian chapter 4
+🗄
+* proxy
+* `http.md` caching
+
+* _cache_: tmp storage for read; e.g. browser (SQLite) network (CDN) db (connection pool); can cache to either memory or disk https://danielmiessler.com/blog/nginx-caching-tempfs/
+* _buffer_: tmp storage for write
+> Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so. https://stackoverflow.com/questions/10019456/usage-of-sys-stdout-flush-method
+* _eviction_: rm item based on usage e.g. LRU
+* _expiration_: rm item based on TTL
+* _thrashing_: when computation continuously interrupted by context switch of cache items from one program to another resulting in no computation being done
+* _cache stampede_: user req for item not in cache, code begins to generate, during generation other reqs for same item, code begins n generations, server falls over
+* avoid by putting flag in cache to say "hey, I'm working on creating this item"
+
+---
+
+* _LFU_: 
+* _LRU_: ensures cache full/hot as possible; used by application caches https://calpaterson.com/ttl-hell.html https://jamesg.blog/2024/08/18/time-based-lru-cache-python/ https://danluu.com/2choices-eviction/
+```python
+# There's nothing wrong with the above code but it only allows for strategy #1: never invalidate https://calpaterson.com/ttl-hell.html
+from functools import lru_cache
+@lru_cache(maxsize=1000)
+def get_slow_thing_v1(thing_id):
+    thing = get_slow_thing_from_a_database_layer(thing_id)
+    return thing
+```
+* _update-on-write_: update cache item on db write
+> Sometimes you want to cache something that will change. For example, your application's User object: username, email address, postal address, etc. This data is bound to change over time but is also accessed extremely frequently, often on every request or as part of every operation. The best approach here is to update the cache whenever you update the data in your persistent store.
+* flush buffer https://stackoverflow.com/questions/3167494/how-often-does-python-flush-to-a-file https://stackoverflow.com/questions/29712445/what-is-the-use-of-buffering-in-pythons-built-in-open-function
+* _contention free_: https://github.com/maypok86/otter
+* _namespace_: add timestamp key (210526) to item key (user-bob) https://calpaterson.com/ttl-hell.html
+
+* e.g. Python writerow
+* _flush_: write buffer to disk https://stackoverflow.com/a/15042890
+* _memoization_: cache at function level https://stackoverflow.com/a/6469470 https://news.ycombinator.com/item?id=31434078
+* _cold_: infrequently used data
+* _hot_: frequently used data
+* _cache hit_: can pull from cache
+> A cache hit is hopefully much more than twice as fast as a cache miss. https://calpaterson.com/ttl-hell.html
+* _cache miss_: have to go to db
+> It's important never to require a cache hit - even as a soft requirement. Evictions can happen at inconvenient times - such as when some other part of the system is under load - and there mustn't be any negative consequences to a cache miss. https://calpaterson.com/ttl-hell.html
+* _cache invalidation_: https://news.ycombinator.com/item?id=26686770 https://blog.cerebralab.com/The_second_hardest_thing_in_programming_-_Part_1
+
+IDEAS https://calpaterson.com/ttl-hell.html
+> Using a cache often changes the implicit complexity class of the system - downwards, and towards constant time.
+> There's a snobbery about application level caches. It's more respectable to rewrite the program in a "systems programming language" (read: fast, compiled, for the serious) than to apply Memcache liberally to your PHP app (read: a "band-aid", apache2, used only by jokers).
+> One particularly naughty thing to do is to store web sessions only in the cache. A cache miss then becomes an involuntary logout for the hapless user who has done nothing wrong and transgressed no one. Instead, use strategy #2 above and store the web-sessions in your database, using your cache just as a speedup.
+> One tip: it's best to start by looking to invalidate. To paraphrase someone: "ask not of what you can cache - ask of what you can invalidate". If you can't invalidate something reliably, it's unlikely that you can cache it in the first place.
+
+* https://www.youtube.com/watch?v=wh98s0XhMmQ
+* design https://www.youtube.com/watch?v=bFf-A27Rc9s
+https://danluu.com/cache-incidents/
+https://danluu.com/intel-cat/
+https://csvbase.com/blog/8
+https://www.youtube.com/watch?v=dGAgxozNWFE
+
+---
+
+* https://softwareengineeringdaily.com/2023/08/08/database-caching-with-ben-hagan/
+* TTL https://news.ycombinator.com/item?id=26620730 https://calpaterson.com/ttl-hell.html
+* Cloudflare do image compression per browser (e.g. webp for Chrome) https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#44:00
+https://healeycodes.com/webdev/python/beginners/tutorial/2019/07/07/introduction-to-caching-with-python.html
+
+in Python
+* BYO https://dbader.org/blog/python-memoization use a decorator https://github.com/realpython/python-guide/blob/1d5905d5d7e25ebf11cda50d3d93ac636c87a993/docs/writing/structure.rst#decorators
+* built-in LRU cache https://datawhatnow.com/things-you-are-probably-not-using-in-python-3-but-should/
+* https://adamj.eu/tech/2021/01/21/simple-in-memory-caching-of-django-models-with-cachetools/
+
+in general
+
+> A good example of a piece of functionality that is better handled with decoration is memoization or caching: you want to store the results of an expensive function in a table and use them directly instead of recomputing them when they have already been computed. This is clearly not part of the function logic. [Hitchhiker's Guide 3.1.6]
+
+* https://www.openmymind.net/Caching-Your-Worst-Best-Friend/
+* https://bhavaniravi.com/blog/caching-in-python 
+* https://ieftimov.com/post/when-why-least-frequently-used-cache-implementation-golang/ 
+* http://danluu.com/2choices-eviction/
+* https://www.digitalocean.com/community/tutorials/web-caching-basics-terminology-http-headers-and-caching-strategies
+
+## diskcache
+
+https://calmcode.io/course/diskcache/introduction
+
+## moka
+
+https://github.com/deliro/moka-py
+
+## memcached
+
+* _is?_: volatile cache https://news.ycombinator.com/item?id=23689549 aka application caching layer
+* _how?_: distributed hash table i.e. n instances of app share 1 distributed instance of memcached
+* _why?_: so you don't have to read from db
+* _disadvantages_: doesn't track cache misses; meant for simple data, not tables or objects; not durable http://aosabook.org/en/nosql.html
+* _sink_: https://realpython.com/python-memcache-efficient-caching/ https://github.com/thadeusb/flask-cache Django has OOB support for memcached https://docs.djangoproject.com/en/2.1/topics/cache/
+
+## Redis
+
+📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
+
+> just use postgres https://martinheinz.dev/blog/105
+* pipelines https://medium.com/@tonywangcn/27-6-of-the-top-10-million-sites-are-dead-6bc7805efa85
+* https://www.youtube.com/watch?v=WQ61RL1GpEE
+* https://www.youtube.com/watch?v=5TRFpFBccQM
+* implementation http://aosabook.org/en/nosql.html
+* https://github.com/dragonflydb/dragonfly
+* test/mock https://github.com/cunla/fakeredis-py
+* use Postgres as impl https://github.com/alash3al/redix
+* governance https://news.ycombinator.com/item?id=23689549
+* key expiration https://news.ycombinator.com/item?id=30099572
+* alternative https://github.com/dragonflydb/dragonfly https://github.com/buraksezer/olric#installing
+* embedded https://github.com/symisc/vedis https://news.ycombinator.com/item?id=19464144
+> You can either set Redis up as a "data-structures" server or you set it up right as a cache. You can't do both. If you choose to use Redis as your cache, ensure that the cache instance is only serving as your cache. Your inter-system message bus should be on a different Redis with a different configuration. https://calpaterson.com/ttl-hell.html
+
 # 🤝 CONSENSUS
 
 🗄️ `svc/src.md` concurrency
@@ -75,7 +189,7 @@ foo-conflict-20240705-0981234.md
 more crdt
 * https://softwareengineeringdaily.com/2017/12/08/decentralized-objects-with-martin-kleppman/ https://www.inkandswitch.com/local-first.html https://github.com/xi-editor/xi-editor/issues/1187#issuecomment-491473599 https://news.ycombinator.com/item?id=37764581 https://martin.Kleppmann.com/2020/07/06/crdt-hard-parts-hydra.html https://caolan.uk/articles/inside-a-collaborative-text-editor/ vs OT (operational transformations) https://news.ycombinator.com/item?id=24176455 https://news.ycombinator.com/item?id=24617542 https://news.ycombinator.com/item?id=24790170 https://www.youtube.com/watch?v=Paau_t0aZKw https://automerge.org/ https://vlcn.io/blog/gentle-intro-to-crdts.html https://github.com/alangibson/awesome-crdt https://github.com/jackyzha0/bft-json-crdt
 
-# ⑃ PROXY
+# 🛤️ PROXY
 
 🗄
 * `application.md` caching
@@ -178,6 +292,24 @@ transactions & isolation levels 📙 Beaulieu 12
 * nothing can change transaction except another update 📙 Conery 335
 * uses `fsync` http://aosabook.org/en/nosql.html https://sirupsen.com/napkin/problem-10-mysql-transactions-per-second
 
+## CAP theorem
+
+---
+
+Petrov ch. 11
+
+🗄 `algos.md` probabilistic data structures
+
+* https://www.youtube.com/watch?v=_RbsFXWRZ10 https://softwareengineeringdaily.com/2023/07/25/cap-theorem/
+* _CAP theorem_: tradeoffs if network partition
+* _consistency_: ACID
+* eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
+* _availability_: res for req
+* _partition tolerance_: works offline 📙 Conery 336
+* C: refuse to incoming reads/writes
+* A, P: (db remains available but other cluster members becoming inconsistent)
+* choose consistency 📙 `evans-linux.pdf` 2
+
 ## consistency
 
 🧠 https://chatgpt.com/c/6717a9cd-1f04-8004-8686-4758cb6fe382
@@ -198,28 +330,27 @@ transactions & isolation levels 📙 Beaulieu 12
 
 * _lock_: db disallows other processes to access object (table, row, etc.)
 * 'held' by transaction https://jahfer.com/posts/innodb-locks/
-* handle at app level by throwing error or retry https://lincolnloop.com/blog/distributed-locking-django/
+* handle at app level by throwing error https://lincolnloop.com/blog/distributed-locking-django/
 * _latch_: lightweight lock 📙 Kleppmann 82
 * _dirty read_: read uncommitted data
 * e.g. transaction 1 updates a row, transaction 2 reads the updated row before transaction 1 commits the update, transaction 1 rolls back the change, transaction 2 will have read data that is considered never to have existed https://retool.com/blog/whats-an-acid-compliant-database/
 
-## CAP theorem
+## retry
 
 ---
 
-Petrov ch. 11
+🗄️ `security.md` DOS
+💻 https://github.com/zachvalenta/DOS-lab
+🧠 DOS https://claude.ai/chat/dec00ad7-12fc-4879-bccf-86db78d879d2
+📹 https://www.youtube.com/watch?v=BxikFuvaT1Y @ 3:30
 
-🗄 `algos.md` probabilistic data structures
+* _backoff_: time btw retry https://www.youtube.com/watch?v=BxikFuvaT1Y [3:20]
 
-* https://www.youtube.com/watch?v=_RbsFXWRZ10 https://softwareengineeringdaily.com/2023/07/25/cap-theorem/
-* _CAP theorem_: tradeoffs if network partition
-* _consistency_: ACID
-* eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
-* _availability_: res for req
-* _partition tolerance_: works offline 📙 Conery 336
-* C: refuse to incoming reads/writes
-* A, P: (db remains available but other cluster members becoming inconsistent)
-* choose consistency 📙 `evans-linux.pdf` 2
+LIBS
+* _recur_: https://github.com/dbohdan/recur
+* _retry_: https://calmcode.io/shorts/retry.py
+* _stamina_: https://github.com/hynek/stamina https://calmcode.io/course/stamina/introduction
+* _tenacity_: https://github.com/jd/tenacity
 
 # 🟨 ZA
 
@@ -227,7 +358,7 @@ SEMANTICS
 * _centralized_: you own all the servers https://drewdevault.com/2020/09/20/The-potential-of-federation.html
 * _peer to peer (p2p)_: you only own your serverr
 * _federation_: servers work together but not p2p https://lwn.net/Articles/687294/ https://github.com/mastodon/mastodon
-* _distributed system_: no shared memory, no shared clock https://news.ycombinator.com/item?id=26089683
+* _distributed system_: no shared memory, no shared clock https://news.ycombinator.com/item?id=26089683 https://www.warpstream.com/blog/the-case-for-shared-storage
 * https://danluu.com/butler-lampson-1999/
 * needs coordination across network/cores 📙 Jeffrey distributed [4]
 * hard https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing
@@ -263,92 +394,6 @@ SEMANTICS
 * _blockchain_: db distributed over p2p network w/ each node holding entire db https://danielmiessler.com/study/blockchain/
 * _smart contract_: app using blockchain
 * _oracle_: data ingestion onto chain
-
-## caching
-
-📙 Christian chapter 4
-🗄
-* proxy
-* `http.md` caching
-
----
-
-https://danluu.com/cache-incidents/
-https://danluu.com/intel-cat/
-https://csvbase.com/blog/8
-https://www.youtube.com/watch?v=dGAgxozNWFE
-
-SEMANTICS
-* https://www.youtube.com/watch?v=wh98s0XhMmQ
-* design https://www.youtube.com/watch?v=bFf-A27Rc9s
-* _cache_: tmp storage for read; e.g. browser (SQLite) network (CDN) db (connection pool); can cache to either memory or disk https://danielmiessler.com/blog/nginx-caching-tempfs/
-* _buffer_: tmp storage for write
-> Python's standard out is buffered (meaning that it collects some of the data "written" to standard out before it writes it to the terminal). Calling sys.stdout.flush() forces it to "flush" the buffer, meaning that it will write everything in the buffer to the terminal, even if normally it would wait before doing so. https://stackoverflow.com/questions/10019456/usage-of-sys-stdout-flush-method
-* flush buffer https://stackoverflow.com/questions/3167494/how-often-does-python-flush-to-a-file https://stackoverflow.com/questions/29712445/what-is-the-use-of-buffering-in-pythons-built-in-open-function
-* _contention free_: https://github.com/maypok86/otter
-
-* e.g. Python writerow
-* _flush_: write buffer to disk https://stackoverflow.com/a/15042890
-* _memoization_: cache at function level https://stackoverflow.com/a/6469470 https://news.ycombinator.com/item?id=31434078
-* _cold_: infrequently used data
-* _hot_: frequently used data
-* _cache hit_: can pull from cache
-> A cache hit is hopefully much more than twice as fast as a cache miss. https://calpaterson.com/ttl-hell.html
-* _cache miss_: have to go to db
-> It's important never to require a cache hit - even as a soft requirement. Evictions can happen at inconvenient times - such as when some other part of the system is under load - and there mustn't be any negative consequences to a cache miss. https://calpaterson.com/ttl-hell.html
-
-eviction, expiry
-* _eviction_: rm item based on usage e.g. LRU
-* _expiration_: rm item based on TTL https://calpaterson.com/ttl-hell.html
-> Data can be evicted before it has expired. And it often will be: most caches don't consider the TTL when looking for stuff to evict.
-> Caching by TTL gives up correctness to gain speed.
-* _LFU_: 
-* random: 
-* _LRU_: ensures cache full/hot as possible; used by application caches https://calpaterson.com/ttl-hell.html https://jamesg.blog/2024/08/18/time-based-lru-cache-python/ https://danluu.com/2choices-eviction/
-```python
-# There's nothing wrong with the above code but it only allows for strategy #1: never invalidate https://calpaterson.com/ttl-hell.html
-from functools import lru_cache
-@lru_cache(maxsize=1000)
-def get_slow_thing_v1(thing_id):
-    thing = get_slow_thing_from_a_database_layer(thing_id)
-    return thing
-```
-* _update-on-write_: update cache item on db write
-> Sometimes you want to cache something that will change. For example, your application's User object: username, email address, postal address, etc. This data is bound to change over time but is also accessed extremely frequently, often on every request or as part of every operation. The best approach here is to update the cache whenever you update the data in your persistent store.
-
-misc
-* _cache stampede_: user req for item not in cache, code begins to generate, during generation other reqs for same item, code begins n generations, server falls over; avoid by putting flag in cache to say "hey, I'm working on creating this item"
-* _thrashing_: when computation continuously interrupted by context switch of cache items from one program to another resulting in no computation being done
-* _namespace_: add timestamp key (210526) to item key (user-bob) https://calpaterson.com/ttl-hell.html
-
-ideas https://calpaterson.com/ttl-hell.html
-> Using a cache often changes the implicit complexity class of the system - downwards, and towards constant time.
-> There's a snobbery about application level caches. It's more respectable to rewrite the program in a "systems programming language" (read: fast, compiled, for the serious) than to apply Memcache liberally to your PHP app (read: a "band-aid", apache2, used only by jokers).
-> One particularly naughty thing to do is to store web sessions only in the cache. A cache miss then becomes an involuntary logout for the hapless user who has done nothing wrong and transgressed no one. Instead, use strategy #2 above and store the web-sessions in your database, using your cache just as a speedup.
-> One tip: it's best to start by looking to invalidate. To paraphrase someone: "ask not of what you can cache - ask of what you can invalidate". If you can't invalidate something reliably, it's unlikely that you can cache it in the first place.
-
----
-
-* https://softwareengineeringdaily.com/2023/08/08/database-caching-with-ben-hagan/
-* TTL https://news.ycombinator.com/item?id=26620730 https://calpaterson.com/ttl-hell.html
-* _cache invalidation_: https://news.ycombinator.com/item?id=26686770 https://blog.cerebralab.com/The_second_hardest_thing_in_programming_-_Part_1
-* Cloudflare do image compression per browser (e.g. webp for Chrome) https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#44:00
-https://healeycodes.com/webdev/python/beginners/tutorial/2019/07/07/introduction-to-caching-with-python.html
-
-in Python
-* BYO https://dbader.org/blog/python-memoization use a decorator https://github.com/realpython/python-guide/blob/1d5905d5d7e25ebf11cda50d3d93ac636c87a993/docs/writing/structure.rst#decorators
-* built-in LRU cache https://datawhatnow.com/things-you-are-probably-not-using-in-python-3-but-should/
-* https://adamj.eu/tech/2021/01/21/simple-in-memory-caching-of-django-models-with-cachetools/
-
-in general
-
-> A good example of a piece of functionality that is better handled with decoration is memoization or caching: you want to store the results of an expensive function in a table and use them directly instead of recomputing them when they have already been computed. This is clearly not part of the function logic. [Hitchhiker's Guide 3.1.6]
-
-* https://www.openmymind.net/Caching-Your-Worst-Best-Friend/
-* https://bhavaniravi.com/blog/caching-in-python 
-* https://ieftimov.com/post/when-why-least-frequently-used-cache-implementation-golang/ 
-* http://danluu.com/2choices-eviction/
-* https://www.digitalocean.com/community/tutorials/web-caching-basics-terminology-http-headers-and-caching-strategies
 
 ## service discovery
 

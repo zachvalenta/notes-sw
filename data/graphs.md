@@ -9,13 +9,15 @@
 
 ---
 
-🛠 https://github.com/networkx/networkx https://us.pycon.org/2024/schedule/presentation/91/index.html https://pragprog.com/titles/dzcnapy/complex-network-analysis-in-python/ https://github.com/dominikbraun/graph/ https://news.ycombinator.com/item?id=38834780 https://www.hytradboi.com/2022/how-to-query-almost-everything d2 https://chatgpt.com/c/671043db-1354-8004-a127-6b4152994963 https://calmcode.io/datasets/dependencies https://realpython.com/podcasts/rpp/212/
+🛠 https://github.com/networkx/networkx https://www.youtube.com/watch?v=x6KnkZKktRY https://us.pycon.org/2024/schedule/presentation/91/index.html https://pragprog.com/titles/dzcnapy/complex-network-analysis-in-python/ https://github.com/dominikbraun/graph/ https://news.ycombinator.com/item?id=38834780 https://www.hytradboi.com/2022/how-to-query-almost-everything https://calmcode.io/datasets/dependencies https://realpython.com/podcasts/rpp/212/
 > clean these up https://pycon-archive.python.org/2024/schedule/presentation/52/index.html
+* https://www.youtube.com/watch?v=PkFpFCqIdZ8
+* https://www.youtube.com/watch?v=_mk78aQhWPM
+* topological sort, dynamic programming https://blog.danielh.cc/blog/leetcode https://rednafi.com/go/topological_sort/
 * https://calmcode.io/datasets/dependencies 🗄️ `linux.md` build systems
 * https://www.hytradboi.com/2022/how-to-query-almost-everything
 * https://www.kaseyklimes.com/notes/2019/10/16/an-augmented-mind-designing-a-personal-knowledge-base-with-notion
 * _use cases_: good at relationships btw heterogenous data ("does Alice follow Bob?") w/out a million joins  📙 Kleppmann 2.49, 2.63 bad at aggregates or anything that deals w/ a few attr over many records; used for networks (IAM, knowledge mgmt, Git, recommendation engine) https://www.youtube.com/watch?v=h8cyPIEfxQY 14:30
-* _dbms_: Tiger Graph, Dgraph https://softwareengineeringdaily.com/2021/01/19/dgraph-native-graphql-database-with-manish-jain/ Memgraph, Terminus db, Neo4J https://media.pragprog.com/titles/pwrdata/neo4j.pdf embedded https://github.com/CodyKochmann/graphdb https://github.com/dpapathanasiou/simple-graph cache for dgraph https://github.com/dgraph-io/ristretto
 * _OGM_: ORM for graphs https://www.youtube.com/watch?v=h8cyPIEfxQY 12:30
 
 * _property graph_: vertex (id, dict of properties, and list of incoming/outgoing edges) edge (id, dict of properties, start/end vertices and descriptive label) 📙 Kleppmann 2.50
@@ -35,28 +37,6 @@
 *️ `language.md` compiler
 *️ `protocols.md` file fmt
 * `science.md` metascience / categories
-
-SEMANTICS
-* _node_: element of tree
-* _root_: node w/out parent
-* _parent_: node w/ children
-* _leaf_: node with no children
-```sh
-├── actuator  # parent
-│   └── damper
-│   └──── fire safety  # leaf
-```
-* _child_: node directly below parent
-* _grandchild_: node two levels below parent
-* _grandparent_: node two levels above parent
-```sh
-├── actuator  # parent to damper, grandparent to fire safety
-│   └── damper  # child to actuator, parent to fire safety
-│   └──── fire safety  # child to damper, grandchild to actuator
-```
-* _height_: distance from root to given leaf measured in levels
-* _subtree_: tree nested w/in root tree
-* _traversal_: movement through the tree
 
 ---
 
@@ -108,6 +88,29 @@ SEMANTICS
 * _markmap_: ✅ Markdowm https://github.com/markmap/markmap
 * _Leo_: 🎯 strange beast https://news.ycombinator.com/item?id=27615225 https://github.com/leo-editor/leo-editor
 * _treebuilder_: 🎯 https://github.com/fdieulle/treebuilder
+
+## semantics
+
+* _node_: element of tree
+* _root_: node w/out parent
+* _parent_: node w/ children
+* _leaf_: node with no children
+```sh
+├── actuator  # parent
+│   └── damper
+│   └──── fire safety  # leaf
+```
+* _child_: node directly below parent
+* _grandchild_: node two levels below parent
+* _grandparent_: node two levels above parent
+```sh
+├── actuator  # parent to damper, grandparent to fire safety
+│   └── damper  # child to actuator, parent to fire safety
+│   └──── fire safety  # child to damper, grandchild to actuator
+```
+* _height_: distance from root to given leaf measured in levels
+* _subtree_: tree nested w/in root tree
+* _traversal_: movement through the tree
 
 ## types
 
@@ -182,6 +185,12 @@ https://www.amazon.com/How-Bake-Pi-Exploration-Mathematics/dp/0465097677
 * relationship to algebra? https://chatgpt.com/c/671147cf-7ca8-8004-97e1-d49dafe49aaa https://news.ycombinator.com/item?id=41863500
 
 ## dbms
+
+---
+
+* Tiger Graph, Dgraph https://softwareengineeringdaily.com/2021/01/19/dgraph-native-graphql-database-with-manish-jain/ Memgraph, Terminus db, embedded https://github.com/CodyKochmann/graphdb https://github.com/dpapathanasiou/simple-graph cache for dgraph https://github.com/dgraph-io/ristretto
+
+* _Neo4J_ https://media.pragprog.com/titles/pwrdata/neo4j.pdf https://calmcode.io/course/neo4j/introduction
 
 https://danluu.com/yegge-predictions/
 DBMS

@@ -4,6 +4,21 @@
 
 🔍 https://www.stedi.com/edi/x12/transaction-set/832
 
+| BCT10 | G5310 | ERROR                                                                                                           |
+|-------|-------|-----------------------------------------------------------------------------------------------------------------|
+| 05    | 001   | LDT is required https://commerce.spscommerce.com/testing-and-certification/7625/partners/parcel/3029840908      |
+| 05    | 003   | G5301 must be 001 https://commerce.spscommerce.com/testing-and-certification/7625/partners/parcel/3029840908    |
+| 02    | 001   | https://commerce.spscommerce.com/testing-and-certification/7625/partners/parcel/3030275387/                     |
+| 02    | 003   | https://commerce.spscommerce.com/testing-and-certification/7625/partners/parcel/3030273514/                     |
+
+Here's my x12 doc:
+```txt
+```
+
+I'm getting this error:
+```sh
+```
+
 STEDI TEACHING
 * https://www.stedi.com/blog/the-foundation-of-any-reliable-edi-system
 * https://www.stedi.com/blog/getting-started-with-the-x12-file-format
@@ -13,18 +28,6 @@ STEDI TEACHING
 * control numbers https://www.stedi.com/blog/control-numbers-in-x12-edi
 * https://www.stedi.com/blog/date-and-time-in-edi
 * standards at national level https://increment.com/apis/introduction-apis-egovernment/
-
-STEDI THE COMPANY
-* https://www.stedi.com/edi/network
-* https://www.stedi.com/blog/excerpts-from-the-annual-letter
-* https://www.stedi.com/blog/two-messy-kittens-and-a-missing-edi-214
-* https://www.stedi.com/blog/shareable-edi-implementation-guides-for-modern-edi-integrations
-* https://www.stedi.com/blog/hello-buckets https://www.stedi.com/blog/introducing-serverless-sftp-and-infinitely-scalable-data-storage
-* https://www.stedi.com/blog/translate-between-json-and-edi
-* https://www.stedi.com/blog/stedi-core-edi-integrations-in-minutes
-* https://www.stedi.com/blog/stedi-platform-no-code-edi
-* https://www.stedi.com/blog/introducing-stedis-x12-hipaa-guides
-* https://www.stedi.com/blog/stedi-process-large-files https://www.stedi.com/blog/stedi-core-large-file-support
 
 ## 进步
 
@@ -87,30 +90,13 @@ POINT TO POINT IS INHERENTLY COMPLEX https://www.stedi.com/blog/what-makes-edi-s
 
 # 🧬 SEGMENTS
 
-SEQUENCE
-```sh
-├── ISA  # interchange header
-│   └── GS  # functional header
-│   └────── ST  # transaction set #1
-│   └────── SE  # transaction set trailer
-│   └────── ST  # transaction set #2
-│   └────── SE  # transaction set trailer
-│   └── GE  # functional trailer
-├── IEA  # interchange trailer
-```
-```sh
-# issue where SPS parser referred to LDT as position 190 but it was listed as position 140 in the implementation guideline
-* loop context misinterpretation: parser could expect segment to appear only under a specific context and assumes the issue is related to an incorrectly defined position
-* tool-specific quirk: parsers sometimes report inaccurate segment positions when encountering unrecognized or misplaced segments
-* unintended data in loop: unexpected data or improper sequence in loop might cause the tool to associate LDT with a different position
-```
-* high-level: ISA (initial), GSA (metadata) IEA (InterchangeEnvelope; terminal)
-* _implementation guideline_: additional instructions from receiver re: how sender should impl 🧠 https://chatgpt.com/c/673d0121-f4d8-8004-b903-4d083157a552
-* fmt of PDF is standard https://www.stedi.com/blog/transaction-set-variants-in-the-amazon-850-purchase-order
-* doesn't align to actual document e.g. Fastenal
-* _guideline position_: location of segment w/in implementation guideline e.g. CTP at position 170 in Fastenal 823 implementation guideline
+* _transaction set purpose codes_: "why is document being sent?", only shows up in (typically) a single segment, can apply to multiple document lists (832, 850)
+* `00` new `01` cancel previously sent doc `04` update `05` replace `06` ack receipt of sent doc `24` draft
+* _qualifiers_: type for ID
+* `ZZ` custom `01` DUNS `20` Health Industry Number (HIN) `30` U.S. Federal Tax Identification
 
-SEMANTICS
+## semantics
+
 * _element_: segment subcomponent; `*` delimiter, `**` = blank
 * data types: ID + NO (numeric) AN (alphanumeric) DT (date) TM (time)
 * _segment_: ID + data; `~` terminal delimiter
@@ -128,11 +114,78 @@ number,code,type
 997,FA,ack
 ```
 
-ZA
-* _transaction set purpose codes_: "why is document being sent?", only shows up in (typically) a single segment, can apply to multiple document lists (832, 850)
-* `00` new `01` cancel previously sent doc `04` update `05` replace `06` ack receipt of sent doc `24` draft
-* _qualifiers_: type for ID
-* `ZZ` custom `01` DUNS `20` Health Industry Number (HIN) `30` U.S. Federal Tax Identification
+## sequence
+
+```sh
+├── ISA  # interchange header
+│   └── GS  # functional header
+│   └────── ST  # transaction set #1
+│   └────── SE  # transaction set trailer
+│   └────── ST  # transaction set #2
+│   └────── SE  # transaction set trailer
+│   └── GE  # functional trailer
+├── IEA  # interchange trailer
+```
+```sh
+ISA (Interchange Control Header)
+  GS (Functional Group Header)
+    ST (832 Transaction Set Header)
+      BCT (Beginning Segment for Price/Sales Catalog)
+      [Repeating group for each item]:
+        LIN (Item Identification)
+        G53 (Maintenance Type)
+        DTM (Date/Time Reference)
+        CTB (Restrictions/Conditions)
+        PID (Product/Item Description)
+        LDT (Lead Time)
+        CTP (Pricing Information)
+        DTM (Start Date)
+        DTM (End Date)
+      CTT (Transaction Totals)
+    SE (Transaction Set Trailer)
+  GE (Functional Group Trailer)
+IEA (Interchange Control Trailer)
+```
+```sh
+# issue where SPS parser referred to LDT as position 190 but it was listed as position 140 in the implementation guideline
+* loop context misinterpretation: parser could expect segment to appear only under a specific context and assumes the issue is related to an incorrectly defined position
+* tool-specific quirk: parsers sometimes report inaccurate segment positions when encountering unrecognized or misplaced segments
+* unintended data in loop: unexpected data or improper sequence in loop might cause the tool to associate LDT with a different position
+```
+* high-level: ISA (initial), GSA (metadata) IEA (InterchangeEnvelope; terminal)
+* LIN loop order found in position 010
+* asterisks: don't grok contradictory examples to this
+> No, you do not need to add an explicit * to indicate that CTB02 is not present in this context. In X12 EDI formatting, elements can be omitted from the segment without needing placeholders, as long as the subsequent elements maintain their proper positions.
+
+```txt
+The segment_count in the SE segment includes:
+
+* All segments from ST to SE, including the ST and SE segments themselves.
+* Excludes the envelope segments ISA, GS, GE, and IEA.
+
+The ISA, GS, GE, and IEA segments form the envelope structure of the EDI document and are not part of any specific transaction set. Each transaction set (e.g., 832, 850, etc.) is encapsulated within the ST and SE segments, which define the boundary and count for the specific set.
+
+ISA and IEA:
+
+Represent the interchange envelope.
+Used for overall document control across trading partners.
+Not part of the transaction set count.
+GS and GE:
+
+Represent the functional group envelope.
+Control a group of related transaction sets.
+Not part of the transaction set count.
+ST and SE:
+
+Define the transaction set boundary.
+SE counts all segments within this boundary, including itself and ST.
+```
+
+IMPL GUIDE
+* _implementation guideline_: additional instructions from receiver re: how sender should impl 🧠 https://chatgpt.com/c/673d0121-f4d8-8004-b903-4d083157a552
+* fmt of PDF is standard https://www.stedi.com/blog/transaction-set-variants-in-the-amazon-850-purchase-order
+* doesn't align to actual document e.g. Fastenal
+* _guideline position_: location of segment w/in implementation guideline e.g. CTP at position 170 in Fastenal 823 implementation guideline
 
 ## ☸️ meta
 
@@ -218,6 +271,25 @@ LIN**UP*012345678905
 * if BCT10 is `05`, set to `003` (create)
 * `001` update `002` delete
 
+### DTM (date range)
+
+* _DTM_: date range (for both LIN and CTP)
+```sh
+DTM*018*20241224~  # available date
+DTM*196*20241224~  # start date
+DTM*197*20241130~  # end date
+```
+
+### CTB (order quantity)
+
+* _CTB01_: what restriction applies to
+* _CTB02_: rarely used
+* _CTB03_: restriction type; 57 = min order quantity
+* _CTB04_: quantity
+```sh
+CTB*OR*57*10~
+```
+
 ### PID (desc)
 
 * _PID_: desc
@@ -251,6 +323,11 @@ DTM*197*20241130~
 ```sh
 CTP**UCP*10.50**1*EA
 ```
+
+## G39 (physical characteristics)
+
+* _G3917_: quantity
+* _G3919_: unit e.g. each, set
 
 # 🛠️ TOOLING
 
@@ -295,3 +372,15 @@ with open("data.json", "w") as f:
 🔍 https://www.stedi.com/edi
 
 * syntax highlight https://www.stedi.com/edi/inspector
+
+STEDI THE COMPANY
+* https://www.stedi.com/edi/network
+* https://www.stedi.com/blog/excerpts-from-the-annual-letter
+* https://www.stedi.com/blog/two-messy-kittens-and-a-missing-edi-214
+* https://www.stedi.com/blog/shareable-edi-implementation-guides-for-modern-edi-integrations
+* https://www.stedi.com/blog/hello-buckets https://www.stedi.com/blog/introducing-serverless-sftp-and-infinitely-scalable-data-storage
+* https://www.stedi.com/blog/translate-between-json-and-edi
+* https://www.stedi.com/blog/stedi-core-edi-integrations-in-minutes
+* https://www.stedi.com/blog/stedi-platform-no-code-edi
+* https://www.stedi.com/blog/introducing-stedis-x12-hipaa-guides
+* https://www.stedi.com/blog/stedi-process-large-files https://www.stedi.com/blog/stedi-core-large-file-support

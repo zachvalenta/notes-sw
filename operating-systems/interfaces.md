@@ -4,6 +4,8 @@
 
 ## 进步
 
+copy terminal output https://calmcode.io/course/cool-cli/yank
+
 * _24_: shell (oh-my-posh, atuin, readline vi mode)
 * _23_: terminal (research Zellij)
 * _22_: terminal (Fira Mono for iTerm) shell (try starship, try/fail vi mode for readline)
@@ -11,7 +13,31 @@
 
 # 🖥️ DESKTOP ENVIRONMENT
 
+```sh
+neofetch # WM: Quartz Compositor
+```
+```txt
+Window managers and compositors serve different but related functions in graphical desktop environments.
+
+WINDOW MANAGER
+* Handles window placement, sizing, stacking order
+* Manages keyboard/mouse input for window operations
+* Controls window decorations (title bars, borders)
+* Examples: i3, dwm, awesome
+
+COMPOSITOR
+* Combines window contents into final screen output
+* Enables visual effects (transparency, shadows, animations)
+* Handles hardware acceleration and vsync
+* Examples: picom, compton, kwin
+
+A window manager can run without a compositor (resulting in potential screen tearing/artifacts), but a compositor requires a window manager to have windows to composite.
+
+Some modern display servers like Wayland merge these roles into a single program called a compositor, handling both window management and compositing.
+```
+
 ENVS
+> On Linux, “native” is a murkier concept because there’s not a single desktop environment. Instead, applications integrate with specific environments like GNOME or KDE through their GUI frameworks (GTK/Adwaita or Qt). Ghostty uses GTK and (optionally) Adwaita, making it most native to GNOME while remaining visually consistent in KDE—though without as much deep system integration as in macOS. I’ve noticed that many Linux users don’t care about apps being “native”, which is understandable. In my experience, this is something that macOS users tend to care about more. https://gpanders.com/blog/ghostty-is-native-so-what/
 * rainmeter https://modkavartini.github.io/catppuccin/ https://www.rainmeter.net/
 * _GNOME_: https://blog.edfloreshz.dev/articles/linux/system76/rust-based-desktop-environment/
 * _KDE_:
@@ -22,7 +48,7 @@ SEMANTICS 🧠 https://chatgpt.com/c/67409094-34c0-8004-ad28-45ac4b94f67a
 * _desktop environment_: mouse-driven GUI riding on top of window system https://askubuntu.com/a/20435
 * _display server_: ❓ e.g. Quartz Compositor (aka WindowServer) https://en.wikipedia.org/wiki/Quartz_Compositor https://unix.stackexchange.com/a/1016
 * _window system_: server that displays graphics https://en.wikipedia.org/wiki/Windowing_system
-* protocols: x11 https://unix.stackexchange.com/q/517 Wayland, pipewire https://www.youtube.com/watch?v=jFxwPJpUwl0 https://github.com/sharkdp/pastel#get-a-list-of-all-x11--css-color-names https://en.wikipedia.org/wiki/Wayland_(display_server_protocol) https://www.youtube.com/watch?v=lpowigSQthg https://en.wikipedia.org/wiki/X_Window_System
+* protocols: x11 https://unix.stackexchange.com/q/517 https://zserge.com/posts/fenster/ Wayland, pipewire https://www.youtube.com/watch?v=jFxwPJpUwl0 https://github.com/sharkdp/pastel#get-a-list-of-all-x11--css-color-names https://en.wikipedia.org/wiki/Wayland_(display_server_protocol) https://www.youtube.com/watch?v=lpowigSQthg https://en.wikipedia.org/wiki/X_Window_System https://codeberg.org/dnkl/foot/
 * _window manager_: control windows displayed by window system https://en.wikipedia.org/wiki/Window_manager https://news.ycombinator.com/item?id=34591661 https://news.ycombinator.com/item?id=36880235 https://www.youtube.com/watch?v=xWIDvnNFl5I
 * _tiling window manager_: keyboard-driven arrangement of and switching btw windows
 > https://www.youtube.com/watch?v=bdumjiHabhQ on i3 convinced me that this was potentially worthwhile just to not have to scroll for VS Code (and break dependency on iTerm auto hotkey)
@@ -34,9 +60,19 @@ SEMANTICS 🧠 https://chatgpt.com/c/67409094-34c0-8004-ad28-45ac4b94f67a
 * _aerospace_: 🎯 https://github.com/nikitabobko/AeroSpace https://nikitabobko.github.io/AeroSpace/guide https://www.youtube.com/watch?v=5nwnJjr5eOo https://www.youtube.com/watch?v=-FoWClVHG5g https://www.youtube.com/watch?v=q4cexeIc3WA
 * _hyprland_: https://www.youtube.com/watch?v=2CP_9-jCV6A config hell https://www.youtube.com/watch?v=T__INNgTW1M https://hyprpanel.com/
 * _Raycast_: 🎯 also acts as a compositor? https://www.youtube.com/watch?v=DBifQv9AYhc [1:30]
-* _yabai_: 🎯 https://github.com/koekeishiya/yabai https://daniel.lawrence.lu/blog/y2023m12d15/ https://www.youtube.com/watch?v=k94qImbFKWE
 
 ## managers
+
+* _true tiling_: no overlaps, auto reallocation
+* _window snap_: manual positioning, no auto reallocation
+
+OPTIONS
+* _Amethyst_: macOS https://github.com/ianyh/Amethyst https://www.reddit.com/r/xmonad/comments/3j4tnt/is_it_possible_to_use_xmonad_on_os_x/ https://switowski.com/blog/favorite-mac-tools/
+* _i3_: tiling + hotkeys https://www.youtube.com/watch?v=bdumjiHabhQ 3:30 https://www.youtube.com/watch?v=bdumjiHabhQ 1:30
+* _Rectangle_: you have this installed on capp-mini; macOS https://rectangleapp.com/ https://switowski.com/blog/favorite-mac-tools/ https://github.com/rxhanson/Rectangle
+* _yabai_: 🎯 true tiling https://github.com/koekeishiya/yabai https://daniel.lawrence.lu/blog/y2023m12d15/ https://www.youtube.com/watch?v=k94qImbFKWE
+* _xmonad_: x11, no macOS https://news.ycombinator.com/item?id=30402358 https://xmonad.org/
+> I've mellowed as I've aged, but still fondly remember the thrill of the XMonad tiling window manager on multiple monitors — in particular, its responsiveness. With a few fast keyboard shortcuts, I could throw windows between monitors, arrange windows side-by-side, and immediately move focus to exactly the window I had in mind. XMonad also supports "virtual desktops", which I used to organize windows by task. For example, when working on a web app I'd put a terminal window, Emacs window, two web browsers (one for my app, the other for looking up documentation) all on the same virtual desktop. Then, when I wanted to do something else, I could switch to an empty virtual desktop, effectively saving my previous one "away for later". https://kevinlynagh.com/newsletter/2020_04_keyboards_rethinking_desktops/
 
 ---
 
@@ -45,18 +81,48 @@ SEMANTICS 🧠 https://chatgpt.com/c/67409094-34c0-8004-ad28-45ac4b94f67a
 * for macOS https://magnet.crowdcafe.com/ https://news.ycombinator.com/item?id=22852157 https://faun.pub/yabai-macos-tile-window-manager-833ce1be396a?gi=132df1bca0e1 https://github.com/koekeishiya/yabai https://news.ycombinator.com/item?id=36368990
 * AlwaysOnTop https://www.youtube.com/watch?v=6IxRlaTWsoQ
 * _alt-tab_: https://alt-tab-macos.netlify.app/
-* _Amethyst_: macOS https://github.com/ianyh/Amethyst https://www.reddit.com/r/xmonad/comments/3j4tnt/is_it_possible_to_use_xmonad_on_os_x/ https://switowski.com/blog/favorite-mac-tools/
 * _dwm_: https://dwm.suckless.org/
-* _i3_: tiling + hotkeys https://www.youtube.com/watch?v=bdumjiHabhQ 3:30 https://www.youtube.com/watch?v=bdumjiHabhQ 1:30
 * _Magnet_: https://switowski.com/blog/favorite-mac-tools/
 * _PaperWM_: https://jvns.ca/blog/2020/01/05/paperwm/
 * _Slate_: unmaintained https://github.com/jigish/slate
 * _Sway_: https://swaywm.org/
-* _Rectangle_: macOS https://rectangleapp.com/ https://switowski.com/blog/favorite-mac-tools/ https://github.com/rxhanson/Rectangle
 * _X.org_: https://www.x.org/wiki/
 * _XQuartz_: port of X.org for macOS https://www.xquartz.org/
-* _xmonad_: x11, no macOS https://news.ycombinator.com/item?id=30402358 https://xmonad.org/
-> I've mellowed as I've aged, but still fondly remember the thrill of the XMonad tiling window manager on multiple monitors — in particular, its responsiveness. With a few fast keyboard shortcuts, I could throw windows between monitors, arrange windows side-by-side, and immediately move focus to exactly the window I had in mind. XMonad also supports "virtual desktops", which I used to organize windows by task. For example, when working on a web app I'd put a terminal window, Emacs window, two web browsers (one for my app, the other for looking up documentation) all on the same virtual desktop. Then, when I wanted to do something else, I could switch to an empty virtual desktop, effectively saving my previous one "away for later". https://kevinlynagh.com/newsletter/2020_04_keyboards_rethinking_desktops/
+
+## launcher / workflows (Raycast)
+
+🗄️ `keyboards.md` programmable
+
+🌞 RAYCAST https://www.raycast.com/
+> how hotkeys used to work for me: `ALT SPACE` for iTerm, `CMD TAB` for everything else (i.e. lots of scrolling)
+> https://www.youtube.com/watch?v=DBifQv9AYhc https://www.youtube.com/watch?v=Bslp82vTQaM
+* disable own global hotkey (`ALT SPACE`): settings > general
+* hotkeys
+* window mgmt
+* launcher
+* emoji picker
+* snippets
+* calculator
+* clipboard history
+* extensions: https://www.raycast.com/pernielsentikaer/installed-extensions https://www.raycast.com/thomas/visual-studio-code https://www.raycast.com/abielzulio/chatgpt https://www.raycast.com/raycast/github https://www.raycast.com/tonka3000/speedtest https://www.raycast.com/mblode/google-search https://www.raycast.com/mooxl/coffee https://www.raycast.com/Aayush9029/cleanshotx https://www.raycast.com/tonka3000/youtube https://www.raycast.com/tegola/remove-paywall https://www.raycast.com/josephschmitt/gif-search
+
+* _global hotkey_: keypress handled by listening program even if another program is active
+* used by: iTerm, Google Drive for Desktop https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
+> would be great to remap `CMD SPACE` bc I never use Spotlight + less strain on left thumb
+* _Alfred_: 🎯 hotkey, launcher, workflows https://www.alfredapp.com/ https://wesbos.com/uses
+* _mdfind_: macOS https://weiyen.net/articles/useful-macos-cmd-line-utilities/
+* _Spotlight_: disable hotkey from `CMD SPACE` https://manual.raycast.com/hotkey
+
+---
+
+* _AutoHotKey_: Windows https://www.autohotkey.com/ https://www.hillelwayne.com/post/ahk/
+* _BetterTouchTool_: workflows via trackpad https://switowski.com/blog/favorite-mac-tools/
+* _Hammerspoon_: 🎯 Lua https://www.youtube.com/watch?v=wnsJ0vxQms0 https://news.ycombinator.com/item?id=34070951 install https://github.com/dandavison/wormhole
+* _Karabiner_: 🎯 https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934
+* _Keyboard Maestro_:
+
+LAUNCHER
+* _ulauncher_: https://ulauncher.io/ https://omakub.org/
 
 # 🐚 SHELL
 
@@ -136,6 +202,7 @@ eval "$(atuin init bash)"
 ALTERNATIVES
 * _history-sync_: zsh plugin https://martinheinz.dev/blog/110
 * _hishtory_: https://github.com/ddworken/hishtory
+* _hoard_: 🎯 https://github.com/Hyde46/hoard
 * _marker_: uses tldr https://github.com/pindexis/marker
 * _mcfly_: cmd suggestions https://github.com/cantino/mcfly
 * _tsukae_: 🎯 view most commonly used commands https://github.com/irevenko/tsukae
@@ -143,6 +210,7 @@ ALTERNATIVES
 
 CMD
 * `history 0`: view full history https://unix.stackexchange.com/a/657934
+* exec previous cmd: `!!` https://bsago.me/tech-notes/a-replacement-for-!!-in-fish
 
 ZA
 * files: `.bash_history`, `.zsh_history` https://catonmat.net/the-definitive-guide-to-bash-command-line-history
@@ -168,14 +236,21 @@ replace atuin for scrolling commands https://www.youtube.com/watch?v=uOnL4fEnldA
 ## line editor (readline)
 
 * _readline_: line editor https://news.ycombinator.com/item?id=33785631
-* impl https://github.com/chzyer/readline
 * view keybindings: `bind -P` https://catonmat.net/bash-vi-editing-mode-cheat-sheet
-* exec previous cmd: `!!` https://bsago.me/tech-notes/a-replacement-for-!!-in-fish
+
+IMPL
+* apps that impl readline: aider
+* most people use a lib to talk to readline e.g. python-prompt-toolkit https://github.com/chzyer/readline
 
 MODES
 * set mode: `set -o <emacs/vi>`
 * _vi_: doesn't support text obj e.g. `cw` works but `ciw` doesn't https://vi.stackexchange.com/a/9876 https://catonmat.net/bash-vi-editing-mode-cheat-sheet
 * scroll history: `j/k`
+
+INPUTRC https://claude.ai/chat/27433018-36d2-4574-888e-131cc5b24fdc
+```sh
+bash --noediting  # use readline without any config https://www.baeldung.com/linux/inputrc-file
+```
 
 ---
 
@@ -188,7 +263,7 @@ MODES
 * problem #2: scroll history; can use emacs commands in vi mode as workaround https://stackoverflow.com/q/42951222
 > both of these worked at first
 
-bindings
+BINDINGS
 * readline https://stackoverflow.com/questions/35046794/where-can-i-view-all-my-custom-keybindings-in-bash
 * https://bsago.me/tech-notes/insert-text-with-fish-keybindings
 * https://stackoverflow.com/questions/10870468/whats-the-usage-of-bind-in-bash
@@ -206,9 +281,10 @@ EMACS MODE https://catonmat.net/bash-emacs-editing-mode-cheat-sheet
 * _rm to - line - end_: ctrl k
 * _rm to - line - start_: ctrl u
 
-completion
+COMPLETIONS
 * _tab completion_: aka autocomplete, expansion https://python-poetry.org/docs/ https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
 * https://iridakos.com/tutorials/2018/03/01/bash-programmable-completion-tutorial.html
+* howto https://github.com/triyanox/lla/blob/main/completions/lla.bash
 * uses `complete` https://tuzz.tech/blog/how-bash-completion-works
 ```sh
 $ complete -W "red green blue yellow purple pink orange" color
@@ -296,38 +372,6 @@ SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell
 * sessions w/out window mgmt e.g. abduco https://www.youtube.com/watch?v=GbZFwpmr230 0:45
 * _escape sequences_: https://en.wikipedia.org/wiki/ANSI_escape_code https://github.com/charmbracelet/sequin
 
-## alternatives
-
-🧠 https://chatgpt.com/c/671abdee-ccec-8004-958e-6dd5bf9f6ed9
-
-MAYBE
-* _Alacritty_: YAML config, fastest, cross-platform, no global hotkey but Hammerspoon/Karabiner workaround https://github.com/alacritty/alacritty/issues/3313 https://github.com/alacritty/alacritty/issues/862 https://alacritty.org/index.html https://www.youtube.com/watch?v=uOnL4fEnldA
-* doesnt work on mac? https://www.youtube.com/watch?v=3wq0RFYAvNo [2:20]
-* works with Zellij copy/paste https://zellij.dev/documentation/faq#copy--paste-isnt-working-how-can-i-fix-this
-* _ghostty_: private beta, written in Zig, coming out in 2025 https://mitchellh.com/writing/ghostty-is-coming https://mitchellh.com/ghostty https://www.youtube.com/watch?v=7Jon_cAK_to
-* _kitty_: https://sw.kovidgoyal.net/kitty/
-* great integrations https://sw.kovidgoyal.net/kitty/integrations/ https://github.com/chase/awrit https://github.com/mpv-player/mpv/commit/874e28f4a41a916bb567a882063dd2589e9234e1
-* opinionated maintainer https://news.ycombinator.com/item?id=41223934 https://kovidgoyal.net/ https://kovidgoyal.net/
-* doesnt work on mac? https://www.youtube.com/watch?v=3wq0RFYAvNo [2:20]
-* _Wezterm_: no global hotkey, Lua config for macros https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751 https://www.youtube.com/watch?v=TTgQV21X0SQ
-* keybindings for built-in multiplex are bad https://wezfurlong.org/wezterm/features.html#available-features
-
-COLLAB
-* _gotty_: term as web app https://github.com/yudai/gotty
-* _sshx_: real-time collaboration https://github.com/ekzhang/sshx
-
-NO
-* _Hyper_: Electron https://hyper.is/
-* _Tabby_: Electron https://news.ycombinator.com/item?id=35111397 https://github.com/Eugeny/tabby?tab=readme-ov-file#what-tabby-is-and-isnt
-* _Warp_: https://www.warp.dev/
-* good community? https://news.ycombinator.com/item?id=30926360
-* you need to login?!? https://app.warp.dev/login/
-* trying to move gen AI to shell https://www.warp.dev/ai
-* trying to move docs into a walled garden https://www.warp.dev/warp-drive
-* autocomplete is cool, esp. Git branches https://www.warp.dev/modern-terminal
-* terminal block is interesting https://www.warp.dev/modern-terminal
-* launch configurations 类似 iterm profiles
-
 ## color
 
 🗄
@@ -336,6 +380,9 @@ NO
 * `os/tools.md` Television
 
 COLORS EVERYWHERE https://jvns.ca/blog/2024/10/01/terminal-colours/ https://news.ycombinator.com/item?id=41727971 https://chatgpt.com/c/67508349-ca34-8004-a587-50e598116f8f
+```sh
+neofetch # WM Theme: Blue (Dark)
+```
 > If possible, I would like to be able to somehow configure the colors used by just, like LSCOLOR does. Or at least replace blue(34) with bright blue(94). https://github.com/casey/just/issues/1294
 > https://github.com/muesli/termenv
 > https://github.com/charmbracelet/lipgloss
@@ -379,22 +426,12 @@ color themes https://realpython.com/courses/custom-vs-code-color-themes/
 
 ## features
 
+* speed: ghostty snappier than iTerm
 * compute: iTerm uses ~15% CPU on air-capp, Alacritty is supposed to be good https://chatgpt.com/c/671149f9-6ff4-8004-a834-78d1cbfdd46b
-
-GLOBAL HOTKEY 🗄️ `keyboards.md` programmable
-* = keypress handled by listening program even if another program is active
-* killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
-* used by: iTerm, Google Drive for Desktop
-> would be great to remap `CMD SPACE` bc I never use Spotlight + less strain on left thumb
-* _AutoHotKey_: https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ 
-* _Alfred_ https://www.alfredapp.com/ https://wesbos.com/uses
-* _BetterTouchTool_: https://switowski.com/blog/favorite-mac-tools/
-* _Hammerspoon_: Keyboard Maestro https://news.ycombinator.com/item?id=34070951 install https://github.com/dandavison/wormhole
-* _Karabiner_: https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934
-* _Raycast_: https://www.raycast.com/ https://wesbos.com/uses https://www.youtube.com/watch?v=lhJwEckGi4U https://www.youtube.com/watch?v=Bslp82vTQaM https://weiyen.net/articles/useful-macos-cmd-line-utilities
 
 ---
 
+🧠 https://chatgpt.com/c/671abdee-ccec-8004-958e-6dd5bf9f6ed9
 https://wezfurlong.org/wezterm/features.html
 
 > UX also isn't something that can really be competed on for a terminal app as the UX is typically dictated by the shell, tool, tmux, etc. https://news.ycombinator.com/item?id=35125295
@@ -411,9 +448,117 @@ VIZ
 * themes e.g. gruvbox https://www.youtube.com/watch?v=h509rn2xIyU
 * image rendering https://github.com/lusingander/serie?tab=readme-ov-file#supported-terminals https://iterm2.com/documentation-images.html https://sw.kovidgoyal.net/kitty/graphics-protocol/
 
+## 👻 ghostty
+
+📜 https://ghostty.org/docs https://github.com/ghostty-org/ghostty
+
+PRO AND CONS
+* ✅ good for vi readline (which helps with atuin)
+* ❌ no divider between splits
+* ❌ cmus is unusable
+> check out repo issues for these two
+
+CONFIG
+* TOML-like but no section-headers
+* icons: handles Makefile (which doesn't happen in iTerm)
+* filepath goofiness https://github.com/ghostty-org/ghostty/issues/3456
+
+FONTS
+> embeds a default font (JetBrains Mono), has built-in nerd fonts https://ghostty.org/docs/config
+* current thought: it's really BYO font https://github.com/ghostty-org/ghostty/blob/main/src/font/embedded.zig
+```sh
+ghostty +list-fonts
+# thought this would list available fonts but doesn't include `JetBrains Mono`
+# on mini23, lists `FiraCode Nerd Font Mono`, which *does* work (and which I have installed)
+```
+
+---
+
+goto split https://github.com/shoukoo/dotfiles/blob/f093247c18af0cb47adad21a4a60425b8aea6e5d/ghostty#L15
+https://github.com/guerinoni/dotfiles/blob/74eefcfa2ba179de915a7533182ef78e8465a11a/ghostty#L1852
+
+FONTS
+* https://www.youtube.com/watch?v=jWuQxU4bDeU [1:14]
+* https://github.com/search?q=path%3A**%2Fghostty+font-family&type=code
+```toml
+font-thicken = true
+font-feature = "calt"
+font-feature = "liga"
+font-feature = "zero"
+```
+
+TODO
+* where is this coming from?
+```sh
+neofetch # Terminal: iTerm2
+```
+* design https://www.youtube.com/watch?v=7Jon_cAK_to https://mitchellh.com/ghostty
+* is there a base config beyond what you got when initially running `ghostty +show-config`? https://github.com/ghostty-org/ghostty/issues/3203
+
+suggested config from Claude
+```toml
+# Window
+window-theme = "dark"
+window-padding-x = 15
+window-padding-y = 15
+window-decoration = false
+macos-option-as-alt = true
+cursor-style = "block"
+cursor-style-blink = false
+
+# Colors
+background = "#000000"
+foreground = "#ffffff"
+
+# Performance
+max-fps = 120
+vsync = true
+
+# Pane Management
+keybind = "cmd+d = split-right"
+keybind = "cmd+shift+d = split-down"
+keybind = "cmd+w = split-close"
+keybind = "cmd+shift+h = split-move-left"
+keybind = "cmd+shift+j = split-move-down"
+keybind = "cmd+shift+k = split-move-up" 
+keybind = "cmd+shift+l = split-move-right"
+```
+
+MAYBE
+* _Alacritty_: YAML config, fastest, cross-platform, no global hotkey but Hammerspoon/Karabiner workaround https://github.com/alacritty/alacritty/issues/3313 https://github.com/alacritty/alacritty/issues/862 https://alacritty.org/index.html https://www.youtube.com/watch?v=uOnL4fEnldA
+* doesnt work on mac? https://www.youtube.com/watch?v=3wq0RFYAvNo [2:20]
+* works with Zellij copy/paste https://zellij.dev/documentation/faq#copy--paste-isnt-working-how-can-i-fix-this
+* _kitty_: https://sw.kovidgoyal.net/kitty/
+* great integrations https://sw.kovidgoyal.net/kitty/integrations/ https://github.com/chase/awrit https://github.com/mpv-player/mpv/commit/874e28f4a41a916bb567a882063dd2589e9234e1
+* opinionated maintainer https://news.ycombinator.com/item?id=41223934 https://kovidgoyal.net/ https://kovidgoyal.net/
+* doesnt work on mac? https://www.youtube.com/watch?v=3wq0RFYAvNo [2:20]
+* _Wezterm_: no global hotkey, Lua config for macros https://github.com/wez/wezterm https://github.com/wez/wezterm/issues/1751 https://www.youtube.com/watch?v=TTgQV21X0SQ
+* keybindings for built-in multiplex are bad https://wezfurlong.org/wezterm/features.html#available-features
+
+COLLAB
+* _gotty_: term as web app https://github.com/yudai/gotty
+* _sshx_: real-time collaboration https://github.com/ekzhang/sshx
+
+NO
+* _Hyper_: Electron https://hyper.is/
+* _Tabby_: Electron https://news.ycombinator.com/item?id=35111397 https://github.com/Eugeny/tabby?tab=readme-ov-file#what-tabby-is-and-isnt
+* _Warp_: https://www.warp.dev/ https://www.youtube.com/watch?v=8kNF4TY6BVg
+* good community? https://news.ycombinator.com/item?id=30926360
+* you need to login?!? https://app.warp.dev/login/
+* trying to move gen AI to shell https://www.warp.dev/ai
+* trying to move docs into a walled garden https://www.warp.dev/warp-drive
+* autocomplete is cool, esp. Git branches https://www.warp.dev/modern-terminal
+* terminal block is interesting https://www.warp.dev/modern-terminal
+* launch configurations 类似 iterm profiles
+
 ## 🍎 iTerm
 
 📜 https://iterm2.com/documentation.html
+
+COMMANDS
+* fullscreen: `CMD ENTER`
+* fullscreen pane: `CMD SHIFT ENTER` https://stackoverflow.com/a/16483592
+* global hotkey: keys > hotkey > show/hide all windows (`ALT SPACE`)
 
 ---
 
@@ -422,11 +567,8 @@ https://news.ycombinator.com/item?id=35126280
 * conf: `$HOME/.config/iterm2/AppSupport -> /Users/zach/Library/Application Support/iTerm2`
 * allow file access: security > full disk access
 * getting help https://gitlab.com/gnachman/iterm2/-/issues/7517
-* fullscreen: `CMD ENTER`
-* fullscreen pane: `SHIFT CMD ENTER` https://stackoverflow.com/questions/13243933/iterm2-how-to-expand-split-pane-temporarily
 * locate cursor: `CMD /`
 * config status bar: profile > session > configure status bar
-* global hotkey: keys > hotkey > show/hide all windows (`ALT SPACE`)
 * select tab by number: keys > nav > tab https://stackoverflow.com/a/59303000
 * restore tabs https://superuser.com/a/755924
 * handle using ALT: preferences > profiles > keys > left option as esc+ https://stackoverflow.com/a/345949
@@ -512,6 +654,7 @@ a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/vide
 
 ### 🧩 Zellij
 
+> doesn't make sense to work on this until you're doing everything in the terminal i.e. up to snuff with neovim
 📜 https://zellij.dev/documentation/
 
 * shell: doesn't use login, work around using `.zshenv` https://github.com/zellij-org/zellij/issues/1434#issuecomment-2185020449

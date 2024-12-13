@@ -8,8 +8,9 @@
 * `protocols.md` file fmt
 * `telemetry.md` analytics
 📚
-* https://www.manning.com/books/advanced-analytics-for-business https://www.youtube.com/watch?v=scY7PTxNSr4
-* https://www.manning.com/books/effective-data-analysis
+* Khalil https://www.manning.com/books/effective-data-analysis
+* Massaron https://www.manning.com/books/advanced-analytics-for-business https://www.youtube.com/watch?v=scY7PTxNSr4
+* Wickham https://r4ds.hadley.nz/
 
 ## 进步
 
@@ -26,8 +27,7 @@ TOOLING
 * GPU acceleration https://www.youtube.com/watch?v=86nMARKN7ho https://www.youtube.com/watch?v=Aumh3evLSKc https://www.youtube.com/watch?v=PH7ExhXYkxQ
 
 ZA
-* _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog https://realpython.com/podcasts/rpp/224/ https://github.com/benrutter/wimsey
-> Chances are, you’ve never heard of Narwhals. That’s because it’s a tool targeted at tool builders, rather than at end users. Specifically, it allows library maintainers to support multiple dataframe libraries as inputs, without having to make any of them required. https://pola.rs/posts/lightweight_plotting/
+* _dataframe_: result set + operations https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://github.com/go-gota/gota/blob/master/dataframe/dataframe.go
 
 ---
 
@@ -35,7 +35,7 @@ design https://news.ycombinator.com/item?id=42193043 https://www.youtube.com/wat
 Dask dataframe https://www.youtube.com/watch?v=bbtK3aCQ3C0
 https://calpaterson.com/bank-python.html
 https://tibble.tidyverse.org/
-https://dplyr.tidyverse.org/
+https://dplyr.tidyverse.org/ https://calmcode.io/course/dplyr-verbs/introduction
 
 📚
 * McKinney https://wesmckinney.com/book/
@@ -43,13 +43,13 @@ https://dplyr.tidyverse.org/
 
 ZA
 * tables https://posit-dev.github.io/great-tables
-* _dataframe_: result set + operations https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://github.com/go-gota/gota/blob/master/dataframe/dataframe.go
 * Dataframe Interchange Protocol, Dataframe API Standard https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/ https://pythonspeed.com/articles/polars-pandas-interopability/
 
-### 🏹 Arrow
+## 🏹 Arrow
 
 📜 https://arrow.apache.org/
 🗄️ `protocols.md` file fmt / serialization
+📹 https://www.youtube.com/watch?v=I0RtuAiBPh0
 
 * in-memory format for columnar data https://news.ycombinator.com/item?id=29010103 https://github.com/adriangb/pgpq
 > This question comes up quite often. Parquet is a _file_ format, Arrow is a language-independent _in-memory_ format. You can e.g. read a parquet file into a typed Arrow buffer backed by shared memory, allowing code written in Java, Python, or C++ (and many more!) to read from it in a performant way (i.e. without copies). https://news.ycombinator.com/item?id=29010103
@@ -63,7 +63,7 @@ ZA
 * used by Polars https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
 * can query using DuckDB bc Duck's  https://duckdb.org/2021/12/03/duck-arrow.html https://news.ycombinator.com/item?id=35426155
 
-### 🦢 Ibis
+## 🦢 Ibis
 
 📜 https://ibis-project.org/
 
@@ -74,66 +74,21 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 > SQL is the longest lasting thing that still gets used for new projects (sorry, C) but it's kinda like Bash in that it's ugly/verbose to read and harder to write than ORM/dataframe code. tons of SQL out in the world so great use case for LLMs (like regex) but Ibis a great compromise, SQL becomes akin to compiler output, you can always dig into the assembly if need be [yes, compilers output bytecode, IR, etc.] but in most cases you're can happily plug away in a much better DSL. https://www.scattered-thoughts.net/writing/against-sql
 
 * dataframe API
+* https://calmcode.io/course/ibis/introduction
 * transpiles to SQL i.e. works with SQL-based query engines (BigQuery, Clickhouse, Postgres, Snowflake) https://realpython.com/podcasts/rpp/201/
 * compiles to Python i. e https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
 * dataframe API that can use Polars/Pandas query engine or transpile to SQL and run against relational dbms https://talkpython.fm/episodes/show/462/pandas-and-beyond-with-wes-mckinney
 * https://www.youtube.com/watch?v=C4aUG9poN6E https://us.pycon.org/2024/schedule/presentation/55/index.html
 
-### 🐻‍❄️ Polars
-
-📜 https://docs.pola.rs/ https://docs.pola.rs/api/python/stable/reference/index.html
-
-* converting Pandas to Polars https://www.youtube.com/watch?v=B2Ljp2Fb-l0
-* compared to Pandas: query optimization, group by https://labs.quansight.org/blog/dataframe-group-by https://pola.rs/posts/benchmarks/
-* better semantics than Pandas? https://arilamstein.com/blog/2024/09/04/why-im-switching-to-polars/
-* more on design https://www.youtube.com/watch?v=q3o2IdFQTOE
-* plotting https://pola.rs/posts/lightweight_plotting/ https://realpython.com/python-news-october-2024/
-> couldn't get this to work; try `pipx inject`
-
-COOKBOOK
-* za
-```python
-# IO
-pl.read_csv(path/to/csv, ignore_errors=True)
-pl.write_csv(path/to/csv, ignore_errors=True)
-
-# MALFORMATTED COLUMN HEADERS
-no_whitespace_or_period_delimit = r"^[^\s.-]+$"
-violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
-assert len(violations) > 0
-
-# PREDICATES
-df.filter(pl.col(COL) == VAL)
-df.filter(pl.col(COL).str.contains(REGEX).alias('regex'))
-```
-* null/empty col
-```python
-# EMPTY COLUMNS
-null_col_df = [col for col in df.columns if df[col].null_count() == df.height]
-assert bool(null_col_df) is True
-
-# NULLS
-df.filter(pl.col(COL).is_null())
-
-# VALUE NOT PRESENT IN COLUMN
-assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == 0
-
-# VALUE PRESENT IN EVERY COLUMN RECORD
-assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == lines_set.height
-```
+## 🐋 Narwhals
 
 ---
 
-* Deltabase, DeltaDB https://github.com/uname-n/deltabase https://pythonbytes.fm/episodes/show/397/so-many-pycon-videos
-* design vs. Pandas https://news.ycombinator.com/item?id=35429555
-* guide https://realpython.com/polars-python/
-* design: query engine with dataframe frontend https://pola.rs/posts/polars_birds_eye_view/ https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/
-* can use some Pandas libraries https://pythonspeed.com/articles/polars-pandas-interopability/
-* better than Pandas: query in Python or SQL, no dependencies, sensible pip install (vs. conda) https://github.com/pola-rs/polars better perf https://pola.rs/posts/benchmarks/ less memory usage https://pythonspeed.com/articles/polars-memory-pandas/
-* worse than Pandas: not meant for Excel-like operations
-> Pandas was originally written to replace excel in financial/econometric modeling, not as a replacement for sql. Models written solely in the long relational style are near unmaintainable for constantly evolving models with hundreds of data sources and thousands of interactions being developed and tuned by teams of analysts and engineers. https://news.ycombinator.com/item?id=35429555
+> First up: we are completely rewriting how our Plotly.py library talks to dataframes in the 6.0 release. Instead of relying on the Pandas API, we are using Narwhals which provides an abstraction layer over several kinds of tabular data. This means faster, more efficient handling of tabular data and serious performance gains for data apps at scale. You'll notice with this change that Plotly.py no longer has to do in-memory copying when you hand it something like a Polars dataframe. https://plotly.com/blog/plotly-dash-major-release/
+* _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog https://realpython.com/podcasts/rpp/224/ https://github.com/benrutter/wimsey
+> Chances are, you’ve never heard of Narwhals. That’s because it’s a tool targeted at tool builders, rather than at end users. Specifically, it allows library maintainers to support multiple dataframe libraries as inputs, without having to make any of them required. https://pola.rs/posts/lightweight_plotting/
 
-### 🐼 Pandas
+## Pandas
 
 > 📍 https://github.com/lux-org/lux
 📜 https://pandas.pydata.org/docs/
@@ -213,6 +168,180 @@ log.info("count - verified: {}".format(len(set(verified.foo))))
 verified.to_csv(os.path.join(os.getcwd(), out_file))
 ```
 
+# 🐻‍❄️ POLARS
+
+📜 https://docs.pola.rs/ https://docs.pola.rs/api/python/stable/reference/index.html
+📙 https://realpython.com/polars-python/
+
+## design
+
+---
+
+BIG PICTURE
+* query engine with dataframe frontend https://pola.rs/posts/polars_birds_eye_view/ https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/
+* compared to Pandas: query optimization, group by https://labs.quansight.org/blog/dataframe-group-by https://pola.rs/posts/benchmarks/
+* https://www.youtube.com/watch?v=q3o2IdFQTOE
+* https://news.ycombinator.com/item?id=35429555
+* better semantics than Pandas? https://arilamstein.com/blog/2024/09/04/why-im-switching-to-polars/
+* https://calmcode.io/course/polars/introduction
+* https://calmcode.io/course/pandas-pipe/introduction
+
+INTEROP
+* converting Pandas to Polars https://www.youtube.com/watch?v=B2Ljp2Fb-l0
+* can use some Pandas libraries https://pythonspeed.com/articles/polars-pandas-interopability/
+
+PRO / CON
+* better than Pandas: query in Python or SQL, no dependencies, sensible pip install (vs. conda) https://github.com/pola-rs/polars better perf https://pola.rs/posts/benchmarks/ less memory usage https://pythonspeed.com/articles/polars-memory-pandas/
+* worse than Pandas: not meant for Excel-like operations
+> Pandas was originally written to replace excel in financial/econometric modeling, not as a replacement for sql. Models written solely in the long relational style are near unmaintainable for constantly evolving models with hundreds of data sources and thousands of interactions being developed and tuned by teams of analysts and engineers. https://news.ycombinator.com/item?id=35429555
+
+ZA
+* Deltabase, DeltaDB https://github.com/uname-n/deltabase https://pythonbytes.fm/episodes/show/397/so-many-pycon-videos
+* plotting https://pola.rs/posts/lightweight_plotting/ https://realpython.com/python-news-october-2024/
+> couldn't get this to work; try `pipx inject`
+
+## IO
+
+```python
+# read_csv faster when you can skip entire columns and save on overhead of setting up query plan
+df = pl.read_csv(file, columns=['col1', 'col2'])
+
+# scan_csv creates lazy df = build up ops before actually loading data = Polars can optimize query plan rather than executing ops sequentially 🗄️ `data/internals.md` query engine > query plan
+df = pl.scan_csv(file)
+   .filter(pl.col('col1') > 0)
+   .select(['col1', 'col2'])
+   .groupby('col1').agg(pl.col('col2').mean())
+   .collect()
+
+# stream for lower memory consumption 🗄️ `architecture.md`
+for chunk in pl.read_csv("data.csv", rechunk=True).iter_chunks(size=10000):
+    process_chunk(chunk)
+
+# PRNG for reproducible sample 🗄️ `algos.md`
+pl.scan_parquet("data.parquet").sample(n=1000, seed=42).collect()
+
+# working around non-standard data
+pl.read_csv(
+    filepath,
+    separator='\t',
+    encoding='latin-1',
+    skip_rows=42,
+    ignore_errors=True,
+    infer_schema_length=None,
+    quote_char=None,
+    truncate_ragged_lines=True,
+)
+
+# MALFORMATTED COLUMN HEADERS
+no_whitespace_or_period_delimit = r"^[^\s.-]+$"
+violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
+assert len(violations) > 0
+```
+
+## EDA
+
+```python
+df.columns
+df.schema
+df.schema.keys()
+col_series = df["column_name"]
+col_list = df["column_name"].to_list()
+
+first_values = df["column_name"].head(5)
+unique_values = df["column_name"].unique()
+
+# empty columns
+null_col_df = [col for col in df.columns if df[col].null_count() == df.height]
+assert bool(null_col_df) is True
+# null columns
+df.filter(pl.col(COL).is_null())
+# value not present in column
+assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == 0
+# value present in every column record
+assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == lines_set.height
+```
+
+## predicates
+
+```python
+# equality
+bar.filter(pl.col('mfg') == 'samsung')
+# comparison
+bar.filter(pl.col('price') > 300)
+# chained
+bar.filter((pl.col('mfg') == 'samsung') & (pl.col('price') > 400))
+# keyword search
+bar.filter(pl.col('mfg').str.contains('pp').alias('regex'))
+```
+
+## joins
+
+---
+
+```python
+# basic
+foo.join(bar, left_on="id", right_on="mpn")
+
+# predicate
+foo.join(bar, left_on="id", right_on="mpn").filter(pl.col("foo_price") != pl.col("bar_price"))
+foo.join(bar, left_on="id", right_on="mpn").filter(pl.col("manufacturer").is_in(["apple", "motorola"]))
+
+# relative complement
+bar.join(foo, left_on="mpn", right_on="id", how="anti")
+```
+
+---
+
+🗄️ startup.py https://github.com/zachvalenta/capp-crud
+
+```python
+foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")
+foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc").select(["sku", "bar_upc", "foo_price", "bar_price"])
+
+joined = foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")
+joined.select(joined.columns[0], joined.columns[-1], *joined.columns[1:-1])
+
+select([
+    "name",  # specify your desired column order
+    "age",
+    "id"
+])
+
+foo.join(df2, on="id").filter(pl.col("price") != pl.col("Sell Price"))
+```
+
+JOINS
+```python
+# BASIC
+joined = capp.join(neuco, on="id", how="left")  # JK same name
+joined = df1.join(df2, left_on="Part_ID", right_on="part_id")  # JK dif name
+
+# RECONCILIATION
+# 📍 update this to show what the price is
+df1 = pl.DataFrame({"id": [1, 2, 3], "price": [100.0, 200.0, 300.0]})
+df2 = pl.DataFrame({"id": [1, 2, 3], "price": [100.0, 250.0, 300.0]})
+df1.join(df2, on="id").filter(pl.col("price") != pl.col("Sell Price"))
+
+missing_records = capp.join(
+    neuco,
+    left_on=["Part_ID", "Product Item"],  # Join on both keys
+    right_on=["part_id", "product_item"],
+    how="left"
+)
+
+# only keeps join key from the driving table (as least in output)
+df1 = pl.DataFrame({"Part_ID": [1, 2, 3], "name": ["a", "b", "c"]})
+df2 = pl.DataFrame({"part_id": [1, 2, 4], "value": [10, 20, 30]})
+joined = df1.join(df2, left_on="Part_ID", right_on="part_id")
+# need to alias join key from through table to see it in output
+joined = df1.join(df2.with_columns(pl.col("part_id").alias("df2_part_id")), left_on="Part_ID", right_on="part_id")
+
+# trying to make it more clear in a join which attr belong to which table
+df1_tagged = df1.select([pl.all().prefix("table1_")])
+df2_tagged = df2.select([pl.all().prefix("table2_")])
+joined = df1_tagged.join(df2_tagged, left_on="table1_Part_ID", right_on="table2_Part_ID") # adjust join key names to match prefixed names
+```
+
 # 🛠️ TOOLING
 
 🗄️ `protocols.md` file fmt
@@ -221,12 +350,6 @@ SQL FROM SHELL
 * _dsq_: https://github.com/multiprocessio/dsq
 * _q_: https://github.com/harelba/q
 * _sq_ https://github.com/neilotoole/sq https://news.ycombinator.com/item?id=41760697 
-
-CSVKIT 📜 https://github.com/wireservice/csvkit https://csvkit.readthedocs.io/en/latest/
-* install broken via pyenv https://github.com/zachvalenta/logs-capp/blob/main/pyenv/pipx/csvkit.log#L36
-```sh
-in2csv $EXCEL > $CSV
-```
 
 CONVERSION / GENERATION
 * tabular to JSON https://github.com/jazzband/tablib
@@ -248,23 +371,30 @@ LINTING
 * https://github.com/darold/pgFormatter
 * https://sqlfum.pt/
 
-## BI (csvbase)
+## BI (dash)
 
 🗄
 * `architecture.md` no code, baked data
 * `doc.md` viz > chart
 * `math.md` stat / distributions
+* `python/feedback.md` notebooks
 
 > Analysis, even SQL-based analysis, isn't like design, where a handful of people create stuff and everyone else is a consumer, with clear lines between them. It's much, much fuzzier. Though analysts were always our first adopters, lots of people - PMs, engineers, marketing managers, executives, support agents, operations leads, and all job titles in between - periodically wrote queries. These people occupied the middle part of the distribution between analysts and non-analysts that we thought would be vacant. Users weren't bimodal like we expected, but continuous. https://benn.substack.com/p/work-like-an-analyst
+
+DASH https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
+* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
+* _callback_: update chart https://dash.plotly.com/tutorial#controls-and-callbacks
+* _control_: hit callback
+* _Dash Design Kit (DDK)_: no need for HTML/CSS
 
 ---
 
 CANDIDATES FOR CAPP https://chatgpt.com/c/674796f6-286c-8004-b0d5-6ae4d0decccc
-* Dash
 * https://github.com/finos/perspective https://perspective.finos.org/
 * https://github.com/datasette/datasette-queries
 * Metabase
 
+* Claude data analysis tool
 * AI / plain English https://news.ycombinator.com/item?id=41907719
 
 * _business intelligence (BI)_: explorer (for non-devs) + graphs
@@ -274,13 +404,6 @@ TOOLS / DASHBOARDS
 * RAG https://github.com/vanna-ai/vanna
 * _Blazer_: https://github.com/ankane/blazer
 * _Briefer_: https://github.com/briefercloud/briefer https://pythonbytes.fm/episodes/show/405/oh-really
-* _csvbase_: 🎯 https://csvbase.com/ https://csvbase.com/blog/10
-* _Dash_: 🎯 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
-* callback = update chart https://dash.plotly.com/tutorial#controls-and-callbacks
-* https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
-* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable
-* control = hit callback
-* Dash Design Kit (DDK) = no need for HTML/CSS
 * _Dataherald_: query using natural language via LLM https://github.com/Dataherald/dataherald
 * _Datalens_: 🎯 run locally https://datalens.tech/ https://news.ycombinator.com/item?id=37657772
 * _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872
@@ -308,6 +431,7 @@ TOOLS / DASHBOARDS
 
 ---
 
+* https://tomcritchlow.com/2023/01/27/small-databases/
 * https://realpython.com/contact-book-python-textual/
 * Airtable?
 * schema introspection https://highgrowthengineering.substack.com/p/why-is-dbt-so-important-
@@ -351,7 +475,7 @@ OPTIONS
 * Postgres: pgAdmin, PGweb https://github.com/centerofci/mathesar
 * _Beekeeper_: $7/month https://www.beekeeperstudio.io/
 * _Datagrip_: 🎯 $10/month, ERD https://www.jetbrains.com/datagrip/
-* _Datasette_: 🎯 SQLite only https://github.com/simonw/datasette/issues/670 https://github.com/simonw/datasette-upload-csvs https://github.com/simonw/dclient https://github.com/datasette/datasette-create-view https://github.com/simonw/sqlite-utils-ask https://github.com/datasette/datasette-query-assistant
+* _Datasette_: 🎯 SQLite only https://github.com/simonw/datasette/issues/670 https://github.com/simonw/datasette-upload-csvs https://github.com/simonw/dclient https://github.com/datasette/datasette-create-view https://github.com/simonw/sqlite-utils-ask https://github.com/datasette/datasette-query-assistant https://calmcode.io/course/datasette/introduction
 * _DBeaver_: OSS, ERD https://dbeaver.io/ https://stackoverflow.com/a/48397209
 * _Outerbase_: 🎯 browser https://github.com/outerbase/studio https://news.ycombinator.com/item?id=42320032
 * _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
@@ -431,7 +555,7 @@ usql as alternative https://news.ycombinator.com/item?id=42161987
 * clear screen: `ctrl l`
 * _metacommand_: preceded w/ backslash https://www.pgcli.com/commands
 * set pager to bat: `pager = less -SRXF` https://www.pgcli.com/docs
-* _named query_: snippet, saved query https://www.pgcli.com/named_queries.md
+* _named query_: snippet, saved query https://www.pgcli.com/named_queries.md https://simonwillison.net/2024/Dec/3/datasette-queries/
 * syntax: `f` (litecli) `n` (pgcli)
 * list: `\f` https://github.com/dbcli/pgcli/issues/1236
 * save: `\fs <name> <query>` https://github.com/dbcli/pgcli/issues/938
@@ -440,6 +564,34 @@ usql as alternative https://news.ycombinator.com/item?id=42161987
 * use: `\f <name>`
 * use w/ param: `\f <name> "arg"`
 * rm: `\fd <name>` https://litecli.com/favorites/
+
+## 🌱 seed
+
+🗄️ `test.md` db
+
+---
+
+> pull in `make-seed-data` from Capp repo
+
+```text
+Can you make me some sample data?
+
+FOO
+id,mpn,mfg,price
+1,IMQL,apple,150
+2,6Z6G,samsung,200
+3,S3OW,motorola,350
+
+BAR
+id,mfg,price
+IMQL,apple,125
+6Z6G,samsung,200
+S3OW,motorola,325
+
+* table FOO mpn maps to table BAR id
+* their are some price differenece btw the records
+* each table should have 10 records
+```
 
 ## spreadsheet (Excel)
 
@@ -500,6 +652,7 @@ TUI
 ---
 
 * compare queries across dbms https://github.com/rickbergfalk/sqlpad
+* AI https://whodb.clidey.com/
 
 HARLEQUIN 📜 https://harlequin.sh
 > need to first fix the visidata command in Makefile to generate SQLite db from CSV
@@ -568,30 +721,11 @@ CONFIG https://github.com/zachvalenta/dotfiles/blob/7f843714b3c3d6eb531dfb292e91
 * fs: `~/.visidatarc` https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata/
 * cache: `~/.visidata`
 * config: `shift o` global options sheet `z shift o` sheet-specific `~/.visidatrc` persistent https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata/
+* formats: Parquet, CSV https://www.visidata.org/docs/formats/
+* sources: Postgres, Clickhouse https://www.visidata.org/blog/2022/connect-visidata-to-sql-databases-with-vdsql/
 * turn off status messages https://github.com/saulpw/visidata/issues/2567 https://github.com/saulpw/visidata/issues/2621
 * turn off DOS newline / carriage return https://github.com/saulpw/visidata/issues/387
 
-BROKEN FILE CONVERSION 🚧 file conversion doesn't work
-* using csvkit instead 🗄️ query-sandbox, capp
-* cause: `vd` not being callable? https://github.com/saulpw/visidata/issues/1406 `sh: /Users/zach/.local/bin/vd: bad interpreter: /Users/zach/Library/Application: no such file or directory`
-* cause: pyenv issue
-```sh
-$ vd foo.xlsx -b -o foo.csv
-
-saul.pw/VisiData v3.0.2
-opening foo.xlsx as xlsx
-I wonder what they'll do next!
-saving 1 sheets to foo.csv as csv
-```
-```sh
-$ cat foo.csv
-```
-```csv
-sheet,nRows,nCols,active
-Cateogry_Updates,1,2,True
-Sheet1,1048575,5,False
-Sheet2,1048575,2,False
-```
 ---
 
 https://datasette.io/for/exploratory-analysis

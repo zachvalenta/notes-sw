@@ -104,6 +104,7 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 * design: part of ML family tree, related to F# https://en.wikipedia.org/wiki/ML_(programming_language)
 * written in: Google Drive FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace#Remote/distributed_file_system_clients
 * transpiles to Javascript https://melange.re/v4.0.0/ https://www.youtube.com/watch?v=QrtRihR0Av4
+* serde https://www.youtube.com/watch?v=Qs6Di6vjEGs
 * https://news.ycombinator.com/item?id=42302426
 
 # 🟨 ZA
@@ -112,6 +113,7 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 
 ## language
 
+* https://zserge.com/posts/langs-lisp/
 * _homoiconicity_: code = data https://news.ycombinator.com/item?id=42272433
 * with Pythonic syntax https://news.ycombinator.com/item?id=42272433
 * little syntax https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html

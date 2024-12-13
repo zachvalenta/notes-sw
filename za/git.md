@@ -6,6 +6,7 @@
 
 ## 进步
 
+* backup to Codeberg https://github.com/AkashRajpurohit/git-sync
 * autogit https://github.com/zackproser/automations
 * What might be the cause of autocompletions around Git just stopping working?
 > this doesn't happen in every dir, just `capp/mapper`
@@ -44,6 +45,7 @@ SHORTCUTS https://darrenburns.net/posts/github-tips
 * `b`: blame view in file
 
 FEATURES https://buttondown.com/hillelwayne/archive/github-has-too-many-hidden-features/
+* topics https://github.com/topics/copier-template
 * wiki: not searchable https://stackoverflow.com/questions/12535602/search-for-a-keyword-within-a-github-wiki can't find out how to edit project names https://github.com/kraanzu/dooit/wiki
 * README for org: `.github-private` repo w/ `profile/README.md` https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme
 * contributions: won't count unless user pushing them using same email tied to account in `.gitconfig`
@@ -58,8 +60,27 @@ gh api "/users/zachvalenta/events" | jq 'map(select(.created_at | startswith("20
 
 ## CLI
 
+🗄️ `task-mgmt.md` 2024 workflow
 📜 https://cli.github.com/manual/ https://github.com/cli/cli
 
+```sh
+# search repo by name
+gh search repos --owner=zachvalenta "proj in:name"
+
+###
+# TOPIC
+###
+
+# read
+gh search repos --owner=zachvalenta "topic:$TOPIC"
+
+# create (shows up in UI under description)
+gh repo edit $REPO --add-topic "cli,python,utils"
+gh repo edit https://github.com/zachvalenta/eliza --add-topic "publish"
+
+# delete
+gh repo edit $REPO --remove-topic "topic1,topic2"
+```
 ---
 
 EXTENSIONS
@@ -104,6 +125,7 @@ gh alias list
 ## Markdown
 
 📜 https://docs.github.com/en/get-started/writing-on-github
+🔗 https://calmcode.io/course/readme-files/dearme-readme
 
 * use GIF https://github.com/Melkeydev/go-blueprint
 * add a welcome video! https://github.com/grafana/pyroscope
@@ -112,12 +134,13 @@ gh alias list
 * "try without installing!" https://zellij.dev/
 * directory tree https://github.com/koaning
 * alerts https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/ https://github.com/orgs/community/discussions/16925
-```txt
+* note highlighting: note, tip, important, warning, caution
+```markdown
 > [!NOTE]
-> [!TIP]
+> Note content.
+
 > [!IMPORTANT]
-> [!WARNING]
-> [!CAUTION]
+> (12/19/24) Hello! MarkItDown team members will be resting and recharging with family and friends over the holiday period. Activity/responses on the project may be delayed during the period of Dec 21-Jan 06. We will be excited to engage with you in the new year!
 ```
 
 ---
@@ -126,65 +149,6 @@ gh alias list
 * how to link to images outside of repo https://github.com/textualize/toolong
 * _profile README_: create repo with same name as user, add README https://github.com/willmcgugan/willmcgugan https://github.com/mrjackwills
 * _video_: https://github.com/textualize/toolong
-
-## Pages
-
-🗄️ `src.md` CICD > Actions
-
-RULES https://www.getzola.org/documentation/deployment/github-pages/ https://github.com/shalzz/zola-deploy-action https://chatgpt.com/c/675a107f-ecac-8004-97eb-1fecff5fb9c0
-* `index.html` in root of branches `master`|`main`|`gh-pages`
-* specify branch `repo/settings/pages/branch`
-* don't need to do anything with `GITHUB_TOKEN` if the job only needs to access the repo it is running in
-* site named `<username>.github.io` must correspond to repo named `<username>.github.io`
-
-WORKLOG
-- [x] commit `d5072df` + `settings/pages/branch` to `gh-pages` got the site deployed but the URL nested under my user name (`https://www.zachvalenta.com/zjayv.github.io/`), presumably bc a single user can only have a single `github.io` site?
-- [x] adding CNAME broke site bc you have to add CNAME config in registrar (in my case, Name Cheap) https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain
-- [x] zjay.github.io: CNAME still broken i.e. not serving actual site (but stock pages from Name Cheap?)
-- [ ] zjay.github.io: unpublish
-> this maybe wiped out all previous commits on the `gh-pages` branch?
-- [ ] zjay.github.io: roll back to `d5072df`
-- [ ] zjay.github.io: use as playground
-- [ ] zjay.com: set up CNAME in Name Cheap
-- [ ] zachvalenta.com: import Zola blog (DNS already set up)
-- [ ] zjay.com: unpublish (do you need to take down DNS from Name Cheap?)
-
----
-
-* attempt to specify build dir
-```yaml
-name: deploy to GH Pages
-on:
-  push:
-    branches:
-      - main
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v3
-      - name: deploy to GH Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-```
-
-DEPLOYING ZJAYV https://zjayv.github.io/ 🧠 https://chatgpt.com/c/66f4a787-5a40-8004-bda8-c9c207ae0e88
-> start here https://www.getzola.org/documentation/deployment/github-pages/
-```txt
-things I've already tried
-
-- publish_dir
-- specify branch (settings > pages)
-```
-* workflows https://github.com/zachvalenta/zjayv.github.io/actions
-> why do they have two different names?
-* site that works https://liyasthomas.github.io/
-* need cname? https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME.txt
-* docs https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-* more docs https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
 
 ## repos
 
@@ -237,6 +201,7 @@ gh issue list --repo ponyorm/pony --state closed --json number --jq 'length'
 ## search
 
 * doesn't search non-main branches https://github.com/search?q=owner%3Azachvalenta+bullet+language%3APython&type=code&l=Python https://github.com/zachvalenta/capp-prod-cat/blob/link-nodes/tree_viz.py 🗄️ `stdlib.md` UI / IO / input / bullet
+* filters: `org:freeCodeCamp language:python path:**/Makefile user:zachvalenta extension:py` https://stackoverflow.com/a/28347129 https://stackoverflow.com/a/42418887
 
 ---
 
@@ -257,7 +222,9 @@ https://docs.github.com/en/github/searching-for-information-on-github/searching-
 > No idea. Just memorize these shell commands and type them to sync up. If you get errors, save your work elsewhere, delete the project, and download a fresh copy https://xkcd.com/1597/
 🪚 BYO
 * https://maryrosecook.com/
+* https://www.youtube.com/playlist?list=PLrmY5pVcnuE_jPv620IWQV0TsJ_RCmg13
 * https://www.leshenko.net/p/ugit/
+* https://zserge.com/posts/git/
 🎨
 * https://onlywei.github.io/explain-git-with-d3
 * https://github.com/initialcommit-com/git-sim https://initialcommit.com/blog/git-sim
@@ -371,7 +338,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 
 🗄️ `vim.md` utils / code intel / git
 
-## GUI (GitUp)
+## ⬆️ GUI (GitUp)
 
 * _gitbutler_: 🎯 不明觉厉 https://github.com/gitbutlerapp/gitbutler https://blog.gitbutler.com/ https://jackevans.bearblog.dev/some-notes-on-git/
 * _GitKraken_: corporate https://www.gitkraken.com/
@@ -387,7 +354,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 
 * alternatives https://git-scm.com/downloads/guis/ https://git-scm.com/book/en/v2/Appendix-A%3A-Git-in-Other-Environments-Graphical-Interfaces
 
-## pager (delta)
+## 🔻 pager (delta)
 
 🗄️ `os/tools.md` pager
 
@@ -401,7 +368,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * _dunk_: similar to delta https://github.com/darrenburns/dunk
 * _git split diffs_: 🎯 node version https://github.com/banga/git-split-diffs https://news.ycombinator.com/item?id=27007844
 
-## porcelain (lazygit)
+## 🐼 porcelain (lazygit)
 
 LAZYGIT 📜 https://github.com/jesseduffield/lazygit https://git-how.com/
 * sections: side panels + main panel / diffview https://git-how.com/
@@ -436,7 +403,7 @@ LAZYGIT
 * pager https://github.com/jesseduffield/lazygit/blob/master/docs/Custom_Pagers.md
 * use for `git add .` commits, staging lines, nuking work tree https://www.youtube.com/watch?v=CPLdltN7wgE
 
-## repo browser (Tig)
+## ⛳️ repo browser (Tig)
 
 * _gitk_: can come with git but if not `brew install git-gui` https://git-scm.com/docs/gitk
 * _grv_: 💀 unmaintained, no brew formula https://github.com/rgburke/grv https://github.com/rgburke/grv/issues/109
@@ -451,6 +418,12 @@ LAZYGIT
 * file history: `tig path/to/file`
 * blame: `tig blame path/to/file` https://stackoverflow.com/q/15304804 or tree view `t` then `b`
 > binding to view full file https://www.youtube.com/watch?v=goNodOWENEg
+
+## tracker (gfold / Atalanta)
+
+there's some bullshit project squatting on the domain https://pypi.org/project/atl/
+
+what I realized after 90 mins debugging gfold: it can only surface git repos that are subdirs of the paths you're specifying i.e you can't just give it paths to git repos. this is a problem bc it's not granular enough e.g. it will surface everything inside `capp` or `notes` https://github.com/nickgerace/gfold/issues/261
 
 # 🏗️ WORKFLOW
 
@@ -513,13 +486,13 @@ MESSAGE
 * _COMMIT EDITMSG_: tmp file storing commit msg
 * fmt: subject 50 col, desc 72 col https://drewdevault.com/2019/02/25/Using-git-with-discipline.html automate https://github.com/commitizen/cz-cli
 
-CONVENTIONAL COMMIT
+CONVENTIONAL COMMIT https://www.conventionalcommits.org/
 * labels: lowers cognitive overhead = enables more frequent commits https://github.com/commitizen/cz-cli https://github.com/zachvalenta/interview-capp/commits/main/
 ```sh
-src: func|fix|rf
-test
-dep
+src: func|rf|fix
 doc
+dep
+test
 ```
 * tried out the Gum impl but didn't like loss of readline and didn't understand what scope was doing https://github.com/charmbracelet/gum https://github.com/zachvalenta/capp-denv-bin/blob/main/jx
 > 📍 gotta think Charm has a realine component somewhere
@@ -902,7 +875,7 @@ VERSION MGMT / INSTALL https://git-scm.com/book/en/v2/Getting-Started-Installing
 
 `.gitattributes`: specify EOL https://stackoverflow.com/questions/73086622/is-a-gitattributes-file-really-necessary-for-git
 
-SUBMODULES
+SUBMODULES https://www.cyberdemon.org/2024/03/20/submodules.html
 * _submodules_: `.gitmodules` separate Git repo w/in main repo https://news.ycombinator.com/item?id=42291833
 * for pulling dependencies https://longair.net/blog/2010/06/02/git-submodules-explained/ https://github.com/sharkdp/bat/blob/master/.gitmodules https://www.youtube.com/watch?v=8Z4Cmhji_FQ https://www.youtube.com/watch?v=ZYq3NJnO08U https://www.youtube.com/watch?v=iv7WwDgyb0U https://www.youtube.com/watch?v=De8Bc1VxcGQ
 * howto: add child dir to parent dir `.gitignore`, init new Git repo in child https://stackoverflow.com/a/4660048 🗄️ `denv/bin`
@@ -1002,14 +975,14 @@ FORGES
 * BYO https://github.com/honza/smithy
 * avoid centralization https://gitlab.com/pdfgrep/pdfgrep/-/issues/36#note_2232721446
 * _Bitbucket_: 💀 https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
-* _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965
+* _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965 https://codeberg.org/a-j-wood/pv
 * _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717
 * now for-profit and licensing issues https://news.ycombinator.com/item?id=34011581
 * _Gitlab_: selling soon https://news.ycombinator.com/item?id=42333052
 * _Gitweb_: built-in GUI for server https://git-scm.com/book/en/v2/Git-on-the-Server-GitWeb
 * _Gogs_: https://gogs.io/
-* _soft-serve_: https://github.com/charmbracelet/soft-serve https://www.youtube.com/watch?v=9xCwBdlo85g
-* _SourceHut_: https://git.sr.ht/~shulhan/gotp https://drewdevault.com/2018/06/05/Should-you-move-to-sr.ht.html
+* _soft-serve_: 🎯 https://github.com/charmbracelet/soft-serve https://www.youtube.com/watch?v=9xCwBdlo85g
+* _SourceHut_: you signed up for an account to use their static site hosting https://git.sr.ht/~shulhan/gotp https://drewdevault.com/2018/06/05/Should-you-move-to-sr.ht.html
 
 ---
 

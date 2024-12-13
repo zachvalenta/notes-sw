@@ -11,6 +11,12 @@
 
 # 🏗️ DEPLOYMENT
 
+SEMANTICS
+* _release_: users get latest deployment
+* _canary release_: only subset of users get latest deployment https://medium.com/netflix-techblog/automated-canary-analysis-at-netflix-with-kayenta-3260bc7acc69 
+* _version detection_: `$BASH_VERSION == "4.4"` https://github.com/oils-for-unix/oils/wiki/Feature-Detection-Is-Better-than-Version-Detection
+* _feature detection_: "does the feature that I need exist?"
+
 ---
 
 🗄
@@ -22,10 +28,6 @@
 https://news.ycombinator.com/item?id=41968026
 https://blog.pecar.me/rds-blue-green
 https://blog.pecar.me/gunicorn-restart
-
-SEMANTICS
-* _release_: users get latest deployment
-* _canary release_: only subset of users get latest deployment https://medium.com/netflix-techblog/automated-canary-analysis-at-netflix-with-kayenta-3260bc7acc69 
 
 ## CICD
 
@@ -135,6 +137,8 @@ GIT HOOKS 📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks https://
 * ignore failed hooks w/ `git commit --no-verify` http://omerkatz.com/blog/2013/2/15/git-hooks-part-1-the-basics
 
 PRE-COMMIT https://pre-commit.com https://github.com/pre-commit/pre-commit/issues https://gitlab.com/zachvalenta/pre-commit-test https://learndjango.com/tutorials/pre-commit-django
+* bypass for commit: `git commit -m "your message" --no-verify`
+* bypass for push: `git push --no-verify`
 * set: `pre-commit install -t pre-commit; pre-commit install -t pre-push` (i.e. copy Python scripts in place of Git samples) https://pre-commit.com/#3-install-the-git-hook-scripts https://pre-commit.com/#pre-commit-install
 * skip: `SKIP=<stage> git commit -m "foo"`
 * uninstall: `pre-commit uninstall -t <action>`
@@ -174,9 +178,11 @@ CLOUD
 > I don't understand the need for "cloud development environments" though. Isn't the point of containerized apps is to avoid the need for synchronizing dev envs amongst teams?...It's to ensure a consistent environment for all developers, with the resources required. E.g. they mention GPUs, for developers working with GPU-intensive workloads. You can ship all developers gaming laptops with 64GB RAM and proper GPUs, and have them fight the environment to get the correct libraries as you have in prod (even with containers that's not trivial), or you can ship them Macbook Airs and similar, and have them run consistent (the same) dev environments remotely (you can self-host gitpod, it's not only a cloud service, it's more the API/environment to get consistent remote dev enviornments). https://news.ycombinator.com/item?id=42042522
 * 🎯 Omakub on a spot instance?
 * _Coder_: https://github.com/coder/coder
+* _CodeSandbox_: https://codesandbox.io/docs/sdk
 * _Devpod_: 🎯 https://www.youtube.com/watch?v=ceDrFx2K3jE
 * _Daytona_: https://www.daytona.io/
 * _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://cli.github.com/manual/gh_codespace
+* _Github devcontainers_: https://code.visualstudio.com/docs/devcontainers/containers
 * _Gitpod_: 🎯 runs on your own AWS env (per This Week in AWS) https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15 https://news.ycombinator.com/item?id=42041917
 * _Theia_: https://github.com/eclipse-theia/theia https://news.ycombinator.com/item?id=41563958
 * _Zed_: https://zed.dev/releases/stable/0.145.1 https://www.youtube.com/watch?v=F9sQPpVVLeQ
@@ -191,7 +197,6 @@ CLOUD
 
 ---
 
-England https://x.com/nabeelqu/status/1861479746929897572
 https://news.ycombinator.com/item?id=41941493
 
 🗄 `infra.md` analytics
@@ -225,9 +230,19 @@ TOOLING
 * `spec.md` config
 
 WORKFLOWS
-* secrets to `.env` + read from client (set perms on `.env` to 600) 🗄️ `ai.md` aider
-* just export + remove from shell history 🗄️ `ai.md` llm
+* env file: gitignore, 600 perms, read from script 🗄️ `ai.md` aider
+```sh
+# aider.env
+export OPENAI_API_KEY=ur_key
+# bz
+OPENAI_KEY_PATH="$HOME/Documents/denv/bin/aider.env"
+```
+* export: rm from shell history 🗄️ `ai.md` llm
 * 📍 to grok
+
+---
+
+🧠 https://chatgpt.com/c/673f8c16-e090-8004-bdc8-564bbfeb33d5
 > env var, fs, manager https://news.ycombinator.com/item?id=40789353
 > 💡 point config to file holding pw = you can version control config https://www.youtube.com/watch?v=2yplBzPCghA [7:30]
 
@@ -365,12 +380,51 @@ toggle=
 * Dibernardo 500 lines or less http://aosabook.org/en/index.html
 * Fowler refactoring https://www.amazon.com/dp/0134757599/ https://registerspill.thorstenball.com/p/skin-shedding-code https://www.youtube.com/watch?v=ZsPDz_BGbtE https://www.youtube.com/watch?v=CjCJ76oZXTE
 > Also, as a general rule, you can at any given time get away with changing more than you think. Introducing change is like pulling off a bandage: the pain is a memory almost as soon as you feel it. http://paulgraham.com/popular.html
+* Kernighan/Pike practice of programming
+* Lopes exercises in programming style
 * Martin clean code https://qntm.org/clean https://www.youtube.com/watch?v=wf68VDObVX0 https://www.youtube.com/watch?v=RkxVB1eNdCc
 * McConnell code complete
-* Ousterhout https://www.amazon.com/Philosophy-Software-Design-2nd/dp/173210221X against uncle bob https://www.youtube.com/watch?v=k0kTux_YNHw shallow vs. deep https://lobste.rs/s/qpzubc/don_t_refactor_like_uncle_bob_please
+* Ousterhout https://www.amazon.com/Philosophy-Software-Design-2nd/dp/173210221X against uncle bob https://www.youtube.com/watch?v=k0kTux_YNHw shallow vs. deep https://lobste.rs/s/qpzubc/don_t_refactor_like_uncle_bob_please https://benhoyt.com/writings/python-api-design/ https://minds.md/zakirullin/cognitive https://news.ycombinator.com/item?id=42489645 https://news.ycombinator.com/item?id=42512063 🗄️ `psychology.md`
 
 ---
 
+🔗 https://news.ycombinator.com/item?id=35813496
+🗄
+* `golang.md` za / design
+* `python.md` za / design
+* `sociology.md` linguistics
+* `system.md` programs / paradigms
+
+https://buttondown.com/hillelwayne/archive/stroustrups-rule/
+https://borretti.me/article/language-pragmatics
+
+COMMUNITY
+> But the choice of a main programming language is the most important signaling behavior that a technology company can engage in. Tell me that you program in Java, and I believe you to be either serious or boring. In Ruby, and you are interested in building things quickly. In Clojure, and I think you are smart but wonder if you ship. In Python, and I trust you implicitly. In PHP, and we sigh together. In C++ or C, and I nod humbly. In C#, and I smile and assume we have nothing in common. In Fortran, and I ask to see your security clearance. These languages contain entire civilizations. - Ford what is code?
+* Java developers have high pain tolerances https://news.ycombinator.com/item?id=25124513
+> The wrong people like it. The programmers I admire most are not, on the whole, captivated by Java. http://www.paulgraham.com/javacover.html
+> Language users do not miss conveniences that they have never had access to in the first place. Those few bi-cultural citizens who function in both Chinese-character and alphabetic worlds are aware of the advantages conferred by the alphabet, but even these people soon get used to the differences, which slip below the level of consciousness, unremarked and unlamented...in virtually every informatic context, from library card catalogs to everyday user's manuals, the relatively cumbersome Chinese writing system exerts a low-level but constant drag force on productivity 📝 Moser invisible writing
+
+HOWTO
+* development speed vs. execution speed https://bitfieldconsulting.com/golang/rust-vs-go
+> One especially good groove to span is the one between tools and things made with them. For example, programming languages and applications are usually written by different people, and this is responsible for a lot of the worst flaws in programming languages. I think every language should be designed simultaneously with a large application written in it, the way C was with Unix. http://paulgraham.com/marginal.html
+> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem. http://paulgraham.com/popular.html
+* expressive
+> Large organizations have different aims from hackers. They want languages that are (believed to be) suitable for use by large teams of mediocre programmers-- languages with features that, like the speed limiters in U-Haul trucks, prevent fools from doing too much damage. Hackers don't like a language that talks down to them. Hackers just want power. http://www.paulgraham.com/javacover.html
+* _feature creep_: adding more features vs. making existing features better https://twitter.com/random_walker/status/1182635589604171776
+* increases headcount, not total users https://news.ycombinator.com/item?id=34567237
+> Second, C has a tendency to be conservative, changing and growing very slowly. This is a feature, and one that is often undervalued by developers. (In fact, I’d personally like to see a future revision that makes the C language specification smaller and simpler, rather than accumulate more features.) - https://nullprogram.com/blog/2018/11/21/
+
+SYSTEMS PROGRAMMING
+* https://news.ycombinator.com/item?id=42406893
+* languages: C, C++, Rust
+* Golang for containers https://github.com/sablierapp/sablier
+* things people write with: dbms, web server, compiler, shell https://drewdevault.com/2021/05/30/Come-build-your-project.html
+* fuzzy definition http://willcrichton.net/notes/systems-programming/ https://news.ycombinator.com/item?id=35092049
+* memory management now in favor http://esr.ibiblio.org/?p=7804
+* is easy :) https://news.ycombinator.com/item?id=34566918
+* https://drewdevault.com/2021/03/19/A-new-systems-language.html
+
+https://entropicthoughts.com/practices-of-reliable-software-design
 extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.html
 * application boundaries https://morizbuesing.com/blog/greppability-code-metric/
 * Richard Gabriel https://www.jwz.org/doc/worse-is-better.html https://bitfieldconsulting.com/posts/not-real-developer
@@ -391,7 +445,7 @@ extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.
 
 ---
 
-https://jvns.ca/blog/2024/11/26/terminal-rules/
+https://jvns.ca/blog/2024/11/26/terminal-rules/ https://news.ycombinator.com/item?id=42401011
 https://danluu.com/cli-complexity/
 
 TUI
@@ -445,7 +499,9 @@ loose coupling https://www.youtube.com/watch?v=uWTvMCra-_Y
 * https://hakibenita.com/python-dependency-injection
 * https://romantomjak.com/posts/testing-python-code-that-makes-http-requests.html
 * https://docs.pytest.org/en/latest/fixture.html#fixture
+* https://github.com/google/gin-config https://calmcode.io/course/gin/intro-to-gin
 * in Python https://io.made.com/dependency-injection-with-type-signatures-in-python/ + https://moltenframework.com/v0.7.3/index.html + https://github.com/ekiro/haps + https://github.com/Dobiasd/enterprython/blob/master/why_you_want_formal_dependency_injection_in_python_too.md https://pythonbytes.fm/episodes/show/112/don-t-use-the-greater-than-sign-in-programming
+* _dependency inversion_: is this a separate thing https://minds.md/zakirullin/cognitive
 * _inversion of control(IoC)_: you're not in charge of app control flow, only hooking into it https://www.baeldung.com/running-setup-logic-on-startup-in-spring example of IoC https://seddonym.me/2019/08/03/ioc-techniques/ https://softwareengineering.stackexchange.com/questions/205681/why-is-inversion-of-control-named-that-way https://stackoverflow.com/questions/3058/what-is-inversion-of-control https://engineering.snagajob.com/dont-like-dependency-injection-898de93dc8d3 https://stackoverflow.com/a/2465052/6813490 https://stackoverflow.com/a/51117857/6813490 https://stackoverflow.com/a/140655/6813490 https://www.objc.io/issues/11-android/dependency-injection-in-java/ https://www.youtube.com/playlist?list=PLVmRRBrc2pRAEgzxUIJc_7LLABdg_58hJ ❓ pull in class deps all in one place [Conery 287]
 > What is the glue that holds Django together? As a beginner entering, there really is no obvious central object to inspect, extend, or modify. https://www.reddit.com/r/Python/comments/olech/is_django_considered_pythonic_now/
 
@@ -453,7 +509,9 @@ loose coupling https://www.youtube.com/watch?v=uWTvMCra-_Y
 
 🧠 https://chatgpt.com/c/672144f0-fbfc-8004-98c0-2209def70bc0
 🔍 https://github.com/DovAmir/awesome-design-patterns
-📙 Conery ch. 11/12
+📚
+* Conery ch. 11/12
+* Mak https://www.manning.com/books/software-design-in-python
 
 ---
 
@@ -518,6 +576,9 @@ as red flag https://news.ycombinator.com/item?id=30675182
 * ✅ Evans domain-driven design https://github.com/nickgerace/gfold/pull/149/files
 * Percival https://www.amazon.com/gp/product/1492052205 https://www.youtube.com/watch?v=niMybnzmzqc [1:15]
 
+* beware ideas coming from the Java world https://www.infoq.com/presentations/8-lines-code-refactoring/
+> Ubiquitous language, domain, bounded context, aggregate, event storming are all about problem space. They are meant to help us learn the insights about the domain and extract the boundaries. DDD enables developers, domain experts and business people to communicate effectively using a single, unified language. Rather than focusing on these problem space aspects of DDD, we tend to emphasise particular folder structures, services, repositories, and other solution space techniques. https://minds.md/zakirullin/cognitive
+
 ## DSLs
 
 ---
@@ -536,8 +597,6 @@ ABSTRACTION
 * _law of leaky abstractions_: natch; if they wouldn't exist in the first place https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/
 
 ## paradigms
-
-📚 Lopes exercises in programming style
 
 * use greppable names https://registerspill.thorstenball.com/p/use-data-that-looks-like-data
 * write code that's easy to throw away
@@ -599,6 +658,127 @@ cf. [Designing Data Intensive Applications - chapter 2 - 'delcarative queries on
 * __object-oriented__: procedural on steroids; Java, C++
 * __scripting__: functions not attached to objects
 * __logic__: formal mathematical logic; Prolog https://news.ycombinator.com/item?id=30091291
+
+## functional
+
+📚
+* Granin https://www.manning.com/books/functional-design-and-architecture
+* ⭐️ Normand https://www.amazon.com/dp/1617296201 https://www.manning.com/books/grokking-simplicity
+* Martin https://www.amazon.com/gp/product/0138176396
+
+---
+
+method chaining https://calmcode.io/course/method-chains/introduction
+https://danluu.com/butler-lampson-1999/
+https://us.pycon.org/2024/schedule/presentation/86/index.html
+https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell
+https://bytes.yingw787.com/posts/2018/11/07/data_driven_testing
+
+FUNCTIONAL 📙 Conery https://github.com/hemanth/functional-programming-jargon
+* _functional_: function that operates on other functions https://stackoverflow.com/a/94056
+* as design: pure, uses higher-order
+* _higher-order function_: takes func as arg or return func https://www.fluentpython.com/lingo/
+* e.g. decorators, closures, lambdas
+* _first-class function_: https://www.fluentpython.com/lingo/#first-class_function
+* _y combinator_: https://www.youtube.com/watch?v=QuXJ3kXUCiU
+* _curry_: break down larger function into smaller and chaining them together 📙 Conery [291,302]
+> diff to closure? https://stackoverflow.com/questions/62499789/racket-closure-currying-where-is-the-difference#62500425 🗄 `python.md` partial https://www.youtube.com/watch?v=kZlOy1BY6lY
+
+* _none_: https://www.infoq.com/presentations/Null-References-The-Billion-Dollar-Mistake-Tony-Hoare/
+* _pure_: no side effects
+* _side effect_: IO, mutation
+* _functor_: func that iterates over things that are iterable [Conery 307]
+* _monad_: functor iterates, monad does logic [Conery 307]
+* wraps control flow https://bytes.yingw787.com/posts/2019/12/06/monads/ https://samgrayson.me/2019-08-06-monads-as-a-programming-pattern/ https://lukeplant.me.uk/blog/posts/understanding-monads-via-python-list-comprehensions/ https://rbtcollins.wordpress.com/2018/08/26/monads-and-python/
+
+https://github.com/dry-python/returns Land of Lisp epilogue https://docs.python.org/3/howto/functional.html https://kite.com/blog/python/functional-programming https://stackoverflow.com/q/1017621/6813490 https://treyhunner.com/2018/09/stop-writing-lambda-expressions/ https://blog.cleancoder.com/uncle-bob/2014/11/24/FPvsOO.html https://julien.danjou.info/python-and-functional-programming/ https://sumit-ghosh.com/articles/demystifying-decorators-python/ https://jrsinclair.com/articles/2019/what-i-wish-someone-had-explained-about-functional-programming/ https://codewords.recurse.com/issues/one/an-introduction-to-functional-programming http://www.lihaoyi.com/post/WhatsFunctionalProgrammingAllAbout.html https://blog.cleancoder.com/uncle-bob/2017/07/11/PragmaticFunctionalProgramming.html
+
+## object-oriented
+
+📙 Bugayenko elegant obj https://www.elegantobjects.org/
+
+https://hynek.me/talks/subclassing/
+SOLID https://realpython.com/solid-principles-python/
+
+OBJECTS
+* _object_: vs. procedural 📙 Evans domain-driven [51]
+* _object model_: how objs work in a language 📙 Ramalho [15]
+* aka "data model" in Python
+* BYO http://aosabook.org/en/500L/a-simple-object-model.html
+* _class_: lang ft. that allows defining new types 📙 Ramalho https://www.fluentpython.com/lingo/#class
+* _metaobject_: objs that form core of object model 📙 Ramalho [16]
+* _attribute_: obj property i.e. field (data) or method (action) https://docs.python.org/dev/tutorial/classes.html
+* _attribute reference_: access obj attr https://docs.python.org/dev/tutorial/classes.html#class-objects
+
+INHERITANCE
+* _inheritance_: subclass is an instance of parent class
+> I use Django a lot and generally it's great. But I hate that you can't follow your code paths from start to finish on the surface. You have to know about how it works underneath. Meaning you can't just be a python + web server expert. You have to also be a Django expert. So I get non-Django experts reviewing code and they have no clue why things work or break. Just an opinion. Not saying this is objectively wrong. https://news.ycombinator.com/item?id=17728821
+
+ZA
+* _constant_: variable w/ hard-coded value
+* _enumeration_: group of discrete constants https://realpython.com/python-enum/
+* _member_: constant in enum
+
+---
+
+* _hierarchical_: 1 parent - 1 child
+* _multi-level_: 1 grandparent - 1 parent - 1 child
+* _multiple_: n parents - 1 child
+* aka interfaces in Java, mixins in Python
+* _polymorphism_: https://confuzeus.com/hub/django-web-framework/model-polymorphism/ https://news.ycombinator.com/item?id=27658706 re: duck typing https://www.fluentpython.com/lingo/#duck_typing
+* _diamond problem_: https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem Python solves w/ MRO https://stackoverflow.com/a/44535084/6813490
+* _Liskov_: every instance of a subclass (in this case, my extension of Thread) needs to remain a valid instance of the superclass
+* _abstract class_: not instantiated; TwoDimensionalShape(Circle, Square, Triangle)
+* _Law of Demeter_: don't reach through one object to get to another [Conery 278]
+
+OPINIONS
+* Golang https://blog.gypsydave5.com/posts/2024/4/12/go-is-an-object-oriented-programming-language/
+* Smalltalk https://news.ycombinator.com/item?id=34137751 https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
+* http://www.smashcompany.com/technology/object-oriented-programming-is-an-expensive-disaster-which-must-end
+* creates confusion
+> In 2003, Jane Street began a rewrite of its core trading systems in Java. The rewrite was eventually abandoned, in part because the resulting code was too difficult to read and reason about...we built up a nest of classes that left people scratching their heads when they wanted to understand just what piece of code was actually being invoked when a given method was called. https://queue.acm.org/detail.cfm?id=2038036
+> The price is that the resulting code is bloated with protocols and full of duplication. This is not too high a price for big companies, because their software is probably going to be bloated and full of duplication anyway. http://www.paulgraham.com/noop.html
+
+---
+
+* quadratic complexity
+* _composition_:
+* CUPID https://dannorth.net/2022/02/10/cupid-for-joyful-coding/
+* _delegation_: composition by another name https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/#delegation-in-oop
+* https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/
+
+* _information hiding_: obj as black box against which you can ask for stuff but you don't know how it's going on inside [Connolly database systems 25.3.1 814]
+* _override_: replace method inherited from parent
+* _history_: 1970s Smalltalk https://news.ycombinator.com/item?id=29890205 1990s Java https://twobithistory.org/2019/01/31/simula.html https://medium.com/javascript-scene/the-forgotten-history-of-oop-88d71b9b2d9f https://www.hillelwayne.com/post/alan-kay/ https://www.youtube.com/watch?v=QyJZzq0v7Z4
+
+__static methods__
+* _static_: belongs to class, not an individual instance
+* something that won't change across instances 📍 example
+* code organization https://stackoverflow.com/a/14085311/6813490
+* bad for testing? https://stackoverflow.com/a/2671938/6813490
+
+opinions
+* tell, don't ask [Conery 276]
+* unlearn OOP https://dpc.pw/the-faster-you-unlearn-oop-the-better-for-you-and-your-software
+* Hickey https://www.youtube.com/watch?v=oytL881p-nQ
+
+method chaining https://www.youtube.com/watch?v=BY34Fe-2xgk
+* used in SQL query builders [2:45]
+```python
+class Player:
+    def __init__(self, sh_per=0.40):
+        self.points = 0
+        self.fatigue = 0
+        self.shooting_per = sh_per
+    
+    def shoot(self):
+        self.points += 2.0 * self.shooting_per
+        self.fatigue += 1
+        return self
+
+    def stats(self):
+        print(f"pts {self.points} fatigue {self.fatigue}")
+```
 
 # 🟨 ZA
 
@@ -665,6 +845,7 @@ URL shortener 🗄 `fd url-short`
 
 ---
 
+Django vs. Rails https://news.ycombinator.com/item?id=42388340
 https://github.com/CrocoFactory/sensei
 
 BYO
@@ -716,7 +897,6 @@ WORLD'S DUMBEST COMPLETE SAAS
 
 * https://phrase.com/blog/posts/internationalization-i18n-go/
 * examples: Odoo, https://github.com/jesseduffield/lazygit/tree/master/pkg/i18n
-* https://chatgpt.com/c/6717c3a0-0424-8004-9feb-90d6451666d7
 * _a11y_: accessibility https://en.wikipedia.org/wiki/Computer_accessibility
 * _l10n_: language localization https://en.wikipedia.org/wiki/Language_localisation
 * _Lokalise_: used at UM https://lokalise.com/automate-localization

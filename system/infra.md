@@ -6,8 +6,7 @@
 
 ## 进步
 
-DOCKER / KAMAL/ IAAS
-* downtime from docker compose (just for restart, and potentially longer if err) https://www.youtube.com/watch?v=fuZoxuBiL9o
+* Docker / Kamal/ IaaS https://www.youtube.com/watch?v=fuZoxuBiL9o https://www.youtube.com/watch?v=F-9KWQByeU0 https://www.youtube.com/watch?v=7lkJmElHkSw
 
 ---
 
@@ -25,10 +24,8 @@ workflow engine or task queue https://news.ycombinator.com/item?id=34163888 http
 * `aws.md`
 * `system.md` factors
 
-## taxonomy
-
-🧠 https://chatgpt.com/c/673a5946-7948-8004-9a56-e3b60009dccd https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
-
+TAXONOMY 🧠 https://chatgpt.com/c/673a5946-7948-8004-9a56-e3b60009dccd https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
+> hyperscale https://blog.jetbrains.com/pycharm/2024/12/the-state-of-python/#trend-6-most-python-web-apps-run-on-hyperscale-clouds
 * _cloud-native_: dependent on cloud services
 * _lift-and-shift_: on-prem but on a dumb cloud instance
 > Did you have one huge server in the office? Well, now you get one huge server in AWS EC2 and copy your app to it. You’ll also pay extreme prices for that privilege.
@@ -53,24 +50,25 @@ ZA
 
 ---
 
+* https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
+* _benefits_: cost (sometimes) scalability (most times) geographic DR (nearly always)
+* _consultants_: https://aws.amazon.com/iq/ https://www.gruntwork.io/
+* _cost control_: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ https://www.lastweekinaws.com/ https://github.com/mlabouardy/komiser https://www.infracost.io/
+
 BUY VS. BUILD
+* the 1960s
+> While today we run application software on top of a few common operating systems, this wasn’t the case until the 1990s. During the middle ages of computing on mainframe machines, 90% of all software sold was custom-built; only 10% was purchased off the shelf. This landscape deeply influenced how companies developed their technology. Some imagined that the future of software would involve industry-standardized hardware, OS, and programming languages, like the SABRE system for the airline industry (that’s still used today!). Most companies stuck to building their own completely isolated software, often reinventing the wheel. https://retool.com/blog/erp-for-engineers
 * https://danluu.com/in-house/
 * https://news.ycombinator.com/item?id=25399250
 > Another area is with software we’ve had to build (instead of buy). When we started out, we strongly preferred buying software over building it because a team of only a few engineers can’t afford the time cost of building everything. That was the right choice at the time even though the “buy” option generally gives you tools that don’t work. In cases where vendors can’t be convinced to fix showstopping bugs that are critical blockers for us, it does make sense to build more of our own tools and maintain in-house expertise in more areas, in contradiction to the standard advice that a company should only choose to “build” in its core competency. Much of that complexity is complexity that we don’t want to take on, but in some product categories, even after fairly extensive research we haven’t found any vendor that seems likely to provide a product that works for us. To be fair to our vendors, the problem they’d need to solve to deliver a working solution to us is much more complex than the problem we need to solve since our vendors are taking on the complexity of solving a problem for every customer, whereas we only need to solve the problem for one customer, ourselves. https://danluu.com/simple-architectures/
 
-
-https://blog.duolingo.com/reducing-cloud-spending
-
-https://world.hey.com/dhh/our-cloud-exit-savings-will-now-top-ten-million-over-five-years-c7d9b5bd
-
-https://focus.finops.org/
+* https://blog.duolingo.com/reducing-cloud-spending
+* https://world.hey.com/dhh/our-cloud-exit-savings-will-now-top-ten-million-over-five-years-c7d9b5bd
+* https://focus.finops.org/
 > Cloud and SaaS billing data can be complex, inconsistent among providers and difficult to understand. The FinOps Open Cost and Usage Specification (FOCUS) aims to reduce this friction with a spec containing a set of terminologies (aligned with the FinOps framework), a schema and a minimum set of requirements for billing data. The spec is intended to support use cases common to a variety of FinOps practitioners. Although still in the early stages of development and adoption, it’s worth watching because, with growing industry adoption, FOCUS will make it easier for platforms and end users to get a holistic view of cloud spend across a long tail of cloud and SaaS providers. https://www.thoughtworks.com/radar/platforms/focus
-
-https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 * rightsizing https://softwareengineeringdaily.com/2021/01/12/kubecost-with-webb-brown/
 * on-prem: need to integrate w/ legacy systems inside firewall, regulatory, cheaper, you can still make the consumption of your data center feel like a public cloud (CF, HPE)
 * _capacity planning / demand forecasting_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/ https://www.youtube.com/watch?v=UC5xf8FbdJc https://www.youtube.com/watch?v=ov7xhNdrsDM https://www.manning.com/books/demand-forecasting-best-practices
-
 * free tier https://www.lastweekinaws.com/blog/an-aws-free-tier-bill-shock-your-next-steps/
 > Exercise: Pick an infrastructure service that your team operates and calculate how many hours/month you work to maintain the solution. https://cloudonaut.io/my-mental-model-of-aws/
 * https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
@@ -82,9 +80,6 @@ https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 * switching https://news.ycombinator.com/item?id=30942698
 * https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
 > But the thing is in most of the companies you don't have full control over the whole stack. Even if you have "full control" over the database, you don't have control over networking, firewall, OS, "security" patching, VMs, Docker, Kubernetes, Load balancers, vendors managing parts of the infra, internet provider, hosting provider ... Not even datacenter team may have control over all of it, but at least that's their job and their area of expertise.
-* _benefits_: cost (sometimes) scalability (most times) geographic DR (nearly always)
-* _consultants_: https://aws.amazon.com/iq/ https://www.gruntwork.io/
-* _cost control_: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ https://www.lastweekinaws.com/ https://github.com/mlabouardy/komiser https://www.infracost.io/
 
 ## self host
 
@@ -108,6 +103,19 @@ CONSIDERATIONS
 * https://thenewstack.io/why-companies-are-ditching-the-cloud-the-rise-of-cloud-repatriation/
 * https://meta.stackexchange.com/questions/404231/we-re-finally-going-to-the-cloud
 
+### Dokku
+
+* _Dokku_: 🎯 https://github.com/dokku/dokku https://dokku.com/
+
+### Kamal
+
+* _Kamal_: 🎯 https://kamal-deploy.org/ https://www.youtube.com/watch?v=7lkJmElHkSw
+> Rare opening to join our excellent ops team. Help us run Basecamp, HEY, and the heritage suite of apps on our own hardware with Kamal, MySQL, ElasticSearch, Prometheus, Grafana, KVM, Chef. https://x.com/dhh/status/1848544864436162705
+
+### Piku
+
+* _Piku_: 🎯 6k https://github.com/piku/piku
+
 ## IaaS
 
 🗄 `html-css.com`
@@ -124,12 +132,6 @@ TAXONOMY https://www.youtube.com/watch?v=NhDYbskXRgc [48:00]
 * OSS: OpenStack, CloudStack, VSphere
 * _PaaS_: e.g. Heroku https://www.youtube.com/watch?v=NhDYbskXRgc [1:14:15]
 * _IaaS_: e.g. AWS
-
-STATIC SITE
-* _AWS_: https://brandur.org/aws-intrinsic-static S3 and Cloudfront https://www.benkuhn.net/about/ https://github.com/s3tools/s3cmd s3-website https://bedford.io/misc/about/
-* _Github_: source has to be public
-* _pico_: https://pico.sh/pgs
-* _Netlify_: https://wsvincent.com/site-design/ https://adamwathan.me/uses/
 
 ---
 
@@ -158,14 +160,10 @@ frontend: webpack --watch
 
 OPTIONS https://testdriven.io/blog/heroku-alternatives/
 * _Coolify_: https://coolify.io/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
-* _Dokku_: 🎯 https://github.com/dokku/dokku https://dokku.com/
 * _Firebase_: https://tinyprojects.dev/projects/tiny_website
 * _Fly.io_: 🎯 https://www.youtube.com/watch?v=0eP98xkLj9w
-* _Kamal_: 🎯 https://kamal-deploy.org/ https://www.youtube.com/watch?v=7lkJmElHkSw
-> Rare opening to join our excellent ops team. Help us run Basecamp, HEY, and the heritage suite of apps on our own hardware with Kamal, MySQL, ElasticSearch, Prometheus, Grafana, KVM, Chef. https://x.com/dhh/status/1848544864436162705
 * _Knative_: https://knative.dev/docs/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
 * _Netlify_: https://www.netlify.com/
-* _Piku_: 🎯 6k https://github.com/piku/piku
 * _Render_: https://dashboard.render.com/
 * metabase deploy failed bc free-tier instance didn't have enough memory https://dashboard.render.com/project/prj-ct4ro05umphs73e7nfjg
 * _Platform.sh_: https://platform.sh/
@@ -176,18 +174,6 @@ OPTIONS https://testdriven.io/blog/heroku-alternatives/
 * _Supabase_: https://supabase.com/
 * _Tau_: https://github.com/taubyte/tau
 * _Vercel_: https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
-
-### static
-
-🗄️ `frontend.md` SSG
-
-* _AWS amplify_: https://aws.amazon.com/amplify/
-* _Cloudflare pages_:
-* _Github pages_:
-* _Netlify_: https://www.netlify.com/
-* _Render_:
-* _Surge_: https://surge.sh/
-* _Vercel_: https://vercel.com/
 
 ### CF
 
@@ -311,7 +297,7 @@ https://roadmap.sh/linux
 REMOTE EXECUTION 🗄️ `python/stdlib.md` process exec
 * _Capistrano_: https://capistranorb.com/ https://kamal-deploy.org/ https://blog.codepen.io/2014/02/22/002-servers/ https://www.digitalocean.com/community/tutorials/how-to-use-capistrano-to-automate-deployments-getting-started
 * _Fabric_: run script on server over SSH and get Python response obj back; apparently not meant for fully-fledged config mgmt https://stackoverflow.com/questions/39370364/when-to-use-fabric-or-ansible but can/could be used with Ansible (article doesn't explain why not just use Ansible and is undated) https://www.blog.pythonlibrary.org/2024/10/16/ssh-scripting-with-fabric-and-python/
-* _Paramiko_: https://github.com/paramiko/paramiko
+* _Paramiko_: https://github.com/paramiko/paramiko https://github.com/zachvalenta/capp-edi
 * _Ruroco_: https://github.com/beac0n/ruroco
 
 ## Ansible
@@ -395,6 +381,10 @@ localhost | SUCCESS => {
 }
 ```
 
+## Copilot
+
+https://testdriven.io/blog/django-ecs-aws-copilot/
+
 ## Terraform
 
 🛣️ https://roadmap.sh/terraform
@@ -464,7 +454,7 @@ config
 
 🗄
 *️ `architecture/system.md` distributed
-* `eng.md`
+* `eng.md` pipelines
 📚
 * Kleppmann ch. 11
 * Narkhede ch. 11
@@ -472,6 +462,7 @@ config
 TAXONOMY https://eranstiller.com/rabbitmq-vs-kafka-an-architects-dilemma-part-1
 * _bus_: stores msgs
 * _message queue_: bus + FIFO; aka stream processing https://stackoverflow.com/q/7793927 📙 Kleppmann [3]
+* _job_: https://github.com/janbjorge/pgqueuer
 * _task queue_: consumes task, exec, return result; aka batch processing 📙 Kleppmann [3]
 * _workflow engine_: cron + track job history + easy to compose jobs
 
@@ -494,6 +485,87 @@ PUB/SUB 📙 Narkhede ch. 1
 * semantics 📻 Macey 4:50
 * https://bloomberg.github.io/blazingmq/
 
+## cron
+
+---
+
+* cron / scheduling / daemon: https://github.com/zachvalenta/pypub https://github.com/maxhumber/hickory https://docs.python.org/3/library/sched.html https://github.com/dbader/schedule https://github.com/dbader/schedule https://schedule.readthedocs.io/en/stable/faq.html#how-to-continuously-run-the-scheduler-without-blocking-the-main-thread https://towardsdatascience.com/scheduling-all-kinds-of-recurring-jobs-with-python-b8784c74d5dc
+
+CRON https://chatgpt.com/c/6728d6eb-b654-8004-acba-f5f0d6aa8055 https://www.youtube.com/watch?v=QZJ1drMQz1A
+* used for: backups, rotate log files
+* semantics: cron = daemon, crontab(le) = file
+* alternatives: launchd = macOS version? https://en.wikipedia.org/wiki/Launchd anachron runs even if machine powered off (unlike chron) https://ports.macports.org/port/anacron/ https://github.com/dshearer/jobber
+> It’s a simple text file with an ASCII table that will execute a command on schedule. 📙 Conery [422]
+* flags: `-l` list `-e` edit
+* fs: system `/etc/crontab` user `/tmp/crontab.$HASH`
+* macOS perms workaround https://www.bejarano.io/fixing-cron-jobs-in-mojave/
+* syntax https://crontab.guru/examples.html
+* env: does not load same env (.bashrc, .zshrc) so you should use absolute paths, does not log the output anywhere by default https://missing.csail.mit.edu/2019/automation/
+```sh
+$SCHEDULE $USER /path/to/script.sh >> /tmp/out.log 2>&1
+```
+```yaml
+tasks:
+  - name: "Backup"
+    command: "python3 backup.py"
+    interval: "daily"
+  - name: "Data Cleanup"
+    command: "python3 cleanup.py"
+    interval: "hourly"
+  - name: "Generate Report"
+    command: "python3 generate_report.py"
+    interval: "weekly"
+```
+```python
+import schedule
+import time
+import subprocess
+import yaml
+from datetime import datetime, timedelta
+
+def load_tasks(file_path='tasks.yaml'):
+    with open(file_path, 'r') as file:
+        config = yaml.safe_load(file)
+    return config['tasks']
+
+def schedule_task(task):
+    command = task['command']
+    def job():
+        print(f"Running: {task['name']} - {datetime.now()}")
+        subprocess.run(command, shell=True)
+    interval = task.get('interval', 'daily')
+    if interval == "hourly":
+        schedule.every().hour.do(job)
+    elif interval == "daily":
+        schedule.every().day.at("00:00").do(job)
+    elif interval == "weekly":
+        schedule.every().monday.at("00:00").do(job)
+    else:
+        minutes = int(interval)
+        schedule.every(minutes).minutes.do(job)
+
+def main():
+    tasks = load_tasks()
+    for task in tasks:
+        schedule_task(task)
+    while True:
+        schedule.run_pending()
+        time.sleep(300)
+
+if __name__ == "__main__":
+    main()
+```
+```python
+# alt impl
+import schedule
+import time
+def job1(): print("Job 1 executed")
+schedule.every().hour.do(job1)             # Every hour
+schedule.every().monday.at("13:15").do(job1)   # Every Monday at 1:15 PM
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+```
 ## event (Kafka)
 
 
@@ -600,6 +672,7 @@ SEMANTICS
 
 ---
 
+durable https://github.com/dbos-inc/dbos-transact-py
 https://us.pycon.org/2024/schedule/presentation/35/index.html
 https://github.com/cybertec-postgresql/pg_timetable
 🛠 https://taskqueues.com/ aka worker https://news.ycombinator.com/item?id=34940920
@@ -610,7 +683,7 @@ ZA
 * chron jobs https://github.com/Nukesor/pueue
 * Postgres https://github.com/procrastinate-org/procrastinate https://brandur.org/river https://github.com/riverqueue/river https://news.ycombinator.com/item?id=41284703
 * BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
-* _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io https://github.com/RealOrangeOne/django-tasks
+* _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io https://github.com/RealOrangeOne/django-tasks https://github.com/realOrangeOne/django-tasks
 * _Hatchet_: https://github.com/hatchet-dev/hatchet
 * _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey https://www.youtube.com/watch?v=TV7jHHpvGvA
 
@@ -636,6 +709,7 @@ REDIS QUEUE (RQ)
 ## workflow engine (Airflow)
 
 🗄 `eng.md` pipelines
+📙 https://www.manning.com/books/data-pipelines-with-apache-airflow-second-edition
 
 ---
 
@@ -662,7 +736,7 @@ SEMANTICS
 * _server_: machine w/ server sw or sw itself https://sre.google/sre-book/production-environment/
 * _web server_: deal w/ HTTP, handle static content and rate limiting https://www.quora.com/What-are-the-differences-between-nginx-and-gunicorn
 * port 80
-* BYO https://ruslanspivak.com/lsbaws-part1/
+* BYO https://ruslanspivak.com/lsbaws-part1/ https://realpython.com/courses/programming-sockets/
 * _app server_: translate HTTP into obj for web framework
 * can also be pressed into service as combo app/web server https://stackoverflow.com/a/38982989 https://www.nginx.com/resources/glossary/application-server-vs-web-server/
 * port 8080
@@ -801,6 +875,8 @@ design
 ## Nginx
 
 📜 https://nginx.org/en/docs/beginners_guide.html https://nginx.org/en/docs/ https://github.com/trimstray/nginx-admins-handbook
+
+https://github.com/Canop/rhit
 
 non-Docker
 * https://stackoverflow.com/a/54298517

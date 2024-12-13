@@ -7,6 +7,7 @@
 📊 https://console.aws.amazon.com/console/home
 🩻 https://health.aws.amazon.com/health/status
 📜 https://aws.amazon.com/documentation/ https://github.com/awsdocs
+> Never rely on an AWS service until you've understood it's quotas. They are reliable services, but to maintain that standard, they have to impose limits at many different levels of the plane. There are some good "quota surprises" tucked away in there. https://news.ycombinator.com/item?id=42405446
 📻 https://podcast.cloudonaut.io/
 📙 https://github.com/open-guides/og-aws
 🔍 https://www.expeditedssl.com/aws-in-plain-english https://www.youtube.com/@BeABetterDev https://cloudonaut.io/tag/
@@ -15,6 +16,17 @@
 ## 进步
 
 > Lambda, API Gateway, SQS, SNS, DynamoDB, Aurora Serverless, and more. We don’t run a single server. - Stedi job posting
+
+How to host a site on AWS that is only accessible inside a company's internal network?
+```txt
+You can use either of these services to establish a private connection between your company’s internal network and your AWS VPC
+
+* AWS VPN: This establishes a secure connection over the public internet.
+* AWS Direct Connect: This provides a dedicated network connection between your company’s data center and AWS, offering more consistent performance than VPN over the internet.
+
+Set up security groups for your EC2 instance to only allow inbound traffic from your company’s internal IP range.
+```
+
 
 https://www.youtube.com/watch?v=jFrGhodqC08
 * https://roadmap.sh/best-practices/aws
@@ -214,6 +226,7 @@ DATA ENG 🗄️ compute / data eng
 
 ZA
 * _DMS_: db migrations
+* _DSQL_: https://brooker.co.za/blog/2024/12/04/inside-dsql.html https://simonwillison.net/2024/Dec/3/amazon-aurora-dsql/
 * _DynamoDB_: NoSQL https://www.freecodecamp.org/news/ultimate-dynamodb-2020-cheatsheet/ https://github.com/guregu/dynamo
 * _Elasticache_: 类似 Redis
 

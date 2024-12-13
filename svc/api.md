@@ -109,6 +109,8 @@ SOAP
 
 # 📰 SCHEMA
 
+🗄️ `sql.md` migrations
+
 ---
 
 https://news.ycombinator.com/item?id=41939027
@@ -257,7 +259,7 @@ API STAR 📜 https://docs.apistar.com/ https://github.com/zachvalenta/flask-ope
 
 # 🟨 ZA
 
-* reverse engineering https://news.ycombinator.com/item?id=41983409 https://news.ycombinator.com/item?id=42057903
+* reverse engineering https://news.ycombinator.com/item?id=41983409 https://news.ycombinator.com/item?id=42057903 https://news.ycombinator.com/item?id=42565821
 
 ## pagination
 

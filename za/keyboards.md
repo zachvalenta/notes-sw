@@ -8,9 +8,18 @@
 
 ## 进步
 
-* learn how to program k8
-* learn how to program v8
-* _24_: models (Apple refurbished, nuphy air 75, keychron k8)
+* _24_: models (Apple refurbished, nuphy air 75, keychron k8, keychron v8) program (v8 cmd keys to center)
+
+https://getreuer.info/posts/keyboards/tour/index.html
+https://blog.zsa.io/zsa-keyboard-first-month/
+
+PROBLEMS WITH CURRENT BOARDS
+* v8: no tilde/backtick
+* air75: too scrunched, no opt on right side
+
+CURRENT THOUGHTS
+* used ZSA are too expensive, better to buy new
+* buy Corne
 
 # 📐 LAYOUTS
 
@@ -49,10 +58,12 @@ LETTERING
 
 PROGRAMS
 * _kanata_: https://github.com/jtroo/kanata
+* _Launcher_: ✅  https://launcher.keychron.com/ 🗄️ `dot/shell/keychron-v8.json`
 * _Oryx_ built off of QMK https://blog.zsa.io/whack-a-key/ https://www.youtube.com/watch?v=FcFYv_dHIiQ
 * can access QMK directly https://blog.zsa.io/oryx-custom-qmk-features/
 * _QMK_: firmware; C impl https://www.youtube.com/watch?v=D05B6NXV504
 * code > configurator https://www.youtube.com/watch?v=AA8fw2MbpYg
+* _VIA_: ❌ "authorize your device" does nothing https://www.caniusevia.com/ https://www.youtube.com/watch?v=CLiZ5rAEx3A&t=343s
 * _ZMK_: https://www.youtube.com/watch?v=riqmW3UHqPY https://github.com/eigatech/zmk-config https://www.youtube.com/watch?v=pK41Mr4Kdd0 [9:00] https://www.youtube.com/watch?v=wTMcH7u-vu0
 
 ZSA KEYS https://configure.zsa.io/voyager/layouts/ https://configure.zsa.io/moonlander/layouts/default/latest/2/
@@ -125,16 +136,18 @@ R side
 * https://www.boardsource.xyz
 
 KEYCHRON
-> amazed how quickly low-profile feels strange after moving to normal profile
 * ✅ case https://www.keychron.com/products/keychron-keyboard-carrying-case
 * _c1_: $75 https://www.keychron.com/products/keychron-c1-pro-qmk-via-wired-mechanical-keyboard?variant=40615797391449
 * _k1_: stockout https://www.reddit.com/r/NuPhy/comments/1brdzgy/will_there_ever_be_low_profile_tkl_80_layout/
-* _k8_: ✅ $110 Jack https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?variant=39755425349721 https://www.amazon.com/Keychron-Wireless-Mechanical-Hot-Swappable-Programmable/dp/B0B97JZV99
+* _k8_: ✅ $110; switches (Gateron g pro brown) https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?variant=39755425349721 https://www.amazon.com/Keychron-Wireless-Mechanical-Hot-Swappable-Programmable/dp/B0B97JZV99
 * _v3_: $110: TKL, normal profile https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/ https://www.amazon.com/dp/B0CW5B5KL8
 
 NUPHY
 * _halo75_: less scrunched layout than air75? https://www.amazon.com/nuphy-Mechancial-Kyeboard-Swappable-Bluetooth/dp/B0D5Q891F1
-* _air75 v2_: ✅ $125; 75%/scrunched, low profile (2.3mm) slow shipping (but next time you can just buy from Amazon?) https://nuphy.com/products/air75-v2
+* _air75 v2_: ✅ $125 https://nuphy.com/products/air75-v2
+* 75% is too scrunched for me, tons of typos
+* low profile (2.3mm)
+* slow shipping (but next time you can just buy from Amazon?)
 * _gem 80_: $150; TKL, normal profile https://nuphy.com/collections/keyboards/products/gem80
 
 ZA
@@ -153,6 +166,7 @@ COMPONENTS https://www.youtube.com/watch?v=7UXsD7nSfDY @ 4:45
 * _switch_: connects metal to PCB [3:20]
 
 MODELS
+* https://www.youtube.com/watch?v=h_ex-oMVOrI
 * _Boardsource corne_: 🎯 https://www.youtube.com/watch?v=wTMcH7u-vu0 https://www.youtube.com/watch?v=j41G25VORmI https://www.boardsource.xyz/products/Corne https://www.youtube.com/watch?v=riqmW3UHqPY
 * find someone to do soldering https://www.youtube.com/watch?v=vzDTdLaAzXc
 * case https://www.youtube.com/watch?v=gMTfkPxcoEk
@@ -178,13 +192,15 @@ HOWTO
 MAYBE
 * _Dygma defy_: 🎯 $370; featureful, bad taste https://dygma.com/pages/defy https://www.youtube.com/watch?v=R9YTQn1ik9I
 * _Glove80_: $400 low-profile, expensive, ugly https://www.moergo.com/collections/glove80-keyboards https://www.youtube.com/watch?v=QLb3ewK8R2Y
-* _Keychron q8_: 🎯 $210 cant swap the one cmd keycap https://www.keychron.com/products/keychron-q8-alice-layout-qmk-custom-mechanical-keyboard?variant=40077527122009
-* _Keychron v8_: ✅ $90; Gateron jupiter brown https://www.keychron.com/products/keychron-v8-max-alice-layout-qmk-custom-mechanical-keyboard
+
+NO TILDE/BACKTICK
+* _Keychron q8_: $210  https://www.keychron.com/products/keychron-q8-alice-layout-qmk-custom-mechanical-keyboard?variant=40077527122009
+* _Keychron v8_: ❌ $90 Gateron jupiter brown https://www.keychron.com/products/keychron-v8-max-alice-layout-qmk-custom-mechanical-keyboard
 * _Keychron k11_: $115; low profile https://www.keychron.com/products/keychron-k11-pro-alice-layout-qmk-via-wireless-custom-mechanical-keyboard programmable but only through Keychron (vs. QMK/VIA) https://www.youtube.com/watch?v=zqRBxioJIRI [5:00]
 
 DOESN'T SOLVE RSI 
 * _Akko alice_: $130 cmd key not symmetric https://en.akkogear.com/product/acr-pro-alice-plus-mechanical-keyboard/
-* _Kinensis freestyle_: ✅ https://www.amazon.com/Kinesis-Freestyle2-Ergonomic-Keyboard-Separation/dp/B009ZNBJK8
+* _Kinensis freestyle_: ❌ cheap, no hot swap https://www.amazon.com/Kinesis-Freestyle2-Ergonomic-Keyboard-Separation/dp/B009ZNBJK8
 * _Matias ergo_: https://matias.ca/ergopro/programmable/
 
 TOO SMALL|STRANGE
@@ -259,12 +275,12 @@ ZA
 
 ## keycaps
 
-🧠 compatability https://chatgpt.com/c/6712bd5e-1484-8004-8dc1-119c4a3b6347
 🏪
 * Etsy
 * https://novelkeys.com/collections/keycaps
 * https://pacificparadiseprints.shop/ https://www.youtube.com/@PacificParadisePrints
 
+* compatability: need to consider the switch type, keycap profile, stabilizer
 * size
 > Keycap sizes are described in terms of a "u. width. For example, 1u is the size of each of the number and alphabet keys on a keyboard. A 2u key, like Backspace, is twice the size of those 1u keys...compact keyboards often have a 1.75u right Shift key in place of the standard 2.75u right Shift key as well as 1u modifiers in the bottom row. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
 * color https://blog.zsa.io/how-to-dye-keycaps/
@@ -281,6 +297,7 @@ ZA
 * https://switches.mx/
 
 SOUNDS https://www.youtube.com/watch?v=xtadlynfAZ8 https://pacificparadiseprints.shop https://www.youtube.com/@kineticlabskb/videos
+> need shocks for real quiet https://www.youtube.com/watch?v=UIeyhGTwxGA
 * _clicky_: high pitched; Gateron blue
 * _creamy_: ✅ quiet, more resistance; Gateron brown|milky yellow https://www.youtube.com/watch?v=EzKB-__6IW0 [13:00]
 * _thocky_: clacky, less resistance; Gateron red
@@ -331,6 +348,7 @@ ZA
 * _keycastr_: keystroke visualizer https://github.com/keycastr/keycastr https://switowski.com/blog/favorite-mac-tools/
 
 TEST
+* _gtypist_: https://archive.vn/9PAGP https://www.youtube.com/watch?v=A_3MP_V-kB4
 * _keybr_: web, lightweight https://www.keybr.com/
 * _monkeytype_: zach_v https://monkeytype.com/ https://www.youtube.com/watch?v=EzKB-__6IW0 [2:23]
 * _smassh_: 🐍 https://github.com/kraanzu/smassh

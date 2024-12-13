@@ -11,7 +11,7 @@
 📚
 * Buelta python architecture
 * Ford fundamentals of software architecture
-> they have more books together https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894 https://www.amazon.com/Building-Evolutionary-Architectures-Automated-Governance/dp/1492097543
+* Ford evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
 
 ## 进步
@@ -37,7 +37,7 @@ UNCLE BOB
 * https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure-ebook/dp/B075LRM681
 * https://www.amazon.com/Functional-Design-Principles-Patterns-Practices-ebook/dp/B0CGHQKGYG
 
-testing https://www.thediff.co/archive/antithesis-debugging-debugging/ https://antithesis.com/ https://www.thediff.co/archive/offshoring-and-ai-agents/
+testing https://www.thediff.co/archive/antithesis-debugging-debugging/ https://antithesis.com/ https://www.thediff.co/archive/offshoring-and-ai-agents/ https://registerspill.thorstenball.com/p/joy-and-curiosity-19
 Kleppmann https://www.davidreis.me/2024/designing-data-intensive-applications
 https://www.davidreis.me/2024/what-happens-when-you-make-a-move-in-lichess https://news.ycombinator.com/item?id=41922928
 https://drewdevault.com/2021/10/17/Reliability.html
@@ -153,8 +153,43 @@ KLEPPMANN
 📍 need to review SQL of Twitter example
 * _evolvability_: ability to change different parts of system independently [Kleppmann 4.128]
 
+* _monolith_: single service, single data store https://news.ycombinator.com/item?id=24505467
+* _SOA (service oriented)_: n services, n data stores
+* _DOA (data oriented)_: n services, single data store https://blog.eyas.sh/2020/03/data-oriented-architecture/ https://changelog.com/podcast/522
+
+* _architecture_: the stuff that's hard to change
+* will change with each order of magnitude i.e. from 1.5k users to 10k 📙 Kleppmann [17,22]
+* _node_: process https://leanpub.com/systemdesignmanual/read_sample
+* _service_: 1/n nodes providing API https://leanpub.com/systemdesignmanual/read_sample
+* _elastic_: scales automatically with load 📙 Kleppmann [17]
+
+* _SOLID_: https://www.youtube.com/watch?v=ywDxJbULcdM
+* layered architecture https://blog.europython.eu/kraken-technologies-how-we-organize-our-very-large-pythonmonolith/
+> As a general rule of thumb, each layer uses the directly underlying layer to access and interact with the data. As an example, the commands package will not directly use the bug or repository package. It will request the data from the cache layer and go from there. Of course, the commands package will ultimately use types defined in the lower level package like Bug, but retrieving and changing the data has to go through the cache layer to ensure that bugs are properly deduplicated in memory. https://github.com/git-bug/git-bug
+* modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
+> A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
+* beware theologians https://news.ycombinator.com/item?id=26492798
+* _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749 https://www.youtube.com/watch?v=I5c7fBgvkNY
+* _resiliency_: perform job through failure https://leanpub.com/systemdesignmanual/read_sample
+* Lisp, database inside codebase https://news.ycombinator.com/item?id=26160186 https://feifan.blog/posts/the-database-inside-your-codebase
+* _kill switch_: force upgrade mobile app https://simonwillison.net/2021/Jul/1/pagnis/
+* _bounded context_: don't let a word mean two different things in the same part of the system ex. 'account' inside primary system vs. 'account' during Paypal integration; again, duh
+* _circuit breaker_: error handling https://github.com/Netflix/Hystrix/wiki/How-it-Works https://www.gremlin.com/chaos-monkey/ https://pypi.org/project/circuitbreaker/ https://sirupsen.com/napkin/problem-11-circuit-breakers
+* e.g. downstream call fails, return empty list instead of 404 and poll downstream, have limits on resources devoted to downstream
+* avoid fault in one part of a system taking down the system
+* _coupling_: one change necessitates another
+* _horizontal scaling_: aka shared-nothing architecture [Kleppmann 17]
+* _multi-tenant_: multiple customer users https://www.saaspegasus.com/
+* Edge, Sentry, Parse https://www.youtube.com/watch?v=W1fkGyIcePA&t=1044s https://www.pythonpodcast.com/datacoral-serverless-technology-episode-214/ 15:00-19:00 https://www.youtube.com/watch?v=OfPE7yj1trw https://www.viget.com/articles/multi-tenancy-in-django
+* _service mesh_: https://servicemesh.io/ https://news.ycombinator.com/item?id=17415421 https://www.digitalocean.com/community/tutorials/an-introduction-to-service-meshes sidecar, eBPF https://www.thoughtworks.com/radar/techniques?blipid=202203060 Istio
+* data mesh https://news.ycombinator.com/item?id=30721198 https://www.thoughtworks.com/radar/techniques?blipid=201911051 https://www.manning.com/books/data-mesh-in-action
+* _SSoT_: single source of truth
+* _SPoF_: single point of failure
+* _fault domain_: components sharing SPoF https://lethain.com/fault-domains/
+* _sink_: https://martinfowler.com/architecture/ https://engineering.videoblocks.com/web-architecture-101-a3224e126947
 ## KISS
 
+* https://github.com/Olshansk/postgres_for_everything
 * hidden control flow, PHP vs. Zig https://news.ycombinator.com/item?id=42203084
 * _clarity_: above all bc we're bulding information systems 📻 DHH (STT) https://www.youtube.com/watch?v=9LfmrkyP81M
 > And it's not only high performance hardware and software that's complex. Some domains are just really complicated. The tax code is 73k pages long. It's just not possible to reason effectively about something that complicated, and there are plenty of things that are that complicated. https://danluu.com/tests-v-reason/
@@ -250,6 +285,10 @@ WALKTHROUGHS
 
 ---
 
+INSTAGRAM https://minds.md/zakirullin/cognitive
+* you need an editor
+> Involve junior developers in architecture reviews. They will help you to identify the mentally demanding areas. https://read.engineerscodex.com/p/how-instagram-scaled-to-14-million
+
 * _bikeshedding_: aka yak shaving https://jsonapi.org/ http://bikeshed.org/ https://drewdevault.com/2020/08/17/Engineers-solve-problems.html
 > Some applications where you would consider ditching Django to shave off some latency are: a stock trading marketplace; an global online advertisement serving network; a low level infrastructure control API - https://mattsegal.dev/is-django-too-slow.html
 > Forget that all these things exist: Microservices, Lambda, API Gateway, Containers, Kubernetes...anything whose main value proposition is about "ability to scale" will likely trade off your "ability to be agile & survive". That’s rarely a good trade off. Start with a t3.nano EC2 instance, and do all your testing & staging on it. It only costs $3.80/mo. Then before you launch, use something bigger for prod, maybe an m5.large (2 vCPU & 8 GB mem). It’s $70/mo and can easily serve 1 million page views per day. https://twitter.com/dvassallo/status/1154516910265884672
@@ -264,6 +303,78 @@ WALKTHROUGHS
 * _horizontal scaling_: shard https://www.youtube.com/watch?v=7v-wrJjcg4k until recently you waited as long as you could on this 📙 Kleppmann 1.18
 > horizontal-scaling is often based on the partitioning of the data i.e. each node contains only part of the data, in vertical-scaling the data resides on a single node and scaling is done through multi-core i.e. spreading the load between the CPU and RAM resources of that machine. With horizontal-scaling it is often easier to scale dynamically by adding more machines into the existing pool - Vertical-scaling is often limited to the capacity of a single machine, scaling beyond that capacity often involves downtime and comes with an upper limit. - https://stackoverflow.com/a/11715598/6813490
 
+## streaming
+
+🗄️ `infra.md` queue / event (Kafka)
+
+---
+
+```txt
+Key points about streaming: It's typically not faster in terms of total processing time.
+
+The main benefits are:
+* lower peak memory usage (each chunk is processed and freed)
+* = ability to handle files larger than RAM
+* = earlier start to processing (can begin work before full file is read)
+
+The streaming approach really shines when:
+* you're memory-constrained
+* you need to process data asap (like real-time dashboards)
+* you're doing operations that can be parallelized across chunks
+```
+
+https://github.com/ebonnal/streamable
+https://www.npmjs.com/package/x12-parser
+https://www.youtube.com/watch?v=mDpS9J0-SQ4
+
+* streaming architecture https://news.ycombinator.com/item?id=31421004
+* streaming in Postgres https://github.com/sequinstream/sequin
+
+https://www.youtube.com/watch?v=7AMRfNKwuYo
+
+dashboard visualization https://github.com/finos/perspective
+
+> A streaming SQL engine keeps queries’ results up to date without ever having to recalculate them, even as the underlying data changes. To explain this, imagine a simple query, such as SELECT count(*) FROM humans . A normal SQL engine (such as Postgres’s, MySQL’s) would need to go over all the different humans every time you ran that query- which could be quite costly and lengthy given our ever changing population count. With a streaming SQL engine, you would define that query once, and the engine would constantly keep the resulting count up to date as new humans were born and the old / sickly ones died off, without ever performing a recalculation of counting all humans in the world. https://news.ycombinator.com/item?id=37965319
+
+STREAMING / BLOCKING 🗄 `computation.md` serialization
+* https://www.scattered-thoughts.net/
+* https://github.com/ynqa/sig
+* blocking
+* https://ossinsight.io/blog/why-we-choose-tidb-to-support-ossinsight/
+* async https://www.b-list.org/weblog/2022/aug/16/async https://www.youtube.com/watch?v=bw1qeMoFBmw https://www.youtube.com/watch?v=0z74b3c63GA
+* batch: TQ, Airflow
+> port from `db.md`
+* streaming: Kafka https://www.youtube.com/watch?v=qi7uR3ItaOY 🗄 site/drafts/ddd.md
+* https://simonwillison.net/2021/Jul/1/pagnis/ https://news.ycombinator.com/item?id=38167423
+* forum software in 500 lines or less https://news.ycombinator.com/item?id=33153152
+> what is the relationship bte Kafka and faust? https://www.youtube.com/watch?v=Ik1PBbCWcTc
+> is flink streaming or batch? https://github.com/apache/flink https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
+> what is windowing? https://www.scattered-thoughts.net/writing/against-sql
+batch vs. streaming https://robertheaton.com/2020/02/08/pfab9-batch-vs-stream-processing/ 📙 Kleppmann section 3 🗄 `application.md` WebSocket
+> 📍 batch to ETL, streaming to where?
+* _batch_: more than one at a time 📍 Kleppmann chapter 9
+* requires fewer trips to data source
+* higher memory consumption
+> Since the data in parsed_messages is essentially the same as that in raw_log but in a different form, parsed_messages probably takes up about the same amount of memory again as raw_log. We’re therefore using at least 20MB of memory to process a 10MB file.
+```ruby
+raw_log = File.read("samplelog.txt")
+parsed_messages = parse_raw_log(raw_log)
+message_stats = calculate_stats(parsed_messages)
+```
+* temporal data, virtual time https://www.hytradboi.com/2022/working-with-virtual-time-in-sql https://github.com/frankmcsherry/blog/blob/master/posts/2021-02-11.md
+* _stream processing_: one at a time 📙 Kleppmann ch. 10 🗄 `system.md` Kafka
+* libraries: https://github.com/robinhood/faust https://github.com/apache/flink
+* sources: clickstream, IoT sensors, time series
+* https://www.hytradboi.com/2022/a-faster-inner-dev-loop-for-stream-processing
+* lower memory consumption
+> Once the block has finished executing, the Ruby interpreter is able to garbage collect the data for both the raw line and processed message, since it can see that the program won’t reference them again. This means that the Ruby interpreter can reuse the piece of memory in which they were stored.
+```ruby
+stats = {}
+File.open("samplelog.txt").each_line do |l|
+  message = parse_raw_log_line(l)
+  stats = add_message_to_stats(message, stats)
+end
+```
 # ➖ SERVERLESS
 
 * types: FaaS (Lambda) cloud SQL (BigQuery) ITTT (Zapier) msg (Twilio)
@@ -285,7 +396,6 @@ WALKTHROUGHS
 * query SQLite over HTTP https://github.com/psanford/sqlite3vfshttp
 * https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html
 
-* _Datasette_: https://csvbase.com/ fetching https://github.com/fatiando/pooch
 * _sql.js_: https://github.com/sql-js/sql.js https://selectstarsql.com/frontmatter.html#technicals https://jvns.ca/blog/2019/09/30/notes-on-building-sql-exercises/ https://news.ycombinator.com/item?id=27016630 https://github.com/NUKnightLab/sql-mysteries
 
 * https://news.ycombinator.com/item?id=34558054 https://news.ycombinator.com/item?id=34630153
@@ -359,42 +469,3 @@ do you have creds for the m
 If you're running an app in Docker, and it includes both a backend and a database [let's say Postgres] that it writes to, what are the options for storing that data? Just store in a Docker volume? Save elsewhere?
 
 Let's say that this Dockerized app is hosted on an EC2 instance. How would that change your above assessment?
-
-## semantics
-
----
-
-* _monolith_: single service, single data store https://news.ycombinator.com/item?id=24505467
-* _SOA (service oriented)_: n services, n data stores
-* _DOA (data oriented)_: n services, single data store https://blog.eyas.sh/2020/03/data-oriented-architecture/ https://changelog.com/podcast/522
-
-* _architecture_: the stuff that's hard to change
-* will change with each order of magnitude i.e. from 1.5k users to 10k 📙 Kleppmann [17,22]
-* _node_: process https://leanpub.com/systemdesignmanual/read_sample
-* _service_: 1/n nodes providing API https://leanpub.com/systemdesignmanual/read_sample
-* _elastic_: scales automatically with load 📙 Kleppmann [17]
-
-* _SOLID_: https://www.youtube.com/watch?v=ywDxJbULcdM
-* layered architecture https://blog.europython.eu/kraken-technologies-how-we-organize-our-very-large-pythonmonolith/
-> As a general rule of thumb, each layer uses the directly underlying layer to access and interact with the data. As an example, the commands package will not directly use the bug or repository package. It will request the data from the cache layer and go from there. Of course, the commands package will ultimately use types defined in the lower level package like Bug, but retrieving and changing the data has to go through the cache layer to ensure that bugs are properly deduplicated in memory. https://github.com/git-bug/git-bug
-* modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
-> A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
-* beware theologians https://news.ycombinator.com/item?id=26492798
-* _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749 https://www.youtube.com/watch?v=I5c7fBgvkNY
-* _resiliency_: perform job through failure https://leanpub.com/systemdesignmanual/read_sample
-* Lisp, database inside codebase https://news.ycombinator.com/item?id=26160186 https://feifan.blog/posts/the-database-inside-your-codebase
-* _kill switch_: force upgrade mobile app https://simonwillison.net/2021/Jul/1/pagnis/
-* _bounded context_: don't let a word mean two different things in the same part of the system ex. 'account' inside primary system vs. 'account' during Paypal integration; again, duh
-* _circuit breaker_: error handling https://github.com/Netflix/Hystrix/wiki/How-it-Works https://www.gremlin.com/chaos-monkey/ https://pypi.org/project/circuitbreaker/ https://sirupsen.com/napkin/problem-11-circuit-breakers
-* e.g. downstream call fails, return empty list instead of 404 and poll downstream, have limits on resources devoted to downstream
-* avoid fault in one part of a system taking down the system
-* _coupling_: one change necessitates another
-* _horizontal scaling_: aka shared-nothing architecture [Kleppmann 17]
-* _multi-tenant_: multiple customer users https://www.saaspegasus.com/
-* Edge, Sentry, Parse https://www.youtube.com/watch?v=W1fkGyIcePA&t=1044s https://www.pythonpodcast.com/datacoral-serverless-technology-episode-214/ 15:00-19:00 https://www.youtube.com/watch?v=OfPE7yj1trw https://www.viget.com/articles/multi-tenancy-in-django
-* _service mesh_: https://servicemesh.io/ https://news.ycombinator.com/item?id=17415421 https://www.digitalocean.com/community/tutorials/an-introduction-to-service-meshes sidecar, eBPF https://www.thoughtworks.com/radar/techniques?blipid=202203060 Istio
-* data mesh https://news.ycombinator.com/item?id=30721198 https://www.thoughtworks.com/radar/techniques?blipid=201911051 https://www.manning.com/books/data-mesh-in-action
-* _SSoT_: single source of truth
-* _SPoF_: single point of failure
-* _fault domain_: components sharing SPoF https://lethain.com/fault-domains/
-* _sink_: https://martinfowler.com/architecture/ https://engineering.videoblocks.com/web-architecture-101-a3224e126947

@@ -245,7 +245,7 @@ The end result is that `app.py` imports the same app instance, a vanilla version
 # ZA
 
 * history: Sinatra (Ruby) Flask (Python) Express (Node) Fiber (Golang)
-* new version https://testdriven.io/blog/flask-async/
+* new version https://testdriven.io/blog/flask-async/ https://github.com/Neoteroi/BlackSheep
 * _deployment_: manual https://www.youtube.com/playlist?list=PL-osiE80TeTs4UjLw5MM6OjgkjFeUxCYH
 * _favicon_: idky but official docs don't work w/ Chrome, use this instead `<link rel="shortcut icon" type="image/x-icon" href="static/favicon.png">` https://stackoverflow.com/a/51542518/6813490
 * _microservices_: https://www.youtube.com/watch?v=nrzLdMWTRMM https://testdriven.io/courses/microservices-with-docker-flask-and-react/

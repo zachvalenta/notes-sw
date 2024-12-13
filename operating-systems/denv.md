@@ -4,6 +4,7 @@
 
 🗄
 * `it.md` fs, provision
+*️ `linux.md` files
 * `src.md` denv
 
 ## 进步
@@ -88,13 +89,22 @@ HOWTO
 
 * _just_: 🎯 https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529 https://github.com/pls-rs/pls/blob/main/justfile https://github.com/pls-rs/pls/blob/main/docs/justfile https://github.com/pythops/tenere
 https://luke.hsiao.dev/blog/housing-documentation/
+* https://news.ycombinator.com/item?id=42351101
 
 ## make
 
 📙 Meckleberg gnu make
 
+* default args
+```Makefile
+brand ?= Reznor
+filter:
+	poetry run python pipelines.py filter-on-brand $(brand)
+```
+
 ---
 
+* do Makefiles need to be executable?
 * _make_: ✅ https://github.com/casey/just?tab=readme-ov-file#what-are-the-idiosyncrasies-of-make-that-just-avoids https://news.ycombinator.com/item?id=19900955 https://stackoverflow.com/a/3798664
 * `all`, `clean`, `.PHONY`, `install` 📙 Conery [405]
 > Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
@@ -127,7 +137,7 @@ my-files:
 # reference env var https://stackoverflow.com/questions/28890634/how-to-get-a-shell-environment-variable-in-a-makefile
 ${var}
 
-# args https://blog.mindlessness.life/2019/11/17/the-language-agnostic-all-purpose-incredible-makefile.html
+# args
 env="dev"  # global
 make deploy env=qa
 deploy:
@@ -215,6 +225,7 @@ requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
 
 ---
 
+* https://github.com/adamperkowski/nvrs
 * https://calmcode.io/datasets/dependencies
 * db of deps across org https://dmd.tanna.dev/
 
@@ -313,6 +324,14 @@ deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/32
 
 ### constraints
 
+* if you opt out of autoupdate, Brew won't find the most recent version of packages
+```sh
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# A new release of gh is available: 2.57.0 → 2.64.0. To upgrade, run: brew upgrade gh.
+$ brew upgrade gh
+Warning: gh 2.57.0 already installed
+```
 * hard to find older pkg versions in Homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
 > brew cleanup works against this
 * packages that need Rust might/will cause Rust download (to build?), if you try to install Rust later it will fail due to conflict https://chatgpt.com/c/673544c8-978c-8004-bc38-c7c4d2efdba1 https://github.com/zachvalenta/logs-mini23/commit/94d0bd7992c91018af6c1f783cb59eeec49209d4 installs deps just for building pkg https://github.com/Homebrew/brew/issues/634#issue-169347205
@@ -363,6 +382,7 @@ class Basilk < Formula
 ```
 
 ## managers
+
 * _apk_: Alpine
 * _apt_: used by Debian, Ubuntu, Mint
 ```sh
@@ -389,6 +409,7 @@ apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythons
 ---
 
 https://www.youtube.com/watch?v=cDZyeEtt8kY
+https://github.com/mitchellh/nixos-config
 
 GOVERNANCE 🗄️ `work.md` industry > work
 * founder forced out by wokes https://www.reddit.com/r/NixOS/comments/1dqxhvk/comment/law6rek/ https://news.ycombinator.com/item?id=40199153 https://save-nix-together.org/
@@ -422,14 +443,21 @@ ALTERNATIVES 🗄️ `python/pkg.md` uv `frontend.md` javascript > runtimes
 
 ## dotfiles
 
-🗄️ `it.md` fs
+🗄️ `linux.md` locations
 
+---
+
+MGMT
+* _fling_: https://github.com/bbkane/fling 
+* _stow_: https://www.youtube.com/watch?v=90xMTKml9O0
+* _Nix home manager_: https://nixos.wiki/wiki/Home_Manager https://www.youtube.com/watch?v=U6reJVR3FfA
+
+* https://drewdevault.com/2019/12/30/dotfiles.html
 * write script to do symlinks https://news.ycombinator.com/item?id=34304694
 * prefer programs that store config as text
 * keep under version control and symlink into place with script https://hacker-tools.github.io/dotfiles/ advanced mgmt https://github.com/twpayne/chezmoi https://news.ycombinator.com/item?id=32632533 https://github.com/atuinsh/atuin
 > There are two basic approaches: version your entire home directory or symbolically link your dotfiles into place from a stand-alone repository. The first approach is straightforward but has a number of issues that make it a poor choice. https://nullprogram.com/blog/2012/06/23/
 * install script https://www.youtube.com/watch?v=hXU54axdjJc https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
-* mgmt: GNU Stow https://www.youtube.com/watch?v=90xMTKml9O0 https://github.com/bbkane/fling https://drewdevault.com/2019/12/30/dotfiles.html
 * mbp14
 ```sh
 # /Users/zach
@@ -523,15 +551,19 @@ TOOLS
 
 ## profiles
 
+ZSH
+* _zshrc_: src for interactive shells
+* this isn't in `$HOME` by default i.e. I had `.zshrc` in my dotfiles that wasn't being sourced for months
+* I tried to put `$LLM_USER_PATH` in `.zshrc` but wouldn't take until I put in `.zprofile`
+
 ---
 
 📍 https://github.com/zachvalenta/dotfiles-mini23/commit/8be5846e05a964dd5f7f1de716271268331dde09
 
 ZSH https://unix.stackexchange.com/a/71258
-* `.zshenv`: src for all shells
-> often contains exported variables that should be available to other programs. For example, $PATH, $EDITOR, and $PAGER are often set in .zshenv. Also, you can set $ZDOTDIR in .zshenv to specify an alternative location for the rest of your zsh configuration.
-* `.zprofile`: src for login shells, src before `.zshrc`
-* `.zshrc`: src for interactive shells
+* _zshenv_: src for all shells
+* Contains exported variables that should be available to other programs e.g. $PATH $PAGER are often set in .zshenv.
+* _zprofile_: src for login shells, src before `.zshrc`
 
 ALIASES
 * `alias`: list all
@@ -569,3 +601,44 @@ declare -f
 # view all function names (regex = line starts with lower case characters)
 declare -f | grep '^[a-z]'
 ```
+
+## XDG
+
+📜 https://specifications.freedesktop.org/basedir-spec/latest/
+
+ENV VAR
+* `XDG_DATA_HOME`: `~/.local/share`
+* libs to implement https://github.com/simonw/llm/issues/7 https://github.com/uncenter/user_dirs https://github.com/nickgerace/gfold
+* macOS defaults
+```python
+# https://github.com/tox-dev/platformdirs
+from platformdirs import *
+
+# /Users/zach/Library/Application Support
+# mini23: basilk, television (moved to XDG), harlequin, iTerm, kanban-tui, lazygit, moneyterm, broot, pipx, poetry, smassh, taskwarrior-tui, zoxide
+user_config_dir()
+user_data_dir()
+
+site_data_dir()  # /Library/Application Support
+user_cache_dir()  # /Users/zach/Library/Caches
+user_log_dir()  # /Users/zach/Library/Logs
+user_documents_dir()  # /Users/zach/Documents
+user_downloads_dir()  # /Users/zach/Downloads
+user_pictures_dir()  # /Users/zach/Pictures
+user_videos_dir()  # /Users/zach/Movies
+user_music_dir()  # /Users/zach/Music
+user_desktop_dir()  # /Users/zach/Desktop
+user_runtime_dir()  # /Users/zach/Library/Caches/TemporaryItems
+```
+
+---
+
+XDG
+* https://0x46.net/thoughts/2019/02/01/dotfile-madness/
+* https://specifications.freedesktop.org/basedir-spec/latest/
+* https://github.com/tox-dev/platformdirs
+* https://github.com/Zaloog/kanban-tui
+* `XDG_CONFIG_HOME`: typically `$HOME/.config` https://github.com/lusingander/serie/issues/25 https://github.com/kraanzu/dooit/issues/195
+> On macOS, `$XDG_CONFIG_HOME` maps to `$HOME/.config`. Another popular path for config files is `/Users/USER/Library/Application\ Support`. Does this file path have a env var name in the way that $XDG_CONFIG_HOME does?
+* you have to manually specify?
+> If you want to change the config directory: macOS `export XDG_CONFIG_HOME="$HOME/.config` https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md

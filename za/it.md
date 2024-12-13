@@ -106,6 +106,8 @@ TIME MACHINE
 ### mini23 ➡️ exfatmain
 
 MUSIC
+> just do everything
+* slint nosferatu
 * 17 moments of springs
 * boris
 * dru hill, alice coltrane sings
@@ -303,6 +305,10 @@ CURRENT
 │   └──── people     # 📦 people.git
 │   └──── photos
 │   └──── tracking   # 📦 tracking.git
+│   └── 🧪 PROJECTS  # used to have this in my notes `rg ZVPROJ $ZV_DIR/personal/people; rg ZVPROJ $ZV_DIR/notes`
+│   └──── algos
+│   └──── dataclerk
+│   └──── jay-valenta
 ```
 
 ## media server
@@ -310,8 +316,11 @@ CURRENT
 HOME MEDIA SERVERS
 * Spotify client https://github.com/Rigellute/spotify-tui https://github.com/hrkfdn/ncspot
 * BYO https://www.youtube.com/watch?v=jf_5FaVFnrU
+* _Black Candy_: https://github.com/blackcandy-org/blackcandy
 * _Emby_: https://www.youtube.com/watch?v=lgY97D5nCek
+* _gonic_: https://news.ycombinator.com/item?id=42513171
 * _Jellyfin_: https://www.youtube.com/watch?v=lgY97D5nCek
+* _Komga_: PDFs https://komga.org/
 * _Plex_: https://plexamp.com/
 * mobile client https://github.com/jmshrv/finamp https://www.fintunes.app/
 * _Navidrome_: https://github.com/navidrome/navidrome too expensive to run on cloud https://www.youtube.com/watch?v=RSIvuyLDuvk 2:15
@@ -333,6 +342,7 @@ AUTOS
 
 SELF-HOSTED STREAMING
 * _NAS (network attached storage)_: aka 'home media server' 🗄 `network-know-how.pdf`
+* raspberry pi version https://www.youtube.com/watch?v=l30sADfDiM8
 * https://www.youtube.com/watch?v=EYEPIDceoB0 [7:55]
 * https://nicolasbouliane.com/projects/home-server
 * aka home server https://www.youtube.com/watch?v=yFuTAKq_j3Q
@@ -363,7 +373,8 @@ fd 194[0-9]
 fd -t d 194[0-9]
 ```
 
-PYDUB
+### 🇯🇲 pydub
+
 * https://github.com/jiaaro/pydub https://realpython.com/playing-and-recording-sound-python/
 ```python
 from pydub import AudioSegment
@@ -371,6 +382,30 @@ song = AudioSegment.from_mp3("song.mp3")
 first_10_seconds = song[:10000]
 repeated = first_10_seconds * 2
 repeated.export("mashup.mp3", format="mp3")
+```
+* CLI failed due to ffmpeg issues
+```markdown
+Can you write me a script called medit (music edit) using this lib (https://github.com/jiaaro/pydub) for a CLI to edit audio files?
+Let's use Click for the CLI.
+Here's the desired functionality:
+* takes audio file
+* creates a copy with the same file format as the original
+* the copy version should be named by concat original name + `- medit` + file extension. For example, if the original is called `disco track.mp3`, the copy would be called `disco track - medit.mp3`.
+* the copy will be edited by removing seconds of audio from either the start or end of the file or both
+Here's example usage:
+```sh
+# copy version removes first 5 seconds of the song
+medit --start 5 $AUDIO_FILE
+
+# copy version removes first 7 seconds of the song
+medit --end 7 $AUDIO_FILE
+
+# copy version removes first 42 seconds and last 3 seconds of the song
+medit --start 42 --end 3 $AUDIO_FILE
+
+# either --start or --end must be used as parameter, so throw a warning if an audio file is passed without one
+medit $AUDIO_FILE
+```
 ```
 
 ### 🪲 cmus
@@ -450,6 +485,7 @@ config
 ### metadata
 
 TOOLS
+* https://github.com/borewit/music-metadata
 * _beets_: http://beets.io/ https://github.com/guerda/beets-statistics
 * _rosé_: https://github.com/azuline/rose 🗄️ `linux.md` virtual file system
 
@@ -490,6 +526,7 @@ SOURCES
 
 ---
 
+* https://github.com/sedthh/pyxelate 
 * https://immich.app/
 * metadata https://stefaniemolin.com/articles/devx/pre-commit/exif-stripper/
 * viewer https://github.com/karlch/vimiv-qt

@@ -66,6 +66,7 @@ import (
 ```
 
 JSON 
+* https://github.com/mailru/easyjson
 * https://www.youtube.com/watch?v=Osm5SCw6gPU https://akrabat.com/converting-json-to-a-struct-in-go/ https://eli.thegreenplace.net/2020/representing-json-structures-in-go/ https://www.youtube.com/watch?v=52yMK6p_cAg 
 * generate struct from JSON https://mholt.github.io/json-to-go/
 * https://github.com/orsinium-labs/jsony
@@ -208,183 +209,9 @@ var myString // ""
 var myInt // 0
 ```
 
-# 📔 STDLIB
+# 📦 PACKAGING
 
-🔍
-* https://threedots.tech/post/list-of-recommended-libraries/
-* https://github.com/avelino/awesome-go
-
-> https://matthewsanabria.dev/posts/start-with-the-go-standard-library/
-
-* used in Python https://last9.io/blog/using-golang-package-in-python-using-gopy/
-* datetime https://github.com/golang-module/carbon https://github.com/olebedev/when
-* game engine https://ebiten.org/
-* GUI https://github.com/fyne-io/fyne https://github.com/AllenDang/giu https://github.com/gizak/termui
-* _datetime_: https://github.com/dromara/carbon
-* _debug_: can use gdb but delve recommended https://golang.org/doc/gdb https://www.youtube.com/watch?v=r033vEzL6a4
-* _env var_ https://endaphelan.me/guides/golang/a-no-nonsense-guide-to-environment-variables-in-go/ https://github.com/caarlos0/env https://github.com/joho/godotenv https://github.com/knadh/koanf to structs https://github.com/caarlos0/env
-* _fake data_: https://github.com/brianvoe/gofakeit
-* _feature flag_: https://github.com/thomaspoignant/go-feature-flag
-* _file system_: https://github.com/spf13/afero
-* _Excel_: https://github.com/360EntSecGroup-Skylar/excelize https://xuri.me/excelize/
-* _filesystem_: https://github.com/spf13/afero
-* _Git_: https://github.com/go-git/go-git
-* _GraphQL_: https://gqlgen.com/ https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
-* _GUI_: https://gioui.org/ https://anvil-editor.net/
-* _lint_: https://github.com/golangci/awesome-go-linters
-* _logging_ https://github.com/bloom42/rz-go https://github.com/charmbracelet/log
-* _Markdown_: https://github.com/yuin/goldmark
-* _math_: https://github.com/montanaflynn/stats
-* _profile_ https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go https://blog.golang.org/profiling-go-programs https://marcan.st/2017/12/debugging-an-evil-go-runtime-bug https://artem.krylysov.com/blog/2017/03/13/profiling-and-optimizing-go-web-applications/ https://github.com/DataDog/go-profiler-notes/blob/main/guide/README.md https://notes.eatonphil.com/implementing-a-jq-clone-in-go.html https://eli.thegreenplace.net/2023/common-pitfalls-in-go-benchmarking/ https://www.willem.dev/articles/benchmarks-performance-testing/
-* _refactoring_: http://blog.ralch.com/tutorial/golang-tools-refactoring/ http://www.gorefactor.org/
-* _REPL_: https://github.com/cosmos72/gomacro https://stackoverflow.com/questions/8513609/does-go-provide-repl https://golangweekly.com/link/146377/web
-* _search_ https://blevesearch.com/
-* _security_ https://github.com/securego/gosec
-* _serialization_: https://github.com/bytedance/sonic
-* _testing_: https://github.com/stretchr/testify https://eli.thegreenplace.net/2020/faking-stdin-and-stdout-in-go/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://quii.gitbook.io/learn-go-with-tests/ mock db https://github.com/cockroachdb/copyist/ mocks https://github.com/stretchr/testify https://github.com/vektra/mockery https://github.com/jarcoal/httpmock https://www.youtube.com/watch?v=U-eO9_lNi7w https://github.com/gotestyourself/gotestsum visualize https://github.com/roblaszczak/vgt
-* time https://github.com/mergestat/timediff
-* _TOML_: https://github.com/pelletier/go-toml
-* _YAML_: https://github.com/goccy/go-yaml
-
-## 🦄 Charm
-
-🔗 https://charm.sh/
-
-* _Bubbles_: standalone UI components from Bubbletea https://github.com/charmbracelet/bubbles
-* text input (does it support readline?) https://github.com/charmbracelet/bubbles?tab=readme-ov-file#text-input
-* _Bubbletea_: TUI framework https://github.com/charmbracelet/bubbletea https://github.com/charmbracelet/bubbletea#bubble-tea-in-the-wild
-* _huh_: forms; used in gum https://github.com/charmbracelet/huh
-* _gum_: ✅ components for Bash scripts https://github.com/charmbracelet/gum examples https://github.com/charmbracelet/gum/blob/main/examples/test.sh
-* can use in Python https://github.com/charmbracelet/gum/blob/main/examples/gum.py
-```sh
-# welcome msg -> yet wilder here https://github.com/charmbracelet/gum#join
-gum style --foreground 212 --border-foreground 212 --border double \
-	--align center --width 50 --margin "1 2" --padding "2 2" 'generate' 'dataset' 'for' 'crudite'
-```
-* _log_: structured logs https://github.com/charmbracelet/log
-* used in gum https://github.com/charmbracelet/gum#log
-
----
-
-📹 https://www.youtube.com/watch?v=_gzypL-Qv-g
-
-* _Bubble Tea_: inspired by Elm? https://github.com/charmbracelet/bubbletea
-* tutorials https://leg100.github.io/en/posts/building-bubbletea-programs/ https://www.youtube.com/watch?v=ERaZi0YvBRs
-* components https://github.com/charmbracelet/bubbles 
-
-## CLI
-
----
-
-* animation https://github.com/charmbracelet/harmonica
-* frameworks https://github.com/noahgorstein/jqp https://www.youtube.com/watch?v=ZA93qgdLUzM https://github.com/rivo/tview/ https://github.com/jroimartin/gocui 
-* color https://github.com/fatih/color
-* tables https://github.com/jedib0t/go-pretty
-* Markdown render https://github.com/charmbracelet/glamour https://miller.readthedocs.io/en/latest/file-formats/#markdown-tabular
-* prompt https://github.com/manifoldco/promptui
-* styling https://github.com/charmbracelet/lipgloss https://github.com/pterm/pterm/
-
----
-
-* testing, golden files https://changelog.com/gotime/337
-* https://www.dolthub.com/blog/2023-03-29-interactive-shell-golang/
-
-* https://clig.dev/ https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46 https://www.youtube.com/watch?v=eMz0vni6PAw https://eryb.space/2020/05/27/diving-into-go-by-building-a-cli-application.html https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ email author -> 艘 'Golang article typo'
-```sh
-├── main.foo  # single line returning exit code from internals https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/
-│   └── file_1.txt
-│   └── file_2.txt
-```
-* binaries for multiple architectures https://www.thoughtworks.com/radar/tools?blipid=202203018 https://github.com/goreleaser/goreleaser
-* https://towardsdatascience.com/how-to-create-a-cli-in-golang-with-cobra-d729641c717 https://www.twilio.com/blog/use-cobra-build-go-powered-clis
-* _stdlib_:  https://media.pragprog.com/titles/rggo/first.pdf approach 1 https://eryb.space/2020/05/27/diving-into-go-by-building-a-cli-application.html https://github.com/erybz/go-grab-xkcd approach 2 https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://github.com/carlmjohnson/go-grab-xkcd `flags` not good? https://golang.org/pkg/flag/ https://news.ycombinator.com/item?id=23319770 https://news.ycombinator.com/item?id=23321901
-* _Cobra/Viper_: Hugo, Kubernetes https://news.ycombinator.com/item?id=23319172 scaffold https://github.com/spf13/cobra/blob/master/cobra/README.md module support https://github.com/spf13/cobra/issues/1054 https://github.com/spf13/cobra/issues/795 https://github.com/spf13/cobra/pull/817 https://qua.name/antolius/making-a-testable-cobra-cli-app https://www.youtube.com/watch?v=44MMeT39eG4
-* _cli_: https://github.com/urfave/cli https://github.com/ayoisaiah/goname/blob/master/cmd/goname/main.go https://news.ycombinator.com/item?id=23321576
-* _alternatives_: terminal GUI https://github.com/rivo/tview other options https://go.dev/solutions/clis/ https://github.com/jessevdk/go-flags https://github.com/jaffee/commandeer
-* _interactive prompt_: https://github.com/AlecAivazis/survey
-* output https://github.com/nikolaydubina/calendarheatmap https://xkcd.com/1138/ https://github.com/vbauerster/mpb https://github.com/cirruslabs/echelon https://github.com/gookit/color/ https://github.com/Delta456/box-cli-maker colors https://github.com/muesli/termenv
-
-- [ ] packaging - recreate Cobra scaffold `golang/packaging`
-
-* ✅ try to run app
-* snapshot (env, fs, previous notes at bottom of file, Makefile)
-* cp project somewhere else, rm deps (clean --modcache), 'clone', run
-* cp project somewhere else, rm deps (not folders), 'clone', run
-* cp project somewhere else, rm deps (folders), 'clone', run
-* push to GH, rm deps (clean --modcache), clone, run
-* push to GH, rm deps (not folder), clone, run
-* push to GH, rm deps (folders), clone, run
-* basic project w/out deps https://golang.org/doc/code.html
-* get set up on work machine
-
-## web
-
-* https://pocketbase.io/ 
-* start here https://www.youtube.com/watch?v=F9H6vYelYyU
-* https://github.com/mikestefanello/pagoda
-* https://github.com/nikolaydubina/go-recipes
-* https://github.com/livebud/bud
-* https://www.allhandsontech.com/programming/golang/web-app-sqlite-go/
-* URL shortener https://jrstupkadev.medium.com/golang-url-shortener-22ba6c970792 https://blog.pratimbhosale.com/building-a-url-shortener-using-go-and-sqlite#heading-project-setup
-
-* basic
-```golang
-package main
-
-import "net/http"
-
-func main() {
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello, Go"))
-	})
-	http.ListenAndServe(":8000", nil)
-}
-```
-* OpenAPI https://github.com/danielgtaylor/huma
-* https://github.com/carlmjohnson/requests
-* https://news.ycombinator.com/item?id=39318867
-* https://www.allhandsontech.com/programming/golang/web-app-sqlite-go/
-* app config https://github.com/spf13/viper
-* https://github.com/go-chi/chi
-* vanilla https://eli.thegreenplace.net/2021/life-of-an-http-request-in-a-go-server/
-* _db_: `database/sql` (SQLAlchemy engine) gorm (SQLAlchemy ORM) https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://www.calhoun.io/using-postgresql-with-go  https://github.com/go-reform/reform https://entgo.io/ https://github.com/upper/db in mem KV https://github.com/sdslabs/kiwi generate SQL https://github.com/Masterminds/squirrel CLI https://upper.io/v4/ query builder https://github.com/doug-martin/goqu https://pboyd.io/posts/5-ways-to-write-a-go-database-model/ ORM https://github.com/uptrace/bun
-* _microservice_: https://github.com/micro/micro https://blog.m3o.com/2020/11/16/building-a-blog-with-micro.html
-* frameworks: Buffalo, Gin, Echo; hot reload for Gin https://github.com/cosmtrek/air https://github.com/go-goyave/goyave https://github.com/cloudwego/hertz
-* routing: https://benhoyt.com/writings/go-routing/
-* servers: https://eli.thegreenplace.net/2021/rest-servers-in-go-part-1-standard-library/
-* https://github.com/go-goyave/goyave
-* https://www.honeybadger.io/blog/go-web-services/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://www.usegolang.com/sample/?__s=aqtioiz6aumf2qzwpp96 https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg https://www.usegolang.com/ https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg  https://github.com/go-resty/resty https://github.com/gojek/heimdall https://benhoyt.com/writings/go-routing/ https://github.com/projectdiscovery/httpx
-
-# 🟨 ZA
-
-ENV VAR
-* flags https://github.com/peterbourgon/ff
-* _GO111MODULE_: off (modules outside $GOPATH) https://golang.org/doc/code.html on (modules w/in $GOPATH) https://www.youtube.com/watch?v=H_4eRD8aegk @ 2:54 🗄 `go111.log`
-* _GOBIN_: location for `go install`; defaults to `$GOPATH/bin`; set w/ `go env -w GOBIN="$PWD"` https://golang.org/doc/code.html#Command
-* _GOENV_: config location
-* _GOROOT_: where Go is installed https://stackoverflow.com/a/30295306/6813490
-* _GOPATH_: still used but only by the Go installation at large, not for package management https://ukiahsmith.com/blog/a-gentle-introduction-to-golang-modules/ previously pointed to central location (typically `~/go`) for all Go code (src, deps) holding 3 directories (`src`, `pkg`, `bin`) https://golang.org/doc/gopath_code.html
-
-CMDS
-* _docs_: `doc <mod>` https://blog.golang.org/using-go-modules
-* _run_: `run <path/to/file>`
-* _binary_: create (`build`) create and mv to `$GOPATH/bin` (`install`) https://www.zombiezen.com/blog/2020/09/how-i-packaged-go-program-windows-linux/
-* _rm_: `go clean` ❓ rm what?
-
----
-
-* toolchain https://go.dev/doc/toolchain
-
-* commands https://github.com/nikolaydubina/go-recipes
-* _documentation_: https://blog.golang.org/go.dev https://blog.golang.org/pkg.go.dev-2020
-* _gotchas_: http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/
-* _memory allocation_: https://blog.learngoprogramming.com/a-visual-guide-to-golang-memory-allocator-from-ground-up-e132258453ed https://notes.eatonphil.com/implementing-a-jq-clone-in-go.html
-* _OO_: http://patshaughnessy.net/2015/9/25/what-do-perl-and-go-have-in-common
-* _Python_: https://news.ycombinator.com/item?id=22304131
-* _style_: https://github.com/golang/go/wiki/CodeReviewComments
-* plugins https://eli.thegreenplace.net/2021/plugins-in-go/
-
-## packaging
+🧠 https://chatgpt.com/c/676abaf1-3560-8004-b613-0ac43a0afaa5
 
 ---
 
@@ -402,32 +229,6 @@ start here
 * 📙 Jeffrey distributed [5]
 * distribution https://www.kosli.com/blog/how-to-publish-your-golang-binaries-with-goreleaser/
 
-previous article
-```txt
-Ok, here are some preliminary thoughts after approx. 5 hours of reading about and tinkering with dependency management in Golang:
-
-`$GOPATH` IS NOT DEAD
-* In the past all Go code lived at `$GOPATH`. Your project's source code, its dependencies, everything. Putting your code somewhere else was possible but irksome.
-* Now you can put your _source_ code somewhere else.
-* But: you still need `$GOPATH` to exist on your machine, in part because [that's where project dependencies are still downloaded to](https://dave.cheney.net/2018/07/14/taking-go-modules-for-a-spin). Your dependencies are per-project and I assume there's a way to inspect deps in `$GOPATH` to figure out which belong to which project, but it's less clear that Python virtual environments, either done with `venv` ("here's a folder in your project with all your deps") or Poetry (`poetry env info`).
-
-PYTHON DEVS HAVE IT WORSE
-
-If only because Golang is further along its trajectory of packaging solutions
-
-* __initial attempt__: Go had `go get` and `$GOPATH`, Python has `pip`, things work ok but there's room for improvement
-* __candidate solutions__: Go had `dep` and Glide, Python has `venv` and Poetry and pipenv and pip-tools and dephell (forgetting anyone?)
-* __winner emerges__: Go has modules now, but Python is still tbd as the above candidates continue to fight it out.
-
-So, at least Golang devs are all speaking the same language when it comes to packaging.
-
-GOLANG IS CONTRA-CONSENSUS ON PACKAGING IN GENERAL
-
-* Gooooo slooooooow: Library development moves much more slowly, for the better (more stable packages?) but possibly for the worse as well (less new, shiny things?). Read more here: [link](https://benjamincongdon.me/blog/2019/11/11/The-Value-in-Gos-Simplicity).
-* Anti-dependency dependency mgmt: The community seems somewhat akin to Clojure insofar as it doesn't especially encourage using a ton of dependencies. Python appears to be going to the other direction, to judge by the [dead batteries debate](https://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html). Other popular languages feel just as library-dependent than Python. But in the Golang documentation on their packaging tool, they include [an admonition to beware using packages](https://blog.golang.org/using-go-modules):
-> Note that while the go command makes adding a new dependency quick and easy, it is not without cost. Your module now literally depends on the new dependency in critical areas such as correctness, security, and proper licensing, just to name a few. -
-```
-
 workflow
 * _add deps_: import dependency in your module's source and then try to execute your code in some way (build, test) and go will grab the deps https://blog.golang.org/using-go-modules can use `go download` but don't need to (cf. `go help mod download`); `go get -u ./...` https://engineering.kablamo.com.au/posts/2018/just-tell-me-how-to-use-go-modules
 * _list deps_: `list -f '{{ .Imports }}'` (top-level) https://dave.cheney.net/2014/09/14/go-list-your-swiss-army-knife `list -m all` (top-level's subs) https://blog.golang.org/using-go-modules `mod download -json` https://stackoverflow.com/a/52082860/6813490 `go list -f '{{ .Deps }}'` (everything) https://dave.cheney.net/2014/09/14/go-list-your-swiss-army-knife https://www.reddit.com/r/golang/comments/bdtrti/best_way_to_visualize_library_dependencies_with/
@@ -440,31 +241,12 @@ init
 mod tidy
 ```
 
-vocabulary
-* _source file_: `.go` file https://golang.org/doc/code.html https://golang.org/ref/spec#Packages
-* _package_: dir w/ n source files https://rakyll.org/style-packages/ https://golang.org/ref/spec#Packages
-* _module_: n pkg + `go.mod` https://blog.golang.org/using-go-modules seems synonymous w/ 'repo' https://blog.golang.org/using-go-modules
-* `go.sum`: lock file; check into version control https://blog.golang.org/using-go-modules
-* `main`: `func main` (entry point, necessary to compile to bin) `package main` (holds `func main`) `main.go` (holds `func main`) https://www.callicoder.com/golang-packages/
-* _import path_: namespace https://stackoverflow.com/q/46312734/6813490 https://blog.golang.org/using-go-modules
-* _module path_: seems like same thing as 'import path' https://engineering.kablamo.com.au/posts/2018/just-tell-me-how-to-use-go-modules https://golang.org/ref/mod#tmp_2 required if you're outside $GOPATH https://blog.golang.org/using-go-modules
-* _module cache_: where modules get downloaded to `$GOPATH/pkg/mod` https://stackoverflow.com/a/52082860 https://stackoverflow.com/a/52127364 ❓ seems like you can only blow away the entire module cache (`clean -modcache`) vs. the Poetry approach of deleting per project https://github.com/golang/go/issues/32976
-
 upgrade
 * _psuedo-version_: untagged commit
 * latest tagged: `go get <mod>`; defaults to `@latest` https://blog.golang.org/using-go-modules 'upgrading dependencies'
 * list versions: `go list -m -versions <mod>`
 * get specific version: `go get <mod>@<version>`
 * versioning gotcha https://donatstudios.com/Go-v2-Modules https://qvault.io/2020/09/15/gos-major-version-handling-sucks-from-a-fanboy/
-
-`go.mod`
-* human-readable list of deps
-* check into version control https://blog.golang.org/using-go-modules
-* only lists direct dependencies https://blog.golang.org/using-go-modules 'adding a dependency'
-* necessary for module outside `$GOPATH/src`
-* defaults to latest version of module if you don't specify https://blog.golang.org/using-go-modules 'adding a dependency'
-* _directive_: keyword for each line e.g. `go` (version https://golang.org/ref/mod#tmp_11)
-* `indirect`: subdependency https://blog.golang.org/using-go-modules won't be written to `go.mod` unless you perform an upgrade; what *seems* to be happening in the tutorial is that `golang.org/x/text` is a subdep and its parents (`rsc.io/quote`) doesn't specify its version so we just grab latest version which happens to be pseudo version, but when you run `go get golang.org/x/text` it grabs the latest tagged version (which actually should be less recent than the pseudo version, right? otherwise why wouldn't parent dep just specify the stable older version it wanted) and therefore because we're being more specific we have to write it to `go.mod`
 
 misc
 * `get`: download and compile module; use global cache (`bin`, `pkg`) https://www.youtube.com/watch?v=71hgdExuCbg 3:50 ❓ dep hell avoided by per-project lockfile? https://dev.to/tbpalsulich/why-go-modules-are-faster-than-gopath-blj
@@ -488,6 +270,96 @@ design, legacy
 * _semantic import versioning_: what would be a new major version of same package in semver becomes a new module https://research.swtch.com/vgo-import 'adding a dependency on a new major version'
 > At the same time, allowing different major versions of a module (because they have different paths) gives module consumers the ability to upgrade to a new major version incrementally. In this example, we wanted to use quote. Concurrency from rsc/quote/v3 v3.1.0 but are not yet ready to migrate our uses of rsc.io/quote v1.5.2. The ability to migrate incrementally is especially important in a large program or codebase. - https://blog.golang.org/using-go-modules
 
+## previous writeup
+
+Ok, here are some preliminary thoughts after approx. 5 hours of reading about and tinkering with dependency management in Golang:
+
+### GOPATH is not dead
+
+* In the past all Go code lived at `$GOPATH`. Your project's source code, its dependencies, everything. Putting your code somewhere else was possible but irksome.
+* Now you can put your _source_ code somewhere else.
+* But: you still need `$GOPATH` to exist on your machine, in part because [that's where project dependencies are still downloaded to](https://dave.cheney.net/2018/07/14/taking-go-modules-for-a-spin). Your dependencies are per-project and I assume there's a way to inspect deps in `$GOPATH` to figure out which belong to which project, but it's less clear that Python virtual environments, either done with `venv` ("here's a folder in your project with all your deps") or Poetry (`poetry env info`).
+
+### Python devs have it worse
+
+If only because Golang is further along its trajectory of packaging solutions:
+
+* initial attempt: Go had `go get` and `$GOPATH`, Python has `pip`, things work ok but there's room for improvement
+* candidate solutions: Go had `dep` and Glide, Python has `venv` and Poetry and pipenv and pip-tools and dephell (forgetting anyone?)
+* winner emerges: Go has modules now, but Python is still tbd as the above candidates continue to fight it out.
+
+So, at least Golang devs are all speaking the same language when it comes to packaging.
+
+### Golang is contra-consensus on packaging in general
+
+* Gooooo slooooooow: Library development moves much more slowly, for the better (more stable packages?) but possibly for the worse as well (less new, shiny things?). Read more here: [link](https://benjamincongdon.me/blog/2019/11/11/The-Value-in-Gos-Simplicity).
+
+* Anti-dependency dependency mgmt: The community seems somewhat akin to Clojure insofar as it doesn't especially encourage using a ton of dependencies. Python appears to be going to the other direction, to judge by the [dead batteries debate](https://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html). Other popular languages feel just as library-dependent than Python. But in the Golang documentation on their packaging tool, they include [an admonition to beware using packages](https://blog.golang.org/using-go-modules):
+> Note that while the go command makes adding a new dependency quick and easy, it is not without cost. Your module now literally depends on the new dependency in critical areas such as correctness, security, and proper licensing, just to name a few.
+
+## semantics
+
+---
+
+* _source file_: `.go` file https://golang.org/doc/code.html https://golang.org/ref/spec#Packages
+* _package_: dir w/ n source files https://rakyll.org/style-packages/ https://golang.org/ref/spec#Packages
+* _module_: n pkg + `go.mod` https://blog.golang.org/using-go-modules seems synonymous w/ 'repo' https://blog.golang.org/using-go-modules
+* `go.sum`: lock file; check into version control https://blog.golang.org/using-go-modules
+* `main`: `func main` (entry point, necessary to compile to bin) `package main` (holds `func main`) `main.go` (holds `func main`) https://www.callicoder.com/golang-packages/
+* _import path_: namespace https://stackoverflow.com/q/46312734/6813490 https://blog.golang.org/using-go-modules
+* _module path_: seems like same thing as 'import path' https://engineering.kablamo.com.au/posts/2018/just-tell-me-how-to-use-go-modules https://golang.org/ref/mod#tmp_2 required if you're outside $GOPATH https://blog.golang.org/using-go-modules
+* _module cache_: where modules get downloaded to `$GOPATH/pkg/mod` https://stackoverflow.com/a/52082860 https://stackoverflow.com/a/52127364 ❓ seems like you can only blow away the entire module cache (`clean -modcache`) vs. the Poetry approach of deleting per project https://github.com/golang/go/issues/32976
+
+## workspaces
+
+## modules
+
+---
+
+GO.MOD
+* human-readable list of deps
+* check into version control https://blog.golang.org/using-go-modules
+* only lists direct dependencies https://blog.golang.org/using-go-modules 'adding a dependency'
+* necessary for module outside `$GOPATH/src`
+* defaults to latest version of module if you don't specify https://blog.golang.org/using-go-modules 'adding a dependency'
+* _directive_: keyword for each line e.g. `go` (version https://golang.org/ref/mod#tmp_11)
+* `indirect`: subdependency https://blog.golang.org/using-go-modules won't be written to `go.mod` unless you perform an upgrade; what *seems* to be happening in the tutorial is that `golang.org/x/text` is a subdep and its parents (`rsc.io/quote`) doesn't specify its version so we just grab latest version which happens to be pseudo version, but when you run `go get golang.org/x/text` it grabs the latest tagged version (which actually should be less recent than the pseudo version, right? otherwise why wouldn't parent dep just specify the stable older version it wanted) and therefore because we're being more specific we have to write it to `go.mod`
+
+https://go.dev/doc/modules/layout
+> With Go 1.14 Go Modules are finally ready for production. Use Go Modules unless you have a specific reason not to use them and if you do then you don’t need to worry about $GOPATH and where you put your project. The basic go.mod file in the repo assumes your project is hosted on GitHub, but it's not a requirement. The module path can be anything though the first module path component should have a dot in its name (the current version of Go doesn't enforce it anymore, but if you are using slightly older versions don't be surprised if your builds fail without it). See Issues 37554 and 32819 if you want to know more about it. https://github.com/golang-standards/project-layout
+
+## env var
+
+```sh
+$ echo $GOPATH  # if env var not set, default to output of go env GOPATH
+$ go env GOPATH  # /Users/zvalenta/go
+```
+
+---
+
+can you explain the following to me?
+```sh
+$ GOBIN
+$ GOENV
+$ GOROOT
+$ GOPATH
+```
+
+* flags https://github.com/peterbourgon/ff
+* _GO111MODULE_: off (modules outside $GOPATH) https://golang.org/doc/code.html on (modules w/in $GOPATH) https://www.youtube.com/watch?v=H_4eRD8aegk @ 2:54 🗄 `go111.log`
+* _GOBIN_: location for `go install`; defaults to `$GOPATH/bin`; set w/ `go env -w GOBIN="$PWD"` https://golang.org/doc/code.html#Command
+* _GOENV_: config location
+* _GOROOT_: where Go is installed https://stackoverflow.com/a/30295306/6813490
+* _GOPATH_: still used but only by the Go installation at large, not for package management https://ukiahsmith.com/blog/a-gentle-introduction-to-golang-modules/ previously pointed to central location (typically `~/go`) for all Go code (src, deps) holding 3 directories (`src`, `pkg`, `bin`) https://golang.org/doc/gopath_code.html
+
+## installs
+
+trying to find out if/where Go CLIs on my machine
+
+```sh
+$ find /usr/local/bin /usr/bin -type f -perm -u+x | grep -i go  # nada
+```
+
 ## project structure
 
 > The standard way to do testing is to have a foo.go and foo_test.go file next to each other. https://www.arp242.net/jia-tan-go.html
@@ -507,30 +379,26 @@ PKG
 * https://github.com/jesseduffield/lazygit/tree/master/pkg
 * https://travisjeffery.com/b/2019/11/i-ll-take-pkg-over-internal/
 
-MODULES
-> With Go 1.14 Go Modules are finally ready for production. Use Go Modules unless you have a specific reason not to use them and if you do then you don’t need to worry about $GOPATH and where you put your project. The basic go.mod file in the repo assumes your project is hosted on GitHub, but it's not a requirement. The module path can be anything though the first module path component should have a dot in its name (the current version of Go doesn't enforce it anymore, but if you are using slightly older versions don't be surprised if your builds fail without it). See Issues 37554 and 32819 if you want to know more about it. https://github.com/golang-standards/project-layout
-
 ZA
 * `internal`: cannot be imported https://www.bytesizego.com/blog/golang-internal-package
 
 ---
-
-https://docs.go-blueprint.dev/
-
-https://github.com/bbkane/shovel
-https://go.dev/blog/gonew
-https://go.dev/doc/modules/layout
-https://golangweekly.com/link/146368/web
-https://avivcarmi.com/finding-the-best-go-project-structure-part-1/
-https://boyter.org/posts/how-to-start-go-project-2023/
-https://github.com/create-go-app/cli
-https://autostrada.dev/
 
 * project structure for CLI and testing https://github.com/quii/learn-go-with-tests https://eli.thegreenplace.net/2022/file-driven-testing-in-go/ https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MTM2Nw==
 * https://lets-go.alexedwards.net/
 * https://gist.github.com/candlerb/3cb11576b2d73800b58f3b548dc2ba4a
 
 https://appliedgo.com/blog/go-project-layout
+
+https://docs.go-blueprint.dev/
+
+https://github.com/bbkane/shovel
+https://go.dev/blog/gonew
+https://golangweekly.com/link/146368/web
+https://avivcarmi.com/finding-the-best-go-project-structure-part-1/
+https://boyter.org/posts/how-to-start-go-project-2023/
+https://github.com/create-go-app/cli
+https://autostrada.dev/
 
 https://github.com/mikestefanello/pagoda
 https://autostrada.dev/
@@ -629,3 +497,175 @@ INSTALLATION
 VERSION MGMT
 * ✅ just use version name https://go.dev/doc/manage-install
 * version mgmt tool https://github.com/moovweb/gvm
+
+# 📔 STDLIB
+
+🔍
+* https://threedots.tech/post/list-of-recommended-libraries/
+* https://github.com/avelino/awesome-go
+
+> https://matthewsanabria.dev/posts/start-with-the-go-standard-library/
+
+* used in Python https://last9.io/blog/using-golang-package-in-python-using-gopy/
+* datetime https://github.com/golang-module/carbon https://github.com/olebedev/when
+* game engine https://ebiten.org/
+* GUI https://github.com/fyne-io/fyne https://github.com/AllenDang/giu https://github.com/gizak/termui
+* _datetime_: https://github.com/dromara/carbon
+* _debug_: can use gdb but delve recommended https://golang.org/doc/gdb https://www.youtube.com/watch?v=r033vEzL6a4
+* _env var_ https://endaphelan.me/guides/golang/a-no-nonsense-guide-to-environment-variables-in-go/ https://github.com/caarlos0/env https://github.com/joho/godotenv https://github.com/knadh/koanf to structs https://github.com/caarlos0/env
+* _fake data_: https://github.com/brianvoe/gofakeit
+* _feature flag_: https://github.com/thomaspoignant/go-feature-flag
+* _file system_: https://github.com/spf13/afero
+* _Excel_: https://github.com/360EntSecGroup-Skylar/excelize https://xuri.me/excelize/
+* _filesystem_: https://github.com/spf13/afero
+* _Git_: https://github.com/go-git/go-git
+* _GraphQL_: https://gqlgen.com/ https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
+* _GUI_: https://gioui.org/ https://anvil-editor.net/
+* _lint_: https://github.com/golangci/awesome-go-linters
+* _logging_ https://github.com/bloom42/rz-go https://github.com/charmbracelet/log
+* _Markdown_: https://github.com/yuin/goldmark
+* _math_: https://github.com/montanaflynn/stats
+* _profile_ https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go https://blog.golang.org/profiling-go-programs https://marcan.st/2017/12/debugging-an-evil-go-runtime-bug https://artem.krylysov.com/blog/2017/03/13/profiling-and-optimizing-go-web-applications/ https://github.com/DataDog/go-profiler-notes/blob/main/guide/README.md https://notes.eatonphil.com/implementing-a-jq-clone-in-go.html https://eli.thegreenplace.net/2023/common-pitfalls-in-go-benchmarking/ https://www.willem.dev/articles/benchmarks-performance-testing/
+* _refactoring_: http://blog.ralch.com/tutorial/golang-tools-refactoring/ http://www.gorefactor.org/
+* _REPL_: https://github.com/cosmos72/gomacro https://stackoverflow.com/questions/8513609/does-go-provide-repl https://golangweekly.com/link/146377/web
+* _search_ https://blevesearch.com/
+* _security_ https://github.com/securego/gosec
+* _serialization_: https://github.com/bytedance/sonic
+* _testing_: https://github.com/stretchr/testify https://eli.thegreenplace.net/2020/faking-stdin-and-stdout-in-go/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://quii.gitbook.io/learn-go-with-tests/ mock db https://github.com/cockroachdb/copyist/ mocks https://github.com/stretchr/testify https://github.com/vektra/mockery https://github.com/jarcoal/httpmock https://www.youtube.com/watch?v=U-eO9_lNi7w https://github.com/gotestyourself/gotestsum visualize https://github.com/roblaszczak/vgt
+* time https://github.com/mergestat/timediff
+* _TOML_: https://github.com/pelletier/go-toml
+* _YAML_: https://github.com/goccy/go-yaml
+
+## 🦄 Charm
+
+🔗 https://charm.sh/
+
+* _Bubbles_: standalone UI components from Bubbletea https://github.com/charmbracelet/bubbles
+* text input (does it support readline?) https://github.com/charmbracelet/bubbles?tab=readme-ov-file#text-input
+* _Bubbletea_: TUI framework https://github.com/charmbracelet/bubbletea https://github.com/charmbracelet/bubbletea#bubble-tea-in-the-wild
+* _huh_: forms; used in gum https://github.com/charmbracelet/huh
+* _log_: structured logs, used in gum https://github.com/charmbracelet/log https://github.com/charmbracelet/gum#log
+
+🍬 GUM 📜 https://github.com/charmbracelet/gum
+* tldr: components for Bash scripts https://github.com/charmbracelet/gum/blob/main/examples/test.sh
+* things I've used: log https://github.com/zachvalenta/capp-crudite filter https://github.com/zachvalenta/bin-mini23/blob/main/xmp
+* use in Python https://github.com/charmbracelet/gum/blob/main/examples/gum.py
+* welcome msg https://github.com/charmbracelet/gum#join
+```sh
+gum style --foreground 212 --border-foreground 212 --border double \
+	--align center --width 50 --margin "1 2" --padding "2 2" 'generate' 'dataset' 'for' 'crudite'
+```
+
+---
+
+📹 https://www.youtube.com/watch?v=_gzypL-Qv-g
+
+* _Bubble Tea_: inspired by Elm? https://github.com/charmbracelet/bubbletea
+* tutorials https://leg100.github.io/en/posts/building-bubbletea-programs/ https://www.youtube.com/watch?v=ERaZi0YvBRs
+* components https://github.com/charmbracelet/bubbles 
+
+## CLI
+
+---
+
+* animation https://github.com/charmbracelet/harmonica
+* frameworks https://github.com/noahgorstein/jqp https://www.youtube.com/watch?v=ZA93qgdLUzM https://github.com/rivo/tview/ https://github.com/jroimartin/gocui 
+* color https://github.com/fatih/color
+* tables https://github.com/jedib0t/go-pretty
+* Markdown render https://github.com/charmbracelet/glamour https://miller.readthedocs.io/en/latest/file-formats/#markdown-tabular
+* prompt https://github.com/manifoldco/promptui
+* styling https://github.com/charmbracelet/lipgloss https://github.com/pterm/pterm/
+
+---
+
+* testing, golden files https://changelog.com/gotime/337
+* https://www.dolthub.com/blog/2023-03-29-interactive-shell-golang/
+
+* https://clig.dev/ https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46 https://www.youtube.com/watch?v=eMz0vni6PAw https://eryb.space/2020/05/27/diving-into-go-by-building-a-cli-application.html https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ email author -> 艘 'Golang article typo'
+```sh
+├── main.foo  # single line returning exit code from internals https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/
+│   └── file_1.txt
+│   └── file_2.txt
+```
+* binaries for multiple architectures https://www.thoughtworks.com/radar/tools?blipid=202203018 https://github.com/goreleaser/goreleaser
+* https://towardsdatascience.com/how-to-create-a-cli-in-golang-with-cobra-d729641c717 https://www.twilio.com/blog/use-cobra-build-go-powered-clis
+* _stdlib_:  https://media.pragprog.com/titles/rggo/first.pdf approach 1 https://eryb.space/2020/05/27/diving-into-go-by-building-a-cli-application.html https://github.com/erybz/go-grab-xkcd approach 2 https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://github.com/carlmjohnson/go-grab-xkcd `flags` not good? https://golang.org/pkg/flag/ https://news.ycombinator.com/item?id=23319770 https://news.ycombinator.com/item?id=23321901
+* _Cobra/Viper_: Hugo, Kubernetes https://news.ycombinator.com/item?id=23319172 scaffold https://github.com/spf13/cobra/blob/master/cobra/README.md module support https://github.com/spf13/cobra/issues/1054 https://github.com/spf13/cobra/issues/795 https://github.com/spf13/cobra/pull/817 https://qua.name/antolius/making-a-testable-cobra-cli-app https://www.youtube.com/watch?v=44MMeT39eG4
+* _cli_: https://github.com/urfave/cli https://github.com/ayoisaiah/goname/blob/master/cmd/goname/main.go https://news.ycombinator.com/item?id=23321576
+* _alternatives_: terminal GUI https://github.com/rivo/tview other options https://go.dev/solutions/clis/ https://github.com/jessevdk/go-flags https://github.com/jaffee/commandeer
+* _interactive prompt_: https://github.com/AlecAivazis/survey
+* output https://github.com/nikolaydubina/calendarheatmap https://xkcd.com/1138/ https://github.com/vbauerster/mpb https://github.com/cirruslabs/echelon https://github.com/gookit/color/ https://github.com/Delta456/box-cli-maker colors https://github.com/muesli/termenv
+
+- [ ] packaging - recreate Cobra scaffold `golang/packaging`
+
+* ✅ try to run app
+* snapshot (env, fs, previous notes at bottom of file, Makefile)
+* cp project somewhere else, rm deps (clean --modcache), 'clone', run
+* cp project somewhere else, rm deps (not folders), 'clone', run
+* cp project somewhere else, rm deps (folders), 'clone', run
+* push to GH, rm deps (clean --modcache), clone, run
+* push to GH, rm deps (not folder), clone, run
+* push to GH, rm deps (folders), clone, run
+* basic project w/out deps https://golang.org/doc/code.html
+* get set up on work machine
+
+## web
+
+* HTTP https://github.com/go-chi/chi
+* https://pocketbase.io/ 
+* https://echo.labstack.com/
+* start here https://www.youtube.com/watch?v=F9H6vYelYyU
+* https://github.com/mikestefanello/pagoda
+* https://github.com/nikolaydubina/go-recipes
+* https://github.com/livebud/bud
+* https://www.allhandsontech.com/programming/golang/web-app-sqlite-go/
+* URL shortener https://jrstupkadev.medium.com/golang-url-shortener-22ba6c970792 https://blog.pratimbhosale.com/building-a-url-shortener-using-go-and-sqlite#heading-project-setup
+
+* basic
+```golang
+package main
+
+import "net/http"
+
+func main() {
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		w.Write([]byte("Hello, Go"))
+	})
+	http.ListenAndServe(":8000", nil)
+}
+```
+* OpenAPI https://github.com/danielgtaylor/huma
+* https://github.com/carlmjohnson/requests
+* https://news.ycombinator.com/item?id=39318867
+* https://www.allhandsontech.com/programming/golang/web-app-sqlite-go/
+* app config https://github.com/spf13/viper
+* https://github.com/go-chi/chi
+* vanilla https://eli.thegreenplace.net/2021/life-of-an-http-request-in-a-go-server/
+* _db_: https://github.com/cvilsmeier/go-sqlite-bench `database/sql` (SQLAlchemy engine) gorm (SQLAlchemy ORM) https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://www.calhoun.io/using-postgresql-with-go  https://github.com/go-reform/reform https://entgo.io/ https://github.com/upper/db in mem KV https://github.com/sdslabs/kiwi generate SQL https://github.com/Masterminds/squirrel CLI https://upper.io/v4/ query builder https://github.com/doug-martin/goqu https://pboyd.io/posts/5-ways-to-write-a-go-database-model/ ORM https://github.com/uptrace/bun
+* _microservice_: https://github.com/micro/micro https://blog.m3o.com/2020/11/16/building-a-blog-with-micro.html
+* frameworks: Buffalo, Gin, Echo; hot reload for Gin https://github.com/cosmtrek/air https://github.com/go-goyave/goyave https://github.com/cloudwego/hertz
+* routing: https://benhoyt.com/writings/go-routing/
+* servers: https://eli.thegreenplace.net/2021/rest-servers-in-go-part-1-standard-library/
+* https://github.com/go-goyave/goyave
+* https://www.honeybadger.io/blog/go-web-services/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://www.usegolang.com/sample/?__s=aqtioiz6aumf2qzwpp96 https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg https://www.usegolang.com/ https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg  https://github.com/go-resty/resty https://github.com/gojek/heimdall https://benhoyt.com/writings/go-routing/ https://github.com/projectdiscovery/httpx
+
+# 🟨 ZA
+
+CMDS
+* _docs_: `doc <mod>` https://blog.golang.org/using-go-modules
+* _run_: `run <path/to/file>`
+* _binary_: create (`build`) create and mv to `$GOPATH/bin` (`install`) https://www.zombiezen.com/blog/2020/09/how-i-packaged-go-program-windows-linux/
+* _rm_: `go clean` ❓ rm what?
+
+---
+
+* toolchain https://go.dev/doc/toolchain
+
+* commands https://github.com/nikolaydubina/go-recipes
+* _documentation_: https://blog.golang.org/go.dev https://blog.golang.org/pkg.go.dev-2020
+* _gotchas_: http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/
+* _memory allocation_: https://blog.learngoprogramming.com/a-visual-guide-to-golang-memory-allocator-from-ground-up-e132258453ed https://notes.eatonphil.com/implementing-a-jq-clone-in-go.html
+* _OO_: http://patshaughnessy.net/2015/9/25/what-do-perl-and-go-have-in-common
+* _Python_: https://news.ycombinator.com/item?id=22304131
+* _style_: https://github.com/golang/go/wiki/CodeReviewComments
+* plugins https://eli.thegreenplace.net/2021/plugins-in-go/

@@ -384,6 +384,7 @@ ZA
 
 ---
 
+* https://news.ycombinator.com/item?id=42454723 https://github.com/gianlucam76/k8s-cleaner
 * debugging Python https://martinheinz.dev/blog/99
 * https://www.faizanbashir.me/interacting-with-kubernetes-deployments-and-services-using-python-sdk
 * https://terminaltrove.com/kubecolor/

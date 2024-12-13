@@ -18,6 +18,8 @@
 ## 进步
 
 START HERE
+* Clinton book + https://www.manning.com/books/llms-in-production
+* https://www.youtube.com/@gptLearningHub/videos
 * Raschka thirty questions and answers https://www.amazon.com/dp/1718503768
 * 🧠 https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * https://jalammar.github.io/visual-interactive-guide-basics-neural-networks/
@@ -25,7 +27,14 @@ START HERE
 * GPT from scratch https://bbycroft.net/llm https://news.ycombinator.com/item?id=38505211
 * llama3 from scratch https://github.com/naklecha/llama3-from-scratch
 
+FROM ELIZA TO LLM
+* https://zserge.com/posts/ai-eliza/
+* https://zserge.com/posts/ai-markov/
+* https://zserge.com/posts/ai-nn/
+* https://zserge.com/posts/ai-llm/
+
 ---
+
 ARE THESE TRAINING? BUILDING FROM SCRATCH?
 * https://eli.thegreenplace.net/2024/gomlx-ml-in-go-without-python/
 * learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
@@ -36,9 +45,172 @@ ARE THESE TRAINING? BUILDING FROM SCRATCH?
 
 * _19_: Deep Learning and the Game of Go (Christmas gift?)
 
+Here's the working taxonomy I have. Can you correct it?
+
+```sh
+├── core ideas
+│   └── features
+│   └── inference
+│   └── labels
+│   └── vectors
+├── classical ML
+│   └── KNN
+│   └── linear regression
+│   └── random forest
+│   └── SVM
+├── neural networks
+│   └── transforms
+│   └── tokens
+│   └── embeddings
+```
+
+# ⭕️ CORE
+
+## embeddings (repr ++)
+
+🗄️ `modeling.md` vector
+💡 calc relatedness of strings
+
+* _embedding_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings
+
+USAGE https://platform.openai.com/docs/guides/embeddings
+* search (where results are ranked by relevance to a query string)
+* clustering (where text strings are grouped by similarity)
+* recommendations (where items with related text strings are recommended)
+* anomaly detection (where outliers with little relatedness are identified)
+* diversity measurement (where similarity distributions are analyzed)
+* classification (where text strings are classified by their most similar label)
+
+---
+
+* https://calmcode.io/course/embeddings/introduction
+* try it out https://github.com/taylorai/aiq
+* https://www.youtube.com/watch?v=XPA213k8G_U
+* https://www.youtube.com/watch?v=pfRA3Scz3Fw
+* https://blog.wilsonl.in/hackerverse/
+* https://www.youtube.com/watch?v=zzY64Qu8HHc
+* https://news.ycombinator.com/item?id=41473518
+* https://www.youtube.com/watch?v=hB7sGE0W8CI
+* https://news.ycombinator.com/item?id=42013762
+
+## features (input var)
+
+* _feature_: metadata 📙 Bueno [25]
+
+---
+
+* https://www.hopsworks.ai/post/pandas2-and-polars-for-feature-engineering
+* _feature extraction_: key attr e.g. semantic meaning, syntax, sentiment analysis https://zackproser.com/blog/introduction-to-embeddings
+* _Naive Bayes_: priors + data; naive bc assume every feature has same weight [Bhargava 10.200]
+* softmax https://victorzhou.com/blog/softmax/
+* visualization in Jupyter https://kylekizirian.github.io/prims-algorithm.html
+
+## inference (prediction)
+
+* https://github.com/samuel-vitorino/lm.rs
+* https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
+* https://www.youtube.com/watch?v=J_3jrS3FalY
+
+## labels (output var)
+
+🗄️ scikit
+
+* https://calmcode.io/course/bad-labels/introduction
+* https://calmcode.io/course/pigeon/introduction
+* https://calmcode.io/datasets/clinc
+* https://calmcode.io/labs/doubtlab
+* https://labelerrors.com/
+* https://www.manning.com/books/data-without-labels
+
+TYPES
+* _supervised_: labeled data during training, unlabeled during predication [Trask 2.11]
+* _unsupervised_: unlabeled data during training and prediction [Trask 13]
+* _reinforcement_: no labels but algo can tell if it's getting hotter or colder http://aiplaybook.a16z.com/docs/guides/dl-learning#user-content-reinforcementlearning
+* _parameters_: https://www.youtube.com/watch?v=BbZ2m8mfwYU https://01-ai.github.io/blog.html?post=en/2024-09-05-A-Small-but-Mighty-LLM-for-Code.md
+* _parametric_: modeler derives parameters [Trask 2.14, 2.18]
+* _nonparametric_: model derives parameters [Trask 2.14, 2.18]
+
+> The fundamental leap of machine learning is to change the problem from a logic problem to a statistics problem. Instead of trying to explain to a computer how you would recognise a picture of a cat, you give it a million pictures of ‘cat’ and let the computer work it out. By extension, the leap in LLMs is to do this with ‘intelligence’ - instead of trying to teach a computer how to think and reason, you give it a billion examples of human reasoning, as captured in text written by people, and let the computer work it out. As we’ve scaled these models we’ve found, so far, that the more examples the better the models work, which means that companies building LLMs want to vacuum up all the text that there is - the one web, yes, but also every patent ever filed, every law, every legal argument in every court case, every book or email or anything else that gives examples of ‘what people tend to say’. - Ben Evans 24.12
+
+## vectors (repr)
+
+---
+
+* word2vec, byte-pair encoding, LSTM https://arpit.substack.com/p/how-zomato-improved-its-search-using https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm * _Word2Vec_: vector db https://www.youtube.com/watch?v=a8Oz6Mz8pk0
+
+SEMANTICS
+* _scalar_: single value 📙 Trask [3.45] Bradshaw [62]
+* _vector_: list 📙 Trask 3.31
+* _matrix_: list of lists 📙 Trask 3.41 e.g. NumPy array, Pandas dataframe
+* _elementwise operation_: perform same operation on two vectors of equal length 📙 Trask 3.31 i.e. zip
+* _dimensionality_: number of components in a vector https://zackproser.com/blog/introduction-to-dimensionality#what-is-dimensionality-
+
+🧠 https://chatgpt.com/c/6733b490-8d1c-8004-aa20-c1c6722b0247
+
+* _ChromaDB_: https://www.youtube.com/watch?v=QSW2L8dkaZk&list=PL58zEckBH8fA-R1ifTjTIjrdc3QKSk6hI&pp=iAQB
+* _Pinecone_: https://zackproser.com/blog/i-am-joining-pinecone-io https://zackproser.com/blog/vector-databases-compared
+
+---
+
+> While embeddings fundamentally changed how we can represent and compare content, they didn't need an entirely new infrastructure category. What we label as "vector databases" are, in reality, search engines with vector capabilities. https://simonwillison.net/2024/Dec/28/jo-kristian-bergum/
+* https://www.youtube.com/watch?v=OM1CHD89jqw
+* for recommendation systems, NLP
+* Milvus, Chroma, Weaviate, FAISS https://zackproser.com/blog/vector-databases-compared
+* LanceDB https://www.youtube.com/watch?v=hB7sGE0W8CI
+* https://news.ycombinator.com/item?id=41985176
+* https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/ https://github.com/asg017/sqlite-vec https://github.com/qdrant/qdrant https://www.youtube.com/watch?v=awIm3rQOBxE
+
+# 🏛️ CLASSICAL
+
+## 🛖 KNN
+
+🗄 `math.md` regression
+
+https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
+
+> It's useful in recommender situations but also with neural embeddings in general. It's an expensive thing to calculate so it is common to calculate approximate distances as a proxy https://calmcode.io/course/altair/introduction
+* _k-nearest neighbors_: taxonomize based on proximate elements i.e. those that have similar attributes
+* form of supervised learning https://stats.stackexchange.com/a/56504
+* used for recommendation system, regression, OCR 📙 Bhargava [186,195,196]
+* recommendation systems https://github.com/gorse-io/gorse
+* https://philippmuens.com/k-nearest-neighbors-from-scratch/
+* https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
+* https://realpython.com/courses/knn-python/
+* https://news.ycombinator.com/item?id=26328958
+* https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
+* 📙 MacCormick chapter 6
+* _k means_: group points into K clusters; unsupervised https://stats.stackexchange.com/a/56504
+
+## 📈 linear regression
+
+---
+
+* _linear regression_: use set of numerical X values (e.g. study time, price of crude oil) to predict numerical Y values (e.g. test score, price of gasoline)
+* BYO https://www.youtube.com/watch?v=VmbA0pi2cRQ https://www.youtube.com/watch?v=KsVBBJRb9TE
+* in Pandas, SQL https://hakibenita.com/sql-for-data-analysis#linear-regression
+* uses k-NN 📙 Bhargava 10.196 🗄 `algos.md`
+* 名 relationship
+> the common narrative that it's a fairly simple regression with size, where small startups are fast and large companies are slow, I don't think that's necessarily the case at all, where Facebook is a good example of a company that's remarkable at executing quickly from a technology point of view https://www.stitcher.com/podcast/mathew-passy/invest-like-the-best/e/71161348 25:00
+* 动 plot relationship btw
+> People have regressed spending by countries, states, and districts on outcome metrics for a long time, and they pretty much universally show that there is no relationship between spending and success as defined in traditional terms. https://freddiedeboer.substack.com/p/is-the-conventional-wisdom-on-educational
+* linear regression https://news.ycombinator.com/item?id=41111115
+* _logistic regression_: use set of numerical X values (e.g. email attr) to predict categorical Y value (e.g. spam or no?) https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
+
+## 🌳 random forest
+
+---
+
+* https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
+* https://victorzhou.com/blog/intro-to-random-forests/
+* https://mlu-explain.github.io/
+
+## 🦾 SVM
+
+> SVMs sit in the supervised learning family, specifically for classification and regression. They're part of the broader kernel methods taxonomy alongside kernel PCA, kernel ridge regression, etc.
+
 # 🧠 NEURAL NETWORKS
 
-🗄️ `graphs.md` https://www.manning.com/books/graph-neural-networks-in-action https://www.manning.com/books/math-and-architectures-of-deep-learning https://fleetwood.dev/posts/you-could-have-designed-SOTA-positional-encoding
+🗄️ `graphs.md` https://www.manning.com/books/graph-neural-networks-in-action https://www.manning.com/books/math-and-architectures-of-deep-learning https://fleetwood.dev/posts/you-could-have-designed-SOTA-positional-encoding https://news.ycombinator.com/item?id=42468214
 BYO https://www.manning.com/books/design-a-machine-learning-system-design-from-scratch
 
 FUNCTIONS
@@ -72,36 +244,31 @@ TYPES
 * _recurrent_: https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm https://victorzhou.com/blog/intro-to-rnns/
 * _convolutional_: https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/how-convolutional-neural-networks-work https://victorzhou.com/blog/intro-to-cnns-part-1/ good for computer vision https://www.youtube.com/watch?v=aircAruvnKk 2:10
 
-## features
-
-* _feature_: metadata 📙 Bueno [25]
+## transformers
 
 ---
 
-* https://www.hopsworks.ai/post/pandas2-and-polars-for-feature-engineering
-* _feature extraction_: key attr e.g. semantic meaning, syntax, sentiment analysis https://zackproser.com/blog/introduction-to-embeddings
-* _Naive Bayes_: priors + data; naive bc assume every feature has same weight [Bhargava 10.200]
-* softmax https://victorzhou.com/blog/softmax/
-* visualization in Jupyter https://kylekizirian.github.io/prims-algorithm.html
+> GPT stands for Generative Pre-trained Transformer 📙 Clinton obsolete gen AI
+📙 Tunstall nlp with transformers https://www.amazon.com/dp/1098136799
 
-## labels
+* https://www.youtube.com/watch?v=KJtZARuO3JY
+* https://www.manning.com/books/transformers-in-action
+* https://www.amazon.com/gp/product/1098134184
+* https://realpython.com/huggingface-transformers/
 
-* https://calmcode.io/datasets/clinc
-* https://calmcode.io/labs/doubtlab
-* https://labelerrors.com/
-* https://www.manning.com/books/data-without-labels
+## tokens
 
-TYPES
-* _supervised_: labeled data during training, unlabeled during predication [Trask 2.11]
-* _unsupervised_: unlabeled data during training and prediction [Trask 13]
-* _reinforcement_: no labels but algo can tell if it's getting hotter or colder http://aiplaybook.a16z.com/docs/guides/dl-learning#user-content-reinforcementlearning
-* _parameters_: https://www.youtube.com/watch?v=BbZ2m8mfwYU https://01-ai.github.io/blog.html?post=en/2024-09-05-A-Small-but-Mighty-LLM-for-Code.md
-* _parametric_: modeler derives parameters [Trask 2.14, 2.18]
-* _nonparametric_: model derives parameters [Trask 2.14, 2.18]
+* _token_: ~4 chars; ~1500 words = 2k tokens 📙 Clinton obsolete gen AI
 
-> The fundamental leap of machine learning is to change the problem from a logic problem to a statistics problem. Instead of trying to explain to a computer how you would recognise a picture of a cat, you give it a million pictures of ‘cat’ and let the computer work it out. By extension, the leap in LLMs is to do this with ‘intelligence’ - instead of trying to teach a computer how to think and reason, you give it a billion examples of human reasoning, as captured in text written by people, and let the computer work it out. As we’ve scaled these models we’ve found, so far, that the more examples the better the models work, which means that companies building LLMs want to vacuum up all the text that there is - the one web, yes, but also every patent ever filed, every law, every legal argument in every court case, every book or email or anything else that gives examples of ‘what people tend to say’. - Ben Evans 24.12
+---
 
-## stdlib
+https://llm.datasette.io/en/stable/related-tools.html
+
+## CNNs
+
+## RNNs
+
+# 🛠️ STDLIB
 
 * _Tensorflow_: tensor (array) flow (operations) https://github.com/Hvass-Labs/TensorFlow-Tutorials https://news.ycombinator.com/item?id=42133844
 * _Keras_: less verbose Tensorflow (will eventually be packaged w/) https://victorzhou.com/blog/keras-neural-network-tutorial/ https://news.ycombinator.com/item?id=42133844
@@ -111,7 +278,43 @@ TYPES
 * Matlab for Python https://jakevdp.github.io/PythonDataScienceHandbook/
 * _MLX_: numpy for Apple silicon https://github.com/ml-explore/mlx
 
-### numpy
+## jax
+
+https://github.com/jax-ml/jax https://jax.readthedocs.io/en/latest/
+
+https://calmcode.io/course/jax/introduction
+
+```txt
+Great question! JAX is indeed somewhat like NumPy, but it has some distinct and powerful features that make it a key tool in the modern machine learning (ML) and scientific computing ecosystem.
+
+What is JAX?
+JAX is a high-performance numerical computing library that combines:
+
+NumPy-like API: It provides functions and data structures that mirror those in NumPy, so you can use it in a similar way for array computations.
+Automatic Differentiation (Autograd): JAX can compute gradients of functions, which is essential for optimization tasks in ML.
+Just-in-Time Compilation (JIT): JAX can compile your Python code to machine-specific optimized code using XLA (Accelerated Linear Algebra), significantly speeding up computations.
+GPU/TPU Support: JAX seamlessly runs on CPUs, GPUs, and TPUs, making it ideal for high-performance applications.
+How is it similar to NumPy?
+JAX's jax.numpy module offers a NumPy-compatible API, so you can write code that feels familiar if you're used to NumPy.
+You can perform element-wise operations, linear algebra, and other array manipulations just like you would in NumPy.
+How does it differ from NumPy?
+Accelerated Computing: JAX can leverage GPUs and TPUs, whereas NumPy is CPU-only.
+Gradients: JAX has built-in support for automatic differentiation, enabling you to compute derivatives with ease (e.g., for ML or optimization).
+JIT Compilation: Unlike NumPy, JAX can compile functions for significant speedups.
+Pure Functional Programming Paradigm: JAX promotes immutability and pure functions, which differs from NumPy's in-place operations.
+Where does JAX fit in the larger ecosystem?
+ML and Deep Learning: JAX is widely used in cutting-edge ML research because it supports fast prototyping and efficient gradient-based optimization.
+Scientific Computing: Researchers in physics, biology, and other domains use JAX for its combination of high performance and ease of use.
+Frameworks Built on JAX:
+Flax and Haiku: ML libraries that provide high-level abstractions for building neural networks.
+Optax: For optimization algorithms.
+Equinox: A lightweight framework for building neural networks in a PyTorch-like style.
+Competitor to TensorFlow and PyTorch: While not a direct competitor in terms of ease of deployment for production, JAX is preferred for research due to its flexibility and simplicity.
+In summary
+JAX can be thought of as "NumPy on steroids" with GPU/TPU acceleration, automatic differentiation, and JIT compilation. It's an excellent tool for both high-performance scientific computing and machine learning research. If you're familiar with NumPy and looking to explore ML or computationally intensive tasks, JAX is a fantastic library to dive into.
+```
+
+## numpy
 
 https://realpython.com/numpy-example/
 
@@ -124,51 +327,21 @@ def dot(v1, v2):  # vectors
 dot([1,2,3], [4,5,6])
 ```
 
-## transformers
+## scikit
 
-📙 https://www.amazon.com/dp/1098136799
+💡 good at classical
 
-* https://www.youtube.com/watch?v=KJtZARuO3JY
-* https://www.manning.com/books/transformers-in-action
-* https://www.amazon.com/gp/product/1098134184
-* https://realpython.com/huggingface-transformers/
+* _dummy_: https://calmcode.io/course/scikit-dummy/intro
+* _learn_: https://calmcode.io/course/scikit-learn/introduction https://calmcode.io/course/human-learn/introduction https://github.com/koaning/human-learn/ https://calmcode.io/course/model-mining/introduction https://calmcode.io/course/partial_fit/introduction
+* _lego_: https://github.com/koaning/scikit-lego https://calmcode.io/course/hiplot/introduction
+* _save_: https://calmcode.io/course/scikit-save/introduction
+* _prep_: https://calmcode.io/course/scikit-prep/introduction
+* _metrics_: https://calmcode.io/course/scikit-metrics/introduction
+* _meta_: https://calmcode.io/course/scikit-meta/introduction
 
-## vectors
+## scipy
 
----
-
-* word2vec, byte-pair encoding, LSTM https://arpit.substack.com/p/how-zomato-improved-its-search-using https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm * _Word2Vec_: vector db https://www.youtube.com/watch?v=a8Oz6Mz8pk0
-
-SEMANTICS
-* _scalar_: single value 📙 Trask [3.45] Bradshaw [62]
-* _vector_: list 📙 Trask 3.31
-* _matrix_: list of lists 📙 Trask 3.41 e.g. NumPy array, Pandas dataframe
-* _elementwise operation_: perform same operation on two vectors of equal length 📙 Trask 3.31 i.e. zip
-* _dimensionality_: number of components in a vector https://zackproser.com/blog/introduction-to-dimensionality#what-is-dimensionality-
-
-## embeddings
-
-💡 calc relatedness of strings
-
-USAGE https://platform.openai.com/docs/guides/embeddings
-* search (where results are ranked by relevance to a query string)
-* clustering (where text strings are grouped by similarity)
-* recommendations (where items with related text strings are recommended)
-* anomaly detection (where outliers with little relatedness are identified)
-* diversity measurement (where similarity distributions are analyzed)
-* classification (where text strings are classified by their most similar label)
-
----
-
-* _embedding_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings
-* try it out https://github.com/taylorai/aiq
-* https://www.youtube.com/watch?v=XPA213k8G_U
-* https://www.youtube.com/watch?v=pfRA3Scz3Fw
-* https://blog.wilsonl.in/hackerverse/
-* https://www.youtube.com/watch?v=zzY64Qu8HHc
-* https://news.ycombinator.com/item?id=41473518
-* https://www.youtube.com/watch?v=hB7sGE0W8CI
-* https://news.ycombinator.com/item?id=42013762
+https://github.com/statsmodels/statsmodels
 
 # 🟨️ ZA
 
@@ -187,7 +360,6 @@ building into projects https://news.ycombinator.com/item?id=40857589
 ZA
 * scraping https://chatgpt.com/c/6723e31b-bf8c-8004-a801-41b1b4e52419
 * structured output https://news.ycombinator.com/item?id=40713952
-* Claude https://www.anthropic.com/ https://x.com/AnthropicAI/status/1803790681971859473
 * https://news.ycombinator.com/item?id=40441945
 * custom GPT https://talkpython.fm/episodes/show/456/building-gpt-actions-with-fastapi-and-pydantic
 * customization prompt https://news.ycombinator.com/item?id=40474716
@@ -248,7 +420,7 @@ https://stratechery.com/2023/ai-and-the-big-five/
 * https://explainextended.com/2023/12/31/happy-new-year-15/ https://news.ycombinator.com/item?id=40378499
 * https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math
 
-* legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html
+* legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html https://simonwillison.net/2024/Dec/5/amazon-bedrock-data-protection/ https://simonwillison.net/2024/Dec/5/pleias-llms/ https://marginalrevolution.com/marginalrevolution/2024/12/thomas-storrs-on-elastic-data-supply-from-my-email.html https://www.tosabout.com/
 * contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
 * price per token https://x.com/drorpoleg/status/1847686346078368006
 * tokens, read whole thing
@@ -280,6 +452,7 @@ https://twitter.com/skirano/status/1785469853689639379
 https://www.freecodecamp.org/learn/machine-learning-with-python/#tensorflow
 
 * context window https://twitter.com/deedydas/status/1778621375592485076
+> the idea that a bigger context window might be more than, well, just more of the same, but instead a game changer for LLMs is very interesting https://registerspill.thorstenball.com/p/joy-and-curiosity-19 https://thelongcontext.com/
 > Google hasn’t said how Gemini 1.5 was made, but clearly the company has overcome the key limitation of traditional transformers: memory requirements increase quadratically with context length. One promising approach is Ring Attention with Blockwise Transformers, which breaks long contexts into pieces to be computed individually even as the various devices computing those pieces simultaneously communicate to make sense of the context as a whole; in this case memory requirements scale linearly with context length, and can be extended by simply adding more devices to the ring topology. https://stratechery.com/2024/gemini-1-5-and-googles-nature/
 * https://news.ycombinator.com/item?id=39849393
 
@@ -351,6 +524,26 @@ BASICS
 * libraries: nltk, spaCy
 * _language detection_: https://github.com/pemistahl/lingua-go
 * _sentiment analysis_: determine emotional content https://aeon.co/ideas/why-are-pop-songs-getting-sadder-than-they-used-to-be https://matthagy.github.io/rh_comment_categories/
+```python
+# https://realpython.com/podcasts/rpp/232/ https://blog.jetbrains.com/pycharm/2024/12/introduction-to-sentiment-analysis-in-python/
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+nltk.download('vader_lexicon')
+analyzer = SentimentIntensityAnalyzer()
+sentence = "I love PyCharm! It's my favorite Python IDE."
+sentiment_scores = analyzer.polarity_scores(sentence)
+print(sentiment_scores)  # {'neg': 0.0, 'neu': 0.572, 'pos': 0.428, 'compound': 0.6696}
+
+import spacy
+import spacy.cli
+from spacytextblob.spacytextblob import SpacyTextBlob
+spacy.cli.download("en_core_web_sm")
+nlp = spacy.load('en_core_web_sm')
+nlp.add_pipe('spacytextblob')
+doc = nlp("I love PyCharm! It's my favorite Python IDE.")
+print('Polarity: ', doc._.polarity) # Polarity:  0.625
+print('Subjectivity: ', doc._.subjectivity) # Subjectivity:  0.6
+```
 * _word cloud_: https://dataanalysis.substack.com/p/generating-a-word-cloud-in-python?s=r
 * clean up https://nostarch.com/NLPPython https://codewords.recurse.com/issues/seven/data-driven-literary-analysis https://www.fast.ai/2019/07/08/fastai-nlp/ https://speakerdeck.com/pycon2015/adam-palay-words-words-words-reading-shakespeare-with-python https://victorzhou.com/blog/better-profanity-detection-with-scikit-learn/ https://calmcode.io/labs/scikit-partial
 * https://github.com/rspeer/wordfreq
