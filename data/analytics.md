@@ -384,6 +384,7 @@ TOOLS / DASHBOARDS
 
 ---
 
+* https://tomcritchlow.com/2023/01/27/small-databases/
 * https://realpython.com/contact-book-python-textual/
 * Airtable?
 * schema introspection https://highgrowthengineering.substack.com/p/why-is-dbt-so-important-

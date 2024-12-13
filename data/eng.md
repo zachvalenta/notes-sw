@@ -105,7 +105,7 @@ TIMEZONES
 * `system.md` distributed
 * `sql.md` migrations
 
-* postgres https://github.com/xataio/pgstream
+* postgres https://github.com/xataio/pgstream https://news.ycombinator.com/item?id=42383136
 * https://github.com/bruin-data/ingestr
 * _replication_: same data on diff nodes 📙 Kleppmann [199] https://news.ycombinator.com/item?id=37066284
 * secondaries only accept writes from primary 📙 Bradshaw [236]

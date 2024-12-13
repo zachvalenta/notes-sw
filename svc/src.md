@@ -391,7 +391,7 @@ extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.
 
 ---
 
-https://jvns.ca/blog/2024/11/26/terminal-rules/
+https://jvns.ca/blog/2024/11/26/terminal-rules/ https://news.ycombinator.com/item?id=42401011
 https://danluu.com/cli-complexity/
 
 TUI
@@ -665,6 +665,7 @@ URL shortener 🗄 `fd url-short`
 
 ---
 
+Django vs. Rails https://news.ycombinator.com/item?id=42388340
 https://github.com/CrocoFactory/sensei
 
 BYO

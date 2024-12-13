@@ -420,6 +420,9 @@ foreign key (band) references bands (band_id)
 * `src.md` deployment
 * `system.md` factors > compatibility
 
+TOOLS
+* pgroll, squitch https://news.ycombinator.com/item?id=42388973
+
 DATA
 * _data migration_: DML i.e. change data itself
 * prod data in lower env is bad? https://www.thoughtworks.com/radar/techniques/production-data-in-test-environments
@@ -523,7 +526,7 @@ TYPES
 * _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
 * _varchar_: variable 📙 Beaulieu [21]
 * _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485
-* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf`
+* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf` https://news.ycombinator.com/item?id=42364372
 * _integer_: 
 > The type integer is the common choice, as it offers the best balance between range, storage size, and performance. The smallint type is generally only used if disk space is at a premium. The bigint type is designed to be used when the range of the integer type is insufficient. https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-INT
 * _boolean_: 

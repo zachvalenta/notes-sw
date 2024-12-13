@@ -14,6 +14,7 @@
 # 🥗 MENU
 
 🛠️ benchmark https://arena.lmsys.org/
+🔍 compare https://news.ycombinator.com/item?id=42348513
 🔑 https://gist.github.com/zachvalenta/d3b7cd172dd2d3d8ff7340bd458c6fe2
 
 ZA
@@ -170,6 +171,7 @@ I'm still new to the space, so take with a grain of salt https://chatgpt.com/sha
 
 ⭐️ start here https://github.com/theam/rag-workshop-pydata-nyc-2024 https://www.youtube.com/watch?v=C4u1SjGiT_8
 
+https://news.ycombinator.com/item?id=42360685
 https://github.com/koaning
 https://www.youtube.com/watch?v=kCCC-NlJgIA
 pipelines https://www.youtube.com/watch?v=YM3UrQd2wEA

@@ -492,6 +492,7 @@ CMD b  # bookmarks
 * _Chrome_: what's the extension you're using to Youtube playlist org? https://sponsor.ajay.app/
 * _Lynx_: 'reader mode' https://github.com/bensadeh/circumflex
 * _Firefox_: https://wesbos.com/uses https://www.mozilla.org/en-US/firefox/developer/
+* _Nyxt_: 🎯 https://news.ycombinator.com/item?id=42354691
 * _Zen_: based on Firefox https://zen-browser.app/ can split panes within browser https://www.youtube.com/watch?v=VshptkoKfQo [6:30] https://x.com/mkennedy/status/1856416323447992381
 
 ---

@@ -858,6 +858,7 @@ USAGE
 
 ---
 
+* replication https://github.com/tursodatabase/libsql https://news.ycombinator.com/item?id=42378843&
 * WASM https://news.ycombinator.com/item?id=41851051
 * durable object https://simonwillison.net/2024/Oct/13/zero-latency-sqlite-storage-in-every-durable-object/
 

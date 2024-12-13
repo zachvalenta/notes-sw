@@ -88,6 +88,7 @@ HOWTO
 
 * _just_: 🎯 https://github.com/casey/just https://news.ycombinator.com/item?id=34317359 https://news.ycombinator.com/item?id=34073529 https://github.com/pls-rs/pls/blob/main/justfile https://github.com/pls-rs/pls/blob/main/docs/justfile https://github.com/pythops/tenere
 https://luke.hsiao.dev/blog/housing-documentation/
+* https://news.ycombinator.com/item?id=42351101
 
 ## make
 
