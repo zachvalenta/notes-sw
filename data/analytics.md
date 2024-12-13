@@ -109,29 +109,48 @@ ZA
 * plotting https://pola.rs/posts/lightweight_plotting/ https://realpython.com/python-news-october-2024/
 > couldn't get this to work; try `pipx inject`
 
-#### snippets
+#### syntax
 
-BASICS
+🗄️ startup.py https://github.com/zachvalenta/capp-crud
+
 ```python
-pl.read_csv(path/to/csv, ignore_errors=True)  # IO
-df.columns
-df.schema
-df.schema.keys()
-```
+foo = pl.DataFrame({"sku": [1, 2, 3], "foo_price": [100.0, 200.0, 300.0]})
+bar = pl.DataFrame({"upc": [1, 2, 3], "bar_price": [100.0, 250.0, 300.0]})
+foo.join(bar, left_on="sku", right_on="upc")
+foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")
+foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc").select(["sku", "bar_upc", "foo_price", "bar_price"])
 
-SELECT
-```sh
-col_series = df["column_name"]
-col_list = df["column_name"].to_list()
-first_values = df["column_name"].head(5)
-unique_values = df["column_name"].unique()
-subset = df.select(["col1", "col2", "col3"])
-result = df.select(pl.col("column_name")) # using pl.col() expression (useful in more complex operations)
-filtered = df.filter(pl.col("column_name") > 10)["column_name"]  # predicate
+joined = foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")
+joined.select(joined.columns[0], joined.columns[-1], *joined.columns[1:-1])
+
+select([
+    "name",  # specify your desired column order
+    "age",
+    "id"
+])
+
+foo.join(df2, on="id").filter(pl.col("price") != pl.col("Sell Price"))
 ```
 
 JOINS
 ```python
+# BASIC
+joined = capp.join(neuco, on="id", how="left")  # JK same name
+joined = df1.join(df2, left_on="Part_ID", right_on="part_id")  # JK dif name
+
+# RECONCILIATION
+# 📍 update this to show what the price is
+df1 = pl.DataFrame({"id": [1, 2, 3], "price": [100.0, 200.0, 300.0]})
+df2 = pl.DataFrame({"id": [1, 2, 3], "price": [100.0, 250.0, 300.0]})
+df1.join(df2, on="id").filter(pl.col("price") != pl.col("Sell Price"))
+
+missing_records = capp.join(
+    neuco,
+    left_on=["Part_ID", "Product Item"],  # Join on both keys
+    right_on=["part_id", "product_item"],
+    how="left"
+)
+
 # only keeps join key from the driving table (as least in output)
 df1 = pl.DataFrame({"Part_ID": [1, 2, 3], "name": ["a", "b", "c"]})
 df2 = pl.DataFrame({"part_id": [1, 2, 4], "value": [10, 20, 30]})
@@ -143,6 +162,21 @@ joined = df1.join(df2.with_columns(pl.col("part_id").alias("df2_part_id")), left
 df1_tagged = df1.select([pl.all().prefix("table1_")])
 df2_tagged = df2.select([pl.all().prefix("table2_")])
 joined = df1_tagged.join(df2_tagged, left_on="table1_Part_ID", right_on="table2_Part_ID") # adjust join key names to match prefixed names
+```
+
+BASICS
+```python
+pl.read_csv(path/to/csv, ignore_errors=True)  # IO
+df.columns
+df.schema
+df.schema.keys()
+col_series = df["column_name"]
+col_list = df["column_name"].to_list()
+first_values = df["column_name"].head(5)
+unique_values = df["column_name"].unique()
+subset = df.select(["col1", "col2", "col3"])
+result = df.select(pl.col("column_name")) # using pl.col() expression (useful in more complex operations)
+filtered = df.filter(pl.col("column_name") > 10)["column_name"]  # predicate
 ```
 
 ---

@@ -576,6 +576,9 @@ per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
 * `python/runtime.md` REPL
 * `telemetry` logging
 
+librarties
+* _loguru_: ✅ https://github.com/Delgan/loguru 
+
 ---
 
 https://rednafi.com/python/no_hijack_root_logger/
@@ -587,4 +590,4 @@ icecream for print debugging https://github.com/gruns/icecream
 * can unbuffer w/ `PYTHONUNBUFFERED=1` https://docs.python.org/3/using/cmdline.html?highlight=pythonunbuffered#envvar-PYTHONUNBUFFERED
 * Docker won't show logs from Flask dev server in real-time unless logs set to unbuffered although I don't know why https://github.com/sclorg/s2i-python-container/issues/157 https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
 * add logs without updating source https://github.com/yiblet/inquest
-* _libraries_: https://stackoverflow.com/a/51362214 https://github.com/Delgan/loguru https://github.com/BNMetrics/logme https://github.com/hynek/structlog https://github.com/itamarst/eliot stdlib https://docs.python.org/3/howto/logging.html https://docs.python.org/3/howto/logging-cookbook.html GUI https://github.com/busimus/cutelog
+* _libraries_: https://stackoverflow.com/a/51362214 https://github.com/BNMetrics/logme https://github.com/hynek/structlog https://github.com/itamarst/eliot stdlib https://docs.python.org/3/howto/logging.html https://docs.python.org/3/howto/logging-cookbook.html GUI https://github.com/busimus/cutelog

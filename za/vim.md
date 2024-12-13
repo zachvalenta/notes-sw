@@ -583,6 +583,9 @@ rf
 * `]m`: next method https://vimtricks.substack.com/p/vimtrick-jump-to-next-method
 * `H/M/L`: mv to new cursor line at top/mid/btm of viewport 📙 Neil practical [9.136]
 * `$NUM G`: goto line 📙 Neil practical [9.136]
+```sh
+:num  # goto line
+```
 * _motion_: mv w/in buffer 📙 Neil practical [113,9.135]
 * vs. jumps as long-range motions 📙 Neil practical [9.136]
 
