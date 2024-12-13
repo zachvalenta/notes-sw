@@ -26,6 +26,7 @@ TOOLING
 * GPU acceleration https://www.youtube.com/watch?v=86nMARKN7ho https://www.youtube.com/watch?v=Aumh3evLSKc https://www.youtube.com/watch?v=PH7ExhXYkxQ
 
 ZA
+* _dataframe_: result set + operations https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://github.com/go-gota/gota/blob/master/dataframe/dataframe.go
 * _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog https://realpython.com/podcasts/rpp/224/ https://github.com/benrutter/wimsey
 > Chances are, you’ve never heard of Narwhals. That’s because it’s a tool targeted at tool builders, rather than at end users. Specifically, it allows library maintainers to support multiple dataframe libraries as inputs, without having to make any of them required. https://pola.rs/posts/lightweight_plotting/
 
@@ -43,7 +44,6 @@ https://dplyr.tidyverse.org/
 
 ZA
 * tables https://posit-dev.github.io/great-tables
-* _dataframe_: result set + operations https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://github.com/go-gota/gota/blob/master/dataframe/dataframe.go
 * Dataframe Interchange Protocol, Dataframe API Standard https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/ https://pythonspeed.com/articles/polars-pandas-interopability/
 
 ### 🏹 Arrow
@@ -82,21 +82,73 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 ### 🐻‍❄️ Polars
 
 📜 https://docs.pola.rs/ https://docs.pola.rs/api/python/stable/reference/index.html
+📙 https://realpython.com/polars-python/
 
-* converting Pandas to Polars https://www.youtube.com/watch?v=B2Ljp2Fb-l0
+#### design
+
+---
+
+BIG PICTURE
+* query engine with dataframe frontend https://pola.rs/posts/polars_birds_eye_view/ https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/
 * compared to Pandas: query optimization, group by https://labs.quansight.org/blog/dataframe-group-by https://pola.rs/posts/benchmarks/
+* https://www.youtube.com/watch?v=q3o2IdFQTOE
+* https://news.ycombinator.com/item?id=35429555
 * better semantics than Pandas? https://arilamstein.com/blog/2024/09/04/why-im-switching-to-polars/
-* more on design https://www.youtube.com/watch?v=q3o2IdFQTOE
+
+INTEROP
+* converting Pandas to Polars https://www.youtube.com/watch?v=B2Ljp2Fb-l0
+* can use some Pandas libraries https://pythonspeed.com/articles/polars-pandas-interopability/
+
+PRO / CON
+* better than Pandas: query in Python or SQL, no dependencies, sensible pip install (vs. conda) https://github.com/pola-rs/polars better perf https://pola.rs/posts/benchmarks/ less memory usage https://pythonspeed.com/articles/polars-memory-pandas/
+* worse than Pandas: not meant for Excel-like operations
+> Pandas was originally written to replace excel in financial/econometric modeling, not as a replacement for sql. Models written solely in the long relational style are near unmaintainable for constantly evolving models with hundreds of data sources and thousands of interactions being developed and tuned by teams of analysts and engineers. https://news.ycombinator.com/item?id=35429555
+
+ZA
+* Deltabase, DeltaDB https://github.com/uname-n/deltabase https://pythonbytes.fm/episodes/show/397/so-many-pycon-videos
 * plotting https://pola.rs/posts/lightweight_plotting/ https://realpython.com/python-news-october-2024/
 > couldn't get this to work; try `pipx inject`
 
-COOKBOOK
-* za
-```python
-# IO
-pl.read_csv(path/to/csv, ignore_errors=True)
-pl.write_csv(path/to/csv, ignore_errors=True)
+#### snippets
 
+BASICS
+```python
+pl.read_csv(path/to/csv, ignore_errors=True)  # IO
+df.columns
+df.schema
+df.schema.keys()
+```
+
+SELECT
+```sh
+col_series = df["column_name"]
+col_list = df["column_name"].to_list()
+first_values = df["column_name"].head(5)
+unique_values = df["column_name"].unique()
+subset = df.select(["col1", "col2", "col3"])
+result = df.select(pl.col("column_name")) # using pl.col() expression (useful in more complex operations)
+filtered = df.filter(pl.col("column_name") > 10)["column_name"]  # predicate
+```
+
+JOINS
+```python
+# only keeps join key from the driving table (as least in output)
+df1 = pl.DataFrame({"Part_ID": [1, 2, 3], "name": ["a", "b", "c"]})
+df2 = pl.DataFrame({"part_id": [1, 2, 4], "value": [10, 20, 30]})
+joined = df1.join(df2, left_on="Part_ID", right_on="part_id")
+# need to alias join key from through table to see it in output
+joined = df1.join(df2.with_columns(pl.col("part_id").alias("df2_part_id")), left_on="Part_ID", right_on="part_id")
+
+# trying to make it more clear in a join which attr belong to which table
+df1_tagged = df1.select([pl.all().prefix("table1_")])
+df2_tagged = df2.select([pl.all().prefix("table2_")])
+joined = df1_tagged.join(df2_tagged, left_on="table1_Part_ID", right_on="table2_Part_ID") # adjust join key names to match prefixed names
+```
+
+---
+
+ZA
+```python
 # MALFORMATTED COLUMN HEADERS
 no_whitespace_or_period_delimit = r"^[^\s.-]+$"
 violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
@@ -106,7 +158,8 @@ assert len(violations) > 0
 df.filter(pl.col(COL) == VAL)
 df.filter(pl.col(COL).str.contains(REGEX).alias('regex'))
 ```
-* null/empty col
+
+NULL/EMPTY COL
 ```python
 # EMPTY COLUMNS
 null_col_df = [col for col in df.columns if df[col].null_count() == df.height]
@@ -121,17 +174,6 @@ assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height
 # VALUE PRESENT IN EVERY COLUMN RECORD
 assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == lines_set.height
 ```
-
----
-
-* Deltabase, DeltaDB https://github.com/uname-n/deltabase https://pythonbytes.fm/episodes/show/397/so-many-pycon-videos
-* design vs. Pandas https://news.ycombinator.com/item?id=35429555
-* guide https://realpython.com/polars-python/
-* design: query engine with dataframe frontend https://pola.rs/posts/polars_birds_eye_view/ https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/
-* can use some Pandas libraries https://pythonspeed.com/articles/polars-pandas-interopability/
-* better than Pandas: query in Python or SQL, no dependencies, sensible pip install (vs. conda) https://github.com/pola-rs/polars better perf https://pola.rs/posts/benchmarks/ less memory usage https://pythonspeed.com/articles/polars-memory-pandas/
-* worse than Pandas: not meant for Excel-like operations
-> Pandas was originally written to replace excel in financial/econometric modeling, not as a replacement for sql. Models written solely in the long relational style are near unmaintainable for constantly evolving models with hundreds of data sources and thousands of interactions being developed and tuned by teams of analysts and engineers. https://news.ycombinator.com/item?id=35429555
 
 ### 🐼 Pandas
 

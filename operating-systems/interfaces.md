@@ -421,6 +421,10 @@ VIZ
 
 📜 https://iterm2.com/documentation.html
 
+COMMANDS
+* fullscreen: `CMD ENTER`
+* fullscreen pane: `CMD SHIFT ENTER` https://stackoverflow.com/a/16483592
+
 ---
 
 https://news.ycombinator.com/item?id=35126280
@@ -428,8 +432,6 @@ https://news.ycombinator.com/item?id=35126280
 * conf: `$HOME/.config/iterm2/AppSupport -> /Users/zach/Library/Application Support/iTerm2`
 * allow file access: security > full disk access
 * getting help https://gitlab.com/gnachman/iterm2/-/issues/7517
-* fullscreen: `CMD ENTER`
-* fullscreen pane: `SHIFT CMD ENTER` https://stackoverflow.com/questions/13243933/iterm2-how-to-expand-split-pane-temporarily
 * locate cursor: `CMD /`
 * config status bar: profile > session > configure status bar
 * global hotkey: keys > hotkey > show/hide all windows (`ALT SPACE`)
