@@ -622,7 +622,7 @@ INSERT INTO danzi(customer, price) VALUES ('alice', 15)
 INSERT INTO danzi(customer, price) VALUES ('alice', 15), ('bob', 10);
 
 UPDATE <tab> SET <col>=0 WHERE id=3;
-DELETE FROM <tab> WHERE id=3;
+DELETE FROM <tab> WHERE id=3;  -- https://notso.boringsql.com/posts/deletes-are-difficult/
 ```
 
 ## functions
@@ -1075,6 +1075,7 @@ SEMANTICS
 * _generated column_: col whose value generated based on other columns https://chatgpt.com/c/6734cd95-6754-8004-b89c-8d25d8da8048 https://news.ycombinator.com/item?id=31396578
 * virtual = doesn't store computed value, stored = does store computed value
 * in Django https://realpython.com/podcasts/rpp/227/ https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/#tldr
+* _enrichment_: https://simonwillison.net/2024/Dec/5/datasette-enrichments-llm/
 
 STYLE 📜 https://www.sqlstyle.guide/
 * ✅ constraints next to the attr they constrain https://www.sqlstyle.guide/#layout-and-order

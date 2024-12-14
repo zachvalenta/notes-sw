@@ -227,7 +227,7 @@ SEMANTICS
 * _centralized_: you own all the servers https://drewdevault.com/2020/09/20/The-potential-of-federation.html
 * _peer to peer (p2p)_: you only own your serverr
 * _federation_: servers work together but not p2p https://lwn.net/Articles/687294/ https://github.com/mastodon/mastodon
-* _distributed system_: no shared memory, no shared clock https://news.ycombinator.com/item?id=26089683
+* _distributed system_: no shared memory, no shared clock https://news.ycombinator.com/item?id=26089683 https://www.warpstream.com/blog/the-case-for-shared-storage
 * https://danluu.com/butler-lampson-1999/
 * needs coordination across network/cores 📙 Jeffrey distributed [4]
 * hard https://en.wikipedia.org/wiki/Fallacies_of_distributed_computing

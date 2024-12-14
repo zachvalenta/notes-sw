@@ -450,6 +450,7 @@ config
 ### metadata
 
 TOOLS
+* https://github.com/borewit/music-metadata
 * _beets_: http://beets.io/ https://github.com/guerda/beets-statistics
 * _rosé_: https://github.com/azuline/rose 🗄️ `linux.md` virtual file system
 

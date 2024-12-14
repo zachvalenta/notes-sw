@@ -214,6 +214,7 @@ DATA ENG 🗄️ compute / data eng
 
 ZA
 * _DMS_: db migrations
+* _DSQL_: https://brooker.co.za/blog/2024/12/04/inside-dsql.html https://simonwillison.net/2024/Dec/3/amazon-aurora-dsql/
 * _DynamoDB_: NoSQL https://www.freecodecamp.org/news/ultimate-dynamodb-2020-cheatsheet/ https://github.com/guregu/dynamo
 * _Elasticache_: 类似 Redis
 

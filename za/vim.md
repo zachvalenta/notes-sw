@@ -219,6 +219,7 @@ THINGS I'M NOTICING ABOUT VSC
 * ❌ constantly wipes out the outliner and requires Vim action to prompt redraw
 * ❌ symbol search doesn't work after git pull of new files | movement of headers
 > sometimes not at all, even after you've just opened file and navigated to header
+> this is getting worse in my notes; maybe some perf/data integrity thing with more headers
 * ❌ Vim plugin fails on big CSV files
 * ❌ no tab groups https://github.com/microsoft/vscode/issues/100335
 * when you uninstall an extension you need to close and reopen VSC for that extesion to be removed from `$HOME/.vscode/extensions`

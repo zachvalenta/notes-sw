@@ -499,6 +499,7 @@ DESIGN
 
 ---
 
+build-standalone https://simonwillison.net/2024/Dec/3/python-build-standalone-astral/
 scripts https://koaning.io/til/pyperclip/
 build standalone https://gregoryszorc.com/blog/2024/12/03/transferring-python-build-standalone-stewardship-to-astral/
 https://www.youtube.com/watch?v=8UuW8o4bHbw

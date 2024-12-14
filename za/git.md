@@ -257,6 +257,7 @@ https://docs.github.com/en/github/searching-for-information-on-github/searching-
 > No idea. Just memorize these shell commands and type them to sync up. If you get errors, save your work elsewhere, delete the project, and download a fresh copy https://xkcd.com/1597/
 🪚 BYO
 * https://maryrosecook.com/
+* https://www.youtube.com/playlist?list=PLrmY5pVcnuE_jPv620IWQV0TsJ_RCmg13
 * https://www.leshenko.net/p/ugit/
 🎨
 * https://onlywei.github.io/explain-git-with-d3
@@ -902,7 +903,7 @@ VERSION MGMT / INSTALL https://git-scm.com/book/en/v2/Getting-Started-Installing
 
 `.gitattributes`: specify EOL https://stackoverflow.com/questions/73086622/is-a-gitattributes-file-really-necessary-for-git
 
-SUBMODULES
+SUBMODULES https://www.cyberdemon.org/2024/03/20/submodules.html
 * _submodules_: `.gitmodules` separate Git repo w/in main repo https://news.ycombinator.com/item?id=42291833
 * for pulling dependencies https://longair.net/blog/2010/06/02/git-submodules-explained/ https://github.com/sharkdp/bat/blob/master/.gitmodules https://www.youtube.com/watch?v=8Z4Cmhji_FQ https://www.youtube.com/watch?v=ZYq3NJnO08U https://www.youtube.com/watch?v=iv7WwDgyb0U https://www.youtube.com/watch?v=De8Bc1VxcGQ
 * howto: add child dir to parent dir `.gitignore`, init new Git repo in child https://stackoverflow.com/a/4660048 🗄️ `denv/bin`
@@ -1008,7 +1009,7 @@ FORGES
 * _Gitlab_: selling soon https://news.ycombinator.com/item?id=42333052
 * _Gitweb_: built-in GUI for server https://git-scm.com/book/en/v2/Git-on-the-Server-GitWeb
 * _Gogs_: https://gogs.io/
-* _soft-serve_: https://github.com/charmbracelet/soft-serve https://www.youtube.com/watch?v=9xCwBdlo85g
+* _soft-serve_: 🎯 https://github.com/charmbracelet/soft-serve https://www.youtube.com/watch?v=9xCwBdlo85g
 * _SourceHut_: https://git.sr.ht/~shulhan/gotp https://drewdevault.com/2018/06/05/Should-you-move-to-sr.ht.html
 
 ---

@@ -320,6 +320,7 @@ gum style --foreground 212 --border-foreground 212 --border double \
 ## web
 
 * https://pocketbase.io/ 
+* https://echo.labstack.com/
 * start here https://www.youtube.com/watch?v=F9H6vYelYyU
 * https://github.com/mikestefanello/pagoda
 * https://github.com/nikolaydubina/go-recipes

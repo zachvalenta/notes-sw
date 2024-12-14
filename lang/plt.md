@@ -636,6 +636,7 @@ def out_of_place(qd):
 
 ---
 
+https://buttondown.com/hillelwayne/archive/stroustrups-rule/
 https://borretti.me/article/language-pragmatics
 
 COMMUNITY

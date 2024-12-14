@@ -371,6 +371,7 @@ toggle=
 
 ---
 
+https://entropicthoughts.com/practices-of-reliable-software-design
 extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.html
 * application boundaries https://morizbuesing.com/blog/greppability-code-metric/
 * Richard Gabriel https://www.jwz.org/doc/worse-is-better.html https://bitfieldconsulting.com/posts/not-real-developer

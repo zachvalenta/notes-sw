@@ -155,6 +155,7 @@ KLEPPMANN
 
 ## KISS
 
+* https://github.com/Olshansk/postgres_for_everything
 * hidden control flow, PHP vs. Zig https://news.ycombinator.com/item?id=42203084
 * _clarity_: above all bc we're bulding information systems 📻 DHH (STT) https://www.youtube.com/watch?v=9LfmrkyP81M
 > And it's not only high performance hardware and software that's complex. Some domains are just really complicated. The tax code is 73k pages long. It's just not possible to reason effectively about something that complicated, and there are plenty of things that are that complicated. https://danluu.com/tests-v-reason/

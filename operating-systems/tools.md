@@ -463,6 +463,8 @@ procs --sortd mem | awk '{ print substr($0, 1, 100) }' | head -n 100 > $DENV_DIR
 
 ---
 
+https://simonwillison.net/2024/Dec/11/rob-cheung/
+
 PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c4dea2c 🗄️ `tcp-ip.md` network monitor
 * control internet access for apps https://tripmode.ch/ https://www.obdev.at/products/littlesnitch/index.html
 * port viewer https://github.com/allyring/pvw

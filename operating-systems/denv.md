@@ -425,12 +425,19 @@ ALTERNATIVES 🗄️ `python/pkg.md` uv `frontend.md` javascript > runtimes
 
 🗄️ `it.md` fs
 
+---
+
+MGMT
+* _fling_: https://github.com/bbkane/fling 
+* _stow_: https://www.youtube.com/watch?v=90xMTKml9O0
+* _Nix home manager_: https://nixos.wiki/wiki/Home_Manager https://www.youtube.com/watch?v=U6reJVR3FfA
+
+* https://drewdevault.com/2019/12/30/dotfiles.html
 * write script to do symlinks https://news.ycombinator.com/item?id=34304694
 * prefer programs that store config as text
 * keep under version control and symlink into place with script https://hacker-tools.github.io/dotfiles/ advanced mgmt https://github.com/twpayne/chezmoi https://news.ycombinator.com/item?id=32632533 https://github.com/atuinsh/atuin
 > There are two basic approaches: version your entire home directory or symbolically link your dotfiles into place from a stand-alone repository. The first approach is straightforward but has a number of issues that make it a poor choice. https://nullprogram.com/blog/2012/06/23/
 * install script https://www.youtube.com/watch?v=hXU54axdjJc https://alexpearce.me/2016/02/managing-dotfiles-with-stow/
-* mgmt: GNU Stow https://www.youtube.com/watch?v=90xMTKml9O0 https://github.com/bbkane/fling https://drewdevault.com/2019/12/30/dotfiles.html
 * mbp14
 ```sh
 # /Users/zach

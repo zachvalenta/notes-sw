@@ -423,6 +423,8 @@ CASES
 
 ## identifiers
 
+🏔️ https://eieio.games/blog/writing-down-every-uuid/
+
 TOOLS
 * identify: UUID, Snowflake https://github.com/Racum/uuinfo
 * generate: pwgen https://www.youtube.com/watch?v=G3aH2WYJxGA shortuuid https://github.com/skorokithakis/shortuuid https://github.com/lithammer/shortuuid

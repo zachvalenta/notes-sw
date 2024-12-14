@@ -508,7 +508,7 @@ usql as alternative https://news.ycombinator.com/item?id=42161987
 * clear screen: `ctrl l`
 * _metacommand_: preceded w/ backslash https://www.pgcli.com/commands
 * set pager to bat: `pager = less -SRXF` https://www.pgcli.com/docs
-* _named query_: snippet, saved query https://www.pgcli.com/named_queries.md
+* _named query_: snippet, saved query https://www.pgcli.com/named_queries.md https://simonwillison.net/2024/Dec/3/datasette-queries/
 * syntax: `f` (litecli) `n` (pgcli)
 * list: `\f` https://github.com/dbcli/pgcli/issues/1236
 * save: `\fs <name> <query>` https://github.com/dbcli/pgcli/issues/938

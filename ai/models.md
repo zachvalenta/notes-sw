@@ -30,7 +30,7 @@ OPEN https://simonwillison.net/2024/Jun/17/cli-language-models/
 * _Qwen_: https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can
 
 CLOSED
-* _Amazon nova_: https://news.ycombinator.com/item?id=42309121 https://news.ycombinator.com/item?id=42309121 https://simonwillison.net/2024/Dec/4/amazon-nova/
+* _Amazon nova_: https://news.ycombinator.com/item?id=42309121 https://news.ycombinator.com/item?id=42309121 https://simonwillison.net/2024/Dec/4/amazon-nova/ https://simonwillison.net/2024/Dec/4/amazon-nova/
 * backed by Amazon https://news.ycombinator.com/item?id=42215126
 * _Mistral codestral_: less polished but fast + search https://chat.mistral.ai/chat
 * _Perplexity api_: search/org https://www.perplexity.ai/
@@ -46,7 +46,7 @@ CLOSED
 
 * versions: 22.11 GPT 23.03 GPT4 24.05 GPT4o 24.09 o1-preview 24.12 pro https://x.com/mckaywrigley/status/1865089975802646857
 * https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665 https://news.ycombinator.com/item?id=42330732
-* _o1_: https://thezvi.substack.com/p/o1-turns-pro
+* _o1_: https://thezvi.substack.com/p/o1-turns-pro https://simonwillison.net/2024/Dec/7/prompts-js/
 
 ## 🟫 Claude
 
@@ -65,6 +65,7 @@ WEB CLIENT
 * ❌ can't follow URLs
 
 MODELS
+> built on AWS https://simonwillison.net/2024/Dec/5/claude-35-haiku-price-drops-by-20/
 * _Sonnet_: smartest
 * _Haiku_: fastest, better than GPT 3.5 https://www.youtube.com/watch?v=QUXQNi6jQ30 [5:30]
 * _Opus_: writing
@@ -114,7 +115,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 # 🏗️ OPERATIONALIZE
 
-* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666 https://github.com/BCG-X-Official/artkit https://www.youtube.com/watch?v=pGZo9gR5q_M https://gentrace.ai/
+* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666 https://github.com/BCG-X-Official/artkit https://www.youtube.com/watch?v=pGZo9gR5q_M https://gentrace.ai/ https://github.com/traceloop/openllmetry
 * gradient-boosted trees better for audit than neural nets
 * https://roadmap.sh/mlops
 * https://news.ycombinator.com/item?id=35438192
@@ -132,6 +133,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 ---
 
+https://ai.pydantic.dev/
 https://www.thediff.co/archive/offshoring-and-ai-agents/
 https://github.com/ishan0102/vimGPT
 * _agent_: give it a dataset, it writes the paper https://www.oneusefulthing.org/p/almost-an-agent-what-gpts-can-do
@@ -174,6 +176,7 @@ I'm still new to the space, so take with a grain of salt https://chatgpt.com/sha
 https://news.ycombinator.com/item?id=42360685
 https://github.com/koaning
 https://www.youtube.com/watch?v=kCCC-NlJgIA
+https://simonwillison.net/2024/Dec/6/roaming-rag/
 pipelines https://www.youtube.com/watch?v=YM3UrQd2wEA
 * https://lincolnloop.com/insights/building-a-chat-backend-for-wikipedia-articles-in-django/
 * BYO https://github.com/bhavnicksm/chonkie https://github.com/explosion/spacy-layout https://training.talkpython.fm/courses/getting-started-with-spacy https://github.com/DS4SD/docling https://x.com/_inesmontani
@@ -193,7 +196,7 @@ https://github.com/Shubhamsaboo/awesome-llm-apps https://www.theunwindai.com/p/b
 * https://openai.com/12-days/
 * _Guru_: https://www.getguru.com/
 > Retrieval augmented generation (RAG) is an architecture that provides the most relevant and contextually-important proprietary, private or dynamic data to your Generative AI application's large language model (LLM) when it is performing tasks to enhance its accuracy and performance. https://www.pinecone.io/learn/retrieval-augmented-generation/
-* BYO https://www.youtube.com/@zackproser/videos https://aws.amazon.com/bedrock/
+* BYO https://www.youtube.com/@zackproser/videos https://aws.amazon.com/bedrock/ https://simonwillison.net/2024/Dec/6/llama-33/
 * _RAG_: document-based interactions https://github.com/sigoden/aichat#rag-chat-with-your-documents TTS https://changelog.com/practicalai/288 https://zackproser.com/blog/how-are-embeddings-models-trained-for-rag https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation knowledge graph https://www.manning.com/books/knowledge-graph-enhanced-rag
 * when you need more than either aaS or OSS
 > If such a customized LLM is a suitable solution for your project, consider just running Ollama or Llamafile and using their REST APIs to communicate with the model. If you need higher degrees of customization, read on. https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
@@ -304,7 +307,7 @@ TYPES https://elevenlabs.io/
 * https://github.com/GabAlpha/basilk https://perchance.org/ai-pixel-art-generator
 * Midjourney https://midlibrary.io/styles
 * DALL-E
-* Stable Diffusion
+* Stable Diffusion https://www.youtube.com/watch?v=kG9l41Dtuyo
 * https://news.ycombinator.com/item?id=40437641
 * https://github.com/orhun/menyoki
 

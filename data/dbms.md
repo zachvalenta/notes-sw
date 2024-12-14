@@ -254,7 +254,7 @@ https://www.timescale.com/blog/13-tips-to-improve-postgresql-insert-performance/
 
 * _database engine_: container for components https://www.sqlite.org/draft/queryplanner.html https://www.practical-mongodb-aggregations.com/intro/introducing-aggregations.html
 * lexer: lex, yac https://news.ycombinator.com/item?id=30086374 https://www.interdb.jp/pg/index.html
-* _parser_: https://github.com/reata/sqllineage 🗄 `language.md` compiler
+* _parser_: https://github.com/reata/sqllineage 🗄 `language.md` compiler https://github.com/pganalyze/pg_query
 * https://tokern.io/blog/open-source-sql-parsers/
 * transpile btw Presto, Hive Spark https://github.com/tobymao/sqlglot
 * _query optimizer_: generates query plans, picks execution plan 📙 Beaulieu [46] https://news.ycombinator.com/item?id=30855639
@@ -604,6 +604,7 @@ show collections  # view collections
 
 # 🐘 POSTGRES
 
+🏔️ https://github.com/Olshansk/postgres_for_everything
 📙 Suzuki postgres internals https://www.interdb.jp/pg/
 🔗 https://challahscript.com/what_i_wish_someone_told_me_about_postgres
 📜
@@ -929,6 +930,8 @@ db files
 ## design
 
 📜 https://sqlite.org/quirks.html
+
+https://joyofrails.com/articles/what-you-need-to-know-about-sqlite
 
 COMPONENTS
 * _SQLite_: library https://tech.marksblogg.com/sqlite3-tutorial-and-guide.html
