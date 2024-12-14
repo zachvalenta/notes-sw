@@ -106,6 +106,8 @@ TIME MACHINE
 ### mini23 ➡️ exfatmain
 
 MUSIC
+> just do everything
+* slint nosferatu
 * 17 moments of springs
 * boris
 * dru hill, alice coltrane sings

@@ -263,6 +263,8 @@ BASICS
 
 ## inheritance
 
+🗄️ typing
+
 ---
 
 ```python
@@ -321,6 +323,7 @@ c.crawl()
 
 ---
 
+* way to do interfaces
 * https://chatgpt.com/c/671815e8-0f44-8004-abb5-be6b52fc8bd1
 * https://godatadriven.com/blog/protocols-in-python-why-you-need-them/
 * https://www.youtube.com/watch?v=xvb5hGLoK0A
@@ -1295,7 +1298,8 @@ ZA
 
 ----
 
-https://www.pythonmorsels.com/cli-tools/#how-m-works
+* list user imported https://github.com/zachvalenta/algo-sandbox/blob/master/repl.py https://github.com/zachvalenta/dotfiles-mini23/blob/main/python/python_startup.py
+* https://www.pythonmorsels.com/cli-tools/#how-m-works
 > This is called an "import side effect" and most modules avoid import side effects. Fun Easter egg modules like antigravity and this are the exception. Modules that avoid import side effects need a different mechanism to change their behavior when run as a command-line script or when imported as a module. Python uses a __name__ variable to distinguish between importing a module and running a module as a script.
 > When Python runs a module as a script, it sets the module's name to the string "__main__" (normally __name__ would contain the module's actual name). See more in defining a main function in Python. For packages, Python also looks for a __main__.py file to run (there's one in the zipfile package for example). This distinction between module versus script allows for some really nifty command-line tools.
 

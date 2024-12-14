@@ -316,8 +316,7 @@ https://github.com/valberg/django-sse
 
 PROTOCOLS
 * _FTP_: sends binary instead of metadata https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2
-* _PAKE_:
-* _Samba_:
+* _Samba_: impl SMB/CIFS i.e. allows Linux to share with Windows
 * _SFTP_: FTP + security https://goteleport.com/blog/scp-familiar-simple-insecure-slow/
 ```sh
 $ sftp sftp://user@hostname:port

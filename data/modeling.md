@@ -163,7 +163,7 @@ queue.popleft()  # shift aka enque
 
 ---
 
-* mind map https://en.wikipedia.org/wiki/Mind_map
+* mind map https://en.wikipedia.org/wiki/Mind_map https://www.dendron.so/ https://github.com/vimwiki/vimwiki
 * concept map https://en.wikipedia.org/wiki/Concept_map https://cmap.ihmc.us/docs/learn.php
 
 hash tables
@@ -481,7 +481,7 @@ CREATE TABLE band_musician(
 * _normalization_: process of extracting entities from other entities https://en.wikipedia.org/wiki/Database_normalization#Normal_forms
 
 ANOMOLIES
-* delete https://chatgpt.com/c/673e02ab-1b78-8004-9684-a5936111266b 🟧 Hao grokking
+* _delete_: delete causes loss of other important info e.g. if employee and project_id in same table, rm employee also removes project
 
 ### forms
 
@@ -529,11 +529,12 @@ IT103    |   2009-2   | 120      | Web Design   |
 
 ---
 
-ONTOLOGY https://chatgpt.com/c/67324db1-c8f8-8004-bb93-3f516203f81b
+ONTOLOGY
 > semantic web, ML https://owlready2.readthedocs.io/en/latest/intro.html
 * https://www.stephendiehl.com/posts/bfo/
 * https://www.amazon.com/gp/product/1484265513
 * https://www.amazon.com/gp/product/0262527812
+* OWL files
 
 relational to graph https://www.amazon.com/gp/product/1804618039 https://www.amazon.com/gp/product/1492044075
 knowledge graph https://www.amazon.com/gp/product/1098127102

@@ -267,7 +267,20 @@ box1     box2
 ## monitors
 
 🔗 https://www.apple.com/mac-mini/specs/
-🗜️ dimensions https://chatgpt.com/c/6737a255-6780-8004-8741-77accad98212
+
+DIMENSIONS & DISTANCE
+```txt
+Can you give me a rough formula for how far a computer monitor should be from your eyes (assuming average eyesight) given:
+
+* aspect ratio
+* monitor size
+* monitor resolution
+```
+```python
+# measurements in inches
+distance = (diagonal_screen_size * PPI) / 60  # 60 = approximate pixels per degree of human vision for average eyesight at comfortable viewing
+ppi = math.sqrt((horizontal_res ** 2) + (vertical_res ** 2)) / diagonal_screen size
+```
 
 FACTORS 🗄️ machines
 * aspect ratio

@@ -9,8 +9,7 @@
 
 ## 进步
 
-* _24_: ChatGPT in browser, lots of work to research/taxonomize tooling, start with llm and aider
-* _23_: few random queries
+* _24_: lots of work to research/taxonomize tooling, start with llm and aider
 
 # 🚃 CATEGORIES
 
@@ -210,10 +209,6 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 * niche: COBOL to Java https://bloop.ai/
 * speed
 > If copy and pasting back and forth between ChatGPT.com is crawling, then Cursor's interface is sprinting. Being able to discuss the code, architecture, a single file, or to tell Cursor to use a file as inspiration when making other changes is my favorite feature of Cursor.
-
-COMPLAINTS
-* ChatGPT native client: global hotkey conflicts with iterm https://openai.com/chatgpt/mac
-* ChatGPT web client: search added 241031 (intra-doc but slow, none by title), no tags/org/page up, dark mode is bad for seeing prompt, when you open a chat it's not reflected in the sidebar so if you want to rename or delete it you have to scroll sidebar and manually find it, doesn't support page up|down
 
 ## interchange
 

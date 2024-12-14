@@ -600,6 +600,7 @@ aaS
 * _Zenrows_: https://www.zenrows.com/solutions/scraper-api
 
 LIBS
+* _crawly_: Elixir https://github.com/elixir-crawly/crawly
 * _katana_: https://github.com/projectdiscovery/katana
 * _scrapling_: https://github.com/D4Vinci/Scrapling
 

@@ -89,14 +89,20 @@ PYOXIDIZER
 
 🔍 email to Robert Heaton
 🗄️
-* `doc.md` dev
 * `golang.md` project structure
 * `plt.md` Rust
 
-* `src/$NAME`: https://github.com/Zaloog/kanban-tui
+🗄️ `doc.md` dev
+```sh
+├── meta
+│   └── README.md  # symlink from root
+│   └── pyproject.toml
+│   └── settings  # https://stackoverflow.com/questions/50090341/is-there-a-naming-convention-for-django-project-configuration-directory https://stackoverflow.com/q/50090341
+```
 
 ---
 
+* `src/$NAME`: https://github.com/Zaloog/kanban-tui
 * https://github.com/mikeckennedy/listmonk
 * https://github.com/copyleftdev/x12-edi-tools
 * https://github.com/gergelyk/para-cada
@@ -400,7 +406,7 @@ UPDATE
 
 ---
 
-* create env - new project: `init - n` creates `pyproject.toml`; deps dir (macOS: `~/Library/Caches/pypoetry` RHEL: `~/.cache/pypoetry/virtualenvs`) and lockfile (`poetry.lock`) not created until you actually install something
+* create env - new project: `init - n` creates `pyproject.toml`; deps dir (macOS: `~/Library/Caches/pypoetry` RHEL: `~/.cache/pypoetry/virtualenvs`) and lockfile (`poetry.lock`; TOML) not created until you actually install something
 * create env - existing project: `install` creates deps dir and installs deps using `poetry.lock` (if present) or `pyproject.toml` (if `poetry.lock` not present) https://poetry.eustace.io/docs/basic-usage/#installing-dependencies ❓ not being able to pick virtualenv name a problem https://hynek.me/articles/python-app-deps-2018/
 * create env - existing project - prod: `install --no-dev` https://jacobian.org/2019/nov/11/python-environment-2020/
 * rm env: `env remove 3.7`
@@ -534,6 +540,7 @@ https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
 * https://www.youtube.com/watch?v=zE-RigeEODM
 * in Django https://blog.pecar.me/uv-with-django
 * with Github Actions https://github.com/astral-sh/setup-uv https://pythonbytes.fm/episodes/show/405/oh-really
+* https://www.bitecode.dev/p/uv-tricks
 
 # 🟨️ ZA
 

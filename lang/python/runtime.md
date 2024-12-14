@@ -288,7 +288,8 @@ thread-safe https://realpython.com/python-thread-lock/
 
 # 🟨️ ZA
 
-auditing hooks https://stackoverflow.com/questions/63350394/how-to-set-up-and-use-python-audit-hooks https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP https://chatgpt.com/c/67094688-4dac-8004-88e8-4eadd79a1d0e
+* auditing hooks https://stackoverflow.com/questions/63350394/how-to-set-up-and-use-python-audit-hooks https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP
+> Python auditing hooks, introduced in version 3.8 through PEP 578, provide an excellent mechanism for monitoring and adding security to Python applications. These hooks can be used to detect and log specific runtime events, such as imports, file access, and network connections. The sys.addaudithook() function allows developers to register callbacks that will be triggered when certain events occur. For example, you can monitor file access or network requests made by third-party libraries to detect suspicious behavior or security vulnerabilities in real-time.
 
 * `__pycache__`: holds bytecode in the form of `.pyc` https://stackoverflow.com/a/28365204/6813490 speeds up module loading https://docs.python.org/3/tutorial/modules.html#compiled-python-files suppress creation of with `export PYTHONDONTWRITEBYTECODE=1` more on bytecode https://blog.jse.li/posts/pyc/ https://github.com/MoserMichael/pyasmtool/blob/master/bytecode_disasm.md `python -m compileall` https://www.pythonmorsels.com/cli-tools/
 

@@ -208,6 +208,7 @@ class HelloWorldUser(HttpUser):
 * cross browser https://www.browserling.com/
 
 AUTOMATION
+* https://github.com/jonhoo/fantoccini
 * _Browserling_: https://www.browserling.com/ https://catonmat.net/about
 * _Cypress_: https://github.com/cypress-io/cypress
 * _Helium_: https://news.ycombinator.com/item?id=42386971

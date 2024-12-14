@@ -16,20 +16,7 @@
 
 # 📄 FILE
 
-🗄️ `algos.md` edit distance
-
 * file/dir name linter https://github.com/loeffel-io/ls-lint https://ls-lint.org/
-
-FILE/DIR DIFF 🗄️ `protocols.md` JSON `algos.md` tree walkers https://chatgpt.com/c/67327ac8-4b10-8004-869b-f31305dd5189
-* BeyondCompare https://scootersoftware.com/ https://news.ycombinator.com/item?id=22850711
-* _filecmp_: https://www.pythonmorsels.com/cli-tools/#filecmp
-```sh
-$ python -m filecmp dir1 dir2
-```
-* _diff_: https://danyspin97.org/blog/colorize-your-cli/
-* _difftastic_: diff + syntax https://github.com/Wilfred/difftastic https://www.nathaniel.ai/myers-diff
-* _vimdiff_: `vim -d <file1> <file2>` https://stackoverflow.com/a/113328/6813490
-* wraps Vim's diff mode for use in other tools, notably Git's mergetool https://vi.stackexchange.com/a/626 https://www.youtube.com/watch?v=kFVjoIish0E
 
 FILE NAME EDITING
 * file manager (nnn, ranger, et al.)
@@ -37,18 +24,32 @@ FILE NAME EDITING
 * visidata https://www.visidata.org/blog/2020/ten/
 * `fne` (bulk, dry run, default for youtube-dl)
 
-FILE WATCHERS
-* watch sites https://github.com/vsoch/watchme/
-* Golang impl https://github.com/cespare/reflex https://github.com/cortesi/modd
-* exec code in response to fs change https://github.com/wtetsu/gaze https://github.com/watchexec/watchexec
-* application code in Python https://github.com/gorakhargosh/watchdog
-* _entr_: bad install https://github.com/eradman/entr https://jvns.ca/blog/2020/06/28/entr/ https://github.com/eradman/entr/issues/45 http://eradman.com/posts/repeatable-workspaces.html
-* _fswatch_: bad install https://github.com/emcrisostomo/fswatch https://slack.engineering/development-environments-at-slack/
-* _LiveReload_: https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight https://livereload.readthedocs.io/en/latest/index.html https://gist.github.com/mikeckennedy/4e1378477a6d174aa8d59921f8db89c3
-* _watch_: built-in https://linux.die.net/man/1/watch https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command
-* _watchman_: shaky install https://facebook.github.io/watchman/ https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman
-* _hwatch_: https://github.com/blacknon/hwatch
-* _viddy_: 🎯 https://github.com/sachaos/viddy
+## diff
+
+🗄️
+* `algos.md` edit distance
+* `protocols.md` JSON
+
+* tree walkers
+```sh
+# Are there any CLI/TUI tools to diff directories? I don't need to diff file contents, just whether the file is there or not. The directories are arbitrarily nested.
+
+diff --brief --recursive dir1 dir2
+rsync -av --dry-run --ignore-existing dir1/ dir2/
+
+fd --type f . dir1 > dir1_files.txt
+fd --type f . dir2 > dir2_files.txt
+diff dir1_files.txt dir2_files.txt
+```
+* BeyondCompare https://scootersoftware.com/ https://news.ycombinator.com/item?id=22850711
+* _filecmp_: https://www.pythonmorsels.com/cli-tools/#filecmp https://chatgpt.com/c/5abbb7b1-ab77-4340-9d0d-d77de0d5ebd6
+```sh
+$ python -m filecmp dir1 dir2
+```
+* _diff_: https://danyspin97.org/blog/colorize-your-cli/
+* _difftastic_: diff + syntax https://github.com/Wilfred/difftastic https://www.nathaniel.ai/myers-diff
+* _vimdiff_: `vim -d <file1> <file2>` https://stackoverflow.com/a/113328/6813490
+* wraps Vim's diff mode for use in other tools, notably Git's mergetool https://vi.stackexchange.com/a/626 https://www.youtube.com/watch?v=kFVjoIish0E
 
 ## find (fd)
 
@@ -358,6 +359,20 @@ pyclean () {
         find . -type d -name "__pycache__" -delete
 }
 ```
+
+## watchers
+
+* watch sites https://github.com/vsoch/watchme/
+* Golang impl https://github.com/cespare/reflex https://github.com/cortesi/modd
+* exec code in response to fs change https://github.com/wtetsu/gaze https://github.com/watchexec/watchexec
+* application code in Python https://github.com/gorakhargosh/watchdog
+* _entr_: bad install https://github.com/eradman/entr https://jvns.ca/blog/2020/06/28/entr/ https://github.com/eradman/entr/issues/45 http://eradman.com/posts/repeatable-workspaces.html
+* _fswatch_: bad install https://github.com/emcrisostomo/fswatch https://slack.engineering/development-environments-at-slack/
+* _LiveReload_: https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight https://livereload.readthedocs.io/en/latest/index.html https://gist.github.com/mikeckennedy/4e1378477a6d174aa8d59921f8db89c3
+* _watch_: built-in https://linux.die.net/man/1/watch https://nickjanetakis.com/blog/monitor-the-output-of-a-program-for-changes-using-the-watch-command
+* _watchman_: shaky install https://facebook.github.io/watchman/ https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman
+* _hwatch_: https://github.com/blacknon/hwatch
+* _viddy_: 🎯 https://github.com/sachaos/viddy
 
 # 🔬 MONITORING
 

@@ -156,7 +156,7 @@ https://roadmap.sh/react
 ## state
 
 * `pushState()`: change browser history https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
-* used in SPAs (and McMaster Carr) to change history even when you're only rerendering part of the page https://chatgpt.com/c/67167486-b528-8004-b44c-89de54e2fded https://www.youtube.com/watch?v=-Ln-8QM8KhQ
+* used in SPAs (and McMaster Carr) to change history even when you're only rerendering part of the page https://www.youtube.com/watch?v=-Ln-8QM8KhQ
 
 ---
 

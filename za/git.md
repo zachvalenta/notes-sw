@@ -142,6 +142,7 @@ WORKLOG
 - [x] adding CNAME broke site bc you have to add CNAME config in registrar (in my case, Name Cheap) https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain
 - [x] zjay.github.io: CNAME still broken i.e. not serving actual site (but stock pages from Name Cheap?)
 - [ ] zjay.github.io: unpublish
+> 🎗️ try deploying on Vercel et al.
 > this maybe wiped out all previous commits on the `gh-pages` branch?
 - [ ] zjay.github.io: roll back to `d5072df`
 - [ ] zjay.github.io: use as playground

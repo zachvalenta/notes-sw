@@ -37,7 +37,7 @@ UNCLE BOB
 * https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure-ebook/dp/B075LRM681
 * https://www.amazon.com/Functional-Design-Principles-Patterns-Practices-ebook/dp/B0CGHQKGYG
 
-testing https://www.thediff.co/archive/antithesis-debugging-debugging/ https://antithesis.com/ https://www.thediff.co/archive/offshoring-and-ai-agents/
+testing https://www.thediff.co/archive/antithesis-debugging-debugging/ https://antithesis.com/ https://www.thediff.co/archive/offshoring-and-ai-agents/ https://registerspill.thorstenball.com/p/joy-and-curiosity-19
 Kleppmann https://www.davidreis.me/2024/designing-data-intensive-applications
 https://www.davidreis.me/2024/what-happens-when-you-make-a-move-in-lichess https://news.ycombinator.com/item?id=41922928
 https://drewdevault.com/2021/10/17/Reliability.html

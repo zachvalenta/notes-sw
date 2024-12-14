@@ -280,6 +280,7 @@ https://twitter.com/skirano/status/1785469853689639379
 https://www.freecodecamp.org/learn/machine-learning-with-python/#tensorflow
 
 * context window https://twitter.com/deedydas/status/1778621375592485076
+> the idea that a bigger context window might be more than, well, just more of the same, but instead a game changer for LLMs is very interesting https://registerspill.thorstenball.com/p/joy-and-curiosity-19 https://thelongcontext.com/
 > Google hasn’t said how Gemini 1.5 was made, but clearly the company has overcome the key limitation of traditional transformers: memory requirements increase quadratically with context length. One promising approach is Ring Attention with Blockwise Transformers, which breaks long contexts into pieces to be computed individually even as the various devices computing those pieces simultaneously communicate to make sense of the context as a whole; in this case memory requirements scale linearly with context length, and can be extended by simply adding more devices to the ring topology. https://stratechery.com/2024/gemini-1-5-and-googles-nature/
 * https://news.ycombinator.com/item?id=39849393
 

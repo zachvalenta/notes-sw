@@ -48,7 +48,7 @@ OPERATIONS
 }
 ```
 
-NUMBERS https://chatgpt.com/c/671266a2-7fa4-8004-b1d3-c43acb773f7d
+NUMBERS
 * types: int, floating point, exponential notation
 * use strings to represent monetary amounts
 * use strings for big ints

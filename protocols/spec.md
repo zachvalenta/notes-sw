@@ -33,9 +33,7 @@ QUERY TOOLS
 
 📜 https://cuelang.org/
 
-* use cases https://news.ycombinator.com/item?id=34074386 https://chatgpt.com/c/670d7768-62c8-8004-89e2-fd5a876700d7
-* alternative https://github.com/bazelbuild/starlark https://github.com/systeminit/si
-* not supported by VS Code's Markdown syntax highlighting https://stackoverflow.com/a/70456058/6813490 https://highlightjs.readthedocs.io/en/latest/language-requests.html
+SYNTAX 🎗️ can convert to JSON and YAML
 ```json
 // Define a schema for a person
 person: {
@@ -55,6 +53,12 @@ person: {
 # validate
 cue vet person.cue
 ```
+
+---
+
+* use cases https://news.ycombinator.com/item?id=34074386 https://chatgpt.com/c/670d7768-62c8-8004-89e2-fd5a876700d7
+* alternative https://github.com/bazelbuild/starlark https://github.com/systeminit/si
+* not supported by VS Code's Markdown syntax highlighting https://stackoverflow.com/a/70456058/6813490 https://highlightjs.readthedocs.io/en/latest/language-requests.html
 
 ## INI
 
@@ -79,7 +83,7 @@ yq 'true' $FILE  # validate https://mikefarah.gitbook.io/yq/upgrading-from-v3#va
 ```
 
 SYNTAX 📜 https://yaml.org/
-* spacing err: `mapping values are not allowed in this context` https://chatgpt.com/c/671d7065-3644-8004-9967-e49a83ef4810
+* spacing/indentation err: `mapping values are not allowed in this context` https://chatgpt.com/c/671d7065-3644-8004-9967-e49a83ef4810
 * scalars
 ```yaml
 name: John Doe                # string

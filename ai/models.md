@@ -11,6 +11,9 @@
 
 ## 进步
 
+* _24_: ChatGPT (regex and Polars, then incorporate research) Claude (switch after GPT outage)
+* _23_: few random queries
+
 # 🥗 MENU
 
 🛠️ benchmark https://arena.lmsys.org/
@@ -44,9 +47,22 @@ CLOSED
 
 🔑 https://platform.openai.com/api-keys
 
-* versions: 22.11 GPT 23.03 GPT4 24.05 GPT4o 24.09 o1-preview 24.12 pro https://x.com/mckaywrigley/status/1865089975802646857
-* https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665 https://news.ycombinator.com/item?id=42330732
-* _o1_: https://thezvi.substack.com/p/o1-turns-pro https://simonwillison.net/2024/Dec/7/prompts-js/
+MODELS
+* legacy: 22.11 GPT 23.03 GPT4
+* _4o_: 24.05
+* _o1_: https://simonwillison.net/2024/Dec/7/prompts-js/
+* _o1 pro_: 24.12 (preview in 24.09) https://thezvi.substack.com/p/o1-turns-pro https://x.com/mckaywrigley/status/1865089975802646857 https://news.ycombinator.com/item?id=42330732
+
+ZA
+* internal libraries, `ace_tools` https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665
+* native client: global hotkey conflicts with iterm https://openai.com/chatgpt/mac
+
+WEB CLIENT
+* search added 241031 (intra-doc but slow, none by title)
+* projects added 241214
+* when you open a chat it's not reflected in the sidebar so if you want to rename or delete it you have to scroll sidebar and manually find it
+* no tags/page up
+* dark mode is bad for seeing prompt
 
 ## 🟫 Claude
 
@@ -147,7 +163,10 @@ https://x.com/SullyOmarr/status/1864697992261062690/photo/1
 
 * https://koratkar.github.io/cwt-semantic-search/ https://x.com/whybyfire/status/1866239929732173846
 > So semantic search is often a component of RAG, but RAG goes beyond just search. Here's an analogy: semantic search is like having a really smart librarian who understands what you're looking for and can find relevant books. RAG is like having that librarian plus a subject matter expert who can read those books, synthesize the information, and explain it to you in your own terms. https://claude.ai/chat/18bc4333-ff09-45f8-8610-0c325ce11ecf
-> search methodology that focuses on understanding the intent and contextual meaning of a query, rather than just matching keywords. It uses...word embeddings to encode text meaning, vector similarity to find relevant matches in a corpus...semantic search is focused on retrieval, aiming to return the most relevant documents, snippets, or knowledge units in response to a query...RAG is focused on generating answers or synthesizing information, not just returning relevant documents. It's particularly useful in scenarios where: https://chatgpt.com/c/675b9317-4bc4-8004-a0a5-b9d683ebd3d8
+
+https://chatgpt.com/c/675b9317-4bc4-8004-a0a5-b9d683ebd3d8 (now deleted)
+> Semantic search is a search methodology that focuses on understanding the intent and contextual meaning of a query, rather than just matching keywords. It uses techniques like: Word embeddings to encode text meaning. Vector similarity to find relevant matches in a corpus. Contextual models, often based on transformers like BERT or Sentence-BERT, to retrieve results based on semantic relevance. Semantic search is focused on retrieval, aiming to return the most relevant documents, snippets, or knowledge units in response to a query.
+> RAG is a hybrid system that combines two key stages: Retrieval: Uses semantic search or similar retrieval mechanisms to fetch relevant documents or knowledge pieces in response to a query. Generation: Uses a generative model (e.g., GPT or another transformer) to produce a response. The model conditions its output on both the query and the retrieved content.
 
 ## RAG
 

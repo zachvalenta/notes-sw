@@ -16,6 +16,17 @@
 
 > Lambda, API Gateway, SQS, SNS, DynamoDB, Aurora Serverless, and more. We don’t run a single server. - Stedi job posting
 
+How to host a site on AWS that is only accessible inside a company's internal network?
+```txt
+You can use either of these services to establish a private connection between your company’s internal network and your AWS VPC
+
+* AWS VPN: This establishes a secure connection over the public internet.
+* AWS Direct Connect: This provides a dedicated network connection between your company’s data center and AWS, offering more consistent performance than VPN over the internet.
+
+Set up security groups for your EC2 instance to only allow inbound traffic from your company’s internal IP range.
+```
+
+
 https://www.youtube.com/watch?v=jFrGhodqC08
 * https://roadmap.sh/best-practices/aws
 * Brown ccp @ 2:15:00

@@ -174,6 +174,7 @@ CLOUD
 > I don't understand the need for "cloud development environments" though. Isn't the point of containerized apps is to avoid the need for synchronizing dev envs amongst teams?...It's to ensure a consistent environment for all developers, with the resources required. E.g. they mention GPUs, for developers working with GPU-intensive workloads. You can ship all developers gaming laptops with 64GB RAM and proper GPUs, and have them fight the environment to get the correct libraries as you have in prod (even with containers that's not trivial), or you can ship them Macbook Airs and similar, and have them run consistent (the same) dev environments remotely (you can self-host gitpod, it's not only a cloud service, it's more the API/environment to get consistent remote dev enviornments). https://news.ycombinator.com/item?id=42042522
 * 🎯 Omakub on a spot instance?
 * _Coder_: https://github.com/coder/coder
+* _CodeSandbox_: https://codesandbox.io/docs/sdk
 * _Devpod_: 🎯 https://www.youtube.com/watch?v=ceDrFx2K3jE
 * _Daytona_: https://www.daytona.io/
 * _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://cli.github.com/manual/gh_codespace
@@ -219,6 +220,7 @@ TOOLING
 
 ## secrets (dotenvx)
 
+🧠 https://chatgpt.com/c/673f8c16-e090-8004-bdc8-564bbfeb33d5
 🗄
 * `security.md` users/ passwords
 * `shell.md` env var
@@ -718,7 +720,6 @@ WORLD'S DUMBEST COMPLETE SAAS
 
 * https://phrase.com/blog/posts/internationalization-i18n-go/
 * examples: Odoo, https://github.com/jesseduffield/lazygit/tree/master/pkg/i18n
-* https://chatgpt.com/c/6717c3a0-0424-8004-9feb-90d6451666d7
 * _a11y_: accessibility https://en.wikipedia.org/wiki/Computer_accessibility
 * _l10n_: language localization https://en.wikipedia.org/wiki/Language_localisation
 * _Lokalise_: used at UM https://lokalise.com/automate-localization

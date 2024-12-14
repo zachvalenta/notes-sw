@@ -478,7 +478,7 @@ BASICS
 * architecture: driver/lib -> executor -> operates on data https://www.youtube.com/watch?v=XrpSRCwISdk [5:10]
 * used for ML https://tech.marksblogg.com/is-hadoop-dead.html
 * _pyspark_: Python API to Spark https://www.youtube.com/watch?v=XrpSRCwISdk https://spark.apache.org/docs/latest/api/python/index.html
-* _Databricks_: Spark aaS from creators of Spark 🔍 see ChatGPT convo
+* _Databricks_: Spark aaS from creators of Spark; lakehouse, autoscaling, model training, interactive notebooks
 
 HADOOP
 * _Hadoop_: parallelization for large data 🗄 `infra.md` EMR https://aosabook.org/en/v1/hdfs.html

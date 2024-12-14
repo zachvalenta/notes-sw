@@ -35,7 +35,7 @@ https://stevedylan.dev/posts/leaving-neovim-for-zed/
 * Codi
 
 * _24_: try Zed
-* _23_: try mv to Neovim, stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
+* _23_: try mv to Neovim, stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme https://github.com/zachvalenta/dotfiles-air22/blob/main/vim/user/markdown_fmt.lua, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
 * _22_: built-in pkg mgmt
 * _20_: VS Code (Markdown extensions break, pinned to 1.41 since 20.12.17)
 * _19_: VS Code + vim emulation 📙 Neil practical vim 1.1-3, 2.7-9, 3.13-15, 4.20-22, 5.27-28, 8.47-53, 9.56-57, 10.60-62

@@ -259,12 +259,12 @@ ZA
 
 ## keycaps
 
-🧠 compatability https://chatgpt.com/c/6712bd5e-1484-8004-8dc1-119c4a3b6347
 🏪
 * Etsy
 * https://novelkeys.com/collections/keycaps
 * https://pacificparadiseprints.shop/ https://www.youtube.com/@PacificParadisePrints
 
+* compatability: need to consider the switch type, keycap profile, stabilizer
 * size
 > Keycap sizes are described in terms of a "u. width. For example, 1u is the size of each of the number and alphabet keys on a keyboard. A 2u key, like Backspace, is twice the size of those 1u keys...compact keyboards often have a 1.75u right Shift key in place of the standard 2.75u right Shift key as well as 1u modifiers in the bottom row. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
 * color https://blog.zsa.io/how-to-dye-keycaps/

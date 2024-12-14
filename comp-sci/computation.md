@@ -99,7 +99,8 @@ SIGNAL/NOISE 📙 Gleick ch. 7-8
 * _analog_: continuous values for signal representation e.g. light dimmer 📙 Kozeriok 4.62
 * _noise_: more important than / independent from bias https://conversationswithtyler.com/episodes/daniel-kahneman/ 🗄 `psychology.md` bias
 
-COMPRESSION
+### compression
+
 * _lossy_: data removed in way mostly unnoticed by end user e.g. mp3
 * _lossless_: no data rm, original data can be reconstructed e.g. JS minification 📙 Shibuya 1.33
 * https://www.destroyallsoftware.com/screencasts/catalog https://go-compression.github.io/ Grudzinski 40
@@ -107,7 +108,10 @@ COMPRESSION
 * https://tech.marksblogg.com/minimalist-guide-compression.html
 * video streaming https://news.ycombinator.com/item?id=40408515
 
-ENTROPY
+### entropy
+
+> Entropy is a measure of disorderliness, and the declaration that entropy is always on the rise — known as the second law of thermodynamics — is among nature’s most inescapable commandments. https://www.quantamagazine.org/what-is-entropy-a-measure-of-just-how-little-we-really-know-20241213/
+
 * https://github.com/Racum/uuinfo
 * https://math.ucr.edu/home/baez/what_is_entropy.pdf https://johncarlosbaez.wordpress.com/2024/07/20/what-is-entropy/
 * entropy per word https://entropicthoughts.com/reading-slightly-more-incrementally
@@ -203,6 +207,7 @@ za
 * _quantum_: used for physics simulations; qubit (like traditional bit 0/1 when observed, but when not observed represents probability of 0/1) https://news.ycombinator.com/item?id=22994468 📚 Gleick 13 https://quantum.country/ https://academy.meetiqm.com/curriculum/index.html
 * _transparent_: not visible/controllable e.g. L1 cache transparent to compiler https://www.reddit.com/r/compsci/comments/95ns21/what_is_difference_between_register_and_l1_cache/ confusing terminologically https://en.wikipedia.org/wiki/Transparency_(human%E2%80%93computer_interaction)
 * _UPS_: uninterruptible power supply (backup juice for proper shutdown)
+* robots https://news.ycombinator.com/item?id=42382357
 
 ## chips
 
