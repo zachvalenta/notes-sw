@@ -357,6 +357,19 @@ GUI
 
 📜 https://click.palletsprojects.com/en/8.1.x
 
+```python
+@click.group()
+def cli():
+    pass
+@cli.command()
+def command_one():
+    logger.info("this is command one!")
+@cli.command()
+def command_two():
+    logger.info("this is command two!")
+if __name__ == "__main__":
+    cli()
+```
 * `python script.py`
 ```python
 #!/usr/bin/env python
