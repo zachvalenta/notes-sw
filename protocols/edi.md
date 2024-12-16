@@ -4,6 +4,17 @@
 
 🔍 https://www.stedi.com/edi/x12/transaction-set/832
 
+BCT and G5301
+```sh
+# from message to Kara
+if BCT10 is 02 (create), G5301 is 003
+if BCT10 is 05 (update), G5301 is 003
+
+# current values
+BCT10: 05
+G5301: 03
+```
+
 STEDI TEACHING
 * https://www.stedi.com/blog/the-foundation-of-any-reliable-edi-system
 * https://www.stedi.com/blog/getting-started-with-the-x12-file-format
@@ -13,18 +24,6 @@ STEDI TEACHING
 * control numbers https://www.stedi.com/blog/control-numbers-in-x12-edi
 * https://www.stedi.com/blog/date-and-time-in-edi
 * standards at national level https://increment.com/apis/introduction-apis-egovernment/
-
-STEDI THE COMPANY
-* https://www.stedi.com/edi/network
-* https://www.stedi.com/blog/excerpts-from-the-annual-letter
-* https://www.stedi.com/blog/two-messy-kittens-and-a-missing-edi-214
-* https://www.stedi.com/blog/shareable-edi-implementation-guides-for-modern-edi-integrations
-* https://www.stedi.com/blog/hello-buckets https://www.stedi.com/blog/introducing-serverless-sftp-and-infinitely-scalable-data-storage
-* https://www.stedi.com/blog/translate-between-json-and-edi
-* https://www.stedi.com/blog/stedi-core-edi-integrations-in-minutes
-* https://www.stedi.com/blog/stedi-platform-no-code-edi
-* https://www.stedi.com/blog/introducing-stedis-x12-hipaa-guides
-* https://www.stedi.com/blog/stedi-process-large-files https://www.stedi.com/blog/stedi-core-large-file-support
 
 ## 进步
 
@@ -295,3 +294,15 @@ with open("data.json", "w") as f:
 🔍 https://www.stedi.com/edi
 
 * syntax highlight https://www.stedi.com/edi/inspector
+
+STEDI THE COMPANY
+* https://www.stedi.com/edi/network
+* https://www.stedi.com/blog/excerpts-from-the-annual-letter
+* https://www.stedi.com/blog/two-messy-kittens-and-a-missing-edi-214
+* https://www.stedi.com/blog/shareable-edi-implementation-guides-for-modern-edi-integrations
+* https://www.stedi.com/blog/hello-buckets https://www.stedi.com/blog/introducing-serverless-sftp-and-infinitely-scalable-data-storage
+* https://www.stedi.com/blog/translate-between-json-and-edi
+* https://www.stedi.com/blog/stedi-core-edi-integrations-in-minutes
+* https://www.stedi.com/blog/stedi-platform-no-code-edi
+* https://www.stedi.com/blog/introducing-stedis-x12-hipaa-guides
+* https://www.stedi.com/blog/stedi-process-large-files https://www.stedi.com/blog/stedi-core-large-file-support

@@ -310,6 +310,11 @@ TYPES https://elevenlabs.io/
 * mastering https://www.youtube.com/watch?v=wZRV2H4PK0Q
 * tone https://x.com/ilanbigio/status/1861913173432946808
 
+## forecasting
+
+https://arxiv.org/pdf/2411.01582
+> use to build stock market
+
 ## img
 
 * TTV https://simonwillison.net/2024/Dec/9/sora/

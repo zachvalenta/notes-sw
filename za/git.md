@@ -112,12 +112,10 @@ gh alias list
 * "try without installing!" https://zellij.dev/
 * directory tree https://github.com/koaning
 * alerts https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts https://github.blog/changelog/2023-12-14-new-markdown-extension-alerts-provide-distinctive-styling-for-significant-content/ https://github.com/orgs/community/discussions/16925
-```txt
+* note highlighting: note, tip, important, warning, caution
+```markdown
 > [!NOTE]
-> [!TIP]
-> [!IMPORTANT]
-> [!WARNING]
-> [!CAUTION]
+> Note content.
 ```
 
 ---
