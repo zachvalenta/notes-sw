@@ -370,6 +370,8 @@ sorted(musicians, key=attrgetter('instrument', 'genre'))  # nas in front of mick
 
 # 🦜 TYPES
 
+🗄 `math.md` set theory > operations
+
 SEMANTICS
 * _collection_: data structures in which items can be accessed individually https://www.fluentpython.com/lingo/#collection
 * _container_: holds ref to other objs e.g. list, tuple, dict https://www.fluentpython.com/lingo/#container
@@ -621,39 +623,6 @@ if my_str.find(query) >= 0:  # # https://docs.python.org/3/library/stdtypes.html
     return my_str.find(query)
 else:
     return QueryNotFoundException()
-```
-
-## set
-
-```python
-# CREATE
-ur_set = set()  # have to use parens for empty bc braces creates empty dictionary https://docs.python.org/3/tutorial/datastructures.html#sets
-ur_set = {1, 1, 2, 3}  # literal
-ur_set = set(['foo', 'foo', 'baz', 'foo'])  # constructor
-
-# UPDATE: no way to read sans mutation bc sets are unordered don't support indexing https://stackoverflow.com/q/59825
-my_set.add(el)  # push - single
-my_set.pop()  # shift
-my_set.update(iterable)  # push - n
-
-# DELETE
-ur_set.remove('foo_el')
-
-# OPERATIONS 📍 pick SSoT between here and 🗄 `math.md` and 🗄 `sql.md` operations / set
-fruit =  {"avocado", "banana", "tomato"}
-veg = {"beet", "carrot", "tomato"}
-# difference: el unique to first set 📙 Bhargava [150]
-fruit - veg  # avocado, banana
-# intersection: el shared 📙 Beaulieu [1000]
-fruit & veg  # tomato
-# symmetric difference: el not shared https://www.idiotinside.com/2017/08/19/set-theory-and-python-tips-tricks/
-fruit ^ veg  # avocado, banana, beet, carrot
-# union: el across sets sans dupes 📙 Beaulieu [99]
-fruit | veg   # avocado, banana, tomato, beet, carrot
-
-# SUB/SUPER
-{42, 7}.issubset({13, 7, 42})  # true
-{1,2,3}.issuperset({1,2})      # true
 ```
 
 ## string

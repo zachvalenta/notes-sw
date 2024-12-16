@@ -876,44 +876,15 @@ where h.house_id not in (select house from deal)
 
 ## operations
 
-🗄 `language.md` semantics
+🗄
+* `language.md` semantics
+* `math.md` set theory > operations
 
 RELATIONAL 📙 Takahashi [43]
 * _projection_: filter on attr i.e. `SELECT` https://stackoverflow.com/a/1031101 📙 Takahashi [43] Beaulieu [44-5]
 * _selection_: filter on value i.e. `WHERE` 📙 Beaulieu [52-54]
 * _division_: extract records that exist in both numerator/denomenator table but only the columns that exist only in numerator 📙 Takahashi [45]
 * + join
-
-SET 🗄 `math.md` set theory 📙 Beaulieu ch. 6
-* combine inputs to produce output [Takahashi 2.39]
-* except https://github.com/enochtangg/quick-SQL-cheatsheet#1-finding-data-queries
-* https://github.com/enochtangg/quick-SQL-cheatsheet#find
-```sql
--- DATA
--- customers: alice bob candace erin
--- employees: bob david frank
-
--- FMT
--- SELECT person FROM customer
--- <KEYWORD>
--- SELECT person FROM employee
-
-UNION
--- el from both incl dupes https://stackoverflow.com/a/49928
--- alice, bob, bob, candace, david, erin, frank
-
-UNION ALL
--- el from both minus dupes https://hakibenita.com/sql-dos-and-donts#know-the-difference-between-union-and-union-all
--- alice, bob, candace, david, erin, frank
-
-INTERSECT
--- el shared [Beaulieu 6.100]
--- bob
-
-MINUS
--- el unique to first set; aka difference [Bhargava 8.150]
--- alice, candace, erin
-```
 
 ## predicates
 
