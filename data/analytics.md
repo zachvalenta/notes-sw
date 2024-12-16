@@ -109,14 +109,27 @@ ZA
 * plotting https://pola.rs/posts/lightweight_plotting/ https://realpython.com/python-news-october-2024/
 > couldn't get this to work; try `pipx inject`
 
-#### syntax
+#### operations
+
+```python
+# SAMPLE DATASET
+foo = pl.DataFrame({"id": [1, 2, 3], "foo_price": [100.0, 200.0, 300.0]})
+bar = pl.DataFrame({"mpn": [1, 2, 3], "bar_price": [100.0, 250.0, 300.0]})
+```
+
+JOINS
+```python
+# basic
+foo.join(bar, left_on="id", right_on="mpn")
+# predicate
+foo.join(bar, left_on="id", right_on="mpn").filter(pl.col("foo_price") != pl.col("bar_price"))
+```
+
+---
 
 🗄️ startup.py https://github.com/zachvalenta/capp-crud
 
 ```python
-foo = pl.DataFrame({"sku": [1, 2, 3], "foo_price": [100.0, 200.0, 300.0]})
-bar = pl.DataFrame({"upc": [1, 2, 3], "bar_price": [100.0, 250.0, 300.0]})
-foo.join(bar, left_on="sku", right_on="upc")
 foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")
 foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc").select(["sku", "bar_upc", "foo_price", "bar_price"])
 
