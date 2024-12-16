@@ -531,15 +531,30 @@ LIB
 * _pycco_: pretty but don't see use case https://pycco-docs.github.io/pycco/ https://realpython.com/generating-code-documentation-with-pycco/
 * _Sphinx_: `sphinx-apidoc` 缺点 RST, not geared towards APIs https://realpython.com/courses/documenting-python-projects-sphinx-read-the-docs/ can now use Markdown https://www.youtube.com/watch?v=YclYtM56qjo&list=PL2Uw4_HvXqvYk1Y5P8kryoyd83L_0Uk5K&index=38
 
-## lint / fmt
+## lint / fmt (ruff)
 
 🗄️ `core.md` style
 
 RUFF 📜 https://github.com/astral-sh/ruff
 * meant to replace black, isort
 ```sh
-check  # lint
+check  # view lint err
 check --fix  # fix lint err
+format --diff  # view formatting err; be nice if associated rule was listed as well https://github.com/astral-sh/ruff/issues/15024
+format  # fix formatting err
+```
+
+CONFIG
+```toml
+line-length = 125
+[format]
+quote-style = "single"
+```
+* prevent format
+```python
+# fmt: off
+def foo()
+# fmt: on
 ```
 
 ZA

@@ -859,7 +859,7 @@ USAGE
 
 ---
 
-* replication, Rust rewrite https://github.com/tursodatabase/libsql https://news.ycombinator.com/item?id=42378843& https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/
+* replication, Rust rewrite https://github.com/tursodatabase/libsql https://news.ycombinator.com/item?id=42378843& https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/ limbo https://avi.im/blag/2024/faster-sqlite https://github.com/tursodatabase/limbo/
 * WASM https://news.ycombinator.com/item?id=41851051
 * durable object https://simonwillison.net/2024/Oct/13/zero-latency-sqlite-storage-in-every-durable-object/
 

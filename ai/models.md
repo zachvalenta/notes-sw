@@ -17,7 +17,7 @@
 # 🥗 MENU
 
 🛠️ benchmark https://arena.lmsys.org/
-🔍 compare https://news.ycombinator.com/item?id=42348513
+🔍 compare https://news.ycombinator.com/item?id=42348513 https://simonwillison.net/2024/Dec/16/webdev-arena/
 🔑 https://gist.github.com/zachvalenta/d3b7cd172dd2d3d8ff7340bd458c6fe2
 
 ZA

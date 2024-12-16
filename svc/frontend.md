@@ -482,6 +482,7 @@ BROWSERS
 * _Arc_: split panes https://en.wikipedia.org/wiki/Arc_(web_browser) https://www.youtube.com/watch?v=E9yZ0JusME4 https://news.ycombinator.com/item?id=36863925 https://news.ycombinator.com/item?id=41597250
 * _awrit_: in terminal?!? https://github.com/chase/awrit
 * _Brave_: switched to in 2022, way less storage hit (150M) than Chrome (1.2GB) 🗄️ `/Users/$USER/Library/Application Support`
+* bad actors? https://news.ycombinator.com/item?id=18734999
 * commands
 ```sh
 CMD t  # restore tab
