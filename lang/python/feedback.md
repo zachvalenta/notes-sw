@@ -101,7 +101,36 @@ ZA
 
 ## inspect
 
-📜 https://docs.python.org/3/library/inspect.html https://www.youtube.com/watch?v=NIyljVEcJKw
+💡 examine class contents, retrieve method src, extract/fmt func arg list, get traceback info
+
+```python
+# GET METHODS IMPL ON CLASS
+from dataclasses import dataclass
+from inspect import getmembers
+
+@dataclass()
+class Person:
+    name: str
+    age: int
+    hobbies: list
+
+getmembers(Person, inspect.isfunction)
+```
+
+---
+
+EXPLORE THESE METHODS 📜 https://docs.python.org/3/library/inspect.html 
+* getmodulename
+* ismodule
+* isbuiltin
+* getdoc
+* getcomments
+* getfile
+* getmodule
+* getsourcefile
+* getsource
+
+https://www.youtube.com/watch?v=NIyljVEcJKw
 * rich vs. iypthon's `obj?` https://ipython.readthedocs.io/en/stable/interactive/tutorial.html#exploring-your-objects
 * wat https://github.com/igrek51/wat
 ```python

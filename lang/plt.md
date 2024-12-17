@@ -963,6 +963,10 @@ ZA
 * _caller_: calls
 * _callee_: is called https://nullprogram.com/blog/2019/06/30/
 
+* _parameter_: spec for arg (number, order, type) https://www.fluentpython.com/lingo/#parameter
+* _argument_: value passed to function https://www.fluentpython.com/lingo/#argument
+> If `@dataclass` is used just as a simple decorator with no parameters https://docs.python.org/3/library/dataclasses.html#module-contents
+
 ---
 
 SEMANTICS https://realpython.com/python-pass-by-reference/#defining-pass-by-reference
@@ -970,9 +974,6 @@ SEMANTICS https://realpython.com/python-pass-by-reference/#defining-pass-by-refe
 * _subroutine_: synonym for function https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/
 * aka callable https://towardsdatascience.com/functools-the-power-of-higher-order-functions-in-python-8e6e61c6e4e4
 > That process of going character by character can be wrapped up into a routine - also called a function, a method, a subroutine, or component. (Little in computing has a single, reliable name, which means everyone is always arguing over semantics.) - Ford what is code?
-
-* _parameter_: spec for arg (number, order, type) https://www.fluentpython.com/lingo/#parameter
-* _argument_: value passed to function https://www.fluentpython.com/lingo/#argument
 
 * _return_: permanently return control of execution to the point where the function was called https://jeffknupp.com/blog/2013/04/07/improve-your-python-yield-and-generators-explained/
 * _yield_: return but temporary i.e. function will

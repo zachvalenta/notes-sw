@@ -124,24 +124,42 @@ class SomeView(BaseView):
 
 ## dataclass
 
+📜 https://docs.python.org/3/library/dataclasses.html
+
 BASICS
-* typing mandatory
 ```python
 from dataclasses import dataclass
 @dataclass()
 class Person:
-    name: str
+    name: str  # typing mandatory
     age: int
     hobbies: list
+```
+
+PARAMETERS https://docs.python.org/3/library/dataclasses.html#module-contents
+> saves you impl + re-impl every time you update class
+* no param
+```python
+# no param
+('__eq__', <function Person.__eq__ at 0x1059974c0>),
+('__init__', <function Person.__init__ at 0x1059971a0>),
+('__repr__', <function Person.__repr__ at 0x105997420>)
 
 @dataclass(kw_only=True)  # init only uses kwargs
-@dataclass(fronze=True)   # immutable
+
+@dataclass(frozen=True)   # immutable
+('__hash__', <function Person.__hash__ at 0x1038a37e0>),
+('__delattr__', <function Person.__delattr__ at 0x1038a3600>),
+('__setattr__', <function Person.__setattr__ at 0x1038a3560>)
+
 @dataclass(sort=True)     # sortable
+('__ge__', <function Person.__ge__ at 0x10579f740>),
+('__gt__', <function Person.__gt__ at 0x10579f6a0>),
+('__le__', <function Person.__le__ at 0x10579f600>),
+('__lt__', <function Person.__lt__ at 0x10579f560>),
 ```
 
 ADVANTAGES COMPARED TO PLAIN CLASSES https://www.youtube.com/watch?v=vBH6GRJ1REM
-* don't have to impl: `__init__`, `__repr__`, `__hash__`, `__eq__`, `__ne__`, `__lt__`, `__le__`, `__gt__`, `__ge__`
-> and you have to update each for each new property you add to your class
 * convert w/ `asdict`, `astuple`
 
 ---
