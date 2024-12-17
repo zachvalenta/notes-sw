@@ -132,8 +132,8 @@ from dataclasses import dataclass
 @dataclass()
 class Person:
     name: str  # typing mandatory
-    age: int
     hobbies: list
+    age: int = 42  # default values have to go last
 ```
 
 PARAMETERS https://docs.python.org/3/library/dataclasses.html#module-contents
@@ -159,10 +159,11 @@ PARAMETERS https://docs.python.org/3/library/dataclasses.html#module-contents
 ('__lt__', <function Person.__lt__ at 0x10579f560>),
 ```
 
-ADVANTAGES COMPARED TO PLAIN CLASSES https://www.youtube.com/watch?v=vBH6GRJ1REM
-* convert w/ `asdict`, `astuple`
-
 ---
+
+ADVANTAGES COMPARED TO PLAIN CLASSES https://www.youtube.com/watch?v=vBH6GRJ1REM @ 5:30
+* convert w/ `asdict`, `astuple`
+* work around immutable https://www.youtube.com/watch?v=vBH6GRJ1REM [5:30]
 
 * https://realpython.com/python-data-classes/
 * alternative + serde https://github.com/python-attrs/attrs https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://hynek.me/articles/import-attrs/
