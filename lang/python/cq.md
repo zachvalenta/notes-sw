@@ -522,7 +522,7 @@ Compute the Levenshtein distance between two strings.
 https://rdrn.me/postmodern-python/
 
 LIB
-* https://mkdocstrings.github.io/
+* https://mkdocstrings.github.io/ https://claude.ai/chat/daca50ed-8e10-4428-91bd-4c88614fa942
 * _pdoc_: thing that pdoc3 forked from https://github.com/mitmproxy/pdoc
 * _pdoc3_: https://pdoc3.github.io/pdoc/ some controversy https://github.com/pdoc3/pdoc/issues/64 https://github.com/pdoc3/pdoc/issues/87 even worse than first blush, apparently he is a fascist https://news.ycombinator.com/item?id=20800157
 * _pdocs_: https://github.com/timothycrosley/pdocs/issues/3

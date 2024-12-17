@@ -216,6 +216,7 @@ edit
 * switch dir, switch project in IDE https://github.com/dandavison/wormhole
 
 THINGS I'M NOTICING ABOUT VSC
+* ❌ weird overlay when using checkboxes
 * ❌ constantly wipes out the outliner and requires Vim action to prompt redraw
 * ❌ symbol search doesn't work after git pull of new files | movement of headers
 > sometimes not at all, even after you've just opened file and navigated to header

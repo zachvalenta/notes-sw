@@ -6,6 +6,7 @@
 
 ## 进步
 
+* backup to Codeberg
 * autogit https://github.com/zackproser/automations
 * What might be the cause of autocompletions around Git just stopping working?
 > this doesn't happen in every dir, just `capp/mapper`
@@ -124,66 +125,6 @@ gh alias list
 * how to link to images outside of repo https://github.com/textualize/toolong
 * _profile README_: create repo with same name as user, add README https://github.com/willmcgugan/willmcgugan https://github.com/mrjackwills
 * _video_: https://github.com/textualize/toolong
-
-## Pages
-
-🗄️ `src.md` CICD > Actions
-
-RULES https://www.getzola.org/documentation/deployment/github-pages/ https://github.com/shalzz/zola-deploy-action https://chatgpt.com/c/675a107f-ecac-8004-97eb-1fecff5fb9c0
-* `index.html` in root of branches `master`|`main`|`gh-pages`
-* specify branch `repo/settings/pages/branch`
-* don't need to do anything with `GITHUB_TOKEN` if the job only needs to access the repo it is running in
-* site named `<username>.github.io` must correspond to repo named `<username>.github.io`
-
-WORKLOG
-- [x] commit `d5072df` + `settings/pages/branch` to `gh-pages` got the site deployed but the URL nested under my user name (`https://www.zachvalenta.com/zjayv.github.io/`), presumably bc a single user can only have a single `github.io` site?
-- [x] adding CNAME broke site bc you have to add CNAME config in registrar (in my case, Name Cheap) https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain
-- [x] zjay.github.io: CNAME still broken i.e. not serving actual site (but stock pages from Name Cheap?)
-- [ ] zjay.github.io: unpublish
-> 🎗️ try deploying on Vercel et al.
-> this maybe wiped out all previous commits on the `gh-pages` branch?
-- [ ] zjay.github.io: roll back to `d5072df`
-- [ ] zjay.github.io: use as playground
-- [ ] zjay.com: set up CNAME in Name Cheap
-- [ ] zachvalenta.com: import Zola blog (DNS already set up)
-- [ ] zjay.com: unpublish (do you need to take down DNS from Name Cheap?)
-
----
-
-* attempt to specify build dir
-```yaml
-name: deploy to GH Pages
-on:
-  push:
-    branches:
-      - main
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: checkout repo
-        uses: actions/checkout@v3
-      - name: deploy to GH Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
-```
-
-DEPLOYING ZJAYV https://zjayv.github.io/ 🧠 https://chatgpt.com/c/66f4a787-5a40-8004-bda8-c9c207ae0e88
-> start here https://www.getzola.org/documentation/deployment/github-pages/
-```txt
-things I've already tried
-
-- publish_dir
-- specify branch (settings > pages)
-```
-* workflows https://github.com/zachvalenta/zjayv.github.io/actions
-> why do they have two different names?
-* site that works https://liyasthomas.github.io/
-* need cname? https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME https://github.com/zachvalenta/zachvalenta.github.io/blob/master/CNAME.txt
-* docs https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-* more docs https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages
 
 ## repos
 

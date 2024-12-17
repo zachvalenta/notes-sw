@@ -25,10 +25,7 @@ workflow engine or task queue https://news.ycombinator.com/item?id=34163888 http
 * `aws.md`
 * `system.md` factors
 
-## taxonomy
-
-🧠 https://chatgpt.com/c/673a5946-7948-8004-9a56-e3b60009dccd https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
-
+TAXONOMY 🧠 https://chatgpt.com/c/673a5946-7948-8004-9a56-e3b60009dccd https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
 * _cloud-native_: dependent on cloud services
 * _lift-and-shift_: on-prem but on a dumb cloud instance
 > Did you have one huge server in the office? Well, now you get one huge server in AWS EC2 and copy your app to it. You’ll also pay extreme prices for that privilege.
@@ -53,24 +50,23 @@ ZA
 
 ---
 
+* https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
+* _benefits_: cost (sometimes) scalability (most times) geographic DR (nearly always)
+* _consultants_: https://aws.amazon.com/iq/ https://www.gruntwork.io/
+* _cost control_: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ https://www.lastweekinaws.com/ https://github.com/mlabouardy/komiser https://www.infracost.io/
+
 BUY VS. BUILD
 * https://danluu.com/in-house/
 * https://news.ycombinator.com/item?id=25399250
 > Another area is with software we’ve had to build (instead of buy). When we started out, we strongly preferred buying software over building it because a team of only a few engineers can’t afford the time cost of building everything. That was the right choice at the time even though the “buy” option generally gives you tools that don’t work. In cases where vendors can’t be convinced to fix showstopping bugs that are critical blockers for us, it does make sense to build more of our own tools and maintain in-house expertise in more areas, in contradiction to the standard advice that a company should only choose to “build” in its core competency. Much of that complexity is complexity that we don’t want to take on, but in some product categories, even after fairly extensive research we haven’t found any vendor that seems likely to provide a product that works for us. To be fair to our vendors, the problem they’d need to solve to deliver a working solution to us is much more complex than the problem we need to solve since our vendors are taking on the complexity of solving a problem for every customer, whereas we only need to solve the problem for one customer, ourselves. https://danluu.com/simple-architectures/
 
-
-https://blog.duolingo.com/reducing-cloud-spending
-
-https://world.hey.com/dhh/our-cloud-exit-savings-will-now-top-ten-million-over-five-years-c7d9b5bd
-
-https://focus.finops.org/
+* https://blog.duolingo.com/reducing-cloud-spending
+* https://world.hey.com/dhh/our-cloud-exit-savings-will-now-top-ten-million-over-five-years-c7d9b5bd
+* https://focus.finops.org/
 > Cloud and SaaS billing data can be complex, inconsistent among providers and difficult to understand. The FinOps Open Cost and Usage Specification (FOCUS) aims to reduce this friction with a spec containing a set of terminologies (aligned with the FinOps framework), a schema and a minimum set of requirements for billing data. The spec is intended to support use cases common to a variety of FinOps practitioners. Although still in the early stages of development and adoption, it’s worth watching because, with growing industry adoption, FOCUS will make it easier for platforms and end users to get a holistic view of cloud spend across a long tail of cloud and SaaS providers. https://www.thoughtworks.com/radar/platforms/focus
-
-https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 * rightsizing https://softwareengineeringdaily.com/2021/01/12/kubecost-with-webb-brown/
 * on-prem: need to integrate w/ legacy systems inside firewall, regulatory, cheaper, you can still make the consumption of your data center feel like a public cloud (CF, HPE)
 * _capacity planning / demand forecasting_: https://blog.codepen.io/2017/03/21/122-capacity-planning/ https://increment.com/cloud/an-engineers-guide-to-cloud-capacity-planning/ https://www.youtube.com/watch?v=UC5xf8FbdJc https://www.youtube.com/watch?v=ov7xhNdrsDM https://www.manning.com/books/demand-forecasting-best-practices
-
 * free tier https://www.lastweekinaws.com/blog/an-aws-free-tier-bill-shock-your-next-steps/
 > Exercise: Pick an infrastructure service that your team operates and calculate how many hours/month you work to maintain the solution. https://cloudonaut.io/my-mental-model-of-aws/
 * https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
@@ -82,9 +78,6 @@ https://world.hey.com/dhh/five-values-guiding-our-cloud-exit-638add47
 * switching https://news.ycombinator.com/item?id=30942698
 * https://www.lastweekinaws.com/blog/the-new-frontier-of-cloud-economics-why-aws-costs-are-a-weighty-issue/
 > But the thing is in most of the companies you don't have full control over the whole stack. Even if you have "full control" over the database, you don't have control over networking, firewall, OS, "security" patching, VMs, Docker, Kubernetes, Load balancers, vendors managing parts of the infra, internet provider, hosting provider ... Not even datacenter team may have control over all of it, but at least that's their job and their area of expertise.
-* _benefits_: cost (sometimes) scalability (most times) geographic DR (nearly always)
-* _consultants_: https://aws.amazon.com/iq/ https://www.gruntwork.io/
-* _cost control_: https://aws.amazon.com/aws-cost-management/aws-cost-explorer/ https://www.lastweekinaws.com/ https://github.com/mlabouardy/komiser https://www.infracost.io/
 
 ## self host
 
@@ -108,6 +101,19 @@ CONSIDERATIONS
 * https://thenewstack.io/why-companies-are-ditching-the-cloud-the-rise-of-cloud-repatriation/
 * https://meta.stackexchange.com/questions/404231/we-re-finally-going-to-the-cloud
 
+### Dokku
+
+* _Dokku_: 🎯 https://github.com/dokku/dokku https://dokku.com/
+
+### Kamal
+
+* _Kamal_: 🎯 https://kamal-deploy.org/ https://www.youtube.com/watch?v=7lkJmElHkSw
+> Rare opening to join our excellent ops team. Help us run Basecamp, HEY, and the heritage suite of apps on our own hardware with Kamal, MySQL, ElasticSearch, Prometheus, Grafana, KVM, Chef. https://x.com/dhh/status/1848544864436162705
+
+### Piku
+
+* _Piku_: 🎯 6k https://github.com/piku/piku
+
 ## IaaS
 
 🗄 `html-css.com`
@@ -124,12 +130,6 @@ TAXONOMY https://www.youtube.com/watch?v=NhDYbskXRgc [48:00]
 * OSS: OpenStack, CloudStack, VSphere
 * _PaaS_: e.g. Heroku https://www.youtube.com/watch?v=NhDYbskXRgc [1:14:15]
 * _IaaS_: e.g. AWS
-
-STATIC SITE
-* _AWS_: https://brandur.org/aws-intrinsic-static S3 and Cloudfront https://www.benkuhn.net/about/ https://github.com/s3tools/s3cmd s3-website https://bedford.io/misc/about/
-* _Github_: source has to be public
-* _pico_: https://pico.sh/pgs
-* _Netlify_: https://wsvincent.com/site-design/ https://adamwathan.me/uses/
 
 ---
 
@@ -158,14 +158,10 @@ frontend: webpack --watch
 
 OPTIONS https://testdriven.io/blog/heroku-alternatives/
 * _Coolify_: https://coolify.io/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
-* _Dokku_: 🎯 https://github.com/dokku/dokku https://dokku.com/
 * _Firebase_: https://tinyprojects.dev/projects/tiny_website
 * _Fly.io_: 🎯 https://www.youtube.com/watch?v=0eP98xkLj9w
-* _Kamal_: 🎯 https://kamal-deploy.org/ https://www.youtube.com/watch?v=7lkJmElHkSw
-> Rare opening to join our excellent ops team. Help us run Basecamp, HEY, and the heritage suite of apps on our own hardware with Kamal, MySQL, ElasticSearch, Prometheus, Grafana, KVM, Chef. https://x.com/dhh/status/1848544864436162705
 * _Knative_: https://knative.dev/docs/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
 * _Netlify_: https://www.netlify.com/
-* _Piku_: 🎯 6k https://github.com/piku/piku
 * _Render_: https://dashboard.render.com/
 * metabase deploy failed bc free-tier instance didn't have enough memory https://dashboard.render.com/project/prj-ct4ro05umphs73e7nfjg
 * _Platform.sh_: https://platform.sh/
@@ -176,18 +172,6 @@ OPTIONS https://testdriven.io/blog/heroku-alternatives/
 * _Supabase_: https://supabase.com/
 * _Tau_: https://github.com/taubyte/tau
 * _Vercel_: https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
-
-### static
-
-🗄️ `frontend.md` SSG
-
-* _AWS amplify_: https://aws.amazon.com/amplify/
-* _Cloudflare pages_:
-* _Github pages_:
-* _Netlify_: https://www.netlify.com/
-* _Render_:
-* _Surge_: https://surge.sh/
-* _Vercel_: https://vercel.com/
 
 ### CF
 
