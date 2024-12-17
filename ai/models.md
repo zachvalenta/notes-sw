@@ -71,7 +71,6 @@ WEB CLIENT
 🔢 https://docs.anthropic.com/en/release-notes/overview
 
 WEB CLIENT
-* ❌ projects: can't add chat to project after the fact, can't view chats as part of projects
 * fast input 🗄️ `vim.md` Zed
 * good font
 * code syntax highlighting
@@ -80,6 +79,7 @@ WEB CLIENT
 * controls (artifacts = output, content = attachments)
 * org: search/stars
 * outputs code in a sidebar to prevent tons of scrolling in the main chat
+* ❌ projects: can't add chat to project after the fact, can't view chats as part of projects
 * ❌ can't follow URLs
 
 MODELS

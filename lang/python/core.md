@@ -10,6 +10,7 @@
 📚
 * Beazley cookbook
 * Ramalho fluent https://github.com/fluentpython/example-code-2e/tree/master/01-data-model
+> 🎗️ https://github.com/zachvalenta/python-from-the-guts
 > how to work through book: notebook | REPL + repo doctest
 > This strategy revolves around writing a crate...for every section of every chapter...to reduce friction as much as possible, I opted to write (type) down my chapter notes as comments within the “section crates” themselves. This system allows me to co-locate my notes with my Rust code, and learn a bit extra about Cargo along the way. It also keeps me on the keyboard, either writing code or taking notes in the same files. https://nickgerace.dev/posts/how-i-read-the-rust-programming-language/
 * Van Rossum tutorial
@@ -123,11 +124,31 @@ class SomeView(BaseView):
 
 ## dataclass
 
+BASICS
+* typing mandatory
+```python
+from dataclasses import dataclass
+@dataclass()
+class Person:
+    name: str
+    age: int
+    hobbies: list
+
+@dataclass(kw_only=True)  # init only uses kwargs
+@dataclass(fronze=True)   # immutable
+@dataclass(sort=True)     # sortable
+```
+
+ADVANTAGES COMPARED TO PLAIN CLASSES https://www.youtube.com/watch?v=vBH6GRJ1REM
+* don't have to impl: `__init__`, `__repr__`, `__hash__`, `__eq__`, `__ne__`, `__lt__`, `__le__`, `__gt__`, `__ge__`
+> and you have to update each for each new property you add to your class
+* convert w/ `asdict`, `astuple`
+
 ---
 
+* https://realpython.com/python-data-classes/
 * alternative + serde https://github.com/python-attrs/attrs https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://hynek.me/articles/import-attrs/
 * serde https://github.com/lidatong/dataclasses-json
-* https://www.youtube.com/watch?v=vBH6GRJ1REM
 * vs. defined https://www.youtube.com/watch?v=1S2h11XronA
 > the most useful purpose is adding a certain degree of formalization to a group of values that need to be passed around. https://www.revsys.com/tidbits/dataclasses-and-attrs-when-and-why/
 * `__repr__` and `__eq__` for free https://realpython.com/python-data-classes/
@@ -171,6 +192,8 @@ class SomeView(BaseView):
 * Van Rossum ch. 9
 
 ---
+
+make immutable classes + port learning from dataclasses video https://www.youtube.com/watch?v=vBH6GRJ1REM [1:45]
 
 https://mathspp.com/blog/case-insensitive-string-class
 https://www.pythonmorsels.com/every-dunder-method/
