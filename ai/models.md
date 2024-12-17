@@ -56,6 +56,7 @@ MODELS
 ZA
 * internal libraries, `ace_tools` https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665
 * native client: global hotkey conflicts with iterm https://openai.com/chatgpt/mac
+* ❌ started having uptime issues 24.12
 
 WEB CLIENT
 * search added 241031 (intra-doc but slow, none by title)

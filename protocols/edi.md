@@ -4,15 +4,19 @@
 
 🔍 https://www.stedi.com/edi/x12/transaction-set/832
 
-BCT and G5301
-```sh
-# from message to Kara
-if BCT10 is 02 (create), G5301 is 003
-if BCT10 is 05 (update), G5301 is 003
+| BCT10 | G5310 | ERROR                                                                                                           |
+|-------|-------|-----------------------------------------------------------------------------------------------------------------|
+| 05    | 001   | LDT is required https://commerce.spscommerce.com/testing-and-certification/7625/partners/parcel/3029840908      |
+| 05    | 003   | G5301 must be 001 https://commerce.spscommerce.com/testing-and-certification/7625/partners/parcel/3029840908    |
+| 02    | 001   | https://commerce.spscommerce.com/testing-and-certification/7625/partners/parcel/3030275387/                     |
+| 02    | 003   | https://commerce.spscommerce.com/testing-and-certification/7625/partners/parcel/3030273514/                     |
 
-# current values
-BCT10: 05
-G5301: 03
+Here's my x12 doc:
+```txt
+```
+
+I'm getting this error:
+```sh
 ```
 
 STEDI TEACHING
