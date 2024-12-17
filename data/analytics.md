@@ -113,8 +113,8 @@ ZA
 
 ```python
 # SAMPLE DATASET
-foo = pl.DataFrame({"id": [1, 2, 3], "foo_price": [100.0, 200.0, 300.0]})
-bar = pl.DataFrame({"mpn": [1, 2, 3], "bar_price": [100.0, 250.0, 300.0]})
+foo = pl.DataFrame({"id": [1, 2, 3], "manufacturer": ["apple", "samsung", "motorola"], "foo_price": [100.0, 200.0, 300.0]})
+bar = pl.DataFrame({"mpn": [1, 2, 3, 4], "manufacturer": ["apple", "samsung", "motorola", "samsung"], "bar_price": [100.0, 250.0, 300.0, 150.00]})
 ```
 
 JOINS
@@ -123,6 +123,9 @@ JOINS
 foo.join(bar, left_on="id", right_on="mpn")
 # predicate
 foo.join(bar, left_on="id", right_on="mpn").filter(pl.col("foo_price") != pl.col("bar_price"))
+foo.join(bar, left_on="id", right_on="mpn").filter(pl.col("manufacturer").is_in(["apple", "motorola"]))
+# relative complement
+bar.join(foo, left_on="mpn", right_on="id", how="anti")
 ```
 
 ---

@@ -64,6 +64,7 @@ CLEAN THESE UP BEFORE BUYING BOOKS
 * https://blog.projectdiscovery.io/projectdiscovery-best-kept-secrets/
 * auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas
 * https://www.youtube.com/watch?v=F5KJVuii0Yw
+* keylogger https://github.com/kernc/logkeys
 * mv email
 * hacking cloud databases, CIDR, port scanning https://infosecwriteups.com/how-i-discovered-thousands-of-open-databases-on-aws-764729aa7f32#836b port scan https://github.com/RustScan/RustScan https://terminaltrove.com/havn/
 * lab: VirtualBox for Windows on nix? https://nostarch.com/ethical-hacking
