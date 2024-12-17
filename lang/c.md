@@ -21,7 +21,7 @@
 * courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
 * design: https://saagarjha.com/blog/2020/05/10/why-we-at-famous-company-switched-to-hyped-technology/ https://eev.ee/blog/2016/12/01/lets-stop-copying-c/ https://nullprogram.com/tags/c/
 * sysroot, undefined behavior (UB) https://news.ycombinator.com/item?id=30488979
-* _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron https://news.ycombinator.com/item?id=42146338 https://begriffs.com/posts/2022-07-17-debugging-gdb-ddd.html
+* _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron https://news.ycombinator.com/item?id=42146338 https://begriffs.com/posts/2022-07-17-debugging-gdb-ddd.html TUI https://github.com/wcampbell0x2a/heretek
 * Postgres codebase is supposed to be a good guide https://news.ycombinator.com/item?id=20556336
 * `#define`: constants https://www.youtube.com/watch?v=hsmGp3cp_50 0:50
 

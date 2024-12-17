@@ -168,7 +168,7 @@ IDEAS
 
 * generate test suite from spec https://kusho.ai/
 * https://www.youtube.com/watch?v=qquIJ1Ivusg
-* synthetic https://docs.datadoghq.com/synthetics/
+* synthetic https://docs.datadoghq.com/synthetics/ https://github.com/andrewchambers/ddmin-python
 * mocking API = faster test runs but highe chance of rot; tooling (json-server, duckrails) https://github.com/SpectoLabs/hoverfly
 * replay: https://github.com/kevin1024/vcrpy https://github.com/hiredscorelabs/cornell
 > use case: day #0 run suite w/ VCR and create cassette file day #1 run test suite and use cassette files instead of hitting third-party service (to make your tests run faster, to avoid false negatives e.g. latency/downtime from service, internet is down, etc.)

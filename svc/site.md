@@ -325,7 +325,7 @@ CMS
 * _metadata_: title/desc, date, tags https://www.janmeppe.com/blog/I-dont-like-my-blog-anymore/ linking https://github.com/erwald/blog/blob/master/_data/series.json https://danilafe.com/blog/blog_microfeatures/
 * advanced metadata https://gwern.net/metadata/annotation/backlink/https%253A%252F%252Fpublicdomainreview.org%252Fessay%252Four-masterpiece-is-the-private-life-in-pursuit-of-the-real-chateaubriand%252F.html
 * SQL https://news.ycombinator.com/item?id=42244987
-* _template engine_: page structure e.g. Jinja, Tera https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola
+* _template engine_: page structure e.g. Jinja, Tera https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola https://www.gomponents.com/
 * _HTML preprocessor_: turn Markdown in HTML e.g. Nunjucks https://css-tricks.com/killer-features-of-nunjucks/ https://github.com/erwald/blog
 ```sh
 # https://fvsch.com/static-site-generators

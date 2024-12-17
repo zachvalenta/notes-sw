@@ -101,6 +101,8 @@ for ind, val in enumerate(seq, start=starting_index):
 
 ---
 
+> Iterators allow for operations on each of its elements without allocating memory for a collection. https://blog.changs.co.uk/customising-pattern-matching-behaviour.html
+https://www.gingerbill.org/article/2024/06/17/go-iterator-design/ https://github.com/golang/go/issues/61897
 https://news.ycombinator.com/item?id=42392267
 https://www.youtube.com/watch?v=Xd760PcgfPg
 https://www.youtube.com/watch?v=YC-12-0sXR8

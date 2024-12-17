@@ -98,6 +98,7 @@ ZA
 
 # 🦚 ALTERNATIVES
 
+* _dte_: https://github.com/craigbarnes/dte
 * _kibi_: https://github.com/ilai-deutel/kibi
 
 ## design

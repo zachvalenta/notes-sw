@@ -547,6 +547,7 @@ match result[0]:
 
 ---
 
+* https://blog.changs.co.uk/customising-pattern-matching-behaviour.html
 * https://realpython.com/structural-pattern-matching/
 * https://www.youtube.com/watch?v=ASRqxDGutpA
 * https://martinheinz.dev/blog/78

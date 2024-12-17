@@ -93,6 +93,7 @@ taxonomy
 
 ---
 
+* people are using less Javascript https://blog.jetbrains.com/pycharm/2024/12/the-state-of-python/#trend-1-python-usage-with-other-languages-drops-as-general-adoption-grows
 https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
 https://github.com/maddalax/htmgo
 https://news.ycombinator.com/item?id=41781457 https://chrisdone.com/posts/htmx-critique/
@@ -234,7 +235,7 @@ STDLIB
 * site tour https://github.com/shipshapecode/shepherd
 * datatable https://github.com/handsontable/handsontable https://appliku.com/post/django-rest-framework-and-datatable-example https://github.com/pivotal-energy-solutions/django-datatable-view https://news.ycombinator.com/item?id=30919257
 * HTTP: Fetch, XHR/AJAX https://eloquentjavascript.net/18_http.html
-* native: JS (Cordova/PhoneGap, Ionic, React Native, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter https://news.ycombinator.com/item?id=41975047) Golang (Wails https://github.com/wailsapp/wails) Rust https://dioxuslabs.com/
+* native: JS (Cordova/PhoneGap, Ionic, React Native, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter https://news.ycombinator.com/item?id=41975047) Golang (https://github.com/wailsapp/wails https://github.com/cogentcore/core) Rust https://dioxuslabs.com/
 * typing: Typescript beat Elm/Flow
 * Typescript, Civet https://news.ycombinator.com/item?id=41885940
 * vizualization: https://www.chartjs.org/ https://testdriven.io/blog/django-charts/#prepare-and-serve-the-data https://github.com/airbnb/visx https://github.com/recharts/recharts -> https://openbb.co/open#social-media-metrics 🗄 `math.md` graphs

@@ -21,6 +21,7 @@
 FILE NAME EDITING
 * file manager (nnn, ranger, et al.)
 * vimv https://news.ycombinator.com/item?id=13890944 https://github.com/thameera/vimv
+* https://github.com/yaa110/nomino
 * visidata https://www.visidata.org/blog/2020/ten/
 * `fne` (bulk, dry run, default for youtube-dl)
 

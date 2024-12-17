@@ -54,6 +54,7 @@ def simple_tracer(frame, event):  # 4:30
 * BYO https://www.timdbg.com/posts/writing-a-debugger-from-scratch-part-5/
 * https://werat.dev/blog/what-a-good-debugger-can-do/
 * https://wizardzines.com/zines/debugging-guide/
+* https://peps.python.org/pep-0768/
 
 ## alternatives
 

@@ -89,16 +89,9 @@ PYOXIDIZER
 
 🔍 email to Robert Heaton
 🗄️
+*️ `doc.md` dev
 * `golang.md` project structure
 * `plt.md` Rust
-
-🗄️ `doc.md` dev
-```sh
-├── meta
-│   └── README.md  # symlink from root
-│   └── pyproject.toml
-│   └── settings  # https://stackoverflow.com/questions/50090341/is-there-a-naming-convention-for-django-project-configuration-directory https://stackoverflow.com/q/50090341
-```
 
 ---
 
@@ -505,6 +498,8 @@ DESIGN
 
 ---
 
+https://blog.jetbrains.com/pycharm/2024/12/the-state-of-python/#trend-8-uv-takes-python-packaging-by-storm
+https://treyhunner.com/2024/12/lazy-self-installing-python-scripts-with-uv/
 build-standalone https://simonwillison.net/2024/Dec/3/python-build-standalone-astral/
 scripts https://koaning.io/til/pyperclip/
 build standalone https://gregoryszorc.com/blog/2024/12/03/transferring-python-build-standalone-stewardship-to-astral/
@@ -656,7 +651,7 @@ pain points
 
 https://news.ycombinator.com/item?id=32258783
 https://venthur.de/2021-06-26-python-packaging.html
-https://pythonspeed.com/articles/distributing-software/ https://pgjones.dev/blog/trusted-plublishing-2023/
+https://pythonspeed.com/articles/distributing-software/ https://pgjones.dev/blog/trusted-plublishing-2023/ https://dev.to/ldrscke/trusted-publishing-it-has-never-been-easier-to-publish-your-python-packages-3dfn
 
 🗄 `list-of-python-pkg-terminology.md`
 

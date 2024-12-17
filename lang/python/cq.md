@@ -35,7 +35,7 @@ PG http://paulgraham.com/popular.html
 ## benchmark
 
 > There are lies, damned lies and benchmarks. https://github.com/pydantic/jiter
-🎗️ https://danluu.com/anon-benchmark/ https://danluu.com/why-benchmark/ https://jpcamara.com/2024/12/01/speeding-up-ruby.html
+🎗️ https://danluu.com/anon-benchmark/ https://danluu.com/why-benchmark/ https://jpcamara.com/2024/12/01/speeding-up-ruby.html https://benhoyt.com/writings/go-version-performance-2024/
 
 LINUX
 * _time_: `/usr/bin/time -v` eetailed output w/ memory stats https://github.com/egoist/dum https://news.ycombinator.com/item?id=30226742

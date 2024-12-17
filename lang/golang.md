@@ -66,6 +66,7 @@ import (
 ```
 
 JSON 
+* https://github.com/mailru/easyjson
 * https://www.youtube.com/watch?v=Osm5SCw6gPU https://akrabat.com/converting-json-to-a-struct-in-go/ https://eli.thegreenplace.net/2020/representing-json-structures-in-go/ https://www.youtube.com/watch?v=52yMK6p_cAg 
 * generate struct from JSON https://mholt.github.io/json-to-go/
 * https://github.com/orsinium-labs/jsony
@@ -319,6 +320,7 @@ gum style --foreground 212 --border-foreground 212 --border double \
 
 ## web
 
+* HTTP https://github.com/go-chi/chi
 * https://pocketbase.io/ 
 * https://echo.labstack.com/
 * start here https://www.youtube.com/watch?v=F9H6vYelYyU
@@ -348,7 +350,7 @@ func main() {
 * app config https://github.com/spf13/viper
 * https://github.com/go-chi/chi
 * vanilla https://eli.thegreenplace.net/2021/life-of-an-http-request-in-a-go-server/
-* _db_: `database/sql` (SQLAlchemy engine) gorm (SQLAlchemy ORM) https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://www.calhoun.io/using-postgresql-with-go  https://github.com/go-reform/reform https://entgo.io/ https://github.com/upper/db in mem KV https://github.com/sdslabs/kiwi generate SQL https://github.com/Masterminds/squirrel CLI https://upper.io/v4/ query builder https://github.com/doug-martin/goqu https://pboyd.io/posts/5-ways-to-write-a-go-database-model/ ORM https://github.com/uptrace/bun
+* _db_: https://github.com/cvilsmeier/go-sqlite-bench `database/sql` (SQLAlchemy engine) gorm (SQLAlchemy ORM) https://eli.thegreenplace.net/2019/to-orm-or-not-to-orm/ https://www.calhoun.io/using-postgresql-with-go  https://github.com/go-reform/reform https://entgo.io/ https://github.com/upper/db in mem KV https://github.com/sdslabs/kiwi generate SQL https://github.com/Masterminds/squirrel CLI https://upper.io/v4/ query builder https://github.com/doug-martin/goqu https://pboyd.io/posts/5-ways-to-write-a-go-database-model/ ORM https://github.com/uptrace/bun
 * _microservice_: https://github.com/micro/micro https://blog.m3o.com/2020/11/16/building-a-blog-with-micro.html
 * frameworks: Buffalo, Gin, Echo; hot reload for Gin https://github.com/cosmtrek/air https://github.com/go-goyave/goyave https://github.com/cloudwego/hertz
 * routing: https://benhoyt.com/writings/go-routing/

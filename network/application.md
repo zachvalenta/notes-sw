@@ -389,6 +389,7 @@ ssh -NL local-port:env-host.domain.io:remove-port env-jumpbox.domain.io
 ```
 
 za
+* https://github.com/joknarf/ssh-para
 * key shape? https://news.ycombinator.com/item?id=42251958
 * https://news.ycombinator.com/item?id=41785511
 * https://github.com/quantumsheep/sshs

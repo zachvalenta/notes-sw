@@ -216,6 +216,7 @@ requests.get(artifactory_url, verify=False, auth=(user, pw)).json()['children']
 
 ---
 
+* https://github.com/adamperkowski/nvrs
 * https://calmcode.io/datasets/dependencies
 * db of deps across org https://dmd.tanna.dev/
 

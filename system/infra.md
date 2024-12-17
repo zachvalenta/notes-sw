@@ -26,6 +26,7 @@ workflow engine or task queue https://news.ycombinator.com/item?id=34163888 http
 * `system.md` factors
 
 TAXONOMY 🧠 https://chatgpt.com/c/673a5946-7948-8004-9a56-e3b60009dccd https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
+> hyperscale https://blog.jetbrains.com/pycharm/2024/12/the-state-of-python/#trend-6-most-python-web-apps-run-on-hyperscale-clouds
 * _cloud-native_: dependent on cloud services
 * _lift-and-shift_: on-prem but on a dumb cloud instance
 > Did you have one huge server in the office? Well, now you get one huge server in AWS EC2 and copy your app to it. You’ll also pay extreme prices for that privilege.

@@ -330,6 +330,10 @@ za
 * sink https://ceph.io/ceph-storage/ https://github.com/minio/minio https://stackoverflow.com/questions/56627446/docker-compose-how-to-use-minio-in-and-outside-of-the-docker-network https://alexwlchan.net/2020/08/s3-keys-are-not-file-paths
 * _flat file_: meant for config, no way to represent relationships or handle concurrency (e.g. prevent dirty read); some structure via delimiters, new lines https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37
 
+### moka
+
+https://github.com/deliro/moka-py
+
 ### memcached
 
 * _is?_: volatile cache https://news.ycombinator.com/item?id=23689549 aka application caching layer
