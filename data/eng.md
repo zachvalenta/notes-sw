@@ -154,6 +154,7 @@ TIMEZONES
 
 ---
 
+* Bruin, Cue https://news.ycombinator.com/item?id=42442812
 * https://www.youtube.com/watch?v=kGT4PcTEPP8
 * https://sre.google/sre-book/table-of-contents/ chapter 26
 * clean up https://news.ycombinator.com/item?id=34578324 https://en.wikipedia.org/wiki/Instruction_pipelining https://joblib.readthedocs.io/en/latest/index.html https://news.ycombinator.com/item?id=34578324 https://arpit.substack.com/p/how-grab-stores-and-processes-millions https://news.ycombinator.com/item?id=34483402 visidata https://www.visidata.org/blog/2020/ten/

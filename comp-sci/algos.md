@@ -447,7 +447,7 @@ TOP OF MIND 🧠 https://chatgpt.com/c/67461bc1-0414-8004-af66-535909317a42
 
 ZA
 * _simple_: 🗄 `/algos`
-* _binary_: 🗄 `/algos`; using BST (❌ log O of n average case and O of n worst case, sequential access ✅ faster mutative operations) [Bhargava 11.205]
+* _binary_: 🗄 `/algos`; using BST (❌ log O of n average case and O of n worst case, sequential access ✅ faster mutative operations) [Bhargava 11.205] https://avi.im/blag/2024/galloping-search/
 * _breadth-first (bfs)_: 🗄 `/algos` https://healeycodes.com/practical-intro-to-graphs/
 * _depth-first (dfs)_:
 > Doing great work is a depth-first search whose root node is the desire to. So "If at first you don't succeed, try, try again" isn't quite right. It should be: If at first you don't succeed, either try again, or backtrack and then try again. http://paulgraham.com/greatwork.html

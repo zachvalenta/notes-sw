@@ -133,7 +133,8 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 # 🏗️ OPERATIONALIZE
 
-* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666 https://github.com/BCG-X-Official/artkit https://www.youtube.com/watch?v=pGZo9gR5q_M https://gentrace.ai/ https://github.com/traceloop/openllmetry
+* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666 https://github.com/BCG-X-Official/artkit https://www.youtube.com/watch?v=pGZo9gR5q_M https://gentrace.ai/ https://github.com/traceloop/openllmetry https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse https://news.ycombinator.com/item?id=42441258
+
 * gradient-boosted trees better for audit than neural nets
 * https://roadmap.sh/mlops
 * https://news.ycombinator.com/item?id=35438192
@@ -178,7 +179,7 @@ https://chatgpt.com/c/675b9317-4bc4-8004-a0a5-b9d683ebd3d8 (now deleted)
 * `algos.md` search > bm25
 📚
 * https://www.amazon.com/gp/product/1098150961
-* build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch
+* build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch https://www.alldayta.com/#product-demo
 
 HOWTO (LEARN BY BUILDING FOR DROR) 🧠 https://chatgpt.com/c/6756f3e6-1260-8004-9363-655f156489d9
 ```txt
@@ -252,8 +253,6 @@ BYO
 * https://www.saaspegasus.com/guides/django-websockets-chatgpt-channels-htmx
 * https://github.com/langgenius/dify
 * https://github.com/BerriAI/litellm
-
-> https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse
 
 * _langchain_: https://zackproser.com/blog/office-oracle-overview https://www.amazon.com/dp/1835083463
 > We mentioned some of the emerging criticisms about LangChain in the previous Radar. Since then, we’ve become even more wary of it. While the framework offers a powerful set of features for building applications with large language models (LLMs), we’ve found it to be hard to use and overcomplicated. LangChain gained early popularity and attention in the space, which turned it into a default for many developers. However, as LangChain is trying to evolve and keep up with the fast pace of change, it has become harder and harder to navigate those changes of concepts and patterns as a developer. We’ve also found the API design to be inconsistent and verbose. As such, it often obscures what is actually going on under the hood, making it hard for developers to understand and control how LLMs and the various patterns around them actually work. We’re moving LangChain to the Hold ring to reflect this. In many of our use cases, we’ve found that an implementation with minimum use of specialized frameworks is sufficient. Depending on your use case, you may also want to consider other frameworks such as Semantic Kernel, Haystack or LiteLLM.  https://www.thoughtworks.com/radar/languages-and-frameworks/langchain

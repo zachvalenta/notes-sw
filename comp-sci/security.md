@@ -469,7 +469,7 @@ PAK/PAKE https://en.wikipedia.org/wiki/Password-authenticated_key_agreement http
 
 macOS keychain https://chatgpt.com/c/67169518-4498-8004-9299-20713115c9e9
 
-* _passkey_: https://world.hey.com/dhh/passwords-have-problems-but-passkeys-have-more-95285df9
+* _passkey_: https://world.hey.com/dhh/passwords-have-problems-but-passkeys-have-more-95285df9 https://news.ycombinator.com/item?id=42413539
 
 PASSWORD MANAGER
 * _Bitwarden_: has a CLI; alternative https://github.com/AChep/keyguard-app

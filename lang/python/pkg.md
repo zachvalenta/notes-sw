@@ -542,6 +542,17 @@ https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
 * with Github Actions https://github.com/astral-sh/setup-uv https://pythonbytes.fm/episodes/show/405/oh-really
 * https://www.bitecode.dev/p/uv-tricks
 
+## 24.12 workflow
+
+```sh
+├── pyenv
+│   └── python
+│   └──── pip
+│   └──── pipx
+```
+
+I use pyenv to install Python itself. The whole can install multiple versions
+
 # 🟨️ ZA
 
 ## history / standards
