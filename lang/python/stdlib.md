@@ -357,6 +357,7 @@ GUI
 
 📜 https://click.palletsprojects.com/en/8.1.x
 
+* basic
 ```python
 @click.group()
 def cli():
@@ -364,12 +365,48 @@ def cli():
 @cli.command()
 def command_one():
     logger.info("this is command one!")
-@cli.command()
-def command_two():
-    logger.info("this is command two!")
 if __name__ == "__main__":
     cli()
 ```
+```sh
+python $SCRIPT command-one
+```
+
+* default cmd
+```python
+@click.group(invoke_without_command=True)
+@click.pass_context
+def cli(ctx):
+    if ctx.invoked_subcommand is None:
+        ctx.invoke(command_one)
+
+@cli.command()
+def command_one():
+    logger.info("this is command one!")
+
+if __name__ == "__main__":
+    cli()
+```
+```sh
+python $SCRIPT
+```
+
+---
+
+* can encapsulate in dataclass
+```python
+@dataclass
+class Pipeline:
+    @click.group()
+    def cli():
+        pass
+    @cli.command()
+    def command_one():
+        Util.strip_metadata()
+if __name__ == '__main__':
+    Pipeline.cli()
+```
+
 * `python script.py`
 ```python
 #!/usr/bin/env python
