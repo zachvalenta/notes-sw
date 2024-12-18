@@ -163,6 +163,7 @@ queue.popleft()  # shift aka enque
 
 ---
 
+* Doggerland, Bering Land Bridge https://gizmodo.com/the-famous-bering-land-bridge-was-more-like-a-swamp-geologists-say-2000539043 https://en.wikipedia.org/wiki/Doggerland
 * mind map https://en.wikipedia.org/wiki/Mind_map https://www.dendron.so/ https://github.com/vimwiki/vimwiki
 * concept map https://en.wikipedia.org/wiki/Concept_map https://cmap.ihmc.us/docs/learn.php
 

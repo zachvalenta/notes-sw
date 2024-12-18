@@ -627,19 +627,23 @@ DELETE FROM <tab> WHERE id=3;  -- https://notso.boringsql.com/posts/deletes-are-
 
 ## functions
 
+💡 better to have this in application code https://www.youtube.com/watch?v=atwwf0qWpYg [20:30]
+
 FUNCTION
 * _function_: built-in function provided by dbms
 * has return value https://stackoverflow.com/a/771959
 * e.g. SQLite `substr()`
 
-PROC
+### proc
+
 * _procedure_: user-defined function
 * no return value https://stackoverflow.com/a/771959
 * aka stored procedure
 * impl via procedural language availble in dbms
 * too many and you've got business logic split btw application and db https://news.ycombinator.com/item?id=24845300
 
-TRIGGER
+### trigger
+
 * _trigger_: hook e.g. on record update write previous state to archive/audit table https://www.youtube.com/watch?v=LFIAqFt9z2s
 * alternative to audit table is abadoning update-in-place entirely https://www.hytradboi.com/2022/baking-in-time-at-the-bottom-of-the-database
 * avoid data updates by tracking things from which current info can be derived i.e. DOB instead of age
@@ -652,7 +656,10 @@ CREATE TRIGGER actor_trigger AFTER INSERT ON actor
 ;
 ```
 
-AGGREGATE 📙 Beaulieu ch. 8
+### aggregate
+
+📙 Beaulieu ch. 8
+
 * _aggregate_: function that returns single val from result set https://www.postgresql.org/docs/12/tutorial-agg.html 🗄 scalar
 * operates on whole table or on group 📙 Beaulieu 8.149
 * can't use in WHERE clause

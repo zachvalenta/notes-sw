@@ -1075,3 +1075,11 @@ mysql -u $USER $DB < $BACKUP.sql
 * GUI: SQL Developer; comment `CMD ALT /` exec `CTRL /`
 * Oracle dev https://stackoverflow.com/users/146325/apc
 * _Sybase_: SAP counterpart
+
+## 🌐 PlanetScale
+
+📜 https://planetscale.com/
+
+* based on Youtube's Vitess https://vitess.io/
+* horizontal scaling through sharding
+* doesn't use functions https://www.youtube.com/watch?v=atwwf0qWpYg [20:00] 🗄️ `sql.md` DML > functions
