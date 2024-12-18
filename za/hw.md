@@ -393,7 +393,6 @@ __WhatsApp__ 🗓 summer 2018
 
 * howto https://www.youtube.com/watch?v=AzVn5H0ZNVM https://www.youtube.com/watch?v=K5GeaoJCsoI
 * livestream https://til.simonwillison.net/youtube/livestreaming
-* https://www.jeffgeerling.com/blog/2018/how-i-record-my-own-conference-presentations
 * OBS https://obsproject.com/ https://news.ycombinator.com/item?id=22748247 https://www.youtube.com/watch?v=QCpuTSFVohQ
 * ScreenFlow, Camtasia (Khan)
 * screenshare tool https://www.useloom.com/ https://www.youtube.com/playlist?list=PL4cUxeGkcC9hKBg2mU8Hat4-NedlubC3C https://github.com/wulkano/kap

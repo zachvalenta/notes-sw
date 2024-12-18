@@ -66,6 +66,7 @@ TYPES
 
 ---
 
+* tons expire everyday https://www.domcop.com/ https://github.com/tonywangcn/ten-million-domains https://medium.com/@tonywangcn/27-6-of-the-top-10-million-sites-are-dead-6bc7805efa85
 * https://bsky.app/profile/itch.io/post/3lcu6h465bs2n
 * https://news.ycombinator.com/item?id=42307604
 > Subsequent requests can (but don't always) reuse the DNS, TCP and TLS setup but a new roundtrip is still needed each time the server is consulted, for example for an API call or a new page. https://calpaterson.com/latency.html

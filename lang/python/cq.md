@@ -84,6 +84,7 @@ if __name__=='__main__':
 
 ## start here
 
+* https://byroot.github.io/ruby/json/2024/12/15/optimizing-ruby-json-part-1.html
 * _path_: heuristic for thinking about what to optimize i.e. 99% of your app's execution branches can probably be pretty slow https://blog.phusion.nl/2018/09/18/migrating-passenger-from-cxx-to-go/
 * https://thume.ca/2023/12/02/tracing-methods/
 * https://blog.miguelgrinberg.com/post/is-python-really-that-slow
@@ -596,11 +597,16 @@ per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
 * `python/runtime.md` REPL
 * `telemetry` logging
 
-librarties
+LIBS
+* _eliot_: https://github.com/itamarst/eliot 
 * _loguru_: ✅ https://github.com/Delgan/loguru 
+* _structlog_: https://github.com/hynek/structlog
 
 ---
 
+* hstdlib https://docs.python.org/3/howto/logging.html https://docs.python.org/3/howto/logging-cookbook.html GUI https://github.com/busimus/cutelog
+
+* flush https://stackoverflow.com/a/51362214
 https://rednafi.com/python/no_hijack_root_logger/
 icecream for print debugging https://github.com/gruns/icecream
 * people don't use format/f-strings in logging
@@ -610,4 +616,3 @@ icecream for print debugging https://github.com/gruns/icecream
 * can unbuffer w/ `PYTHONUNBUFFERED=1` https://docs.python.org/3/using/cmdline.html?highlight=pythonunbuffered#envvar-PYTHONUNBUFFERED
 * Docker won't show logs from Flask dev server in real-time unless logs set to unbuffered although I don't know why https://github.com/sclorg/s2i-python-container/issues/157 https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
 * add logs without updating source https://github.com/yiblet/inquest
-* _libraries_: https://stackoverflow.com/a/51362214 https://github.com/BNMetrics/logme https://github.com/hynek/structlog https://github.com/itamarst/eliot stdlib https://docs.python.org/3/howto/logging.html https://docs.python.org/3/howto/logging-cookbook.html GUI https://github.com/busimus/cutelog

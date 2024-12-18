@@ -263,7 +263,7 @@ asymmetric
 * _memory-hard_: resistant to brute forcing with parallelism (hackers typically use GPUs) bc large mem requirements https://en.wikipedia.org/wiki/Memory-hard_function https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 
 ALGOS
-* _argon_: https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://en.wikipedia.org/wiki/Argon2
+* _argon_: https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://en.wikipedia.org/wiki/Argon2 https://github.com/hynek/argon2-cffi
 * _bcrypt_: https://en.wikipedia.org/wiki/Bcrypt
 * _crypt_: https://en.wikipedia.org/wiki/Crypt_(C)
 * _scrypt_: https://en.wikipedia.org/wiki/Scrypt

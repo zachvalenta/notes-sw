@@ -348,6 +348,7 @@ https://github.com/deliro/moka-py
 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
 
 > just use postgres https://martinheinz.dev/blog/105
+* pipelines https://medium.com/@tonywangcn/27-6-of-the-top-10-million-sites-are-dead-6bc7805efa85
 * https://www.youtube.com/watch?v=WQ61RL1GpEE
 * https://www.youtube.com/watch?v=5TRFpFBccQM
 * implementation http://aosabook.org/en/nosql.html

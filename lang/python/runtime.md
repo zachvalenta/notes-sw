@@ -299,6 +299,10 @@ thread-safe https://realpython.com/python-thread-lock/
 
 📙 Beazley ch. 15
 
+> Python was really designed originally, from what I understand, to be a kind of glue language between different C programs. https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
+
+---
+
 * howto https://kenschutte.com/python-swap-ints/
 * simplistic interpreter = C extensions = Python for datascience https://lucumr.pocoo.org/2018/7/13/python/
 * can write extensions in Rust https://towardsdatascience.com/nine-rules-for-writing-python-extensions-in-rust-d35ea3a4ec29 https://github.com/RustPython/RustPython https://blog.jerrycodes.com/python-trends-in-2023/ https://www.peterbaumgartner.com/blog/wrapping-a-rust-crate-in-a-python-package/ https://github.com/fulcrum-so/ziggy-pydust https://pythonspeed.com/articles/intro-rust-python-extensions https://pythonspeed.com/articles/intro-rust-python-extensions/

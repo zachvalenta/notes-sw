@@ -178,6 +178,24 @@ transactions & isolation levels 📙 Beaulieu 12
 * nothing can change transaction except another update 📙 Conery 335
 * uses `fsync` http://aosabook.org/en/nosql.html https://sirupsen.com/napkin/problem-10-mysql-transactions-per-second
 
+## CAP theorem
+
+---
+
+Petrov ch. 11
+
+🗄 `algos.md` probabilistic data structures
+
+* https://www.youtube.com/watch?v=_RbsFXWRZ10 https://softwareengineeringdaily.com/2023/07/25/cap-theorem/
+* _CAP theorem_: tradeoffs if network partition
+* _consistency_: ACID
+* eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
+* _availability_: res for req
+* _partition tolerance_: works offline 📙 Conery 336
+* C: refuse to incoming reads/writes
+* A, P: (db remains available but other cluster members becoming inconsistent)
+* choose consistency 📙 `evans-linux.pdf` 2
+
 ## consistency
 
 🧠 https://chatgpt.com/c/6717a9cd-1f04-8004-8686-4758cb6fe382
@@ -203,28 +221,19 @@ transactions & isolation levels 📙 Beaulieu 12
 * _dirty read_: read uncommitted data
 * e.g. transaction 1 updates a row, transaction 2 reads the updated row before transaction 1 commits the update, transaction 1 rolls back the change, transaction 2 will have read data that is considered never to have existed https://retool.com/blog/whats-an-acid-compliant-database/
 
-RETRY
+## retry
+
+🗄️ `security.md` DOS
+💻 https://github.com/zachvalenta/DOS-lab
+🧠 https://claude.ai/chat/dec00ad7-12fc-4879-bccf-86db78d879d2
+📹  https://www.youtube.com/watch?v=BxikFuvaT1Y @ 3:30
+
+* _backoff_: time btw retry https://www.youtube.com/watch?v=BxikFuvaT1Y [3:20]
+
+LIBS
 * _recur_: https://github.com/dbohdan/recur
-* _stamina_: https://github.com/hynek/stamina https://www.youtube.com/watch?v=BxikFuvaT1Y
+* _stamina_: https://github.com/hynek/stamina
 * _tenacity_: https://github.com/jd/tenacity
-
-## CAP theorem
-
----
-
-Petrov ch. 11
-
-🗄 `algos.md` probabilistic data structures
-
-* https://www.youtube.com/watch?v=_RbsFXWRZ10 https://softwareengineeringdaily.com/2023/07/25/cap-theorem/
-* _CAP theorem_: tradeoffs if network partition
-* _consistency_: ACID
-* eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
-* _availability_: res for req
-* _partition tolerance_: works offline 📙 Conery 336
-* C: refuse to incoming reads/writes
-* A, P: (db remains available but other cluster members becoming inconsistent)
-* choose consistency 📙 `evans-linux.pdf` 2
 
 # 🟨 ZA
 

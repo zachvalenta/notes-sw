@@ -702,6 +702,7 @@ https://github.com/dry-python/returns Land of Lisp epilogue https://docs.python.
 
 📙 Bugayenko elegant obj https://www.elegantobjects.org/
 
+https://hynek.me/talks/subclassing/
 SOLID https://realpython.com/solid-principles-python/
 
 OBJECTS

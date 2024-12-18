@@ -81,6 +81,7 @@ taxonomy
 ## htmx
 
 > But as browsers proliferated and the Web grew from a document-delivery platform into a software-delivery platform, JavaScript became, arguably, the most widely deployed language runtime in the world. 📰 Ford what is code?
+💻 https://github.com/zachvalenta/flask-htmx
 📜
 > https://pragprog.com/titles/mvhtmx/server-driven-web-apps-with-htmx/
 * https://htmx.org/

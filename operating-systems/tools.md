@@ -399,6 +399,7 @@ if i % 100 == 0:
     progress = ((i + 1) / float(len(qd))) * 100.0
     print('%.2f%%' % progress)
 ```
+> how does pip do it? https://github.com/hynek/doc2dash
 * _alive_: https://github.com/rsalmei/alive-progress
 * _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
 * _pv_: same as progress? https://catonmat.net/unix-utilities-pipe-viewer

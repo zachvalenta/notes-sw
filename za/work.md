@@ -118,6 +118,7 @@ ZA
 
 ---
 
+* sponsor https://github.com/sponsors/hynek
 * start a business https://news.ycombinator.com/item?id=42384544 https://news.ycombinator.com/item?id=42379592
 * https://opensourcepledge.com/
 * https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight

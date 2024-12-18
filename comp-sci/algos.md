@@ -9,7 +9,7 @@
 📚
 * https://www.amazon.com/Coding-Interview-Patterns-Nail-Your/dp/1736049135
 * ✅ Bhargava grokking algorithms
-* Christian algorithms to live by
+* ✅ Christian algorithms to live by
 * Dasgupta algorithms
 * MacCormick computed
 * MacCormick nine algorithms

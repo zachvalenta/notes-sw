@@ -650,6 +650,7 @@ aaS
 * _Zenrows_: https://www.zenrows.com/solutions/scraper-api
 
 LIBS
+* _crawlee_: https://github.com/apify/crawlee
 * _crawly_: Elixir https://github.com/elixir-crawly/crawly
 * _katana_: https://github.com/projectdiscovery/katana
 * _scrapling_: https://github.com/D4Vinci/Scrapling
@@ -686,7 +687,6 @@ scrape
 * Scrapy
 * table data https://www.visidata.org/blog/2020/ten/#4-scrape-html-table-data-from-a-webpage
 * _Git scraping_: version control your scrapes https://simonwillison.net/2020/Nov/14/personal-data-warehouses/ 16:15
-* _crawlee_: https://github.com/apify/crawlee
 
 parse
 * BeautifulSoup
@@ -766,6 +766,31 @@ Selenium
 * finding binary https://stackoverflow.com/a/22130211/6813490
 * tutorial https://intoli.com/blog/running-selenium-with-headless-chrome/
 
+## server gateway (SGI)
+
+🗄️
+* `application.md` utils
+* `infra.md` web servers
+🛠️ debug HTTP requests https://github.com/cle-b/httpdbg
+
+WSGI
+* interface btw app server and framework bc pre-WSGI which framework you picked determined which web server you could use https://www.pythonpodcast.com/episode-43-wsgi-2/ [8:00]
+> The Web Server Gateway Interface (or "WSGI" for short) is a standard interface between web servers and Python web application frameworks. By standardizing behavior and communication between web servers and Python web frameworks, WSGI makes it possible to write portable Python web code that can be deployed in any WSGI-compliant web server. WSGI is documented in PEP 3333. https://docs.python-guide.org/scenarios/web/#wsgi
+* _interface_: contract e.g. "app server will do these things in this way as specified by WSGI and app framework will hook into them in this way as specified by WSGI and that way gunicorn will work with any WSGI-compliant app framework and Flask will work with any-WSGI compliant app server"
+* _constraints_: single-threaded https://stackoverflow.com/a/32217701 doesn't do async or WebSockets https://pythonbytes.fm/episodes/show/48/garbage-collection-and-memory-management-in-python https://www.pythonpodcast.com/episode-43-wsgi-2/ @ 18:00
+* _supported by_: servers (gunicorn, uWSGI, mod_wsgi) frameworks (Flask, Django, Falcon, Pyramid)
+* https://stackoverflow.com/a/38685758/6813490 https://talkpython.fm/episodes/show/13/flask-web-framework-and-much-much-more @ 30:00 https://djangodeconstructed.com/2018/02/15/how-a-request-becomes-a-response-diving-deeper-into-wsgi
+
+ASGI
+* _ASGI_: async alternative to WSGI
+* frameworks: Django (Channels) Quart (Flask on async) https://talkpython.fm/blog/posts/talk-python-rewritten-in-quart-async-flask/ Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
+* servers: uvicorn, Daphne
+* FastAPI https://github.com/pomponchik/cbfa
+* sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
+
+RSGI
+* _RSGI_: for Rust https://github.com/emmett-framework/granian/blob/master/docs/spec/RSGI.md 🗄️ `infra.md` granian
+
 ## serde
 
 📙 Beazley ch. 6
@@ -775,13 +800,16 @@ Selenium
 
 ALTERNATIVES
 * dataclasses
-* _jiter_: 🎯 written in Rust by works with Python objs https://github.com/pydantic/jiter https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python https://ai.pydantic.dev/
 * _msgspec_: 🎯 https://github.com/jcrist/msgspec 🗄️ pydantic
 * _orjson_: https://github.com/ijl/orjson
 * _pickle_: ❌  https://docs.python.org/3/library/persistence.html no one uses any more https://nedbatchelder.com/blog/202006/pickles_nine_flaws.html
 * _pydantic_: https://docs.pydantic.dev/latest/concepts/serialization/ https://news.ycombinator.com/item?id=14477434
 
-### JSON
+### 🪲 jiter
+
+* written in Rust but works with Python objs https://github.com/pydantic/jiter https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python https://ai.pydantic.dev/
+
+### json
 
 📜 https://docs.python.org/3/library/json.html
 🛠️ flatten https://github.com/simonw/json-flatten
@@ -814,7 +842,7 @@ python -m json.tool myfile.json > myfile.json.formatted
 print(json.dumps(item, indent=4, sort_keys=True))  # only works when keys are primitives https://stackoverflow.com/a/47007417 https://stackoverflow.com/a/55179673
 ```
 
-### Marshmallow
+### 🍫 Marshmallow
 
 📜 https://marshmallow.readthedocs.io/en/stable/
 
@@ -867,31 +895,6 @@ artist_schema = ArtistSchema(only=("name", "songs"))  # subset
 # DESERIALIZE https://marshmallow.readthedocs.io/en/3.0/quickstart.html#deserializing-objects-loading
 # validate https://www.cameronmacleod.com/blog/better-validation-flask-marshmallow https://medium.com/bitproject/recently-i-created-a-restful-api-with-flask-where-my-models-had-many-parameters-75da1db870b7
 ```
-
-## SGI
-
-🗄️
-* `application.md` utils
-* `infra.md` web servers
-🛠️ debug HTTP requests https://github.com/cle-b/httpdbg
-
-WSGI
-* interface btw app server and framework bc pre-WSGI which framework you picked determined which web server you could use https://www.pythonpodcast.com/episode-43-wsgi-2/ [8:00]
-> The Web Server Gateway Interface (or "WSGI" for short) is a standard interface between web servers and Python web application frameworks. By standardizing behavior and communication between web servers and Python web frameworks, WSGI makes it possible to write portable Python web code that can be deployed in any WSGI-compliant web server. WSGI is documented in PEP 3333. https://docs.python-guide.org/scenarios/web/#wsgi
-* _interface_: contract e.g. "app server will do these things in this way as specified by WSGI and app framework will hook into them in this way as specified by WSGI and that way gunicorn will work with any WSGI-compliant app framework and Flask will work with any-WSGI compliant app server"
-* _constraints_: single-threaded https://stackoverflow.com/a/32217701 doesn't do async or WebSockets https://pythonbytes.fm/episodes/show/48/garbage-collection-and-memory-management-in-python https://www.pythonpodcast.com/episode-43-wsgi-2/ @ 18:00
-* _supported by_: servers (gunicorn, uWSGI, mod_wsgi) frameworks (Flask, Django, Falcon, Pyramid)
-* https://stackoverflow.com/a/38685758/6813490 https://talkpython.fm/episodes/show/13/flask-web-framework-and-much-much-more @ 30:00 https://djangodeconstructed.com/2018/02/15/how-a-request-becomes-a-response-diving-deeper-into-wsgi
-
-ASGI
-* _ASGI_: async alternative to WSGI
-* frameworks: Django (Channels) Quart (Flask on async) https://talkpython.fm/blog/posts/talk-python-rewritten-in-quart-async-flask/ Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
-* servers: uvicorn, Daphne
-* FastAPI https://github.com/pomponchik/cbfa
-* sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
-
-RSGI
-* _RSGI_: for Rust https://github.com/emmett-framework/granian/blob/master/docs/spec/RSGI.md 🗄️ `infra.md` granian
 
 # 🟨 ZA
 
