@@ -123,6 +123,12 @@ foo = pl.DataFrame({"id": [1, 2, 3], "manufacturer": ["apple", "samsung", "motor
 bar = pl.DataFrame({"mpn": [1, 2, 3, 4], "manufacturer": ["apple", "samsung", "motorola", "samsung"], "bar_price": [100.0, 250.0, 300.0, 150.00]})
 ```
 
+READ
+```python
+return pl.read_csv(filepath, columns=['eid', 'sku'])  # slightly faster https://github.com/zachvalenta/capp-brand-enablement
+# 📍 learn about streaming
+```
+
 JOINS
 ```python
 # basic

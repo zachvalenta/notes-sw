@@ -93,10 +93,10 @@ Color.GREEN[0]  # TypeError: 'Color' object is not subscriptable
 
 # 🎡 ITERATION
 
+* _enumerate_: returns index and value https://docs.python.org/3/library/functions.html#enumerate
 ```python
-# aka elementwise operation https://docs.python.org/3/library/functions.html#enumerate
-# can use `start` but might as well specify but using slice on sequence itself
 for ind, val in enumerate(seq, start=starting_index):
+for ind, val in enumerate(seq[start_index:stop_index]):
 ```
 
 ---

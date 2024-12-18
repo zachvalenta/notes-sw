@@ -378,6 +378,13 @@ c.crawl()
 
 ---
 
+METHODS
+| type      | called on | arg          | variable access | use case                                          |
+|-----------|-----------|--------------|-----------------|---------------------------------------------------|
+| instance  | instance  | instance     | instance, class |                                                   |
+| class     | class     | class        | class           | factory                                           |
+| static    | class     | user-defined | --------------- | just plain func namespaced to class; Ramalho [371]|
+
 * virtual method https://stackoverflow.com/questions/622132/what-are-virtual-methods
 * the use of class methods https://stackoverflow.com/a/38276/6813490
 * https://stackoverflow.com/questions/22616559/use-cases-for-property-vs-descriptor-vs-getattribute
@@ -398,12 +405,6 @@ class Clock:
        return str(self.hour) + ':' + min[-2:]
 ```
 
-METHODS
-| type      | called on | arg          | variable access | use case                                          |
-|-----------|-----------|--------------|-----------------|---------------------------------------------------|
-| instance  | instance  | instance     | instance, class |                                                   |
-| class     | class     | class        | class           | factory                                           |
-| static    | class     | user-defined | --------------- | just plain func namespaced to class; Ramalho [371]|
 * _self_: parameter to instance method whose arg is instance itself https://martinheinz.dev/blog/81
 * _cls_: parameter to class method whose arg is class itself
 * impl via descriptor https://www.youtube.com/watch?v=ANLjBsWHshc

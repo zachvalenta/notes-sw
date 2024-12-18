@@ -404,6 +404,12 @@ if i % 100 == 0:
 * _pv_: same as progress? https://catonmat.net/unix-utilities-pipe-viewer
 * _rich_: https://realpython.com/python-rich-package/
 * _tqdm_: ✅ https://github.com/tqdm/tqdm
+* can't figure out how to work with reading CSV in Polars
+```python
+# https://github.com/zachvalenta/capp-mpn-match
+from tqdm import tqdm
+for foo in tqdm(iterable, desc="reading something big"):
+```
 
 ## disk (dust/df)
 
@@ -825,7 +831,6 @@ TRASH
 ## jobs
 
 🗄 `infra.md` task
-🛠️ retry https://github.com/dbohdan/recur
 
 NOHUP
 * _nohup_: separates process and terminal https://unix.stackexchange.com/a/148698
