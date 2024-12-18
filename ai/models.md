@@ -101,6 +101,7 @@ CONTEXT
 
 ---
 
+* https://thezvi.substack.com/p/the-second-gemini
 * voice https://news.ycombinator.com/item?id=42397210
 * no search/tags/org, looks low-effort
 * https://simonw.substack.com/p/video-scraping-using-google-gemini
@@ -150,8 +151,11 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 ## agents
 
+🔍 https://mychaelangelo.github.io/ai_agents_marketmap/
+
 ---
 
+* LLM controlling your browser
 https://ai.pydantic.dev/
 https://www.thediff.co/archive/offshoring-and-ai-agents/
 https://github.com/ishan0102/vimGPT

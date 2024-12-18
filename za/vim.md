@@ -16,6 +16,8 @@
 
 ## 进步
 
+sketch out what you still remember of your previous config and then restart https://www.youtube.com/@teej_dv/videos
+
 * markdown https://www.youtube.com/watch?v=1Lmyh0YRH-w
 * config https://github.com/jdhao/nvim-config
 https://www.youtube.com/watch?v=6pAG3BHurdM
@@ -98,6 +100,7 @@ ZA
 
 # 🦚 ALTERNATIVES
 
+* https://news.ycombinator.com/item?id=42447012
 * _dte_: https://github.com/craigbarnes/dte
 * _kibi_: https://github.com/ilai-deutel/kibi
 

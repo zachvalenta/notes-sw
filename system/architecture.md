@@ -11,7 +11,7 @@
 📚
 * Buelta python architecture
 * Ford fundamentals of software architecture
-> they have more books together https://www.amazon.com/Software-Architecture-Trade-Off-Distributed-Architectures/dp/1492086894 https://www.amazon.com/Building-Evolutionary-Architectures-Automated-Governance/dp/1492097543
+* Ford evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
 
 ## 进步

@@ -363,6 +363,7 @@ CANDIDATES FOR CAPP https://chatgpt.com/c/674796f6-286c-8004-b0d5-6ae4d0decccc
 * https://github.com/datasette/datasette-queries
 * Metabase
 
+* Claude data analysis tool
 * AI / plain English https://news.ycombinator.com/item?id=41907719
 
 * _business intelligence (BI)_: explorer (for non-devs) + graphs

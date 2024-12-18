@@ -468,6 +468,7 @@ One thing I think I do well is technical communication. This shows up in:
 
 ---
 
+https://dylanhuang.com/blog/simple-markdown-resume/
 https://github.com/koaning
 
 Things I can do:...I only want to be in the trenches.

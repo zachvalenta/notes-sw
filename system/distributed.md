@@ -198,10 +198,15 @@ transactions & isolation levels 📙 Beaulieu 12
 
 * _lock_: db disallows other processes to access object (table, row, etc.)
 * 'held' by transaction https://jahfer.com/posts/innodb-locks/
-* handle at app level by throwing error or retry https://lincolnloop.com/blog/distributed-locking-django/
+* handle at app level by throwing error https://lincolnloop.com/blog/distributed-locking-django/
 * _latch_: lightweight lock 📙 Kleppmann 82
 * _dirty read_: read uncommitted data
 * e.g. transaction 1 updates a row, transaction 2 reads the updated row before transaction 1 commits the update, transaction 1 rolls back the change, transaction 2 will have read data that is considered never to have existed https://retool.com/blog/whats-an-acid-compliant-database/
+
+RETRY
+* _recur_: https://github.com/dbohdan/recur
+* _stamina_: https://github.com/hynek/stamina https://www.youtube.com/watch?v=BxikFuvaT1Y
+* _tenacity_: https://github.com/jd/tenacity
 
 ## CAP theorem
 

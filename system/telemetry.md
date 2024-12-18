@@ -15,6 +15,8 @@
 
 # 📊 METRICS
 
+📙 Ford https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237
+
 ---
 
 https://vadimkravcenko.com/shorts/habits-of-great-software-engineers/#the-art-of-approximation https://vadimkravcenko.com/technical-manager-guide/
