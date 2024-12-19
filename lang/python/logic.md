@@ -419,7 +419,7 @@ sorted(colors, key=lambda s: s.lower())  # ['cyan', 'Goldenrod', 'purple', 'Salm
 sorted(colors, key=lambda c: (len(c), c.lower()))  # can also use tuple for combinatorial i.e. sort by length and then, if tie in length, use lexicographical (lowercased)
 ```
 
-## metaprogramming
+# 🪷 METAPROGRAMMING
 
 🗄
 * `plt.md` typing
@@ -432,14 +432,14 @@ sorted(colors, key=lambda c: (len(c), c.lower()))  # can also use tuple for comb
 
 ---
 
-🧠 https://chatgpt.com/c/6720e992-860c-8004-a2dd-2cc826753ecf
+🧠 https://chatgpt.com/c/6720e992-860c-8004-a2dd-2cc826753ecf https://claude.ai/chat/0783b7f1-cde6-4e22-b4d3-83199e90fc71
 * https://dev.to/karishmashukla/a-practical-guide-to-metaprogramming-in-python-691
 * Flask debugger, typing, metaprogramming vs monkey patching https://news.ycombinator.com/item?id=34611969
 * _metaprogramming_: functions that manipulate existing code e.g. decorators, inspection 📙 Beazley 329
 * function that takes some other code, wraps it, and returns https://medium.com/@saurabhkukade_96600/meta-programming-in-python-7fb94c8c7152
 * also synonym for process (build tools, dep mgmt) https://missing.csail.mit.edu/2020/metaprogramming/
 
-### decorators
+## decorators
 
 ---
 

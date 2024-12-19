@@ -457,10 +457,10 @@ MESSAGE
 CONVENTIONAL COMMIT
 * labels: lowers cognitive overhead = enables more frequent commits https://github.com/commitizen/cz-cli https://github.com/zachvalenta/interview-capp/commits/main/
 ```sh
-src: func|fix|rf
-test
-dep
+src: func|rf|fix
 doc
+dep
+test
 ```
 * tried out the Gum impl but didn't like loss of readline and didn't understand what scope was doing https://github.com/charmbracelet/gum https://github.com/zachvalenta/capp-denv-bin/blob/main/jx
 > 📍 gotta think Charm has a realine component somewhere

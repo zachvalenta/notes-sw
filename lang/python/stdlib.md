@@ -357,7 +357,7 @@ GUI
 
 📜 https://click.palletsprojects.com/en/8.1.x
 
-* basic
+BASIC
 ```python
 @click.group()
 def cli():
@@ -372,20 +372,32 @@ if __name__ == "__main__":
 python $SCRIPT command-one
 ```
 
-* default cmd
+DEFAULT CMD
 ```python
+# SANS DATACLASS
 @click.group(invoke_without_command=True)
 @click.pass_context
 def cli(ctx):
     if ctx.invoked_subcommand is None:
         ctx.invoke(command_one)
-
 @cli.command()
 def command_one():
     logger.info("this is command one!")
-
 if __name__ == "__main__":
     cli()
+# WITH DATACLASS
+@dataclass
+class Cmd:
+    @click.group(invoke_without_command=True)
+    @click.pass_context
+    def cli(ctx):
+        if ctx.invoked_subcommand is None:
+            ctx.invoke(Cmd.command_one)
+    @cli.command()
+    def command_one():
+        logger.info("this is command one!")
+if __name__ == '__main__':
+    Cmd.cli()
 ```
 ```sh
 python $SCRIPT
