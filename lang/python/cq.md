@@ -218,6 +218,7 @@ def step_impl(context):  # function identifier identical; must take `context` as
 
 📜 https://coverage.readthedocs.io/
 
+* impl https://nedbatchelder.com/blog/202411/coveragepy_originally.html
 * alternative https://www.youtube.com/watch?v=X9aXWeLC_C0 https://github.com/plasma-umass/slipcover
 * design: `sys.settrace` https://nedbatchelder.com/blog/202406/coverage_at_a_crossroads.html
 * `.coverage`: result files; read by `coverage report` and `coverage html`

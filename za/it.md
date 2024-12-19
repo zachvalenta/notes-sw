@@ -305,6 +305,10 @@ CURRENT
 │   └──── people     # 📦 people.git
 │   └──── photos
 │   └──── tracking   # 📦 tracking.git
+│   └── 🧪 PROJECTS  # used to have this in my notes `rg ZVPROJ $ZV_DIR/personal/people; rg ZVPROJ $ZV_DIR/notes`
+│   └──── algos
+│   └──── dataclerk
+│   └──── jay-valenta
 ```
 
 ## media server

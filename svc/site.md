@@ -47,7 +47,7 @@ ZA
 * how to fake being a pythonista in 2024
 > I wish there was a good place to learn “the other parts” of C++, the build systems, using static analyzers, testing, dependency management, etc. https://news.ycombinator.com/item?id=34229802
 
-## repos (micro for now)
+## projects
 
 🗄️ `it.md` fs
 
