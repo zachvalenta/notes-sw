@@ -124,6 +124,12 @@ def dot(v1, v2):  # vectors
 dot([1,2,3], [4,5,6])
 ```
 
+## inference
+
+* https://github.com/samuel-vitorino/lm.rs
+* https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
+* https://www.youtube.com/watch?v=J_3jrS3FalY
+
 ## transformers
 
 📙 https://www.amazon.com/dp/1098136799

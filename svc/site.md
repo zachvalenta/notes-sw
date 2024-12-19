@@ -118,6 +118,7 @@ MICRO
 
 ---
 
+* https://lwn.net/Articles/997784/
 * https://drewdevault.com/2019/03/04/sourcehut-design.html https://avi.im/blag/2024/galloping-search/
 🛠️ Sketch, Figma
 🇬🇧 UK design system https://govukvue.org/

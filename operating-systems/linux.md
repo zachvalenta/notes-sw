@@ -649,6 +649,8 @@ telemetry
 
 ## concurrency
 
+> Concurrency is hard, unfortunately. https://news.ycombinator.com/item?id=42406919
+> You must be this tall to write multi-thread code. https://bholley.net/blog/2015/must-be-this-tall-to-write-multi-threaded-code.html https://news.ycombinator.com/item?id=42407167
 🗄
 *️ `architecture/system.md` distributed
 * `python/runtime.md` concurrency
@@ -658,7 +660,7 @@ telemetry
 
 ---
 
-start here https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/ threads are evil https://www.sqlite.org/faq.html https://avi.im/blag/2024/s3-log/
+start here https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/ threads are evil https://www.sqlite.org/faq.html https://avi.im/blag/2024/s3-log/ https://assets.bitbashing.io/papers/concurrency-primer.pdf https://github.com/mrkline/concurrency-primer
 
 > Yes, goroutines and channels are great: a super-lightweight task abstraction that’s very cheap compared to traditional multithreading. On the other hand, Go only gives us the fundamental building blocks: it’s up to us to make sure we use them safely, avoiding data races or deadlocks. And that can be hard to do! Rust doesn’t have goroutines, but it does have async tasks, which are much like goroutines, only with the usual Rust safety guarantees. There are also some excellent third-party frameworks such as Tokio and Rayon that can just take a bunch of data and automatically figure out the most efficient way to crunch it in parallel. https://bitfieldconsulting.com/posts/rust-and-go
 

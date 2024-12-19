@@ -48,6 +48,7 @@ ZA
 
 📜 https://arrow.apache.org/
 🗄️ `protocols.md` file fmt / serialization
+📹 https://www.youtube.com/watch?v=I0RtuAiBPh0
 
 * in-memory format for columnar data https://news.ycombinator.com/item?id=29010103 https://github.com/adriangb/pgpq
 > This question comes up quite often. Parquet is a _file_ format, Arrow is a language-independent _in-memory_ format. You can e.g. read a parquet file into a typed Arrow buffer backed by shared memory, allowing code written in Java, Python, or C++ (and many more!) to read from it in a performant way (i.e. without copies). https://news.ycombinator.com/item?id=29010103
@@ -352,7 +353,7 @@ LINTING
 * https://github.com/darold/pgFormatter
 * https://sqlfum.pt/
 
-## BI (csvbase)
+## BI (dash)
 
 🗄
 * `architecture.md` no code, baked data
@@ -361,10 +362,15 @@ LINTING
 
 > Analysis, even SQL-based analysis, isn't like design, where a handful of people create stuff and everyone else is a consumer, with clear lines between them. It's much, much fuzzier. Though analysts were always our first adopters, lots of people - PMs, engineers, marketing managers, executives, support agents, operations leads, and all job titles in between - periodically wrote queries. These people occupied the middle part of the distribution between analysts and non-analysts that we thought would be vacant. Users weren't bimodal like we expected, but continuous. https://benn.substack.com/p/work-like-an-analyst
 
+DASH https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
+* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
+* _callback_: update chart https://dash.plotly.com/tutorial#controls-and-callbacks
+* _control_: hit callback
+* _Dash Design Kit (DDK)_: no need for HTML/CSS
+
 ---
 
 CANDIDATES FOR CAPP https://chatgpt.com/c/674796f6-286c-8004-b0d5-6ae4d0decccc
-* Dash
 * https://github.com/finos/perspective https://perspective.finos.org/
 * https://github.com/datasette/datasette-queries
 * Metabase
@@ -379,13 +385,6 @@ TOOLS / DASHBOARDS
 * RAG https://github.com/vanna-ai/vanna
 * _Blazer_: https://github.com/ankane/blazer
 * _Briefer_: https://github.com/briefercloud/briefer https://pythonbytes.fm/episodes/show/405/oh-really
-* _csvbase_: 🎯 https://csvbase.com/ https://csvbase.com/blog/10
-* _Dash_: 🎯 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
-* callback = update chart https://dash.plotly.com/tutorial#controls-and-callbacks
-* https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
-* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable
-* control = hit callback
-* Dash Design Kit (DDK) = no need for HTML/CSS
 * _Dataherald_: query using natural language via LLM https://github.com/Dataherald/dataherald
 * _Datalens_: 🎯 run locally https://datalens.tech/ https://news.ycombinator.com/item?id=37657772
 * _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872

@@ -410,25 +410,6 @@ https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * 📙 MacCormick chapter 6
 * _k means_: group points into K clusters; unsupervised https://stats.stackexchange.com/a/56504
 
-## Monte Carlo
-
-🗄 `math.md` Markov chain
-
-https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
-
-* _Monte Carlo tree search (MCTS)_: domain independent https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 12:00
-* tree: roots = next moves, branches = n order paths
-* search: takes weights from neural net, traverse branches, report back
-* _Monte Carlo_: 📙 Christian chapter 9 https://pbpython.com/monte-carlo.html https://news.ycombinator.com/item?id=27379310
-* determine weights for MCTS
-* weights = secret sauce https://github.com/leela-zero/leela-zero
-* https://easylang.dev/apps/tutorial_mcarlo.html
-* aka simulation 📙 Konnikova bluff Zuckerman simons
-* https://sirupsen.com/napkin/problem-16-simulation 
-* https://www.erichgrunewald.com/posts/simulations-of-diversity-hiring/
-* https://conversationswithtyler.com/episodes/annie-duke/
-* _minimax_: predecessor to MCTS https://www.youtube.com/watch?v=Fbs4lnGLS8M @ 1:15 used in chess 4:30 https://marginalrevolution.com/marginalrevolution/2021/05/maradona-plays-minimax.html
-
 ## search
 
 🗄

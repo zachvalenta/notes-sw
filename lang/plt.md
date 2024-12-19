@@ -247,6 +247,7 @@ https://drewdevault.com/2021/08/11/Debugging-your-new-PL.html
 
 ## steps
 
+* https://lwn.net/Articles/997784/
 * 📙 Conery 216
 * _assemble_: convert from HLA to assembly
 * _disassemble_: show assembly for HLA https://realpython.com/python311-new-features/#faster-code-execution https://florian-dahlitz.de/blog/disassemble-your-python-code 
@@ -657,6 +658,7 @@ HOWTO
 > Second, C has a tendency to be conservative, changing and growing very slowly. This is a feature, and one that is often undervalued by developers. (In fact, I’d personally like to see a future revision that makes the C language specification smaller and simpler, rather than accumulate more features.) - https://nullprogram.com/blog/2018/11/21/
 
 SYSTEMS PROGRAMMING
+* https://news.ycombinator.com/item?id=42406893
 * languages: C, C++, Rust
 * Golang for containers https://github.com/sablierapp/sablier
 * things people write with: dbms, web server, compiler, shell https://drewdevault.com/2021/05/30/Come-build-your-project.html

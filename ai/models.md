@@ -112,7 +112,7 @@ CONTEXT
 
 https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonwillison.net/2024/Dec/9/llama-33-70b/
 
-> 🎗️ llamafile https://simonwillison.net/2024/Jun/17/cli-language-models/ https://simonwillison.net/2023/Nov/29/llamafile/ "this should be technically impossible" (having a single unmodified binary run across mac/Windows/linux) https://www.youtube.com/watch?v=QUXQNi6jQ30 [20:00] inference https://github.com/samuel-vitorino/lm.rs https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
+> 🎗️ llamafile https://simonwillison.net/2024/Jun/17/cli-language-models/ https://simonwillison.net/2023/Nov/29/llamafile/ "this should be technically impossible" (having a single unmodified binary run across mac/Windows/linux) https://www.youtube.com/watch?v=QUXQNi6jQ30 [20:00]
 * mini23 uses 8B just w/ VS Code + browser + macOS core services
 * Qwen req 32B
 * Simon has 64B
@@ -197,7 +197,7 @@ I'm still new to the space, so take with a grain of salt https://chatgpt.com/sha
 
 ---
 
-⭐️ start here https://github.com/theam/rag-workshop-pydata-nyc-2024 https://www.youtube.com/watch?v=C4u1SjGiT_8
+⭐️ start here https://github.com/theam/rag-workshop-pydata-nyc-2024 https://www.youtube.com/watch?v=C4u1SjGiT_8 https://www.youtube.com/watch?v=XU2xhCHqILE
 
 https://news.ycombinator.com/item?id=42360685
 https://github.com/koaning
@@ -270,6 +270,7 @@ BYO
 
 ---
 
+data prep kit https://www.youtube.com/watch?v=tqRvmg2F_gI https://github.com/IBM/data-prep-kit
 > assume we'd use transfer or reinforcement learning vs. getting into the weeds with adjusting the weights (finetuning, LoRA, PEFT)
 
 https://changelog.com/practicalai/295
