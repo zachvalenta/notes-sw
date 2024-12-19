@@ -424,7 +424,20 @@ used by Logfire, no indexes https://talkpython.fm/episodes/transcript/487/buildi
 
 ## 🦆 DuckDB
 
+🗄️ `eng.md` DuckDB
 📙 https://www.manning.com/books/duckdb-in-action
+
+* query dataframes
+```python
+import duckdb
+import pandas as pd
+df = pd.DataFrame(pd.read_csv($FILE))  # create df
+con = duckdb.connect()  # connect to DuckDB
+con.register("my_df", df)  # register df with DuckDB
+my_query = """ SELECT * FROM my_df """  # use registered df in query
+query_res = con.execute(my_query).df()  # exec query
+query_res.to_parquet('file/path.parquet')  # save
+```
 
 ---
 
