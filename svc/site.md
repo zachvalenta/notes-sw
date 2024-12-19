@@ -6,15 +6,61 @@
 
 https://realpython.com/courses/programming-sockets/
 
-* _19_: Markdown-to-HTML util https://github.com/zachvalenta/markdown-2-html
+* _19_: Markdown-to-HTML util https://github.com/zachvalenta/markdown-2-html https://github.com/zachvalenta/site-drafts https://github.com/zachvalenta/site-content
 * _18_: add content https://github.com/zachvalenta/zachvalenta.github.io/commit/15f304a8de18b7fef8f9cac1a6e9b778e5526d22
 * _15_: init https://github.com/zachvalenta/zachvalenta.github.io/tree/54e8edd39c3a46a5867a399c3f60582693860018 https://github.com/zachvalenta/zachvalenta.github.io/commit/9c92238b0e6a35bda7afe505c1c7b4c965af7e11
 
 # 📰 CONTENT
 
-🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/
+---
 
-## fs
+🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/
+🏔️ Julia Evans https://www.youtube.com/@wizardzines/videos
+> the zines has been her only job since 2019
+
+* addendum https://blog.plover.com/math/PM.html https://blog.plover.com/calendar/poor-richards-almanack.html
+* factors: smart, wise, taste
+* companies I want to work for https://www.wave.com/en/blog/world/
+
+HOW THINGS WORK
+* movies https://www.theringer.com/2024/8/21/24225522/the-arms-race-behind-where-movies-shoot https://www.theringer.com/2024/9/23/24252627/biggest-takeaways-netflix-data-dump-2024-streaming https://www.theringer.com/2024/9/25/24253629/how-to-make-your-own-tv-show-and-get-netflix-to-buy-it-mark-duplass-penelope-netflix https://www.theringer.com/2024/9/30/24258856/how-should-movie-and-tv-stars-be-paid
+https://kaiwenwang.com/stack
+https://gwern.net/matt-levine https://www.felixstocker.com/blog/geheimnisvoll https://news.ycombinator.com/item?id=41975993
+https://gwern.net/book-writing
+
+JOB BOARDS
+* Github has a job profile?
+* why did Stack Overflow kill their job board? why did they bring it back with Indeed?
+* why aren't there tentpoles in this space akin to Hackernews and Lobste.rs?
+> get set up with RSS btw and use for Lobste.rs
+
+OBSESSIVES
+* https://git-how.com/
+* https://blog.plover.com/misc/three-corners-4.html
+* bob is honest https://robertheaton.com/chatgpt/ https://uk.linkedin.com/in/robertjheaton
+* https://en.wikipedia.org/wiki/Rosetta_Reitz
+
+ZA
+* EDI and Stedi: papering over a bad spec for fun and profit https://news.ycombinator.com/item?id=41919907
+> kinda like Typescript to JS, OCaml to JS
+* dev journal https://www.peterbaumgartner.com/blog/wrapping-a-rust-crate-in-a-python-package/
+* how to fake being a pythonista in 2024
+> I wish there was a good place to learn “the other parts” of C++, the build systems, using static analyzers, testing, dependency management, etc. https://news.ycombinator.com/item?id=34229802
+
+## repos (micro for now)
+
+🗄️ `it.md` fs
+
+MONOREPO
+* reduces toil of copying CQ learnings across repos
+
+MICRO
+* facilitates sharing
+* prevents pileup in global dep cache
+* prevent cluttering single repo
+* repo tag for grep: `nmb` | `sandbox`
+
+## sitemap
 
 ```sh
 ├── dir
@@ -44,6 +90,10 @@ https://realpython.com/courses/programming-sockets/
 
 🗄️ `sociology.com` RSS
 
+* blog
+* repo https://github.com/hynek/stamina
+* Youtube https://www.youtube.com/watch?v=BxikFuvaT1Y
+
 ---
 
 * email/RSS https://travisjeffery.com/subscribe/
@@ -58,12 +108,6 @@ https://realpython.com/courses/programming-sockets/
 🏔️
 * Warmerdam https://calmcode.io
 * Willison
-
-MANY SMALL REPOS
-* facilitates sharing
-* global dep cache prevents pileup
-* prevent single repo from clutter
-* repo tag for grep: `nmb` | `sandbox`
 
 # 🕸️ DESIGN
 
@@ -119,6 +163,7 @@ MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
 
 UNIQUE
 * https://shreyans.org/
+* https://shaaddsouza.com/
 * blocks https://www.ntietz.com/ https://thisisimportant.net/
 * https://borretti.me/
 * https://robinrendle.com/
@@ -364,6 +409,18 @@ https://jzhao.xyz/posts/networked-thought https://x.com/_jzhao/status/1815280245
 ## 🔲 Zola
 
 📜 https://github.com/getzola/zola https://www.getzola.org/
+
+* places to update to add new section
+```sh
+├── content
+│   └── new_section
+│   └────── _index.md
+│   └────── first_entry.md
+├── templates
+│   └────── _index.md  # add link
+│   └────── new_section.md  # listview
+│   └────── new_section_page.md  # template for individual entries
+```
 
 * features: hot reload, tags, TOC https://chevyray.dev/blog/creating-175-fonts/
 * used by https://github.com/ChevyRay/chevyray.dev https://haskellbook.com/
