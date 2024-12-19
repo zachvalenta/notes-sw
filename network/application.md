@@ -47,6 +47,22 @@ START HERE
 * https://www.roguelynn.com/words/spotifys-love-hate-relationship-with-dns/
 * https://softwareengineeringdaily.com/2017/06/06/dns-with-phil-stanhope/
 
+## packets
+
+💡 DNS query packet ask "what's the IP address for this domain?" and the DNS server responds packet containing the answer
+💻 https://github.com/zachvalenta/proj-dns
+🔗 https://stripe.com/blog/secret-life-of-dns
+
+SECTIONS
+* binary but not encrypted
+* _header_: metadata incl query id (to match responses with requests) flags (query | response, recursive query desired)
+* _question_: domain name being looked up, query type (like A for ipv4 address, AAAA for ipv6, MX for mail servers)
+* _answer_: resolved records (e.g. ip addresses), ttl, record type and class
+* _authority_: info about authoritative nameservers
+
+TOOLING
+* _dnspython_: create https://github.com/rthalley/dnspython
+
 ## records
 
 TYPES

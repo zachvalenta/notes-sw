@@ -7,6 +7,7 @@
 📊 https://console.aws.amazon.com/console/home
 🩻 https://health.aws.amazon.com/health/status
 📜 https://aws.amazon.com/documentation/ https://github.com/awsdocs
+> Never rely on an AWS service until you've understood it's quotas. They are reliable services, but to maintain that standard, they have to impose limits at many different levels of the plane. There are some good "quota surprises" tucked away in there. https://news.ycombinator.com/item?id=42405446
 📻 https://podcast.cloudonaut.io/
 📙 https://github.com/open-guides/og-aws
 🔍 https://www.expeditedssl.com/aws-in-plain-english https://www.youtube.com/@BeABetterDev https://cloudonaut.io/tag/

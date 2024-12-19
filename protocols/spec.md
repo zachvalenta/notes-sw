@@ -398,21 +398,25 @@ f"{val:.{4}}"  # 13.5
 
 📚 Petzold code ch. 15
 
-📍 learn C, learn how to edit binary https://www.youtube.com/watch?v=-eDY7yh-CyA https://github.com/sharkdp/hexyl https://danluu.com/edit-binary/
+TOOLING
+* _hexyl_: ✅ viewer https://github.com/sharkdp/hexyl 🗄️ uuinfo
 
-* used bc easier to convert to binary than decimal [Petzold code 181 https://www.youtube.com/watch?v=dPxCGlW9lfM 4:20]
+---
+
+📍 learn C, learn how to edit binary https://www.youtube.com/watch?v=-eDY7yh-CyA https://danluu.com/edit-binary/
+
+* used bc easier to convert to binary than decimal 📙 Petzold code [181] https://www.youtube.com/watch?v=dPxCGlW9lfM [4:20]
 * _hexit_: hex digit (1 nybble) https://www.youtube.com/watch?v=dPxCGlW9lfM [4:30]
+* used for reverse engineering? https://github.com/radareorg/radare2
 
 TOOLING
-* used for reverse engineering? https://github.com/radareorg/radare2
-* `hexdump -C <file>` https://www.youtube.com/watch?v=-eDY7yh-CyA 1:50
+* `hexdump -C <file>` https://www.youtube.com/watch?v=-eDY7yh-CyA [1:50]
 * _fq_: query https://github.com/wader/fq 
 * _hevi_: https://github.com/Arnau478/hevi
 * _hexabyte_: 🎯 editor https://github.com/thetacom/hexabyte
 * _hexedit_: Ubuntu https://news.ycombinator.com/item?id=23762626
 * _hexed_: 🎯 browser https://hexed.it/
 * _HexFiend_: macOS https://github.com/HexFiend/HexFiend
-* _hexyl_: viewer https://github.com/sharkdp/hexyl
 * _ImHex_: 🎯 editor https://github.com/WerWolv/ImHex 
 
 # 🟨 ZA
@@ -430,12 +434,13 @@ CASES
 🏔️ https://eieio.games/blog/writing-down-every-uuid/
 
 TOOLS
-* identify: UUID, Snowflake https://github.com/Racum/uuinfo
-* generate: pwgen https://www.youtube.com/watch?v=G3aH2WYJxGA shortuuid https://github.com/skorokithakis/shortuuid https://github.com/lithammer/shortuuid
 ```sh
 uuidgen | tr '[:upper:]' '[:lower:]' | pbcopy  #  https://weiyen.net/articles/useful-macos-cmd-line-utilities
 python -c "import random, string; print('\n'.join(''.join(random.choices(string.ascii_uppercase + string.digits, k=4)) for _ in range(20)))"
 ```
+* _uuinfo_: ✅ identify UUID, Snowflake IDs https://github.com/Racum/uuinfo 🗄️ hexyl
+* _pwgen_: generate https://www.youtube.com/watch?v=G3aH2WYJxGA
+* _shortuuid_: https://github.com/skorokithakis/shortuuid https://github.com/lithammer/shortuuid
 
 TYPES
 * _DUNS_: unique for businesses as legal entities; require for government contracts, to be a supplier to big businesses, for SSL certs; e.g. `00-186-7803` for Apple
