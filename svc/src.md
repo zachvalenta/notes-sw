@@ -371,7 +371,8 @@ toggle=
 > Also, as a general rule, you can at any given time get away with changing more than you think. Introducing change is like pulling off a bandage: the pain is a memory almost as soon as you feel it. http://paulgraham.com/popular.html
 * Martin clean code https://qntm.org/clean https://www.youtube.com/watch?v=wf68VDObVX0 https://www.youtube.com/watch?v=RkxVB1eNdCc
 * McConnell code complete
-* Ousterhout https://www.amazon.com/Philosophy-Software-Design-2nd/dp/173210221X against uncle bob https://www.youtube.com/watch?v=k0kTux_YNHw shallow vs. deep https://lobste.rs/s/qpzubc/don_t_refactor_like_uncle_bob_please
+* Ousterhout https://www.amazon.com/Philosophy-Software-Design-2nd/dp/173210221X against uncle bob https://www.youtube.com/watch?v=k0kTux_YNHw shallow vs. deep https://lobste.rs/s/qpzubc/don_t_refactor_like_uncle_bob_please https://benhoyt.com/writings/python-api-design/
+
 
 ---
 

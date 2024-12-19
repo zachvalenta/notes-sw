@@ -8,9 +8,9 @@
 
 ## 进步
 
-* learn how to program k8
 * learn how to program v8
-* _24_: models (Apple refurbished, nuphy air 75, keychron k8)
+
+* _24_: models (Apple refurbished, nuphy air 75, keychron k8, keychron v8)
 
 # 📐 LAYOUTS
 

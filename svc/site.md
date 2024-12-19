@@ -4,7 +4,19 @@
 
 ## 进步
 
-https://realpython.com/courses/programming-sockets/
+update linux fs to account for work machine
+
+TO ADD
+> where to put Manning book notes? how to keep track of what your reading? -> it has a repo in `projects`
+> figure out which Manning books you're going to use your credits on
+* finish going through notebook
+* https://github.com/zachvalenta/python-from-the-guts
+* https://realpython.com/courses/programming-sockets/
+* GoT death calculator
+* outliers
+> 🎗️ https://github.com/zachvalenta/python-from-the-guts
+> how to work through book: notebook | REPL + repo doctest
+> This strategy revolves around writing a crate...for every section of every chapter...to reduce friction as much as possible, I opted to write (type) down my chapter notes as comments within the “section crates” themselves. This system allows me to co-locate my notes with my Rust code, and learn a bit extra about Cargo along the way. It also keeps me on the keyboard, either writing code or taking notes in the same files. https://nickgerace.dev/posts/how-i-read-the-rust-programming-language/
 
 * _19_: Markdown-to-HTML util https://github.com/zachvalenta/markdown-2-html https://github.com/zachvalenta/site-drafts https://github.com/zachvalenta/site-content
 * _18_: add content https://github.com/zachvalenta/zachvalenta.github.io/commit/15f304a8de18b7fef8f9cac1a6e9b778e5526d22

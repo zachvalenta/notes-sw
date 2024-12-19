@@ -617,3 +617,18 @@ icecream for print debugging https://github.com/gruns/icecream
 * can unbuffer w/ `PYTHONUNBUFFERED=1` https://docs.python.org/3/using/cmdline.html?highlight=pythonunbuffered#envvar-PYTHONUNBUFFERED
 * Docker won't show logs from Flask dev server in real-time unless logs set to unbuffered although I don't know why https://github.com/sclorg/s2i-python-container/issues/157 https://learndjango.com/tutorials/django-docker-and-postgresql-tutorial
 * add logs without updating source https://github.com/yiblet/inquest
+
+## style
+
+🗄️ `stdlib.md` lint/fmt
+📜 https://peps.python.org/pep-0008/ https://github.com/google/styleguide/blob/gh-pages/pyguide.md
+
+* string quotes: single|double both fine https://peps.python.org/pep-0008/#string-quotes black/ruff use double quotes https://github.com/astral-sh/ruff
+
+---
+
+* _line continuation_: "join consecutive lines if the last character of the line is a backslash" [HG 3.2.5 pg. 56] can use parens https://stackoverflow.com/a/53180/6813490
+* PEP8 error codes https://pep8.readthedocs.io/en/release-1.7.x/intro.html#error-codes
+* line length http://jakevdp.github.io/blog/2017/11/09/exploring-line-lengths-in-python-packages/
+* https://nickjanetakis.com/blog/80-characters-per-line-is-a-standard-worth-sticking-to-even-today
+* blank lines: 2 after imports, 2 before functions, 1 before methods https://www.python.org/dev/peps/pep-0008/#blank-lines

@@ -28,6 +28,7 @@
 * https://realpython.com/python-hash-table/
 * impl `__eq__` and `__hash__` (immutable) https://www.fluentpython.com/lingo/#hashable 📍📙 Ramalho [84,415]
 * if `a == b` + also `hash(a) and hash(b)`
+* enums https://realpython.com/python-enum/ https://florian-dahlitz.de/blog/why-you-should-use-more-enums-in-python
 ```python
 from enum import Enum
 class Color(Enum):
@@ -476,6 +477,7 @@ https://www.b-list.org/weblog/2023/dec/24/python-container-types/
 
 ---
 
+* dictview, lru_cache https://death.andgravity.com/caching-methods namedtuple, frozen dataclasses, fractions over floats https://www.textualize.io/blog/posts/7-things-about-terminals multiset https://www.youtube.com/watch?v=b-K1ujf8u_k&pp=ygUQcHl0aG9uIGZyb3plbnNldA%3D%3D
 https://treyhunner.com/2021/11/how-to-sort-a-dictionary-in-python/
 https://www.youtube.com/watch?v=oUt1feRoyvI
 * _mapping_: https://docs.python.org/3/glossary.html#term-mapping
@@ -624,7 +626,7 @@ print(*ur_list, sep="\n")  # https://stackoverflow.com/a/22695369
 """
 ```
 * 📍 https://docs.python.org/3/tutorial/stdlib2.html#tools-for-working-with-lists flatten https://realpython.com/python-flatten-list/
-* specialized array storage: array (typed) bytes (immutable, single byte i.e. 0-256) bytearray (byte but mutable) https://dbader.org/blog/python-arrays
+* specialized array storage: array (typed) bytes (immutable, single byte i.e. 0-256) bytearray (byte but mutable) https://dbader.org/blog/python-arrays https://realpython.com/python-array
 * impl as dynamic array https://docs.python.org/3/faq/design.html#how-are-lists-implemented-in-cpython
 * finding stuff
 ```python

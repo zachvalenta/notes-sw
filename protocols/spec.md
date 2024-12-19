@@ -56,6 +56,7 @@ cue vet person.cue
 
 ---
 
+* parser https://github.com/benhoyt/inih
 * use cases https://news.ycombinator.com/item?id=34074386 https://chatgpt.com/c/670d7768-62c8-8004-89e2-fd5a876700d7
 * alternative https://github.com/bazelbuild/starlark https://github.com/systeminit/si
 * not supported by VS Code's Markdown syntax highlighting https://stackoverflow.com/a/70456058/6813490 https://highlightjs.readthedocs.io/en/latest/language-requests.html

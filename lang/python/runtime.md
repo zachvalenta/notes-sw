@@ -191,7 +191,6 @@ https://github.com/brandtbucher/specialist
 Shannon plan, PEP 659, adaptive interpreter https://realpython.com/python311-new-features/#faster-code-execution
 
 misc
-* _contributing_: https://medium.com/@Captain_Joannah/so-you-want-to-contribute-to-cpython-gather-here-5a2694148ca4 http://emilyemorehouse.com/blog/015-my-path-to-becoming-a-python-core-developer/ http://lukasz.langa.pl/cv/ https://paper.dropbox.com/doc/Contributing-to-CPython--AuND60K_lABiNS7PHp0KZ9hoAg-JlgnduI6kw9MJIaGPpN9G
 * _portable_: https://www.scylladb.com/2019/02/14/the-complex-path-for-a-simple-portable-python-interpreter-or-snakes-on-a-data-plane/
 * _optimization_: minimize function calls and obj attr lookup https://gregoryszorc.com/blog/2019/01/10/what-i've-learned-about-optimizing-python/
 * why Python doesn't have `main()` https://news.ycombinator.com/item?id=23904313
@@ -201,8 +200,6 @@ misc
 * https://www.freecodecamp.org/news/hacking-together-a-simple-graphical-python-debugger-efe7e6b1f9a8/ https://github.com/puremourning/vimspector
 https://tenthousandmeters.com/blog/python-behind-the-scenes-6-how-python-object-system-works/
 CPython 🗄 `cpython-internals.pdf` https://talkpython.fm/episodes/show/240/a-guided-tour-of-the-cpython-source-code https://github.com/python/cpython https://news.ycombinator.com/item?id=34570315
-* has no formal spec https://www.pythonpodcast.com/cpython-formal-specification-episode-288/
-* _Python_: language spec; very much tied to CPython e.g. metaclasses https://news.ycombinator.com/item?id=23698846
 * _components_: stdlib in Python, core objects and IO in C
 * _PVM_: virtual machine https://leanpub.com/insidethepythonvirtualmachine/read
 * _CPython_: https://www.fluentpython.com/lingo/#CPython compiler (reference impl of lang spec) + PVM https://eli.thegreenplace.net/2010/09/18/python-internals-symbol-tables-part-1#id5; core written in C https://docs.python-guide.org/starting/which-python/#implementations libs written in Python https://realpython.com/python-logging-source-code/ how to contribute https://pythonbytes.fm/episodes/show/37/rule-over-the-shells-with-sultan internals https://log.beshr.com/python-311-speedup-part-1/
@@ -286,6 +283,72 @@ thread-safe https://realpython.com/python-thread-lock/
 * https://realpython.com/python313-free-threading-jit/
 * https://drew.silcock.dev/blog/everything-you-need-to-know-about-python-3-13/
 
+# 🌐 ECOSYSTEM
+
+STDLIB
+* new batteries in Rust https://baincapitalventures.com/insight/why-more-python-developers-are-using-rust-for-building-libraries/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+* how libs get in https://github.com/hukkin/tomli/issues/141#issuecomment-997999824
+
+PEPS https://peps.python.org/
+* _0_: establish what a PEP is
+* _8_: style guide
+* _20_: Zen of Python
+* _387_: no promise of backwards comptability https://news.ycombinator.com/item?id=26826158
+
+## contributing
+
+* https://medium.com/@Captain_Joannah/so-you-want-to-contribute-to-cpython-gather-here-5a2694148ca4
+* http://emilyemorehouse.com/blog/015-my-path-to-becoming-a-python-core-developer/
+* http://lukasz.langa.pl/cv/
+* https://paper.dropbox.com/doc/Contributing-to-CPython--AuND60K_lABiNS7PHp0KZ9hoAg-JlgnduI6kw9MJIaGPpN9G
+* https://mariatta.ca/posts/perks-of-python-core/
+* https://nedbatchelder.com/blog/201306/explaining_descriptors.html
+> Please give me space and don't shove. IMO some of the past posts on this subject are border-line abusive, leaving me feeling hounded and degraded (especially with respect to my writing style). Please be kind and let me continue to improve my contribution at my own pace. https://bugs.python.org/issue17894
+
+## design
+
+---
+
+* https://snarky.ca/tag/syntactic-sugar/
+📜 https://docs.python.org/3/faq/design.html
+* has no formal spec https://www.pythonpodcast.com/cpython-formal-specification-episode-288/
+* _Python_: language spec; very much tied to CPython e.g. metaclasses https://news.ycombinator.com/item?id=23698846
+* history: origins in ABC https://www.fluentpython.com/lingo/#ABC
+* readabillity: indentation for statement grouping via significant white space vs. semi-colons https://news.ycombinator.com/item?id=34936023
+* simplicity: `python -m this` https://peps.python.org/pep-0020/ `python -m antigravity` https://xkcd.com/353/
+* pain points: binaries, import system, version management, packaging, browser, native (mobile, desktop), speed (not built for multi-core https://twitter.com/mitsuhiko/status/1091802711908106240)
+* https://lukeplant.me.uk/blog/posts/pythons-disappointing-superpowers/
+
+## usage
+
+💡 second-best for everything
+
+* why not: typing, concurrency, perf
+> Python (which was the right initial choice because of our founding CTO’s technical background, but its concurrency support, performance, and extensive dynamism make us question whether it’s the right choice for a large-scale backend codebase). None of these was a major mistake, and for some (e.g. Python) the downsides are minimal enough that it’s cheaper for us to continue to pay the increased maintenance burden than to invest in migrating to something theoretically better, but if we were starting a similar codebase from scratch today we’d think hard about whether they were the right choice. https://danluu.com/simple-architectures/
+* popularity https://realpython.com/preview/python-news-november-2024/
+* in the browser: pyodide https://pycon-archive.python.org/2024/schedule/presentation/92/index.html https://github.com/pyscript/pyscript
+* teaching: Jupyter
+* web: Django, Flask, FastAPI
+* sys admin: Ansible, scripting
+* ML: data science, pytorch
+* security: network hacking, scraping
+* microcontrollers
+* industrial automation https://www.pythonpodcast.com/episode-114-industrial-automation-with-jonas-neubert/
+* finance https://www.openbb.co/
+* architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
+* GPU simulation https://news.ycombinator.com/item?id=40680737
+* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo
+* mesh analysis https://github.com/pyvista/pyvista
+* browser https://www.youtube.com/watch?v=Vh77_2-Z0vc
+
+## governance
+
+* corporate: internal language team at Google https://news.ycombinator.com/item?id=40176338
+* quasi-official: PyPA, PyCQA
+* people: Donald Stuft (PyPA) Raymond Hettinger (core) Tim Peters (Zen of Python `import this`, Timsort) Armin Ronacher (Flask) Brett Cannon (core) Nick Coghlan (core) Eli Bendersky (Google, buddies w/ Coghlan) https://mail.python.org/pipermail/python-committers/2019-February/006520.html
+* _Steering Council_: https://mail.python.org/pipermail/python-committers/2019-February/006520.html
+* _PSF_: https://simonwillison.net/2024/Sep/18/board-of-the-python-software-foundation/
+
 # 🟨️ ZA
 
 * auditing hooks https://stackoverflow.com/questions/63350394/how-to-set-up-and-use-python-audit-hooks https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP
@@ -309,7 +372,7 @@ thread-safe https://realpython.com/python-thread-lock/
 * Rust https://rustpython.github.io/
 * using other language in Python e.g. Julia https://www.peterbaumgartner.com/blog/incorporating-julia-into-python-programs/
 
-### PyO3
+### 🦀 PyO3
 
 📜 https://github.com/pyo3/pyo3
 
@@ -331,3 +394,23 @@ CAN BE SLOWER THAN PYTHON https://pythonspeed.com/articles/faster-text-processin
 * https://pycon-archive.python.org/2024/schedule/presentation/113/index.html
 * https://pythonspeed.com/articles/python-extension-performance/
 * https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust
+
+## versions
+
+---
+
+https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com/text/which-py.html https://www.nicholashairs.com/posts/major-changes-between-python-versions/
+* major https://en.wikipedia.org/wiki/History_of_Python#Table_of_versions
+* minor/patch https://blog.python.org/
+* switch to latest minor version after subsequent patch release https://www.b-list.org/weblog/2022/nov/08/python-311-gotcha/ https://pythonspeed.com/articles/upgrade-python-3.11/
+* _89_: initial
+* _00_: Python2
+* _08_: Python3 https://nedbatchelder.com/blog/201803/whats_in_which_python_3436.html
+* can't test Python2 code using Python3 if you're using parts of stdlib that have been deprecated between releases (urllib2, xrange)
+* Tauthon to backport Python3 features to Python2 https://www.pythonpodcast.com/tauthon-python-2-fork-episode-265/
+* 2to3 https://news.ycombinator.com/item?id=24461157
+* _18_: 3.7
+* _19_: 3.8 https://realpython.com/courses/cool-new-features-python-38/
+* _20_: Python 2 EoL
+* _3.11_: specializing adaptive interpreter https://peps.python.org/pep-0659/
+* _3.13_: JIT https://tonybaloney.github.io/posts/python-gets-a-jit.html

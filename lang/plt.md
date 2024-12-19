@@ -1022,6 +1022,7 @@ OPERATORS 📙 Nisan nand2tetris ch. 1-2 https://buttondown.com/hillelwayne/arch
 NAMES
 * _identifier_: user defined name; aka 'symbol' https://en.wikipedia.org/wiki/Symbol_table#Example
 * _keyword_: reserved and in use; getting shorter https://news.ycombinator.com/item?id=22474850 https://danluu.com/cli-complexity/
+* soft keywords https://mathspp.com/blog/til/pythons-soft-keywords
 * _reserved_: not in use
 
 VARIABLES

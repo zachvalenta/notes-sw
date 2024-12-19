@@ -367,6 +367,7 @@ LEVENSHTEIN DISTANCE
 * https://www.youtube.com/watch?v=kTS2b6pGElE
 * https://towardsdatascience.com/text-similarity-w-levenshtein-distance-in-python-2f7478986e75
 * https://xnacly.me/posts/2024/making-sql-keyword-suggestions-work/
+* BK-tree https://github.com/benhoyt/pybktree
 
 SEMANTICS
 * _substring_: common contiguous char 📙 Bhargava [179,182]

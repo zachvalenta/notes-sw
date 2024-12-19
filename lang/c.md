@@ -48,9 +48,11 @@ PROJECTS
 
 ## stdlib
 
+* how to use third-part deps https://github.com/benhoyt/inih
 * _libc_: POSIX spec for os stdlib; used by higher-levels languages for everything from networking to memory management https://wizardzines.com/comics/libc/ https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
 * _glibc_: most common impl of libc https://stackoverflow.com/a/11373143
 * _musl_: used by Alpine https://www.musl-libc.org/ https://news.ycombinator.com/item?id=23819500 https://www.etalabs.net/compare_libcs.html cleaner? https://drewdevault.com/2020/09/25/A-story-of-two-libcs.html
+
 # 🦑 RELATIVES
 
 ## 🧱 assembly

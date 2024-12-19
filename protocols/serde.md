@@ -207,6 +207,8 @@ DESIGN
 
 ## Parquet
 
+🗄️ `eng.md` DuckDB
+
 ---
 
 * Vortex https://news.ycombinator.com/item?id=41839773
