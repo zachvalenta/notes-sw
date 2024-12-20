@@ -394,15 +394,32 @@ DATA
 
 ## progress bars (tqdm)
 
+LINUX
+* _progress_: estimate remaining time on coretuil execution https://sirupsen.com/progress
+* _pv_: https://catonmat.net/unix-utilities-pipe-viewer Homebrew https://codeberg.org/a-j-wood/pv
+* 🚧 couldn't get it to work with markitdown https://claude.ai/chat/f366a934-9b72-4b30-b0a9-ee49d63aa8d4 https://chatgpt.com/c/6765cbe8-5df0-8004-a943-9041997cf4a7
+* color https://social.vivaldi.net/@ivarch/113659619955647945
+```sh
+gzip -c access.log > access.log.gz
+$CMD $STDIN $STDOUT
+pv $STDIN | $CMD $STDOUT
+
+cat > copy.dat
+$CMD $OPERATOR
+
+
+cat bigfile.dat | pv > copy.dat
+
+```
+
+PYTHON
+> how does pip do it? https://github.com/hynek/doc2dash
 ```python
 if i % 100 == 0:
     progress = ((i + 1) / float(len(qd))) * 100.0
     print('%.2f%%' % progress)
 ```
-> how does pip do it? https://github.com/hynek/doc2dash
 * _alive_: https://github.com/rsalmei/alive-progress
-* _progress_: 🎯 estimate remaining time on coretuil execution https://sirupsen.com/progress
-* _pv_: same as progress? https://catonmat.net/unix-utilities-pipe-viewer
 * _rich_: https://realpython.com/python-rich-package/
 * _tqdm_: ✅ https://github.com/tqdm/tqdm
 * can't figure out how to work with reading CSV in Polars
@@ -497,6 +514,11 @@ PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c
 * _rustscan_: https://github.com/RustScan/RustScan
 
 # ✏️ TEXT
+
+---
+
+* _fold_: https://blog.balthazar-rouberol.com/text-processing-in-the-shell#fold
+* _fmt_: fmt stdout https://github.com/Idnan/bash-guide#f-fmt
 
 ## awk
 
