@@ -426,6 +426,9 @@ ALTERNATIVES
 📜 https://duckdb.org/docs/ https://github.com/duckdb/duckdb
 📙 Needham https://www.manning.com/books/duckdb-in-action
 
+DESIGN
+* data sources: CSV, Excel, Google Sheets, Parquet, S3, Postgres, SQLite, Iceberg https://duckdb.org/docs/data/data_sources.html https://duckdb.org/community_extensions/extensions/gsheets.html
+
 CLI
 * install: Homebrew
 * from-first syntax https://duckdb.org/docs/sql/query_syntax/from.html#from-first-syntax

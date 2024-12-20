@@ -224,7 +224,7 @@ https://realpython.com/python-packages/#pudb-for-visual-debugging
 
 💡 Romer econ textbook idea
 🗄
-* `analytics.md` GUI
+* `analytics.md` BI, GUI
 * `doc.md` notes
 
 > Jupyter Notebooks are files that combine two content types: text/Markdown and executable Python code. https://www.pinecone.io/learn/retrieval-augmented-generation/

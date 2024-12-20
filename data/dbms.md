@@ -604,6 +604,12 @@ show collections  # view collections
 
 # 🐘 POSTGRES
 
+> There are extensions for almost everything you could want - AGE enables graph data structures and the user of the Cypher query language, TimescaleDB enables time-series workloads, Hydra Columnar provides an alternate columnar storage engine https://matt.blwt.io/post/building-a-postgresql-extension-line-by-line/
+> we’re seeing even more non-Postgres services rely on the Postgres wire protocol as a general-purpose Layer 7 protocol to provide client compatibility https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
+BYO extension https://matt.blwt.io/post/building-a-postgresql-extension-line-by-line/
+
+---
+
 🏔️ https://github.com/Olshansk/postgres_for_everything
 📙 Suzuki postgres internals https://www.interdb.jp/pg/
 🔗 https://challahscript.com/what_i_wish_someone_told_me_about_postgres
@@ -856,9 +862,15 @@ USAGE
 * atuin
 * iPython
 * prod! https://simonw.substack.com/p/video-scraping-using-google-gemini
+* WhatsApp https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
+* Basecamp
+> SQLite has also had a small resurgence thanks to Ruby on Rails 8.0 - 37signals has gone all in on SQLite, building a bunch of Rails modules like Solid Queue and configuring Rails to manipulate multiple SQLite databases via database.yml for this purpose.
+* social media
+> Bluesky uses SQLite for the Personal Data Servers - every user has their own SQLite database. https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
 
 ---
 
+> Beyond that, we’re starting to see more creative uses of SQLite rather than “just” a local ACID-compliant database. With the advent of tools like Litestream enabling streaming backups and LiteFS to provide distributed access, we can devise more interesting topologies. Extensions like CR-SQLite allow the use of CRDTs to avoid needing conflict resolution when merging changesets, as used in Corrosion. https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
 * replication, Rust rewrite https://github.com/tursodatabase/libsql https://news.ycombinator.com/item?id=42378843& https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/ limbo https://avi.im/blag/2024/faster-sqlite https://github.com/tursodatabase/limbo/
 * WASM https://news.ycombinator.com/item?id=41851051
 * durable object https://simonwillison.net/2024/Oct/13/zero-latency-sqlite-storage-in-every-durable-object/
