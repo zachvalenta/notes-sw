@@ -100,8 +100,9 @@ TLA+
 
 ## fuzz
 
+> Fuzzing is essentially about evaluating how a software system responds to unexpected and possibly invalid inputs. The question is, can you make the system under fuzzing behave in an unexpected or unforeseen manner? If a system correctly rejects all invalid inputs and behaves correctly under valid inputs, we say that the system is robust under fuzzing. https://rahul.gopinath.org/ https://www.fuzzingbook.org/
 * https://bitfieldconsulting.com/posts/bugs-fuzzing
-* provide random input, see what breaks https://www.fuzzingbook.org/ https://github.com/ffuf/ffuf https://github.com/google/atheris https://blog.burntsushi.net/projects/ https://github.com/ffuf/ffuf https://bitfieldconsulting.com/golang/bugs-fuzzing
+* provide random input, see what breaks https://github.com/ffuf/ffuf https://github.com/google/atheris https://blog.burntsushi.net/projects/ https://github.com/ffuf/ffuf https://bitfieldconsulting.com/golang/bugs-fuzzing
 > generally used to test software that parses complex inputs that follow a particular format, protocol, or are otherwise structured...from a security standpoint, fuzzing is also used to uncover security vulnerabilities in programs that parse inputs from untrusted sources (e.g. the internet). Fuzzing for long periods without any bugs being reported increases the confidence in the stability of the code. However, no amount of Fuzzing can guarantee an absence of bugs in the code...fuzzing is a good candidate for some classes of software, especially ones that include networking protocols, file formats, and query languages. These software classes require input to follow a strictly defined format adhering to the specifications defined in an RFC/IETF, a standard, formal grammar, or finite state machine. https://dgraph.io/blog/post/continuous-fuzzing-with-go/
 * cousin to chaos engineering https://en.wikipedia.org/wiki/Chaos_engineering
 > Google runs Disaster Recovery Training annually (DiRT) where security teams are tasked with simulating these "black swan" events. Seems like this practice needs to expand to more industries. https://news.ycombinator.com/item?id=34149340

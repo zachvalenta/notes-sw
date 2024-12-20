@@ -417,19 +417,36 @@ ALTERNATIVES
 
 ## ☢️ DataFusion
 
-https://github.com/apache/datafusion
-https://datafusion.apache.org/
+📜 https://datafusion.apache.org/ https://github.com/apache/datafusion
 
-used by Logfire, no indexes https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
+* used by Logfire, no indexes https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
 
 ## 🦆 DuckDB
 
 📜 https://duckdb.org/docs/ https://github.com/duckdb/duckdb
 📙 Needham https://www.manning.com/books/duckdb-in-action
 
-ZA
-* CLI install: Homebrew
-* lib install: Python
+CLI
+* install: Homebrew
+* from-first syntax https://duckdb.org/docs/sql/query_syntax/from.html#from-first-syntax
+* commands https://duckdb.org/docs/api/cli/overview.html
+```sh
+.exit
+.tables
+.schema $TABLE
+```
+* CSV https://duckdb.org/docs/data/csv/overview.html
+```sh
+duckdb stat-explore.db  # create db
+
+# create table, will be automatically added to db
+CREATE TABLE signups AS SELECT * FROM 'signups.csv'
+.import $CSV $TABLE
+
+.open path/to/stat-explore.db  # set as default
+```
+
+LIB
 * query dataframes
 ```python
 import duckdb
@@ -444,32 +461,26 @@ query_res.to_parquet('file/path.parquet')  # save
 
 ---
 
-https://www.youtube.com/watch?v=yi2zgenIZm4
-https://pycon-archive.python.org/2024/schedule/presentation/130/index.html
-https://changelog.com/news/big-data-is-dead-analytics-is-alive-LGl0
-https://softwareengineeringdaily.com/2024/08/08/duckdb-with-hannes-muhleisen/
-
-https://www.youtube.com/watch?v=MCa0fAyfiRM
-https://www.youtube.com/watch?v=JoVHITW_WeE
-
 > DuckDB is a single file SQL database. https://csvbase.com/blog/6
-
 > DuckDB is a new analytical data management system that is designed to run complex SQL queries within other processes. DuckDB has bindings for R and Python, among others. DuckDB can query Arrow datasets directly and stream query results back to Arrow. This integration allows users to query Arrow data using DuckDB's SQL Interface and API, while taking advantage of DuckDB's parallel vectorized execution engine, without requiring any extra data copying. Additionally, this integration takes full advantage of Arrow's predicate and filter pushdown while scanning datasets. https://duckdb.org/2021/12/03/duck-arrow.html
-
-https://duckdb.org/
-
-* https://tech.marksblogg.com/duckdb-1b-taxi-rides.html
-* embedded
+* interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html
 * role in ecosystem https://wesmckinney.com/blog/looking-back-15-years/
 * for analytics https://news.ycombinator.com/item?id=24531085 https://news.ycombinator.com/item?id=23287278
 * own flavor of SQL https://duckdb.org/2022/05/04/friendlier-sql.html
+* BigFrame = BigQuery for dataframes https://www.youtube.com/watch?v=R6RYEKC0gW0 https://github.com/googleapis/python-bigquery-dataframes
+* https://news.ycombinator.com/item?id=39141652
+* https://www.nikolasgoebel.com/2024/05/28/duckdb-doesnt-need-data.html
+* https://www.youtube.com/watch?v=yi2zgenIZm4
+* https://pycon-archive.python.org/2024/schedule/presentation/130/index.html
+* https://changelog.com/news/big-data-is-dead-analytics-is-alive-LGl0
+* https://softwareengineeringdaily.com/2024/08/08/duckdb-with-hannes-muhleisen/
+* https://www.youtube.com/watch?v=MCa0fAyfiRM
+* https://www.youtube.com/watch?v=JoVHITW_WeE
+* https://tech.marksblogg.com/duckdb-1b-taxi-rides.html
 * https://softwareengineeringdaily.com/2022/03/18/duckdb-with-hannes-muleisen/
 * https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf
 * https://kadekillary.work/note/duckdb/
 * https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html
-* interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html
-* https://news.ycombinator.com/item?id=39141652
-* https://www.nikolasgoebel.com/2024/05/28/duckdb-doesnt-need-data.html
 
 ## ⦊ Presto
 

@@ -142,6 +142,21 @@ MICRO
 📙 https://www.manning.com/books/design-for-developers
 > There's much to love about lanparty.house: the house, the engine room, the wiring, the cat doors, the cat bathroom. But what I enjoyed the most was the fact that this site belongs to a rare class of internet gems: a single page, full of information with nothing held back, neatly formatted, easy to digest. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 
+## font / text
+
+🗄️ typography
+
+* Claude output pretty good
+* FOIT/FOUT https://css-tricks.com/fighting-foit-and-fout-together/
+* _line spacing_: 130% point size
+* _line length_: 80 char https://practicaltypography.com/typography-in-ten-minutes.html http://www.designishistory.com/1920/jan-tschichold/
+* https://practicaltypography.com/type-composition.html
+* https://practicaltypography.com/text-formatting.html
+* https://practicaltypography.com/page-layout.html
+* https://typographyforlawyers.com/page-layout.html
+* https://practicaltypography.com/sample-documents.html
+* https://typographyforlawyers.com/sample-documents.html
+
 ## layout
 
 ---
@@ -229,20 +244,6 @@ UNIQUE
 * photo album https://www.jefftk.com/pictures/
 * illustrations https://mazzo.li/posts/fast-pipes.html#fn1
 * code syntax highlighting https://danilafe.com/blog/blog_microfeatures/
-
-## text fmt
-
-🗄️ typography
-
-* FOIT/FOUT https://css-tricks.com/fighting-foit-and-fout-together/
-* _line spacing_: 130% point size
-* _line length_: 80 char https://practicaltypography.com/typography-in-ten-minutes.html http://www.designishistory.com/1920/jan-tschichold/
-* https://practicaltypography.com/type-composition.html
-* https://practicaltypography.com/text-formatting.html
-* https://practicaltypography.com/page-layout.html
-* https://typographyforlawyers.com/page-layout.html
-* https://practicaltypography.com/sample-documents.html
-* https://typographyforlawyers.com/sample-documents.html
 
 ## notes
 

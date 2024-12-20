@@ -253,6 +253,8 @@ ALTERNATIVES
 
 ---
 
+* https://news.ycombinator.com/item?id=42451938
+* as integration tests https://rakhim.exotext.com/jupyter-notebooks-as-e2e-tests
 * https://pypi.org/project/nbformat/
 * https://news.ycombinator.com/item?id=41580166
 * https://www.reddit.com/r/Python/comments/6hwa22/what_is_the_point_of_jupyter/ https://jupyter-notebook.readthedocs.io/en/stable/examples/Notebook/What%20is%20the%20Jupyter%20Notebook.html
