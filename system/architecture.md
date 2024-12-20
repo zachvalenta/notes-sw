@@ -153,6 +153,40 @@ KLEPPMANN
 📍 need to review SQL of Twitter example
 * _evolvability_: ability to change different parts of system independently [Kleppmann 4.128]
 
+* _monolith_: single service, single data store https://news.ycombinator.com/item?id=24505467
+* _SOA (service oriented)_: n services, n data stores
+* _DOA (data oriented)_: n services, single data store https://blog.eyas.sh/2020/03/data-oriented-architecture/ https://changelog.com/podcast/522
+
+* _architecture_: the stuff that's hard to change
+* will change with each order of magnitude i.e. from 1.5k users to 10k 📙 Kleppmann [17,22]
+* _node_: process https://leanpub.com/systemdesignmanual/read_sample
+* _service_: 1/n nodes providing API https://leanpub.com/systemdesignmanual/read_sample
+* _elastic_: scales automatically with load 📙 Kleppmann [17]
+
+* _SOLID_: https://www.youtube.com/watch?v=ywDxJbULcdM
+* layered architecture https://blog.europython.eu/kraken-technologies-how-we-organize-our-very-large-pythonmonolith/
+> As a general rule of thumb, each layer uses the directly underlying layer to access and interact with the data. As an example, the commands package will not directly use the bug or repository package. It will request the data from the cache layer and go from there. Of course, the commands package will ultimately use types defined in the lower level package like Bug, but retrieving and changing the data has to go through the cache layer to ensure that bugs are properly deduplicated in memory. https://github.com/git-bug/git-bug
+* modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
+> A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
+* beware theologians https://news.ycombinator.com/item?id=26492798
+* _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749 https://www.youtube.com/watch?v=I5c7fBgvkNY
+* _resiliency_: perform job through failure https://leanpub.com/systemdesignmanual/read_sample
+* Lisp, database inside codebase https://news.ycombinator.com/item?id=26160186 https://feifan.blog/posts/the-database-inside-your-codebase
+* _kill switch_: force upgrade mobile app https://simonwillison.net/2021/Jul/1/pagnis/
+* _bounded context_: don't let a word mean two different things in the same part of the system ex. 'account' inside primary system vs. 'account' during Paypal integration; again, duh
+* _circuit breaker_: error handling https://github.com/Netflix/Hystrix/wiki/How-it-Works https://www.gremlin.com/chaos-monkey/ https://pypi.org/project/circuitbreaker/ https://sirupsen.com/napkin/problem-11-circuit-breakers
+* e.g. downstream call fails, return empty list instead of 404 and poll downstream, have limits on resources devoted to downstream
+* avoid fault in one part of a system taking down the system
+* _coupling_: one change necessitates another
+* _horizontal scaling_: aka shared-nothing architecture [Kleppmann 17]
+* _multi-tenant_: multiple customer users https://www.saaspegasus.com/
+* Edge, Sentry, Parse https://www.youtube.com/watch?v=W1fkGyIcePA&t=1044s https://www.pythonpodcast.com/datacoral-serverless-technology-episode-214/ 15:00-19:00 https://www.youtube.com/watch?v=OfPE7yj1trw https://www.viget.com/articles/multi-tenancy-in-django
+* _service mesh_: https://servicemesh.io/ https://news.ycombinator.com/item?id=17415421 https://www.digitalocean.com/community/tutorials/an-introduction-to-service-meshes sidecar, eBPF https://www.thoughtworks.com/radar/techniques?blipid=202203060 Istio
+* data mesh https://news.ycombinator.com/item?id=30721198 https://www.thoughtworks.com/radar/techniques?blipid=201911051 https://www.manning.com/books/data-mesh-in-action
+* _SSoT_: single source of truth
+* _SPoF_: single point of failure
+* _fault domain_: components sharing SPoF https://lethain.com/fault-domains/
+* _sink_: https://martinfowler.com/architecture/ https://engineering.videoblocks.com/web-architecture-101-a3224e126947
 ## KISS
 
 * https://github.com/Olshansk/postgres_for_everything
@@ -360,42 +394,3 @@ do you have creds for the m
 If you're running an app in Docker, and it includes both a backend and a database [let's say Postgres] that it writes to, what are the options for storing that data? Just store in a Docker volume? Save elsewhere?
 
 Let's say that this Dockerized app is hosted on an EC2 instance. How would that change your above assessment?
-
-## semantics
-
----
-
-* _monolith_: single service, single data store https://news.ycombinator.com/item?id=24505467
-* _SOA (service oriented)_: n services, n data stores
-* _DOA (data oriented)_: n services, single data store https://blog.eyas.sh/2020/03/data-oriented-architecture/ https://changelog.com/podcast/522
-
-* _architecture_: the stuff that's hard to change
-* will change with each order of magnitude i.e. from 1.5k users to 10k 📙 Kleppmann [17,22]
-* _node_: process https://leanpub.com/systemdesignmanual/read_sample
-* _service_: 1/n nodes providing API https://leanpub.com/systemdesignmanual/read_sample
-* _elastic_: scales automatically with load 📙 Kleppmann [17]
-
-* _SOLID_: https://www.youtube.com/watch?v=ywDxJbULcdM
-* layered architecture https://blog.europython.eu/kraken-technologies-how-we-organize-our-very-large-pythonmonolith/
-> As a general rule of thumb, each layer uses the directly underlying layer to access and interact with the data. As an example, the commands package will not directly use the bug or repository package. It will request the data from the cache layer and go from there. Of course, the commands package will ultimately use types defined in the lower level package like Bug, but retrieving and changing the data has to go through the cache layer to ensure that bugs are properly deduplicated in memory. https://github.com/git-bug/git-bug
-* modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
-> A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
-* beware theologians https://news.ycombinator.com/item?id=26492798
-* _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749 https://www.youtube.com/watch?v=I5c7fBgvkNY
-* _resiliency_: perform job through failure https://leanpub.com/systemdesignmanual/read_sample
-* Lisp, database inside codebase https://news.ycombinator.com/item?id=26160186 https://feifan.blog/posts/the-database-inside-your-codebase
-* _kill switch_: force upgrade mobile app https://simonwillison.net/2021/Jul/1/pagnis/
-* _bounded context_: don't let a word mean two different things in the same part of the system ex. 'account' inside primary system vs. 'account' during Paypal integration; again, duh
-* _circuit breaker_: error handling https://github.com/Netflix/Hystrix/wiki/How-it-Works https://www.gremlin.com/chaos-monkey/ https://pypi.org/project/circuitbreaker/ https://sirupsen.com/napkin/problem-11-circuit-breakers
-* e.g. downstream call fails, return empty list instead of 404 and poll downstream, have limits on resources devoted to downstream
-* avoid fault in one part of a system taking down the system
-* _coupling_: one change necessitates another
-* _horizontal scaling_: aka shared-nothing architecture [Kleppmann 17]
-* _multi-tenant_: multiple customer users https://www.saaspegasus.com/
-* Edge, Sentry, Parse https://www.youtube.com/watch?v=W1fkGyIcePA&t=1044s https://www.pythonpodcast.com/datacoral-serverless-technology-episode-214/ 15:00-19:00 https://www.youtube.com/watch?v=OfPE7yj1trw https://www.viget.com/articles/multi-tenancy-in-django
-* _service mesh_: https://servicemesh.io/ https://news.ycombinator.com/item?id=17415421 https://www.digitalocean.com/community/tutorials/an-introduction-to-service-meshes sidecar, eBPF https://www.thoughtworks.com/radar/techniques?blipid=202203060 Istio
-* data mesh https://news.ycombinator.com/item?id=30721198 https://www.thoughtworks.com/radar/techniques?blipid=201911051 https://www.manning.com/books/data-mesh-in-action
-* _SSoT_: single source of truth
-* _SPoF_: single point of failure
-* _fault domain_: components sharing SPoF https://lethain.com/fault-domains/
-* _sink_: https://martinfowler.com/architecture/ https://engineering.videoblocks.com/web-architecture-101-a3224e126947
