@@ -424,9 +424,12 @@ used by Logfire, no indexes https://talkpython.fm/episodes/transcript/487/buildi
 
 ## 🦆 DuckDB
 
-🗄️ `eng.md` DuckDB
-📙 https://www.manning.com/books/duckdb-in-action
+📜 https://duckdb.org/docs/ https://github.com/duckdb/duckdb
+📙 Needham https://www.manning.com/books/duckdb-in-action
 
+ZA
+* CLI install: Homebrew
+* lib install: Python
 * query dataframes
 ```python
 import duckdb
