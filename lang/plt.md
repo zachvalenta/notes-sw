@@ -788,6 +788,54 @@ class Player:
         print(f"pts {self.points} fatigue {self.fatigue}")
 ```
 
+# ⭕️ SEMANTICS
+
+---
+
+📜 https://docs.python.org/3/reference/index.html
+
+NAMES
+* _identifier_: user defined name; aka 'symbol' https://en.wikipedia.org/wiki/Symbol_table#Example
+* _keyword_: reserved and in use; getting shorter https://news.ycombinator.com/item?id=22474850 https://danluu.com/cli-complexity/
+* soft keywords https://mathspp.com/blog/til/pythons-soft-keywords
+* _reserved_: not in use
+
+VARIABLES
+* _declare_: put var into namespace
+* _initialize_: give var initial value
+* _assign_: give var subsequent values; `TypeError: 'tuple' object does not support item assignment` supports the definition I've gleaned
+
+ARITHMATIC
+* _increment_: `++`
+* _infix_: multiplication `*` exponentiation `**` https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/ 🗄 `python.md`
+* += https://stackoverflow.com/a/7456548
+
+## operators
+
+---
+
+📙 Nisan nand2tetris ch. 1-2 https://buttondown.com/hillelwayne/archive/a-list-of-ternary-operators/
+* _operand_: value used by operator
+* _operator_: perform action
+* _assignment_: =
+* _conditional/ternary_: ?
+* _logical/boolean_: and, or, not
+* _equality_: ==, != 🗄 `python.md`
+* SQL uses `=`
+* _identity_: is 🗄 `python.md`
+* _comparison_: >, < 📙 Bradshaw [55]
+* _membership_: in
+
+## units
+
+---
+
+* _expression_: value + operator https://realpython.com/python-walrus-operator/#hello-walrus
+* an eval to single value e.g. `y + 13` (number) `price > 0` (bool) 📙 Sweigart automate [14]
+* _statement_: 动 an action e.g. function call (`logger.debug(ex)`) assignment (`x = 42`) https://beautifulracket.com/appendix/why-racket-why-lisp.html
+* compositions of n expressions 📙 Haverbeke [ch.2]
+* _block_: 名 group of statements
+
 # 🔡 TYPING
 
 🗄 `python/core.md` typing, metaprogramming
@@ -996,42 +1044,3 @@ evaluation https://en.wikipedia.org/wiki/Evaluation_strategy
 * _eager_: eval expression during assignment
 * _lazy_: don't eval until necessary 🗄 `django.md` db
 * _thunk_: way to do lazy evaluation https://en.wikipedia.org/wiki/Thunk
-
-## semantics
-
-📜 https://docs.python.org/3/reference/index.html
-
-UNITS
-* _expression_: value + operator https://realpython.com/python-walrus-operator/#hello-walrus
-* an eval to single value e.g. `y + 13` (number) `price > 0` (bool) 📙 Sweigart automate [14]
-* _statement_: 动 an action e.g. function call (`logger.debug(ex)`) assignment (`x = 42`) https://beautifulracket.com/appendix/why-racket-why-lisp.html
-* compositions of n expressions 📙 Haverbeke [ch.2]
-* _block_: 名 group of statements
-
-OPERATORS 📙 Nisan nand2tetris ch. 1-2 https://buttondown.com/hillelwayne/archive/a-list-of-ternary-operators/
-* _operand_: value used by operator
-* _operator_: perform action
-* _assignment_: =
-* _conditional/ternary_: ?
-* _logical/boolean_: and, or, not
-* _equality_: ==, != 🗄 `python.md`
-* SQL uses `=`
-* _identity_: is 🗄 `python.md`
-* _comparison_: >, < 📙 Bradshaw [55]
-* _membership_: in
-
-NAMES
-* _identifier_: user defined name; aka 'symbol' https://en.wikipedia.org/wiki/Symbol_table#Example
-* _keyword_: reserved and in use; getting shorter https://news.ycombinator.com/item?id=22474850 https://danluu.com/cli-complexity/
-* soft keywords https://mathspp.com/blog/til/pythons-soft-keywords
-* _reserved_: not in use
-
-VARIABLES
-* _declare_: put var into namespace
-* _initialize_: give var initial value
-* _assign_: give var subsequent values; `TypeError: 'tuple' object does not support item assignment` supports the definition I've gleaned
-
-ARITHMATIC
-* _increment_: `++`
-* _infix_: multiplication `*` exponentiation `**` https://treyhunner.com/2018/10/asterisks-in-python-what-they-are-and-how-to-use-them/ 🗄 `python.md`
-* += https://stackoverflow.com/a/7456548

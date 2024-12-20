@@ -360,18 +360,6 @@ echo "hi, ${alice}. look at these random numbers: ${randomNum}"
 
 https://stackoverflow.com/a/673940/6813490
 
-## xargs
-
----
-
-* _xargs_: construct list of args for cmd (bc some cmds only take args, not stdin) https://thorstenball.com/blog/2012/10/24/command-line-ride/ https://www.oilshell.org/blog/2021/08/xargs.html
-> can also just input `./myscript.py < somefile.txt` (semantics for operator names) https://stackoverflow.com/a/11853307
-```sh
-LOGS_DIR/20 $ fd tracking | tail -n 3 | xargs bat  # open 3 most recent tracking files
-ls | sort -f | head -1 | xargs open  # kaiff - open first file in directory; used to open Youtube talks downloaded as pods
-fd tracking | xargs rg music  # from logs/20 -> get tracking info for music
-```
-
 # 🗃️ FILES
 
 📙 Galvin dinosaur 11-13 https://news.ycombinator.com/item?id=38512248
@@ -463,56 +451,6 @@ FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace
 * `?`: single char 
 * `[]`: range; case-sensitive `cp [a-f]*.png` `rm 02[3-7].mp3`
 
-## IO / pipes
-
-SUBSTITUTION
-* _command substition_: capture the output of a command in a single variable
-```sh
-control_status=$(curl -o /dev/null -s -w "%{http_code}" "$control_url")
-```
-* _process substition_: use command stdout as if it were a file via tmp file/stream
-```sh
-$ paste <(tail -n +2 aaon.csv) <(tail -n +2 baldor.csv)
-```
-
-OPERATORS
-> https://unix.stackexchange.com/a/170573
-* `1`: stdout
-* `2`: stderr
-* `&`: stdout + stderr
-* `>`: overwrite
-* `>>`: append
-* `<`: use file as input e.g. `sqlite3 local.db < schema.sql`
-```sh
-# stdout           | takes stdin
-echo "training 20" | termgraph
-```
-
----
-
-* _pipe_: vmsplice https://qsantos.fr/2024/08/25/linux-pipes-are-slow/
-🐍 in Python https://github.com/bugen/pypipe
-* _pipe (|)_: directs stdout to stdin
-
-* _fold_: https://blog.balthazar-rouberol.com/text-processing-in-the-shell#fold
-* _fmt_: fmt stdout https://github.com/Idnan/bash-guide#f-fmt
-
-* stdout, stderr
-```sh
-# stderr to file
-cmd &> file.log
-
-# capture cmd output
-OUTPUT="$(ls -1)"
-echo "${OUTPUT}"
-
-# redirect stderr to stdout
-2>&1  # `&` marks `1` as a file descriptor vs. a file name https://stackoverflow.com/a/818284
-
-# redirect stderr to null
-cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
-```
-
 ## links
 
 * _symlink_: file pointing to source file
@@ -568,6 +506,95 @@ user_runtime_dir()  # /Users/zach/Library/Caches/TemporaryItems
 * throw away stdout: `2>/dev/null` https://askubuntu.com/q/350208
 * `/dev/null`: black hole `rm local.db 2> /dev/null; sqlite3 local.db < schema.sql`
 📝 [`/dev/null`](https://askubuntu.com/a/12099) special file for dumping this sort of thing
+
+# 🌊 FLOW
+
+SUBSTITUTION
+* _command substition_: capture the output of a command in a single variable
+```sh
+control_status=$(curl -o /dev/null -s -w "%{http_code}" "$control_url")
+```
+* _process substition_: use command stdout as if it were a file via tmp file/stream
+```sh
+$ paste <(tail -n +2 aaon.csv) <(tail -n +2 baldor.csv)
+```
+
+## IO
+
+* _stdout_: `1`
+* _stderr_: `2`
+* _stdout + stderr_: `&`
+
+---
+
+* stdout, stderr
+```sh
+# stderr to file
+cmd &> file.log
+
+# capture cmd output
+OUTPUT="$(ls -1)"
+echo "${OUTPUT}"
+
+# redirect stderr to stdout
+2>&1  # `&` marks `1` as a file descriptor vs. a file name https://stackoverflow.com/a/818284
+
+# redirect stderr to null
+cat weight.dat | asciigraph -h 10 -c "weight" -cc red 2>/dev/null
+```
+
+## operators
+
+REDIRECT
+* _redirect_: connect cmd and file
+* _output redirect_: `>`
+* _append redirect_: `>>`
+* _input redirect_: `<` e.g. ``
+```sh
+# $CMD $WHERE_TO_OUTPUT + "use schema.sql as input"
+sqlite3 local.db < schema.sql
+```
+
+---
+
+PIPES
+* _pipe_: connects cmds
+* _pipe_: vmsplice https://qsantos.fr/2024/08/25/linux-pipes-are-slow/
+🐍 in Python https://github.com/bugen/pypipe
+* _pipe (|)_: directs stdout to stdin
+```sh
+# stdout           | takes stdin
+echo "training 20" | termgraph
+```
+
+LOGICAL OPERATORS
+&& AND (run second command only if first succeeds)
+|| OR (run second command only if first fails)
+! NOT
+
+SEQUENCE OPERATORS
+; sequential execution (run commands in sequence regardless of success)
+& background execution (run command in background)
+
+GROUPING OPERATORS
+( ) subshell grouping
+{ } command grouping
+
+## xargs
+
+---
+
+* _xargs_: construct list of args for cmd (bc some cmds only take args, not stdin) https://thorstenball.com/blog/2012/10/24/command-line-ride/ https://www.oilshell.org/blog/2021/08/xargs.html
+> can also just input `./myscript.py < somefile.txt` (semantics for operator names) https://stackoverflow.com/a/11853307
+```sh
+LOGS_DIR/20 $ fd tracking | tail -n 3 | xargs bat  # open 3 most recent tracking files
+ls | sort -f | head -1 | xargs open  # kaiff - open first file in directory; used to open Youtube talks downloaded as pods
+fd tracking | xargs rg music  # from logs/20 -> get tracking info for music
+```
+```sh
+echo "in.txt" | grep "txt"  # in.txt
+echo "in.txt" |  xargs cat  # foo bar baz
+```
 
 # 🧵 PROCESSES
 
