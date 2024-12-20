@@ -54,6 +54,7 @@ MODELS
 * _o1 pro_: 24.12 (preview in 24.09) https://thezvi.substack.com/p/o1-turns-pro https://x.com/mckaywrigley/status/1865089975802646857 https://news.ycombinator.com/item?id=42330732
 
 ZA
+* 1-800-CHATGPT https://help.openai.com/en/articles/10193193-1-800-chatgpt-calling-and-messaging-chatgpt-with-your-phone
 * internal libraries, `ace_tools` https://community.openai.com/t/chatgpt-recommends-the-use-of-the-open-ai-internal-library-ace-tools/852665
 * native client: global hotkey conflicts with iterm https://openai.com/chatgpt/mac
 * ❌ started having uptime issues 24.12

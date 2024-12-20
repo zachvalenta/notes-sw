@@ -946,7 +946,7 @@ FORGES
 * BYO https://github.com/honza/smithy
 * avoid centralization https://gitlab.com/pdfgrep/pdfgrep/-/issues/36#note_2232721446
 * _Bitbucket_: 💀 https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
-* _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965
+* _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965 https://codeberg.org/a-j-wood/pv
 * _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717
 * now for-profit and licensing issues https://news.ycombinator.com/item?id=34011581
 * _Gitlab_: selling soon https://news.ycombinator.com/item?id=42333052

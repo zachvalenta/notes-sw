@@ -90,30 +90,13 @@ POINT TO POINT IS INHERENTLY COMPLEX https://www.stedi.com/blog/what-makes-edi-s
 
 # 🧬 SEGMENTS
 
-SEQUENCE
-```sh
-├── ISA  # interchange header
-│   └── GS  # functional header
-│   └────── ST  # transaction set #1
-│   └────── SE  # transaction set trailer
-│   └────── ST  # transaction set #2
-│   └────── SE  # transaction set trailer
-│   └── GE  # functional trailer
-├── IEA  # interchange trailer
-```
-```sh
-# issue where SPS parser referred to LDT as position 190 but it was listed as position 140 in the implementation guideline
-* loop context misinterpretation: parser could expect segment to appear only under a specific context and assumes the issue is related to an incorrectly defined position
-* tool-specific quirk: parsers sometimes report inaccurate segment positions when encountering unrecognized or misplaced segments
-* unintended data in loop: unexpected data or improper sequence in loop might cause the tool to associate LDT with a different position
-```
-* high-level: ISA (initial), GSA (metadata) IEA (InterchangeEnvelope; terminal)
-* _implementation guideline_: additional instructions from receiver re: how sender should impl 🧠 https://chatgpt.com/c/673d0121-f4d8-8004-b903-4d083157a552
-* fmt of PDF is standard https://www.stedi.com/blog/transaction-set-variants-in-the-amazon-850-purchase-order
-* doesn't align to actual document e.g. Fastenal
-* _guideline position_: location of segment w/in implementation guideline e.g. CTP at position 170 in Fastenal 823 implementation guideline
+* _transaction set purpose codes_: "why is document being sent?", only shows up in (typically) a single segment, can apply to multiple document lists (832, 850)
+* `00` new `01` cancel previously sent doc `04` update `05` replace `06` ack receipt of sent doc `24` draft
+* _qualifiers_: type for ID
+* `ZZ` custom `01` DUNS `20` Health Industry Number (HIN) `30` U.S. Federal Tax Identification
 
-SEMANTICS
+## semantics
+
 * _element_: segment subcomponent; `*` delimiter, `**` = blank
 * data types: ID + NO (numeric) AN (alphanumeric) DT (date) TM (time)
 * _segment_: ID + data; `~` terminal delimiter
@@ -131,11 +114,31 @@ number,code,type
 997,FA,ack
 ```
 
-ZA
-* _transaction set purpose codes_: "why is document being sent?", only shows up in (typically) a single segment, can apply to multiple document lists (832, 850)
-* `00` new `01` cancel previously sent doc `04` update `05` replace `06` ack receipt of sent doc `24` draft
-* _qualifiers_: type for ID
-* `ZZ` custom `01` DUNS `20` Health Industry Number (HIN) `30` U.S. Federal Tax Identification
+## sequence
+
+```sh
+├── ISA  # interchange header
+│   └── GS  # functional header
+│   └────── ST  # transaction set #1
+│   └────── SE  # transaction set trailer
+│   └────── ST  # transaction set #2
+│   └────── SE  # transaction set trailer
+│   └── GE  # functional trailer
+├── IEA  # interchange trailer
+```
+```sh
+# issue where SPS parser referred to LDT as position 190 but it was listed as position 140 in the implementation guideline
+* loop context misinterpretation: parser could expect segment to appear only under a specific context and assumes the issue is related to an incorrectly defined position
+* tool-specific quirk: parsers sometimes report inaccurate segment positions when encountering unrecognized or misplaced segments
+* unintended data in loop: unexpected data or improper sequence in loop might cause the tool to associate LDT with a different position
+```
+* high-level: ISA (initial), GSA (metadata) IEA (InterchangeEnvelope; terminal)
+
+IMPL GUIDE
+* _implementation guideline_: additional instructions from receiver re: how sender should impl 🧠 https://chatgpt.com/c/673d0121-f4d8-8004-b903-4d083157a552
+* fmt of PDF is standard https://www.stedi.com/blog/transaction-set-variants-in-the-amazon-850-purchase-order
+* doesn't align to actual document e.g. Fastenal
+* _guideline position_: location of segment w/in implementation guideline e.g. CTP at position 170 in Fastenal 823 implementation guideline
 
 ## ☸️ meta
 
