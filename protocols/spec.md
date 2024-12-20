@@ -531,7 +531,7 @@ PARSERS
 * _micromark_: https://github.com/micromark/micromark
 * _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/ re: Next https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
 * time suck https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
-* _markdown-it-py_: https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
+* _markdown-it-py_: used by rich https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
 * _commonmark_: https://github.com/readthedocs/commonmark.py https://github.com/Textualize/rich/pull/2439/files
 * _goldmark_: https://github.com/yuin/goldmark
 * HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown https://html-to-markdown.com/

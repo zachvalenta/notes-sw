@@ -9,7 +9,7 @@
 
 ---
 
-🛠 https://github.com/networkx/networkx https://us.pycon.org/2024/schedule/presentation/91/index.html https://pragprog.com/titles/dzcnapy/complex-network-analysis-in-python/ https://github.com/dominikbraun/graph/ https://news.ycombinator.com/item?id=38834780 https://www.hytradboi.com/2022/how-to-query-almost-everything https://calmcode.io/datasets/dependencies https://realpython.com/podcasts/rpp/212/
+🛠 https://github.com/networkx/networkx https://www.youtube.com/watch?v=x6KnkZKktRY https://us.pycon.org/2024/schedule/presentation/91/index.html https://pragprog.com/titles/dzcnapy/complex-network-analysis-in-python/ https://github.com/dominikbraun/graph/ https://news.ycombinator.com/item?id=38834780 https://www.hytradboi.com/2022/how-to-query-almost-everything https://calmcode.io/datasets/dependencies https://realpython.com/podcasts/rpp/212/
 > clean these up https://pycon-archive.python.org/2024/schedule/presentation/52/index.html
 * https://calmcode.io/datasets/dependencies 🗄️ `linux.md` build systems
 * https://www.hytradboi.com/2022/how-to-query-almost-everything

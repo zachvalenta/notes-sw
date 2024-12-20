@@ -269,19 +269,28 @@ for row in reader:
 
 📜 https://docs.python.org/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
 
-* _path-like object_: https://docs.python.org/3/glossary.html#term-path-like-object
-
+SNIPPETS
+* drill down
 ```python
-# ACCESS
 Path.cwd()
 Path.cwd().parent
 Path.cwd().parent / 'subdir'
-
-# ASSERTIONS
+```
+* assertions
+```python
 Path.exists(Path.cwd())
 Path.is_dir(Path.cwd() / 'sub1' / 'sub2')
 Path.is_file(Path.cwd() / 'sub1' / 'sub2' / 'foo.csv')
 ```
+* LOC to list
+```python
+p = Path('path/to/file')
+as_string = p.read_text()
+as_list = p.read_text().splitlines()
+```
+
+ZA
+* _path-like object_: obj repr fs path https://docs.python.org/3/glossary.html#term-path-like-object
 
 ---
 
