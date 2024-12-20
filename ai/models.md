@@ -167,7 +167,25 @@ https://edwardbenson.com/lollm
 https://news.ycombinator.com/item?id=42299098
 https://x.com/SullyOmarr/status/1864697992261062690/photo/1
 
+## keyword search
+
+https://www.youtube.com/watch?v=d5i5Lc9X4Og
+> 122 views 3 weeks after upload! what are people doing with their time!
+
+> Keyword search is the traditional approach where the search engine looks for exact matches or close variants of the words in the query. For example, if you search "red car," it finds documents containing those exact words. It's fast and straightforward but can miss relevant results that use different terminology (like "crimson automobile").
+
+## hybrid search
+
+> Hybrid search combines both approaches to leverage their respective strengths. It typically uses keyword search for precise matches and high-confidence results, while incorporating semantic search to catch relevant results that wouldn't be found through exact word matching alone. For instance, an e-commerce site might use keyword search to find products with exact name matches, while using semantic search to suggest related items that might interest the user even if they don't contain the exact search terms.
+
+> A practical example: If you search "how to treat a headache," a hybrid system would:
+> Use keyword matching to find articles containing "headache" and "treat"
+> Use semantic search to also find relevant content about "migraine remedies" or "pain relief techniques"
+> Combine and rank these results based on both literal relevance and semantic meaning
+
 ## semantic search
+
+> Semantic search understands the meaning and intent behind queries rather than just matching words. It uses techniques like word embeddings and neural networks to understand context and relationships. For example, a semantic search for "red car" might also return results about "scarlet vehicles" or even "burgundy SUVs" because it understands these are conceptually related. It's particularly good at handling natural language queries and understanding synonyms, but can be more computationally intensive.
 
 * https://koratkar.github.io/cwt-semantic-search/ https://x.com/whybyfire/status/1866239929732173846
 > So semantic search is often a component of RAG, but RAG goes beyond just search. Here's an analogy: semantic search is like having a really smart librarian who understands what you're looking for and can find relevant books. RAG is like having that librarian plus a subject matter expert who can read those books, synthesize the information, and explain it to you in your own terms. https://claude.ai/chat/18bc4333-ff09-45f8-8610-0c325ce11ecf
