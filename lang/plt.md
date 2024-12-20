@@ -339,6 +339,7 @@ https://increment.com/programming-languages/language-history/
 
 ## ☕️ Java
 
+* looking at Eclipse brings back memories https://horstmann.com/unblog/2024-12-11/index.html
 * Kotlin only barely does scripting? https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/
 * abstraction run wild https://news.ycombinator.com/item?id=8420314
 * Flask for Java https://javalin.io/

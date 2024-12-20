@@ -635,6 +635,16 @@ https://news.ycombinator.com/item?id=26691626
 
 🗄️ EDI > meta
 
+ANSI (American National Standards Institute)
+* SQL
+* used to do C 📙 Beaulieu [5.86]
+* escape codes https://notes.burke.libbey.me/ansi-escape-codes/
+
+ISO (International Standards Org)
+* does C now, C++ https://www.iso.org/standard/68564.html
+* created OSI
+* credit cards https://www.iso.org/standard/79451.html https://news.ycombinator.com/item?id=42442354
+
 ---
 
 * how RFCs work https://stackoverflow.com/a/1961018
@@ -644,8 +654,6 @@ https://news.ycombinator.com/item?id=26691626
 * why USSR didn't invent the internet http://web.mit.edu/slava/homepage/articles/Gerovitch-InterNyet.pdf
 * _sink_: https://en.wikipedia.org/wiki/Internet_Society RFCs https://tangentsoft.net/rfcs/by-tla.html
 * _IETF_: HTTP https://tools.ietf.org/html/rfc7617
-* _ANSI (American National Standards Institute)_: SQL; used to do C [Beaulieu 5.86] escape codes https://notes.burke.libbey.me/ansi-escape-codes/
-* _ISO (International Standards Org)_: does C now, created OSI, does C++ https://www.iso.org/standard/68564.html
 * _IEEE (Institute for Electrical Electronic Engineers)_: POSIX (standard for UNIX-like OS, C, Bash) [LPI 1.3.2]
 * _Open Group_: controls UNIX (which is just a spec; Solaris, macOS); IBM Huawei DoD Nasa that controls; no Linux distro qualifies [LPI 1, 1.3.3]
 * https://diff.substack.com/p/sharing-and-owning-standards

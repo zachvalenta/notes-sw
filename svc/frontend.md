@@ -4,20 +4,6 @@
 
 ## 进步
 
-DEPLOYMENT 🗄 `dns.md` Zola deployment
-- [x] DNS tools to diff `zachvalenta.com` vs. `zjayv.com`
-* learn Github actions
-* specify `index.html` for GH Pages: `publish_dir` https://chatgpt.com/c/66f4a787-5a40-8004-bda8-c9c207ae0e88 https://github.com/shalzz/zola-deploy-action/blob/master/README.md#custom-domain symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying https://stackoverflow.com/questions/42941170/how-to-set-up-github-pages-to-look-for-index-html-in-a-different-location https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository or Cloudflare https://chevyray.dev/blog/how-this-site-is-made/ or Netlify https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/
-
-MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
-* tags
-* RSS
-* search
-* styling from https://chevyray.dev/blog/test-post/
-* template inheritance
-* SSoT for book notes
-> complication: some things you don't want to publish e.g. Austen notes
-
 * _24_: big rf, port site to Zola and rm old dirs for content/drafts
 * _22_: rf fs, try Pelican, redesign
 * _19_: water.css, Vue for BNY test runner
@@ -31,6 +17,7 @@ MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 
 TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
 * history: jQuery, Backbone, React, Next.js (built on top of React) https://blog.codepen.io/2024/11/11/chris-corner-our-eras-tour/
+* templating, JSX https://news.ycombinator.com/item?id=42464310
 * components https://github.com/wrabit/django-cotton
 * Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer
 * _CRUD-and-forms_: Django https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/ 

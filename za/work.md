@@ -469,6 +469,8 @@ One thing I think I do well is technical communication. This shows up in:
 
 ---
 
+fractional https://news.ycombinator.com/item?id=42425473
+lol https://docs.google.com/document/d/19fr_36WOzKlq_zyGP2RdxMEsdNQMZdUqn1Vahncr2pY/edit?pli=1&tab=t.0#heading=h.xg3o3psx1mah
 https://dylanhuang.com/blog/simple-markdown-resume/
 https://github.com/koaning
 

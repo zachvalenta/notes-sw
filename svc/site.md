@@ -7,7 +7,7 @@
 update linux fs to account for work machine
 
 TO ADD
-> where to put Manning book notes? how to keep track of what your reading? -> it has a repo in `projects`
+> where to put Manning book notes? how to keep track of what your reading? -> it has a repo in `projects` -> you can also use Manning notebooks to see where you've been highlighting
 > figure out which Manning books you're going to use your credits on
 * finish going through notebook
 * https://github.com/zachvalenta/python-from-the-guts
@@ -17,6 +17,22 @@ TO ADD
 > 🎗️ https://github.com/zachvalenta/python-from-the-guts
 > how to work through book: notebook | REPL + repo doctest
 > This strategy revolves around writing a crate...for every section of every chapter...to reduce friction as much as possible, I opted to write (type) down my chapter notes as comments within the “section crates” themselves. This system allows me to co-locate my notes with my Rust code, and learn a bit extra about Cargo along the way. It also keeps me on the keyboard, either writing code or taking notes in the same files. https://nickgerace.dev/posts/how-i-read-the-rust-programming-language/
+
+---
+
+DEPLOYMENT 🗄 `dns.md` Zola deployment
+- [x] DNS tools to diff `zachvalenta.com` vs. `zjayv.com`
+* learn Github actions
+* specify `index.html` for GH Pages: `publish_dir` https://chatgpt.com/c/66f4a787-5a40-8004-bda8-c9c207ae0e88 https://github.com/shalzz/zola-deploy-action/blob/master/README.md#custom-domain symlink to `templates/index.html`? https://chevyray.dev/blog/how-this-site-is-made/#deploying https://stackoverflow.com/questions/42941170/how-to-set-up-github-pages-to-look-for-index-html-in-a-different-location https://stackoverflow.com/questions/25320356/can-i-have-my-github-pages-index-html-in-a-subfolder-of-the-repository or Cloudflare https://chevyray.dev/blog/how-this-site-is-made/ or Netlify https://www.netlify.com/blog/2021/12/20/how-to-add-custom-domains-to-netlify-sites/
+
+MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
+* tags
+* RSS
+* search
+* styling from https://chevyray.dev/blog/test-post/
+* template inheritance
+* SSoT for book notes
+> complication: some things you don't want to publish e.g. Austen notes
 
 * _19_: Markdown-to-HTML util https://github.com/zachvalenta/markdown-2-html https://github.com/zachvalenta/site-drafts https://github.com/zachvalenta/site-content
 * _18_: add content https://github.com/zachvalenta/zachvalenta.github.io/commit/15f304a8de18b7fef8f9cac1a6e9b778e5526d22
@@ -109,7 +125,7 @@ MICRO
 ---
 
 * email/RSS https://travisjeffery.com/subscribe/
-* bibtex citation https://www.milesmcbain.com/posts/zsa-moonlander-review/
+* bibtex citation https://www.milesmcbain.com/posts/zsa-moonlander-review/ https://distill.pub/2021/gnn-intro/
 * “POSSE” (“post on your own site, syndicate elsewhere”) https://jvns.ca/blog/2024/11/09/new-microblog/ https://www.youtube.com/watch?v=WYqnxCFJoLE https://x.com/jeremyjkun/status/1798789885966602419
 * no traffic from Google -> "whatever Google and Twitter are doing right now, unless your blog post lands on Hacker News front page, you basically get no more traffic anymore." https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 * https://zackproser.com/blog/run-your-own-tech-blog

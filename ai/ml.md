@@ -38,7 +38,7 @@ ARE THESE TRAINING? BUILDING FROM SCRATCH?
 
 # 🧠 NEURAL NETWORKS
 
-🗄️ `graphs.md` https://www.manning.com/books/graph-neural-networks-in-action https://www.manning.com/books/math-and-architectures-of-deep-learning https://fleetwood.dev/posts/you-could-have-designed-SOTA-positional-encoding
+🗄️ `graphs.md` https://www.manning.com/books/graph-neural-networks-in-action https://www.manning.com/books/math-and-architectures-of-deep-learning https://fleetwood.dev/posts/you-could-have-designed-SOTA-positional-encoding https://news.ycombinator.com/item?id=42468214
 BYO https://www.manning.com/books/design-a-machine-learning-system-design-from-scratch
 
 FUNCTIONS
