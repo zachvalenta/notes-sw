@@ -114,6 +114,13 @@ VLC 📜 https://wiki.videolan.org/Mac_OS_X/ https://www.maketecheasier.com/mast
 
 ## bindings
 
+basics (as you were learning keychron v8)
+* switch app: `CMD TAB`
+* iterm hotkey: `ALT SPACE`
+* start/end of line: `CMD ARROW`
+* start/end of word: `ALT ARROW`
+* select start/end of word: `SHIFT ALT ARROW`
+
 EMOJI
 * picker: `CTRL CMD SPACE`
 * alternate picker https://matthewpalmer.net/rocket/ https://wesbos.com/uses
@@ -248,7 +255,7 @@ DOCK
 * pins (terminal, editor, browser)
 
 KEYBOARD
-* key repeat repeat https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x
+* key repeat https://apple.stackexchange.com/questions/10467/how-to-increase-keyboard-key-repeat-rate-on-os-x
 * rampping to CMD key in Vim https://github.com/bugb/dotfiles/blob/main/.config/nvim/core/options.lua https://stackoverflow.com/questions/40990454/how-to-map-mac-command-key-in-vim https://github.com/neovim/neovim/issues/22748 http://vimcasts.org/episodes/neovim-terminal-mappings/
 * remap escape to caps locks: keyboard > modifier keys https://news.ycombinator.com/item?id=24287951 https://vim.fandom.com/wiki/Avoid_the_escape_key
 * remap escape to `jk`

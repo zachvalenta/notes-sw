@@ -8,9 +8,8 @@
 
 ## 进步
 
-* learn how to program v8
-
-* _24_: models (Apple refurbished, nuphy air 75, keychron k8, keychron v8)
+* _24_: models (Apple refurbished, nuphy air 75, keychron k8, keychron v8) program (v8 cmd keys to center)
+> amazed how quickly low-profile feels strange after moving to normal profile
 
 # 📐 LAYOUTS
 
@@ -125,11 +124,10 @@ R side
 * https://www.boardsource.xyz
 
 KEYCHRON
-> amazed how quickly low-profile feels strange after moving to normal profile
 * ✅ case https://www.keychron.com/products/keychron-keyboard-carrying-case
 * _c1_: $75 https://www.keychron.com/products/keychron-c1-pro-qmk-via-wired-mechanical-keyboard?variant=40615797391449
 * _k1_: stockout https://www.reddit.com/r/NuPhy/comments/1brdzgy/will_there_ever_be_low_profile_tkl_80_layout/
-* _k8_: ✅ $110 Jack https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?variant=39755425349721 https://www.amazon.com/Keychron-Wireless-Mechanical-Hot-Swappable-Programmable/dp/B0B97JZV99
+* _k8_: ✅ $110; switches (Gateron g pro brown) https://www.keychron.com/products/keychron-k8-pro-qmk-via-wireless-mechanical-keyboard?variant=39755425349721 https://www.amazon.com/Keychron-Wireless-Mechanical-Hot-Swappable-Programmable/dp/B0B97JZV99
 * _v3_: $110: TKL, normal profile https://www.nytimes.com/wirecutter/reviews/our-favorite-mechanical-keyboards/ https://www.amazon.com/dp/B0CW5B5KL8
 
 NUPHY
@@ -178,13 +176,15 @@ HOWTO
 MAYBE
 * _Dygma defy_: 🎯 $370; featureful, bad taste https://dygma.com/pages/defy https://www.youtube.com/watch?v=R9YTQn1ik9I
 * _Glove80_: $400 low-profile, expensive, ugly https://www.moergo.com/collections/glove80-keyboards https://www.youtube.com/watch?v=QLb3ewK8R2Y
-* _Keychron q8_: 🎯 $210 cant swap the one cmd keycap https://www.keychron.com/products/keychron-q8-alice-layout-qmk-custom-mechanical-keyboard?variant=40077527122009
-* _Keychron v8_: ✅ $90; Gateron jupiter brown https://www.keychron.com/products/keychron-v8-max-alice-layout-qmk-custom-mechanical-keyboard
+
+NO TILDE/BACKTICK
+* _Keychron q8_: $210  https://www.keychron.com/products/keychron-q8-alice-layout-qmk-custom-mechanical-keyboard?variant=40077527122009
+* _Keychron v8_: ❌ $90 Gateron jupiter brown https://www.keychron.com/products/keychron-v8-max-alice-layout-qmk-custom-mechanical-keyboard
 * _Keychron k11_: $115; low profile https://www.keychron.com/products/keychron-k11-pro-alice-layout-qmk-via-wireless-custom-mechanical-keyboard programmable but only through Keychron (vs. QMK/VIA) https://www.youtube.com/watch?v=zqRBxioJIRI [5:00]
 
 DOESN'T SOLVE RSI 
 * _Akko alice_: $130 cmd key not symmetric https://en.akkogear.com/product/acr-pro-alice-plus-mechanical-keyboard/
-* _Kinensis freestyle_: ✅ https://www.amazon.com/Kinesis-Freestyle2-Ergonomic-Keyboard-Separation/dp/B009ZNBJK8
+* _Kinensis freestyle_: ❌ cheap, no hot swap https://www.amazon.com/Kinesis-Freestyle2-Ergonomic-Keyboard-Separation/dp/B009ZNBJK8
 * _Matias ergo_: https://matias.ca/ergopro/programmable/
 
 TOO SMALL|STRANGE
