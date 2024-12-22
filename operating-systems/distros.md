@@ -204,6 +204,28 @@ Update them from Software Update in System Preferences or run:
   softwareupdate --all --install --force
 ```
 
+## launcher / workflows
+
+🗄️ `keyboards.md` programmable
+
+* _global hotkey_: keypress handled by listening program even if another program is active
+* used by: iTerm, Google Drive for Desktop https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
+> would be great to remap `CMD SPACE` bc I never use Spotlight + less strain on left thumb
+
+---
+
+* _Alfred_: 🎯 hotkey, launcher, workflows https://www.alfredapp.com/ https://wesbos.com/uses
+* _AutoHotKey_: Windows https://www.autohotkey.com/ https://www.hillelwayne.com/post/ahk/
+* _BetterTouchTool_: workflows via trackpad https://switowski.com/blog/favorite-mac-tools/
+* _Hammerspoon_: 🎯 Lua https://www.youtube.com/watch?v=wnsJ0vxQms0 https://news.ycombinator.com/item?id=34070951 install https://github.com/dandavison/wormhole
+* _Karabiner_: 🎯 https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934
+* _Keyboard Maestro_:
+
+LAUNCHER
+* _Raycast_: 🎯 https://www.raycast.com/ https://wesbos.com/uses https://www.youtube.com/watch?v=lhJwEckGi4U https://www.youtube.com/watch?v=Bslp82vTQaM https://weiyen.net/articles/useful-macos-cmd-line-utilities
+* _Spotlight_:
+* _ulauncher_: https://ulauncher.io/ https://omakub.org/
+
 ## provision
 
 🗄️ `linux.md` denv

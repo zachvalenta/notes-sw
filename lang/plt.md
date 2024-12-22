@@ -41,7 +41,7 @@ SEMANTICS
 
 ---
 
-start here https://www.achaq.dev/blog/artemis https://www.achaq.dev/blog/compilers
+start here https://www.achaq.dev/blog/artemis https://www.achaq.dev/blog/compilers https://zserge.com/posts/post-apocalyptic-programming/
 
 GRAMMAR
 * BNF, notation, grammar https://langdev.stackexchange.com/questions/2692/how-should-i-read-type-system-notation
@@ -289,7 +289,8 @@ FACTORS
 * build import things with it: + Golang, Java, C++
 
 * _Algol_: inspired Bash https://news.ycombinator.com/item?id=42020368 https://www.youtube.com/watch?v=olH-9b3VJfs https://shellhaters.org/talk
-* _APL_: https://mathspp.com/blog/what-learning-apl-taught-me-about-python
+* _APL_: https://mathspp.com/blog/what-learning-apl-taught-me-about-python https://zserge.com/posts/langs-apl/
+* _Basic_: https://zserge.com/posts/langs-basic/
 * _C#_: .NET big in game dev https://news.ycombinator.com/item?id=41936001
 * with Alpine https://news.ycombinator.com/item?id=34365515
 * _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/ https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/ https://www.manning.com/books/julia-as-a-second-language
@@ -339,7 +340,7 @@ https://increment.com/programming-languages/language-history/
 
 ## ☕️ Java
 
-* looking at Eclipse brings back memories https://horstmann.com/unblog/2024-12-11/index.html
+* looking at Eclipse brings back memories https://horstmann.com/unblog/2024-12-11/index.html https://simonwillison.net/2024/Dec/18/java-in-the-small
 * Kotlin only barely does scripting? https://blog.jetbrains.com/kotlin/2024/11/state-of-kotlin-scripting-2024/
 * abstraction run wild https://news.ycombinator.com/item?id=8420314
 * Flask for Java https://javalin.io/

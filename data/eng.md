@@ -215,6 +215,7 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 
 ## test
 
+https://www.milesmcbain.com/posts/assertive-programming-for-pipelines/
 * _data contract_: https://github.com/benrutter/wimsey
 * https://pycon-archive.python.org/2024/schedule/presentation/46/index.html
 * compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff 

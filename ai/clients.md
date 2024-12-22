@@ -55,7 +55,7 @@ EXTENSIONS
 * _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://codeium.com/windsurf https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
 * _Cody_: https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
 * _Continue_: autocomplete https://ollama.com/blog/continue-code-assistant
-* _Copilot_: ❌ VSC-native, multi-model https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
+* _Copilot_: ❌ VSC-native, multi-model https://simonwillison.net/2024/Dec/18/free-tier-for-github-copilot/ https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
 * _Sage_: https://github.com/Storia-AI/sage
 
 # 🛸 IN USE
@@ -169,6 +169,7 @@ llm models default $MODEL  # update
 
 ---
 
+usage https://simonwillison.net/2024/Dec/19/q-and-qv-zsh-functions/
 https://www.youtube.com/watch?v=QUXQNi6jQ30 @ 20:30
 
 > 🎗️ opportunity to use Datasette https://www.youtube.com/watch?v=QUXQNi6jQ30 [9:00]

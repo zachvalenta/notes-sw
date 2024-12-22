@@ -68,6 +68,7 @@ PROJECTS
 
 ---
 
+* https://zserge.com/posts/langs-asm/
 * https://shikaan.github.io/assembly/x86/guide/2024/09/08/x86-64-introduction-hello.html
 * ARM https://www.youtube.com/watch?v=gfmRrPjnEw4
 * compiler explorer https://godbolt.org/
@@ -186,6 +187,8 @@ https://bitfieldconsulting.com/posts/rust-and-go
 > In Rust, a program like this won’t compile! The ownership and reference rules mean that two mutable references to the same thing can’t exist simultaneously. You just have to solve the problem a different way.
 
 ## Cargo
+
+📦 https://crates.io/
 
 ```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh

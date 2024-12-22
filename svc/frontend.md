@@ -423,7 +423,7 @@ browsers
 * _headless_: browser sans UI
 * _JS engine_: V8 for Chrome, SpiderMonkey for Firefox
 > ❓ aka web engine? browser engine? https://servo.org/ https://github.com/gosub-io/gosub-engine
-* _layout engine_: parses XML/HTML into a DOM
+* _layout engine_: parses XML/HTML into a DOM https://simonwillison.net/2024/Dec/21/clay-ui-library/
 * scrolling https://news.ycombinator.com/item?id=23994619 https://dontfuckwithscroll.com/
 * _service worker_: API to run background scripts; diff than AJAX bc allow for push notifications and sync from emanating from server https://whatisjasongoldstein.com/writing/service-workers-of-the-world-unite/
 * `<script>`: now (inside `<head>` bc with async and defer can download script and parse HTML at the same time) then (at the end of <body> because browser stops parsing HTML while waiting for script to load) https://stackoverflow.com/a/24070373/6813490

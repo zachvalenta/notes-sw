@@ -75,11 +75,13 @@ WEB CLIENT
 * fast input 🗄️ `vim.md` Zed
 * good font
 * code syntax highlighting
+* can set conventions per project and for user
 * retry
 * mass delete
 * controls (artifacts = output, content = attachments)
 * org: search/stars
 * outputs code in a sidebar to prevent tons of scrolling in the main chat
+* interop with Google Docs
 * ❌ projects: can't add chat to project after the fact, can't view chats as part of projects
 * ❌ can't follow URLs
 
@@ -156,7 +158,9 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 ---
 
-* LLM controlling your browser
+> They discuss "agentic systems" as a parent term, then define a distinction between "workflows" - systems where multiple LLMs are orchestrated together using pre-defined patterns - and "agents", where the LLMs "dynamically direct their own processes and tool usage". https://simonwillison.net/2024/Dec/20/building-effective-agents/
+* as judge https://registerspill.thorstenball.com/p/joy-and-curiosity-20
+* LLM controlling your browser?
 https://ai.pydantic.dev/
 https://www.thediff.co/archive/offshoring-and-ai-agents/
 https://github.com/ishan0102/vimGPT
@@ -293,6 +297,8 @@ data prep kit https://www.youtube.com/watch?v=tqRvmg2F_gI https://github.com/IBM
 > assume we'd use transfer or reinforcement learning vs. getting into the weeds with adjusting the weights (finetuning, LoRA, PEFT)
 
 https://changelog.com/practicalai/295
+
+* inference scaling vs. model scaling https://simonwillison.net/2024/Dec/19/is-ai-progress-slowing-down/
 
 # 🏗️ USAGE
 

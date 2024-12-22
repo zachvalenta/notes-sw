@@ -22,7 +22,7 @@ SEMANTICS 🧠 https://chatgpt.com/c/67409094-34c0-8004-ad28-45ac4b94f67a
 * _desktop environment_: mouse-driven GUI riding on top of window system https://askubuntu.com/a/20435
 * _display server_: ❓ e.g. Quartz Compositor (aka WindowServer) https://en.wikipedia.org/wiki/Quartz_Compositor https://unix.stackexchange.com/a/1016
 * _window system_: server that displays graphics https://en.wikipedia.org/wiki/Windowing_system
-* protocols: x11 https://unix.stackexchange.com/q/517 Wayland, pipewire https://www.youtube.com/watch?v=jFxwPJpUwl0 https://github.com/sharkdp/pastel#get-a-list-of-all-x11--css-color-names https://en.wikipedia.org/wiki/Wayland_(display_server_protocol) https://www.youtube.com/watch?v=lpowigSQthg https://en.wikipedia.org/wiki/X_Window_System
+* protocols: x11 https://unix.stackexchange.com/q/517 https://zserge.com/posts/fenster/ Wayland, pipewire https://www.youtube.com/watch?v=jFxwPJpUwl0 https://github.com/sharkdp/pastel#get-a-list-of-all-x11--css-color-names https://en.wikipedia.org/wiki/Wayland_(display_server_protocol) https://www.youtube.com/watch?v=lpowigSQthg https://en.wikipedia.org/wiki/X_Window_System
 * _window manager_: control windows displayed by window system https://en.wikipedia.org/wiki/Window_manager https://news.ycombinator.com/item?id=34591661 https://news.ycombinator.com/item?id=36880235 https://www.youtube.com/watch?v=xWIDvnNFl5I
 * _tiling window manager_: keyboard-driven arrangement of and switching btw windows
 > https://www.youtube.com/watch?v=bdumjiHabhQ on i3 convinced me that this was potentially worthwhile just to not have to scroll for VS Code (and break dependency on iTerm auto hotkey)
@@ -386,18 +386,6 @@ color themes https://realpython.com/courses/custom-vs-code-color-themes/
 ## features
 
 * compute: iTerm uses ~15% CPU on air-capp, Alacritty is supposed to be good https://chatgpt.com/c/671149f9-6ff4-8004-a834-78d1cbfdd46b
-
-GLOBAL HOTKEY 🗄️ `keyboards.md` programmable
-* = keypress handled by listening program even if another program is active
-* killer feature https://news.ycombinator.com/item?id=17924264 https://news.ycombinator.com/item?id=22853277
-* used by: iTerm, Google Drive for Desktop
-> would be great to remap `CMD SPACE` bc I never use Spotlight + less strain on left thumb
-* _AutoHotKey_: https://www.hillelwayne.com/post/ahk/ https://www.autohotkey.com/ 
-* _Alfred_ https://www.alfredapp.com/ https://wesbos.com/uses
-* _BetterTouchTool_: https://switowski.com/blog/favorite-mac-tools/
-* _Hammerspoon_: Keyboard Maestro https://news.ycombinator.com/item?id=34070951 install https://github.com/dandavison/wormhole
-* _Karabiner_: https://missing.csail.mit.edu/2019/os-customization/ https://news.ycombinator.com/item?id=30876934
-* _Raycast_: https://www.raycast.com/ https://wesbos.com/uses https://www.youtube.com/watch?v=lhJwEckGi4U https://www.youtube.com/watch?v=Bslp82vTQaM https://weiyen.net/articles/useful-macos-cmd-line-utilities
 
 ---
 

@@ -163,6 +163,7 @@ https://news.ycombinator.com/item?id=41930628
 
 ---
 
+> 50% of cybersecurity is endlessly explaining that consumer VPNs don’t address any real cybersecurity issues. They are basically only useful for bypassing geofences and making money telling people they need to buy a VPN. Man-in-the-middle attacks on Public WiFi networks haven't been a realistic threat in a decade. Almost all websites use encryption by default, and anything of value uses HSTS to prevent attackers from downgrading / disabling encryption. It's a non issue. https://simonwillison.net/2024/Dec/20/marcus-hutchins/
 * https://computer.rip/2024-09-08-private-lines.html
 * https://news.ycombinator.com/item?id=27939039
 * _VPN_: encrypted connection to VPS to proxy traffic https://blog.mozilla.org/internetcitizen/2017/08/29/do-you-need-a-vpn/

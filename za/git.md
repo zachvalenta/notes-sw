@@ -202,6 +202,7 @@ https://docs.github.com/en/github/searching-for-information-on-github/searching-
 * https://maryrosecook.com/
 * https://www.youtube.com/playlist?list=PLrmY5pVcnuE_jPv620IWQV0TsJ_RCmg13
 * https://www.leshenko.net/p/ugit/
+* https://zserge.com/posts/git/
 🎨
 * https://onlywei.github.io/explain-git-with-d3
 * https://github.com/initialcommit-com/git-sim https://initialcommit.com/blog/git-sim

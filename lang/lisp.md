@@ -112,6 +112,7 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 
 ## language
 
+* https://zserge.com/posts/langs-lisp/
 * _homoiconicity_: code = data https://news.ycombinator.com/item?id=42272433
 * with Pythonic syntax https://news.ycombinator.com/item?id=42272433
 * little syntax https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html

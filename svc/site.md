@@ -44,7 +44,7 @@ MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 
 🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/
 🏔️ Julia Evans https://www.youtube.com/@wizardzines/videos
-> the zines has been her only job since 2019
+> the zines has been her only job since 2019 https://github.com/zserge/zine https://zserge.com/posts/tab/
 
 * addendum https://blog.plover.com/math/PM.html https://blog.plover.com/calendar/poor-richards-almanack.html
 * factors: smart, wise, taste

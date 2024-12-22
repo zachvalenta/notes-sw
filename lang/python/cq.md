@@ -90,6 +90,7 @@ if __name__=='__main__':
 * https://blog.miguelgrinberg.com/post/is-python-really-that-slow
 * https://martinheinz.dev/blog/13
 * https://rednafi.com/python/preallocated_list/
+* https://computers-are-fast.github.io/
 * https://tech.marksblogg.com/faster-python.html
 * https://pycon-archive.python.org/2024/schedule/presentation/36/index.html
 * https://github.com/tonybaloney/perflint 
