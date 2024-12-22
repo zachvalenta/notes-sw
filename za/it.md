@@ -339,6 +339,7 @@ AUTOS
 
 SELF-HOSTED STREAMING
 * _NAS (network attached storage)_: aka 'home media server' 🗄 `network-know-how.pdf`
+* raspberry pi version https://www.youtube.com/watch?v=l30sADfDiM8
 * https://www.youtube.com/watch?v=EYEPIDceoB0 [7:55]
 * https://nicolasbouliane.com/projects/home-server
 * aka home server https://www.youtube.com/watch?v=yFuTAKq_j3Q
@@ -369,7 +370,8 @@ fd 194[0-9]
 fd -t d 194[0-9]
 ```
 
-PYDUB
+### 🇯🇲 pydub
+
 * https://github.com/jiaaro/pydub https://realpython.com/playing-and-recording-sound-python/
 ```python
 from pydub import AudioSegment
@@ -377,6 +379,30 @@ song = AudioSegment.from_mp3("song.mp3")
 first_10_seconds = song[:10000]
 repeated = first_10_seconds * 2
 repeated.export("mashup.mp3", format="mp3")
+```
+* CLI failed due to ffmpeg issues
+```markdown
+Can you write me a script called medit (music edit) using this lib (https://github.com/jiaaro/pydub) for a CLI to edit audio files?
+Let's use Click for the CLI.
+Here's the desired functionality:
+* takes audio file
+* creates a copy with the same file format as the original
+* the copy version should be named by concat original name + `- medit` + file extension. For example, if the original is called `disco track.mp3`, the copy would be called `disco track - medit.mp3`.
+* the copy will be edited by removing seconds of audio from either the start or end of the file or both
+Here's example usage:
+```sh
+# copy version removes first 5 seconds of the song
+medit --start 5 $AUDIO_FILE
+
+# copy version removes first 7 seconds of the song
+medit --end 7 $AUDIO_FILE
+
+# copy version removes first 42 seconds and last 3 seconds of the song
+medit --start 42 --end 3 $AUDIO_FILE
+
+# either --start or --end must be used as parameter, so throw a warning if an audio file is passed without one
+medit $AUDIO_FILE
+```
 ```
 
 ### 🪲 cmus
