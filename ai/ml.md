@@ -18,6 +18,8 @@
 ## 进步
 
 START HERE
+* Clinton book + https://www.manning.com/books/llms-in-production
+* https://www.youtube.com/@gptLearningHub/videos
 * Raschka thirty questions and answers https://www.amazon.com/dp/1718503768
 * 🧠 https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * https://jalammar.github.io/visual-interactive-guide-basics-neural-networks/
@@ -25,7 +27,14 @@ START HERE
 * GPT from scratch https://bbycroft.net/llm https://news.ycombinator.com/item?id=38505211
 * llama3 from scratch https://github.com/naklecha/llama3-from-scratch
 
+FROM ELIZA TO LLM
+* https://zserge.com/posts/ai-eliza/
+* https://zserge.com/posts/ai-markov/
+* https://zserge.com/posts/ai-nn/
+* https://zserge.com/posts/ai-llm/
+
 ---
+
 ARE THESE TRAINING? BUILDING FROM SCRATCH?
 * https://eli.thegreenplace.net/2024/gomlx-ml-in-go-without-python/
 * learn from Simon https://news.ycombinator.com/item?id=41624759 and Ilya https://tensorlabbet.com/
