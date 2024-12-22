@@ -284,7 +284,7 @@ DESIGN
 * ❌ bad keybindings: parent directory cmd goes to root instead of parent, no jless/VSC-esqe fold all option no Vim https://github.com/juftin/browsr/issues/15
 * ❌ no search
 
-## jump
+## jump (zoxide)
 
 DESIGN
 * pro `.bash_profile`: better for staples (e.g. `sw`), specify post-`cd` behavior
@@ -297,6 +297,7 @@ TOOLS
 * _z_: https://github.com/rupa/z
 * _zoxide_: ✅ https://github.com/ajeetdsouza/zoxide https://www.youtube.com/watch?v=mmqDYw9C30I
 * initial usage didn't work bc of user error on my part 🗄️ `os/denv.md` profiles
+* if you really go all in you can just `alias cd = z` https://www.youtube.com/watch?v=aghxkpyRVDY
 
 ## list (eza)
 

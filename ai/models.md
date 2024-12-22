@@ -75,13 +75,15 @@ WEB CLIENT
 * fast input 🗄️ `vim.md` Zed
 * good font
 * code syntax highlighting
-* can set conventions per project and for user
 * retry
 * mass delete
 * controls (artifacts = output, content = attachments)
 * org: search/stars
 * outputs code in a sidebar to prevent tons of scrolling in the main chat
 * interop with Google Docs
+* ❌ conventions: user-level and per project
+> doesn't listen, continues to gen typed Python
+> conversations bleed, starts giving me Click CLIs when I haven't asked for them
 * ❌ projects: can't add chat to project after the fact, can't view chats as part of projects
 * ❌ can't follow URLs
 

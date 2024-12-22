@@ -277,7 +277,6 @@ semantics
 ---
 
 * _ASCII_: mapping from number to glyph (char) 📍 Petzold 15.181, computerphile 📚 Petzold code ch. 20 https://www.youtube.com/watch?v=XaGXPObx2Gs from pre 8-bit era; `man ascii` https://increment.com/programming-languages/unplain-text-primer-on-non-latin/
-* art https://retool.com/blog/erp-for-engineers
 
 ## Unicode
 
