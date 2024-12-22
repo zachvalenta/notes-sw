@@ -61,6 +61,23 @@ gh api "/users/zachvalenta/events" | jq 'map(select(.created_at | startswith("20
 
 📜 https://cli.github.com/manual/ https://github.com/cli/cli
 
+```sh
+# search repo by name
+gh search repos --owner=zachvalenta "proj in:name"
+
+###
+# TOPIC
+###
+
+# read
+gh search repos --owner=zachvalenta "topic:$TOPIC"
+
+# create (shows up in UI under description)
+gh repo edit $REPO --add-topic "cli,python,utils"
+
+# delete
+gh repo edit $REPO --remove-topic "topic1,topic2"
+```
 ---
 
 EXTENSIONS
