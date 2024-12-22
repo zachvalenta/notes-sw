@@ -10,7 +10,7 @@
 
 ## 进步
 
-* _24_: forced switch to eza, try difftastic, monitoring (tqdm, dust, procs, havn), uniq
+* _24_: forced switch to eza, try difftastic, monitoring (tqdm, dust, procs, havn), uniq, get television working as reasonable substitute for text search in VS Code
 * _20_: broot
 * _19_: try out eza, z, fish, tig, fzf, ranger, ripgrep
 
@@ -208,6 +208,9 @@ CONFIG FILESYSTEM STRANGENESS
 THEME
 * color theme didn't cover main pane https://github.com/alexpasmantier/television/issues/80
 * false alarm by me https://github.com/alexpasmantier/television/issues/117
+
+ZA
+* piping stdout to command https://github.com/alexpasmantier/television/issues/16#issuecomment-2558615942 https://github.com/zachvalenta/dotfiles-mini23/commit/7175670d734ca1362ecfd8204682d2dddb162847
 
 ---
 

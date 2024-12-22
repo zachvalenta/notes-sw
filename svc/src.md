@@ -180,6 +180,7 @@ CLOUD
 * _Devpod_: 🎯 https://www.youtube.com/watch?v=ceDrFx2K3jE
 * _Daytona_: https://www.daytona.io/
 * _Github codespaces_: https://github.com/features/codespaces https://www.thoughtworks.com/radar/tools?blipid=202203053 https://cli.github.com/manual/gh_codespace
+* _Github devcontainers_: https://code.visualstudio.com/docs/devcontainers/containers
 * _Gitpod_: 🎯 runs on your own AWS env (per This Week in AWS) https://www.gitpod.io/ https://www.youtube.com/watch?v=XcjqapXfrhk https://www.youtube.com/watch?v=llRLh8cM7QI 27:15 https://news.ycombinator.com/item?id=42041917
 * _Theia_: https://github.com/eclipse-theia/theia https://news.ycombinator.com/item?id=41563958
 * _Zed_: https://zed.dev/releases/stable/0.145.1 https://www.youtube.com/watch?v=F9sQPpVVLeQ
@@ -222,16 +223,25 @@ TOOLING
 
 ## secrets (dotenvx)
 
-🧠 https://chatgpt.com/c/673f8c16-e090-8004-bdc8-564bbfeb33d5
 🗄
 * `security.md` users/ passwords
 * `shell.md` env var
 * `spec.md` config
 
 WORKFLOWS
-* secrets to `.env` + read from client (set perms on `.env` to 600) 🗄️ `ai.md` aider
-* just export + remove from shell history 🗄️ `ai.md` llm
+* env file: gitignore, 600 perms, read from script 🗄️ `ai.md` aider
+```sh
+# aider.env
+export OPENAI_API_KEY=ur_key
+# bz
+OPENAI_KEY_PATH="$HOME/Documents/denv/bin/aider.env"
+```
+* export: rm from shell history 🗄️ `ai.md` llm
 * 📍 to grok
+
+---
+
+🧠 https://chatgpt.com/c/673f8c16-e090-8004-bdc8-564bbfeb33d5
 > env var, fs, manager https://news.ycombinator.com/item?id=40789353
 > 💡 point config to file holding pw = you can version control config https://www.youtube.com/watch?v=2yplBzPCghA [7:30]
 
