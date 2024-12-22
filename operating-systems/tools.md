@@ -198,14 +198,24 @@ select_tab_drop             # open in new tab, only available on master https://
 
 ### 📺 Television
 
-https://github.com/alexpasmantier/television
-grep https://github.com/darrenldl/docfd
+📜 https://github.com/alexpasmantier/television
+
+CONFIG FILESYSTEM STRANGENESS
+* originally [0.5.3] config (and logs) was `$HOME/Library/Application Support/com.television/config.toml`
+* `$XDG_CONFIG_HOME` is empty = based on docs the config should be at `$HOME/.config/television/config.toml`
+* I tried updating config and didn't register so I created `.config/television` and then config updates registered
+
+THEME
+* color theme didn't cover main pane https://github.com/alexpasmantier/television/issues/80
+* false alarm by me https://github.com/alexpasmantier/television/issues/117
+
+---
 
 CONFIG
-* fs: `$HOME/Library/Application Support/com.television/config.toml`
 * base: https://github.com/alexpasmantier/television/blob/main/.config/config.toml
 * uses same color themes at bat
-* color theme doesn't cover main pane https://github.com/alexpasmantier/television/issues/80 PR didn't work for me https://github.com/alexpasmantier/television/issues/117
+
+grep https://github.com/darrenldl/docfd
 
 ## explorer
 
@@ -296,6 +306,7 @@ TOOLS
 * _wd_: manually add https://github.com/mfaerevaag/wd
 * _z_: https://github.com/rupa/z
 * _zoxide_: ✅ https://github.com/ajeetdsouza/zoxide https://www.youtube.com/watch?v=mmqDYw9C30I
+* storage: `/Users/zach/Library/Application Support/zoxide/db.zo`
 * initial usage didn't work bc of user error on my part 🗄️ `os/denv.md` profiles
 * if you really go all in you can just `alias cd = z` https://www.youtube.com/watch?v=aghxkpyRVDY
 

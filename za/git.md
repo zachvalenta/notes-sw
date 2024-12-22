@@ -45,6 +45,7 @@ SHORTCUTS https://darrenburns.net/posts/github-tips
 * `b`: blame view in file
 
 FEATURES https://buttondown.com/hillelwayne/archive/github-has-too-many-hidden-features/
+* topics https://github.com/topics/copier-template
 * wiki: not searchable https://stackoverflow.com/questions/12535602/search-for-a-keyword-within-a-github-wiki can't find out how to edit project names https://github.com/kraanzu/dooit/wiki
 * README for org: `.github-private` repo w/ `profile/README.md` https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme
 * contributions: won't count unless user pushing them using same email tied to account in `.gitconfig`
@@ -59,6 +60,7 @@ gh api "/users/zachvalenta/events" | jq 'map(select(.created_at | startswith("20
 
 ## CLI
 
+🗄️ `task-mgmt.md` 2024 workflow
 📜 https://cli.github.com/manual/ https://github.com/cli/cli
 
 ```sh

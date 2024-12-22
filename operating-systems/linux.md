@@ -521,6 +521,10 @@ $ paste <(tail -n +2 aaon.csv) <(tail -n +2 baldor.csv)
 
 ## IO
 
+* grab stdout when you only get it after program closes https://github.com/alexpasmantier/television/issues/16#issuecomment-2558615942
+```sh
+alias ds='bash -c "tv | while read -r line; do code -g \"\$line\"; done"'
+```
 * _stdout_: `1`
 * _stderr_: `2`
 * _stdout + stderr_: `&`
@@ -1076,7 +1080,7 @@ PERMS 📙 Evans linux https://chatgpt.com/c/672cbc33-dabc-8004-bbac-7c5050f5387
 * categories: `u` (user/owner) `g` (group) `o` (other) `a` (all)
 * mv granular: `chmod` + group + `r|w|x` e.g. `u=rw` (user gains rw) `+x` (all gain x) `o-w` (other loses w)
 * mv wholesale: `chmod $OCTAL`
-* test: rw-only for owner `sudo -u nobody cat $FILE`
+* test: rw-only for owner `sudo -u nobody cat $FILE_WITH_PERMS_THAT_NOBODY_SHOULDNT_BE_ABLE_TO_READ`
 * get as octal: `stat -f "%A" $FILE`
 * default: `666` (file) `777` (dir)
 * _umask_: set perms on new files via "mask" (subtraction) from default perms; can be set as user or distro level https://www.digitalocean.com/community/tutorials/linux-permissions-basics-and-how-to-use-umask-on-a-vps

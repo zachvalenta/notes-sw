@@ -124,7 +124,7 @@ HISTORY
 * 2006: Vim 7.0
 * 2013: Vim 8.0 📙 PV [5.27]
 * 2015: Neovim
-* 2020s: Zed, Helix https://helix-editor.com/ https://news.ycombinator.com/item?id=33147270 https://www.youtube.com/watch?v=tGYvUXYN-c0 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
+* 2020s: Zed, Helix https://helix-editor.com/ Helix matcher https://github.com/alexpasmantier/television https://news.ycombinator.com/item?id=33147270 https://www.youtube.com/watch?v=tGYvUXYN-c0 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
 > select + action and space mode makes me think helix is worth learning https://www.youtube.com/watch?v=xHebvTGOdH8 https://www.youtube.com/watch?v=5WLlLxU2EZE
 > https://anvil-editor.net/ http://acme.cat-v.org/ https://news.ycombinator.com/item?id=41923018
 
@@ -218,9 +218,11 @@ edit
 
 * walled garden https://news.ycombinator.com/item?id=41907350
 * switch dir, switch project in IDE https://github.com/dandavison/wormhole
+* open at file and LOC: `code -g data/eng.md:419`
 
 THINGS I'M NOTICING ABOUT VSC
 * ❌ weird overlay when using checkboxes
+* ❌ strange way of getting on `$PATH` -> command pallete > search 'shell command'
 * ❌ constantly wipes out the outliner and requires Vim action to prompt redraw
 * ❌ symbol search doesn't work after git pull of new files | movement of headers
 > sometimes not at all, even after you've just opened file and navigated to header
