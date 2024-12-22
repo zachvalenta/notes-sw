@@ -255,15 +255,17 @@ var myInt // 0
 * text input (does it support readline?) https://github.com/charmbracelet/bubbles?tab=readme-ov-file#text-input
 * _Bubbletea_: TUI framework https://github.com/charmbracelet/bubbletea https://github.com/charmbracelet/bubbletea#bubble-tea-in-the-wild
 * _huh_: forms; used in gum https://github.com/charmbracelet/huh
-* _gum_: ✅ components for Bash scripts https://github.com/charmbracelet/gum examples https://github.com/charmbracelet/gum/blob/main/examples/test.sh
-* can use in Python https://github.com/charmbracelet/gum/blob/main/examples/gum.py
+* _log_: structured logs, used in gum https://github.com/charmbracelet/log https://github.com/charmbracelet/gum#log
+
+🍬 GUM 📜 https://github.com/charmbracelet/gum
+* tldr: components for Bash scripts https://github.com/charmbracelet/gum/blob/main/examples/test.sh
+* things I've used: log https://github.com/zachvalenta/capp-crudite filter
+* use in Python https://github.com/charmbracelet/gum/blob/main/examples/gum.py
+* welcome msg https://github.com/charmbracelet/gum#join
 ```sh
-# welcome msg -> yet wilder here https://github.com/charmbracelet/gum#join
 gum style --foreground 212 --border-foreground 212 --border double \
 	--align center --width 50 --margin "1 2" --padding "2 2" 'generate' 'dataset' 'for' 'crudite'
 ```
-* _log_: structured logs https://github.com/charmbracelet/log
-* used in gum https://github.com/charmbracelet/gum#log
 
 ---
 
