@@ -135,7 +135,7 @@ jitter https://gafferongames.com/post/fixing_the_internet_for_games/
 * _percentiles_: p50 (median) p90 (worst case); mean doesn't tell you how many nodes/users
 * _skew_: uneven distibution re: load across worker processes [Kleppmann 20] what prevents run time of batch job being data divided by throughput
 
-* _frecency_: frequency + recency https://missing.csail.mit.edu/2020/shell-tools/ https://github.com/rupa/z
+* _frecency_: frequency + recency https://missing.csail.mit.edu/2020/shell-tools/ https://github.com/rupa/z https://github.com/ajeetdsouza/zoxide/wiki/Algorithm#matching
 
 * utilization, system metrics https://entropicthoughts.com/predicting-resource-usage-from-increased-traffic https://entropicthoughts.com/response-time-is-the-system-talking
 

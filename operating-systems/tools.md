@@ -286,14 +286,17 @@ DESIGN
 
 ## jump
 
-> currently do via aliases + atuin
-
-* `.bash_profile` aliases
+DESIGN
+* pro `.bash_profile`: better for staples (e.g. `sw`), specify post-`cd` behavior
+* pro jump: better for adhoc, ~25 fewer LOC in `.zprofile`, less time going through atuin
 * BYO https://news.ycombinator.com/item?id=22853119
+
+TOOLS
 * _autojump_: 🎯 mature https://github.com/wting/autojump
 * _wd_: manually add https://github.com/mfaerevaag/wd
 * _z_: https://github.com/rupa/z
-* _zoxide_: ❌ tried out and init in zsh didn't work, requires fzf https://github.com/ajeetdsouza/zoxide https://www.youtube.com/watch?v=mmqDYw9C30I
+* _zoxide_: ✅ https://github.com/ajeetdsouza/zoxide https://www.youtube.com/watch?v=mmqDYw9C30I
+* initial usage didn't work bc of user error on my part 🗄️ `os/denv.md` profiles
 
 ## list (eza)
 

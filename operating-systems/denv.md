@@ -532,15 +532,18 @@ TOOLS
 
 ## profiles
 
+ZSH
+* _zshrc_: src for interactive shells
+* this isn't in `$HOME` by default i.e. I had `.zshrc` in my dotfiles that wasn't being sourced for months
+
 ---
 
 📍 https://github.com/zachvalenta/dotfiles-mini23/commit/8be5846e05a964dd5f7f1de716271268331dde09
 
 ZSH https://unix.stackexchange.com/a/71258
-* `.zshenv`: src for all shells
-> often contains exported variables that should be available to other programs. For example, $PATH, $EDITOR, and $PAGER are often set in .zshenv. Also, you can set $ZDOTDIR in .zshenv to specify an alternative location for the rest of your zsh configuration.
-* `.zprofile`: src for login shells, src before `.zshrc`
-* `.zshrc`: src for interactive shells
+* _zshenv_: src for all shells
+* Contains exported variables that should be available to other programs e.g. $PATH $PAGER are often set in .zshenv.
+* _zprofile_: src for login shells, src before `.zshrc`
 
 ALIASES
 * `alias`: list all

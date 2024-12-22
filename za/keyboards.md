@@ -134,7 +134,10 @@ KEYCHRON
 
 NUPHY
 * _halo75_: less scrunched layout than air75? https://www.amazon.com/nuphy-Mechancial-Kyeboard-Swappable-Bluetooth/dp/B0D5Q891F1
-* _air75 v2_: ✅ $125; 75%/scrunched, low profile (2.3mm) slow shipping (but next time you can just buy from Amazon?) https://nuphy.com/products/air75-v2
+* _air75 v2_: ✅ $125 https://nuphy.com/products/air75-v2
+* 75% is too scrunched for me, tons of typos
+* low profile (2.3mm)
+* slow shipping (but next time you can just buy from Amazon?)
 * _gem 80_: $150; TKL, normal profile https://nuphy.com/collections/keyboards/products/gem80
 
 ZA
