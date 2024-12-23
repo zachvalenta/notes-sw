@@ -287,6 +287,14 @@ ALTERNATIVES https://github.com/cli/cli?tab=readme-ov-file#installation
 
 ---
 
+```sh
+A new release of gh is available: 2.57.0 → 2.64.0
+To upgrade, run: brew upgrade gh
+
+brew upgrade gh
+Warning: gh 2.57.0 already installed
+```
+
 * Bundle, Brewfiles https://nickgerace.dev/posts/how-to-manage-rust-tools-and-applications/
 * un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew
 * GUI version https://news.ycombinator.com/item?id=37075730

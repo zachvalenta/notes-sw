@@ -286,6 +286,7 @@ ZA
 * https://switches.mx/
 
 SOUNDS https://www.youtube.com/watch?v=xtadlynfAZ8 https://pacificparadiseprints.shop https://www.youtube.com/@kineticlabskb/videos
+> need shocks for real quiet https://www.youtube.com/watch?v=UIeyhGTwxGA
 * _clicky_: high pitched; Gateron blue
 * _creamy_: ✅ quiet, more resistance; Gateron brown|milky yellow https://www.youtube.com/watch?v=EzKB-__6IW0 [13:00]
 * _thocky_: clacky, less resistance; Gateron red

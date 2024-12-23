@@ -490,6 +490,8 @@ query_res.to_parquet('file/path.parquet')  # save
 
 ---
 
+> That’s now rapidly changing; on the back-end, most modern enterprise software (e.g. Salesforce, Jira, etc.) now have good APIs for exporting data. ETL + data lakes are on the rise: Presto, for example, facilitates cross-database joins that weren’t possible just a few years ago. https://retool.com/blog/erp-for-engineers
+
 * _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
 * beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
 

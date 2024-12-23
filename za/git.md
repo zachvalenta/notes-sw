@@ -199,6 +199,7 @@ gh issue list --repo ponyorm/pony --state closed --json number --jq 'length'
 ## search
 
 * doesn't search non-main branches https://github.com/search?q=owner%3Azachvalenta+bullet+language%3APython&type=code&l=Python https://github.com/zachvalenta/capp-prod-cat/blob/link-nodes/tree_viz.py 🗄️ `stdlib.md` UI / IO / input / bullet
+* filters: `org:freeCodeCamp language:python path:**/Makefile user:zachvalenta extension:py` https://stackoverflow.com/a/28347129 https://stackoverflow.com/a/42418887
 
 ---
 

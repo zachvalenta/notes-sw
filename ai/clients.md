@@ -84,13 +84,16 @@ locality
 📜 https://aider.chat/
 🗄️ `task-mgmt.md` 2024 workflow
 
-* workflows https://aider.chat/examples/2048-game.html https://aider.chat/examples/hello-world-flask.html
+* upgrade to latest version and see if that fixes bug where aider asks if you want to create a file and then errs out bc it tries to read a file it didn't create
+* workflows https://aider.chat/examples/2048-game.html https://aider.chat/examples/hello-world-flask.html https://aider.chat/docs/usage/tutorials.html
+* modes https://aider.chat/docs/usage/modes.html
 
 ---
 
 * _codebuff_: alternative https://news.ycombinator.com/item?id=42078536
 
 CONTEXT
+* repo map https://aider.chat/docs/repomap.html#using-a-repo-map-to-provide-context
 * conventions https://aider.chat/docs/usage/conventions.html https://github.com/zachvalenta/dotfiles-mini23/tree/main/ai
 * Git repo history https://aider.chat/docs/faq.html#how-do-i-include-the-git-history-in-the-context
 
