@@ -214,10 +214,10 @@ ZA
 
 ---
 
+> wish you could configure the preview pane to be bigger
+
 CONFIG
 * base: https://github.com/alexpasmantier/television/blob/main/.config/config.toml
-* uses same color themes at bat
-
 grep https://github.com/darrenldl/docfd
 
 ## explorer
@@ -236,7 +236,6 @@ MAYBE
 * _nnn_: https://github.com/jarun/nnn
 * _tere_: https://github.com/mgunyho/tere
 * _xlpr_: https://github.com/sayanarijit/xplr https://news.ycombinator.com/item?id=33209020 batch file operations https://github.com/sayanarijit/map.xplr
-* _yazi_: 🎯 PDF preview via poppler https://github.com/sxyazi/yazi
 
 NO
 * BYO https://github.com/willmcgugan/terminal-tree
@@ -296,6 +295,19 @@ DESIGN
 * ❌ super slow to load
 * ❌ bad keybindings: parent directory cmd goes to root instead of parent, no jless/VSC-esqe fold all option no Vim https://github.com/juftin/browsr/issues/15
 * ❌ no search
+
+### 🦆 yazi
+
+CONFIG
+* fs: `~/.config/yazi`
+
+OPERATIONS
+* enter doesn't enter dir from shell but rather opens in Vim -> workaround? https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
+* 📍 good for file operations https://www.youtube.com/watch?v=iKb3cHDD9hw
+
+VIZ
+* 📍 theme https://github.com/catppuccin/yazi
+* 📍 PDF preview via poppler https://github.com/sxyazi/yazi
 
 ## jump (zoxide)
 
