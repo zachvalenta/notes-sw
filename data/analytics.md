@@ -44,7 +44,7 @@ ZA
 * tables https://posit-dev.github.io/great-tables
 * Dataframe Interchange Protocol, Dataframe API Standard https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/ https://pythonspeed.com/articles/polars-pandas-interopability/
 
-### 🏹 Arrow
+## 🏹 Arrow
 
 📜 https://arrow.apache.org/
 🗄️ `protocols.md` file fmt / serialization
@@ -62,7 +62,7 @@ ZA
 * used by Polars https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
 * can query using DuckDB bc Duck's  https://duckdb.org/2021/12/03/duck-arrow.html https://news.ycombinator.com/item?id=35426155
 
-### 🦢 Ibis
+## 🦢 Ibis
 
 📜 https://ibis-project.org/
 
@@ -78,7 +78,7 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 * dataframe API that can use Polars/Pandas query engine or transpile to SQL and run against relational dbms https://talkpython.fm/episodes/show/462/pandas-and-beyond-with-wes-mckinney
 * https://www.youtube.com/watch?v=C4aUG9poN6E https://us.pycon.org/2024/schedule/presentation/55/index.html
 
-### 🐋 Narwhals
+## 🐋 Narwhals
 
 ---
 
@@ -86,159 +86,7 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 * _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog https://realpython.com/podcasts/rpp/224/ https://github.com/benrutter/wimsey
 > Chances are, you’ve never heard of Narwhals. That’s because it’s a tool targeted at tool builders, rather than at end users. Specifically, it allows library maintainers to support multiple dataframe libraries as inputs, without having to make any of them required. https://pola.rs/posts/lightweight_plotting/
 
-### 🐻‍❄️ Polars
-
-📜 https://docs.pola.rs/ https://docs.pola.rs/api/python/stable/reference/index.html
-📙 https://realpython.com/polars-python/
-
-#### design
-
----
-
-BIG PICTURE
-* query engine with dataframe frontend https://pola.rs/posts/polars_birds_eye_view/ https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/
-* compared to Pandas: query optimization, group by https://labs.quansight.org/blog/dataframe-group-by https://pola.rs/posts/benchmarks/
-* https://www.youtube.com/watch?v=q3o2IdFQTOE
-* https://news.ycombinator.com/item?id=35429555
-* better semantics than Pandas? https://arilamstein.com/blog/2024/09/04/why-im-switching-to-polars/
-
-INTEROP
-* converting Pandas to Polars https://www.youtube.com/watch?v=B2Ljp2Fb-l0
-* can use some Pandas libraries https://pythonspeed.com/articles/polars-pandas-interopability/
-
-PRO / CON
-* better than Pandas: query in Python or SQL, no dependencies, sensible pip install (vs. conda) https://github.com/pola-rs/polars better perf https://pola.rs/posts/benchmarks/ less memory usage https://pythonspeed.com/articles/polars-memory-pandas/
-* worse than Pandas: not meant for Excel-like operations
-> Pandas was originally written to replace excel in financial/econometric modeling, not as a replacement for sql. Models written solely in the long relational style are near unmaintainable for constantly evolving models with hundreds of data sources and thousands of interactions being developed and tuned by teams of analysts and engineers. https://news.ycombinator.com/item?id=35429555
-
-ZA
-* Deltabase, DeltaDB https://github.com/uname-n/deltabase https://pythonbytes.fm/episodes/show/397/so-many-pycon-videos
-* plotting https://pola.rs/posts/lightweight_plotting/ https://realpython.com/python-news-october-2024/
-> couldn't get this to work; try `pipx inject`
-
-#### operations
-
-```python
-# SAMPLE DATASET
-foo = pl.DataFrame({"id": [1, 2, 3], "manufacturer": ["apple", "samsung", "motorola"], "foo_price": [100.0, 200.0, 300.0]})
-bar = pl.DataFrame({"mpn": [1, 2, 3, 4], "manufacturer": ["apple", "samsung", "motorola", "samsung"], "bar_price": [100.0, 250.0, 300.0, 150.00]})
-```
-
-READ
-```python
-return pl.read_csv(filepath, columns=['eid', 'sku'])  # slightly faster https://github.com/zachvalenta/capp-brand-enablement
-# 📍 learn about streaming
-```
-
-JOINS
-```python
-# basic
-foo.join(bar, left_on="id", right_on="mpn")
-# predicate
-foo.join(bar, left_on="id", right_on="mpn").filter(pl.col("foo_price") != pl.col("bar_price"))
-foo.join(bar, left_on="id", right_on="mpn").filter(pl.col("manufacturer").is_in(["apple", "motorola"]))
-# relative complement
-bar.join(foo, left_on="mpn", right_on="id", how="anti")
-```
-
----
-
-🗄️ startup.py https://github.com/zachvalenta/capp-crud
-
-```python
-foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")
-foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc").select(["sku", "bar_upc", "foo_price", "bar_price"])
-
-joined = foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")
-joined.select(joined.columns[0], joined.columns[-1], *joined.columns[1:-1])
-
-select([
-    "name",  # specify your desired column order
-    "age",
-    "id"
-])
-
-foo.join(df2, on="id").filter(pl.col("price") != pl.col("Sell Price"))
-```
-
-JOINS
-```python
-# BASIC
-joined = capp.join(neuco, on="id", how="left")  # JK same name
-joined = df1.join(df2, left_on="Part_ID", right_on="part_id")  # JK dif name
-
-# RECONCILIATION
-# 📍 update this to show what the price is
-df1 = pl.DataFrame({"id": [1, 2, 3], "price": [100.0, 200.0, 300.0]})
-df2 = pl.DataFrame({"id": [1, 2, 3], "price": [100.0, 250.0, 300.0]})
-df1.join(df2, on="id").filter(pl.col("price") != pl.col("Sell Price"))
-
-missing_records = capp.join(
-    neuco,
-    left_on=["Part_ID", "Product Item"],  # Join on both keys
-    right_on=["part_id", "product_item"],
-    how="left"
-)
-
-# only keeps join key from the driving table (as least in output)
-df1 = pl.DataFrame({"Part_ID": [1, 2, 3], "name": ["a", "b", "c"]})
-df2 = pl.DataFrame({"part_id": [1, 2, 4], "value": [10, 20, 30]})
-joined = df1.join(df2, left_on="Part_ID", right_on="part_id")
-# need to alias join key from through table to see it in output
-joined = df1.join(df2.with_columns(pl.col("part_id").alias("df2_part_id")), left_on="Part_ID", right_on="part_id")
-
-# trying to make it more clear in a join which attr belong to which table
-df1_tagged = df1.select([pl.all().prefix("table1_")])
-df2_tagged = df2.select([pl.all().prefix("table2_")])
-joined = df1_tagged.join(df2_tagged, left_on="table1_Part_ID", right_on="table2_Part_ID") # adjust join key names to match prefixed names
-```
-
-BASICS
-```python
-pl.read_csv(path/to/csv, ignore_errors=True)  # IO
-df.columns
-df.schema
-df.schema.keys()
-col_series = df["column_name"]
-col_list = df["column_name"].to_list()
-first_values = df["column_name"].head(5)
-unique_values = df["column_name"].unique()
-subset = df.select(["col1", "col2", "col3"])
-result = df.select(pl.col("column_name")) # using pl.col() expression (useful in more complex operations)
-filtered = df.filter(pl.col("column_name") > 10)["column_name"]  # predicate
-```
-
----
-
-ZA
-```python
-# MALFORMATTED COLUMN HEADERS
-no_whitespace_or_period_delimit = r"^[^\s.-]+$"
-violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
-assert len(violations) > 0
-
-# PREDICATES
-df.filter(pl.col(COL) == VAL)
-df.filter(pl.col(COL).str.contains(REGEX).alias('regex'))
-```
-
-NULL/EMPTY COL
-```python
-# EMPTY COLUMNS
-null_col_df = [col for col in df.columns if df[col].null_count() == df.height]
-assert bool(null_col_df) is True
-
-# NULLS
-df.filter(pl.col(COL).is_null())
-
-# VALUE NOT PRESENT IN COLUMN
-assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == 0
-
-# VALUE PRESENT IN EVERY COLUMN RECORD
-assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == lines_set.height
-```
-
-### 🐼 Pandas
+## Pandas
 
 > 📍 https://github.com/lux-org/lux
 📜 https://pandas.pydata.org/docs/
@@ -316,6 +164,168 @@ df.shape[1]  # count col
 verified = df.drop(df.index[df.foo.isin(invalid)])
 log.info("count - verified: {}".format(len(set(verified.foo))))
 verified.to_csv(os.path.join(os.getcwd(), out_file))
+```
+
+# 🐻‍❄️ POLARS
+
+📜 https://docs.pola.rs/ https://docs.pola.rs/api/python/stable/reference/index.html
+📙 https://realpython.com/polars-python/
+
+## design
+
+---
+
+BIG PICTURE
+* query engine with dataframe frontend https://pola.rs/posts/polars_birds_eye_view/ https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/
+* compared to Pandas: query optimization, group by https://labs.quansight.org/blog/dataframe-group-by https://pola.rs/posts/benchmarks/
+* https://www.youtube.com/watch?v=q3o2IdFQTOE
+* https://news.ycombinator.com/item?id=35429555
+* better semantics than Pandas? https://arilamstein.com/blog/2024/09/04/why-im-switching-to-polars/
+
+INTEROP
+* converting Pandas to Polars https://www.youtube.com/watch?v=B2Ljp2Fb-l0
+* can use some Pandas libraries https://pythonspeed.com/articles/polars-pandas-interopability/
+
+PRO / CON
+* better than Pandas: query in Python or SQL, no dependencies, sensible pip install (vs. conda) https://github.com/pola-rs/polars better perf https://pola.rs/posts/benchmarks/ less memory usage https://pythonspeed.com/articles/polars-memory-pandas/
+* worse than Pandas: not meant for Excel-like operations
+> Pandas was originally written to replace excel in financial/econometric modeling, not as a replacement for sql. Models written solely in the long relational style are near unmaintainable for constantly evolving models with hundreds of data sources and thousands of interactions being developed and tuned by teams of analysts and engineers. https://news.ycombinator.com/item?id=35429555
+
+ZA
+* Deltabase, DeltaDB https://github.com/uname-n/deltabase https://pythonbytes.fm/episodes/show/397/so-many-pycon-videos
+* plotting https://pola.rs/posts/lightweight_plotting/ https://realpython.com/python-news-october-2024/
+> couldn't get this to work; try `pipx inject`
+
+## operations
+
+```python
+# SAMPLE DATASET
+foo = pl.DataFrame({"id": [1, 2, 3], "manufacturer": ["apple", "samsung", "motorola"], "foo_price": [100.0, 200.0, 300.0]})
+bar = pl.DataFrame({"mpn": [1, 2, 3, 4], "manufacturer": ["apple", "samsung", "motorola", "samsung"], "bar_price": [100.0, 250.0, 300.0, 150.00]})
+```
+
+---
+
+BASICS
+```python
+pl.read_csv(path/to/csv, ignore_errors=True)  # IO
+df.columns
+df.schema
+df.schema.keys()
+col_series = df["column_name"]
+col_list = df["column_name"].to_list()
+first_values = df["column_name"].head(5)
+unique_values = df["column_name"].unique()
+subset = df.select(["col1", "col2", "col3"])
+result = df.select(pl.col("column_name")) # using pl.col() expression (useful in more complex operations)
+filtered = df.filter(pl.col("column_name") > 10)["column_name"]  # predicate
+```
+
+NULL/EMPTY COL
+```python
+# EMPTY COLUMNS
+null_col_df = [col for col in df.columns if df[col].null_count() == df.height]
+assert bool(null_col_df) is True
+
+# NULLS
+df.filter(pl.col(COL).is_null())
+
+# VALUE NOT PRESENT IN COLUMN
+assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == 0
+
+# VALUE PRESENT IN EVERY COLUMN RECORD
+assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == lines_set.height
+```
+
+```python
+# MALFORMATTED COLUMN HEADERS
+no_whitespace_or_period_delimit = r"^[^\s.-]+$"
+violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
+assert len(violations) > 0
+```
+
+### IO
+
+```python
+return pl.read_csv(filepath, columns=['eid', 'sku'])  # slightly faster ❓ faster with streaming? https://github.com/zachvalenta/capp-brand-enablement
+```
+
+### predicates
+
+```python
+# where
+bar.filter(pl.col('manufacturer') == 'samsung')
+
+# string search
+foo.filter(pl.col('manufacturer').str.contains('pp').alias('regex'))
+
+ecl.filter(pl.col('mfg') == 'Reznor')
+```
+
+### joins
+
+```python
+# basic
+foo.join(bar, left_on="id", right_on="mpn")
+
+# predicate
+foo.join(bar, left_on="id", right_on="mpn").filter(pl.col("foo_price") != pl.col("bar_price"))
+foo.join(bar, left_on="id", right_on="mpn").filter(pl.col("manufacturer").is_in(["apple", "motorola"]))
+
+# relative complement
+bar.join(foo, left_on="mpn", right_on="id", how="anti")
+```
+
+---
+
+🗄️ startup.py https://github.com/zachvalenta/capp-crud
+
+```python
+foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")
+foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc").select(["sku", "bar_upc", "foo_price", "bar_price"])
+
+joined = foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")
+joined.select(joined.columns[0], joined.columns[-1], *joined.columns[1:-1])
+
+select([
+    "name",  # specify your desired column order
+    "age",
+    "id"
+])
+
+foo.join(df2, on="id").filter(pl.col("price") != pl.col("Sell Price"))
+```
+
+JOINS
+```python
+# BASIC
+joined = capp.join(neuco, on="id", how="left")  # JK same name
+joined = df1.join(df2, left_on="Part_ID", right_on="part_id")  # JK dif name
+
+# RECONCILIATION
+# 📍 update this to show what the price is
+df1 = pl.DataFrame({"id": [1, 2, 3], "price": [100.0, 200.0, 300.0]})
+df2 = pl.DataFrame({"id": [1, 2, 3], "price": [100.0, 250.0, 300.0]})
+df1.join(df2, on="id").filter(pl.col("price") != pl.col("Sell Price"))
+
+missing_records = capp.join(
+    neuco,
+    left_on=["Part_ID", "Product Item"],  # Join on both keys
+    right_on=["part_id", "product_item"],
+    how="left"
+)
+
+# only keeps join key from the driving table (as least in output)
+df1 = pl.DataFrame({"Part_ID": [1, 2, 3], "name": ["a", "b", "c"]})
+df2 = pl.DataFrame({"part_id": [1, 2, 4], "value": [10, 20, 30]})
+joined = df1.join(df2, left_on="Part_ID", right_on="part_id")
+# need to alias join key from through table to see it in output
+joined = df1.join(df2.with_columns(pl.col("part_id").alias("df2_part_id")), left_on="Part_ID", right_on="part_id")
+
+# trying to make it more clear in a join which attr belong to which table
+df1_tagged = df1.select([pl.all().prefix("table1_")])
+df2_tagged = df2.select([pl.all().prefix("table2_")])
+joined = df1_tagged.join(df2_tagged, left_on="table1_Part_ID", right_on="table2_Part_ID") # adjust join key names to match prefixed names
 ```
 
 # 🛠️ TOOLING
