@@ -61,6 +61,29 @@ with fileinput.FileInput(filename, inplace=True, backup='.bak') as file:
         print(line.replace(text_to_search, replacement_text), end='')
 ```
 
+## env
+
+```python
+# DOTENV
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())  # .env
+
+# NATIVE
+import os
+with open(".env") as f:
+    for line in f:
+        line = line.strip()
+        if line and not line.startswith("#"):
+            key, value = line.split("=", 1)
+            os.environ[key] = value
+
+os.getenv("FOO_VAR")
+```
+
+---
+
+* config/env var: https://github.com/theskumar/python-dotenv https://github.com/sloria/environs https://github.com/facebookresearch/hydra https://rednafi.github.io/digressions/python/2020/06/03/python-configs.html less popular cousin https://github.com/sloria/environs
+
 ## files
 
 📙 Beazley ch. 5
@@ -938,13 +961,6 @@ artist_schema = ArtistSchema(only=("name", "songs"))  # subset
 # 🟨 ZA
 
 * auth: https://authlib.org/
-* config/env var: https://github.com/theskumar/python-dotenv https://github.com/sloria/environs https://github.com/facebookresearch/hydra https://rednafi.github.io/digressions/python/2020/06/03/python-configs.html less popular cousin https://github.com/sloria/environs
-```python
-import os
-from dotenv import load_dotenv, find_dotenv
-load_dotenv(find_dotenv())  # if `.env` present in project
-os.getenv("FOO_VAR")
-```
 * cron / scheduling / daemon: https://github.com/zachvalenta/pypub https://github.com/maxhumber/hickory https://docs.python.org/3/library/sched.html https://github.com/dbader/schedule https://github.com/dbader/schedule https://schedule.readthedocs.io/en/stable/faq.html#how-to-continuously-run-the-scheduler-without-blocking-the-main-thread https://towardsdatascience.com/scheduling-all-kinds-of-recurring-jobs-with-python-b8784c74d5dc
 * URL: urllib, urlparse https://github.com/gruns/furl
 * validation (email, IP address) https://martinheinz.dev/blog/96
