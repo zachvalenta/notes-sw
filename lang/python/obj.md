@@ -651,6 +651,18 @@ bar[0] = 42
 foo  # [42, 2, 3]
 ```
 
+## symbol table
+
+---
+
+https://llm.datasette.io/en/stable/related-tools.html
+
+* _private_: all obj in module 
+* _public_: obj in mod avaiable when import mod https://realpython.com/python-modules-packages/#the-import-statement https://docs.python.org/3/library/functions.html#locals
+* `locals()`: local symbol table https://docs.python.org/3/library/functions.html#locals
+* `globals()`: global symbol table
+* `dir()`: locals() w/ out values https://stackoverflow.com/a/21961813 https://realpython.com/python-modules-packages/#the-dir-function
+
 ## typing
 
 🗄 `plt.md` typing

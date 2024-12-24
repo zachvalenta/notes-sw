@@ -148,6 +148,10 @@ dot([1,2,3], [4,5,6])
 * https://www.amazon.com/gp/product/1098134184
 * https://realpython.com/huggingface-transformers/
 
+## tokens
+
+https://llm.datasette.io/en/stable/related-tools.html
+
 ## vectors
 
 ---

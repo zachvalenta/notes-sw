@@ -175,8 +175,9 @@ https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUC
 
 🗄️ `plt.md` memory
 
-https://bitfieldconsulting.com/posts/rust-and-go
+> My experience with Rust is like this: make a seemingly small change, it balloons into a compile error that requires large refactoring to appease the borrow checker and type system. I suppose if you repeat this enough you learn how to write code that Rust is happy with first-time. I think my brain just doesn't like Rust. https://news.ycombinator.com/item?id=42485536
 
+https://bitfieldconsulting.com/posts/rust-and-go
 > Rust is a language for controlling elevators...we can't prevent all bugs, but we can at least use a programming language that eliminates some major categories of bugs, such as buffer overflows, data races, and "use after free" issues. So from the very beginning, Rust's focus has been on building reliable software, automating many of the safety checks that good programmers do anyway, and helping to catch mistakes before they reach production.
 > It reclaims memory automatically, but without having to pause the program. It can do this by keeping track of all the references to a particular piece of data that exist. When no part of the program can refer to the data any more, Rust knows that bit of memory can be safely recycled straight away.
 > Well, I have good news - if you’re already used to pointers in Go, then references in Rust work basically the same way, only safer. If you create a mutable reference to a variable, it works just like a Go pointer: you can pass it to a function, or store it somewhere.

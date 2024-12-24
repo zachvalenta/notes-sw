@@ -48,6 +48,7 @@ GRAMMAR
 * _grammar_: syntax for programming language https://blog.robertelder.org/computer-science-for-engineers/
 
 http://steve-yegge.blogspot.com/2007/06/rich-programmer-food.html
+* _decompile_: https://github.com/isledecomp/isle
 
 TYPES OF COMPILATION
 * _just-in-time (JIT)_: https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction https://pycon-archive.python.org/2024/schedule/presentation/124/index.html
@@ -910,38 +911,6 @@ SEMANTICS https://www.destroyallsoftware.com/compendium/types?share_key=baf6b673
     
 # 🟨 ZA
 
-OVERLOADING
-* _function overloading_: same method name, different sig (i.e. diff params)
-* some people don't like https://news.ycombinator.com/item?id=22347007
-* can do in Python via variadic args https://news.ycombinator.com/item?id=22346418 https://news.ycombinator.com/item?id=22347918
-> Function overloading is a common programming pattern which seems to be reserved to statically-typed, compiled languages. https://martinheinz.dev/blog/50
-* can do in Python via multiple dispath / multimethods https://martinheinz.dev/blog/50
-* can do in Python via `__call__`, virtual namespace, decorators https://arpitbhayani.me/blogs/function-overloading
-* _operator overloading_: operator works differently based on args https://en.wikipedia.org/wiki/Operator_overloading
-* handled by language data model
-```python
-print(1 + 2)
-print("hey " + "there)
-print("hey " * 3)
-```
-* handled by classes
-> operators with special syntax (arithmetic operators, etc.) can be redefined for class instances https://docs.python.org/dev/tutorial/classes.html
-```python
-# https://monadical.com/posts/operator-overloading-in-python.html
-class Clock:
-   def __init__(self, time: str):
-       self.hour, self.min = [int(i) for i in time.split(':')]
-
-   def __repr__(self) -> str:
-       min = '0' + str(self.min)
-       return str(self.hour) + ':' + min[-2:]
-
-   def __add__(self, other: Clock) -> Clock:
-       hour, min = divmod(self.min + other.min, 60)
-       hour = (hour + self.hour + other.hour) % 24
-       return self.__class__(str(hour) + ':' + str(min))
-```
-
 HOISTING
 * variable/func declaration moved to top of containing scope during compilation and therefore you can reference at LOC higher the declaration LOC
 * more on the matter re: Javascript https://stackoverflow.com/a/336868/6813490
@@ -1045,3 +1014,70 @@ evaluation https://en.wikipedia.org/wiki/Evaluation_strategy
 * _eager_: eval expression during assignment
 * _lazy_: don't eval until necessary 🗄 `django.md` db
 * _thunk_: way to do lazy evaluation https://en.wikipedia.org/wiki/Thunk
+
+## overloading
+
+* _function overloading_: same method name, different sig (i.e. diff params)
+* Python doesn't support directly, easiest impl is variadic args
+```python
+def hey(*args):
+    if args:
+        print(*args)
+    else:
+        print("hi!")
+```
+* _operator overloading_: operator works differently based on args https://en.wikipedia.org/wiki/Operator_overloading
+
+---
+
+FUNCTION OVERLOADING
+```python
+# Python's functools module provides @singledispatch, which allows function overloading based on the type of the first argument.
+from functools import singledispatch
+
+@singledispatch
+def process(value):
+    print(f"Default: {value}")
+
+@process.register(int)
+def _(value):
+    print(f"Processing an integer: {value}")
+
+@process.register(str)
+def _(value):
+    print(f"Processing a string: {value}")
+
+process(42)       # Processing an integer: 42
+process("Hello")  # Processing a string: Hello
+process([1, 2])   # Default: [1, 2]
+```
+* some people don't like https://news.ycombinator.com/item?id=22347007
+* can do in Python via variadic args https://news.ycombinator.com/item?id=22346418 https://news.ycombinator.com/item?id=22347918
+> Function overloading is a common programming pattern which seems to be reserved to statically-typed, compiled languages. https://martinheinz.dev/blog/50
+* can do in Python via multiple dispath / multimethods https://martinheinz.dev/blog/50
+* can do in Python via `__call__`, virtual namespace, decorators https://arpitbhayani.me/blogs/function-overloading
+
+OPERATOR OVERLOADING
+* handled by language data model
+```python
+print(1 + 2)
+print("hey " + "there)
+print("hey " * 3)
+```
+* handled by classes
+> operators with special syntax (arithmetic operators, etc.) can be redefined for class instances https://docs.python.org/dev/tutorial/classes.html
+```python
+# https://monadical.com/posts/operator-overloading-in-python.html
+class Clock:
+   def __init__(self, time: str):
+       self.hour, self.min = [int(i) for i in time.split(':')]
+
+   def __repr__(self) -> str:
+       min = '0' + str(self.min)
+       return str(self.hour) + ':' + min[-2:]
+
+   def __add__(self, other: Clock) -> Clock:
+       hour, min = divmod(self.min + other.min, 60)
+       hour = (hour + self.hour + other.hour) % 24
+       return self.__class__(str(hour) + ':' + str(min))
+```

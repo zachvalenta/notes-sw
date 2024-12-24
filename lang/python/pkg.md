@@ -476,14 +476,6 @@ start here https://lucumr.pocoo.org/2024/9/9/multiversion-python/
 * _qualified name_: https://docs.python.org/3/glossary.html#term-qualified-name
 * _import time_: https://www.fluentpython.com/lingo/#import_time
 
-## symbol table
-
-* _private_: all obj in module 
-* _public_: obj in mod avaiable when import mod https://realpython.com/python-modules-packages/#the-import-statement https://docs.python.org/3/library/functions.html#locals
-* `locals()`: local symbol table https://docs.python.org/3/library/functions.html#locals
-* `globals()`: global symbol table
-* `dir()`: locals() w/ out values https://stackoverflow.com/a/21961813 https://realpython.com/python-modules-packages/#the-dir-function
-
 ## underscores
 
 https://dbader.org/blog/meaning-of-underscores-in-python
