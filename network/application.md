@@ -382,6 +382,7 @@ TOOLS
 
 ---
 
+https://keypub.sh/
 * basics
 ```sh
 # FILES

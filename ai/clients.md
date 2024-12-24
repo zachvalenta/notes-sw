@@ -90,6 +90,7 @@ locality
 
 ---
 
+* disable analytics
 * _codebuff_: alternative https://news.ycombinator.com/item?id=42078536
 
 CONTEXT
@@ -171,6 +172,22 @@ LLM
 * models: default is ChatGPT https://llm.datasette.io/en/stable/openai-models.html others https://github.com/simonw/llm-mistral https://github.com/simonw/llm-claude-3 https://simonw.substack.com/p/claude-35-haiku
 
 ## 💄 mods
+
+CONFIG
+```sh
+Wrote config file to: /Users/zvalenta/Library/Application Support/mods/mods.yml
+```
+```sh
+$ mods --settings
+
+├── $HOME/.config/mods
+│   └── mods.yml
+│   └── conversations
+│   └──── mods.db
+```
+
+
+---
 
 * _mods_: Markdown output, system prompt https://github.com/charmbracelet/mods continue conversation https://github.com/charmbracelet/mods/issues/197
 
