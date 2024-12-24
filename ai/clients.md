@@ -141,6 +141,21 @@ def keyboard_interrupt(self):
 
 📜 https://llm.datasette.io
 
+CONFIG
+https://llm.datasette.io/en/stable/logging.html
+```sh
+root_file.txt
+├── dir
+│   └── file_1.txt
+│   └── logs.db
+```
+```sh
+$ llm keys # No keys found
+$ llm keys # openai
+```
+
+
+ZA
 * design: faster write REPL, better search, org via SQL, compare responses from diff models
 * working with local models [15:00]
 ```sh

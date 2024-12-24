@@ -466,6 +466,9 @@ FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace
 
 ## locations
 
+XDG 📜 https://specifications.freedesktop.org/basedir-spec/latest/
+* `XDG_DATA_HOME`: `~/.local/share` https://github.com/simonw/llm/issues/7
+
 ---
 
 XDG
