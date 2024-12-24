@@ -133,6 +133,31 @@ number,code,type
 * unintended data in loop: unexpected data or improper sequence in loop might cause the tool to associate LDT with a different position
 ```
 * high-level: ISA (initial), GSA (metadata) IEA (InterchangeEnvelope; terminal)
+* LIN loop order found in position 010
+
+```txt
+The segment_count in the SE segment includes:
+
+* All segments from ST to SE, including the ST and SE segments themselves.
+* Excludes the envelope segments ISA, GS, GE, and IEA.
+
+The ISA, GS, GE, and IEA segments form the envelope structure of the EDI document and are not part of any specific transaction set. Each transaction set (e.g., 832, 850, etc.) is encapsulated within the ST and SE segments, which define the boundary and count for the specific set.
+
+ISA and IEA:
+
+Represent the interchange envelope.
+Used for overall document control across trading partners.
+Not part of the transaction set count.
+GS and GE:
+
+Represent the functional group envelope.
+Control a group of related transaction sets.
+Not part of the transaction set count.
+ST and SE:
+
+Define the transaction set boundary.
+SE counts all segments within this boundary, including itself and ST.
+```
 
 IMPL GUIDE
 * _implementation guideline_: additional instructions from receiver re: how sender should impl 🧠 https://chatgpt.com/c/673d0121-f4d8-8004-b903-4d083157a552

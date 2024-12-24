@@ -298,7 +298,7 @@ https://roadmap.sh/linux
 REMOTE EXECUTION 🗄️ `python/stdlib.md` process exec
 * _Capistrano_: https://capistranorb.com/ https://kamal-deploy.org/ https://blog.codepen.io/2014/02/22/002-servers/ https://www.digitalocean.com/community/tutorials/how-to-use-capistrano-to-automate-deployments-getting-started
 * _Fabric_: run script on server over SSH and get Python response obj back; apparently not meant for fully-fledged config mgmt https://stackoverflow.com/questions/39370364/when-to-use-fabric-or-ansible but can/could be used with Ansible (article doesn't explain why not just use Ansible and is undated) https://www.blog.pythonlibrary.org/2024/10/16/ssh-scripting-with-fabric-and-python/
-* _Paramiko_: https://github.com/paramiko/paramiko
+* _Paramiko_: https://github.com/paramiko/paramiko https://github.com/zachvalenta/capp-edi
 * _Ruroco_: https://github.com/beac0n/ruroco
 
 ## Ansible
