@@ -209,6 +209,293 @@ var myString // ""
 var myInt // 0
 ```
 
+# 📦 PACKAGING
+
+---
+
+https://chatgpt.com/c/67327c2b-0a34-8004-9b0a-3c4d6c45dc92
+📜 https://golang.org/ref/mod https://github.com/golang/go/wiki/Modules#table-of-contents
+🔍 https://pkg.go.dev/
+🔗 https://encore.dev/guide/go.mod
+
+start here
+* https://www.bytesizego.com/blog/history-of-dependency-management-go
+* https://eli.thegreenplace.net/2020/you-dont-need-virtualenv-in-go/
+> reinstall go to clean out previous pkgs?
+* https://sourcehut.org/blog/2023-01-09-gomodulemirror/
+* workspaces https://dev.to/gophers/what-are-go-workspaces-and-how-do-i-use-them-1643
+* 📙 Jeffrey distributed [5]
+* distribution https://www.kosli.com/blog/how-to-publish-your-golang-binaries-with-goreleaser/
+
+workflow
+* _add deps_: import dependency in your module's source and then try to execute your code in some way (build, test) and go will grab the deps https://blog.golang.org/using-go-modules can use `go download` but don't need to (cf. `go help mod download`); `go get -u ./...` https://engineering.kablamo.com.au/posts/2018/just-tell-me-how-to-use-go-modules
+* _list deps_: `list -f '{{ .Imports }}'` (top-level) https://dave.cheney.net/2014/09/14/go-list-your-swiss-army-knife `list -m all` (top-level's subs) https://blog.golang.org/using-go-modules `mod download -json` https://stackoverflow.com/a/52082860/6813490 `go list -f '{{ .Deps }}'` (everything) https://dave.cheney.net/2014/09/14/go-list-your-swiss-army-knife https://www.reddit.com/r/golang/comments/bdtrti/best_way_to_visualize_library_dependencies_with/
+* commands https://kadekillary.work/note/go/
+```sh
+# create module path
+init
+
+# rm unused
+mod tidy
+```
+
+upgrade
+* _psuedo-version_: untagged commit
+* latest tagged: `go get <mod>`; defaults to `@latest` https://blog.golang.org/using-go-modules 'upgrading dependencies'
+* list versions: `go list -m -versions <mod>`
+* get specific version: `go get <mod>@<version>`
+* versioning gotcha https://donatstudios.com/Go-v2-Modules https://qvault.io/2020/09/15/gos-major-version-handling-sucks-from-a-fanboy/
+
+misc
+* `get`: download and compile module; use global cache (`bin`, `pkg`) https://www.youtube.com/watch?v=71hgdExuCbg 3:50 ❓ dep hell avoided by per-project lockfile? https://dev.to/tbpalsulich/why-go-modules-are-faster-than-gopath-blj
+* `install`: compile module; subset of `go get` https://stackoverflow.com/q/24878737 
+* _distribution_: https://github.com/goreleaser/goreleaser
+* find outdated deps https://github.com/psampaz/go-mod-outdated
+
+design, legacy
+* no central repo like PyPI or NPM https://nullprogram.com/blog/2020/01/21/ https://brandur.org/golang-packages 
+* 📍 https://blog.golang.org/module-compatibility
+* $GOPATH was weird https://news.ycombinator.com/item?id=17061713 
+* road to modules: prelim module support in 1.11 and default from 1.13 https://blog.golang.org/using-go-modules https://blog.golang.org/versioning-proposal previous approaches included dep (from Go 1.9-1.10) and Glide https://brandur.org/golang-packages 
+
+* projects move versions more slowly https://benjamincongdon.me/blog/2019/11/11/The-Value-in-Gos-Simplicity
+* language seems somewhat Clojure like i.e. doesn't especially encourage using a ton of deps
+> Note that while the go command makes adding a new dependency quick and easy, it is not without cost. Your module now literally depends on the new dependency in critical areas such as correctness, security, and proper licensing, just to name a few. - https://blog.golang.org/using-go-modules
+
+* _vendoring_: 🗄 `system.md` https://engineering.kablamo.com.au/posts/2018/just-tell-me-how-to-use-go-modules https://www.youtube.com/watch?v=AIo0UBcvnPg
+* _minimum version selection (MVS)_: get the lowest version that will satisfy needs i.e. if `go.mod` needs 1.2 Go won't download an available higher version https://ukiahsmith.com/blog/a-gentle-introduction-to-golang-modules/
+
+* _semantic import versioning_: what would be a new major version of same package in semver becomes a new module https://research.swtch.com/vgo-import 'adding a dependency on a new major version'
+> At the same time, allowing different major versions of a module (because they have different paths) gives module consumers the ability to upgrade to a new major version incrementally. In this example, we wanted to use quote. Concurrency from rsc/quote/v3 v3.1.0 but are not yet ready to migrate our uses of rsc.io/quote v1.5.2. The ability to migrate incrementally is especially important in a large program or codebase. - https://blog.golang.org/using-go-modules
+
+## previous writeup
+
+Ok, here are some preliminary thoughts after approx. 5 hours of reading about and tinkering with dependency management in Golang:
+
+### GOPATH is not dead
+
+* In the past all Go code lived at `$GOPATH`. Your project's source code, its dependencies, everything. Putting your code somewhere else was possible but irksome.
+* Now you can put your _source_ code somewhere else.
+* But: you still need `$GOPATH` to exist on your machine, in part because [that's where project dependencies are still downloaded to](https://dave.cheney.net/2018/07/14/taking-go-modules-for-a-spin). Your dependencies are per-project and I assume there's a way to inspect deps in `$GOPATH` to figure out which belong to which project, but it's less clear that Python virtual environments, either done with `venv` ("here's a folder in your project with all your deps") or Poetry (`poetry env info`).
+
+### Python devs have it worse
+
+If only because Golang is further along its trajectory of packaging solutions:
+
+* initial attempt: Go had `go get` and `$GOPATH`, Python has `pip`, things work ok but there's room for improvement
+* candidate solutions: Go had `dep` and Glide, Python has `venv` and Poetry and pipenv and pip-tools and dephell (forgetting anyone?)
+* winner emerges: Go has modules now, but Python is still tbd as the above candidates continue to fight it out.
+
+So, at least Golang devs are all speaking the same language when it comes to packaging.
+
+### Golang is contra-consensus on packaging in general
+
+* Gooooo slooooooow: Library development moves much more slowly, for the better (more stable packages?) but possibly for the worse as well (less new, shiny things?). Read more here: [link](https://benjamincongdon.me/blog/2019/11/11/The-Value-in-Gos-Simplicity).
+
+* Anti-dependency dependency mgmt: The community seems somewhat akin to Clojure insofar as it doesn't especially encourage using a ton of dependencies. Python appears to be going to the other direction, to judge by the [dead batteries debate](https://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html). Other popular languages feel just as library-dependent than Python. But in the Golang documentation on their packaging tool, they include [an admonition to beware using packages](https://blog.golang.org/using-go-modules):
+> Note that while the go command makes adding a new dependency quick and easy, it is not without cost. Your module now literally depends on the new dependency in critical areas such as correctness, security, and proper licensing, just to name a few.
+
+## semantics
+
+---
+
+* _source file_: `.go` file https://golang.org/doc/code.html https://golang.org/ref/spec#Packages
+* _package_: dir w/ n source files https://rakyll.org/style-packages/ https://golang.org/ref/spec#Packages
+* _module_: n pkg + `go.mod` https://blog.golang.org/using-go-modules seems synonymous w/ 'repo' https://blog.golang.org/using-go-modules
+* `go.sum`: lock file; check into version control https://blog.golang.org/using-go-modules
+* `main`: `func main` (entry point, necessary to compile to bin) `package main` (holds `func main`) `main.go` (holds `func main`) https://www.callicoder.com/golang-packages/
+* _import path_: namespace https://stackoverflow.com/q/46312734/6813490 https://blog.golang.org/using-go-modules
+* _module path_: seems like same thing as 'import path' https://engineering.kablamo.com.au/posts/2018/just-tell-me-how-to-use-go-modules https://golang.org/ref/mod#tmp_2 required if you're outside $GOPATH https://blog.golang.org/using-go-modules
+* _module cache_: where modules get downloaded to `$GOPATH/pkg/mod` https://stackoverflow.com/a/52082860 https://stackoverflow.com/a/52127364 ❓ seems like you can only blow away the entire module cache (`clean -modcache`) vs. the Poetry approach of deleting per project https://github.com/golang/go/issues/32976
+
+## workspaces
+
+## modules
+
+---
+
+GO.MOD
+* human-readable list of deps
+* check into version control https://blog.golang.org/using-go-modules
+* only lists direct dependencies https://blog.golang.org/using-go-modules 'adding a dependency'
+* necessary for module outside `$GOPATH/src`
+* defaults to latest version of module if you don't specify https://blog.golang.org/using-go-modules 'adding a dependency'
+* _directive_: keyword for each line e.g. `go` (version https://golang.org/ref/mod#tmp_11)
+* `indirect`: subdependency https://blog.golang.org/using-go-modules won't be written to `go.mod` unless you perform an upgrade; what *seems* to be happening in the tutorial is that `golang.org/x/text` is a subdep and its parents (`rsc.io/quote`) doesn't specify its version so we just grab latest version which happens to be pseudo version, but when you run `go get golang.org/x/text` it grabs the latest tagged version (which actually should be less recent than the pseudo version, right? otherwise why wouldn't parent dep just specify the stable older version it wanted) and therefore because we're being more specific we have to write it to `go.mod`
+
+https://go.dev/doc/modules/layout
+> With Go 1.14 Go Modules are finally ready for production. Use Go Modules unless you have a specific reason not to use them and if you do then you don’t need to worry about $GOPATH and where you put your project. The basic go.mod file in the repo assumes your project is hosted on GitHub, but it's not a requirement. The module path can be anything though the first module path component should have a dot in its name (the current version of Go doesn't enforce it anymore, but if you are using slightly older versions don't be surprised if your builds fail without it). See Issues 37554 and 32819 if you want to know more about it. https://github.com/golang-standards/project-layout
+
+## env var
+
+```sh
+$ echo $GOPATH  # if env var not set, default to output of go env GOPATH
+$ go env GOPATH  # /Users/zvalenta/go
+```
+
+---
+
+can you explain the following to me?
+```sh
+$ GOBIN
+$ GOENV
+$ GOROOT
+$ GOPATH
+```
+
+* flags https://github.com/peterbourgon/ff
+* _GO111MODULE_: off (modules outside $GOPATH) https://golang.org/doc/code.html on (modules w/in $GOPATH) https://www.youtube.com/watch?v=H_4eRD8aegk @ 2:54 🗄 `go111.log`
+* _GOBIN_: location for `go install`; defaults to `$GOPATH/bin`; set w/ `go env -w GOBIN="$PWD"` https://golang.org/doc/code.html#Command
+* _GOENV_: config location
+* _GOROOT_: where Go is installed https://stackoverflow.com/a/30295306/6813490
+* _GOPATH_: still used but only by the Go installation at large, not for package management https://ukiahsmith.com/blog/a-gentle-introduction-to-golang-modules/ previously pointed to central location (typically `~/go`) for all Go code (src, deps) holding 3 directories (`src`, `pkg`, `bin`) https://golang.org/doc/gopath_code.html
+
+## installs
+
+trying to find out if/where Go CLIs on my machine
+
+```sh
+$ find /usr/local/bin /usr/bin -type f -perm -u+x | grep -i go  # nada
+```
+
+## project structure
+
+> The standard way to do testing is to have a foo.go and foo_test.go file next to each other. https://www.arp242.net/jia-tan-go.html
+
+```sh
+├── dir
+│   └── go.mod
+│   └── foo.go
+│   └── foo_test.go
+```
+
+STANDARDS
+* big projects https://github.com/golang-standards/project-layout
+* tooling https://github.com/Melkeydev/go-blueprint
+
+PKG
+* https://github.com/jesseduffield/lazygit/tree/master/pkg
+* https://travisjeffery.com/b/2019/11/i-ll-take-pkg-over-internal/
+
+ZA
+* `internal`: cannot be imported https://www.bytesizego.com/blog/golang-internal-package
+
+---
+
+* project structure for CLI and testing https://github.com/quii/learn-go-with-tests https://eli.thegreenplace.net/2022/file-driven-testing-in-go/ https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MTM2Nw==
+* https://lets-go.alexedwards.net/
+* https://gist.github.com/candlerb/3cb11576b2d73800b58f3b548dc2ba4a
+
+https://appliedgo.com/blog/go-project-layout
+
+https://docs.go-blueprint.dev/
+
+https://github.com/bbkane/shovel
+https://go.dev/blog/gonew
+https://golangweekly.com/link/146368/web
+https://avivcarmi.com/finding-the-best-go-project-structure-part-1/
+https://boyter.org/posts/how-to-start-go-project-2023/
+https://github.com/create-go-app/cli
+https://autostrada.dev/
+
+https://github.com/mikestefanello/pagoda
+https://autostrada.dev/
+
+https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/ https://github.com/golang-standards/project-layout/issues/117 https://github.com/golang/go/issues/45861
+https://christine.website/blog/within-go-repo-layout-2020-09-07 https://github.com/golang-standards/project-layout https://commandercoriander.net/blog/2017/12/31/writing-go/ https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/ https://bencane.com/stories/2020/07/06/how-i-structure-go-packages/#/3 simple https://github.com/healeycodes/conways-game-of-life  https://bencane.com/2020/12/29/how-to-structure-a-golang-cli-project/ https://adhoc.team/2021/03/29/simple-web-app-in-golang/
+
+```sh
+# MAIN
+├── cmd/  #  python my_script.py
+├── internal/  #  _internal 
+├── pkg/  #  code that code also be used by other projects; 类似 Django app https://commandercoriander.net/blog/2017/12/31/writing-go/
+├── vendor/  #  venv
+
+# ANCILLARY
+├── api/  #  Swagger
+├── build/  #  Dockerfile, .gitlab-conf.yaml
+├── config/  #  conf files I guess
+├── init/  #  systemd
+├── web/  #   js
+```
+
+* start here https://blog.ultirequiem.com/chigo#heading-starting-the-project
+```sh
+mkdir chigo
+go mod init github.com/UltiRequiem/chigo
+mkdir internal pkg cmd
+touch pkg/root.go internal/root.go cmd/root.go
+tree
+├── cmd        # main
+│   └── root.go
+├── go.mod
+├── internal   # business logic
+│   └── root.go
+└── pkg        # util
+    └── root.go
+```
+```golang
+// sketch of pkg
+
+from "internal" import printFromStdin, printWithColors
+
+help, fileArguments, files = parametersAndFlags()
+
+if help {
+   printHelp()
+   exit()
+}
+
+if fileArguments {
+   filesText = joinFiles(files)
+   printWitColors(filesText)
+   exit()
+}
+
+printFromStdin()
+```
+```golang
+// take list of files and get text from them
+package internal
+
+import "os"
+
+func JoinFiles(files []string) (string, error) {
+    text := ""
+
+    for _, file := range files {
+        fileText, err := os.ReadFile(file)
+
+        if err != nil {
+            return "", err
+        }
+
+        text += string(fileText) + "\n"
+    }
+
+    return text, nil
+}
+
+```
+
+## version mgmt
+
+---
+
+> homebrew conflict?
+
+INSTALLATION
+* ✅ use golang.org https://golang.org/doc/install#download
+* uninstall: rm `~/go`, `/usr/local/go` https://golang.org/doc/install#uninstall
+* use pkg manager https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/install-go https://howistart.org/posts/go/1/ 
+* pkg manager bundles tooling (compile, cover, doc)
+> my version is Homebrew
+* tooling location: `go env GOTOOLDIR` https://golang.org/doc/install#install 🗄 `go help environment`
+
+VERSION MGMT
+* ✅ just use version name https://go.dev/doc/manage-install
+* version mgmt tool https://github.com/moovweb/gvm
+
 # 📔 STDLIB
 
 🔍
@@ -362,14 +649,6 @@ func main() {
 
 # 🟨 ZA
 
-ENV VAR
-* flags https://github.com/peterbourgon/ff
-* _GO111MODULE_: off (modules outside $GOPATH) https://golang.org/doc/code.html on (modules w/in $GOPATH) https://www.youtube.com/watch?v=H_4eRD8aegk @ 2:54 🗄 `go111.log`
-* _GOBIN_: location for `go install`; defaults to `$GOPATH/bin`; set w/ `go env -w GOBIN="$PWD"` https://golang.org/doc/code.html#Command
-* _GOENV_: config location
-* _GOROOT_: where Go is installed https://stackoverflow.com/a/30295306/6813490
-* _GOPATH_: still used but only by the Go installation at large, not for package management https://ukiahsmith.com/blog/a-gentle-introduction-to-golang-modules/ previously pointed to central location (typically `~/go`) for all Go code (src, deps) holding 3 directories (`src`, `pkg`, `bin`) https://golang.org/doc/gopath_code.html
-
 CMDS
 * _docs_: `doc <mod>` https://blog.golang.org/using-go-modules
 * _run_: `run <path/to/file>`
@@ -388,249 +667,3 @@ CMDS
 * _Python_: https://news.ycombinator.com/item?id=22304131
 * _style_: https://github.com/golang/go/wiki/CodeReviewComments
 * plugins https://eli.thegreenplace.net/2021/plugins-in-go/
-
-## packaging
-
----
-
-https://chatgpt.com/c/67327c2b-0a34-8004-9b0a-3c4d6c45dc92
-📜 https://golang.org/ref/mod https://github.com/golang/go/wiki/Modules#table-of-contents
-🔍 https://pkg.go.dev/
-🔗 https://encore.dev/guide/go.mod
-
-start here
-* https://www.bytesizego.com/blog/history-of-dependency-management-go
-* https://eli.thegreenplace.net/2020/you-dont-need-virtualenv-in-go/
-> reinstall go to clean out previous pkgs?
-* https://sourcehut.org/blog/2023-01-09-gomodulemirror/
-* workspaces https://dev.to/gophers/what-are-go-workspaces-and-how-do-i-use-them-1643
-* 📙 Jeffrey distributed [5]
-* distribution https://www.kosli.com/blog/how-to-publish-your-golang-binaries-with-goreleaser/
-
-previous article
-```txt
-Ok, here are some preliminary thoughts after approx. 5 hours of reading about and tinkering with dependency management in Golang:
-
-`$GOPATH` IS NOT DEAD
-* In the past all Go code lived at `$GOPATH`. Your project's source code, its dependencies, everything. Putting your code somewhere else was possible but irksome.
-* Now you can put your _source_ code somewhere else.
-* But: you still need `$GOPATH` to exist on your machine, in part because [that's where project dependencies are still downloaded to](https://dave.cheney.net/2018/07/14/taking-go-modules-for-a-spin). Your dependencies are per-project and I assume there's a way to inspect deps in `$GOPATH` to figure out which belong to which project, but it's less clear that Python virtual environments, either done with `venv` ("here's a folder in your project with all your deps") or Poetry (`poetry env info`).
-
-PYTHON DEVS HAVE IT WORSE
-
-If only because Golang is further along its trajectory of packaging solutions
-
-* __initial attempt__: Go had `go get` and `$GOPATH`, Python has `pip`, things work ok but there's room for improvement
-* __candidate solutions__: Go had `dep` and Glide, Python has `venv` and Poetry and pipenv and pip-tools and dephell (forgetting anyone?)
-* __winner emerges__: Go has modules now, but Python is still tbd as the above candidates continue to fight it out.
-
-So, at least Golang devs are all speaking the same language when it comes to packaging.
-
-GOLANG IS CONTRA-CONSENSUS ON PACKAGING IN GENERAL
-
-* Gooooo slooooooow: Library development moves much more slowly, for the better (more stable packages?) but possibly for the worse as well (less new, shiny things?). Read more here: [link](https://benjamincongdon.me/blog/2019/11/11/The-Value-in-Gos-Simplicity).
-* Anti-dependency dependency mgmt: The community seems somewhat akin to Clojure insofar as it doesn't especially encourage using a ton of dependencies. Python appears to be going to the other direction, to judge by the [dead batteries debate](https://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html). Other popular languages feel just as library-dependent than Python. But in the Golang documentation on their packaging tool, they include [an admonition to beware using packages](https://blog.golang.org/using-go-modules):
-> Note that while the go command makes adding a new dependency quick and easy, it is not without cost. Your module now literally depends on the new dependency in critical areas such as correctness, security, and proper licensing, just to name a few. -
-```
-
-workflow
-* _add deps_: import dependency in your module's source and then try to execute your code in some way (build, test) and go will grab the deps https://blog.golang.org/using-go-modules can use `go download` but don't need to (cf. `go help mod download`); `go get -u ./...` https://engineering.kablamo.com.au/posts/2018/just-tell-me-how-to-use-go-modules
-* _list deps_: `list -f '{{ .Imports }}'` (top-level) https://dave.cheney.net/2014/09/14/go-list-your-swiss-army-knife `list -m all` (top-level's subs) https://blog.golang.org/using-go-modules `mod download -json` https://stackoverflow.com/a/52082860/6813490 `go list -f '{{ .Deps }}'` (everything) https://dave.cheney.net/2014/09/14/go-list-your-swiss-army-knife https://www.reddit.com/r/golang/comments/bdtrti/best_way_to_visualize_library_dependencies_with/
-* commands https://kadekillary.work/note/go/
-```sh
-# create module path
-init
-
-# rm unused
-mod tidy
-```
-
-vocabulary
-* _source file_: `.go` file https://golang.org/doc/code.html https://golang.org/ref/spec#Packages
-* _package_: dir w/ n source files https://rakyll.org/style-packages/ https://golang.org/ref/spec#Packages
-* _module_: n pkg + `go.mod` https://blog.golang.org/using-go-modules seems synonymous w/ 'repo' https://blog.golang.org/using-go-modules
-* `go.sum`: lock file; check into version control https://blog.golang.org/using-go-modules
-* `main`: `func main` (entry point, necessary to compile to bin) `package main` (holds `func main`) `main.go` (holds `func main`) https://www.callicoder.com/golang-packages/
-* _import path_: namespace https://stackoverflow.com/q/46312734/6813490 https://blog.golang.org/using-go-modules
-* _module path_: seems like same thing as 'import path' https://engineering.kablamo.com.au/posts/2018/just-tell-me-how-to-use-go-modules https://golang.org/ref/mod#tmp_2 required if you're outside $GOPATH https://blog.golang.org/using-go-modules
-* _module cache_: where modules get downloaded to `$GOPATH/pkg/mod` https://stackoverflow.com/a/52082860 https://stackoverflow.com/a/52127364 ❓ seems like you can only blow away the entire module cache (`clean -modcache`) vs. the Poetry approach of deleting per project https://github.com/golang/go/issues/32976
-
-upgrade
-* _psuedo-version_: untagged commit
-* latest tagged: `go get <mod>`; defaults to `@latest` https://blog.golang.org/using-go-modules 'upgrading dependencies'
-* list versions: `go list -m -versions <mod>`
-* get specific version: `go get <mod>@<version>`
-* versioning gotcha https://donatstudios.com/Go-v2-Modules https://qvault.io/2020/09/15/gos-major-version-handling-sucks-from-a-fanboy/
-
-`go.mod`
-* human-readable list of deps
-* check into version control https://blog.golang.org/using-go-modules
-* only lists direct dependencies https://blog.golang.org/using-go-modules 'adding a dependency'
-* necessary for module outside `$GOPATH/src`
-* defaults to latest version of module if you don't specify https://blog.golang.org/using-go-modules 'adding a dependency'
-* _directive_: keyword for each line e.g. `go` (version https://golang.org/ref/mod#tmp_11)
-* `indirect`: subdependency https://blog.golang.org/using-go-modules won't be written to `go.mod` unless you perform an upgrade; what *seems* to be happening in the tutorial is that `golang.org/x/text` is a subdep and its parents (`rsc.io/quote`) doesn't specify its version so we just grab latest version which happens to be pseudo version, but when you run `go get golang.org/x/text` it grabs the latest tagged version (which actually should be less recent than the pseudo version, right? otherwise why wouldn't parent dep just specify the stable older version it wanted) and therefore because we're being more specific we have to write it to `go.mod`
-
-misc
-* `get`: download and compile module; use global cache (`bin`, `pkg`) https://www.youtube.com/watch?v=71hgdExuCbg 3:50 ❓ dep hell avoided by per-project lockfile? https://dev.to/tbpalsulich/why-go-modules-are-faster-than-gopath-blj
-* `install`: compile module; subset of `go get` https://stackoverflow.com/q/24878737 
-* _distribution_: https://github.com/goreleaser/goreleaser
-* find outdated deps https://github.com/psampaz/go-mod-outdated
-
-design, legacy
-* no central repo like PyPI or NPM https://nullprogram.com/blog/2020/01/21/ https://brandur.org/golang-packages 
-* 📍 https://blog.golang.org/module-compatibility
-* $GOPATH was weird https://news.ycombinator.com/item?id=17061713 
-* road to modules: prelim module support in 1.11 and default from 1.13 https://blog.golang.org/using-go-modules https://blog.golang.org/versioning-proposal previous approaches included dep (from Go 1.9-1.10) and Glide https://brandur.org/golang-packages 
-
-* projects move versions more slowly https://benjamincongdon.me/blog/2019/11/11/The-Value-in-Gos-Simplicity
-* language seems somewhat Clojure like i.e. doesn't especially encourage using a ton of deps
-> Note that while the go command makes adding a new dependency quick and easy, it is not without cost. Your module now literally depends on the new dependency in critical areas such as correctness, security, and proper licensing, just to name a few. - https://blog.golang.org/using-go-modules
-
-* _vendoring_: 🗄 `system.md` https://engineering.kablamo.com.au/posts/2018/just-tell-me-how-to-use-go-modules https://www.youtube.com/watch?v=AIo0UBcvnPg
-* _minimum version selection (MVS)_: get the lowest version that will satisfy needs i.e. if `go.mod` needs 1.2 Go won't download an available higher version https://ukiahsmith.com/blog/a-gentle-introduction-to-golang-modules/
-
-* _semantic import versioning_: what would be a new major version of same package in semver becomes a new module https://research.swtch.com/vgo-import 'adding a dependency on a new major version'
-> At the same time, allowing different major versions of a module (because they have different paths) gives module consumers the ability to upgrade to a new major version incrementally. In this example, we wanted to use quote. Concurrency from rsc/quote/v3 v3.1.0 but are not yet ready to migrate our uses of rsc.io/quote v1.5.2. The ability to migrate incrementally is especially important in a large program or codebase. - https://blog.golang.org/using-go-modules
-
-## project structure
-
-> The standard way to do testing is to have a foo.go and foo_test.go file next to each other. https://www.arp242.net/jia-tan-go.html
-
-```sh
-├── dir
-│   └── go.mod
-│   └── foo.go
-│   └── foo_test.go
-```
-
-STANDARDS
-* big projects https://github.com/golang-standards/project-layout
-* tooling https://github.com/Melkeydev/go-blueprint
-
-PKG
-* https://github.com/jesseduffield/lazygit/tree/master/pkg
-* https://travisjeffery.com/b/2019/11/i-ll-take-pkg-over-internal/
-
-MODULES
-> With Go 1.14 Go Modules are finally ready for production. Use Go Modules unless you have a specific reason not to use them and if you do then you don’t need to worry about $GOPATH and where you put your project. The basic go.mod file in the repo assumes your project is hosted on GitHub, but it's not a requirement. The module path can be anything though the first module path component should have a dot in its name (the current version of Go doesn't enforce it anymore, but if you are using slightly older versions don't be surprised if your builds fail without it). See Issues 37554 and 32819 if you want to know more about it. https://github.com/golang-standards/project-layout
-
-ZA
-* `internal`: cannot be imported https://www.bytesizego.com/blog/golang-internal-package
-
----
-
-https://docs.go-blueprint.dev/
-
-https://github.com/bbkane/shovel
-https://go.dev/blog/gonew
-https://go.dev/doc/modules/layout
-https://golangweekly.com/link/146368/web
-https://avivcarmi.com/finding-the-best-go-project-structure-part-1/
-https://boyter.org/posts/how-to-start-go-project-2023/
-https://github.com/create-go-app/cli
-https://autostrada.dev/
-
-* project structure for CLI and testing https://github.com/quii/learn-go-with-tests https://eli.thegreenplace.net/2022/file-driven-testing-in-go/ https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MTM2Nw==
-* https://lets-go.alexedwards.net/
-* https://gist.github.com/candlerb/3cb11576b2d73800b58f3b548dc2ba4a
-
-https://appliedgo.com/blog/go-project-layout
-
-https://github.com/mikestefanello/pagoda
-https://autostrada.dev/
-
-https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/ https://github.com/golang-standards/project-layout/issues/117 https://github.com/golang/go/issues/45861
-https://christine.website/blog/within-go-repo-layout-2020-09-07 https://github.com/golang-standards/project-layout https://commandercoriander.net/blog/2017/12/31/writing-go/ https://eli.thegreenplace.net/2019/simple-go-project-layout-with-modules/ https://bencane.com/stories/2020/07/06/how-i-structure-go-packages/#/3 simple https://github.com/healeycodes/conways-game-of-life  https://bencane.com/2020/12/29/how-to-structure-a-golang-cli-project/ https://adhoc.team/2021/03/29/simple-web-app-in-golang/
-
-```sh
-# MAIN
-├── cmd/  #  python my_script.py
-├── internal/  #  _internal 
-├── pkg/  #  code that code also be used by other projects; 类似 Django app https://commandercoriander.net/blog/2017/12/31/writing-go/
-├── vendor/  #  venv
-
-# ANCILLARY
-├── api/  #  Swagger
-├── build/  #  Dockerfile, .gitlab-conf.yaml
-├── config/  #  conf files I guess
-├── init/  #  systemd
-├── web/  #   js
-```
-
-* start here https://blog.ultirequiem.com/chigo#heading-starting-the-project
-```sh
-mkdir chigo
-go mod init github.com/UltiRequiem/chigo
-mkdir internal pkg cmd
-touch pkg/root.go internal/root.go cmd/root.go
-tree
-├── cmd        # main
-│   └── root.go
-├── go.mod
-├── internal   # business logic
-│   └── root.go
-└── pkg        # util
-    └── root.go
-```
-```golang
-// sketch of pkg
-
-from "internal" import printFromStdin, printWithColors
-
-help, fileArguments, files = parametersAndFlags()
-
-if help {
-   printHelp()
-   exit()
-}
-
-if fileArguments {
-   filesText = joinFiles(files)
-   printWitColors(filesText)
-   exit()
-}
-
-printFromStdin()
-```
-```golang
-// take list of files and get text from them
-package internal
-
-import "os"
-
-func JoinFiles(files []string) (string, error) {
-    text := ""
-
-    for _, file := range files {
-        fileText, err := os.ReadFile(file)
-
-        if err != nil {
-            return "", err
-        }
-
-        text += string(fileText) + "\n"
-    }
-
-    return text, nil
-}
-
-```
-
-## version mgmt
-
----
-
-> homebrew conflict?
-
-INSTALLATION
-* ✅ use golang.org https://golang.org/doc/install#download
-* uninstall: rm `~/go`, `/usr/local/go` https://golang.org/doc/install#uninstall
-* use pkg manager https://quii.gitbook.io/learn-go-with-tests/go-fundamentals/install-go https://howistart.org/posts/go/1/ 
-* pkg manager bundles tooling (compile, cover, doc)
-> my version is Homebrew
-* tooling location: `go env GOTOOLDIR` https://golang.org/doc/install#install 🗄 `go help environment`
-
-VERSION MGMT
-* ✅ just use version name https://go.dev/doc/manage-install
-* version mgmt tool https://github.com/moovweb/gvm
