@@ -366,7 +366,8 @@ GUI
 
 📜 https://click.palletsprojects.com/en/8.1.x
 
-BASIC
+### basic
+
 ```python
 @click.group()
 def cli():
@@ -381,7 +382,24 @@ if __name__ == "__main__":
 python $SCRIPT command-one
 ```
 
-DEFAULT CMD
+### args
+
+```sh
+make crud join=join.csv vend=aaon.csv
+```
+```Makefile
+crud:
+	python mapper.py $(join) $(vend)
+```
+```python
+@click.command()
+@click.argument("join_file", type=click.Path(exists=True))
+@click.argument("vendor_file", type=click.Path(exists=True))
+def process_files(join_file, vendor_file):
+```
+
+### default cmd
+
 ```python
 # SANS DATACLASS
 @click.group(invoke_without_command=True)

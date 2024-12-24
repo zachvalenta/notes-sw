@@ -9,7 +9,13 @@
 ## 进步
 
 * _24_: models (Apple refurbished, nuphy air 75, keychron k8, keychron v8) program (v8 cmd keys to center)
-> amazed how quickly low-profile feels strange after moving to normal profile
+
+PROBLEMS WITH CURRENT BOARDS
+* v8: no tilde/backtick
+* air75: too scrunched, no opt on right side
+
+CURRENT THOUGHTS
+* used ZSA are too expensive, better to buy new
 
 # 📐 LAYOUTS
 

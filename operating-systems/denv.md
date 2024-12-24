@@ -128,7 +128,7 @@ my-files:
 # reference env var https://stackoverflow.com/questions/28890634/how-to-get-a-shell-environment-variable-in-a-makefile
 ${var}
 
-# args https://blog.mindlessness.life/2019/11/17/the-language-agnostic-all-purpose-incredible-makefile.html
+# args
 env="dev"  # global
 make deploy env=qa
 deploy:
@@ -373,6 +373,7 @@ class Basilk < Formula
 ```
 
 ## managers
+
 * _apk_: Alpine
 * _apt_: used by Debian, Ubuntu, Mint
 ```sh
