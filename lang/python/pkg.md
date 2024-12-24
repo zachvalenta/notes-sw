@@ -8,7 +8,7 @@
 ## 进步
 
 * _24_: create own file
-* _19_: lib (pipx, Poetry, pyinstaller)
+* _19_: pipx, Poetry, pyenv, pyinstaller
 
 # 📮 DISTRO
 
@@ -105,7 +105,9 @@ anytree = {git = "https://github.com/zachvalenta/anytree.git"}
 > do people use? https://talkpython.fm/episodes/transcript/208/packaging-making-the-most-of-pycon-and-more
 > tool to replace `stup.py` upload https://talkpython.fm/episodes/transcript/64/inside-the-python-package-index
 
-### registries 🗄️ `frontend.md` packaging
+### registries
+
+🗄️ `frontend.md` packaging
 
 * PyPI getting tied to Github https://news.ycombinator.com/item?id=42136375
 * https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you
@@ -491,17 +493,6 @@ https://dbader.org/blog/meaning-of-underscores-in-python
 
 🗄️ `linux.md` packaging / manager
 
-## 24.12 workflow
-
-```sh
-├── pyenv
-│   └── python
-│   └──── pip
-│   └──── pipx
-```
-
-I use pyenv to install Python itself. The whole can install multiple versions
-
 ## landscape
 
 ---
@@ -810,6 +801,8 @@ poetry run flask
 * `linux.md` packaging
 * `frontend.md` javascript > runtimes
 
+ADVANTAGES OVER 2019-2024 WORKFLOW
+
 VERSION MGMT
 * via Python Build Standalone https://github.com/indygreg/python-build-standalone
 * cross-platform https://astral.sh/blog/uv-unified-python-packaging
@@ -838,9 +831,6 @@ https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
 
 > There was, over on Python Bytes, we covered this thing by Simon Willison, where he kind of summarized a Mastodon thread about UV and whether it being written in Rust is detrimental to the Python ecosystem or not and all of those things.  But I think it was there.  Your take was, look, fast is interesting.  But one of the really powerful things, I think, is here is a single binary that, if it's on your computer, you can do all things Python, right?  And right now, it's super, without UV, it's been really challenging, right?  Maybe I want to use pip-tools or I want to use pip to install something or all of those things are predicated on several steps.  Do you have Python?  Do you have a right version of Python?  Have you realized you've got to create a virtual environment because you don't have right access to where there's just, before you can get started, like, well, here's a whole set of conversations you need to have about not terribly complicated things, but things that people might not care about.  And now with UV, it's just UV, run.  And you can even put in the comment in the top, like, these are the three libraries I need to run.  And it'll just run.  Oh, so they don't break.  That's what I meant with the one binary, right?  Like, I think most of Python's bad reputation around packaging is that things just break.  Because Homebrew updated your Python or because you didn't activate your virtual length, accidentally installed something into your global thing.  Or you used pip install --user and now it's in all your virtual lengths and you don't know why.  And there's so much unpredictability around these things.  And now suddenly we have, like, this one thing that behaves in certain ways that people understand, that people expect it to behave.  As I said before, this is not necessarily the way I would like it to behave, but I understand why it's so important to just narrow the envelope of packaging of the behaviors that we expect and that we as a community endorse. https://talkpython.fm/episodes/transcript/481/python-opinions-and-zeitgeist-with-hynek
 
-* https://github.com/fpgmaas/cookiecutter-uv
-
-
 > read transcript https://talkpython.fm/episodes/transcript/476/unified-python-packaging-with-uv https://simonwillison.net/2024/Aug/20/uv-unified-python-packaging/
 
 * controversial? https://pythonbytes.fm/episodes/show/403/a-machine-learning-algorithm-walks-into-a-bar
@@ -864,6 +854,31 @@ https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
 * in Django https://blog.pecar.me/uv-with-django
 * with Github Actions https://github.com/astral-sh/setup-uv https://pythonbytes.fm/episodes/show/405/oh-really
 * https://www.bitecode.dev/p/uv-tricks
+
+# 🏗️ WORKFLOW
+
+## 2019-2024
+
+PAIN POINTS
+* 
+
+| WORKFLOW | DESC                                        | TOOL   |
+|----------|---------------------------------------------|--------|
+| versions | Python versions                             | pyenv  |
+| CLI      | tools be globally available from the shell  | pipx   |
+| REPL     | libs globally available from iPython        | pip    |
+| project  | libs locally available within repo          | Poetry |
+
+```sh
+├── pyenv
+│   └── python
+│   └──── pip
+│   └──── pipx
+```
+
+## migrate
+
+https://bluesock.org/~willkg/blog/
 
 # 🟨️ ZA
 

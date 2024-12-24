@@ -94,6 +94,13 @@ https://luke.hsiao.dev/blog/housing-documentation/
 
 📙 Meckleberg gnu make
 
+* default args
+```Makefile
+brand ?= Reznor
+filter:
+	poetry run python pipelines.py filter-on-brand $(brand)
+```
+
 ---
 
 * _make_: ✅ https://github.com/casey/just?tab=readme-ov-file#what-are-the-idiosyncrasies-of-make-that-just-avoids https://news.ycombinator.com/item?id=19900955 https://stackoverflow.com/a/3798664

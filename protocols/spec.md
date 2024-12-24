@@ -282,6 +282,10 @@ semantics
 
 📜 https://www.unicode.org/main.html
 
+```sh
+file -i $FILE  # make sure confirms to Unicode
+```
+
 ---
 
 https://taskwarrior.org/docs/unicode/

@@ -134,6 +134,8 @@ number,code,type
 ```
 * high-level: ISA (initial), GSA (metadata) IEA (InterchangeEnvelope; terminal)
 * LIN loop order found in position 010
+* asterisks: don't grok contradictory examples to this
+> No, you do not need to add an explicit * to indicate that CTB02 is not present in this context. In X12 EDI formatting, elements can be omitted from the segment without needing placeholders, as long as the subsequent elements maintain their proper positions.
 
 ```txt
 The segment_count in the SE segment includes:
@@ -248,6 +250,25 @@ LIN**UP*012345678905
 * _G5301_: CRUD ("maintenance operation")
 * if BCT10 is `05`, set to `003` (create)
 * `001` update `002` delete
+
+### DTM (date range)
+
+* _DTM_: date range (for both LIN and CTP)
+```sh
+DTM*018*20241224~  # available date
+DTM*196*20241224~  # start date
+DTM*197*20241130~  # end date
+```
+
+### CTB (restriction)
+
+* _CTB01_: what restriction applies to
+* _CTB02_: rarely used
+* _CTB03_: restriction type; 57 = min order quantity
+* _CTB04_: quantity
+```sh
+CTB*OR*57*10~
+```
 
 ### PID (desc)
 
