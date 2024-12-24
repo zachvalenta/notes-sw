@@ -287,6 +287,10 @@ ALTERNATIVES https://github.com/cli/cli?tab=readme-ov-file#installation
 
 ---
 
+* fix cmus/ncdu on local machine
+```sh
+export HOMEBREW_NO_AUTO_UPDATE=1
+```
 ```sh
 A new release of gh is available: 2.57.0 → 2.64.0
 To upgrade, run: brew upgrade gh
