@@ -464,39 +464,6 @@ FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace
 * still works if original deleted (不明觉厉) https://hacker-tools.github.io/backups/
 * doesn't take up file space https://www.lifewire.com/create-symbolic-links-ln-command-4059723
 
-## locations
-
-XDG 📜 https://specifications.freedesktop.org/basedir-spec/latest/
-* `XDG_DATA_HOME`: `~/.local/share` https://github.com/simonw/llm/issues/7
-
----
-
-XDG
-```python
-# https://github.com/tox-dev/platformdirs
-from platformdirs import *
-user_config_dir()  # /Users/zach/Library/Application Support
-user_data_dir()  # /Users/zach/Library/Application Support
-site_data_dir()  # /Library/Application Support
-user_cache_dir()  # /Users/zach/Library/Caches
-user_log_dir()  # /Users/zach/Library/Logs
-user_documents_dir()  # /Users/zach/Documents
-user_downloads_dir()  # /Users/zach/Downloads
-user_pictures_dir()  # /Users/zach/Pictures
-user_videos_dir()  # /Users/zach/Movies
-user_music_dir()  # /Users/zach/Music
-user_desktop_dir()  # /Users/zach/Desktop
-user_runtime_dir()  # /Users/zach/Library/Caches/TemporaryItems
-```
-* https://0x46.net/thoughts/2019/02/01/dotfile-madness/
-* https://specifications.freedesktop.org/basedir-spec/latest/
-* https://github.com/tox-dev/platformdirs
-* https://github.com/Zaloog/kanban-tui
-* `XDG_CONFIG_HOME`: typically `$HOME/.config` https://github.com/lusingander/serie/issues/25 https://github.com/kraanzu/dooit/issues/195
-> On macOS, `$XDG_CONFIG_HOME` maps to `$HOME/.config`. Another popular path for config files is `/Users/USER/Library/Application\ Support`. Does this file path have a env var name in the way that $XDG_CONFIG_HOME does?
-* you have to manually specify?
-> If you want to change the config directory: macOS `export XDG_CONFIG_HOME="$HOME/.config` https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
-
 * `/var`: for [variable data files](https://unix.stackexchange.com/a/264345)
 * `~/.config`: config for CLIs (http-prompt, wireshark)
 * `/tmp`: can be either stored on disk or using tmpfs

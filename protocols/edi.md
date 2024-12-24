@@ -260,7 +260,7 @@ DTM*196*20241224~  # start date
 DTM*197*20241130~  # end date
 ```
 
-### CTB (restriction)
+### CTB (order quantity)
 
 * _CTB01_: what restriction applies to
 * _CTB02_: rarely used

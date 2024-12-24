@@ -239,6 +239,7 @@ https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-
 * JetBrains has their own version of this https://news.ycombinator.com/item?id=33211373 https://blog.jetbrains.com/platform/2023/07/lsp-for-plugin-developers/
 * Sourcegraph LSP https://sourcegraph.com/blog/the-self-driving-ide-is-coming
 * BYO https://www.youtube.com/watch?v=jo3IChyh09U&list=WL
+* https://github.com/Canop/bacon
 
 ## spec
 

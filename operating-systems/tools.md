@@ -300,6 +300,7 @@ DESIGN
 
 CONFIG
 * fs: `~/.config/yazi`
+* `ya`: CLI
 
 OPERATIONS
 * enter doesn't enter dir from shell but rather opens in Vim -> workaround? https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter

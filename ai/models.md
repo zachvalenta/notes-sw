@@ -50,7 +50,7 @@ CLOSED
 MODELS
 * legacy: 22.11 GPT 23.03 GPT4
 * _4o_: 24.05
-* _o1_: https://simonwillison.net/2024/Dec/7/prompts-js/
+* _o1_: https://simonwillison.net/2024/Dec/7/prompts-js/ https://marginalrevolution.com/marginalrevolution/2024/12/dean-ball-speaks.html
 * _o1 pro_: 24.12 (preview in 24.09) https://thezvi.substack.com/p/o1-turns-pro https://x.com/mckaywrigley/status/1865089975802646857 https://news.ycombinator.com/item?id=42330732
 
 ZA

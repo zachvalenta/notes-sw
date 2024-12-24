@@ -432,6 +432,7 @@ DESIGN
 
 CLI
 * install: Homebrew
+* config fs: `$HOME/.duckdbrc`
 * from-first syntax https://duckdb.org/docs/sql/query_syntax/from.html#from-first-syntax
 * commands https://duckdb.org/docs/api/cli/overview.html
 ```sh

@@ -4,6 +4,7 @@
 
 🗄
 * `it.md` fs, provision
+*️ `linux.md` files
 * `src.md` denv
 
 ## 进步
@@ -294,18 +295,6 @@ ALTERNATIVES https://github.com/cli/cli?tab=readme-ov-file#installation
 
 ---
 
-* fix cmus/ncdu on local machine
-```sh
-export HOMEBREW_NO_AUTO_UPDATE=1
-```
-```sh
-A new release of gh is available: 2.57.0 → 2.64.0
-To upgrade, run: brew upgrade gh
-
-brew upgrade gh
-Warning: gh 2.57.0 already installed
-```
-
 * Bundle, Brewfiles https://nickgerace.dev/posts/how-to-manage-rust-tools-and-applications/
 * un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew
 * GUI version https://news.ycombinator.com/item?id=37075730
@@ -334,6 +323,14 @@ deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/32
 
 ### constraints
 
+* if you opt out of autoupdate, Brew won't find the most recent version of packages
+```sh
+export HOMEBREW_NO_AUTO_UPDATE=1
+
+# A new release of gh is available: 2.57.0 → 2.64.0. To upgrade, run: brew upgrade gh.
+$ brew upgrade gh
+Warning: gh 2.57.0 already installed
+```
 * hard to find older pkg versions in Homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
 > brew cleanup works against this
 * packages that need Rust might/will cause Rust download (to build?), if you try to install Rust later it will fail due to conflict https://chatgpt.com/c/673544c8-978c-8004-bc38-c7c4d2efdba1 https://github.com/zachvalenta/logs-mini23/commit/94d0bd7992c91018af6c1f783cb59eeec49209d4 installs deps just for building pkg https://github.com/Homebrew/brew/issues/634#issue-169347205
@@ -444,7 +441,7 @@ ALTERNATIVES 🗄️ `python/pkg.md` uv `frontend.md` javascript > runtimes
 
 ## dotfiles
 
-🗄️ `it.md` fs
+🗄️ `linux.md` locations
 
 ---
 
@@ -601,3 +598,44 @@ declare -f
 # view all function names (regex = line starts with lower case characters)
 declare -f | grep '^[a-z]'
 ```
+
+## XDG
+
+📜 https://specifications.freedesktop.org/basedir-spec/latest/
+
+ENV VAR
+* `XDG_DATA_HOME`: `~/.local/share`
+* Python libs to implement https://github.com/simonw/llm/issues/7
+* macOS defaults
+```python
+# https://github.com/tox-dev/platformdirs
+from platformdirs import *
+
+# /Users/zach/Library/Application Support
+# mini23: basilk, television (moved to XDG), harlequin, iTerm, kanban-tui, lazygit, moneyterm, broot, pipx, poetry, smassh, taskwarrior-tui, zoxide
+user_config_dir()
+user_data_dir()
+
+site_data_dir()  # /Library/Application Support
+user_cache_dir()  # /Users/zach/Library/Caches
+user_log_dir()  # /Users/zach/Library/Logs
+user_documents_dir()  # /Users/zach/Documents
+user_downloads_dir()  # /Users/zach/Downloads
+user_pictures_dir()  # /Users/zach/Pictures
+user_videos_dir()  # /Users/zach/Movies
+user_music_dir()  # /Users/zach/Music
+user_desktop_dir()  # /Users/zach/Desktop
+user_runtime_dir()  # /Users/zach/Library/Caches/TemporaryItems
+```
+
+---
+
+XDG
+* https://0x46.net/thoughts/2019/02/01/dotfile-madness/
+* https://specifications.freedesktop.org/basedir-spec/latest/
+* https://github.com/tox-dev/platformdirs
+* https://github.com/Zaloog/kanban-tui
+* `XDG_CONFIG_HOME`: typically `$HOME/.config` https://github.com/lusingander/serie/issues/25 https://github.com/kraanzu/dooit/issues/195
+> On macOS, `$XDG_CONFIG_HOME` maps to `$HOME/.config`. Another popular path for config files is `/Users/USER/Library/Application\ Support`. Does this file path have a env var name in the way that $XDG_CONFIG_HOME does?
+* you have to manually specify?
+> If you want to change the config directory: macOS `export XDG_CONFIG_HOME="$HOME/.config` https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md

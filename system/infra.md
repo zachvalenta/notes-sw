@@ -789,6 +789,8 @@ design
 
 📜 https://nginx.org/en/docs/beginners_guide.html https://nginx.org/en/docs/ https://github.com/trimstray/nginx-admins-handbook
 
+https://github.com/Canop/rhit
+
 non-Docker
 * https://stackoverflow.com/a/54298517
 * https://mattsegal.dev/nginx-django-reverse-proxy-config.html

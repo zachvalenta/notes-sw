@@ -136,6 +136,7 @@ eval "$(atuin init bash)"
 ALTERNATIVES
 * _history-sync_: zsh plugin https://martinheinz.dev/blog/110
 * _hishtory_: https://github.com/ddworken/hishtory
+* _hoard_: 🎯 https://github.com/Hyde46/hoard
 * _marker_: uses tldr https://github.com/pindexis/marker
 * _mcfly_: cmd suggestions https://github.com/cantino/mcfly
 * _tsukae_: 🎯 view most commonly used commands https://github.com/irevenko/tsukae
