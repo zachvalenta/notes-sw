@@ -33,14 +33,172 @@ Where would Arrow fit into the serde picture of data vs. IPC vs. wire
 * _24_: own doc, start to grok data/IPC/wire, first use of Parquet
 * _22_: jless, start thinking about serde as its own thing
 
-# 💿 DATA
+# 🏛️ COLUMNAR
 
-💡 optimized for storage and queries
+```sh
+Row-oriented:
+record1: name,age,city
+record2: name,age,city
 
-## Avro
+Column-oriented:
+names: [name1,name2,...]
+ages:  [age1,age2,...]
+cities: [city1,city2,...]
+```
 
+```python
+from dataclasses import dataclass
+from typing import List
+
+# Array of Structs (Row-oriented)
+@dataclass
+class Person:
+    name: str
+    age: int
+    city: str
+
+class PeopleRowBased:
+    def __init__(self):
+        self.records: List[Person] = []
+    
+    def add(self, name: str, age: int, city: str):
+        self.records.append(Person(name, age, city))
+    
+    def get_record(self, index: int) -> Person:
+        return self.records[index]
+    
+    def get_ages(self) -> List[int]:
+        return [person.age for person in self.records]
+
+# Struct of Arrays (Column-oriented)
+class PeopleColumnBased:
+    def __init__(self):
+        self.names: List[str] = []
+        self.ages: List[int] = []
+        self.cities: List[str] = []
+    
+    def add(self, name: str, age: int, city: str):
+        self.names.append(name)
+        self.ages.append(age)
+        self.cities.append(city)
+    
+    def get_record(self, index: int) -> Person:
+        return Person(
+            self.names[index],
+            self.ages[index],
+            self.cities[index]
+        )
+    
+    def get_ages(self) -> List[int]:
+        return self.ages
+
+# Usage example and performance demonstration
+if __name__ == "__main__":
+    import timeit
+    
+    # Setup data
+    row_based = PeopleRowBased()
+    col_based = PeopleColumnBased()
+    
+    for i in range(1_000_000):
+        row_based.add(f"Person{i}", i % 100, f"City{i % 50}")
+        col_based.add(f"Person{i}", i % 100, f"City{i % 50}")
+    
+    # Compare performance of column access
+    row_time = timeit.timeit(lambda: row_based.get_ages(), number=100)
+    col_time = timeit.timeit(lambda: col_based.get_ages(), number=100)
+    
+    print(f"Time to get all ages 100 times:")
+    print(f"Row-based: {row_time:.4f} seconds")
+    print(f"Column-based: {col_time:.4f} seconds")
+```
+
+> Earlier projects that added columnar storage to Postgres (e.g., Citus, Timescale) only solved part of the problem. Columnar data formats improve retrieving data from storage. However, a DBMS cannot fully exploit those formats if it still uses a row-oriented query processing model (e.g., Postgres). Using DuckDB provides both columnar storage and vectorized query processing. https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
+
+---
+
+already old! https://db.cs.cmu.edu/projects/future-file-formats/
+📙 Kleppmann chapter 3
+🗄 `computation.md` encoding/CSV, Parquet
+
+used for time series databases
+
+* _column store_: not row-oriented (like OLTP)
+* can do in Sqlite? https://news.ycombinator.com/item?id=39207570&utm_term=comment
+* 不明觉厉 https://news.ycombinator.com/item?id=36571110
+* e.g. instead of looking for all `price` values by iterating over every sale record, just grab `price` column 📙 Kleppmann 96
+* ❓ stores data differently on disk https://nchammas.com/writing/database-access-patterns
+* in order to reconstruct a row, everything in row must be stored as nth in column 📙 Kleppmann 100
+> Neither Parquet nor ORC files existed prior to 2012. These file formats were instrumental in making analytics fast on Hadoop. Prior to these formats, workloads were largely row-oriented. If you needed to transform TBs of data and could do so in a parallel fashion then Hadoop did a good job of that. MapReduce was a framework often used for this purpose. What columnar storage offered was a way to analyse TBs of data in seconds. This proved to be a more valuable proposition to more businesses. Data Scientists may only need a small amount of data to produce insights but they'll need to look over a data lake with potentially PBs of data to pick out what they need first. Columnar analytics is key for them to build the data fluency needed to know what to cherry-pick. https://tech.marksblogg.com/is-hadoop-dead.html
+* _wide column store_: ❓
+* CMU, Pavlo https://www.youtube.com/watch?v=fr5lIchF6pw
+* vectorized execution https://talkpython.fm/episodes/transcript/491/duckdb-and-python-ducks-and-snakes-living-together
+
+DBMS https://en.wikipedia.org/wiki/List_of_column-oriented_DBMSes
+* Cassandra https://stackoverflow.com/q/13010225 https://www.youtube.com/watch?v=J-cSy5MeMOA 📙 Kleppmann 99 https://news.ycombinator.com/item?id=28292369 https://simonwillison.net/2021/Aug/24/how-discord-stores-billions-of-messages/
+* _Bigtable_: wide table = document store in SQL https://en.wikipedia.org/wiki/Wide-column_store
+* _HBase_: Hadoop db
+
+## 🏹 Arrow
+
+📜 https://arrow.apache.org/
+🗄️ `protocols.md` file fmt / serialization
+📹 https://www.youtube.com/watch?v=I0RtuAiBPh0
+
+* in-memory format for columnar data https://news.ycombinator.com/item?id=29010103 https://github.com/adriangb/pgpq
+> This question comes up quite often. Parquet is a _file_ format, Arrow is a language-independent _in-memory_ format. You can e.g. read a Parquet file into a typed Arrow buffer backed by shared memory, allowing code written in Java, Python, or C++ (and many more!) to read from it in a performant way (i.e. without copies). https://news.ycombinator.com/item?id=29011463
+* also includes algos for querying
+>  But the Arrow project contains more than just the format: The Arrow C++ library, which is accessible in Python, R, and Ruby via bindings, has additional features that allow you to compute efficiently on datasets. https://duckdb.org/2021/12/03/duck-arrow.html
+* emerged from Pandas
+> We needed to create a way to represent data that was not tied to a specific programming language. And that could be used for a very efficient interchange between components. And the idea is that you would have this immutable, this kind of constant data structure, which is like it's the same in every programming language. And then you can use that as the basis for writing all of your algorithms. So as long as it's arrow, you have these reusable algorithms that process arrow data. https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
+> Pandas historically persisted string columns as objects, which was wildly inefficient. The new string[pyarrow] column type is around 3.5 times more efficient from what I've seen. https://news.ycombinator.com/item?id=34968769
+* decoupled Pandas from numpy
+> While NumPy has been good enough to make pandas the popular library it is, it was never built as a backend for dataframe libraries, and it has some important limitations. https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i
+* used by Polars https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
+* can query using DuckDB bc Duck's  https://duckdb.org/2021/12/03/duck-arrow.html https://news.ycombinator.com/item?id=35426155
+
+## 📐 Parquet
+
+🗄️ `computation.md` info theory > compression
+
+---
+
+DESIGN https://csvbase.com/blog/3
+* faster
+* smaller
+* typed
+* columnar
+
+ZA
+* _ORC_: Parquet for Hive ecosystem https://tech.marksblogg.com/faster-csv-to-orc-conversions.html
+* used by Databricks, Trino
+* slower writes than Parquet, better compression
+
+* Vortex https://news.ycombinator.com/item?id=41839773
+* https://www.crunchydata.com/blog/pg_parquet-an-extension-to-connect-postgres-and-parquet
+* https://r4ds.hadley.nz/arrow#sec-parquet
+* partition elimination https://duckdb.org/2021/12/03/duck-arrow.html
+* https://pythonspeed.com/articles/best-file-format-for-pandas/
+* https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
+* _Parquet_: column-oriented file format, like CSV https://www.youtube.com/watch?v=H_dLfHETO0g https://news.ycombinator.com/item?id=35418933 https://news.ycombinator.com/item?id=29010103
+* easier to use now vs. CSV https://news.ycombinator.com/item?id=30595026
+* use to build no-code API https://tech.marksblogg.com/roapi-rust-data-api.html
+* pyarrow https://www.blog.pythonlibrary.org/2024/05/06/how-to-read-and-write-parquet-files-with-python/
+
+# 🚣‍♀️ ROW-ORIENTED
+
+```txt
+CSV's row orientation makes it:
+Great for: adding/reading full records, sequential scans
+Poor for: column-based analytics, updating single fields across many records
+```
+
+## 🪶 Avro
+
+> previous answers were talking about schema evolution but I didn't follow
 > Avro really shines when you're storing large amounts of row-oriented data that needs to evolve over time. Think data warehouse rather than application data.
 
+```txt
 PARQUET
 * Column-oriented
 * Better for analytics (WHERE/GROUP BY on specific columns)
@@ -69,6 +227,14 @@ Parquet > Avro:
 * need efficient compression
 * querying subsets of columns
 * using tools like Athena/BigQuery
+```
+
+```txt
+Stream data with Avro
+Store in Parquet
+Load into Arrow for processing
+Pass Arrow buffers between Python/R/etc.
+```
 
 ---
 
@@ -85,6 +251,9 @@ Parquet > Avro:
 🗄️ `analytics.md` visidata
 
 TOOLS
+```sh
+python -c "import random; print('\n'.join(str(random.randint(10, 99)) if random.random() > 0.2 else str(random.randint(100, 999)) for _ in range(20)))"
+```
 * _moderncsv_: editor https://www.moderncsv.com/ 🗄️ `data/analytics.md` visidata
 * _csvdiff_: ✅ diff https://github.com/aswinkarthik/csvdiff
 * _csview_: ✅ cat https://github.com/wfxr/csview
@@ -113,65 +282,13 @@ DESIGN
 * _DSV_: same as `.dat` https://en.wikipedia.org/wiki/Delimiter-separated_values https://www.thoughtspot.com/blog/csv-vs-delimited-flat-files-how-choose
 * _TSV_: https://news.ycombinator.com/item?id=40622760
 
-### conversion
-
----
-
-https://claude.ai/chat/a054673f-3567-4e7c-bac6-3441cc692f47
-
-CSVKIT 📜 https://github.com/wireservice/csvkit https://csvkit.readthedocs.io/en/latest/
-* install broken via pyenv https://github.com/zachvalenta/logs-capp/blob/main/pyenv/pipx/csvkit.log#L36
+CONVERSION 🧠 https://claude.ai/chat/a054673f-3567-4e7c-bac6-3441cc692f47
+* _csvkit_: install broken via pyenv https://github.com/zachvalenta/logs-capp/blob/main/pyenv/pipx/csvkit.log#L36 https://github.com/wireservice/csvkit https://csvkit.readthedocs.io/en/latest/
 ```sh
 in2csv $EXCEL > $CSV
 ```
-
-BROKEN FILE CONVERSION 🚧 file conversion doesn't work
-* using csvkit instead 🗄️ query-sandbox, capp
-* cause: `vd` not being callable? https://github.com/saulpw/visidata/issues/1406 `sh: /Users/zach/.local/bin/vd: bad interpreter: /Users/zach/Library/Application: no such file or directory`
-* cause: pyenv issue
-```sh
-$ vd foo.xlsx -b -o foo.csv
-
-saul.pw/VisiData v3.0.2
-opening foo.xlsx as xlsx
-I wonder what they'll do next!
-saving 1 sheets to foo.csv as csv
-```
-```sh
-$ cat foo.csv
-```
-```csv
-sheet,nRows,nCols,active
-Cateogry_Updates,1,2,True
-Sheet1,1048575,5,False
-Sheet2,1048575,2,False
-```
-
-## 📐 Parquet
-
-🗄️ `computation.md` info theory > compression
-
----
-
-DESIGN https://csvbase.com/blog/3
-* faster
-* smaller
-* typed
-* columnar
-
-ZA
-* _ORC_: Parquet for Hive ecosystem
-
-* Vortex https://news.ycombinator.com/item?id=41839773
-* https://www.crunchydata.com/blog/pg_parquet-an-extension-to-connect-postgres-and-parquet
-* https://r4ds.hadley.nz/arrow#sec-parquet
-* partition elimination https://duckdb.org/2021/12/03/duck-arrow.html
-* https://pythonspeed.com/articles/best-file-format-for-pandas/
-* https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-* _Parquet_: column-oriented file format, like CSV https://www.youtube.com/watch?v=H_dLfHETO0g https://news.ycombinator.com/item?id=35418933 https://news.ycombinator.com/item?id=29010103
-* easier to use now vs. CSV https://news.ycombinator.com/item?id=30595026
-* use to build no-code API https://tech.marksblogg.com/roapi-rust-data-api.html
-* pyarrow https://www.blog.pythonlibrary.org/2024/05/06/how-to-read-and-write-parquet-files-with-python/
+* _visidata_: broken (didn't work for Capp interview, query-sandbox)
+* bc...pyenv issue? `vd` not callable? https://github.com/saulpw/visidata/issues/1406 `sh: /Users/zach/.local/bin/vd: bad interpreter: /Users/zach/Library/Application: no such file or directory`
 
 # 👋 IPC
 
@@ -303,6 +420,42 @@ ZA
 * history https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html
 * as output for Unix utils https://blog.kellybrazil.com/2019/11/26/bringing-the-unix-philosophy-to-the-21st-century/ https://github.com/kellyjonbrazil/jc https://news.ycombinator.com/item?id=22608045 https://kellyjonbrazil.github.io/jc/
 * for sharing logic btw frontend/backend https://news.ycombinator.com/item?id=27306263
+
+### in databases
+
+---
+
+https://eradman.com/posts/json-in-sql.html
+https://news.ycombinator.com/item?id=41914845
+
+SQLITE
+* https://dba.stackexchange.com/questions/122198/is-it-possible-to-store-and-query-json-in-sqlite
+* https://news.ycombinator.com/item?id=30486052
+
+POSTGRES
+* write rows as JSON obj to file
+```sql
+SELECT foo.x, bar.y, baz.z
+SELECT json_agg(json_build_object('x', foo.x, 'y', bar.y, 'z', baz.z))
+
+-- write stdout to file (only seemed to work for psql, not pgcli)
+\o output.json  -- start
+\o  -- stop
+```
+* write IDs as quoted, delimited string to text file
+```sql
+\o artist-ids.txt
+SELECT '"' || foo.x || '",'
+\o
+```
+* `json`: text field; slow to search
+* `jsonb`: binary; slower writes, faster reads https://pganalyze.com/blog/postgres-jsonb-django-python
+```sql
+-- all keys for json obj
+select jsonb_object_keys(json_col) from table
+-- nested key
+select json_col -> 'top_level_key' ->> 'nested_key' from table
+```
 
 ### query (jq)
 

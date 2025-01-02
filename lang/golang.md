@@ -113,6 +113,7 @@ fmt.Println(mySlice) // [3 5 7]
 ## design
 
 📙 Kernighan/Pike practice of programming https://www.amazon.com/Practice-Programming-Addison-Wesley-Professional-Computing/dp/020161586X
+> I will finally note that Ken Thompson has a history of designs that look like minimal solutions to near problems but turn out to have an amazing quality of openness to the future, the capability to be improved. Unix is like this, of course. It makes me very cautious about supposing that any of the obvious annoyances in Go that look like future-blockers to me (like, say, the lack of generics) actually are. Because for that to be true, I’d have to be smarter than Ken, which is not an easy thing to believe. http://esr.ibiblio.org/?p=7745
 
 FEATURES 📙 Jeffrey [3]
 * concurrency
@@ -535,79 +536,6 @@ VERSION MGMT
 * time https://github.com/mergestat/timediff
 * _TOML_: https://github.com/pelletier/go-toml
 * _YAML_: https://github.com/goccy/go-yaml
-
-## 🦄 Charm
-
-🔗 https://charm.sh/
-
-* _Bubbles_: standalone UI components from Bubbletea https://github.com/charmbracelet/bubbles
-* text input (does it support readline?) https://github.com/charmbracelet/bubbles?tab=readme-ov-file#text-input
-* _Bubbletea_: TUI framework https://github.com/charmbracelet/bubbletea https://github.com/charmbracelet/bubbletea#bubble-tea-in-the-wild
-* _huh_: forms; used in gum https://github.com/charmbracelet/huh
-* _log_: structured logs, used in gum https://github.com/charmbracelet/log https://github.com/charmbracelet/gum#log
-
-🍬 GUM 📜 https://github.com/charmbracelet/gum
-* tldr: components for Bash scripts https://github.com/charmbracelet/gum/blob/main/examples/test.sh
-* things I've used: log https://github.com/zachvalenta/capp-crudite filter https://github.com/zachvalenta/bin-mini23/blob/main/xmp
-* use in Python https://github.com/charmbracelet/gum/blob/main/examples/gum.py
-* welcome msg https://github.com/charmbracelet/gum#join
-```sh
-gum style --foreground 212 --border-foreground 212 --border double \
-	--align center --width 50 --margin "1 2" --padding "2 2" 'generate' 'dataset' 'for' 'crudite'
-```
-
----
-
-📹 https://www.youtube.com/watch?v=_gzypL-Qv-g
-
-* _Bubble Tea_: inspired by Elm? https://github.com/charmbracelet/bubbletea
-* tutorials https://leg100.github.io/en/posts/building-bubbletea-programs/ https://www.youtube.com/watch?v=ERaZi0YvBRs
-* components https://github.com/charmbracelet/bubbles 
-
-## CLI
-
----
-
-* animation https://github.com/charmbracelet/harmonica
-* frameworks https://github.com/noahgorstein/jqp https://www.youtube.com/watch?v=ZA93qgdLUzM https://github.com/rivo/tview/ https://github.com/jroimartin/gocui 
-* color https://github.com/fatih/color
-* tables https://github.com/jedib0t/go-pretty
-* Markdown render https://github.com/charmbracelet/glamour https://miller.readthedocs.io/en/latest/file-formats/#markdown-tabular
-* prompt https://github.com/manifoldco/promptui
-* styling https://github.com/charmbracelet/lipgloss https://github.com/pterm/pterm/
-
----
-
-* testing, golden files https://changelog.com/gotime/337
-* https://www.dolthub.com/blog/2023-03-29-interactive-shell-golang/
-
-* https://clig.dev/ https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46 https://www.youtube.com/watch?v=eMz0vni6PAw https://eryb.space/2020/05/27/diving-into-go-by-building-a-cli-application.html https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ email author -> 艘 'Golang article typo'
-```sh
-├── main.foo  # single line returning exit code from internals https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/
-│   └── file_1.txt
-│   └── file_2.txt
-```
-* binaries for multiple architectures https://www.thoughtworks.com/radar/tools?blipid=202203018 https://github.com/goreleaser/goreleaser
-* https://towardsdatascience.com/how-to-create-a-cli-in-golang-with-cobra-d729641c717 https://www.twilio.com/blog/use-cobra-build-go-powered-clis
-* _stdlib_:  https://media.pragprog.com/titles/rggo/first.pdf approach 1 https://eryb.space/2020/05/27/diving-into-go-by-building-a-cli-application.html https://github.com/erybz/go-grab-xkcd approach 2 https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://github.com/carlmjohnson/go-grab-xkcd `flags` not good? https://golang.org/pkg/flag/ https://news.ycombinator.com/item?id=23319770 https://news.ycombinator.com/item?id=23321901
-* _Cobra/Viper_: Hugo, Kubernetes https://news.ycombinator.com/item?id=23319172 scaffold https://github.com/spf13/cobra/blob/master/cobra/README.md module support https://github.com/spf13/cobra/issues/1054 https://github.com/spf13/cobra/issues/795 https://github.com/spf13/cobra/pull/817 https://qua.name/antolius/making-a-testable-cobra-cli-app https://www.youtube.com/watch?v=44MMeT39eG4
-* _cli_: https://github.com/urfave/cli https://github.com/ayoisaiah/goname/blob/master/cmd/goname/main.go https://news.ycombinator.com/item?id=23321576
-* _alternatives_: terminal GUI https://github.com/rivo/tview other options https://go.dev/solutions/clis/ https://github.com/jessevdk/go-flags https://github.com/jaffee/commandeer
-* _interactive prompt_: https://github.com/AlecAivazis/survey
-* output https://github.com/nikolaydubina/calendarheatmap https://xkcd.com/1138/ https://github.com/vbauerster/mpb https://github.com/cirruslabs/echelon https://github.com/gookit/color/ https://github.com/Delta456/box-cli-maker colors https://github.com/muesli/termenv
-
-- [ ] packaging - recreate Cobra scaffold `golang/packaging`
-
-* ✅ try to run app
-* snapshot (env, fs, previous notes at bottom of file, Makefile)
-* cp project somewhere else, rm deps (clean --modcache), 'clone', run
-* cp project somewhere else, rm deps (not folders), 'clone', run
-* cp project somewhere else, rm deps (folders), 'clone', run
-* push to GH, rm deps (clean --modcache), clone, run
-* push to GH, rm deps (not folder), clone, run
-* push to GH, rm deps (folders), clone, run
-* basic project w/out deps https://golang.org/doc/code.html
-* get set up on work machine
 
 ## web
 

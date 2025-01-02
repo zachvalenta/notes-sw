@@ -74,6 +74,11 @@ cue vet person.cue
 https://kdl.dev/ https://zellij.dev/documentation/layouts
 > this is what started me to split protocols into own file apart from `computation.md`
 
+## TOML
+
+* link https://github.com/tamasfe/taplo 🗄️ yazi config
+> VS Code plugin 'Even Better TOML'
+
 ## XML
 
 🗄️ `algos.md` tree
@@ -160,9 +165,189 @@ users:
     email: alicedoe@example.com
 ```
 
+# 📜 DOCUMENTS
+
+## LaTeX
+
+🗄️ `design.md` typography
+
+* https://github.com/googlefonts/fontations
+* _fnt_: manager https://github.com/alexmyczko/fnt
+* Pollen https://docs.racket-lang.org/pollen/ https://news.ycombinator.com/item?id=20029372
+* TeX https://news.ycombinator.com/item?id=20027807 https://news.ycombinator.com/item?id=7823337 https://news.ycombinator.com/item?id=7822057 https://news.ycombinator.com/item?id=20027116
+* BYO https://news.ycombinator.com/item?id=38421452
+
+LaTeX code consists of commands and environments to format text or mathematical expressions.
+```latex
+\documentclass{article}
+\begin{document}
+Hello, this is a simple LaTeX document.
+
+Here is a math equation:
+\[
+E = mc^2
+\]
+
+This is inline math: $a^2 + b^2 = c^2$.
+\end{document}
+```
+
+To render LaTeX code, you need a LaTeX editor or engine. Here are some options:
+* MacTeX (macOS)
+* VS Code with LaTeX extensions
+* Overleaf, Markdown https://brainbaking.com/post/2021/02/writing-academic-papers-in-markdown/
+* If you’re using a Jupyter Notebook, you can render LaTeX with Markdown cells:
+* Use libraries like matplotlib, sympy, or IPython for LaTeX rendering.
+* Save the code as `example.tex`. Compile using a LaTeX engine -> Command line: pdflatex example.tex
+
+LaTeX is commonly used to create:
+* Research papers
+* Resumes
+* Presentations (with Beamer)
+* Books
+
+Useful Packages:
+* amsmath: Advanced math formatting
+* graphicx: For including images
+* hyperref: For hyperlinks
+* geometry: For page layout adjustments
+
+* http://www.danielallington.net/2016/09/the-latex-fetish/
+* https://increment.com/open-source/the-lingua-franca-of-latex/
+* alternative https://sile-typesetter.org/
+* https://news.ycombinator.com/item?id=35242299
+* https://news.ycombinator.com/item?id=35250210
+* Typst https://www.youtube.com/watch?v=sWmlbMh3ol8
+
+## Markdown
+
+🔗 https://www.markdownguide.org/
+
+SPEC
+* footnotes https://github.blog/changelog/2021-09-30-footnotes-now-supported-in-markdown-fields/
+```md
+Here is a simple footnote[^1].
+
+[^1]: My reference.
+```
+
+FLAVORS
+* _Djot_: https://djot.net/ https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
+* _CommonMark_: https://meta.stackexchange.com/q/348746
+* _GFM_: https://github.com/github/markup/issues/498#issuecomment-158257453 
+* _MyST_: https://github.com/executablebooks/MyST-Parser
+
+PARSERS
+* _markitdown_: 🎯 AI = 25k stars in a month https://github.com/microsoft/markitdown
+* _micromark_: https://github.com/micromark/micromark
+* _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/ re: Next https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
+* time suck https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
+* _markdown-it-py_: used by rich https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
+* _commonmark_: https://github.com/readthedocs/commonmark.py https://github.com/Textualize/rich/pull/2439/files
+* _goldmark_: https://github.com/yuin/goldmark
+* HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown https://html-to-markdown.com/
+
+RENDER
+* _frogmouth_: https://github.com/Textualize/frogmouth
+* _glow_: https://github.com/charmbracelet/glow
+* _mdcat_: ✅ https://github.com/swsnr/mdcat https://github.com/charmbracelet/mods/blob/main/examples.md
+* _rich_: https://rich.readthedocs.io/en/latest/markdown.html
+
+EDITOR
+* https://simplemde.com/ https://tunalog.org/en-us/index.html
+
+---
+
+* _markdown_: https://pypi.org/project/markdown2/ used this one for `m2h` https://github.com/Python-Markdown/markdown had issues with ampersands in URLs, see repo commit `43e` https://stackoverflow.com/a/20593644/6813490 https://stackoverflow.com/questions/39086/search-and-replace-a-line-in-a-file-in-python
+* https://codehike.org/blog/the-curse-of-markdown
+* writing on mobile, comments for editing https://conroy.org/blogging-on-paper
+* vs. RST https://buttondown.com/hillelwayne/archive/why-i-prefer-rst-to-markdown/
+* use image (w/ Github renderer) https://github.com/catppuccin/python/blob/main/README.md
+
+* links https://jordanelver.co.uk/blog/2021/03/13/til-about-markdown-reference-style-links/
+* convert to HTML with Vim http://vimcasts.org/episodes/converting-markdown-to-structured-html-with-a-macro/
+* Github https://docs.github.com/en/issues/tracking-your-work-with-issues/about-slash-commands
+* RENDERME https://news.ycombinator.com/item?id=30336703
+* metadata https://github.com/blacksmithgu/obsidian-dataview
+* spec https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/
+* asciidoc vs. Markdown https://news.ycombinator.com/item?id=27744509
+* href https://github.com/pemistahl/grex
+* linting https://mkaz.blog/code/linting-markdown-syntax/
+* formal spec https://githubengineering.com/a-formal-spec-for-github-markdown/
+* code syntax support https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
+* Pandoc has their own version of Markdown? https://yihui.name/en/2018/09/target-blank/
+* Markdown to PowerPoint https://yhatt.github.io/marp https://www.youtube.com/watch?v=CkIweDviGH8
+* HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown
+* [dropdowns!](https://raw.githubusercontent.com/30-seconds/30-seconds-of-code/master/README.md)
+* [diff](https://stackoverflow.com/a/40883538)
+* table fmt: Jira, Markdown/RST, Latex https://jsvine.github.io/intro-to-visidata/basics/saving-sheets/
+* Markdown for Google Docs https://www.theverge.com/2022/3/29/23002138/google-docs-markdown-support-formatting-update
+
+conversion to HTML
+* https://github.com/susam/texme
+* Markdown to HTML w/ Python CLI https://python-markdown.github.io/cli/ `python -m markdown 1997-graham-hackers-painters.md > pg.html` -> doesn't handle quotes, output is vanilla would need to figure way to add CSS
+* _mistune_: https://github.com/lepture/mistune
+* _markdown_: `python -m markdown rn.md > rn.html` https://python-markdown.github.io/cli/ used in MkDocs https://github.com/mkdocs/mkdocs/blob/master/requirements/project.txt
+* _markdown2_: https://github.com/trentm/python-markdown2 supports (maybe) ghfm https://github.com/mkdocs/mkdocs/issues/263#issuecomment-65362418
+```sh
+python -m markdown2 --extras fenced-code-blocks my-debug-checklist.md > debug.html
+```
+
+add styles
+* `water.css` w/ Beatiful Soup in script https://stackoverflow.com/a/19123463/6813490 
+* more advanced https://github.com/cburmeister/cburmeister.github.io/blob/master/Makefile pandoc https://serverless.pub/lambda-utility-layers/ https://github.com/kickstartcoding/cheatsheets
+
+## PDF
+
+GENERATE
+* _invoice_: https://github.com/maaslalani/invoice https://github.com/charmbracelet/pop
+
+READERS
+* _baca_: ebook/epub TUI reader https://github.com/wustho/baca
+* _tdf_: https://github.com/itsjunetime/tdf
+* _termpdf_: kitty https://github.com/dsanson/termpdf.py
+
+TO TEXT
+* _parsr_: https://github.com/axa-group/Parsr
+* _poppler_: https://poppler.freedesktop.org/
+```sh
+$ brew info poppler
+Conflicts with:
+  pdf2image (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
+  pdftohtml (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
+  xpdf (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
+```
+* everything else seems to rely on it https://github.com/sxyazi/yazi https://github.com/search?q=repo%3Amodesty%2Fpdf2json%20poppler&type=code https://github.com/search?q=repo%3Ajalan%2Fpdftotext%20poppler&type=code https://github.com/jalan/pdftotext
+
+---
+
+* https://realpython.com/pdf-python/
+* https://github.com/Halolegend94/pdf4py
+* Sioyek https://news.ycombinator.com/item?id=34069804
+* https://docs.racket-lang.org/quad/
+* Markdown https://docs.racket-lang.org/quad/
+* https://rtpg.co/2016/09/17/make-an-ebook.html
+* _design_: https://news.ycombinator.com/item?id=24108950 https://gds.blog.gov.uk/2018/07/16/why-gov-uk-content-should-be-published-in-html-and-not-pdf/
+* _annotation_: PDF Expert, Flexcil, https://news.ycombinator.com/item?id=23230218 https://github.com/xournalpp/xournalpp
+* _archival_: https://github.com/danburzo/percollate https://github.com/pirate/ArchiveBox
+* _readers - macOS_: PDF Expert (freemium version won't let you save) PDF Element ($90/year) Preview (search doesn't seem to work for most documents https://duckduckgo.com/?q=macos+preview+search+doesn%27t+work&atb=v161-1&ia=web text in sidebar doesn't correspond to hightlight, some hightlights produce no text in sidebar, can't enter emoji into notes, limited keyboard shortcuts) Nitro PDF
+* _to plain text_: https://github.com/axa-group/Parsr https://github.com/jsvine/pdfplumber
+* _from plain text_: http://richardmavis.info/using-web-technologies-to-print-a-book https://coreyburmeister.com/continuous-integration-and-deployment-for-my-resume/
+* _from HTML_: https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.princexml.com/
+* _split_: select subset and drag into Finder
+https://github.com/jorisschellekens/borb
+https://news.ycombinator.com/item?id=26691626
+* _ereader_ https://johnfactotum.github.io/foliate/
+[PDF is bad]()
+* PDF reader w/ Vim bindings: Zathura http://jhshi.me/2016/03/09/zathura-pdf-viewer-for-vim-lovers/index.html#.Xg4gThdKh-U not available on macOS https://www.reddit.com/r/vim/comments/3prfd0/pdf_reader_with_vim_keybindings_for_mac_osx/
+* https://github.com/burtonator/polar-bookshelf https://pwmt.org/projects/zathura/ https://goodreader.com/
+* mobile: [Joplin](https://github.com/laurent22/joplin), IAWriter
+* https://www.pdfa.org/a-technical-and-cultural-assessment-of-the-mueller-report-pdf/
+
 # 🪪 ENCODING
 
 🔍 https://bestasciitable.com/
+⏳ history https://www.youtube.com/watch?v=DlQvSs99UIw
 
 ---
 
@@ -532,132 +717,6 @@ UUID https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til
 * version 8: entirely custom (besides the required version/variant fields that all versions contain).
 > if you have your own data you want in the UUID
 
-## Markdown
-
-🔗 https://www.markdownguide.org/
-
-SPEC
-* footnotes https://github.blog/changelog/2021-09-30-footnotes-now-supported-in-markdown-fields/
-```md
-Here is a simple footnote[^1].
-
-[^1]: My reference.
-```
-
-FLAVORS
-* _Djot_: https://djot.net/ https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
-* _CommonMark_: https://meta.stackexchange.com/q/348746
-* _GFM_: https://github.com/github/markup/issues/498#issuecomment-158257453 
-* _MyST_: https://github.com/executablebooks/MyST-Parser
-
-PARSERS
-* _markitdown_: 🎯 AI = 25k stars in a month https://github.com/microsoft/markitdown
-* _micromark_: https://github.com/micromark/micromark
-* _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/ re: Next https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
-* time suck https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
-* _markdown-it-py_: used by rich https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
-* _commonmark_: https://github.com/readthedocs/commonmark.py https://github.com/Textualize/rich/pull/2439/files
-* _goldmark_: https://github.com/yuin/goldmark
-* HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown https://html-to-markdown.com/
-
-RENDER
-* _frogmouth_: https://github.com/Textualize/frogmouth
-* _glow_: https://github.com/charmbracelet/glow
-* _mdcat_: ✅ https://github.com/swsnr/mdcat https://github.com/charmbracelet/mods/blob/main/examples.md
-* _rich_: https://rich.readthedocs.io/en/latest/markdown.html
-
-EDITOR
-* https://simplemde.com/ https://tunalog.org/en-us/index.html
-
----
-
-* _markdown_: https://pypi.org/project/markdown2/ used this one for `m2h` https://github.com/Python-Markdown/markdown had issues with ampersands in URLs, see repo commit `43e` https://stackoverflow.com/a/20593644/6813490 https://stackoverflow.com/questions/39086/search-and-replace-a-line-in-a-file-in-python
-* https://codehike.org/blog/the-curse-of-markdown
-* writing on mobile, comments for editing https://conroy.org/blogging-on-paper
-* vs. RST https://buttondown.com/hillelwayne/archive/why-i-prefer-rst-to-markdown/
-* use image (w/ Github renderer) https://github.com/catppuccin/python/blob/main/README.md
-
-* links https://jordanelver.co.uk/blog/2021/03/13/til-about-markdown-reference-style-links/
-* convert to HTML with Vim http://vimcasts.org/episodes/converting-markdown-to-structured-html-with-a-macro/
-* Github https://docs.github.com/en/issues/tracking-your-work-with-issues/about-slash-commands
-* RENDERME https://news.ycombinator.com/item?id=30336703
-* metadata https://github.com/blacksmithgu/obsidian-dataview
-* spec https://github.blog/2017-03-14-a-formal-spec-for-github-markdown/
-* asciidoc vs. Markdown https://news.ycombinator.com/item?id=27744509
-* href https://github.com/pemistahl/grex
-* linting https://mkaz.blog/code/linting-markdown-syntax/
-* Latex http://www.danielallington.net/2016/09/the-latex-fetish/ https://increment.com/open-source/the-lingua-franca-of-latex/ alternative https://sile-typesetter.org/ https://news.ycombinator.com/item?id=35242299 https://news.ycombinator.com/item?id=35250210 Typst https://www.youtube.com/watch?v=sWmlbMh3ol8 Overleaf, Markdown https://brainbaking.com/post/2021/02/writing-academic-papers-in-markdown/
-* formal spec https://githubengineering.com/a-formal-spec-for-github-markdown/
-* code syntax support https://github.com/github/linguist/blob/master/lib/linguist/languages.yml
-* Pandoc has their own version of Markdown? https://yihui.name/en/2018/09/target-blank/
-* Markdown to PowerPoint https://yhatt.github.io/marp https://www.youtube.com/watch?v=CkIweDviGH8
-* HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown
-* [dropdowns!](https://raw.githubusercontent.com/30-seconds/30-seconds-of-code/master/README.md)
-* [diff](https://stackoverflow.com/a/40883538)
-* table fmt: Jira, Markdown/RST, Latex https://jsvine.github.io/intro-to-visidata/basics/saving-sheets/
-* Markdown for Google Docs https://www.theverge.com/2022/3/29/23002138/google-docs-markdown-support-formatting-update
-
-conversion to HTML
-* https://github.com/susam/texme
-* Markdown to HTML w/ Python CLI https://python-markdown.github.io/cli/ `python -m markdown 1997-graham-hackers-painters.md > pg.html` -> doesn't handle quotes, output is vanilla would need to figure way to add CSS
-* _mistune_: https://github.com/lepture/mistune
-* _markdown_: `python -m markdown rn.md > rn.html` https://python-markdown.github.io/cli/ used in MkDocs https://github.com/mkdocs/mkdocs/blob/master/requirements/project.txt
-* _markdown2_: https://github.com/trentm/python-markdown2 supports (maybe) ghfm https://github.com/mkdocs/mkdocs/issues/263#issuecomment-65362418
-```sh
-python -m markdown2 --extras fenced-code-blocks my-debug-checklist.md > debug.html
-```
-
-add styles
-* `water.css` w/ Beatiful Soup in script https://stackoverflow.com/a/19123463/6813490 
-* more advanced https://github.com/cburmeister/cburmeister.github.io/blob/master/Makefile pandoc https://serverless.pub/lambda-utility-layers/ https://github.com/kickstartcoding/cheatsheets
-
-## PDF
-
-GENERATE
-* _invoice_: https://github.com/maaslalani/invoice https://github.com/charmbracelet/pop
-
-READERS
-* _baca_: ebook/epub TUI reader https://github.com/wustho/baca
-* _tdf_: https://github.com/itsjunetime/tdf
-* _termpdf_: kitty https://github.com/dsanson/termpdf.py
-
-TO TEXT
-* _parsr_: https://github.com/axa-group/Parsr
-* _poppler_: https://poppler.freedesktop.org/
-```sh
-$ brew info poppler
-Conflicts with:
-  pdf2image (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
-  pdftohtml (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
-  xpdf (because poppler, pdftohtml, pdf2image, and xpdf install conflicting executables)
-```
-* everything else seems to rely on it https://github.com/sxyazi/yazi https://github.com/search?q=repo%3Amodesty%2Fpdf2json%20poppler&type=code https://github.com/search?q=repo%3Ajalan%2Fpdftotext%20poppler&type=code https://github.com/jalan/pdftotext
-
----
-
-* https://realpython.com/pdf-python/
-* https://github.com/Halolegend94/pdf4py
-* Sioyek https://news.ycombinator.com/item?id=34069804
-* https://docs.racket-lang.org/quad/
-* Markdown https://docs.racket-lang.org/quad/
-* https://rtpg.co/2016/09/17/make-an-ebook.html
-* _design_: https://news.ycombinator.com/item?id=24108950 https://gds.blog.gov.uk/2018/07/16/why-gov-uk-content-should-be-published-in-html-and-not-pdf/
-* _annotation_: PDF Expert, Flexcil, https://news.ycombinator.com/item?id=23230218 https://github.com/xournalpp/xournalpp
-* _archival_: https://github.com/danburzo/percollate https://github.com/pirate/ArchiveBox
-* _readers - macOS_: PDF Expert (freemium version won't let you save) PDF Element ($90/year) Preview (search doesn't seem to work for most documents https://duckduckgo.com/?q=macos+preview+search+doesn%27t+work&atb=v161-1&ia=web text in sidebar doesn't correspond to hightlight, some hightlights produce no text in sidebar, can't enter emoji into notes, limited keyboard shortcuts) Nitro PDF
-* _to plain text_: https://github.com/axa-group/Parsr https://github.com/jsvine/pdfplumber
-* _from plain text_: http://richardmavis.info/using-web-technologies-to-print-a-book https://coreyburmeister.com/continuous-integration-and-deployment-for-my-resume/
-* _from HTML_: https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.princexml.com/
-* _split_: select subset and drag into Finder
-https://github.com/jorisschellekens/borb
-https://news.ycombinator.com/item?id=26691626
-* _ereader_ https://johnfactotum.github.io/foliate/
-[PDF is bad]()
-* PDF reader w/ Vim bindings: Zathura http://jhshi.me/2016/03/09/zathura-pdf-viewer-for-vim-lovers/index.html#.Xg4gThdKh-U not available on macOS https://www.reddit.com/r/vim/comments/3prfd0/pdf_reader_with_vim_keybindings_for_mac_osx/
-* https://github.com/burtonator/polar-bookshelf https://pwmt.org/projects/zathura/ https://goodreader.com/
-* mobile: [Joplin](https://github.com/laurent22/joplin), IAWriter
-* https://www.pdfa.org/a-technical-and-cultural-assessment-of-the-mueller-report-pdf/
-
 ## standards bodies
 
 🗄️ EDI > meta
@@ -681,7 +740,7 @@ ISO (International Standards Org)
 * why USSR didn't invent the internet http://web.mit.edu/slava/homepage/articles/Gerovitch-InterNyet.pdf
 * _sink_: https://en.wikipedia.org/wiki/Internet_Society RFCs https://tangentsoft.net/rfcs/by-tla.html
 * _IETF_: HTTP https://tools.ietf.org/html/rfc7617
-* _IEEE (Institute for Electrical Electronic Engineers)_: POSIX (standard for UNIX-like OS, C, Bash) [LPI 1.3.2]
+* _IEEE (Institute for Electrical Electronic Engineers)_: POSIX (standard for UNIX-like OS, C, Bash) [LPI 1.3.2] https://ieeexplore.ieee.org/document/6359709 https://en.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers
 * _Open Group_: controls UNIX (which is just a spec; Solaris, macOS); IBM Huawei DoD Nasa that controls; no Linux distro qualifies [LPI 1, 1.3.3]
 * https://diff.substack.com/p/sharing-and-owning-standards
 * [Cloud Native Computing Foundation](https://changelog.com/podcast/314)

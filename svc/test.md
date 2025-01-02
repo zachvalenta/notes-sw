@@ -4,6 +4,17 @@
 
 ## 进步
 
+* https://avi.im/blag/2024/snapshot-testing/
+```sh
+# Snapshot testing makes it easy to compare large outputs from a function. Instead of asserting against the raw output directly:
+assert_eq!(my_really_large_6mb_string, my_func());
+
+# you save the expected output in a file and compare against that. But manually saving, loading, and comparing snapshot files is a lot of work! Snapshot testing frameworks make this process easy. In Rust, I have used insta:
+assert_debug_snapshot!(my_func());
+
+# I don’t need to explicitly save or load snapshot files. The framework handles it automatically!
+```
+
 * start here https://github.com/okken/cards
 * test heatmap https://threedots.tech/post/go-test-parallelism/
 * literate testing, literate programming https://simonw.substack.com/p/video-scraping-using-google-gemini
@@ -46,6 +57,8 @@ Then I should see a welcome message
 ```
 
 ## formal methods (TLA+)
+
+🗄️ `computation.md` logic > SAT
 
 ---
 
@@ -96,7 +109,7 @@ void main() {
 * characterization, snapshot, golden-master https://news.ycombinator.com/item?id=23268911
 
 TLA+
-* https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2 Pact, contract testing https://www.thoughtworks.com/radar/tools?blipid=202110074 https://colorsofcode.ghost.io/counting-sheeps-with-contracts-in-python/ Jepsen https://news.ycombinator.com/item?id=38525968&utm_term=comment https://tratt.net/laurie/blog/2024/what_factors_explain_the_nature_of_software.html
+* https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2
 
 ## fuzz
 
@@ -114,7 +127,9 @@ TLA+
 > Mutation testers modify (mutate) your project code in small ways, then run your test suite. If the tests all pass, then that mutation is considered a problem: a bug that your tests didn’t catch. The theory is that a mutation will change the behavior of your program, so if your test suite is testing closely enough, some test should fail for each mutation. If a mutation doesn’t produce a test failure, then you need to add to your tests. There are a few problems with this plan. The first is that it is time-consuming. Most people feel like it takes too long to run their entire test suite just once. Mutation testers run the whole suite once for each mutation, and there can be thousands of mutations. But my larger concern is false positives: not all mutations are bugs, and if the mutation tester reports too many non-bugs as bugs, then its usefulness is diminished or even negated. https://nedbatchelder.com/blog/201903/mutmut.html
 * seems like just coverage? https://blog.scottlogic.com/2017/09/25/mutation-testing.html https://rachelcarmena.github.io/2017/09/01/do-we-have-a-good-safety-net-to-change-this-legacy-code.html
 
-## property-based
+## property
+
+🗄️ `computation.md` logic > SAT
 
 * test case doesn't use example data (supplied by engineer) but random data (based on type) https://florian-dahlitz.de/blog/test-your-python-code-using-hypothesis
 > Of course, you can write more tests to test both functions with different values or even parametrize your tests. However, in the end, you test both functions using predefined values. Writing tests using a property-based testing library like Hypothesis is different. Here, you specify the types you are testing against and the way the software should work or behave. The library then generates random values in accordance with the specified types to actually test the functions. Thereby, you won't miss edge cases as they are tested once in a while. https://florian-dahlitz.de/articles/test-your-python-code-using-hypothesis

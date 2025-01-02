@@ -58,12 +58,20 @@ LETTERING
 
 PROGRAMS
 * _kanata_: https://github.com/jtroo/kanata
-* _Launcher_: ✅  https://launcher.keychron.com/ 🗄️ `dot/shell/keychron-v8.json`
+* _Launcher_: ✅ https://launcher.keychron.com/ 🗄️ `dot/shell/keychron-v8.json`
 * _Oryx_ built off of QMK https://blog.zsa.io/whack-a-key/ https://www.youtube.com/watch?v=FcFYv_dHIiQ
 * can access QMK directly https://blog.zsa.io/oryx-custom-qmk-features/
 * _QMK_: firmware; C impl https://www.youtube.com/watch?v=D05B6NXV504
 * code > configurator https://www.youtube.com/watch?v=AA8fw2MbpYg
-* _VIA_: ❌ "authorize your device" does nothing https://www.caniusevia.com/ https://www.youtube.com/watch?v=CLiZ5rAEx3A&t=343s
+* _VIA_: https://www.caniusevia.com/ https://www.youtube.com/watch?v=CLiZ5rAEx3A
+* "authorize your device" doesn't work for Nuphy
+* "authorize your device" only works for Keychron in Chrome
+* got basic homerow mods to work but conflicted with vim https://www.youtube.com/watch?v=CLiZ5rAEx3A
+> one thing with initial stab [D,S] is that the timing is too fast and conflicts with Vim
+```txt
+MT(MOD_LGUI,KC_F)
+MT(MOD_RGUI,KC_L)
+```
 * _ZMK_: https://www.youtube.com/watch?v=riqmW3UHqPY https://github.com/eigatech/zmk-config https://www.youtube.com/watch?v=pK41Mr4Kdd0 [9:00] https://www.youtube.com/watch?v=wTMcH7u-vu0
 
 ZSA KEYS https://configure.zsa.io/voyager/layouts/ https://configure.zsa.io/moonlander/layouts/default/latest/2/
@@ -158,6 +166,7 @@ ZA
 ## BYO
 
 🔍 serviced https://www.keyboardconcierge.com https://get-switched.com/ https://www.avikeebs.com/
+> https://www.youtube.com/watch?v=PDguuYMG0IQ
 
 COMPONENTS https://www.youtube.com/watch?v=7UXsD7nSfDY @ 4:45
 * controller https://nicekeyboards.com/nice-nano/ [2:55]

@@ -36,7 +36,7 @@ FACTORS
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _Perl_: https://buttondown.com/hillelwayne/archive/raku-a-language-for-gremlins/ https://buttondown.com/hillelwayne/archive/five-unusual-raku-features/ https://raku.org/ https://news.ycombinator.com/item?id=42307223
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
-* _Prolog_: https://chatgpt.com/c/672d18fc-66cc-8004-94ba-23928fa2110c https://www.swi-prolog.org/ https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/ https://news.ycombinator.com/item?id=42004756 https://blog.dnmfarrell.com/
+* _Prolog_: https://chatgpt.com/c/672d18fc-66cc-8004-94ba-23928fa2110c https://www.swi-prolog.org/ https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/ https://news.ycombinator.com/item?id=42004756 https://blog.dnmfarrell.com/ http://minikanren.org/
 * _Ruby_:
 > Somewhere, someone (bless them) linked to mousehole, a why the lucky stiff project. When I started programming in Ruby, _why was already gone and I only learned about him through the Slate article, but echos of him are still ringing through the Ruby world. This project is a sweet reminder. Just look at that README. “MouseHole can either intrude completely upon your browsing experience or you can keep it off in the outskirts, for whenever you’ve got a second to duck into that little crack in the wall” https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 
@@ -57,6 +57,13 @@ https://increment.com/programming-languages/language-history/
 * _2015_: Rust
 * _2016_: Zig
 * _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/ https://www.youtube.com/@codetothemoon/videos https://www.fast.ai/posts/2023-05-03-mojo-launch.html Lobster https://github.com/aardappel/lobster https://www.youtube.com/watch?v=uuPeBKdnBOI BYO https://www.scattered-thoughts.net/
+
+## community
+
+> But the choice of a main programming language is the most important signaling behavior that a technology company can engage in. Tell me that you program in Java, and I believe you to be either serious or boring. In Ruby, and you are interested in building things quickly. In Clojure, and I think you are smart but wonder if you ship. In Python, and I trust you implicitly. In PHP, and we sigh together. In C++ or C, and I nod humbly. In C#, and I smile and assume we have nothing in common. In Fortran, and I ask to see your security clearance. These languages contain entire civilizations. - Ford what is code?
+* Java developers have high pain tolerances https://news.ycombinator.com/item?id=25124513
+> The wrong people like it. The programmers I admire most are not, on the whole, captivated by Java. http://www.paulgraham.com/javacover.html
+> Language users do not miss conveniences that they have never had access to in the first place. Those few bi-cultural citizens who function in both Chinese-character and alphabetic worlds are aware of the advantages conferred by the alphabet, but even these people soon get used to the differences, which slip below the level of consciousness, unremarked and unlamented...in virtually every informatic context, from library card catalogs to everyday user's manuals, the relatively cumbersome Chinese writing system exerts a low-level but constant drag force on productivity 📝 Moser invisible writing
 
 ## spec
 
@@ -81,6 +88,17 @@ https://drewdevault.com/2021/08/11/Debugging-your-new-PL.html
 > The true measure of a language isn’t how it uses semicolons; it’s the standard library of each language. - Ford what is code?
 > I think a lot of the advances that happen in programming languages in the next fifty years will have to do with library functions. I think future programming languages will have libraries that are as carefully designed as the core language. Programming language design will not be about whether to make your language strongly or weakly typed, or object oriented, or functional, or whatever, but about how to design great libraries. The kind of language designers who like to think about how to design type systems may shudder at this. It's almost like writing applications! Too bad. Languages are for programmers, and libraries are what programmers need. - http://paulgraham.com/popular.html
 > The open source JS ecosystem, though, has soooooo many folks working on it that you can almost always find something you need. Certainly compared to something like Java, which has a couple "800 pound gorilla" projects, but then it falls off pretty quickly. https://news.ycombinator.com/item?id=31996232
+
+## systems programming
+
+* https://news.ycombinator.com/item?id=42406893
+* languages: C, C++, Rust
+* Golang for containers https://github.com/sablierapp/sablier
+* things people write with: dbms, web server, compiler, shell https://drewdevault.com/2021/05/30/Come-build-your-project.html
+* fuzzy definition http://willcrichton.net/notes/systems-programming/ https://news.ycombinator.com/item?id=35092049
+* memory management now in favor http://esr.ibiblio.org/?p=7804
+* is easy :) https://news.ycombinator.com/item?id=34566918
+* https://drewdevault.com/2021/03/19/A-new-systems-language.html
 
 ## 🇧🇷 Lua
 
@@ -134,12 +152,13 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 🗄
 * `c.md` Rust > design
 * `computation.md` memory
-* `python.md` memory
+* `python/obj.md` memory
 
 > port from `python.md`
 
 memory management https://stackoverflow.com/a/3434252
 * models https://news.ycombinator.com/item?id=42397737
+* _leak_: run out of memory
 * _unmanaged code_: language w/ no memory management e.g. C, C++; sometimes used to mean "compiles directly to machine code" by people who do not understand that C has an abstract machine
 * _managed code_: language w/ memory management (Java); dynamic languages not typically described as such, more of a marketing term for enterprise languages
 * _garbage_: 

@@ -661,7 +661,7 @@ COPY . /$my_project
 #######
 
 # cmd on container start https://runnable.com/docker/python/dockerize-your-python-application 
-# can also feed args to ENTRYPOINT https://stackoverflow.com/a/34245657 [Wahlin 6.3 @ 3:30, 6:00]
+# can also feed args to ENTRYPOINT https://stackoverflow.com/a/34245657 [Wahlin 6.3 @ 3:30, 6:00] https://www.youtube.com/watch?v=05ptDtpyAGo
 # syntax https://stackoverflow.com/a/27615958
 CMD flask run --host 0.0.0.0
 ```

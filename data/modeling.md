@@ -67,7 +67,6 @@ review data structures
 * linked list https://www.youtube.com/watch?v=odW9FU8jPRQ https://news.ycombinator.com/item?id=33473497 https://docs.python.org/3/glossary.html#term-list https://nullprogram.com/blog/2024/07/31/
 * stack https://www.youtube.com/watch?v=I5lq6sCuABE
 * queue https://www.youtube.com/watch?v=mDCi1lXd9hc
-* probabilistic https://www.youtube.com/watch?v=VjFS-_H10bw @ 15:00 https://pypi.org/project/datasketch/
 
 OPERATIONS https://github.com/jamiebuilds/itsy-bitsy-data-structures https://www.interviewcake.com/concept/python3/array
 * _lookup_: read
@@ -89,11 +88,6 @@ ADT VS. DATA STRUCTURE
 * queue https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-queues
 * linked list https://medium.com/outco/reversing-a-linked-list-easy-as-1-2-3-560fbffe2088 https://www.youtube.com/watch?v=FSsriWQ0qYE https://realpython.com/courses/working-linked-lists-python/
 * array https://medium.com/@bsurajbh/implementing-arrays-with-python-7586206f0b13
-
-PROBABILISTIC
-* _probabilistic data structures_: CAP theorem but w/ accuracy, functionality, efficiency https://www.youtube.com/watch?v=VjFS-_H10bw 9:15
-* _hyperlog_: https://will-keleher.com/about.html
-* _hyperloglog_: distinct el in set https://www.youtube.com/watch?v=VjFS-_H10bw 10:00 https://redis.com/redis-best-practices/counting/hyperloglog/
 
 LINKED LIST https://realpython.com/linked-lists-python/ https://news.ycombinator.com/item?id=26620598
 * singly or doubly linked https://lwn.net/Articles/827180/
@@ -202,7 +196,7 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 
 ### 🐛 bloom filter
 
-mDCi1lXd9hc
+https://avi.im/blag/2024/sqlite-past-present-future/
 
 ```txt
 A Bloom filter is a probabilistic data structure that's implemented using multiple hash functions and a bit array.
@@ -236,6 +230,18 @@ https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pz
 * use case is to see whether item already part of a very large set e.g. whether a key exists in a database 📙 11.210-11
 * https://vprusso.github.io/blog/2017/bloom-filters-and-pokemon/ 📙 Kleppmann 79 https://onatm.dev/2020/08/10/let-s-implement-a-bloom-filter/ http://aosabook.org/en/posa/working-with-big-data-in-bioinformatics.html https://luminousmen.com/post/building-a-bloom-filter
 
+## probabilistic
+
+🗄️ `stats.md` Bayes
+📙 Pfeffer https://www.manning.com/books/practical-probabilistic-programming
+
+---
+
+* _probabilistic data structures_: CAP theorem but w/ accuracy, functionality, efficiency https://www.youtube.com/watch?v=VjFS-_H10bw 9:15
+* _hyperlog_: https://will-keleher.com/about.html
+* _hyperloglog_: distinct el in set https://www.youtube.com/watch?v=VjFS-_H10bw 10:00 https://redis.com/redis-best-practices/counting/hyperloglog/
+* probabilistic https://www.youtube.com/watch?v=VjFS-_H10bw @ 15:00 https://pypi.org/project/datasketch/
+
 # 🗺️ NON
 
 📙 Kleppmann ch. 2
@@ -253,29 +259,6 @@ https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pz
 * _polyglot persistence_: using multiple types of data stores 📙 Kleppmann 2.29 because choosing just one is no fun :) https://old.reddit.com/r/learnpython/comments/glbuog/whats_is_your_decision_process_between_csv_json/
 * _block_: https://news.ycombinator.com/item?id=27200177
 * immutable https://github.com/codenotary/immudb
-
-## column
-
-🧠 https://chatgpt.com/c/6733b515-87bc-8004-aa84-3164a319fd4d
-
----
-
-📙 Kleppmann chapter 3
-🗄 `computation.md` encoding/CSV, Parquet
-
-* _column store_: not row-oriented (like OLTP)
-* can do in Sqlite? https://news.ycombinator.com/item?id=39207570&utm_term=comment
-* 不明觉厉 https://news.ycombinator.com/item?id=36571110
-* e.g. instead of looking for all `price` values by iterating over every sale record, just grab `price` column 📙 Kleppmann 96
-* ❓ stores data differently on disk https://nchammas.com/writing/database-access-patterns
-* in order to reconstruct a row, everything in row must be stored as nth in column 📙 Kleppmann 100
-> Neither Parquet nor ORC files existed prior to 2012. These file formats were instrumental in making analytics fast on Hadoop. Prior to these formats, workloads were largely row-oriented. If you needed to transform TBs of data and could do so in a parallel fashion then Hadoop did a good job of that. MapReduce was a framework often used for this purpose. What columnar storage offered was a way to analyse TBs of data in seconds. This proved to be a more valuable proposition to more businesses. Data Scientists may only need a small amount of data to produce insights but they'll need to look over a data lake with potentially PBs of data to pick out what they need first. Columnar analytics is key for them to build the data fluency needed to know what to cherry-pick. https://tech.marksblogg.com/is-hadoop-dead.html
-* _wide column store_: ❓
-
-DBMS https://en.wikipedia.org/wiki/List_of_column-oriented_DBMSes
-* Cassandra https://stackoverflow.com/q/13010225 https://www.youtube.com/watch?v=J-cSy5MeMOA 📙 Kleppmann 99 https://news.ycombinator.com/item?id=28292369 https://simonwillison.net/2021/Aug/24/how-discord-stores-billions-of-messages/
-* _Bigtable_: wide table = document store in SQL https://en.wikipedia.org/wiki/Wide-column_store
-* _HBase_: Hadoop db
 
 ## document
 

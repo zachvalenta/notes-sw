@@ -319,7 +319,7 @@ HOME MEDIA SERVERS
 * _Black Candy_: https://github.com/blackcandy-org/blackcandy
 * _Emby_: https://www.youtube.com/watch?v=lgY97D5nCek
 * _gonic_: https://news.ycombinator.com/item?id=42513171
-* _Jellyfin_: https://www.youtube.com/watch?v=lgY97D5nCek
+* _Jellyfin_: https://www.youtube.com/watch?v=lgY97D5nCek client https://github.com/streamyfin/streamyfin
 * _Komga_: PDFs https://komga.org/
 * _Plex_: https://plexamp.com/
 * mobile client https://github.com/jmshrv/finamp https://www.fintunes.app/

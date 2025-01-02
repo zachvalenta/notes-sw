@@ -2,7 +2,9 @@
 
 ## 参考
 
-🗄️ `modeling.md` vector
+🏡
+* https://huggingface.co/
+* https://aclanthology.org/ https://aclanthology.org/2024.naacl-long.300/
 🔍
 * https://ai.stackexchange.com/
 * https://datascience.stackexchange.com/
@@ -17,7 +19,97 @@
 
 ## 进步
 
+```sh
+📂 NLP/
+├── Core_Concepts/
+├── Classical_Methods/
+│   ├── Rule-Based_Approaches/
+│   ├── Statistical_Models/
+│   └── Feature_Engineering/
+├── Modern_Methods/
+│   ├── Embeddings/
+│   │   ├── Word2Vec/
+│   │   ├── GloVe/
+│   │   └── FastText/
+│   ├── RNNs_and_LSTMs/
+│   ├── Transformers/
+│   │   ├── BERT/
+│   │   ├── GPT/
+│   │   ├── T5/
+│   │   └── ...
+│   └── Large_Language_Models/  👈 Part of Modern NLP!
+│       ├── GPT/
+│       ├── LLaMA/
+│       ├── PaLM/
+│       └── ChatGPT/
+```
+```sh
+📂 NLP/
+├── 📂 Core Concepts/
+│   ├── Tokenization/
+│   ├── Lemmatization_Stemming/
+│   ├── POS_Tagging/
+│   ├── Parsing/
+│   ├── Embeddings/
+│   │   ├── Word2Vec/
+│   │   ├── GloVe/
+│   │   ├── FastText/
+│   │   └── Transformers/
+│   │       ├── BERT/
+│   │       ├── GPT/
+│   │       └── RoBERTa/
+│   └── Language_Models/
+│       ├── Probabilistic_Models/
+│       │   ├── N-grams/
+│       │   └── HMMs/
+│       └── Neural_Models/
+│           ├── RNNs/
+│           ├── LSTMs/
+│           └── Transformers/
+├── 📂 Applications/
+│   ├── Text_Classification/
+│   │   ├── Sentiment_Analysis/
+│   │   ├── Spam_Detection/
+│   │   └── Topic_Modeling/
+│   ├── Information_Extraction/
+│   │   ├── Entity_Recognition/      👈 HERE IT IS!
+│   │   │   ├── Named_Entity_Recognition/
+│   │   │   ├── Fuzzy_Entity_Extraction/  (e.g., Levenshtein-based)
+│   │   │   └── Dictionary_Lookup/       (e.g., FlashText-based)
+│   │   ├── Relation_Extraction/
+│   │   └── Event_Detection/
+│   ├── Text_Generation/
+│   │   ├── Summarization/
+│   │   ├── Machine_Translation/
+│   │   └── Creative_Writing_AI/
+│   ├── Text_to_Speech_and_Speech_to_Text/
+│   │   ├── ASR/  (Automatic Speech Recognition)
+│   │   └── TTS/  (Text-to-Speech)
+│   └── Conversational_AI/
+│       ├── Chatbots/
+│       ├── Virtual_Assistants/
+│       └── Dialogue_Management/
+└── 📂 Tools_and_Techniques/
+    ├── Preprocessing/
+    │   ├── Cleaning/
+    │   ├── Normalization/
+    │   └── Stopword_Removal/
+    ├── Feature_Engineering/
+    │   ├── N-grams/
+    │   ├── TF-IDF/
+    │   └── Embedding_Integration/
+    ├── Evaluation/
+    │   ├── Precision_Recall/
+    │   ├── BLEU_Score/
+    │   └── ROUGE_Score/
+    └── Optimization/
+        ├── Fine-Tuning/
+        ├── Transfer_Learning/
+        └── Hyperparameter_Tuning/
+```
+
 START HERE
+* https://news.ycombinator.com/item?id=42569913
 * Clinton book + https://www.manning.com/books/llms-in-production
 * https://www.youtube.com/@gptLearningHub/videos
 * Raschka thirty questions and answers https://www.amazon.com/dp/1718503768
@@ -83,7 +175,9 @@ USAGE https://platform.openai.com/docs/guides/embeddings
 
 ---
 
+> The "magic" that facilitates these types of searches is transformers that convert data into a fixed-length, one-dimensional vector of floating point numbers called an embedding. The values in these embeddings are indecipherable to humans. Instead, their contents encode some relationship between the parameters and the transformer's training corpus. The size of these embedding vectors ranges from 100s of dimensions for simple transformers to 1000s for high-end models. https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 * https://calmcode.io/course/embeddings/introduction
+* https://realpython.com/huggingface-transformers/#looking-under-the-hood-with-auto-classes
 * try it out https://github.com/taylorai/aiq
 * https://www.youtube.com/watch?v=XPA213k8G_U
 * https://www.youtube.com/watch?v=pfRA3Scz3Fw
@@ -107,6 +201,7 @@ USAGE https://platform.openai.com/docs/guides/embeddings
 
 ## inference (prediction)
 
+> Inference is the process of using a trained model to make predictions or draw conclusions about new, unseen data based on the learned patterns from the training data.
 * https://github.com/samuel-vitorino/lm.rs
 * https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * https://www.youtube.com/watch?v=J_3jrS3FalY
@@ -137,6 +232,7 @@ TYPES
 ---
 
 * word2vec, byte-pair encoding, LSTM https://arpit.substack.com/p/how-zomato-improved-its-search-using https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm * _Word2Vec_: vector db https://www.youtube.com/watch?v=a8Oz6Mz8pk0
+https://realpython.com/chromadb-vector-database/
 
 SEMANTICS
 * _scalar_: single value 📙 Trask [3.45] Bradshaw [62]
@@ -147,6 +243,12 @@ SEMANTICS
 
 🧠 https://chatgpt.com/c/6733b490-8d1c-8004-aa20-c1c6722b0247
 
+https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
+> Although some of these systems have been around for a couple of years, the widespread interest in LLMs and services built on top of them (e.g., ChatGPT) brought them to the forefront this last year. Vector databases promise to provide deeper searches on data (especially unstructured data) based on the data's semantics rather than just its contents. That is, instead of searching for documents that contain exact keywords (e.g., "Wu-Tang Clan"), an application can search for documents that are related to topics (e.g., "hip-hop groups with songs about slinging").
+> The "magic" that facilitates these types of searches is transformers that convert data into a fixed-length, one-dimensional vector of floating point numbers called an embedding. The values in these embeddings are indecipherable to humans. Instead, their contents encode some relationship between the parameters and the transformer's training corpus. The size of these embedding vectors ranges from 100s of dimensions for simple transformers to 1000s for high-end models.
+> This is where vector DBMSs come into the picture. At its core, a vector DBMS is just a document database with a specialized index data structure to accelerate similarity search on embeddings. Instead of performing an exact match for the most similar vectors per query, these systems can use approximate searches to generate results that make the trade-off of being "good enough" in exchange for returning the result more quickly. That's it.
+
+* _pgvector_: 🎯 Postgres, ACID, PITR https://github.com/pgvector/pgvector
 * _ChromaDB_: https://www.youtube.com/watch?v=QSW2L8dkaZk&list=PL58zEckBH8fA-R1ifTjTIjrdc3QKSk6hI&pp=iAQB
 * _Pinecone_: https://zackproser.com/blog/i-am-joining-pinecone-io https://zackproser.com/blog/vector-databases-compared
 
@@ -161,6 +263,9 @@ SEMANTICS
 * https://news.ycombinator.com/item?id=35550567 https://garybake.com/vector_databases.html Pinecone https://news.ycombinator.com/item?id=35826929 https://code.dblock.org/2023/06/16/getting-started-with-vector-dbs-in-python.html https://news.ycombinator.com/item?id=37747534 https://realpython.com/chromadb-vector-database/ https://github.com/asg017/sqlite-vec https://github.com/qdrant/qdrant https://www.youtube.com/watch?v=awIm3rQOBxE
 
 # 🏛️ CLASSICAL
+
+🗄️ `stat.md` Bayes
+📙 Smokyakov https://www.manning.com/books/machine-learning-algorithms-in-depth
 
 ## 🛖 KNN
 
@@ -204,9 +309,123 @@ https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * https://victorzhou.com/blog/intro-to-random-forests/
 * https://mlu-explain.github.io/
 
-## 🦾 SVM
+# 🌐 NLP
+
+📙 https://www.manning.com/books/natural-language-processing-in-action-second-edition
+🛠️ https://spacy.io/ https://training.talkpython.fm/courses/build-an-audio-ai-app-with-python-and-assemblyai
+🗄
+* `literature.md` distant reading
+* `psychology.md` reading
+* `system.md` search engine
+
+BASICS
+* _Eliza_: https://web.njit.edu/~ronkowit/eliza.html
+* _NLP_: linguistics + CS
+* rule system (noun phrase can be followed by noun, article, etc.) to construct parse tree
+* use cases: speech synthesis http://aiplaybook.a16z.com/docs/guides/nlp speech to text https://www.fullstackpython.com/blog/transcribe-recordings-speech-text-assemblyai.html
+* libraries: nltk, spaCy
+* _language detection_: https://github.com/pemistahl/lingua-go
+
+SEMANTICS
+* phoneme recognition https://github.com/persephone-tools/persephone
+* _tokenize_: break into words or subsets of words
+* _span_: section of text https://rajpurkar.github.io/SQuAD-explorer/ https://0x65.dev/blog/2019-12-05/a-new-search-engine.html#fn1
+* _stemming_: rm pre/suffix; can also mean to include related results from search engine e.g. search 'fish', get back results for 'fishy', 'fishing' https://news.ycombinator.com/item?id=24051229
+* _parts of speech_: tokenization but for syntax
+* _stopword removal_: strip out non-semantic words (articles, &c.)
+* _n-gram_: items (word, phraes) collected from text https://en.wikipedia.org/wiki/N-gram
+* used for finding most commonly occuring words https://news.ycombinator.com/item?id=24286844
+* used for language detection https://github.com/pemistahl/lingua-go
+* _disambiguation_: teach the machine context ('cool' indicates temperature and social prestige)
+* _stylometry_: analyze writing style https://news.ycombinator.com/item?id=33755016
+* _text classification_: https://www.youtube.com/watch?v=VtRLrQ3Ev-U
+* _speech recognition_: https://www.youtube.com/watch?v=mYUyaKmvu6Y
+
+```txt
+While Named Entity Recognition (NER) is one of the most common use cases for spaCy, the library is versatile and supports a broad range of Natural Language Processing (NLP) tasks. Here's an overview of what spaCy is commonly used for:
+
+1. Named Entity Recognition (NER)
+Identifying and categorizing entities like names, organizations, dates, and locations in text.
+Example: Extracting "Apple" as an organization and "2025" as a date in "Apple released new products in 2025."
+2. Part-of-Speech (POS) Tagging
+Assigning grammatical labels to words, such as nouns, verbs, adjectives, etc.
+Example: Labeling "The quick brown fox jumps" as determiner, adjective, adjective, noun, verb.
+3. Dependency Parsing
+Analyzing the grammatical structure of a sentence to understand relationships between words.
+Example: Identifying that "fox" is the subject of "jumps."
+4. Text Classification
+Categorizing text into predefined categories, such as spam detection or sentiment analysis.
+This can be customized using spaCy’s training pipelines.
+5. Tokenization
+Breaking down text into individual components, such as words, punctuation, and symbols.
+Example: Splitting "Hello, world!" into ["Hello", ",", "world", "!"].
+6. Lemmatization
+Reducing words to their base forms.
+Example: "running" becomes "run."
+7. Sentence Boundary Detection
+Identifying sentence breaks in a document.
+Example: Detecting sentences in "This is a test. Here's another."
+8. Rule-based Matching
+Using custom rules or patterns to extract specific phrases or information.
+Example: Extracting email addresses using regex-like rules.
+9. Word Vectors and Similarity
+Measuring the similarity between words or sentences using pre-trained word vectors.
+Example: Finding that "cat" and "dog" are more similar than "cat" and "car."
+```
+
+## sentiment analysis
+
+🗄️ spacy
+
+---
+
+* determine emotional content
+* https://aeon.co/ideas/why-are-pop-songs-getting-sadder-than-they-used-to-be https://matthagy.github.io/rh_comment_categories/
+
+* _word cloud_: https://dataanalysis.substack.com/p/generating-a-word-cloud-in-python?s=r
+* clean up https://nostarch.com/NLPPython https://codewords.recurse.com/issues/seven/data-driven-literary-analysis https://www.fast.ai/2019/07/08/fastai-nlp/ https://speakerdeck.com/pycon2015/adam-palay-words-words-words-reading-shakespeare-with-python https://victorzhou.com/blog/better-profanity-detection-with-scikit-learn/ https://calmcode.io/labs/scikit-partial
+* https://github.com/rspeer/wordfreq
+
+## entity recognition
+
+🛠️ https://calmcode.io/shorts/gliner.py
+🗄️
+* `algos.md` matching
+* `eng.md` reconciliation
+
+```txt
+Entity recognition (also called Named Entity Recognition/NER) is a subtask of information extraction that finds and classifies named entities in text. It fits into this taxonomy:
+
+Natural Language Processing > Information Extraction
+* Entity Recognition (finding and labeling entities)
+* Relation Extraction (finding relationships between entities)
+* Event Extraction (finding events and their participants)
+
+The core idea is taking unstructured text and finding entities like:
+
+* People (Mark Twain, Marie Curie)
+* Organizations (Apple, United Nations)
+* Locations (Paris, Mount Everest)
+* Time expressions (next Tuesday, Q3 2023)
+* Money amounts ($500, €1.2M)
+
+The main approaches are:
+
+* Rule-based: Pattern matching with regular expressions and gazetteers (predefined lists)
+* Statistical: Machine learning models trained on labeled data
+```
+
+### CRFs (Conditional Random Fields)
+
+> CRFs, or Conditional Random Fields, are a type of probabilistic graphical model used for structured prediction. They are particularly effective for labeling and segmenting sequential data, making them a popular choice in natural language processing (NLP) tasks like Named Entity Recognition (NER), Part-of-Speech (POS) tagging, and shallow parsing.
+
+### HMM (Hidden Markov Models)
+
+### SVM
 
 > SVMs sit in the supervised learning family, specifically for classification and regression. They're part of the broader kernel methods taxonomy alongside kernel PCA, kernel ridge regression, etc.
+
+> Yes, Support Vector Machines (SVMs) can be (and historically have been) used for entity recognition, though they are now often overshadowed by more modern neural network-based approaches like BERT and other transformers. SVMs were particularly popular in the era before deep learning became mainstream and are still relevant in scenarios where computational resources are limited or datasets are small.
 
 # 🧠 NEURAL NETWORKS
 
@@ -248,7 +467,9 @@ TYPES
 
 ---
 
+> LLMs (which are really just very large transformer models)
 > GPT stands for Generative Pre-trained Transformer 📙 Clinton obsolete gen AI
+> Transformers are models that can handle text-based tasks, such as translation, summarization, and text generation. They use a special architecture that relies on attention mechanisms to capture the relationships between words and sentences.
 📙 Tunstall nlp with transformers https://www.amazon.com/dp/1098136799
 
 * https://www.youtube.com/watch?v=KJtZARuO3JY
@@ -263,10 +484,13 @@ TYPES
 ---
 
 https://llm.datasette.io/en/stable/related-tools.html
+https://realpython.com/huggingface-transformers/#looking-under-the-hood-with-auto-classes
 
 ## CNNs
 
 ## RNNs
+
+recurrent neural networks
 
 # 🛠️ STDLIB
 
@@ -279,6 +503,8 @@ https://llm.datasette.io/en/stable/related-tools.html
 * _MLX_: numpy for Apple silicon https://github.com/ml-explore/mlx
 
 ## jax
+
+used on Hugging Face https://realpython.com/huggingface-transformers/#exploring-hugging-face
 
 https://github.com/jax-ml/jax https://jax.readthedocs.io/en/latest/
 
@@ -342,6 +568,47 @@ dot([1,2,3], [4,5,6])
 ## scipy
 
 https://github.com/statsmodels/statsmodels
+
+## spacy
+
+```python
+# https://realpython.com/podcasts/rpp/232/ https://blog.jetbrains.com/pycharm/2024/12/introduction-to-sentiment-analysis-in-python/
+import nltk
+from nltk.sentiment.vader import SentimentIntensityAnalyzer
+nltk.download('vader_lexicon')
+analyzer = SentimentIntensityAnalyzer()
+sentence = "I love PyCharm! It's my favorite Python IDE."
+sentiment_scores = analyzer.polarity_scores(sentence)
+print(sentiment_scores)  # {'neg': 0.0, 'neu': 0.572, 'pos': 0.428, 'compound': 0.6696}
+
+import spacy
+import spacy.cli
+from spacytextblob.spacytextblob import SpacyTextBlob
+spacy.cli.download("en_core_web_sm")
+nlp = spacy.load('en_core_web_sm')
+nlp.add_pipe('spacytextblob')
+doc = nlp("I love PyCharm! It's my favorite Python IDE.")
+print('Polarity: ', doc._.polarity) # Polarity:  0.625
+print('Subjectivity: ', doc._.subjectivity) # Subjectivity:  0.6
+```
+
+## sympy
+
+📜 https://github.com/sympy/sympy
+🗄️
+* `algos.md` PageRank
+* `spec.md` documents > LaTeX
+
+```txt
+SymPy is pure Python, meaning it doesn’t rely on compiled C or Fortran extensions, which helps keep it portable but might make it slightly slower for heavy computations. The base installation isn't particularly large.
+
+Installed size: SymPy takes up about 30–40 MB of disk space.
+Dependencies: SymPy is largely self-contained and doesn’t have heavy external dependencies.
+```
+
+https://www.youtube.com/watch?v=1yBPEPhq54M
+https://www.youtube.com/watch?v=IIe83MwQxFE
+https://talkpython.fm/episodes/show/364/symbolic-math-with-python-using-sympy
 
 # 🟨️ ZA
 
@@ -502,63 +769,3 @@ how to use https://realpython.com/generate-images-with-dalle-openai-api/
 * _ML_: superset of deep learning [Trask 2.10] https://pragprog.com/titles/pplearn/programming-machine-learning/ https://dafriedman97.github.io/mlbook/content/introduction.html https://course18.fast.ai/ml 🗄 techniques
 * _deep learning_: subset of ML using neural networks [Trask 2.10] just stats and calculus https://news.ycombinator.com/item?id=24593529
 * _cybernetic_: https://en.wikipedia.org/wiki/Johns_Hopkins_Beast
-
-## meta
-
-* output first, gimme impl https://austinhenley.com/blog/mirrorlang.html
-
-## NLP
-
-📙 https://www.manning.com/books/natural-language-processing-in-action-second-edition
-🛠️ https://spacy.io/ https://training.talkpython.fm/courses/build-an-audio-ai-app-with-python-and-assemblyai
-🗄
-* `literature.md` distant reading
-* `psychology.md` reading
-* `system.md` search engine
-
-BASICS
-* _Eliza_: https://web.njit.edu/~ronkowit/eliza.html
-* _NLP_: linguistics + CS
-* rule system (noun phrase can be followed by noun, article, etc.) to construct parse tree
-* use cases: speech synthesis http://aiplaybook.a16z.com/docs/guides/nlp speech to text https://www.fullstackpython.com/blog/transcribe-recordings-speech-text-assemblyai.html
-* libraries: nltk, spaCy
-* _language detection_: https://github.com/pemistahl/lingua-go
-* _sentiment analysis_: determine emotional content https://aeon.co/ideas/why-are-pop-songs-getting-sadder-than-they-used-to-be https://matthagy.github.io/rh_comment_categories/
-```python
-# https://realpython.com/podcasts/rpp/232/ https://blog.jetbrains.com/pycharm/2024/12/introduction-to-sentiment-analysis-in-python/
-import nltk
-from nltk.sentiment.vader import SentimentIntensityAnalyzer
-nltk.download('vader_lexicon')
-analyzer = SentimentIntensityAnalyzer()
-sentence = "I love PyCharm! It's my favorite Python IDE."
-sentiment_scores = analyzer.polarity_scores(sentence)
-print(sentiment_scores)  # {'neg': 0.0, 'neu': 0.572, 'pos': 0.428, 'compound': 0.6696}
-
-import spacy
-import spacy.cli
-from spacytextblob.spacytextblob import SpacyTextBlob
-spacy.cli.download("en_core_web_sm")
-nlp = spacy.load('en_core_web_sm')
-nlp.add_pipe('spacytextblob')
-doc = nlp("I love PyCharm! It's my favorite Python IDE.")
-print('Polarity: ', doc._.polarity) # Polarity:  0.625
-print('Subjectivity: ', doc._.subjectivity) # Subjectivity:  0.6
-```
-* _word cloud_: https://dataanalysis.substack.com/p/generating-a-word-cloud-in-python?s=r
-* clean up https://nostarch.com/NLPPython https://codewords.recurse.com/issues/seven/data-driven-literary-analysis https://www.fast.ai/2019/07/08/fastai-nlp/ https://speakerdeck.com/pycon2015/adam-palay-words-words-words-reading-shakespeare-with-python https://victorzhou.com/blog/better-profanity-detection-with-scikit-learn/ https://calmcode.io/labs/scikit-partial
-* https://github.com/rspeer/wordfreq
-
-SEMANTICS
-* phoneme recognition https://github.com/persephone-tools/persephone
-* _tokenize_: break into words or subsets of words
-* _span_: section of text https://rajpurkar.github.io/SQuAD-explorer/ https://0x65.dev/blog/2019-12-05/a-new-search-engine.html#fn1
-* _stemming_: rm pre/suffix; can also mean to include related results from search engine e.g. search 'fish', get back results for 'fishy', 'fishing' https://news.ycombinator.com/item?id=24051229
-* _parts of speech_: tokenization but for syntax
-* _stopword removal_: strip out non-semantic words (articles, &c.)
-* _n-gram_: items (word, phraes) collected from text https://en.wikipedia.org/wiki/N-gram
-* used for finding most commonly occuring words https://news.ycombinator.com/item?id=24286844
-* used for language detection https://github.com/pemistahl/lingua-go
-* _disambiguation_: teach the machine context ('cool' indicates temperature and social prestige)
-* _stylometry_: analyze writing style https://news.ycombinator.com/item?id=33755016
-* _text classification_: https://www.youtube.com/watch?v=VtRLrQ3Ev-U
-* _speech recognition_: https://www.youtube.com/watch?v=mYUyaKmvu6Y

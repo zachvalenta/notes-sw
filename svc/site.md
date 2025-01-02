@@ -42,7 +42,7 @@ MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 
 ---
 
-🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/
+🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/ https://refactoringenglish.com/chapters/rules-for-software-tutorials/
 🏔️ Julia Evans https://www.youtube.com/@wizardzines/videos
 > the zines has been her only job since 2019 https://github.com/zserge/zine https://zserge.com/posts/tab/
 
@@ -138,7 +138,39 @@ MICRO
 * Warmerdam https://calmcode.io
 * Willison
 
-## video
+## animation / video
+
+🗄️ `feedback.md` Marimo
+
+* _Raylib_: https://github.com/raysan5/raylib https://github.com/danslocombe/wobbly_vid https://www.youtube.com/watch?v=EO02mP0mLYI
+* _Manim_: Visualize concepts like Pareto efficiency.
+* _Plotly_/_Bokeh_: Time-series analysis of economic indicators.
+* _Pygame_: Agent-based modeling for economic simulations (e.g., consumer markets).
+* _Matplotlib (FuncAnimation)_: Works well for things like step-by-step economic equilibrium shifts.
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+def bubble_sort_steps(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                yield arr.copy()
+
+def animate_bubble_sort():
+    data = np.random.randint(1, 100, 20)
+    fig, ax = plt.subplots()
+    bar_rects = ax.bar(range(len(data)), data)
+    def update(arr):
+        for rect, val in zip(bar_rects, arr):
+            rect.set_height(val)
+        return bar_rects
+    anim = FuncAnimation(fig, update, frames=bubble_sort_steps(data), interval=50, repeat=False)
+    return anim
+```
 
 > 150K subs = $25-50k/year
 > even this, despite looking great, is not good enough
@@ -156,6 +188,7 @@ Dreams of Code https://www.youtube.com/watch?v=A_3MP_V-kB4
 
 🗄️ typography
 
+* https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 * Claude output pretty good
 * FOIT/FOUT https://css-tricks.com/fighting-foit-and-fout-together/
 * _line spacing_: 130% point size
@@ -172,7 +205,7 @@ Dreams of Code https://www.youtube.com/watch?v=A_3MP_V-kB4
 ---
 
 * https://lwn.net/Articles/997784/
-* https://drewdevault.com/2019/03/04/sourcehut-design.html https://avi.im/blag/2024/galloping-search/
+* https://drewdevault.com/2019/03/04/sourcehut-design.html
 🛠️ Sketch, Figma
 🇬🇧 UK design system https://govukvue.org/
 🗄
@@ -204,6 +237,7 @@ LAYOUT 🔗  https://github.com/arp242/hello-css/
 
 MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
 * https://blog.jacobvosmaer.nl/0014-yocto/
+* centered https://urchade.github.io/
 * https://nat.org/
 * https://vancouver.systems/
 * https://news.ycombinator.com/login?goto=news
@@ -228,6 +262,7 @@ UNIQUE
 
 ## dropdowns
 
+* do this instead https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 * https://blog.danielh.cc/blog/sat
 
 ## ToC

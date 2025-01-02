@@ -18,8 +18,6 @@
 
 sketch out what you still remember of your previous config and then restart https://www.youtube.com/@teej_dv/videos
 
-https://www.youtube.com/playlist?list=PLhlaLyAlbLlq9xWf2xm_9p422GgqvATXk
-
 * markdown https://www.youtube.com/watch?v=1Lmyh0YRH-w
 * config https://github.com/jdhao/nvim-config
 https://www.youtube.com/watch?v=6pAG3BHurdM
@@ -233,6 +231,7 @@ THINGS I'M NOTICING ABOUT VSC
 > this is getting worse in my notes; maybe some perf/data integrity thing with more headers
 * ❌ Vim plugin fails on big CSV files
 * ❌ no tab groups https://github.com/microsoft/vscode/issues/100335
+* ❌ can't update font
 * when you uninstall an extension you need to close and reopen VSC for that extesion to be removed from `$HOME/.vscode/extensions`
 * autocomplete works for any word in the workspace
 * prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421
@@ -386,17 +385,16 @@ DESIGN
 * fast input 🗄️ `models.md` Claude
 * just works™️: no Neomvim config hell, Python pkg mgmt with Poetry https://stevedylan.dev/posts/leaving-neovim-for-zed/
 * ❌ makes itself default editor (broot)
+* ❌ workspaces https://github.com/zed-industries/zed/discussions/17278 https://github.com/zed-industries/zed/discussions/7194 https://github.com/zed-industries/zed/issues/9459 but you can open multiple repos from CLI `zed domains sw`
+* document outline available now but doesn't nest enough + shows code snippets as headers in Markdown https://github.com/zed-industries/zed/discussions/13421 https://zed.dev/releases/stable/0.141.2
 
 ---
 
 visual component semantics https://github.com/zed-industries/zed/discussions/9763
 
 FEATURES - BASICS
-* document outline https://github.com/zed-industries/zed/discussions/13421 https://zed.dev/releases/stable/0.141.2
 * search https://zed.dev/releases/stable/0.152.3
 * themes https://zed.dev/blog/user-themes-now-in-preview
-* ❌ workspaces https://github.com/zed-industries/zed/discussions/17278 https://github.com/zed-industries/zed/discussions/7194
-> In my experience, Zed does not keep track of multiple repos (i.e. folders) within a single "Project" as they call it. From what I gather, Zed's concept of a "Project" is the root folder of a single git repo. So it's not that "Zed needs to support VS Code workspace documents" as much as it's that Zed needs to support a "workspace" concept altogether. In other words, we need a "Workspace" that can keep track of multiple "Projects" (repos/folders) at the same time. Then and only then can we have a .zed-workspace file (and support its analogue from VS Code). https://github.com/zed-industries/zed/issues/9459
 
 📍 FEATURES - EXPLORE
 * feedback: notebooks, REPL https://zed.dev/releases/stable/0.146.3
@@ -787,12 +785,15 @@ vim -S ~/.vim/sessions/foo.vim
 
 🗄️ `os/tools.md` search
 
+* can wrap CLIs in Lua to run within Neovim https://www.youtube.com/watch?v=rerTvidyz-0
+
 ## code intel
 
 ---
 
 * error lens https://switowski.com/blog/plugins-for-python-in-vscode/
 * https://github.com/facebookincubator/bowler
+* use `inspect` and vim to look at source (vs. IDE goto source) https://www.youtube.com/watch?v=hZ0dRTYy5NA
 
 GIT 🗄️ `git.md` tooling
 * _gitgutter_: https://github.com/airblade/vim-gitgutter

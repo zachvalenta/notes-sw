@@ -153,7 +153,6 @@ Both are significantly better than gzip/bzip2 for typical data workloads. They f
 ---
 
 * _conjunction_: https://en.wikipedia.org/wiki/Logical_conjunction
-* _SAT solver_:
 
 https://blog.danielh.cc/blog/sat https://news.ycombinator.com/item?id=42261166
 * https://en.wikipedia.org/wiki/Conjunctive_normal_form
@@ -161,6 +160,85 @@ https://chatgpt.com/c/6752e532-0960-8004-8d1e-766cda9729f4
 https://blog.danielh.cc/blog/numbers
 https://blog.danielh.cc/blog/classes
 > I wish I went to school for English and CS
+
+### SAT
+
+> In logic and computer science, the Boolean satisfiability problem (sometimes called propositional satisfiability problem and abbreviated SATISFIABILITY, SAT or B-SAT) is the problem of determining if there exists an interpretation that satisfies a given Boolean formula. In other words, it asks whether the variables of a given Boolean formula can be consistently replaced by the values TRUE or FALSE in such a way that the formula evaluates to TRUE. If this is the case, the formula is called satisfiable. On the other hand, if no such assignment exists, the function expressed by the formula is FALSE for all possible variable assignments and the formula is unsatisfiable. https://en.wikipedia.org/wiki/Boolean_satisfiability_problem
+
+```python
+def validate_config(config):
+    """
+    >>> config = {
+    ...     'debug_mode': True,
+    ...     'production_mode': True,
+    ...     'logging_level': 'DEBUG'
+    ... }
+    >>> validate_config(config)
+    False
+
+    A config that requires mutually exclusive conditions:
+    1. debug_mode must be True
+    2. If debug_mode is True, production_mode must be False
+    3. If logging_level is DEBUG, production_mode must be True
+    4. logging_level must be DEBUG
+    """
+    constraints = [
+        config['debug_mode'] is True,                    # (1)
+        not (config['debug_mode'] and                    # (2)
+             config['production_mode']),      
+        (config['logging_level'] == 'DEBUG' and         # (3)
+         config['production_mode'] is True),
+        config['logging_level'] == 'DEBUG'              # (4)
+    ]
+    
+    return all(constraints)
+```
+
+* _SAT solver_:
+> While a SAT solver is an algorithmic tool, it is not a single algorithm but rather an implementation of one or more solving techniques. The choice of technique (e.g., DPLL, CDCL, WalkSAT) depends on the solver's design.
+> Graph Algorithms: Many SAT problems can be modeled as graph problems (e.g., coloring, cliques).
+* _CNF (conjunctive normal form)_: standardized way of writing boolean formulas as a conjunction (AND) of disjunctions (OR)
+* every boolean formula can be converted to cnf
+* SAT solvers typically require input in CNF
+* many proofs about boolean satisfiability work on CNF
+* _clause_: individual con/disjunction
+```python
+from pysat.formula import CNF
+from pysat.solvers import Glucose3
+
+def check_config_sat():
+    """
+    >>> check_config_sat()
+    'UNSAT'
+    """
+    formula = CNF()
+    # 1: debug_mode (D)
+    # 2: production_mode (P) 
+    # 3: logging_level_debug (L)
+    formula.append([1])           # D must be true
+    formula.append([-1, -2])      # ¬D ∨ ¬P
+    formula.append([-3, 2])       # ¬L ∨ P
+    formula.append([3])           # L must be true
+    solver = Glucose3()
+    solver.append_formula(formula)
+    if solver.solve():
+        model = solver.get_model()
+        return f"SAT: {model}"
+    else:
+        return "UNSAT"
+```
+
+USAGE
+* Database constraints (circular foreign keys)
+* Network configurations (routing loops)
+* formal methods
+* State machines (deadlocks)
+* When configuring software with multiple options (e.g., enabling/disabling features), SAT solvers can validate configurations to avoid conflicts.
+* In package management systems (e.g., npm, pip), SAT solvers ensure that dependencies are consistent and satisfiable. Example: Determining if a specific combination of library versions satisfies all constraints. e.g. CICD Ensuring all dependency graphs are satisfiable before deploying software updates.
+* Modeling user workflows as a SAT problem to ensure all paths are tested.
+* SAT solvers can generate inputs that exercise specific paths in the code, ensuring better test coverage. Example: Generating tests for edge cases that are otherwise hard to identify.
+* SAT solvers can help solve scheduling problems, such as assigning tasks to machines or people while respecting constraints.
+* Optimize the selection of test cases to cover all code paths or requirements with the smallest possible suite.
 
 ## machines
 
@@ -250,7 +328,7 @@ MANUFACTURING https://doxa.substack.com/p/why-a-chinese-invasion-of-taiwan
 * https://stratechery.com/2024/intels-death-and-potential-revival
 * https://news.ycombinator.com/item?id=42051968
 * _fabless_: you design, someone else manufacturers (AMD, Nvidia, Qualcomm, Apple) https://www.youtube.com/watch?v=Jyp6jFCzW44
-* _foundry_: manufacturing (TSMC, Intel, Samsung, GlobalFoundries) https://stratechery.com/2020/chips-and-geopolitics Intel one of the few that does both design and manufacturing https://stratechery.com/2022/the-intel-split/
+* _foundry_: manufacturing (TSMC, Intel, Samsung, GlobalFoundries) https://stratechery.com/2020/chips-and-geopolitics Intel one of the few that does both design and manufacturing https://stratechery.com/2022/the-intel-split/ Morris Chang https://news.ycombinator.com/item?id=42559052
 * _HDL_: software for designing chips
 * ARM has more balance btw battery life and perf, x86 more perf https://diff.substack.com/p/taiwan-and-supply-chain-frenmity
 * cloud computing kept Intel going after they lost smartphones https://stratechery.com/2021/intel-problems/

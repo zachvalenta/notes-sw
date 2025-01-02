@@ -13,6 +13,8 @@
 
 # 🪑 FRAMEWORKS
 
+🗄️ `django.md` design
+
 ## design
 
 TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
@@ -224,7 +226,7 @@ STDLIB
 * site tour https://github.com/shipshapecode/shepherd
 * datatable https://github.com/handsontable/handsontable https://appliku.com/post/django-rest-framework-and-datatable-example https://github.com/pivotal-energy-solutions/django-datatable-view https://news.ycombinator.com/item?id=30919257
 * HTTP: Fetch, XHR/AJAX https://eloquentjavascript.net/18_http.html
-* native: JS (Cordova/PhoneGap, Ionic, React Native, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter https://news.ycombinator.com/item?id=41975047) Golang (https://github.com/wailsapp/wails https://github.com/cogentcore/core) Rust https://dioxuslabs.com/
+* native: JS (Cordova/PhoneGap, Ionic, React Native, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter https://news.ycombinator.com/item?id=41975047) Golang (https://github.com/wailsapp/wails https://github.com/cogentcore/core) Rust https://dioxuslabs.com/ https://www.bestinclassiosapp.com/ https://www.swiftjectivec.com/
 * typing: Typescript beat Elm/Flow
 * Typescript, Civet https://news.ycombinator.com/item?id=41885940
 * vizualization: https://www.chartjs.org/ https://testdriven.io/blog/django-charts/#prepare-and-serve-the-data https://github.com/airbnb/visx https://github.com/recharts/recharts -> https://openbb.co/open#social-media-metrics 🗄 `math.md` graphs

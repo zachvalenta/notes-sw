@@ -316,6 +316,35 @@ https://github.com/valberg/django-sse
 
 ---
 
+https://news.ycombinator.com/item?id=42600276
+
+| Feature               | Server-Sent Events (SSE)    | WebSockets                    | HTTP Long Polling         |
+|-----------------------|----------------------------|--------------------------------|--------------------------|
+| **Communication**     | Unidirectional (Server to Client) | Bidirectional             | Unidirectional            |
+| **Transport Protocol**| HTTP                        | TCP over HTTP (Upgraded)      | HTTP                     |
+| **Stateful Connection**| Yes                        | Yes                           | No (request-response)    |
+| **Overhead**          | Low                         | Lower than SSE, especially for high-frequency events | High (repeated requests) |
+| **Use Case**          | Notifications, Feeds        | Chats, Collaborative Tools    | Basic updates            |
+
+```txt
+Yes, there is a broader category that encompasses both Server-Sent Events (SSE) and WebSockets: "Server-Initiated Communication" or "Push Technologies."
+
+Server-Initiated Communication (Push Technologies)
+This category includes any technology that enables servers to send data to clients without the client explicitly requesting it each time. Both SSE and WebSockets fall under this umbrella, as they allow the server to initiate data transfer to the client in response to changes or events.
+
+Key Characteristics:
+Real-Time Communication: Both technologies facilitate real-time updates from the server to the client.
+Persistent Connections: They maintain a connection (long-lived or otherwise) to avoid repeated HTTP requests.
+Event-Driven Architecture: Servers send updates as events occur, which clients can handle asynchronously.
+```
+
+* _server-sent events_: 
+> Server-Sent Events (SSE) is a web technology that enables a server to push real-time updates to a browser over an HTTP connection. Unlike WebSockets, SSE is unidirectional, meaning the communication flows from the server to the client only. This makes it ideal for applications where the client needs to receive updates from the server in real time, such as live news feeds, stock price updates, or notifications.
+```txt
+Simplicity: Easy to implement with existing HTTP infrastructure.
+Automatic Reconnection: Built-in retry mechanism in case of connection loss.
+Lightweight: No need to establish a bidirectional protocol like WebSocket if the use case doesn’t require it.
+```
 * https://gotify.net/
 * https://discord.com/blog/how-discord-reduced-websocket-traffic-by-40-percent
 * IETF RFC 6455 and browser API https://hpbn.co/websocket/
@@ -467,14 +496,6 @@ https://news.ycombinator.com/item?id=41876741
 https://www.youtube.com/watch?v=k3rFFLmQCuY
 https://jvns.ca/blog/2016/04/29/cdns-arent-just-for-caching/
 
-PKI
-* _ACME_: protocol to automate certificate mgmt https://letsencrypt.org/docs/client-options/ client https://github.com/caddyserver/certmagic
-* _certificate_: SHA key https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/ https://questions.wizardzines.com/tls-certificates.html
-* _CA_: issue digital certificates (DigiCert, Comodo, Symatec, Amazon Trust Services) to servers that demonstrate ownership of domain https://opensource.com/article/19/4/certificate-authority
-* Let's Encrypt uses other CAs to cross-sign (apparently starting your own CA takes years)
-* CAs not necessarily trustworthy https://www.theregister.co.uk/2017/11/01/francisco_buys_comodo/
-* _local development_: generate self-signed cert (openssl) to put onto your own box
-
 handshake
 * _client (un)_: sends highest level of TLS it will support
 * _server (un)_: agrees on TLS level, sends public key
@@ -493,13 +514,18 @@ TLS
 * if site uses HTTPS then embedded content must be as well, apparently this conflicts w/ adverts which is why many news sites aren't https://robertheaton.com/2014/03/27/how-does-https-actually-work/ https://howhttps.works/episodes/ https://whydoesaptnotusehttps.com/ https://stackoverflow.com/a/187685/6813490
 * Let's Encrypt https://drewdevault.com/2018/06/27/My-lets-encrypt-setup.html
 
-OpenSSL
+### OpenSSL
+
+---
+
+> Taplo depends on OpenSSL in order to fetch schemas via HTTPS, you will most likely need the openssl development files to be installed (openssl-dev or openssl-devel on most Linux-based systems). https://taplo.tamasfe.dev/cli/installation/cargo.html
+
 * generate self-signed cert for local dev
 * verify server certs (youtube-dl, requests) https://github.com/psf/requests/blob/master/setup.py#L105
 * create hashes `vimv-openssl.log`
 * verify checksum `openssl sha -sha256 path/to/foo`; `shasum -a 256` https://apple.stackexchange.com/a/230919
 
-OpenSSL and Python
+OPENSSL AND PYTHON
 * _libraries_: ssl, pyopenssl
 * Python expects openssl to be present on os https://docs.python.org/3.3/library/ssl.html 
 * macos system Python comes with own version of openssl https://www.python.org/downloads/release/python-2715/
@@ -560,6 +586,17 @@ Traceback (most recent call last):
   File "/usr/local/Cellar/python@2/2.7.15_2/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 147, in <module>
 ValueError: unsupported hash type md5
 ```
+
+### PKI
+
+---
+
+* _ACME_: protocol to automate certificate mgmt https://letsencrypt.org/docs/client-options/ client https://github.com/caddyserver/certmagic
+* _certificate_: SHA key https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/ https://questions.wizardzines.com/tls-certificates.html
+* _CA_: issue digital certificates (DigiCert, Comodo, Symatec, Amazon Trust Services) to servers that demonstrate ownership of domain https://opensource.com/article/19/4/certificate-authority
+* Let's Encrypt uses other CAs to cross-sign (apparently starting your own CA takes years)
+* CAs not necessarily trustworthy https://www.theregister.co.uk/2017/11/01/francisco_buys_comodo/
+* _local development_: generate self-signed cert (openssl) to put onto your own box
 
 # 🟨 ZA
 

@@ -25,7 +25,7 @@ rm -f ~/.zcompdump* && compinit
 * https://github.com/zackproser/automations
 * https://www.gitkraken.com/gitlens https://www.youtube.com/watch?v=oJdlGtsbc3U https://switowski.com/blog/plugins-for-python-in-vscode/
 
-* _24_: pager (delta, diffnav) porcelain (lazygit)
+* _24_: pager (delta, diffnav) porcelain (lazygit) + write some utils (`jiancha`, `ghc`) + start using CLI for cloning your own stuff vs digging around the UI
 * _21_: prepopulate commit msg
 > no memory of doing this, nor knowledge of how to do now
 * _20_: stash commands, 📙 Chacon ch 1-2, Gitlab as secondary remote for notes, auth for BNY (Gitlab token types, server protocols and set up, lots of debugging)
@@ -58,19 +58,70 @@ gh api "/users/zachvalenta/events" | jq 'map(select(.created_at | startswith("20
 * _repo language_: https://github.com/github/linguist#overrides
 * _repo config_: branch protections http://blog.jaredsinclair.com/post/183676881105/think-twice-before-downgrading-to-a-free-github owners https://blog.github.com/2017-07-06-introducing-code-owners/
 
+## Actions
+
+🗄️ `infra.md` CICD
+📜 https://docs.github.com/en/actions
+🔬 https://github.com/GothenburgBitFactory/taskwarrior/actions
+
+SEMANTICS
+* _workflow_: collection of jobs (test|deploy|add label to issue) defined in `.github/workflows`; triggered by event|chron|API
+* _job_: collection of steps
+* _step_: user-defined action (script) https://docs.github.com/en/actions/about-github-actions/understanding-github-actions
+> Steps are executed in order and are dependent on each other. Since each step is executed on the same runner, you can share data from one step to another. For example, you can have a step that builds your application followed by a step that tests the application that was built.
+* _runner_: container in which steps are run
+> A runner is a server that runs your workflows when they're triggered. Each runner can run a single job at a time.
+* _action_: GH-defined extension
+> An action is a custom application for the GitHub Actions platform that performs a complex but frequently repeated task. Use an action to help reduce the amount of repetitive code that you write in your workflow files. An action can pull your Git repository from GitHub, set up the correct toolchain for your build environment, or set up the authentication to your cloud provider.
+
+EVENTS
+* properties: id, type, payload, actor (user that triggers), repo (where event happens)
+* `CreateEvent`: branch|tag created https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
+* `GollumEvent`: wiki page created|updated https://docs.github.com/en/rest/using-the-rest-api/github-event-types?apiVersion=2022-11-28#gollumevent
+* `IssueCommentEvent`: comment on issue|PR
+* `IssuesEvent`: opened, edited, closed, assigned, labeled
+* `PullRequestEvent`: opened, edited, closed, review_requested
+* `PushEvent`: commits pushed to branch
+
+---
+
+* use on AWS https://github.com/CloudSnorkel/cdk-github-runners
+telemetry https://github.com/catchpoint/workflow-telemetry-action/issues/39 https://blog.smidt.dev/posts/0003/
+can manipulate tags, create releases in repo using CLI https://cli.github.com/manual/gh_release
+
+TOOLING
+* _act_: run locally https://github.com/nektos/act
+* _gama_: https://github.com/termkit/gama
+
+* linking https://blog.github.com/2011-10-12-introducing-issue-mentions/
+* draft PR https://github.blog/2019-02-14-introducing-draft-pull-requests/
+* https://hynek.me/articles/python-github-actions/
+* https://help.github.com/en/actions/configuring-and-managing-workflows/configuring-a-workflow
+* https://github.com/sdispater/mixology/blob/master/.github/workflows/tests.yml
+* https://github.com/github/super-linter
+* https://www.youtube.com/watch?v=E1OunoCyuhY
+* https://news.ycombinator.com/item?id=30060765
+* https://towardsdatascience.com/ultimate-ci-pipeline-for-all-of-your-python-projects-27f9019ea71a
+* python https://brntn.me/blog/open-source-python-ci/
+* https://github.com/carderne/postmodern-python/blob/main/.github/workflows/pr.yml
+
 ## CLI
 
 🗄️ `task-mgmt.md` 2024 workflow
 📜 https://cli.github.com/manual/ https://github.com/cli/cli
 
+* search, browse, clone
 ```sh
-# search repo by name
-gh search repos --owner=zachvalenta "proj in:name"
+gh search repos $QUERY  # search all
+gh search repos --owner=$OWNER $QUERY  # gh search repos --owner=zachvalenta markov
 
-###
-# TOPIC
-###
+gh browse  # open $CWD repo on site
 
+gh repo clone $OWNER/$NAME  # gh repo clone zachvalenta/markov-monte
+```
+
+* topics
+```sh
 # read
 gh search repos --owner=zachvalenta "topic:$TOPIC"
 
@@ -81,6 +132,7 @@ gh repo edit https://github.com/zachvalenta/eliza --add-topic "publish"
 # delete
 gh repo edit $REPO --remove-topic "topic1,topic2"
 ```
+
 ---
 
 EXTENSIONS
@@ -562,6 +614,44 @@ tags
 * language-aware https://tekin.co.uk/2020/10/better-git-diff-output-for-ruby-python-elixir-and-more
 * _sink_: https://www.atlassian.com/git/tutorials/saving-changes/git-diff 
 
+## hooks
+
+GIT HOOKS 📜 https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks https://githooks.com/
+* BYO https://stefaniemolin.com/articles/devx/pre-commit/hook-creation-guide/
+* https://rdrn.me/postmodern-python/
+* actions: client-side (commit, merge) server (push)
+* file-system location: `.git/hooks` 
+* ignore failed hooks w/ `git commit --no-verify` http://omerkatz.com/blog/2013/2/15/git-hooks-part-1-the-basics
+
+PRE-COMMIT https://pre-commit.com https://github.com/pre-commit/pre-commit/issues https://gitlab.com/zachvalenta/pre-commit-test https://learndjango.com/tutorials/pre-commit-django
+* bypass for commit: `git commit -m "your message" --no-verify`
+* bypass for push: `git push --no-verify`
+* set: `pre-commit install -t pre-commit; pre-commit install -t pre-push` (i.e. copy Python scripts in place of Git samples) https://pre-commit.com/#3-install-the-git-hook-scripts https://pre-commit.com/#pre-commit-install
+* skip: `SKIP=<stage> git commit -m "foo"`
+* uninstall: `pre-commit uninstall -t <action>`
+* conf: `.pre-commit-config.yaml`
+* run in parallel, can cause random failures, run in serial using `require_serial = true` https://pre-commit.com/#hooks-require_serial
+* official hooks: black handles `trailing-whitespace` and `end-of-file-fixer` https://github.com/pre-commit/pre-commit-hooks/tree/master/pre_commit_hooks https://www.youtube.com/watch?v=BzC3ft8rm4c
+* pylint is a pain https://github.com/pre-commit/pre-commit/issues/266#issuecomment-399682269 black https://github.com/pre-commit/pre-commit-hooks/issues/356 https://github.com/psf/black#version-control-integration pytest 
+
+```yaml
+---
+- repo: local  #  https://pre-commit.com/#repository-local-hooks https://github.com/pre-commit/pre-commit/issues/1245
+  hooks:
+  - id: lint
+    stages: [commit]
+    name: run lint
+    entry: make lint
+    language: system
+    types: [python]
+  - id: test
+    stages: [push]
+    name: run test
+    entry: make test
+    language: system
+    types: [python]
+```
+
 ## log
 
 SEARCH https://www.youtube.com/watch?v=BaBKBy2vHmM
@@ -1041,4 +1131,26 @@ curl --header "PRIVATE-TOKEN: <access_token>" https://gitlab.com/api/v4/users/za
 
 # DEPLOY TOKEN
 git clone https://token_name:token@gitlab.com/zachvalenta/dummy-repo.git
+```
+
+GITLAB CICD
+💻 https://gitlab.com/zachvalenta/pre-commit-test.git 
+📜 https://docs.gitlab.com/ee/ci/yaml/ https://docs.gitlab.com/ https://docs.gitlab.com/runner/
+* _job_: declarative series of steps
+* _stage_: grouping mechanism for jobs e.g. test, deploy
+* _pipeline_: collection of stages; can force manual interaction https://docs.gitlab.com/ee/ci/pipelines/index.html#add-manual-interaction-to-your-pipeline to run without, toggle off in project (visibility and merge requests)
+* conditionals https://docs.gitlab.com/ee/ci/yaml/#rulesif
+* _artifact_: static files produced by pipeline e.g. coverage report from tests
+* generate report: `pytest --junitxml=report.xml` https://docs.gitlab.com/ee/ci/unit_test_reports.html#python-example
+```yaml
+# basic
+unit_tests:
+  image: python:3.7
+  script:
+    - "pip install -r requirements.txt"
+    - "ln -sf .env.dev .env"
+    - "pytest -v app_test.py"
+
+# ref env var set via GL instance
+ax2: "${ax2}"
 ```

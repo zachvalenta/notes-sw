@@ -424,8 +424,9 @@ sorted(colors, key=lambda c: (len(c), c.lower()))  # can also use tuple for comb
 # 🪷 METAPROGRAMMING
 
 🗄
+* `django.md` design
 * `plt.md` typing
-* `src.md` frameworks
+*️ `src.md` dependency injection
 📚
 * Beazley ch. 9
 * Ramalho ch. 22-24
@@ -440,6 +441,66 @@ sorted(colors, key=lambda c: (len(c), c.lower()))  # can also use tuple for comb
 * _metaprogramming_: functions that manipulate existing code e.g. decorators, inspection 📙 Beazley 329
 * function that takes some other code, wraps it, and returns https://medium.com/@saurabhkukade_96600/meta-programming-in-python-7fb94c8c7152
 * also synonym for process (build tools, dep mgmt) https://missing.csail.mit.edu/2020/metaprogramming/
+
+## other uses
+
+* inspection
+```python
+import inspect
+
+def example_function():
+    pass
+
+print(inspect.getsource(example_function))
+# Output: # def example_function(): pass
+```
+* _monkey patch_: modify/extend modules/classes at runtime, used for fixing bugs without altering original src
+```python
+import datetime
+
+def fixed_now():
+    return datetime.datetime(2000, 1, 1)
+
+# Monkey patching datetime.now()
+datetime.datetime.now = fixed_now
+print(datetime.datetime.now())  # Output: 2000-01-01 00:00:00
+
+```
+
+* dynamic attribute generation
+```python
+class DynamicAttributes:
+    def __getattr__(self, name):
+        return f"{name} attribute not found!"
+
+    def __setattr__(self, name, value):
+        print(f"Setting {name} to {value}")
+        super().__setattr__(name, value)
+
+obj = DynamicAttributes()
+print(obj.some_attribute)  # Output: some_attribute attribute not found!
+obj.new_attr = 42  # Output: Setting new_attr to 42
+```
+
+* you can replace or inject new behavior into functions or methods dynamically.
+```python
+def original_function():
+    print("Original function")
+
+def new_function():
+    print("New function")
+
+original_function = new_function  # Replacing original function
+original_function()  # Output: New function
+```
+
+* create a new class dynamically
+```python
+NewClass = type('NewClass', (object,), {'attr': 42, 'method': lambda self: 'Hello'})
+obj = NewClass()
+print(obj.attr)      # Output: 42
+print(obj.method())  # Output: Hello
+```
 
 ## decorators
 

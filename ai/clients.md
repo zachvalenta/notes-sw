@@ -16,6 +16,7 @@
 ## CLI
 
 PROSPECTIVE
+* output first, gimme impl https://austinhenley.com/blog/mirrorlang.html
 * _ch_: bash https://github.com/dnmfarrell/ch https://blog.dnmfarrell.com/post/chatgpt-at-the-terminal/
 * _tenere_: no context, file output (all to one file?), create Homebrew install yet https://github.com/pythops/tenere https://github.com/pythops/tenere/issues/31
 
@@ -246,6 +247,33 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 > If copy and pasting back and forth between ChatGPT.com is crawling, then Cursor's interface is sprinting. Being able to discuss the code, architecture, a single file, or to tell Cursor to use a file as inspiration when making other changes is my favorite feature of Cursor.
 
 ## interchange
+
+```python
+import openai
+openai.api_key = "your_openai_api_key"
+messages = [ {"role": "user", "content": "Explain how to use Markdown to create tables."} ]
+response = openai.ChatCompletion.create( model="gpt-4", messages=messages)
+content = response.choices[0].message['content']
+with open("response.md", "w") as f:
+    f.write(content)
+```
+
+* export from GPT: navigate to data controls > export data
+```python
+import json
+with open("conversations.json", "r") as f:
+    data = json.load(f)
+for conversation in data["conversations"]:
+    filename = f"{conversation['title'].replace(' ', '_')}.md"
+    with open(filename, "w") as md_file:
+        md_file.write(f"# {conversation['title']}\n\n")
+        for message in conversation["mapping"].values():
+            role = message["message"]["author"]["role"]
+            content = message["message"]["content"]["parts"][0]
+            md_file.write(f"**{role.capitalize()}**:\n{content}\n\n")
+```
+
+> OpenAI now supports structured output, allowing developers to supply a JSON Schema, pydantic or Zod object to constrain model responses. https://www.thoughtworks.com/radar/techniques/structured-output-from-llms
 
 * GPT code completions API https://www.youtube.com/watch?v=g9tIm50VO4g
 * GPT as standard https://simonwillison.net/2024/Dec/22/openai-openapi/

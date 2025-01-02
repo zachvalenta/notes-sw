@@ -7,6 +7,7 @@
 * Bueno mature optimization https://carlos.bueno.org/optimization/
 * Google SRE book https://sre.google/sre-book/table-of-contents/ https://danluu.com/google-sre-book/
 > aka platform engineering https://www.manning.com/books/effective-platform-engineering
+* Wilkins https://www.manning.com/books/logs-and-telemetry
 
 ## 进步
 
@@ -89,6 +90,8 @@ TAXONOMY
 
 ## latency
 
+📙 Enberg latency https://www.manning.com/books/latency
+
 ---
 
 * latency throughput https://entropicthoughts.com/typing-fast-is-about-latency-not-throughput
@@ -170,6 +173,20 @@ ZA
 
 ---
 
+```txt
+Warm throughput refers to the rate of processing or performance capacity of a system that is in a "warm" state, meaning it is already initialized, loaded, and ready to handle tasks. This contrasts with "cold throughput," where the system needs to initialize or load resources before becoming operational.
+
+Key Aspects of Warm Throughput:
+Pre-initialization: The system has already completed any one-time setup or loading processes.
+Ready State: Resources such as caches, connections, and configurations are primed and active.
+Performance Measurement: Warm throughput is typically measured when a system is operating under normal, steady-state conditions.
+Optimization: Warm throughput is often higher than cold throughput due to reduced latency from skipping setup overhead.
+Examples:
+In a database, warm throughput refers to query performance when frequently accessed data is cached in memory versus the initial slower response when data is fetched from disk (cold throughput).
+In serverless computing, warm throughput refers to the processing rate of already-initialized functions, as opposed to the delay caused by cold starts (e.g., loading the runtime environment for the first request).
+In a network, warm throughput might measure the data transfer rate once a session is established, compared to the setup phase (e.g., TLS handshake).
+```
+
 https://leanpub.com/systemdesignmanual/read_sample
 > throughput is the number of operations per second, where an operation is an application-specific unit of work.
 
@@ -187,6 +204,8 @@ warm throughput 🧠 https://chatgpt.com/c/673e0350-b5dc-8004-b222-e85277b89921
 # 🩻 MONITORING
 
 ---
+
+https://claude.ai/chat/6bcfcae0-6294-47ef-a3bf-588a7f178c0e
 
 PROVIDERS
 * _Checkly_: https://bitfieldconsulting.com/blog/dips-and-wiggles https://www.checklyhq.com/
@@ -229,18 +248,9 @@ PROVIDERS
 * _Vince_: https://github.com/vinceanalytics/vince https://www.vinceanalytics.com/
 * _Umami_: https://github.com/umami-software/umami
 
-## 🌕 Clickhouse
+## Beszel
 
-🗄️ `eng.md` query engines
-📜 https://clickhouse.com/ https://github.com/ClickHouse/ClickHouse
-
-* design: columnar
-* _chdb_: Python library (in-process) https://github.com/chdb-io/chdb
-
----
-
-* https://news.ycombinator.com/item?id=42146782
-* https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html https://github.com/azat/chdig https://posthog.com/handbook/engineering/clickhouse https://clickhouse.com/docs/en/operations/utilities/clickhouse-local/ https://news.ycombinator.com/item?id=34071918 https://clickhouse.com/blog/extracting-converting-querying-local-files-with-sql-clickhouse-local https://news.ycombinator.com/item?id=24696149 https://softwareengineeringdaily.com/2021/05/17/clickhouse-data-warehousing-with-robert-hodges/ https://softwareengineeringdaily.com/2022/09/12/serverless-clickhouse-for-developers/ https://tech.marksblogg.com/billion-taxi-rides-doublecloud-clickhouse.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html
+https://github.com/henrygd/beszel
 
 ## Datadog
 
@@ -442,6 +452,10 @@ PG http://paulgraham.com/popular.html
 
 > There are lies, damned lies and benchmarks. https://github.com/pydantic/jiter https://news.ycombinator.com/item?id=42501532
 🎗️ https://danluu.com/anon-benchmark/ https://danluu.com/why-benchmark/ https://jpcamara.com/2024/12/01/speeding-up-ruby.html https://benhoyt.com/writings/go-version-performance-2024/
+
+* _millisecond (ms)_: 10^−3 (one-thousandth of a second)
+* _microsecond (µs)_: 10^−6 (one-millionth of a second)
+* _nanosecond (ns)_: 10^−9 (one-billionth of a second)
 
 LINUX
 * _time_: `/usr/bin/time -v` detailed output w/ memory stats https://github.com/egoist/dum https://news.ycombinator.com/item?id=30226742
@@ -735,6 +749,10 @@ SEMANTICS
 * https://x.com/ycombinator/status/1858555769513537751
 * _post-mortem_: https://blog.github.com/2018-10-30-oct21-post-incident-analysis/ https://status.sr.ht/issues/2020-10-08-git.sr.ht-disk-usage/
 
+## Honeycomb
+
+https://www.honeycomb.io/
+
 ## logging
 
 📙 Kreps i love logs
@@ -804,6 +822,7 @@ https://news.ycombinator.com/item?id=30394152
 
 ---
 
+* useful 404 https://calmcode.io/static/data
 * https://calmcode.io/course/better-uptime/overview
 UPTIME / HEALTHCHECK / HEARTBEAT
 * https://status.calmcode.io/

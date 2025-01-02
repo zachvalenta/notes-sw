@@ -20,8 +20,12 @@
 🔍 compare https://news.ycombinator.com/item?id=42348513 https://simonwillison.net/2024/Dec/16/webdev-arena/
 🔑 https://gist.github.com/zachvalenta/d3b7cd172dd2d3d8ff7340bd458c6fe2
 
+SLM
+* _Gemini nano_: 
+* _MS phi_:
+
 ZA
-* _BERT_: https://simonwillison.net/2024/Dec/31/alexis-gallagher/
+* _BERT_: https://simonwillison.net/2024/Dec/31/alexis-gallagher/ https://github.com/urchade/GLiNER
 * _DeepSeek_: https://thezvi.substack.com/p/deekseek-v3-the-six-million-dollar
 * _X grok_: seems tied to Twitter https://grok.x.ai/ 
 
@@ -38,7 +42,6 @@ CLOSED
 * _Amazon nova_: https://news.ycombinator.com/item?id=42309121 https://news.ycombinator.com/item?id=42309121 https://simonwillison.net/2024/Dec/4/amazon-nova/ https://simonwillison.net/2024/Dec/4/amazon-nova/
 * backed by Amazon https://news.ycombinator.com/item?id=42215126
 * _Mistral codestral_: less polished but fast + search https://chat.mistral.ai/chat
-* _Perplexity api_: search/org https://www.perplexity.ai/
 * Mixtral https://mistral.ai/news/mixtral-of-experts/
 * YiCoder: https://news.ycombinator.com/item?id=41453237
 * features: moderation, tuning to domain
@@ -118,7 +121,7 @@ CONTEXT
 
 🗄️ `hw.md` Apple 
 
-https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonwillison.net/2024/Dec/9/llama-33-70b/
+https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonwillison.net/2024/Dec/9/llama-33-70b/ https://news.ycombinator.com/item?id=42539155&
 
 > 🎗️ llamafile https://simonwillison.net/2024/Jun/17/cli-language-models/ https://simonwillison.net/2023/Nov/29/llamafile/ "this should be technically impossible" (having a single unmodified binary run across mac/Windows/linux) https://www.youtube.com/watch?v=QUXQNi6jQ30 [20:00]
 * mini23 uses 8B just w/ VS Code + browser + macOS core services
@@ -138,7 +141,11 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 * ccmake https://news.ycombinator.com/item?id=42274489
 * _ollama_: ⭐️ https://ollama.com/
 > customize through a Modelfile, incl model parameters, system prompts etc. https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
-* multimodal, OCR https://ollama.com/blog/llama3.2-vision https://www.youtube.com/watch?v=wTukMgtkleA
+* multimodal, OCR https://ollama.com/blog/llama3.2-vision https://www.youtube.com/watch?v=wTukMgtkleA LanceDB https://talkpython.fm/episodes/show/488/multimodal-data-with-lancedb
+
+## 📚 Perplexity
+
+* _Perplexity api_: search/org https://www.perplexity.ai/
 
 # 🏗️ OPERATIONALIZE
 
@@ -148,7 +155,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 * https://www.amazon.com/dp/1736049143
 
 * retrieval vs. generative https://cohere.com/
-* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666 https://github.com/BCG-X-Official/artkit https://www.youtube.com/watch?v=pGZo9gR5q_M https://gentrace.ai/ https://github.com/traceloop/openllmetry https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse https://news.ycombinator.com/item?id=42441258
+* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666 https://github.com/BCG-X-Official/artkit https://www.youtube.com/watch?v=pGZo9gR5q_M https://gentrace.ai/ https://github.com/traceloop/openllmetry https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse https://news.ycombinator.com/item?id=42441258 https://www.thoughtworks.com/radar/techniques/llm-as-a-judge
 
 * gradient-boosted trees better for audit than neural nets
 * https://roadmap.sh/mlops
@@ -156,7 +163,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 * https://applied-llms.org/
 * https://news.ycombinator.com/item?id=38120493
 * MLflow https://www.thoughtworks.com/radar/tools/mlflow metaflow https://www.thoughtworks.com/radar/tools?blipid=202203023
-* can't debug like traditional programming [Ferguson 7] unexplainable? https://blog.cerebralab.com/Machine_learning_could_be_fundamentally_unexplainable
+* can't debug like traditional programming [Ferguson 7]
 * aka ml ops https://news.ycombinator.com/item?id=20865012 https://testdriven.io/blog/machine-learning-reliability-engineering/
 * web app integration https://github.com/xadrianzetx/fullstack.ai https://news.ycombinator.com/item?id=20865012 https://talkpython.fm/episodes/transcript/226/building-flask-apis-for-data-scientists https://testdriven.io/blog/fastapi-machine-learning/
 * quants can't code, coders can't quant https://news.ycombinator.com/item?id=23941075
@@ -170,6 +177,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 ---
 
+https://www.thoughtworks.com/radar/techniques/function-calling-with-llms
 > They discuss "agentic systems" as a parent term, then define a distinction between "workflows" - systems where multiple LLMs are orchestrated together using pre-defined patterns - and "agents", where the LLMs "dynamically direct their own processes and tool usage". https://simonwillison.net/2024/Dec/20/building-effective-agents/
 * as judge https://registerspill.thorstenball.com/p/joy-and-curiosity-20
 * LLM controlling your browser?
@@ -182,6 +190,70 @@ https://edwardbenson.com/2024/11/the-worlds-first-ai-street-hawker
 https://edwardbenson.com/lollm
 https://news.ycombinator.com/item?id=42299098
 https://x.com/SullyOmarr/status/1864697992261062690/photo/1
+
+## Hugging Face
+
+> Transformers supports the majority of models available in Hugging Face’s Model Hub, and encompasses diverse tasks in natural language processing, computer vision, and audio processing...Because it’s built on top of PyTorch, TensorFlow, and JAX, [Hugging Face] `transformers` gives you the flexibility to use these frameworks to run and customize models at any stage. Using open-source models through Transformers has several advantages: Proprietary AI companies like OpenAI, Cohere, and Anthropic often charge you a token fee to use their models via an API. This means you pay for every token that goes in and out of the model, and your API costs can add up quickly. By deploying your own instance of a model with Transformers, you can significantly reduce your costs because you only pay for the infrastructure that hosts the model. https://realpython.com/huggingface-transformers/#exploring-hugging-face
+
+ZERO-SHOT CLASSIFICATION
+```python
+model_name = "MoritzLaurer/deberta-v3-large-zeroshot-v2.0"
+zs_text_classifier = pipeline(model=model_name)
+candidate_labels = [
+     "Billing Issues",
+     "Technical Support",
+     "Account Information",
+     "General Inquiry",
+]
+
+hypothesis_template = "This text is about {}"
+
+customer_text = "My account was charged twice for a single order."
+zs_text_classifier(
+    customer_text,
+    candidate_labels,
+    hypothesis_template=hypothesis_template,
+    multi_label=True
+)
+
+"""
+{'sequence': 'My account was charged twice for a single order.',
+ 'labels': ['Billing Issues',
+            'General Inquiry',
+            'Account Information',
+            'Technical Support'],
+ 'scores': [0.98844587,
+            0.01255007,
+            0.00804191,
+            0.00021988]}
+"""
+```
+* image classification
+```sh
+python -m pip install Pillow
+```
+```python
+image_classifier = pipeline(task="image-classification")
+predictions = image_classifier(["llamas.png"])
+predictions[0][0]  # {'label': 'llama', 'score': 0.9991388320922852}
+predictions[0][1]  # {'label': 'Arabian camel, dromedary, Camelus dromedarius', 'score': 8.780974167166278e-05}
+```
+
+
+SENTIMENT ANALYSIS, TSS https://www.freecodecamp.org/news/get-started-with-hugging-face/
+```sh
+pip install transformers, tokenizers, datasets
+```
+```python
+from transformers import pipeline
+
+sentiment_analysis = pipeline("sentiment-analysis", model="distilbert-base-uncased-finetuned-sst-2-english")
+input_text = [ "It’s a great app, my biggest problem is the card readers regularly do not connect. Which is very poor customer service for us because we have to manually enter our customers debit cards, which takes time. This slows down our efficiency." ]
+result = sentiment_analysis(input_text)
+
+transcriber = pipeline(task="automatic-speech-recognition", model="openai/whisper-small")
+result = transcriber("https://huggingface.co/datasets/Narsil/asr_dummy/resolve/main/mlk.flac")
+```
 
 ## keyword search
 
@@ -228,7 +300,7 @@ https://news.ycombinator.com/item?id=42507116
 
 https://github.com/Cinnamon/kotaemon
 
-HOWTO (LEARN BY BUILDING FOR DROR) 🧠 https://chatgpt.com/c/6756f3e6-1260-8004-9363-655f156489d9
+HOWTO (LEARN BY BUILDING FOR DROR)
 ```txt
 I'm still new to the space, so take with a grain of salt https://chatgpt.com/share/6756f806-27c4-8004-8768-b94f879a8b5e
 
@@ -237,9 +309,40 @@ I'm still new to the space, so take with a grain of salt https://chatgpt.com/sha
 * vector db: I've been keeping tabs of the vector db ecosystem but that means ~20 links I haven't yet read and need to. Hopefully I can find either an embedded option or a good hosted service.
 * training: assume we'd use transfer | reinforcement learning vs. getting into the weeds with adjusting the weights (finetuning, LoRA, PEFT) https://www.youtube.com/watch?v=55guW-DZVM0
 ```
+* prompt
+```txt
+I want to build RAG for a book I'm writing so that I can learn more about the book (where is the structure weak? what connections *could* I make that I haven't already?). I want the RAG to act as some combination of an editor and a critic.
+```
+* completion
+```txt
+1. Data Preparation
+Segment the Book: Split your manuscript into manageable chunks, such as chapters, sections, or paragraphs.
+Create Metadata: Annotate each chunk with relevant metadata (e.g., chapter, themes, key ideas).
+Embed Contextual Information: If you have earlier drafts, notes, or research material, include these as part of the corpus.
+2. Knowledge Base Construction
+Use embeddings to create a vectorized representation of each chunk, enabling semantic search. Libraries like OpenAI's embeddings, Hugging Face, or Sentence Transformers are excellent choices.
+Organize a knowledge base (e.g., Pinecone, Weaviate, or FAISS) to allow fast and efficient retrieval.
+3. RAG Architecture
+Retrieval Component: Query your knowledge base for related chunks based on prompts.
+Generation Component: Use a generative model fine-tuned on critique/editing tasks. Models like GPT-4 or fine-tuned open-source models can work well here.
+4. Functionality
+Structural Weakness Analysis: Prompt the system with questions like, “What parts of this argument lack support?” or “Where does the structure feel inconsistent?”
+Connection Suggestions: Use prompts like, “What connections can be made between [Section A] and [Section B]?” or “Suggest thematic overlaps I’ve overlooked.”
+Critique Generation: Ask for specific feedback, such as, “Critique the logical flow of this section” or “Analyze the character development in this chapter.”
+5. Iterative Refinement
+Analyze the outputs and iteratively refine the RAG system by adjusting the prompts, embeddings, or fine-tuning the model based on your unique style and goals.
+```
+* prompt
+```txt
+Is there an aider but for prose? What I'm looking for is something that has aider's map of everything you've written https://aider.chat/docs/repomap.html
++ text transform i.e. "take this paragraph and turn it into Proust"
+
+https://www.hyperwriteai.com/aitools/text-style-transfer
+```
 
 ---
 
+https://github.com/hfhoffman1144/langchain_neo4j_rag_app https://realpython.com/build-llm-rag-chatbot-with-langchain/
 ⭐️ start here https://github.com/theam/rag-workshop-pydata-nyc-2024 https://www.youtube.com/watch?v=C4u1SjGiT_8 https://www.youtube.com/watch?v=XU2xhCHqILE
 
 https://news.ycombinator.com/item?id=42360685
@@ -262,6 +365,7 @@ https://github.com/Shubhamsaboo/awesome-llm-apps https://www.theunwindai.com/p/b
 * https://github.com/snexus/llm-search
 * https://arcturus-labs.com/blog/2024/11/21/roaming-rag--make-_the-model_-find-the-answers/
 
+* https://www.thoughtworks.com/radar/techniques/fine-tuning-embedding-models
 * https://openai.com/12-days/
 * _Guru_: https://www.getguru.com/
 > Retrieval augmented generation (RAG) is an architecture that provides the most relevant and contextually-important proprietary, private or dynamic data to your Generative AI application's large language model (LLM) when it is performing tasks to enhance its accuracy and performance. https://www.pinecone.io/learn/retrieval-augmented-generation/
@@ -314,6 +418,13 @@ BYO
 
 ---
 
+* https://realpython.com/huggingface-transformers/#looking-under-the-hood-with-auto-classes
+* https://realpython.com/huggingface-transformers/#setting-up-a-google-colab-notebook
+* Fine-tuning (Full or Transfer Learning)
+> Requires substantial compute and a large, high-quality dataset
+* Parameter-Efficient Fine-Tuning (LoRA / PEFT)   
+* Reinforcement Learning (RLHF or Task-Specific)
+
 * train on your own emails https://github.com/zycyc/LAMBDA
 data prep kit https://www.youtube.com/watch?v=tqRvmg2F_gI https://github.com/IBM/data-prep-kit
 > assume we'd use transfer or reinforcement learning vs. getting into the weeds with adjusting the weights (finetuning, LoRA, PEFT)
@@ -340,7 +451,10 @@ https://platform.openai.com/docs/overview https://cookbook.openai.com/
 
 ## audio
 
+🗄️ Hugging Face
+
 TYPES https://elevenlabs.io/
+* didn't work https://huggingface.co/spaces/openai/whisper
 * dubbing
 * voice clone https://www.tetragrammaton.com/content/richard-feynman
 * _TTS_: https://notebooklm.google/ https://news.ycombinator.com/item?id=41964980 PDF to audio https://www.fwdaudio.com/ https://x.com/barbell_fi multistage https://simonw.substack.com/p/verdad-tracking-misinformation-in https://www.fwdaudio.com/
@@ -368,6 +482,9 @@ https://arxiv.org/pdf/2411.01582
 > use to build stock market
 
 ## img
+
+EXAMPLES
+* https://www.mercatus.org/doge
 
 * _TTV_: https://simonwillison.net/2024/Dec/9/sora/
 * _TFI_: https://calmcode.io/shorts/pytesseract.py
@@ -404,6 +521,7 @@ https://arxiv.org/pdf/2411.01582
 
 ## prompts
 
+🔗 https://www.promptingguide.ai/techniques/fewshot https://www.thoughtworks.com/radar/techniques/dynamic-few-shot-prompting
 📙
 * https://www.manning.com/books/prompt-engineering-in-practice
 * https://www.manning.com/books/prompt-engineering-in-action
@@ -444,6 +562,10 @@ STRATEGY
 * ask it to do better
 
 ---
+
+https://simonwillison.net/2025/Jan/3/asking-them-to-write-better-code/
+
+> Please back your claims up with specifics.
 
 https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
 

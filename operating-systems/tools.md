@@ -2,6 +2,14 @@
 
 ## 参考
 
+🔍
+* https://www.commandlinefu.com
+* https://explainshell.com/ https://github.com/akavel/up
+🗄
+* `applications.md` utils
+* `db.md` utils
+* `git.md` utils
+* `linux.md` denv
 📚
 * Barrett https://www.amazon.com/gp/product/1098113403 https://fabiensanglard.net/bash/
 * Evans shell
@@ -9,6 +17,20 @@
 * Stutz cookbook
 
 ## 进步
+
+CLEAN UP FASTER
+* _tee_: view output https://www.youtube.com/watch?v=NsAUBict1Aw
+```sh
+# https://github.com/zachvalenta/capp-denv-bin
+jq -r '.data.user.contributionsCollection.contributionCalendar.weeks[].contributionDays[] | "\(.date): \(.contributionCount)"' | tee /dev/tty
+```
+* _try_: view files that command touches https://github.com/binpash/try
+
+CLEAN UP
+* _ffmpeg_: video encoding, file format conversion https://www.youtube.com/watch?v=MPV7JXTWPWI https://ffmpeg.guide/ https://img.ly/blog/ultimate-guide-to-ffmpeg/ https://drewdevault.com/2022/10/12/In-praise-of-ffmpeg.html
+* _imgcat_: render img in terminal https://news.ycombinator.com/item?id=23319272
+* weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/ https://git.sr.ht/~timharek/yr
+* Wikipedia https://github.com/yashsinghcodes/wik
 
 * _24_: forced switch to eza, try difftastic, monitoring (tqdm, dust, procs, havn), uniq, get television working as reasonable substitute for text search in VS Code
 * _20_: broot
@@ -103,6 +125,7 @@ fselect path, mime from /home/user where is_audio = 1
 
 🗄️
 * grep
+* `algos.md` matching
 * `vim.md` fuzzy find
 
 ### 🌸 fzf
@@ -299,17 +322,31 @@ DESIGN
 
 ### 🦆 yazi
 
+📜 https://yazi-rs.github.io/
+
+FILE OPS
+* `d`: rm
+
+ZA
+* scroll preview: `J|K`
+
 CONFIG
-* fs: `~/.config/yazi`
-* `ya`: CLI
+```sh
+├── .config/yazi
+│   └── package.toml  # shell/yazi/plugins.toml
+│   └── theme.toml  # shell/yazi/catppuccin.toml https://github.com/catppuccin/yazi
+│   └── yazi.toml  # shell/yazi/config.toml
+```
+* `ya`: CLI to install plugins
+* plugins https://yazi-rs.github.io/docs/cli/#package-manager
+* dir icons https://github.com/sxyazi/yazi/issues/2148
 
-OPERATIONS
+---
+
+TODO
 * enter doesn't enter dir from shell but rather opens in Vim -> workaround? https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
-* 📍 good for file operations https://www.youtube.com/watch?v=iKb3cHDD9hw
-
-VIZ
-* 📍 theme https://github.com/catppuccin/yazi
-* 📍 PDF preview via poppler https://github.com/sxyazi/yazi
+* file operations https://www.youtube.com/watch?v=iKb3cHDD9hw
+* PDF preview via poppler https://github.com/sxyazi/yazi
 
 ## jump (zoxide)
 
@@ -326,6 +363,8 @@ TOOLS
 * storage: `/Users/zach/Library/Application Support/zoxide/db.zo`
 * initial usage didn't work bc of user error on my part 🗄️ `os/denv.md` profiles
 * if you really go all in you can just `alias cd = z` https://www.youtube.com/watch?v=aghxkpyRVDY
+* 📍 integrates with yazi?
+* ❌ no post-exit hook (to ls)
 
 ## list
 
@@ -886,40 +925,10 @@ $ sort -R  # random; not always random for reason's I don't yet understand
 
 # 🟨️ ZA
 
-🔍
-* https://www.commandlinefu.com
-* https://explainshell.com/ https://github.com/akavel/up
-🗄
-* `applications.md` utils
-* `db.md` utils
-* `git.md` utils
-* `linux.md` denv
+## coreutils
 
 ---
 
-CLEAN UP
-* _ffmpeg_: video encoding, file format conversion https://www.youtube.com/watch?v=MPV7JXTWPWI https://ffmpeg.guide/ https://img.ly/blog/ultimate-guide-to-ffmpeg/ https://drewdevault.com/2022/10/12/In-praise-of-ffmpeg.html
-* _imgcat_: render img in terminal https://news.ycombinator.com/item?id=23319272
-* _tee_: view output https://www.youtube.com/watch?v=NsAUBict1Aw
-* _try_: view files that command touches https://github.com/binpash/try
-* weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/ https://git.sr.ht/~timharek/yr
-* Wikipedia https://github.com/yashsinghcodes/wik
-
-CLIPBOARD
-* manager https://github.com/Slackadays/Clipboard
-* copy output: `<cmd> | pbcopy` https://github.com/Slackadays/Clipboard
-* copy file: `pbcopy < ~/.ssh/id_rsa.pub`
-
-CORE
-* versions: Linux uses GNU, macOS uses BSD (get w/ `brew install coreutils`) 📙 Evans shell [4]
-* _file_: info on encoding, if executable
-* _free_: disk space? free memory? `df` memory https://apple.stackexchange.com/q/4286/328389 or `duf` https://github.com/ibraheemdev/modern-unix `top` on macOS
-* _bc_: do math on stdin https://missing.csail.mit.edu/2020/data-wrangling/
-* _head_: 类似 SQL `limit` e.g. `ls <query> | head -4` or `kaiff` (`ls | sort -f | head -1 | xargs open`) https://stackoverflow.com/a/14510257/6813490
-* _which_: search for executables on $PATH https://github.com/Idnan/bash-guide#d-which full path https://nil.wallyjones.com/what-shell-am-i-using/
-*m_w_: who is logged in and what they're doing https://rachelbythebay.com/w/2018/03/26/w/
-
-COREUTILS
 * _coreutils_: ls, rm, cat, et al. https://en.wikipedia.org/wiki/List_of_GNU_Core_Utilities_commands https://github.com/Gandalf-/coreutils
 * aka userland https://bitfieldconsulting.com/golang/scripting
 * Rust rewrites aka "modern UNIX" https://github.com/ibraheemdev/modern-unix https://github.com/ibraheemdev/modern-unix https://news.ycombinator.com/item?id=26396798 https://jvns.ca/blog/2022/04/12/a-list-of-new-ish--command-line-tools/ https://github.com/ibraheemdev/modern-Unix
@@ -938,8 +947,30 @@ MAN PAGES
 * help: `man`, `info`, `whatis`, `man 2 <cmd>` (for system calls)
 * man pages: following links (like at bottom of cmus manpage) https://unix.stackexchange.com/a/18161/331460 set pager `export MANPAGER=bat` https://askubuntu.com/a/679058
 
-TRASH
+CORE
+* versions: Linux uses GNU, macOS uses BSD (get w/ `brew install coreutils`) 📙 Evans shell [4]
+* _file_: info on encoding, if executable
+* _free_: disk space? free memory? `df` memory https://apple.stackexchange.com/q/4286/328389 or `duf` https://github.com/ibraheemdev/modern-unix `top` on macOS
+* _bc_: do math on stdin https://missing.csail.mit.edu/2020/data-wrangling/
+* _head_: 类似 SQL `limit` e.g. `ls <query> | head -4` or `kaiff` (`ls | sort -f | head -1 | xargs open`) https://stackoverflow.com/a/14510257/6813490
+* _which_: search for executables on $PATH https://github.com/Idnan/bash-guide#d-which full path https://nil.wallyjones.com/what-shell-am-i-using/
+*m_w_: who is logged in and what they're doing https://rachelbythebay.com/w/2018/03/26/w/
+
+## clipboard
+
+🗄️ Raycast
+
+* manager https://github.com/Slackadays/Clipboard
+* copy output: `<cmd> | pbcopy` https://github.com/Slackadays/Clipboard
+* copy file: `pbcopy < ~/.ssh/id_rsa.pub`
+
+## trash
+
+🗄️ yazi
+
+---
+
 * https://github.com/nivekuil/rip https://hacker-tools.github.io/command-line/ https://github.com/umlx5h/gtrash https://news.ycombinator.com/item?id=41902864
 * _recoverpy_: https://github.com/PabloLec/RecoverPy
-* _rm_: send to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives
+* _rm_: sends to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives
 * _send2trash_: https://github.com/arsenetar/send2trash/issues https://github.com/arsenetar/send2trash/issues/56 

@@ -13,6 +13,29 @@
 
 ## 进步
 
+* _24_: own file
+
+ASSEMBLY
+Some compilers translate high-level code into assembly language as an intermediate step. This assembly code is then passed to an assembler, which converts it into machine code (binary instructions that the CPU can execute directly).
+Examples: GCC/Clang for C/C++: These compilers can generate assembly code using flags like -S. For instance, gcc -S example.c produces an example.s assembly file.
+Rust Compiler (rustc): Can emit assembly code for inspection or further processing.
+
+BINARY
+This is the set of binary instructions that a computer's CPU executes directly. Compilers like GCC, Clang, and MSVC can compile source code all the way to machine code, producing executable files (like .exe on Windows or binary binaries on Unix/Linux systems).
+Examples: C/C++ Compilers: gcc example.c -o example generates an executable binary. Go Compiler (go build): Compiles Go programs directly into machine code executables.
+
+BYTECODE
+Bytecode is an intermediate, platform-independent code that is executed by a virtual machine (VM) or an interpreter. It is more abstract than machine code but less so than high-level source code. Bytecode allows for portability across different hardware and operating systems, as the same bytecode can run on any platform that has the appropriate VM.
+Examples: Java Compiler (javac): Compiles Java source files into .class files containing Java bytecode, which the Java Virtual Machine (JVM) executes. C# Compiler (csc): Produces Microsoft Intermediate Language (MSIL) bytecode, which runs on the .NET Common Language Runtime (CLR). Python (with certain implementations): CPython compiles Python code to bytecode (.pyc files) executed by the Python virtual machine.
+
+INTERMEDIATE REPRESENTATION
+Some compilers use their own intermediate representations during the compilation process, which are not necessarily the final output but are crucial for optimizations and transformations. IRs like LLVM's Intermediate Representation are used within compiler toolchains to enable optimizations and support multiple target architectures.
+Examples: LLVM Compiler Infrastructure: Uses LLVM IR as a common language for various front-end languages, allowing the backend to generate machine code for different architectures.
+
+SOURCE TO SOURCE
+* TypeScript Compiler (tsc): Translates TypeScript code into JavaScript.
+* Babel: Transpiles modern JavaScript (ES6+) into backward-compatible versions.
+
 # 🦠 COMPILE
 
 ```python
@@ -26,6 +49,8 @@ Creates AST (Abstract Syntax Tree)
 ```
 
 ---
+
+> Because it'll take two seconds to run in Rust or in Python or a few hundred milliseconds to run in Python and 10 seconds to compile in Rust. So it is not universally the case that the development cycle is faster in Rust. https://talkpython.fm/episodes/show/487/building-rust-extensions-for-python
 
 * https://lwn.net/Articles/997784/
 * 📙 Conery 216
@@ -277,22 +302,30 @@ For deeper inspection:
 
 🗄️ `c.md` packaging
 
-* static vs. dynamic https://astral.sh/blog/python-build-standalone
-* _linking_: combine multiple object files into final binary
+* source
 ```c
-// a.c
+// foo.c
 extern int b_func(void);
 int a_func(void) { return b_func() + 1; }
 
-// b.c
+// bar.c
 int b_func(void) { return 41; }
 ```
+* compilation
 ```sh
 # compile separately
-gcc -c a.c    # Makes a.o
-gcc -c b.c    # Makes b.o
-gcc a.o b.o   # Links them -> final executable
+gcc -c foo.c    # makes foo.o
+gcc -c bar.c    # makes bar.o
 ```
+* _linking_: combine multiple object files into final binary
+```sh
+gcc foo.o bar.o   # links them -> final executable
+```
+
+---
+
+* static vs. dynamic https://astral.sh/blog/python-build-standalone
+* https://docs.tigerbeetle.com/quick-start/
 
 # 🔮 RUNTIME
 
@@ -326,6 +359,7 @@ JIT
 
 * _FFI_: how to call C https://scottlocklin.wordpress.com/2021/04/01/obvious-and-possible-software-innovations-nobody-does/ https://www.youtube.com/watch?v=-1_FDp84PDE JNI https://news.ycombinator.com/item?id=31353740 https://github.com/replit/ruspty
 * _CFFI_: call C from Python https://pypi.org/project/cffi/ https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
+* https://github.com/electronstudio/raylib-python-cffi
 * call Python from C http://eradman.com/posts/extending-c-python.html
 
 # 🟨 ZA
@@ -482,6 +516,7 @@ https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-
 
 ---
 
+* spec is vague, not really open source and driven/controlled by Microsoft, uses RPC https://www.youtube.com/watch?v=JjWNw7aOAYU [4:30,8:30]
 * https://github.com/joshuadavidthomas/django-language-server
 * https://github.com/golang/tools
 * https://langserver.org/

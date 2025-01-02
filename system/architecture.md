@@ -4,21 +4,34 @@
 
 🗄
 * `dbms.md` perf
+* ⭐️ `eng.md` factors
 * `doc.md` viz / system
 * `src.md` checklist
 * `science.md` complexity
 * `telemtry.md` perf
 📚
 * Buelta python architecture
+* Dibernardo 500 lines or less http://aosabook.org/en/index.html
 * Ford fundamentals of software architecture
 * Ford evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
+* ⭐️ Xu system design interview https://www.manning.com/books/acing-the-system-design-interview
 
 ## 进步
 
+* _19_: URL shortener
+
 ---
 
+* BYO https://avi.im/blag/2024/s3-log/
+https://avi.im/blag/2024/zero-disk-architecture/ https://avi.im/blag/2024/disaggregated-storage/
 https://bytebytego.com/ https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119 https://www.youtube.com/watch?v=jPKTo1iGQiE
+
+URL SHORTENER 🗄 `fd url-short`
+* _URL shortener_: make links look more trustworthy
+* providers: Bitly, TinyURL
+* https://www.youtube.com/watch?v=rGQKHpjMn_M
+* https://blog.codinghorror.com/url-shortening-hashes-in-practice/
 
 ROADMAPS
 * https://roadmap.sh/system-design
@@ -109,11 +122,7 @@ https://drewdevault.com/2020/11/06/Utility-vs-usability.html
 * caching https://mattsegal.dev/simple-django-deployment.html
 * infra https://mattsegal.dev/simple-django-deployment.html
 
-# 💡 HEURISTICS
-
-* separation of concerns: HTML for content/semantics, CSS for style
-
-## ⭕️ factors
+# ⭕️ FACTORS
 
 🗄️ `eng.md` factors
 
@@ -138,20 +147,6 @@ COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtim
 * aka open-closed principle (from SOLID) https://en.wikipedia.org/wiki/Open%E2%80%93closed_principle
 * _forward compatibility_: old code can handle new data; typically harder to do 📙 Kleppmann [112] typically old code doesn't touch new fields [129]
 > how would this happen unless you logged in
-
-KLEPPMANN
-* _reliability_: works even if hw/sw failure [6]
-* _scalability_: able to deal w/ growth (data, traffic, complexity)
-* _maintainability_: other devs able to work on system
-> it is well know that the majority of the cost of software is not in its intial development, but its ongoing maintenance [Kleppmann 18] https://www.jefftk.com/p/designing-low-upkeep-software
-* _db on 1 machine_: requires planned downtime [8]
-* _db on n machines_: can do rolling upgrade [8]
-* _n db_:
-* _things that can go wrong_: runaway process (consuming too much memory) [8] unresponsive downstream service [9] operator error [9]
-* _how to prevent things going wrong_: testing https://danluu.com/why-benchmark/ easy rollback, monitoring
-* _fan out_: num of req to other services to handle one incoming req [11]
-📍 need to review SQL of Twitter example
-* _evolvability_: ability to change different parts of system independently [Kleppmann 4.128]
 
 * _monolith_: single service, single data store https://news.ycombinator.com/item?id=24505467
 * _SOA (service oriented)_: n services, n data stores
@@ -187,8 +182,29 @@ KLEPPMANN
 * _SPoF_: single point of failure
 * _fault domain_: components sharing SPoF https://lethain.com/fault-domains/
 * _sink_: https://martinfowler.com/architecture/ https://engineering.videoblocks.com/web-architecture-101-a3224e126947
-## KISS
 
+## available
+
+* _reliability_: works even if hw/sw failure 📙 Kleppmann [6]
+
+* _db on 1 machine_: requires planned downtime [8]
+* _db on n machines_: can do rolling upgrade [8]
+* _n db_:
+* _things that can go wrong_: runaway process (consuming too much memory) [8] unresponsive downstream service [9] operator error [9]
+* _how to prevent things going wrong_: testing https://danluu.com/why-benchmark/ easy rollback, monitoring
+
+## maintainable
+
+* _maintainability_: other devs able to work on system
+> it is well know that the majority of the cost of software is not in its intial development, but its ongoing maintenance 📙 Kleppmann [18] https://www.jefftk.com/p/designing-low-upkeep-software
+* _evolvability_: ability to change different parts of system independently [Kleppmann 4.128]
+
+---
+
+SKETCHING
+> In the intersection of the hardware and software industry, we just continuously run into [patterns like this]. A lot of things are defined by finding some process that works, scaling it up 10x and then it breaking in ways that you did not realize things could break. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
+
+KISS
 * https://github.com/Olshansk/postgres_for_everything
 * hidden control flow, PHP vs. Zig https://news.ycombinator.com/item?id=42203084
 * _clarity_: above all bc we're bulding information systems 📻 DHH (STT) https://www.youtube.com/watch?v=9LfmrkyP81M
@@ -225,9 +241,12 @@ KLEPPMANN
 > The problem with always using an abstraction is that you’re preemptively guessing which parts of the codebase need to change together. “Don’t Repeat Yourself” will lead to a rigid, tightly coupled mess of code. Repeating yourself is the best way to discover which abstractions, if any, you actually need.
 > Beware of arguments related to programming speed. All things being equal, faster is better. But all things are never equal. Do you need the kind of speed that lets you get a website up and running quickly? Or the kind that allows you to rotate a few thousand polygons in 3D in real time? Do you need to convert 10,000 PDFs into text per hour? Or 10 million PDFs into text once? These are different problems. - Ford what is code?
 
-## sketching
+## scalable
 
-> In the intersection of the hardware and software industry, we just continuously run into [patterns like this]. A lot of things are defined by finding some process that works, scaling it up 10x and then it breaking in ways that you did not realize things could break. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
+* _scalability_: able to deal w/ growth (data, traffic, complexity)
+
+* _fan out_: num of req to other services to handle one incoming req [11]
+📍 need to review SQL of Twitter example
 
 # ⠎ PATTERNS
 
@@ -431,41 +450,3 @@ DESIGN
 * = dynamism via APIs instead of db https://wsvincent.com/what-is-a-static-site-generator/
 * advantages: speed (everything on CDN) security (no db) ++ good for SEO? https://immutablewebapps.org
 * 📍 clean up --> https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/ apparently good for SEO as well Netlify, Gridsome https://redwoodjs.com/ deployment on Zeit, Netlify https://softwareengineeringdaily.com/2020/04/30/jamstack-content-management-with-scott-gallant-jordan-patterson-and-nolan-phillips/ 15:00 https://hacks.mozilla.org/2020/10/mdn-web-docs-evolves-lowdown-on-the-upcoming-new-platform  what it means for backend dev https://www.youtube.com/watch?v=Z2JK7SS82wE https://www.youtube.com/watch?v=grSxHfGoaeg https://scotch.io/@sw-yx/python-the-jamstack
-
-# 🟨 ZA
-
-MOBILE
-* https://www.bestinclassiosapp.com/ https://www.swiftjectivec.com/
-
-## Docker db data mgmt
-
-🗄️ `containers.md` volumes
-🧠
-* https://chatgpt.com/c/673ce340-ca14-8004-b5ee-320faa5c9866
-* https://chatgpt.com/c/6724db6b-b820-8004-b8b4-f73f4e6a3c73
-* https://chatgpt.com/c/6724c43a-a9cc-8004-809b-2b53075f84af
-
-EXTERNAL
-* run Postgres as normal
-* Amazon RDS
-> 📍 Regarding RDS, you mentioned: "Adds network dependency and potential latency for remote storage." -> Wouldn't that already be the case given that RDS is a service?
-
-VOLUMES
-* just save to volume, which persist even if container destroyed
-```sh
-docker run -d --name postgres -v postgres_data:/var/lib/postgresql/data postgres
-```
-* backup at intervals
-```sh
-docker run --rm -v postgres_data:/data -v $(pwd):/backup alpine tar czf /backup/data.tar.gz /data
-```
-* volume drivers?
-> Can you say more about Docker volume drivers?
-
----
-
-do you have creds for the m
-
-If you're running an app in Docker, and it includes both a backend and a database [let's say Postgres] that it writes to, what are the options for storing that data? Just store in a Docker volume? Save elsewhere?
-
-Let's say that this Dockerized app is hosted on an EC2 instance. How would that change your above assessment?

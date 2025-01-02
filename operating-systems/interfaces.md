@@ -17,6 +17,44 @@ copy terminal output https://calmcode.io/course/cool-cli/yank
 neofetch # WM: Quartz Compositor
 ```
 ```txt
+Are i3 and XMonad Compositors?
+No, i3 and XMonad are window managers, not compositors.
+
+What is a Window Manager?
+A window manager organizes how application windows are displayed and interacted with on the screen. It decides:
+
+How windows are tiled, stacked, or floated.
+Window focus behavior.
+Custom keybindings and layouts.
+However, window managers like i3 and XMonad rely on an X11 compositor (such as compton or picom) to handle visual effects like transparency and shadows, as they do not manage rendering themselves.
+
+Key Differences:
+i3:
+
+A tiling window manager for X11.
+Manages window layouts but delegates actual rendering to the X server.
+Can be combined with a compositor (e.g., picom) for effects.
+XMonad:
+
+A dynamic tiling window manager written in Haskell for X11.
+Similarly, it does not handle rendering but can work alongside a compositor.
+In summary:
+
+Wayland compositors integrate both rendering and window management.
+i3 and XMonad are strictly window managers for the X11 protocol and rely on separate compositors for advanced visual effects.
+```
+```txt
+A Wayland compositor is a program that serves as the display server and window manager for a Wayland-based system. It handles:
+
+Rendering Windows: Compositing the application windows onto the screen.
+Input Management: Handling input events from devices (mouse, keyboard, touchscreens) and forwarding them to the appropriate applications.
+Display Server Role: Communicating with clients (applications) directly using the Wayland protocol.
+The compositor combines these roles into one unified application, eliminating the need for a separate window manager (as is often required in X11).
+
+Examples of Wayland compositors include:
+* Hyprland
+* Sway (a Wayland-compatible alternative to i3)
+
 Window managers and compositors serve different but related functions in graphical desktop environments.
 
 WINDOW MANAGER
@@ -402,6 +440,15 @@ ICON/FONT/COLOR INTERPLAY
 
 ---
 
+| **Feature**         | **xterm-256color**          | **True Color (24-bit)**         |
+|---------------------|-----------------------------|----------------------------------|
+| **Color Depth**     | 256 colors                   | 16,777,216 colors               |
+| **Bit Depth**       | 8-bit (indexed)              | 24-bit (RGB)                    |
+| **Customization**   | Fixed palette (216 RGB + 40) | Full RGB (any R, G, B value)    |
+| **Color Gradients** | Blocky and noticeable steps  | Smooth, high-fidelity gradients |
+| **Supported By**    | Most terminal applications   | Advanced applications and themes|
+| **Common Usage**    | Text editors (Vim, Tmux)     | Image rendering, gradients, modern UIs |
+
 https://danyspin97.org/blog/colorize-your-cli/
 color themes https://realpython.com/courses/custom-vs-code-color-themes/
 
@@ -456,6 +503,7 @@ PRO AND CONS
 * ✅ good for vi readline (which helps with atuin)
 * ❌ no divider between splits
 * ❌ cmus is unusable
+> would a theme help with this? would a theme conflict with prompt/eza?
 > check out repo issues for these two
 
 CONFIG

@@ -10,16 +10,16 @@
 * https://github.com/HackSoftware/Django-Styleguide
 📚
 * Layman https://www.mattlayman.com/understand-django/
-* Trudeau https://www.manning.com/books/django-in-action https://learndjango.com/courses/django-for-beginners https://github.com/wsvincent/djangoforbeginners
-* Vincent beginners (3.0) https://livebook.manning.com/book/django-in-action
+* ⭐️ Palmieri zero to prod in rust https://www.amazon.com/Zero-Production-Rust-introduction-development/dp/B0BHLDMFDQ https://www.zero2prod.com/index.html
+* Trudeau https://www.manning.com/books/django-in-action 🗄️ checklist
+* Vincent beginners (3.0) https://learndjango.com/courses/django-for-beginners https://github.com/wsvincent/djangoforbeginners
 > (no longer available as PDF) but you have access to his course https://wsvincent.com/year-in-review-2024/
 
 ## 进步
 
 ---
 
-alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016 https://github.com/hbakri/django-ninja-crud
-Rails https://news.ycombinator.com/item?id=42569236
+alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016 https://github.com/hbakri/django-ninja-crud https://talkpython.fm/episodes/show/490/django-ninja
 https://www.loopwerk.io/articles/2024/django-vs-flask-vs-fastapi/
 https://www.bugsink.com/blog/better-error-tracking-in-django/
 https://realpython.com/django-user-management/
@@ -27,6 +27,7 @@ https://realpython.com/django-user-management/
 * in a single file https://github.com/radiac/nanodjango
 TUI commands https://github.com/anze3db/django-tui
 TUI admin https://github.com/valberg/django-admin-tui https://github.com/valberg/django-htmx-admin https://github.com/adamghill/django-unicorn
+htmx https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
 REPL https://github.com/selectnull/django-pyrepl/
 
 * _24_: rf
@@ -865,13 +866,72 @@ misc
 
 * deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge
 
+## checklist / scaffold
+
+* UV
+* healthcheck
+* REPL
+* make/task
+* web server
+
+* CICD
+* admin
+
+* auth
+* dotenvx
+* feature flag
+
+* CDN
+* load balancing
+* cache
+
+* Celery
+* htmx
+
+---
+
+https://github.com/zachvalenta?tab=repositories&q=docker&type=&language=&sort=
+* env: config, Docker, ❌ auth
+* CQ: testing, hooks
+* data: seed, repl, ❌ migrations, serialization, ORM
+* UI: styling, pagination, search
+🏡 intermediate - ✅ migrations, auth, env (✅ config, ✅ Docker)
+🥕 basic - CRUD (✅ ORM, ✅ serialization, seed) UI (styling, search, pagination) CQ (✅ testing, hooks)
+
+WORLD'S DUMBEST COMPLETE SAAS
+> use as your repo to experiment
+* Vincent books 🗄 `django.md`
+* https://saasitive.com/
+> scaffold (deployment, monitoring), accounts (individual, teams), auth (registration, login/logout, pw update, account removal), subscriptions
+* https://news.ycombinator.com/item?id=34530052
+* https://news.ycombinator.com/item?id=34483294
+* https://pocketbase.io/ https://github.com/trailbaseio/trailbase https://news.ycombinator.com/item?id=42336207
+* BYO Saas https://www.datasette.cloud/blog/2023/welcome/ https://simonwillison.net/2020/Jan/14/stanford-planning-datasette-cloud/ https://simonwillison.net/tags/datasette-cloud/?page=2
+
 ## design
+
+🗄 `python/core.md` functions > metaprogramming
+
+> Web development is often broad, not deep - problems span many domains. https://docs.djangoproject.com/en/2.0/intro/whatsnext/
+> A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
+
+* components: HTTP, routes, ORM
+* _Rails_: still the best
+> It's productive, it's fast enough, it scales just fine, and perhaps most importantly there's a "right" way to do just about everything your web application will ever need to do: background jobs, websockets, read-only database replicas. https://news.ycombinator.com/item?id=42014906
+
+---
+
+Django vs. Rails https://news.ycombinator.com/item?id=42388340
+https://github.com/CrocoFactory/sensei
+Rails https://news.ycombinator.com/item?id=42569236 https://literallythevoid.com/blog/rails_for_everything.html
 
 https://treypiepmeier.com/words/2024/08/django-is-for-everyone
 https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
 https://lukeplant.me.uk/blog/posts/mvc-is-not-a-helpful-analogy-for-django/
 https://lukeplant.me.uk/
 
+BYO
+* https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/ https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/ https://github.com/itsthejoker/spiderweb/ https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://dev.to/brunociccarino/how-i-wrote-express-go-in-19-hours-3ndh https://blog.dimitarandreev.com/posts/writing-an-http-router-for-aws-lambda-functions-from-scratch-with-go/
 ## libs
 
 🔍 https://learndjango.com/tutorials/essential-django-3rd-party-packages

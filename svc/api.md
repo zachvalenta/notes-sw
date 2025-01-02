@@ -119,6 +119,16 @@ https://news.ycombinator.com/item?id=41939027
 * _spec_: doc explaining schema https://www.youtube.com/watch?v=1lo7idI7uq8
 * generate spec from API and vice versa https://www.youtube.com/watch?v=1lo7idI7uq8 3:00
 
+## contract testing
+
+📙 https://www.manning.com/books/contract-testing-in-action
+
+> APIs are just the most common use case since they're explicit interfaces between separate systems.  The core idea is: "Component A and Component B have an agreement (contract) about how they'll interact. Let's verify both sides honor that agreement." The Pact library popularized contract testing for APIs, which is probably why there's that association. But the concept generalizes to any interface where you can formalize the expectations between producer and consumer.
+* Pact https://www.thoughtworks.com/radar/tools?blipid=202110074
+* https://colorsofcode.ghost.io/counting-sheeps-with-contracts-in-python/
+* Jepsen https://news.ycombinator.com/item?id=38525968
+* https://tratt.net/laurie/blog/2024/what_factors_explain_the_nature_of_software.html
+
 ## JSON:API
 
 📜  https://jsonapi.org
@@ -259,7 +269,7 @@ API STAR 📜 https://docs.apistar.com/ https://github.com/zachvalenta/flask-ope
 
 # 🟨 ZA
 
-* reverse engineering https://news.ycombinator.com/item?id=41983409 https://news.ycombinator.com/item?id=42057903 https://news.ycombinator.com/item?id=42565821
+* reverse engineering https://apiparrot.com/?utm_source=hackernewsletter https://news.ycombinator.com/item?id=41983409 https://news.ycombinator.com/item?id=42057903 https://news.ycombinator.com/item?id=42565821
 
 ## pagination
 

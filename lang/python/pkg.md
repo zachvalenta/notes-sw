@@ -41,7 +41,7 @@ ALTERNATIVES
 * _Nuitka_: https://tryexceptpass.org/article/package-python-as-executable/ https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/ https://snarky.ca/what-is-the-core-of-the-python-programming-language
 * _PEX_: https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/ https://news.ycombinator.com/item?id=42148220 https://github.com/pex-tool/pex
 * _py2exe_: https://stackoverflow.com/a/5458807/6813490
-* _Shiv_: https://pythonbytes.fm/episodes/show/114/what-should-be-in-the-python-standard-library https://jhermann.github.io/blog/python/deployment/2020/03/08/ship_libs_with_shiv.html https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/
+* _Shiv_: https://pythonbytes.fm/episodes/show/114/what-should-be-in-the-python-standard-library https://jhermann.github.io/blog/python/deployment/2020/03/08/ship_libs_with_shiv.html https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/ https://www.bitecode.dev/p/all-your-python-project-in-one-file
 * _XAR_: https://gregoryszorc.com/blog/2018/12/18/distributing-standalone-python-applications/
 
 PYINSTALLER https://github.com/pyinstaller/pyinstaller https://realpython.com/pyinstaller-python/
@@ -137,7 +137,7 @@ pip3 download -r /Users/zach/Desktop/zvmac/materials/sw/lang/python/create-pytho
 pip3 install --no-index --find-links=~/Desktop/pypi-local coverage
 ```
 
-# 🔮 MGMT
+# 🕰️ HISTORY
 
 🗄️ `linux.md` packaging / manager
 
@@ -147,8 +147,6 @@ SEMANTICS
 * _package_: dir containing modules https://docs.python.org/3/glossary.html#term-package
 * _distribution_: getting your exec/lib to users
 * _dependencies_: using others exec/lib
-
-## history / standards
 
 PROGRESSION
 * Python2 to Python3 https://www.pinecone.io/blog/pain-poetry-python/
@@ -566,7 +564,7 @@ GLOBAL DEPENDENCIES
 * why not homebrew: when Python version upgrades it might lose track of the envs and you'll have to reinstall everything https://pythonbytes.fm/episodes/show/127/that-python-code-is-on-fire [14:00]
 * how it works: `bin` symlinks to + script w/ shebang line scoped to local venv https://stackoverflow.com/a/30541898/6813490 https://pythonbytes.fm/episodes/show/123/time-to-right-the-py-wrongs
 
-## uv
+# 🟪 UV
 
 📜 https://docs.astral.sh/uv/ https://github.com/astral-sh/uv
 🗄️
@@ -578,13 +576,7 @@ ADVANTAGES OVER 2019-2024 WORKFLOW
 
 DESIGN
 * origins in Rye https://lucumr.pocoo.org/2024/2/15/rye-grows-with-uv/
-* _Python Build Standalone_: prebuilt binaries for different architectures https://github.com/indygreg/python-build-standalone https://bsky.app/profile/crmarsh.com/post/3lch35lrdi224
-* _standalone_: not coupled to build system (i.e. your local machine) https://astral.sh/blog/python-build-standalone
-* static linking
-> Normally, when you build CPython on Linux or macOS, several system paths are hardcoded into the binary. This is fine if you're building and installing Python on a single machine, but it's a problem if you want to pre-build Python and then distribute it to other machines. CPython is also dynamically linked against a number of system libraries, which can cause trouble if the target machine doesn't have those libraries installed. In this way, CPython is not "standalone": it's tightly coupled to the system on which it was built.
-> So, for example, when you download Python on Linux (e.g., from python.org), what you're actually downloading is the CPython source, which is then built on your machine. Similarly, when you install Python with pyenv, it too is building from source.
-> Building from source is much slower than downloading a pre-built binary. This is especially true if you're building CPython with optimizations enabled (i.e., PGO and LTO). Notably, pyenv does not build with optimizations enabled by default, so if you're using pyenv to install Python, you're leaving significant performance improvements on the table.
-> Building from source introduces a dependency on a build toolchain (e.g., gcc). And it can fail! For a variety of reasons: missing dependencies, incompatible system libraries, etc.
+
 
 ---
 
@@ -636,24 +628,24 @@ https://www.bitecode.dev/p/whats-up-python-moar-uv-flask-like
 * with Github Actions https://github.com/astral-sh/setup-uv https://pythonbytes.fm/episodes/show/405/oh-really
 * https://www.bitecode.dev/p/uv-tricks
 
-# 🖲️ VERSION MGMT
+## 2019-2024 workflow
 
-🗄 it / mpb 2014
+PAIN POINTS
+* 
 
-## Anaconda
+| WORKFLOW | DESC                                        | TOOL   |
+|----------|---------------------------------------------|--------|
+| versions | Python versions                             | pyenv  |
+| CLI      | tools be globally available from the shell  | pipx   |
+| REPL     | libs globally available from iPython        | pip    |
+| project  | libs locally available within repo          | Poetry |
 
----
-
-* just some random company https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/ https://paulromer.net/escaping-from-anaconda/
-* replaced? https://github.com/mamba-org/mamba
-* big in corporate envs bc built their own userland that handles python version + packaging https://news.ycombinator.com/item?id=39390246
-* _conda_: pkg manager + Python version (400 MB)
-* install via `miniconda`
-* can install databases, non-Python pkg
-* _anaconda_: all the pkgs (3 GB)
-* install via `anaconda` https://stackoverflow.com/a/30057885/6813490
-* ❓ mini/conda play nice w/ existing Python install? https://www.thisismetis.com/assets/files/Metis-Bootcamp-Curriculum-52f9979f4f638857bc185b0b788d6d832efb7f34d3b240e199dc6d3f2eef40ed.pdf
-* https://mlpipes.com/changing-the-python-version-in-conda/ https://conda.io/docs/user-guide/install/index.html https://www.anaconda.com/blog/developer-blog/using-pip-in-a-conda-environment/ http://jakevdp.github.io/blog/2016/08/25/conda-myths-and-misconceptions/ http://www.sexchrlab.org/blog/2015/10/26/managing-multiple-python-environments-using-anaconda https://tdhopper.com/blog/my-python-environment-workflow-with-conda/ virtual env https://janakiev.com/til/jupyter-virtual-envs/
+```sh
+├── pyenv
+│   └── python
+│   └──── pip
+│   └──── pipx
+```
 
 ## inheritance
 
@@ -671,21 +663,53 @@ get algos project working and align Python versions btw pyenv python and pipx py
 * read up https://stackoverflow.com/questions/68735503/how-does-pipx-know-which-python-version-to-use
 ```
 
-## mess
+## migrate
 
----
+🧠 https://chatgpt.com/c/67683fd6-d260-8004-9a5b-be37a39aefbd
+for scripts https://packaging.python.org/en/latest/specifications/inline-script-metadata/
+https://bluesock.org/~willkg/blog/
 
-> Many tutorials start with the same thing: go to python.org and download the latest version of the language for you platform. Don’t listen to them. There is a better way. And here is why. There are different versions of Python and you would need switching between these versions while working on different projects. There is probably some version of Python already coming with your operation system. For Mac it’s 2.7, some Linux distributions already switched to version 3. Even more, there is another Python installed as a part of Anaconda package. The bottom line is: you never know for sure which Python is going to be run as you type python in the command line. At some point, there’s going to be a mess of different Python executables on your machine, and you will need some way of managing it. https://mitelman.engineering/blog/python-best-practice/automating-python-best-practices-for-a-new-project/
+## Build Standalone
 
-OPTIONS
-* ❌ system: pkg mgmt (yum) require own version https://realpython.com/intro-to-pyenv/#why-not-use-system-python
-* ❌ macOS command line tools https://justinmayer.com/posts/homebrew-python-is-not-for-you/ https://docs.brew.sh/Homebrew-and-Python#python-3x
-* ❌ PSF: no uninstaller https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/#macos https://docs.python.org/3/using/index.html 🗄 `psf-uninstall-problem.md`
-* ❌ Homebrew: will update interpreter under your feet https://justinmayer.com/posts/homebrew-python-is-not-for-you/ https://realpython.com/intro-to-pyenv/#what-about-a-package-manager
-* ❓ Anaconda
-* ❓ nix; https://github.com/DavHau/mach-nix https://github.com/nix-community/poetry2nix
-* ❓ asdf: https://justinmayer.com/posts/homebrew-python-is-not-for-you/
-* ✅ pyenv
+* _Python Build Standalone_: prebuilt binaries for different architectures https://github.com/indygreg/python-build-standalone https://bsky.app/profile/crmarsh.com/post/3lch35lrdi224
+* _standalone_: not coupled to build system (i.e. your local machine) https://astral.sh/blog/python-build-standalone
+* static linking
+> Normally, when you build CPython on Linux or macOS, several system paths are hardcoded into the binary. This is fine if you're building and installing Python on a single machine, but it's a problem if you want to pre-build Python and then distribute it to other machines. CPython is also dynamically linked against a number of system libraries, which can cause trouble if the target machine doesn't have those libraries installed. In this way, CPython is not "standalone": it's tightly coupled to the system on which it was built.
+> So, for example, when you download Python on Linux (e.g., from python.org), what you're actually downloading is the CPython source, which is then built on your machine. Similarly, when you install Python with pyenv, it too is building from source.
+> Building from source is much slower than downloading a pre-built binary. This is especially true if you're building CPython with optimizations enabled (i.e., PGO and LTO). Notably, pyenv does not build with optimizations enabled by default, so if you're using pyenv to install Python, you're leaving significant performance improvements on the table.
+> Building from source introduces a dependency on a build toolchain (e.g., gcc). And it can fail! For a variety of reasons: missing dependencies, incompatible system libraries, etc.
+
+## lzma thing
+
+🧠 https://chatgpt.com/c/677ae29d-1938-8004-a22d-9894d141538e
+
+```txt
+The Python stdlib _lzma module requires the liblzma development files to compile during Python installation. When using pyenv on macOS, if xz (which provides liblzma) isn't installed before Python is built, Python will compile without lzma support.
+The confusing part is that this is:
+
+Common enough that lots of people hit it
+Rare enough that it hasn't been solved in pyenv's default macOS installation
+Not consistently documented
+
+This mostly impacts pyenv users because:
+
+System Python on macOS includes lzma by default
+Many Linux distros automatically install liblzma-dev with their Python packages
+pip wheels usually come with their dependencies pre-compiled
+But pyenv builds Python from source and needs the dev files present during build
+
+I think this could be better handled by either:
+
+pyenv checking for and warning about missing build dependencies
+Python's configure script failing more obviously when optional modules can't be built
+
+So back to your original question - why would Python ship without lzma? It seems pyenv's default build process is taking the path of least resistance - if an optional module's dependencies aren't present during build time, it just skips that module rather than failing the build.
+This is arguably a reasonable default (get a working Python with most modules) but can be surprising when you hit one of these missing pieces.
+```
+
+# 🖲️ VERSION MGMT
+
+## antipatterns
 
 NON-TRIVIAL
 * new versions have syntax/features unsupported by other tools https://pythonspeed.com/articles/major-python-release/
@@ -693,6 +717,23 @@ NON-TRIVIAL
 * easy to shoot yourself in the foot https://xkcd.com/1987 but it's still your fault https://snarky.ca/deconstructing-xkcd-com-1987/
 * too many versions on local https://www.hackerfactor.com/blog/index.php?/archives/825-8-Reasons-Python-Sucks.html
 * Vincent https://talkpython.fm/episodes/show/190/teaching-django Guido https://twitter.com/brettsky/status/991172186911076352
+
+ANACONDA
+> It’s provided by some random for-profit company...You can still do data science using the official distribution. There’s nothing special about Anaconda. https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/
+* used by people who don't know anything https://paulromer.net/escaping-from-anaconda/
+* used by megacorps bc LDAP integration, auditing https://news.ycombinator.com/item?id=39390246
+* _conda_: pkg manager + Python version (400 MB), install via `miniconda`
+* C++ version https://github.com/mamba-org/mamba
+* _anaconda_: all the pkgs (3 GB)
+* install via `anaconda` https://stackoverflow.com/a/30057885/6813490
+
+ZA
+* os version: pkg mgmt (yum) require own version https://realpython.com/intro-to-pyenv/#why-not-use-system-python
+> Many tutorials start with the same thing: go to python.org and download the latest version of the language for you platform. Don't listen to them. There is a better way. And here is why. There are different versions of Python and you would need switching between these versions while working on different projects. There is probably some version of Python already coming with your operation system. For Mac it’s 2.7, some Linux distributions already switched to version 3. Even more, there is another Python installed as a part of Anaconda package. The bottom line is: you never know for sure which Python is going to be run as you type python in the command line. At some point, there’s going to be a mess of different Python executables on your machine, and you will need some way of managing it. https://mitelman.engineering/blog/python-best-practice/automating-python-best-practices-for-a-new-project/
+* macOS command line tools https://justinmayer.com/posts/homebrew-python-is-not-for-you/ https://docs.brew.sh/Homebrew-and-Python#python-3x
+* PSF: no uninstaller https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/#macos https://docs.python.org/3/using/index.html
+* Homebrew: will update interpreter under your feet https://justinmayer.com/posts/homebrew-python-is-not-for-you/ https://realpython.com/intro-to-pyenv/#what-about-a-package-manager
+> you got burned by this 🗄 it / mpb 2014
 
 ## pyenv
 
@@ -741,7 +782,7 @@ pip install -r requirements.txt # deps
 which <library> # list library version https://realpython.com/intro-to-pyenv/#which
 ```
 
-## versions
+## upgrades
 
 ---
 
@@ -765,30 +806,3 @@ https://docs.python.org/3/whatsnew/index.html https://nedbatchelder.com/text/whi
 * _20_: Python 2 EoL
 * _3.11_: specializing adaptive interpreter https://peps.python.org/pep-0659/
 * _3.13_: JIT https://tonybaloney.github.io/posts/python-gets-a-jit.html
-
-# 🏗️ WORKFLOW
-
-## 2019-2024
-
-PAIN POINTS
-* 
-
-| WORKFLOW | DESC                                        | TOOL   |
-|----------|---------------------------------------------|--------|
-| versions | Python versions                             | pyenv  |
-| CLI      | tools be globally available from the shell  | pipx   |
-| REPL     | libs globally available from iPython        | pip    |
-| project  | libs locally available within repo          | Poetry |
-
-```sh
-├── pyenv
-│   └── python
-│   └──── pip
-│   └──── pipx
-```
-
-## migrate
-
-🧠 https://chatgpt.com/c/67683fd6-d260-8004-9a5b-be37a39aefbd
-for scripts https://packaging.python.org/en/latest/specifications/inline-script-metadata/
-https://bluesock.org/~willkg/blog/

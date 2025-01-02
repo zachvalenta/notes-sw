@@ -95,6 +95,14 @@ https://luke.hsiao.dev/blog/housing-documentation/
 
 📙 Meckleberg gnu make
 
+* args
+```Makefile
+hey:
+	echo "$(arg)"
+```
+```sh
+make hey arg="there"
+```
 * default args
 ```Makefile
 brand ?= Reznor
@@ -418,7 +426,7 @@ GOVERNANCE 🗄️ `work.md` industry > work
 ALTERNATIVES 🗄️ `python/pkg.md` uv `frontend.md` javascript > runtimes
 * _asdf_: https://github.com/asdf-vm/asdf
 * _pkgx_: from the creator of Homebrew https://www.youtube.com/watch?v=S9oHESiZyr0 https://dotenvx.com/docs/install#other https://www.youtube.com/watch?v=S9oHESiZyr0
-* _mise_: 🎯 https://github.com/jdx/mise
+* _mise_: 🎯 https://github.com/jdx/mise https://www.thoughtworks.com/radar/tools/mise
 
 * https://github.com/sxyazi/yazi
 * as an alternative to Docker https://mtlynch.io/notes/simple-go-web-service-nixos/
@@ -550,6 +558,13 @@ TOOLS
 * _user_: `.bash_profile`
 
 ## profiles
+
+```sh
+├── $HOME
+│   └── .zprofile
+│   └── .zshenv
+│   └── .zshrc
+```
 
 ZSH
 * _zshrc_: src for interactive shells

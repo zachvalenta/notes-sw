@@ -143,6 +143,8 @@ FUSE https://en.wikipedia.org/wiki/Filesystem_in_Userspace
 
 ## sockets
 
+https://blog.sinjakli.co.uk/2025/01/01/ruby-3-4-highlights/
+
 * re: `kcm`
 ```txt
 Unix domain sockets are like pipes but for processes to communicate on the same machine. They show up as files in the filesystem.

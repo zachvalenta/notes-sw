@@ -180,6 +180,7 @@ history
 
 ## caching
 
+📙 Enberg latency https://www.manning.com/books/latency
 🗄 
 * `distributed.md` proxy
 * `security.md` cookies/tokens

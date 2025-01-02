@@ -16,7 +16,7 @@
 
 ---
 
-* start here https://realpython.com/c-for-python-programmers/ https://chatgpt.com/c/673363d3-885c-8004-b7fe-083b927e6999
+* start here https://realpython.com/c-for-python-programmers/ https://avi.im/blag/2024/learning-c/ https://chatgpt.com/c/673363d3-885c-8004-b7fe-083b927e6999 https://avi.im/blag/2024/win-sqlite-contribution/
 > Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
 * modules https://chatgpt.com/c/67336227-2d40-8004-8789-e8fc768f60a5 📙 Jeffrey [3]
 * courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
@@ -64,17 +64,17 @@ COMPILERS
 
 ## packaging
 
-🗄️ `comilers.md` linking
+🗄️ `compilers.md` linking
 
-file types I know about in C:
-* header files
-* source code
-* object files
-* library files
+Can you take me through writing a simple program in C that would demostrate the purpose of the following types of files:
 
-which of these are development files and which of these are runtime files?
+* `.c`
+* `.h`
+* `.o`
+* `.so`
+* `.a`
+* executable
 
-DEVELOPMENT FILES
 * _header file (.h)_: lib
 ```c
 int add(int a, int b);
@@ -88,8 +88,12 @@ int main() {
     printf("Sum: %d\n", sum);
 }
 ```
-* _object file (.o)_: compiled
-* _library file (.lib/.so)_: collection of obj files
+* _object file (.o)_: machine code but w/ unresolved references to external func/var; think "partially linked"
+* _shared obj (.so)_: aka library file
+* _static library (.a)_:
+* Static (.a): Object files bundled together, copied into final executable
+* Dynamic/Shared (.so): Object files that remain separate, loaded at runtime
+* _Executable_: can be run directly bc fully linked i.e. contains all resolved references to all needed code, either directly (static linking) or via references to shared libraries (dynamic linking)
 
 ---
 
@@ -125,6 +129,7 @@ Most package managers (apt, yum, brew) maintain this split with separate runtime
 
 ---
 
+* https://blog.lohr.dev/smol-hello-world
 * https://zserge.com/posts/langs-asm/
 * https://shikaan.github.io/assembly/x86/guide/2024/09/08/x86-64-introduction-hello.html
 * ARM https://www.youtube.com/watch?v=gfmRrPjnEw4
@@ -260,6 +265,7 @@ USE FOR BUILDS
 
 PROJECTS
 * https://github.com/Arnau478/hevi
+* TigerBeetle
 
 * https://www.youtube.com/watch?v=ug-KuDlMTYw
 * compared to Rust https://www.youtube.com/watch?v=Vxq6Qc-uAmE

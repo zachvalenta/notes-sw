@@ -80,9 +80,19 @@ POINT TO POINT IS INHERENTLY COMPLEX https://www.stedi.com/blog/what-makes-edi-s
 
 ## replacement
 
-🧠 https://chatgpt.com/c/670d82d9-c488-8004-967f-2a987b16c9e9
+```txt
+Applicability Statement 2 (AS2) and Applicability Statement 4 (AS4) are internet-based protocols designed for secure and reliable data exchange between trading partners, often seen as successors to traditional EDI communication methods. While AS2 and AS4 are not a replacement for EDI itself, they modernize the way EDI messages are transmitted, offering enhanced security and efficiency over older methods like VAN (Value Added Networks).
 
-* XML, s-expressions https://en.wikipedia.org/wiki/S-expression#Parsing https://news.ycombinator.com/item?id=31840852
+Modern ERP (Enterprise Resource Planning) systems are increasingly offering built-in or plug-and-play B2B integration features that handle tasks traditionally done by EDI. These ERP systems use cloud-based platforms and provide real-time data exchange, which can often be easier to set up and maintain than traditional EDI systems.
+```
+```txt
+Legacy Systems: EDI is deeply embedded in the systems of many industries, and its efficiency is tied to its machine-readable structure. Making it more human-readable would sacrifice some of this efficiency, particularly in terms of file size and processing speed.
+
+Automation Focus: EDI was designed from the beginning to be machine-readable because it is intended for automated data exchange between systems, not for direct human interaction. Human readability has always been secondary to efficiency, accuracy, and consistency in business-to-business (B2B) communication.
+
+Industry Adoption: Many industries that rely on EDI have invested heavily in infrastructure that supports X12. The cost and effort to completely transition to a more human-readable format are significant, so most updates have focused on compatibility and modernization without completely overhauling the format.
+```
+
 * more middlemen + better protocol
 > Stedi’s native format for EDI transactions is called Guide JSON. It closely reflects the structure of an EDI transaction, but uses JSON instead of EDI syntax. https://www.stedi.com/docs/edi-platform/operate/transform-json/guide-json https://www.stedi.com/docs/edi-platform/operate/generate-edi/index
 * JSON Schema https://www.stedi.com/blog/getting-started-with-the-x12-file-format
@@ -268,8 +278,8 @@ LIN**UP*012345678905
 ### G53 (op)
 
 * _G5301_: CRUD ("maintenance operation")
-* if BCT10 is `05`, set to `003` (create)
-* `001` update `002` delete
+* `001` update `002` delete `003` create
+* if BCT10 is `05`, set to `003`
 
 ### DTM (date range)
 
@@ -356,7 +366,9 @@ NO
 
 ## pyedi
 
-* _pyedi_: parse (x12-JSON) https://github.com/freestream/pyedi 💻 https://github.com/zachvalenta/capp-pyedi
+* _pyedi_: parse (x12-JSON) https://github.com/freestream/pyedi
+* your tmp fork for Capp https://github.com/zachvalenta/capp-pyedi
+> don't forget to use you need to pull pyedi to same level as JSON generation scrip t
 * not on PyPI; fork and publish? https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 ```python
 import json

@@ -11,6 +11,287 @@
 * _22_: 📙 Bradshaw ch. 1/4/7/10/14/18
 * _20_: Postgres with Django (psycopg, Docker) 📙 Kleppmann section 1
 
+# 🕸️ DISTRIBUTED
+
+> I tell non-technical people that the site reliability engineer job is about creating automation to do what a system administrator would otherwise do. https://entropicthoughts.com/the-reinforcing-nature-of-toil
+
+CHECKLIST https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/
+* install dbms
+* maintenance
+* monitoring
+* security patches
+* make backups
+
+SECURITY
+* read-only access https://pgexercises.com/about.html
+* `statement_timeout` to prevent long-running queries https://pgexercises.com/about.html https://www.postgresql.org/docs/13/runtime-config-client.html
+* clear settings from connection after each statement https://pgexercises.com/about.html https://www.pgbouncer.org/
+* _row-level_: limit user to specific rows https://pganalyze.com/blog/postgres-row-level-security-django-python https://news.ycombinator.com/item?id=30700899
+* StrongDM records remote access sessions https://softwareengineeringdaily.com/2019/07/23/data-engineering-with-tobias-macey/
+
+TIMEZONES
+* client sould specify their timezone before querying https://hakibenita.com/sql-dos-and-donts#be-aware-of-timezones
+* relational has problems w/ this https://increment.com/software-architecture/architecture-for-generations/ https://en.wikipedia.org/wiki/Temporal_database#Example https://retool.com/blog/formatting-and-dealing-with-dates-in-sql/
+
+## Docker data mgmt
+
+🗄️ `containers.md` volumes
+🧠
+* https://chatgpt.com/c/673ce340-ca14-8004-b5ee-320faa5c9866
+* https://chatgpt.com/c/6724db6b-b820-8004-b8b4-f73f4e6a3c73
+* https://chatgpt.com/c/6724c43a-a9cc-8004-809b-2b53075f84af
+
+EXTERNAL
+* run Postgres as normal
+* Amazon RDS
+> 📍 Regarding RDS, you mentioned: "Adds network dependency and potential latency for remote storage." -> Wouldn't that already be the case given that RDS is a service?
+
+VOLUMES
+* just save to volume, which persist even if container destroyed
+```sh
+docker run -d --name postgres -v postgres_data:/var/lib/postgresql/data postgres
+```
+* backup at intervals
+```sh
+docker run --rm -v postgres_data:/data -v $(pwd):/backup alpine tar czf /backup/data.tar.gz /data
+```
+* volume drivers?
+> Can you say more about Docker volume drivers?
+
+---
+
+do you have creds for the m
+
+If you're running an app in Docker, and it includes both a backend and a database [let's say Postgres] that it writes to, what are the options for storing that data? Just store in a Docker volume? Save elsewhere?
+
+Let's say that this Dockerized app is hosted on an EC2 instance. How would that change your above assessment?
+
+## Capp
+
+```txt
+At its core, Postgres uses a Write-Ahead Log (WAL) - every change is first written to a sequential log before being applied to the database files. Streaming replication works by sending these WAL records from primary to replica in real-time.
+```
+```sh
+Primary                                      Replica
+├── Transaction writes WAL                   |
+├── WAL sender process starts                |
+├── Sends WAL records ──────────────────────>│── WAL receiver process
+├── Gets acknowledgment <───────────────────>│── Applies WAL records
+└── Can remove old WAL files                 └── Keeps read-only copy in sync
+```
+```sh
+wal_level = replica
+max_wal_senders = 3
+
+host replication replica_user 10.0.0.2/32 md5
+
+# On primary
+pg_basebackup -D /var/lib/postgresql/data -U replica_user -h primary_host -p 5432 -P -v -R
+
+primary_conninfo = 'host=primary_host port=5432 user=replica_user password=secret'
+
+# The key insight is that it's fundamentally a log-shipping system - changes are streamed as a log of operations rather than sending actual data pages. This makes it efficient and ensures consistency.
+```
+```yaml
+services:
+  primary:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - ./primary:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  replica:
+    image: postgres:15
+    environment:
+      POSTGRES_PASSWORD: secret
+    volumes:
+      - ./replica:/var/lib/postgresql/data
+    ports:
+      - "5433:5432"
+```
+
+* email
+* Google Drive
+* repo / csvbase https://csvbase.com/ https://csvbase.com/blog/10
+* HuggingFace
+* metadata
+* git lfs
+* warehouse
+* minio
+
+Your hardware -> Cloud VM as hot spare
+- Run Postgres streaming replication
+- Use DNS for failover
+- Kamal can handle app deployment to both
+
+Your Hardware (Primary) + Single Cloud VPS (Standby)  
+- Postgres streaming replication to VPS
+- Kamal for deployment
+- Nginx for load balancing
+- Simple DNS-based failover
+Cost: ~$5-10/month for small VPS
+
+Your hardware + Cloud VMs
+- Run Patroni for automated Postgres failover
+- Use HAProxy for load balancing
+- Deploy with Nomad/Kubernetes for automated app failover
+
+Your Hardware + Single $5 VPS
+├── App Layer
+│   ├── Kamal deploys to both
+│   └── Nginx as reverse proxy
+└── Database Layer
+    └── Postgres streaming replication
+        ├── Primary on your hardware
+        └── Replica on VPS
+
+## 🪳 CockroachDB
+
+> CockroachDB enables scaling a database across multiple geographies through being based on Google’s Spanner system, which relies on atomic and GPS clocks for extremely accurate time synchronisation. Commodity hardware, however, doesn’t have such luxuries, so CockroachDB has some clever solutions where reads are retried or delayed to account for clock sync delay with NTP, and nodes also compare clock drift amongst themselves and terminate members if they exceed the maximum offset. Another interesting feature of CockroachDB is how multi-region configurations are used, including table localities, where there are different options depending on the read/write tradeoffs you want to make. https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
+* compatible with Postgres wire-protocol https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
+* usage https://www.cockroachlabs.com/docs/v24.3/movr
+* https://www.openmymind.net/Migrating-To-CockroachDB/
+* Rethink https://brandur.org/cloud-databases
+
+ALTERNATIVES
+* https://github.com/erikgrinaker/toydb https://github.com/maxpert/marmot
+* _rqlite_: SQLite https://github.com/rqlite/rqlite
+
+## 🌐 PlanetScale
+
+📜 https://planetscale.com/
+
+* based on Youtube's Vitess https://vitess.io/
+* MySQL compatible
+* horizontal scaling through sharding
+* eventually consistent
+* migrations don't need table lock
+* doesn't use functions https://www.youtube.com/watch?v=atwwf0qWpYg [20:00] 🗄️ `sql.md` DML > functions
+* great docs https://planetscale.com/blog/btrees-and-database-indexes
+
+## 🐯 TigerBeetle
+
+📜 https://github.com/tigerbeetle/tigerbeetle https://docs.tigerbeetle.com/
+
+* uses VSR 📙 Enberg latency
+* https://docs.tigerbeetle.com/coding/system-architecture/
+* https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
+
+# 🔑 INTEGRITY
+
+## backup
+
+> Backups don't matter, only restores matter. https://alexgaynor.net/2024/sep/09/signatures-are-like-backups/
+🗄 
+* `it.md` backup
+* `system.md` distributed
+
+* short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00 https://simonwillison.net/about/#subscribe
+
+TYPES
+* _full_: reset to specific backup
+* _incremental_: apply changes since last full backup
+* _point-in-time (PITR)_: restore to any moment
+
+---
+
+```txt
+Database Recovery Methods:
+
+PITR
+* Uses transaction logs + backup
+* More granular than backup/restore
+* Higher storage overhead
+* Usually more complex to set up
+
+Core mechanism: The database keeps a transaction log recording every change. To recover to time T, it:
+* Restores last backup before T
+* Replays transaction log entries up to T
+* Discards later entries
+
+This solves several broader problems:
+* Recovering from data corruption that wasn't immediately noticed
+* Meeting compliance requirements for historical state access
+* Testing "what if" scenarios by examining past states
+* Migrating data between environments at specific points
+
+The general problem this addresses is maintaining perfect history of state changes in any system. Other solutions in this space:
+* Git (source code)
+* Event sourcing (application architecture)
+* Blockchain (distributed systems)
+* Append-only logs (various)
+```
+
+* _DR (disaster recovery)_: https://www.lastweekinaws.com/blog/the-cold-hard-truth-about-your-cloud-dr-strategy/?ck_subscriber_id=512830619
+* https://drewdevault.com/2019/01/13/Backups-and-redundancy-at-sr.ht.html
+* https://github.com/eduardolat/pgbackweb
+* hard drive health: 2% annual fail rate https://drewdevault.com/2020/04/22/How-to-store-data-forever.html DriveDX https://binaryfruit.com/drivedx/usb-drive-support Wear_Leveling_Count https://superuser.com/q/1037644 SMART https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology https://news.ycombinator.com/item?id=11110902
+* https://news.ycombinator.com/item?id=38961463
+* _snapshot_: backup whole table
+* _date-based_: backup portion of table i.e. acts as an immutable log
+* _cold storage_: infrequent reads/writes https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
+* _hot storage_: frequent reads/writes https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
+* _deduplication_: only touch new data (vs. entire file)
+* _durability_: data exists https://news.ycombinator.com/item?id=26428688
+* _reliability_: data available
+* _redundant_: same data stored multiple places e.g. RAID https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
+
+## replicate
+
+📚
+* Enberg latency https://www.manning.com/books/latency
+* Kleppmann ch. 5
+🗄️
+* `dbms.md` Mongo
+* `system.md` distributed
+* `sql.md` migrations
+
+* postgres https://github.com/xataio/pgstream https://news.ycombinator.com/item?id=42383136
+* https://github.com/bruin-data/ingestr
+* _replication_: same data on diff nodes 📙 Kleppmann [199] https://news.ycombinator.com/item?id=37066284
+* secondaries only accept writes from primary 📙 Bradshaw [236]
+* very slow if synchronous https://lethain.com/distributed-systems-vocabulary/
+* _lag_: when secondaries fall behind primary 📙 Bradshaw [235]
+* will refuse read requests to avoid serving stale data
+* _RAID_: form of replication https://www.kalzumeus.com/2010/04/20/building-highly-reliable-websites-for-small-companies/ https://news.ycombinator.com/item?id=28405695 use ZFS/Zed https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
+* _ZFS_: https://eradman.com/posts/zfs-quickstart.html
+* backup https://github.com/benbjohnson/litestream https://github.com/maxpert/marmot https://news.ycombinator.com/item?id=30883015 SQLite for edge computing https://news.ycombinator.com/item?id=33081159
+* using Redis https://andrewbrookins.com/python/scaling-django-with-postgres-read-replicas/
+* Cassandra https://stackoverflow.com/questions/17348558/does-an-update-become-an-implied-insert
+* always use write db vs. read replica to avoid creating 2 records
+* http://eradman.com/posts/pubsub-pgoutput.html
+* https://news.ycombinator.com/item?id=31341392
+* cutover
+> There's an ongoing sync job as well, so writes that land on the old database are pushed to the new one, so low risk of data loss.
+* replicate Postgres to SQLite on the edge https://github.com/zknill/sqledge
+
+## shard
+
+📚
+* Enberg latency https://www.manning.com/books/latency
+* Kleppmann ch. 6 https://en.wikipedia.org/wiki/Partition_(database)
+🗄️ `dbms.md` Mongo
+
+* _partition_: diff data on diff nodes 📙 Kleppmann 199
+* pruning https://eradman.com/posts/partition-pruning.html
+* why: horizontal scaling, put more frequently accessed data on better hardware or more geographically proximate 📙 Bradshaw [289]
+* aka sharding https://news.ycombinator.com/item?id=28776786 📙 Bradshaw [289] Kleppmann [199]
+* avoid by scaling vertically as long as you can 📙 Conery imposter 343 https://news.ycombinator.com/item?id=28430852
+* howto https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/ 📙 Conery imposter 343
+* https://stackoverflow.com/questions/20771435/database-sharding-vs-partitioning https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6 https://news.ycombinator.com/item?id=28425379
+* _shard_: node in cluster 📙 Bradshaw [290]
+
+## version control
+
+🧠 https://chatgpt.com/c/673a8de0-7cd8-8004-9325-7943f380d4d7
+
+* people don't really care about this https://news.ycombinator.com/item?id=22731928
+* _DVC_ https://github.com/iterative/dvc https://www.youtube.com/watch?v=ITvSs23lTQE https://realpython.com/python-data-version-control/
+* _Dolt_ https://github.com/dolthub/dolt
+
 # 🟩 MONGO
 
 📙 Bradshaw guide
@@ -358,7 +639,6 @@ BYO extension https://matt.blwt.io/post/building-a-postgresql-extension-line-by-
 * general https://www.postgresql.org/docs/current/index.html
 * guide http://postgresguide.com/
 * wiki https://wiki.postgresql.org/wiki/Main_Page
-* design https://news.ycombinator.com/item?id=35599118 Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf https://drewdevault.com/2021/08/05/In-praise-of-Postgres.html
 
 HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https://news.ycombinator.com/item?id=39273954
 * admin https://eradman.com/posts/pg-admin-queries.html
@@ -393,6 +673,8 @@ UTILS
 * show view's underlying query `select pg_get_viewdef('my_vw')` https://stackoverflow.com/a/25738887/6813490
 
 ---
+
+> And before you think being open-source insulates you from a company going under, few DBMS projects continue on and thrive when their founding for-profit company fails. PostgreSQL sort of counts even though the open-source version we have today is based on the UC Berkeley source code and not the commercial Illustra version (which was acquired by Informix in 1996). https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 
 misc
 * fuzzy match https://news.ycombinator.com/item?id=26236772
@@ -595,6 +877,7 @@ web_1  | ModuleNotFoundError: No module named 'psycopg2'
 
 # 🟦 SQLITE
 
+🗄️ CockroachDB > rqlite
 📜 https://sqlite.org/docs.html
 🛠 https://github.com/simonw/sqlite-utils
 🔗 https://tech.marksblogg.com/sqlite3-tutorial-and-guide.html
@@ -612,7 +895,7 @@ USAGE
 ---
 
 > Beyond that, we’re starting to see more creative uses of SQLite rather than “just” a local ACID-compliant database. With the advent of tools like Litestream enabling streaming backups and LiteFS to provide distributed access, we can devise more interesting topologies. Extensions like CR-SQLite allow the use of CRDTs to avoid needing conflict resolution when merging changesets, as used in Corrosion. https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
-* replication, Rust rewrite https://github.com/tursodatabase/libsql https://news.ycombinator.com/item?id=42378843& https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/ limbo https://avi.im/blag/2024/faster-sqlite https://github.com/tursodatabase/limbo/
+* replication, Rust rewrite https://github.com/tursodatabase/libsql https://news.ycombinator.com/item?id=42378843& https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/ limbo https://avi.im/blag/2024/faster-sqlite https://github.com/tursodatabase/limbo/ https://avi.im/blag/2024/faster-sqlite/
 * WASM https://news.ycombinator.com/item?id=41851051
 * durable object https://simonwillison.net/2024/Oct/13/zero-latency-sqlite-storage-in-every-durable-object/
 
@@ -682,6 +965,10 @@ db files
 
 ## design
 
+---
+
+concurrent writers, Litestream for backups/replication https://avi.im/blag/2024/sqlite-bad-rep/
+
 📜 https://sqlite.org/quirks.html
 
 https://joyofrails.com/articles/what-you-need-to-know-about-sqlite
@@ -749,46 +1036,9 @@ constraints
 
 # 🟨 ZA
 
-* checksums https://news.ycombinator.com/item?id=42094663&utm_term=comment
-
-## JSON
-
----
-
-https://eradman.com/posts/json-in-sql.html
-https://news.ycombinator.com/item?id=41914845
-
-SQLITE
-* https://dba.stackexchange.com/questions/122198/is-it-possible-to-store-and-query-json-in-sqlite
-* https://news.ycombinator.com/item?id=30486052
-
-POSTGRES
-* write rows as JSON obj to file
-```sql
-SELECT foo.x, bar.y, baz.z
-SELECT json_agg(json_build_object('x', foo.x, 'y', bar.y, 'z', baz.z))
-
--- write stdout to file (only seemed to work for psql, not pgcli)
-\o output.json  -- start
-\o  -- stop
-```
-* write IDs as quoted, delimited string to text file
-```sql
-\o artist-ids.txt
-SELECT '"' || foo.x || '",'
-\o
-```
-* `json`: text field; slow to search
-* `jsonb`: binary; slower writes, faster reads https://pganalyze.com/blog/postgres-jsonb-django-python
-```sql
--- all keys for json obj
-select jsonb_object_keys(json_col) from table
--- nested key
-select json_col -> 'top_level_key' ->> 'nested_key' from table
-```
-
 ## MySQL
 
+> MariaDB was in the news a lot this past year, and not in a good way. We found out that the MariaDB Corporation (which is separate from the MariaDB Foundation) is apparently a dumpster fire. In 2022, the Corporation backdoor IPO-ed through a sketchy merger instrument known as a SPAC. But the stock ($MRDB) immediately lost 40% of its value three days after its IPO. Because the Corporation decided to speedrun its way to the NYSE and become a publicly traded company, its dirty laundry became public. By the end of 2023, the stock price had dropped by over 90% since its opening. Things are so rotten at MariaDB Corporation that the Foundation's CEO wrote an article complaining about how their relationship with the Corporation has soured since the IPO and they are hoping to "reboot" it. Other problems include Microsoft announcing in September 2023 that they will no longer offer MariaDB as a managed Azure service. Microsoft will instead focus on supporting MySQL. And just in case you are not aware, MariaDB is a fork of MySQL that MySQL's original creator, Monty Widenus, started after Oracle announced its acquisition of Sun Microsystems in 2009. Recall that Sun bought MySQL AB in 2008 after Oracle bought InnoBase (makers of InnoDB) in 2005. But now MySQL is doing fine and MariaDB is one with problems. You don't need to watch movies or television shows for entertainment! You can get all the drama you need in your life through databases! https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 * TUI: https://github.com/charles-001/dolphie
 * MariaDB is done https://news.ycombinator.com/item?id=27922687 https://news.ycombinator.com/item?id=35467243
 * CLI: https://www.mycli.net/docs flags https://dev.mysql.com/doc/refman/8.0/en/mysql-command-options.html
@@ -828,11 +1078,3 @@ mysql -u $USER $DB < $BACKUP.sql
 * GUI: SQL Developer; comment `CMD ALT /` exec `CTRL /`
 * Oracle dev https://stackoverflow.com/users/146325/apc
 * _Sybase_: SAP counterpart
-
-## 🌐 PlanetScale
-
-📜 https://planetscale.com/
-
-* based on Youtube's Vitess https://vitess.io/
-* horizontal scaling through sharding
-* doesn't use functions https://www.youtube.com/watch?v=atwwf0qWpYg [20:00] 🗄️ `sql.md` DML > functions
