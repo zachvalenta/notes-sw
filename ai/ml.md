@@ -343,6 +343,24 @@ dot([1,2,3], [4,5,6])
 
 https://github.com/statsmodels/statsmodels
 
+## sympy
+
+📜 https://github.com/sympy/sympy
+🗄️
+* `algos.md` PageRank
+* `spec.md` documents > LaTeX
+
+```txt
+SymPy is pure Python, meaning it doesn’t rely on compiled C or Fortran extensions, which helps keep it portable but might make it slightly slower for heavy computations. The base installation isn't particularly large.
+
+Installed size: SymPy takes up about 30–40 MB of disk space.
+Dependencies: SymPy is largely self-contained and doesn’t have heavy external dependencies.
+```
+
+https://www.youtube.com/watch?v=1yBPEPhq54M
+https://www.youtube.com/watch?v=IIe83MwQxFE
+https://talkpython.fm/episodes/show/364/symbolic-math-with-python-using-sympy
+
 # 🟨️ ZA
 
 ## cleanup
