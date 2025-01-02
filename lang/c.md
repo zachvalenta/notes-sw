@@ -125,6 +125,7 @@ Most package managers (apt, yum, brew) maintain this split with separate runtime
 
 ---
 
+* https://blog.lohr.dev/smol-hello-world
 * https://zserge.com/posts/langs-asm/
 * https://shikaan.github.io/assembly/x86/guide/2024/09/08/x86-64-introduction-hello.html
 * ARM https://www.youtube.com/watch?v=gfmRrPjnEw4

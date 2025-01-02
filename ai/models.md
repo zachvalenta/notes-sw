@@ -159,7 +159,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 * https://applied-llms.org/
 * https://news.ycombinator.com/item?id=38120493
 * MLflow https://www.thoughtworks.com/radar/tools/mlflow metaflow https://www.thoughtworks.com/radar/tools?blipid=202203023
-* can't debug like traditional programming [Ferguson 7] unexplainable? https://blog.cerebralab.com/Machine_learning_could_be_fundamentally_unexplainable
+* can't debug like traditional programming [Ferguson 7]
 * aka ml ops https://news.ycombinator.com/item?id=20865012 https://testdriven.io/blog/machine-learning-reliability-engineering/
 * web app integration https://github.com/xadrianzetx/fullstack.ai https://news.ycombinator.com/item?id=20865012 https://talkpython.fm/episodes/transcript/226/building-flask-apis-for-data-scientists https://testdriven.io/blog/fastapi-machine-learning/
 * quants can't code, coders can't quant https://news.ycombinator.com/item?id=23941075
@@ -231,7 +231,7 @@ https://news.ycombinator.com/item?id=42507116
 
 https://github.com/Cinnamon/kotaemon
 
-HOWTO (LEARN BY BUILDING FOR DROR) 🧠 https://chatgpt.com/c/6756f3e6-1260-8004-9363-655f156489d9
+HOWTO (LEARN BY BUILDING FOR DROR)
 ```txt
 I'm still new to the space, so take with a grain of salt https://chatgpt.com/share/6756f806-27c4-8004-8768-b94f879a8b5e
 
@@ -239,6 +239,36 @@ I'm still new to the space, so take with a grain of salt https://chatgpt.com/sha
 * embeddings: would probably do with model aaS (GPT, Claude)
 * vector db: I've been keeping tabs of the vector db ecosystem but that means ~20 links I haven't yet read and need to. Hopefully I can find either an embedded option or a good hosted service.
 * training: assume we'd use transfer | reinforcement learning vs. getting into the weeds with adjusting the weights (finetuning, LoRA, PEFT) https://www.youtube.com/watch?v=55guW-DZVM0
+```
+* prompt
+```txt
+I want to build RAG for a book I'm writing so that I can learn more about the book (where is the structure weak? what connections *could* I make that I haven't already?). I want the RAG to act as some combination of an editor and a critic.
+```
+* completion
+```txt
+1. Data Preparation
+Segment the Book: Split your manuscript into manageable chunks, such as chapters, sections, or paragraphs.
+Create Metadata: Annotate each chunk with relevant metadata (e.g., chapter, themes, key ideas).
+Embed Contextual Information: If you have earlier drafts, notes, or research material, include these as part of the corpus.
+2. Knowledge Base Construction
+Use embeddings to create a vectorized representation of each chunk, enabling semantic search. Libraries like OpenAI's embeddings, Hugging Face, or Sentence Transformers are excellent choices.
+Organize a knowledge base (e.g., Pinecone, Weaviate, or FAISS) to allow fast and efficient retrieval.
+3. RAG Architecture
+Retrieval Component: Query your knowledge base for related chunks based on prompts.
+Generation Component: Use a generative model fine-tuned on critique/editing tasks. Models like GPT-4 or fine-tuned open-source models can work well here.
+4. Functionality
+Structural Weakness Analysis: Prompt the system with questions like, “What parts of this argument lack support?” or “Where does the structure feel inconsistent?”
+Connection Suggestions: Use prompts like, “What connections can be made between [Section A] and [Section B]?” or “Suggest thematic overlaps I’ve overlooked.”
+Critique Generation: Ask for specific feedback, such as, “Critique the logical flow of this section” or “Analyze the character development in this chapter.”
+5. Iterative Refinement
+Analyze the outputs and iteratively refine the RAG system by adjusting the prompts, embeddings, or fine-tuning the model based on your unique style and goals.
+```
+* prompt
+```txt
+Is there an aider but for prose? What I'm looking for is something that has aider's map of everything you've written https://aider.chat/docs/repomap.html
++ text transform i.e. "take this paragraph and turn it into Proust"
+
+https://www.hyperwriteai.com/aitools/text-style-transfer
 ```
 
 ---
