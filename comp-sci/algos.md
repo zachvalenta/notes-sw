@@ -334,6 +334,356 @@ def set_covering(states_needed, stations):
 
 ```
 
+# 💘 MATCHING
+
+🗄️
+* `ml.md` entity recognition
+* `tools.md` fuzzy find, file > diff
+
+SEMANTICS
+* _substring_: common contiguous char 📙 Bhargava [179,182]
+```markdown
+y _bcd_ af 
+x _bcd_ edf
+```
+* _subsequence_: discontiguous char; used for autocorrect 📙 Bhargava [184]
+```markdown
+y _bcd_ a _f_
+x _bcd_ ed _f_
+```
+* _substring_: char in order and continuous e.g. for `hello there` valid substrings are `hello` and `llo th` https://stackoverflow.com/a/49688118/6813490
+* _subsequence_: char in order but not necessarily continuous e.g. for `hello there` a valid subsequences is `hll th` (note missing `e`)
+> these moved in from different file, don't know which set of definitions valid
+
+## flashtext
+
+🗄️ `graphs.md` trees > trie
+
+```txt
+* Category: Keyword extraction and exact pattern matching.
+* Purpose: Efficiently finds and replaces keywords in a text using a Trie-based approach. Unlike regex, it avoids redundant searches and works faster for large keyword sets.
+* Use Cases:
+* Search: Extract keywords or highlight them within a document.
+* Natural Language Processing: Extract entities from text.
+* Log Analysis: Quickly find specific terms in logs.
+* Nature: Optimized for high-speed keyword matching, especially for large dictionaries. Its time complexity is closer to O(n) where n is the length of the text.
+```
+
+https://calmcode.io/shorts/flashtext.py
+https://github.com/vi3k6i5/flashtext/
+https://arxiv.org/abs/1711.00046
+
+```python
+class FlashText:
+    def __init__(self, case_sensitive=True):
+        self.case_sensitive = case_sensitive
+        self.keyword_trie = {}
+        self.keyword_end = "_end"  # Special marker for end of a keyword
+
+    def add_keyword(self, keyword):
+        """Add a keyword to the Trie."""
+        if not self.case_sensitive:
+            keyword = keyword.lower()
+        current_dict = self.keyword_trie
+        for char in keyword:
+            current_dict = current_dict.setdefault(char, {})
+        current_dict[self.keyword_end] = keyword
+
+    def extract_keywords(self, text):
+        """Extract keywords from the input text."""
+        if not self.case_sensitive:
+            text = text.lower()
+        keywords_found = []
+        current_dict = self.keyword_trie
+        text_length = len(text)
+        i = 0
+        while i < text_length:
+            current_char = text[i]
+            if current_char in current_dict:
+                temp_dict = current_dict
+                j = i
+                keyword_match = None
+                while j < text_length and text[j] in temp_dict:
+                    temp_dict = temp_dict[text[j]]
+                    if self.keyword_end in temp_dict:
+                        keyword_match = temp_dict[self.keyword_end]
+                    j += 1
+                if keyword_match:
+                    keywords_found.append(keyword_match)
+                    i = j - 1  # Skip the matched keyword
+            i += 1
+        return keywords_found
+
+    def replace_keywords(self, text, replacement_dict):
+        """Replace keywords in the text with their corresponding replacements."""
+        if not self.case_sensitive:
+            text = text.lower()
+        result = []
+        current_dict = self.keyword_trie
+        text_length = len(text)
+        i = 0
+        while i < text_length:
+            current_char = text[i]
+            if current_char in current_dict:
+                temp_dict = current_dict
+                j = i
+                keyword_match = None
+                while j < text_length and text[j] in temp_dict:
+                    temp_dict = temp_dict[text[j]]
+                    if self.keyword_end in temp_dict:
+                        keyword_match = temp_dict[self.keyword_end]
+                    j += 1
+                if keyword_match:
+                    replacement = replacement_dict.get(keyword_match, keyword_match)
+                    result.append(replacement)
+                    i = j - 1  # Skip the matched keyword
+                else:
+                    result.append(text[i])
+            else:
+                result.append(text[i])
+            i += 1
+        return ''.join(result)
+
+flash_text = FlashText(case_sensitive=False)
+flash_text.add_keyword("cat")
+flash_text.add_keyword("caterpillar")
+text = "The caterpillar is a cat."
+keywords = flash_text.extract_keywords(text)
+print("Extracted Keywords:", keywords)  # Output: ['caterpillar', 'cat']
+replacements = { "cat": "feline", "caterpillar": "larva" }
+replaced_text = flash_text.replace_keywords(text, replacements)
+print("Replaced Text:", replaced_text)  # Output: "The larva is a feline."
+```
+
+## levenshtein distance
+
+```txt
+* Category: String similarity and approximate matching.
+* Purpose: Measures the minimum number of single-character edits (insertions, deletions, substitutions) required to transform one string into another.
+* Use Cases:
+* Search: Used in fuzzy search or approximate string matching to find matches that are similar but not exact (e.g., autocorrect, typo correction).
+* Natural Language Processing: Comparing words, phrases, or text similarity.
+* Data Cleaning: Finding and reconciling near-duplicate entries.
+* Nature: Computationally intensive for large datasets due to its O(n * m) complexity for strings of length n and m.
+```
+```txt
+1. Dynamic Programming Algorithm:
+Levenshtein distance uses a dynamic programming approach to calculate the minimum number of single-character edits (insertions, deletions, or substitutions) required to change one string into another.
+It builds a 2D matrix where each cell represents the cost of transforming a substring of one string into a substring of another.
+2. String Similarity Algorithm:
+It is used to quantify the difference (or similarity) between two strings, making it part of the broader category of string matching or string similarity algorithms.
+3. Metric Space Algorithm:
+Levenshtein distance satisfies the properties of a metric: non-negativity, symmetry, and the triangle inequality, making it a distance metric for strings.
+```
+
+* https://blog.paperspace.com/implementing-levenshtein-distance-word-autocomplete-autocorrect/
+* https://www.youtube.com/watch?v=kTS2b6pGElE
+* https://towardsdatascience.com/text-similarity-w-levenshtein-distance-in-python-2f7478986e75
+* https://xnacly.me/posts/2024/making-sql-keyword-suggestions-work/
+* BK-tree https://github.com/benhoyt/pybktree
+* _edlib_: https://github.com/hbollon/go-edlib 
+
+## thefuzz
+
+📜 https://github.com/seatgeek/thefuzz https://github.com/seatgeek/fuzzywuzzy
+
+* https://github.com/zachvalenta/capp-matchme
+```python
+"""
+I have two data sources, both CSVs. They both have a single column. One is pretty short (700 LOC). The other is fairly long (~1M LOC).
+"""
+import csv
+from thefuzz import fuzz
+from tqdm import tqdm
+import polars as pl
+short_csv_path = "maxi.csv"
+long_csv_path = "mpns.csv"
+similarity_threshold = 85
+short_data = pl.read_csv(short_csv_path).to_dicts()
+long_data = pl.read_csv(long_csv_path).to_dicts()
+short_column = list(short_data[0].keys())[0]
+long_column = list(long_data[0].keys())[0]
+results = []
+for short_row in tqdm(short_data, desc="Processing short CSV"):
+    short_value = short_row[short_column]
+    best_match = None
+    best_similarity = 0
+    for long_row in long_data:
+        long_value = long_row[long_column]
+        similarity = fuzz.ratio(short_value, long_value)
+        if similarity > best_similarity:
+            best_similarity = similarity
+            best_match = long_value
+    if best_similarity >= similarity_threshold:
+        results.append({
+            "short_value": short_value,
+            "long_match": best_match,
+            "similarity": best_similarity,
+        })
+```
+
+# 🥇 RANKING
+
+## bm25
+
+> Best for ranking documents by relevance to a query.
+
+* full text https://emschwartz.me/understanding-the-bm25-full-text-search-algorithm/
+* used by Lucene/Solr/Elasticsearch and SQLite
+* alternative: Okapi BM25F
+> Spent the last week looking into search - embeddings, BM25, how LLMs fit into the picture, and so on - and then, surprise, this popped up on HackerNews: FastGraphRAG. I haven’t even looked at the project itself yet, because this comment tripped me up: "Hypothetical answer generation from a query using an LLM, and then using that hypothetical answer to query for embeddings works really well." They use an LLM to generate hypothetical answers to a query and then use those answers to find relevant documents by comparing them in vector space. Don't know how else to put it, so pardonnez mon langage, but that's fucking nuts. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
+
+```txt
+ Okapi BM25F
+How it works:
+A variant of BM25 that considers different fields (e.g., title, headers, body content) with different weights.
+Boosts relevance of terms in high-priority fields like titles.
+Application: Used in document retrieval systems to handle structured documents.
+```
+
+## PageRank
+
+> Best for ranking nodes (e.g., web pages) by global importance in a graph.
+
+that weights on number of incoming links (and their popularity)
+
+* https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
+
+```txt
+Links as Votes: A link from one page to another is treated as a "vote" of confidence in the destination page. The idea is that if many pages link to a given page, it is likely more important or relevant.
+
+Popularity of Links Matters: Not all links are equal. A link from a highly-ranked (popular) page is worth more than a link from a less popular page. This ensures that not just the quantity, but also the quality of links is factored in.
+
+Recursive Nature: The importance of a page is influenced by the importance of the pages linking to it, and their importance is in turn influenced by the pages linking to them. This creates a recursive feedback loop.
+
+Damping Factor: The algorithm includes a damping factor, typically around 0.85, which accounts for the probability that a user will randomly jump to another page (e.g., by typing a URL directly) rather than following links. This prevents the PageRank values from being entirely link-dependent and ensures the model reflects real-world behavior better.
+```
+
+```python
+from collections import defaultdict
+def pagerank(graph, damping_factor=0.85, iterations=100):
+    # Initialize PageRank values to 1/N
+    nodes = list(graph.keys())
+    N = len(nodes)
+    ranks = {node: 1 / N for node in nodes}
+    
+    for _ in range(iterations):
+        new_ranks = defaultdict(float)
+        for node in nodes:
+            # Distribute current rank to outbound links
+            outbound_links = graph[node]
+            if outbound_links:
+                shared_rank = ranks[node] / len(outbound_links)
+                for outbound in outbound_links:
+                    new_ranks[outbound] += shared_rank
+            # Handle dangling nodes (no outbound links)
+            else:
+                for other_node in nodes:
+                    new_ranks[other_node] += ranks[node] / N
+        # Apply the damping factor
+        for node in nodes:
+            new_ranks[node] = (1 - damping_factor) / N + damping_factor * new_ranks[node]
+        ranks = new_ranks
+    return ranks
+
+example_graph = {
+    "A": ["B", "C"],
+    "B": ["C", "D"],
+    "C": ["A"],
+    "D": ["C"],
+    "E": ["A", "D"],
+}
+
+result = pagerank(example_graph)
+print("PageRank results:")
+for page, rank in sorted(result.items(), key=lambda x: x[1], reverse=True):
+    print(f"{page}: {rank:.4f}")
+```
+```python
+import numpy as np
+
+def pagerank_numpy(graph, damping_factor=0.85, tol=1e-6):
+    # Step 1: Create the adjacency matrix
+    nodes = list(graph.keys())
+    N = len(nodes)
+    node_idx = {node: i for i, node in enumerate(nodes)}  # Map node to index
+    adjacency_matrix = np.zeros((N, N))
+    
+    for node, outbound_links in graph.items():
+        if outbound_links:
+            for link in outbound_links:
+                adjacency_matrix[node_idx[link], node_idx[node]] = 1 / len(outbound_links)
+        else:  # Handle dangling nodes
+            adjacency_matrix[:, node_idx[node]] = 1 / N
+    
+    # Step 2: Create the Google matrix
+    M = damping_factor * adjacency_matrix + (1 - damping_factor) / N * np.ones((N, N))
+    
+    # Step 3: Initialize the rank vector
+    R = np.ones(N) / N  # Start with equal rank for all nodes
+    
+    # Step 4: Power iteration to compute PageRank
+    delta = 1
+    while delta > tol:
+        R_new = M @ R  # Matrix-vector multiplication
+        delta = np.linalg.norm(R_new - R, ord=1)  # Convergence check (L1 norm)
+        R = R_new
+    
+    # Map back to node names
+    return {nodes[i]: rank for i, rank in enumerate(R)}
+
+# Example graph (adjacency list format)
+example_graph = {
+    "A": ["B", "C"],
+    "B": ["C", "D"],
+    "C": ["A"],
+    "D": ["C"],
+    "E": ["A", "D"],
+}
+# Run the PageRank algorithm
+result = pagerank_numpy(example_graph)
+# Print the results
+print("PageRank results:")
+for page, rank in sorted(result.items(), key=lambda x: x[1], reverse=True):
+    print(f"{page}: {rank:.4f}")
+
+```
+
+SYMPY IMPL
+```python
+from sympy import symbols, Eq, Function, Sum, pretty, latex
+from sympy.abc import i, j, d
+
+PR = Function("PR")  # PageRank function
+M = symbols("M")  # Transition matrix
+v = symbols("v")  # Personalization vector
+R = symbols("R")  # Rank vector
+N = symbols("N", positive=True, integer=True)  # Number of nodes
+L = Function("L")(j)  # Links to node
+C = Function("C")(j)  # Outbound links count
+# PageRank equation
+eq = Eq(PR(i), (1 - d) / N + d * Sum(PR(j) / C, (j, 1, N)))
+
+print("Plain text:")
+print(eq)
+print("\nPretty printed (Unicode):")
+print(pretty(eq))
+print("\nLaTeX representation:")
+print(latex(eq))
+```
+
+## TF-IDF
+
+> Best for evaluating the importance of terms in a corpus or performing basic relevance scoring.
+> Document classification
+
+* https://jamesg.blog/2024/08/17/tf-idf-python/
+* https://simonwillison.net/2020/Dec/19/dogsheep-beta/
+
+```txt
+What are alternatives to PageRank that *do* directly measure content relevance, whether through keyword matching or other means?
+```
+
 # ⚔️ STRATEGIES
 
 🔗 https://en.wikipedia.org/wiki/Approximation_algorithm#Algorithm_design_techniques
@@ -391,40 +741,6 @@ https://en.wikipedia.org/wiki/Linear_programming
 * _simulated annealing_: https://matthewstrom.com/writing/how-to-pick-the-least-wrong-colors/
 * _Towers of Hanoi_: 🗄 `classic-compsci.pdf` https://en.wikipedia.org/wiki/Dynamic_programming#Tower_of_Hanoi_puzzle
 
-## edit distance
-
-🗄️ `tools.md` files > dir diff
-
-TOOLS
-* _thefuzz_: ✅ https://github.com/seatgeek/thefuzz https://github.com/seatgeek/fuzzywuzzy https://github.com/zachvalenta/capp-matchme
-* _edlib_: https://github.com/hbollon/go-edlib 
-
----
-
-🧠 https://chatgpt.com/c/67462297-d568-8004-a102-3db4a41ab1eb
-
-LEVENSHTEIN DISTANCE
-* https://blog.paperspace.com/implementing-levenshtein-distance-word-autocomplete-autocorrect/
-* https://www.youtube.com/watch?v=kTS2b6pGElE
-* https://towardsdatascience.com/text-similarity-w-levenshtein-distance-in-python-2f7478986e75
-* https://xnacly.me/posts/2024/making-sql-keyword-suggestions-work/
-* BK-tree https://github.com/benhoyt/pybktree
-
-SEMANTICS
-* _substring_: common contiguous char 📙 Bhargava [179,182]
-```markdown
-y _bcd_ af 
-x _bcd_ edf
-```
-* _subsequence_: discontiguous char; used for autocorrect 📙 Bhargava [184]
-```markdown
-y _bcd_ a _f_
-x _bcd_ ed _f_
-```
-* _substring_: char in order and continuous e.g. for `hello there` valid substrings are `hello` and `llo th` https://stackoverflow.com/a/49688118/6813490
-* _subsequence_: char in order but not necessarily continuous e.g. for `hello there` a valid subsequences is `hll th` (note missing `e`)
-> these moved in from different file, don't know which set of definitions valid
-
 ## knapsack problem
 
 https://en.wikipedia.org/wiki/knapsack_problem
@@ -473,13 +789,6 @@ for _ in range(5):
 
 https://github.com/tsenart/kth
 * _search space_: set of possible solutions to the problem constraints https://en.wikipedia.org/wiki/Feasible_region
-
-TOP OF MIND 🧠 https://chatgpt.com/c/67461bc1-0414-8004-af66-535909317a42
-* _bm25_: full text, used by Lucene and SQLite https://emschwartz.me/understanding-the-bm25-full-text-search-algorithm/
-* alternative: Okapi BM25F
-> Spent the last week looking into search - embeddings, BM25, how LLMs fit into the picture, and so on - and then, surprise, this popped up on HackerNews: FastGraphRAG. I haven’t even looked at the project itself yet, because this comment tripped me up: "Hypothetical answer generation from a query using an LLM, and then using that hypothetical answer to query for embeddings works really well." They use an LLM to generate hypothetical answers to a query and then use those answers to find relevant documents by comparing them in vector space. Don't know how else to put it, so pardonnez mon langage, but that's fucking nuts. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
-* _PageRank_: ranking algo that weights on number of incoming links (and their popularity)
-* _TF-IDF_: ranking https://jamesg.blog/2024/08/17/tf-idf-python/ https://simonwillison.net/2020/Dec/19/dogsheep-beta/ 🗄 `algos.md` Levenshtein https://0x65.dev/blog/2019-12-06/building-a-search-engine-from-scratch.html
 
 ZA
 * _simple_: 🗄 `/algos`
