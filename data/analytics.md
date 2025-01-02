@@ -14,6 +14,10 @@
 
 ## 进步
 
+* Polars seed data in dotfiles and read by python startup
+* canonical datasets
+* where to store your data (email? google drive? repo/csvbase? ⭐️ hugging face? metadata mgmt?)
+
 # 🧮 DATAFRAMES
 
 🗄️
@@ -381,12 +385,6 @@ LINTING
 
 > Analysis, even SQL-based analysis, isn't like design, where a handful of people create stuff and everyone else is a consumer, with clear lines between them. It's much, much fuzzier. Though analysts were always our first adopters, lots of people - PMs, engineers, marketing managers, executives, support agents, operations leads, and all job titles in between - periodically wrote queries. These people occupied the middle part of the distribution between analysts and non-analysts that we thought would be vacant. Users weren't bimodal like we expected, but continuous. https://benn.substack.com/p/work-like-an-analyst
 
-DASH https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
-* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
-* _callback_: update chart https://dash.plotly.com/tutorial#controls-and-callbacks
-* _control_: hit callback
-* _Dash Design Kit (DDK)_: no need for HTML/CSS
-
 ---
 
 CANDIDATES FOR CAPP https://chatgpt.com/c/674796f6-286c-8004-b0d5-6ae4d0decccc
@@ -399,6 +397,7 @@ CANDIDATES FOR CAPP https://chatgpt.com/c/674796f6-286c-8004-b0d5-6ae4d0decccc
 
 * _business intelligence (BI)_: explorer (for non-devs) + graphs
 * SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
+* reports with Quarto https://www.youtube.com/watch?v=Q3phTByW138
 
 TOOLS / DASHBOARDS
 * RAG https://github.com/vanna-ai/vanna
@@ -419,11 +418,24 @@ TOOLS / DASHBOARDS
 * _Redash_: cloud deploy https://github.com/getredash/redash
 * _Retool_: 🎯 https://retool.com/blog/how-to-build-a-sql-gui
 * _Tableau_: via Pandas https://github.com/Kanaries/pygwalker Markdown https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=39519145
-* _Shiny_: https://training.talkpython.fm/courses/reactive-web-dashboards-with-shiny-for-data-science https://www.maximum-progress.com/p/economics-is-a-field-of-software
 * _SQL Explorer_: 🎯 https://github.com/explorerhq/django-sql-explorer
 > Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
 * _Superset_: 🎯 popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset https://news.ycombinator.com/item?id=37661872
 * _Taipy_: https://github.com/Avaiga/taipy
+
+### dash
+
+📜 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
+
+* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
+* _callback_: update chart https://dash.plotly.com/tutorial#controls-and-callbacks
+* _control_: hit callback
+* _Dash Design Kit (DDK)_: no need for HTML/CSS
+
+### shiny
+
+* https://training.talkpython.fm/courses/reactive-web-dashboards-with-shiny-for-data-science
+* https://www.maximum-progress.com/p/economics-is-a-field-of-software
 
 ## entry (dataclerk)
 

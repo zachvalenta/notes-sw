@@ -467,14 +467,6 @@ https://news.ycombinator.com/item?id=41876741
 https://www.youtube.com/watch?v=k3rFFLmQCuY
 https://jvns.ca/blog/2016/04/29/cdns-arent-just-for-caching/
 
-PKI
-* _ACME_: protocol to automate certificate mgmt https://letsencrypt.org/docs/client-options/ client https://github.com/caddyserver/certmagic
-* _certificate_: SHA key https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/ https://questions.wizardzines.com/tls-certificates.html
-* _CA_: issue digital certificates (DigiCert, Comodo, Symatec, Amazon Trust Services) to servers that demonstrate ownership of domain https://opensource.com/article/19/4/certificate-authority
-* Let's Encrypt uses other CAs to cross-sign (apparently starting your own CA takes years)
-* CAs not necessarily trustworthy https://www.theregister.co.uk/2017/11/01/francisco_buys_comodo/
-* _local development_: generate self-signed cert (openssl) to put onto your own box
-
 handshake
 * _client (un)_: sends highest level of TLS it will support
 * _server (un)_: agrees on TLS level, sends public key
@@ -493,13 +485,18 @@ TLS
 * if site uses HTTPS then embedded content must be as well, apparently this conflicts w/ adverts which is why many news sites aren't https://robertheaton.com/2014/03/27/how-does-https-actually-work/ https://howhttps.works/episodes/ https://whydoesaptnotusehttps.com/ https://stackoverflow.com/a/187685/6813490
 * Let's Encrypt https://drewdevault.com/2018/06/27/My-lets-encrypt-setup.html
 
-OpenSSL
+### OpenSSL
+
+---
+
+> Taplo depends on OpenSSL in order to fetch schemas via HTTPS, you will most likely need the openssl development files to be installed (openssl-dev or openssl-devel on most Linux-based systems). https://taplo.tamasfe.dev/cli/installation/cargo.html
+
 * generate self-signed cert for local dev
 * verify server certs (youtube-dl, requests) https://github.com/psf/requests/blob/master/setup.py#L105
 * create hashes `vimv-openssl.log`
 * verify checksum `openssl sha -sha256 path/to/foo`; `shasum -a 256` https://apple.stackexchange.com/a/230919
 
-OpenSSL and Python
+OPENSSL AND PYTHON
 * _libraries_: ssl, pyopenssl
 * Python expects openssl to be present on os https://docs.python.org/3.3/library/ssl.html 
 * macos system Python comes with own version of openssl https://www.python.org/downloads/release/python-2715/
@@ -560,6 +557,17 @@ Traceback (most recent call last):
   File "/usr/local/Cellar/python@2/2.7.15_2/Frameworks/Python.framework/Versions/2.7/lib/python2.7/hashlib.py", line 147, in <module>
 ValueError: unsupported hash type md5
 ```
+
+### PKI
+
+---
+
+* _ACME_: protocol to automate certificate mgmt https://letsencrypt.org/docs/client-options/ client https://github.com/caddyserver/certmagic
+* _certificate_: SHA key https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/ https://questions.wizardzines.com/tls-certificates.html
+* _CA_: issue digital certificates (DigiCert, Comodo, Symatec, Amazon Trust Services) to servers that demonstrate ownership of domain https://opensource.com/article/19/4/certificate-authority
+* Let's Encrypt uses other CAs to cross-sign (apparently starting your own CA takes years)
+* CAs not necessarily trustworthy https://www.theregister.co.uk/2017/11/01/francisco_buys_comodo/
+* _local development_: generate self-signed cert (openssl) to put onto your own box
 
 # 🟨 ZA
 

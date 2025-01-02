@@ -9,6 +9,8 @@
 
 ## 进步
 
+query plan (Polars) read vs. scan
+
 * https://github.com/zillow/fcache
 * SQL engines https://chatgpt.com/share/6706c793-1428-8004-af11-613cff56c5af https://news.ycombinator.com/item?id=34189422
 * CMU https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi https://www.youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O

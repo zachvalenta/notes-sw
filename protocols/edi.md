@@ -268,8 +268,8 @@ LIN**UP*012345678905
 ### G53 (op)
 
 * _G5301_: CRUD ("maintenance operation")
-* if BCT10 is `05`, set to `003` (create)
-* `001` update `002` delete
+* `001` update `002` delete `003` create
+* if BCT10 is `05`, set to `003`
 
 ### DTM (date range)
 

@@ -21,7 +21,7 @@
 🔑 https://gist.github.com/zachvalenta/d3b7cd172dd2d3d8ff7340bd458c6fe2
 
 ZA
-* _BERT_: https://simonwillison.net/2024/Dec/31/alexis-gallagher/
+* _BERT_: https://simonwillison.net/2024/Dec/31/alexis-gallagher/ https://github.com/urchade/GLiNER
 * _DeepSeek_: https://thezvi.substack.com/p/deekseek-v3-the-six-million-dollar
 * _X grok_: seems tied to Twitter https://grok.x.ai/ 
 
@@ -38,7 +38,6 @@ CLOSED
 * _Amazon nova_: https://news.ycombinator.com/item?id=42309121 https://news.ycombinator.com/item?id=42309121 https://simonwillison.net/2024/Dec/4/amazon-nova/ https://simonwillison.net/2024/Dec/4/amazon-nova/
 * backed by Amazon https://news.ycombinator.com/item?id=42215126
 * _Mistral codestral_: less polished but fast + search https://chat.mistral.ai/chat
-* _Perplexity api_: search/org https://www.perplexity.ai/
 * Mixtral https://mistral.ai/news/mixtral-of-experts/
 * YiCoder: https://news.ycombinator.com/item?id=41453237
 * features: moderation, tuning to domain
@@ -139,6 +138,10 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 * _ollama_: ⭐️ https://ollama.com/
 > customize through a Modelfile, incl model parameters, system prompts etc. https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
 * multimodal, OCR https://ollama.com/blog/llama3.2-vision https://www.youtube.com/watch?v=wTukMgtkleA
+
+## 📚 Perplexity
+
+* _Perplexity api_: search/org https://www.perplexity.ai/
 
 # 🏗️ OPERATIONALIZE
 
@@ -314,6 +317,11 @@ BYO
 
 ---
 
+* Fine-tuning (Full or Transfer Learning)
+> Requires substantial compute and a large, high-quality dataset
+* Parameter-Efficient Fine-Tuning (LoRA / PEFT)   
+* Reinforcement Learning (RLHF or Task-Specific)
+
 * train on your own emails https://github.com/zycyc/LAMBDA
 data prep kit https://www.youtube.com/watch?v=tqRvmg2F_gI https://github.com/IBM/data-prep-kit
 > assume we'd use transfer or reinforcement learning vs. getting into the weeds with adjusting the weights (finetuning, LoRA, PEFT)
@@ -368,6 +376,9 @@ https://arxiv.org/pdf/2411.01582
 > use to build stock market
 
 ## img
+
+EXAMPLES
+* https://www.mercatus.org/doge
 
 * _TTV_: https://simonwillison.net/2024/Dec/9/sora/
 * _TFI_: https://calmcode.io/shorts/pytesseract.py

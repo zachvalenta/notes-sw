@@ -36,7 +36,7 @@ FACTORS
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _Perl_: https://buttondown.com/hillelwayne/archive/raku-a-language-for-gremlins/ https://buttondown.com/hillelwayne/archive/five-unusual-raku-features/ https://raku.org/ https://news.ycombinator.com/item?id=42307223
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
-* _Prolog_: https://chatgpt.com/c/672d18fc-66cc-8004-94ba-23928fa2110c https://www.swi-prolog.org/ https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/ https://news.ycombinator.com/item?id=42004756 https://blog.dnmfarrell.com/
+* _Prolog_: https://chatgpt.com/c/672d18fc-66cc-8004-94ba-23928fa2110c https://www.swi-prolog.org/ https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/ https://news.ycombinator.com/item?id=42004756 https://blog.dnmfarrell.com/ http://minikanren.org/
 * _Ruby_:
 > Somewhere, someone (bless them) linked to mousehole, a why the lucky stiff project. When I started programming in Ruby, _why was already gone and I only learned about him through the Slate article, but echos of him are still ringing through the Ruby world. This project is a sweet reminder. Just look at that README. “MouseHole can either intrude completely upon your browsing experience or you can keep it off in the outskirts, for whenever you’ve got a second to duck into that little crack in the wall” https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 

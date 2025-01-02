@@ -29,65 +29,24 @@
 
 # 🌳 TREES
 
-🔗
-* https://en.wikipedia.org/wiki/Tree_(data_structure)
-* HDF5 https://en.wikipedia.org/wiki/Hierarchical_Data_Format https://github.com/rhuygen/hdf5_ui
+🔗 https://en.wikipedia.org/wiki/Tree_(data_structure)
+🛠️ https://github.com/queelius/AlgoTree
+> trees are easy to deal with and understand, but graphs are more "open" with what you can do https://news.ycombinator.com/item?id=27662089
 🗄️
 *️ `km.md` notes / tooling
-*️ `language.md` compiler
-*️ `protocols.md` file fmt
-* `science.md` metascience / categories
+* `science.md` metascience / categories https://en.wikipedia.org/wiki/Phylogenetic_tree
 
 ---
 
+MORE TYPES
+* https://news.ycombinator.com/item?id=42201936
+* _ordered_: Markdown, DOM, fs, AST, config mgmt, version control, NLP parse trees, task mgmt, window mgmt https://nikitabobko.github.io/AeroSpace/guide#tree https://chatgpt.com/c/67202b04-6aec-8004-92c2-1af3c5fce7de
+* _BPS tree_: formed from binary space partitioning https://twobithistory.org/2019/11/06/doom-bsp.html
+* _minimum spanning tree (MST)_: edges to connect every node in weight graph while minimizing edge weight 📙 Christian chapter 8
+* _multitree_: https://github.com/climech/grit
 * _s-expression_: nested list in which the elements are both data and src https://chatgpt.com/c/671f995f-e7e4-8004-9721-19cc903c3e98 akin to XML https://en.wikipedia.org/wiki/S-expression#Parsing https://news.ycombinator.com/item?id=31840852
 * _treemap_: https://github.com/niyue/skillmap https://github.com/nikolaydubina/go-cover-treemap https://github.com/imsnif/diskonaut https://calmcode.io/labs/pytest-duration-insights
 https://buttondown.com/hillelwayne/archive/maybe-software-engineers-could-learn-something/ https://en.wikipedia.org/wiki/Hypernymy_and_hyponymy
-
-WALKING
-* BYO https://realpython.com/directory-tree-generator-python/
-* _frangipanni_: https://github.com/birchb1024/frangipanni https://news.ycombinator.com/item?id=26622548
-* no Homebrew https://github.com/birchb1024/frangipanni/issues/21
-* previously just Darwin executable and put on $PATH, now just building myself https://github.com/birchb1024/frangipanni/issues/22 https://github.com/zachvalenta/logs-mini23/commit/d8ffc518739eecc16d02821f4e98d705be6715e1
-* _snapdiff_: snapshot https://www.jotaen.net/iE3XC/snapdiff-compare-directory-trees-on-CLI/
-* _walkdir_: https://github.com/BurntSushi/walkdir
-
-🛠 https://github.com/joowani/binarytree https://github.com/queelius/AlgoTree
-🔗 https://en.wikipedia.org/wiki/Phylogenetic_tree
-> trees are easy to deal with and understand, but graphs are more "open" with what you can do https://news.ycombinator.com/item?id=27662089
-
-SEMANTICS
-* _tree_: type of graph 📙 Bhargava 6.113
-* _parent_: node w/ children
-* _leaf_: node with no children https://www.youtube.com/watch?v=5cU1ILGy6dM [0:30]
-* _height_: distance from root to given leaf measured in levels https://www.youtube.com/watch?v=Aagf3RyK3Lw [0:15] https://www.youtube.com/watch?v=dM_JHpfFITs [1:10]
-* _subtree_: tree nested w/ root tree https://www.youtube.com/watch?v=5cU1ILGy6dM
-* _completeness_: know how many elements in each layer except the last one https://realpython.com/python-heapq-module/#heaps-as-lists-in-the-python-heapq-module
-* _treemap_ https://news.ycombinator.com/item?id=36868940 https://en.wikipedia.org/wiki/Treemapping
-
-## builders
-
-🗄️
-* `html-css.md` SSG
-* `protocols.md` JSON
-* `km.md` notes / tooling
-* `info.md` viz / system
-
-* features: dynamic creation via TUI, hot reload viz, tree merge, Vim traversal, symlink nodes
-* BYO https://realpython.com/directory-tree-generator-python/
-* _anytree_: ✅ https://github.com/c0fec0de/anytree
-* repos https://github.com/zachvalenta/capp-prod-cat https://github.com/zachvalenta/capp-prod-cat-alt
-* symlink node https://anytree.readthedocs.io/en/stable/api/anytree.node.html#anytree.node.symlinknode.SymlinkNode https://github.com/c0fec0de/anytree/pull/189 https://github.com/zachvalenta/anytree/blob/main/anytree/exporter/dictexporter.py 🗄️ `runtime.md` pip
-* multi-dimensional https://anytree.readthedocs.io/en/stable/tricks/multidim.html https://en.wikipedia.org/wiki/MultiValue_database
-* dict export https://anytree.readthedocs.io/en/stable/exporter/dictexporter.html
-* json export https://anytree.readthedocs.io/en/stable/exporter/jsonexporter.html
-* _basilk_: https://github.com/GabAlpha/basilk
-* _d2_: grid diagram https://d2lang.com/tour/grid-diagrams
-* _Haystack_: 🎯 tree follower https://news.ycombinator.com/item?id=41648564
-* _hmm_: ✅ https://github.com/nadrad/h-m-m https://github.com/zachvalenta/capp-prod-cat-markmap
-* _markmap_: ✅ Markdowm https://github.com/markmap/markmap
-* _Leo_: 🎯 strange beast https://news.ycombinator.com/item?id=27615225 https://github.com/leo-editor/leo-editor
-* _treebuilder_: 🎯 https://github.com/fdieulle/treebuilder
 
 ## semantics
 
@@ -112,11 +71,27 @@ SEMANTICS
 * _subtree_: tree nested w/in root tree
 * _traversal_: movement through the tree
 
-## types
+---
 
-* https://news.ycombinator.com/item?id=42201936
-* _ordered_: Markdown, DOM, fs, AST, config mgmt, version control, NLP parse trees, task mgmt, window mgmt https://nikitabobko.github.io/AeroSpace/guide#tree https://chatgpt.com/c/67202b04-6aec-8004-92c2-1af3c5fce7de
+* _tree_: type of graph 📙 Bhargava 6.113
+* _parent_: node w/ children
+* _leaf_: node with no children https://www.youtube.com/watch?v=5cU1ILGy6dM [0:30]
+* _height_: distance from root to given leaf measured in levels https://www.youtube.com/watch?v=Aagf3RyK3Lw [0:15] https://www.youtube.com/watch?v=dM_JHpfFITs [1:10]
+* _subtree_: tree nested w/ root tree https://www.youtube.com/watch?v=5cU1ILGy6dM
+* _completeness_: know how many elements in each layer except the last one https://realpython.com/python-heapq-module/#heaps-as-lists-in-the-python-heapq-module
+* _treemap_ https://news.ycombinator.com/item?id=36868940 https://en.wikipedia.org/wiki/Treemapping
+
+## binary
+
+🛠 https://github.com/joowani/binarytree 
+
+---
+
 * _b-tree_: two branches for each node https://stackoverflow.com/a/6380314 🗄 `db.md` indexing https://avi.im/blag/ https://build-your-own.org/ https://build-your-own.org/database/04_btree_code_1 https://planetscale.com/blog/btrees-and-database-indexes
+```txt
+Designed to store and retrieve comparable keys efficiently in a sorted order.
+Traversal is determined by key comparisons (e.g., left for smaller, right for larger).
+```
 * balanced = min height and max height differ by 1 (at most) https://www.youtube.com/watch?v=Aagf3RyK3Lw @ 0:50
 ```sh
   1
@@ -137,6 +112,12 @@ adit       manning
       maggie      mike
 ```
 * _treap_: BST + each node has value + priority https://jvns.ca/blog/2017/09/09/data-structure--the-treap-/
+* _red-black tree_: BST that keeps itself balanced 📙 Bhargava 11.206
+* used for SSTables 📙 Kleppmann 78
+* _splay tree_: red-black + recently accessed are fast to lookup again 📙 Bhargava 11.206
+
+## heap
+
 * _heap_: tree + heap property e.g. max (parent node >= child nodes) min (parent node >= child nodes) https://www.youtube.com/watch?v=dM_JHpfFITs
 * used for priority queue 🗄 *FO https://en.wikipedia.org/wiki/Heap_(data_structure)
 ```
@@ -146,13 +127,105 @@ adit       manning
  /     \
 4       6
 ```
+
+## trie
+
+🗄️ `algos.md` matching > flashtext
+
 * _trie (prefix tree)_: typically used to store words https://www.youtube.com/watch?v=7XmS8McW_1U https://medium.com/basecs/trying-to-understand-tries-3ec6bede0014 https://blog.cloudflare.com/pingora-saving-compute-1-percent-at-a-time/ https://news.ycombinator.com/item?id=41501496
-* _BPS tree_: formed from binary space partitioning https://twobithistory.org/2019/11/06/doom-bsp.html
-* _minimum spanning tree (MST)_: edges to connect every node in weight graph while minimizing edge weight 📙 Christian chapter 8
-* _red-black tree_: BST that keeps itself balanced 📙 Bhargava 11.206
-* used for SSTables 📙 Kleppmann 78
-* _multitree_: https://github.com/climech/grit
-* _splay tree_: red-black + recently accessed are fast to lookup again 📙 Bhargava 11.206
+
+```txt
+Hierarchical Representation of Strings:
+* Each level of the trie corresponds to a character in a string.
+* A path from the root to a node represents a prefix of a string.
+
+Efficient for Prefix Matching: Tries are optimized for retrieving words with shared prefixes, making operations like autocomplete or prefix-based search very efficient.
+Space Usage: It can be space-efficient for strings with overlapping prefixes since common prefixes are stored only once. However, it may require more memory than other structures if the stored strings are diverse and do not share many prefixes.
+Insertion and Search Time Complexity: O(L), where L is the length of the word being inserted or searched. This makes it faster than hash-based structures for prefix-related operations.
+
+Nodes:
+* Each node typically stores:
+* A character (or part of the string).
+* References to child nodes (often stored in a hash table or array).
+* A flag indicating whether the node represents the end of a valid string.
+
+Common Use Cases:
+Autocomplete Systems: Quickly suggest words that start with a given prefix.
+Spell Checking: Validate whether a word exists in a dictionary.
+Search Engines: Optimize prefix searches for terms or keywords.
+IP Routing: Used in networking to efficiently store and retrieve IP prefixes.
+```
+
+```python
+class TrieNode:
+    def __init__(self):
+        self.children = {}
+        self.is_end_of_word = False
+
+class Trie:
+    def __init__(self):
+        self.root = TrieNode()
+
+    def insert(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                node.children[char] = TrieNode()
+            node = node.children[char]
+        node.is_end_of_word = True
+
+    def search(self, word):
+        node = self.root
+        for char in word:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        return node.is_end_of_word
+
+    def starts_with(self, prefix):
+        node = self.root
+        for char in prefix:
+            if char not in node.children:
+                return False
+            node = node.children[char]
+        return True
+
+trie = Trie()
+trie.insert("cat")
+trie.insert("car")
+trie.insert("cap")
+print(trie.search("cat"))        # True
+print(trie.search("can"))        # False
+print(trie.starts_with("ca"))    # True
+print(trie.starts_with("bat"))   # False
+```
+
+## tools
+
+WALKERS
+* BYO https://realpython.com/directory-tree-generator-python/
+* _frangipanni_: https://github.com/birchb1024/frangipanni https://news.ycombinator.com/item?id=26622548
+* no Homebrew https://github.com/birchb1024/frangipanni/issues/21
+* previously just Darwin executable and put on $PATH, now just building myself https://github.com/birchb1024/frangipanni/issues/22 https://github.com/zachvalenta/logs-mini23/commit/d8ffc518739eecc16d02821f4e98d705be6715e1
+* _snapdiff_: snapshot https://www.jotaen.net/iE3XC/snapdiff-compare-directory-trees-on-CLI/
+* _walkdir_: https://github.com/BurntSushi/walkdir
+
+BUILDERS 🗄️ `html-css.md` SSG `protocols.md` JSON `km.md` notes / tooling `info.md` viz / system
+* features: dynamic creation via TUI, hot reload viz, tree merge, Vim traversal, symlink nodes
+* BYO https://realpython.com/directory-tree-generator-python/
+* _anytree_: ✅ https://github.com/c0fec0de/anytree
+* repos https://github.com/zachvalenta/capp-prod-cat https://github.com/zachvalenta/capp-prod-cat-alt
+* symlink node https://anytree.readthedocs.io/en/stable/api/anytree.node.html#anytree.node.symlinknode.SymlinkNode https://github.com/c0fec0de/anytree/pull/189 https://github.com/zachvalenta/anytree/blob/main/anytree/exporter/dictexporter.py 🗄️ `runtime.md` pip
+* multi-dimensional https://anytree.readthedocs.io/en/stable/tricks/multidim.html https://en.wikipedia.org/wiki/MultiValue_database
+* dict export https://anytree.readthedocs.io/en/stable/exporter/dictexporter.html
+* json export https://anytree.readthedocs.io/en/stable/exporter/jsonexporter.html
+* _basilk_: https://github.com/GabAlpha/basilk
+* _d2_: grid diagram https://d2lang.com/tour/grid-diagrams
+* _Haystack_: 🎯 tree follower https://news.ycombinator.com/item?id=41648564
+* _hmm_: ✅ https://github.com/nadrad/h-m-m https://github.com/zachvalenta/capp-prod-cat-markmap
+* _markmap_: ✅ Markdowm https://github.com/markmap/markmap
+* _Leo_: 🎯 strange beast https://news.ycombinator.com/item?id=27615225 https://github.com/leo-editor/leo-editor
+* _treebuilder_: 🎯 https://github.com/fdieulle/treebuilder
 
 # 🟨 ZA
 

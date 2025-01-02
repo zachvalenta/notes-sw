@@ -103,6 +103,7 @@ fselect path, mime from /home/user where is_audio = 1
 
 🗄️
 * grep
+* `algos.md` matching
 * `vim.md` fuzzy find
 
 ### 🌸 fzf
@@ -300,8 +301,13 @@ DESIGN
 ### 🦆 yazi
 
 CONFIG
-* fs: `~/.config/yazi`
+```sh
+├── .config/yazi
+│   └── package.toml  # shell/yazi/plugins.toml
+│   └── yazi.toml  # shell/yazi/config.toml
+```
 * `ya`: CLI
+* plugins https://yazi-rs.github.io/docs/cli/#package-manager
 
 OPERATIONS
 * enter doesn't enter dir from shell but rather opens in Vim -> workaround? https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter

@@ -443,6 +443,10 @@ PG http://paulgraham.com/popular.html
 > There are lies, damned lies and benchmarks. https://github.com/pydantic/jiter https://news.ycombinator.com/item?id=42501532
 🎗️ https://danluu.com/anon-benchmark/ https://danluu.com/why-benchmark/ https://jpcamara.com/2024/12/01/speeding-up-ruby.html https://benhoyt.com/writings/go-version-performance-2024/
 
+* _millisecond (ms)_: 10^−3 (one-thousandth of a second)
+* _microsecond (µs)_: 10^−6 (one-millionth of a second)
+* _nanosecond (ns)_: 10^−9 (one-billionth of a second)
+
 LINUX
 * _time_: `/usr/bin/time -v` detailed output w/ memory stats https://github.com/egoist/dum https://news.ycombinator.com/item?id=30226742
 ```sh
@@ -804,6 +808,7 @@ https://news.ycombinator.com/item?id=30394152
 
 ---
 
+* useful 404 https://calmcode.io/static/data
 * https://calmcode.io/course/better-uptime/overview
 UPTIME / HEALTHCHECK / HEARTBEAT
 * https://status.calmcode.io/

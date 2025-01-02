@@ -204,6 +204,7 @@ LAYOUT 🔗  https://github.com/arp242/hello-css/
 
 MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
 * https://blog.jacobvosmaer.nl/0014-yocto/
+* centered https://urchade.github.io/
 * https://nat.org/
 * https://vancouver.systems/
 * https://news.ycombinator.com/login?goto=news
