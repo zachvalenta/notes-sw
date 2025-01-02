@@ -304,18 +304,19 @@ CONFIG
 ```sh
 ├── .config/yazi
 │   └── package.toml  # shell/yazi/plugins.toml
+│   └── theme.toml  # shell/yazi/catppuccin.toml https://github.com/catppuccin/yazi
 │   └── yazi.toml  # shell/yazi/config.toml
 ```
-* `ya`: CLI
+* `ya`: CLI to install plugins
 * plugins https://yazi-rs.github.io/docs/cli/#package-manager
 
-OPERATIONS
-* enter doesn't enter dir from shell but rather opens in Vim -> workaround? https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
-* 📍 good for file operations https://www.youtube.com/watch?v=iKb3cHDD9hw
+---
 
-VIZ
-* 📍 theme https://github.com/catppuccin/yazi
-* 📍 PDF preview via poppler https://github.com/sxyazi/yazi
+TODO
+* dir icons https://github.com/sxyazi/yazi/issues/2148 https://yazi-rs.github.io/docs/configuration/theme/#filetype https://github.com/search?q=prepend_conds&type=code
+* enter doesn't enter dir from shell but rather opens in Vim -> workaround? https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
+* file operations https://www.youtube.com/watch?v=iKb3cHDD9hw
+* PDF preview via poppler https://github.com/sxyazi/yazi
 
 ## jump (zoxide)
 
