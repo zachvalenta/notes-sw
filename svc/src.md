@@ -430,56 +430,6 @@ extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.
 * Richard Gabriel https://www.jwz.org/doc/worse-is-better.html https://bitfieldconsulting.com/posts/not-real-developer
 > Simplicity beats even strict correctness, in this view: it’s better to be simple (and handle the easy 90% of cases in a nice way) than to be totally correct (and handle the awkward edge cases, at the expense of making the code much more complex).
 
-## CLI/TUI
-
-🗄
-* `denv.md` Make
-* `linux.md` http://gnu.ist.utl.pt/prep/standards/html_node/Command_002dLine-Interfaces.html
-> I will finally note that Ken Thompson has a history of designs that look like minimal solutions to near problems but turn out to have an amazing quality of openness to the future, the capability to be improved. Unix is like this, of course. It makes me very cautious about supposing that any of the obvious annoyances in Go that look like future-blockers to me (like, say, the lack of generics) actually are. Because for that to be true, I’d have to be smarter than Ken, which is not an easy thing to believe. http://esr.ibiblio.org/?p=7745
-* `python.md` Click, functions
-* `serde.md`
-
-24.12.11
-* positional for one|two obvious args
-* keyword for options
-
----
-
-https://jvns.ca/blog/2024/11/26/terminal-rules/ https://news.ycombinator.com/item?id=42401011
-https://danluu.com/cli-complexity/
-
-TUI
-* https://news.ycombinator.com/item?id=40273177
-* _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
-* ncurses
-* https://news.ycombinator.com/item?id=37418424
-* TUI for bash https://github.com/charmbracelet/gum
-* design https://www.micahlerner.com/2021/07/14/unix-shell-programming-the-next-50-years.html 🗣 Dan Luu https://borretti.me/article/shells-are-two-things extensions https://github.com/dotenvx/dotenvx/pull/426
-
-CLI IMPL LANGUAGE
-> use Rust for CLI and Python for business logic? https://github.com/chubin/wttr.in
-* tracking user info https://www.visidata.org/blog/2021/usage-graphs/
-> build modern CLI applications without worrying about user accounts, data storage and encryption https://github.com/charmbracelet/charm#charm-kv
-* fuzzy find https://github.com/denisidoro/navi
-* C: ✅ fast ❌ development speed
-* Nim: ✅ distribution ❌ maturity https://ssalewski.de/nimprogramming.html
-* Python: ✅ exploratory ❌ distribution
-* Go: ✅ distribution, fast startup https://news.ycombinator.com/item?id=23319684 ❌ stdlib lib lib not good
-* Rust: ✅ speed, Clap library https://news.ycombinator.com/item?id=23320411 better for cross platform https://cuchi.me/posts/go-vs-rust ❌ language itself
-
-OPTIONS 🔗 http://www.catb.org/~esr/writings/taoup/html/ch10s05.html
-* _short option_: single dash prefix + single letter e.g. `-y`
-* _option set_: n short options e.g. `-baz` = `-b`, `a`, `z`
-* _long option_: double dash prefix + word e.g. `--foo-bar`
-* options with a value are separated by their option by a space or an `=`
-* `--`: ends option processing.
-
-INPUT https://news.ycombinator.com/item?id=31293032
-* https://nullprogram.com/blog/2020/08/01/
-* _flag_: hyphen e.g. `cmd --from here --to there`
-* letter (`-h`) word (`--help`) https://www.youtube.com/watch?v=FOQHGz__OLs
-* _arg_: no hypen `cmd here there`; less clear than flags bc have to remember which is src and which is target https://medium.com/@jdxcode/12-factor-cli-apps-dd3c227a0e46
-
 ## dependency injection (DI)
 
 ---
