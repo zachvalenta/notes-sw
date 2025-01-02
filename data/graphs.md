@@ -34,17 +34,16 @@
 > trees are easy to deal with and understand, but graphs are more "open" with what you can do https://news.ycombinator.com/item?id=27662089
 🗄️
 *️ `km.md` notes / tooling
+*️ `lisp.md` s-expressions
 * `science.md` metascience / categories https://en.wikipedia.org/wiki/Phylogenetic_tree
 
 ---
 
 MORE TYPES
 * https://news.ycombinator.com/item?id=42201936
-* _ordered_: Markdown, DOM, fs, AST, config mgmt, version control, NLP parse trees, task mgmt, window mgmt https://nikitabobko.github.io/AeroSpace/guide#tree https://chatgpt.com/c/67202b04-6aec-8004-92c2-1af3c5fce7de
 * _BPS tree_: formed from binary space partitioning https://twobithistory.org/2019/11/06/doom-bsp.html
 * _minimum spanning tree (MST)_: edges to connect every node in weight graph while minimizing edge weight 📙 Christian chapter 8
 * _multitree_: https://github.com/climech/grit
-* _s-expression_: nested list in which the elements are both data and src https://chatgpt.com/c/671f995f-e7e4-8004-9721-19cc903c3e98 akin to XML https://en.wikipedia.org/wiki/S-expression#Parsing https://news.ycombinator.com/item?id=31840852
 * _treemap_: https://github.com/niyue/skillmap https://github.com/nikolaydubina/go-cover-treemap https://github.com/imsnif/diskonaut https://calmcode.io/labs/pytest-duration-insights
 https://buttondown.com/hillelwayne/archive/maybe-software-engineers-could-learn-something/ https://en.wikipedia.org/wiki/Hypernymy_and_hyponymy
 
@@ -127,6 +126,11 @@ adit       manning
  /     \
 4       6
 ```
+
+
+## ordered
+
+* Markdown, DOM, fs, AST, config mgmt, version control, NLP parse trees, task mgmt, window mgmt https://nikitabobko.github.io/AeroSpace/guide#tree
 
 ## trie
 
@@ -232,12 +236,35 @@ BUILDERS 🗄️ `html-css.md` SSG `protocols.md` JSON `km.md` notes / tooling `
 ## category theory / graph theory
 
 🔗 https://en.wikipedia.org/wiki/Graph_theory
+🗄️ `src.md` functional
 📚
 * Cheng joy of abstraction https://www.amazon.com/gp/product/1108477224
 
 * _centrality_: see email to Cowen re: Jamie Brandon https://en.wikipedia.org/wiki/Centrality Gwern https://news.ycombinator.com/item?id=42134708 TC https://danluu.com/broken-builds/
 
 ---
+
+```txt
+Yes, there are interesting overlaps between category theory and software development, particularly in areas like functional programming, type theory, and abstract data structures. These connections stem from how category theory deals with abstract structures and mappings between them, which can be applied to the structure and behavior of software systems. Here are some key overlaps:
+
+1. Functional Programming
+Functor, Monads, and Applicatives: These are fundamental concepts in category theory that have direct implementations in functional programming languages, particularly in Haskell and Scala. A Functor in programming refers to a type that can be mapped over (like lists or trees). A Monad provides a way to chain computations, and this is central to handling side effects (like I/O, exceptions, or state) in purely functional languages.
+Composition: Category theory emphasizes the concept of composing functions (arrows between objects), which is a core practice in functional programming. Functions are treated as first-class citizens and composed to form complex operations.
+2. Type Systems and Abstraction
+Types as Objects, Functions as Morphisms: In some ways, types in a programming language can be seen as objects in a category, and functions between types are morphisms (arrows) between objects. This provides a way to reason about type safety, refactoring, and code reuse.
+Generic Programming: Category theory’s abstraction powers align well with polymorphism in type systems (such as generics in Java or templates in C++). Abstracting over data types allows code to work over a wide variety of inputs in a safe manner, similar to how category theory abstracts over structures.
+3. Software Architecture
+Modularity and Composition: Software systems are often built in a modular fashion, where smaller components are composed to form larger systems. In category theory, the idea of breaking systems into composable parts and studying their interactions is central. This mirrors software architectures like microservices, where small independent services are composed to form larger applications.
+Duality: Many software structures exhibit dualities similar to those found in category theory. For example, a concept like reading from a data stream and writing to a data stream can be seen as dual operations. Category theory’s handling of dualities can provide deeper insight into how these operations relate.
+4. DSLs (Domain-Specific Languages)
+Category theory can influence the design of DSLs for software development. Algebraic data types (used to represent data structures) and the mathematical precision provided by category theory can help create clean, concise, and powerful languages tailored to specific problem domains.
+5. Declarative Programming and Databases
+SQL queries, for instance, can be related to monads and monoids in category theory. The ideas of combining queries and mapping data transformations bear similarity to functional programming practices rooted in category theory.
+6. Proofs and Correctness
+Category theory is often used in the formal verification of software. It provides a language for specifying and proving the properties of algorithms, software systems, and programming languages. This ties into dependently typed languages (like Agda or Coq), where software correctness can be proven as part of the program.
+7. Monoidal Categories and Parallelism
+Monoidal categories offer insights into how systems can be structured in a parallel or distributed fashion. These categories define how processes can be combined in parallel, providing a mathematical foundation for understanding concurrency in software systems.
+```
 
 https://news.ycombinator.com/item?id=42291141 https://docs.racket-lang.org/ctp/index.html
 

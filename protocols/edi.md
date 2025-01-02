@@ -93,7 +93,6 @@ Automation Focus: EDI was designed from the beginning to be machine-readable bec
 Industry Adoption: Many industries that rely on EDI have invested heavily in infrastructure that supports X12. The cost and effort to completely transition to a more human-readable format are significant, so most updates have focused on compatibility and modernization without completely overhauling the format.
 ```
 
-* XML, s-expressions https://en.wikipedia.org/wiki/S-expression#Parsing https://news.ycombinator.com/item?id=31840852
 * more middlemen + better protocol
 > Stedi’s native format for EDI transactions is called Guide JSON. It closely reflects the structure of an EDI transaction, but uses JSON instead of EDI syntax. https://www.stedi.com/docs/edi-platform/operate/transform-json/guide-json https://www.stedi.com/docs/edi-platform/operate/generate-edi/index
 * JSON Schema https://www.stedi.com/blog/getting-started-with-the-x12-file-format
@@ -367,7 +366,9 @@ NO
 
 ## pyedi
 
-* _pyedi_: parse (x12-JSON) https://github.com/freestream/pyedi 💻 https://github.com/zachvalenta/capp-pyedi
+* _pyedi_: parse (x12-JSON) https://github.com/freestream/pyedi
+* your tmp fork for Capp https://github.com/zachvalenta/capp-pyedi
+> don't forget to use you need to pull pyedi to same level as JSON generation scrip t
 * not on PyPI; fork and publish? https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 ```python
 import json

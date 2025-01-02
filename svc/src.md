@@ -611,6 +611,7 @@ cf. [Designing Data Intensive Applications - chapter 2 - 'delcarative queries on
 
 ## functional
 
+🗄️ `graphs.md` category theory
 📚
 * Granin https://www.manning.com/books/functional-design-and-architecture
 * ⭐️ Normand https://www.amazon.com/dp/1617296201 https://www.manning.com/books/grokking-simplicity

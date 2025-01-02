@@ -47,6 +47,8 @@ Then I should see a welcome message
 
 ## formal methods (TLA+)
 
+🗄️ `computation.md` logic > SAT
+
 ---
 
 > constraint solving here or somewhere else https://www.stephendiehl.com/posts/minizinc/
@@ -114,7 +116,9 @@ TLA+
 > Mutation testers modify (mutate) your project code in small ways, then run your test suite. If the tests all pass, then that mutation is considered a problem: a bug that your tests didn’t catch. The theory is that a mutation will change the behavior of your program, so if your test suite is testing closely enough, some test should fail for each mutation. If a mutation doesn’t produce a test failure, then you need to add to your tests. There are a few problems with this plan. The first is that it is time-consuming. Most people feel like it takes too long to run their entire test suite just once. Mutation testers run the whole suite once for each mutation, and there can be thousands of mutations. But my larger concern is false positives: not all mutations are bugs, and if the mutation tester reports too many non-bugs as bugs, then its usefulness is diminished or even negated. https://nedbatchelder.com/blog/201903/mutmut.html
 * seems like just coverage? https://blog.scottlogic.com/2017/09/25/mutation-testing.html https://rachelcarmena.github.io/2017/09/01/do-we-have-a-good-safety-net-to-change-this-legacy-code.html
 
-## property-based
+## property
+
+🗄️ `computation.md` logic > SAT
 
 * test case doesn't use example data (supplied by engineer) but random data (based on type) https://florian-dahlitz.de/blog/test-your-python-code-using-hypothesis
 > Of course, you can write more tests to test both functions with different values or even parametrize your tests. However, in the end, you test both functions using predefined values. Writing tests using a property-based testing library like Hypothesis is different. Here, you specify the types you are testing against and the way the software should work or behave. The library then generates random values in accordance with the specified types to actually test the functions. Thereby, you won't miss edge cases as they are tested once in a while. https://florian-dahlitz.de/articles/test-your-python-code-using-hypothesis

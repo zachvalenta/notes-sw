@@ -119,6 +119,20 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 * little syntax https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
 * https://tryclojure.org/
 * https://stackoverflow.com/questions/47482349/what-characterizes-a-lisp-dialect
-* s-expressions https://news.ycombinator.com/item?id=5654398 https://notes.eatonphil.com/compiler-basics-lisp-to-assembly.html
 * no loops https://www.lvguowei.me/post/sicp-goodness-looping/
 * prefix notation: operator comes first https://www.braveclojure.com/getting-started/
+
+## s expressions
+
+🗄️ ️`algos.md` trees
+
+* = nested list in which the elements are both data and src
+
+---
+
+* XML https://en.wikipedia.org/wiki/S-expression#Parsing
+* akin to XML https://en.wikipedia.org/wiki/S-expression#Parsing
+* https://news.ycombinator.com/item?id=31840852
+* https://news.ycombinator.com/item?id=5654398
+* https://notes.eatonphil.com/compiler-basics-lisp-to-assembly.html
+* https://news.ycombinator.com/item?id=31840852
