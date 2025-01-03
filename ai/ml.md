@@ -253,6 +253,9 @@ SEMANTICS
 
 # 🏛️ CLASSICAL
 
+🗄️ `stat.md` Bayes
+📙 Smokyakov https://www.manning.com/books/machine-learning-algorithms-in-depth
+
 ## 🛖 KNN
 
 🗄 `math.md` regression

@@ -551,6 +551,13 @@ TOOLS
 
 ## profiles
 
+```sh
+├── $HOME
+│   └── .zprofile
+│   └── .zshenv
+│   └── .zshrc
+```
+
 ZSH
 * _zshrc_: src for interactive shells
 * this isn't in `$HOME` by default i.e. I had `.zshrc` in my dotfiles that wasn't being sourced for months

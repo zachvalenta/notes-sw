@@ -113,6 +113,12 @@ DESIGN
 * _DSV_: same as `.dat` https://en.wikipedia.org/wiki/Delimiter-separated_values https://www.thoughtspot.com/blog/csv-vs-delimited-flat-files-how-choose
 * _TSV_: https://news.ycombinator.com/item?id=40622760
 
+### generation
+
+```sh
+python -c "import random; print('\n'.join(str(random.randint(10, 99)) if random.random() > 0.2 else str(random.randint(100, 999)) for _ in range(20)))"
+```
+
 ### conversion
 
 ---
