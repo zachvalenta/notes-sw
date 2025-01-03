@@ -309,11 +309,11 @@ CONFIG
 ```
 * `ya`: CLI to install plugins
 * plugins https://yazi-rs.github.io/docs/cli/#package-manager
+* dir icons https://github.com/sxyazi/yazi/issues/2148
 
 ---
 
 TODO
-* dir icons https://github.com/sxyazi/yazi/issues/2148 https://yazi-rs.github.io/docs/configuration/theme/#filetype https://github.com/search?q=prepend_conds&type=code
 * enter doesn't enter dir from shell but rather opens in Vim -> workaround? https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
 * file operations https://www.youtube.com/watch?v=iKb3cHDD9hw
 * PDF preview via poppler https://github.com/sxyazi/yazi
