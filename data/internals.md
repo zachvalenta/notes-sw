@@ -16,6 +16,11 @@ query plan (Polars) read vs. scan
 * CMU https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi https://www.youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O
 * _correlation_: correlation btw storage on disk and order of rows https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
 
+CHECKSUMS
+* https://news.ycombinator.com/item?id=42094663
+* https://avi.im/blag/2024/databases-checksum/
+* https://avi.im/blag/2024/sqlite-bit-flip/
+
 # 🏎️ ENGINES
 
 ## query
@@ -239,6 +244,7 @@ https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/
 
 📙 Dibernardo, Kleppmann
 
+* https://github.com/avinassh/py-caskdb
 * https://www.youtube.com/watch?v=5Pc18ge9ohI
 * https://tontinton.com/posts/database-fundementals
 * https://github.com/spandanb/learndb-py

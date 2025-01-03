@@ -19,7 +19,7 @@
 ---
 
 alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016 https://github.com/hbakri/django-ninja-crud
-Rails https://news.ycombinator.com/item?id=42569236
+Rails https://news.ycombinator.com/item?id=42569236 https://literallythevoid.com/blog/rails_for_everything.html
 https://www.loopwerk.io/articles/2024/django-vs-flask-vs-fastapi/
 https://www.bugsink.com/blog/better-error-tracking-in-django/
 https://realpython.com/django-user-management/

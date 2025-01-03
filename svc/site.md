@@ -203,7 +203,7 @@ Dreams of Code https://www.youtube.com/watch?v=A_3MP_V-kB4
 ---
 
 * https://lwn.net/Articles/997784/
-* https://drewdevault.com/2019/03/04/sourcehut-design.html https://avi.im/blag/2024/galloping-search/
+* https://drewdevault.com/2019/03/04/sourcehut-design.html
 🛠️ Sketch, Figma
 🇬🇧 UK design system https://govukvue.org/
 🗄

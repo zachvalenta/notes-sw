@@ -328,7 +328,7 @@ MANUFACTURING https://doxa.substack.com/p/why-a-chinese-invasion-of-taiwan
 * https://stratechery.com/2024/intels-death-and-potential-revival
 * https://news.ycombinator.com/item?id=42051968
 * _fabless_: you design, someone else manufacturers (AMD, Nvidia, Qualcomm, Apple) https://www.youtube.com/watch?v=Jyp6jFCzW44
-* _foundry_: manufacturing (TSMC, Intel, Samsung, GlobalFoundries) https://stratechery.com/2020/chips-and-geopolitics Intel one of the few that does both design and manufacturing https://stratechery.com/2022/the-intel-split/
+* _foundry_: manufacturing (TSMC, Intel, Samsung, GlobalFoundries) https://stratechery.com/2020/chips-and-geopolitics Intel one of the few that does both design and manufacturing https://stratechery.com/2022/the-intel-split/ Morris Chang https://news.ycombinator.com/item?id=42559052
 * _HDL_: software for designing chips
 * ARM has more balance btw battery life and perf, x86 more perf https://diff.substack.com/p/taiwan-and-supply-chain-frenmity
 * cloud computing kept Intel going after they lost smartphones https://stratechery.com/2021/intel-problems/

@@ -259,7 +259,7 @@ API STAR 📜 https://docs.apistar.com/ https://github.com/zachvalenta/flask-ope
 
 # 🟨 ZA
 
-* reverse engineering https://news.ycombinator.com/item?id=41983409 https://news.ycombinator.com/item?id=42057903 https://news.ycombinator.com/item?id=42565821
+* reverse engineering https://apiparrot.com/?utm_source=hackernewsletter https://news.ycombinator.com/item?id=41983409 https://news.ycombinator.com/item?id=42057903 https://news.ycombinator.com/item?id=42565821
 
 ## pagination
 

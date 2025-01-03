@@ -612,7 +612,7 @@ USAGE
 ---
 
 > Beyond that, we’re starting to see more creative uses of SQLite rather than “just” a local ACID-compliant database. With the advent of tools like Litestream enabling streaming backups and LiteFS to provide distributed access, we can devise more interesting topologies. Extensions like CR-SQLite allow the use of CRDTs to avoid needing conflict resolution when merging changesets, as used in Corrosion. https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
-* replication, Rust rewrite https://github.com/tursodatabase/libsql https://news.ycombinator.com/item?id=42378843& https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/ limbo https://avi.im/blag/2024/faster-sqlite https://github.com/tursodatabase/limbo/
+* replication, Rust rewrite https://github.com/tursodatabase/libsql https://news.ycombinator.com/item?id=42378843& https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/ limbo https://avi.im/blag/2024/faster-sqlite https://github.com/tursodatabase/limbo/ https://avi.im/blag/2024/faster-sqlite/
 * WASM https://news.ycombinator.com/item?id=41851051
 * durable object https://simonwillison.net/2024/Oct/13/zero-latency-sqlite-storage-in-every-durable-object/
 
@@ -682,6 +682,10 @@ db files
 
 ## design
 
+---
+
+concurrent writers, Litestream for backups/replication https://avi.im/blag/2024/sqlite-bad-rep/
+
 📜 https://sqlite.org/quirks.html
 
 https://joyofrails.com/articles/what-you-need-to-know-about-sqlite
@@ -748,8 +752,6 @@ constraints
 * `pragma`: cmd to set env var
 
 # 🟨 ZA
-
-* checksums https://news.ycombinator.com/item?id=42094663&utm_term=comment
 
 ## JSON
 

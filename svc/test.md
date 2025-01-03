@@ -4,6 +4,17 @@
 
 ## 进步
 
+* https://avi.im/blag/2024/snapshot-testing/
+```sh
+# Snapshot testing makes it easy to compare large outputs from a function. Instead of asserting against the raw output directly:
+assert_eq!(my_really_large_6mb_string, my_func());
+
+# you save the expected output in a file and compare against that. But manually saving, loading, and comparing snapshot files is a lot of work! Snapshot testing frameworks make this process easy. In Rust, I have used insta:
+assert_debug_snapshot!(my_func());
+
+# I don’t need to explicitly save or load snapshot files. The framework handles it automatically!
+```
+
 * start here https://github.com/okken/cards
 * test heatmap https://threedots.tech/post/go-test-parallelism/
 * literate testing, literate programming https://simonw.substack.com/p/video-scraping-using-google-gemini

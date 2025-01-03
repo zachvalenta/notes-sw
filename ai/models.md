@@ -117,7 +117,7 @@ CONTEXT
 
 🗄️ `hw.md` Apple 
 
-https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonwillison.net/2024/Dec/9/llama-33-70b/
+https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonwillison.net/2024/Dec/9/llama-33-70b/ https://news.ycombinator.com/item?id=42539155&
 
 > 🎗️ llamafile https://simonwillison.net/2024/Jun/17/cli-language-models/ https://simonwillison.net/2023/Nov/29/llamafile/ "this should be technically impossible" (having a single unmodified binary run across mac/Windows/linux) https://www.youtube.com/watch?v=QUXQNi6jQ30 [20:00]
 * mini23 uses 8B just w/ VS Code + browser + macOS core services
@@ -485,6 +485,8 @@ STRATEGY
 * ask it to do better
 
 ---
+
+> Please back your claims up with specifics.
 
 https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
 

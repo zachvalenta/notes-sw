@@ -109,6 +109,7 @@
 ```
 
 START HERE
+* https://news.ycombinator.com/item?id=42569913
 * Clinton book + https://www.manning.com/books/llms-in-production
 * https://www.youtube.com/@gptLearningHub/videos
 * Raschka thirty questions and answers https://www.amazon.com/dp/1718503768

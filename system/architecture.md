@@ -18,6 +18,8 @@
 
 ---
 
+* BYO https://avi.im/blag/2024/s3-log/
+https://avi.im/blag/2024/zero-disk-architecture/ https://avi.im/blag/2024/disaggregated-storage/
 https://bytebytego.com/ https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF https://www.amazon.com/System-Design-Interview-Insiders-Guide/dp/1736049119 https://www.youtube.com/watch?v=jPKTo1iGQiE
 
 ROADMAPS
