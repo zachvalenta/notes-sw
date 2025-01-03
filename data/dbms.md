@@ -394,6 +394,8 @@ UTILS
 
 ---
 
+> And before you think being open-source insulates you from a company going under, few DBMS projects continue on and thrive when their founding for-profit company fails. PostgreSQL sort of counts even though the open-source version we have today is based on the UC Berkeley source code and not the commercial Illustra version (which was acquired by Informix in 1996). https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
+
 misc
 * fuzzy match https://news.ycombinator.com/item?id=26236772
 * local dev https://jamey.thesharps.us/2019/05/29/per-project-postgres/
@@ -768,6 +770,7 @@ ALTERNATIVES
 
 ## MySQL
 
+> MariaDB was in the news a lot this past year, and not in a good way. We found out that the MariaDB Corporation (which is separate from the MariaDB Foundation) is apparently a dumpster fire. In 2022, the Corporation backdoor IPO-ed through a sketchy merger instrument known as a SPAC. But the stock ($MRDB) immediately lost 40% of its value three days after its IPO. Because the Corporation decided to speedrun its way to the NYSE and become a publicly traded company, its dirty laundry became public. By the end of 2023, the stock price had dropped by over 90% since its opening. Things are so rotten at MariaDB Corporation that the Foundation's CEO wrote an article complaining about how their relationship with the Corporation has soured since the IPO and they are hoping to "reboot" it. Other problems include Microsoft announcing in September 2023 that they will no longer offer MariaDB as a managed Azure service. Microsoft will instead focus on supporting MySQL. And just in case you are not aware, MariaDB is a fork of MySQL that MySQL's original creator, Monty Widenus, started after Oracle announced its acquisition of Sun Microsystems in 2009. Recall that Sun bought MySQL AB in 2008 after Oracle bought InnoBase (makers of InnoDB) in 2005. But now MySQL is doing fine and MariaDB is one with problems. You don't need to watch movies or television shows for entertainment! You can get all the drama you need in your life through databases! https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 * TUI: https://github.com/charles-001/dolphie
 * MariaDB is done https://news.ycombinator.com/item?id=27922687 https://news.ycombinator.com/item?id=35467243
 * CLI: https://www.mycli.net/docs flags https://dev.mysql.com/doc/refman/8.0/en/mysql-command-options.html

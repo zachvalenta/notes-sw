@@ -40,13 +40,21 @@ INTERVIEWING
 # 🚧 DESIGN
 
 🗄️ `eng.md` dataframes
+> SQL was here before you were born and will be here when you die https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 
 ---
+
+> the creation of SQL at IBM Research by Don Chamberlain and Ray Boyce (RIP). Originally known as SEQUEL (Structured English QUEry Language) https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
+> Don Chamberlin details his early work with Ray Boyce designing the relational language SQL. After meeting E.F. (Ted) Codd at a symposium at the IBM T.J. Watson Research Center in Yorktown Heights, New York, in 1972, Boyce and Chamberlin believed that it should be possible to design a relational language that would be accessible to users without formal training in mathematics or computer programming. https://ieeexplore.ieee.org/document/6359709
+
+> This past year saw the latest incarnation of the ISO/IEC 9075 specification, better known as SQL:2023. The update includes many "nice to haves" that deal with frustrations and inconsistencies in various SQL dialects (e.g., ANY_VALUE). Two enhancements to SQL that further erode the need for alternative data models and query languages are worth mentioning here. Remember that just because the SQL specification includes something does not mean that your favorite relational DBMS will immediately support these new features. https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
+> SQL is not perfect, of course, and it is not truly portable since every DBMS has its quirks, proprietary features, and non-standard extensions. https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 
 REPLACEMENTS
 * Ibis
 * _Trilogy_: dimension tables, canonical dataset for OLTP https://news.ycombinator.com/item?id=42231325
 * Sakila also canonical https://sq.io/docs/tutorial
+* https://medium.com/schkn/sql-is-dead-hail-to-flux-8e8498756049
 
 * boring and durable https://josephg.com/blog/databases-have-failed-the-web
 * outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/

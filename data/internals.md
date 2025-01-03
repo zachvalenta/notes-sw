@@ -28,6 +28,8 @@ CHECKSUMS
 🗄️ `data/eng.md` query engines
 🔗 https://pganalyze.com/blog/how-postgres-chooses-index
 
+* how joins work under the hood
+> Adding SQL/PGQ in a DBMS is not as simple as adding support for the new syntax. There are several engineering considerations to ensure graph queries perform well. For example, graph queries perform multi-way joins to traverse the graph. But a problem arises when the intermediate results for these joins are larger than the base tables. A DBMS must use a worst-case optimal join (WCOJ) algorithm to execute such joins more efficiently than the usual hash join used when joining two tables. Another important technique is to use factorization to avoid materializing redundant intermediate results during joins. This type of compression helps the DBMS avoid blowing out its memory with the same join record over and over again. https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 * _database engine_: container for components https://www.sqlite.org/draft/queryplanner.html https://www.practical-mongodb-aggregations.com/intro/introducing-aggregations.html
 * lexer: lex, yac https://news.ycombinator.com/item?id=30086374 https://www.interdb.jp/pg/index.html
 * _parser_: https://github.com/reata/sqllineage 🗄 `language.md` compiler https://github.com/pganalyze/pg_query

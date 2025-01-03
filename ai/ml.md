@@ -175,6 +175,7 @@ USAGE https://platform.openai.com/docs/guides/embeddings
 
 ---
 
+> The "magic" that facilitates these types of searches is transformers that convert data into a fixed-length, one-dimensional vector of floating point numbers called an embedding. The values in these embeddings are indecipherable to humans. Instead, their contents encode some relationship between the parameters and the transformer's training corpus. The size of these embedding vectors ranges from 100s of dimensions for simple transformers to 1000s for high-end models. https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 * https://calmcode.io/course/embeddings/introduction
 * try it out https://github.com/taylorai/aiq
 * https://www.youtube.com/watch?v=XPA213k8G_U
@@ -238,6 +239,11 @@ SEMANTICS
 * _dimensionality_: number of components in a vector https://zackproser.com/blog/introduction-to-dimensionality#what-is-dimensionality-
 
 🧠 https://chatgpt.com/c/6733b490-8d1c-8004-aa20-c1c6722b0247
+
+https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
+> Although some of these systems have been around for a couple of years, the widespread interest in LLMs and services built on top of them (e.g., ChatGPT) brought them to the forefront this last year. Vector databases promise to provide deeper searches on data (especially unstructured data) based on the data's semantics rather than just its contents. That is, instead of searching for documents that contain exact keywords (e.g., "Wu-Tang Clan"), an application can search for documents that are related to topics (e.g., "hip-hop groups with songs about slinging").
+> The "magic" that facilitates these types of searches is transformers that convert data into a fixed-length, one-dimensional vector of floating point numbers called an embedding. The values in these embeddings are indecipherable to humans. Instead, their contents encode some relationship between the parameters and the transformer's training corpus. The size of these embedding vectors ranges from 100s of dimensions for simple transformers to 1000s for high-end models.
+> This is where vector DBMSs come into the picture. At its core, a vector DBMS is just a document database with a specialized index data structure to accelerate similarity search on embeddings. Instead of performing an exact match for the most similar vectors per query, these systems can use approximate searches to generate results that make the trade-off of being "good enough" in exchange for returning the result more quickly. That's it.
 
 * _ChromaDB_: https://www.youtube.com/watch?v=QSW2L8dkaZk&list=PL58zEckBH8fA-R1ifTjTIjrdc3QKSk6hI&pp=iAQB
 * _Pinecone_: https://zackproser.com/blog/i-am-joining-pinecone-io https://zackproser.com/blog/vector-databases-compared

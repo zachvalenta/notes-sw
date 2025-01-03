@@ -187,6 +187,7 @@ Dreams of Code https://www.youtube.com/watch?v=A_3MP_V-kB4
 
 🗄️ typography
 
+* https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 * Claude output pretty good
 * FOIT/FOUT https://css-tricks.com/fighting-foit-and-fout-together/
 * _line spacing_: 130% point size

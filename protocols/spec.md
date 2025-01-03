@@ -739,7 +739,7 @@ ISO (International Standards Org)
 * why USSR didn't invent the internet http://web.mit.edu/slava/homepage/articles/Gerovitch-InterNyet.pdf
 * _sink_: https://en.wikipedia.org/wiki/Internet_Society RFCs https://tangentsoft.net/rfcs/by-tla.html
 * _IETF_: HTTP https://tools.ietf.org/html/rfc7617
-* _IEEE (Institute for Electrical Electronic Engineers)_: POSIX (standard for UNIX-like OS, C, Bash) [LPI 1.3.2]
+* _IEEE (Institute for Electrical Electronic Engineers)_: POSIX (standard for UNIX-like OS, C, Bash) [LPI 1.3.2] https://ieeexplore.ieee.org/document/6359709 https://en.wikipedia.org/wiki/Institute_of_Electrical_and_Electronics_Engineers
 * _Open Group_: controls UNIX (which is just a spec; Solaris, macOS); IBM Huawei DoD Nasa that controls; no Linux distro qualifies [LPI 1, 1.3.3]
 * https://diff.substack.com/p/sharing-and-owning-standards
 * [Cloud Native Computing Foundation](https://changelog.com/podcast/314)
