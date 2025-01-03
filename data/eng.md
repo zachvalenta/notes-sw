@@ -312,6 +312,17 @@ OLAP
 * model: maybe non-relational 📙 Kleppmann [93,101]
 * consumers: DBA, BI, ML https://softwareengineeringdaily.com/2021/07/14/data-science-on-aws-implementing-ai-and-ml-pipelines-on-aws-with-chris-fregly/
 
+### Capp
+
+* email
+* Google Drive
+* repo / csvbase
+* HuggingFace
+* metadata
+* git lfs
+* warehouse
+* minio
+
 ### taxonomy
 
 ---
