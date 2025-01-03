@@ -440,6 +440,30 @@ ALTERNATIVES
 * can build dashboards off queries
 * _Trino_: https://github.com/trinodb/trino https://ibis-project.org/ https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
 
+## 🌕 Clickhouse
+
+🗄️ `eng.md` query engines
+📜 https://clickhouse.com/ https://github.com/ClickHouse/ClickHouse
+
+* design: columnar
+* _chdb_: Python library (in-process) https://github.com/chdb-io/chdb
+
+---
+
+```txt
+Leaving the embedded database sphere, but sticking with the analytics theme, we come to ClickHouse. If I had to only pick two databases to deal with, I’d be quite happy with just Postgres and ClickHouse - the former for OLTP, the latter for OLAP.
+
+ClickHouse specialises in analytics workloads, and can support very high ingest rates through horizontal scaling and sharded storage. It also supports tiered storage, allowing you to split “hot” and “cold” data - GitLab have a pretty thorough doc on this.
+
+Where ClickHouse comes into its own is when you have analytics queries to run on a dataset too big for something like DuckDB, or you need “real-time” analytics. There is a lot of “benchmarketing” around these datasets, so I’m not going to repeat them here.
+
+Another reason I suggest checking out ClickHouse is that it is a joy to operate - deployment, scaling, backups and so on are well documented - even down to setting the right CPU governor is covered.
+
+Spend a week exploring some larger analytics datasets, or converting some of the DuckDB analytics from above into a ClickHouse deployment. ClickHouse also has an embedded version - chDB - that can offer a more direct comparison.
+```
+* https://news.ycombinator.com/item?id=42146782
+* https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html https://github.com/azat/chdig https://posthog.com/handbook/engineering/clickhouse https://clickhouse.com/docs/en/operations/utilities/clickhouse-local/ https://news.ycombinator.com/item?id=34071918 https://clickhouse.com/blog/extracting-converting-querying-local-files-with-sql-clickhouse-local https://news.ycombinator.com/item?id=24696149 https://softwareengineeringdaily.com/2021/05/17/clickhouse-data-warehousing-with-robert-hodges/ https://softwareengineeringdaily.com/2022/09/12/serverless-clickhouse-for-developers/ https://tech.marksblogg.com/billion-taxi-rides-doublecloud-clickhouse.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html
+
 ## ☢️ DataFusion
 
 📜 https://datafusion.apache.org/ https://github.com/apache/datafusion

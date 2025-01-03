@@ -229,19 +229,6 @@ PROVIDERS
 * _Vince_: https://github.com/vinceanalytics/vince https://www.vinceanalytics.com/
 * _Umami_: https://github.com/umami-software/umami
 
-## 🌕 Clickhouse
-
-🗄️ `eng.md` query engines
-📜 https://clickhouse.com/ https://github.com/ClickHouse/ClickHouse
-
-* design: columnar
-* _chdb_: Python library (in-process) https://github.com/chdb-io/chdb
-
----
-
-* https://news.ycombinator.com/item?id=42146782
-* https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html https://github.com/azat/chdig https://posthog.com/handbook/engineering/clickhouse https://clickhouse.com/docs/en/operations/utilities/clickhouse-local/ https://news.ycombinator.com/item?id=34071918 https://clickhouse.com/blog/extracting-converting-querying-local-files-with-sql-clickhouse-local https://news.ycombinator.com/item?id=24696149 https://softwareengineeringdaily.com/2021/05/17/clickhouse-data-warehousing-with-robert-hodges/ https://softwareengineeringdaily.com/2022/09/12/serverless-clickhouse-for-developers/ https://tech.marksblogg.com/billion-taxi-rides-doublecloud-clickhouse.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html
-
 ## Datadog
 
 📜 https://docs.datadoghq.com/
