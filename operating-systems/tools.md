@@ -359,6 +359,7 @@ TOOLS
 * initial usage didn't work bc of user error on my part 🗄️ `os/denv.md` profiles
 * if you really go all in you can just `alias cd = z` https://www.youtube.com/watch?v=aghxkpyRVDY
 * 📍 integrates with yazi?
+* ❌ no post-exit hook (to ls)
 
 ## list
 

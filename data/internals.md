@@ -280,3 +280,28 @@ order
 > The PostgreSQL server can handle multiple concurrent connections from clients. To achieve this it starts (“forks”) a new process for each connection. From that point on, the client and the new server process communicate without intervention by the original postgres process. Thus, the master server process is always running, waiting for client connections, whereas client and associated server processes come and go. - https://www.postgresql.org/docs/12/tutorial-arch.html
 * _serialization_: query responses typically in binary and parsed by language specific API 📙 Kleppmann 4.128
 * _sink_: https://www.usegolang.com/ in Flask https://stackoverflow.com/questions/16311974/connect-to-a-database-in-flask-which-approach-is-better https://flask.palletsprojects.com/en/1.1.x/tutorial/database/ https://github.com/questionlp/api.wwdt.me https://brandur.org/postgres-connections
+
+## 🦠 FoundationDB
+
+📜 https://github.com/apple/foundationdb/
+
+https://www.youtube.com/watch?v=OJb8A6h9jQQ
+https://www.youtube.com/watch?v=MqbVoSs0lXk
+Swift https://www.youtube.com/watch?v=ZQc9-seU-5k
+https://www.dataengineeringpodcast.com/episodepage/foundationdb-distributed-systems-episode-80
+
+> When you choose a database today, you’re not choosing one piece of technology, you’re choosing three: storage technology, data model, and API/query language. For example, if you choose Postgres, you are choosing the Postgres storage engine, a relational data model, and the SQL query language. If you choose MongoDB you are choosing the MongoDB distributed storage engine, a document data model, and the MongoDB API. In systems like these, features are interwoven between all of the layers. For example, both of those systems provide indexes, and the notion of an index exists in all three layers. https://apple.github.io/foundationdb/layer-concept.html
+
+```txt
+We now enter the “mind expanding” section of this list, with FoundationDB. Arguably, FoundationDB is not a database, but quite literally the foundation for a database. Used in production by Apple, Snowflake and Tigris Data, FoundationDB is worth your time because it is quite unique in the world of key-value storage.
+
+Yes, it’s an ordered key-value store, but that isn’t what is interesting about it. At first glance, it has some curious limitations - transactions cannot exceed 10MB of affected data and they cannot take longer than five seconds after the first read in a transaction. But, as they say, limits set us free. By having these limits, it can achieve full ACID transactions at very large scale - 100+ TiB clusters are known to be in operation.
+
+FoundationDB is architected for specific workloads and extensively tested using simulation testing, which has been picked up by other technologies, including another database on this list and Antithesis, founded by some ex-FoundationDB folks. For more notes on this, check out Tyler Neely’s and Phil Eaton’s notes on the topic.
+
+As mentioned, FoundationDB has some very specific semantics that take some getting used to - their Anti-Features and Features docs are worth familiarising yourself with to understand the problems they are looking to solve.
+
+But why is it the “layered” database? This is because of the Layers concept. Instead of tying the storage engine to the data model, instead the storage is flexible enough to be remapped across different layers. Tigris Data have a great post about building such a layer, and there are some examples such as a Record layer and a Document layer from the FoundationDB org.
+
+Spend a week going through the tutorials and think about how you could use FoundationDB in place of something like RocksDB. Maybe check out some of the Design Recipes and go read the paper.
+```

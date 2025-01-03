@@ -262,7 +262,10 @@ https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pz
 
 ## column
 
-🧠 https://chatgpt.com/c/6733b515-87bc-8004-aa84-3164a319fd4d
+🧠
+* https://chatgpt.com/c/6733b515-87bc-8004-aa84-3164a319fd4d
+* https://claude.ai/chat/ab232a59-27a4-4965-beeb-2e17133f39cd
+* DuckDB, Clickhouse
 
 ---
 
