@@ -156,6 +156,15 @@ https://github.com/deliro/moka-py
 * on having more than one primary 📙 Bradshaw [243]
 * locks for task, Shedlock https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203061
 
+## VSR
+
+🗄️ `dbms.md` TigerBeetle
+
+= viewstamped replication
+> If you have not heard of VSR, don't worry: Paxos and Raft have been the consensus protocols people use. Joran Dirk Greef, the author of TigerBeetle, a fast and robust financial accounting database, has only recently popularized VSR. One of the great features of VSR is that its essential operation is relatively easy to grasp, whereas Paxos and Raft are notoriously complex. 📙 Enberg latency
+
+## Paxos
+
 ## Raft
 
 * _leader election_: Raft algorithm https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html Paxos https://news.ycombinator.com/item?id=24906225

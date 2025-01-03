@@ -89,6 +89,8 @@ TAXONOMY
 
 ## latency
 
+📙 Enberg latency https://www.manning.com/books/latency
+
 ---
 
 * latency throughput https://entropicthoughts.com/typing-fast-is-about-latency-not-throughput

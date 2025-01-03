@@ -110,7 +110,9 @@ TIMEZONES
 
 ## replicate
 
-📙 Kleppmann ch. 5
+📚
+* Enberg latency https://www.manning.com/books/latency
+* Kleppmann ch. 5
 🗄️
 * `dbms.md` Mongo
 * `system.md` distributed
@@ -137,7 +139,9 @@ TIMEZONES
 
 ## shard
 
-📙 Kleppmann ch. 6 https://en.wikipedia.org/wiki/Partition_(database)
+📚
+* Enberg latency https://www.manning.com/books/latency
+* Kleppmann ch. 6 https://en.wikipedia.org/wiki/Partition_(database)
 🗄️ `dbms.md` Mongo
 
 * _partition_: diff data on diff nodes 📙 Kleppmann 199

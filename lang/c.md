@@ -261,6 +261,7 @@ USE FOR BUILDS
 
 PROJECTS
 * https://github.com/Arnau478/hevi
+* TigerBeetle
 
 * https://www.youtube.com/watch?v=ug-KuDlMTYw
 * compared to Rust https://www.youtube.com/watch?v=Vxq6Qc-uAmE

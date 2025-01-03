@@ -278,6 +278,7 @@ For deeper inspection:
 🗄️ `c.md` packaging
 
 * static vs. dynamic https://astral.sh/blog/python-build-standalone
+* https://docs.tigerbeetle.com/quick-start/
 * _linking_: combine multiple object files into final binary
 ```c
 // a.c

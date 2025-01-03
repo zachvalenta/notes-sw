@@ -95,6 +95,14 @@ https://luke.hsiao.dev/blog/housing-documentation/
 
 📙 Meckleberg gnu make
 
+* args
+```Makefile
+hey:
+	echo "$(arg)"
+```
+```sh
+make hey arg="there"
+```
 * default args
 ```Makefile
 brand ?= Reznor

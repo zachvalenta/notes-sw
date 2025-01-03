@@ -838,3 +838,11 @@ mysql -u $USER $DB < $BACKUP.sql
 * based on Youtube's Vitess https://vitess.io/
 * horizontal scaling through sharding
 * doesn't use functions https://www.youtube.com/watch?v=atwwf0qWpYg [20:00] 🗄️ `sql.md` DML > functions
+
+## 🐯 TigerBeetle
+
+📜 https://github.com/tigerbeetle/tigerbeetle https://docs.tigerbeetle.com/
+
+* uses VSR 📙 Enberg latency
+* https://docs.tigerbeetle.com/coding/system-architecture/
+* https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
