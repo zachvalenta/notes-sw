@@ -595,6 +595,7 @@ web_1  | ModuleNotFoundError: No module named 'psycopg2'
 
 # 🟦 SQLITE
 
+🗄️ CockroachDB > rqlite
 📜 https://sqlite.org/docs.html
 🛠 https://github.com/simonw/sqlite-utils
 🔗 https://tech.marksblogg.com/sqlite3-tutorial-and-guide.html
@@ -753,41 +754,17 @@ constraints
 
 # 🟨 ZA
 
-## JSON
+## 🪳 CockroachDB
 
----
+> CockroachDB enables scaling a database across multiple geographies through being based on Google’s Spanner system, which relies on atomic and GPS clocks for extremely accurate time synchronisation. Commodity hardware, however, doesn’t have such luxuries, so CockroachDB has some clever solutions where reads are retried or delayed to account for clock sync delay with NTP, and nodes also compare clock drift amongst themselves and terminate members if they exceed the maximum offset. Another interesting feature of CockroachDB is how multi-region configurations are used, including table localities, where there are different options depending on the read/write tradeoffs you want to make. https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
+* compatible with Postgres wire-protocol https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
+* usage https://www.cockroachlabs.com/docs/v24.3/movr
+* https://www.openmymind.net/Migrating-To-CockroachDB/
+* Rethink https://brandur.org/cloud-databases
 
-https://eradman.com/posts/json-in-sql.html
-https://news.ycombinator.com/item?id=41914845
-
-SQLITE
-* https://dba.stackexchange.com/questions/122198/is-it-possible-to-store-and-query-json-in-sqlite
-* https://news.ycombinator.com/item?id=30486052
-
-POSTGRES
-* write rows as JSON obj to file
-```sql
-SELECT foo.x, bar.y, baz.z
-SELECT json_agg(json_build_object('x', foo.x, 'y', bar.y, 'z', baz.z))
-
--- write stdout to file (only seemed to work for psql, not pgcli)
-\o output.json  -- start
-\o  -- stop
-```
-* write IDs as quoted, delimited string to text file
-```sql
-\o artist-ids.txt
-SELECT '"' || foo.x || '",'
-\o
-```
-* `json`: text field; slow to search
-* `jsonb`: binary; slower writes, faster reads https://pganalyze.com/blog/postgres-jsonb-django-python
-```sql
--- all keys for json obj
-select jsonb_object_keys(json_col) from table
--- nested key
-select json_col -> 'top_level_key' ->> 'nested_key' from table
-```
+ALTERNATIVES
+* https://github.com/erikgrinaker/toydb https://github.com/maxpert/marmot
+* _rqlite_: SQLite https://github.com/rqlite/rqlite
 
 ## MySQL
 

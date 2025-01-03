@@ -310,6 +310,42 @@ ZA
 * as output for Unix utils https://blog.kellybrazil.com/2019/11/26/bringing-the-unix-philosophy-to-the-21st-century/ https://github.com/kellyjonbrazil/jc https://news.ycombinator.com/item?id=22608045 https://kellyjonbrazil.github.io/jc/
 * for sharing logic btw frontend/backend https://news.ycombinator.com/item?id=27306263
 
+### in databases
+
+---
+
+https://eradman.com/posts/json-in-sql.html
+https://news.ycombinator.com/item?id=41914845
+
+SQLITE
+* https://dba.stackexchange.com/questions/122198/is-it-possible-to-store-and-query-json-in-sqlite
+* https://news.ycombinator.com/item?id=30486052
+
+POSTGRES
+* write rows as JSON obj to file
+```sql
+SELECT foo.x, bar.y, baz.z
+SELECT json_agg(json_build_object('x', foo.x, 'y', bar.y, 'z', baz.z))
+
+-- write stdout to file (only seemed to work for psql, not pgcli)
+\o output.json  -- start
+\o  -- stop
+```
+* write IDs as quoted, delimited string to text file
+```sql
+\o artist-ids.txt
+SELECT '"' || foo.x || '",'
+\o
+```
+* `json`: text field; slow to search
+* `jsonb`: binary; slower writes, faster reads https://pganalyze.com/blog/postgres-jsonb-django-python
+```sql
+-- all keys for json obj
+select jsonb_object_keys(json_col) from table
+-- nested key
+select json_col -> 'top_level_key' ->> 'nested_key' from table
+```
+
 ### query (jq)
 
 ALTERNATIVES
