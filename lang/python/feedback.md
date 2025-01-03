@@ -299,8 +299,10 @@ COMPONENTS
 
 ## 🟩 Marimo
 
-🗄️ blog / little ideas (弄明白)
-📻 https://github.com/marimo-team/marimo
+🗄️ `feedback.md` Marimo
+📻 https://marimo.io/ https://github.com/marimo-team/marimo
+
+you can run in the browser!?! https://docs.marimo.io/cli/?h=wasm#marimo-export-html-wasm
 
 SHARING
 * hosted

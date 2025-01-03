@@ -233,6 +233,7 @@ THINGS I'M NOTICING ABOUT VSC
 > this is getting worse in my notes; maybe some perf/data integrity thing with more headers
 * ❌ Vim plugin fails on big CSV files
 * ❌ no tab groups https://github.com/microsoft/vscode/issues/100335
+* ❌ can't update font
 * when you uninstall an extension you need to close and reopen VSC for that extesion to be removed from `$HOME/.vscode/extensions`
 * autocomplete works for any word in the workspace
 * prompt to clear editor history is annoying https://github.com/microsoft/vscode/pull/156421

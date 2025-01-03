@@ -138,7 +138,38 @@ MICRO
 * Warmerdam https://calmcode.io
 * Willison
 
-## video
+## animation / video
+
+🗄️ `feedback.md` Marimo
+
+* _Manim_: Visualize concepts like Pareto efficiency.
+* _Plotly_/_Bokeh_: Time-series analysis of economic indicators.
+* _Pygame_: Agent-based modeling for economic simulations (e.g., consumer markets).
+* _Matplotlib (FuncAnimation)_: Works well for things like step-by-step economic equilibrium shifts.
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
+
+def bubble_sort_steps(arr):
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n-i-1):
+            if arr[j] > arr[j+1]:
+                arr[j], arr[j+1] = arr[j+1], arr[j]
+                yield arr.copy()
+
+def animate_bubble_sort():
+    data = np.random.randint(1, 100, 20)
+    fig, ax = plt.subplots()
+    bar_rects = ax.bar(range(len(data)), data)
+    def update(arr):
+        for rect, val in zip(bar_rects, arr):
+            rect.set_height(val)
+        return bar_rects
+    anim = FuncAnimation(fig, update, frames=bubble_sort_steps(data), interval=50, repeat=False)
+    return anim
+```
 
 > 150K subs = $25-50k/year
 > even this, despite looking great, is not good enough
