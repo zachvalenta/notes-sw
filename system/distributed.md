@@ -298,7 +298,7 @@ transactions & isolation levels 📙 Beaulieu 12
 
 Petrov ch. 11
 
-🗄 `algos.md` probabilistic data structures
+🗄 `modeling.md` probabilistic data structures
 
 * https://www.youtube.com/watch?v=_RbsFXWRZ10 https://softwareengineeringdaily.com/2023/07/25/cap-theorem/
 * _CAP theorem_: tradeoffs if network partition

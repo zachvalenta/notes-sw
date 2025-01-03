@@ -67,7 +67,6 @@ review data structures
 * linked list https://www.youtube.com/watch?v=odW9FU8jPRQ https://news.ycombinator.com/item?id=33473497 https://docs.python.org/3/glossary.html#term-list https://nullprogram.com/blog/2024/07/31/
 * stack https://www.youtube.com/watch?v=I5lq6sCuABE
 * queue https://www.youtube.com/watch?v=mDCi1lXd9hc
-* probabilistic https://www.youtube.com/watch?v=VjFS-_H10bw @ 15:00 https://pypi.org/project/datasketch/
 
 OPERATIONS https://github.com/jamiebuilds/itsy-bitsy-data-structures https://www.interviewcake.com/concept/python3/array
 * _lookup_: read
@@ -89,11 +88,6 @@ ADT VS. DATA STRUCTURE
 * queue https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-queues
 * linked list https://medium.com/outco/reversing-a-linked-list-easy-as-1-2-3-560fbffe2088 https://www.youtube.com/watch?v=FSsriWQ0qYE https://realpython.com/courses/working-linked-lists-python/
 * array https://medium.com/@bsurajbh/implementing-arrays-with-python-7586206f0b13
-
-PROBABILISTIC
-* _probabilistic data structures_: CAP theorem but w/ accuracy, functionality, efficiency https://www.youtube.com/watch?v=VjFS-_H10bw 9:15
-* _hyperlog_: https://will-keleher.com/about.html
-* _hyperloglog_: distinct el in set https://www.youtube.com/watch?v=VjFS-_H10bw 10:00 https://redis.com/redis-best-practices/counting/hyperloglog/
 
 LINKED LIST https://realpython.com/linked-lists-python/ https://news.ycombinator.com/item?id=26620598
 * singly or doubly linked https://lwn.net/Articles/827180/
@@ -235,6 +229,18 @@ https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pz
 * https://simonwillison.net/2024/Dec/24/jeremy-edberg/
 * use case is to see whether item already part of a very large set e.g. whether a key exists in a database 📙 11.210-11
 * https://vprusso.github.io/blog/2017/bloom-filters-and-pokemon/ 📙 Kleppmann 79 https://onatm.dev/2020/08/10/let-s-implement-a-bloom-filter/ http://aosabook.org/en/posa/working-with-big-data-in-bioinformatics.html https://luminousmen.com/post/building-a-bloom-filter
+
+## probabilistic
+
+🗄️ `stats.md` Bayes
+📙 Pfeffer https://www.manning.com/books/practical-probabilistic-programming
+
+---
+
+* _probabilistic data structures_: CAP theorem but w/ accuracy, functionality, efficiency https://www.youtube.com/watch?v=VjFS-_H10bw 9:15
+* _hyperlog_: https://will-keleher.com/about.html
+* _hyperloglog_: distinct el in set https://www.youtube.com/watch?v=VjFS-_H10bw 10:00 https://redis.com/redis-best-practices/counting/hyperloglog/
+* probabilistic https://www.youtube.com/watch?v=VjFS-_H10bw @ 15:00 https://pypi.org/project/datasketch/
 
 # 🗺️ NON
 
