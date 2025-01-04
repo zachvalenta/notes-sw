@@ -264,7 +264,7 @@ https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/
 
 ## connections
 
-* _wire protocol_: protocol for db client-server https://datastation.multiprocess.io/blog/2022-02-08-the-world-of-postgresql-wire-compatibility.html https://github.com/crate/crate
+* _wire protocol_: protocol for db client-server https://datastation.multiprocess.io/blog/2022-02-08-the-world-of-postgresql-wire-compatibility.html https://github.com/crate/crate https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 * e.g. can translate Mongo protocol to SQL and store in Postgres https://github.com/FerretDB/FerretDB https://pythonbytes.fm/episodes/show/318/gil-how-we-will-miss-you
 
 order

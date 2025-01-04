@@ -7,6 +7,7 @@
 * Bueno mature optimization https://carlos.bueno.org/optimization/
 * Google SRE book https://sre.google/sre-book/table-of-contents/ https://danluu.com/google-sre-book/
 > aka platform engineering https://www.manning.com/books/effective-platform-engineering
+* Wilkins https://www.manning.com/books/logs-and-telemetry
 
 ## 进步
 
@@ -189,6 +190,8 @@ warm throughput 🧠 https://chatgpt.com/c/673e0350-b5dc-8004-b222-e85277b89921
 # 🩻 MONITORING
 
 ---
+
+https://claude.ai/chat/6bcfcae0-6294-47ef-a3bf-588a7f178c0e
 
 PROVIDERS
 * _Checkly_: https://bitfieldconsulting.com/blog/dips-and-wiggles https://www.checklyhq.com/
@@ -727,6 +730,10 @@ SEMANTICS
 * _management_: https://github.com/monzo/response https://response.pagerduty.com/ https://netflixtechblog.com/introducing-dispatch-da4b8a2a8072 Pager Duty alternative https://github.com/target/goalert
 * https://x.com/ycombinator/status/1858555769513537751
 * _post-mortem_: https://blog.github.com/2018-10-30-oct21-post-incident-analysis/ https://status.sr.ht/issues/2020-10-08-git.sr.ht-disk-usage/
+
+## Honeycomb
+
+https://www.honeycomb.io/
 
 ## logging
 

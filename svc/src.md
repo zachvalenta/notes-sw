@@ -378,7 +378,7 @@ toggle=
 📚
 * Beck tidy first? https://www.youtube.com/watch?v=QN-azRUAToc
 * Dibernardo 500 lines or less http://aosabook.org/en/index.html
-* Fowler refactoring https://www.amazon.com/dp/0134757599/ https://registerspill.thorstenball.com/p/skin-shedding-code https://www.youtube.com/watch?v=ZsPDz_BGbtE https://www.youtube.com/watch?v=CjCJ76oZXTE
+* Fowler refactoring https://www.amazon.com/dp/0134757599/ https://registerspill.thorstenball.com/p/skin-shedding-code https://www.youtube.com/watch?v=ZsPDz_BGbtE https://www.youtube.com/watch?v=CjCJ76oZXTE thoughtworks is lame, of course they think passkeys are a good ideas https://www.thoughtworks.com/radar/tools/uv
 > Also, as a general rule, you can at any given time get away with changing more than you think. Introducing change is like pulling off a bandage: the pain is a memory almost as soon as you feel it. http://paulgraham.com/popular.html
 * Kernighan/Pike practice of programming
 * Lopes exercises in programming style

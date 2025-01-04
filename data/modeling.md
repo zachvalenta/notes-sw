@@ -269,6 +269,7 @@ https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pz
 
 ---
 
+already old! https://db.cs.cmu.edu/projects/future-file-formats/
 📙 Kleppmann chapter 3
 🗄 `computation.md` encoding/CSV, Parquet
 
@@ -280,6 +281,7 @@ https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pz
 * in order to reconstruct a row, everything in row must be stored as nth in column 📙 Kleppmann 100
 > Neither Parquet nor ORC files existed prior to 2012. These file formats were instrumental in making analytics fast on Hadoop. Prior to these formats, workloads were largely row-oriented. If you needed to transform TBs of data and could do so in a parallel fashion then Hadoop did a good job of that. MapReduce was a framework often used for this purpose. What columnar storage offered was a way to analyse TBs of data in seconds. This proved to be a more valuable proposition to more businesses. Data Scientists may only need a small amount of data to produce insights but they'll need to look over a data lake with potentially PBs of data to pick out what they need first. Columnar analytics is key for them to build the data fluency needed to know what to cherry-pick. https://tech.marksblogg.com/is-hadoop-dead.html
 * _wide column store_: ❓
+* CMU, Pavlo https://www.youtube.com/watch?v=fr5lIchF6pw
 
 DBMS https://en.wikipedia.org/wiki/List_of_column-oriented_DBMSes
 * Cassandra https://stackoverflow.com/q/13010225 https://www.youtube.com/watch?v=J-cSy5MeMOA 📙 Kleppmann 99 https://news.ycombinator.com/item?id=28292369 https://simonwillison.net/2021/Aug/24/how-discord-stores-billions-of-messages/

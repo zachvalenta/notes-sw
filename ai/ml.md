@@ -245,6 +245,7 @@ https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 > The "magic" that facilitates these types of searches is transformers that convert data into a fixed-length, one-dimensional vector of floating point numbers called an embedding. The values in these embeddings are indecipherable to humans. Instead, their contents encode some relationship between the parameters and the transformer's training corpus. The size of these embedding vectors ranges from 100s of dimensions for simple transformers to 1000s for high-end models.
 > This is where vector DBMSs come into the picture. At its core, a vector DBMS is just a document database with a specialized index data structure to accelerate similarity search on embeddings. Instead of performing an exact match for the most similar vectors per query, these systems can use approximate searches to generate results that make the trade-off of being "good enough" in exchange for returning the result more quickly. That's it.
 
+* _pgvector_: 🎯 Postgres, ACID, PITR https://github.com/pgvector/pgvector
 * _ChromaDB_: https://www.youtube.com/watch?v=QSW2L8dkaZk&list=PL58zEckBH8fA-R1ifTjTIjrdc3QKSk6hI&pp=iAQB
 * _Pinecone_: https://zackproser.com/blog/i-am-joining-pinecone-io https://zackproser.com/blog/vector-databases-compared
 

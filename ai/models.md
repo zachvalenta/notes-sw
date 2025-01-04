@@ -20,6 +20,10 @@
 🔍 compare https://news.ycombinator.com/item?id=42348513 https://simonwillison.net/2024/Dec/16/webdev-arena/
 🔑 https://gist.github.com/zachvalenta/d3b7cd172dd2d3d8ff7340bd458c6fe2
 
+SLM
+* _Gemini nano_: 
+* _MS phi_:
+
 ZA
 * _BERT_: https://simonwillison.net/2024/Dec/31/alexis-gallagher/ https://github.com/urchade/GLiNER
 * _DeepSeek_: https://thezvi.substack.com/p/deekseek-v3-the-six-million-dollar
@@ -151,7 +155,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 * https://www.amazon.com/dp/1736049143
 
 * retrieval vs. generative https://cohere.com/
-* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666 https://github.com/BCG-X-Official/artkit https://www.youtube.com/watch?v=pGZo9gR5q_M https://gentrace.ai/ https://github.com/traceloop/openllmetry https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse https://news.ycombinator.com/item?id=42441258
+* testing https://news.ycombinator.com/item?id=42317878 https://news.ycombinator.com/item?id=42330666 https://github.com/BCG-X-Official/artkit https://www.youtube.com/watch?v=pGZo9gR5q_M https://gentrace.ai/ https://github.com/traceloop/openllmetry https://langfuse.com/ https://www.thoughtworks.com/radar/platforms/langfuse https://news.ycombinator.com/item?id=42441258 https://www.thoughtworks.com/radar/techniques/llm-as-a-judge
 
 * gradient-boosted trees better for audit than neural nets
 * https://roadmap.sh/mlops
@@ -173,6 +177,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 ---
 
+https://www.thoughtworks.com/radar/techniques/function-calling-with-llms
 > They discuss "agentic systems" as a parent term, then define a distinction between "workflows" - systems where multiple LLMs are orchestrated together using pre-defined patterns - and "agents", where the LLMs "dynamically direct their own processes and tool usage". https://simonwillison.net/2024/Dec/20/building-effective-agents/
 * as judge https://registerspill.thorstenball.com/p/joy-and-curiosity-20
 * LLM controlling your browser?
@@ -295,6 +300,7 @@ https://github.com/Shubhamsaboo/awesome-llm-apps https://www.theunwindai.com/p/b
 * https://github.com/snexus/llm-search
 * https://arcturus-labs.com/blog/2024/11/21/roaming-rag--make-_the-model_-find-the-answers/
 
+* https://www.thoughtworks.com/radar/techniques/fine-tuning-embedding-models
 * https://openai.com/12-days/
 * _Guru_: https://www.getguru.com/
 > Retrieval augmented generation (RAG) is an architecture that provides the most relevant and contextually-important proprietary, private or dynamic data to your Generative AI application's large language model (LLM) when it is performing tasks to enhance its accuracy and performance. https://www.pinecone.io/learn/retrieval-augmented-generation/
@@ -445,6 +451,7 @@ EXAMPLES
 
 ## prompts
 
+🔗 https://www.promptingguide.ai/techniques/fewshot https://www.thoughtworks.com/radar/techniques/dynamic-few-shot-prompting
 📙
 * https://www.manning.com/books/prompt-engineering-in-practice
 * https://www.manning.com/books/prompt-engineering-in-action

@@ -44,6 +44,11 @@ INTERVIEWING
 
 ---
 
+CMU
+* https://news.ycombinator.com/item?id=35599118
+* Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf https://drewdevault.com/2021/08/05/In-praise-of-Postgres.html
+* Pavlo https://db.cs.cmu.edu/papers/2024/whatgoesaround-sigmodrec2024.pdf
+
 > the creation of SQL at IBM Research by Don Chamberlain and Ray Boyce (RIP). Originally known as SEQUEL (Structured English QUEry Language) https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 > Don Chamberlin details his early work with Ray Boyce designing the relational language SQL. After meeting E.F. (Ted) Codd at a symposium at the IBM T.J. Watson Research Center in Yorktown Heights, New York, in 1972, Boyce and Chamberlin believed that it should be possible to design a relational language that would be accessible to users without formal training in mathematics or computer programming. https://ieeexplore.ieee.org/document/6359709
 

@@ -118,6 +118,7 @@ ZA
 
 ---
 
+> The overarching issue in these license shuffles is the long-term viability of open-source independent software vendors (ISVs) in the database market. The cloud vendors are behemoths with infinite money. If an open-source DBMS takes off, they will start hosting it and make more money than the ISV. Or they will add your DBMS's wire protocol as a front-end to an existing DBMS, like when AWS added InfluxDB v2 protocol support for their Timestream DBMS in March 2024. They can then be the girlfriend of the aforementioned Bushwick Bill and shoot you in the eye, like when AWS announced that their new Valkey-compatible services are 30% cheaper than their Redis-compatible services. https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 * sponsor https://github.com/sponsors/hynek
 * start a business https://news.ycombinator.com/item?id=42384544 https://news.ycombinator.com/item?id=42379592
 * https://opensourcepledge.com/

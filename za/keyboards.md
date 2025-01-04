@@ -158,6 +158,7 @@ ZA
 ## BYO
 
 🔍 serviced https://www.keyboardconcierge.com https://get-switched.com/ https://www.avikeebs.com/
+> https://www.youtube.com/watch?v=PDguuYMG0IQ
 
 COMPONENTS https://www.youtube.com/watch?v=7UXsD7nSfDY @ 4:45
 * controller https://nicekeyboards.com/nice-nano/ [2:55]

@@ -358,7 +358,6 @@ BYO extension https://matt.blwt.io/post/building-a-postgresql-extension-line-by-
 * general https://www.postgresql.org/docs/current/index.html
 * guide http://postgresguide.com/
 * wiki https://wiki.postgresql.org/wiki/Main_Page
-* design https://news.ycombinator.com/item?id=35599118 Stonebraker https://dsf.berkeley.edu/papers/ERL-M85-95.pdf https://drewdevault.com/2021/08/05/In-praise-of-Postgres.html
 
 HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https://news.ycombinator.com/item?id=39273954
 * admin https://eradman.com/posts/pg-admin-queries.html

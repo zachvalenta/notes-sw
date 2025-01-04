@@ -142,6 +142,7 @@ MICRO
 
 🗄️ `feedback.md` Marimo
 
+* _Raylib_: https://github.com/raysan5/raylib https://github.com/danslocombe/wobbly_vid https://www.youtube.com/watch?v=EO02mP0mLYI
 * _Manim_: Visualize concepts like Pareto efficiency.
 * _Plotly_/_Bokeh_: Time-series analysis of economic indicators.
 * _Pygame_: Agent-based modeling for economic simulations (e.g., consumer markets).
@@ -261,6 +262,7 @@ UNIQUE
 
 ## dropdowns
 
+* do this instead https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 * https://blog.danielh.cc/blog/sat
 
 ## ToC

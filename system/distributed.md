@@ -119,6 +119,9 @@ https://github.com/deliro/moka-py
 
 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
 
+* license craziness https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
+> I'll be blunt: I don't care for Redis. It is slow, it has fake transactions, and its query syntax is a freakshow. Our experiments at CMU found Dragonfly to have much more impressive performance numbers (even with a single CPU core). In my database course, I use the Redis query language as an example of what not to do. Nevertheless, I am sympathetic to Redis Ltd.'s plight of being overrun by Amazon. However, the company is overestimating the barrier of entry to build a simplistic system like Redis; it is much lower than building a full-featured DBMS (e.g., Postgres), so there are several alternatives to the OG Redis. They are not in position of strength where such posturing will be tolerated by the community. https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
+
 > just use postgres https://martinheinz.dev/blog/105
 * pipelines https://medium.com/@tonywangcn/27-6-of-the-top-10-million-sites-are-dead-6bc7805efa85
 * https://www.youtube.com/watch?v=WQ61RL1GpEE

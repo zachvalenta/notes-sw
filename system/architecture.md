@@ -4,6 +4,7 @@
 
 🗄
 * `dbms.md` perf
+* ⭐️ `eng.md` factors
 * `doc.md` viz / system
 * `src.md` checklist
 * `science.md` complexity

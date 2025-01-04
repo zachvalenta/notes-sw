@@ -273,6 +273,8 @@ for conversation in data["conversations"]:
             md_file.write(f"**{role.capitalize()}**:\n{content}\n\n")
 ```
 
+> OpenAI now supports structured output, allowing developers to supply a JSON Schema, pydantic or Zod object to constrain model responses. https://www.thoughtworks.com/radar/techniques/structured-output-from-llms
+
 * GPT code completions API https://www.youtube.com/watch?v=g9tIm50VO4g
 * GPT as standard https://simonwillison.net/2024/Dec/22/openai-openapi/
 * API spec
