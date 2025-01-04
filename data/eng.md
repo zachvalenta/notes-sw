@@ -92,7 +92,39 @@ TIMEZONES
 
 * short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00 https://simonwillison.net/about/#subscribe
 
+TYPES
+* _full_: reset to specific backup
+* _incremental_: apply changes since last full backup
+* _point-in-time (PITR)_: restore to any moment
+
 ---
+
+```txt
+Database Recovery Methods:
+
+PITR
+* Uses transaction logs + backup
+* More granular than backup/restore
+* Higher storage overhead
+* Usually more complex to set up
+
+Core mechanism: The database keeps a transaction log recording every change. To recover to time T, it:
+* Restores last backup before T
+* Replays transaction log entries up to T
+* Discards later entries
+
+This solves several broader problems:
+* Recovering from data corruption that wasn't immediately noticed
+* Meeting compliance requirements for historical state access
+* Testing "what if" scenarios by examining past states
+* Migrating data between environments at specific points
+
+The general problem this addresses is maintaining perfect history of state changes in any system. Other solutions in this space:
+* Git (source code)
+* Event sourcing (application architecture)
+* Blockchain (distributed systems)
+* Append-only logs (various)
+```
 
 * _DR (disaster recovery)_: https://www.lastweekinaws.com/blog/the-cold-hard-truth-about-your-cloud-dr-strategy/?ck_subscriber_id=512830619
 * https://drewdevault.com/2019/01/13/Backups-and-redundancy-at-sr.ht.html
@@ -298,9 +330,8 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 * _embedded_: https://en.wikipedia.org/wiki/List_of_in-memory_databases https://www.openmymind.net/2011/2/10/Do-Relational-Database-Vendors-Care-About-Devs/
 * _client-server_: when you have multiple clients (vs. multithreaded) or need thousands of writes/second https://unixsheikh.com/articles/sqlite-the-only-database-you-will-ever-need-in-most-cases.html
 
-## houses
+## OLTP
 
-OLTP
 > If you have a transactional need for your dataset it's best to keep this workload isolated with a transactional data store. This is why I expect MySQL, PostgreSQL, Oracle and MSSQL to be around for a very long time to come. https://tech.marksblogg.com/is-hadoop-dead.html
 * data: application
 * access pattern: writes 📙 Kleppmann [90]
@@ -308,7 +339,8 @@ OLTP
 * model: relational
 * consumers: users
 
-OLAP
+## OLAP
+
 > But would you like to see a 4-hour outage at Uber because one of their Presto queries produced unexpected behaviour? Would you like to be told your company needs to produce invoices for the month so the website will need to be switched off for a week so there are enough resources available for the task? Analytical workloads don't need to be coupled with transactional workloads. You can lower operational risks and pick better-suited hardware by running them on separate infrastructure. https://tech.marksblogg.com/is-hadoop-dead.html
 * data: from n data sources (application, analytics) 📙 Kleppmann [92]
 * access pattern: reads (aggregates) 📙 Kleppmann [90-92] 🗄 `sql.md` tables/views
@@ -316,29 +348,19 @@ OLAP
 * model: maybe non-relational 📙 Kleppmann [93,101]
 * consumers: DBA, BI, ML https://softwareengineeringdaily.com/2021/07/14/data-science-on-aws-implementing-ai-and-ml-pipelines-on-aws-with-chris-fregly/
 
-### Capp
+## Capp
 
 * email
 * Google Drive
-* repo / csvbase
+* repo / csvbase https://csvbase.com/ https://csvbase.com/blog/10
 * HuggingFace
 * metadata
 * git lfs
 * warehouse
 * minio
 
-### taxonomy
+## warehouse
 
----
-
-https://www.smalldatasf.com/2024
-https://karenjex.blogspot.com/2024/09/optimising-your-database-for-analytics.html
-
-> Some high level context for those less familiar with the Lakehouse storage system space. For various reasons, several companies moved from data warehouses to data lakes starting around 7-10 years ago. Data lakes are better for ML / AI workloads, cheaper, more flexible, and separate compute from storage. With a data warehouse, you need to share compute with other users. With data lakes you can attach an arbitrary number of computational clusters to the data. Data lakes were limited in many regards. They were easily corrupted (no schema enforcement), required slow file listings when reading data, and didn't support ACID transactions. https://news.ycombinator.com/item?id=34345408
-* https://news.ycombinator.com/item?id=34342190
-* https://www.databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html
-
-🏭 WAREHOUSE
 * = structured for analytics e.g. Redshift
 * mart = subset of warehouse; uses star schema 📙 Conery [324]
 * CDO https://news.ycombinator.com/item?id=37146532
@@ -349,28 +371,34 @@ https://karenjex.blogspot.com/2024/09/optimising-your-database-for-analytics.htm
 * keeps more data in memory 📻 Macey 24:30
 * more expensive bc optimizing for large volume and speed of access 📻 Macey 31:30
 
-💧 LAKE
+---
+
+https://www.smalldatasf.com/2024
+https://karenjex.blogspot.com/2024/09/optimising-your-database-for-analytics.html
+
+> Some high level context for those less familiar with the Lakehouse storage system space. For various reasons, several companies moved from data warehouses to data lakes starting around 7-10 years ago. Data lakes are better for ML / AI workloads, cheaper, more flexible, and separate compute from storage. With a data warehouse, you need to share compute with other users. With data lakes you can attach an arbitrary number of computational clusters to the data. Data lakes were limited in many regards. They were easily corrupted (no schema enforcement), required slow file listings when reading data, and didn't support ACID transactions. https://news.ycombinator.com/item?id=34345408
+* https://news.ycombinator.com/item?id=34342190
+* https://www.databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html
+
+## lake
+
 * = structured + unstructed for analytics 类似 file system e.g. Redshift
 * https://www.youtube.com/watch?v=PpGivTOyawY
 * https://www.youtube.com/watch?v=V0GvZ_KAI70 https://news.ycombinator.com/item?id=32336977
 * table format = structure of files (Parquet) that make up lake https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
 * slower to access, has metadata (when was it produced, who owns it), batch writes, most reads will be humans doing analysis or exploration
 * less expensive bc optimizing for large volume i.e. can use slower object storage 📻 Macey 31:30
-
-🏝️ LAKEHOUSE
-* =
 * https://softwareengineeringdaily.com/2022/08/25/lakehouse-data-stack-with-raj-bains-2/
-
-### options
-
-* _csvbase_: 🎯 https://csvbase.com/ https://csvbase.com/blog/10
-* _Deltalake_: lakehouse https://news.ycombinator.com/item?id=34345408
 * _Hudi_: lakehouse https://news.ycombinator.com/item?id=34345408
 * _Iceberg_: lakehouse https://news.ycombinator.com/item?id=34345408
+* _HCatalog_: https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
+* _Deltalake_: lakehouse https://news.ycombinator.com/item?id=34345408
 * _Redshift_: warehouse https://aws.amazon.com/redshift/
-* _Snowflake_:
 
-ICEBERG 🔍 email
+## Iceberg
+
+🔍 email
+
 https://www.youtube.com/watch?v=cI9zu5Rk_bQ
 https://www.youtube.com/watch?v=PkBApqCfNqA
 https://www.youtube.com/playlist?list=PLM15UEjiveml7UnWEqqrLqbWKXSaClR2Z
@@ -439,9 +467,6 @@ ALTERNATIVES
 * _Hydra_: use Postgres https://github.com/hydradatabase/hydra
 * _Postgres_: https://news.ycombinator.com/item?id=39263760 https://brandur.org/warehouse https://tech.marksblogg.com/billion-nyc-taxi-rides-postgresql.html https://news.ycombinator.com/item?id=27109960
 > I've also heard arguments that row-oriented systems like MySQL and PostgreSQL can fit the needs of analytical workloads as well as their traditional transactional workloads. Both of these offerings can do analytics and if you're looking at less than 20 GB of data it's probably not worth the effort of having multiple pieces of software running your data platform. https://tech.marksblogg.com/is-hadoop-dead.html
-* _Snowflake_: users/investors like them https://news.ycombinator.com/item?id=24265041 https://dataschool.com/sql-optimization/snowflake/ https://www.youtube.com/watch?v=xojAXXRo_S0 OSS https://news.ycombinator.com/item?id=38038239 📙 https://www.manning.com/books/snowflake-data-engineering
-* apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
-* can build dashboards off queries
 * _Trino_: https://github.com/trinodb/trino https://ibis-project.org/ https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
 
 ## 🌕 Clickhouse
@@ -553,6 +578,16 @@ query_res.to_parquet('file/path.parquet')  # save
 * _Presto_: distributed query engine https://tech.marksblogg.com/presto-parquet-airpal.html https://tech.marksblogg.com/billion-nyc-taxi-rides-hive-presto.html Kafka https://tech.marksblogg.com/presto-connectors-kafka-mongodb-mysql-postgresql-redis.html
 * beat out Apache Drill https://news.ycombinator.com/item?id=23250314 📙 Beaulieu [303] https://news.ycombinator.com/item?id=29063090
 
+## ❄️ Snowflake
+
+📙 https://www.manning.com/books/snowflake-data-engineering
+
+* _Snowflake_: users/investors like them https://news.ycombinator.com/item?id=24265041 https://dataschool.com/sql-optimization/snowflake/ https://www.youtube.com/watch?v=xojAXXRo_S0 OSS https://news.ycombinator.com/item?id=38038239
+* apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
+* can build dashboards off queries
+* _Databricks_: Spark aaS from creators of Spark; lakehouse, autoscaling, model training, interactive notebooks
+* vs. Snowflake https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
+
 ## ✰ Spark
 
 ---
@@ -570,7 +605,6 @@ BASICS
 * architecture: driver/lib -> executor -> operates on data https://www.youtube.com/watch?v=XrpSRCwISdk [5:10]
 * used for ML https://tech.marksblogg.com/is-hadoop-dead.html
 * _pyspark_: Python API to Spark https://www.youtube.com/watch?v=XrpSRCwISdk https://spark.apache.org/docs/latest/api/python/index.html
-* _Databricks_: Spark aaS from creators of Spark; lakehouse, autoscaling, model training, interactive notebooks
 
 HADOOP
 * _Hadoop_: parallelization for large data 🗄 `infra.md` EMR https://aosabook.org/en/v1/hdfs.html
