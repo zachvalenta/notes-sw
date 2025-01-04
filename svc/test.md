@@ -109,7 +109,7 @@ void main() {
 * characterization, snapshot, golden-master https://news.ycombinator.com/item?id=23268911
 
 TLA+
-* https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2 Pact, contract testing https://www.thoughtworks.com/radar/tools?blipid=202110074 https://colorsofcode.ghost.io/counting-sheeps-with-contracts-in-python/ Jepsen https://news.ycombinator.com/item?id=38525968&utm_term=comment https://tratt.net/laurie/blog/2024/what_factors_explain_the_nature_of_software.html
+* https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2
 
 ## fuzz
 
