@@ -439,7 +439,7 @@ pyclean () {
 
 CMD
 * size map `-S`
-> doesn't work on large dirs e.g. yin
+> doesn't work on large dirs (yin) or small (brand enablement)
 * timeline `--timeline`
 * git commit `-G`
 
