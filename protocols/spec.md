@@ -538,6 +538,10 @@ https://gist.github.com/joepie91/26579e2f73ad903144dd5d75e2f03d83 https://en.wik
 
 # 🧮 NUMBERS
 
+📚
+* Evans ints float
+* Evans za
+
 ---
 
 📚
