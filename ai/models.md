@@ -291,6 +291,7 @@ https://news.ycombinator.com/item?id=42507116
 ## RAG
 
 💡 core model enhanced by access to specific docs
+🛠️ markitdown
 🗄️
 * `doc.md` notes
 * `algos.md` search > bm25
@@ -452,6 +453,8 @@ https://platform.openai.com/docs/overview https://cookbook.openai.com/
 ## audio
 
 🗄️ Hugging Face
+
+GPT has a STT endpoint 📙 Clinton
 
 TYPES https://elevenlabs.io/
 * didn't work https://huggingface.co/spaces/openai/whisper

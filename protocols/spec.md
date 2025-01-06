@@ -238,7 +238,6 @@ FLAVORS
 * _MyST_: https://github.com/executablebooks/MyST-Parser
 
 PARSERS
-* _markitdown_: 🎯 AI = 25k stars in a month https://github.com/microsoft/markitdown
 * _micromark_: https://github.com/micromark/micromark
 * _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/ re: Next https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
 * time suck https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
@@ -308,6 +307,7 @@ READERS
 * _termpdf_: kitty https://github.com/dsanson/termpdf.py
 
 TO TEXT
+* _markitdown_: 🎯 AI = 25k stars in a month https://github.com/microsoft/markitdown
 * _parsr_: https://github.com/axa-group/Parsr
 * _poppler_: https://poppler.freedesktop.org/
 ```sh

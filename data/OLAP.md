@@ -481,6 +481,7 @@ Spend a week exploring some larger analytics datasets, or converting some of the
 * _Snowflake_: users/investors like them https://news.ycombinator.com/item?id=24265041 https://dataschool.com/sql-optimization/snowflake/ https://www.youtube.com/watch?v=xojAXXRo_S0 OSS https://news.ycombinator.com/item?id=38038239
 * apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
 * can build dashboards off queries
+* connect locally https://www.youtube.com/watch?v=8un_rsg7l84
 * _Databricks_: Spark aaS from creators of Spark; lakehouse, autoscaling, model training, interactive notebooks
 * vs. Snowflake https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 

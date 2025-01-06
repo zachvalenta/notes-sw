@@ -333,6 +333,7 @@ ZA
 CONFIG
 ```sh
 ├── .config/yazi
+│   └── keymap.toml  # shell/yazi/keymap.toml
 │   └── package.toml  # shell/yazi/plugins.toml
 │   └── theme.toml  # shell/yazi/catppuccin.toml https://github.com/catppuccin/yazi
 │   └── yazi.toml  # shell/yazi/config.toml
@@ -340,6 +341,7 @@ CONFIG
 * `ya`: CLI to install plugins
 * plugins https://yazi-rs.github.io/docs/cli/#package-manager
 * dir icons https://github.com/sxyazi/yazi/issues/2148
+* drop to shell: https://yazi-rs.github.io/docs/tips/#dropping-to-shell
 
 ---
 

@@ -440,6 +440,8 @@ ICON/FONT/COLOR INTERPLAY
 
 ---
 
+font rendering, anti-aliasimg, INI parsing, icon, 256 bit color https://changelog.com/podcast/622
+
 | **Feature**         | **xterm-256color**          | **True Color (24-bit)**         |
 |---------------------|-----------------------------|----------------------------------|
 | **Color Depth**     | 256 colors                   | 16,777,216 colors               |
