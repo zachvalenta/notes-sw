@@ -15,36 +15,24 @@
 
 ## 进步
 
-# 🟨 ZA
+# ⑃ CONTROL FLOW
 
-## args
+📜 https://ss64.com/bash/if.html
 
-* access
+## checks
+
 ```sh
-$@  # all e.g. for file in "{$files[@]}"
-$#  # get by number
-$_  # get previous arg https://www.youtube.com/watch?v=vt-IvdFP5ZA
-
-# get positional
-$ cmd arg1 arg2 # $0 = cmd, $1 = arg1, $2 = arg2, $@ = all args
-
-# set default https://stackoverflow.com/a/33419280
-function agg(){
-    # e.g. `agg` -> YEAR = 23; `agg 21` -> YEAR = 21
-    YEAR=${1:-23}
-    rg foo "$YEAR"/??.dat
-}
+if [ "$var" = "$var" ]  # equality
 ```
+
+---
 
 * checks
 ```sh
 if [ $# -eq 0 ]  # none
-if [ "$var" = "$var" ]  # equality
 if [ -z "$var" ]  # empty string: -z (true if empty) -n (true if not empty) https://stackoverflow.com/a/18096739
 if [[ "$var" =~ ^-?[0-9]+[.,]?[0-9]*$ ]]  # integer https://stackoverflow.com/a/28898213
 ```
-
-## checks
 
 ```sh
 # EMPTY / NON-EMPTY
@@ -78,11 +66,9 @@ if ! type -f fswatch >/dev/null ; then
 fi
 ```
 
-## control flow
+## operators
 
-📜 https://ss64.com/bash/if.html
-
-BOOLEAN OPERATORS
+BOOLEAN
 ```sh
 &&  # AND
 ```
@@ -116,7 +102,8 @@ A || B # if not A then B
 A & B # A and B simultaneously
 ```
 
-ITERATION
+## iteration
+
 ```sh
 my_array=(item1 item2 item3)
 
@@ -139,16 +126,20 @@ until [ -z "$ur_var" ]; do
 done
 ```
 
-* conditional
-> ternary https://run.jotaen.net/
+## conditionals
+
+* if
 ```sh
-# IF
 if [ -z "$ur_var" ]; then
     echo "hey"
 else
     echo "hi"
 fi
+```
+---
 
+> ternary https://run.jotaen.net/
+```sh
 # IF ELSE
 if [ -z "$ur_var" ]; then
     echo "hey"
@@ -165,6 +156,27 @@ then
 else
     echo "hello"
 fi
+```
+
+# 🟨 ZA
+
+## args
+
+* access
+```sh
+$@  # all e.g. for file in "{$files[@]}"
+$#  # get by number
+$_  # get previous arg https://www.youtube.com/watch?v=vt-IvdFP5ZA
+
+# get positional
+$ cmd arg1 arg2 # $0 = cmd, $1 = arg1, $2 = arg2, $@ = all args
+
+# set default https://stackoverflow.com/a/33419280
+function agg(){
+    # e.g. `agg` -> YEAR = 23; `agg 21` -> YEAR = 21
+    YEAR=${1:-23}
+    rg foo "$YEAR"/??.dat
+}
 ```
 
 ## design

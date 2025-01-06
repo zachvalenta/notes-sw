@@ -19,6 +19,10 @@ WORKFLOW ENGINE OR TASK QUEUE?
 
 # 💾 CACHES
 
+🗄
+* `distributed.md` caching
+* `http.md` caching
+
 ## diskcache / moke
 
 https://calmcode.io/course/diskcache/introduction
@@ -490,8 +494,6 @@ TOOLING
 * _kplay_: message inspection https://github.com/dhth/kplay
 * _plumber_: CLI https://github.com/batchcorp/plumber
 
-event sourcing, sagas https://github.com/ThreeDotsLabs/watermill
-
 https://www.warpstream.com/ https://changelog.com/podcast/606#transcript + sponsors
 
 🗄 `data/eng.md` streaming
@@ -642,6 +644,23 @@ REDIS QUEUE (RQ)
 * `application.md` HTTP
 * `stdlib.md` web / frameworks
 
+LOCALITY
+```txt
+The web server's job is basically just:
+* accept the http connection
+* parse the request
+* hand it to your application code
+* take your response and send it back
+
+That's typically milliseconds or less. But then your actual application code might:
+* wait 100ms for a db query
+* wait 200ms for an api call
+* spend 50ms processing data
+* wait 150ms for another api call
+
+So the web server piece ends up being maybe 1-5% of your total response time. That's why shifting from Gunicorn to a faster server often doesn't move the needle much in real-world apps.
+```
+
 SEMANTICS
 * req/res: OS takes req on port, hands req to web server, web server hands req to app server, app server hands req to application, res flow back up
 * servers useful in Python bc GIL only allows one thread to execute at a time so server does pools other connections 📙 Butcher practice 1.3.3
@@ -704,8 +723,6 @@ uwsgi --http :9090 --wsgi-file foobar.py --master --processes 4 --threads 2 --st
 * BYO https://github.com/codecrafters-io/build-your-own-x#build-your-own-web-server https://news.ycombinator.com/item?id=41642151 https://doc.rust-lang.org/book/ch20-00-final-project-a-web-server.html
 * mock server: https://smocker.dev/
 * comment server: Disqus, isso https://avi.im/blag/about/ https://posativ.org/isso/docs/
-* Nginx - https://github.com/zachvalenta/nginx-wsgi https://serverfault.com/q/821284/415712 https://stackoverflow.com/a/25486871/6813490
-* Nginx - tune https://blog.codeship.com/tuning-nginx/
 * BYO https://defn.io/2018/02/25/web-app-from-scratch-01/ http://joaoventura.net/blog/2017/python-webserver/
 
 ## Caddy
@@ -791,6 +808,8 @@ design
 📜 https://nginx.org/en/docs/beginners_guide.html https://nginx.org/en/docs/ https://github.com/trimstray/nginx-admins-handbook
 
 https://github.com/Canop/rhit
+https://github.com/zachvalenta/nginx-wsgi https://serverfault.com/q/821284/415712 https://stackoverflow.com/a/25486871/6813490
+https://blog.codeship.com/tuning-nginx/
 
 non-Docker
 * https://stackoverflow.com/a/54298517

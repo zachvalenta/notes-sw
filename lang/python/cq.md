@@ -458,15 +458,21 @@ per-file-ignores =  # https://stackoverflow.com/a/54454433/6813490
 * _pyflakes_: style rules; used in ruff https://github.com/PyCQA/pyflakes
 * _pyupgrade_: upgrade syntax for future Python versions https://github.com/asottile/pyupgrade
 
-## logging
+## logging (loguru)
 
-🗄
-* `python/runtime.md` REPL
-* `telemetry` logging
+🗄 `telemetry` logging
 
-LIBS
+LOGURU 📜 https://github.com/Delgan/loguru
+* log to stdout and file
+```python
+logger.remove()
+logger.add(sys.stdout)
+logger.add("validation.log")
+```
+* config stdout https://github.com/zachvalenta/capp-edi
+
+ALTERNATIVES
 * _eliot_: https://github.com/itamarst/eliot 
-* _loguru_: ✅ https://github.com/Delgan/loguru 
 * _structlog_: https://github.com/hynek/structlog
 
 ---

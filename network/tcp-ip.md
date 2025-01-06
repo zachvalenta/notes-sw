@@ -133,10 +133,25 @@ https://news.ycombinator.com/item?id=41930628
 * ping alternative: gping https://github.com/ibraheemdev/modern-unix https://github.com/pouriyajamshidi/tcping https://github.com/laixintao/pingtop
 * _ISP_: people who own the wires https://news.ycombinator.com/item?id=22511417 BYO https://startyourownisp.com/ Starlink https://news.ycombinator.com/item?id=26760735 https://news.ycombinator.com/item?id=27919015
 > The simplest way to look at Starlink is to consider what costs it's avoiding. A typical ISP needs to run physical wires to physical houses, which requires an upfront expense. When Google was rolling out its fiber service, for example, researchers at Bernstein estimated that it was costing $564 per home just to pass homes so they'd be eligible for a connection, and another $464 to $794 to connect them. As a result of this, the industry tends to be concentrated: if one company passes a set of homes, it can name its own price; two companies can split the market; a third company has to pay the same capital expenditures but gets lower incremental returns. So most US households have little choice when they buy Internet service https://diff.substack.com/p/three-bull-cases-for-starlink
-* _UDP_: don't have to establish connection before message sent, msg not acked i.e. unreliable; used by streaming audio/video https://wsvincent.com/tcp-vs-udp/ https://hpbn.co/building-blocks-of-udp/
 * `127.0.0.1`: IP addr that only receives connections from same host; aka 'locahost' https://stackoverflow.com/a/20778887 [`evans-tcpdump.pdf` page 8] 🗄 `/etc/hosts` 
 * use 127.0.0.1 bc localhost stills need to be resolved by hosts file https://stackoverflow.com/q/7382602
 * `0.0.0.0`: IP addr that means "listen on every available network interface"; lets server receive req coming from outside os https://stackoverflow.com/a/20778887 
+
+## UDP
+
+🗄️ `telemetry.md` latency
+
+> Some areas where we’re happy with our choices even though they may not sound like the simplest feasible solution is with our API, where we use GraphQL, with our transport protocols, where we had a custom protocol for a while, and our host management, where we use Kubernetes. For our transport protocols, we used to use a custom protocol that runs on top of UDP, with an SMS and USSD fallback, for the performance reasons described in this talk. With the rollout of HTTP/3, we’ve been able to replace our custom protocol with HTTP/3 and we generally only need USSD for events like the recent internet shutdowns in Mali. https://danluu.com/simple-architectures/
+> Using TCP for game networking can introduce significant delays because of its reliable, ordered delivery, which isn't ideal for latency-sensitive games. The article recommends using UDP-based protocols to avoid these issues. https://mas-bandwidth.com/what-is-lag/
+
+* https://mas-bandwidth.com/writing-scalable-backends-in-udp-the-solution/
+* https://mas-bandwidth.com/creating-a-first-person-shooter-that-scales-to-millions-of-players/
+* https://mas-bandwidth.com/the-case-for-network-acceleration-for-multiplayer-games/
+* https://en.wikipedia.org/wiki/User_Datagram_Protocol
+* don't have to establish connection before message sent, msg not acked i.e. unreliable
+* used by streaming audio/video
+* https://wsvincent.com/tcp-vs-udp/
+* https://hpbn.co/building-blocks-of-udp/
 
 ## TCP
 

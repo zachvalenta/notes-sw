@@ -95,52 +95,46 @@ Hugging Face integration https://huggingface.co/docs/hub/spaces
 * query sandbox
 * Capp machine
 
+## canonical
+
+OLTP
+* _Chinook_: https://github.com/lerocha/chinook-database
+* _Datacharmer_: needs port https://github.com/datacharmer/test_db
+* _Northwind_: https://github.com/pthom/northwind_psql
+* _Sakila_: https://github.com/jOOQ/sakila https://sq.io/docs/tutorial
+```txt
+TABLES
+* film: contains details of movies (title, length, rating, description)
+* actor: contains information about actors (first name, last name)
+* inventory: represents available copies of each movie in the store
+* rental: keeps track of movie rentals (customer, rental date, return date)
+* customer: information about customers (name, email, and active status)
+* staff: represents employees who manage the rentals
+* payment: stores the payment transactions for rentals
+* category: represents different movie categories (comedy, drama)
+
+FEATURES
+* frequent reads and writes: the rental and payment tables simulate frequent transactions common in real-world oltp systems
+* concurrency and transactions: multiple users (represented by customers/staff) frequently update and read the database, making it suitable for practicing transaction handling (e.g., BEGIN TRANSACTION, COMMIT, and ROLLBACK)
+* indexes and query performance: you can demonstrate how primary keys, foreign keys, and indexes optimize lookups and joins
+* entity-relationship design: it’s a well-normalized schema (3rd normal form) with many-to-one and many-to-many relationships, useful for teaching joins
+```
+
+ML
+* _Iris_: https://www.youtube.com/results?search_query=iris+dataset
+```python
+from sklearn.datasets import load_iris
+
+import polars as pl  # https://docs.pola.rs/user-guide/misc/visualization/#altair
+path = "docs/assets/data/iris.csv"
+```
+
 ## sets
 
 ---
 
 * _csvbase_: 🎯 https://csvbase.com/ https://csvbase.com/blog/10
 
-GENERATING TEST DATA
-* https://github.com/zachvalenta/capp-crudite
-* https://github.com/zachvalenta/capp-looker
-```markdown
-I want to create some test datasets using Python.
-```sh
-│   └── aaon.csv  # vendor
-│   └── baldor.csv  # vendor
-│   └── join.csv  # map of vendor IDs to internal IDs
-```
-* prefer to use the stdlib over third-party packages
-* each CSV should have 20 records
-
-Here's what the vendor CSVs should look like:
-```
-vendor_id,price,inventory,manufacturer
-M28B,10,3,Aaon
-HKFL,15,14,Aaon
-1M4G,5,22,Aaon
-```
-* `vendor_id`: random 4 char alphanumeric
-* `price`: btw 1 and 1000, with 75% of values btw 10 and 50
-* `inventory`: btw 1 and 100, with 75% of values btw 5 and 20
-* `manufacturer`: derived from filename i.e. `Aaon` for `aaon.csv` and `Baldor` for `baldor.csv`
-
-Here's what the join CSV should look like:
-```
-csn,vendor_id,price,inventory,manufacturer
-M28B,10,3,Aaon
-S2OR,45,3,Baldor
-PAFE,R46A,55,100,Aaon
-```
-* `csn`: random 4 char alphanumeric, no dupes to any `vendor_id` in the vendor files
-* `vendor_id`: foreign key to `vendor_id` from vendor files
-* `price`: derived from corresponding mapped row in vendor file
-* `inventory`: derived from corresponding mapped row in vendor file
-* `manufacturer`: derived from corresponding mapped row in vendor file
-
-The 20 records in `join.csv` should come from a random sampling of records across `aaon.csv` and `baldor.csv`.
-```
 
 🗄️ `api.md` public
 🛠️ BYO https://calmcode.io/labs/drawdata
@@ -195,6 +189,9 @@ SPORTS
 * music https://corgis-edu.github.io/corgis/csv/music/ 
 
 ## regression
+
+💻 https://github.com/zachvalenta/regress
+📙 Takashi manga regression
 
 ---
 
@@ -467,6 +464,7 @@ ALTERNATIVES
 * OSS https://github.com/gristlabs/grist-core
 * webapp https://equals.app/ https://rows.com/
 * in Python https://pyspread.gitlab.io/ https://news.ycombinator.com/item?id=40284219
+* _Google Sheets_: https://github.com/nithinmurali/pygsheets
 * _IronCalc_: https://news.ycombinator.com/item?id=42095292 https://github.com/ironcalc/ironcalc
 * _rowzero_: https://rowzero.io/ https://grantslatton.com/
 * _pysheets_: 🎯 uses pyodide https://pysheets.app/about https://realpython.com/podcasts/rpp/226/

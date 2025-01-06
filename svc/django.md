@@ -19,6 +19,7 @@
 
 ---
 
+* contribute https://www.better-simple.com/django/2024/12/25/getting-started-contributing-django/
 alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016 https://github.com/hbakri/django-ninja-crud https://talkpython.fm/episodes/show/490/django-ninja
 https://www.loopwerk.io/articles/2024/django-vs-flask-vs-fastapi/
 https://www.bugsink.com/blog/better-error-tracking-in-django/
@@ -353,6 +354,7 @@ class IndexView(generic.ListView):
 
 > Django's leaky battery is its recommendation that you create a custom user model. Auth is so central and so standard that, into the high-nines (99.99%?), the vast majority of projects should never need to customise the central auth model. This is a battery that Django should very much provide. There's a complexity tax from exposing the auth model. There's a performance tax as the auth model becomes a generic dumping ground for User related data that has nothing to do with authentication. There's a learning tax as users hit the custom user model, and the (frankly, misplaced) warnings about it's importance. https://github.com/carltongibson/django-unique-user-email
 
+* magic link https://news.ycombinator.com/item?id=42627453
 https://github.com/jazzband/django-axes
 * auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas https://testdriven.io/blog/django-rest-authjs/
 * keep track of failed logins https://github.com/jazzband/django-axes
@@ -916,8 +918,15 @@ WORLD'S DUMBEST COMPLETE SAAS
 > A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
 
 * components: HTTP, routes, ORM
-* _Rails_: still the best
+* _Rails_: still the best https://rubyonrails.org/doctrine/
 > It's productive, it's fast enough, it scales just fine, and perhaps most importantly there's a "right" way to do just about everything your web application will ever need to do: background jobs, websockets, read-only database replicas. https://news.ycombinator.com/item?id=42014906
+
+FEATURES https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/
+> any framework that accepts POST request also needs to be able to protect against Cross-Site Request Forgery (CSRF)...implementing it properly involved first adding in database support so that I could build the session middleware...roughly 1/3rd of the total development time went into CORS and CSRF protection alone.
+* router: receives req and returns res
+* WSGI https://wsgi.tutorial.codepoint.net/application-interface
+* middleware: processes req/res
+* sessions
 
 ---
 
@@ -931,7 +940,8 @@ https://lukeplant.me.uk/blog/posts/mvc-is-not-a-helpful-analogy-for-django/
 https://lukeplant.me.uk/
 
 BYO
-* https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/ https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://rubyonrails.org/doctrine/ https://github.com/itsthejoker/spiderweb/ https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://dev.to/brunociccarino/how-i-wrote-express-go-in-19-hours-3ndh https://blog.dimitarandreev.com/posts/writing-an-http-router-for-aws-lambda-functions-from-scratch-with-go/
+* https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://blog.dimitarandreev.com/posts/writing-an-http-router-for-aws-lambda-functions-from-scratch-with-go/
+
 ## libs
 
 🔍 https://learndjango.com/tutorials/essential-django-3rd-party-packages
@@ -958,7 +968,6 @@ https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-djan
 * _maps_: https://www.paulox.net/2020/12/08/maps-with-django-part-1-geodjango-spatialite-and-leaflet/
 * _Markdown_: https://learndjango.com/tutorials/django-markdown-tutorial
 * _payments_: https://testdriven.io/blog/django-stripe-tutorial/ https://github.com/zinmyoswe/Django-Ecommerce https://github.com/dinoperovic/django-salesman
-* _rate limiting_: https://github.com/jsocol/django-ratelimit
 * _search_: https://findwork.dev/blog/optimizing-postgres-full-text-search-django/ https://www.youtube.com/watch?v=is3R8d420D4 https://youtu.be/is3R8d420D4 https://jamesturk.net/posts/websearch-in-django-31 https://www.youtube.com/watch?v=kOKwEDHeBX4 https://github.com/ivelum/djangoql https://pganalyze.com/blog/full-text-search-django-postgres Haystack https://django-q.readthedocs.io/en/latest/examples.html https://github.com/etianen/django-watson https://www.paulox.net/2017/12/22/full-text-search-in-django-with-postgresql https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ sort https://rednafi.com/python/sort_by_a_custom_sequence_in_django/ https://www.photondesigner.com/articles/database-search-django-htmx
 * _secrets_: https://github.com/LeeHanYeong/django-secrets-manager https://adamj.eu/tech/2024/08/30/django-rotate-secret-key/
 * _SEO_: https://github.com/kapt-labs/django-check-seo https://github.com/kapt-labs/django-check-seo https://learndjango.com/tutorials/django-sitemap-tutorial

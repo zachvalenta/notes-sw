@@ -106,7 +106,7 @@ TIME MACHINE
 ### mini23 ➡️ exfatmain
 
 MUSIC
-> just do everything
+> just do everything from music, mat, admin
 * slint nosferatu
 * 17 moments of springs
 * boris

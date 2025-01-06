@@ -119,6 +119,7 @@ PYPI ALTERNATIVES
 * external https://peps.python.org/pep-0759/ https://realpython.com/podcasts/rpp/227/
 
 * PyPI getting tied to Github https://news.ycombinator.com/item?id=42136375
+* https://blog.pypi.org/posts/2024-12-30-quarantine/
 * https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you
 * stats https://pepy.tech/
 * https://pypi.org/manage/account/
@@ -198,6 +199,9 @@ https://dublog.net/blog/so-many-python-package-managers/
 https://github.com/python-poetry/poetry/issues/8662
 
 ## PEPs
+
+https://python-peps-graph.glitch.me/
+> turn this into a CLI thing
 
 https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 
@@ -602,6 +606,7 @@ https://www.youtube.com/watch?v=_FdjW47Au30
 https://micro.webology.dev/2024/11/03/uv-does-everything.html https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
 https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
 https://www.bitecode.dev/p/whats-up-python-moar-uv-flask-like
+https://news.ycombinator.com/item?id=42676432
 
 > There was, over on Python Bytes, we covered this thing by Simon Willison, where he kind of summarized a Mastodon thread about UV and whether it being written in Rust is detrimental to the Python ecosystem or not and all of those things.  But I think it was there.  Your take was, look, fast is interesting.  But one of the really powerful things, I think, is here is a single binary that, if it's on your computer, you can do all things Python, right?  And right now, it's super, without UV, it's been really challenging, right?  Maybe I want to use pip-tools or I want to use pip to install something or all of those things are predicated on several steps.  Do you have Python?  Do you have a right version of Python?  Have you realized you've got to create a virtual environment because you don't have right access to where there's just, before you can get started, like, well, here's a whole set of conversations you need to have about not terribly complicated things, but things that people might not care about.  And now with UV, it's just UV, run.  And you can even put in the comment in the top, like, these are the three libraries I need to run.  And it'll just run.  Oh, so they don't break.  That's what I meant with the one binary, right?  Like, I think most of Python's bad reputation around packaging is that things just break.  Because Homebrew updated your Python or because you didn't activate your virtual length, accidentally installed something into your global thing.  Or you used pip install --user and now it's in all your virtual lengths and you don't know why.  And there's so much unpredictability around these things.  And now suddenly we have, like, this one thing that behaves in certain ways that people understand, that people expect it to behave.  As I said before, this is not necessarily the way I would like it to behave, but I understand why it's so important to just narrow the envelope of packaging of the behaviors that we expect and that we as a community endorse. https://talkpython.fm/episodes/transcript/481/python-opinions-and-zeitgeist-with-hynek
 
@@ -668,6 +673,26 @@ get algos project working and align Python versions btw pyenv python and pipx py
 🧠 https://chatgpt.com/c/67683fd6-d260-8004-9a5b-be37a39aefbd
 for scripts https://packaging.python.org/en/latest/specifications/inline-script-metadata/
 https://bluesock.org/~willkg/blog/
+
+## denv
+
+this is coming from a Makefile:
+
+```makefile
+repl:
+    export PYTHONSTARTUP='./startup.py' && poetry run ipython
+```
+
+is there a way to do this with uv i.e. run ipython not with everything I have installed at the user level (i.e. everything installed via pip install --user $FOO_PKG) but everything I have installed in the current repo in which this makefile command is being run?
+
+```makefile
+repl:
+	export PYTHONSTARTUP='./startup.py' && uv pip run ipython
+```
+
+* `poetry run` uses Poetry's lockfile and virtual environment
+* `uv pip run` uses uv's virtual environment but still respects your project's dependencies (from pyproject.toml/requirements.txt)
+* Raw ipython would use your user-level packages
 
 ## Build Standalone
 

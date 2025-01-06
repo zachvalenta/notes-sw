@@ -297,6 +297,20 @@ for row in reader:
 
 📜 https://docs.python.org/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
 
+Path.cwd() gives you the current working directory from where the Python interpreter was launched, not the directory containing the module.
+```python
+# /home/user/projects/foo/bar/script.py
+from pathlib import Path
+print(Path.cwd())  # Shows where you ran `python script.py` from, not /home/user/projects/foo/bar
+
+# If you want module's directory instead:
+print(Path(__file__).parent)  # Shows /home/user/projects/foo/bar
+
+
+
+Path(__file__).parent.parent / 'data' / 'src' / 'subset.csv'
+```
+
 SNIPPETS
 * drill down
 ```python
@@ -321,6 +335,29 @@ ZA
 * _path-like object_: obj repr fs path https://docs.python.org/3/glossary.html#term-path-like-object
 
 ---
+
+WRITING
+```python
+Path.cwd().joinpath('foo').mkdir()
+
+# make subdir
+# sans `parents=true`, will fail FileNotFoundError if any parent dir doesn't exist
+Path.cwd().joinpath('path/to').mkdir(parents=True)
+
+# doesn't mkdir if already exists
+Path.cwd().joinpath('path/to/dir').mkdir(exist_ok=True)
+# throws FileExistsError
+Path.cwd().joinpath('path/to/file').mkdir(exist_ok=True)
+
+# make subdir unless they already exist
+Path.cwd().joinpath('path/to/dir').mkdir(parents=True, exist_ok=True)
+
+---
+
+Path.home().joinpath("Desktop").exists()  # check if dir exists
+Path.home().joinpath("Desktop").joinpath("foo.txt").is_dir()  # check if file is dir
+path_to_file.rename(path_to_new_location.joinpath('file-name-at-new-location.txt'))  # mv
+```
 
 https://realpython.com/python313-new-features/#improved-globbing-of-files-and-directories
 * https://realpython.com/python-pathlib/
@@ -348,14 +385,6 @@ austen = path.abspath(path.join(basepath, "..", "austen.json"))  # file from par
 austen = os.path.join(os.path.dirname(__file__), "austen.json")  # file from CWD - can occlude but flaky if open w/ just `open(file)`, although doesn't seem like it should be, maybe not a problem w/ pathlib https://stackoverflow.com/a/1315401 
 with open(austen) as f:
     return json.load(f)
-
-Path.cwd().joinpath('foo').mkdir()  # mkdir named 'foo'
-Path.cwd().joinpath('foo').mkdir(exist_ok=True)  # mkdir - don't err out if already exists (won't overwrite, just won't do anything)
-Path.cwd().joinpath('foo').mkdir(parents=True)  # mkdir - make all necessary subdirectories
-
-Path.home().joinpath("Desktop").exists()  # check if dir exists
-Path.home().joinpath("Desktop").joinpath("foo.txt").is_dir()  # check if file is dir
-path_to_file.rename(path_to_new_location.joinpath('file-name-at-new-location.txt'))  # mv
 
 Path.unlink(path_to_file)  # rm file
 Path.rmdir(path_to_dir)  # rmdir - empty https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir 
@@ -559,6 +588,7 @@ LIBS
 
 ---
 
+* scrape infinite scrolling: sniff out API, use browser automation
 in golang 17k sites in 10 mins https://medium.com/@tonywangcn/27-6-of-the-top-10-million-sites-are-dead-6bc7805efa85
 * Instant Data Scraper https://news.ycombinator.com/item?id=34069680
 https://github.com/blacknon/pydork
@@ -676,6 +706,7 @@ Selenium
 🛠️ debug HTTP requests https://github.com/cle-b/httpdbg
 
 WSGI
+* predates built-in server lib (`SimpleHTTPServer`) by a decade https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/
 * interface btw app server and framework bc pre-WSGI which framework you picked determined which web server you could use https://www.pythonpodcast.com/episode-43-wsgi-2/ [8:00]
 > The Web Server Gateway Interface (or "WSGI" for short) is a standard interface between web servers and Python web application frameworks. By standardizing behavior and communication between web servers and Python web frameworks, WSGI makes it possible to write portable Python web code that can be deployed in any WSGI-compliant web server. WSGI is documented in PEP 3333. https://docs.python-guide.org/scenarios/web/#wsgi
 * _interface_: contract e.g. "app server will do these things in this way as specified by WSGI and app framework will hook into them in this way as specified by WSGI and that way gunicorn will work with any WSGI-compliant app framework and Flask will work with any-WSGI compliant app server"

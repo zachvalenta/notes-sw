@@ -112,7 +112,12 @@ fn single_name_to_first_last_names() -> &PyAny {}
 ```
 * https://www.youtube.com/watch?v=UilujdubqVU
 > PyO3 is a Rust crate that allows you to write Python modules in Rust. It handles type conversion between Python and Rust, making it easy to call Rust functions from Python. You can use PyO3 to wrap Rust logic (including ORM operations) and expose it as a Python module.
+
+MATURIN
 > Maturin simplifies the process of compiling Rust code into Python-compatible packages. This tool builds Rust libraries as Python packages (wheels) that can be installed and imported like any other Python module.
+> Cargo is the thing that Rust people will be using to compile these things. But you can't just use that on your own because you need the whole pip installing kind of side of things. So you can use Cargo and just create an extension module, but then you need to like give it the right name and copy it into the right place. So there's a bit of kind of gluing that needs to happen. And that is what Maturin is for. https://talkpython.fm/episodes/show/487/building-rust-extensions-for-python
+
+> One point I want to make is, I think that's really interesting, David, to say that, hey, there's this whole equivalent of PyPI called Cargo, or you can get these libraries just like we can, I mean, sorry, that you install with Cargo, that you can get all these pre-built, pre-tested libraries and maybe just put a wrapper on them and do some amazing stuff. https://talkpython.fm/episodes/show/487/building-rust-extensions-for-python
 
 CAN BE SLOWER THAN PYTHON https://pythonspeed.com/articles/faster-text-processing/
 * overhead from obj conversion e.g strings (Rust uses UTF, CPython doesn't)
@@ -205,6 +210,7 @@ for pkg in pkg_resources.working_set:
 
 ---
 
+import linter https://talkpython.fm/episodes/show/487/building-rust-extensions-for-python
 📙 Beazley ch. 10
 📰 `py-repetitive-paths.md`
 > didn't you email Robert Heaton about this?

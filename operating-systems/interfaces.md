@@ -4,9 +4,7 @@
 
 ## 进步
 
-copy terminal output https://calmcode.io/course/cool-cli/yank
-
-* _24_: shell (oh-my-posh, atuin, readline vi mode)
+* _24_: shell (oh-my-posh, atuin, readline vi mode) terminal (try out ghostty)
 * _23_: terminal (research Zellij)
 * _22_: terminal (Fira Mono for iTerm) shell (try starship, try/fail vi mode for readline)
 * _21_: shell (exposure to readline, fzf for bash history https://hacker-tools.github.io/lectures/)
@@ -346,7 +344,8 @@ FEATURES
 * Git branch: can do in pure bash https://www.youtube.com/watch?v=wku-1nJR_oA https://github.com/zachvalenta/dotfiles/commit/cc4117a72c7b1d80f0ec58021530727435a2e4af https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh https://stackoverflow.com/questions/31252573/get-current-directory-without-full-path-in-fish-shell
 
 OPTIONS
-* _ohmyposh_: ✅ https://github.com/jandedobbeleer/oh-my-posh https://ohmyposh.dev/
+* _ohmyposh_: ✅ https://github.com/jandedobbeleer/oh-my-posh https://ohmyposh.dev/docs/
+* https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/multiverse-neon.omp.json https://ohmyposh.dev/docs/themes
 * themes: multiverse-neon, capr4n, powerlevel10k_lean, tokyonight_storm, tonybaloney, takuya, M365Princess, catppuccin https://github.com/maxstollmayer/catppuccin.omp
 > configured in `.zshenv`
 * _powerlevel10k_: unsupported https://github.com/romkatv/powerlevel10k
@@ -440,6 +439,8 @@ ICON/FONT/COLOR INTERPLAY
 
 ---
 
+font rendering, anti-aliasimg, INI parsing, icon, 256 bit color https://changelog.com/podcast/622
+
 | **Feature**         | **xterm-256color**          | **True Color (24-bit)**         |
 |---------------------|-----------------------------|----------------------------------|
 | **Color Depth**     | 256 colors                   | 16,777,216 colors               |
@@ -501,18 +502,19 @@ VIZ
 
 PRO AND CONS
 * ✅ good for vi readline (which helps with atuin)
-* ❌ no divider between splits
+* ❌ no divider between splits -> fix https://github.com/ghostty-org/ghostty/discussions/3301
 * ❌ cmus is unusable
 > would a theme help with this? would a theme conflict with prompt/eza?
-> check out repo issues for these two
+> check out repo issues/discussions for these two
 
 CONFIG
 * TOML-like but no section-headers
 * icons: handles Makefile (which doesn't happen in iTerm)
+> think this is just JetBrains
 * filepath goofiness https://github.com/ghostty-org/ghostty/issues/3456
 
 FONTS
-> embeds a default font (JetBrains Mono), has built-in nerd fonts https://ghostty.org/docs/config
+* embeds a default font (JetBrains Mono), has built-in nerd fonts https://ghostty.org/docs/config
 * current thought: it's really BYO font https://github.com/ghostty-org/ghostty/blob/main/src/font/embedded.zig
 ```sh
 ghostty +list-fonts

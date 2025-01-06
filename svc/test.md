@@ -190,7 +190,9 @@ IDEAS
 > use case: day #0 run suite w/ VCR and create cassette file day #1 run test suite and use cassette files instead of hitting third-party service (to make your tests run faster, to avoid false negatives e.g. latency/downtime from service, internet is down, etc.)
 * testing object store (S3) https://www.sanjaysiddhanti.com/2020/04/08/s3testing/ https://www.youtube.com/watch?v=NBICMF0i4Ok
 
-LOAD TESTING
+## load
+
+* https://github.com/trinhminhtriet/spiko
 * _load testing_: send many requests at system
 * https://github.com/hatoo/oha https://github.com/nakabonne/ali https://github.com/tsenart/vegeta https://github.com/wg/wrk https://github.com/giltene/wrk2 https://news.ycombinator.com/item?id=35781728 https://github.com/grafana/k6 https://github.com/fcsonline/drill
 * https://github.com/wfxr/rlt

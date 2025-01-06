@@ -48,6 +48,7 @@ LOW ADOPTION | FEATURE POOR
 NATIVE 🗄️ `vim.md` Zed
 * _Aide_: ❌ VSC-fork https://aide.dev/ https://news.ycombinator.com/item?id=42063346
 * _Cursor_: 🎯 closed source, Chromium (VSC fork?) https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203 https://news.ycombinator.com/item?id=41988211 https://news.ycombinator.com/item?id=41987367
+* _Tabby_: https://www.tabbyml.com/ https://news.ycombinator.com/item?id=42675725
 * _Void_: ❌ Cursor alternative, unfinished https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
 
 EXTENSIONS

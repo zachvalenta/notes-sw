@@ -90,9 +90,39 @@ TAXONOMY
 
 ## latency
 
+🗄️ `tcp-ip.md` UDP
 📙 Enberg latency https://www.manning.com/books/latency
 
+SEMANTICS
+* _latency_: time it takes for data to travel from one point to another; measured in ms
+* causes: packet loss, routing
+* _lag_: noticeable delay btw user action and system res
+* can be due to latency but also low FPS (processor, RAM, monitor) https://mas-bandwidth.com/what-is-lag/
+
 ---
+
+TIME
+> time delay btw cause and observed effect 📙 Enberg
+> number of seconds it takes for an operation to complete https://leanpub.com/systemdesignmanual/read_sample
+> if your latency is 500ms https://jvns.ca/blog/2017/04/01/slow-down-your-internet-with-tc/
+* https://github.com/apenwarr/blip
+
+LOCALITY
+```txt
+The web server's job is basically just:
+* accept the http connection
+* parse the request
+* hand it to your application code
+* take your response and send it back
+
+That's typically milliseconds or less. But then your actual application code might:
+* wait 100ms for a db query
+* wait 200ms for an api call
+* spend 50ms processing data
+* wait 150ms for another api call
+
+So the web server piece ends up being maybe 1-5% of your total response time. That's why shifting from Gunicorn to a faster server often doesn't move the needle much in real-world apps.
+```
 
 * latency throughput https://entropicthoughts.com/typing-fast-is-about-latency-not-throughput
 * _throughput_: amount of work per unit of time e.g. RPS
@@ -101,12 +131,6 @@ TAXONOMY
 📍 rf using Kleppmann, Data Networking Made Easy, sou (networking, system design)
 
 * _latency_: time required to complete unit of work e.g. % of requests returns with X time e.g. 99% of requests return w/in 0.2 ms https://www.youtube.com/watch?v=FqR5vESuKe0 https://danluu.com/keyboard-latency/
-
-latency
-> number of seconds it takes for an operation to complete https://leanpub.com/systemdesignmanual/read_sample
-> if your latency is 500ms https://jvns.ca/blog/2017/04/01/slow-down-your-internet-with-tc/
-> time delay in packet delivery [Data Networking Made Easy 26]
-https://github.com/apenwarr/blip
 
 https://networkengineering.stackexchange.com/questions/52232/whats-the-difference-between-latency-and-round-trip-time
 * _latency_: time that req waiting to be handled; people use as a synonym for response time [Kleppmann 14]
@@ -195,7 +219,7 @@ throughput definitions
 > a system that is designed to handle 100,000 requests per second, each 1 kB in size, looks very different from a system that is designed for three requests per minute, each 2 GB in size—even though the two systems have the same data throughput [Kleppmann 24]
 * how long it takes the data to be computed https://www.moderndescartes.com/essays/data_oriented_python/
 * amount e.g. RPS [Kleppmann 13, 20] https://calpaterson.com/async-python-is-not-faster.html
-* actual bitrate https://networkengineering.stackexchange.com/a/57428 https://gafferongames.com/post/fixing_the_internet_for_games/
+* actual bitrate https://networkengineering.stackexchange.com/a/57428
 * how much you can get done 📙 Christian 124
 
 warm throughput 🧠 https://chatgpt.com/c/673e0350-b5dc-8004-b222-e85277b89921
@@ -694,6 +718,7 @@ za
 ## bpf
 
 EBPF https://www.brendangregg.com/
+* XDP/eBPF https://mas-bandwidth.com/xdp-for-game-programmers/
 * https://blog.smidt.dev/posts/0003/
 * _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions https://flamegraph.com/ https://github.com/laixintao/flameshow
 * https://www.youtube.com/watch?v=bGAVrtb_tFs
@@ -775,6 +800,7 @@ FORMAT https://github.com/charmbracelet/log
 * _JSONL_: https://github.com/textualize/toolong
 
 TOOLING 🗄️ `golang.md` `python.md`
+* https://github.com/dloss/klp
 * _Axiom_: https://axiom.co/ https://github.com/axiomhq https://repobeats.axiom.co/ cheaper than CloudWatch? https://x.com/AxiomFM/status/1842206872813674807
 * _fblog_: JSON log viewer https://github.com/brocode/fblog
 * _hl_: https://github.com/pamburus/hl

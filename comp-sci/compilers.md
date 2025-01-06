@@ -52,6 +52,8 @@ Creates AST (Abstract Syntax Tree)
 
 > Because it'll take two seconds to run in Rust or in Python or a few hundred milliseconds to run in Python and 10 seconds to compile in Rust. So it is not universally the case that the development cycle is faster in Rust. https://talkpython.fm/episodes/show/487/building-rust-extensions-for-python
 
+https://www.pixelstech.net/article/1728356198-Why-is-Golang-s-Compilation-Speed-So-Fast
+
 * https://lwn.net/Articles/997784/
 * 📙 Conery 216
 * _assemble_: convert from HLA to assembly
@@ -342,6 +344,8 @@ gcc foo.o bar.o   # links them -> final executable
 * Rust https://lwn.net/Articles/997784/
 
 ## VMs
+
+https://www.jmeiners.com/lc3-vm/
 
 INTERPRETERS
 * Python

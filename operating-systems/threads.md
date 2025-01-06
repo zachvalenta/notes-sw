@@ -42,18 +42,6 @@ LIBRARIES https://testdriven.io/blog/concurrency-parallelism-asyncio/
 
 ---
 
-* https://realpython.com/python-concurrency/
-> start with Armin article in `linux.md`
-📍 define 'asynchronous', 'concurrent', 'parallel' https://pythonbytes.fm/episodes/show/161/sloppy-python-can-mean-fast-answers
-* 📺 https://training.talkpython.fm/courses/explore_async_python/async-in-python-with-threading-and-multiprocessing
-
-* bad concurrency compared to other languages?
-> Python (which was the right initial choice because of our founding CTO’s technical background, but its concurrency support, performance, and extensive dynamism make us question whether it’s the right choice for a large-scale backend codebase). None of these was a major mistake, and for some (e.g. Python) the downsides are minimal enough that it’s cheaper for us to continue to pay the increased maintenance burden than to invest in migrating to something theoretically better, but if we were starting a similar codebase from scratch today we’d think hard about whether they were the right choice. https://danluu.com/simple-architectures/
-
-* start here https://pycon-archive.python.org/2024/schedule/presentation/151/index.html 
-BYO event loop https://www.youtube.com/watch?v=8I9Rc2Zaos4
-https://www.amazon.com/gp/product/1492055026
-start here https://www.youtube.com/watch?v=ftmdDlwMwwQ https://www.youtube.com/watch?v=X7vBbelRXn0
 coroutine https://docs.python.org/3/glossary.html#term-coroutine-function
 https://martinheinz.dev/blog/97
 https://higherorderco.com/
@@ -126,7 +114,6 @@ https://news.ycombinator.com/item?id=22514004
 
 # 🖖 CONCURRENCY
 
-> Concurrency is hard, unfortunately. https://news.ycombinator.com/item?id=42406919
 🗄
 *️ `architecture/system.md` distributed
 * `python/runtime.md` concurrency
@@ -134,8 +121,16 @@ https://news.ycombinator.com/item?id=22514004
 * Bobrov https://www.manning.com/books/grokking-concurrency
 * Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
 
+SEMANTIC CONFUSION
+> Concurrency is hard, unfortunately. https://news.ycombinator.com/item?id=42406919
+* multiple computations happen at the same time https://wiki.python.org/moin/Concurrency
+* execute multiple tasks through simultaneous execution or time-sharing https://en.wikipedia.org/wiki/Concurrency_(computer_science)
+* https://news.ycombinator.com/item?id=42631614
+
 ---
 
+📍 define 'asynchronous', 'concurrent', 'parallel' https://pythonbytes.fm/episodes/show/161/sloppy-python-can-mean-fast-answers
+* https://realpython.com/python-concurrency/
 https://wyounas.github.io/concurrency/2024/12/12/how-concurrency-works-a-visual-guide/
 start here https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/ threads are evil https://www.sqlite.org/faq.html https://avi.im/blag/2024/s3-log/ https://assets.bitbashing.io/papers/concurrency-primer.pdf https://github.com/mrkline/concurrency-primer
 
@@ -178,7 +173,7 @@ https://threedots.tech/post/go-test-parallelism/
 * Requires async/await syntax
 * Lower overhead than threads
 ```
-
+https://www.youtube.com/watch?v=ftmdDlwMwwQ 
 * _asyncio_: stdlib async lib; came in w/ 3.4 https://www.roguelynn.com/archives/
 * _Twisted/Tornado_: Python 2 era event loops, used in Scrapy http://masnun.rocks/2016/11/17/exploring-asyncio-uvloop-sanic-motor/ Tornado is also an app framework https://www.pythonpodcast.com/twisted-with-moshe-zadka-episode-170/ https://glyph.twistedmatrix.com/2019/06/kernel-python.html http://aosabook.org/en/twisted.html
 * _uvloop_: faster replacement for asyncio; impl using Cython and libuv (C lib for async)
@@ -207,7 +202,7 @@ https://threedots.tech/post/go-test-parallelism/
 * REPL `python -m asyncio` https://www.pythonmorsels.com/cli-tools/#asyncio
 * https://superfastpython.com/asyncio-event-loop-separate-thread/
 * https://calpaterson.com/async-python-is-not-faster.html
-* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sync-vs-async-in-python-tools-benchmarks-and-asgiwsgi-explained
+* https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#sync-vs-async-in-python-tools-benchmarks-and-asgiwsgi-explained https://www.youtube.com/watch?v=UgoY3ChdqUU
 * https://realpython.com/python-async-iterators/
 * https://sobolevn.me/2020/06/how-async-should-have-been
 * requests have async plugin now https://github.com/encode/requests-async
@@ -244,6 +239,7 @@ event loops https://questions.wizardzines.com/event-loops.html
 * _event loop_: wrapper around OS service that tells you about network traffic https://www.pythonpodcast.com/episode-40-ben-darnell-on-tornado/
 * also used in aeronautics https://news.ycombinator.com/item?id=27115372
 * just a for loop https://softwareengineering.stackexchange.com/q/214889/322090
+BYO event loop https://www.youtube.com/watch?v=8I9Rc2Zaos4
 
 # 🛤️ PARALLEL
 
@@ -253,6 +249,7 @@ event loops https://questions.wizardzines.com/event-loops.html
 
 * https://calmcode.io/shorts/parallel
 * https://calmcode.io/course/ray/introduction
+* https://github.com/roblaszczak/vgt
 
 ## goroutines
 
@@ -335,6 +332,8 @@ thread-safe https://realpython.com/python-thread-lock/
 ```txt
 The GIL prevents multiple threads from executing Python bytecode simultaneously. So for CPU work, threads end up taking turns, not running in parallel. Multiprocessing sidesteps this by running separate Python interpreters, each with their own GIL.
 ```
+
+https://www.youtube.com/watch?v=X7vBbelRXn0
 
 ## threading
 
@@ -456,7 +455,7 @@ telemetry
 > less sure about this definition
 * _stack_: 🗄 `architecture.md` memory
 * _heap_: 🗄 `architecture.md` memory 📙 Evans linux [16]
-* _memory allocator_: keep track of memory usage and get more when necessary from OS; malloc, calloc, et al. 📙 Evans linux [16] https://danluu.com/malloc-tutorial/
+* _memory allocator_: keep track of memory usage and get more when necessary from OS; malloc, calloc, et al. 📙 Evans linux [16] https://danluu.com/malloc-tutorial/ https://8dcc.github.io/programming/pool-allocator.html
 
 ## traits
 

@@ -379,9 +379,12 @@ INPUT https://news.ycombinator.com/item?id=31293032
 ## 🍬 gum
 
 📜 https://github.com/charmbracelet/gum
+💻
+* log https://github.com/zachvalenta/capp-crudite
+* filter https://github.com/zachvalenta/bin-mini23/blob/main/xmp
+* input https://github.com/zachvalenta/capp-denv-bin
 
 * tldr: components for Bash scripts https://github.com/charmbracelet/gum/blob/main/examples/test.sh
-* things I've used: log https://github.com/zachvalenta/capp-crudite filter https://github.com/zachvalenta/bin-mini23/blob/main/xmp
 * use in Python https://github.com/charmbracelet/gum/blob/main/examples/gum.py
 * welcome msg https://github.com/charmbracelet/gum#join
 ```sh

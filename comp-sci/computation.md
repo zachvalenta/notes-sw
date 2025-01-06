@@ -148,7 +148,9 @@ Both are significantly better than gzip/bzip2 for typical data workloads. They f
 
 ## logic
 
-📙 Wayne logic for programmers
+📚
+* Villa https://www.manning.com/books/causal-inference-for-data-science
+* Wayne logic for programmers
 
 ---
 

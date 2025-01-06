@@ -136,6 +136,7 @@ ADVANTAGES COMPARED TO PLAIN CLASSES https://www.youtube.com/watch?v=vBH6GRJ1REM
 * work around immutable https://www.youtube.com/watch?v=vBH6GRJ1REM [5:30]
 
 * https://realpython.com/python-data-classes/
+* https://jacobpadilla.com/articles/python-dataclass-internals
 * alternative + serde https://github.com/python-attrs/attrs https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek https://hynek.me/articles/import-attrs/
 * serde https://github.com/lidatong/dataclasses-json
 * vs. defined https://www.youtube.com/watch?v=1S2h11XronA

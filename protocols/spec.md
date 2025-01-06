@@ -79,6 +79,43 @@ https://kdl.dev/ https://zellij.dev/documentation/layouts
 * link https://github.com/tamasfe/taplo 🗄️ yazi config
 > VS Code plugin 'Even Better TOML'
 
+* https://github.com/hukkin/tomli-w
+```python
+import tomllib
+import tomli_w
+
+# READ
+def load_config():
+    config_path = Path(__file__).parent.parent / '.env'
+    logger.info(f'config path: {config_path}')
+    with open(config_path, 'rb') as f:
+        return tomllib.load(f)
+config = load_config()
+logger.info(f'SFTP conf: {config['sftp']}')
+
+# WRITE
+def update_config(key, val):
+    fpath = Path(__file__).parent / '.env'
+    with open(fpath, 'rb') as f:
+        config = tomllib.load(f)
+    config[key] = val
+    with open(fpath, 'wb') as f:
+        f.write(tomli_w.dumps(config).encode())
+    logger.info(f'{key} ➡️ {val}')
+```
+```toml
+[sftp]
+protocol="sftp"
+host="sftp.spscommerce.com"
+port=10022
+user="cappinc"
+
+[filepaths]
+new-item = "testin/capp-new-items-{date}.edi"
+pricing = "testin/capp-pricing-{date}.edi"
+lead-time = "testin/capp-lead-time-{date}.edi"
+```
+
 ## XML
 
 🗄️ `algos.md` tree
@@ -238,7 +275,6 @@ FLAVORS
 * _MyST_: https://github.com/executablebooks/MyST-Parser
 
 PARSERS
-* _markitdown_: 🎯 AI = 25k stars in a month https://github.com/microsoft/markitdown
 * _micromark_: https://github.com/micromark/micromark
 * _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/ re: Next https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
 * time suck https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
@@ -308,6 +344,7 @@ READERS
 * _termpdf_: kitty https://github.com/dsanson/termpdf.py
 
 TO TEXT
+* _markitdown_: 🎯 AI = 25k stars in a month https://github.com/microsoft/markitdown
 * _parsr_: https://github.com/axa-group/Parsr
 * _poppler_: https://poppler.freedesktop.org/
 ```sh
@@ -537,6 +574,10 @@ https://gist.github.com/joepie91/26579e2f73ad903144dd5d75e2f03d83 https://en.wik
 ```
 
 # 🧮 NUMBERS
+
+📚
+* Evans ints float
+* Evans za
 
 ---
 

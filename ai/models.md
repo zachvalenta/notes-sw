@@ -26,7 +26,7 @@ SLM
 
 ZA
 * _BERT_: https://simonwillison.net/2024/Dec/31/alexis-gallagher/ https://github.com/urchade/GLiNER
-* _DeepSeek_: https://thezvi.substack.com/p/deekseek-v3-the-six-million-dollar
+* _DeepSeek_: https://thezvi.substack.com/p/deekseek-v3-the-six-million-dollar https://www.chinatalk.media/p/deepseeks-edge
 * _X grok_: seems tied to Twitter https://grok.x.ai/ 
 
 ---
@@ -177,6 +177,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 ---
 
+* defining https://www.anthropic.com/research/building-effective-agents
 https://www.thoughtworks.com/radar/techniques/function-calling-with-llms
 > They discuss "agentic systems" as a parent term, then define a distinction between "workflows" - systems where multiple LLMs are orchestrated together using pre-defined patterns - and "agents", where the LLMs "dynamically direct their own processes and tool usage". https://simonwillison.net/2024/Dec/20/building-effective-agents/
 * as judge https://registerspill.thorstenball.com/p/joy-and-curiosity-20
@@ -291,6 +292,7 @@ https://news.ycombinator.com/item?id=42507116
 ## RAG
 
 💡 core model enhanced by access to specific docs
+🛠️ markitdown
 🗄️
 * `doc.md` notes
 * `algos.md` search > bm25
@@ -453,6 +455,8 @@ https://platform.openai.com/docs/overview https://cookbook.openai.com/
 
 🗄️ Hugging Face
 
+GPT has a STT endpoint 📙 Clinton
+
 TYPES https://elevenlabs.io/
 * didn't work https://huggingface.co/spaces/openai/whisper
 * dubbing
@@ -509,7 +513,6 @@ EXAMPLES
 ## projects
 
 * algos https://github.com/ritchie46/vanilla-machine-learning https://www.manning.com/books/optimization-algorithms
-* Iris dataset https://www.youtube.com/results?search_query=iris+dataset https://docs.pola.rs/user-guide/misc/visualization/#altair
 * get familiar https://simonwillison.net/2024/Apr/17/ai-for-data-journalism/
 * https://www.freecodecamp.org/news/customer-segmentation-python-machine-learning/
 * https://archive.vn/073bS

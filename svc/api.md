@@ -287,6 +287,41 @@ planes https://github.com/mrjackwills/adsbdb
 
 ## rate limiting
 
+🗄️ `http.md` rate limiting
+
+---
+
+APPROACHES
+* token bucket
+* leaky bucket
+* fixed window
+* sliding window
+
+```python
+def should_retry(headers):
+    """
+    return true if we should wait before retrying based on rate limit headers
+    >>> headers = {
+    ...     'x-ratelimit-remaining': '0',
+    ...     'x-ratelimit-reset': str(int(datetime.now().timestamp()) + 30)
+    ... }
+    >>> should_retry(headers)
+    True
+    """
+    remaining = int(headers['x-ratelimit-remaining'])
+    return remaining == 0
+```
+
+💻 scaffold client to provide backoff/retry/jitter https://github.com/zachvalenta/shishi
+```txt
+Jitter helps prevent "thundering herd" problems where many clients retry at exactly the same time
+We only apply jitter to the exponential backoff case, not to explicit Retry-After timing
+The jitter factor determines how much randomization - here ±20%
+Using uniform distribution but you could also use truncated normal for different retry patterns
+Want me to show you how this behaves with matplotlib to visualize the retry timing patterns?
+```
+
+* https://github.com/jsocol/django-ratelimit
 * _rate limit_: increase cost of fetching resource
 * why: defense against DDoS, general protection against overload
 * how: increase latency, serve error code
@@ -307,6 +342,7 @@ def rate_limit?(bucket)
   end
 end
 ```
+
 ## slugs
 
 🗄️ `application.md` URLs

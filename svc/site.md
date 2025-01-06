@@ -125,6 +125,7 @@ MICRO
 
 ---
 
+> You have to think of YouTube and other platforms as a mechanism for distribution, not a source of truth. If you're a creator it's essential to have your own place on the web were you can host and publish anything without fear that it will be taken down for any reason — even accidentally. As it becomes cheap to automate both creating takedown requests and processing requests, the volume of spam requests is going to skyrocket and it seems likely there will be more false positives. https://x.com/3blue1brown/status/1876291319955398799
 * email/RSS https://travisjeffery.com/subscribe/
 * bibtex citation https://www.milesmcbain.com/posts/zsa-moonlander-review/ https://distill.pub/2021/gnn-intro/
 * “POSSE” (“post on your own site, syndicate elsewhere”) https://jvns.ca/blog/2024/11/09/new-microblog/ https://www.youtube.com/watch?v=WYqnxCFJoLE https://x.com/jeremyjkun/status/1798789885966602419 https://chrisholdgraf.com/blog/2024/bluesky
@@ -143,7 +144,7 @@ MICRO
 🗄️ `feedback.md` Marimo
 
 * _Raylib_: https://github.com/raysan5/raylib https://github.com/danslocombe/wobbly_vid https://www.youtube.com/watch?v=EO02mP0mLYI
-* _Manim_: Visualize concepts like Pareto efficiency.
+* _Manim_: Visualize concepts like Pareto efficiency. https://www.youtube.com/watch?v=rbu7Zu5X1zI
 * _Plotly_/_Bokeh_: Time-series analysis of economic indicators.
 * _Pygame_: Agent-based modeling for economic simulations (e.g., consumer markets).
 * _Matplotlib (FuncAnimation)_: Works well for things like step-by-step economic equilibrium shifts.
@@ -259,6 +260,7 @@ UNIQUE
 * https://kaiwenwang.com/stack
 * https://abundance.institute/
 * https://www.nicchan.me/
+* https://www.sacred.computer/
 
 ## dropdowns
 

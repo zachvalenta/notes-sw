@@ -18,7 +18,9 @@
 
 ## 进步
 
-taxonomy https://livebook.manning.com/book/advanced-algorithms-and-data-structures of approaches https://www.amazon.com/gp/product/1736049135 https://neetcode.io/
+https://neetcode.io/
+
+taxonomy https://livebook.manning.com/book/advanced-algorithms-and-data-structures
 https://www.manning.com/books/optimization-algorithms
 🛣️ https://roadmap.sh/datastructures-and-algorithms https://roadmap.sh/computer-science https://roadmap.sh/python
 
@@ -844,7 +846,7 @@ GOOD ENOUGH
 
 * _dynamic programming (DP)_: maximize X given constraint on Y or calculate optimum involves large numbers 📙 Bhargava 9.163, 178 https://www.youtube.com/watch?v=gK8KmTDtX8E
 * only works for independent problems 📙 Bhargava 9.177
-* used for Towers of Hanoi, Dikstra, longest substring/sequence, Fibonacci
+* used for Towers of Hanoi, Dikstra, longest substring/sequence, Fibonacci https://www.youtube.com/playlist?list=PLZHQObOWTQDMRtm8h9bG9P06WINNoBnCR
 * must have optimal substructure and overlapping sub-problems https://en.wikipedia.org/wiki/Dynamic_programming#Computer_programming
 * clean up https://ngoldbaum.github.io/posts/dynamic-programming/ https://skerritt.blog/dynamic-programming/#why-is-dynamic-programming-called-dynamic-programmin https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/
 

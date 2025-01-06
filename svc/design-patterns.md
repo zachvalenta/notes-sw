@@ -103,6 +103,21 @@ Abstract Factory: Creates families of related products.
 * _constructor_: 📙 Evans domain-driven [141]
 * _abstract factory_: dedicated class to construct `CustomerFactory().default()` [Conery 243]
 
+```python
+def add_bct(self, scenario_type):
+    bct_codes = {
+        'new item': '02',  # add
+        'pricing': '04',   # change
+        'lead time': '05'  # replace
+    }
+    code = bct_codes.get(scenario_type)
+    if not code:
+        raise ValueError(f"Unknown scenario type: {scenario_type}")
+    bct = f"BCT*SC*CAPCATALOG*001******STANDINBCT09*{code}~"
+    self.segments.extend([bct])
+    return self
+```
+
 ## builder
 
 step-by-step complex object construction

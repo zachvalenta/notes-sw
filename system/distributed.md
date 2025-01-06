@@ -8,6 +8,7 @@
 * `infra.md` queues
 📚
 * https://www.manning.com/books/think-distributed-systems
+* https://books.google.com/books?id=jZgSAAAAQBAJ https://bsky.app/profile/nhuck.bsky.social/post/3lcb57fmhes23
 * Arpaci ch. 48-50
 * Galvin dinosaur chapter 17
 * Jeffrey distributed
@@ -255,9 +256,8 @@ SEMANTICS
 
 📙 Christian chapter 4
 🗄
-* caches
-* proxy
 * `http.md` caching
+* `system/infra.md` proxy
 
 * _cache_: tmp storage for read; e.g. browser (SQLite) network (CDN) db (connection pool); can cache to either memory or disk https://danielmiessler.com/blog/nginx-caching-tempfs/
 * _buffer_: tmp storage for write

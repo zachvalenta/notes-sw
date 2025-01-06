@@ -83,6 +83,9 @@ taxonomy
 
 ---
 
+great core team https://news.ycombinator.com/item?id=42616476
+if you try to do fancy stuff it will fight you https://news.ycombinator.com/item?id=42615472
+https://htmx.org/essays/future/
 https://calmcode.io/course/htmx/introduction
 * people are using less Javascript https://blog.jetbrains.com/pycharm/2024/12/the-state-of-python/#trend-1-python-usage-with-other-languages-drops-as-general-adoption-grows
 https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack

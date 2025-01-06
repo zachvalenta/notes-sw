@@ -66,12 +66,6 @@ PROGRAMS
 * _VIA_: https://www.caniusevia.com/ https://www.youtube.com/watch?v=CLiZ5rAEx3A
 * "authorize your device" doesn't work for Nuphy
 * "authorize your device" only works for Keychron in Chrome
-* got basic homerow mods to work but conflicted with vim https://www.youtube.com/watch?v=CLiZ5rAEx3A
-> one thing with initial stab [D,S] is that the timing is too fast and conflicts with Vim
-```txt
-MT(MOD_LGUI,KC_F)
-MT(MOD_RGUI,KC_L)
-```
 * _ZMK_: https://www.youtube.com/watch?v=riqmW3UHqPY https://github.com/eigatech/zmk-config https://www.youtube.com/watch?v=pK41Mr4Kdd0 [9:00] https://www.youtube.com/watch?v=wTMcH7u-vu0
 
 ZSA KEYS https://configure.zsa.io/voyager/layouts/ https://configure.zsa.io/moonlander/layouts/default/latest/2/
@@ -98,6 +92,70 @@ ZSA KEYS https://configure.zsa.io/voyager/layouts/ https://configure.zsa.io/moon
 > I think for generalist usage they can be adapted to pretty easily, but as a developer, the lack of dedicated keys for [, ] and ' is an insurmountable obstacle for me. Those keys are in my opinion perfectly placed on regular keyboards and no amount of layering, tap dancing or anything else will ever come close. https://news.ycombinator.com/item?id=37391934
 * QMK|VIA https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard https://www.youtube.com/watch?v=EWiOIVnrmMs
 * home row mods https://www.youtube.com/watch?v=sLWQ4Gx88h4 https://www.youtube.com/watch?v=CLiZ5rAEx3A https://github.com/dreamsofcode-io/home-row-mods https://www.youtube.com/watch?v=pK41Mr4Kdd0 [6:30]
+
+## HRM
+
+* got basic homerow mods to work but conflicted with vim https://www.youtube.com/watch?v=CLiZ5rAEx3A
+> one thing with initial stab [D,S] is that the timing is too fast and conflicts with Vim
+```txt
+MT(MOD_LGUI,KC_F)
+MT(MOD_RGUI,KC_L)
+```
+
+* hyper key https://benholmen.com/blog/hyper-key-with-karabiner-elements-raycast/ https://www.youtube.com/watch?v=m5MDv9qwhU8
+> doesn't work for vim users
+
+---
+
+```
+do home row mods conflict with vim? basic kb programming software doesn't work for me bc when im doing vim actions (delete 10 rows) my finger must linger on the D key and then the keyboard thinks I'm trying to access the D key's modifier key (CMD, in my case). is there a way around this?
+
+This is a known ergonomic conflict between home row mods (HRM) and Vim. Here's the taxonomy of solutions:
+
+Timing-based:
+Timing-based:
+* Adjust tap-hold timing (very short for HRM, longer for vim repeat operations)
+* Use "tap dance" features where double-tap activates the modifier
+* Problem: Hard to get reliable in practice, often leads to misfires
+
+Layer-based:
+* Move HRM to a different layer entirely
+* Use a dedicated Vim layer
+* Advantage: Clean separation, no timing conflicts
+* Downside: More keys to press
+
+Mixed approach:
+* Keep HRM but move problematic ones (typically D,F for left hand commands) to other keys
+* Common placement: Thumbs or pinky mods
+* Balances convenience with avoiding conflicts
+
+Software-specific:
+* If using QMK: Look into "tap-hold-configuration" and "retro-tapping"
+* If using Karabiner: Can create complex rules to differentiate between Vim and modifier usage
+* Some keyboard firmware allows for context-aware switching
+
+Most vim+HRM users I know end up going with option 3 - keeping most HRM but moving the most conflict-prone ones (especially D) to thumb keys.
+
+The ZSA Oryx configurator doesn't directly solve this issue - it uses the same basic tap-hold timing mechanism as most other firmware. However, since ZSA keyboards run QMK under the hood, you have two paths:
+
+Within Oryx:
+* You can adjust tap-hold timing
+* Can set up tap-dance rules
+* But these are fairly basic compared to full QMK
+
+Bypass Oryx and flash custom QMK:
+
+Gives access to full QMK features including:
+* Per-key tap-hold configuration
+* Retro tapping
+* Dynamic TAPPING_TERM
+* Custom key overrides
+
+Downside: Loses Oryx's GUI configuration
+
+The core issue remains - Oryx treats this as a simple tap vs hold distinction, which breaks down with Vim's "hold key to repeat action" behavior.
+If you want to keep using Oryx, moving the conflicting mods (especially D) to thumb keys is probably your best bet.
+```
 
 ## mapping
 

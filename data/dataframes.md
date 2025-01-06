@@ -115,6 +115,9 @@ pl.read_csv(
 no_whitespace_or_period_delimit = r"^[^\s.-]+$"
 violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
 assert len(violations) > 0
+
+# convert pandas
+pl.from_pandas(df)
 ```
 
 ## EDA
@@ -143,14 +146,19 @@ assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height
 ## predicates
 
 ```python
-# equality
+# EQUALITY
 bar.filter(pl.col('mfg') == 'samsung')
-# comparison
+bar.filter(pl.col('mfg').str.to_lowercase() == brand.lower())  # case insensitive
+# COMPARISON
 bar.filter(pl.col('price') > 300)
-# chained
+
+# CHAINED
 bar.filter((pl.col('mfg') == 'samsung') & (pl.col('price') > 400))
-# keyword search
-bar.filter(pl.col('mfg').str.contains('pp').alias('regex'))
+
+# KEYWORD SEARCH
+bar.filter(pl.col('mfg').str.contains('foo').alias('regex'))
+# CASE INSENSITIVE
+df.filter(pl.col('description').str.contains(fr'(?i){brand}')) # newer version of Polars has `flags` kwarg
 ```
 
 ## joins

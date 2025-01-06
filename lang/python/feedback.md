@@ -9,6 +9,70 @@
 
 ## 进步
 
+```txt
+Exactly! Your problem has several layers:
+* IPython installed globally, raising virtualenv warnings
+* Base PYTHONSTARTUP depends on rich/loguru, also installed globally
+* When running in a project virtualenv, that startup can't access those global packages
+
+You've basically hit the core tension between:
+* Wanting a rich global REPL environment with helpful tools
+* Wanting clean, isolated project environments
+
+Options:
+* Accept installing rich/loguru/ipython in every project
+* Make the base startup more minimal, only using stdlib
+* Create a "REPL utilities" package that you can install in projects that need it
+* Skip virtualenv isolation just for REPL sessions
+```
+```python
+# repl-utils/pyproject.toml
+[project]
+name = "repl-utils"
+version = "0.1.0"
+dependencies = [
+    "rich",
+    "loguru",
+    "ipython"
+]
+
+[project.optional-dependencies]
+dev = ["pytest"]
+```
+```python
+# repl-utils/repl_utils/__init__.py
+from pathlib import Path
+import os
+import sys
+import json
+
+from loguru import logger
+from rich import pretty, traceback, print as rprint
+from rich import inspect as ins
+
+def setup_repl():
+    """Configure REPL environment"""
+    pretty.install()
+    traceback.install(show_locals=False)
+    
+def ri(obj):
+    """inspect obj with Rich and show methods"""
+    return ins(obj, methods=True)
+
+# ... rest of your current utilities ...
+```
+```python
+# ~/.pythonrc.py
+from repl_utils import setup_repl, ri, chuan, dump, qiu, vars, jk
+setup_repl()
+logger.info("loading base startup")
+# Project startup loading logic...
+```
+```python
+[tool.poetry.group.dev.dependencies]
+repl-utils = {path = "/path/to/repl-utils"}
+```
+
 OPTIONS
 * REPL
 * repo + comments: based on REPL history

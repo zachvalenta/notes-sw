@@ -3,23 +3,15 @@
 ## 参考
 
 > All models are wrong, but some are useful - George Box 📙 Zuckerman simons [245]
-> Good programmers worry about data structures. https://softwareengineering.stackexchange.com/q/163185
-🗄️
-* `protocols.md`
-* `data/eng.md` factors
+🗄
+*️ `OLAP.md` factors
+* `data/internals.md`
+* `science.md` metascience / categories
 📚
 * Alexopoulos semantic https://www.amazon.com/gp/product/1492054275
 * Kent data/reality https://www.amazon.com/Data-Reality-Perspective-Perceiving-Information/dp/1935504215
 
 ## 进步
-
-* mixing trees and tags https://borretti.me/article/the-design-space-of-wikis#pages
-* goofiness https://calmcode.io/data-science-fiction
-* Task Warrior vs. kanbai-tui
-* structures taxonomy https://chatgpt.com/c/6706989f-02a4-8004-9933-bbe525f36b55 https://www.interviewcake.com/data-structures-reference https://roadmap.sh/datastructures-and-algorithms
-* modeling taxonomy
-
----
 
 https://swizec.com/blog/why-software-only-moves-forward/
 
@@ -47,200 +39,6 @@ SEMANTICS
 
 https://news.ycombinator.com/item?id=42245927
 abstraction and math https://neugierig.org/content/dfw/
-
-# 🏺 DATA STRUCTURES
-
-🔍 https://xlinux.nist.gov/dads/
-📙 Conery ch. 7
-🗄
-* `dbms.md` non-relational
-* `dbms.md` internals / datastructures
-* `eng.md` store / schemas
-* `education.md` design / information design
-* `languages.md` typing
-* `science.md` metascience / categories
-* `sql.md` modeling
-
-review data structures
-* Python collections https://www.30secondsofcode.org/python/p/1 https://realpython.com/python-data-structures/
-* array https://www.youtube.com/watch?v=QJNwK2uJyGs
-* linked list https://www.youtube.com/watch?v=odW9FU8jPRQ https://news.ycombinator.com/item?id=33473497 https://docs.python.org/3/glossary.html#term-list https://nullprogram.com/blog/2024/07/31/
-* stack https://www.youtube.com/watch?v=I5lq6sCuABE
-* queue https://www.youtube.com/watch?v=mDCi1lXd9hc
-
-OPERATIONS https://github.com/jamiebuilds/itsy-bitsy-data-structures https://www.interviewcake.com/concept/python3/array
-* _lookup_: read
-* _insert_: add anywhere
-* _delete_: rm anywhere
-* _unshift_: add to start
-* _push_: add to end
-* _shift_: rm from start
-* _pop_: rm from end
-
-ADT VS. DATA STRUCTURE
-* _abstract data type (ADT)_: interface https://stackoverflow.com/a/1692961 https://en.wikipedia.org/wiki/Abstract_data_type#Examples
-* _data structure_: impl https://en.wikipedia.org/wiki/Data_structure https://realpython.com/python-heapq-module/#what-are-heaps
-* everything is an ADT e.g. arrays in C stored contiguously in mem but are still types i.e. objects https://stackoverflow.com/questions/50450578/how-are-arrays-implemented-in-c
-> when students learn data structures they (1) learn how they work theoretically (2) use off-the-shelf data structures to solve problems and (3) sometimes implement these data structures from scratch. However, I don’t often see classes exploring the off-the-shelf implementations https://akshayr.me/blog/articles/python-dictionaries
-* http://infolab.stanford.edu/~ullman/focs.html
-* IC bottom up https://www.interviewcake.com/article/python3/data-structures-coding-interview @ RAM https://drewdevault.com/2016/05/28/Understanding-pointers.html
-* stack https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-stacks 
-* queue https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-queues
-* linked list https://medium.com/outco/reversing-a-linked-list-easy-as-1-2-3-560fbffe2088 https://www.youtube.com/watch?v=FSsriWQ0qYE https://realpython.com/courses/working-linked-lists-python/
-* array https://medium.com/@bsurajbh/implementing-arrays-with-python-7586206f0b13
-
-LINKED LIST https://realpython.com/linked-lists-python/ https://news.ycombinator.com/item?id=26620598
-* singly or doubly linked https://lwn.net/Articles/827180/
-* _memory_: discontiguous locations = sequential access [2.30]
-* _O(1)_: write [Bhargava 2.28] delete [ibid]
-* _O(n)_: read [Bhargava 2.28]
-> seems like mutative operations only O(1) if items tracked and if everything not the first/last index is untracked then shouldn't it be O(n)? [Bhargava 2.30]
-* _piece table_: append-only list used for editing text https://darrenburns.net/posts/piece-table/ https://news.ycombinator.com/item?id=36312488 https://cdacamar.github.io/data%20structures/algorithms/benchmarking/text%20editors/c++/editor-data-structures/
-* diff than rope? https://github.com/cessen/ropey https://github.com/prompt-toolkit/pyvim https://web.eecs.utk.edu/~azh/blog/challengingprojects.html
-* Myers diff https://github.com/aymanbagabas/go-udiff
-
-## array
-
-ADT/DS
-* _ADT_: el in sequence w/ random access, supports all operations 📙 Bhargava 2.30 https://www.interviewcake.com/concept/python3/array
-* _impl_: contiguous memory locations
-
-complexity
-* _O(1)_: lookup [Bhargava 2.28] push/pop [ibid 5.90]
-* _O(n)_: insert (esp. unshift) delete [Bhargava 2.28] slice https://www.interviewcake.com/concept/python3/slice
-
-types
-* _one-dimensional (1d)_: `[42, 3, 7]`
-* _n-dimensional (nd)_: `[[42, 3, 7], [4, 13]]`
-
-za
-* _static array_: manual memory
-* _dynamic array_: memory managed; autoresize on backing store overflow (create new larger array, cp over existing); Java `ArrayList` Python `list`; same Big O as array except pushes that require resizing, which are O(n) https://www.interviewcake.com/concept/python3/dynamic-array
-* _backing store_: free space in dynamic array https://danluu.com/algorithms-interviews/
-* _array slice_: use array subset to form new array; example of out-of-place 🗄 `language.md` memory/stack; O(n) in both time and space https://www.interviewcake.com/concept/python3/slice
-
-## *FO
-
-QUEUES
-* _enqueue_: add to queue https://en.wikipedia.org/wiki/Queue_(abstract_data_type)
-* _dequeue_: rm from queue
-* _head_: first item in the queue i.e. oldest item https://www.youtube.com/watch?v=RSY85SLXzwk 0:50
-
----
-
-* _dequeue_: *FO; either; push to each pop from each https://stackoverflow.com/a/38812944/6813490 https://hamatti.org/posts/rotating-turn-order-with-deque/
-```python
-pass
-```
-
-* _stack_: LIFO; post-it https://stackabuse.com/stacks-and-queues-in-python/ https://realpython.com/how-to-implement-python-stack/
-```python
-stack = [42, 'abc']
-stack.append('alice')  # push
-stack.pop()  # pop
-```
-
-* _queue_: FIFO https://dbader.org/blog/queues-in-python 🔍 cf. 'rotate array'
-* _priority queue_: impl w/ heap https://realpython.com/python-heapq-module/
-> is_empty checks whether the queue is empty. add_element adds an element to the queue. pop_element pops the element with the highest priority.
-```python
-queue = [42, 'abc']  # slow bc list is dynamic array https://docs.python.org/3/tutorial/datastructures.html#using-lists-as-queues
-queue.append('alice')  # push
-queue.pop(0)  # shift
-
-queue = deque([42, 'abc'])  # faster
-queue.append('alice')  # push aka queue
-queue.popleft()  # shift aka enque
-```
-
-## map
-
----
-
-* Doggerland, Bering Land Bridge https://gizmodo.com/the-famous-bering-land-bridge-was-more-like-a-swamp-geologists-say-2000539043 https://en.wikipedia.org/wiki/Doggerland
-* mind map https://en.wikipedia.org/wiki/Mind_map https://www.dendron.so/ https://github.com/vimwiki/vimwiki
-* concept map https://en.wikipedia.org/wiki/Concept_map https://cmap.ihmc.us/docs/learn.php
-
-hash tables
-* https://realpython.com/python-hash-table/
-https://docs.python.org/3/glossary.html#term-dictionary
-https://stackoverflow.com/questions/2061222/what-is-the-true-difference-between-a-dictionary-and-a-hash-table
-* https://www.youtube.com/watch?v=jalSiaIi8j4
-* https://www.fluentpython.com/extra/internals-of-sets-and-dicts/
-* https://courses.arpitbhayani.me/hash-table-internals/ https://realpython.com/python-hash-table/
-* intersection of two lists https://jvns.ca/blog/2021/09/10/hashmaps-make-things-fast/
-* https://calpaterson.com/how-a-sql-database-works.html 📙 Kleppmann 72
-* https://news.ycombinator.com/item?id=24232752
-* https://thepythoncorner.com/dev/hash-tables-understanding-dictionaries/
-* https://www.youtube.com/watch?v=2Ti5yvumFTU
-* https://github.com/jamiebuilds/itsy-bitsy-data-structures/blob/master/itsy-bitsy-data-structures.js
-* https://www.youtube.com/watch?v=5cU1ILGy6dM
-* http://paulmouzas.github.io/2014/12/31/implementing-a-hash-table.html
-
-* ADT: reference array via key https://calpaterson.com/how-a-sql-database-works.html
-* impl: BST, red-black https://jvns.ca/blog/2017/09/09/data-structure--the-treap-/
-
-https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictionaries-work/
-* _operations_: lookup, insert, delete
-* _O(1)_: Bhargava 5.90
-* _hash aggregate_: aggregate keys e.g. A 1 B 2 A 4 -> A 5 B 2 https://veekaybee.github.io/2021/06/06/hashaggregate/
-
-### 🏓 hash table
-
-🗄 `security.md` `python.md`
-
-* _hash table_: hash function + array to put the results in [Bhargava 5.76-8, 5.90-2, 11.213]
-* hashing https://blog.codinghorror.com/url-shortening-hashes-in-practice/
-* aka map, dictionary, associative array https://docs.python.org/3/glossary.html#term-dictionary
-* alternatives incl. BST, skip list https://stackoverflow.com/a/301822 📙 Skiena 12.1
-
-### 🐛 bloom filter
-
-https://avi.im/blag/2024/sqlite-past-present-future/
-
-```txt
-A Bloom filter is a probabilistic data structure that's implemented using multiple hash functions and a bit array.
-
-PROBABILISTIC DATA STRUCTURES
-
-Membership Testing
-* Bloom Filter (allows false positives but no false negatives)
-* Cuckoo Filter (allows deletion unlike Bloom)
-
-Frequency Estimation
-* Count-Min Sketch
-* Count Sketch
-
-Cardinality Estimation
-* HyperLogLog
-
-The core tradeoff: Bloom filters trade perfect accuracy for extremely space-efficient membership testing. You can test if an element is "definitely not in the set" or "probably in the set".
-
-Common use cases:
-* Cache filtering (is this URL definitely not cached?)
-* Spell checkers (is this word definitely not in our dictionary?)
-* Network routing (is this packet definitely not for this subnet?)
-
-If you're dealing with any of these patterns - "check if X might be in large set Y to avoid expensive lookups" - a Bloom filter might help.
-```
-
-https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pzxngeLqw
-* _bloom filter_: like a hash table except takes up a lot less space and false positives are possible
-* https://simonwillison.net/2024/Dec/24/jeremy-edberg/
-* use case is to see whether item already part of a very large set e.g. whether a key exists in a database 📙 11.210-11
-* https://vprusso.github.io/blog/2017/bloom-filters-and-pokemon/ 📙 Kleppmann 79 https://onatm.dev/2020/08/10/let-s-implement-a-bloom-filter/ http://aosabook.org/en/posa/working-with-big-data-in-bioinformatics.html https://luminousmen.com/post/building-a-bloom-filter
-
-## probabilistic
-
-🗄️ `stats.md` Bayes
-📙 Pfeffer https://www.manning.com/books/practical-probabilistic-programming
-
----
-
-* _probabilistic data structures_: CAP theorem but w/ accuracy, functionality, efficiency https://www.youtube.com/watch?v=VjFS-_H10bw 9:15
-* _hyperlog_: https://will-keleher.com/about.html
-* _hyperloglog_: distinct el in set https://www.youtube.com/watch?v=VjFS-_H10bw 10:00 https://redis.com/redis-best-practices/counting/hyperloglog/
-* probabilistic https://www.youtube.com/watch?v=VjFS-_H10bw @ 15:00 https://pypi.org/project/datasketch/
 
 # 🗺️ NON
 
@@ -312,6 +110,37 @@ HIERARCHICAL
 * can be done in relational as well https://hoverbear.org/blog/postgresql-hierarchical-structures/
 * _IMS_: https://twobithistory.org/2017/10/07/the-most-important-database.html
 
+## graph
+
+---
+
+* _PGQ_: property graph queries https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
+> SQL now supports defining read-only queries on graphs. This allows an application to declare a property graph structure over existing tables. It is left up to the DBMS to decide whether to create an auxiliary data structure (e.g., adjacency matrix) for the property graph or just keep track of the meta-data. You can then write graph traversal queries in SQL using the MATCH keyword. The syntax builds on existing languages (e.g., Neo4j's Cypher, Oracle’s PGQL, and TigerGraph’s GSQL), and shares aspects of the emerging GQL standard. As of January 2024, the only DBMS that I am aware of that supports SQL/PGQ features is Oracle. There is an experimental branch of DuckDB that also supports SQL/PGQ.
+> SQL/PGQ is a big deal. However, I do not foresee it being an immediate deathblow for graph DBMSs, as there are already several ways to translate graph-oriented queries to SQL. Some DBMSs, including SQL Server and Oracle, provide built-in SQL extensions that make storing and querying graph data easier. Amazon Neptune is a graph-oriented veneer on top of their Aurora MySQL offering. Apache AGE provides an OpenCypher interface on top of PostgreSQL. I expect other major OLAP systems (e.g., Snowflake, Redshift, BigQuery) will support SQL/PGQ in the near future.
+> Adding SQL/PGQ in a DBMS is not as simple as adding support for the new syntax. There are several engineering considerations to ensure graph queries perform well. For example, graph queries perform multi-way joins to traverse the graph. But a problem arises when the intermediate results for these joins are larger than the base tables. A DBMS must use a worst-case optimal join (WCOJ) algorithm to execute such joins more efficiently than the usual hash join used when joining two tables. Another important technique is to use factorization to avoid materializing redundant intermediate results during joins. This type of compression helps the DBMS avoid blowing out its memory with the same join record over and over again.
+
+* Tiger Graph, Dgraph https://softwareengineeringdaily.com/2021/01/19/dgraph-native-graphql-database-with-manish-jain/ Memgraph, Terminus db, embedded https://github.com/CodyKochmann/graphdb https://github.com/dpapathanasiou/simple-graph cache for dgraph https://github.com/dgraph-io/ristretto
+
+* _Neo4J_ https://media.pragprog.com/titles/pwrdata/neo4j.pdf https://calmcode.io/course/neo4j/introduction
+
+https://danluu.com/yegge-predictions/
+DBMS
+* embedded w/ Datalog https://news.ycombinator.com/item?id=33518320 https://github.com/cozodb/cozo
+* Mongo offers as well https://www.mongodb.com/databases/mongodb-graph-database
+* SQLite, Postgres https://news.ycombinator.com/item?id=35386948
+* _Age_: Postgres extension https://github.com/apache/age
+* _EdgeDB_: graph-relational = no impedance mismatch but still relational https://news.ycombinator.com/item?id=30290225
+* written in Python on top of Postgres https://talkpython.fm/episodes/show/355/edgedb-building-a-database-in-python
+* _Janus_: distributed, OSS https://github.com/JanusGraph/janusgraph
+* _SQLite_: https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need
+* _Tao_: distributed https://news.ycombinator.com/item?id=29045443 https://www.micahlerner.com/2021/10/13/tao-facebooks-distributed-data-store-for-the-social-graph.html
+* _network database_: similar to graph https://stackoverflow.com/a/52325525 📙 Takahashi [2.39]
+* anything that would have ever been network is now SQL https://www.prisma.io/blog/comparison-of-database-models-1iz9u29nwn37 📙 Kleppmann [2.36]
+
+QUERY LANGUAGES
+* _Cypher_: declarative
+* _GQL_: emerging standard https://stackoverflow.com/q/13824962 https://www.youtube.com/watch?v=h8cyPIEfxQY 11:30
+* _Gremlin_: wrapper over Neo4J Java API
 ## key
 
 ---
@@ -453,8 +282,7 @@ CREATE TABLE band_musician(
 ANOMOLIES
 * _delete_: delete causes loss of other important info e.g. if employee and project_id in same table, rm employee also removes project
 
-### forms
-
+FORMS
 * _form_: step in normalization
 * avoids redundancy (no `author` in `book` bc you'd repeat Jane Austen for each novel)
 * saves space (no dupes) 📙 Kleppmann [33]
@@ -488,6 +316,35 @@ IT103    |   2009-2   | 120      | Web Design   |
 -- todo
 ```
 * _5NF (Boyce-Codd)_: when you're going too far 📙 Winand [5]
+
+# 🖼️ REPR
+
+## ERD
+
+🗄 `analytics.md` tooling / GUI 🧠 https://chatgpt.com/c/673ce0d8-543c-8004-93c3-90df2d298ecf
+> can use d2 https://d2lang.com/tour/sql-tables https://github.com/zekenie/d2-erd-from-postgres https://terrastruct.com/blog/post/generate-diagrams-programmatically/
+* symbols 📙 Karwin [7]
+* SQLite https://github.com/Dicklesworthstone/sqlalchemy_data_model_visualizer https://gitlab.com/Screwtapello/sqlite-schema-diagram
+* Django https://github.com/pikhovkin/django-schema-viewer
+* _databasediagram_: https://databasediagram.com/
+* _dbdocs_: 🎯 https://dbdocs.io/
+* _drawdb_: https://drawdb.vercel.app/
+* _DrawSQL_: https://drawsql.app/me-195/diagrams/testing123
+* _erd_: https://github.com/BurntSushi/erd
+* _excalidraw_: https://excalidraw.com/ https://gist.github.com/zachvalenta/f4c2226b991b69d129fe7d1d40119f43
+* _GraphViz_: w/ pydantic + dataclasses https://pythonbytes.fm/episodes/show/403/a-machine-learning-algorithm-walks-into-a-bar
+* wrapper https://news.ycombinator.com/item?id=42044771
+* _quickdatabasediagrams_: https://app.quickdatabasediagrams.com/#/
+* _sketchviz_: uses GraphViz https://sketchviz.com/graphviz-examples
+
+## UML
+
+> can use d2 https://d2lang.com/tour/uml-classes
+* https://www.amazon.com/UML-Distilled-Standard-Modeling-Language/dp/0321193687 https://yuml.me/diagram/scruffy/class/draw
+* aka class diagram
+* PlantUML
+* alternative syntax 📙 Evans domain-driven [42]
+* can be used for ERD in Mongo https://stackoverflow.com/q/11323841 https://stackoverflow.com/q/6010408
 
 # 🟨 ZA
 

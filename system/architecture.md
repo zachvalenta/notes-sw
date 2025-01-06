@@ -2,6 +2,7 @@
 
 ## 参考
 
+💻 https://github.com/zachvalenta/ur-repo
 🗄
 * `dbms.md` perf
 * ⭐️ `eng.md` factors
@@ -40,7 +41,6 @@ ROADMAPS
 * architecture - https://www.cosmicpython.com/book/preface.html
 * interviewing - system design - https://github.com/donnemartin/system-design-primer https://github.com/madd86/awesome-system-design https://www.youtube.com/watch?v=VYuToviSx5Q
 * https://man.sr.ht/ops/ https://bible-api.com/ https://github.com/seven1m/bible_api https://robertheaton.com/2020/04/06/systems-design-for-advanced-beginners/
-* CQRS, service mesh, SOA, scaling (back pressure, throttling) https://roadmap.sh/backend
 
 UNCLE BOB
 * https://www.youtube.com/watch?v=qdcamTUcuAQ
@@ -201,6 +201,12 @@ COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtim
 
 ---
 
+SINGLE SERVER https://alexanderpetros.com/web-services
+* Many web services experience traffic loads that can be handled by a single server
+* Many web services have requirements that can be met with HTML and little to no JavaScript
+* Many people believe, incorrectly, that (1) or (2) does not apply to their web service
+* A web service that adheres to (1) and (2) is orders of magnitude cheaper to maintain than one which does not, and often provides a better user experience
+
 SKETCHING
 > In the intersection of the hardware and software industry, we just continuously run into [patterns like this]. A lot of things are defined by finding some process that works, scaling it up 10x and then it breaking in ways that you did not realize things could break. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
 
@@ -267,6 +273,9 @@ WALKTHROUGHS
 * https://news.ycombinator.com/item?id=40723302
 * https://encore.dev/blog/event-driven-architecture
 * https://news.ycombinator.com/item?id=40619521
+* CQRS, service mesh, SOA, scaling (back pressure, throttling) https://roadmap.sh/backend
+* event sourcing, sagas https://github.com/ThreeDotsLabs/watermill
+> Think of it like an HTTP router but for messages https://threedots.tech/post/watermill-1-4/
 
 ## layered
 
@@ -450,3 +459,170 @@ DESIGN
 * = dynamism via APIs instead of db https://wsvincent.com/what-is-a-static-site-generator/
 * advantages: speed (everything on CDN) security (no db) ++ good for SEO? https://immutablewebapps.org
 * 📍 clean up --> https://alexdanco.com/2019/10/26/everything-is-amazing-but-nothing-is-ours/ apparently good for SEO as well Netlify, Gridsome https://redwoodjs.com/ deployment on Zeit, Netlify https://softwareengineeringdaily.com/2020/04/30/jamstack-content-management-with-scott-gallant-jordan-patterson-and-nolan-phillips/ 15:00 https://hacks.mozilla.org/2020/10/mdn-web-docs-evolves-lowdown-on-the-upcoming-new-platform  what it means for backend dev https://www.youtube.com/watch?v=Z2JK7SS82wE https://www.youtube.com/watch?v=grSxHfGoaeg https://scotch.io/@sw-yx/python-the-jamstack
+
+# 🖼️ VIZ
+
+🗄️ `design.md` charting
+📚
+* Escard science illustration https://www.amazon.com/Science-Illustration-Exploration-Knowledge-Century/dp/3836573326
+* Taschen history of information graphics https://www.amazon.com/dp/3836567679
+
+## entities
+
+---
+
+SEQUENCE
+> can use d2 https://d2lang.com/tour/sequence-diagrams
+* https://sequencediagram.org https://gist.github.com/zachvalenta/2aeac1f945c5848c79087b2481cb187a
+* https://arthursonzogni.com/Diagon/#Sequence
+* https://switowski.com/blog/web-automation/
+* storyboards https://signalsandthreads.com/from-the-lab-to-the-trading-floor/
+* https://jessems.com/posts/2023-07-22-the-unreasonable-effectiveness-of-sequence-diagrams-in-mermaidjs
+
+## system (d2)
+
+🏔️ https://github.com/ankorstore/yokai
+🗄
+* `algos.md` graph, tree
+*️ `protocols.md` ascii
+*️ `system.md`
+
+D2 📜 https://d2lang.com/ https://terrastruct-site-assets.s3.us-west-1.amazonaws.com/documents/d2_cheat_sheet.pdf
+* howto https://terrastruct.com/blog/post/10-tips-for-using-diagrams-to-ace-the-system-design-interview/ https://terrastruct.com/blog/post/draw-software-architecture-diagrams/ https://terrastruct.com/blog/post/diagram-layout-engines-crossing-minimization/
+* complex: https://d2lang.com/tour/composition https://d2lang.com/tour/classes
+* functionality: before/after https://d2lang.com/blog/animation code https://d2lang.com/tour/text#code tooltips https://d2lang.com/tour/interactive
+* layout: https://d2lang.com/tour/layouts https://d2lang.com/tour/positions https://d2lang.com/tour/dimensions
+* viz: icons https://icons.terrastruct.com/ https://d2lang.com/tour/icons themes https://github.com/terrastruct/d2/pull/2065/files https://d2lang.com/tour/themes style https://d2lang.com/tour/style sketch https://d2lang.com/blog/hand-drawn-diagrams dark mode https://d2lang.com/blog/dark-mode custom fonts https://d2lang.com/tour/fonts
+* export: SVG, PPT / Google Slides https://d2lang.com/tour/composition-formats
+* Vim language plugin https://d2lang.com/tour/vim/
+* 📍 VS Code extension for language / preview https://github.com/terrastruct/d2-vscode https://d2lang.com/tour/vscode/
+* config https://d2lang.com/tour/man
+* commands
+```sh
+# INSTALL
+brew tap terrastruct/d2
+brew install d2
+# RUN
+echo 'x -> y -> z' > viz.d2
+d2 --watch viz.d2 viz.svg
+```
+* design: as code, CLI, simple syntax
+* write in Python https://github.com/MrBlenny/py-d2
+* _bidirectional edit_: changing text changes viz, changing viz changes text https://d2lang.com/tour/api https://www.youtube.com/watch?v=EhxVVkxv2Ns
+* _TALA_: https://terrastruct.com/tala/ https://terrastruct.com/blog/post/diagram-layout-engines-crossing-minimization/
+* _Terrastruct_: IDE https://www.terrastruct.com/ https://www.youtube.com/@terrastruct/videos https://d2lang.com/tour/studio
+
+ALTERNATIVES
+* _Backstage_: dynamic manifest of services, unsure about C4 support https://github.com/spotify/backstage https://www.youtube.com/watch?v=C6KfoOBP98U
+> docs live alongside the code for each service, which nicely balances the needs of centralized discovery with the need for distributed ownership of assets...Service Catalog uses YAML files to track ownership and metadata for all the software in an organization's ecosystem https://www.thoughtworks.com/radar/platforms/backstage
+* _C4-PlantUML_: https://github.com/plantuml-stdlib/C4-PlantUML
+* _diagrams_: 🎯 as code, GraphViz https://github.com/mingrammer/diagrams 
+* _Eraser_: https://www.eraser.io/
+* _flowchart fun_: 🎯 interactive https://flowchart.fun/ https://news.ycombinator.com/item?id=26303784
+* _ggcharts_: 🎯 interactive https://gg-charts.com/ https://news.ycombinator.com/item?id=41080189
+* _Icepanel_: 🎯 as code, lots of features (C4, zoom, flows, as-is state vs. to-be state, user-defined classifications) https://icepanel.io/ https://www.thoughtworks.com/radar/platforms/icepanel
+* _Mermaid_: as code https://mermaid.live/
+* bad C4 support https://mermaid.js.org/syntax/c4.html https://lukemerrett.com/building-c4-diagrams-in-mermaid/
+* guide https://news.ycombinator.com/item?id=34906378
+* Github support https://github.blog/2022-02-14-include-diagrams-markdown-files-mermaid/
+* CLI: npm, no Hombrew https://github.com/mermaid-js/mermaid-cli?tab=readme-ov-file#install-with-brew
+* _Schem.io_: https://schem.io/ https://news.ycombinator.com/item?id=42438767
+* _Structurizr_: as code, C4, bad taste (ugly, Java) https://structurizr.com/
+* _Textual Paint_: https://github.com/1j01/textual-paint
+
+## whiteboard / mind map
+
+---
+
+https://github.com/jncraton/box-line-text
+* Freeform: macOS thing
+* _Muse_: https://news.ycombinator.com/item?id=24294397 https://museapp.com/
+* _whiteboard_: Excalidraw https://excalidraw.com/ https://www.thoughtworks.com/radar/tools?blipid=202203036 https://news.ycombinator.com/item?id=29109995
+* alternatives https://github.com/jncraton/box-line-text https://miro.com/index/
+* https://news.ycombinator.com/item?id=24132631
+* https://news.ycombinator.com/item?id=27614912 https://news.ycombinator.com/item?id=34184993
+
+# 🏮 AUDIT TRAIL
+
+🛠️ https://github.com/zachvalenta/ur-repo https://github.com/zachvalenta/create-python-app
+> turn this into a template repo? 🗄️ `git.md` Github > repos
+🗄️
+* `git.md` commmit
+* `linux.md` man pages
+
+```sh
+├── meta
+│   └── README.md  # symlink from root
+│   └── pyproject.toml
+│   └── settings  # https://stackoverflow.com/questions/50090341/is-there-a-naming-convention-for-django-project-configuration-directory https://stackoverflow.com/q/50090341
+```
+
+MESSY PROJECT ROOT = `$PROJ/meta` 🗄️ `python/pkg.md` project structure
+* `README`
+* `LICENSE`
+* `Makefile`
+* `.gitignore`
+* `SECURITY.md`
+* `CONTRIBUTING.md`
+
+---
+
+* copier, cookiecutter https://github.com/zillow/battenberg
+* `kanban.md` https://github.com/frechdaggs/csvfloorsketcher
+* https://karmanivero.us/blog/turning-the-crank-design-as-a-mechanical-process/
+* https://karmanivero.us/toolkits/project-governance/design-as-code-a-frictionless-low-level-design-pipeline/
+* comments https://drewdevault.com/2023/03/09/2023-03-09-Comment-or-no-comment.html
+
+## ADR
+
+---
+
+* https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog
+* https://news.ycombinator.com/item?id=39494925
+* https://news.ycombinator.com/item?id=34482836
+* https://github.com/joelparkerhenderson/architecture_decision_record https://news.ycombinator.com/item?id=22694014 PEPs are ADRs https://www.python.org/dev/peps/pep-0518/ https://news.ycombinator.com/item?id=23915521
+* https://matklad.github.io//2021/02/06/ARCHITECTURE.md.html https://news.ycombinator.com/item?id=26048784
+* https://github.com/great-expectations/great_expectations/tree/develop/docs/adr
+* https://taskwarrior.org/docs/philosophy/
+
+## changelog / release notes
+
+---
+
+* have a `RELEASE.md` https://news.ycombinator.com/item?id=26902887
+* https://www.stedi.com/changelog
+* https://drewdevault.com/2021/05/19/How-to-write-release-notes.html
+* https://keepachangelog.com/ https://www.youtube.com/watch?v=Pi8akLplC9M https://agateau.com/2022/your-git-log-is-not-a-changelog/
+* https://github.com/nedbat/scriv
+* https://drewdevault.com/2021/05/19/How-to-write-release-notes.html
+* https://github.com/orhun/git-cliff
+* https://news.ycombinator.com/item?id=32122028
+* alternative to a roadmap https://www.jibranelbazi.com/blog/what-is-a-product-roadmap
+* https://taskwarrior.org/docs/history/
+
+## readme
+
+---
+
+* immediate files: e.g. README.md, Makefile, language-specific files like `build.gradle` or `Rakefile` https://github.com/ogham/exa/pull/600
+> If you’re browsing a directory full of source code, it’s useful to see the documentation or build script that “kicks off” the entire project. This is why exa calls them immediate files — they’re meant to be the first file you read or run.
+* each little step https://stackoverflow.blog/2020/07/13/tales-from-documentation-write-for-your-dumbest-user
+* https://monokh.com/posts/bitcoin-from-scratch-part-1
+* https://healeycodes.com/github/beginners/tutorial/productivity/2019/04/14/writing-an-awesome-github-readme.html
+* http://tom.preston-werner.com/2010/08/23/readme-driven-development.html
+* http://esr.ibiblio.org/?p=8741
+* examples https://github.com/codenotary/immudb https://github.com/jesseduffield/horcrux https://github.com/pypyr/pypyr/ https://pypyr.io/ https://github.com/pemistahl/grex https://readme.so/
+
+## RFC
+
+---
+
+* https://jacobian.org/2023/dec/1/against-rfcs/
+* https://news.ycombinator.com/item?id=42327280
+* https://github.com/oxidecomputer/rfd-site
+* https://news.ycombinator.com/item?id=41501985
+* https://bun.sh/guides/runtime/import-json
+* https://github.com/tc39/proposal-json-modules
+* https://github.com/tc39
+* https://github.com/GothenburgBitFactory/taskwarrior/tree/develop/doc/devel/rfcs
+> At a dinner for MIT alumni in 1993 or so, I heard Vint Cerf give a presentation that included some slides on how the Internet was governed. He said that when an issue arose, a committee of engineers would form. They would write up a proposed solution and put it out as a Request for Comment. The RFCs, once stabilized, would be implemented. Then the committee would go away. I was captivated by this. Instead of a perpetual government agency to manage a problem, you would have a temporary organization to solve the problem. How clever! https://arnoldkling.substack.com/p/my-social-journey-toward-the-right

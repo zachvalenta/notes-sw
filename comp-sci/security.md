@@ -383,94 +383,6 @@ https://www.youtube.com/watch?v=xHFzhBjnMPI https://news.ycombinator.com/item?id
 * _components_: resource owner (user) client (app that user wants to use) server/provider (authenticates user, grants token to client, which I presume is then handed to user) https://www.digitalocean.com/community/tutorials/an-introduction-to-oauth-2 https://stackoverflow.com/a/10282020
 > When a user logs into our site with their Github account, we will redirect them to Github which then sends us a token that represents the user. https://learndjango.com/tutorials/django-allauth-tutorial
 
-## cookies
-
-🗄 `application.md` caching
-📚 `gourley-http.pdf` chapter 11
-🔗 https://tools.ietf.org/html/rfc7235 
-
----
-
-https://grayduck.mn/2024/11/21/handling-cookies-is-a-minefield/ shadowing https://news.ycombinator.com/item?id=42206556
-* _cookie_: val set by server
-```python
-from http import cookies
-c = cookies.SimpleCookie()
-c['foo'] = 'foo val'
-c.output()
-'Set-Cookie: foo="foo val"'
-```
-
-auth flow https://security.stackexchange.com/q/87269
-* req: form data to auth
-* res: server generates session id -> uses session id to generate cookie for 'set-cookie' header -> res w/ 302
-* req: browser redirects to new URL -> sends its new cookie value along
-* res: server maps cookie to session id -> auths req
-
----
-
-https://www.alexedwards.net/blog/working-with-cookies-in-go
-
-🔗 https://developer.mozilla.org/en-US/docs/Web/HTTP/Cookies https://en.wikipedia.org/wiki/HTTP_cookie
-
-authorization types https://testdriven.io/blog/flask-spa-auth/
-* _session-based_: uses cookies
-* _token-based_: uses localStorage
-
-* HTTP basic auth https://blog.luisrei.com/articles/flaskrest.html https://www.youtube.com/watch?v=VW8qJxy4XcQ
-* https://www.youtube.com/channel/UCnWO-PRzuPnPBg0KCg_RVPA https://developer.mozilla.org/en-US/docs/Web/HTTP https://hpbn.co/brief-history-of-http/
-* HTTPS https://howhttps.works/ https://realpython.com/python-https/
-* https://lchsk.com/stay-paranoid-and-trust-no-one-overview-of-common-security-vulnerabilities-in-web-applications.html https://24ways.org/2018/securing-your-site-like-its-1999/ https://hackernoon.com/10-common-security-gotchas-in-python-and-how-to-avoid-them-e19fbe265e03 https://kushaldas.in/posts/highest-used-python-code-in-the-pentesting-security-world.html https://www.freecodecamp.org/learn/information-security/information-security-projects/
-
-diff btw cookie and token
-* https://stackoverflow.com/q/17000835
-* lots of people have this question https://stackoverflow.com/questions/1592534/what-is-token-based-authentication
-* does user/pw on Django use cookies?
-* token (identification) cookie (association); sites arent' after whether you are really you, just want to know associations around you (age, credit worthiness) in order to server ads?
-* https://stackoverflow.com/a/38470665
-* SSO https://workos.com
-* https://stackoverflow.com/a/50002308
-* https://testdriven.io/blog/web-authentication-methods/
-* https://www.youtube.com/watch?v=dinuA2KM3B4
-* https://increment.com/apis/land-before-modern-apis/
-* https://fly.io/blog/api-tokens-a-tedious-survey/ https://news.ycombinator.com/item?id=28295348
-* cookies and sessions https://eli.thegreenplace.net/2011/06/24/django-sessions-part-i-cookies/
-* email/pass https://learndjango.com/tutorials/django-log-in-email-not-username user/pass https://www.arp242.net/email-auth.html https://news.ycombinator.com/item?id=18767767 https://news.ycombinator.com/item?id=2861288
-
-cookies https://tools.ietf.org/html/rfc2965
-* _cookie_: opaque string sent to server for use as key to map to session https://eli.thegreenplace.net/2011/06/24/django-sessions-part-i-cookies/ https://stackoverflow.com/a/38470665
-```js
-// res
-Set-Cookie: my_cookie_name=my_cookie_value
-// req
-Cookie: my_cookie_name=my_cookie_value
-```
-* can also store metadata (whether or not to remember your previous login) https://www.youtube.com/watch?v=QWw7Wd2gUJk 2:30
-* view in browser via: dev tools > application > cookie https://www.youtube.com/watch?v=nfNrfi7HmLs
-* https://news.ycombinator.com/item?id=25459530
-* https://www.jefftk.com/p/why-i-work-on-ads
-* _container_: separate cookies for different services (social, banking) https://hacker-tools.github.io/security/
-* sessions 🗄 `system.md` caching
-
-session
-* collection of info re: instance of user interaction https://medium.com/@peterchang_82818/difference-session-cookie-token-vs-token-authentication-based-traditional-store-a177e8474ee3
-* stored on server (typically via KV store like Redis bc non-volatile)
-* _sticky_: each req from same user goes to same server (via load balancer)
-* _fat URL_: URL incl user info [Gourley 11.5]
-
-cookie types https://en.wikipedia.org/wiki/HTTP_cookie#Terminology
-* _persistent_: login info
-* _session_: date on this particular visit to site
-* _3rd party_: tracking i.e. data brokerage
-
-tracking w/ cookies
-> Why does a website that orders food from restaurants need a Megabyte of javascript?6 I tried to figure that out by inspecting the API calls. It turned out they were tracking every mouse event. https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/
-* how it works: sent back to originator (e.g. FB) when 3rd party site include scripts (e.g. Like button, Google analytics) https://www.youtube.com/watch?v=QWw7Wd2gUJk 4:00
-* _cookie policy_: list of other sites to whom cookies sent [ibid 5:00]
-* regulation: ubiquitous GDPR banner to accept cookies
-* block tracking cookies w/ extension (Privacy Badget, Ghostery) or browser (Brave, Safari)
-* https://robertheaton.com/2017/11/20/how-does-online-tracking-actually-work/ https://robertheaton.com/2017/11/21/cookie-syncing-how-online-trackers-talk-about-you-behind-your-back/ https://robertheaton.com/2017/11/24/identity-graphs-how-online-trackers-follow-you-across-devices/ https://marvinblum.de/blog/server-side-tracking-without-cookies-in-go-OxdzmGZ1Bl
-
 ## passwords
 
 🗄
@@ -528,34 +440,6 @@ password protected files
 * _security key_: https://paulstamatiou.com/getting-started-with-security-keys/#what https://medium.com/@mrisher_2499/phishing-and-security-keys-b5c8e8e26931?sk=1c1d4ec63df28f4da3971b6508e04d6d https://twitter.com/mrisher/status/1111651130570792962 https://www.wsj.com/articles/the-key-to-being-safer-online-is-actually-a-key-154012680
 * hashing https://www.dbcore.org/
 * _sink_: https://www.troyhunt.com/heres-why-insert-thing-here-is-not-a-password-killer/ https://blog.mozilla.org/internetcitizen/2017/01/25/better-password-security/ https://www.youtube.com/watch?v=ccVblMPcEh4
-
-## tokens
-
-* _token_: opaque obj (string, JSON) sent to server for auth https://stackoverflow.com/a/38470665
-```js
-// req
-Authorization: Bearer my_bearer_token_value
-```
-
-types
-* _basic_: base64 encoded https://blog.luisrei.com/articles/flaskrest.html
-* _bearer_: crypto signed
-* used by OAuth https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Authentication_schemes
-* _JWT_: 📍 http://eradman.com/posts/practical-jwt.html https://github.com/jwt-rs/jwt-ui
-
-approaches
-* _stateless_: contains hashed version of user info (id, auth) https://en.wikipedia.org/wiki/Access_token
-* _stateful_: hash used to lookup info about user server-side https://drewdevault.com/2020/06/21/BARE-message-encoding.html the token store become SPoF https://www.jbspeakr.cc/purpose-jwt-stateless-authentication/
-
-JWT
-* _JWT_: JSON obj holds claims; RFC 7519
-* _claim_: key in dict https://auth0.com/docs/tokens/json-web-tokens/json-web-token-claims https://softwareengineering.stackexchange.com/a/350094/322090
-* _JWS_: thing signing JWT https://stackoverflow.com/a/27642457
-* _JWE_: thing encrypting JWT https://auth0.com/blog/refresh-tokens-what-are-they-and-when-to-use-them/
-* req/res flow similar to cookie/session but JWT is encrypted and thus able to be stateful https://medium.com/@peterchang_82818/difference-session-cookie-token-vs-token-authentication-based-traditional-store-a177e8474ee3 https://softwareengineering.stackexchange.com/a/350094/322090
-* apparently the spec is too murky and the implementations conflict and thus people are moving away from JWT https://simonwillison.net/2020/Aug/1/jwt/
-* https://www.youtube.com/watch?v=tfKatqbZicA https://github.com/dwyl/learn-json-web-tokens/
-* https://github.com/jpadilla/pyjwt
 
 # ZA
 
