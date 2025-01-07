@@ -201,6 +201,12 @@ COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtim
 
 ---
 
+SINGLE SERVER https://alexanderpetros.com/web-services
+* Many web services experience traffic loads that can be handled by a single server
+* Many web services have requirements that can be met with HTML and little to no JavaScript
+* Many people believe, incorrectly, that (1) or (2) does not apply to their web service
+* A web service that adheres to (1) and (2) is orders of magnitude cheaper to maintain than one which does not, and often provides a better user experience
+
 SKETCHING
 > In the intersection of the hardware and software industry, we just continuously run into [patterns like this]. A lot of things are defined by finding some process that works, scaling it up 10x and then it breaking in ways that you did not realize things could break. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
 

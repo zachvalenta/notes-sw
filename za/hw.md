@@ -100,7 +100,7 @@ GPU: Apple M2
 Memory: 1267MiB / 8192MiB
 ```
 
-# 🖥️ MANUFACTURERS
+#  🏭 MANUFACTURERS
 
 https://drewdevault.com/2020/02/18/Fucking-laptops.html
 
@@ -162,6 +162,85 @@ https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=34180508
 * `ls -a`: `Get-ChildItem –Hidden`
 * _touch_: `New-Item c:\Users\F618838\Desktop\restOfPath\newFileName.txt -type file`
 * copy output to clipboard: `<cmd> | clip`
+
+# 🖥️ MONITORS
+
+🔗 https://www.apple.com/mac-mini/specs/
+
+I want to build a formula for computer monitor specs i.e. what factors matter and how to compute them to figure out what monitor you should buy. Factors I'm vaguely aware of:
+
+* aspect ratio
+* monitor size
+* monitor resolution
+
+Add any factors I'm missing, I don't know much on this topic.
+
+DIMENSIONS & DISTANCE
+```txt
+Can you give me a rough formula for how far a computer monitor should be from your eyes (assuming average eyesight) given:
+
+* aspect ratio
+* monitor size
+* monitor resolution
+```
+```python
+# measurements in inches
+
+screen_size = 23
+ppi = 96
+
+distance = (screen_size * ppi) / 60  # 60 = approximate pixels per degree of human vision for average eyesight at comfortable viewing
+ppi = math.sqrt((horizontal_res ** 2) + (vertical_res ** 2)) / screen size
+```
+
+## PPI
+
+```python
+import math
+resolution = [1920, 1080]
+diagonal_res = math.sqrt(resolution[0]**2 + resolution[1]**2)
+ppi = diagonal_res / 23
+```
+
+## specs
+
+---
+
+FACTORS 🗄️ machines
+* aspect ratio
+* scaling
+* size
+* refresh rate
+
+COLORATION
+* dark mode: set from terminal https://stefan.sofa-rockers.org/2018/10/23/macos-dark-mode-terminal-vim/
+* Flux https://justgetflux.com/ https://news.ycombinator.com/item?id=30626803
+* NightShift https://shifty.natethompson.io/en/
+
+* https://registerspill.thorstenball.com/p/joy-and-curiosity-13 https://daniel.lawrence.lu/blog/y2023m12d15/
+* https://news.ycombinator.com/item?id=41987359
+* https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
+* config on macOS https://news.ycombinator.com/item?id=34487066
+* 1080p vs. 4k for readability https://news.ycombinator.com/item?id=23551983 
+* _OLED_: most accurate, best for viewing from non-direct angle https://www.tomsguide.com/us/what-is-oled,news-25120.html
+
+ASPECT RATIO
+* https://www.jeffgeerling.com/blog/2020/making-terminal-window-right-aspect-ratio-streaming-or-recording
+* Apple retina standard, 3:2 aspect ratio https://news.ycombinator.com/item?id=40385371 https://news.ycombinator.com/item?id=40399662
+* 16:9
+
+## models
+
+* _Asus pa278cgv_: https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/ https://www.nytimes.com/wirecutter/reviews/best-monitors/
+* _BenQ RD320UA_: 🎯 $600 https://www.youtube.com/watch?v=784pFXYBqsg https://www.youtube.com/watch?v=rp1fEKGkG2M
+* _Dell S2318HN_: ✅ $175, 23", 1080p
+* _Dell S2721QS_: https://people.zsa.io/leon-si/
+* _Dell S2722QC_: $225, 27", 4k https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.amazon.com/dp/B09DTDRJWP/
+* _Dell U2515H_: 🎯 $250 https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development
+* _Dell U2518D_: 🎯 https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development
+* _Dell U2723QE_: $600 https://www.nytimes.com/wirecutter/reviews/best-monitors/
+* _Dell U3223QE_: $600, 32", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/
+* _Spectrum black_: 🎯 $750 https://www.dough.tech/pages/monitors
 
 # 🟨️ ZA
 
@@ -265,61 +344,6 @@ box1     box2
 * mouse: magic mouse, keychron m3 https://www.keychron.com/products/keychron-m3-wireless-mouse https://www.nytimes.com/wirecutter/reviews/best-wireless-mouse/
 * cooling pad for mbp2014 https://www.amazon.com/gp/product/B00NNMB3KS
 * keep Teams active :) https://news.ycombinator.com/item?id=34273107
-
-## monitors
-
-🔗 https://www.apple.com/mac-mini/specs/
-
-DIMENSIONS & DISTANCE
-```txt
-Can you give me a rough formula for how far a computer monitor should be from your eyes (assuming average eyesight) given:
-
-* aspect ratio
-* monitor size
-* monitor resolution
-```
-```python
-# measurements in inches
-distance = (diagonal_screen_size * PPI) / 60  # 60 = approximate pixels per degree of human vision for average eyesight at comfortable viewing
-ppi = math.sqrt((horizontal_res ** 2) + (vertical_res ** 2)) / diagonal_screen size
-```
-
-FACTORS 🗄️ machines
-* aspect ratio
-* scaling
-* size
-* refresh rate
-
----
-
-COLORATION
-* dark mode: set from terminal https://stefan.sofa-rockers.org/2018/10/23/macos-dark-mode-terminal-vim/
-* Flux https://justgetflux.com/ https://news.ycombinator.com/item?id=30626803
-* NightShift https://shifty.natethompson.io/en/
-
-* https://registerspill.thorstenball.com/p/joy-and-curiosity-13 https://daniel.lawrence.lu/blog/y2023m12d15/
-* https://news.ycombinator.com/item?id=41987359
-* https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
-* config on macOS https://news.ycombinator.com/item?id=34487066
-* 1080p vs. 4k for readability https://news.ycombinator.com/item?id=23551983 
-* _OLED_: most accurate, best for viewing from non-direct angle https://www.tomsguide.com/us/what-is-oled,news-25120.html
-
-ASPECT RATIO
-* https://www.jeffgeerling.com/blog/2020/making-terminal-window-right-aspect-ratio-streaming-or-recording
-* Apple retina standard, 3:2 aspect ratio https://news.ycombinator.com/item?id=40385371 https://news.ycombinator.com/item?id=40399662
-* 16:9
-
-MODELS
-* _Asus pa278cgv_: https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/ https://www.nytimes.com/wirecutter/reviews/best-monitors/
-* _BenQ RD320UA_: 🎯 $600 https://www.youtube.com/watch?v=784pFXYBqsg https://www.youtube.com/watch?v=rp1fEKGkG2M
-* _Dell S2318HN_: ✅ $175, 23", 1080p
-* _Dell S2721QS_: https://people.zsa.io/leon-si/
-* _Dell S2722QC_: $225, 27", 4k https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.amazon.com/dp/B09DTDRJWP/
-* _Dell U2515H_: 🎯 $250 https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development
-* _Dell U2518D_: 🎯 https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development
-* _Dell U2723QE_: $600 https://www.nytimes.com/wirecutter/reviews/best-monitors/
-* _Dell U3223QE_: $600, 32", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/
-* _Spectrum black_: 🎯 $750 https://www.dough.tech/pages/monitors
 
 ## phone
 

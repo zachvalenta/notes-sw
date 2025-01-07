@@ -101,46 +101,6 @@ Hugging Face integration https://huggingface.co/docs/hub/spaces
 
 * _csvbase_: 🎯 https://csvbase.com/ https://csvbase.com/blog/10
 
-GENERATING TEST DATA
-* https://github.com/zachvalenta/capp-crudite
-* https://github.com/zachvalenta/capp-looker
-```markdown
-I want to create some test datasets using Python.
-```sh
-│   └── aaon.csv  # vendor
-│   └── baldor.csv  # vendor
-│   └── join.csv  # map of vendor IDs to internal IDs
-```
-* prefer to use the stdlib over third-party packages
-* each CSV should have 20 records
-
-Here's what the vendor CSVs should look like:
-```
-vendor_id,price,inventory,manufacturer
-M28B,10,3,Aaon
-HKFL,15,14,Aaon
-1M4G,5,22,Aaon
-```
-* `vendor_id`: random 4 char alphanumeric
-* `price`: btw 1 and 1000, with 75% of values btw 10 and 50
-* `inventory`: btw 1 and 100, with 75% of values btw 5 and 20
-* `manufacturer`: derived from filename i.e. `Aaon` for `aaon.csv` and `Baldor` for `baldor.csv`
-
-Here's what the join CSV should look like:
-```
-csn,vendor_id,price,inventory,manufacturer
-M28B,10,3,Aaon
-S2OR,45,3,Baldor
-PAFE,R46A,55,100,Aaon
-```
-* `csn`: random 4 char alphanumeric, no dupes to any `vendor_id` in the vendor files
-* `vendor_id`: foreign key to `vendor_id` from vendor files
-* `price`: derived from corresponding mapped row in vendor file
-* `inventory`: derived from corresponding mapped row in vendor file
-* `manufacturer`: derived from corresponding mapped row in vendor file
-
-The 20 records in `join.csv` should come from a random sampling of records across `aaon.csv` and `baldor.csv`.
-```
 
 🗄️ `api.md` public
 🛠️ BYO https://calmcode.io/labs/drawdata
@@ -195,6 +155,9 @@ SPORTS
 * music https://corgis-edu.github.io/corgis/csv/music/ 
 
 ## regression
+
+💻 https://github.com/zachvalenta/regress
+📙 Takashi manga regression
 
 ---
 
