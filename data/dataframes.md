@@ -145,6 +145,7 @@ assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height
 ```python
 # EQUALITY
 bar.filter(pl.col('mfg') == 'samsung')
+bar.filter(pl.col('mfg').str.to_lowercase() == brand.lower())  # case insensitive
 # COMPARISON
 bar.filter(pl.col('price') > 300)
 
@@ -154,7 +155,7 @@ bar.filter((pl.col('mfg') == 'samsung') & (pl.col('price') > 400))
 # KEYWORD SEARCH
 bar.filter(pl.col('mfg').str.contains('foo').alias('regex'))
 # CASE INSENSITIVE
-bar.filter(pl.col('mfg').str.contains('foo', strict=False).alias('regex'))
+df.filter(pl.col('description').str.contains(fr'(?i){brand}')) # newer version of Polars has `flags` kwarg
 ```
 
 ## joins

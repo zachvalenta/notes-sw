@@ -322,6 +322,29 @@ ZA
 
 ---
 
+WRITING
+```python
+Path.cwd().joinpath('foo').mkdir()
+
+# make subdir
+# sans `parents=true`, will fail FileNotFoundError if any parent dir doesn't exist
+Path.cwd().joinpath('path/to').mkdir(parents=True)
+
+# doesn't mkdir if already exists
+Path.cwd().joinpath('path/to/dir').mkdir(exist_ok=True)
+# throws FileExistsError
+Path.cwd().joinpath('path/to/file').mkdir(exist_ok=True)
+
+# make subdir unless they already exist
+Path.cwd().joinpath('path/to/dir').mkdir(parents=True, exist_ok=True)
+
+---
+
+Path.home().joinpath("Desktop").exists()  # check if dir exists
+Path.home().joinpath("Desktop").joinpath("foo.txt").is_dir()  # check if file is dir
+path_to_file.rename(path_to_new_location.joinpath('file-name-at-new-location.txt'))  # mv
+```
+
 https://realpython.com/python313-new-features/#improved-globbing-of-files-and-directories
 * https://realpython.com/python-pathlib/
 * https://treyhunner.com/2018/12/why-you-should-be-using-pathlib/
@@ -348,14 +371,6 @@ austen = path.abspath(path.join(basepath, "..", "austen.json"))  # file from par
 austen = os.path.join(os.path.dirname(__file__), "austen.json")  # file from CWD - can occlude but flaky if open w/ just `open(file)`, although doesn't seem like it should be, maybe not a problem w/ pathlib https://stackoverflow.com/a/1315401 
 with open(austen) as f:
     return json.load(f)
-
-Path.cwd().joinpath('foo').mkdir()  # mkdir named 'foo'
-Path.cwd().joinpath('foo').mkdir(exist_ok=True)  # mkdir - don't err out if already exists (won't overwrite, just won't do anything)
-Path.cwd().joinpath('foo').mkdir(parents=True)  # mkdir - make all necessary subdirectories
-
-Path.home().joinpath("Desktop").exists()  # check if dir exists
-Path.home().joinpath("Desktop").joinpath("foo.txt").is_dir()  # check if file is dir
-path_to_file.rename(path_to_new_location.joinpath('file-name-at-new-location.txt'))  # mv
 
 Path.unlink(path_to_file)  # rm file
 Path.rmdir(path_to_dir)  # rmdir - empty https://docs.python.org/3/library/pathlib.html#pathlib.Path.rmdir 
