@@ -8,6 +8,7 @@
 * `infra.md` queues
 📚
 * https://www.manning.com/books/think-distributed-systems
+* https://books.google.com/books?id=jZgSAAAAQBAJ https://bsky.app/profile/nhuck.bsky.social/post/3lcb57fmhes23
 * Arpaci ch. 48-50
 * Galvin dinosaur chapter 17
 * Jeffrey distributed

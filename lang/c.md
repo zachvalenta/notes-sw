@@ -258,6 +258,8 @@ SPRING
 
 https://codeberg.org/ziglings/exercises/
 
+comptime https://www.scottredig.com/blog/bonkers_comptime/
+
 USE FOR BUILDS
 * https://jakstys.lt/2022/how-uber-uses-zig/
 * https://mitchellh.com/writing/zig-comptime-tagged-union-subset

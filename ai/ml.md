@@ -476,6 +476,7 @@ TYPES
 * https://www.manning.com/books/transformers-in-action
 * https://www.amazon.com/gp/product/1098134184
 * https://realpython.com/huggingface-transformers/
+* https://www.youtube.com/watch?v=eMlx5fFNoYc
 
 ## tokens
 

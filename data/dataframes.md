@@ -143,14 +143,18 @@ assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height
 ## predicates
 
 ```python
-# equality
+# EQUALITY
 bar.filter(pl.col('mfg') == 'samsung')
-# comparison
+# COMPARISON
 bar.filter(pl.col('price') > 300)
-# chained
+
+# CHAINED
 bar.filter((pl.col('mfg') == 'samsung') & (pl.col('price') > 400))
-# keyword search
-bar.filter(pl.col('mfg').str.contains('pp').alias('regex'))
+
+# KEYWORD SEARCH
+bar.filter(pl.col('mfg').str.contains('foo').alias('regex'))
+# CASE INSENSITIVE
+bar.filter(pl.col('mfg').str.contains('foo', strict=False).alias('regex'))
 ```
 
 ## joins

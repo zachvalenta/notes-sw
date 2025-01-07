@@ -343,6 +343,8 @@ gcc foo.o bar.o   # links them -> final executable
 
 ## VMs
 
+https://www.jmeiners.com/lc3-vm/
+
 INTERPRETERS
 * Python
 * Ruby

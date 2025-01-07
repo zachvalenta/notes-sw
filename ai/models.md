@@ -177,6 +177,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 ---
 
+* defining https://www.anthropic.com/research/building-effective-agents
 https://www.thoughtworks.com/radar/techniques/function-calling-with-llms
 > They discuss "agentic systems" as a parent term, then define a distinction between "workflows" - systems where multiple LLMs are orchestrated together using pre-defined patterns - and "agents", where the LLMs "dynamically direct their own processes and tool usage". https://simonwillison.net/2024/Dec/20/building-effective-agents/
 * as judge https://registerspill.thorstenball.com/p/joy-and-curiosity-20

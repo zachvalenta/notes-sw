@@ -8,7 +8,12 @@
 
 ## 进步
 
+RN
 * taxonomy https://chatgpt.com/c/6706989f-02a4-8004-9933-bbe525f36b55 https://www.interviewcake.com/data-structures-reference https://roadmap.sh/datastructures-and-algorithms
+* https://neetcode.io/courses/dsa-for-beginners/1
+* https://www.youtube.com/playlist?list=PLQpVsaqBj4RIJdYW6Y-iAswxCZeocfoRW
+* https://bsky.app/profile/nhuck.bsky.social/post/3lcgb75bwwc2d
+
 * Python collections https://www.30secondsofcode.org/python/p/1 https://realpython.com/python-data-structures/
 * mixing trees and tags https://borretti.me/article/the-design-space-of-wikis#pages
 * goofiness https://calmcode.io/data-science-fiction
