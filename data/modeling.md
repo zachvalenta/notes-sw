@@ -317,6 +317,35 @@ IT103    |   2009-2   | 120      | Web Design   |
 ```
 * _5NF (Boyce-Codd)_: when you're going too far 📙 Winand [5]
 
+# 🖼️ REPR
+
+## ERD
+
+🗄 `analytics.md` tooling / GUI 🧠 https://chatgpt.com/c/673ce0d8-543c-8004-93c3-90df2d298ecf
+> can use d2 https://d2lang.com/tour/sql-tables https://github.com/zekenie/d2-erd-from-postgres https://terrastruct.com/blog/post/generate-diagrams-programmatically/
+* symbols 📙 Karwin [7]
+* SQLite https://github.com/Dicklesworthstone/sqlalchemy_data_model_visualizer https://gitlab.com/Screwtapello/sqlite-schema-diagram
+* Django https://github.com/pikhovkin/django-schema-viewer
+* _databasediagram_: https://databasediagram.com/
+* _dbdocs_: 🎯 https://dbdocs.io/
+* _drawdb_: https://drawdb.vercel.app/
+* _DrawSQL_: https://drawsql.app/me-195/diagrams/testing123
+* _erd_: https://github.com/BurntSushi/erd
+* _excalidraw_: https://excalidraw.com/ https://gist.github.com/zachvalenta/f4c2226b991b69d129fe7d1d40119f43
+* _GraphViz_: w/ pydantic + dataclasses https://pythonbytes.fm/episodes/show/403/a-machine-learning-algorithm-walks-into-a-bar
+* wrapper https://news.ycombinator.com/item?id=42044771
+* _quickdatabasediagrams_: https://app.quickdatabasediagrams.com/#/
+* _sketchviz_: uses GraphViz https://sketchviz.com/graphviz-examples
+
+## UML
+
+> can use d2 https://d2lang.com/tour/uml-classes
+* https://www.amazon.com/UML-Distilled-Standard-Modeling-Language/dp/0321193687 https://yuml.me/diagram/scruffy/class/draw
+* aka class diagram
+* PlantUML
+* alternative syntax 📙 Evans domain-driven [42]
+* can be used for ERD in Mongo https://stackoverflow.com/q/11323841 https://stackoverflow.com/q/6010408
+
 # 🟨 ZA
 
 ## taxonomy
