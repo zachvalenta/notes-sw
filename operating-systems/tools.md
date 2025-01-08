@@ -323,6 +323,7 @@ DESIGN
 ### 🦆 yazi
 
 📜 https://yazi-rs.github.io/
+📹 https://www.youtube.com/watch?v=iKb3cHDD9hw
 
 FILE OPS
 * `d`: rm
@@ -341,12 +342,21 @@ CONFIG
 * `ya`: CLI to install plugins
 * plugins https://yazi-rs.github.io/docs/cli/#package-manager
 * dir icons https://github.com/sxyazi/yazi/issues/2148
-* drop to shell: https://yazi-rs.github.io/docs/tips/#dropping-to-shell
+
+FILE OPS
+* `SPACE`: select | unselect
+* `x` cut (mark for mv)
+* `p` paste
+* `y` yank
+> have to select multiple in order to yank
+* `X` undo yank | cut
+* `d` qing
+* `o` open
+> would like to config so that it works for both dropping to shell and file edit https://yazi-rs.github.io/docs/tips/#dropping-to-shell https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
 
 ---
 
 TODO
-* enter doesn't enter dir from shell but rather opens in Vim -> workaround? https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
 * file operations https://www.youtube.com/watch?v=iKb3cHDD9hw
 * PDF preview via poppler https://github.com/sxyazi/yazi
 
