@@ -19,6 +19,7 @@
 
 ---
 
+* contribute https://www.better-simple.com/django/2024/12/25/getting-started-contributing-django/
 alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016 https://github.com/hbakri/django-ninja-crud https://talkpython.fm/episodes/show/490/django-ninja
 https://www.loopwerk.io/articles/2024/django-vs-flask-vs-fastapi/
 https://www.bugsink.com/blog/better-error-tracking-in-django/
@@ -353,6 +354,7 @@ class IndexView(generic.ListView):
 
 > Django's leaky battery is its recommendation that you create a custom user model. Auth is so central and so standard that, into the high-nines (99.99%?), the vast majority of projects should never need to customise the central auth model. This is a battery that Django should very much provide. There's a complexity tax from exposing the auth model. There's a performance tax as the auth model becomes a generic dumping ground for User related data that has nothing to do with authentication. There's a learning tax as users hit the custom user model, and the (frankly, misplaced) warnings about it's importance. https://github.com/carltongibson/django-unique-user-email
 
+* magic link https://news.ycombinator.com/item?id=42627453
 https://github.com/jazzband/django-axes
 * auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas https://testdriven.io/blog/django-rest-authjs/
 * keep track of failed logins https://github.com/jazzband/django-axes

@@ -148,6 +148,8 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 
 # 📥 MEMORY
 
+---
+
 🔍 https://softwareengineering.stackexchange.com/questions/tagged/memory
 🗄
 * `c.md` Rust > design
@@ -163,7 +165,7 @@ memory management https://stackoverflow.com/a/3434252
 * _managed code_: language w/ memory management (Java); dynamic languages not typically described as such, more of a marketing term for enterprise languages
 * _garbage_: 
 * _garbage collection_: scheduled memory management; yes (Python, Java) no (Rust 'borrow checker') no-unless-you-hack-real-hard (C, C++) https://news.ycombinator.com/item?id=41963259 https://danluu.com/butler-lampson-1999/ BYO https://jennyjams.net/blog/copygc/
-* _memory leak_: https://www.glean.com/blog/how-we-analyzed-and-fixed-a-golang-memory-leak
+* _memory leak_: https://www.glean.com/blog/how-we-analyzed-and-fixed-a-golang-memory-leak https://rtpg.co/2025/01/01/cowboy-coding-memory/
 * reference counting, prefetching https://signalsandthreads.com/memory-management/)
 
 interning

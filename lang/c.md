@@ -18,6 +18,7 @@
 
 * start here https://realpython.com/c-for-python-programmers/ https://avi.im/blag/2024/learning-c/ https://chatgpt.com/c/673363d3-885c-8004-b7fe-083b927e6999 https://avi.im/blag/2024/win-sqlite-contribution/
 > Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
+* BYO OS https://operating-system-in-1000-lines.vercel.app/en
 * modules https://chatgpt.com/c/67336227-2d40-8004-8789-e8fc768f60a5 📙 Jeffrey [3]
 * courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
 * design: https://saagarjha.com/blog/2020/05/10/why-we-at-famous-company-switched-to-hyped-technology/ https://eev.ee/blog/2016/12/01/lets-stop-copying-c/ https://nullprogram.com/tags/c/

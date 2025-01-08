@@ -119,6 +119,7 @@ PYPI ALTERNATIVES
 * external https://peps.python.org/pep-0759/ https://realpython.com/podcasts/rpp/227/
 
 * PyPI getting tied to Github https://news.ycombinator.com/item?id=42136375
+* https://blog.pypi.org/posts/2024-12-30-quarantine/
 * https://pythonbytes.fm/episodes/show/24/i-have-a-local-pypi-server-and-so-do-you
 * stats https://pepy.tech/
 * https://pypi.org/manage/account/
@@ -198,6 +199,9 @@ https://dublog.net/blog/so-many-python-package-managers/
 https://github.com/python-poetry/poetry/issues/8662
 
 ## PEPs
+
+https://python-peps-graph.glitch.me/
+> turn this into a CLI thing
 
 https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-publication
 
