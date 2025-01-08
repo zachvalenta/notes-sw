@@ -25,7 +25,7 @@ rm -f ~/.zcompdump* && compinit
 * https://github.com/zackproser/automations
 * https://www.gitkraken.com/gitlens https://www.youtube.com/watch?v=oJdlGtsbc3U https://switowski.com/blog/plugins-for-python-in-vscode/
 
-* _24_: pager (delta, diffnav) porcelain (lazygit) + write some utils (`jiancha`, `ghc`) + start using CLI for cloning your own stuff vs digging around the UI
+* _24_: pager (delta, diffnav) porcelain (lazygit) utils (`jiancha`, `ghc`, `xmp`, `zp`)
 * _21_: prepopulate commit msg
 > no memory of doing this, nor knowledge of how to do now
 * _20_: stash commands, 📙 Chacon ch 1-2, Gitlab as secondary remote for notes, auth for BNY (Gitlab token types, server protocols and set up, lots of debugging)
@@ -116,6 +116,7 @@ gh search repos $QUERY  # search all
 gh search repos --owner=$OWNER $QUERY  # gh search repos --owner=zachvalenta markov
 
 gh browse  # open $CWD repo on site
+gh browse --repo $OWNER/$REPO  # open arbitrary
 
 gh repo clone $OWNER/$NAME  # gh repo clone zachvalenta/markov-monte
 ```
