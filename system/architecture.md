@@ -41,7 +41,6 @@ ROADMAPS
 * architecture - https://www.cosmicpython.com/book/preface.html
 * interviewing - system design - https://github.com/donnemartin/system-design-primer https://github.com/madd86/awesome-system-design https://www.youtube.com/watch?v=VYuToviSx5Q
 * https://man.sr.ht/ops/ https://bible-api.com/ https://github.com/seven1m/bible_api https://robertheaton.com/2020/04/06/systems-design-for-advanced-beginners/
-* CQRS, service mesh, SOA, scaling (back pressure, throttling) https://roadmap.sh/backend
 
 UNCLE BOB
 * https://www.youtube.com/watch?v=qdcamTUcuAQ
@@ -274,6 +273,9 @@ WALKTHROUGHS
 * https://news.ycombinator.com/item?id=40723302
 * https://encore.dev/blog/event-driven-architecture
 * https://news.ycombinator.com/item?id=40619521
+* CQRS, service mesh, SOA, scaling (back pressure, throttling) https://roadmap.sh/backend
+* event sourcing, sagas https://github.com/ThreeDotsLabs/watermill
+> Think of it like an HTTP router but for messages https://threedots.tech/post/watermill-1-4/
 
 ## layered
 

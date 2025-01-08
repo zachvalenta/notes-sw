@@ -248,6 +248,7 @@ BYO event loop https://www.youtube.com/watch?v=8I9Rc2Zaos4
 
 * https://calmcode.io/shorts/parallel
 * https://calmcode.io/course/ray/introduction
+* https://github.com/roblaszczak/vgt
 
 ## goroutines
 

@@ -490,8 +490,6 @@ TOOLING
 * _kplay_: message inspection https://github.com/dhth/kplay
 * _plumber_: CLI https://github.com/batchcorp/plumber
 
-event sourcing, sagas https://github.com/ThreeDotsLabs/watermill
-
 https://www.warpstream.com/ https://changelog.com/podcast/606#transcript + sponsors
 
 🗄 `data/eng.md` streaming

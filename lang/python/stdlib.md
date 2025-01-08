@@ -297,6 +297,20 @@ for row in reader:
 
 📜 https://docs.python.org/3/library/pathlib.html#correspondence-to-tools-in-the-os-module
 
+Path.cwd() gives you the current working directory from where the Python interpreter was launched, not the directory containing the module.
+```python
+# /home/user/projects/foo/bar/script.py
+from pathlib import Path
+print(Path.cwd())  # Shows where you ran `python script.py` from, not /home/user/projects/foo/bar
+
+# If you want module's directory instead:
+print(Path(__file__).parent)  # Shows /home/user/projects/foo/bar
+
+
+
+Path(__file__).parent.parent / 'data' / 'src' / 'subset.csv'
+```
+
 SNIPPETS
 * drill down
 ```python

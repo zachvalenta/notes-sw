@@ -346,7 +346,8 @@ FEATURES
 * Git branch: can do in pure bash https://www.youtube.com/watch?v=wku-1nJR_oA https://github.com/zachvalenta/dotfiles/commit/cc4117a72c7b1d80f0ec58021530727435a2e4af https://raw.githubusercontent.com/git/git/master/contrib/completion/git-prompt.sh https://stackoverflow.com/questions/31252573/get-current-directory-without-full-path-in-fish-shell
 
 OPTIONS
-* _ohmyposh_: ✅ https://github.com/jandedobbeleer/oh-my-posh https://ohmyposh.dev/
+* _ohmyposh_: ✅ https://github.com/jandedobbeleer/oh-my-posh https://ohmyposh.dev/docs/
+* https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/multiverse-neon.omp.json https://ohmyposh.dev/docs/themes
 * themes: multiverse-neon, capr4n, powerlevel10k_lean, tokyonight_storm, tonybaloney, takuya, M365Princess, catppuccin https://github.com/maxstollmayer/catppuccin.omp
 > configured in `.zshenv`
 * _powerlevel10k_: unsupported https://github.com/romkatv/powerlevel10k

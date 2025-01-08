@@ -470,7 +470,7 @@ REGISTRIES
 * _create new image_: pull base image, start container and run some commands, then save as new image `docker container commit -m "my new image" <container-id> my-new-image:<version>`
 
 MULTI-STAGE
-* _raison d'etre_: smaller images, esp. w/out separate Dockerfiles per env https://docs.docker.com/develop/develop-images/multistage-build/#before-multi-stage-builds https://labs.iximiuz.com/tutorials/docker-multi-stage-builds
+* _raison d'etre_: smaller images, esp. w/out separate Dockerfiles per env https://docs.docker.com/develop/develop-images/multistage-build/#before-multi-stage-builds https://labs.iximiuz.com/tutorials/docker-multi-stage-builds https://labs.iximiuz.com/tutorials/docker-multi-stage-builds
 * _use cases_: create more granular image containing only what's needed. e.g. Redis image (use full os to compile, then copy Redis src and its runtime deps to new image and discard the os used to compile) https://blog.bejarano.io/how-to-write-great-container-images/ or for app dependencies https://www.youtube.com/watch?v=A9bA5HpOk30 7:30 https://testdriven.io/blog/dockerizing-django-with-postgres-gunicorn-and-nginx/#production-dockerfile
 * _how_: single Dockerfile with multiple `FROM` https://pmac.io/2019/02/multi-stage-dockerfile-and-python-virtualenv
 ```dockerfile

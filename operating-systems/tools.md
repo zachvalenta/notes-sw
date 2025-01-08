@@ -352,6 +352,7 @@ FILE OPS
 * `X` undo yank | cut
 * `d` qing
 * `o` open
+> you can just enter a dir by quitting yazi in that dir!
 > would like to config so that it works for both dropping to shell and file edit https://yazi-rs.github.io/docs/tips/#dropping-to-shell https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
 
 ---
@@ -367,16 +368,17 @@ DESIGN
 * pro jump: better for adhoc, ~25 fewer LOC in `.zprofile`, less time going through atuin
 * BYO https://news.ycombinator.com/item?id=22853119
 
-TOOLS
-* _autojump_: 🎯 mature https://github.com/wting/autojump
-* _wd_: manually add https://github.com/mfaerevaag/wd
-* _z_: https://github.com/rupa/z
-* _zoxide_: ✅ https://github.com/ajeetdsouza/zoxide https://www.youtube.com/watch?v=mmqDYw9C30I
+ZOXIDE 📜 https://github.com/ajeetdsouza/zoxide https://www.youtube.com/watch?v=mmqDYw9C30I
 * storage: `/Users/zach/Library/Application Support/zoxide/db.zo`
 * initial usage didn't work bc of user error on my part 🗄️ `os/denv.md` profiles
 * if you really go all in you can just `alias cd = z` https://www.youtube.com/watch?v=aghxkpyRVDY
 * 📍 integrates with yazi?
 * ❌ no post-exit hook (to ls)
+
+ALTERNATIVES
+* _autojump_: 🎯 mature https://github.com/wting/autojump
+* _wd_: manually add https://github.com/mfaerevaag/wd
+* _z_: https://github.com/rupa/z
 
 ## list
 

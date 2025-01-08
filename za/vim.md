@@ -864,6 +864,7 @@ HIGHLIGHT PLUGINS
 * _DAP_: debugger https://www.youtube.com/watch?v=RziPWdTzSV8 https://github.com/puremourning/vimspector
 * _trouble_: diagnostics https://github.com/folke/trouble.nvim
 * _vim-test_: run test under cursor https://www.youtube.com/watch?v=7VP7TdItuEs https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 1:40 alternative https://github.com/nvim-neotest/neotest
+* _neotest_: https://github.com/nvim-neotest/neotest
 * _vim-projectionist_: decouple way you organize buffers from fs 📙 Neil modern [30,113-124] https://github.com/tpope/vim-projectionist https://subvisual.com/blog/posts/133-super-powered-vim-part-i-projections/ using in Neovim https://stackoverflow.com/questions/76493146/configure-vim-projectionist-in-neovim-with-lua
 * switch btw src and test https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 1:15
 

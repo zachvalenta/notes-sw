@@ -47,7 +47,7 @@ BASICS 📙 Ball
 
 ---
 
-* generics https://www.dolthub.com/blog/2024-07-01-golang-generic-collections/ https://bitfieldconsulting.com/posts/generics
+* generics https://www.dolthub.com/blog/2024-07-01-golang-generic-collections/ https://bitfieldconsulting.com/posts/generics https://bitfieldconsulting.com/posts/constraints
 * lodash https://github.com/samber/lo
 * enums https://www.zarl.dev/articles/enums
 * loops https://go.dev/blog/loopvar-preview
