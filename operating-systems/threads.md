@@ -454,7 +454,7 @@ telemetry
 > less sure about this definition
 * _stack_: 🗄 `architecture.md` memory
 * _heap_: 🗄 `architecture.md` memory 📙 Evans linux [16]
-* _memory allocator_: keep track of memory usage and get more when necessary from OS; malloc, calloc, et al. 📙 Evans linux [16] https://danluu.com/malloc-tutorial/
+* _memory allocator_: keep track of memory usage and get more when necessary from OS; malloc, calloc, et al. 📙 Evans linux [16] https://danluu.com/malloc-tutorial/ https://8dcc.github.io/programming/pool-allocator.html
 
 ## traits
 

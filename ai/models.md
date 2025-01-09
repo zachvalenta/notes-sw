@@ -513,7 +513,6 @@ EXAMPLES
 ## projects
 
 * algos https://github.com/ritchie46/vanilla-machine-learning https://www.manning.com/books/optimization-algorithms
-* Iris dataset https://www.youtube.com/results?search_query=iris+dataset https://docs.pola.rs/user-guide/misc/visualization/#altair
 * get familiar https://simonwillison.net/2024/Apr/17/ai-for-data-journalism/
 * https://www.freecodecamp.org/news/customer-segmentation-python-machine-learning/
 * https://archive.vn/073bS

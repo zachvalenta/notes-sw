@@ -95,6 +95,40 @@ Hugging Face integration https://huggingface.co/docs/hub/spaces
 * query sandbox
 * Capp machine
 
+## canonical
+
+OLTP
+* _Chinook_: https://github.com/lerocha/chinook-database
+* _Datacharmer_: needs port https://github.com/datacharmer/test_db
+* _Northwind_: https://github.com/pthom/northwind_psql
+* _Sakila_: https://github.com/jOOQ/sakila https://sq.io/docs/tutorial
+```txt
+TABLES
+* film: contains details of movies (title, length, rating, description)
+* actor: contains information about actors (first name, last name)
+* inventory: represents available copies of each movie in the store
+* rental: keeps track of movie rentals (customer, rental date, return date)
+* customer: information about customers (name, email, and active status)
+* staff: represents employees who manage the rentals
+* payment: stores the payment transactions for rentals
+* category: represents different movie categories (comedy, drama)
+
+FEATURES
+* frequent reads and writes: the rental and payment tables simulate frequent transactions common in real-world oltp systems
+* concurrency and transactions: multiple users (represented by customers/staff) frequently update and read the database, making it suitable for practicing transaction handling (e.g., BEGIN TRANSACTION, COMMIT, and ROLLBACK)
+* indexes and query performance: you can demonstrate how primary keys, foreign keys, and indexes optimize lookups and joins
+* entity-relationship design: it’s a well-normalized schema (3rd normal form) with many-to-one and many-to-many relationships, useful for teaching joins
+```
+
+ML
+* _Iris_: https://www.youtube.com/results?search_query=iris+dataset
+```python
+from sklearn.datasets import load_iris
+
+import polars as pl  # https://docs.pola.rs/user-guide/misc/visualization/#altair
+path = "docs/assets/data/iris.csv"
+```
+
 ## sets
 
 ---

@@ -330,6 +330,7 @@ gum log --time rfc822  # 12 Dec 24 09:54 EST
 ---
 
 https://github.com/cdown/tzupdate
+https://github.com/merschformann/gotz
 
 `date -u`
 * backup w/ timestamp: `touch "$(date +%Y%m%d_%H%M%S).bak"` https://unix.stackexchange.com/a/96383/331460

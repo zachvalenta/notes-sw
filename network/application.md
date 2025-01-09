@@ -24,6 +24,7 @@
 > You would think that something as simple as pointing a domain name to an IP address would be straightforward, but no. There's always some bizarre propagation delay or weird caching issue that makes you question your sanity. https://zackproser.com/blog/maintaining-this-site-fucking-sucks
 
 EVANS
+* https://github.com/ycd/dstp
 * https://www.youtube.com/watch?v=kV1u701wxgg
 * https://news.ycombinator.com/item?id=36909427
 * https://jvns.ca/blog/2021/12/15/mess-with-dns/ https://messwithdns.net/

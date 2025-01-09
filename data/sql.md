@@ -827,9 +827,11 @@ CMU
 
 REPLACEMENTS
 * Ibis
-* _Trilogy_: dimension tables, canonical dataset for OLTP https://news.ycombinator.com/item?id=42231325
-* Sakila also canonical https://sq.io/docs/tutorial
 * https://medium.com/schkn/sql-is-dead-hail-to-flux-8e8498756049
+* _PRQL_: pipelined SQL alternative, all new syntax https://news.ycombinator.com/item?id=36866861 https://news.ycombinator.com/item?id=42231325
+* _Malloy_: all new syntax, semantic focus https://news.ycombinator.com/item?id=30053860 https://news.ycombinator.com/item?id=42231325
+* _preql_: much more ambitious, all new syntax https://news.ycombinator.com/item?id=26447070 https://news.ycombinator.com/item?id=42231325
+* _Trilogy_: dimension tables, canonical dataset for OLTP https://news.ycombinator.com/item?id=42231325
 
 * boring and durable https://josephg.com/blog/databases-have-failed-the-web
 * outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/
