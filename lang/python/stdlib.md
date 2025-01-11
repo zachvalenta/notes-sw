@@ -588,6 +588,7 @@ LIBS
 
 ---
 
+* scrape infinite scrolling: sniff out API, use browser automation
 in golang 17k sites in 10 mins https://medium.com/@tonywangcn/27-6-of-the-top-10-million-sites-are-dead-6bc7805efa85
 * Instant Data Scraper https://news.ycombinator.com/item?id=34069680
 https://github.com/blacknon/pydork

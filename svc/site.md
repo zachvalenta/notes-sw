@@ -144,7 +144,7 @@ MICRO
 🗄️ `feedback.md` Marimo
 
 * _Raylib_: https://github.com/raysan5/raylib https://github.com/danslocombe/wobbly_vid https://www.youtube.com/watch?v=EO02mP0mLYI
-* _Manim_: Visualize concepts like Pareto efficiency.
+* _Manim_: Visualize concepts like Pareto efficiency. https://www.youtube.com/watch?v=rbu7Zu5X1zI
 * _Plotly_/_Bokeh_: Time-series analysis of economic indicators.
 * _Pygame_: Agent-based modeling for economic simulations (e.g., consumer markets).
 * _Matplotlib (FuncAnimation)_: Works well for things like step-by-step economic equilibrium shifts.

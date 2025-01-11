@@ -79,6 +79,43 @@ https://kdl.dev/ https://zellij.dev/documentation/layouts
 * link https://github.com/tamasfe/taplo 🗄️ yazi config
 > VS Code plugin 'Even Better TOML'
 
+* https://github.com/hukkin/tomli-w
+```python
+import tomllib
+import tomli_w
+
+# READ
+def load_config():
+    config_path = Path(__file__).parent.parent / '.env'
+    logger.info(f'config path: {config_path}')
+    with open(config_path, 'rb') as f:
+        return tomllib.load(f)
+config = load_config()
+logger.info(f'SFTP conf: {config['sftp']}')
+
+# WRITE
+def update_config(key, val):
+    fpath = Path(__file__).parent / '.env'
+    with open(fpath, 'rb') as f:
+        config = tomllib.load(f)
+    config[key] = val
+    with open(fpath, 'wb') as f:
+        f.write(tomli_w.dumps(config).encode())
+    logger.info(f'{key} ➡️ {val}')
+```
+```toml
+[sftp]
+protocol="sftp"
+host="sftp.spscommerce.com"
+port=10022
+user="cappinc"
+
+[filepaths]
+new-item = "testin/capp-new-items-{date}.edi"
+pricing = "testin/capp-pricing-{date}.edi"
+lead-time = "testin/capp-lead-time-{date}.edi"
+```
+
 ## XML
 
 🗄️ `algos.md` tree

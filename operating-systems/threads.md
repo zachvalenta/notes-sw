@@ -125,6 +125,7 @@ SEMANTIC CONFUSION
 > Concurrency is hard, unfortunately. https://news.ycombinator.com/item?id=42406919
 * multiple computations happen at the same time https://wiki.python.org/moin/Concurrency
 * execute multiple tasks through simultaneous execution or time-sharing https://en.wikipedia.org/wiki/Concurrency_(computer_science)
+* https://news.ycombinator.com/item?id=42631614
 
 ---
 

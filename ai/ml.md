@@ -109,6 +109,7 @@
 ```
 
 START HERE
+* https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi
 * https://news.ycombinator.com/item?id=42569913
 * Clinton book + https://www.manning.com/books/llms-in-production
 * https://www.youtube.com/@gptLearningHub/videos

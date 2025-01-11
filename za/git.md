@@ -110,7 +110,7 @@ TOOLING
 🗄️ `task-mgmt.md` 2024 workflow
 📜 https://cli.github.com/manual/ https://github.com/cli/cli
 
-* search, browse, clone
+REPOS
 ```sh
 gh search repos $QUERY  # search all
 gh search repos --owner=$OWNER $QUERY  # gh search repos --owner=zachvalenta markov
@@ -121,7 +121,7 @@ gh browse --repo $OWNER/$REPO  # open arbitrary
 gh repo clone $OWNER/$NAME  # gh repo clone zachvalenta/markov-monte
 ```
 
-* topics
+TOPICS
 ```sh
 # read
 gh search repos --owner=zachvalenta "topic:$TOPIC"
@@ -132,6 +132,12 @@ gh repo edit https://github.com/zachvalenta/eliza --add-topic "publish"
 
 # delete
 gh repo edit $REPO --remove-topic "topic1,topic2"
+```
+
+GIST
+```sh
+gh gist list|clone|edit
+gh repo create my-repo-name --private
 ```
 
 ---
@@ -775,6 +781,12 @@ squash c211c5b third
 ```sh
 git fetch --all
 git reset --hard origin/main
+```
+
+* initial push
+```sh
+git remote add origin git@github.com:$OWNER/$NAME.git
+git push -u origin main
 ```
 
 ---

@@ -115,6 +115,9 @@ pl.read_csv(
 no_whitespace_or_period_delimit = r"^[^\s.-]+$"
 violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
 assert len(violations) > 0
+
+# convert pandas
+pl.from_pandas(df)
 ```
 
 ## EDA

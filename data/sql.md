@@ -263,6 +263,7 @@ family_name, other_given_names  -- https://www.youtube.com/watch?v=458KmAKq0bQ 7
 ```
 
 NULL 📙 Beaulieu [32,82]
+* https://jirevwe.github.io/sql-nulls-are-weird.html
 * _null_: absence of a value e.g. `termination_date` for newly hired employee
 * wat: an expression can be null but never equal null 📙 Beaulieu [82]
 ```sql

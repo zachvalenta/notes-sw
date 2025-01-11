@@ -102,6 +102,9 @@ MT(MOD_LGUI,KC_F)
 MT(MOD_RGUI,KC_L)
 ```
 
+* hyper key https://benholmen.com/blog/hyper-key-with-karabiner-elements-raycast/ https://www.youtube.com/watch?v=m5MDv9qwhU8
+> doesn't work for vim users
+
 ---
 
 ```
