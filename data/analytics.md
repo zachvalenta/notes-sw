@@ -8,8 +8,10 @@
 * `protocols.md` file fmt
 * `telemetry.md` analytics
 📚
+* Asboth grounded analyst https://www.manning.com/books/the-well-grounded-data-analyst
 * Khalil https://www.manning.com/books/effective-data-analysis
 * Massaron https://www.manning.com/books/advanced-analytics-for-business https://www.youtube.com/watch?v=scY7PTxNSr4
+* ⭐️ Tuckfield https://nostarch.com/dive-data-science
 * Wickham https://r4ds.hadley.nz/
 
 ## 进步
@@ -283,6 +285,19 @@ SQL FROM SHELL
 * _q_: https://github.com/harelba/q
 * _sq_ https://github.com/neilotoole/sq https://news.ycombinator.com/item?id=41760697 
 
+LINTING
+* https://github.com/alanmcruickshank/sqlfluff https://www.thoughtworks.com/radar/tools?blipid=202203065
+* https://www.eversql.com/sql-syntax-check-validator/
+* https://github.com/purcell/sqlint
+* https://github.com/darold/pgFormatter
+* https://sqlfum.pt/
+
+## generate
+
+https://github.com/zachvalenta/capp-crudite
+https://github.com/zachvalenta/capp-looker
+https://github.com/zachvalenta/capp-the-crud
+
 CONVERSION / GENERATION
 * tabular to JSON https://github.com/jazzband/tablib
 * JSON to tabular https://duckduckgo.com/?q=json+to+pandas&ia=web
@@ -296,16 +311,41 @@ CONVERSION / GENERATION
 curl www.api.com | jq foo | sqlite-utils insert foo.db bar_table
 ```
 
-LINTING
-* https://github.com/alanmcruickshank/sqlfluff https://www.thoughtworks.com/radar/tools?blipid=202203065
-* https://www.eversql.com/sql-syntax-check-validator/
-* https://github.com/purcell/sqlint
-* https://github.com/darold/pgFormatter
-* https://sqlfum.pt/
-
 ## entry (dataclerk)
 
-🧠 Django-based? https://chatgpt.com/c/673b721c-4174-8004-8973-6e0ccc5bad2c
+> Are there any CLI/TUI tools in which you can enter data directy to a database but with the caveat that the tool would figure out the schema for you? Let me give you an example. Imagine you have a database for books. There are tables for authors, book, genres, publishers, etc. When you open this tool, you don't have to remember all the fields you need to fill out or foreign key constraints. The tool would simply provide a form, you'd input the information you needed to. Anything that could be a dropdown (maybe genres?) would be, otherwise you'd simply type in the rest, with appropriate warnings if you were violating a foreign key constraints or type constraints (e.g. if you failed to put an integer for publication_year).
+```txt
+Core mechanics of existing tools:
+* Schema introspection (reading DB structure)
+* Form generation (converting schema to UI)
+* Validation (enforcing constraints)
+* API layer (how the tool talks to the DB):
+- Direct DB connection (pgcli)
+- REST (PostgREST)
+- GraphQL (Hasura)
+
+The "shape" of the problem is essentially: Schema → UI → API → DB.
+Each tool optimizes for different parts of this pipeline, but none fully optimizes for data entry specifically.
+```
+```txt
+The closest match to what you're describing is nocodb - it's a bit heavier than what you want (runs as a web service) but:
+* Auto-detects relationships
+* Builds forms dynamically
+* Handles constraints
+* Provides dropdowns for foreign keys
+
+However, I think there's a gap in the tooling space here. The ideal tool would be:
+* CLI/TUI first
+* Schema-aware but not schema-first
+* Smart defaults + constraint inference
+* Progressive disclosure of complexity
+
+Have you considered building this? The core components would be:
+* Schema inference engine
+* Constraint detector
+* Form generator
+* DB connector
+```
 
 ---
 
@@ -499,7 +539,7 @@ TUI
 * _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
 * _harlequin_: ✅ query editor https://harlequin.sh
 * _GoBang_: perpetual alpha https://github.com/TaKO8Ki/gobang
-* _rainfrog_: Postgres https://github.com/achristmascarl/rainfrog
+* _rainfrog_: Postgres https://github.com/achristmascarl/rainfrog https://www.youtube.com/watch?v=qURrmEzsKH8
 
 ---
 
@@ -604,19 +644,33 @@ https://www.youtube.com/playlist?list=PLxu7QdBkC7drrAGfYzatPGVHIpv4Et46W
 
 ## attr
 
-https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
+📜 https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
 
-* agg: set type (`%` for float) `z+` + agg https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
-* goto: `c $COL_REGEX`
-* search records: `/`
-* nav: `hl`, `gh/gl`
-* rename: `^`
-* mv: `H/L`
+FILTER https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
+* `|` + query
+> use `^` for exact matches; you got burned by searching `valid` when column values had both `valid` and `invalid` i.e. you needed to search `^valid`
+* `ENTER` to select
+* `"` to mv to own sheet
+
+CREATE/UPDATE
 * create blank: `za` https://jsvine.github.io/intro-to-visidata/intermediate/creating-new-columns
+* rename: `^`
+* agg: set type (`%` for float) `z+` + agg https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
+
+NAV
+* goto: `c $COL_REGEX`
+* scroll: `hl`, `gh/gl`
+
+VIEW
 * hide/unhide: `-` / `gv`
 * expand width to fit text: `_` (single) `g_` (all)
 * shrink by 1/2: `z-`
 * expand json: `()`
+
+ZA
+* search records: `/`
+* mv: `H/L`
+* histogram: `F`
 
 ---
 

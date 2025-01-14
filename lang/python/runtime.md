@@ -2,14 +2,14 @@
 
 ## 参考
 
-📙 Shaw python internals https://www.amazon.com/dp/1775093344
+📚
+* Antao fast python https://www.manning.com/books/fast-python
+* ⭐️ Mara refactoring to rust https://www.manning.com/books/refactoring-to-rust
+* Shaw python internals https://www.amazon.com/dp/1775093344
 
 ## 进步
 
 # 🐍 CPYTHON
-
-📙 Shaw cpyton internals
-🗄 `language.md` compilers
 
 ---
 
@@ -404,6 +404,10 @@ __get Python to find your pkg (here be dragons)__
 * `context.py` file inside test suite https://docs.python-guide.org/writing/structure/#test-suite
 * um, avoid it? https://alex.dzyoba.com/blog/python-import/ https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html#case-4-importing-from-parent-directory 
 
+## packages
+
+> Python packages should also have short, all-lowercase names, although the use of underscores is discouraged. https://peps.python.org/pep-0008/#package-and-module-names https://stackoverflow.com/a/3101894
+
 ## exec
 
 📜 https://docs.python.org/3/using/cmdline.html
@@ -469,6 +473,9 @@ __namespaces__
 
 ---
 
+should be like books: TOC, glossary, index
+
+> I also hate `__init__.py` littering the file system
 * `src/$NAME`: https://github.com/Zaloog/kanban-tui
 * https://github.com/mikeckennedy/listmonk
 * https://github.com/copyleftdev/x12-edi-tools
@@ -477,6 +484,7 @@ __namespaces__
 * https://travisjeffery.com/b/2019/11/i-ll-take-pkg-over-internal/
 * even Prolog uses src/test https://github.com/dnmfarrell/dict
 * dupe https://github.com/simonw/files-to-prompt
+> Do you see the multiple `django_project` directories? First, there is a top-level `django_project` directory, and within it another one containing the files we need for our Django project. Opinions differ on the "best" approach within the Django community, but having these two directories with the same name feels redundant.     https://learndjango.com/courses/django-for-beginners/chapter-1-initial-set-up/
 * https://github.com/fpgmaas/cookiecutter-uv
 * https://www.youtube.com/watch?v=dlCcnJdh4c4
 

@@ -332,6 +332,7 @@ ALTERNATIVES
 
 https://deepnote.com/app/katkas-workspace/FaCT-721f3451-6e2e-4325-b2cc-0beeeb601c54?size_range=1000
 https://deepnote.com/app/katkas-workspace/Vector-animations-with-Python-6642dc15-9d7d-40cc-8e5e-c4eb2238cbf2
+https://github.com/zasper-io/zasper
 
 ## 🟧 Jupyter
 
@@ -366,7 +367,8 @@ COMPONENTS
 🗄️ `feedback.md` Marimo
 📻 https://marimo.io/ https://github.com/marimo-team/marimo
 
-you can run in the browser!?! https://docs.marimo.io/cli/?h=wasm#marimo-export-html-wasm
+you can run in the browser!?! https://docs.marimo.io/cli/?h=wasm#marimo-export-html-wasm https://news.ycombinator.com/item?id=42700852 https://www.agentrecipes.com/prompt-chaining
+share https://nbviewer.org/ https://ipython.org/documentation.html
 
 SHARING
 * hosted
@@ -434,8 +436,9 @@ STACK TRACES 🗄️ stdlib/profiling
 ## 🟦 iPython
 
 📜
+* https://ipython.readthedocs.io/en/stable/
+* https://ipython.org/
 * https://github.com/ipython/ipython
-* `ipython.py`
 * https://jakevdp.github.io/PythonDataScienceHandbook/01.00-ipython-beyond-normal-python.html
 * https://realpython.com/ipython-interactive-python-shell/
 
@@ -447,11 +450,11 @@ CONFIG
 ```sh
 ├── .ipython
 │   └── profile_default
-│   └──── history.sqlite  # command history
-│   └──── ipython_config.py  # generature with `ipython profile create` 
+│   └──── history.sqlite  # command history -> can scroll through with j|k in vi mode > normal mode
+│   └──── ipython_config.py  # generated with `ipython profile create` 
 │   └──── startup  # modules executed prior to startup?
 │   └────── 00-first.py
-│   └────── 00-last.py
+│   └────── 99-last.py
 ```
 
 DESIGN

@@ -160,6 +160,8 @@ fi
 
 # 🟨 ZA
 
+* compile to static binaries with Golang https://github.com/yassinebenaid/bunster
+
 ## args
 
 * access

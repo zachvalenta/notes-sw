@@ -6,12 +6,13 @@
 📚
 * Gross hypermedia systems https://www.amazon.com/gp/product/B0C9S88QV6
 * Masse api rulebook
+* security https://www.manning.com/books/secure-apis https://roadmap.sh/best-practices/api-security
 
 ## 进步
 
 * https://roadmap.sh/api-design https://pycon-archive.python.org/2024/schedule/presentation/25/index.html 🗄️ `src.md` https://conroy.org/writing-api-clients-in-go
 * https://roadmap.sh/backend
-*️ https://roadmap.sh/best-practices/api-security https://us.pycon.org/2024/schedule/presentation/5/index.html https://www.manning.com/books/secure-apis https://nostarch.com/hacking-apis
+*️ https://us.pycon.org/2024/schedule/presentation/5/index.html https://www.manning.com/books/secure-apis https://nostarch.com/hacking-apis
 * https://news.ycombinator.com/item?id=41432101
 * Kleppmann ch. 3
 * styles https://www.youtube.com/watch?v=4vLxWqE94l4
@@ -31,7 +32,7 @@ DONE
 
 # 🏮 DESIGN
 
-📙 https://www.manning.com/books/the-design-of-web-apis-second-edition
+📙 Laurent https://www.manning.com/books/the-design-of-web-apis-second-edition
 
 * KISS: if data is static, use web server like Nginx, don't even need a backend https://blog.pecar.me/faster-api
 * _Hyrums Law_: https://news.ycombinator.com/item?id=42201892

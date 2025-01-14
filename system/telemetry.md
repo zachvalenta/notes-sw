@@ -7,6 +7,7 @@
 * Bueno mature optimization https://carlos.bueno.org/optimization/
 * Google SRE book https://sre.google/sre-book/table-of-contents/ https://danluu.com/google-sre-book/
 > aka platform engineering https://www.manning.com/books/effective-platform-engineering
+* ⭐️ Sweet experimentation https://www.manning.com/books/experimentation-for-engineers
 * Wilkins https://www.manning.com/books/logs-and-telemetry
 
 ## 进步
@@ -41,16 +42,8 @@ SEMANTICS https://www.datadoghq.com/ebook/monitoring-modern-infrastructure/
 * _metric_: value from system at a particlar point in time
 * metrics: success rate, error rate
 
-re: wifi
-* 搜 'internet speed test' https://news.ycombinator.com/item?id=26343394 https://news.ycombinator.com/item?id=31062799 https://www.lambdafunctions.com/articles/make-internet-connection-worse https://danluu.com/octopress-speedup/ https://www.webpagetest.org/
-* https://news.ycombinator.com/item?id=24478149 https://dailywireless.org/internet/what-is-mbps/
-* 115/4.5 at Wilmington apartment
-```sh
-# https://weiyen.net/articles/useful-macos-cmd-line-utilities
-networkQuality
-networksetup
-```
 
+* https://www.webpagetest.org/
 * _walltime_: time as humans generally perceive it [Mature Optimization Handbook]
 * _bandwidth_: optimal bitrate (bits over network per second); measured in Gbps https://hpbn.co/primer-on-latency-and-bandwidth/
 * _response time_: time btw client sending req and receiving res [Kleppmann 13-14] speed e.g. how fast does single req come back?; 100M dash
@@ -567,6 +560,7 @@ I'd like to make some updates:
 
 ## start here
 
+> tracemalloc is built-in to Python, and pretty granular in what it measures; the downside is that not all 3rd party compiled extensions integrate tracemalloc, so for example Polars’ memory allocations won’t show up there https://pythonspeed.com/articles/identifying-resource-leaks-with-pytest/
 * https://claude.ai/chat/dd676259-77ee-4cb7-b35d-193695eb80d6
 * https://claude.ai/chat/cb57a07d-5aa4-48f2-a568-d75bf3ca2350
 > you've extracted everything else from this prompt other than the benchmarking code
@@ -610,7 +604,6 @@ def read_chunked(path, chunk_size=100_000):
 * https://www.markkeller.dev/2018-07-14-optimize_python/
 * https://codesolid.com/how-do-i-profile-python-code/
 * https://adamj.eu/tech/2023/03/02/django-profile-and-improve-import-time/
-* A/B test https://www.bwplotka.dev/2024/go-microbenchmarks-benchstat/
 * `py3 -m trace --trace example.py`
 * https://www.petermcconnell.com/posts/perf_eng_with_py12/
 * https://www.youtube.com/watch?v=2hWfLiRGaNM
@@ -748,7 +741,7 @@ EBPF https://www.brendangregg.com/
 FEATURES
 * feature flagging `system.md` deployment / feature flagging
 * _event collection_: store user events e.g. Segment https://github.com/ksensehq/eventnative https://news.ycombinator.com/item?id=24737244
-* _segmentation_: A/B testing
+* _segmentation_: A/B testing https://www.bwplotka.dev/2024/go-microbenchmarks-benchstat/
 * segmented = care about individual (paying) user https://www.pythonpodcast.com/posthog-product-analytics-episode-266/ 8:00
 * non-segmented = don't care about individual (non-paying) user; Google Analytics https://www.pythonpodcast.com/posthog-product-analytics-episode-266/ 8:00
 * _session replay_: view user session + their browser info, req/res from browser dev tools https://www.youtube.com/watch?v=UWpzJ7bqoF8

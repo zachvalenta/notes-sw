@@ -7,6 +7,8 @@
 * Arundel https://bitfieldconsulting.com/books/love https://bitfieldconsulting.com/posts/best-go-books
 * Butcher in practice
 * Chang web
+* Holmes https://www.manning.com/books/shipping-go
+* ⭐️ Latour https://www.manning.com/books/learn-go-with-pocket-sized-projects
 * Kennedy in action
 * Kernighan go programming language
 
@@ -128,6 +130,8 @@ https://0x46.net/thoughts/2024/12/03/go-a-fractal-of-bad-design/
 
 
 ---
+
+https://mattjhall.co.uk/posts/go-is-well-designed-actually.html
 
 > That sounds familiar to Go programmers, right? Go is almost brutally pragmatic. It’s not a beautiful language at all, at least on a surface level. Programming language theorists hate it! It may be fine in practice, they say, but it’ll never work in theory. Go is designed to be easy to parse, quick to compile, and simple to implement, just like Unix itself. It’s not aimed at programmers who want to express themselves in rich and byzantine hierarchies of type systems, or who need the compiler to catch all possible bugs. It’s just a plain, non-fancy language for getting useful programs written and running as quickly as possible. I appreciate that about it. https://bitfieldconsulting.com/posts/not-real-developer
 

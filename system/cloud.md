@@ -310,7 +310,7 @@ request flow
 
 ## fly.io
 
-* _Fly.io_: 🎯 https://www.youtube.com/watch?v=0eP98xkLj9w
+* _Fly.io_: 🎯 https://www.youtube.com/watch?v=0eP98xkLj9w https://django-simple-deploy.readthedocs.io/en/latest/
 
 ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
 * _Coolify_: https://coolify.io/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
@@ -319,7 +319,6 @@ ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
 * _Netlify_: https://www.netlify.com/
 * _Render_: https://dashboard.render.com/
 * metabase deploy failed bc free-tier instance didn't have enough memory https://dashboard.render.com/project/prj-ct4ro05umphs73e7nfjg
-* _Platform.sh_: https://platform.sh/
 * _PythonAnywhere_: https://www.pythonanywhere.com/
 * _Railway_: https://railway.app/ https://docs.railway.app/guides/gin
 * _Sidekick_: 🎯 https://github.com/MightyMoud/sidekick https://news.ycombinator.com/item?id=41591018
@@ -327,6 +326,25 @@ ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
 * _Supabase_: https://supabase.com/
 * _Tau_: https://github.com/taubyte/tau
 * _Vercel_: https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
+
+## oxide
+
+https://oxide.computer/
+https://simonwillison.net/2025/Jan/10/ai-predictions/
+https://www.mattkeeter.com/about/
+https://cba.mit.edu/
+
+## platform.sh
+
+* _Platform.sh_: https://platform.sh/ https://django-simple-deploy.readthedocs.io/en/latest/
+
+## railyway
+
+https://railway.com/
+
+## val town
+
+https://www.val.town/
 
 # 🏡 SELF HOST
 
@@ -338,6 +356,7 @@ CONSIDERATIONS
 
 ---
 
+* Tailscale for network? https://tailscale.com/?utm_source=substack&utm_medium=email
 * https://news.ycombinator.com/item?id=34860655
 * https://news.ycombinator.com/item?id=34867314
 * https://www.jotaen.net/anA6o/self-hosting-guide-docker-haproxy-lets-encrypt/
@@ -380,6 +399,8 @@ TAXONOMY 🧠 https://chatgpt.com/c/673a5946-7948-8004-9a56-e3b60009dccd https:/
 > Here’s the crazy part. All of our infrastructure is running on one medium-sized server in a US-based data center from Hetzner. We have a single 8 CPU / 16 GB RAM server that we partition up across 17 apps and databases using docker. Most of these apps are as simple or simpler than the stack-native diagram above. For this entire setup, including bandwidth, we pay $65/month. That’s $25/mo for the server and another $40 for bandwidth. I just finished doing some tentative load testing using the amazing Locust.io framework. At its peak, this setup running Nginx + Granian + Python + Pyramid + MongoDB would handle over 100M Python requests / month. For $25. In contrast, what would this setup cost in AWS? Well, the server is about $205 / month. The bandwidth out of that server is another $100/mo. If we put all our bandwidth through AWS (for example mp3s and videos through S3) the price jumps up by another whopping $921. This brings the total to $1,226/mo. The contrast is stark. If we chose cloud-native, we’d be tied into cloud-front, EKS, S3, EC2, etc. That’s the way you use the cloud, you noobie. Let’ the company cover the monthly costs. But stack-native can move. We can run it in Digital Ocean for a few years as we did. When a company like Hetzner opens a data center in the US with 1/6th pricing, we can take our setup and move. The hardest part of this is Let’s Encrypt and DNS. There is nearly zero lock-in.
 
 ## cost control
+
+📙 Vandeput https://www.manning.com/books/demand-forecasting-best-practices
 
 SVC
 * _Budgets_: set alerts for spend/underusage https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html

@@ -102,6 +102,10 @@ https://github.com/zillow/tycho
 * _staged deployment_: deploy to a few nodes at a time 📙 Kleppmann 4.112
 * _blue-green deployment_: split traffic btw new and old; aka red-black https://fly.io/django-beats/smooth-database-changes-in-blue-green-deployments/?utm_campaign=Django%2BNewsletter&utm_medium=email&utm_source=Django_Newsletter_198 https://news.ycombinator.com/item?id=39048317
 
+## env var (12 factor)
+
+https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
+
 ## denv
 
 🗄
@@ -486,6 +490,9 @@ while True:
 ```
 ## event (Kafka)
 
+📚
+* Narkhede guide
+* https://www.manning.com/books/streaming-data-pipelines-with-kafka
 
 ---
 
@@ -498,7 +505,6 @@ https://www.warpstream.com/ https://changelog.com/podcast/606#transcript + spons
 
 🗄 `data/eng.md` streaming
 📜 https://kafka.apache.org/documentation/
-📙 Narkhede guide
 * https://www.manning.com/books/kafka-streams-in-action-second-edition
 📹
 * 101 https://www.youtube.com/playlist?list=PLa7VYi0yPIH0KbnJQcMv5N9iW8HkZHztH
@@ -761,6 +767,8 @@ conf
 ## Gunicorn
 
 📜 https://docs.gunicorn.org/en/stable/
+
+> Gunicorn does one thing - it’s a WSGI HTTP server - and it does it well. Deploy it quickly and easily, and let the rest of your stack do what the rest of your stack does well, wherever that may be. https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
 
 config
 * some settings only available from file https://docs.gunicorn.org/en/latest/settings.html

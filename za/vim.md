@@ -16,6 +16,7 @@
 
 ## 进步
 
+mini https://www.youtube.com/watch?v=qyB-sAvW2lI
 https://www.youtube.com/watch?v=6pAG3BHurdM @ 2:00 (installing fonts using Homebrew)
 
 sketch out what you still remember of your previous config and then restart https://www.youtube.com/@teej_dv/videos

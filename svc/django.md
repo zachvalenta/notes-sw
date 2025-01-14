@@ -3,11 +3,11 @@
 ## 参考
 
 🧪 https://github.com/zachvalenta?tab=repositories&q=django
-🗣 https://djangochat.com/episodes https://forum.djangoproject.com/ https://groups.google.com/g/django-users
-🍞 starters https://github.com/wsvincent/lithium https://www.saaspegasus.com/
-📜
+🗣 https://djangochat.com/episodes https://forum.djangoproject.com/
+📜 
 * https://docs.djangoproject.com/en/stable
 * https://github.com/HackSoftware/Django-Styleguide
+* https://github.com/wsvincent/lithium
 📚
 * Layman https://www.mattlayman.com/understand-django/
 * ⭐️ Palmieri zero to prod in rust https://www.amazon.com/Zero-Production-Rust-introduction-development/dp/B0BHLDMFDQ https://www.zero2prod.com/index.html
@@ -17,24 +17,10 @@
 
 ## 进步
 
----
-
-* contribute https://www.better-simple.com/django/2024/12/25/getting-started-contributing-django/
-alternatives https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016 https://github.com/hbakri/django-ninja-crud https://talkpython.fm/episodes/show/490/django-ninja
-https://www.loopwerk.io/articles/2024/django-vs-flask-vs-fastapi/
-https://www.bugsink.com/blog/better-error-tracking-in-django/
-https://realpython.com/django-user-management/
-* perf: https://openfolder.sh/django-faster-speed-tutorial
-* in a single file https://github.com/radiac/nanodjango
-TUI commands https://github.com/anze3db/django-tui
-TUI admin https://github.com/valberg/django-admin-tui https://github.com/valberg/django-htmx-admin https://github.com/adamghill/django-unicorn
-htmx https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
-REPL https://github.com/selectnull/django-pyrepl/
-
-* _24_: rf
-* _21_: rf, DML
-* _20_: basics - CRUD (ORM, serialization, repl) env (conf, Docker) CQ (testing); DRF (views, nested serializers, testing, read_only) basic middleware to 403 req based on IP addr; tutorials https://wsvincent.com/django-rest-framework-tutorial/ https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api
-* _19_: Osborn hello web app
+* _25_: 📙 Vincent beginners https://learndjango.com/courses/django-for-beginners/chapter-2-hello-world-website/ https://github.com/zachvalenta?tab=repositories&q=vincent&type=&language=&sort=
+* _21_: DML
+* _20_: CRUD (ORM, serialization, repl) env (conf, Docker) CQ (testing) DRF (views, nested serializers, testing, read_only) middleware (403 req based on IP addr)
+* _19_: 📙 Osborn hello web app
 * _18_: skim official tutorial and Ekker course, DRF and ORM at work
 
 # 🛰️ API
@@ -339,53 +325,77 @@ class IndexView(generic.ListView):
         return Question.objects.order_by('-pub_date')[:5]
 ```
 
-# ⚙️ CONFIG
+# 🔑 AUTH
 
----
+🗄 `security.md` users
 
-* https://docs.djangoproject.com/en/stable/topics/settings/
-* https://www.mattlayman.com/understand-django/settings/
-* https://news.ycombinator.com/item?id=40688336
-* https://docs.djangoproject.com/en/stable/ref/settings/
-
-## auth
-
----
-
+history https://wsvincent.com/django-user-model-talk/ https://www.youtube.com/watch?v=458KmAKq0bQ 
 > Django's leaky battery is its recommendation that you create a custom user model. Auth is so central and so standard that, into the high-nines (99.99%?), the vast majority of projects should never need to customise the central auth model. This is a battery that Django should very much provide. There's a complexity tax from exposing the auth model. There's a performance tax as the auth model becomes a generic dumping ground for User related data that has nothing to do with authentication. There's a learning tax as users hit the custom user model, and the (frankly, misplaced) warnings about it's importance. https://github.com/carltongibson/django-unique-user-email
 
-* magic link https://news.ycombinator.com/item?id=42627453
-https://github.com/jazzband/django-axes
-* auth, JWT, Django https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas https://testdriven.io/blog/django-rest-authjs/
-* keep track of failed logins https://github.com/jazzband/django-axes
-https://testdriven.io/blog/django-rest-auth/
-https://www.photondesigner.com/articles/email-sign-in
+## users
 
-VINCENT
+* mgmt https://realpython.com/django-user-management/
+* email https://github.com/carltongibson/django-unique-user-email
+* current user https://github.com/zsoldosp/django-currentuser
+* groups https://github.com/bennylope/django-organizations
+* automate admin user creation https://stackoverflow.com/a/26091252
+* mimic user's account https://www.mattlayman.com/blog/2020/hijack-to-help-customers/
+* referencing user model https://learndjango.com/tutorials/django-best-practices-referencing-user-model
+
+## permissions
+
+* https://learndjango.com/tutorials/django-best-practices-user-permissions
+* https://wsvincent.com/django-tips-user-permissions/
+* https://coderbook.com/@marcus/how-to-restrict-access-with-django-permissions
+* https://testdriven.io/blog/drf-permissions/
+
+## default
+
+* built-in https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/ 
 * basic https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication https://tech.marksblogg.com/passwords-in-django.html
+* https://docs.djangoproject.com/en/5.1/ref/contrib/auth/#user-model
+* https://learndjango.com/tutorials/django-login-and-logout-tutorial
 * login/out https://learndjango.com/tutorials/django-login-and-logout-tutorial
 * signup https://learndjango.com/tutorials/django-signup-tutorial
 * reset https://learndjango.com/tutorials/django-password-reset-tutorial
 * with email https://learndjango.com/tutorials/django-log-in-email-not-username
+* keep track of failed logins https://github.com/jazzband/django-axes
 
-__approaches__ 搜 'Re: TestDriven.io - new feedback message'
-* built-in https://wsvincent.com/django-user-authentication-tutorial-login-and-logout/ 
-* registration-redux [Osborn 1.10] 
-* all-auth https://wsvincent.com/django-allauth-tutorial/ https://learndjango.com/tutorials/django-allauth-tutorial
-* email https://wsvincent.com/django-login-with-email-not-username/
-* this https://github.com/aaugustin/django-sesame
-> ❓ where does Django look to resolve calls to url pattern names besides `urls.py`? re: https://github.com/zachvalenta/hello-django1/commit/0cd06134c640fb67df03d8f0a54fcb61925b0faa `password_reset_confirm` calls internal urlpattern named `password_reset_complete`; even if we specify a url pattern named `password_reset_complete` in `urls.py` Django will still route to its own internal url pattern of this name (figured out bc when I was following Osborn on reset complete the url route still changed to `accounts/password/reset/complete` vs. her route `accounts/password/complete`)
+## custom
 
-BUILT-IN
-* _convention > conf_: Django will serve your templates provided they are in `templates/registration` and have the expected name, otherwise will serve its own default https://github.com/zachvalenta/hello-django1/commit/6503b460490fb85f085f3a277fbdd80360291fa0
+```txt
+There are two modern ways to create a custom user model in Django: AbstractUser and AbstractBaseUser. In both cases, we can subclass them to extend existing functionality; however, AbstractBaseUser requires much, much more work. Seriously, only mess with it if you know what you're doing. And if you did, you wouldn't be reading this tutorial, would you?
 
-* `pw_reset_form.html`: prompt email to send reset link [Osborn 72]
-* `pw_reset_done.html`: ack of email sent
-* `pw_reset_email.txt`: email user link to reset
-* `pw_reset_confirm.html`: input new pass; doesn't seem to do any validation re: proximity to previous pw
-* `pw_reset_complete.html`: ack new
+So we'll use AbstractUser, which subclasses AbstractBaseUser but provides more default configuration.
+```
 
-REGISTRATION-REDUX
+* `AbstractUser`: everything from default user model except `PermissionsMixin`
+```python
+# myapp/models.py
+from django.contrib.auth.models import AbstractUser
+from django.db import models
+
+class CustomUser(AbstractUser):
+    phone_number = models.CharField(max_length=15, blank=True, null=True)
+
+# settings.py
+AUTH_USER_MODEL = "myapp.CustomUser"
+```
+* `AbstractBaseUser`: gives you pw and last_login, necessary for pw refresh tokens https://www.youtube.com/watch?v=458KmAKq0bQ @ 14:00 
+* https://learndjango.com/tutorials/django-custom-user-model
+* https://docs.djangoproject.com/en/5.0/topics/auth/customizing/#using-a-custom-user-model-when-starting-a-project
+* https://testdriven.io/blog/django-custom-user-model/
+* Kerberos/LDAP/Active Directory, `AbstractBaseUser` https://www.roguelynn.com/words/django-custom-user-models/
+* https://brntn.me/blog/six-things-i-do-every-time-i-start-a-django-project/
+
+## magic links
+
+* https://github.com/aaugustin/django-sesame
+* https://news.ycombinator.com/item?id=42627453
+* https://www.photondesigner.com/articles/email-sign-in
+
+## registration-redux
+
 * _routes_: Registration Redux owns everything under `accounts/` except when overridden by built-in auth [Osborn 1.10.69]
 * sequence diagram
 ```
@@ -423,6 +433,22 @@ what is this for? ⬇️
 * _login_: `base.html` links to pattern name `auth_login` (route `/accounts/login`) which is owned by Registration Redux, so it calls its own view and renders `registration/login.html` (if we've placed that template in that directory location, that is) --> `login.html` on POST will be handled by the same RR view that renders its GET and if successful will redirect to whatever we've specified in `settings.py/LOGIN_REDIRECT_URL` [Osborn 65]
 * _reset_: `login.html` also kicks off our reset flow with a link to pattern name `password_reset`, which sends out an email using `pw_reset_email.txt` and then calls ` password_reset_done`, which just renders a template to ack; when the user follows the link they've been emailed they'll hit the `password_reset_confirm` view and if their guid is still valid that view will render `password_reset_confirm.html` and allow them to input a new pw (idk if same view is used for validation or if separate validation -only view is hit e.g. doesn't care about link validity) and if everything goes well 
 
+## allauth
+
+* https://wsvincent.com/django-allauth-tutorial/
+* https://learndjango.com/tutorials/django-allauth-tutorial
+* rest-auth https://testdriven.io/blog/django-rest-auth
+* JWT https://www.mikesukmanowsky.com/blog/authentication-with-django-and-spas https://testdriven.io/blog/django-rest-authjs/
+
+# ⚙️ CONFIG
+
+---
+
+* https://docs.djangoproject.com/en/stable/topics/settings/
+* https://www.mattlayman.com/understand-django/settings/
+* https://news.ycombinator.com/item?id=40688336
+* https://docs.djangoproject.com/en/stable/ref/settings/
+
 ## denv
 
 🗄️ `src.md` denv
@@ -457,18 +483,27 @@ ps aux | head --lines=1 && ps aux | grep 'manage.py runserver' | kill
 
 ## project structure
 
+PROJECT
+* _project_: dir w/ `settings.py` https://stackoverflow.com/q/50090341
+```sh
+poetry run django-admin startproject conf .
+```
+* `django-admin`: CLI for project https://docs.djangoproject.com/en/3.0/ref/django-admin/
+
+APPS
+* _app_: unit of functionality https://forum.djangoproject.com/t/why-do-we-need-apps/827
+* name as normal package 🗄️ `python/runtime.py` packages
+* don't overdo it https://news.ycombinator.com/item?id=26492798 https://news.ycombinator.com/item?id=26492043 https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
+* `manage.py`: CLI for app https://docs.djangoproject.com/en/3.0/ref/django-admin/
+
+---
+
+* different ways to structure https://learndjango.com/tutorials/hello-world-5-different-ways
 * https://www.mostlypython.com/django-from-first-principles/ https://news.ycombinator.com/item?id=40140396
 * https://noumenal.es/notes/django/single-folder-layout/
-* `django-admin`: CLI for project https://docs.djangoproject.com/en/3.0/ref/django-admin/
-* `manage.py`: CLI for app https://docs.djangoproject.com/en/3.0/ref/django-admin/
-* _project_: thing w/ settings.py https://stackoverflow.com/q/50090341 create (`django-admin startproject <name> .`)
-* _app_: unit of functionality https://forum.djangoproject.com/t/why-do-we-need-apps/827 don't overdo it https://news.ycombinator.com/item?id=26492798
 * check https://docs.djangoproject.com/en/3.0/ref/django-admin/#check https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
-* different ways to structure https://learndjango.com/tutorials/hello-world-5-different-ways
 * create `django-admin startapp <name>` https://hellowebbooks.com/setup/ `python manage.py startapp <name>` https://djangoforbeginners.com/hello-world/
 * multiple ways to register app with project https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api https://wsvincent.com/django-rest-framework-tutorial/
-* naming conventions https://stackoverflow.com/a/3101894
-* people are too keen to make everything an app https://news.ycombinator.com/item?id=26492043
 * API in own app https://learndjango.com/tutorials/django-rest-framework-tutorial-todo-api in main app https://wsvincent.com/django-rest-framework-tutorial/
 
 ## security
@@ -486,6 +521,11 @@ https://snyk.io/blog/django-security-tips
 * https://www.ponycheckup.com/ https://www.youtube.com/watch?v=8W4MGggwgfM https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/web_application_security generate secret key https://humberto.io/blog/tldr-generate-django-secret-key https://github.com/jamesturk/django-honeypot https://learndjango.com/tutorials/django-search-tutorial
 
 ## settings
+
+---
+
+https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
+https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
 
 * `settings.py`: just a Python module w/ buncha attributes; fmt installed apps same as imports https://wsvincent.com/django-rest-framework-tutorial/ uses pathlib as of 3.1 https://learndjango.com/tutorials/whats-new-django-31
 * https://adamj.eu/tech/2022/11/24/django-settings-patterns-to-avoid/
@@ -546,24 +586,6 @@ INSTALLED_APPS = [
 ]
 ```
 
-## users
-
-🗄 `security.md` users
-
-* email https://github.com/carltongibson/django-unique-user-email
-* https://github.com/zsoldosp/django-currentuser
-* custom user model https://brntn.me/blog/six-things-i-do-every-time-i-start-a-django-project/
-* https://simpleisbetterthancomplex.com/article/2021/07/08/what-you-should-know-about-the-django-user-model.html
-* groups https://github.com/bennylope/django-organizations
-* automate admin user creation https://stackoverflow.com/a/26091252
-* mimic user's account https://www.mattlayman.com/blog/2020/hijack-to-help-customers/
-* referencing user model https://learndjango.com/tutorials/django-best-practices-referencing-user-model
-* _default_: `AbstactUser` + `PermissionsMixin` https://www.youtube.com/watch?v=458KmAKq0bQ @ 14:10 follows first-last antipattern 🗄 `db.md` 'modeling' https://www.youtube.com/watch?v=458KmAKq0bQ
-* `AbstractUser`: everything from default user model except `PermissionsMixin`
-* `AbstractBaseUser`: gives you pw and last_login, necessary for pw refresh tokens https://www.youtube.com/watch?v=458KmAKq0bQ @ 14:00 
-* _custom model_: use from start, harder to bolt on afterwards https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/ https://learndjango.com/tutorials/django-custom-user-model https://learndjango.com/tutorials/django-custom-user-model
-* _permissions_: https://learndjango.com/tutorials/django-best-practices-user-permissions https://wsvincent.com/django-tips-user-permissions/ https://coderbook.com/@marcus/how-to-restrict-access-with-django-permissions https://testdriven.io/blog/drf-permissions/
-* _sink_: https://testdriven.io/blog/django-custom-user-model/ https://wsvincent.com/django-referencing-the-user-model/ https://wsvincent.com/django-custom-user-model-tutorial/ https://wsvincent.com/django-tips-custom-user-model https://testdriven.io/blog/django-custom-user-model/ https://www.roguelynn.com/words/django-custom-user-models/
 # 🍱 DB
 
 🗄 `sql.md` SQLAlchemy
@@ -621,6 +643,8 @@ how to
 ## admin
 
 ---
+
+> The admin's recommended use is limited to an organization's internal management tool. It's not intended for building your entire front end around. https://docs.djangoproject.com/en/5.1/ref/contrib/admin/
 
 * TUI https://github.com/valberg/django-admin-tui
 * theme https://github.com/sjbitcode/django-admin-dracula
@@ -851,18 +875,60 @@ rollback
 misc
 * _ordering issues_: make db changes on local, generate a new migration script `001-foo`, at some later point pull in `develop` and there's already `001-bar` migration and Django complains about `001-foo`, solve by rm `001-bar` and running `make makemigrations` then `make migrate`
 
-# 🟨 ZA
+# 💳 LIBS
 
-📰 GOVERNANCE / COMMUNITY
-* creators: Simon https://news.ycombinator.com/user?id=simonw Adrian https://www.soundslice.com/ Jacob https://jacobian.org/ Andrew Godwin (did south and migrations)
-* history https://jacobian.org/2024/mar/20/django-chat/ https://buttondown.com/carlton/archive/thoughts-on-djangos-core/
-* users: https://octopus.energy/ https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
-* versions: https://www.codestasis.com/ https://github.com/ambient-innovation/django-removals/
-> Django 5.0 was released in December 2023...Django's versioning policy is time-based rather than feature-based. Roughly every eight months, a new feature release occurs, along with monthly bug fixes and security patches as needed...meaning you can expect Django 5.1 in August 2024, Django 5.2 in April 2025, Django 6.0 in December 2025, and so on. Django has such a large and active community of contributors that the decision was made years ago to focus on regular rollouts rather than wait for specific features to be completed...Specific releases (those that end in .2, like Django 5.2 and 6.2) are designated as long-term support (LTS) releases and receive security and data loss fixes applied for a guaranteed period, typically three years. This policy is designed for larger companies struggling to keep up with Django's rapid release schedule. https://learndjango.com/courses/django-for-beginners/introduction/
-* _DSF_: admin https://wsvincent.com/how-django-works-behind-the-scenes/ 501 non-profit https://www.b-list.org/weblog/2018/nov/20/core/
-* _DEP_: PEP for Django https://github.com/django/deps
-* _fellows_: paid devs https://www.b-list.org/weblog/2018/nov/20/core/
-* _technical board_: engineering; replaced core teams https://jacobian.org/2020/mar/12/django-governance/
+🔍 https://learndjango.com/tutorials/essential-django-3rd-party-packages
+* extensions https://monadical.com/posts/django-packages.html
+https://learndjango.com/tutorials/essential-django-3rd-party-packages
+https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-django
+* https://github.com/adamspd/django-appointment
+* reports https://github.com/RamezIssac/django-slick-reporting
+* _3rd-party apps_: anything installed by adding to `settings.py/INSTALLED_APPS` https://djangopackages.org https://realpython.com/installable-django-app/
+* _channels_: https://www.aeracode.org/2018/06/04/django-async-roadmap/ https://testdriven.io/blog/django-async-views/ https://www.youtube.com/watch?v=j6IOuD5WD8c https://testdriven.io/courses/real-time-app-with-django-channels-and-angular/ https://testdriven.io/courses/real-time-app-with-django-channels-and-angular kinda live Phoenix LiveView? https://github.com/edelvalle/reactor https://runninginproduction.com/podcast/11-logflare-is-a-log-management-and-event-analytics-platform
+* _editor_: https://406.ch/writing/django-prose-editor-prose-editing-component-for-the-django-admin/
+* _email_: https://learndjango.com/tutorials/django-email-contact-form https://softwarecrafts.co.uk/100-words/day-76
+* _favicon_: https://learndjango.com/tutorials/django-favicon-tutorial
+* _internationalization_: https://testdriven.io/blog/multiple-languages-in-django/
+* _maps_: https://www.paulox.net/2020/12/08/maps-with-django-part-1-geodjango-spatialite-and-leaflet/
+* _Markdown_: https://learndjango.com/tutorials/django-markdown-tutorial
+* _sessions_: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Sessions https://www.youtube.com/watch?v=SMRaHSZiwWE https://eli.thegreenplace.net/2011/06/24/how-django-sessions-work-introduction/ for user anlytics https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/
+
+## code quality
+
+* _CORS_: https://github.com/adamchainz/django-cors-headers
+* _type checking_ https://sobolevn.me/2019/08/typechecking-django-and-drf
+* _Swagger_: https://github.com/axnsan12/drf-yasg
+* _secrets_: https://github.com/LeeHanYeong/django-secrets-manager https://adamj.eu/tech/2024/08/30/django-rotate-secret-key/
+* _internals_: https://djangodeconstructed.com/ how do class names (`PasswordChangeView`) resolve to import names (`from django.contrib.auth.views import password_change`)?
+
+## debug
+
+* perf: https://openfolder.sh/django-faster-speed-tutorial
+https://www.bugsink.com/blog/better-error-tracking-in-django/
+* _analytics_: https://github.com/jazzband/django-analytical
+* _debug_ https://django-debug-toolbar.readthedocs.io/en/latest/installation.html https://talkpython.fm/episodes/show/464/seeing-code-flows-and-generating-tests-with-kolo
+* _logging_: https://mattsegal.dev/django-gunicorn-nginx-logging.html https://djangodeconstructed.com/2018/12/18/django-and-python-logging-in-plain-english/ https://www.willmcgugan.com/blog/tech/post/richer-django-logging
+* _tracing_: https://github.com/dabapps/django-log-request-id
+
+## money
+
+* _payments_: https://testdriven.io/blog/django-stripe-tutorial/ https://github.com/zinmyoswe/Django-Ecommerce https://github.com/dinoperovic/django-salesman
+* _SEO_: https://github.com/kapt-labs/django-check-seo https://github.com/kapt-labs/django-check-seo https://learndjango.com/tutorials/django-sitemap-tutorial
+* _taxes_: https://github.com/lowercase-app/django-taxtea
+
+## need for prod
+
+* _backups_: https://github.com/django-dbbackup/django-dbbackup
+* _caching_: https://wsvincent.com/django-caching-for-beginners/ https://eralpbayraktar.com/blog/django/2020/caching-with-django
+* _search_: https://findwork.dev/blog/optimizing-postgres-full-text-search-django/ https://www.youtube.com/watch?v=is3R8d420D4 https://youtu.be/is3R8d420D4 https://jamesturk.net/posts/websearch-in-django-31 https://www.youtube.com/watch?v=kOKwEDHeBX4 https://github.com/ivelum/djangoql https://pganalyze.com/blog/full-text-search-django-postgres Haystack https://django-q.readthedocs.io/en/latest/examples.html https://github.com/etianen/django-watson https://www.paulox.net/2017/12/22/full-text-search-in-django-with-postgresql https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ sort https://rednafi.com/python/sort_by_a_custom_sequence_in_django/ https://www.photondesigner.com/articles/database-search-django-htmx
+
+## TUI
+
+REPL https://github.com/selectnull/django-pyrepl/
+TUI commands https://github.com/anze3db/django-tui
+TUI admin https://github.com/valberg/django-admin-tui https://github.com/valberg/django-htmx-admin https://github.com/adamghill/django-unicorn
+
+# 🟨 ZA
 
 ---
 
@@ -912,7 +978,9 @@ WORLD'S DUMBEST COMPLETE SAAS
 
 ## design
 
-🗄 `python/core.md` functions > metaprogramming
+🗄
+* `design-patterns` dependency injection
+* `python/core.md` functions > metaprogramming
 
 > Web development is often broad, not deep - problems span many domains. https://docs.djangoproject.com/en/2.0/intro/whatsnext/
 > A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
@@ -930,6 +998,14 @@ FEATURES https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/
 
 ---
 
+ALTERNATIVES
+* https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016 https://talkpython.fm/episodes/show/490/django-ninja
+* https://github.com/hbakri/django-ninja-crud
+* single file https://github.com/radiac/nanodjango
+* https://www.loopwerk.io/articles/2024/django-vs-flask-vs-fastapi/
+* https://www.david-dahan.com/blog/comparing-fastapi-and-django
+
+htmx https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
 Django vs. Rails https://news.ycombinator.com/item?id=42388340
 https://github.com/CrocoFactory/sensei
 Rails https://news.ycombinator.com/item?id=42569236 https://literallythevoid.com/blog/rails_for_everything.html
@@ -942,45 +1018,25 @@ https://lukeplant.me.uk/
 BYO
 * https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://blog.dimitarandreev.com/posts/writing-an-http-router-for-aws-lambda-functions-from-scratch-with-go/
 
-## libs
+## governance
 
-🔍 https://learndjango.com/tutorials/essential-django-3rd-party-packages
-
-* extensions https://monadical.com/posts/django-packages.html
-https://learndjango.com/tutorials/essential-django-3rd-party-packages
-https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-django
-
-* https://github.com/adamspd/django-appointment
-* reports https://github.com/RamezIssac/django-slick-reporting
-* _3rd-party apps_: anything installed by adding to `settings.py/INSTALLED_APPS` https://djangopackages.org https://realpython.com/installable-django-app/
-* _analytics_: https://github.com/jazzband/django-analytical
-* _backups_: https://github.com/django-dbbackup/django-dbbackup
-* _caching_: https://wsvincent.com/django-caching-for-beginners/ https://eralpbayraktar.com/blog/django/2020/caching-with-django
-* _channels_: https://www.aeracode.org/2018/06/04/django-async-roadmap/ https://testdriven.io/blog/django-async-views/ https://www.youtube.com/watch?v=j6IOuD5WD8c https://testdriven.io/courses/real-time-app-with-django-channels-and-angular/ https://testdriven.io/courses/real-time-app-with-django-channels-and-angular kinda live Phoenix LiveView? https://github.com/edelvalle/reactor https://runninginproduction.com/podcast/11-logflare-is-a-log-management-and-event-analytics-platform
-* _CORS_: https://github.com/adamchainz/django-cors-headers
-* _debug_ https://django-debug-toolbar.readthedocs.io/en/latest/installation.html https://talkpython.fm/episodes/show/464/seeing-code-flows-and-generating-tests-with-kolo
-* _editor_: https://406.ch/writing/django-prose-editor-prose-editing-component-for-the-django-admin/
-* _email_: https://learndjango.com/tutorials/django-email-contact-form https://softwarecrafts.co.uk/100-words/day-76
-* _favicon_: https://learndjango.com/tutorials/django-favicon-tutorial
-* _internals_: https://djangodeconstructed.com/ how do class names (`PasswordChangeView`) resolve to import names (`from django.contrib.auth.views import password_change`)?
-* _internationalization_: https://testdriven.io/blog/multiple-languages-in-django/
-* _logging_: https://mattsegal.dev/django-gunicorn-nginx-logging.html https://djangodeconstructed.com/2018/12/18/django-and-python-logging-in-plain-english/ https://www.willmcgugan.com/blog/tech/post/richer-django-logging
-* _maps_: https://www.paulox.net/2020/12/08/maps-with-django-part-1-geodjango-spatialite-and-leaflet/
-* _Markdown_: https://learndjango.com/tutorials/django-markdown-tutorial
-* _payments_: https://testdriven.io/blog/django-stripe-tutorial/ https://github.com/zinmyoswe/Django-Ecommerce https://github.com/dinoperovic/django-salesman
-* _search_: https://findwork.dev/blog/optimizing-postgres-full-text-search-django/ https://www.youtube.com/watch?v=is3R8d420D4 https://youtu.be/is3R8d420D4 https://jamesturk.net/posts/websearch-in-django-31 https://www.youtube.com/watch?v=kOKwEDHeBX4 https://github.com/ivelum/djangoql https://pganalyze.com/blog/full-text-search-django-postgres Haystack https://django-q.readthedocs.io/en/latest/examples.html https://github.com/etianen/django-watson https://www.paulox.net/2017/12/22/full-text-search-in-django-with-postgresql https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ sort https://rednafi.com/python/sort_by_a_custom_sequence_in_django/ https://www.photondesigner.com/articles/database-search-django-htmx
-* _secrets_: https://github.com/LeeHanYeong/django-secrets-manager https://adamj.eu/tech/2024/08/30/django-rotate-secret-key/
-* _SEO_: https://github.com/kapt-labs/django-check-seo https://github.com/kapt-labs/django-check-seo https://learndjango.com/tutorials/django-sitemap-tutorial
-* _sessions_: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Sessions https://www.youtube.com/watch?v=SMRaHSZiwWE https://eli.thegreenplace.net/2011/06/24/how-django-sessions-work-introduction/ for user anlytics https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/
-* _Swagger_: https://github.com/axnsan12/drf-yasg
-* _taxes_: https://github.com/lowercase-app/django-taxtea
-* _tracing_: https://github.com/dabapps/django-log-request-id
-* _type checking_ https://sobolevn.me/2019/08/typechecking-django-and-drf
+* contribute https://www.better-simple.com/django/2024/12/25/getting-started-contributing-django/
+* consulting https://lincolnloop.com/ https://wsvincent.com/thoughts-on-pyconnz/  https://www.saaspegasus.com/
+* creators: Simon https://news.ycombinator.com/user?id=simonw Adrian https://www.soundslice.com/ Jacob https://jacobian.org/ Andrew Godwin (did south and migrations)
+* history https://jacobian.org/2024/mar/20/django-chat/ https://buttondown.com/carlton/archive/thoughts-on-djangos-core/
+* users: https://octopus.energy/ https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
+* versions: https://www.codestasis.com/ https://github.com/ambient-innovation/django-removals/
+> Django 5.0 was released in December 2023...Django's versioning policy is time-based rather than feature-based. Roughly every eight months, a new feature release occurs, along with monthly bug fixes and security patches as needed...meaning you can expect Django 5.1 in August 2024, Django 5.2 in April 2025, Django 6.0 in December 2025, and so on. Django has such a large and active community of contributors that the decision was made years ago to focus on regular rollouts rather than wait for specific features to be completed...Specific releases (those that end in .2, like Django 5.2 and 6.2) are designated as long-term support (LTS) releases and receive security and data loss fixes applied for a guaranteed period, typically three years. This policy is designed for larger companies struggling to keep up with Django's rapid release schedule. https://learndjango.com/courses/django-for-beginners/introduction/
+* _DSF_: admin https://wsvincent.com/how-django-works-behind-the-scenes/ 501 non-profit https://www.b-list.org/weblog/2018/nov/20/core/
+* _DEP_: PEP for Django https://github.com/django/deps
+* _fellows_: paid devs https://www.b-list.org/weblog/2018/nov/20/core/
+* _technical board_: engineering; replaced core teams https://jacobian.org/2020/mar/12/django-governance/
 
 ## templates
 
 ---
 
+* _convention > conf_: Django will serve your templates provided they are in `templates/registration` and have the expected name, otherwise will serve its own default https://github.com/zachvalenta/hello-django1/commit/6503b460490fb85f085f3a277fbdd80360291fa0
 * forms https://kodare.net/2024/09/11/why-we-wrote-a-new-form-library-for-django.html
 * components https://github.com/wrabit/django-cotton
 * https://django-formset.fly.dev/

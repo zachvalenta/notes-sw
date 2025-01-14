@@ -336,13 +336,13 @@ ZA
 
 ---
 
-WRITING
+MKDIR
 ```python
-Path.cwd().joinpath('foo').mkdir()
+Path.cwd().joinpath('path').mkdir()
 
-# make subdir
-# sans `parents=true`, will fail FileNotFoundError if any parent dir doesn't exist
-Path.cwd().joinpath('path/to').mkdir(parents=True)
+# create all dir in path
+# otherfails fails w/ FileNotFoundError for any missing dirs
+Path.cwd().joinpath('path/to/dir').mkdir(parents=True)
 
 # doesn't mkdir if already exists
 Path.cwd().joinpath('path/to/dir').mkdir(exist_ok=True)
@@ -1067,3 +1067,4 @@ regex.findall("zach another thing zach 1234")  # all matches
 * _group_: portion of match available if you've used groups in your regex https://stackoverflow.com/a/29108/6813490
 * `sub`: https://stackoverflow.com/a/16720752/6813490
 * `.match()`: apparently good for searching telephone numbers, anything that's not a sentence https://howchoo.com/g/zdvmogrlngz/python-regexes-findall-search-and-match but otherwise no one uses https://stackoverflow.com/questions/180986/what-is-the-difference-between-re-search-and-re-match inconsistent w/ how regex work in Perl, sed, grep https://stackoverflow.com/a/37363575/6813490 allegedly faster than `search()` but not so! https://stackoverflow.com/a/49710946/6813490
+* validate phone numbers https://github.com/nyaruka/phonenumbers

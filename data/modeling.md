@@ -209,6 +209,7 @@ dbms
 # 🕸️ RELATIONAL
 
 📙 Hao https://www.manning.com/books/grokking-relational-database-design
+🗄️ `sql.md` DDL > schema aware
 
 COMPONENTS 📙 Beaulieu [1.6]
 * _entity_: thing you're trying to describe e.g. customer, order, et al. 📙 Beaulieu [8]
@@ -240,6 +241,11 @@ RELATIONS
 * less common than you'd think https://www.b-list.org/weblog/2024/aug/27/highlander-problem/
 
 ## 1-M
+
+aka fanout https://jmduke.com/posts/post/django-extract-epoch/
+> The "fan-out" happens because a single post can be associated with multiple events, creating a "many" side for every "one" post.
+> This pattern is common in systems where activities or logs are recorded for a parent entity (e.g., likes/comments on posts, purchases related to a user, etc.), allowing detailed tracking and aggregation of related data.
+
 * = ownership
 ```sql
 CREATE TABLE team(
@@ -364,7 +370,7 @@ ONTOLOGY
 * OWL files
 
 relational to graph https://www.amazon.com/gp/product/1804618039 https://www.amazon.com/gp/product/1492044075
-knowledge graph https://www.amazon.com/gp/product/1098127102
+knowledge graph https://www.amazon.com/gp/product/1098127102 https://www.manning.com/books/knowledge-graphs-applied
 semantic https://www.amazon.com/gp/product/1492054275
 
 ❗️ https://en.wikipedia.org/wiki/Information_science https://en.wikipedia.org/wiki/Ontology_(information_science)

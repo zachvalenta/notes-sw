@@ -111,6 +111,7 @@ https://news.ycombinator.com/item?id=22514004
 * https://www.youtube.com/watch?v=MCs5OvhV9S4
 * https://bytes.yingw787.com/posts/2019/01/12/concurrency_with_python_threads_and_locks/
 * https://bytes.yingw787.com/posts/2019/01/11/concurrency_with_python_why/
+* https://github.com/pyper-dev/pyper
 
 # 🖖 CONCURRENCY
 
@@ -118,7 +119,7 @@ https://news.ycombinator.com/item?id=22514004
 *️ `architecture/system.md` distributed
 * `python/runtime.md` concurrency
 📚
-* Bobrov https://www.manning.com/books/grokking-concurrency
+* Bobrov grokking https://www.manning.com/books/grokking-concurrency
 * Butcher models https://pragprog.com/book/pb7con/seven-concurrency-models-in-seven-weeks
 
 SEMANTIC CONFUSION

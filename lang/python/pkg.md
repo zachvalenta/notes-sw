@@ -85,9 +85,12 @@ PYOXIDIZER
 
 ## publish
 
+📙 https://pypackages.com/ https://www.manning.com/books/publishing-python-packages
+
 ---
 
-HOWTO 📙 https://pypackages.com/ 📜 https://docs.python.org/3/distributing/index.html https://www.manning.com/books/publishing-python-packages
+https://www.better-simple.com/django/2025/01/15/testing-your-python-package-releases/
+HOWTO 📜 https://docs.python.org/3/distributing/index.html https://www.manning.com/books/publishing-python-packages
 * `MANIFEST.ini` https://chatgpt.com/c/67181d59-63f4-8004-ba67-ff251c9cb141
 * fork https://github.com/zachvalenta/anytree https://github.com/zachvalenta/capp-prod-cat-alt
 ```toml
@@ -231,6 +234,15 @@ PRESENT
 * _location_: per project or all in `~`
 * _sink_: using a Makefile https://github.com/sio/Makefile.venv https://realpython.com/python-virtual-environments-a-primer/
 
+## build backends
+
+https://venthur.de/2025-01-12-build-backends.html
+
+* setuptools
+* poetry
+* hatchling
+* flit
+
 ## distutils
 
 * deprecated https://stackoverflow.com/a/77233866
@@ -291,6 +303,13 @@ https://pythonspeed.com/articles/distributing-software/ https://pgjones.dev/blog
 * _history_: `venv` and `virtualenv` are not the same  ️https://docs.python.org/3/installing/index.html https://chriswarrick.com/blog/2017/07/03/setting-up-a-python-development-environment/#tools-and-management https://stackoverflow.com/a/49967371/6813490
 
 # 📦 MANAGERS
+
+GLOBAL DEPENDENCIES
+* _global dependency_: something you'd use as a CLI (pipenv, AWS) https://jacobian.org/2018/feb/21/python-environment-2018/
+* can always just use pip for user or even global install
+* why: system Python no longer exposed https://news.ycombinator.com/item?id=29238700
+* why not homebrew: when Python version upgrades it might lose track of the envs and you'll have to reinstall everything https://pythonbytes.fm/episodes/show/127/that-python-code-is-on-fire [14:00]
+* how it works: `bin` symlinks to + script w/ shebang line scoped to local venv https://stackoverflow.com/a/30541898/6813490 https://pythonbytes.fm/episodes/show/123/time-to-right-the-py-wrongs https://zahlman.github.io/posts/2025/01/07/python-packaging-2/
 
 ---
 
@@ -437,9 +456,12 @@ CMD
 init -n        # create pyproject.toml
 install        # install deps
 add $PKG --group $GROUP  # dev https://python-poetry.org/docs/managing-dependencies/#adding-a-dependency-to-a-group
-show --no-dev  # show prod deps
 env info       # show Poetry env and where Poetry is installed (pipx)
 remove -D      # remove dev dep
+
+# view
+show --no-dev  # prod only
+show -T        # top-level
 ```
 
 VS CODE SELECT INTERPRETER https://www.markhneedham.com/blog/2023/07/24/vscode-poetry-python-interpreter/
@@ -561,13 +583,6 @@ python3 -m pipx ensurepath
 * config file: `~/Library/Application Support/pipx`
 * venvs: `~/Library/Application Support/pipx/venvs`
 
-GLOBAL DEPENDENCIES
-* _global dependency_: something you'd use as a CLI (pipenv, AWS) https://jacobian.org/2018/feb/21/python-environment-2018/
-* can always just use pip for user or even global install
-* why: system Python no longer exposed https://news.ycombinator.com/item?id=29238700
-* why not homebrew: when Python version upgrades it might lose track of the envs and you'll have to reinstall everything https://pythonbytes.fm/episodes/show/127/that-python-code-is-on-fire [14:00]
-* how it works: `bin` symlinks to + script w/ shebang line scoped to local venv https://stackoverflow.com/a/30541898/6813490 https://pythonbytes.fm/episodes/show/123/time-to-right-the-py-wrongs
-
 # 🟪 UV
 
 📜 https://docs.astral.sh/uv/ https://github.com/astral-sh/uv
@@ -632,6 +647,9 @@ https://news.ycombinator.com/item?id=42676432
 * in Django https://blog.pecar.me/uv-with-django
 * with Github Actions https://github.com/astral-sh/setup-uv https://pythonbytes.fm/episodes/show/405/oh-really
 * https://www.bitecode.dev/p/uv-tricks
+* https://www.bitecode.dev/p/yes-you-should-use-a-python-venv
+* https://simonwillison.net/2025/Jan/7/uv-python-reinstall/
+* https://simonwillison.net/2024/Dec/19/one-shot-python-tools/
 
 ## 2019-2024 workflow
 
@@ -651,6 +669,14 @@ PAIN POINTS
 │   └──── pip
 │   └──── pipx
 ```
+
+Here's my current Python setup.
+
+* install pyenv
+* use pyenv's python to install pipx
+* use pipx to install global dependencies
+
+I have a lot of tools
 
 ## inheritance
 
@@ -673,6 +699,7 @@ get algos project working and align Python versions btw pyenv python and pipx py
 🧠 https://chatgpt.com/c/67683fd6-d260-8004-9a5b-be37a39aefbd
 for scripts https://packaging.python.org/en/latest/specifications/inline-script-metadata/
 https://bluesock.org/~willkg/blog/
+https://github.com/mkniewallner/migrate-to-uv
 
 ## denv
 

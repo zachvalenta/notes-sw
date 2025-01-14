@@ -158,7 +158,7 @@ Your Hardware + Single $5 VPS
 
 ALTERNATIVES
 * https://github.com/erikgrinaker/toydb https://github.com/maxpert/marmot
-* _rqlite_: SQLite https://github.com/rqlite/rqlite
+* _rqlite_: SQLite https://github.com/rqlite/rqlite https://philipotoole.com/how-is-rqlite-tested/
 
 ## 🌐 PlanetScale
 
@@ -627,8 +627,10 @@ show collections  # view collections
 # 🐘 POSTGRES
 
 > There are extensions for almost everything you could want - AGE enables graph data structures and the user of the Cypher query language, TimescaleDB enables time-series workloads, Hydra Columnar provides an alternate columnar storage engine https://matt.blwt.io/post/building-a-postgresql-extension-line-by-line/
+
+wire protocol
 > we’re seeing even more non-Postgres services rely on the Postgres wire protocol as a general-purpose Layer 7 protocol to provide client compatibility https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
-BYO extension https://matt.blwt.io/post/building-a-postgresql-extension-line-by-line/
+> We embed DuckDB as the query engine for in-memory analytics that work for complex queries. With efficient columnar storage and vectorized execution, we’re aiming for faster results without heavy infra. BemiDB communicates over the Postgres wire protocol to make all querying Postgres-compatible.
 
 ---
 
@@ -831,6 +833,11 @@ CLI util (psql, postgres, pg_dump, createdb/dropdb) https://gist.github.com/apol
 * start/status: `pg_ctl`
 * version: `postgres -V`
 
+## extensions
+
+BYO https://matt.blwt.io/post/building-a-postgresql-extension-line-by-line/
+https://www.postgresql.org/about/news/announce-pig-the-postgres-extension-wizard-2988/
+
 ## psycopg
 
 * _driver_: lib for (db) connection https://stackoverflow.com/a/8588766 
@@ -968,7 +975,7 @@ db files
 
 ---
 
-concurrent writers, Litestream for backups/replication https://avi.im/blag/2024/sqlite-bad-rep/
+concurrent writers, Litestream for backups/replication https://avi.im/blag/2024/sqlite-bad-rep/ https://sqlite.org/talks/howitworks-20240624.pdf https://news.ycombinator.com/item?id=42665708 https://news.ycombinator.com/item?id=42666847
 
 📜 https://sqlite.org/quirks.html
 

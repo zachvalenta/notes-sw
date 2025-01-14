@@ -11,6 +11,118 @@
 
 ## 进步
 
+# 🏠 HOME INTERNET
+
+📚
+* Kranz cybersecurity https://www.manning.com/books/making-sense-of-cybersecurity
+
+> I need to set up home internet. I've never done this before. I have a software engineering background, so I'm decently familiar with networking in the form of HTTP and to a lesser degree DNS, but spend little time thinking about TCP/IP or the link layer of the stack.
+
+## ISP
+
+ENTRY POINTS
+* _cable_: coaxial port
+* _fiber_: optical network terminal (ONT)
+* _DSL_: phone jack (e.g. rj11)
+
+---
+
+* Connection type (fiber/cable/DSL)
+
+ALTERNATIVE APPROACHES
+* Mobile hotspot/tethering (for temporary or light use)
+* Satellite (Starlink for rural areas)
+* Fixed wireless (5G home internet)
+
+- Check local ISPs: Fiber > Cable > DSL
+- Compare: speed, price, data caps, contract length
+- Verify actual speeds for your address
+
+Research ISPs (Internet Service Providers) available locally. Common ones include cable (e.g., Comcast), fiber (e.g., AT&T Fiber, Verizon Fios), DSL, or satellite (if rural).
+
+Check download/upload speeds. For software engineers:
+50 Mbps+ is good for general use and light remote work.
+100 Mbps+ is recommended for heavy downloading, video calls, or multiple users.
+Look for symmetric speeds (equal upload/download) if you upload large files.
+
+## hardware
+
+MODEM
+* _modem_: converts ISP signal (cable, fiber, dsl) into data
+* operation: ISP line into modem input port
+* models: Motorola MB8600
+> need ISP compatibility
+
+ROUTER
+* _router_: handles wifi and manages devices on your home network
+* operation: Ethernet cable from modem output (marked LAN|Ethernet) to routers WAN port
+* setup: login via browser using default creds and IP [192.168.1.1], create SSID [wifi name] and replace default pw
+
+---
+
+ROUTER
+* dual-band (2.4 ghz + 5 ghz) or tri-band for modern devices.
+* wi-fi 6 (802.11ax) for better speed and efficiency.
+* example: tp-link archer ax73, asus rt-ax86u.
+
+- Key specs: WiFi 6, dual-band, gigabit ports
+
+## speed
+
+🛠️ https://fast.com/ https://www.speedtest.net/
+
+---
+
+* 115/4.5 at Wilmington apartment
+> 搜 'internet speed test'
+* https://news.ycombinator.com/item?id=26343394
+* https://news.ycombinator.com/item?id=31062799
+* https://www.lambdafunctions.com/articles/make-internet-connection-worse
+* https://danluu.com/octopress-speedup/
+* https://news.ycombinator.com/item?id=24478149
+* https://dailywireless.org/internet/what-is-mbps/
+```sh
+# https://weiyen.net/articles/useful-macos-cmd-line-utilities
+networkQuality
+networksetup
+```
+
+MONITORING/DEBUGGING
+* Speed tests from multiple devices
+* Check router logs
+* `ping`/`traceroute` for connectivity issues
+* WiFi analyzer for channel congestion
+
+## config
+
+---
+
+QoS (Quality of Service)
+* Prioritize video calls/gaming
+* Limit bandwidth hogs
+* Port forwarding if needed
+
+IP Range (DHCP)
+* Default: 192.168.1.x
+* Consider separate ranges for IoT/guests
+* Reserve IPs for printers/NAS
+
+DNS
+* ISP default vs alternatives (1.1.1.1, 8.8.8.8)
+* Local DNS for custom domains/pihole
+
+Security
+* WPA3 for wifi
+* Guest network isolation
+* MAC filtering (optional)
+* VLANs (if supported)
+
+Networking Tips for Engineers
+* Port Forwarding: Configure for self-hosted services or development needs.
+* Static IPs: Set static IPs for devices like servers or NAS on your local network.
+* VLANs: Use if you want to segment traffic (e.g., IoT vs. work devices).
+* Monitoring: Tools like Pi-hole (for DNS-level ad blocking) or router logs to monitor traffic.
+
 # 🟨️ ZA
 
 * _network partition_: when two nodes can no longer talk i.e. nodes within a db cluster
@@ -27,11 +139,12 @@ topologies
 
 ---
 
-* undersea cables get snapped all the time? https://news.ycombinator.com/item?id=42176496
+* undersea cables get snapped all the time? https://news.ycombinator.com/item?id=42176496 https://www.submarinecablemap.com/
 
 * _layer 1_: electrical engineering, wires, frequencies 
 * _data link_: physical medium for transmission of signal btw nodes [NKH 30]
 * _materials_: radiowaves over air, light over glass (fiberoptic; lowest signal loss) electricity over copper (Ethernet; degrades over even short distances; DSL is copper wires from ISP) https://www.youtube.com/watch?v=lUo45NqPyq8 https://www.youtube.com/watch?v=XaGXPObx2Gs
+* radio SDR https://nostarch.com/practical-sdr
 
 * _bridge_: connect n networks
 * _MAC address_: way to address NIC, not whole device https://gkbrk.com/2018/12/free-hotel-wifi-with-python-and-selenium/ https://jvns.ca/blog/2013/10/29/day-18-in-ur-connection/
@@ -40,6 +153,7 @@ topologies
 
 ## data centers
 
+https://news.ycombinator.com/item?id=42743019
 https://danluu.com/datacenter-power/
 
 semantics

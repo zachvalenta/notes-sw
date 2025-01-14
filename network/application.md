@@ -78,6 +78,7 @@ TYPES
 * _CNAME_: alias e.g. `www.zachvalenta.com` -> `https:///www.zachvalenta.com` [`evans-linux.pdf` 5]
 * _NS record_: DNS server that has more info on sub-hosts for domain https://serverfault.com/a/224924/415712
 * https://adhoc.team/2022/01/18/covidtests-usps-aws-managed-services/
+* Mastercard https://news.ycombinator.com/item?id=42793783
 
 ## registrars / servers
 
@@ -317,6 +318,7 @@ https://github.com/valberg/django-sse
 
 ---
 
+https://hpbn.co/websocket/
 https://news.ycombinator.com/item?id=42600276
 
 | Feature               | Server-Sent Events (SSE)    | WebSockets                    | HTTP Long Polling         |
@@ -485,6 +487,7 @@ process https://help.ubuntu.com/community/SSH/OpenSSH/Keys
 ## TLS
 
 📙 https://unixsheikh.com/articles/are-you-a-tls-master.html
+📰 https://hpbn.co/transport-layer-security-tls/
 
 ---
 

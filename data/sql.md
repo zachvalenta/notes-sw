@@ -4,6 +4,7 @@
 
 🔍 https://dba.stackexchange.com
 📚
+> https://sql.programmable.net/dashboard
 * Beaulieu learning sql
 * Conery curious moon
 * Evans star https://sql-playground.wizardzines.com/
@@ -80,6 +81,74 @@ CREATE TABLE products (
     name text,
     price numeric CHECK (price > 0)
 );
+```
+
+### schema awareness
+
+💡 core insight: let the data tell you what it is, rather than forcing it into predetermined boxes
+🗄️
+* `stat.md` outlier detection
+* `OLAP.md` pipelines
+
+* _schema on-read_: enforce contraints on write
+* _schema on-write_: don't enforce contraints on write i.e. cobble things together on read
+```python
+class Catalog:
+    """
+    >>> cat = Catalog()
+    >>> cat.add_product({'sku': 1234, 'name': 'foo'})
+    >>> cat.add_product({'sku': 5678, 'name': 'bar'}, mode='strict')
+    >>> cat.get_product(sku=1234)
+    """
+    def __init__(self):
+        self.products = []
+
+    def __repr__(self):
+        return f'{self.products}'
+
+    def _validate_product(self, product, mode):
+        required = {'sku', 'name'}
+        if mode == 'strict':
+            required |= {'price'}
+        missing = required - set(product)
+        if missing:
+            raise ValueError(f"missing required fields: {' '.join(missing)}")
+
+    def add_product(self, product, mode='flex'):
+        self._validate_product(product, mode)
+        self.products.append(product)
+
+    def get_product(self, sku):
+        defaults = {'price': None}
+        for product in self.products:
+            if product['sku'] == sku:
+                return {**defaults, **product}
+        return None
+```
+* _schema-first_: define upfront
+* _schema-aware_: learns schema
+```sh
+# infers: book title (text), author name (text), year (integer)
+add-book "Snow Crash" "Neal Stephenson" 1992
+
+# "there's a publisher field now. Should I update the schema? Y/N"
+# On Y: Adds publisher column, leaves it NULL for previous entries
+add-book "Neuromancer" "William Gibson" 1984 "Ace Books"
+
+# "I notice you're adding categories. Should these be: single text field with comma-separated values | separate table with a many-to-many relationship?"
+add-book "Dune" "Frank Herbert" 1965 "Chilton Books" "sci-fi, politics"
+```
+* _constraint inference_: pattern detection
+* start permissive, get strict only when patterns emerge i.e. opposite of traditional db design where you define everything upfront
+```sh
+# distribution: if every book year is between 1900-2024
+system: "should i enforce year >= 1900?"
+
+# normalization: if you enter "ace books" multiple times
+System: "I notice 'Ace Books' appears often. Make it a foreign key?"
+
+# typing: if ISBN field always matches \d{13}|\d{10}
+System: "This looks like an ISBN. Add format validation?"
 ```
 
 ### primary key (PK)

@@ -81,7 +81,29 @@ ZA
 
 ## IO
 
+WRITE
+* operations are immutable i.e. capture updates with assignment (`df = df.operations()`)
 ```python
+# literal
+df.with_columns(pl.lit('ALCO').alias('buyline'))
+
+# interpolated and concatenated
+df.with_columns((f'{prefix}' + pl.col('mpn').cast(str)).alias('sku'))
+
+# interpolated - predicate
+df.with_columns(
+    pl.when(pl.col('sku').is_null())
+    .then(f'{prefix}' + pl.col('mpn').cast(str))
+    .otherwise(pl.col('sku'))
+    .alias('sku')
+)
+```
+
+READ
+```python
+# get value of cell (errs if more than one value)
+pdr_for_brand['sku-prefix'].item()
+
 # read_csv faster when you can skip entire columns and save on overhead of setting up query plan
 df = pl.read_csv(file, columns=['col1', 'col2'])
 
@@ -132,10 +154,12 @@ col_list = df["column_name"].to_list()
 first_values = df["column_name"].head(5)
 unique_values = df["column_name"].unique()
 
-# empty columns
+# col has empty values
+series.is_null().any()
+# any empty columns
 null_col_df = [col for col in df.columns if df[col].null_count() == df.height]
 assert bool(null_col_df) is True
-# null columns
+# find null columns
 df.filter(pl.col(COL).is_null())
 # value not present in column
 assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == 0
@@ -149,11 +173,18 @@ assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height
 # EQUALITY
 bar.filter(pl.col('mfg') == 'samsung')
 bar.filter(pl.col('mfg').str.to_lowercase() == brand.lower())  # case insensitive
+# inequality
+ecl.filter(pl.col('buyline') != pl.col('priceline'))
 # COMPARISON
 bar.filter(pl.col('price') > 300)
 
 # CHAINED
 bar.filter((pl.col('mfg') == 'samsung') & (pl.col('price') > 400))
+ecl.filter(
+    (pl.col('mfg') == 'Trerice') &
+    (pl.col('buyline') != pl.col('priceline'))
+)
+
 
 # KEYWORD SEARCH
 bar.filter(pl.col('mfg').str.contains('foo').alias('regex'))
@@ -180,6 +211,21 @@ bar.join(foo, left_on="mpn", right_on="id", how="anti")
 ---
 
 🗄️ startup.py https://github.com/zachvalenta/capp-crud
+```python
+def smart_join(dt, tt, did, tid):
+    """
+    Some annoyances with Polars joins that this solves for me:
+    * output doesn't locate with the join keys next to each other
+    * output doesn't locate with the join keys next to each other
+
+    :param dt: drive table
+    :param tt: through table
+    :param did: drive table ID
+    :param tid: through table ID
+    """
+    joined = dt.join(tt.with_columns(pl.col(tid).alias('tid')), left_on=did, right_on=tid)
+    joined.select(joined.columns[0], joined.columns[-1], *joined.columns[1:-1])
+```
 
 ```python
 foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")

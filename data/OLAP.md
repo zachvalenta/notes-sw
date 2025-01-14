@@ -7,6 +7,7 @@
 * https://roadmap.sh/postgresql-dba
 * https://github.com/DataExpert-io/data-engineer-handbook
 📚
+* ⭐️ https://dedp.online/
 * Kleppmann data intensive applications
 * Reis fundamentals of data eng
 
@@ -63,8 +64,46 @@ ROLES
 
 # 🦆 DUCKDB
 
-📜 https://duckdb.org/docs/ https://github.com/duckdb/duckdb
+📜 https://duckdb.org/docs/
 📙 Needham https://www.manning.com/books/duckdb-in-action
+
+SETUP
+* install: Homebrew
+* config fs: `$HOME/.duckdbrc`
+* extensions
+```sh
+INSTALL sqlite;  # $HOME/.duckdb/extensions
+```
+
+## CLI
+
+ZA
+* from-first syntax https://duckdb.org/docs/sql/query_syntax/from.html#from-first-syntax
+* commands https://duckdb.org/docs/api/cli/overview.html
+
+EDA
+```sh
+.tables
+.databases
+.schema $TABLE
+```
+
+LOAD https://duckdb.org/docs/data/csv/overview.html
+```sh
+# create db
+duckdb stat-explore.db
+
+# create table in db
+CREATE TABLE signups AS SELECT * FROM 'signups.csv'
+.import $CSV $TABLE
+
+# set as default db
+.open path/to/stat-explore.db
+
+# https://github.com/duckdb/duckdb?tab=readme-ov-file#data-import
+SELECT * FROM 'myfile.csv';
+SELECT * FROM 'myfile.parquet';
+```
 
 ## design
 
@@ -95,32 +134,6 @@ https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 * https://softwaredaily.wpenginepowered.com/wp-content/uploads/2022/03/SED1439-DuckDB-with-Hannes-Muhleisen.pdf
 * https://kadekillary.work/note/duckdb/
 * https://tech.marksblogg.com/popular-airline-passenger-routes-2023.html
-
-## CLI
-
-* install: Homebrew
-* config fs: `$HOME/.duckdbrc`
-* extensions
-```sh
-INSTALL sqlite;  # $HOME/.duckdb/extensions
-```
-* from-first syntax https://duckdb.org/docs/sql/query_syntax/from.html#from-first-syntax
-* commands https://duckdb.org/docs/api/cli/overview.html
-```sh
-.exit
-.tables
-.schema $TABLE
-```
-* CSV https://duckdb.org/docs/data/csv/overview.html
-```sh
-duckdb stat-explore.db  # create db
-
-# create table, will be automatically added to db
-CREATE TABLE signups AS SELECT * FROM 'signups.csv'
-.import $CSV $TABLE
-
-.open path/to/stat-explore.db  # set as default
-```
 
 ## lib
 
@@ -287,6 +300,7 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 📙 Cayla https://www.manning.com/books/data-preparation-handbook
 🗄
 * `data/sql.md` migrations
+* `data/sql.md` schema awareness
 * `infra.md` task queue, workflow engine
 
 ---
@@ -392,7 +406,7 @@ Input: SQL or similar declarative query language
 Output: Query results
 Example: When you write "SELECT * FROM table WHERE x > 10", it figures out how to get those records efficiently
 
-start here https://pycon-archive.python.org/2024/schedule/presentation/109/index.html
+start here https://pycon-archive.python.org/2024/schedule/presentation/109/index.html https://www.scattered-thoughts.net/writing/the-missing-tier-for-query-compilers/
 
 SEMANTICS
 > https://github.com/pola-rs/polars
@@ -476,7 +490,7 @@ Spend a week exploring some larger analytics datasets, or converting some of the
 
 ## ❄️ Snowflake
 
-📙 https://www.manning.com/books/snowflake-data-engineering
+📙 Ferle https://www.manning.com/books/snowflake-data-engineering
 
 * _Snowflake_: users/investors like them https://news.ycombinator.com/item?id=24265041 https://dataschool.com/sql-optimization/snowflake/ https://www.youtube.com/watch?v=xojAXXRo_S0 OSS https://news.ycombinator.com/item?id=38038239
 * apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
@@ -607,6 +621,20 @@ https://medium.com/expedia-group-tech/a-short-introduction-to-apache-iceberg-d34
 * https://medium.com/expedia-group-tech/a-short-introduction-to-apache-iceberg-d34f628b6799
 > Table formats have slowly been stealing the spotlight across the big data space as projects like Apache Hudi, Delta Lake and Apache Iceberg mature and disrupt the tried-and-tested legacy data lake technologies in use at most companies worldwide.
 > The project [Iceberg] was originally developed at Netflix to solve long-standing issues with their usage of huge, petabyte-scale tables. It was open-sourced in 2018 as an Apache Incubator project and graduated from the incubator on the 19th of May 2020.
+
+# MESH
+
+https://www.manning.com/books/data-mesh-in-action
+
+```sh
+Data Management Architectures
+├── Centralized
+│   ├── Data Warehouse (1970s+)
+│   │   └── Cloud Data Warehouse (2010s+)
+│   └── Data Lakehouse (2020s+)
+└── Distributed
+    └── Data Mesh (2019+)
+```
 
 # 🟨 ZA
 

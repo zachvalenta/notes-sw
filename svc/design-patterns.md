@@ -13,9 +13,10 @@
 
 ## 进步
 
-* _23_: 📙 Evans domain-driven
-
 * https://neetcode.io/courses/lessons/8-design-patterns
+* https://www.youtube.com/watch?v=tAuRQs_d9F8
+
+* _23_: 📙 Evans domain-driven
 
 DESIGN PATTERNS
 🧠 https://chatgpt.com/c/672144f0-fbfc-8004-98c0-2209def70bc0
@@ -218,6 +219,16 @@ Iterator (sequential access)
 ## strategy
 
 🗄️ `business.md` pricing
+💻 https://github.com/zachvalenta/capp-brand-enablement
+
+```txt
+This is metaprogramming using Python's attribute lookup system. The repository pattern would abstract data access behind a consistent interface. This code dynamically selects IO methods based on the format parameter, which is closer to the Strategy pattern, but implemented through Python's reflection capabilities.
+
+Core mechanics:
+getattr() returns bound methods for different formats
+String interpolation creates method names
+Uniform method naming convention in polars enables this
+```
 
 Strategy (interchangeable algorithms)
 
@@ -231,10 +242,8 @@ Managing discounts or pricing rules dynamically in an e-commerce system.
 
 ---
 
-Dependency Injection: Inversion of control
 Event-Driven Architecture: Loose coupling at system level
 CQRS: Command/query separation
-Repository: Data access abstraction
 Unit of Work: Transaction management
 
 A key insight is that many patterns solve similar problems in different contexts. For example, both Strategy and Command encapsulate behavior, but Command adds undo/logging capabilities. Similarly, both Decorator and Chain of Responsibility compose behavior, but Chain focuses on request handling while Decorator is more general.
@@ -245,6 +254,7 @@ A key insight is that many patterns solve similar problems in different contexts
 
 ---
 
+Dependency Injection: Inversion of control
 > Can sometimes replace patterns like Singleton and Factory by handling object lifecycles and dependencies.
 
 * https://github.com/hynek/svcs/ https://svcs.hynek.me/en/stable/ https://www.youtube.com/watch?v=d1elMD9WgpA
@@ -272,7 +282,13 @@ A key insight is that many patterns solve similar problems in different contexts
 * ✅ Evans domain-driven design https://github.com/nickgerace/gfold/pull/149/files
 * Percival https://www.amazon.com/gp/product/1492052205 https://www.youtube.com/watch?v=niMybnzmzqc [1:15]
 
+├── Repository: data access abstraction 🗄️ `sql.md` constraints > schema awareness > catalog
+├── Factory
+├── Aggregate
+└── Entity
+
 * _separation of concerns_: HTML for content/semantics, CSS for style
+> Let's say you have a custom piece of logic that touches models A, B, C, and D. Where do you put it? The idea is to let your domain live separately from your data model & API layer. https://github.com/HackSoftware/Django-Styleguide
 * CRD DDD 🗄 notebook 22.12.13
 * more domain-driven https://www.youtube.com/watch?v=72V-5hrilv0
 * beware ideas coming from the Java world https://www.infoq.com/presentations/8-lines-code-refactoring/
@@ -280,11 +296,13 @@ A key insight is that many patterns solve similar problems in different contexts
 
 ## functional
 
-🗄️ `graphs.md` category theory
+🗄️
+* `graphs.md` category theory
+* `lisp.md` Haskell
 📚
-* Granin https://www.manning.com/books/functional-design-and-architecture
-* ⭐️ Normand https://www.amazon.com/dp/1617296201 https://www.manning.com/books/grokking-simplicity
-* Martin https://www.amazon.com/gp/product/0138176396
+* ⭐️ Normand grokking simplicity https://www.manning.com/books/grokking-simplicity
+* Martin functional design https://www.amazon.com/gp/product/0138176396
+* Plachta grokking functional https://www.manning.com/books/grokking-functional-programming
 
 ---
 
@@ -500,9 +518,9 @@ extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.
 
 ## DSLs
 
----
+📙 Boersma https://www.manning.com/books/building-user-friendly-dsls
 
-📙 https://www.manning.com/books/building-user-friendly-dsls
+---
 
 * lose tooling of general purpose language https://news.ycombinator.com/item?id=22375721
 * https://news.ycombinator.com/item?id=41938819

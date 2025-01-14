@@ -311,6 +311,7 @@ in2csv $EXCEL > $CSV
 
 ---
 
+* beware https://news.ycombinator.com/item?id=42799245
 * convert/query https://github.com/dflemstr/rq
 * like BSON https://bsonspec.org/ https://github.com/bufbuild/buf
 * https://vincent.bernat.ch/en/blog/2023-dynamic-protobuf-golang

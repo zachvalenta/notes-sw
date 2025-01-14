@@ -165,7 +165,17 @@ https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=34180508
 
 # 🖥️ MONITORS
 
-🔗 https://www.apple.com/mac-mini/specs/
+---
+
+NEXT STEPS
+* just port existing home setup
+* measure work monitor
+* figure out how to adjust to work monitor being so close (is that a bad thing?)
+
+APPLE
+* https://www.apple.com/mac-mini/specs/
+* https://news.ycombinator.com/item?id=41987359
+* https://news.ycombinator.com/item?id=34487066
 
 I want to build a formula for computer monitor specs i.e. what factors matter and how to compute them to figure out what monitor you should buy. Factors I'm vaguely aware of:
 
@@ -193,8 +203,84 @@ distance = (screen_size * ppi) / 60  # 60 = approximate pixels per degree of hum
 ppi = math.sqrt((horizontal_res ** 2) + (vertical_res ** 2)) / screen size
 ```
 
-## PPI
+* https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
 
+## aspect ratio
+
+💡 width to height expressed as a ratio
+
+```python
+def calculate_aspect_ratio(width: int, height: int) -> tuple[int, int]:
+    """
+    * calculate the simplified aspect ratio for given dimensions
+    * uses gcd (greatest common divisor) to reduce the ratio
+    >>> calculate_aspect_ratio(1920, 1080)
+    (16, 9)
+    """
+    from math import gcd
+    divisor = gcd(width, height)
+    return (width // divisor, height // divisor)
+
+def calc_dimension_from_ratio(target_width, target_height, ratio=None):
+    """
+    >>> calc_dimension_from_ratio(target_width=1280, ratio=(16, 9))
+    (1280, 720)
+    """
+    width_ratio, height_ratio = ratio
+    if target_width:
+        return (target_width, int(target_width * (height_ratio / width_ratio)))
+    else:
+        return (int(target_height * (width_ratio / height_ratio)), target_height)
+```
+
+* _1:1_: square
+* _3:2_: 35mm photos
+* _4:3_: old TVs, monitors
+* _16:9_: most modern screens, HD video
+
+---
+
+* https://www.jeffgeerling.com/blog/2020/making-terminal-window-right-aspect-ratio-streaming-or-recording
+* Apple retina standard, 3:2 aspect ratio https://news.ycombinator.com/item?id=40385371 https://news.ycombinator.com/item?id=40399662
+
+## coloration
+
+* https://news.ycombinator.com/item?id=42796950
+```txt
+* Use diffuse light. This usually means multiple light sources bouncing and diffusing light off surfaces (ceilings, walls, etc) or diffusers.
+* Minimize shadows. Shadows lead to contrast which can lead to eye strain. Use multiple, maybe directional, light sources to illuminate shadows.
+* Minimize highlights. Windows without blinds let in lots of light which leads to contrast and can lead to eye strain. Curtains and blinds are great ways to diffuse light.
+* Uniform color temperature. Try to make sure all your lights have the same color temperature. Small variations are okay but large color temperature variations lead to color contrast which also tends to be hard on eye strain.
+* Select your color temperature based on needs and feeling. A lot of people prefer warmer color temperature lights and cool temperature lights are known to be more stressful for folks with anxiety-related conditions, but if your work requires accurate color representation, or you find yourself mentally trying to compensate for color temperature, then change the temperature to what you find most productive yet relaxing.
+* Wall color. Remember that "white" light that reflects off colored surfaces will take on a hue similar to the reflected surfaces. Walls of different colors can cause challenges for uniform color temperature, and warm colored walls can take cold lights and turn them warm.
+A side effect, of course, is that your room will become a lot more photogenic. It's no coincidence since photogenic rooms are often just easiest on the eye to look at.
+"Golden Hour" is considered a great time for photogenic events, photographs, and videos. "Golden Hour" lighting tends to be diffuse, not too strong, and warm toned. Humans tend to really like this style of lighting and if you do too, you might want to recreate some of these properties in your office.
+```
+* dark mode: set from terminal https://stefan.sofa-rockers.org/2018/10/23/macos-dark-mode-terminal-vim/
+* _Flux_: https://justgetflux.com/ https://news.ycombinator.com/item?id=30626803
+* NightShift https://shifty.natethompson.io/en/
+
+## frames
+
+* _frame rate (FPS)_: how many frames CPU can produce per second
+* 60 FPS is typical
+* 6ms for single https://github.com/neurocyte/flow
+* _refresh rate_: how quickly monitor can display FPS
+* 60 Hz is typical
+
+## pixels
+
+💡 bigger screen = need higher resolution for higher PPI
+```txt
+if you have a 4k display and it's small, you'll have higher PPI and the images will be clearer
+if you have a 4k display and it's big, you'll have lower PPI and the images will be less clear
+```
+
+* _scaling_: adjust size of UI elements without changing resolution
+* ensures content remains readable esp. on high-resolution displays where default PPI can make elements too small
+* _resolution_: total number of pixels
+* _PPI_: density
+* aka pixel density, pixel-to-screen size ratio
 ```python
 import math
 resolution = [1920, 1080]
@@ -202,45 +288,80 @@ diagonal_res = math.sqrt(resolution[0]**2 + resolution[1]**2)
 ppi = diagonal_res / 23
 ```
 
+```python
+def calculate_ppi(width, height, diagonal_inches):
+    """
+    width (int): horizontal resolution (pixels)
+    height (int): vertical resolution (pixels)
+    diagonal_inches (float): screen diagonal size (in inches)
+    """
+    import math
+    diagonal_pixels = math.sqrt(width**2 + height**2)
+    ppi = diagonal_pixels / diagonal_inches
+    if ppi >= 200:
+        sharpness = "Excellent (Retina-level sharp for close work)"
+    elif 160 <= ppi < 200:
+        sharpness = "Very good (crisp and clear for desk work)"
+    elif 100 <= ppi < 160:
+        sharpness = "Good (suitable for general use, but not optimal for close work)"
+    else:
+        sharpness = "Low (visible pixels at close distances)"
+    return {
+        "width": width,
+        "height": height,
+        "diagonal_inches": diagonal_inches,
+        "ppi": round(ppi, 2),
+        "interpretation": sharpness
+    }
+```
+
+---
+
+* 1080p vs. 4k for readability https://news.ycombinator.com/item?id=23551983 
+
+```txt
+macOS "Retina" Scaling:
+* Mac Retina displays (e.g., MacBook Pro 14" and 16") have high PPI (218+ PPI).
+* By default, macOS renders UI at a virtual resolution that appears more like 2560×1600 (even though the physical resolution is higher).
+* You get the appearance of a lower resolution but with sharper rendering.
+
+Example:
+4K resolution (3840 × 2160) at 200% scaling → UI looks like 1920 × 1080, but with twice as many pixels for every element → much sharper.
+
+Windows Scaling:
+* On Windows, you can set scaling to 100%, 125%, 150%, or more.
+* This adjusts how big the text, icons, and windows appear.
+* Without proper scaling, a 4K monitor at 100% scaling can make everything appear tiny.
+```
+
 ## specs
 
 ---
 
 FACTORS 🗄️ machines
-* aspect ratio
 * scaling
-* size
-* refresh rate
-
-COLORATION
-* dark mode: set from terminal https://stefan.sofa-rockers.org/2018/10/23/macos-dark-mode-terminal-vim/
-* Flux https://justgetflux.com/ https://news.ycombinator.com/item?id=30626803
-* NightShift https://shifty.natethompson.io/en/
 
 * https://registerspill.thorstenball.com/p/joy-and-curiosity-13 https://daniel.lawrence.lu/blog/y2023m12d15/
-* https://news.ycombinator.com/item?id=41987359
-* https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development#is-4k-worth-it-even-with-abnormal-vision
-* config on macOS https://news.ycombinator.com/item?id=34487066
-* 1080p vs. 4k for readability https://news.ycombinator.com/item?id=23551983 
 * _OLED_: most accurate, best for viewing from non-direct angle https://www.tomsguide.com/us/what-is-oled,news-25120.html
-
-ASPECT RATIO
-* https://www.jeffgeerling.com/blog/2020/making-terminal-window-right-aspect-ratio-streaming-or-recording
-* Apple retina standard, 3:2 aspect ratio https://news.ycombinator.com/item?id=40385371 https://news.ycombinator.com/item?id=40399662
-* 16:9
 
 ## models
 
-* _Asus pa278cgv_: https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/ https://www.nytimes.com/wirecutter/reviews/best-monitors/
-* _BenQ RD320UA_: 🎯 $600 https://www.youtube.com/watch?v=784pFXYBqsg https://www.youtube.com/watch?v=rp1fEKGkG2M
+* _BenQ RD320UA_: 🎯 $650 https://www.youtube.com/watch?v=784pFXYBqsg https://www.youtube.com/watch?v=rp1fEKGkG2M
+* _BenQ PD2706U_: https://www.amazon.com/dp/B0BS4R8YDJ/?tag=thewire06-20&linkCode=xm2&ascsubtag=F0401J8TNQFDX7TRVABATYDS716PY&th=1
 * _Dell S2318HN_: ✅ $175, 23", 1080p
+* _Dell U2723QE_: $650 https://www.nytimes.com/wirecutter/reviews/best-monitors/
+> The Dell UltraSharp U2723QE has a higher 4K resolution than our top pick, so text and images will look much sharper. It also has a new technology that doubles its contrast compared with that of standard IPS monitors, so its 2000:1 contrast ratio looks great when displaying movies, TV shows, and pictures. This monitor also looked great when used with Mac machines, which is something we can’t say for most lower-resolution 1440p monitors. So if you’re looking for a high-resolution 27-inch display, this is the best one we’ve tested.
+* _Dell U3223QE_: $600, 32", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/
+* _Spectrum black_: 🎯 $650 https://www.dough.tech/pages/monitors
+> assume this is 27"
+
+---
+
+* _Asus pa278cgv_: https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/ https://www.nytimes.com/wirecutter/reviews/best-monitors/
 * _Dell S2721QS_: https://people.zsa.io/leon-si/
 * _Dell S2722QC_: $225, 27", 4k https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.amazon.com/dp/B09DTDRJWP/
 * _Dell U2515H_: 🎯 $250 https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development
 * _Dell U2518D_: 🎯 https://nickjanetakis.com/blog/how-to-pick-a-good-monitor-for-software-development
-* _Dell U2723QE_: $600 https://www.nytimes.com/wirecutter/reviews/best-monitors/
-* _Dell U3223QE_: $600, 32", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/
-* _Spectrum black_: 🎯 $750 https://www.dough.tech/pages/monitors
 
 # 🟨️ ZA
 

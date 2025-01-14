@@ -322,7 +322,7 @@ PROJECTS THAT USE
 * _stdlib_:  https://media.pragprog.com/titles/rggo/first.pdf approach 1 https://eryb.space/2020/05/27/diving-into-go-by-building-a-cli-application.html https://github.com/erybz/go-grab-xkcd approach 2 https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://github.com/carlmjohnson/go-grab-xkcd `flags` not good? https://golang.org/pkg/flag/ https://news.ycombinator.com/item?id=23319770 https://news.ycombinator.com/item?id=23321901
 * _Cobra/Viper_: Hugo, Kubernetes https://news.ycombinator.com/item?id=23319172 scaffold https://github.com/spf13/cobra/blob/master/cobra/README.md module support https://github.com/spf13/cobra/issues/1054 https://github.com/spf13/cobra/issues/795 https://github.com/spf13/cobra/pull/817 https://qua.name/antolius/making-a-testable-cobra-cli-app https://www.youtube.com/watch?v=44MMeT39eG4
 * _cli_: https://github.com/urfave/cli https://github.com/ayoisaiah/goname/blob/master/cmd/goname/main.go https://news.ycombinator.com/item?id=23321576
-* _alternatives_: terminal GUI https://github.com/rivo/tview other options https://go.dev/solutions/clis/ https://github.com/jessevdk/go-flags https://github.com/jaffee/commandeer
+* _alternatives_: terminal GUI https://github.com/rivo/tview https://www.youtube.com/watch?v=aiWOTYiIzyE other options https://go.dev/solutions/clis/ https://github.com/jessevdk/go-flags https://github.com/jaffee/commandeer
 * _interactive prompt_: https://github.com/AlecAivazis/survey
 * output https://github.com/nikolaydubina/calendarheatmap https://xkcd.com/1138/ https://github.com/vbauerster/mpb https://github.com/cirruslabs/echelon https://github.com/gookit/color/ https://github.com/Delta456/box-cli-maker colors https://github.com/muesli/termenv
 

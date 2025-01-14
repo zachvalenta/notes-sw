@@ -7,6 +7,7 @@
 * https://pragprog.com/titles/dzseven/seven-obscure-languages-in-seven-weeks/
 * https://pragprog.com/titles/btlang/seven-languages-in-seven-weeks/
 * https://pragprog.com/titles/7lang/seven-more-languages-in-seven-weeks/
+* https://nostarch.com/strange-code
 
 ## 进步
 
@@ -106,6 +107,7 @@ USAGE
 * scripting with Redis https://redis.io/docs/latest/develop/interact/programmability/eval-intro/ https://www.youtube.com/watch?v=7EK06n485nk [6:30]
 * Neovim
 * Hammerspoon
+* extending C projects https://github.com/jmattaa/laser
 
 ---
 
@@ -161,6 +163,7 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 memory management https://stackoverflow.com/a/3434252
 * models https://news.ycombinator.com/item?id=42397737
 * _leak_: run out of memory
+> What happens if you don't free memory? As your process uses more and more memory, it will eventually slow down, crash, or get killed silently. https://pythonspeed.com/articles/identifying-resource-leaks-with-pytest/
 * _unmanaged code_: language w/ no memory management e.g. C, C++; sometimes used to mean "compiles directly to machine code" by people who do not understand that C has an abstract machine
 * _managed code_: language w/ memory management (Java); dynamic languages not typically described as such, more of a marketing term for enterprise languages
 * _garbage_: 
@@ -261,6 +264,8 @@ int y = x;  // 0x7ffee4c114f4
 ```
 
 ## stacks
+
+🗄️ `algos.md` recursion
 
 * _stack frame_: instance of function execution
 * vars, args, metadata (location in call stack, return address)

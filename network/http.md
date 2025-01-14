@@ -18,10 +18,19 @@
 
 * _24_: mv to own file
 
+START HERE
+* https://hpbn.co/brief-history-of-http/
+* https://hpbn.co/http1x/
+* https://hpbn.co/http2/
+* https://hpbn.co/primer-on-browser-networking/
+* https://hpbn.co/xmlhttprequest/
+* https://hpbn.co/server-sent-events-sse/
+
 HISTORY https://softwareengineeringdaily.com/2023/10/11/the-future-of-http/
 * 0.9 (1991): methods
 * 1.1 (1996): + user-agent, Accept
 * 1.1. (1999): Connection: keep-alive https://tools.ietf.org/html/rfc7230 https://tools.ietf.org/html/rfc7231
+* 2.0: https://victoriametrics.com/blog/go-http2/
 * _Gopher_: predecessor of HTTP https://drewdevault.com/2020/11/01/What-is-Gemini-anyway.html https://blog.devgenius.io/tired-of-the-modern-web-discover-some-retro-protocols-you-still-can-use-today-30bbca48d3f2 https://github.com/xvxx/phetch
 * _Gemini_: alternative to HTTP https://www.youtube.com/watch?v=PQBWkkXSfSY https://drewdevault.com/gemini.html https://sotiris.papatheodorou.xyz/
 
@@ -53,7 +62,17 @@ THINGS TO KNOW https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 * how to inspect network packet
 * how TCP works - inspect packet, BYO
 
-WHAT HAPPENS WHEN 📙 `evans-networking-ack.pdf` https://www.youtube.com/watch?v=AlkDbnbv7dk
+## what happens when
+
+* browser looks up IP addr for domain via DNS
+* browser establishes connection to web server
+* browser sends HTTP req
+* website processes the req and returns res
+* browser renders page
+
+---
+
+📙 `evans-networking-ack.pdf` https://www.youtube.com/watch?v=AlkDbnbv7dk
 * https://danluu.com/navigate-url/
 * https://intronetworks.cs.luc.edu/
 * https://drewdevault.com/2016/12/06/A-broad-intro-to-networking.html
@@ -220,7 +239,7 @@ authorization types https://testdriven.io/blog/flask-spa-auth/
 * _token-based_: uses localStorage
 
 * HTTP basic auth https://blog.luisrei.com/articles/flaskrest.html https://www.youtube.com/watch?v=VW8qJxy4XcQ
-* https://www.youtube.com/channel/UCnWO-PRzuPnPBg0KCg_RVPA https://developer.mozilla.org/en-US/docs/Web/HTTP https://hpbn.co/brief-history-of-http/
+* https://www.youtube.com/channel/UCnWO-PRzuPnPBg0KCg_RVPA https://developer.mozilla.org/en-US/docs/Web/HTTP
 * HTTPS https://howhttps.works/ https://realpython.com/python-https/
 * https://lchsk.com/stay-paranoid-and-trust-no-one-overview-of-common-security-vulnerabilities-in-web-applications.html https://24ways.org/2018/securing-your-site-like-its-1999/ https://hackernoon.com/10-common-security-gotchas-in-python-and-how-to-avoid-them-e19fbe265e03 https://kushaldas.in/posts/highest-used-python-code-in-the-pentesting-security-world.html https://www.freecodecamp.org/learn/information-security/information-security-projects/
 
@@ -589,7 +608,7 @@ https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
 
 # 🟨 ZA
 
-* _tarpit_: purposefully slow responses e.g. delay, send partial, add artificial latency between headers and body https://news.ycombinator.com/item?id=31509523 https://chatgpt.com/c/674a3d23-5e98-8004-aa33-c1cde00d2bea
+* _tarpit_: purposefully slow responses e.g. delay, send partial, add artificial latency between headers and body https://news.ycombinator.com/item?id=31509523 https://chatgpt.com/c/674a3d23-5e98-8004-aa33-c1cde00d2bea https://news.ycombinator.com/item?id=42725147
 
 ## methods / verbs
 

@@ -36,7 +36,7 @@ RN
 
 ## graph
 
-📙 https://www.manning.com/books/graph-algorithms-for-data-science
+📙 Bratanic https://www.manning.com/books/graph-algorithms-for-data-science
 
 ---
 
@@ -483,6 +483,9 @@ print(trie.starts_with("bat"))   # False
 ## array
 
 ---
+
+python lists impl as dynamic array https://docs.python.org/3/faq/design.html#how-are-lists-implemented-in-cpython
+* specialized array storage: array (typed) bytes (immutable, single byte i.e. 0-256) bytearray (byte but mutable) https://dbader.org/blog/python-arrays https://realpython.com/python-array
 
 * array https://www.youtube.com/watch?v=QJNwK2uJyGs
 ADT/DS

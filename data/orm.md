@@ -256,6 +256,7 @@ Performance.query.get(1).concert  # id 1 name Glastonbury
 
 ---
 
+* https://news.ycombinator.com/item?id=42778151
 * reverse query builder https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203030 https://github.com/kyleconroy/sqlc https://preslav.me/2023/03/07/reasons-against-sqlc/
 * _query builder_: what it sounds like i.e. cares about physical tables, doesn't care about objects i.e. not an ORM https://github.com/stephenafamo/bob
 * BYO https://death.andgravity.com/query-builder-how

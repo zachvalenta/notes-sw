@@ -364,6 +364,30 @@ LODASH-ESQUE LIBRARIES
 
 ## query
 
+* _any()_: returns true if any el true
+```python
+items = [False, False, True, False]
+any(items) | True in items  # true
+
+def any_implementation(iterable):
+    for element in iterable:
+        if element:
+            return True
+    return False
+```
+* _all()_: returns true if all el true
+* _in_: membership 🗄️ `python/obj.md` dunder > contains
+* _index()_: find position
+```python
+qd.index(el)  # only returns first match
+if my_str.find(query) >= 0:  # # https://docs.python.org/3/library/stdtypes.html#str.find
+    return my_str.find(query)
+else:
+    return QueryNotFoundException()
+```
+
+---
+
 https://github.com/mkalioby/leopards
 
 ## slice
@@ -626,29 +650,26 @@ print(*ur_list, sep="\n")  # https://stackoverflow.com/a/22695369
 """
 ```
 * 📍 https://docs.python.org/3/tutorial/stdlib2.html#tools-for-working-with-lists flatten https://realpython.com/python-flatten-list/
-* specialized array storage: array (typed) bytes (immutable, single byte i.e. 0-256) bytearray (byte but mutable) https://dbader.org/blog/python-arrays https://realpython.com/python-array
-* impl as dynamic array https://docs.python.org/3/faq/design.html#how-are-lists-implemented-in-cpython
-* finding stuff
-```python
-# membership = "is it there?"
-1 in [1, 2, 3]
-'a' in 'abc'
-
-# location = "where is it?"
-qd.index(el)  # only returns first match
-if my_str.find(query) >= 0:  # # https://docs.python.org/3/library/stdtypes.html#str.find
-    return my_str.find(query)
-else:
-    return QueryNotFoundException()
-```
 
 ## string
 
 📙 Beazley ch. 1
 🗄️ `algos.md` edit distance
 
-LIBS
-* https://calmcode.io/shorts/humanize.py
+MUNGE
+```python
+# PARTS
+"NYC:London".split(":")         # into chunks; default delimiter is space
+"NYC:London".partition(":")     # into halves; requires delimiter
+list("this test string")        # split by char
+"".join(l)                      # join by delimiter
+
+# RM
+"foo ".strip()                  # rm newline, trailing/leading whitespace
+"aaabc".strip("a")              # rm from start
+"baaac".replace("a", "")        # swap from anywhere
+''.join(c.lower() for c in 'A. O. Smith' if c.isalnum())  # filter out non-alphanumeric
+```
 
 ---
 
@@ -661,20 +682,6 @@ parse https://realpython.com/python-packages/#parse-for-matching-strings
 * f-strings https://martinheinz.dev/blog/103 https://martinheinz.dev/blog/70
 * fuzzy comparison: difflib https://martinheinz.dev/blog/96 https://florian-dahlitz.de/articles/create-your-own-diff-tool-using-python
 
-* munge
-```python
-# PARTS
-"NYC:London".split(":")         # into chunks; default delimiter is space
-"NYC:London".partition(":")     # into halves; requires delimiter
-list("this test string")        # split by char
-"".join(l)                      # join by delimiter
-
-# RM
-"foo ".strip()                  # rm newline, trailing/leading whitespace
-"aaabc".strip("a")              # rm from start
-"baaac".replace("a", "")        # swap from anywhere
-```
-
 * Python: strip to rm from/end, replace to rm all occurences https://stackoverflow.com/a/40950987/6813490
 
 * contains `"hey" in "heya"`
@@ -683,8 +690,9 @@ list("this test string")        # split by char
 from distutils.version import StrictVersion
 StrictVersion("1.11") > StrictVersion("1.12.6")
 ```
-formatting 📙 Van Rossum ch. 7 https://realpython.com/python-format-mini-language/
+FORMATTING 📙 Van Rossum ch. 7 https://realpython.com/python-format-mini-language/
 * _f-string_: only works on 3.6 and up https://old.reddit.com/r/learnpython/comments/hjegkc/why_do_people_use_format_method_when_f_string/ there's also Template strings, apparently safer that f-strings https://realpython.com/python-string-formatting/ convert to f-string https://github.com/ikamensh/flynt
+* https://calmcode.io/shorts/humanize.py
 ```python
 # HISTORY https://pyformat.info/
 f"hey, {'zjv'.upper()}"  # newest

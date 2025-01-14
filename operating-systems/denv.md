@@ -416,6 +416,7 @@ apt-get clean; rm -rf /var/lib/apt/lists/* # clean up file cache https://pythons
 
 ---
 
+https://news.ycombinator.com/item?id=42666851
 https://www.youtube.com/watch?v=cDZyeEtt8kY
 https://github.com/mitchellh/nixos-config
 

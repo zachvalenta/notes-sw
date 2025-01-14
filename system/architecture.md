@@ -16,6 +16,7 @@
 * Ford fundamentals of software architecture
 * Ford evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
+* Tan acing the interview https://www.manning.com/books/acing-the-system-design-interview
 * ⭐️ Xu system design interview https://www.manning.com/books/acing-the-system-design-interview
 
 ## 进步
@@ -334,6 +335,7 @@ INSTAGRAM https://minds.md/zakirullin/cognitive
 ## streaming
 
 🗄️ `infra.md` queue / event (Kafka)
+📙 Wang streaming systems https://www.manning.com/books/grokking-streaming-systems
 
 ---
 
@@ -544,6 +546,13 @@ https://github.com/jncraton/box-line-text
 
 # 🏮 AUDIT TRAIL
 
+## scaffold
+
+https://github.com/rberenguel/motllo
+https://mostlymaths.net/2024/11/test-driven-writing.html/
+
+---
+
 🛠️ https://github.com/zachvalenta/ur-repo https://github.com/zachvalenta/create-python-app
 > turn this into a template repo? 🗄️ `git.md` Github > repos
 🗄️
@@ -584,6 +593,7 @@ MESSY PROJECT ROOT = `$PROJ/meta` 🗄️ `python/pkg.md` project structure
 * https://matklad.github.io//2021/02/06/ARCHITECTURE.md.html https://news.ycombinator.com/item?id=26048784
 * https://github.com/great-expectations/great_expectations/tree/develop/docs/adr
 * https://taskwarrior.org/docs/philosophy/
+* https://sethmlarson.dev/quickly-visualizing-sbom-with-cli
 
 ## changelog / release notes
 

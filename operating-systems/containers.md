@@ -260,6 +260,7 @@ services:
 ## 🛠️ tooling
 
 * _lazydocker_: 🎯 https://github.com/jesseduffield/lazydocker logs only https://github.com/Lifailon/lazyjournal
+* _gocker_: https://github.com/micoli/gocker
 
 ---
 
@@ -434,6 +435,12 @@ https://x.com/b0rk/status/1227244309621215233 https://roadmap.sh/docker
 * `cgroup_id` create ID `cgset` set CPU/mem limits `cgexec $ARGS unshare $ARGS` create cgroup 
 * v2 not supported on macOS https://github.com/facebookincubator/below/issues/8239 https://chatgpt.com/c/6734fc58-e87c-8004-a6aa-29f218382928 
 * on macOS, containers are actually running inside Linux VM
+* use to memory allocation for commands run from shell https://entropicthoughts.com/limiting-process-memory-with-systemd-run
+```sh
+# limit24
+systemd-run --scope -p MemoryMax=24G -p MemoryHigh=22G -- "$@"
+limit24 cabal build
+```
 * _pivot root_: process's root dir = container imagine CWD
 * _namespaces_: https://man7.org/conf/meetup/understanding-user-namespaces--Google-Munich-Kerrisk-2019-10-25.pdf
 * _seccomp_: prevent dangerous syscalls

@@ -204,9 +204,50 @@ users:
 
 # 📜 DOCUMENTS
 
+## Canva
+
+```txt
+Design simplicity over PDF functionality:
+* WYSIWYG interface
+* Templates
+* No learning curve
+* Cross-platform web access
+
+Image-based output advantages:
+* Exact visual reproduction across devices
+* No font/layout issues
+* Harder to copy/modify content
+* Smaller file size than vector for complex designs
+
+Key tradeoff: Sacrifices PDF features for:
+* Accessibility (screen readers can't read text)
+* Search functionality
+* Text selection/copying
+* Easy modification
+* Bookmarks/ToC/links
+
+Canva's target market (marketers, small business owners, non-designers) typically prioritizes visual consistency and ease of creation over PDF functionality. They often don't even know what they're giving up.
+```
+
+get sections with `pdftk`
+```sh
+pdftk "contemporary piano.pdf" update_info bookmarks.txt output output.pdf
+```
+```txt
+BookmarkBegin
+BookmarkTitle: TOC
+BookmarkLevel: 1
+BookmarkPageNumber: 7
+BookmarkBegin
+BookmarkTitle: ch 1 - basics
+BookmarkLevel: 1
+BookmarkPageNumber: 9
+```
+
 ## LaTeX
 
 🗄️ `design.md` typography
+📙 https://www.manning.com/books/how-computers-make-books
 
 * https://github.com/googlefonts/fontations
 * _fnt_: manager https://github.com/alexmyczko/fnt
@@ -650,6 +691,7 @@ f"{val:.{4}}"  # 13.5
 
 TOOLING
 * _hexyl_: ✅ viewer https://github.com/sharkdp/hexyl 🗄️ uuinfo
+* _heh_: https://github.com/ndd7xv/he
 
 ---
 

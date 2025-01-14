@@ -526,6 +526,7 @@ SOURCES
 
 ---
 
+* https://gally.net/photographs.html
 * https://github.com/sedthh/pyxelate 
 * https://immich.app/
 * metadata https://stefaniemolin.com/articles/devx/pre-commit/exif-stripper/

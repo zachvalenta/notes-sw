@@ -63,6 +63,8 @@ PROGRAMS
 * can access QMK directly https://blog.zsa.io/oryx-custom-qmk-features/
 * _QMK_: firmware; C impl https://www.youtube.com/watch?v=D05B6NXV504
 * code > configurator https://www.youtube.com/watch?v=AA8fw2MbpYg
+* _Vial_: based on QMK https://get.vial.today/
+* viable for Vim? https://www.youtube.com/watch?v=Qzo8PtDzzdA
 * _VIA_: https://www.caniusevia.com/ https://www.youtube.com/watch?v=CLiZ5rAEx3A
 * "authorize your device" doesn't work for Nuphy
 * "authorize your device" only works for Keychron in Chrome
@@ -97,9 +99,23 @@ ZSA KEYS https://configure.zsa.io/voyager/layouts/ https://configure.zsa.io/moon
 
 * got basic homerow mods to work but conflicted with vim https://www.youtube.com/watch?v=CLiZ5rAEx3A
 > one thing with initial stab [D,S] is that the timing is too fast and conflicts with Vim
+> workaround with timeoutlen? https://tuckerchapman.com/posts/how-to-use-the-vim-leader-key/
 ```txt
 MT(MOD_LGUI,KC_F)
 MT(MOD_RGUI,KC_L)
+```
+
+ipython config
+```python
+## The time in milliseconds that is waited for a mapped key
+#         sequence to complete.
+#  Default: 0.5
+# c.TerminalInteractiveShell.timeoutlen = 0.5
+
+## The time in milliseconds that is waited for a key code
+#         to complete.
+#  Default: 0.01
+# c.TerminalInteractiveShell.ttimeoutlen = 0.01
 ```
 
 * hyper key https://benholmen.com/blog/hyper-key-with-karabiner-elements-raycast/ https://www.youtube.com/watch?v=m5MDv9qwhU8
@@ -224,6 +240,7 @@ ZA
 ## BYO
 
 🔍 serviced https://www.keyboardconcierge.com https://get-switched.com/ https://www.avikeebs.com/
+> https://news.ycombinator.com/item?id=42686144
 > https://www.youtube.com/watch?v=PDguuYMG0IQ
 
 COMPONENTS https://www.youtube.com/watch?v=7UXsD7nSfDY @ 4:45

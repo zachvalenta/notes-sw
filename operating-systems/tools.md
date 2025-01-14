@@ -27,7 +27,7 @@ jq -r '.data.user.contributionsCollection.contributionCalendar.weeks[].contribut
 * _try_: view files that command touches https://github.com/binpash/try
 
 CLEAN UP
-* _ffmpeg_: video encoding, file format conversion https://www.youtube.com/watch?v=MPV7JXTWPWI https://ffmpeg.guide/ https://img.ly/blog/ultimate-guide-to-ffmpeg/ https://drewdevault.com/2022/10/12/In-praise-of-ffmpeg.html
+* _ffmpeg_: video encoding, file format conversion https://www.youtube.com/watch?v=MPV7JXTWPWI https://ffmpeg.guide/ https://img.ly/blog/ultimate-guide-to-ffmpeg/ https://drewdevault.com/2022/10/12/In-praise-of-ffmpeg.html https://news.ycombinator.com/item?id=42695547
 * _imgcat_: render img in terminal https://news.ycombinator.com/item?id=23319272
 * weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/ https://git.sr.ht/~timharek/yr
 * Wikipedia https://github.com/yashsinghcodes/wik
@@ -326,7 +326,16 @@ DESIGN
 📹 https://www.youtube.com/watch?v=iKb3cHDD9hw
 
 FILE OPS
-* `d`: rm
+* `SPACE`: select | unselect
+* `x` cut (mark for mv)
+* `p` paste
+* `y` yank
+> have to select multiple in order to yank
+* `X` undo yank | cut
+* `d` rm
+* `o` open
+> you can just enter a dir by quitting yazi in that dir!
+> would like to config so that it works for both dropping to shell and file edit https://yazi-rs.github.io/docs/tips/#dropping-to-shell https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
 
 ZA
 * scroll preview: `J|K`
@@ -342,18 +351,6 @@ CONFIG
 * `ya`: CLI to install plugins
 * plugins https://yazi-rs.github.io/docs/cli/#package-manager
 * dir icons https://github.com/sxyazi/yazi/issues/2148
-
-FILE OPS
-* `SPACE`: select | unselect
-* `x` cut (mark for mv)
-* `p` paste
-* `y` yank
-> have to select multiple in order to yank
-* `X` undo yank | cut
-* `d` qing
-* `o` open
-> you can just enter a dir by quitting yazi in that dir!
-> would like to config so that it works for both dropping to shell and file edit https://yazi-rs.github.io/docs/tips/#dropping-to-shell https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
 
 ---
 
@@ -473,6 +470,7 @@ TODO
 
 ## watchers
 
+* ⭐️ https://github.com/wtetsu/gaze
 * watch sites https://github.com/vsoch/watchme/
 * Golang impl https://github.com/cespare/reflex https://github.com/cortesi/modd
 * exec code in response to fs change https://github.com/wtetsu/gaze https://github.com/watchexec/watchexec
@@ -528,6 +526,7 @@ DATA
 ```
 * _dysk_: 🎯 https://github.com/Canop/dysk
 * _gdu_: catppuccin theme https://github.com/dundee/gdu https://github.com/catppuccin/catppuccin/discussions/1851
+* _wiper_: https://github.com/ikebastuz/wiper
 * _ncdu_: ✅ JSON `$HOME/.config/ncdu/config` https://dev.yorhel.nl/ncdu/man
 > why diff versions (and much more deps) btw mini23 and air-capp? https://github.com/zachvalenta/logs-mini23/commit/e1945af0ccb30f5212feb8616ef10e6eca29e3ad https://github.com/zachvalenta/capp-denv-logs/commit/7ffaff08b1a9a63aa88b1e8eeef108b853341c98
 > 📍 align config btw machines

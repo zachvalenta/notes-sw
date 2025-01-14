@@ -90,11 +90,19 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 
 ## 🐘 Haskell
 
-* https://github.com/sdiehl/wiwinwlh
-* https://learnyouahaskell.com/ https://haskellbook.com/ https://news.ycombinator.com/item?id=40702146
+📜 https://www.haskell.org/
+📚
+* Allen https://haskellbook.com/
+* Bragilevsky https://www.manning.com/books/haskell-in-depth
+* Granin https://www.manning.com/books/functional-design-and-architecture
+* Hagenlocher https://www.manning.com/books/learn-haskell-by-example
+* Lipovaca https://learnyouahaskell.com/
+
+---
+
 * https://gwern.net/resilient-software
-* https://www.manning.com/books/functional-design-and-architecture
-* https://www.manning.com/books/learn-haskell-by-example
+* https://news.ycombinator.com/item?id=40702146
+* https://news.ycombinator.com/item?id=42754098
 
 ## 🐪 OCaml
 
@@ -114,6 +122,7 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 
 ## language
 
+* the parens make editing a pain https://news.ycombinator.com/item?id=42766205
 * https://zserge.com/posts/langs-lisp/
 * _homoiconicity_: code = data https://news.ycombinator.com/item?id=42272433
 * with Pythonic syntax https://news.ycombinator.com/item?id=42272433

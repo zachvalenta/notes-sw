@@ -34,9 +34,9 @@ https://github.com/lusingander/enigma
 * Conery ch. 1-4
 * ✅ Gleick information
 * ✅ Hillis pattern in the stone
-* MacCormick computed
+* MacCormick computed https://canvas.harvard.edu/courses/34992/assignments/syllabus
 * MacCormick nine algorithms
-* Nisan elements https://github.com/zachvalenta/nand2tetris
+* Nisan elements https://github.com/zachvalenta/nand2tetris https://news.ycombinator.com/item?id=42793597
 * Petzold code; second edition https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0137909101
 * Petzold annotated turing
 
@@ -48,7 +48,7 @@ def computation():
     return human_significance(data=hw_automate_math_op(num_sys, logic_gate), encoding)
 ```
 
-* _lambda calculus_: Conery chapter 3 https://www.youtube.com/watch?v=pkCLMl0e_0k https://news.ycombinator.com/item?id=27648871 https://www.youtube.com/watch?v=QuXJ3kXUCiU https://www.youtube.com/watch?v=ViPNHMSUcog
+* _lambda calculus_: Conery chapter 3 https://www.youtube.com/watch?v=pkCLMl0e_0k https://news.ycombinator.com/item?id=27648871 https://www.youtube.com/watch?v=QuXJ3kXUCiU https://www.youtube.com/watch?v=ViPNHMSUcog https://news.ycombinator.com/item?id=42679191
 * _non-determinism_: https://ahelwer.ca/post/2020-04-15-probabilistic-distsys/
 
 TIME

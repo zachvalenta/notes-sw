@@ -7,7 +7,6 @@
 * `eng.md` replicate
 * `infra.md` queues
 📚
-* https://www.manning.com/books/think-distributed-systems
 * https://books.google.com/books?id=jZgSAAAAQBAJ https://bsky.app/profile/nhuck.bsky.social/post/3lcb57fmhes23
 * Arpaci ch. 48-50
 * Galvin dinosaur chapter 17
@@ -15,6 +14,7 @@
 * Kleppmann data intensive
 * Petrov ch. 8-14
 * Takada fun/profit http://book.mixu.net/distsys/index.html
+* ⭐️ Tornow https://www.manning.com/books/think-distributed-systems
 
 ## 进步
 
@@ -87,7 +87,9 @@ Raft https://raft.github.io/
 
 # 🏦 TRANSACTIONS
 
-🗄 `system.md`
+🗄
+* `system.md`
+* `design-patterns.md` unit of work
 📙
 * Bradshaw ch. 8
 * Kleppmann ch. 7
@@ -103,6 +105,7 @@ Raft https://raft.github.io/
 https://hakibenita.com/django-nested-transaction
 * https://jepsen.io/analyses/mysql-8.0.34
 https://sqlfordevs.com/transaction-locking-prevent-race-condition
+https://blog.thibaut-rousseau.com/blog/sql-transactions-in-go-the-good-way/
 
 transactions & isolation levels 📙 Beaulieu 12
 * https://retool.com/blog/isolation-levels-and-locking-in-relational-databases/ https://jahfer.com/posts/innodb-locks/ https://www.postgresql.org/docs/9.5/transaction-iso.html
@@ -194,6 +197,8 @@ Eventual consistency = Everyone will see the same data, but it might take a whil
 * e.g. transaction 1 updates a row, transaction 2 reads the updated row before transaction 1 commits the update, transaction 1 rolls back the change, transaction 2 will have read data that is considered never to have existed https://retool.com/blog/whats-an-acid-compliant-database/
 
 ## retry
+
+🗄️ `algos.md` recursion
 
 ---
 

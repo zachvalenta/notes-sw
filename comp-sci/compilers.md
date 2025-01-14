@@ -7,9 +7,9 @@
 🗄️ `algos.md` data structures / tree
 📚
 * Ball interpreter https://vgel.me/posts/c500/
+* Keleshev compiling assembly https://keleshev.com/compiling-to-assembly-from-scratch/
 * Nystrom crafting https://craftinginterpreters.com
-* Eloquent Javascript
-* https://keleshev.com/compiling-to-assembly-from-scratch/
+* Sandler https://nostarch.com/writing-c-compiler
 
 ## 进步
 
@@ -63,14 +63,6 @@ import dis
 dis.dis(fn)
 ```
 * _optimization_: most of diff btw compilers is here [Conery 216] https://signalsandthreads.com/compiler-optimization/
-* _token_: atomic unit of significance
-```python
-tokens = {
-    "variable": "foo",
-    "operator": "=",
-    "number": 10
-}
-```
 
 ## lex
 
@@ -84,6 +76,15 @@ x = y + 5 becomes [IDENT(x), EQUALS, IDENT(y), PLUS, NUMBER(5)]
 * why it's split from parse https://news.ycombinator.com/item?id=35798829
 * _lexical analysis_: https://docs.python.org/3/reference/lexical_analysis.html
 
+* _token_: atomic unit of significance
+```python
+tokens = {
+    "variable": "foo",
+    "operator": "=",
+    "number": 10
+}
+```
+
 ## parse
 
 ```txt
@@ -91,6 +92,11 @@ Takes tokens
 Builds tree structure
 Checks syntax
 Creates AST
+```
+```txt
+- Grammar Definition
+- Parse Trees
+- Recursive Descent vs. LALR Parsing
 ```
 
 ---
@@ -103,6 +109,12 @@ Creates AST
 ## semantic analysis
 
 type checking
+
+```txt
+- Type Checking
+- Scope Resolution
+- Symbol Tables
+```
 
 ## AST
 
@@ -143,9 +155,32 @@ define    calculate        run area_of_circle
 
 * _grammar_: rules for language's AST https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework#parsing-the-code
 
+## IR
+
+```txt
+- Analysis & Optimization
+    - Data flow analysis
+    - Control flow analysis
+    - Constant propagation
+    - Dead code elimination
+- IR Transformations
+```
+```txt
+- Abstract Syntax Tree (AST)
+- Control Flow Graphs
+- Static Single Assignment (SSA)
+```
+```txt
+- Peephole Optimization
+- Loop Transformations
+- Dead Code Elimination
+```
+
 ## LLVM
 
 📙 https://aosabook.org/en/v1/llvm.html
+
+alternatives https://news.ycombinator.com/item?id=42782872
 
 ```sh
 %1 = load i32, ptr %y
@@ -242,7 +277,19 @@ Direct native code generation (harder but more control)
 Tree-walking interpreter (simpler but slower)
 ```
 
-## code generation
+## backend (code gen)
+
+Backend (IR → Target)
+- Target-specific optimization
+- Register allocation
+- Code generation
+- Linking
+- Binary emission
+
+Code Generation
+- Target Architecture
+- Instruction Selection
+- Register Allocation
 
 Yes - specifically within the compilation pipeline, a backend binary is a file format after the intermediate representation (IR) phase but before the final linking stage.
 It contains mostly machine code targeted for a specific CPU architecture, but often also includes:
@@ -326,10 +373,21 @@ gcc foo.o bar.o   # links them -> final executable
 
 ---
 
+- Static vs. Dynamic Linking
+- Relocation
+- Object Files and Libraries
+
 * static vs. dynamic https://astral.sh/blog/python-build-standalone
 * https://docs.tigerbeetle.com/quick-start/
 
 # 🔮 RUNTIME
+
+- Memory management
+- Garbage collection
+- Exception handling
+- FFI/ABI
+- Virtual machines (if applicable)
+- JIT compilation (if applicable)
 
 * _abstract machine_: C's version of a virtual machine https://words.steveklabnik.com/should-you-learn-c-to-learn-how-the-computer-works
 * _undefined behavior_: when an error happens but it's not thrown i.e. `TypeError` in Python might be mean the compiler just chugging along in C https://blog.regehr.org/archives/213 https://news.ycombinator.com/item?id=24363573
@@ -355,9 +413,21 @@ JIT
 * JVM
 * v8
 
+- Stack-based vs. Register-based
+- Just-in-Time (JIT) Compilation
+- Garbage Collection
+
 ## ABI
 
-* _ABI_: https://en.wikipedia.org/wiki/Application_binary_interface https://news.ycombinator.com/item?id=24140848 https://gankra.github.io/blah/c-isnt-a-language/ https://hpyproject.org/ https://news.ycombinator.com/item?id=41992899
+* https://en.wikipedia.org/wiki/Application_binary_interface
+* https://news.ycombinator.com/item?id=24140848
+* https://gankra.github.io/blah/c-isnt-a-language/
+* https://hpyproject.org/
+* https://news.ycombinator.com/item?id=41992899
+
+- Calling Conventions
+- Data Layout
+- System Interfaces
 
 ## FFI
 
@@ -365,6 +435,9 @@ JIT
 * _CFFI_: call C from Python https://pypi.org/project/cffi/ https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 * https://github.com/electronstudio/raylib-python-cffi
 * call Python from C http://eradman.com/posts/extending-c-python.html
+
+- Interoperability with Other Languages
+- Library Binding
 
 # 🟨 ZA
 
@@ -389,6 +462,7 @@ http://steve-yegge.blogspot.com/2007/06/rich-programmer-food.html
 
 TYPES OF COMPILATION
 * _just-in-time (JIT)_: https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction https://pycon-archive.python.org/2024/schedule/presentation/124/index.html
+* https://pypy.org/posts/2025/01/musings-tracing.html
 * _ahead-of-time (AOT)_: https://news.ycombinator.com/item?id=22346540
 * _adaptive_: quickening https://realpython.com/python311-new-features/#faster-code-execution https://github.com/brandtbucher/specialist
 

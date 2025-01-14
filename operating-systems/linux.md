@@ -290,7 +290,7 @@ Raspberry Pi
 * desktop https://www.raspberrypi.org/products/raspberry-pi-4-desktop-kit/
 
 daemons
-* _systemd_: spec for service start https://opensource.com/article/20/4/systemd https://news.ycombinator.com/item?id=42036305
+* _systemd_: spec for service start https://opensource.com/article/20/4/systemd https://news.ycombinator.com/item?id=42036305 https://unixdigest.com/articles/the-real-motivation-behind-systemd.html https://github.com/isd-project/isd
 > To configure services, you pretty much have to interact with systemd these days, for better or for worse. Most services on your system will have a systemd service file that defines a systemd unit. These files define what command to run when that services is started, how to stop it, where to log things, etc. They’re usually not too bad to read, and you can find most of them in /usr/lib/systemd/system/. You can also define your own in /etc/systemd/system. https://missing.csail.mit.edu/2019/machine-introspection/
 * _systemctl_: control service
 > Once you have a systemd service in mind, you use the systemctl command to interact with it. systemctl enable UNIT will set the service to start on boot (disable removes it again), and start, stop, and restart will do what you expect. If something goes wrong, systemd will let you know, and you can use journalctl -u UNIT to see the application’s log. You can also use systemctl status to see how all your system services are doing. If your boot feels slow, it’s probably due to a couple of slow services, and you can use systemd-analyze (try it with blame) to figure out which ones. https://missing.csail.mit.edu/2019/machine-introspection/

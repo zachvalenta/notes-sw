@@ -178,7 +178,8 @@ __in action__
 🔍 https://crypto.stackexchange.com/
 📚
 * Erickson hacking (chapter 10)
-* Sweigart ciphers
+* Khan https://www.manning.com/books/hacking-cryptography
+* Sweigart ciphers https://nostarch.com/codebreaking
 * https://www.manning.com/books/hacking-cryptography
 
 * real/academic cryptography is a math thing https://web.engr.oregonstate.edu/~rosulekm/crypto/
@@ -260,6 +261,7 @@ asymmetric
 
 🔗 https://github.com/HashPals/Name-That-Hash https://github.com/noraj/haiti
 
+https://omairmajid.com/posts/2021-07-16-why-is-hash-in-python/
 * _hash_: output from hash function [Bhargava 11.214]
 * _locality_: insensitive (slight diff in input changes hash completely) sensitive (slight diff in input changes hash only slightly) [Bhargava 11.216]
 * _hash function_: https://austinvernon.eth.link/blog/hashexamples.html https://austinvernon.eth.link/blog/hash.html

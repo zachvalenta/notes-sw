@@ -2,6 +2,7 @@
 
 ## 参考
 
+📑 papers https://news.ycombinator.com/item?id=42686457
 🏡
 * https://huggingface.co/
 * https://aclanthology.org/ https://aclanthology.org/2024.naacl-long.300/
@@ -9,15 +10,39 @@
 * https://ai.stackexchange.com/
 * https://datascience.stackexchange.com/
 📚
-* Ananthaswamy why machines learn
+
+APPLICATIONS
 * Ferguson game of go
-* ⭐️ Perrotta programming ML https://www.amazon.com/Little-Learner-Straight-Line-Learning/dp/026254637X
-* ⭐️ Raschka build LLM from scratch https://www.manning.com/books/build-a-large-language-model-from-scratch
-* Scardapane alices differentiable https://www.amazon.com/dp/B0D9QHS5NG
+* ⭐️ Flynn drug discovery https://www.manning.com/books/machine-learning-for-drug-discovery
+* Jha fight fraud https://www.manning.com/books/fight-fraud-with-machine-learning
+* Raschka build LLM from scratch https://www.manning.com/books/build-a-large-language-model-from-scratch
+* Ruiz de Villa casual inference https://www.manning.com/books/causal-inference-for-data-science
+
+FUNDAMENTALS
+> take my money https://news.ycombinator.com/item?id=37935616
+* https://www.manning.com/books/how-gpt-works
+* Ananthaswamy why machines learn
+* Kneusel math for deep learning https://nostarch.com/math-deep-learning
+* Kneusel how ai works https://nostarch.com/how-ai-works
+* Perrotta programming ML https://www.amazon.com/Little-Learner-Straight-Line-Learning/dp/026254637X
 * Trask deep learning https://github.com/iamtrask/Grokking-Deep-Learning
-* Wolfram https://bookoverflow.io/
+* Wolfram what is chatgpt doing? https://bookoverflow.io/
 
 ## 进步
+
+```sh
+# Classical AI: Hand-crafted features, explicit rules, symbolic manipulation
+# Deep Learning: Learned features, implicit patterns, numerical optimization
+
+├── Classical
+│   ├── Expert Systems
+│   ├── Statistical Learning
+│   └── Search/Planning
+└── Deep Learning
+    ├── Supervised
+    ├── Unsupervised
+    └── Reinforcement
+```
 
 ```sh
 📂 NLP/
@@ -211,13 +236,14 @@ USAGE https://platform.openai.com/docs/guides/embeddings
 ## labels (output var)
 
 🗄️ scikit
+📙 https://www.manning.com/books/data-without-labels
 
 * https://calmcode.io/course/bad-labels/introduction
 * https://calmcode.io/course/pigeon/introduction
 * https://calmcode.io/datasets/clinc
 * https://calmcode.io/labs/doubtlab
 * https://labelerrors.com/
-* https://www.manning.com/books/data-without-labels
+* https://softwaredoug.com/blog/2025/01/21/llm-judge-decision-tree
 
 TYPES
 * _supervised_: labeled data during training, unlabeled during predication [Trask 2.11]
@@ -431,6 +457,7 @@ The main approaches are:
 
 # 🧠 NEURAL NETWORKS
 
+📙 Scardapane alices differentiable https://www.amazon.com/dp/B0D9QHS5NG
 🗄️ `graphs.md` https://www.manning.com/books/graph-neural-networks-in-action https://www.manning.com/books/math-and-architectures-of-deep-learning https://fleetwood.dev/posts/you-could-have-designed-SOTA-positional-encoding https://news.ycombinator.com/item?id=42468214
 BYO https://www.manning.com/books/design-a-machine-learning-system-design-from-scratch
 
@@ -467,15 +494,17 @@ TYPES
 
 ## transformers
 
+📚
+* Koenigstein https://www.manning.com/books/transformers-in-action
+* Tunstall nlp with transformers https://www.amazon.com/dp/1098136799
+
 ---
 
 > LLMs (which are really just very large transformer models)
 > GPT stands for Generative Pre-trained Transformer 📙 Clinton obsolete gen AI
 > Transformers are models that can handle text-based tasks, such as translation, summarization, and text generation. They use a special architecture that relies on attention mechanisms to capture the relationships between words and sentences.
-📙 Tunstall nlp with transformers https://www.amazon.com/dp/1098136799
 
 * https://www.youtube.com/watch?v=KJtZARuO3JY
-* https://www.manning.com/books/transformers-in-action
 * https://www.amazon.com/gp/product/1098134184
 * https://realpython.com/huggingface-transformers/
 * https://www.youtube.com/watch?v=eMlx5fFNoYc
@@ -501,11 +530,13 @@ recurrent neural networks
 * _Keras_: less verbose Tensorflow (will eventually be packaged w/) https://victorzhou.com/blog/keras-neural-network-tutorial/ https://news.ycombinator.com/item?id=42133844
 * _PyTorch_: superceded Tensorflow https://thegradient.pub/state-of-ml-frameworks-2019-pytorch-dominates-research-tensorflow-dominates-industry/ NumPy that can run in parallel on GPUs; tensor (array 类似 NumPy array) scalar (single value) vector (array) matrix (2d array) tensor (multi-dimensional array) https://aiweirdness.com/post/189170306297/how-to-begin-a-novel alternative https://github.com/geohot/tinygrad https://github.com/Lightning-AI/lightning
 * _sci-kit learn_: https://jakevdp.github.io/PythonDataScienceHandbook/
-* _Matplotlib_: eaten by Python https://realpython.com/podcasts/rpp/197/
+* _Matplotlib_: eaten by Python https://realpython.com/podcasts/rpp/197/ https://towardsdatascience.com/from-default-python-line-chart-to-journal-quality-infographics-80e3949eacc3
 * Matlab for Python https://jakevdp.github.io/PythonDataScienceHandbook/
 * _MLX_: numpy for Apple silicon https://github.com/ml-explore/mlx
 
 ## jax
+
+https://cloud.google.com/blog/products/ai-machine-learning/guide-to-jax-for-pytorch-developers
 
 used on Hugging Face https://realpython.com/huggingface-transformers/#exploring-hugging-face
 
@@ -690,7 +721,7 @@ https://stratechery.com/2023/ai-and-the-big-five/
 * https://explainextended.com/2023/12/31/happy-new-year-15/ https://news.ycombinator.com/item?id=40378499
 * https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math
 
-* legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html https://simonwillison.net/2024/Dec/5/amazon-bedrock-data-protection/ https://simonwillison.net/2024/Dec/5/pleias-llms/ https://marginalrevolution.com/marginalrevolution/2024/12/thomas-storrs-on-elastic-data-supply-from-my-email.html https://www.tosabout.com/
+* legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html https://simonwillison.net/2024/Dec/5/amazon-bedrock-data-protection/ https://simonwillison.net/2024/Dec/5/pleias-llms/ https://marginalrevolution.com/marginalrevolution/2024/12/thomas-storrs-on-elastic-data-supply-from-my-email.html https://www.tosabout.com/ https://news.ycombinator.com/item?id=42725147
 * contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
 * price per token https://x.com/drorpoleg/status/1847686346078368006
 * tokens, read whole thing

@@ -43,6 +43,10 @@ COMPILERS
 * _cl_: Microsoft
 * _gcc_: aliased to Clang
 * _Clang_: frontend
+```sh
+$ python
+Python 3.12.1 (main, Dec 23 2023, 20:20:28) [Clang 14.0.3 (clang-1403.0.22.14.1)] on darwin
+```
 
 ## design
 
@@ -121,8 +125,11 @@ Most package managers (apt, yum, brew) maintain this split with separate runtime
 
 🔗 https://github.com/hackclub/some-assembly-required
 📚
-* Petzold code 24
-* Nisan nand2tetris 4, 6
+* Dagois gameboy https://nostarch.com/game-boy-coding-adventure
+* Hyde https://nostarch.com/art-arm-assembly-volume-1
+* Nisan nand2tetris (chapter 4/6)
+* ⭐️ Plantz arm https://nostarch.com/introcomputerorgforarm
+* Petzold code (chapter 24)
 
 * _assembly_: shorthand for whatever binary the CPU understands 📙 `evans-linux.pdf` 1
 * _HLA (high-level assembly)_: just a Randall Hyde thing https://news.ycombinator.com/item?id=7143409
@@ -269,6 +276,7 @@ USE FOR BUILDS
 PROJECTS
 * https://github.com/Arnau478/hevi
 * TigerBeetle
+* https://github.com/neurocyte/flow
 
 * https://www.youtube.com/watch?v=ug-KuDlMTYw
 * compared to Rust https://www.youtube.com/watch?v=Vxq6Qc-uAmE
@@ -285,12 +293,13 @@ PROJECTS
 # 🦀 RUST
 
 🗄️ `python/runtime.md` CPython > PyO3
+🕹️ Rustlings https://github.com/rust-lang/rustlings https://bitfieldconsulting.com/posts/rust-and-go
 📚
-> start with Rustlings course https://bitfieldconsulting.com/posts/rust-and-go https://github.com/rust-lang/rustlings https://bitfieldconsulting.com/books/rust-tools
-* https://bitfieldconsulting.com/books/rust-tools
-* https://bitfieldconsulting.com/posts/best-rust-books
-* https://www.manning.com/books/rust-servers-services-and-apps
-* internals https://www.amazon.com/dp/B0D7FQB3DH
+* Ahluwalia internals https://www.amazon.com/dp/B0D7FQB3DH
+* Arundel tool https://bitfieldconsulting.com/books/rust-tools
+* Eshwarla https://www.manning.com/books/rust-servers-services-and-apps
+* Klabnik the book https://doc.rust-lang.org/stable/book/ https://www.amazon.com/dp/1718503105
+* Drysdale https://www.amazon.com/dp/1098151402 https://bitfieldconsulting.com/posts/best-rust-books
 
 CODEBASES TO LEARN FROM
 * plugin interface https://github.com/triyanox/lla
@@ -416,6 +425,8 @@ xargs cargo install --locked < crates.txt # install from dump
 # UPDATE https://nickgerace.dev/posts/how-to-manage-rust-tools-and-applications/
 cargo install --locked cargo-update
 cargo install-update -a
+# pkg
+cargo install $PKG --force
 ```
 * `--locked`: use lock file i.e. reproducible but no updates
 > have my experience using the tool or application to match that of the upstream developer's experience...using the dependencies they tested with https://nickgerace.dev/posts/how-to-manage-rust-tools-and-applications/

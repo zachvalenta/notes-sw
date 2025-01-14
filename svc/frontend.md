@@ -14,6 +14,7 @@
 # 🪑 FRAMEWORKS
 
 🗄️ `django.md` design
+📙 https://www.manning.com/books/build-a-frontend-web-framework-from-scratch
 
 ## design
 
@@ -21,7 +22,7 @@ TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-develop
 * history: jQuery, Backbone, React, Next.js (built on top of React) https://blog.codepen.io/2024/11/11/chris-corner-our-eras-tour/
 * templating, JSX https://news.ycombinator.com/item?id=42464310
 * components https://github.com/wrabit/django-cotton
-* Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer
+* Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer https://reflex.dev/ https://pybit.es/articles/fitness-tracker-app-with-python-reflex/
 * _CRUD-and-forms_: Django https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/ 
 * _vanilla_: https://github.com/bradtraversy/vanillawebprojects https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies
 * _HTML-only_: htmx
@@ -34,7 +35,6 @@ TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-develop
 * _progressive enhancement_: content first, then sprinkle in some JS if the user-agent allows for it
 * options: InstantPage (load pages before user even clicks) Turbolinks (fast nav w/out SPA) https://macwright.com/2020/10/28/if-not-spas.html 
 * _wysiwyg_: https://news.ycombinator.com/item?id=27516212 https://github.com/facebook/lexical CodeMirror https://github.com/viebel/klipse
-* PETAL, Alpine, LiveView, Hotwire, htmx https://news.ycombinator.com/item?id=30325030 https://www.thoughtworks.com/radar/techniques?blipid=202203006
 
 SPA tradeoffs
 * https://htmx.org/essays/you-cant/
@@ -83,6 +83,7 @@ taxonomy
 
 ---
 
+* PETAL, Alpine, LiveView, Hotwire, htmx https://news.ycombinator.com/item?id=30325030 https://www.thoughtworks.com/radar/techniques?blipid=202203006 https://news.ycombinator.com/item?id=42711387
 great core team https://news.ycombinator.com/item?id=42616476
 if you try to do fancy stuff it will fight you https://news.ycombinator.com/item?id=42615472
 https://htmx.org/essays/future/
@@ -219,8 +220,8 @@ var app = new Vue({
 
 # 🥟 JAVASCRIPT
 
-📙 Eloquent Javascript
 🛣️ https://roadmap.sh/nodejs
+📙 Haverbeke eloquent javascript
 
 ---
 
@@ -229,7 +230,7 @@ STDLIB
 * site tour https://github.com/shipshapecode/shepherd
 * datatable https://github.com/handsontable/handsontable https://appliku.com/post/django-rest-framework-and-datatable-example https://github.com/pivotal-energy-solutions/django-datatable-view https://news.ycombinator.com/item?id=30919257
 * HTTP: Fetch, XHR/AJAX https://eloquentjavascript.net/18_http.html
-* native: JS (Cordova/PhoneGap, Ionic, React Native, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter https://news.ycombinator.com/item?id=41975047) Golang (https://github.com/wailsapp/wails https://github.com/cogentcore/core) Rust https://dioxuslabs.com/ https://www.bestinclassiosapp.com/ https://www.swiftjectivec.com/
+* native: JS (Cordova/PhoneGap, Ionic, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter https://news.ycombinator.com/item?id=41975047) Golang (https://github.com/wailsapp/wails https://github.com/cogentcore/core) Rust https://dioxuslabs.com/ https://www.bestinclassiosapp.com/ https://www.swiftjectivec.com/ React Native https://news.ycombinator.com/item?id=42690114
 * typing: Typescript beat Elm/Flow
 * Typescript, Civet https://news.ycombinator.com/item?id=41885940
 * vizualization: https://www.chartjs.org/ https://testdriven.io/blog/django-charts/#prepare-and-serve-the-data https://github.com/airbnb/visx https://github.com/recharts/recharts -> https://openbb.co/open#social-media-metrics 🗄 `math.md` graphs
@@ -355,7 +356,7 @@ fi
 * _polyfill_: replacement for Web API
 * _sourcemap_: map from minified code to source for purpose of debugging
 * _tree shaking_: remove dead code
-* _WASM_: compilation target for browsers that supports non-JS languages https://words.steveklabnik.com/is-webassembly-the-return-of-java-applets-flash https://sqlite.org/wasm/doc/tip/about.md https://rsms.me/wasm-intro https://neugierig.org/software/blog/2024/04/rust-wasm-to-js.html
+* _WASM_: compilation target for browsers that supports non-JS languages https://words.steveklabnik.com/is-webassembly-the-return-of-java-applets-flash https://sqlite.org/wasm/doc/tip/about.md https://rsms.me/wasm-intro https://neugierig.org/software/blog/2024/04/rust-wasm-to-js.html https://antonz.org/go-1-24/
 * _WebRTC_: browser-to-browser communication (for high-speed A/V) e.g. Facetime https://hpbn.co/webrtc/ https://pragprog.com/titles/ksrtc/programming-webrtc/
 * _Webpack_: creates bundle (all libs in single file); preceded by Browserify, succeeded by Snowpack
 * editors: Code Mirror, Monaco (what repl.it used before Code Mirror)
@@ -446,7 +447,7 @@ browsers
 * https://cssreference.io/ 
 * https://web.dev/learn/css/
 📚
-* https://www.manning.com/books/css-in-depth-second-edition
+* Grant https://www.manning.com/books/css-in-depth-second-edition
 * ⭐️ Dowden https://www.manning.com/books/tiny-css-projects
 * Evans hell yes https://wizardzines.com/zines/css/
 * Meyer https://www.amazon.com/CSS-Definitive-Guide-Layout-Presentation/dp/1098117611
@@ -469,7 +470,7 @@ FRAMEWORKS
 * _Magick_: sidenotes https://css.winterveil.net/
 * _mpv_: 🎯 https://calmcode.io/shorts/mvp.css
 * _Pure_: 🎯 https://purecss.io/
-* _Tailwind_: https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/ for TUIs https://github.com/koaning/tuilwindcss https://calmcode.io/labs/tuilwind-css
+* _Tailwind_: https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/ for TUIs https://github.com/koaning/tuilwindcss https://calmcode.io/labs/tuilwind-css https://news.ycombinator.com/item?id=42799136
 * _water_: ✅ https://github.com/kognise/water.css https://github.com/kognise/water.css/issues/160 
 
 LAYOUT
@@ -578,16 +579,15 @@ FORMS
 * `test.md` integration
 
 * _prefetch_: browser makes request when you hover over a link i.e. even before you click on it https://www.youtube.com/watch?v=-Ln-8QM8KhQ
-* cache: "The browser stores URLs it fetches in a cache. At its simplest this looks like a big dictionary, from url to the contents of that url" https://www.jefftk.com/p/why-prefetch-is-broken
+* cache: "The browser stores URLs it fetches in a cache. At its simplest this looks like a big dictionary, from url to the contents of that url" https://www.jefftk.com/p/why-prefetch-is-broken https://developer.chrome.com/blog/http-cache-partitioning
 
 ---
 
+* https://hpbn.co/primer-on-web-performance/
 * https://roadmap.sh/best-practices/frontend-performance
 * https://developers.google.com/web/tools/chrome-devtools/network-performance/reference 
-* https://hpbn.co/primer-on-web-performance/
 * https://1mb.club/
 * https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-performance
 * https://www.webpagetest.org/
 * https://webhint.io
 * https://developers.google.com/speed/pagespeed/insights/
-* human perception https://hpbn.co/primer-on-web-performance/#speed-performance-and-human-perception

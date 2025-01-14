@@ -14,6 +14,8 @@
 
 ## 进步
 
+OOP https://www.mostlypython.com/oop-in-python/
+
 * _24_: split from `python.md`, typing (exhaustiveness check, type narrowing)
 * _23_: hashable
 * _19_: imports, obj assignment, first pass (lambdas, dataclasses, shallow vs. copy, closure, decorator)
@@ -152,6 +154,15 @@ ADVANTAGES COMPARED TO PLAIN CLASSES https://www.youtube.com/watch?v=vBH6GRJ1REM
 * Kettler magic  https://news.ycombinator.com/item?id=17727437
 * Van Rossum ch. 9
 
+* _dunder_: methods called by the interpreter 📙 Ramalho [3]
+> When an object is passed to the str built-in function, its __str__ method is called. https://treyhunner.com/2018/06/how-to-make-an-iterator-in-python/
+* _Python data model_: dunder methods as a framework called by the interpreter 📙 Ramalho [3,8]
+> dunno if I agree with this semantic 🗄️ obj
+* why: ubiquitous names for standard operations across stdlib and user-defined classes [6]
+* used for: attribute access, iteration, operator overloading [4]
+* documentation: language reference ch. 3 (data model) https://docs.python.org/dev/reference/datamodel.html#specialnames language reference ch. 4 (mapping types) https://www.fluentpython.com/lingo/#special_method "magic method"/"dunder" not in the docs 📙 Kettler https://docs.python.org/dev/reference/datamodel.html#specialnames https://www.fluentpython.com/lingo/#special_method https://docs.python.org/3/glossary.html#term-magic-method https://docs.python.org/dev/reference/datamodel.html#specialnames 📙 Ramalho [4]
+> They're also not as well documented as they need to be. All of the magic methods for Python appear in the same section in the Python docs, but they're scattered about and only loosely organized. There's hardly an example to be found in that section (and that may very well be by design, since they're all detailed in the language reference, along with boring syntax descriptions, etc). 📙 Kettler https://rszalski.github.io/magicmethods/
+
 ---
 
 make immutable classes + port learning from dataclasses video https://www.youtube.com/watch?v=vBH6GRJ1REM [1:45]
@@ -159,42 +170,12 @@ make immutable classes + port learning from dataclasses video https://www.youtub
 https://mathspp.com/blog/case-insensitive-string-class
 https://www.pythonmorsels.com/every-dunder-method/
 
-* `__getattr__`: https://docs.python.org/3/glossary.html#term-attribute 
-* `__setattr__`: https://docs.python.org/3/glossary.html#term-attribute 
-* `__getattribute__` https://news.ycombinator.com/item?id=3719179
-
-https://martinheinz.dev/blog/87 more introspection https://martinheinz.dev/blog/82
-
-* getitem, iter, and/or, bool, getstate/setstate, repr https://books.agiliq.com/projects/Journeyman-Python/en/latest/magic-methods.html
 * _call_: make class instance callable e.g. `foo = Foo(); foo()` https://realpython.com/python-class-constructor/ https://realpython.com/python-multiple-constructors/ re: metaclasses https://eli.thegreenplace.net/2012/04/16/python-object-creation-sequence
 * _dict_: stores obj writable attributes https://docs.python.org/3/library/stdtypes.html#object.__dict__
 * called by `vars()` https://docs.python.org/3/library/functions.html#vars
 
-LIFECYLE
-* _new_: thing that actually creates obj instance https://betterprogramming.pub/5-pairs-of-magic-methods-in-python-you-should-know-f98f0e5356d6 https://realpython.com/python-class-constructor/
-* _init_: initializes obj https://realpython.com/python-multiple-constructors/ https://realpython.com/python-class-constructor/
-* use `cls()` when you want a wrapper in front of this in a class constructor https://stackoverflow.com/q/24799403
-```python
-class Foo:
-    def __init__(self, thing):
-        result = lookup(thing)
-        self.foo = result
+### comparison
 
-foo = Foo(thing="hey")
-
-# misdirection
-class Foo:
-    def __init__(self, foo):
-        self.foo = foo
-
-    @classmethod
-    def get(cls, thing):
-        result = thing.lookup(thing)
-        return cls(foo=result)
-
-Foo.get(thing="hi")
-```
-COMPARE
 * __eq__: 📙 Ramalho [84,415]
 * __hash__: returns int 📙 Ramalho [84,415] https://docs.python.org/3/reference/datamodel.html#object.__hash__
 * usage: compare obj https://www.youtube.com/watch?v=opijuVoq3Kk 5:50
@@ -211,7 +192,14 @@ def __hash__:
     # 📍 https://stackoverflow.com/questions/2909106/whats-a-correct-and-good-way-to-implement-hash https://stackoverflow.com/questions/4005318/how-to-implement-a-good-hash-function-in-python
 ```
 
-FILES
+* __contains__: membership 🗄️ `math.md` set theory `python/collections.md` operations > query
+```python
+'a' in 'abc'
+'abc'.__contains__('a')
+```
+
+### context mgmt
+
 ```python
 class UrOpener(object):
   def __init__(self, filename):
@@ -235,123 +223,154 @@ with UrOpener('sample-file.txt') as file:
   print(contents)
 ```
 
-BASICS
-* _dunder_: methods called by the interpreter 📙 Ramalho [3]
-> When an object is passed to the str built-in function, its __str__ method is called. https://treyhunner.com/2018/06/how-to-make-an-iterator-in-python/
-* _Python data model_: dunder methods as a framework called by the interpreter 📙 Ramalho [3,8]
-> dunno if I agree with this semantic 🗄️ obj
-* why: ubiquitous names for standard operations across stdlib and user-defined classes [6]
-* used for: attribute access, iteration, operator overloading [4]
-* documentation: language reference ch. 3 (data model) https://docs.python.org/dev/reference/datamodel.html#specialnames language reference ch. 4 (mapping types) https://www.fluentpython.com/lingo/#special_method "magic method"/"dunder" not in the docs 📙 Kettler https://docs.python.org/dev/reference/datamodel.html#specialnames https://www.fluentpython.com/lingo/#special_method https://docs.python.org/3/glossary.html#term-magic-method https://docs.python.org/dev/reference/datamodel.html#specialnames 📙 Ramalho [4]
-> They're also not as well documented as they need to be. All of the magic methods for Python appear in the same section in the Python docs, but they're scattered about and only loosely organized. There's hardly an example to be found in that section (and that may very well be by design, since they're all detailed in the language reference, along with boring syntax descriptions, etc). 📙 Kettler https://rszalski.github.io/magicmethods/
+### init
 
-## 🧑‍🧑‍🧒‍🧒 inheritance
-
-🗄️ typing
-
----
-
-```python
-issubclass(bool, int)
-
-# https://github.com/cosmologicon/pywat#circular-types 
-isinstance(object, type)      # True
-isinstance(type, object)  # True
+```txt
+Python initialization methods:
+__new__ (object creation)
+__init__ (instance initialization)
+__post_init__ (dataclass-specific post-initialization)
 ```
 
-* _abstract base class (ABC)_: https://www.fluentpython.com/lingo/ https://docs.python.org/3/glossary.html#term-abstract-base-class
-* _virtual subclass_: https://www.fluentpython.com/lingo/ https://www.fluentpython.com/lingo/#constructor
+https://docs.python.org/3/library/dataclasses.html#dataclasses.__post_init__
+> __post_init__ is a dataclass-specific method, not a general Python dunder. It runs automatically after __init__ when using @dataclass.
+```txt
+Core mechanics:
 
-### mixin
-
----
-
-* _mixin_: multiple inheritance of abstract class https://stackoverflow.com/a/15605119 https://www.fluentpython.com/lingo/#mixin_class
-* _interface_: https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python https://realpython.com/python-interface/ https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html https://www.youtube.com/watch?v=DqFspy9pI9k
-* _sink_: https://www.ianlewis.org/en/mixins-and-python https://stackoverflow.com/a/52469499/6813490 https://www.residentmar.io/2019/07/07/python-mixins.html https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful mixins tutorial https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556 https://stackoverflow.com/a/547714/6813490
-
-* _sink_: https://www.youtube.com/watch?v=YXiaWtc0cgE https://realpython.com/inheritance-composition-python/ https://realpython.com/oop-in-python-vs-java/
-* _inner class_: encapsulate something only relevant to enclosing class, stem proliferation of small modules https://stackoverflow.com/questions/719705/what-is-the-purpose-of-pythons-inner-classes
-
-* super: call method from parent
+Dataclass generates __init__ from field definitions
+__post_init__ runs after that generated __init__
+Common use: initialize mutable defaults (like your empty list) that shouldn't be shared between instances
+```
 ```python
-class Mammal():
-    def __init__(self, name):
-        print('{} is a warm-blooded animal'.format(name))
-#############################3
-class Dog(Mammal):
-    def __init__(self):
-        super().__init__('a dog')
+@dataclass
+class Catalog:
+    mode: str = 'flexible'
+    products = None
+    def __post_init__(self):
+        self.products = []
 ```
 
+* _new_: thing that actually creates obj instance https://betterprogramming.pub/5-pairs-of-magic-methods-in-python-you-should-know-f98f0e5356d6 https://realpython.com/python-class-constructor/
+* _init_: initializes obj https://realpython.com/python-multiple-constructors/ https://realpython.com/python-class-constructor/
+* use `cls()` when you want a wrapper in front of this in a class constructor https://stackoverflow.com/q/24799403
 ```python
-class Alice():
-    def crawl(self):
-        print('crawling')
+class Foo:
+    def __init__(self, thing):
+        result = lookup(thing)
+        self.foo = result
 
-class Bob():
-    def walk(self):
-        print('walking')
+foo = Foo(thing="hey")
 
-class Candace(Alice, Bob):
-    def run(self):
-        print('running')
+# misdirection
+class Foo:
+    def __init__(self, foo):
+        self.foo = foo
 
-c = Candace()
-c.run()
-c.walk()
-c.crawl()
+    @classmethod
+    def get(cls, thing):
+        result = thing.lookup(thing)
+        return cls(foo=result)
+
+Foo.get(thing="hi")
 ```
-
-### protocol
-
----
-
-* way to do interfaces
-* https://chatgpt.com/c/671815e8-0f44-8004-abb5-be6b52fc8bd1
-* https://godatadriven.com/blog/protocols-in-python-why-you-need-them/
-* https://www.youtube.com/watch?v=xvb5hGLoK0A
-* https://peps.python.org/pep-0544/
-* https://www.amazon.com/Architecture-Patterns-Python-Domain-Driven-Microservices/dp/1492052205
-* https://codebeez.nl/blogs/type-hinting-in-modern-python-the-protocol-class/
-* https://pythontest.com/fix-circular-import-python-typing-protocol/
 
 ## methods
 
----
-
-METHODS
-| type      | called on | arg          | variable access | use case                                          |
-|-----------|-----------|--------------|-----------------|---------------------------------------------------|
-| instance  | instance  | instance     | instance, class |                                                   |
-| class     | class     | class        | class           | factory                                           |
-| static    | class     | user-defined | --------------- | just plain func namespaced to class; Ramalho [371]|
-
-* virtual method https://stackoverflow.com/questions/622132/what-are-virtual-methods
-* the use of class methods https://stackoverflow.com/a/38276/6813490
-* https://stackoverflow.com/questions/22616559/use-cases-for-property-vs-descriptor-vs-getattribute
-* bound method https://www.fluentpython.com/lingo/#bound_method
-* _accessor_: https://www.fluentpython.com/lingo/#accessor
-
-* _single underscore_: hint (not enforcement) of private method [tutorial 9.6] i.e. no access modifiers
-* _name mangling_: https://www.fluentpython.com/lingo/
-
+TODO: figure out how `rate` works here i.e. `BankAccount.set_rate()` updates for `alice` but not `acme`
+> acme.rate = 0.025 creates a new instance attribute that shadows the class attribute
+> if rate is a class attr, why does self.rate work?
+> Python looks up attributes in this order: instance dict, class dict, parent class dicts
 ```python
-# https://monadical.com/posts/operator-overloading-in-python.html
-class Clock:
-   def __init__(self, time: str):
-       self.hour, self.min = [int(i) for i in time.split(':')]
+BankAccount.rate  # Direct class access
+alice.rate        # Instance access falls back to class
+getattr(alice, 'rate')
+getattr(alice, 'foo')  # AttributeError: 'BankAccount' object has no attribute 'foo'
 
-   def __repr__(self) -> str:
-       min = '0' + str(self.min)
-       return str(self.hour) + ':' + min[-2:]
+BankAccount.deposit  
+type(BankAccount.deposit)  # <class 'function'>
+alice.deposit  # Instance access - bound method with 'self' already set
+type(alice.deposit)  # <class 'method'>
+```
+```txt
+Under the hood:
+* access deposit through instance
+* find function in class dict
+* create bound method object that pairs instance + function
+* return bound method
+
+This descriptor protocol enables method binding. Property, staticmethod, and classmethod use same mechanism.
 ```
 
-* _self_: parameter to instance method whose arg is instance itself https://martinheinz.dev/blog/81
+```python
+class BankAccount:
+    rate = 0.01
+
+    def __init__(self, owner, balance=0):
+        self.owner = owner
+        self.balance = balance
+
+    def __repr__(self):
+        return f'owner: {self.owner} balance: {self.balance} rate: {self.rate}'
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    @classmethod
+    def set_rate(cls, rate):
+        cls.rate = rate
+
+    @classmethod
+    def business(cls, company, deposit):
+        if not cls.is_valid_amount(deposit):
+            raise ValueError('deposit must be positive')
+        if deposit < 10000:
+            raise ValueError('deposit minimum 10000')
+        account = cls(owner=f'{company}-inc'.upper(), balance = deposit)
+        account.rate = 0.025
+        return account
+
+    @staticmethod
+    def is_valid_amount(amount):
+        return amount > 0
+
+alice = BankAccount('Alice', 100)
+acme = BankAccount.business('acme', 15000)
+alice.deposit(50)
+acme.deposit(2000)
+BankAccount.rate
+BankAccount.set_rate(0.02)
+BankAccount.is_valid_amount(-50)
+```
+
+| TYPE      | CALLED ON | ARG          | VARIABLE ACCESS | USE CASE                                     |
+|-----------|-----------|--------------|-----------------|----------------------------------------------|
+| instance  | instance  | instance     | instance, class |                                              |
+| class     | class     | class        | class           | factory                                      |
+| static    | class     | user-defined | --------------- | just func namespaced to class; Ramalho [371] |
+
+DESIGN
+* _instance_: needs own state
+* _class_: don't want to construct instance to perform operation e.g. alternate constructor
+* _static_: related to class but doesn't need state 
+
+ARGS
 * _cls_: parameter to class method whose arg is class itself
+* _self_: parameter to instance method whose arg is instance itself https://martinheinz.dev/blog/81
 * impl via descriptor https://www.youtube.com/watch?v=ANLjBsWHshc
 * just a naming convention https://stackoverflow.com/a/475919
 * debate http://neopythonic.blogspot.com/2008/10/why-explicit-self-has-to-stay.html https://stackoverflow.com/q/2709821
+
+---
+
+DESIGN
+* virtual method https://stackoverflow.com/questions/622132/what-are-virtual-methods
+* the use of class methods https://stackoverflow.com/a/38276/6813490
+* bound method https://www.fluentpython.com/lingo/#bound_method
+* https://monadical.com/posts/operator-overloading-in-python.html
+
+* _accessor_: https://www.fluentpython.com/lingo/#accessor
+* _single underscore_: hint (not enforcement) of private method [tutorial 9.6] i.e. no access modifiers
+* _name mangling_: https://www.fluentpython.com/lingo/
 
 ## property
 
@@ -394,6 +413,377 @@ class Person():
     def fullname(self)
         return self.first + ' ' + self.last
 ```
+
+# ䷤ INHERITANCE
+
+🗄️ typing
+
+---
+
+> when I type pdr. (prompting autocomplete), i see get and get_brand (expected) and don't see _cache and _fuzzy_search (also expected). what's weird is that I see mro() as well. where might that be coming from?
+```txt
+Ah, mro() is coming from Python's built-in class machinery. It stands for "Method Resolution Order" and is a method that all Python classes inherit from object (the root base class of all classes in Python 3).
+Here's where it fits in the taxonomy of Python's class-related special methods:
+
+Class Introspection Methods
+
+__mro__ (tuple attribute)
+mro() (method that returns the MRO)
+Other common ones: __class__, __bases__, __subclasses__()
+
+
+
+You're seeing it because:
+
+Every class implicitly inherits from object in Python 3
+PDR is a class (not just a module/namespace)
+mro() isn't "private" (no leading underscore), so it shows up in autocomplete
+
+If you wanted to hide it from autocomplete, you could:
+
+Make PDR a module instead of a class (just move the methods to module level)
+Use a namespace object like types.SimpleNamespace
+Use a dataclass with __slots__ defined
+```
+
+```python
+issubclass(bool, int)
+
+# https://github.com/cosmologicon/pywat#circular-types 
+isinstance(object, type)      # True
+isinstance(type, object)  # True
+```
+
+* _abstract base class (ABC)_: https://www.fluentpython.com/lingo/ https://docs.python.org/3/glossary.html#term-abstract-base-class
+* _virtual subclass_: https://www.fluentpython.com/lingo/ https://www.fluentpython.com/lingo/#constructor
+
+## mixin
+
+---
+
+* _mixin_: multiple inheritance of abstract class https://stackoverflow.com/a/15605119 https://www.fluentpython.com/lingo/#mixin_class
+* _interface_: https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python https://realpython.com/python-interface/ https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html https://www.youtube.com/watch?v=DqFspy9pI9k
+* _sink_: https://www.ianlewis.org/en/mixins-and-python https://stackoverflow.com/a/52469499/6813490 https://www.residentmar.io/2019/07/07/python-mixins.html https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful mixins tutorial https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556 https://stackoverflow.com/a/547714/6813490
+
+* _sink_: https://www.youtube.com/watch?v=YXiaWtc0cgE https://realpython.com/inheritance-composition-python/ https://realpython.com/oop-in-python-vs-java/
+* _inner class_: encapsulate something only relevant to enclosing class, stem proliferation of small modules https://stackoverflow.com/questions/719705/what-is-the-purpose-of-pythons-inner-classes
+
+* super: call method from parent
+```python
+class Mammal():
+    def __init__(self, name):
+        print('{} is a warm-blooded animal'.format(name))
+#############################3
+class Dog(Mammal):
+    def __init__(self):
+        super().__init__('a dog')
+```
+
+```python
+class Alice():
+    def crawl(self):
+        print('crawling')
+
+class Bob():
+    def walk(self):
+        print('walking')
+
+class Candace(Alice, Bob):
+    def run(self):
+        print('running')
+
+c = Candace()
+c.run()
+c.walk()
+c.crawl()
+```
+
+## protocol
+
+---
+
+* way to do interfaces
+* https://chatgpt.com/c/671815e8-0f44-8004-abb5-be6b52fc8bd1
+* https://godatadriven.com/blog/protocols-in-python-why-you-need-them/
+* https://www.youtube.com/watch?v=xvb5hGLoK0A
+* https://peps.python.org/pep-0544/
+* https://www.amazon.com/Architecture-Patterns-Python-Domain-Driven-Microservices/dp/1492052205
+* https://codebeez.nl/blogs/type-hinting-in-modern-python-the-protocol-class/
+* https://pythontest.com/fix-circular-import-python-typing-protocol/
+
+# 🪷 METAPROGRAMMING
+
+🗄
+* `django.md` design
+* `plt.md` typing
+*️ `src.md` dependency injection
+📚
+* Beazley ch. 9
+* Ramalho ch. 22-24
+* Perrotta metaprogramming ruby https://news.ycombinator.com/item?id=24935242
+> might be worthwhile to buy the first edition
+
+---
+
+🧠 https://chatgpt.com/c/6720e992-860c-8004-a2dd-2cc826753ecf https://claude.ai/chat/0783b7f1-cde6-4e22-b4d3-83199e90fc71
+* https://dev.to/karishmashukla/a-practical-guide-to-metaprogramming-in-python-691
+* Flask debugger, typing, metaprogramming vs monkey patching https://news.ycombinator.com/item?id=34611969
+* _metaprogramming_: functions that manipulate existing code e.g. decorators, inspection 📙 Beazley 329
+* function that takes some other code, wraps it, and returns https://medium.com/@saurabhkukade_96600/meta-programming-in-python-7fb94c8c7152
+* also synonym for process (build tools, dep mgmt) https://missing.csail.mit.edu/2020/metaprogramming/
+
+## getattr rabbit hole
+
+💻 strategy pattern https://github.com/zachvalenta/capp-brand-enablement
+
+* `__getattr__`: https://docs.python.org/3/glossary.html#term-attribute 
+* `__setattr__`: https://docs.python.org/3/glossary.html#term-attribute 
+* `__getattribute__` https://news.ycombinator.com/item?id=3719179
+* https://stackoverflow.com/questions/22616559/use-cases-for-property-vs-descriptor-vs-getattribute
+https://martinheinz.dev/blog/87 more introspection https://martinheinz.dev/blog/82
+* getitem, iter, and/or, bool, getstate/setstate, repr https://books.agiliq.com/projects/Journeyman-Python/en/latest/magic-methods.html
+
+Yes, this is a basic form of metaprogramming - we're writing code that manipulates code attributes at runtime. But it's on the simpler end of the metaprogramming spectrum.
+Metaprogramming hierarchy from simple to complex:
+
+Level 1 (This example): Runtime attribute access via getattr/setattr
+Level 2: Decorators, descriptors, properties
+Level 3: Metaclasses, class factories
+Level 4: AST manipulation, code generation
+
+```python
+# Metaclass example
+class ValidateFields(type):
+    def __new__(cls, name, bases, attrs):
+        for key, value in attrs.items():
+            if key.startswith('field_'):
+                # Validate at class creation time
+                validate_field(value)
+        return super().__new__(cls, name, bases, attrs)
+
+# AST manipulation example
+import ast
+class ConstantFolder(ast.NodeTransformer):
+    def visit_BinOp(self, node):
+        # Fold constant expressions at compile time
+        if isinstance(node.left, ast.Num) and isinstance(node.right, ast.Num):
+            return ast.Num(evaluate(node.op, node.left.n, node.right.n))
+```
+
+```python
+# Level 1: Dynamic attribute access
+User.objects.filter(name="bob")              # builds SQL via attribute chaining
+
+# Level 2: Descriptors/properties
+class User(Model):
+    name = CharField()                       # field descriptors transform python attrs to db columns
+    @property
+    def full_name(self): ...
+
+# Level 3: Model metaclasses
+class Model(metaclass=ModelBase):            # metaclass handles model registration, field setup
+    class Meta:
+        abstract = True
+```
+```python
+The core magic happens through:
+* Lazy evaluation (QuerySets don't execute until needed)
+* Method chaining that builds SQL AST
+* Query compilation that transforms Python objects into SQL
+
+Here's where it gets deep - Django's ORM is effectively a compiler that:
+* Source language: Python method calls and objects
+* Target language: SQL
+* Intermediate representation: Query object tree
+
+Similar patterns show up in:
+* SQLAlchemy's expression language
+* GraphQL resolvers
+* Pandas query chains
+* Any ORM that tries to make SQL feel "pythonic"
+
+Alternative approaches to SQL in Python:
+* Raw SQL strings (simple but unsafe)
+* SQL builders (safe but verbose)
+```
+
+## other uses
+
+* inspection
+```python
+import inspect
+
+def example_function():
+    pass
+
+print(inspect.getsource(example_function))
+# Output: # def example_function(): pass
+```
+* _monkey patch_: modify/extend modules/classes at runtime, used for fixing bugs without altering original src
+```python
+import datetime
+
+def fixed_now():
+    return datetime.datetime(2000, 1, 1)
+
+# Monkey patching datetime.now()
+datetime.datetime.now = fixed_now
+print(datetime.datetime.now())  # Output: 2000-01-01 00:00:00
+
+```
+
+* dynamic attribute generation
+```python
+class DynamicAttributes:
+    def __getattr__(self, name):
+        return f"{name} attribute not found!"
+
+    def __setattr__(self, name, value):
+        print(f"Setting {name} to {value}")
+        super().__setattr__(name, value)
+
+obj = DynamicAttributes()
+print(obj.some_attribute)  # Output: some_attribute attribute not found!
+obj.new_attr = 42  # Output: Setting new_attr to 42
+```
+
+* you can replace or inject new behavior into functions or methods dynamically.
+```python
+def original_function():
+    print("Original function")
+
+def new_function():
+    print("New function")
+
+original_function = new_function  # Replacing original function
+original_function()  # Output: New function
+```
+
+* create a new class dynamically
+```python
+NewClass = type('NewClass', (object,), {'attr': 42, 'method': lambda self: 'Hello'})
+obj = NewClass()
+print(obj.attr)      # Output: 42
+print(obj.method())  # Output: Hello
+```
+
+## decorators
+
+---
+
+https://us.pycon.org/2024/schedule/presentation/85/index.html
+* perf https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
+* _decorator_: factory + functionality https://www.fluentpython.com/lingo/#decorator https://jcarlosroldan.com/post/329/my-latest-tils-about-python
+* https://www.fluentpython.com/lingo/#decorator https://docs.python.org/3/glossary.html#term-decorator https://www.bitecode.dev/p/xmas-decorations-part-3
+* use cases
+```python
+# logging
+
+# caching
+
+# sanitization
+
+# app config https://bytepawn.com/python-decorators-for-data-scientists.html
+
+# execeptions https://dev.to/fcurella/refining-exceptions-with-context-decorators-31i5
+
+# login https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples
+
+# pagination https://stackoverflow.com/questions/53638221/unable-to-handle-two-links-having-different-pagination-using-decorator
+```
+* https://bas.codes/posts/python-decorators
+* https://suyogdahal.com.np/posts/how-decorator-crashed-my-flask-app/
+* https://blog.luisrei.com/articles/flaskrest.html
+* https://stackoverflow.com/questions/308999/what-does-functools-wraps-do
+* https://samireland.com/writing/decorators/ https://rednafi.github.io/digressions/python/2020/05/13/python-decorators.html
+* _decorator_: factory that takes func and adds functionality via inner function; introduced in 2.4 via PEP 318
+* _basics_: https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples https://www.youtube.com/watch?v=MjHpMCIvwsY
+* _factory_: https://joeriksson.io/blog/Decorator-with-arguments/ https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://stackoverflow.com/a/28695034/6813490 https://www.learnpython.org/en/Decorators https://stackoverflow.com/questions/10957409/python-naming-conventions-in-decorators https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://zenhack.net/2016/12/25/why-python-is-not-my-favorite-language.html
+
+* pre-2.4
+```python
+def my_decorator(func):
+    def wrapper():
+        print(f"my_decorator is wrapping {func}")
+        func()
+    return wrapper
+
+def use_decorator():
+    print("calling use_decorator")
+
+use_decorator = my_decorator(use_decorator)
+```
+
+* syntactic sugar https://realpython.com/primer-on-python-decorators/#simple-decorators
+```python
+def my_decorator(func):
+    def wrapper():
+        print(f"my_decorator is wrapping {func}")
+        func()
+    return wrapper
+
+@my_decorator
+def use_decorator():
+    print("calling use_decorator")
+```
+
+* decorator that can handle the decorated functions args
+```python
+def my_decorator(func):
+    def wrapper(*args, **kwargs):  # wrapper takes function args just like my_decorator takes function itself
+        print(f"my_decorator is wrapping {func}")
+        func(*args, **kwargs)
+    return wrapper
+
+@my_decorator
+def use_decorator(name):
+    print(f"calling use_decorator with args {name}")
+```
+
+* decorator w/ introspection
+```python
+import functools
+
+def my_decorator(func):
+    @functools.wraps(func)
+    def wrapper():
+        print(f"my_decorator is wrapping {func}")
+        func()
+    return wrapper
+
+@my_decorator
+def use_decorator():
+    print("calling use_decorator")
+```
+
+## descriptor
+
+---
+
+* https://www.youtube.com/watch?v=mMbVs17Vmo4
+* https://docs.python.org/3/library/inspect.html#inspect.ismethoddescriptor https://docs.python.org/3/library/inspect.html#inspect.isdatadescriptor https://docs.python.org/3/library/inspect.html#inspect.ismemberdescriptor
+* https://www.fluentpython.com/lingo/#descriptor https://docs.python.org/3/glossary.html#term-descriptor
+> Descriptors provide the underlying magic for most of Python’s class features, including @classmethod, @staticmethod, @property, and even the __slots__ specification. By defining a descriptor, you can capture the core instance operations (get, set, delete) at a very low level and completely customize what they do. This gives you great power, and is one of the most important tools employed by the writers of advanced libraries and frameworks. 📙 Beazley 265
+> Any method is actually a descriptor. https://www.fluentpython.com/lingo/#bound_method
+* uniform acccess principle https://www.fluentpython.com/lingo/
+* _attribute_: https://www.fluentpython.com/lingo/#EAFP https://www.fluentpython.com/lingo/#attribute
+> other stuff on attributes scattered throughout note
+* managed instance, managed class https://www.fluentpython.com/lingo/#managed_instance
+* managed class https://www.fluentpython.com/lingo/#managed_attribute
+* getter/setter https://realpython.com/python-getter-setter/
+* storage attribute https://www.fluentpython.com/lingo/#storage_attribute
+* (non)overriding https://www.fluentpython.com/lingo/#overriding_descriptor
+* impl https://docs.python.org/dev/reference/datamodel.html#implementing-descriptors
+* https://realpython.com/python-descriptors/#why-use-python-descriptors
+* http://nbviewer.jupyter.org/urls/gist.github.com/ChrisBeaumont/5758381/raw/descriptor_writeup.ipynb
+* https://sadh.life/post/descriptors/
+* even the pros don't knwo much about them https://nedbatchelder.com/blog/201306/explaining_descriptors.html
+* class that defines `__get__`, `__set__`?
+* `__get__` enables for true encapsulation vs. name mangling https://www.youtube.com/watch?v=0hrEaA3N3lk
+* https://docs.python.org/3/howto/descriptor.html 
+* https://nedbatchelder.com/blog/201306/explaining_descriptors.html
+* _fully persistent data structure_: Git works like this, can branch, can time travel
+* _partially persistent data structure_: same as fully persistent except can only modify the most recent copy
 
 # 🕉 OBJECTS
 

@@ -73,6 +73,7 @@ WEB CLIENT
 
 ## 🟫 Claude
 
+🔑 https://console.anthropic.com
 📜 https://docs.anthropic.com/en/home
 🔢 https://docs.anthropic.com/en/release-notes/overview
 
@@ -95,7 +96,7 @@ WEB CLIENT
 
 MODELS
 > built on AWS https://simonwillison.net/2024/Dec/5/claude-35-haiku-price-drops-by-20/
-* _Sonnet_: smartest
+* _Sonnet_: best for code https://simonwillison.net/2025/Jan/13/codestral-2501/
 * _Haiku_: fastest, better than GPT 3.5 https://www.youtube.com/watch?v=QUXQNi6jQ30 [5:30]
 * _Opus_: writing
 
@@ -104,7 +105,7 @@ MODELS
 CONTEXT
 * system prompt https://docs.anthropic.com/en/docs/build-with-claude/prompt-engineering/system-prompts
 * developer console https://www.anthropic.com/news/evaluate-prompts
-* projects https://www.anthropic.com/news/projects
+* projects https://www.anthropic.com/news/projects how to get good at projects https://x.com/patrick_oshag/status/1876455619516911720
 
 * allegedly the best but GPT legacy model beat it and the other time I tried it admitted to fabricating data https://x.com/emollick/status/1849168452914938082 https://simonwillison.net/2024/Oct/21/claude-artifacts/ https://darioamodei.com/
 
@@ -149,6 +150,10 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 # 🏗️ OPERATIONALIZE
 
+start here https://parlance-labs.com/education/ https://applied-llms.org/ https://www.agentrecipes.com/prompt-chaining
+
+---
+
 📙
 * Clinton obsolete gen AI
 * https://www.amazon.com/gp/product/1736049127
@@ -178,6 +183,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 ---
 
 * defining https://www.anthropic.com/research/building-effective-agents
+https://simonwillison.net/2025/Jan/11/agents/
 https://www.thoughtworks.com/radar/techniques/function-calling-with-llms
 > They discuss "agentic systems" as a parent term, then define a distinction between "workflows" - systems where multiple LLMs are orchestrated together using pre-defined patterns - and "agents", where the LLMs "dynamically direct their own processes and tool usage". https://simonwillison.net/2024/Dec/20/building-effective-agents/
 * as judge https://registerspill.thorstenball.com/p/joy-and-curiosity-20
@@ -297,8 +303,9 @@ https://news.ycombinator.com/item?id=42507116
 * `doc.md` notes
 * `algos.md` search > bm25
 📚
-* https://www.amazon.com/gp/product/1098150961
-* build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch https://www.alldayta.com/#product-demo
+* Bratanic https://www.manning.com/books/knowledge-graph-enhanced-rag
+* Farooq build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch https://www.alldayta.com/#product-demo
+* Kimothi https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation
 
 https://github.com/Cinnamon/kotaemon
 

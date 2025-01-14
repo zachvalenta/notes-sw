@@ -427,6 +427,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 > don't understand why catpuccin relies on their bat theme https://github.com/catppuccin/delta can you just use straight from repo? https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
 * _diffnav_: ✅ obviated w/ lazygit https://github.com/dlvhdr/diffnav
 * _diffview_: 🎯 neovim https://github.com/sindrets/diffview.nvim https://www.youtube.com/watch?v=aJikrPnTOtI
+* _drft_: https://codeberg.org/nightsail/drft
 * _dunk_: similar to delta https://github.com/darrenburns/dunk
 * _git split diffs_: 🎯 node version https://github.com/banga/git-split-diffs https://news.ycombinator.com/item?id=27007844
 
@@ -1082,6 +1083,7 @@ FORGES
 * avoid centralization https://gitlab.com/pdfgrep/pdfgrep/-/issues/36#note_2232721446
 * _Bitbucket_: 💀 https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
 * _Codeberg_: Gitea for Europeans https://codeberg.org/ https://news.ycombinator.com/item?id=33234965 https://codeberg.org/a-j-wood/pv
+* _Forgejo_: powers Codeberg, can self-host https://forgejo.org/
 * _Gitea_: fork of Gogs https://gitea.io/en-us/ https://news.ycombinator.com/item?id=13296717
 * now for-profit and licensing issues https://news.ycombinator.com/item?id=34011581
 * _Gitlab_: selling soon https://news.ycombinator.com/item?id=42333052

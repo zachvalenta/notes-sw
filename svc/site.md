@@ -40,8 +40,11 @@ MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 
 # 📰 CONTENT
 
+📙 https://www.manning.com/books/writing-for-developers
+
 ---
 
+> There's much to love about lanparty.house: the house, the engine room, the wiring, the cat doors, the cat bathroom. But what I enjoyed the most was the fact that this site belongs to a rare class of internet gems: a single page, full of information with nothing held back, neatly formatted, easy to digest. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/ https://refactoringenglish.com/chapters/rules-for-software-tutorials/
 🏔️ Julia Evans https://www.youtube.com/@wizardzines/videos
 > the zines has been her only job since 2019 https://github.com/zserge/zine https://zserge.com/posts/tab/
@@ -182,8 +185,7 @@ Dreams of Code https://www.youtube.com/watch?v=A_3MP_V-kB4
 
 # 🕸️ DESIGN
 
-📙 https://www.manning.com/books/design-for-developers
-> There's much to love about lanparty.house: the house, the engine room, the wiring, the cat doors, the cat bathroom. But what I enjoyed the most was the fact that this site belongs to a rare class of internet gems: a single page, full of information with nothing held back, neatly formatted, easy to digest. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
+📙 Stimac https://www.manning.com/books/design-for-developers
 
 ## font / text
 
@@ -237,6 +239,7 @@ LAYOUT 🔗  https://github.com/arp242/hello-css/
 🔗 https://github.com/zachvalenta/web-design
 
 MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
+* https://blog.yossarian.net/
 * https://blog.jacobvosmaer.nl/0014-yocto/
 * centered https://urchade.github.io/
 * https://nat.org/
@@ -250,6 +253,7 @@ MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
 * https://xnacly.me/
 * https://www.netmeister.org/blog/nsauth-diversity.html
 * https://www.shopify.com/ca/editions/winter2025
+* https://www.mattkeeter.com/blog/2024-03-25-packing/
 
 UNIQUE
 * https://shreyans.org/

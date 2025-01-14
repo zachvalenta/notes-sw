@@ -7,10 +7,12 @@
 * https://github.com/TheAlgorithms/Python
 * https://xlinux.nist.gov/dads/
 📚
-* https://www.amazon.com/Coding-Interview-Patterns-Nail-Your/dp/1736049135
 * ✅ Bhargava grokking algorithms
 * ✅ Christian algorithms to live by
 * Dasgupta algorithms
+* ⭐️ Kneusel randomness https://nostarch.com/art-randomness
+* La Rocca advanced https://www.manning.com/books/advanced-algorithms-and-data-structures
+* Khamis optimization https://www.manning.com/books/optimization-algorithms
 * MacCormick computed
 * MacCormick nine algorithms
 * Skiena manual https://www.algorist.com/ https://fabiensanglard.net/algorithms_and_datastructures/index.php
@@ -21,7 +23,6 @@
 https://neetcode.io/
 
 taxonomy https://livebook.manning.com/book/advanced-algorithms-and-data-structures
-https://www.manning.com/books/optimization-algorithms
 🛣️ https://roadmap.sh/datastructures-and-algorithms https://roadmap.sh/computer-science https://roadmap.sh/python
 
 LeetCode https://www.youtube.com/@NeetCodeIO/videos
@@ -344,6 +345,20 @@ def set_covering(states_needed, stations):
 * `ml.md` entity recognition
 * `tools.md` fuzzy find, file > diff
 
+```sh
+Text Similarity Algorithms
+├── Edit Distance Based
+│   ├── Levenshtein (fuzzywuzzy default)
+│   │   └── Faster C implementation (python-Levenshtein)
+├── Sequence Based
+│   └── SequenceMatcher (difflib)
+│       └── Uses Ratcliff/Obershelp algorithm
+└── Other Approaches
+    ├── Phonetic (Soundex, Metaphone)
+    ├── Token Based (cosine similarity, Jaccard)
+    └── Context Based (word2vec, etc)
+```
+
 SEMANTICS
 * _substring_: common contiguous char 📙 Bhargava [179,182]
 ```markdown
@@ -358,6 +373,57 @@ x _bcd_ ed _f_
 * _substring_: char in order and continuous e.g. for `hello there` valid substrings are `hello` and `llo th` https://stackoverflow.com/a/49688118/6813490
 * _subsequence_: char in order but not necessarily continuous e.g. for `hello there` a valid subsequences is `hll th` (note missing `e`)
 > these moved in from different file, don't know which set of definitions valid
+
+## difflib
+
+* simple
+```python
+def fuzzy_search(items, query, threshold=0.6):
+    from difflib import SequenceMatcher
+    return [
+        item for item in items 
+        if SequenceMatcher(None, query, item.lower().replace(' ', '')).ratio() >= threshold
+    ]
+```
+
+* higher score for membership
+```python
+def fuzzy_search(items, query, threshold=0.75):
+    '''
+    >>> brands = ['Bakers Pride', 'Bakers Aid', 'Banner Corp', 'Baumer LLC']
+    >>> fuzzy_search(brands, 'baker')
+    ['Bakers Pride', 'Bakers Aid']
+    >>> fuzzy_search(brands, 'bakerpride')
+    ['Bakers Pride']
+    '''
+    from difflib import SequenceMatcher
+    matches = []
+    for item in items:
+        item_lower = item.lower()
+        if query in item_lower:
+            matches.append((1.0, item))
+            continue
+        ratios = [
+            SequenceMatcher(None, query, item_lower).ratio(),
+            SequenceMatcher(None, query, item_lower.replace(' ', '')).ratio(),
+        ]
+        best_ratio = max(ratios)
+        if best_ratio >= threshold:
+            matches.append((best_ratio, item))
+    return [item for _, item in sorted(matches, reverse=True)]
+```
+
+## mask
+
+* _mask_: boolean array for filtering
+* synonym for filter e.g. mask in|out
+```python
+# res is our mask i.e. filters out non-matching brands
+query = 'smith'
+brands = ['A. O. Smith', 'Bakers Pride', 'ABB']
+mask = [query in brand.lower() for brand in brands]
+matches = [brand for brand, match in zip(brands, mask) if match]
+```
 
 ## flashtext
 
@@ -459,7 +525,7 @@ replaced_text = flash_text.replace_keywords(text, replacements)
 print("Replaced Text:", replaced_text)  # Output: "The larva is a feline."
 ```
 
-## levenshtein distance
+## Levenshtein distance
 
 ```txt
 * Category: String similarity and approximate matching.
@@ -534,6 +600,7 @@ for short_row in tqdm(short_data, desc="Processing short CSV"):
 
 * full text https://emschwartz.me/understanding-the-bm25-full-text-search-algorithm/
 * used by Lucene/Solr/Elasticsearch and SQLite
+* impl: https://github.com/jankovicsandras/bm25opt https://news.ycombinator.com/item?id=42790902
 * alternative: Okapi BM25F
 > Spent the last week looking into search - embeddings, BM25, how LLMs fit into the picture, and so on - and then, surprise, this popped up on HackerNews: FastGraphRAG. I haven’t even looked at the project itself yet, because this comment tripped me up: "Hypothetical answer generation from a query using an LLM, and then using that hypothetical answer to query for embeddings works really well." They use an LLM to generate hypothetical answers to a query and then use those answers to find relevant documents by comparing them in vector space. Don't know how else to put it, so pardonnez mon langage, but that's fucking nuts. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 
@@ -970,34 +1037,49 @@ QUICKSORT https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsor
 
 ## recursion
 
-📙 Sweigart https://www.amazon.com/gp/product/1718502028
+🗄️ `algos.md` recursion
+📙 Sweigart https://nostarch.com/recursive-book-recursion
 
-https://calmcode.io/course/recursion/introduction
-
-* _base case_: case in which the function doesn't call itself
-* _recursive case_: case in which function calls itself
-* _partial execution_: state of function when another function called from within it (until the other function completes its own execution) [3.44]
-* perf: can be slow bc chewing up stack space [Code Complete 17.2, Bhargava 3.40]
-* _tail_: can prevent stack overflows but depends on compiler to provide optimization https://stackoverflow.com/a/37010/6813490
-* tail call optimization https://blog.jonas.foo/posts/python-tail-call-optimization/
+SEMANTICS
+* _base case_: function doesn't call itself
+* _recursive case_: function calls itself
+* _partial execution_: state of function when another function called from within it 📙 Bhargava [44]
 
 ```python
 def countdown(arg):
-    if arg == 0:
-        return None
-    else:
-        countdown(arg - 1)
-
-countdown(1)
-
-""
-first frame goes on stack
-first frame blocks on else, calls `countdown(0)`
-second frame `countdown(0)` goes on stack
-second frame comes off stack
-first frame stops blocking on else, comes off stack
+    return None if arg == 0 else countdown(arg - 1)
+"""
+countdown(1) ⬇️:
+* first frame goes on stack
+* first frame blocks on else, calls countdown(0)
+* second frame countdown(0) goes on stack
+* second frame comes off stack
+* first frame stops blocking on else, comes off stack
 """
 ```
+
+* for retry 🗄️ `distributed.md` retry
+```python
+class Foo:
+    def _cache():
+        """ one-off fetch """
+        pass
+
+    def get(retry=True):
+        try:
+            return read_csv(path/to/cached)
+        except FileNotFoundError:
+            if retry:
+                Foo._cache()
+                return Foo.get(retry=False)
+            raise
+```
+
+---
+
+https://calmcode.io/course/recursion/introduction
+* _tail_: can prevent stack overflows but depends on compiler to provide optimization https://stackoverflow.com/a/37010/6813490
+* tail call optimization https://blog.jonas.foo/posts/python-tail-call-optimization/
 
 ## regex
 

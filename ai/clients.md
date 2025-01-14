@@ -9,6 +9,8 @@
 
 ## 进步
 
+https://blog.val.town/blog/fast-follow/
+
 * _24_: lots of work to research/taxonomize tooling, start with llm and aider
 
 # 🚃 CATEGORIES
@@ -96,7 +98,12 @@ TO SUBMIT
 📜 https://aider.chat/
 🗄️ `task-mgmt.md` 2024 workflow
 
-* upgrade to latest version and see if that fixes bug where aider asks if you want to create a file and then errs out bc it tries to read a file it didn't create
+CONFIG
+* fs: `$HOME/.aider.conf.yml`
+* analytics: `$HOME/.aider/analytics.json`
+
+ZA
+* 🚧 upgrade to latest version and see if that fixes bug where aider asks if you want to create a file and then errs out bc it tries to read a file it didn't create
 * workflows https://aider.chat/examples/2048-game.html https://aider.chat/examples/hello-world-flask.html https://aider.chat/docs/usage/tutorials.html
 * modes https://aider.chat/docs/usage/modes.html
 
@@ -153,6 +160,10 @@ https://news.ycombinator.com/item?id=42543601
 > ❌ no way to do this through the UI https://chatgpt.com/c/67106b06-8884-8004-ab78-84e5bce7dea9
 > how does this work under the hood? https://github.com/darrenburns/elia?tab=readme-ov-file#wiping-the-database
 
+## ipychat
+
+https://github.com/vinayak-mehta/ipychat/
+
 ## ⏳♎️ llm
 
 📜 https://llm.datasette.io
@@ -205,6 +216,7 @@ LLM
 CONFIG
 ```sh
 Wrote config file to: /Users/zvalenta/Library/Application Support/mods/mods.yml
+# ❓ was this before I set $XDG_CONFIG_HOME?
 ```
 ```sh
 $ mods --settings
@@ -214,7 +226,6 @@ $ mods --settings
 │   └── conversations
 │   └──── mods.db
 ```
-
 
 ---
 
@@ -276,6 +287,8 @@ for conversation in data["conversations"]:
 
 > OpenAI now supports structured output, allowing developers to supply a JSON Schema, pydantic or Zod object to constrain model responses. https://www.thoughtworks.com/radar/techniques/structured-output-from-llms
 
+https://news.ycombinator.com/item?id=42753302
+
 * GPT code completions API https://www.youtube.com/watch?v=g9tIm50VO4g
 * GPT as standard https://simonwillison.net/2024/Dec/22/openai-openapi/
 * API spec
@@ -286,6 +299,7 @@ for conversation in data["conversations"]:
 
 MODEL CONTEXT PROTOCOL
 * impl https://pypi.org/project/mcp/
+* usage https://github.com/jasonjmcghee/claude-debugs-for-you
 * _MCP (model context protocol)_: spec for comms btw hosted model and data to enable RAG https://news.ycombinator.com/item?id=42237424 https://glama.ai/blog/2024-11-25-model-context-protocol-quickstart
 > Today, we're open-sourcing the Model Context Protocol (MCP), a new standard for connecting AI assistants to the systems where data lives, including content repositories, business tools, and development environments. Its aim is to help frontier models produce better, more relevant responses. https://www.anthropic.com/news/model-context-protocol
 > But none of the examples seem to indicate what the protocol is, whether it's a RAG sort of thing, do I need to prompt, etc.

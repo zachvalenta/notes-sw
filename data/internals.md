@@ -9,6 +9,8 @@
 
 ## 进步
 
+SQLite by Richard Hipp https://www.youtube.com/watch?v=ZSKLA81tBis
+
 query plan (Polars) read vs. scan
 
 * https://github.com/zillow/fcache
@@ -149,6 +151,7 @@ https://www.timescale.com/blog/13-tips-to-improve-postgresql-insert-performance/
 * https://stackoverflow.com/a/11275107/6813490/ 
 * https://numeracy.co/blog/life-of-a-sql-query
 * https://www.digitalocean.com/community/tutorials/how-to-use-mysql-query-profiling
+
 # 🔍 INDEXING
 
 📚
@@ -160,6 +163,7 @@ https://www.timescale.com/blog/13-tips-to-improve-postgresql-insert-performance/
 * `vim.md` ctags
 
 START HERE
+* https://testdriven.io/blog/django-db-indexing/
 * https://news.ycombinator.com/item?id=42134964
 * https://calpaterson.com/how-a-sql-database-works.html
 * https://www.jefftk.com/p/you-dont-always-need-indexes

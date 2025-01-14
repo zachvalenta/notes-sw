@@ -4,6 +4,8 @@
 
 ## 进步
 
+https://jvns.ca/blog/2025/01/11/getting-a-modern-terminal-setup/
+
 * _24_: shell (oh-my-posh, atuin, readline vi mode) terminal (try out ghostty)
 * _23_: terminal (research Zellij)
 * _22_: terminal (Fira Mono for iTerm) shell (try starship, try/fail vi mode for readline)
@@ -398,6 +400,7 @@ OPTIONS
 🗄️ `IT.md` window systems
 
 SEMANTICS https://unixsheikh.com/articles/the-terminal-the-console-and-the-shell-what-are-they.html
+> internals https://ghostty.org/docs/vt
 * _terminal emulator_: shell GUI https://poor.dev/blog/terminal-anatomy/
 * i.e. command line + viewport (previous cmd, output)
 * get current terminal `echo $TERM_PROGRAM` https://github.com/dylanaraps/neofetch/wiki/Terminal-and-Terminal-Font-detection
@@ -438,6 +441,17 @@ ICON/FONT/COLOR INTERPLAY
 > I thought this was something that couldn't be patched in iTerm?
 
 ---
+
+ipython config
+```python
+## Use 24bit colors instead of 256 colors in prompt highlighting.
+#          If your terminal supports true color, the following command should
+#          print ``TRUECOLOR`` in orange::
+#  
+#              printf "\x1b[38;2;255;100;0mTRUECOLOR\x1b[0m\n"
+#  Default: False
+# c.TerminalInteractiveShell.true_color = False
+```
 
 font rendering, anti-aliasimg, INI parsing, icon, 256 bit color https://changelog.com/podcast/622
 
