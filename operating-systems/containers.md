@@ -377,6 +377,52 @@ VMWARE
 * _OpenStack_: general IaaS https://www.youtube.com/watch?v=_gWfFEuert8
 * _contention_: vm can't get resources scheduled from host
 
+## 🦙 Colima
+
+📜 https://github.com/abiosoft/colima
+
+* _VM manager_: create VM w/ own OS kernel and memory
+> So Colima manages VMs that then run containers inside them, while Podman directly manages containers (using a VM layer on macOS only because it has to).
+* supports multiple runtimes (Docker, containerd, Incus)
+* no Podman support
+
+---
+
+> Developers on macOS who need a container runtime but don’t want Docker Desktop.
+
+A macOS/Linux tool for running container runtimes (like Docker or Podman) in a lightweight VM, primarily on systems where native runtimes may be unavailable or constrained (e.g., macOS).
+* Uses Lima (lightweight VM manager) to provide a container runtime environment.
+* Colima supports both Docker and Podman runtimes, so users can switch between them.
+* uses QEMU to abstract VM mgmt
+
+* _Colima_: https://github.com/abiosoft/colima
+> Colima is becoming a popular open alternative to Docker Desktop. It provisions the Docker container run time in a Lima VM, configures the Docker CLI on macOS and handles port-forwarding and volume mounts. Colima uses containerd as its run time, which is also the run time on most managed Kubernetes services — improving the important dev-prod parity. With Colima you can easily use and test the latest features of containerd, such as lazy loading for container images. We've been having good results with Colima in our projects. When in the Kubernetes space, we also use nerdctl, a Docker-compatible CLI for containerd. Since Kubernetes has deprecated Docker as container run time and most managed-services (EKS, GKE, etc) are following its lead, more people will be looking to containerd native tools, hence the importance of tools like nerdctl. In our opinion, Colima is realizing its strong potential and becoming a go-to option as an alternative to Docker Desktop.
+* _Lima_: containerd for macOS https://jvns.ca/blog/2023/07/10/lima--a-nice-way-to-run-linux-vms-on-mac/
+
+## 🦭 Podman
+
+📜 https://podman.io/
+📹 https://www.youtube.com/watch?v=Z5uBcczJxUY
+
+_* container engine_: manage containers, shares host OS kernel
+> So Colima manages VMs that then run containers inside them, while Podman directly manages containers (using a VM layer on macOS only because it has to).
+* lazydocker support https://github.com/jesseduffield/lazydocker/issues/4
+
+---
+
+A daemonless container runtime for managing OCI (Open Container Initiative) containers and pods. Podman aims to replace Docker with better security, especially for rootless containers.
+
+* Unlike Docker, Podman does not rely on a background daemon (e.g., dockerd). Each container runs as its own process.
+* Allows users to manage containers without root privileges, improving security.
+* Pod Support: Extends Kubernetes concepts by natively supporting "pods" (groups of containers sharing namespaces).
+* OCI Compliance: Fully supports the OCI standard for runtime and images.
+* Docker Compatibility: Can run most Docker images and commands (podman CLI mimics Docker CLI).
+
+DOCKER DESKTOP ALTERNATIVES
+* _Podman_: no daemon, rootless, Red Hat https://news.ycombinator.com/item?id=20542915 `podman play kube` = `docker-compose up` https://www.thoughtworks.com/radar/tools?blipid=202104064
+* _Packer_: build VM/container for use on cloud provider https://news.ycombinator.com/item?id=22491170
+* _Vagrant_: build VM/container for local dev env using VirtualBox as sandbox https://www.mattlayman.com/blog/2019/web-development-environments/ used to be more popular https://news.ycombinator.com/item?id=15395601
+
 ## engines
 
 🗄
@@ -415,14 +461,6 @@ RUNTIMES
 * BYO https://github.com/kelseyhightower/kubernetes-the-hard-way
 * _runC_: Docker's runtime https://www.docker.com/blog/runc/
 * API to Docker daemon https://github.com/fussybeaver/bollard https://github.com/mrjackwills/oxker https://docker-py.readthedocs.io/en/stable/index.html
-
-DOCKER DESKTOP ALTERNATIVES
-* _Colima_: https://github.com/abiosoft/colima
-> Colima is becoming a popular open alternative to Docker Desktop. It provisions the Docker container run time in a Lima VM, configures the Docker CLI on macOS and handles port-forwarding and volume mounts. Colima uses containerd as its run time, which is also the run time on most managed Kubernetes services — improving the important dev-prod parity. With Colima you can easily use and test the latest features of containerd, such as lazy loading for container images. We've been having good results with Colima in our projects. When in the Kubernetes space, we also use nerdctl, a Docker-compatible CLI for containerd. Since Kubernetes has deprecated Docker as container run time and most managed-services (EKS, GKE, etc) are following its lead, more people will be looking to containerd native tools, hence the importance of tools like nerdctl. In our opinion, Colima is realizing its strong potential and becoming a go-to option as an alternative to Docker Desktop.
-* _Lima_: containerd for macOS https://jvns.ca/blog/2023/07/10/lima--a-nice-way-to-run-linux-vms-on-mac/
-* _Podman_: no daemon, rootless, Red Hat https://news.ycombinator.com/item?id=20542915 `podman play kube` = `docker-compose up` https://www.thoughtworks.com/radar/tools?blipid=202104064
-* _Packer_: build VM/container for use on cloud provider https://news.ycombinator.com/item?id=22491170
-* _Vagrant_: build VM/container for local dev env using VirtualBox as sandbox https://www.mattlayman.com/blog/2019/web-development-environments/ used to be more popular https://news.ycombinator.com/item?id=15395601
 
 ## Evans
 
