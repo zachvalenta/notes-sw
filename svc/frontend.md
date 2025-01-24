@@ -514,6 +514,7 @@ SELECTORS
 
 ZA
 * history: https://www.w3.org/Style/CSS20/history.html https://eev.ee/blog/2020/02/01/old-css-new-css/ https://news.ycombinator.com/item?id=23915263
+* preprocessors like SCSS without node/npm https://lukeplant.me.uk/blog/posts/django-sass-scss-without-nodejs-or-build-step/
 * _SASS_: features not in CSS; transpiles to CSS https://sass-lang.com/guide/
 * diff btw SCSS and SASS https://stackoverflow.com/questions/5654447/whats-the-difference-between-scss-and-sass/
 * _variable_: aka 'custom properties' https://developer.mozilla.org/en-US/docs/Web/CSS/--*

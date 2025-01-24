@@ -197,7 +197,7 @@ https://pycon-archive.python.org/2024/schedule/presentation/61/index.html
 > builds: pip, build
 > publishing: twine
 
-https://dublog.net/blog/so-many-python-package-managers/
+https://dublog.net/blog/so-many-python-package-managers/ https://lukeplant.me.uk/blog/posts/python-packaging-must-be-getting-better-a-datapoint/
 
 https://github.com/python-poetry/poetry/issues/8662
 

@@ -267,6 +267,7 @@ The general problem this addresses is maintaining perfect history of state chang
 * cutover
 > There's an ongoing sync job as well, so writes that land on the old database are pushed to the new one, so low risk of data loss.
 * replicate Postgres to SQLite on the edge https://github.com/zknill/sqledge
+* https://lukeplant.me.uk/blog/posts/keeping-things-in-sync-derive-vs-test/
 
 ## shard
 

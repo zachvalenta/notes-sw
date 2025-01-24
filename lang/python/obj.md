@@ -1090,6 +1090,9 @@ ZA
 
 generate https://github.com/RightTyper/RightTyper
 https://realpython.com/python313-new-features/#improvements-to-static-typing
+https://lukeplant.me.uk/blog/posts/python-type-hints-pyastgrep-case-study/
+https://lukeplant.me.uk/blog/posts/the-different-uses-of-python-type-hints/
+https://lukeplant.me.uk/blog/posts/pythons-disappointing-superpowers/
 
 ANNOTATIONS
 * _annotation_: https://docs.python.org/3/glossary.html#term-annotation

@@ -164,7 +164,7 @@ ZA
 
 ## TDD
 
-* DHH: clarity above all, TDD yokes the program architecture https://www.youtube.com/watch?v=9LfmrkyP81M 📻 STT
+* DHH: clarity above all, TDD yokes the program architecture https://www.youtube.com/watch?v=9LfmrkyP81M 📻 STT https://lukeplant.me.uk/blog/posts/no-one-actually-wants-simplicity/
 
 # 🕳️ INTEGRATION
 
@@ -244,6 +244,7 @@ AUTOMATION
 
 ---
 
+* https://lukeplant.me.uk/blog/posts/test-factory-functions-in-django/
 * http://eradman.com/posts/database-test-isolation.html
 * https://conroy.org/per-test-database-isolation-in-postgres
 
