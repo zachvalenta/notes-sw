@@ -369,38 +369,6 @@ SEMANTICS
 * _text classification_: https://www.youtube.com/watch?v=VtRLrQ3Ev-U
 * _speech recognition_: https://www.youtube.com/watch?v=mYUyaKmvu6Y
 
-```txt
-While Named Entity Recognition (NER) is one of the most common use cases for spaCy, the library is versatile and supports a broad range of Natural Language Processing (NLP) tasks. Here's an overview of what spaCy is commonly used for:
-
-1. Named Entity Recognition (NER)
-Identifying and categorizing entities like names, organizations, dates, and locations in text.
-Example: Extracting "Apple" as an organization and "2025" as a date in "Apple released new products in 2025."
-2. Part-of-Speech (POS) Tagging
-Assigning grammatical labels to words, such as nouns, verbs, adjectives, etc.
-Example: Labeling "The quick brown fox jumps" as determiner, adjective, adjective, noun, verb.
-3. Dependency Parsing
-Analyzing the grammatical structure of a sentence to understand relationships between words.
-Example: Identifying that "fox" is the subject of "jumps."
-4. Text Classification
-Categorizing text into predefined categories, such as spam detection or sentiment analysis.
-This can be customized using spaCy’s training pipelines.
-5. Tokenization
-Breaking down text into individual components, such as words, punctuation, and symbols.
-Example: Splitting "Hello, world!" into ["Hello", ",", "world", "!"].
-6. Lemmatization
-Reducing words to their base forms.
-Example: "running" becomes "run."
-7. Sentence Boundary Detection
-Identifying sentence breaks in a document.
-Example: Detecting sentences in "This is a test. Here's another."
-8. Rule-based Matching
-Using custom rules or patterns to extract specific phrases or information.
-Example: Extracting email addresses using regex-like rules.
-9. Word Vectors and Similarity
-Measuring the similarity between words or sentences using pre-trained word vectors.
-Example: Finding that "cat" and "dog" are more similar than "cat" and "car."
-```
-
 ## sentiment analysis
 
 🗄️ spacy
@@ -441,6 +409,38 @@ The main approaches are:
 
 * Rule-based: Pattern matching with regular expressions and gazetteers (predefined lists)
 * Statistical: Machine learning models trained on labeled data
+```
+
+```txt
+While Named Entity Recognition (NER) is one of the most common use cases for spaCy, the library is versatile and supports a broad range of Natural Language Processing (NLP) tasks. Here's an overview of what spaCy is commonly used for:
+
+1. Named Entity Recognition (NER)
+Identifying and categorizing entities like names, organizations, dates, and locations in text.
+Example: Extracting "Apple" as an organization and "2025" as a date in "Apple released new products in 2025."
+2. Part-of-Speech (POS) Tagging
+Assigning grammatical labels to words, such as nouns, verbs, adjectives, etc.
+Example: Labeling "The quick brown fox jumps" as determiner, adjective, adjective, noun, verb.
+3. Dependency Parsing
+Analyzing the grammatical structure of a sentence to understand relationships between words.
+Example: Identifying that "fox" is the subject of "jumps."
+4. Text Classification
+Categorizing text into predefined categories, such as spam detection or sentiment analysis.
+This can be customized using spaCy’s training pipelines.
+5. Tokenization
+Breaking down text into individual components, such as words, punctuation, and symbols.
+Example: Splitting "Hello, world!" into ["Hello", ",", "world", "!"].
+6. Lemmatization
+Reducing words to their base forms.
+Example: "running" becomes "run."
+7. Sentence Boundary Detection
+Identifying sentence breaks in a document.
+Example: Detecting sentences in "This is a test. Here's another."
+8. Rule-based Matching
+Using custom rules or patterns to extract specific phrases or information.
+Example: Extracting email addresses using regex-like rules.
+9. Word Vectors and Similarity
+Measuring the similarity between words or sentences using pre-trained word vectors.
+Example: Finding that "cat" and "dog" are more similar than "cat" and "car."
 ```
 
 ### CRFs (Conditional Random Fields)
