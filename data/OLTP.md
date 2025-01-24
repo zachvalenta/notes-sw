@@ -267,6 +267,7 @@ The general problem this addresses is maintaining perfect history of state chang
 * cutover
 > There's an ongoing sync job as well, so writes that land on the old database are pushed to the new one, so low risk of data loss.
 * replicate Postgres to SQLite on the edge https://github.com/zknill/sqledge
+* https://lukeplant.me.uk/blog/posts/keeping-things-in-sync-derive-vs-test/
 
 ## shard
 
@@ -635,7 +636,9 @@ wire protocol
 ---
 
 🏔️ https://github.com/Olshansk/postgres_for_everything
-📙 Suzuki postgres internals https://www.interdb.jp/pg/
+📚
+* Magda just use postgres https://www.manning.com/books/just-use-postgres
+* Suzuki postgres internals https://www.interdb.jp/pg/
 🔗 https://challahscript.com/what_i_wish_someone_told_me_about_postgres
 📜
 * general https://www.postgresql.org/docs/current/index.html
@@ -657,7 +660,7 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * Snowflake, DuckDB, Clickhouse https://github.com/scottpersinger/pgwarehouse
 * result set to CSV https://stackoverflow.com/a/1517692
 * high availability https://github.com/zalando/patroni
-* upgrade: pg_upgrade https://about.gitlab.com/blog/2020/09/11/gitlab-pg-upgrade/
+* upgrade: pg_upgrade https://about.gitlab.com/blog/2020/09/11/gitlab-pg-upgrade/ https://news.ycombinator.com/item?id=42867657
 * delete data from table: `DELETE FROM <tab>` https://www.postgresql.org/docs/11/dml-delete.html
 * drop all tables: `DROP SCHEMA <schema> CASCADE`
 * get date from timestamp: `SELECT date(startime) FROM bookings` https://stackoverflow.com/a/6133147
@@ -679,6 +682,7 @@ UTILS
 > And before you think being open-source insulates you from a company going under, few DBMS projects continue on and thrive when their founding for-profit company fails. PostgreSQL sort of counts even though the open-source version we have today is based on the UC Berkeley source code and not the commercial Illustra version (which was acquired by Informix in 1996). https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 
 misc
+* arrays https://www.openmymind.net/Introduction-To-PostgreSQL-Arrays/
 * fuzzy match https://news.ycombinator.com/item?id=26236772
 * local dev https://jamey.thesharps.us/2019/05/29/per-project-postgres/
 * chaos https://github.com/lesovsky/noisia
@@ -892,6 +896,7 @@ web_1  | ModuleNotFoundError: No module named 'psycopg2'
 USAGE
 * atuin
 * iPython
+* Neovim
 * prod! https://simonw.substack.com/p/video-scraping-using-google-gemini
 * WhatsApp https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
 * Basecamp
@@ -901,6 +906,7 @@ USAGE
 
 ---
 
+* functions https://blog.julik.nl/2025/01/supercharge-sqlite-with-ruby-functions
 * https://blog.julik.nl/2025/01/maximum-speed-sqlite-inserts
 > Beyond that, we’re starting to see more creative uses of SQLite rather than “just” a local ACID-compliant database. With the advent of tools like Litestream enabling streaming backups and LiteFS to provide distributed access, we can devise more interesting topologies. Extensions like CR-SQLite allow the use of CRDTs to avoid needing conflict resolution when merging changesets, as used in Corrosion. https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
 * replication, Rust rewrite https://github.com/tursodatabase/libsql https://news.ycombinator.com/item?id=42378843& https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/ limbo https://avi.im/blag/2024/faster-sqlite https://github.com/tursodatabase/limbo/ https://avi.im/blag/2024/faster-sqlite/
@@ -931,9 +937,11 @@ HOWTO
 
 📜 https://sqlite.org/cli.html
 
-ZA
+CONF
 * config location: `~/.sqliterc`
 * cmd history: `~/.sqlite_history`
+
+---
 
 CMD
 ```sh
@@ -950,9 +958,9 @@ l  # show file
 
 # MODES
 .mode column  # overrides `.mode csv`  https://sqlite.org/cli.html#changing_output_formats https://dba.stackexchange.com/a/40672
+.mode csv # query https://news.ycombinator.com/item?id=28299729 -> this doesn't work in litecli?
 .headers on
 .width  # https://dba.stackexchange.com/a/40672
-.mode csv # query csv https://news.ycombinator.com/item?id=28299729 -> this doesn't work in litecli?
 .import foo.csv $ALIAS
 select * from alias
 
@@ -961,8 +969,6 @@ sqlite3 $DB .dump > $DUMP.sql
 sqlite3 my_database .dump | gzip -c > my_database.dump.gz  # dump
 cat my_database.dump.gz | sqlite3 my_database  # restore
 ```
-
----
 
 config
 * default file location: pgcli(`~/.config/litecli/config`) sqlite()
@@ -1046,6 +1052,7 @@ constraints
 
 ## MySQL
 
+* https://news.ycombinator.com/item?id=42881012
 > MariaDB was in the news a lot this past year, and not in a good way. We found out that the MariaDB Corporation (which is separate from the MariaDB Foundation) is apparently a dumpster fire. In 2022, the Corporation backdoor IPO-ed through a sketchy merger instrument known as a SPAC. But the stock ($MRDB) immediately lost 40% of its value three days after its IPO. Because the Corporation decided to speedrun its way to the NYSE and become a publicly traded company, its dirty laundry became public. By the end of 2023, the stock price had dropped by over 90% since its opening. Things are so rotten at MariaDB Corporation that the Foundation's CEO wrote an article complaining about how their relationship with the Corporation has soured since the IPO and they are hoping to "reboot" it. Other problems include Microsoft announcing in September 2023 that they will no longer offer MariaDB as a managed Azure service. Microsoft will instead focus on supporting MySQL. And just in case you are not aware, MariaDB is a fork of MySQL that MySQL's original creator, Monty Widenus, started after Oracle announced its acquisition of Sun Microsystems in 2009. Recall that Sun bought MySQL AB in 2008 after Oracle bought InnoBase (makers of InnoDB) in 2005. But now MySQL is doing fine and MariaDB is one with problems. You don't need to watch movies or television shows for entertainment! You can get all the drama you need in your life through databases! https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 * TUI: https://github.com/charles-001/dolphie
 * MariaDB is done https://news.ycombinator.com/item?id=27922687 https://news.ycombinator.com/item?id=35467243

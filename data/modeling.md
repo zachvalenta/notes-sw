@@ -7,6 +7,7 @@
 *️ `OLAP.md` factors
 * `data/internals.md`
 * `science.md` metascience / categories
+* `sql.md` schema awareness
 📚
 * Alexopoulos semantic https://www.amazon.com/gp/product/1492054275
 * Kent data/reality https://www.amazon.com/Data-Reality-Perspective-Perceiving-Information/dp/1935504215
@@ -19,12 +20,6 @@ https://swizec.com/blog/why-software-only-moves-forward/
 * enum > FK
 * modeling payments https://news.ycombinator.com/item?id=36775098
 * https://news.ycombinator.com/item?id=41146239&utm_term=comment
-
-ACCESS PATTERNS
-* _access pattern_: how you have to query based on schema https://calpaterson.com/non-relational-beartraps.html
-* what you're prioritizing e.g. read/write vs. aggregations 📻 Macey 6:10
-* _upsert_: insert or update 📙 Bradshaw [46]
-* _get-or-create_: `get_or_create()` in Django, aka find_create_find
 
 IMPORTANCE
 > Data models are perhaps the most important part of developing software, because they have such a profound effect: not only on how the software is written, but also how we think about the problem that we are solving. 📙 Kleppmann [31]
@@ -353,6 +348,13 @@ IT103    |   2009-2   | 120      | Web Design   |
 * can be used for ERD in Mongo https://stackoverflow.com/q/11323841 https://stackoverflow.com/q/6010408
 
 # 🟨 ZA
+
+## access patterns
+
+* _access pattern_: how you have to query based on schema https://calpaterson.com/non-relational-beartraps.html
+* what you're prioritizing e.g. read/write vs. aggregations 📻 Macey [6:10]
+* _upsert_: insert|update 📙 Bradshaw [46]
+* _resolve_: `get_or_create()` in Django
 
 ## taxonomy
 

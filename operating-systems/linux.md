@@ -483,6 +483,7 @@ PERMS 📙 Evans linux https://chatgpt.com/c/672cbc33-dabc-8004-bbac-7c5050f5387
 * test: rw-only for owner `sudo -u nobody cat $FILE_WITH_PERMS_THAT_NOBODY_SHOULDNT_BE_ABLE_TO_READ`
 * get as octal: `stat -f "%A" $FILE`
 * default: `666` (file) `777` (dir)
+* clean up DS files `fd -HI DS`
 * _umask_: set perms on new files via "mask" (subtraction) from default perms; can be set as user or distro level https://www.digitalocean.com/community/tutorials/linux-permissions-basics-and-how-to-use-umask-on-a-vps
 
 ---

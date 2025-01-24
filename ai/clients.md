@@ -163,6 +163,7 @@ https://news.ycombinator.com/item?id=42543601
 ## ipychat
 
 https://github.com/vinayak-mehta/ipychat/
+https://github.com/shobrook/wut
 
 ## ⏳♎️ llm
 
@@ -287,6 +288,7 @@ for conversation in data["conversations"]:
 
 > OpenAI now supports structured output, allowing developers to supply a JSON Schema, pydantic or Zod object to constrain model responses. https://www.thoughtworks.com/radar/techniques/structured-output-from-llms
 
+https://simonwillison.net/2025/Jan/24/anthropics-new-citations-api/
 https://news.ycombinator.com/item?id=42753302
 
 * GPT code completions API https://www.youtube.com/watch?v=g9tIm50VO4g
@@ -294,7 +296,7 @@ https://news.ycombinator.com/item?id=42753302
 * API spec
 > ch works with any compatible chat completion API that has the same interface as ChatGPT https://github.com/dnmfarrell/ch
 > Projects such as LocalAI offer a REST API that imitates the OpenAI API but can be used to run other models, including models that can be installed on your own machine. These can be added using the same configuration mechanism. https://llm.datasette.io/en/stable/other-models.html#openai-compatible-models
-* Claude JSON export https://simonwillison.net/2024/Oct/21/claude-artifacts/
+* Claude JSON export https://simonwillison.net/2024/Oct/21/claude-artifacts/ https://simonwillison.net/2024/Dec/31/llms-in-2024/#prompt-driven-app-generation-is-a-commodity-already
 * _Amazon bedrock_: API for all models https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html
 
 MODEL CONTEXT PROTOCOL

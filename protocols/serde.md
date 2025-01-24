@@ -364,6 +364,7 @@ USAGE
 * high-throughput message queues
 * time series data
 * video game state sync
+* Neovim
 
 ## 🟡 JSON
 

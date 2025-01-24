@@ -254,6 +254,7 @@ KISS
 
 * _fan out_: num of req to other services to handle one incoming req [11]
 📍 need to review SQL of Twitter example
+* https://www.openmymind.net/Scaling-Focus-On-Raw-Speed/
 
 # ⠎ PATTERNS
 
@@ -586,6 +587,7 @@ MESSY PROJECT ROOT = `$PROJ/meta` 🗄️ `python/pkg.md` project structure
 
 ---
 
+* https://softwaredoug.com/blog/2024/12/14/throwaway-prs-not-design-docs
 * https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog
 * https://news.ycombinator.com/item?id=39494925
 * https://news.ycombinator.com/item?id=34482836
@@ -599,6 +601,7 @@ MESSY PROJECT ROOT = `$PROJ/meta` 🗄️ `python/pkg.md` project structure
 
 ---
 
+* https://github.com/charmbracelet/gum/releases/tag/v0.15.0
 * have a `RELEASE.md` https://news.ycombinator.com/item?id=26902887
 * https://www.stedi.com/changelog
 * https://drewdevault.com/2021/05/19/How-to-write-release-notes.html

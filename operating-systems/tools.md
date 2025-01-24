@@ -28,6 +28,7 @@ jq -r '.data.user.contributionsCollection.contributionCalendar.weeks[].contribut
 
 CLEAN UP
 * _ffmpeg_: video encoding, file format conversion https://www.youtube.com/watch?v=MPV7JXTWPWI https://ffmpeg.guide/ https://img.ly/blog/ultimate-guide-to-ffmpeg/ https://drewdevault.com/2022/10/12/In-praise-of-ffmpeg.html https://news.ycombinator.com/item?id=42695547
+* used by: Neovim
 * _imgcat_: render img in terminal https://news.ycombinator.com/item?id=23319272
 * weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/ https://git.sr.ht/~timharek/yr
 * Wikipedia https://github.com/yashsinghcodes/wik
@@ -336,6 +337,8 @@ FILE OPS
 * `o` open
 > you can just enter a dir by quitting yazi in that dir!
 > would like to config so that it works for both dropping to shell and file edit https://yazi-rs.github.io/docs/tips/#dropping-to-shell https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
+* `a`: create file (dir end with `/`)
+* `r`: mv
 
 ZA
 * scroll preview: `J|K`
@@ -374,6 +377,7 @@ ZOXIDE 📜 https://github.com/ajeetdsouza/zoxide https://www.youtube.com/watch?
 
 ALTERNATIVES
 * _autojump_: 🎯 mature https://github.com/wting/autojump
+* _shunpo_: https://github.com/egurapha/Shunpo
 * _wd_: manually add https://github.com/mfaerevaag/wd
 * _z_: https://github.com/rupa/z
 
@@ -588,6 +592,8 @@ PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c
 * _rustscan_: https://github.com/RustScan/RustScan
 
 ## progress bars (tqdm)
+
+❓ how does sqlite-utils do its countdown?
 
 LINUX
 * _enlighten_: https://github.com/Rockhopper-Technologies/enlighten

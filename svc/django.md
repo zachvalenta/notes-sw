@@ -17,7 +17,7 @@
 
 ## 进步
 
-* _25_: 📙 Vincent beginners https://learndjango.com/courses/django-for-beginners/chapter-2-hello-world-website/ https://github.com/zachvalenta?tab=repositories&q=vincent&type=&language=&sort=
+* _25_: 📙 Vincent beginners https://learndjango.com/courses/django-for-beginners/chapter-2-hello-world-website/ @ initial setup https://github.com/zachvalenta?tab=repositories&q=vincent&type=&language=&sort=
 * _21_: DML
 * _20_: CRUD (ORM, serialization, repl) env (conf, Docker) CQ (testing) DRF (views, nested serializers, testing, read_only) middleware (403 req based on IP addr)
 * _19_: 📙 Osborn hello web app
@@ -602,6 +602,7 @@ FLOW http://lucumr.pocoo.org/2011/7/19/sqlachemy-and-you/
 * https://github.com/wagtail/queryish
 * _F expression_: perform SQL operation without serializing data into Python obj first https://docs.djangoproject.com/en/3.1/ref/models/expressions/#f-expressions
 * lazy evaluation https://docs.djangoproject.com/en/3.1/topics/db/queries/#querysets-are-lazy https://davit.tech/django-queryset-examples/#section-contents dangerous for property calls https://news.ycombinator.com/item?id=38518978
+calculated property https://lukeplant.me.uk/blog/posts/django-pagni-efficient-bulk-properties/
 ```python
 qs = Foo.objects.all()  # no eval
 qs.filter(foo='foo val')  # no eval
@@ -884,7 +885,6 @@ https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-djan
 * https://github.com/adamspd/django-appointment
 * reports https://github.com/RamezIssac/django-slick-reporting
 * _3rd-party apps_: anything installed by adding to `settings.py/INSTALLED_APPS` https://djangopackages.org https://realpython.com/installable-django-app/
-* _channels_: https://www.aeracode.org/2018/06/04/django-async-roadmap/ https://testdriven.io/blog/django-async-views/ https://www.youtube.com/watch?v=j6IOuD5WD8c https://testdriven.io/courses/real-time-app-with-django-channels-and-angular/ https://testdriven.io/courses/real-time-app-with-django-channels-and-angular kinda live Phoenix LiveView? https://github.com/edelvalle/reactor https://runninginproduction.com/podcast/11-logflare-is-a-log-management-and-event-analytics-platform
 * _editor_: https://406.ch/writing/django-prose-editor-prose-editing-component-for-the-django-admin/
 * _email_: https://learndjango.com/tutorials/django-email-contact-form https://softwarecrafts.co.uk/100-words/day-76
 * _favicon_: https://learndjango.com/tutorials/django-favicon-tutorial
@@ -921,6 +921,11 @@ https://www.bugsink.com/blog/better-error-tracking-in-django/
 * _backups_: https://github.com/django-dbbackup/django-dbbackup
 * _caching_: https://wsvincent.com/django-caching-for-beginners/ https://eralpbayraktar.com/blog/django/2020/caching-with-django
 * _search_: https://findwork.dev/blog/optimizing-postgres-full-text-search-django/ https://www.youtube.com/watch?v=is3R8d420D4 https://youtu.be/is3R8d420D4 https://jamesturk.net/posts/websearch-in-django-31 https://www.youtube.com/watch?v=kOKwEDHeBX4 https://github.com/ivelum/djangoql https://pganalyze.com/blog/full-text-search-django-postgres Haystack https://django-q.readthedocs.io/en/latest/examples.html https://github.com/etianen/django-watson https://www.paulox.net/2017/12/22/full-text-search-in-django-with-postgresql https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ https://fly.io/blog/a-no-js-solution-for-dynamic-search-in-django/ sort https://rednafi.com/python/sort_by_a_custom_sequence_in_django/ https://www.photondesigner.com/articles/database-search-django-htmx
+
+## real-time
+
+https://centrifugal.dev/docs/tutorial/intro
+* _channels_: https://www.aeracode.org/2018/06/04/django-async-roadmap/ https://testdriven.io/blog/django-async-views/ https://www.youtube.com/watch?v=j6IOuD5WD8c https://testdriven.io/courses/real-time-app-with-django-channels-and-angular/ https://testdriven.io/courses/real-time-app-with-django-channels-and-angular kinda live Phoenix LiveView? https://github.com/edelvalle/reactor https://runninginproduction.com/podcast/11-logflare-is-a-log-management-and-event-analytics-platform
 
 ## TUI
 
@@ -983,37 +988,86 @@ WORLD'S DUMBEST COMPLETE SAAS
 * `python/core.md` functions > metaprogramming
 
 > Web development is often broad, not deep - problems span many domains. https://docs.djangoproject.com/en/2.0/intro/whatsnext/
-> A framework is a text where you fill in the blanks. The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
+> The framework defines the grammar, you bring some of the words. https://blog.startifact.com/posts/framework-patterns.html
 
-* components: HTTP, routes, ORM
-* _Rails_: still the best https://rubyonrails.org/doctrine/
+```txt
+           +------------+
+           |  browser   |
+           +------------+
+             |       ^
+HTTP request |       | HTTP response
+             |       |
+             v       |
++----------------+   |
+| url dispatcher |   |
++----------------+   | 
+            |        |
+            v        |
+    +----------------+     +-----------+
+    |      view      | <-> |  template |
+    +----------------+     +-----------+
+            ^
+            |
+            v
+    +----------------+
+    |     model      |
+    +----------------+
+            ^
+            |
+            v
+    +----------------+
+    |   database     |
+    +----------------+
+```
+
+---
+
+MVC 🔗 https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+* _model_: manages data and core business logic
+* _view_: renders model data
+* _controller_: accepts user input and performs application-specific logic
+
+MVT
+> it can take a little while to shift your thinking to the "Django way" which is more loosely coupled and allows for easier modifications than the MVC approach https://learndjango.com/courses/django-for-beginners/chapter-2-hello-world-website/
+* https://lukeplant.me.uk/blog/posts/mvc-is-not-a-helpful-analogy-for-django/
+* _model_: manages data and core business logic
+* _template_: presents data as html + CSS/JS/static assets
+* view in MVC
+* _view_: desc data sent to user but not its presentation
+* _URL config_: regex components configured to a view
+* controller in MVC
+
+RAILS
+* still the best https://rubyonrails.org/doctrine/
+* https://news.ycombinator.com/item?id=42856766
 > It's productive, it's fast enough, it scales just fine, and perhaps most importantly there's a "right" way to do just about everything your web application will ever need to do: background jobs, websockets, read-only database replicas. https://news.ycombinator.com/item?id=42014906
+* vs. Django https://news.ycombinator.com/item?id=42388340
+* https://news.ycombinator.com/item?id=42569236
+* https://literallythevoid.com/blog/rails_for_everything.html
+* https://www.openmymind.net/2010/6/23/My-Rails-Journey-The-Expected-Speed-Bumps/
+* https://www.openmymind.net/2010/10/18/Weekend-NET-Pains/
+* https://www.openmymind.net/2010/8/30/How-I-would-fix-ASP-NET/
 
-FEATURES https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/
-> any framework that accepts POST request also needs to be able to protect against Cross-Site Request Forgery (CSRF)...implementing it properly involved first adding in database support so that I could build the session middleware...roughly 1/3rd of the total development time went into CORS and CSRF protection alone.
+COMPONENTS
+* HTTP, routes, ORM
+> any framework that accepts POST request also needs to be able to protect against Cross-Site Request Forgery (CSRF)...implementing it properly involved first adding in database support so that I could build the session middleware...roughly 1/3rd of the total development time went into CORS and CSRF protection alone. https://itsthejoker.github.io/spiderweb-the-tiny-web-framework/
 * router: receives req and returns res
 * WSGI https://wsgi.tutorial.codepoint.net/application-interface
 * middleware: processes req/res
 * sessions
 
----
-
 ALTERNATIVES
 * https://github.com/vitalik/django-ninja https://news.ycombinator.com/item?id=30221016 https://talkpython.fm/episodes/show/490/django-ninja
 * https://github.com/hbakri/django-ninja-crud
-* single file https://github.com/radiac/nanodjango
+* single file https://github.com/radiac/nanodjango https://radiac.net/blog/2025/01/monkeypatching-django/
 * https://www.loopwerk.io/articles/2024/django-vs-flask-vs-fastapi/
 * https://www.david-dahan.com/blog/comparing-fastapi-and-django
 
 htmx https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
-Django vs. Rails https://news.ycombinator.com/item?id=42388340
 https://github.com/CrocoFactory/sensei
-Rails https://news.ycombinator.com/item?id=42569236 https://literallythevoid.com/blog/rails_for_everything.html
 
 https://treypiepmeier.com/words/2024/08/django-is-for-everyone
 https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
-https://lukeplant.me.uk/blog/posts/mvc-is-not-a-helpful-analogy-for-django/
-https://lukeplant.me.uk/
 
 BYO
 * https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://blog.dimitarandreev.com/posts/writing-an-http-router-for-aws-lambda-functions-from-scratch-with-go/

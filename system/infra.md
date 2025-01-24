@@ -30,6 +30,7 @@ https://github.com/deliro/moka-py
 
 ## memcached
 
+https://read.engineerscodex.com/p/how-facebook-scaled-memcached
 * _is?_: volatile cache https://news.ycombinator.com/item?id=23689549 aka application caching layer
 * _how?_: distributed hash table i.e. n instances of app share 1 distributed instance of memcached
 * _why?_: so you don't have to read from db
@@ -40,9 +41,14 @@ https://github.com/deliro/moka-py
 
 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
 
+* client https://github.com/laixintao/iredis
 * license craziness https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 > I'll be blunt: I don't care for Redis. It is slow, it has fake transactions, and its query syntax is a freakshow. Our experiments at CMU found Dragonfly to have much more impressive performance numbers (even with a single CPU core). In my database course, I use the Redis query language as an example of what not to do. Nevertheless, I am sympathetic to Redis Ltd.'s plight of being overrun by Amazon. However, the company is overestimating the barrier of entry to build a simplistic system like Redis; it is much lower than building a full-featured DBMS (e.g., Postgres), so there are several alternatives to the OG Redis. They are not in position of strength where such posturing will be tolerated by the community. https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 
+https://www.openmymind.net/Redis-Is-The-Most-Important-Tool-In-My-Toolbelt/
+https://www.openmymind.net/2011/5/8/Practical-NoSQL-Solving-a-Real-Problem-w-Mongo-Red/
+https://www.openmymind.net/Data-Modeling-In-Redis/
+transactions https://www.openmymind.net/You-Cant-Rollback-Redis-Transaction/
 > just use postgres https://martinheinz.dev/blog/105
 * pipelines https://medium.com/@tonywangcn/27-6-of-the-top-10-million-sites-are-dead-6bc7805efa85
 * https://www.youtube.com/watch?v=WQ61RL1GpEE
@@ -406,6 +412,8 @@ PUB/SUB 📙 Narkhede ch. 1
 
 * semantics 📻 Macey 4:50
 * https://bloomberg.github.io/blazingmq/
+https://www.openmymind.net/Grow-Up-Use-Queues/
+poison https://www.openmymind.net/Queue-Despair-Ordering-And-Poison-Messages/
 
 ## cron
 
@@ -546,7 +554,7 @@ ALTERNATIVES
 * _ZeroMQ_: http://aosabook.org/en/zeromq.html
 
 za
-* BYO https://github.com/travisjeffery/jocko
+* BYO https://github.com/travisjeffery/jocko https://www.openmymind.net/Building-A-Queue-Part-1/
 * https://developer.confluent.io/what-is-apache-kafka/#intro-to-ak
 * https://www.confluent.io/blog/author/martin-kleppmann/
 * Avro (eventbus README)
@@ -926,6 +934,7 @@ each with a URL for
 
 * https://phrase.com/blog/posts/internationalization-i18n-go/
 * examples: Odoo, https://github.com/jesseduffield/lazygit/tree/master/pkg/i18n
+* translate https://tech.marksblogg.com/language-translation-ai-python.html
 * _a11y_: accessibility https://en.wikipedia.org/wiki/Computer_accessibility
 * _l10n_: language localization https://en.wikipedia.org/wiki/Language_localisation
 * _Lokalise_: used at UM https://lokalise.com/automate-localization

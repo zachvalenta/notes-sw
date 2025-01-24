@@ -316,7 +316,9 @@ za
 
 ## chips
 
-📙 Miller chip war
+📚
+* Hijink asml way https://www.amazon.com/Focus-Inside-struggle-complex-machine/dp/B0D7DRJL2W
+* Miller chip war
 
 * _silica_: mineral extracted from sand
 * _silicon_: element formed by rm oxygen from silica; btw aluminum and phosphorus; by itself only a semiconductor

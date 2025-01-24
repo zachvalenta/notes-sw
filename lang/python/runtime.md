@@ -5,14 +5,13 @@
 📚
 * Antao fast python https://www.manning.com/books/fast-python
 * ⭐️ Mara refactoring to rust https://www.manning.com/books/refactoring-to-rust
-* Shaw python internals https://www.amazon.com/dp/1775093344
+* Shaw python internals
 
 ## 进步
 
 # 🐍 CPYTHON
 
 ---
-
 
 * auditing hooks https://stackoverflow.com/questions/63350394/how-to-set-up-and-use-python-audit-hooks https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP
 > Python auditing hooks, introduced in version 3.8 through PEP 578, provide an excellent mechanism for monitoring and adding security to Python applications. These hooks can be used to detect and log specific runtime events, such as imports, file access, and network connections. The sys.addaudithook() function allows developers to register callbacks that will be triggered when certain events occur. For example, you can monitor file access or network requests made by third-party libraries to detect suspicious behavior or security vulnerabilities in real-time.
@@ -87,6 +86,7 @@ STAGES https://www.youtube.com/watch?v=QU158nGABxI 25:30
 * https://news.ycombinator.com/item?id=41677131
 * https://realpython.com/python313-free-threading-jit/
 * https://drew.silcock.dev/blog/everything-you-need-to-know-about-python-3-13/
+* https://eli.thegreenplace.net/2025/decorator-jits-python-as-a-dsl/
 
 ## extensions
 
@@ -184,13 +184,13 @@ PEPS https://peps.python.org/
 * finance https://www.openbb.co/
 * architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * GPU simulation https://news.ycombinator.com/item?id=40680737
-* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo
+* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/
 * mesh analysis https://github.com/pyvista/pyvista
 * browser https://www.youtube.com/watch?v=Vh77_2-Z0vc
 
 ## governance
 
-* corporate: internal language team at Google https://news.ycombinator.com/item?id=40176338
+* corporate: internal language team at Google https://news.ycombinator.com/item?id=40176338 https://discuss.python.org/t/how-is-the-psf-governed-and-funded/77359/11
 * quasi-official: PyPA, PyCQA
 * people: Donald Stuft (PyPA) Raymond Hettinger (core) Tim Peters (Zen of Python `import this`, Timsort) Armin Ronacher (Flask) Brett Cannon (core) Nick Coghlan (core) Eli Bendersky (Google, buddies w/ Coghlan) https://mail.python.org/pipermail/python-committers/2019-February/006520.html
 * _Steering Council_: https://mail.python.org/pipermail/python-committers/2019-February/006520.html

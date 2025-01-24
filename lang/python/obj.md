@@ -526,6 +526,7 @@ c.crawl()
 ---
 
 🧠 https://chatgpt.com/c/6720e992-860c-8004-a2dd-2cc826753ecf https://claude.ai/chat/0783b7f1-cde6-4e22-b4d3-83199e90fc71
+https://www.openmymind.net/Basic-MetaProgramming-in-Zig/
 * https://dev.to/karishmashukla/a-practical-guide-to-metaprogramming-in-python-691
 * Flask debugger, typing, metaprogramming vs monkey patching https://news.ycombinator.com/item?id=34611969
 * _metaprogramming_: functions that manipulate existing code e.g. decorators, inspection 📙 Beazley 329
@@ -619,7 +620,7 @@ def example_function():
 print(inspect.getsource(example_function))
 # Output: # def example_function(): pass
 ```
-* _monkey patch_: modify/extend modules/classes at runtime, used for fixing bugs without altering original src
+* _monkey patch_: modify/extend modules/classes at runtime, used for fixing bugs without altering original src https://radiac.net/blog/2025/01/monkeypatching-django/
 ```python
 import datetime
 
@@ -669,35 +670,62 @@ print(obj.method())  # Output: Hello
 
 ## decorators
 
+* _decorator_: factory that takes func and adds functionality via inner function
+* PEP 318, released Python 2.4
+
+```python
+# original
+def setup_dir_structure():
+    Path.cwd().joinpath('foo/raw').mkdir(parents=True, exist_ok=True)
+    Path.cwd().joinpath('foo/working/capp').mkdir(parents=True, exist_ok=True)
+    Path.cwd().joinpath('foo/working/customers').mkdir(parents=True, exist_ok=True)
+
+# decorate
+def setup_dir_structure(func):
+    @wraps(func)
+    def wrap(*args, **kwargs):
+        base = Path.cwd()
+        dirs = [
+            base / 'foo/raw',
+            base / 'foo/working/capp',
+            base / 'foo/working/customers',
+        ]
+        for d in dirs:
+            d.mkdir(parents=True, exist_ok=True)
+        return func(*args, **kwargs)
+    return wrap
+
+@setup_dir_structure
+def get_catalog(fmt='parquet', retry=True):
+    pass
+```
+
 ---
 
-https://us.pycon.org/2024/schedule/presentation/85/index.html
-* perf https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
-* _decorator_: factory + functionality https://www.fluentpython.com/lingo/#decorator https://jcarlosroldan.com/post/329/my-latest-tils-about-python
-* https://www.fluentpython.com/lingo/#decorator https://docs.python.org/3/glossary.html#term-decorator https://www.bitecode.dev/p/xmas-decorations-part-3
-* use cases
-```python
-# logging
+USE CASES
+* logging
+* caching
+* sanitization
+* app config https://bytepawn.com/python-decorators-for-data-scientists.html
+* exceptions https://dev.to/fcurella/refining-exceptions-with-context-decorators-31i5
+* login https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples
+* pagination https://stackoverflow.com/questions/53638221/unable-to-handle-two-links-having-different-pagination-using-decorator
+* JIT https://eli.thegreenplace.net/2025/decorator-jits-python-as-a-dsl/
 
-# caching
-
-# sanitization
-
-# app config https://bytepawn.com/python-decorators-for-data-scientists.html
-
-# execeptions https://dev.to/fcurella/refining-exceptions-with-context-decorators-31i5
-
-# login https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples
-
-# pagination https://stackoverflow.com/questions/53638221/unable-to-handle-two-links-having-different-pagination-using-decorator
-```
+ZA
+* https://www.fluentpython.com/lingo/#decorator
+* https://docs.python.org/3/glossary.html#term-decorator
+* https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples
+* https://www.youtube.com/watch?v=MjHpMCIvwsY
+* https://us.pycon.org/2024/schedule/presentation/85/index.html
+* https://treyhunner.com/2024/06/a-beautiful-python-monstrosity/
+* https://jcarlosroldan.com/post/329/my-latest-tils-about-python
+* https://www.bitecode.dev/p/xmas-decorations-part-3
 * https://bas.codes/posts/python-decorators
 * https://suyogdahal.com.np/posts/how-decorator-crashed-my-flask-app/
 * https://blog.luisrei.com/articles/flaskrest.html
 * https://stackoverflow.com/questions/308999/what-does-functools-wraps-do
 * https://samireland.com/writing/decorators/ https://rednafi.github.io/digressions/python/2020/05/13/python-decorators.html
-* _decorator_: factory that takes func and adds functionality via inner function; introduced in 2.4 via PEP 318
-* _basics_: https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples https://www.youtube.com/watch?v=MjHpMCIvwsY
 * _factory_: https://joeriksson.io/blog/Decorator-with-arguments/ https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://stackoverflow.com/a/28695034/6813490 https://www.learnpython.org/en/Decorators https://stackoverflow.com/questions/10957409/python-naming-conventions-in-decorators https://realpython.com/inner-functions-what-are-they-good-for/#conclusion https://zenhack.net/2016/12/25/why-python-is-not-my-favorite-language.html
 
 * pre-2.4
@@ -1070,26 +1098,24 @@ https://llm.datasette.io/en/stable/related-tools.html
 
 # 🎹 TYPING
 
-🗄 `plt.md` typing
+🗄 `compilers.md` typing
 
-TYPE CHECKERS
-* _Beartype_: https://github.com/beartype/beartype
-* _MonkeyType_: Instagram i.e. Python 3 https://github.com/Instagram/MonkeyType https://www.pythonpodcast.com/monkeytype-with-carl-meyer-and-matt-page-episode-146/
-* _mypy_: PSF
-* _pyannotate_: Dropbox i.e. Python 2 https://github.com/dropbox/pyannotate
-* _pyre_: Facebook https://pyre-check.org/
-* _PyRight_: Microsoft https://github.com/Microsoft/pyright
-* _typecheck_: 🎯 auto error handling for typed args https://calmcode.io/shorts/typeguard.py
-
-ZA
 > The foundations of Python’s static type system were defined in PEP 484 and introduced in Python 3.5. In November 2023, PEP 729 established the Typing Council and formalized the type system through a typing specification. https://realpython.com/python313-new-features/
-* _exhaustiveness check_: check that functions handle newly-added attributes on their args https://news.ycombinator.com/item?id=25428583
-* _type narrowing_: issue warning if src tries to operate on type that args cannot be passed on blocks's previous code https://hakibenita.com/python-mypy-exhaustive-checking
 
 ---
 
-generate https://github.com/RightTyper/RightTyper
+* _exhaustiveness check_: check that functions handle newly-added attributes on their args https://news.ycombinator.com/item?id=25428583
+* _type narrowing_: issue warning if src tries to operate on type that args cannot be passed on blocks's previous code https://hakibenita.com/python-mypy-exhaustive-checking
+
+GENERATE ANNOTATIONS
+* https://github.com/RightTyper/RightTyper
+* _pyannotate_: Dropbox i.e. Python 2 https://github.com/dropbox/pyannotate
+* _MonkeyType_: Instagram i.e. Python 3 https://github.com/Instagram/MonkeyType https://www.pythonpodcast.com/monkeytype-with-carl-meyer-and-matt-page-episode-146/
+
 https://realpython.com/python313-new-features/#improvements-to-static-typing
+https://lukeplant.me.uk/blog/posts/python-type-hints-pyastgrep-case-study/
+https://lukeplant.me.uk/blog/posts/the-different-uses-of-python-type-hints/
+https://lukeplant.me.uk/blog/posts/pythons-disappointing-superpowers/
 
 ANNOTATIONS
 * _annotation_: https://docs.python.org/3/glossary.html#term-annotation
@@ -1135,6 +1161,9 @@ https://lukeplant.me.uk/blog/posts/the-different-uses-of-python-type-hints/
 
 ---
 
+* _pyre_: Facebook https://pyre-check.org/
+* _Beartype_: https://github.com/beartype/beartype
+
 https://www.mypy-lang.org/
 https://mypy.readthedocs.io/en/stable/getting_started.html#installing-mypy
 * _impl_: looks at AST, doesn't run src
@@ -1151,6 +1180,7 @@ def get_config_value(key: str): Optional[str]:
 
 ## 🔺 pydantic
 
+💡 runtime type checking
 📜 https://docs.pydantic.dev/latest/ https://pydantic.dev/
 🗄
 * `eng.md` clean
@@ -1158,6 +1188,7 @@ def get_config_value(key: str): Optional[str]:
 
 ---
 
+* _typecheck_: 🎯 auto error handling for typed args https://calmcode.io/shorts/typeguard.py
 can use as validation before handing over to sqlite3 https://github.com/Zaloog/kanban-tui/blob/main/src/kanban_tui/database.py
 
 DESIGN

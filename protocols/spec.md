@@ -735,13 +735,21 @@ python -c "import random, string; print('\n'.join(''.join(random.choices(string.
 * _shortuuid_: https://github.com/skorokithakis/shortuuid https://github.com/lithammer/shortuuid
 
 TYPES
-* _DUNS_: unique for businesses as legal entities; require for government contracts, to be a supplier to big businesses, for SSL certs; e.g. `00-186-7803` for Apple
-* _SKU_: internal to retailer/warehouse; variable length, fmt repr product characteristics/location
-* _ASIN_: Amazon SKU; 10 char; per product i.e. if multiple sellers sell same product they use same ASIN https://inventlikeanowner.com/blog/the-story-behind-asins-amazon-standard-identification-numbers/
-* _QR code_: https://calmcode.io/course/qr-code/generate
-* _UPC_: unique across retailers; 12 char; overseen by GS1
-* syntax: manufacturer + product + check digit (proof of correct reading of previous digits)
+* _QR code_: generate https://calmcode.io/course/qr-code/generate
+* _DUNS_: unique for businesses as legal entities e.g. `00-186-7803` (Apple)
+* required for SSL certs, government contracts, to be a supplier to big businesses
+* _ASIN_: Amazon SKU e.g. `B0CGJVLF9Q` (Pink Floyd dark side of the moon)
+* per product i.e. if multiple sellers sell same product they use same ASIN https://inventlikeanowner.com/blog/the-story-behind-asins-amazon-standard-identification-numbers/
+```python
+import random
+import string
+'B' + ''.join(random.choices(string.ascii_uppercase + string.digits, k=9))
+```
+* _SKU_: internal ID; variable length, fmt repr product characteristics/location
+* _UPC_: external ID i.e. unique across retailers
+* GS1 oversees UPCs + GLN (global location number) SSCC (shipping containers) GTIN (UPC superset) https://www.gs1.org/
 ```sh
+# syntax: manufacturer + product + check digit (proof of correct reading of previous digits)
 049000000156  # coke classic 12 oz can
 049000000163  # coke diet 12 oz can
 049000000187  # sprite 12 oz can

@@ -164,7 +164,7 @@ ZA
 
 ## TDD
 
-* DHH: clarity above all, TDD yokes the program architecture https://www.youtube.com/watch?v=9LfmrkyP81M 📻 STT
+* DHH: clarity above all, TDD yokes the program architecture https://www.youtube.com/watch?v=9LfmrkyP81M 📻 STT https://lukeplant.me.uk/blog/posts/no-one-actually-wants-simplicity/
 
 # 🕳️ INTEGRATION
 
@@ -244,6 +244,7 @@ AUTOMATION
 
 ---
 
+* https://lukeplant.me.uk/blog/posts/test-factory-functions-in-django/  https://www.djangotricks.com/blog/2024/05/generating-fake-django-model-instances-with-factory-boy/
 * http://eradman.com/posts/database-test-isolation.html
 * https://conroy.org/per-test-database-isolation-in-postgres
 
@@ -290,12 +291,13 @@ TEST TYPES
 
 ---
 
+https://www.openmymind.net/2010/10/20/My-Slow-Transition-Away-From-Mocks/
 https://pythonspeed.com/articles/faster-db-tests/
 
 https://pycon-archive.python.org/2024/schedule/presentation/26/index.html
 
 * _mock_: override method so you can test; `unittest.mock` vs. `pytest.monkeypatch` https://www.b-list.org/weblog/2020/feb/03/how-im-testing-2020/ mock vs. magicmock https://stackoverflow.com/questions/17181687/mock-vs-magicmock https://realpython.com/python-mock-library/ https://joshpeak.net/posts/2019-06-18-Advanced-python-testing.html env var https://adamj.eu/tech/2020/10/13/how-to-mock-environment-variables-with-pytest https://www.b-list.org/weblog/2023/dec/08/mock-python-httpx/
-* mocks https://github.com/tommyboytech/t3/pull/11146/files https://testing.googleblog.com/2013/05/testing-on-toilet-dont-overuse-mocks.html
+* mocks https://testing.googleblog.com/2013/05/testing-on-toilet-dont-overuse-mocks.html
 * https://blog.cleancoder.com/uncle-bob/2014/05/14/TheLittleMocker.html
 
 TAXONOMY https://blog.thea.codes/my-python-testing-style-guide/

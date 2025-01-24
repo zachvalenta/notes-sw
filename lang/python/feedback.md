@@ -9,6 +9,8 @@
 
 ## 进步
 
+* can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
+
 ```txt
 Exactly! Your problem has several layers:
 * IPython installed globally, raising virtualenv warnings
@@ -79,10 +81,10 @@ OPTIONS
 * notebook: when you want to share
 
 * look into hosted
-* can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
 * pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html 🗄️ `architecture.md` baked data
 * add to startup https://www.pythonmorsels.com/cli-tools/#pyclbr
 * https://ericmjl.github.io/blog/2024/11/8/disposable-environments-for-ad-hoc-analyses/
+* https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/
 
 * _24_: iPython
 * _21_: pdb
@@ -155,14 +157,17 @@ ALTERNATIVES
 
 ---
 
-ZA
 * https://www.pythonmorsels.com/cli-tools/#analyzing-python-code
+* https://lukeplant.me.uk/blog/posts/enforcing-conventions-in-django-projects-with-introspection/
+* https://lukeplant.me.uk/blog/posts/tools-for-rewriting-python-code/
+* https://lukeplant.me.uk/blog/posts/grep-python-syntax-using-ast-pyastgrep/
 * https://ward.readthedocs.io/en/latest/guide/writing_tests.html#using-assert-statements
 * https://www.youtube.com/watch?v=OjPT15y2EpE
 * inspect https://hakibenita.com/automating-the-boring-stuff-in-django-using-the-check-framework
 * https://www.mattlayman.com/blog/2018/decipher-python-ast/
 * https://talkpython.fm/episodes/show/152/understanding-and-using-python-s-ast
 * get data structure from string `ast.literal_eval(ds_as_str)` https://stackoverflow.com/a/17768535
+* https://lukeplant.me.uk/blog/posts/pyastgrep-and-custom-linting/
 
 ## inspect
 
@@ -337,6 +342,12 @@ https://github.com/zasper-io/zasper
 ## 🟧 Jupyter
 
 📜 https://jupyter.readthedocs.io/en/latest/index.html https://realpython.com/jupyter-notebook-introduction/
+
+HOWTO
+```sh
+poetry add jupyter
+poetry run jupyter notebook
+```
 
 FEATURES
 * run SQL https://github.com/ploomber/jupysql https://www.youtube.com/watch?v=xuASJwVBhvc

@@ -108,6 +108,8 @@ TACTICS
 
 ---
 
+https://www.openmymind.net/Speedig-Up-Queries-Re-Imagining-Your-Data/
+https://www.openmymind.net/Speedig-Up-Queries-Understanding-Query-Plans/
 * Polars https://chatgpt.com/c/6749f200-3d60-8004-a2ab-1dc8e2c636bb
 * use numpy https://realpython.com/numpy-example
 * https://substack.com/home/post/p-150506520 https://explain.saby.dev/en/

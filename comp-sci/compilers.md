@@ -439,6 +439,111 @@ JIT
 - Interoperability with Other Languages
 - Library Binding
 
+# 🔬 STATIC CODE ANALYSIS
+
+## lint (ruff)
+
+## type check (pyright)
+
+https://github.com/microsoft/pyright
+
+Primary Focus: Verifying that the types in your code match the declared or inferred expectations.
+What It Does: Checks for type mismatches, enforces type annotations (or infers types), and ensures that function calls and operations are used in a type-safe manner.
+Example: Pyright is primarily designed to catch type errors without running your code.
+
+## symbol index (ctags)
+
+📙 Neil practical ch. 16
+
+* extracts symbols (functions, classes, variables) from code to build an index (tag file)
+* tags used by editors for goto def
+
+---
+
+> The previously mentioned tag mechanism also works for jumping between files. The usual approach is to generate a tags file for the whole project you are working on. You can then quickly jump between all files in the project to find the definitions of functions, structures, typedefs, etc. The time you save compared with manually searching is tremendous; creating a tags file is the first thing I do when browsing a program. https://www.moolenaar.net/habits.html
+> Include files contain useful information. But finding the one that contains the declaration you need to see can take a lot of time. Vim knows about include files, and can search them for a word you are looking for. The most common action is to lookup the prototype of a function. Position the cursor on the name of the function in your file and type [I: Vim will show a list of all matches for the function name in included files. If you need to see more context, you can directly jump to the declaration. A similar command can be used to check if you did include the right header files. https://www.moolenaar.net/habits.html
+* _tag_: scope-defining keywords in your programming language https://www.youtube.com/watch?v=XA2WjJbmmoM 3:50
+* _ctags_: index of tags https://en.wikipedia.org/wiki/Ctags https://www.youtube.com/watch?v=JWD1Fpdd4Pc&t=338s 7:30 🗄 `db.md` index
+
+https://github.com/iggredible/Learn-Vim/blob/master/ch16_tags.md
+https://www.youtube.com/playlist?list=WL
+https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-2g28
+* exuberant
+* gutentags
+* recently access tags
+* ctags impl https://github.com/universal-ctags/ctags
+* https://www.semicolonandsons.com/episode/Fluent-File-Navigation
+* JetBrains just better at refactoring? https://news.ycombinator.com/item?id=34072714
+* text expander https://github.com/espanso/espanso
+* LSP https://news.ycombinator.com/item?id=34070458 https://news.ycombinator.com/item?id=37020610
+* YouCompleteMe https://realpython.com/vim-and-python-a-match-made-in-heaven/#auto-complete 
+* https://www.youtube.com/watch?v=XA2WjJbmmoM 24:30
+* https://github.com/neoclide/coc.nvim https://www.youtube.com/watch?v=gnupOrSEikQ
+* https://stackoverflow.com/questions/905005/python-and-intellisense https://www.youtube.com/watch?v=2f8h45YR494 https://www.youtube.com/watch?v=2f8h45YR494 https://www.youtube.com/watch?v=ZzyY_9SMfeY https://pmihaylov.com/vim-for-go-development/
+* comby, sourcegraph https://comby.dev/ https://www.thoughtworks.com/radar/tools?blipid=202110077
+* https://news.ycombinator.com/item?id=30819579
+* https://www.youtube.com/watch?v=4f3AENLrdYo 
+* https://www.youtube.com/watch?v=XA2WjJbmmoM 16:15
+* https://www.youtube.com/watch?v=MP-FxMl0frk
+* https://thoughtbot.com/upcase/navigating-ruby-files-with-vim
+* https://thoughtbot.com/upcase/vim
+* https://vimtricks.substack.com/p/vimtrick-open-file-to-line
+* https://vimtricks.substack.com/p/vimtrick-open-to-a-pattern
+* https://github.blog/2021-12-09-introducing-stack-graphs/
+
+## semantic analysis (jedi)
+
+⭐️ ctags on steroids via full AST?
+
+* _jedi_: https://github.com/davidhalter/jedi https://www.pythonpodcast.com/episode-113-jedi-code-completion-with-david-halter/ 
+
+```txt
+Jedi distinguishes itself from ctags by parsing Python code, constructing an AST, and performing static analysis to comprehend symbols, imports, and definitions, unlike ctags' token pattern scanning.
+Jedi employs parso for Python code parsing, constructing an AST. It conducts semantic analysis, managing variable definitions, scopes, and type inference, which enhances its dynamic aspect handling beyond a simple indexer like ctags.
+Jedi, integrated with editors via LSP, performs name resolution, code inspection, and AST recursion. Unlike ctags, it provides context-aware completions and type inference, showcasing its analysis depth and dynamic capability.
+Jedi leverages parso for Python AST parsing
+
+Code Intelligence: Jedi analyzes Python code to infer types, provide completions, and determine definitions and references.
+Static Analysis: While not primarily a type checker, it does perform static inference to understand code structure and semantics.
+
+Code analyzers often offer a broader range of diagnostics including style and potential bugs.
+Jedi is more tuned for real-time code intelligence in editors rather than broad code quality analysis.
+```
+
+## LSP
+
+🗄️ `vim.md` LSP
+
+---
+
+* _pylance_: closed source, uses pyright https://github.com/microsoft/pylance-release/issues/4
+* _pylyzer_: pyright but better? https://github.com/mtshiba/pylyzer https://news.ycombinator.com/item?id=41305941
+```txt
+Code Analyzer
+
+Primary Focus: Examining the code for a broader range of issues beyond just type consistency.
+What It Does: It can include static type checking as one facet but also covers areas like stylistic issues, potential bugs, code smells, and even performance or security hints.
+Example: Pylyzer brands itself as a code analyzer, implying it looks at your code’s overall structure and quality, not only its type correctness.
+```
+
+* spec is vague, not really open source and driven/controlled by Microsoft, uses RPC https://www.youtube.com/watch?v=JjWNw7aOAYU [4:30,8:30]
+* https://github.com/joshuadavidthomas/django-language-server
+* https://github.com/golang/tools
+* https://langserver.org/
+* https://rust-analyzer.github.io/ https://nickgerace.dev/posts/how-i-read-the-rust-programming-language/
+
+* _language server_: provides editor with code completion, syntax highlighting https://github.com/echasnovski/mini.nvim#general-principles
+* enables: analysis, completion, navigation, linting https://www.youtube.com/watch?v=3a1PCir_aHs 0:40
+* _vanilla_: OSS https://github.com/microsoft/python-language-server
+* _LSP_: protocol for language servers and editors https://en.wikipedia.org/wiki/Language_Server_Protocol 📙 Neil modern [127]
+* client = editor impl LSP, server = provides language info https://www.youtube.com/watch?v=C9X5VF9ASac 2:30
+* created by Microsoft and RedHat https://www.youtube.com/watch?v=C9X5VF9ASac 1:15
+* used as a synonym for language server https://www.youtube.com/watch?v=OhnLevLpGB4 2:35
+* JetBrains has their own version of this https://news.ycombinator.com/item?id=33211373 https://blog.jetbrains.com/platform/2023/07/lsp-for-plugin-developers/
+* Sourcegraph LSP https://sourcegraph.com/blog/the-self-driving-ide-is-coming
+* BYO https://www.youtube.com/watch?v=jo3IChyh09U&list=WL
+* https://github.com/Canop/bacon
+
 # 🟨 ZA
 
 SEMANTICS
@@ -548,72 +653,6 @@ gcc foo.c -Wall -o my_program m -std='c99'
 * _executable_: runtime + binary compatible with user os architecture
 * for user's machine vs. your server https://testandcode.com/52 @ 29:00
 * aka freeze in Python land https://docs.python-guide.org/shipping/freezing/
-
-## ctags
-
-📙 Neil practical ch. 16
-
----
-
-> The previously mentioned tag mechanism also works for jumping between files. The usual approach is to generate a tags file for the whole project you are working on. You can then quickly jump between all files in the project to find the definitions of functions, structures, typedefs, etc. The time you save compared with manually searching is tremendous; creating a tags file is the first thing I do when browsing a program. https://www.moolenaar.net/habits.html
-> Include files contain useful information. But finding the one that contains the declaration you need to see can take a lot of time. Vim knows about include files, and can search them for a word you are looking for. The most common action is to lookup the prototype of a function. Position the cursor on the name of the function in your file and type [I: Vim will show a list of all matches for the function name in included files. If you need to see more context, you can directly jump to the declaration. A similar command can be used to check if you did include the right header files. https://www.moolenaar.net/habits.html
-* _tag_: scope-defining keywords in your programming language https://www.youtube.com/watch?v=XA2WjJbmmoM 3:50
-* _ctags_: index of tags https://en.wikipedia.org/wiki/Ctags https://www.youtube.com/watch?v=JWD1Fpdd4Pc&t=338s 7:30 🗄 `db.md` index
-
-https://github.com/iggredible/Learn-Vim/blob/master/ch16_tags.md
-https://www.youtube.com/playlist?list=WL
-https://dev.to/iggredible/how-to-use-tags-in-vim-to-jump-to-definitions-quickly-2g28
-* exuberant
-* gutentags
-* recently access tags
-* ctags impl https://github.com/universal-ctags/ctags
-* https://www.semicolonandsons.com/episode/Fluent-File-Navigation
-* JetBrains just better at refactoring? https://news.ycombinator.com/item?id=34072714
-* text expander https://github.com/espanso/espanso
-* LSP https://news.ycombinator.com/item?id=34070458 https://news.ycombinator.com/item?id=37020610
-* YouCompleteMe https://realpython.com/vim-and-python-a-match-made-in-heaven/#auto-complete 
-* https://www.youtube.com/watch?v=XA2WjJbmmoM 24:30
-* https://github.com/neoclide/coc.nvim https://www.youtube.com/watch?v=gnupOrSEikQ
-* https://stackoverflow.com/questions/905005/python-and-intellisense https://www.youtube.com/watch?v=2f8h45YR494 https://www.youtube.com/watch?v=2f8h45YR494 https://www.youtube.com/watch?v=ZzyY_9SMfeY https://pmihaylov.com/vim-for-go-development/
-* comby, sourcegraph https://comby.dev/ https://www.thoughtworks.com/radar/tools?blipid=202110077
-* https://news.ycombinator.com/item?id=30819579
-* https://www.youtube.com/watch?v=4f3AENLrdYo 
-* https://www.youtube.com/watch?v=XA2WjJbmmoM 16:15
-* https://www.youtube.com/watch?v=MP-FxMl0frk
-* https://thoughtbot.com/upcase/navigating-ruby-files-with-vim
-* https://thoughtbot.com/upcase/vim
-* https://vimtricks.substack.com/p/vimtrick-open-file-to-line
-* https://vimtricks.substack.com/p/vimtrick-open-to-a-pattern
-* https://github.blog/2021-12-09-introducing-stack-graphs/
-
-## LSP
-
-🗄️
-* `protocols.md`
-* `vim.md` LSP
-
----
-
-* spec is vague, not really open source and driven/controlled by Microsoft, uses RPC https://www.youtube.com/watch?v=JjWNw7aOAYU [4:30,8:30]
-* https://github.com/joshuadavidthomas/django-language-server
-* https://github.com/golang/tools
-* https://langserver.org/
-* https://rust-analyzer.github.io/ https://nickgerace.dev/posts/how-i-read-the-rust-programming-language/
-* _language server_: provides editor with code completion, syntax highlighting https://github.com/echasnovski/mini.nvim#general-principles
-* enables: analysis, completion, navigation, linting https://www.youtube.com/watch?v=3a1PCir_aHs 0:40
-* _pylance_: closed source, uses pyright https://github.com/microsoft/pylance-release/issues/4
-* _pyright_: type checker https://github.com/microsoft/pyright
-* _pylyzer_: pyright but better? https://github.com/mtshiba/pylyzer https://news.ycombinator.com/item?id=41305941
-* _vanilla_: OSS https://github.com/microsoft/python-language-server
-* _jedi_: https://github.com/davidhalter/jedi https://www.pythonpodcast.com/episode-113-jedi-code-completion-with-david-halter/ 
-* _LSP_: protocol for language servers and editors https://en.wikipedia.org/wiki/Language_Server_Protocol 📙 Neil modern [127]
-* client = editor impl LSP, server = provides language info https://www.youtube.com/watch?v=C9X5VF9ASac 2:30
-* created by Microsoft and RedHat https://www.youtube.com/watch?v=C9X5VF9ASac 1:15
-* used as a synonym for language server https://www.youtube.com/watch?v=OhnLevLpGB4 2:35
-* JetBrains has their own version of this https://news.ycombinator.com/item?id=33211373 https://blog.jetbrains.com/platform/2023/07/lsp-for-plugin-developers/
-* Sourcegraph LSP https://sourcegraph.com/blog/the-self-driving-ide-is-coming
-* BYO https://www.youtube.com/watch?v=jo3IChyh09U&list=WL
-* https://github.com/Canop/bacon
 
 ## output
 

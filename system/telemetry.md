@@ -806,6 +806,7 @@ FS LOCATIONS https://missing.csail.mit.edu/2019/machine-introspection/ 🗄️ `
 
 ---
 
+https://www.openmymind.net/2012/4/11/Lets-Talk-About-Logging/
 * https://calmcode.io/course/vector/introduction
 * you'll need to rotate if you don't want to store everything 
 * live log view `tail -f foo.log`

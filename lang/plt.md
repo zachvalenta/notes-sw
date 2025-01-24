@@ -33,7 +33,7 @@ FACTORS
 * _C#_: .NET big in game dev https://news.ycombinator.com/item?id=41936001
 * with Alpine https://news.ycombinator.com/item?id=34365515
 * _Julia_: theoretically great (e.g. can inspect assembly) but practically immature and academic https://increment.com/programming-languages/goldilocks-language-history-of-julia/ https://www.evanmiller.org/why-im-betting-on-julia.html https://danluu.com/julialang/ https://viralinstruction.com/posts/badjulia/ https://www.manning.com/books/julia-as-a-second-language
-* _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter small stdlib = Python will get fast before Nim gets big https://news.ycombinator.com/item?id=36958900
+* _Nim_: https://nim-lang.org/ https://github.com/Pebaz/nimporter small stdlib = Python will get fast before Nim gets big https://news.ycombinator.com/item?id=36958900 https://www.openmymind.net/Interfaces-In-Nim/
 * _Pascal_: https://news.ycombinator.com/item?id=34939231 https://en.wikipedia.org/wiki/Pascal_(programming_language)
 * _Perl_: https://buttondown.com/hillelwayne/archive/raku-a-language-for-gremlins/ https://buttondown.com/hillelwayne/archive/five-unusual-raku-features/ https://raku.org/ https://news.ycombinator.com/item?id=42307223
 * _PHP_: Laravel great for solo devs and big in Europe https://news.ycombinator.com/item?id=30259097 https://stitcher.io/blog/php-in-2019 https://news.ycombinator.com/item?id=34411018
@@ -108,9 +108,15 @@ USAGE
 * Neovim
 * Hammerspoon
 * extending C projects https://github.com/jmattaa/laser
+* video games https://www.love2d.org/ https://www.youtube.com/watch?v=YntG_mSE0d3
+
+ZA
+* install: asdf for version mgmt, scared Homebrew will screw up Neovim install
+> docs are bad https://www.lua.org/download.html
 
 ---
 
+https://github.com/esbudylin/modest
 https://news.ycombinator.com/item?id=42517102
 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua https://nvchad.com/docs/quickstart/learn-lua
 
@@ -162,7 +168,7 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 
 memory management https://stackoverflow.com/a/3434252
 * models https://news.ycombinator.com/item?id=42397737
-* _leak_: run out of memory
+* _leak_: run out of memory https://www.openmymind.net/Your-Buffer-Is-Leaking/
 > What happens if you don't free memory? As your process uses more and more memory, it will eventually slow down, crash, or get killed silently. https://pythonspeed.com/articles/identifying-resource-leaks-with-pytest/
 * _unmanaged code_: language w/ no memory management e.g. C, C++; sometimes used to mean "compiles directly to machine code" by people who do not understand that C has an abstract machine
 * _managed code_: language w/ memory management (Java); dynamic languages not typically described as such, more of a marketing term for enterprise languages

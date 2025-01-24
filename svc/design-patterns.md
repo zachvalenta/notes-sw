@@ -257,6 +257,7 @@ A key insight is that many patterns solve similar problems in different contexts
 Dependency Injection: Inversion of control
 > Can sometimes replace patterns like Singleton and Factory by handling object lifecycles and dependencies.
 
+https://www.openmymind.net/Dependency-Injection-In-Go/
 * https://github.com/hynek/svcs/ https://svcs.hynek.me/en/stable/ https://www.youtube.com/watch?v=d1elMD9WgpA
 * loose coupling https://www.youtube.com/watch?v=uWTvMCra-_Y
 * https://github.com/uber-go/fx
@@ -283,6 +284,7 @@ Dependency Injection: Inversion of control
 * Percival https://www.amazon.com/gp/product/1492052205 https://www.youtube.com/watch?v=niMybnzmzqc [1:15]
 
 ├── Repository: data access abstraction 🗄️ `sql.md` constraints > schema awareness > catalog
+> 📍 you have same def for strategy pattern
 ├── Factory
 ├── Aggregate
 └── Entity

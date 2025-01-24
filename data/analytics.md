@@ -280,17 +280,23 @@ S3OW,motorola,325
 
 🗄️ `protocols.md` file fmt
 
-SQL FROM SHELL
-* _dsq_: https://github.com/multiprocessio/dsq
-* _q_: https://github.com/harelba/q
-* _sq_ https://github.com/neilotoole/sq https://news.ycombinator.com/item?id=41760697 
-
-LINTING
-* https://github.com/alanmcruickshank/sqlfluff https://www.thoughtworks.com/radar/tools?blipid=202203065
-* https://www.eversql.com/sql-syntax-check-validator/
-* https://github.com/purcell/sqlint
-* https://github.com/darold/pgFormatter
-* https://sqlfum.pt/
+EDA JOINS + SQL FROM SHELL
+* ❓ _sqlite_: + litecli
+* ❌ _polars_: truncated output
+* 📍 _duckdb_: data loading problem
+* 🫤 _visidata_: save joins output as file + inspect manually
+* _q_: no joins https://github.com/harelba/q
+* _sq_: no joins https://github.com/neilotoole/sq https://news.ycombinator.com/item?id=41760697 
+* _dsq_: maybe joins https://github.com/multiprocessio/dsq
+> dsq lets you pass multiple CSV files as positional arguments. Each file is treated as a separate table (with the table name inferred from the filename) so you can write a query like:
+```sql
+SELECT a.col1, b.col2 FROM a AS a
+  JOIN b AS b
+    ON a.id = b.id;
+```
+```sh
+dsq "SELECT a.col1, b.col2 FROM a AS a JOIN b AS b ON a.id = b.id;" a.csv b.csv
+```
 
 ## generate
 
@@ -348,6 +354,13 @@ Have you considered building this? The core components would be:
 ```
 
 ---
+
+PEDAGOGY 🗄️ `architecture.md` serverless > baked data
+* tldr: better at SQL if data 1) local 2) interesting
+* small databases https://news.ycombinator.com/item?id=34558054
+* example databases: Spanish, Sakila https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql 📙 Beaulieau [41]
+* connect to actual server: https://data.stackexchange.com/help https://sqlpd.com/ https://news.ycombinator.com/item?id=30631477
+* playgrounds: PG exercises https://github.com/zachvalenta/pg-exercises https://jvns.ca/blog/2023/04/17/a-list-of-programming-playgrounds/
 
 * https://github.com/Mozzo1000/booklogr
 * https://tomcritchlow.com/2023/01/27/small-databases/
@@ -418,6 +431,11 @@ FILTERING
 filter '$header != ""' $CSV  # filter out nulls
 ```
 
+ZA
+```sh
+mlr --csv put '$col = int($col)'  # cast type from int to float
+```
+
 CONFIG https://miller.readthedocs.io/en/latest/customization/
 * `$HOME/.mlrrc`
 ```sh
@@ -456,20 +474,34 @@ filter 'is_null($header)' example.csv # https://miller.readthedocs.io/en/latest/
 filter '$earnings > 0.0' example.csv
 ```
 
-## REPL (dbcli)
+## 💿 REPL (dbcli)
 
 📜 https://www.dbcli.com/
+
+ZA
+```sh
+litecli $DB  # open
+```
+
+CONFIG
+* fs: `~/.config/litecli/config` https://litecli.com/config/
+
+PGCLI
+* install https://github.com/dbcli/pgcli/issues/1413#issuecomment-2028781741
+```sh
+$ pipx install pgcli
+$ pipx inject pgcli psycopg_binary
+```
 
 ---
 
 usql as alternative https://news.ycombinator.com/item?id=42161987
 🛠️ CLI query https://github.com/neilotoole/sq https://github.com/PeepDB-dev/peepdb
 
-* open with env var: `cli -h`
 * exit: `exit`, `\q`
+* open with env var: `cli -h`
 * list tables: `\dt`
 * help: `\?`
-* autocomplete: `ctrl e`
 * autocomplete: `ctrl e`
 * clear screen: `ctrl l`
 * _metacommand_: preceded w/ backslash https://www.pgcli.com/commands
@@ -533,6 +565,34 @@ ALTERNATIVES
 * use from Golang https://github.com/qax-os/excelize
 * Visual Basic https://retool.com/visual-basic/ https://retool.com/blog/the-history-and-legacy-of-visual-basic
 
+## ⚛️ sqlite-utils
+
+🛠️ https://github.com/simonw/sqlite-utils
+
+IMPORT CSV TO TABLE
+```sh
+sqlite-utils insert db.sqlite $TABLE $CSV --csv
+
+# just tried to import this CSV
+.import entity-pn.csv entity_pn
+
+# got this error
+entity-pn.csv:177587 expected 0 columns but found 3 - ignored
+
+# Strange, since when do i need to spec out the exact number of columns, seems like something that should just work. Is there a way you can config sqlite to do type inference on a sample subset of data and just figure it out. Imagine if you had to manually configure the column names and types every time you loaded a pandas dataframe. Barbaric!
+```
+
+other use cases
+```sh
+$DB "SELECT * FROM $TBL LIMIT 5" --json      # RS as JSON
+query $DB "SELECT COUNT(*) FROM $TBL"        # RS to stdout
+transform $DB $TBL --rename $COL foo         # rename column
+insert $DB $TBL $CSV --csv; serve $DB        # serve table as API
+insert $DB $TBL $CSV --csv --pk=id --upsert  # upsert
+rows $DB $TBL --csv > $CSV                   # export
+schema $DB                                   # validate schema
+```
+
 ## TUI (harlequin)
 
 TUI
@@ -545,6 +605,7 @@ TUI
 
 * compare queries across dbms https://github.com/rickbergfalk/sqlpad
 * AI https://whodb.clidey.com/
+* for Postgres https://github.com/mathesar-foundation/mathesar
 
 HARLEQUIN 📜 https://harlequin.sh
 > need to first fix the visidata command in Makefile to generate SQLite db from CSV
@@ -563,9 +624,13 @@ HARLEQUIN 📜 https://harlequin.sh
 fmt $TSV > $CSV
 
 # DML
-headers $CSV # get headers with index
-headers -j $CSV # get headers w/out index
-select "header" $CSV # select all from header
+headers $CSV          # get headers with index
+headers -j $CSV       # get headers w/out index
+select "header" $CSV  # select all from header
+
+# EDA
+xsv slice -i 0 $CSV | xsv flatten  # get line of data and display as two columns
+xsv sample 50 $CSV                 # get sampled subset
 ```
 
 ---
@@ -575,8 +640,6 @@ count songs.csv # count records
 split -s <records_per_file> <output-dir> <csv> # split into n files
 search -i -s "header" "query" $CSV # search within header (case insensitive)
 stats <table> | xsv table # stats (sum, min, max)
-xsv sample 50 full.csv > sample.csv # get sampled subset
-xsv slice -i 0 csv | xsv flatten # get line of data and display as two columns
 ```
 
 # 🟦 VISIDATA
@@ -655,7 +718,8 @@ FILTER https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#
 CREATE/UPDATE
 * create blank: `za` https://jsvine.github.io/intro-to-visidata/intermediate/creating-new-columns
 * rename: `^`
-* agg: set type (`%` for float) `z+` + agg https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
+* type: `~` text `%` float `#` int `$` currency `@` date https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types
+* aggregation: `z+` https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
 
 NAV
 * goto: `c $COL_REGEX`

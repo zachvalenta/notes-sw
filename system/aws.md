@@ -98,6 +98,7 @@ https://www.lastweekinaws.com/blog/17-final-ways-to-run-containers/
 
 ---
 
+https://www.openmymind.net/Why-I-Dislike-ec2/
 https://www.lastweekinaws.com/blog/why-aws-might-be-the-next-backbone-provider/
 
 ## Lambda

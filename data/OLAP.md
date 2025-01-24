@@ -80,6 +80,7 @@ INSTALL sqlite;  # $HOME/.duckdb/extensions
 ZA
 * from-first syntax https://duckdb.org/docs/sql/query_syntax/from.html#from-first-syntax
 * commands https://duckdb.org/docs/api/cli/overview.html
+* ❌ no Vim support https://github.com/duckdb/duckdb/issues/4811 https://github.com/antirez/linenoise/pull/92
 
 EDA
 ```sh
@@ -103,6 +104,22 @@ CREATE TABLE signups AS SELECT * FROM 'signups.csv'
 # https://github.com/duckdb/duckdb?tab=readme-ov-file#data-import
 SELECT * FROM 'myfile.csv';
 SELECT * FROM 'myfile.parquet';
+```
+
+---
+
+> was this not working on my work machine due to my user config re: default db?
+
+```sh
+duckdb mydb.duckdb
+
+-- Create a table named 'table1' from file1.csv
+CREATE TABLE table1 AS SELECT * FROM read_csv_auto('path/to/file1.csv');
+
+-- Create a table named 'table2' from file2.csv
+CREATE TABLE table2 AS SELECT * FROM read_csv_auto('path/to/file2.csv');
+
+SELECT * FROM table1 JOIN table2 ON table1.id = table2.id;
 ```
 
 ## design
@@ -323,8 +340,9 @@ TOOLS
 * _Airbyte_: pull from data source https://www.youtube.com/watch?v=l48zwwRSGeA https://www.youtube.com/watch?v=bXql-XSwD_s
 * _bonobo_: 💀 https://github.com/python-bonobo/bonobo https://www.pythonpodcast.com/bonobo-with-romain-dorgueil-episode-143/
 * _amphi_: https://github.com/amphi-ai/amphi-etl https://news.ycombinator.com/item?id=40723356
+* _bruin_: ⭐️ https://github.com/bruin-data/bruin
 * _DLT_: https://github.com/dlt-hub/dlt https://www.youtube.com/watch?v=eMbhyOECpcE
-* _DBT_: tool for transforms https://www.youtube.com/watch?v=l48zwwRSGeA 6:15 https://www.youtube.com/watch?v=O-tyUOQccSs
+* _DBT_: ⭐️ tool for transforms https://www.youtube.com/watch?v=l48zwwRSGeA 6:15 https://www.youtube.com/watch?v=O-tyUOQccSs
 * Piperider https://github.com/InfuseAI/piperider https://www.youtube.com/watch?v=03MyOkIo8Hg
 * workflow https://www.youtube.com/watch?v=qqlbYDfqeI4 11:00-11:15
 * for unstructured https://news.ycombinator.com/item?id=42043948

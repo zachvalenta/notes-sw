@@ -141,7 +141,7 @@ START HERE
 * Raschka thirty questions and answers https://www.amazon.com/dp/1718503768
 * 🧠 https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * https://jalammar.github.io/visual-interactive-guide-basics-neural-networks/
-* RLHF https://x.com/liminal_bardo/status/1864063342081691649
+* RLHF https://x.com/liminal_bardo/status/1864063342081691649 https://rlhfbook.com/
 * GPT from scratch https://bbycroft.net/llm https://news.ycombinator.com/item?id=38505211
 * llama3 from scratch https://github.com/naklecha/llama3-from-scratch
 
@@ -369,38 +369,6 @@ SEMANTICS
 * _text classification_: https://www.youtube.com/watch?v=VtRLrQ3Ev-U
 * _speech recognition_: https://www.youtube.com/watch?v=mYUyaKmvu6Y
 
-```txt
-While Named Entity Recognition (NER) is one of the most common use cases for spaCy, the library is versatile and supports a broad range of Natural Language Processing (NLP) tasks. Here's an overview of what spaCy is commonly used for:
-
-1. Named Entity Recognition (NER)
-Identifying and categorizing entities like names, organizations, dates, and locations in text.
-Example: Extracting "Apple" as an organization and "2025" as a date in "Apple released new products in 2025."
-2. Part-of-Speech (POS) Tagging
-Assigning grammatical labels to words, such as nouns, verbs, adjectives, etc.
-Example: Labeling "The quick brown fox jumps" as determiner, adjective, adjective, noun, verb.
-3. Dependency Parsing
-Analyzing the grammatical structure of a sentence to understand relationships between words.
-Example: Identifying that "fox" is the subject of "jumps."
-4. Text Classification
-Categorizing text into predefined categories, such as spam detection or sentiment analysis.
-This can be customized using spaCy’s training pipelines.
-5. Tokenization
-Breaking down text into individual components, such as words, punctuation, and symbols.
-Example: Splitting "Hello, world!" into ["Hello", ",", "world", "!"].
-6. Lemmatization
-Reducing words to their base forms.
-Example: "running" becomes "run."
-7. Sentence Boundary Detection
-Identifying sentence breaks in a document.
-Example: Detecting sentences in "This is a test. Here's another."
-8. Rule-based Matching
-Using custom rules or patterns to extract specific phrases or information.
-Example: Extracting email addresses using regex-like rules.
-9. Word Vectors and Similarity
-Measuring the similarity between words or sentences using pre-trained word vectors.
-Example: Finding that "cat" and "dog" are more similar than "cat" and "car."
-```
-
 ## sentiment analysis
 
 🗄️ spacy
@@ -441,6 +409,38 @@ The main approaches are:
 
 * Rule-based: Pattern matching with regular expressions and gazetteers (predefined lists)
 * Statistical: Machine learning models trained on labeled data
+```
+
+```txt
+While Named Entity Recognition (NER) is one of the most common use cases for spaCy, the library is versatile and supports a broad range of Natural Language Processing (NLP) tasks. Here's an overview of what spaCy is commonly used for:
+
+1. Named Entity Recognition (NER)
+Identifying and categorizing entities like names, organizations, dates, and locations in text.
+Example: Extracting "Apple" as an organization and "2025" as a date in "Apple released new products in 2025."
+2. Part-of-Speech (POS) Tagging
+Assigning grammatical labels to words, such as nouns, verbs, adjectives, etc.
+Example: Labeling "The quick brown fox jumps" as determiner, adjective, adjective, noun, verb.
+3. Dependency Parsing
+Analyzing the grammatical structure of a sentence to understand relationships between words.
+Example: Identifying that "fox" is the subject of "jumps."
+4. Text Classification
+Categorizing text into predefined categories, such as spam detection or sentiment analysis.
+This can be customized using spaCy’s training pipelines.
+5. Tokenization
+Breaking down text into individual components, such as words, punctuation, and symbols.
+Example: Splitting "Hello, world!" into ["Hello", ",", "world", "!"].
+6. Lemmatization
+Reducing words to their base forms.
+Example: "running" becomes "run."
+7. Sentence Boundary Detection
+Identifying sentence breaks in a document.
+Example: Detecting sentences in "This is a test. Here's another."
+8. Rule-based Matching
+Using custom rules or patterns to extract specific phrases or information.
+Example: Extracting email addresses using regex-like rules.
+9. Word Vectors and Similarity
+Measuring the similarity between words or sentences using pre-trained word vectors.
+Example: Finding that "cat" and "dog" are more similar than "cat" and "car."
 ```
 
 ### CRFs (Conditional Random Fields)
@@ -586,6 +586,10 @@ def dot(v1, v2):  # vectors
 
 dot([1,2,3], [4,5,6])
 ```
+
+## pytorch
+
+BYO https://github.com/Om-Alve/smolGPT
 
 ## scikit
 
@@ -752,7 +756,7 @@ https://twitter.com/skirano/status/1785469853689639379
 
 https://www.freecodecamp.org/learn/machine-learning-with-python/#tensorflow
 
-* context window https://twitter.com/deedydas/status/1778621375592485076
+* context window https://twitter.com/deedydas/status/1778621375592485076 https://simonwillison.net/2025/Jan/26/paul-gauthier/
 > the idea that a bigger context window might be more than, well, just more of the same, but instead a game changer for LLMs is very interesting https://registerspill.thorstenball.com/p/joy-and-curiosity-19 https://thelongcontext.com/
 > Google hasn’t said how Gemini 1.5 was made, but clearly the company has overcome the key limitation of traditional transformers: memory requirements increase quadratically with context length. One promising approach is Ring Attention with Blockwise Transformers, which breaks long contexts into pieces to be computed individually even as the various devices computing those pieces simultaneously communicate to make sense of the context as a whole; in this case memory requirements scale linearly with context length, and can be extended by simply adding more devices to the ring topology. https://stratechery.com/2024/gemini-1-5-and-googles-nature/
 * https://news.ycombinator.com/item?id=39849393

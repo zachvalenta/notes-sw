@@ -45,7 +45,7 @@ MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 ---
 
 > There's much to love about lanparty.house: the house, the engine room, the wiring, the cat doors, the cat bathroom. But what I enjoyed the most was the fact that this site belongs to a rare class of internet gems: a single page, full of information with nothing held back, neatly formatted, easy to digest. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
-🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/ https://refactoringenglish.com/chapters/rules-for-software-tutorials/
+🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/ https://refactoringenglish.com/chapters/rules-for-software-tutorials/ https://www.openmymind.net/
 🏔️ Julia Evans https://www.youtube.com/@wizardzines/videos
 > the zines has been her only job since 2019 https://github.com/zserge/zine https://zserge.com/posts/tab/
 
@@ -149,7 +149,7 @@ MICRO
 * _Raylib_: https://github.com/raysan5/raylib https://github.com/danslocombe/wobbly_vid https://www.youtube.com/watch?v=EO02mP0mLYI
 * _Manim_: Visualize concepts like Pareto efficiency. https://www.youtube.com/watch?v=rbu7Zu5X1zI
 * _Plotly_/_Bokeh_: Time-series analysis of economic indicators.
-* _Pygame_: Agent-based modeling for economic simulations (e.g., consumer markets).
+* _Pygame_: Agent-based modeling for economic simulations (e.g., consumer markets) https://www.jtolio.com/2025/02/py3-pygame-miyoo-a30/
 * _Matplotlib (FuncAnimation)_: Works well for things like step-by-step economic equilibrium shifts.
 ```python
 import numpy as np
@@ -329,6 +329,7 @@ charts https://worksinprogress.co/issue/how-madrid-built-its-metro-cheaply/
 
 ---
 
+https://www.openmymind.net/2010/10/26/An-Introduction-To-Hosting/
 * _AWS_: https://brandur.org/aws-intrinsic-static S3 and Cloudfront https://www.benkuhn.net/about/ https://github.com/s3tools/s3cmd s3-website https://bedford.io/misc/about/
 * _pico_: https://pico.sh/pgs
 * _Netlify_: https://wsvincent.com/site-design/ https://adamwathan.me/uses/
@@ -356,6 +357,38 @@ WORKLOG
 * commit `d5072df` + `settings/pages/branch` to `gh-pages` got the site deployed but the URL nested under my user name (`https://www.zachvalenta.com/zjayv.github.io/`), presumably bc a single user can only have a single `github.io` site?
 * adding CNAME broke site bc you have to add CNAME config in registrar (in my case, Name Cheap) https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site#configuring-a-subdomain
 * zjay.github.io: CNAME still broken i.e. not serving actual site (but stock pages from Name Cheap?)
+```sh
+#!/usr/bin/env bash
+# DNS
+doggo liyasthomas.github.io --time
+doggo zachvalenta.com --time
+doggo zjayv.github.io --time
+doggo zjayv.com --time
+
+# HTTP: STATUS CODE PASS/FAIL
+control_url="https://liyasthomas.github.io/"
+control_status=$(curl -o /dev/null -s -w "%{http_code}" "$control_url")
+control="$control_url,$control_status"
+treatment_url="https://zjayv.github.io/"
+treatment_status=$(curl -o /dev/null -s -w "%{http_code}" "$treatment_url")
+treatment="$treatment_url,$treatment_status"
+sites=($control $treatment)
+for site in "${sites[@]}"; do
+  if [[ "$(echo "$site" | cut -d ',' -f 2)" == "200" ]]; then
+    bg="green"
+    fg="$(pastel textcolor "$bg")"
+    pastel paint "$fg" --on "$bg" "url: $(echo "$site" | cut -d ',' -f 1) status: $(echo "$site" | cut -d ',' -f 2)"
+  else
+    bg="red"
+    fg="$(pastel textcolor "$bg")"
+    pastel paint "$fg" --on "$bg" "url: $(echo "$site" | cut -d ',' -f 1) status: $(echo "$site" | cut -d ',' -f 2)"
+  fi
+done
+
+# HTTP: DEBUG
+# curl -I https://liyasthomas.github.io/
+# curl -I https://zjayv.github.io/
+```
 
 ---
 
@@ -453,6 +486,7 @@ CMS
 * advanced metadata https://gwern.net/metadata/annotation/backlink/https%253A%252F%252Fpublicdomainreview.org%252Fessay%252Four-masterpiece-is-the-private-life-in-pursuit-of-the-real-chateaubriand%252F.html
 * SQL https://news.ycombinator.com/item?id=42244987
 * _template engine_: page structure e.g. Jinja, Tera https://www.getzola.org/documentation/getting-started/overview/#first-steps-with-zola https://www.gomponents.com/
+* Templ https://www.youtube.com/watch?v=v9NC2P328sI
 * _HTML preprocessor_: turn Markdown in HTML e.g. Nunjucks https://css-tricks.com/killer-features-of-nunjucks/ https://github.com/erwald/blog
 ```sh
 # https://fvsch.com/static-site-generators

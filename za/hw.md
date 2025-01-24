@@ -479,7 +479,8 @@ ANDROID
 * main: keep, files by google, chrome, calls
 * social: whatsapp, messages, gmail, slack, zoom, wechat, contacts, signal
 > music mgmt via Android File Transfer on macOS
-* music: perfect ear, liveBPM, Koala Sampler https://www.youtube.com/watch?v=Wwq5ChHiGGk musicolet, playtube, music folder player https://play.google.com/store/apps/details?id=de.zorillasoft.musicfolderplayer&hl=en_US&gl=US Youtube alternative https://github.com/TeamNewPipe/NewPipe Meta (audio metadata) 搜 'Meta on MacOS 10.10'
+* music: perfect ear, liveBPM, Koala Sampler https://www.youtube.com/watch?v=Wwq5ChHiGGk musicolet, playtube, Youtube alternative https://github.com/TeamNewPipe/NewPipe Meta (audio metadata) 搜 'Meta on MacOS 10.10'
+> Music Folder Player was good but introduced video ads https://play.google.com/store/apps/details?id=de.zorillasoft.musicfolderplayer&hl=en_US&gl=US 
 * transport: maps, lyft, uber, airbnb, stasher
 * language: word reference, easy voice, vlc, libby, overdrive, translate, pleco
 * chess/golf: drive, camera, video frame player, chess clock, chess, lichess

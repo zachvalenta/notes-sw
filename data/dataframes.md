@@ -100,6 +100,7 @@ df.with_columns(
 ```
 
 READ
+* strategy pattern for `.read_csv|parquet|excel` (excel requires `fastexcel`)
 ```python
 # get value of cell (errs if more than one value)
 pdr_for_brand['sku-prefix'].item()
@@ -113,6 +114,9 @@ df = pl.scan_csv(file)
    .select(['col1', 'col2'])
    .groupby('col1').agg(pl.col('col2').mean())
    .collect()
+
+# get schema without loading the whole table
+pl.scan_csv('data/catalog.csv', separator=',', infer_schema_length=100).collect_schema()
 
 # stream for lower memory consumption 🗄️ `architecture.md`
 for chunk in pl.read_csv("data.csv", rechunk=True).iter_chunks(size=10000):
@@ -140,6 +144,14 @@ assert len(violations) > 0
 
 # convert pandas
 pl.from_pandas(df)
+
+# skip null columns
+null_col_to_skip = ['Alternate Part Number', 'GTIN', 'Lead Time (Days)']
+df = pl.read_csv(path/to/data)
+df.select([col for col in df.columns if col not in null_col_to_skip])
+
+# drop bad columns
+pl.read_csv('catalog.csv').drop(['', 'Unnamed: 0']).write_csv('catalog.csv')
 ```
 
 ## EDA

@@ -358,6 +358,13 @@ Path.home().joinpath("Desktop").exists()  # check if dir exists
 Path.home().joinpath("Desktop").joinpath("foo.txt").is_dir()  # check if file is dir
 path_to_file.rename(path_to_new_location.joinpath('file-name-at-new-location.txt'))  # mv
 ```
+```sh
+├── data
+│   └── raw
+│   └── working
+│   └──── capp
+│   └──── customers
+```
 
 https://realpython.com/python313-new-features/#improved-globbing-of-files-and-directories
 * https://realpython.com/python-pathlib/
@@ -582,12 +589,13 @@ aaS
 LIBS
 * _crawlee_: https://github.com/apify/crawlee
 * _crawly_: Elixir https://github.com/elixir-crawly/crawly
-* _gazpacho_: https://github.com/maxhumber/gazpacho https://calmcode.io/course/gazpacho/introduction
-* _katana_: https://github.com/projectdiscovery/katana
-* _scrapling_: https://github.com/D4Vinci/Scrapling
+* _gazpacho_: 🎯 https://github.com/maxhumber/gazpacho https://calmcode.io/course/gazpacho/introduction
+* _katana_: headless https://github.com/projectdiscovery/katana
+* _scrapling_: 🎯 https://github.com/D4Vinci/Scrapling
 
 ---
 
+* https://news.ycombinator.com/item?id=42817439 https://lightpanda.io/
 * scrape infinite scrolling: sniff out API, use browser automation
 in golang 17k sites in 10 mins https://medium.com/@tonywangcn/27-6-of-the-top-10-million-sites-are-dead-6bc7805efa85
 * Instant Data Scraper https://news.ycombinator.com/item?id=34069680

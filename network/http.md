@@ -505,10 +505,12 @@ JWT
 > 502-504 all have similar meanings and it ends up being that the service you're trying to reach can't respond to the request
 * _504_: server handling your request is tired of waiting for a downstream
 * _522_: time out; TCP connection btw web server and CDN (bc server is overloaded) https://www.youtube.com/watch?v=axYMNCuL_hE
+
 # 🛠️ TOOLING
 
 🗄 `shell.md` userland
 
+https://github.com/monasticacademy/httptap
 https://news.ycombinator.com/item?id=41650905
 https://github.com/dnaeon/go-vcr
 postman alternative https://github.com/Julien-cpsn/ATAC
@@ -601,10 +603,18 @@ function htp(){
 }
 ```
 
+## kulala
+
+https://github.com/mistweaverco/kulala.nvim
+
 ## posting
 
 https://github.com/darrenburns/posting 
 https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
+
+## xh
+
+https://github.com/ducaale/xh
 
 # 🟨 ZA
 

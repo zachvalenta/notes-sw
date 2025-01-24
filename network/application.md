@@ -202,6 +202,7 @@ FQDN
 
 ---
 
+https://news.ycombinator.com/item?id=42836818
 https://github.com/pimalaya https://pimalaya.org/ https://github.com/pimalaya/himalaya
 
 * https://www.twilio.com/blog/2017/04/wedding-at-scale-how-i-used-twilio-python-and-google-to-automate-my-wedding.html
@@ -467,6 +468,7 @@ client config https://news.ycombinator.com/item?id=23027833
 ---
 
 * tailscale https://news.ycombinator.com/item?id=33986430
+> I’m a huge Tailscale fan and was quite happy to see that they’re doing well. The fascinating bit for me in that article, though, was this: “AI firms have big networking problems because they must transfer immense amounts of data between many machines across multiple cloud providers. They also face plenty of access control, compliance, cryptography, identity, and privacy concerns, given the amount of personal data they process for clients and the reputational risk should something go awry. These characteristics make AI companies ‘an ideal use case’ for Tailscale.” That makes sense, of course, but I have to admit that even though I was aware that AI involves a lot of data, my mind didn’t make the leap to “they probably run into a lot of networking problems.” https://registerspill.thorstenball.com/p/joy-and-curiosity-23
 * https://github.com/charmbracelet/wish https://www.youtube.com/watch?v=0YoHqRfKE1k
 https://stackoverflow.com/a/33243564/6813490
 process https://help.ubuntu.com/community/SSH/OpenSSH/Keys

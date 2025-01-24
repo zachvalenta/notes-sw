@@ -6,6 +6,8 @@
 
 ## 进步
 
+* need way to toggle git diff away from delta for copying plaintext 🗄️ `bin/gco`
+> or can delta itself provide a toggle?
 * backup to Codeberg https://github.com/AkashRajpurohit/git-sync
 * autogit https://github.com/zackproser/automations
 * What might be the cause of autocompletions around Git just stopping working?
@@ -19,8 +21,6 @@ git --version
 rm -f ~/.zcompdump* && compinit
 ```
 
-* need way to toggle git diff away from delta for copying plaintext
-> or can delta itself provide a toggle?
 * Git Town https://www.youtube.com/watch?v=oLaUsUlFfTo https://github.com/git-town/git-town
 * https://github.com/zackproser/automations
 * https://www.gitkraken.com/gitlens https://www.youtube.com/watch?v=oJdlGtsbc3U https://switowski.com/blog/plugins-for-python-in-vscode/
@@ -258,6 +258,67 @@ gh repo view ponyorm/pony --json stargazerCount,primaryLanguage,createdAt,descri
 # ISSUES
 gh issue list --repo ponyorm/pony --state open --json number --jq 'length'
 gh issue list --repo ponyorm/pony --state closed --json number --jq 'length'
+```
+
+```txt
+https://github.com/pudo/dataset
+https://github.com/encode/orm
+https://github.com/python-gino/gino
+https://github.com/sdispater/orator
+https://github.com/coleifer/peewee
+https://github.com/piccolo-orm/piccolo
+https://github.com/tiangolo/sqlmodel
+https://github.com/sqlc-dev/sqlc
+https://github.com/tortoise/tortoise-orm
+```
+```sh
+#!/usr/bin/env bash
+INPUT_FILE=$1
+echo "Repository,Stars"
+
+# PROCESS INPUT FILE
+while IFS= read -r URL; do
+    # extract owner/repo name using parameter expansion
+    REPO=${URL#https://github.com/}
+    # use cli to get the star count
+    STARS=$(gh repo view "$REPO" --json stargazerCount --jq '.stargazerCount' 2>/dev/null)
+    # err handle
+    if [ $? -ne 0 ]; then
+        echo "Failed to fetch data for $REPO"
+        STARS="N/A"
+    fi
+    echo "$REPO,$STARS"
+done < "$INPUT_FILE"
+```
+```sh
+#!/usr/bin/env bash
+TODAY=$(date -I)  # Current date in YYYY-MM-DD format
+gh api "/users/zachvalenta/events" | jq 'map(select(.created_at | startswith("2024-10-24")))' | jless -r
+# gh api "/users/zachvalenta/events" | jq 'map(select(.created_at | startswith("$TODAY")))' | jl
+# gh api "/users/zachvalenta/events" | jq 'map(select(.created_at | startswith("2024-10-24")))'
+# gh api "/users/zachvalenta/events" | jq --arg today "$TODAY" and .type == "PushEvent"
+# gh api "/users/zachvalenta/events" | \
+# jq --arg today "$TODAY" '
+#   map(select(.created_at | startswith($today) and .type == "PushEvent"))
+# '
+
+# gh api "/users/zachvalenta/events" | jq --arg today "$(date -I)" 'map(select(.created_at | startswith($today) and .type == "PushEvent"))'
+# gh api "/users/zachvalenta/events" | jq --arg today "$(date -I)" '.[] | select(.created_at | startswith($today) and .type == "PushEvent")'
+# gh api "/users/zachvalenta/events" | jq --arg today "$(date -I)" '[.[] | select(.created_at | startswith($today) and .type == "PushEvent")] | length'
+# gh api "/users/zachvalenta/events" --jq '.[] | select(.type == "PushEvent" and .created_at | startswith("'"$(date -I)"'"))'
+
+# Fetch events and filter relevant contribution events
+# gh api "/users/your-username/events" | \
+# jq --arg today "$TODAY" '
+#   map(select(.created_at | startswith($today) and 
+#     (
+#       .type == "PushEvent" or
+#       .type == "IssuesEvent" or
+#       .type == "PullRequestEvent" or
+#       .type == "PullRequestReviewEvent"
+#     )
+#   ))
+# '
 ```
 
 ## search
@@ -551,14 +612,30 @@ MESSAGE
 
 CONVENTIONAL COMMIT https://www.conventionalcommits.org/
 * labels: lowers cognitive overhead = enables more frequent commits https://github.com/commitizen/cz-cli https://github.com/zachvalenta/interview-capp/commits/main/
+* _add_: new func|test
+* _fix_: fix incorrect func|test
+* _tidy_: improve impl of src|test
+* _doc_: add|improve documentation
 ```sh
-src: func|rf|fix
+src: add|tidy|fix
 doc
 dep
 test
 ```
-* tried out the Gum impl but didn't like loss of readline and didn't understand what scope was doing https://github.com/charmbracelet/gum https://github.com/zachvalenta/capp-denv-bin/blob/main/jx
+* tried out the Gum impl but didn't like loss of readline and didn't understand what scope was doing https://github.com/charmbracelet/gum
 > 📍 gotta think Charm has a realine component somewhere
+```sh
+#!/bin/sh
+TYPE=$(gum choose "func" "doc" "rf" "test")
+# scope is optional so wrap in parens if it has a value
+SCOPE=$(gum input --placeholder "scope")
+test -n "$SCOPE" && SCOPE="($SCOPE)"
+# pre-populate input with the type(scope) so user can update it
+SUMMARY=$(gum input --value "$TYPE$SCOPE: " --placeholder "summary")
+DESCRIPTION=$(gum write --placeholder "description")
+# commit on confirm
+gum confirm "commit changes?" && git commit -m "$SUMMARY" -m "$DESCRIPTION"
+```
 
 ---
 

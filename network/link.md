@@ -18,6 +18,27 @@
 
 > I need to set up home internet. I've never done this before. I have a software engineering background, so I'm decently familiar with networking in the form of HTTP and to a lesser degree DNS, but spend little time thinking about TCP/IP or the link layer of the stack.
 
+OVERVIEW
+* https://claude.ai/chat/61b526aa-9b0e-4753-b6f3-8c6d690f4887
+* https://chatgpt.com/c/6793916a-f74c-8004-9862-40371d3c5764
+* https://dailywireless.org/internet/what-is-mbps/
+
+WIFI
+* https://hpbn.co/introduction-to-wireless-networks/
+* https://hpbn.co/wifi/
+
+MOBILE
+* https://hpbn.co/mobile-networks/
+* https://hpbn.co/optimizing-for-mobile-networks/
+
+LAG VS. LATENCY
+* https://chatgpt.com/c/67858c31-3768-8004-bf51-e414c9a29c6b
+* https://livebook.manning.com/book/latency/chapter-1/v-5/12
+
+LINKS
+* https://www.youtube.com/watch?v=5qOvNbDzwUI
+* https://www.youtube.com/watch?v=OKXc3GRHVkg&lc=UgzklVU-UvccTzvthxx4AaABAg
+
 ## ISP
 
 ENTRY POINTS

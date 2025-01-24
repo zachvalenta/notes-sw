@@ -10,6 +10,40 @@
 
 ## 进步
 
+installed everything on work machine https://github.com/zachvalenta/capp-denv-logs/commit/219cdcd58f84cb04eff99fee1f5725a724e4b879
+
+QUESTION
+```txt
+I'm trying to figure out what to use for containers for my team.
+
+* We have devs working on Windows and macOS.
+
+Reasons why I'm concerned about Docker:
+
+* they apparently rate limit pulling from their image registry
+* their GUI is CPU/memory intensive
+* most cloud providers use containerd, so you've got a local/prod mismatch in runtimes
+
+Podman is attractive because it's daemonless but seems potentially immature.
+
+I hear good things about Colima but don't know much about it.
+
+Our infrastructure case for now is deploying on-prem and running failovers on a VPS but I want the option to move to a larger cloud provider in the future.
+```
+
+ANSWERS FOR NOW
+* Docker: dockerd for runtime -> most clouds use containerd
+* Docker: registry imposes rate-limiting -> self-hosted registry (Harbor, Nexus) | Github
+* Colima: no Windows
+* plan: use Colima to run Docker Engine
+```sh
+brew install docker
+brew install docker-compose
+brew install colima
+colima start
+docker run hello-world
+```
+
 PLAN GOING FORWARD 🗄️ `architecture.md` Capp db data mgmt
 * air-capp: Docker Desktop
 * mini23: Colima + see if you can run `product-workflow`
@@ -259,8 +293,9 @@ services:
 
 ## 🛠️ tooling
 
-* _lazydocker_: 🎯 https://github.com/jesseduffield/lazydocker logs only https://github.com/Lifailon/lazyjournal
+* _lazydocker_: 🎯 config fs `~/.config/lazydocker` https://github.com/jesseduffield/lazydocker https://www.youtube.com/watch?v=IUAk1pjXDWM
 * _gocker_: https://github.com/micoli/gocker
+* _lazyjournal_: logs only https://github.com/Lifailon/lazyjournal
 
 ---
 
@@ -360,7 +395,7 @@ CONTAINERIZATION
 * _sink_: https://medium.com/faun/the-missing-introduction-to-containerization-de1fbb73efc5 http://www.smashcompany.com/technology/why-would-anyone-choose-docker-over-fat-binaries 
 * Firecracker https://news.ycombinator.com/item?id=25883253 https://www.micahlerner.com/2021/06/17/firecracker-lightweight-virtualization-for-serverless-applications.html
 * LXC https://news.ycombinator.com/item?id=30385580
-* VirtualBox, qemu, hyper-V, Xen https://drewdevault.com/2022/09/02/2022-09-02-In-praise-of-qemu.html https://chatgpt.com/c/670fec7a-7cd4-8004-bc50-8b790c438edd https://www.qemu.org/ https://drewdevault.com/2018/09/10/Getting-started-with-qemu.html
+* VirtualBox, qemu, hyper-V, Xen https://drewdevault.com/2022/09/02/2022-09-02-In-praise-of-qemu.html https://www.qemu.org/ https://drewdevault.com/2018/09/10/Getting-started-with-qemu.html
 
 HYPERVISORS
 * _host_: os running hypervisor
@@ -377,13 +412,60 @@ VMWARE
 * _OpenStack_: general IaaS https://www.youtube.com/watch?v=_gWfFEuert8
 * _contention_: vm can't get resources scheduled from host
 
+## 🦙 Colima
+
+📜 https://github.com/abiosoft/colima
+
+* _VM manager_: create VM w/ own OS kernel and memory
+> So Colima manages VMs that then run containers inside them, while Podman directly manages containers (using a VM layer on macOS only because it has to).
+* supports multiple runtimes (Docker, containerd, Incus)
+* no Podman support
+
+---
+
+> Developers on macOS who need a container runtime but don’t want Docker Desktop.
+
+A macOS/Linux tool for running container runtimes (like Docker or Podman) in a lightweight VM, primarily on systems where native runtimes may be unavailable or constrained (e.g., macOS).
+* Uses Lima (lightweight VM manager) to provide a container runtime environment.
+* Colima supports both Docker and Podman runtimes, so users can switch between them.
+* uses QEMU to abstract VM mgmt
+
+* _Colima_: https://github.com/abiosoft/colima
+> Colima is becoming a popular open alternative to Docker Desktop. It provisions the Docker container run time in a Lima VM, configures the Docker CLI on macOS and handles port-forwarding and volume mounts. Colima uses containerd as its run time, which is also the run time on most managed Kubernetes services — improving the important dev-prod parity. With Colima you can easily use and test the latest features of containerd, such as lazy loading for container images. We've been having good results with Colima in our projects. When in the Kubernetes space, we also use nerdctl, a Docker-compatible CLI for containerd. Since Kubernetes has deprecated Docker as container run time and most managed-services (EKS, GKE, etc) are following its lead, more people will be looking to containerd native tools, hence the importance of tools like nerdctl. In our opinion, Colima is realizing its strong potential and becoming a go-to option as an alternative to Docker Desktop.
+* _Lima_: containerd for macOS https://jvns.ca/blog/2023/07/10/lima--a-nice-way-to-run-linux-vms-on-mac/
+
+## 🦭 Podman
+
+📜 https://podman.io/
+📙 https://livebook.manning.com/book/podman-in-action/chapter-1/
+📹 https://www.youtube.com/watch?v=Z5uBcczJxUY
+
+_* container engine_: manage containers, shares host OS kernel
+> So Colima manages VMs that then run containers inside them, while Podman directly manages containers (using a VM layer on macOS only because it has to).
+* lazydocker support https://github.com/jesseduffield/lazydocker/issues/4
+
+---
+
+A daemonless container runtime for managing OCI (Open Container Initiative) containers and pods. Podman aims to replace Docker with better security, especially for rootless containers.
+
+* Unlike Docker, Podman does not rely on a background daemon (e.g., dockerd). Each container runs as its own process.
+* Allows users to manage containers without root privileges, improving security.
+* Pod Support: Extends Kubernetes concepts by natively supporting "pods" (groups of containers sharing namespaces).
+* OCI Compliance: Fully supports the OCI standard for runtime and images.
+* Docker Compatibility: Can run most Docker images and commands (podman CLI mimics Docker CLI).
+
+DOCKER DESKTOP ALTERNATIVES
+* _Podman_: no daemon, rootless, Red Hat https://news.ycombinator.com/item?id=20542915 `podman play kube` = `docker-compose up` https://www.thoughtworks.com/radar/tools?blipid=202104064
+* _Packer_: build VM/container for use on cloud provider https://news.ycombinator.com/item?id=22491170
+* _Vagrant_: build VM/container for local dev env using VirtualBox as sandbox https://www.mattlayman.com/blog/2019/web-development-environments/ used to be more popular https://news.ycombinator.com/item?id=15395601
+
 ## engines
 
 🗄
 *️ components
 * `aws.md` compute > containers
 
-HOW DOCKER WORKS 🧠 https://chatgpt.com/c/673bb2a2-0114-8004-86c3-c6e64defd3b3
+HOW DOCKER WORKS
 * macOS: macOS Hypervisor Framework (Desktop) VirtualBox (Docker Toolbox, Docker Machine) https://stackoverflow.com/a/38624540
 * Windows: Hyper-V, WSL2
 
@@ -392,8 +474,6 @@ HOW DOCKER WORKS 🧠 https://chatgpt.com/c/673bb2a2-0114-8004-86c3-c6e64defd3b3
 OCI vs. Docker, Docker Engine vs. Docker Desktop https://roadmap.sh/docker
 
 > tldr for now is that Docker for Desktop is slow/bad security/registry weirdness but also the best option for getting everyone up and running
-
-🧠 https://chatgpt.com/c/6724c43a-a9cc-8004-809b-2b53075f84af
 
 > desktop macos app too heavy https://github.com/docker/for-mac/issues/2297 https://news.ycombinator.com/item?id=41987857
 
@@ -415,14 +495,6 @@ RUNTIMES
 * BYO https://github.com/kelseyhightower/kubernetes-the-hard-way
 * _runC_: Docker's runtime https://www.docker.com/blog/runc/
 * API to Docker daemon https://github.com/fussybeaver/bollard https://github.com/mrjackwills/oxker https://docker-py.readthedocs.io/en/stable/index.html
-
-DOCKER DESKTOP ALTERNATIVES
-* _Colima_: https://github.com/abiosoft/colima
-> Colima is becoming a popular open alternative to Docker Desktop. It provisions the Docker container run time in a Lima VM, configures the Docker CLI on macOS and handles port-forwarding and volume mounts. Colima uses containerd as its run time, which is also the run time on most managed Kubernetes services — improving the important dev-prod parity. With Colima you can easily use and test the latest features of containerd, such as lazy loading for container images. We've been having good results with Colima in our projects. When in the Kubernetes space, we also use nerdctl, a Docker-compatible CLI for containerd. Since Kubernetes has deprecated Docker as container run time and most managed-services (EKS, GKE, etc) are following its lead, more people will be looking to containerd native tools, hence the importance of tools like nerdctl. In our opinion, Colima is realizing its strong potential and becoming a go-to option as an alternative to Docker Desktop.
-* _Lima_: containerd for macOS https://jvns.ca/blog/2023/07/10/lima--a-nice-way-to-run-linux-vms-on-mac/
-* _Podman_: no daemon, rootless, Red Hat https://news.ycombinator.com/item?id=20542915 `podman play kube` = `docker-compose up` https://www.thoughtworks.com/radar/tools?blipid=202104064
-* _Packer_: build VM/container for use on cloud provider https://news.ycombinator.com/item?id=22491170
-* _Vagrant_: build VM/container for local dev env using VirtualBox as sandbox https://www.mattlayman.com/blog/2019/web-development-environments/ used to be more popular https://news.ycombinator.com/item?id=15395601
 
 ## Evans
 

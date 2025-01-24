@@ -16,8 +16,23 @@
 
 ## 进步
 
-mini https://www.youtube.com/watch?v=qyB-sAvW2lI
+* _25_: Neovim - get basic LazyVim working
+* _24_: try Zed
+* _23_: Neovim - stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme https://github.com/zachvalenta/dotfiles-air22/blob/main/vim/user/markdown_fmt.lua, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
+* _22_: Vim - built-in pkg mgmt
+* _20_: VS Code - Markdown extensions break, pinned to 1.41 since 20.12.17
+* _19_: Vim - emulation in VS Code 📙 Neil practical vim 1.1-3, 2.7-9, 3.13-15, 4.20-22, 5.27-28, 8.47-53, 9.56-57, 10.60-62
+* _18_: IntelliJ, PyCharm
+* _17_: Eclipse
+* _15_: Sublime
+
+previous setup https://github.com/zachvalenta/dotfiles-air22/tree/main/vim
 https://www.youtube.com/watch?v=6pAG3BHurdM @ 2:00 (installing fonts using Homebrew)
+https://registerspill.thorstenball.com/p/joy-and-curiosity-24 https://github.com/ggml-org/llama.vim
+
+---
+
+mini https://www.youtube.com/watch?v=qyB-sAvW2lI
 
 sketch out what you still remember of your previous config and then restart https://www.youtube.com/@teej_dv/videos
 
@@ -37,15 +52,6 @@ basic setup https://www.youtube.com/watch?v=VljhZ0e9zGE
 https://www.youtube.com/watch?v=zHTeCSVAFNY
 https://stevedylan.dev/posts/leaving-neovim-for-zed/
 * Codi
-
-* _24_: try Zed
-* _23_: try mv to Neovim, stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme https://github.com/zachvalenta/dotfiles-air22/blob/main/vim/user/markdown_fmt.lua, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
-* _22_: built-in pkg mgmt
-* _20_: VS Code (Markdown extensions break, pinned to 1.41 since 20.12.17)
-* _19_: VS Code + vim emulation 📙 Neil practical vim 1.1-3, 2.7-9, 3.13-15, 4.20-22, 5.27-28, 8.47-53, 9.56-57, 10.60-62
-* _18_: IntelliJ, PyCharm
-* _17_: Eclipse
-* _15_: Sublime
 
 ---
 
@@ -225,6 +231,7 @@ edit
 * open at file and LOC: `code -g data/eng.md:419`
 
 THINGS I'M NOTICING ABOUT VSC
+* ❌ won't recognize newly created Python modules for import i.e. you need to restart in order to avoid import hell sanity check
 * ❌ weird overlay when using checkboxes
 * ❌ strange way of getting on `$PATH` -> command pallete > search 'shell command'
 * ❌ constantly wipes out the outliner and requires Vim action to prompt redraw
@@ -415,6 +422,186 @@ DESIGN
 * https://zed.dev/blog/we-have-to-start-over 
 * https://registerspill.thorstenball.com/p/from-vim-to-zed
 * https://jackevans.bearblog.dev/trying-out-zed/
+
+# ⚙️ CONFIG
+
+📚
+* Neil modern ch. 7
+* Neil practical appendix
+
+---
+
+ZA
+* perf: `nv --startuptime out.log` https://www.youtube.com/watch?v=28FmViFye2I
+* define variable: `let $SCOPE:$NAME = $MAPPING` e.g. `let g:foo = 'im globally available` https://vi.stackexchange.com/a/282 https://www.youtube.com/watch?v=prnrwpOEsmo 13:45
+* variables: `$VISUAL` (for Git), `$VIM_CONFIG`, `$VIM_DATA` 📙 Neil modern [6-7]
+* clipboard 📙 Neil modern [8] https://neovim.io/doc/user/provider.html#provider-clipboard
+* Python support 📙 Neil modern [8] https://neovim.io/doc/user/provider.html#provider-python https://github.com/LunarVim/Neovim-from-scratch
+* _modeline_: config for individual file 📙 Neil practical [xxv]
+* _autocommand_: hook 📙 Neil practical [306] modern [105]
+* have to wrap in `vim.cmd` in Lua https://www.youtube.com/watch?v=prnrwpOEsmo 25:45
+```sh
+# on Bufread, set scrolloff
+:autocmd BufRead /Users/zach/Desktop/zvmac/notes/sw/za/industry.md set scrolloff=999
+# set file type https://www.youtube.com/watch?v=hrbV5WGxxdY
+:autocmd BufRead .*aliases set ft=sh
+```
+* _augroup_: group of autocommands 📙 Neil practical ch. 11-14
+```sh
+augroup foo
+  autocmd!  # rm all autocmds for the event and file pattern from the default autocmd-group and sets new autocmd for this event/pattern
+augroup END
+```
+
+---
+
+Neovim just too fragile? https://www.youtube.com/watch?v=G1_Y5hLTfgw
+> Every now and then I would update a plugin in Neovim and everything would break, and I would have to spend time fixing it instead of getting work done. This resulted in slimming down my config more and more, but there was still so much that went into making all the basics work. I stuck with it because it was still better than using VSCode, which I did try for a two week sprint to see if it could be any better. It was also key to a terminal based workflow that other editors couldn’t really match. The sentiment started to shift again not too long ago as I started working in some really large code bases, and boy Neovim was struggling. I would have random hang ups, frozen screens, stuff that just drove me nuts when productivity was king. I tried switching to other terminal emulators too such as Alacritty and Wezterm but it didn’t help much. https://stevedylan.dev/posts/leaving-neovim-for-zed/
+* help https://www.youtube.com/watch?v=BdoizYjJHis
+* search https://vimtricks.substack.com/p/vimtrick-search-your-mappings
+
+## files / opts / keys
+
+---
+
+* files: `init.lua`, `init.vim` 📙 Neil modern [6] https://neovim.io/doc/user/starting.html#init.vim
+* debug: `:checkhealth` http://vimcasts.org/episodes/neovim-checkhealth/
+* fs
+```sh
+#~/.config/nvim https://neovim.io/doc/user/starting.html#standard-path
+├── init.lua
+├── lua/$DIR/  # https://github.com/mrnugget/vimconfig https://www.youtube.com/watch?v=hY5-Q6NxQgY
+│   └── keymap.lua
+│   └── option.lua
+```
+* Vimscript -> Lua  https://www.youtube.com/watch?v=hY5-Q6NxQgY 7:15 https://www.youtube.com/watch?v=prnrwpOEsmo
+```lua
+--- CMDS
+vim.cmd[[colorscheme tokyonight]]  -- colorscheme tokyonight
+
+-- VARIABLES
+vim g.foo = 'im globally available' -- let g:foo = 'im globally available'
+
+-- OPTIONS
+vim.opt.shiftwidth = 2 -- set shiftwidth=2
+
+-- KEYMAPS
+vim.api.nvim_set_keymap() -- :noremap
+```
+
+## DIY
+
+* https://www.youtube.com/watch?v=x__SZUuLOxw
+* https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn
+* https://www.youtube.com/watch?v=6pAG3BHurdM
+* https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+
+## pre-built
+
+* _LazyVim_: ✅ https://www.lazyvim.org/ fs `~/.config/nvim` https://github.com/zachvalenta/dot-lazyvim
+* ❓ goto symbol using aerial and telescope https://github.com/stevearc/aerial.nvim?tab=readme-ov-file#telescope
+* ❌ relative line numbers too dark
+* ❌ treats single line as n lines
+```txt
+Q: in Vim, a single line of text is treated as such i.e. pressing the down arrow (or the j key) takes you to the next line. in a browser or word processor, the down arrow takes you to the *visually represented* next line, regardless if it is in fact a new line of text. im playing around with Neovim and it's acting like a word processor, not a browser. how do i get it to act like proper vim?
+A: What you're experiencing is Neovim's behavior when line wrapping is enabled. When lines are wrapped, Neovim treats the visual representation of a wrapped line as separate chunks when navigating with the arrow keys (<Down>, <Up>) or j/k.
+```
+```lua
+vim.opt.wrap = false
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = "*",
+    callback = function()
+        vim.opt.wrap = false
+    end,
+})
+```
+* _Lunar_: 17.5k stars; more open issues, heavy setup (req: npm, cargo, rg) https://www.lunarvim.org/
+* _NVChad_: 🎯 23.5 stars https://nvchad.com/
+* PYthon setup https://www.youtube.com/watch?v=4BnVeOUeZxc
+* still have to do the hard part yourself?
+> Once the binaries are installed, you will have to configure them to properly work with LSP, conform.nvim, nvim-lint, nvim-dap etc. It depends on what you installed. NvChad does not provide any language configuration aside from lua. https://nvchad.com/docs/config/lsp/
+
+* _Astro_: ❌ https://github.com/AstroNvim/AstroNvim https://zackproser.com/blog/astronvim-overview
+```sh
+# INSTALL
+git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
+# FAIL
+:LspInstall pyright
+spawn: npm failed with exit code - and signal -. npm is not executable # node listed as an optional requirement, seems bad bc deno/bun https://github.com/AstroNvim/AstroNvim?tab=readme-ov-file#-requirements
+# REMOVE
+qing ~/.config/nvim
+qing ~/.local/share/nvim
+qing ~/.local/state/nvim
+qing ~/.cache/nvim
+```
+
+## options
+
+---
+
+🔍 `:help options`
+
+* defaults https://neovim.io/doc/user/vim_diff.html#nvim-defaults
+* set: vimrc `set $OPT` exec `:set $OPT`
+* view non-default settings: `:set`
+* view source of setting: `:verbose set <value>`
+* view available settings: `:options`
+* `hidden`: allow switch to diff buffer before write https://vimtricks.com/p/what-is-set-hidden/
+* `nocompatible`: disable Vi compatability; default since Vim 8 https://vi.stackexchange.com/q/25149
+* `syntax enable`: on by default in neovim https://www.reddit.com/r/neovim/comments/nhwkbs/comment/gyyl1zl/
+
+## paths
+
+---
+
+* _VIMRUNTIME_: Vim system files
+* `:echo $VIMRUNTIME` (mbp14 `/usr/local/share/vim/vim82` air22 `$HOMEBREW/neovim/$VERSION/share/nvim/runtime`) https://vim.fandom.com/wiki/Understanding_VIMRUNTIME
+* _runtimepath (rtp)_: user config https://neovim.io/doc/user/syntax.html#mysyntaxfile
+* `:echo %rpt` https://neovim.io/doc/user/options.html https://stackoverflow.com/q/14248335
+* `autoload`: scripts; src before anything else, can use in .vimrc https://stackoverflow.com/a/59609961
+* `ftplugin`: conf per filetype https://stackoverflow.com/a/59609961 https://vimtricks.com/p/per-file-type-configs/
+
+## vimrc
+
+🔗
+* https://github.com/romainl/idiomatic-vimrc
+* https://github.com/tpope/vim-sensible
+
+* `~/.vimrc`: user vimrc
+* user backup: `~/.vim/vimrc` 💻 `vim --version`
+* base vimrc: `$VIMRUNTIME/defaults.vim` 💻 `vim --version`
+* src user w/ no config: `vim -u NONE`, `nvim --clean` 📙 Neil practical [xxiv] https://vi.stackexchange.com/a/11127
+* src alternate location: `vim -u $FILEPATH`, set `MYVIMRC` https://stackoverflow.com/a/4618219 https://stackoverflow.com/a/4618301 📙 Neil practical [xxiv]
+* src from CWD: https://vimtricks.com/p/local-vimrc-files/
+```sh
+# .vim/
+├── init              # https://tuckerchapman.com/posts/vimrc_organization/
+│   └── func.vimrc    # custom func
+│   └── leader.vimrc  # leader cmd
+│   └── opt.vimrc     # core options
+│   └── plug.vimrc    # load plugins, set plugin settings
+```
+```vimrc
+source $HOME/.vim/init/plug.vimrc
+source $HOME/.vim/init/core.vimrc
+source $HOME/.vim/init/func.vimrc
+source $HOME/.vim/init/leader.vimrc
+```
+
+## mappings
+
+* reminders https://github.com/folke/which-key.nvim
+* `:noremap`: non-recursive i.e. mapping will just use the cmd you defined https://vi.stackexchange.com/a/282
+* `:map`: recursive i.e. mapping will use already existing mappings if available
+* don't use TAB 📙 Neil practical [9.137]
+* _leader key_: namespace user-defined cmd 📙 Neil practical [8.122] https://stackoverflow.com/a/23503958
+* can set multiple https://tuckerchapman.com/posts/how-to-use-the-vim-leader-key/
+* print: `:echo mapleader` (`E121` = mapped to `\`) https://vi.stackexchange.com/a/282
+* `timeoutlen`: time to type cmd after hitting leader key https://tuckerchapman.com/posts/how-to-use-the-vim-leader-key/
+* to `SPACE` https://www.youtube.com/watch?v=435-amtVYJ8 5:30
+* to `,` https://news.ycombinator.com/item?id=24287951 📙 Neil modern [xiv] practical [8.122]
+* http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
+* http://vimcasts.org/episodes/creating-mappings-that-accept-a-count/
 
 # ⭕️️ CORE
 
@@ -849,7 +1036,28 @@ HIGHLIGHT PLUGINS
 
 ### LSP
 
-🗄️ `plt.md` LSP
+🗄️ `compilers.md` LSP
+
+MASON 📜 https://github.com/williamboman/mason.nvim
+* big picture https://github.com/williamboman/mason.nvim/discussions/1867
+```txt
+* Mason requires npm for some LSP providers
+> Note that mason.nvim will regularly shell out to external package managers, such as cargo and npm. Depending on your personal usage, some of these will also need to be installed.
+* npm requires node
+* npm's own documentation says not to install node without a version manager(nvm, volta, et al.) https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+* Mason works with nvm (for me!) but perhaps a problem with volta? Npm (installed through Volta) can't be found https://github.com/williamboman/mason.nvim/issues/879
+* There's some clamoring about making Mason play nice with other JS package managers like yarn, bun, et al. https://github.com/williamboman/mason.nvim/issues/1786
+```
+* used by LazyVim
+* uv support https://github.com/williamboman/mason.nvim/pull/1640
+* ❌ need to install npm and cargo, no support for bun, everyone hates this https://github.com/williamboman/mason.nvim/issues/1286 https://github.com/williamboman/mason.nvim/issues/1786 https://github.com/williamboman/mason.nvim/issues/1035 https://github.com/pmizio/typescript-tools.nvim/issues/232 and doesn't work with node version mgmt like volta https://github.com/pmizio/typescript-tools.nvim/issues/60
+> Note that mason.nvim will regularly shell out to external package managers, such as cargo and npm. Depending on your personal usage, some of these will also need to be installed. Refer to :checkhealth mason for a full list.
+* pyright error (`:MasonLog`) https://github.com/williamboman/mason.nvim/discussions/674
+```sh
+error=spawn: npm failed with exit code - and signal -. npm is not executable
+```
+
+---
 
 * people hate this https://www.youtube.com/watch?v=G1_Y5hLTfgw [2:00,7:30] https://www.youtube.com/watch?v=IRd2zwF527M
 * how this works in Neovim: `nvim-lspconfig` configs nvim client, `vim.lsp` as framework for tooling to connect to language servers, tool for language server mgmt (mason) https://www.youtube.com/watch?v=3a1PCir_aHs
@@ -966,136 +1174,6 @@ NEOVIM
 * installation: Homebrew (requires macOS > 10.14) 📙 Neil modern [5]
 * design: run tasks async, Lua for scripting https://github.com/nvim-lua/plenary.nvim can also use Python to script https://mkaz.blog/code/neovim-plugin-python
 > Bram's comparison is Vi, Neovim teams' comparison is VS Code. https://news.ycombinator.com/item?id=31936725
-
-## config
-
-📚
-* Neil modern ch. 7
-* Neil practical appendix
-🔗
-* https://github.com/romainl/idiomatic-vimrc
-* https://github.com/tpope/vim-sensible
-* https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
-
-Neovim just too fragile? https://www.youtube.com/watch?v=G1_Y5hLTfgw
-> Every now and then I would update a plugin in Neovim and everything would break, and I would have to spend time fixing it instead of getting work done. This resulted in slimming down my config more and more, but there was still so much that went into making all the basics work. I stuck with it because it was still better than using VSCode, which I did try for a two week sprint to see if it could be any better. It was also key to a terminal based workflow that other editors couldn’t really match. The sentiment started to shift again not too long ago as I started working in some really large code bases, and boy Neovim was struggling. I would have random hang ups, frozen screens, stuff that just drove me nuts when productivity was king. I tried switching to other terminal emulators too such as Alacritty and Wezterm but it didn’t help much. https://stevedylan.dev/posts/leaving-neovim-for-zed/
-
-NEOVIM SETUPS
-* DIY https://www.youtube.com/watch?v=x__SZUuLOxw https://www.youtube.com/playlist?list=PLsz00TDipIffreIaUNk64KxTIkQaGguqn https://www.youtube.com/watch?v=6pAG3BHurdM
-* _Astro_: 🎯 12k stars; strong maintainer https://github.com/mehalter https://github.com/AstroNvim/AstroNvim https://zackproser.com/blog/astronvim-overview
-* _LazyVim_: 15k stars https://www.lazyvim.org/
-* _Lunar_: 17.5k stars; more open issues, heavy setup (req: npm, cargo, rg) https://www.lunarvim.org/
-* _NVChad_: 🎯 23.5 stars https://nvchad.com/
-* PYthon setup https://www.youtube.com/watch?v=4BnVeOUeZxc
-* still have to do the hard part yourself?
-> Once the binaries are installed, you will have to configure them to properly work with LSP, conform.nvim, nvim-lint, nvim-dap etc. It depends on what you installed. NvChad does not provide any language configuration aside from lua. https://nvchad.com/docs/config/lsp/
-
-NEOVIM
-* files: `init.lua`, `init.vim` 📙 Neil modern [6] https://neovim.io/doc/user/starting.html#init.vim
-* debug: `:checkhealth` http://vimcasts.org/episodes/neovim-checkhealth/
-* fs
-```sh
-#~/.config/nvim https://neovim.io/doc/user/starting.html#standard-path
-├── init.lua
-├── lua/$DIR/  # https://github.com/mrnugget/vimconfig https://www.youtube.com/watch?v=hY5-Q6NxQgY
-│   └── keymap.lua
-│   └── option.lua
-```
-* Vimscript -> Lua  https://www.youtube.com/watch?v=hY5-Q6NxQgY 7:15 https://www.youtube.com/watch?v=prnrwpOEsmo
-```lua
---- CMDS
-vim.cmd[[colorscheme tokyonight]]  -- colorscheme tokyonight
-
--- VARIABLES
-vim g.foo = 'im globally available' -- let g:foo = 'im globally available'
-
--- OPTIONS
-vim.opt.shiftwidth = 2 -- set shiftwidth=2
-
--- KEYMAPS
-vim.api.nvim_set_keymap() -- :noremap
-```
-
-OPTIONS 🔍 `:help options`
-* defaults https://neovim.io/doc/user/vim_diff.html#nvim-defaults
-* set: vimrc `set $OPT` exec `:set $OPT`
-* view non-default settings: `:set`
-* view source of setting: `:verbose set <value>`
-* view available settings: `:options`
-* `hidden`: allow switch to diff buffer before write https://vimtricks.com/p/what-is-set-hidden/
-* `nocompatible`: disable Vi compatability; default since Vim 8 https://vi.stackexchange.com/q/25149
-* `syntax enable`: on by default in neovim https://www.reddit.com/r/neovim/comments/nhwkbs/comment/gyyl1zl/
-
-PATHS
-* _VIMRUNTIME_: Vim system files
-* `:echo $VIMRUNTIME` (mbp14 `/usr/local/share/vim/vim82` air22 `$HOMEBREW/neovim/$VERSION/share/nvim/runtime`) https://vim.fandom.com/wiki/Understanding_VIMRUNTIME
-* _runtimepath (rtp)_: user config https://neovim.io/doc/user/syntax.html#mysyntaxfile
-* `:echo %rpt` https://neovim.io/doc/user/options.html https://stackoverflow.com/q/14248335
-* `autoload`: scripts; src before anything else, can use in .vimrc https://stackoverflow.com/a/59609961
-* `ftplugin`: conf per filetype https://stackoverflow.com/a/59609961 https://vimtricks.com/p/per-file-type-configs/
-
-VIMRC
-* `~/.vimrc`: user vimrc
-* user backup: `~/.vim/vimrc` 💻 `vim --version`
-* base vimrc: `$VIMRUNTIME/defaults.vim` 💻 `vim --version`
-* src user w/ no config: `vim -u NONE`, `nvim --clean` 📙 Neil practical [xxiv] https://vi.stackexchange.com/a/11127
-* src alternate location: `vim -u $FILEPATH`, set `MYVIMRC` https://stackoverflow.com/a/4618219 https://stackoverflow.com/a/4618301 📙 Neil practical [xxiv]
-* src from CWD: https://vimtricks.com/p/local-vimrc-files/
-```sh
-# .vim/
-├── init              # https://tuckerchapman.com/posts/vimrc_organization/
-│   └── func.vimrc    # custom func
-│   └── leader.vimrc  # leader cmd
-│   └── opt.vimrc     # core options
-│   └── plug.vimrc    # load plugins, set plugin settings
-```
-```vimrc
-source $HOME/.vim/init/plug.vimrc
-source $HOME/.vim/init/core.vimrc
-source $HOME/.vim/init/func.vimrc
-source $HOME/.vim/init/leader.vimrc
-```
-
-MAPPINGS
-* reminders https://github.com/folke/which-key.nvim
-* `:noremap`: non-recursive i.e. mapping will just use the cmd you defined https://vi.stackexchange.com/a/282
-* `:map`: recursive i.e. mapping will use already existing mappings if available
-* don't use TAB 📙 Neil practical [9.137]
-* _leader key_: namespace user-defined cmd 📙 Neil practical [8.122] https://stackoverflow.com/a/23503958
-* can set multiple https://tuckerchapman.com/posts/how-to-use-the-vim-leader-key/
-* print: `:echo mapleader` (`E121` = mapped to `\`) https://vi.stackexchange.com/a/282
-* `timeoutlen`: time to type cmd after hitting leader key https://tuckerchapman.com/posts/how-to-use-the-vim-leader-key/
-* to `SPACE` https://www.youtube.com/watch?v=435-amtVYJ8 5:30
-* to `,` https://news.ycombinator.com/item?id=24287951 📙 Neil modern [xiv] practical [8.122]
-
-ZA
-* perf: `nv --startuptime out.log` https://www.youtube.com/watch?v=28FmViFye2I
-* define variable: `let $SCOPE:$NAME = $MAPPING` e.g. `let g:foo = 'im globally available` https://vi.stackexchange.com/a/282 https://www.youtube.com/watch?v=prnrwpOEsmo 13:45
-* variables: `$VISUAL` (for Git), `$VIM_CONFIG`, `$VIM_DATA` 📙 Neil modern [6-7]
-* clipboard 📙 Neil modern [8] https://neovim.io/doc/user/provider.html#provider-clipboard
-* Python support 📙 Neil modern [8] https://neovim.io/doc/user/provider.html#provider-python https://github.com/LunarVim/Neovim-from-scratch
-* _modeline_: config for individual file 📙 Neil practical [xxv]
-* _autocommand_: hook 📙 Neil practical [306] modern [105]
-* have to wrap in `vim.cmd` in Lua https://www.youtube.com/watch?v=prnrwpOEsmo 25:45
-```sh
-# on Bufread, set scrolloff
-:autocmd BufRead /Users/zach/Desktop/zvmac/notes/sw/za/industry.md set scrolloff=999
-# set file type https://www.youtube.com/watch?v=hrbV5WGxxdY
-:autocmd BufRead .*aliases set ft=sh
-```
-* _augroup_: group of autocommands 📙 Neil practical ch. 11-14
-```sh
-augroup foo
-  autocmd!  # rm all autocmds for the event and file pattern from the default autocmd-group and sets new autocmd for this event/pattern
-augroup END
-```
-
----
-
-* http://vimcasts.org/episodes/creating-repeatable-mappings-with-repeat-vim/
-* http://vimcasts.org/episodes/creating-mappings-that-accept-a-count/
-* help https://www.youtube.com/watch?v=BdoizYjJHis
-* search https://vimtricks.substack.com/p/vimtrick-search-your-mappings
 
 ## plugins
 

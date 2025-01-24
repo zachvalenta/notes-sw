@@ -87,8 +87,9 @@ CREATE TABLE products (
 
 💡 core insight: let the data tell you what it is, rather than forcing it into predetermined boxes
 🗄️
-* `stat.md` outlier detection
+* `modeling.md`
 * `OLAP.md` pipelines
+* `stat.md` outlier detection
 
 * _schema on-read_: enforce contraints on write
 * _schema on-write_: don't enforce contraints on write i.e. cobble things together on read
@@ -369,7 +370,23 @@ CLAUSES
 * _from_: what tables and how they're linked 📙 Beaulieu [53]
 * _where_: filter 📙 Beaulieu [58]
 
-EXECUTION ORDER
+CRUD
+```sql
+-- 1 attr, 1 val
+INSERT INTO danzi(customer) VALUES ('alice');
+-- 1 attr, n val
+INSERT INTO danzi(customer) VALUES ('alice'), ('bob');
+-- n attr, 1 val
+INSERT INTO danzi(customer, price) VALUES ('alice', 15)
+-- n attr, n val
+INSERT INTO danzi(customer, price) VALUES ('alice', 15), ('bob', 10);
+
+UPDATE <tab> SET <col>=0 WHERE id=3;
+DELETE FROM <tab> WHERE id=3;  -- https://notso.boringsql.com/posts/deletes-are-difficult/
+```
+
+## execution order
+
 * before execution, dbms checks query 1) perms 2) syntax 📙 Beaulieu [41]
 * only `select` is mandatory https://hakibenita.com/sql-for-data-analysis#basics
 * types of execution order: syntactical/logical (e.g. no `where` after `having`) and actual (e.g. `limit` query engine will limit first) 📙 Bradshaw 166
@@ -385,32 +402,6 @@ EXECUTION ORDER
 │   └── window functions 📙 Evans [14]
 │   └── order by 📙 Evans [13]
 │   └── limit
-```
-
-SUBQUERIES 📙 Beaulieu ch. 9
-* _subquery_: query contained within another query 📙 Beaulieu [53]
-* _containing query_: query that wraps subquery 📙 Beaulieu [54]
-* _scalar subquery_: return single val from subquery https://learnsql.com/blog/subquery-vs-join/
-* more readable but generally slower than joins https://stackoverflow.com/a/2577224
-* more thinkable than joins https://stackoverflow.com/a/2577188
-```sql
-containing_query = (subquery)  -- 1 (scalar)
-containing_query in (subquery)  -- n
-```
-
-CRUD
-```sql
--- 1 attr, 1 val
-INSERT INTO danzi(customer) VALUES ('alice');
--- 1 attr, n val
-INSERT INTO danzi(customer) VALUES ('alice'), ('bob');
--- n attr, 1 val
-INSERT INTO danzi(customer, price) VALUES ('alice', 15)
--- n attr, n val
-INSERT INTO danzi(customer, price) VALUES ('alice', 15), ('bob', 10);
-
-UPDATE <tab> SET <col>=0 WHERE id=3;
-DELETE FROM <tab> WHERE id=3;  -- https://notso.boringsql.com/posts/deletes-are-difficult/
 ```
 
 ## functions
@@ -830,6 +821,20 @@ SELECT NAME,
 FROM cd.facilities;  
 ```
 
+## subqueries
+
+📙 Beaulieu ch. 9
+
+* _subquery_: query contained within another query 📙 Beaulieu [53]
+* _containing query_: query that wraps subquery 📙 Beaulieu [54]
+* _scalar subquery_: return single val from subquery https://learnsql.com/blog/subquery-vs-join/
+* more readable but generally slower than joins https://stackoverflow.com/a/2577224
+* more thinkable than joins https://stackoverflow.com/a/2577188
+```sql
+containing_query = (subquery)  -- 1 (scalar)
+containing_query in (subquery)  -- n
+```
+
 # 🟨️ ZA
 
 SEMANTICS
@@ -843,20 +848,6 @@ SEMANTICS
 > same as a virtual table https://llm.datasette.io/en/stable/logging.html
 * in Django https://realpython.com/podcasts/rpp/227/ https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/#tldr
 * _enrichment_: https://simonwillison.net/2024/Dec/5/datasette-enrichments-llm/
-
-STYLE 📜 https://www.sqlstyle.guide/
-* ✅ constraints next to the attr they constrain https://www.sqlstyle.guide/#layout-and-order
-> this seems to violate parsing rules for SQLite 🗄 `golf`
-* ✅ suffixes https://www.sqlstyle.guide/#uniform-suffixes
-* ✅ uppercase keywords https://www.sqlstyle.guide/#reserved-words
-* indentation along root keywords (select, from, where) https://www.sqlstyle.guide/#indentation https://www.sqlstyle.guide/#spaces
-* white space / tabs not significant
-* ✅ ubiquitous language ❌ but no Hungarian notation https://news.ycombinator.com/item?id=24403236 
-* ✅ starts w/ char, use underscores where you'd use a space in natural language https://www.sqlstyle.guide/#naming-conventions
-* ❌ _Hungarian notation_: type in signature https://www.sqlstyle.guide/#tables https://news.ycombinator.com/item?id=24403236
-* ❌ through table as concatentation of its constituents https://www.sqlstyle.guide/#tables
-* ❌ `id` as PK https://www.sqlstyle.guide/#columns https://github.com/jOOQ/jOOQ/tree/master/jOOQ-examples/Sakila
-* ✅ singular for attr https://www.sqlstyle.guide/#columns
 
 DCL
 * _get current user_: `select current_user;` or `select user();`
@@ -876,6 +867,38 @@ INSERT INTO test_table(name, age) values('zach', 31);
 SELECT * FROM test_table;
 DROP TABLE test_table;
 ```
+
+## commands
+
+SEMANTICS 🗄 `language.md` semantics
+* _command_: keyword + identifier
+* _keyword_: part of SQL lang spec; not case sensitive
+* _identifier_: value (cell, attribute); case-sensitive
+* quotes: single for value, double for attr https://stackoverflow.com/q/1992314
+```sql
+SELECT "from" FROM foo WHERE something = 'val';
+```
+* _query_: `SELECT` command 📙 Karwin [6]
+* _statement_: non-`SELECT` commands 📙 Karwin [6]
+
+TYPES
+* _DCL_: control; user perms https://stackoverflow.com/a/44898661
+* _DDL_: definition; table structure and inter-table relationships https://stackoverflow.com/a/2578207
+* _DML_: manipulation; CRUD
+
+KEYWORDS https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html https://www.sqlstyle.guide/#reserved-keyword-reference
+* _reserved_: word that cannot use as identifier e.g. `create`
+* _non-reserved_: word that you can use as identifier but should use backtickets for e.g. `assertion`, `name`
+```sql
+-- SQLite and SQL Server use brackets instead of quotes/backticks for this https://llm.datasette.io/en/stable/logging.html
+CREATE TABLE [conversations] (
+  [id] TEXT PRIMARY KEY,
+  [name] TEXT,
+  [model] TEXT
+);
+```
+* _keyword_: reserved + non-reserved; case-insensitive
+> As a general rule, if you get spurious parser errors for commands that contain any of the listed key words as an identifier you should try to quote the identifier to see if the problem goes away. - https://www.postgresql.org/docs/8.1/static/sql-keywords-appendix.html
 
 ## replacement
 
@@ -911,55 +934,36 @@ REPLACEMENTS
 * ISO, ANSI standard 📙 Beaulieu [86-87]
 * SQL92 📙 Beaulieu [91]
 * SQL2023 http://peter.eisentraut.org/blog/2023/04/04/sql-2023-is-finished-here-is-whats-new
+* testing and business logic https://news.ycombinator.com/item?id=42828883
 
-## commands
+## style
 
-SEMANTICS 🗄 `language.md` semantics
-* _command_: keyword + identifier
-* _keyword_: part of SQL lang spec; not case sensitive
-* _identifier_: value (cell, attribute); case-sensitive
-* quotes: single for value, double for attr https://stackoverflow.com/q/1992314
-```sql
-SELECT "from" FROM foo WHERE something = 'val';
-```
-* _query_: `SELECT` command 📙 Karwin [6]
-* _statement_: non-`SELECT` commands 📙 Karwin [6]
+TABLES
+* case: lower + snake
+* avoid reserved words
 
-TYPES
-* _DCL_: control; user perms https://stackoverflow.com/a/44898661
-* _DDL_: definition; table structure and inter-table relationships https://stackoverflow.com/a/2578207
-* _DML_: manipulation; CRUD
+---
 
-KEYWORDS https://www.postgresql.org/docs/8.1/sql-keywords-appendix.html https://www.sqlstyle.guide/#reserved-keyword-reference
-* _reserved_: word that cannot use as identifier e.g. `create`
-* _non-reserved_: word that you can use as identifier but should use backtickets for e.g. `assertion`, `name`
-```sql
--- SQLite and SQL Server use brackets instead of quotes/backticks for this https://llm.datasette.io/en/stable/logging.html
-CREATE TABLE [conversations] (
-  [id] TEXT PRIMARY KEY,
-  [name] TEXT,
-  [model] TEXT
-);
-```
-* _keyword_: reserved + non-reserved; case-insensitive
-> As a general rule, if you get spurious parser errors for commands that contain any of the listed key words as an identifier you should try to quote the identifier to see if the problem goes away. - https://www.postgresql.org/docs/8.1/static/sql-keywords-appendix.html
+📜 https://www.sqlstyle.guide/
+* ✅ constraints next to the attr they constrain https://www.sqlstyle.guide/#layout-and-order
+> this seems to violate parsing rules for SQLite 🗄 `golf`
+* ✅ suffixes https://www.sqlstyle.guide/#uniform-suffixes
+* ✅ uppercase keywords https://www.sqlstyle.guide/#reserved-words
+* indentation along root keywords (select, from, where) https://www.sqlstyle.guide/#indentation https://www.sqlstyle.guide/#spaces
+* white space / tabs not significant
+* ✅ ubiquitous language ❌ but no Hungarian notation https://news.ycombinator.com/item?id=24403236 
+* ✅ starts w/ char, use underscores where you'd use a space in natural language https://www.sqlstyle.guide/#naming-conventions
+* ❌ _Hungarian notation_: type in signature https://www.sqlstyle.guide/#tables https://news.ycombinator.com/item?id=24403236
+* ❌ through table as concatentation of its constituents https://www.sqlstyle.guide/#tables
+* ❌ `id` as PK https://www.sqlstyle.guide/#columns https://github.com/jOOQ/jOOQ/tree/master/jOOQ-examples/Sakila
+* ✅ singular for attr https://www.sqlstyle.guide/#columns
 
-## pedagogy
-
-🗄️ `architecture.md` serverless > baked data
-
-* tldr: better at SQL if data 1) local 2) interesting
-* small databases https://news.ycombinator.com/item?id=34558054
-* example databases: Spanish, Sakila https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql 📙 Beaulieau [41]
-
-CONNECT TO ACTUAL SERVER
-* https://data.stackexchange.com/help
-* https://sqlpd.com/
-* https://news.ycombinator.com/item?id=30631477
-
-PLAYGROUNDS
-* PG exercises https://github.com/zachvalenta/pg-exercises
-* https://jvns.ca/blog/2023/04/17/a-list-of-programming-playgrounds/
+LINTING
+* https://github.com/alanmcruickshank/sqlfluff https://www.thoughtworks.com/radar/tools?blipid=202203065
+* https://www.eversql.com/sql-syntax-check-validator/
+* https://github.com/purcell/sqlint
+* https://github.com/darold/pgFormatter
+* https://sqlfum.pt/
 
 ## tables
 

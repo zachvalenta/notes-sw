@@ -474,6 +474,7 @@ logger.add("validation.log")
 ALTERNATIVES
 * _eliot_: https://github.com/itamarst/eliot 
 * _structlog_: https://github.com/hynek/structlog
+* _tamga_: Tailwind https://github.com/dogukanurker/tamga
 
 ---
 

@@ -12,7 +12,7 @@ GUI
 * _pyautogui_: control mouse/keyboard https://github.com/asweigart/pyautogui
 * _pyqt_: https://build-system.fman.io/pyqt5-tutorial
 * _PySimpleGUI_:  https://github.com/PySimpleGUI/PySimpleGUI
-* _tkinter_: https://www.youtube.com/watch?v=xqDonHEYPgA
+* _tkinter_: https://www.youtube.com/watch?v=xqDonHEYPgA https://pywebview.flowrl.com/
 
 ## 进步
 

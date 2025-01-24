@@ -44,11 +44,13 @@ BASICS 📙 Ball
 * https://github.com/uber-go/guide/blob/master/style.md
 * https://golang.org/doc/effective_go.html
 > Effective Go continues to be useful, but the reader should understand it is far from a complete guide.
+> https://www.openmymind.net/The-Little-Go-Book/
 
 * _embed_: good for distributed libs packaging the files they need vs. relying on the host OS fs https://www.youtube.com/watch?v=7EK06n485nk
 
 ---
 
+https://www.openmymind.net/Things-I-Wish-Someone-Had-Told-Me-About-Go/
 * generics https://www.dolthub.com/blog/2024-07-01-golang-generic-collections/ https://bitfieldconsulting.com/posts/generics https://bitfieldconsulting.com/posts/constraints
 * lodash https://github.com/samber/lo
 * enums https://www.zarl.dev/articles/enums

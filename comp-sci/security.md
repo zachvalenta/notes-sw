@@ -372,6 +372,9 @@ dn: CN=Alice, OU=sysadmin
 
 ### OAuth
 
+---
+
+start here + OpenID Connect https://news.ycombinator.com/item?id=42829149
 https://www.youtube.com/watch?v=xHFzhBjnMPI https://news.ycombinator.com/item?id=35713518&utm_term=comment https://www.youtube.com/watch?v=ZV5yTm4pT8g
 * https://news.ycombinator.com/item?id=42388870
 * OPenID https://www.youtube.com/watch?app=desktop&v=996OiexHze0

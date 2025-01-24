@@ -11,6 +11,8 @@
 
 ## 进步
 
+https://openai.com/index/introducing-deep-research/
+
 * _24_: ChatGPT (regex and Polars, then incorporate research) Claude (switch after GPT outage)
 * _23_: few random queries
 
@@ -26,7 +28,7 @@ SLM
 
 ZA
 * _BERT_: https://simonwillison.net/2024/Dec/31/alexis-gallagher/ https://github.com/urchade/GLiNER
-* _DeepSeek_: https://thezvi.substack.com/p/deekseek-v3-the-six-million-dollar https://www.chinatalk.media/p/deepseeks-edge
+* _DeepSeek_: https://thezvi.substack.com/p/deekseek-v3-the-six-million-dollar https://www.chinatalk.media/p/deepseeks-edge https://simonwillison.net/2024/Dec/31/llms-in-2024/#was-the-best-currently-available-llm-trained-in-china-for-less-than-6m-
 * _X grok_: seems tied to Twitter https://grok.x.ai/ 
 
 ---
@@ -131,10 +133,11 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 ---
 
-* run locally https://github.com/getumbrel/llama-gpt
-* run locally https://github.com/Mozilla-Ocho/llamafile
-* running locally, llamafile https://news.ycombinator.com/item?id=40424519
-* code prompt: https://ollama.com/blog/how-to-prompt-code-llama https://ollama.com/blog/run-code-llama-locally
+* https://simonwillison.net/2024/Dec/31/llms-in-2024/#apple-intelligence-is-bad-apple-s-mlx-library-is-excellent
+* https://github.com/getumbrel/llama-gpt
+* https://github.com/Mozilla-Ocho/llamafile
+* llamafile https://news.ycombinator.com/item?id=40424519
+* https://ollama.com/blog/how-to-prompt-code-llama https://ollama.com/blog/run-code-llama-locally
 
 ## 🦙 llama
 
@@ -184,6 +187,7 @@ start here https://parlance-labs.com/education/ https://applied-llms.org/ https:
 
 * defining https://www.anthropic.com/research/building-effective-agents
 https://simonwillison.net/2025/Jan/11/agents/
+https://simonwillison.net/2024/Dec/31/llms-in-2024/#-agents-still-haven-t-really-happened-yet
 https://www.thoughtworks.com/radar/techniques/function-calling-with-llms
 > They discuss "agentic systems" as a parent term, then define a distinction between "workflows" - systems where multiple LLMs are orchestrated together using pre-defined patterns - and "agents", where the LLMs "dynamically direct their own processes and tool usage". https://simonwillison.net/2024/Dec/20/building-effective-agents/
 * as judge https://registerspill.thorstenball.com/p/joy-and-curiosity-20
@@ -307,6 +311,7 @@ https://news.ycombinator.com/item?id=42507116
 * Farooq build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch https://www.alldayta.com/#product-demo
 * Kimothi https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation
 
+https://github.com/gusye1234/nano-graphrag
 https://github.com/Cinnamon/kotaemon
 
 HOWTO (LEARN BY BUILDING FOR DROR)

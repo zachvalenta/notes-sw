@@ -340,7 +340,14 @@ if command -v nodenv 1>/dev/null 2>&1; then
     eval "$(nodenv init --path)"
 fi
 ```
-* _nvm_: https://github.com/creationix/nvm#important-notes
+* _nvm_: recommended by npm https://github.com/nvm-sh/nvm https://docs.npmjs.com/downloading-and-installing-node-js-and-npm
+* caveats: doesn't support fish, requires Command Line Tools https://github.com/creationix/nvm#important-notes
+```sh
+nvm current  # v22.13.1
+nvm ls       # -> v22.13.1, default -> lts/* (-> v22.13.1), unstable -> N/A (default)
+which node   # /Users/zvalenta/.config/nvm/versions/node/v22.13.1/bin/node
+which npm    # /Users/zvalenta/.config/nvm/versions/node/v22.13.1/bin/npm
+```
 * _volta_: https://volta.sh/ https://www.thoughtworks.com/radar/tools?blipid=202203039
 
 # 🟨 ZA
@@ -514,6 +521,7 @@ SELECTORS
 
 ZA
 * history: https://www.w3.org/Style/CSS20/history.html https://eev.ee/blog/2020/02/01/old-css-new-css/ https://news.ycombinator.com/item?id=23915263
+* preprocessors like SCSS without node/npm https://lukeplant.me.uk/blog/posts/django-sass-scss-without-nodejs-or-build-step/
 * _SASS_: features not in CSS; transpiles to CSS https://sass-lang.com/guide/
 * diff btw SCSS and SASS https://stackoverflow.com/questions/5654447/whats-the-difference-between-scss-and-sass/
 * _variable_: aka 'custom properties' https://developer.mozilla.org/en-US/docs/Web/CSS/--*
@@ -583,6 +591,7 @@ FORMS
 
 ---
 
+* https://www.openmymind.net/2010/7/22/Website-Performance-Crossing-the-Ts-dotting-the-Is/
 * https://hpbn.co/primer-on-web-performance/
 * https://roadmap.sh/best-practices/frontend-performance
 * https://developers.google.com/web/tools/chrome-devtools/network-performance/reference 

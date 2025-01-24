@@ -24,20 +24,7 @@
 
 # 🖲️ BACKUP
 
-🗄 `eng.md` admin / backup
-
-|  ITEM         | LOCATION | DATE  | CONTENTS   | TO            |
-|---------------|----------|-------|------------|---------------|
-| digits        | mini23   | 19.07 | pw         | safe, lockbox |
-| calendar      | google   | 24.02 |            | mini23        |
-| email         | google   | 22.02 |            | mini23        |
-| mini23        | -        |       | fs         |               |
-| air22         | -        | ----- | mini23     |               |
-| `ExFatMain`   | desk     | 24.11 | mini23     |               |
-| `WD1`         | safe     | 24.06 | mini23     |               |
-| `WD2`         | lockbox  | 20.02 | mini23     |               |
-| `music-usb`   | desk     | ----- | `yin`      |               |
-| `music-usb-2` | desk     | 24.02 | `yin`      |               |
+🗄 `OLTP.md` backup
 
 SEMANTICS
 * _transfer_: mv data from A to B
@@ -103,43 +90,31 @@ TIME MACHINE
 * filepath: on my machine stored in `Volums/.com.apple.TimeMachine.localsnapshots` https://robservatory.com/disable-local-time-machine-backups-on-laptops/
 * can always disable TM backups from System Preferences, which will start clearing out local backups
 
-### mini23 ➡️ exfatmain
+## catalog
 
-MUSIC
-> just do everything from music, mat, admin
-* slint nosferatu
-* 17 moments of springs
-* boris
-* dru hill, alice coltrane sings
-> songs of the month: Ramones swallow my pride, The Clean i wait around
-* dance: francis harris, jamie xx, danilov, techno, Herbert this time
-> za (chemical brothers et al.)
-* electronic: drone
-* far: Aster Aweke
-* jazz: christian scott, alice coltrane, bill frisell, ahmad jamal
-> loud soft loud out of punk + import meat puppets
-* rock: singles, dylan, band, dinosaur jr, dr john to psych, ritter to pop, neil young 75-2002, wilco, fairport convention, punk (minutemen, buzzcocks, cramps, ramones, johnny thunders, elvis costello, sonic youth, death grips), Dehd desire, fugazi
-> 🎗️ Capp 24.11.21-22: pere ubu, public image ltd + kendrick rich
-* rock/80s-jangle: rm the soft boys, The Clean, Pale Saints
-* za/blues: hendrix
-* za/gospel: hank jones
-* bruno mars
+|  ITEM         | LOCATION | DATE  | CONTENTS   | TO            |
+|---------------|----------|-------|------------|---------------|
+| mini23        | home     | 25.01 | fs         | ExFatMain     |
+| air22         | Capp     |       | ?          | -             |
+| `ExFatMain`   | desk     |       | mini23     |               |
 
-* mat/sw: system, ai, vincent django, hogan tmux
-* Evans git, int/bit, containers, dns, bite size networking
-> 📍 clean up DS files `fd -HI DS`
-* 23 taxes
-* golf
-* photos: nirvana
-* parking tickets
+---
 
-MAT
-* sw: rm mckinney book, wayne logic for programmers, network, kent data and reality, evans containers and ints/floats, Bueno mature optimization
-* math
-* za
-* science
+|  ITEM         | LOCATION | DATE  | CONTENTS   | TO            |
+|---------------|----------|-------|------------|---------------|
+| digits        | mini23   | 19.07 | pw         | safe, lockbox |
+| calendar      | google   | 24.02 |            | mini23        |
+| email         | google   | 22.02 |            | mini23        |
+| mini23        | -        |       | fs         |               |
+| air22         | -        | ----- | mini23     |               |
+| `WD1`         | safe     | 24.06 | mini23     |               |
+| `WD2`         | lockbox  | 20.02 | mini23     |               |
+| `music-usb`   | desk     | ----- | `yin`      |               |
+| `music-usb-2` | desk     | 24.02 | `yin`      |               |
 
-### air-capp ➡️ mini23
+## mini23 ➡️ exfatmain
+
+## air-capp ➡️ mini23
 
 * Alex Danilov
 
@@ -254,6 +229,7 @@ SKETCH
 * storage
 * compute
 
+* https://www.youtube.com/watch?v=y1GCIwLm3is
 * https://github.com/khuedoan/homelab
 * containers, Plex https://www.youtube.com/watch?v=yFuTAKq_j3Q
 * rack https://www.youtube.com/watch?v=akJ97oqmQlU
@@ -272,14 +248,10 @@ CURRENT
 # /Users/zach/Documents
 ├── denv
 │   └── bin
+│   └──── ghc
 │   └──── news  # symlink
 │   └─────── repos/news/main.py  # symlink src
-│   └──── sysinfo
-│   └──── vimv
 │   └── dotfiles
-│   └── fonts
-│   └──── fira code
-│   └──── fira mono
 │   └── logs
 ├── telescope-workspace
 ├── zv
@@ -406,11 +378,22 @@ medit --start 42 --end 3 $AUDIO_FILE
 # either --start or --end must be used as parameter, so throw a warning if an audio file is passed without one
 medit $AUDIO_FILE
 ```
-```
 
 ### 🪲 cmus
 
 * 2.12: progress bar (percentage counter doesn't work though) library view (played song highlights yellow)
+* kcm
+```sh
+#!/usr/bin/env bash
+bill=$(ps -A | grep -m1 cmus | awk '{print $1}')
+if [[ -n "$bill" ]]; then
+   gum log --structured --time rfc822 --level info "🎧 cmus: kill process"
+   kill -KILL "$bill"
+else
+   rm -f ~/.config/cmus/socket
+   gum log --structured --time rfc822 --level info "🎧 cmus: rm stale socket file"
+fi
+```
 
 ---
 

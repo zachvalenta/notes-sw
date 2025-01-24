@@ -164,6 +164,7 @@ https://news.ycombinator.com/item?id=41930628
 
 ---
 
+* BYO https://www.openmymind.net/Elegant-TCP-with-Elixir-Part-1-TCP-as-Messages/ https://www.openmymind.net/TCP-Server-In-Zig-Part-1-Single-Threaded/
 * handshakes https://www.pixelstech.net/article/1727412048-Why-TCP-needs-3-handshakes
 * FAANG doesn't use any more https://news.ycombinator.com/item?id=42168997
 * _TCP_: one-to-one communication btw two nodes, have to establish connection before msg sent, msg acked i.e. reliable; can arrive in wrong order but works out somehow
