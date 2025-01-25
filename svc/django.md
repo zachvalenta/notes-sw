@@ -1039,6 +1039,9 @@ RAILS
 * vs. Django https://news.ycombinator.com/item?id=42388340
 * https://news.ycombinator.com/item?id=42569236
 * https://literallythevoid.com/blog/rails_for_everything.html
+* https://www.openmymind.net/2010/6/23/My-Rails-Journey-The-Expected-Speed-Bumps/
+* https://www.openmymind.net/2010/10/18/Weekend-NET-Pains/
+* https://www.openmymind.net/2010/8/30/How-I-would-fix-ASP-NET/
 
 COMPONENTS
 * HTTP, routes, ORM

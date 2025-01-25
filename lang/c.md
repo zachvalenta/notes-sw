@@ -28,7 +28,9 @@
 * `#define`: constants https://www.youtube.com/watch?v=hsmGp3cp_50 0:50
 
 PROJECTS
+* SQLite extension https://www.openmymind.net/Writing-A-Custom-Sqlite-Function-Part-1/
 * Python extension https://realpython.com/build-python-c-extension-module/
+* Redis extension https://www.openmymind.net/Writing-A-Custom-Redis-Command-In-C-Part-1/ https://www.openmymind.net/Custom-Redis-Command-Performance-C-vs-Lua/
 * BYO db https://cstack.github.io/db_tutorial/
 * cmus https://github.com/cmus
 * BYO virtual machine https://justinmeiners.github.io/lc3-vm/
@@ -264,6 +266,7 @@ SPRING
 
 📜 https://ziglang.org/
 
+https://www.openmymind.net/learning_zig/
 https://codeberg.org/ziglings/exercises/
 
 comptime https://www.scottredig.com/blog/bonkers_comptime/
@@ -289,6 +292,7 @@ PROJECTS
 * smart users https://github.com/jamii
 * current state of affairs https://news.ycombinator.com/item?id=36149462
 * as a teaching language https://news.ycombinator.com/item?id=32752383
+* https://www.openmymind.net/Zig-Quirks/
 
 # 🦀 RUST
 
@@ -353,6 +357,7 @@ https://rftgu.rs/ https://www.youtube.com/playlist?list=PLhoH5vyxr6Qqn3E9tm5bwUC
 ## borrow checker
 
 🗄️ `plt.md` memory
+https://www.openmymind.net/Rust-Ownership-Move-and-Borrow-part-1/
 
 > My experience with Rust is like this: make a seemingly small change, it balloons into a compile error that requires large refactoring to appease the borrow checker and type system. I suppose if you repeat this enough you learn how to write code that Rust is happy with first-time. I think my brain just doesn't like Rust. https://news.ycombinator.com/item?id=42485536
 

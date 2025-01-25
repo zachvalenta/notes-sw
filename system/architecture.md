@@ -254,6 +254,7 @@ KISS
 
 * _fan out_: num of req to other services to handle one incoming req [11]
 📍 need to review SQL of Twitter example
+* https://www.openmymind.net/Scaling-Focus-On-Raw-Speed/
 
 # ⠎ PATTERNS
 

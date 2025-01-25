@@ -275,8 +275,10 @@ SEMANTICS
 
 ---
 
+https://www.openmymind.net/Do-More-In-Process-Caching/
+https://www.openmymind.net/Caching-Your-Worst-Best-Friend/
 * _LFU_: 
-* _LRU_: ensures cache full/hot as possible; used by application caches https://calpaterson.com/ttl-hell.html https://jamesg.blog/2024/08/18/time-based-lru-cache-python/ https://danluu.com/2choices-eviction/
+* _LRU_: ensures cache full/hot as possible; used by application caches https://calpaterson.com/ttl-hell.html https://jamesg.blog/2024/08/18/time-based-lru-cache-python/ https://danluu.com/2choices-eviction/ https://www.openmymind.net/Writing-An-LRU-Cache/
 ```python
 # There's nothing wrong with the above code but it only allows for strategy #1: never invalidate https://calpaterson.com/ttl-hell.html
 from functools import lru_cache

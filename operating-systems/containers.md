@@ -402,6 +402,7 @@ A macOS/Linux tool for running container runtimes (like Docker or Podman) in a l
 ## 🦭 Podman
 
 📜 https://podman.io/
+📙 https://livebook.manning.com/book/podman-in-action/chapter-1/
 📹 https://www.youtube.com/watch?v=Z5uBcczJxUY
 
 _* container engine_: manage containers, shares host OS kernel

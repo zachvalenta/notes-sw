@@ -9,7 +9,7 @@
 
 ## 进步
 
-* Docker / Kamal/ IaaS https://www.youtube.com/watch?v=fuZoxuBiL9o https://www.youtube.com/watch?v=F-9KWQByeU0 https://www.youtube.com/watch?v=7lkJmElHkSw
+* Docker / Kamal/ IaaS https://www.youtube.com/watch?v=fuZoxuBiL9o https://www.youtube.com/watch?v=F-9KWQByeU0 https://www.youtube.com/watch?v=7lkJmElHkSw https://www.youtube.com/watch?v=DmbBgXK8M5M
 
 * _20_: Heroku (simple Django app)
 * _18_: Cloud Foundry and AMQP/Spring for Dark Canary

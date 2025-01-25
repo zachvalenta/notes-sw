@@ -584,6 +584,7 @@ FORMS
 
 ---
 
+* https://www.openmymind.net/2010/7/22/Website-Performance-Crossing-the-Ts-dotting-the-Is/
 * https://hpbn.co/primer-on-web-performance/
 * https://roadmap.sh/best-practices/frontend-performance
 * https://developers.google.com/web/tools/chrome-devtools/network-performance/reference 

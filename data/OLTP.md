@@ -636,7 +636,9 @@ wire protocol
 ---
 
 🏔️ https://github.com/Olshansk/postgres_for_everything
-📙 Suzuki postgres internals https://www.interdb.jp/pg/
+📚
+* Magda just use postgres https://www.manning.com/books/just-use-postgres
+* Suzuki postgres internals https://www.interdb.jp/pg/
 🔗 https://challahscript.com/what_i_wish_someone_told_me_about_postgres
 📜
 * general https://www.postgresql.org/docs/current/index.html
@@ -680,6 +682,7 @@ UTILS
 > And before you think being open-source insulates you from a company going under, few DBMS projects continue on and thrive when their founding for-profit company fails. PostgreSQL sort of counts even though the open-source version we have today is based on the UC Berkeley source code and not the commercial Illustra version (which was acquired by Informix in 1996). https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 
 misc
+* arrays https://www.openmymind.net/Introduction-To-PostgreSQL-Arrays/
 * fuzzy match https://news.ycombinator.com/item?id=26236772
 * local dev https://jamey.thesharps.us/2019/05/29/per-project-postgres/
 * chaos https://github.com/lesovsky/noisia

@@ -45,7 +45,7 @@ MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 ---
 
 > There's much to love about lanparty.house: the house, the engine room, the wiring, the cat doors, the cat bathroom. But what I enjoyed the most was the fact that this site belongs to a rare class of internet gems: a single page, full of information with nothing held back, neatly formatted, easy to digest. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
-🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/ https://refactoringenglish.com/chapters/rules-for-software-tutorials/
+🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/ https://refactoringenglish.com/chapters/rules-for-software-tutorials/ https://www.openmymind.net/
 🏔️ Julia Evans https://www.youtube.com/@wizardzines/videos
 > the zines has been her only job since 2019 https://github.com/zserge/zine https://zserge.com/posts/tab/
 
@@ -329,6 +329,7 @@ charts https://worksinprogress.co/issue/how-madrid-built-its-metro-cheaply/
 
 ---
 
+https://www.openmymind.net/2010/10/26/An-Introduction-To-Hosting/
 * _AWS_: https://brandur.org/aws-intrinsic-static S3 and Cloudfront https://www.benkuhn.net/about/ https://github.com/s3tools/s3cmd s3-website https://bedford.io/misc/about/
 * _pico_: https://pico.sh/pgs
 * _Netlify_: https://wsvincent.com/site-design/ https://adamwathan.me/uses/

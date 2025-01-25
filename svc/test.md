@@ -291,6 +291,7 @@ TEST TYPES
 
 ---
 
+https://www.openmymind.net/2010/10/20/My-Slow-Transition-Away-From-Mocks/
 https://pythonspeed.com/articles/faster-db-tests/
 
 https://pycon-archive.python.org/2024/schedule/presentation/26/index.html

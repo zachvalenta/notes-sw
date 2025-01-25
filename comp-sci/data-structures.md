@@ -484,7 +484,7 @@ print(trie.starts_with("bat"))   # False
 
 ---
 
-python lists impl as dynamic array https://docs.python.org/3/faq/design.html#how-are-lists-implemented-in-cpython
+python lists impl as dynamic array https://docs.python.org/3/faq/design.html#how-are-lists-implemented-in-cpython https://www.openmymind.net/basic-micro-optimizations/
 * specialized array storage: array (typed) bytes (immutable, single byte i.e. 0-256) bytearray (byte but mutable) https://dbader.org/blog/python-arrays https://realpython.com/python-array
 
 * array https://www.youtube.com/watch?v=QJNwK2uJyGs
@@ -552,6 +552,9 @@ https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pz
 * alternatives incl. BST, skip list https://stackoverflow.com/a/301822 📙 Skiena 12.1
 
 hash tables
+https://www.openmymind.net/Zigs-HashMap-Part-1/
+https://www.openmymind.net/Back-To-Basics-Hashtables/
+https://www.openmymind.net/Back-To-Basics-Hasthables-Part-2/
 * https://realpython.com/python-hash-table/
 https://docs.python.org/3/glossary.html#term-dictionary
 https://stackoverflow.com/questions/2061222/what-is-the-true-difference-between-a-dictionary-and-a-hash-table
