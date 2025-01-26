@@ -24,20 +24,7 @@
 
 # 🖲️ BACKUP
 
-🗄 `eng.md` admin / backup
-
-|  ITEM         | LOCATION | DATE  | CONTENTS   | TO            |
-|---------------|----------|-------|------------|---------------|
-| digits        | mini23   | 19.07 | pw         | safe, lockbox |
-| calendar      | google   | 24.02 |            | mini23        |
-| email         | google   | 22.02 |            | mini23        |
-| mini23        | -        |       | fs         |               |
-| air22         | -        | ----- | mini23     |               |
-| `ExFatMain`   | desk     | 24.11 | mini23     |               |
-| `WD1`         | safe     | 24.06 | mini23     |               |
-| `WD2`         | lockbox  | 20.02 | mini23     |               |
-| `music-usb`   | desk     | ----- | `yin`      |               |
-| `music-usb-2` | desk     | 24.02 | `yin`      |               |
+🗄 `OLTP.md` backup
 
 SEMANTICS
 * _transfer_: mv data from A to B
@@ -103,7 +90,29 @@ TIME MACHINE
 * filepath: on my machine stored in `Volums/.com.apple.TimeMachine.localsnapshots` https://robservatory.com/disable-local-time-machine-backups-on-laptops/
 * can always disable TM backups from System Preferences, which will start clearing out local backups
 
-### mini23 ➡️ exfatmain
+## catalog
+
+|  ITEM         | LOCATION | DATE  | CONTENTS   | TO            |
+|---------------|----------|-------|------------|---------------|
+| mini23        | home     |       | fs         |               |
+| air22         | Capp     | -     | ?          |               |
+| `ExFatMain`   | desk     | 25.01 | mini23     |               |
+
+---
+
+|  ITEM         | LOCATION | DATE  | CONTENTS   | TO            |
+|---------------|----------|-------|------------|---------------|
+| digits        | mini23   | 19.07 | pw         | safe, lockbox |
+| calendar      | google   | 24.02 |            | mini23        |
+| email         | google   | 22.02 |            | mini23        |
+| mini23        | -        |       | fs         |               |
+| air22         | -        | ----- | mini23     |               |
+| `WD1`         | safe     | 24.06 | mini23     |               |
+| `WD2`         | lockbox  | 20.02 | mini23     |               |
+| `music-usb`   | desk     | ----- | `yin`      |               |
+| `music-usb-2` | desk     | 24.02 | `yin`      |               |
+
+## mini23 ➡️ exfatmain
 
 MUSIC
 > just do everything from music, mat, admin
@@ -125,7 +134,7 @@ MUSIC
 * za/gospel: hank jones
 * bruno mars
 
-* mat/sw: system, ai, vincent django, hogan tmux
+* mat/sw: system, ai, vincent django, hogan tmux, Brasil math books
 * Evans git, int/bit, containers, dns, bite size networking
 > 📍 clean up DS files `fd -HI DS`
 * 23 taxes
@@ -139,7 +148,7 @@ MAT
 * za
 * science
 
-### air-capp ➡️ mini23
+## air-capp ➡️ mini23
 
 * Alex Danilov
 

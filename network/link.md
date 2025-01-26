@@ -35,6 +35,10 @@ LAG VS. LATENCY
 * https://chatgpt.com/c/67858c31-3768-8004-bf51-e414c9a29c6b
 * https://livebook.manning.com/book/latency/chapter-1/v-5/12
 
+LINKS
+* https://www.youtube.com/watch?v=5qOvNbDzwUI
+* https://www.youtube.com/watch?v=OKXc3GRHVkg&lc=UgzklVU-UvccTzvthxx4AaABAg
+
 ## ISP
 
 ENTRY POINTS

@@ -587,6 +587,7 @@ MESSY PROJECT ROOT = `$PROJ/meta` 🗄️ `python/pkg.md` project structure
 
 ---
 
+* https://softwaredoug.com/blog/2024/12/14/throwaway-prs-not-design-docs
 * https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog
 * https://news.ycombinator.com/item?id=39494925
 * https://news.ycombinator.com/item?id=34482836
