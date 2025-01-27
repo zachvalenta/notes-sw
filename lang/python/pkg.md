@@ -319,6 +319,7 @@ https://pythonspeed.com/articles/distributing-software/ https://pgjones.dev/blog
 # 📦 MANAGERS
 
 GLOBAL DEPENDENCIES
+> https://github.com/astral-sh/uv/issues/10997
 * _global dependency_: something you'd use as a CLI (pipenv, AWS) https://jacobian.org/2018/feb/21/python-environment-2018/
 * can always just use pip for user or even global install
 * why: system Python no longer exposed https://news.ycombinator.com/item?id=29238700
@@ -625,10 +626,7 @@ uvx posting
 ```
 
 https://blog.jetbrains.com/pycharm/2024/12/the-state-of-python/#trend-8-uv-takes-python-packaging-by-storm
-https://treyhunner.com/2024/12/lazy-self-installing-python-scripts-with-uv/
-build-standalone https://simonwillison.net/2024/Dec/3/python-build-standalone-astral/
-scripts https://koaning.io/til/pyperclip/
-build standalone https://gregoryszorc.com/blog/2024/12/03/transferring-python-build-standalone-stewardship-to-astral/
+build-standalone https://simonwillison.net/2024/Dec/3/python-build-standalone-astral/ https://gregoryszorc.com/blog/2024/12/03/transferring-python-build-standalone-stewardship-to-astral/
 https://www.youtube.com/watch?v=8UuW8o4bHbw
 https://www.youtube.com/watch?v=_FdjW47Au30
 https://micro.webology.dev/2024/11/03/uv-does-everything.html https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
@@ -664,6 +662,41 @@ https://news.ycombinator.com/item?id=42676432
 * https://simonwillison.net/2025/Jan/7/uv-python-reinstall/
 * https://simonwillison.net/2024/Dec/19/one-shot-python-tools/
 
+## diving in
+
+🧠 https://chatgpt.com/c/678ad48d-6738-8004-9d8d-5907628c740f
+> see if you can get Python scaffold with REPL working next or the Vincent Django projects
+
+* installs its own Python but doesn't bother pyenv/Homebrew/CommandLineTools
+```python
+$ uv python list
+cpython-3.13.1-macos-aarch64-none                   /opt/homebrew/opt/python@3.13/bin/python3.13 -> ../Frameworks/Python.framework/Versions/3.13/bin/python3.13
+cpython-3.12.7-macos-aarch64-none                   /opt/homebrew/opt/python@3.12/bin/python3.12 -> ../Frameworks/Python.framework/Versions/3.12/bin/python3.12
+cpython-3.12.5-macos-aarch64-none                   /Users/zvalenta/.pyenv/versions/3.12.5/bin/python3.12
+cpython-3.12.5-macos-aarch64-none                   /Users/zvalenta/.pyenv/versions/3.12.5/bin/python3 -> python3.12
+cpython-3.12.5-macos-aarch64-none                   /Users/zvalenta/.pyenv/versions/3.12.5/bin/python -> python3.12
+cpython-3.9.6-macos-aarch64-none                    /Library/Developer/CommandLineTools/usr/bin/python3 -> Library/Frameworks/Python3.framework/Versions/3.9/bin/python3
+
+$ uv python install
+Installed Python 3.13.1 in 1.32s
+ + cpython-3.13.1-macos-aarch64-none
+
+$ uv python list
+cpython-3.13.1-macos-aarch64-none                   /opt/homebrew/opt/python@3.13/bin/python3.13 -> ../Frameworks/Python.framework/Versions/3.13/bin/python3.13
+cpython-3.13.1-macos-aarch64-none                   /Users/zvalenta/.local/share/uv/python/cpython-3.13.1-macos-aarch64-none/bin/python3.13
+cpython-3.12.7-macos-aarch64-none                   /opt/homebrew/opt/python@3.12/bin/python3.12 -> ../Frameworks/Python.framework/Versions/3.12/bin/python3.12
+cpython-3.12.5-macos-aarch64-none                   /Users/zvalenta/.pyenv/versions/3.12.5/bin/python3.12
+cpython-3.12.5-macos-aarch64-none                   /Users/zvalenta/.pyenv/versions/3.12.5/bin/python3 -> python3.12
+cpython-3.12.5-macos-aarch64-none                   /Users/zvalenta/.pyenv/versions/3.12.5/bin/python -> python3.12
+cpython-3.9.6-macos-aarch64-none                    /Library/Developer/CommandLineTools/usr/bin/python3 -> Library/Frameworks/Python3.framework/Versions/3.9/bin/python3
+
+# pyenv python still works for Capp projects, CLIs like qing
+$ which python  # /Users/zvalenta/.pyenv/shims/python
+
+# doesn't work without adding a shell alias https://github.com/astral-sh/uv/issues/10997
+$ uv add --script qing 'send2trash'
+```
+
 ## 2019-2024 workflow
 
 PAIN POINTS
@@ -689,8 +722,6 @@ Here's my current Python setup.
 * use pyenv's python to install pipx
 * use pipx to install global dependencies
 
-I have a lot of tools
-
 ## inheritance
 
 ---
@@ -709,7 +740,10 @@ get algos project working and align Python versions btw pyenv python and pipx py
 
 ## migrate
 
-🧠 https://chatgpt.com/c/67683fd6-d260-8004-9a5b-be37a39aefbd
+I want to migrate from pipx/Poetry/pyenv to uv. If I install uv on my machine without uninstalled all of them and type `python` into the terminal, what will happen?
+
+migrating from pyenv to uv without breaking everything on your machine
+
 for scripts https://packaging.python.org/en/latest/specifications/inline-script-metadata/
 https://bluesock.org/~willkg/blog/
 https://github.com/mkniewallner/migrate-to-uv
