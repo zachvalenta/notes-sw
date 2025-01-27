@@ -582,9 +582,9 @@ aaS
 LIBS
 * _crawlee_: https://github.com/apify/crawlee
 * _crawly_: Elixir https://github.com/elixir-crawly/crawly
-* _gazpacho_: https://github.com/maxhumber/gazpacho https://calmcode.io/course/gazpacho/introduction
-* _katana_: https://github.com/projectdiscovery/katana
-* _scrapling_: https://github.com/D4Vinci/Scrapling
+* _gazpacho_: 🎯 https://github.com/maxhumber/gazpacho https://calmcode.io/course/gazpacho/introduction
+* _katana_: headless https://github.com/projectdiscovery/katana
+* _scrapling_: 🎯 https://github.com/D4Vinci/Scrapling
 
 ---
 

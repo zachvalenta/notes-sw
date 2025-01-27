@@ -87,11 +87,15 @@ PYOXIDIZER
 
 📙 https://pypackages.com/ https://www.manning.com/books/publishing-python-packages
 
+* _flit_: can't handle anything with C deps https://github.com/pypa/flit
+* _twine_: just publish to PyPI i.e. doesn't build https://github.com/pypa/twine
+* used by https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html
+* _Poetry_: https://www.youtube.com/watch?v=QX_Nhu1zhlg [16:00]
+
 ---
 
 https://www.better-simple.com/django/2025/01/15/testing-your-python-package-releases/
 HOWTO 📜 https://docs.python.org/3/distributing/index.html https://www.manning.com/books/publishing-python-packages
-* `MANIFEST.ini` https://chatgpt.com/c/67181d59-63f4-8004-ba67-ff251c9cb141
 * fork https://github.com/zachvalenta/anytree https://github.com/zachvalenta/capp-prod-cat-alt
 ```toml
 [tool.poetry.dependencies]
@@ -101,17 +105,27 @@ anytree = {git = "https://github.com/zachvalenta/anytree.git"}
 * PSF https://packaging.python.org/en/latest/tutorials/packaging-projects/
 * Real Python https://realpython.com/pypi-publish-python-package/
 * Poetry
-* Twine https://github.com/pypa/twine
 > see termgraph
 > do people use? https://talkpython.fm/episodes/transcript/208/packaging-making-the-most-of-pycon-and-more
 > tool to replace `stup.py` upload https://talkpython.fm/episodes/transcript/64/inside-the-python-package-index
 
-TWINE
-* https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html
-* Flit, Poetry, Twine https://www.youtube.com/watch?v=QX_Nhu1zhlg @ 16:00
-* editable installs `pip install -e` https://pgjones.dev/blog/packaging-without-setup-py-2020 https://talkpython.fm/episodes/transcript/208/packaging-making-the-most-of-pycon-and-more https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html
-
 ## registries
+
+PyPI
+* `pypirc`
+```ini
+[distutils]
+index-servers =
+    pypi
+    testpypi
+[pypi]
+username = your_username
+password = your_password
+[testpypi]
+repository = https://test.pypi.org/legacy/
+username = your_username
+password = your_password
+```
 
 ---
 
@@ -595,7 +609,6 @@ ADVANTAGES OVER 2019-2024 WORKFLOW
 
 DESIGN
 * origins in Rye https://lucumr.pocoo.org/2024/2/15/rye-grows-with-uv/
-
 
 ---
 

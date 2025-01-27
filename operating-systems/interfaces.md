@@ -720,26 +720,21 @@ a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/vide
 
 ### 🧩 Zellij
 
-> doesn't make sense to work on this until you're doing everything in the terminal i.e. up to snuff with neovim
 📜 https://zellij.dev/documentation/
 
+CONFIG
 * shell: doesn't use login, work around using `.zshenv` https://github.com/zellij-org/zellij/issues/1434#issuecomment-2185020449
 * copy/paste: via OSC 52 signal; works with Alacritty but not iTerm https://zellij.dev/documentation/faq#copy--paste-isnt-working-how-can-i-fix-this
 
 ---
 
-https://github.com/nickolaj-jepsen/fnug
-
 @ show status bar when opening with user-defined layout
-
+https://github.com/search?q=owner%3Azachvalenta+zellij&type=code
+https://github.com/zachvalenta/dotfiles-mini23/blob/d2664a525fbc22a9233f9f8202270162b699a76a/shell/.zshenv#L4
 https://zellij.dev/screencasts/
 https://www.youtube.com/watch?v=lmcrVRM9V4k
 
-* plugins: https://github.com/zellij-org/awesome-zellij https://github.com/imsnif/monocle https://github.com/dj95/zjstatus/ Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45 Catpppuccin https://github.com/catppuccin/zellij
-* why: stacked panes, named tabs/workspaces, tmux seems like a steeper learning curve
-* workaround for keybinding conflicts w/ Vim https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:45
-* _normal mode_: workaround for not having to constantly switch back to this https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:00
-* _copy mode_: get a Neovim session to munge STDOUT (e.g. tailing logs) https://www.youtube.com/watch?v=BjfMWqy1hnw 5:45
+WORKSPACES
 * _pane_: terminal window + process
 * stacked panes looks great https://www.youtube.com/watch?v=gtjPeTCkm-8 2:15
 * floating panes for ad hoc work https://www.youtube.com/watch?v=gtjPeTCkm-8 2:45 https://www.youtube.com/watch?v=BjfMWqy1hnw 7:45
@@ -756,11 +751,21 @@ zellij --layout path/to/layout
 layout_dir "~/.config/zellij"
 ```
 * really like version control https://www.youtube.com/watch?v=gtjPeTCkm-8 4:15
-* open with cmd https://www.youtube.com/watch?v=lmcrVRM9V4k 17:15
-* sync = run same cmd in all panes https://www.youtube.com/watch?v=lmcrVRM9V4k 18:00
 * potential layouts: home (domains/bookcase, cmus, yin, shell) Ramalho (home w/ Python and book note opened and shell opened to REPL) personal site (repo, Neovim, file watcher) bread data (pf, vd, gobang, bread schema notes) t3 data (Mongo shell, REPL, t3 schema notes) t3 local (Neovim, broot repo)
 > maybe for all these, have a floating pane for wf
 * _session_: tab(s) + state https://www.youtube.com/watch?v=gtjPeTCkm-8 4:00
 * 类似 tabs but for stuff you don't need going all the time https://www.youtube.com/watch?v=gtjPeTCkm-8 3:45
 * mgmt https://zellij.dev/news/session-manager-protobuffs/
 * resurrect https://zellij.dev/news/session-resurrection-ui-components/
+
+COMMANDS
+* https://github.com/nickolaj-jepsen/fnug
+* open with cmd https://www.youtube.com/watch?v=lmcrVRM9V4k 17:15
+* sync = run same cmd in all panes https://www.youtube.com/watch?v=lmcrVRM9V4k 18:00
+
+ZA
+* plugins: https://github.com/zellij-org/awesome-zellij https://github.com/imsnif/monocle https://github.com/dj95/zjstatus/ Harpoon to nav tabs https://zellij.dev/documentation/plugin-examples Strider https://www.youtube.com/watch?v=BjfMWqy1hnw 9:45 https://www.youtube.com/watch?v=lmcrVRM9V4k 16:45 Catpppuccin https://github.com/catppuccin/zellij
+* why: stacked panes, named tabs/workspaces, tmux seems like a steeper learning curve
+* workaround for keybinding conflicts w/ Vim https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:45
+* _normal mode_: workaround for not having to constantly switch back to this https://www.youtube.com/watch?v=Cd8P4hBC8i8 2:00
+* _copy mode_: get a Neovim session to munge STDOUT (e.g. tailing logs) https://www.youtube.com/watch?v=BjfMWqy1hnw 5:45
