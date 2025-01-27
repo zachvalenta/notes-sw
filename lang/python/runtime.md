@@ -5,14 +5,13 @@
 📚
 * Antao fast python https://www.manning.com/books/fast-python
 * ⭐️ Mara refactoring to rust https://www.manning.com/books/refactoring-to-rust
-* Shaw python internals https://www.amazon.com/dp/1775093344
+* Shaw python internals
 
 ## 进步
 
 # 🐍 CPYTHON
 
 ---
-
 
 * auditing hooks https://stackoverflow.com/questions/63350394/how-to-set-up-and-use-python-audit-hooks https://docs.python.org/3/using/cmdline.html#envvar-PYTHONSTARTUP
 > Python auditing hooks, introduced in version 3.8 through PEP 578, provide an excellent mechanism for monitoring and adding security to Python applications. These hooks can be used to detect and log specific runtime events, such as imports, file access, and network connections. The sys.addaudithook() function allows developers to register callbacks that will be triggered when certain events occur. For example, you can monitor file access or network requests made by third-party libraries to detect suspicious behavior or security vulnerabilities in real-time.

@@ -442,6 +442,8 @@ ICON/FONT/COLOR INTERPLAY
 
 ---
 
+true color https://www.lazyvim.org/
+
 ipython config
 ```python
 ## Use 24bit colors instead of 256 colors in prompt highlighting.

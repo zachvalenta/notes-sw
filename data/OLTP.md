@@ -896,6 +896,7 @@ web_1  | ModuleNotFoundError: No module named 'psycopg2'
 USAGE
 * atuin
 * iPython
+* Neovim
 * prod! https://simonw.substack.com/p/video-scraping-using-google-gemini
 * WhatsApp https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
 * Basecamp

@@ -551,8 +551,11 @@ MESSAGE
 
 CONVENTIONAL COMMIT https://www.conventionalcommits.org/
 * labels: lowers cognitive overhead = enables more frequent commits https://github.com/commitizen/cz-cli https://github.com/zachvalenta/interview-capp/commits/main/
+* _add_: new fuctionality|test
+* _fix_: fix incorrect functionality|test
+* _tidy_: improve impl of src|docs
 ```sh
-src: func|rf|fix
+src: add|tidy|fix
 doc
 dep
 test

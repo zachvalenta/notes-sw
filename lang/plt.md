@@ -109,6 +109,10 @@ USAGE
 * Hammerspoon
 * extending C projects https://github.com/jmattaa/laser
 
+ZA
+* install: asdf for version mgmt, scared Homebrew will screw up Neovim install
+> docs are bad https://www.lua.org/download.html
+
 ---
 
 https://news.ycombinator.com/item?id=42517102
