@@ -10,6 +10,38 @@
 
 ## 进步
 
+QUESTION
+```txt
+I'm trying to figure out what to use for containers for my team.
+
+* We have devs working on Windows and macOS.
+
+Reasons why I'm concerned about Docker:
+
+* they apparently rate limit pulling from their image registry
+* their GUI is CPU/memory intensive
+* most cloud providers use containerd, so you've got a local/prod mismatch in runtimes
+
+Podman is attractive because it's daemonless but seems potentially immature.
+
+I hear good things about Colima but don't know much about it.
+
+Our infrastructure case for now is deploying on-prem and running failovers on a VPS but I want the option to move to a larger cloud provider in the future.
+```
+
+ANSWERS FOR NOW
+* Docker: dockerd for runtime -> most clouds use containerd
+* Docker: registry imposes rate-limiting -> self-hosted registry (Harbor, Nexus) | Github
+* Colima: no Windows
+* plan: use Colima to run Docker Engine
+```sh
+brew install docker
+brew install docker-compose
+brew install colima
+colima start
+docker run hello-world
+```
+
 PLAN GOING FORWARD 🗄️ `architecture.md` Capp db data mgmt
 * air-capp: Docker Desktop
 * mini23: Colima + see if you can run `product-workflow`
@@ -360,7 +392,7 @@ CONTAINERIZATION
 * _sink_: https://medium.com/faun/the-missing-introduction-to-containerization-de1fbb73efc5 http://www.smashcompany.com/technology/why-would-anyone-choose-docker-over-fat-binaries 
 * Firecracker https://news.ycombinator.com/item?id=25883253 https://www.micahlerner.com/2021/06/17/firecracker-lightweight-virtualization-for-serverless-applications.html
 * LXC https://news.ycombinator.com/item?id=30385580
-* VirtualBox, qemu, hyper-V, Xen https://drewdevault.com/2022/09/02/2022-09-02-In-praise-of-qemu.html https://chatgpt.com/c/670fec7a-7cd4-8004-bc50-8b790c438edd https://www.qemu.org/ https://drewdevault.com/2018/09/10/Getting-started-with-qemu.html
+* VirtualBox, qemu, hyper-V, Xen https://drewdevault.com/2022/09/02/2022-09-02-In-praise-of-qemu.html https://www.qemu.org/ https://drewdevault.com/2018/09/10/Getting-started-with-qemu.html
 
 HYPERVISORS
 * _host_: os running hypervisor
@@ -430,7 +462,7 @@ DOCKER DESKTOP ALTERNATIVES
 *️ components
 * `aws.md` compute > containers
 
-HOW DOCKER WORKS 🧠 https://chatgpt.com/c/673bb2a2-0114-8004-86c3-c6e64defd3b3
+HOW DOCKER WORKS
 * macOS: macOS Hypervisor Framework (Desktop) VirtualBox (Docker Toolbox, Docker Machine) https://stackoverflow.com/a/38624540
 * Windows: Hyper-V, WSL2
 
@@ -439,8 +471,6 @@ HOW DOCKER WORKS 🧠 https://chatgpt.com/c/673bb2a2-0114-8004-86c3-c6e64defd3b3
 OCI vs. Docker, Docker Engine vs. Docker Desktop https://roadmap.sh/docker
 
 > tldr for now is that Docker for Desktop is slow/bad security/registry weirdness but also the best option for getting everyone up and running
-
-🧠 https://chatgpt.com/c/6724c43a-a9cc-8004-809b-2b53075f84af
 
 > desktop macos app too heavy https://github.com/docker/for-mac/issues/2297 https://news.ycombinator.com/item?id=41987857
 
