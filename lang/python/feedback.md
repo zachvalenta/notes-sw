@@ -10,6 +10,10 @@
 ## 进步
 
 * can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
+> Marimo has the ability to run in WASM mode, which means that *everything* can run from the frontend
+* Jupyter in the browser https://github.com/jvns/pandas-cookbook
+* https://positron.posit.co/
+* https://quarto.org/
 
 ```txt
 Exactly! Your problem has several layers:
@@ -81,7 +85,7 @@ OPTIONS
 * notebook: when you want to share
 
 * look into hosted
-* pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html 🗄️ `architecture.md` baked data
+* pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html 🗄️ `architecture.md` baked data, Datasette, WASM-based? https://simonwillison.net/2025/Feb/13/url-addressable-python/
 * add to startup https://www.pythonmorsels.com/cli-tools/#pyclbr
 * https://ericmjl.github.io/blog/2024/11/8/disposable-environments-for-ad-hoc-analyses/
 * https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/
@@ -345,8 +349,17 @@ https://github.com/zasper-io/zasper
 
 HOWTO
 ```sh
+# POETRY
 poetry add jupyter
 poetry run jupyter notebook
+
+# PIP (GLOBAL TO USER)
+python -m pip install --user jupyter
+which jupyter  # /Users/zvalenta/.local/bin/jupyter
+jupyter notebook
+
+# VS Code extension
+vsc path/to/.ipynb
 ```
 
 FEATURES

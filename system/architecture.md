@@ -12,7 +12,6 @@
 * `telemtry.md` perf
 📚
 * Buelta python architecture
-* Dibernardo 500 lines or less http://aosabook.org/en/index.html
 * Ford fundamentals of software architecture
 * Ford evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
@@ -174,7 +173,7 @@ COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtim
 * e.g. downstream call fails, return empty list instead of 404 and poll downstream, have limits on resources devoted to downstream
 * avoid fault in one part of a system taking down the system
 * _coupling_: one change necessitates another
-* _horizontal scaling_: aka shared-nothing architecture [Kleppmann 17]
+* _horizontal scaling_: aka shared-nothing architecture [Kleppmann 17] https://buttondown.com/hillelwayne/archive/are-efficiency-and-horizontal-scalability-at-odds/
 * _multi-tenant_: multiple customer users https://www.saaspegasus.com/
 * Edge, Sentry, Parse https://www.youtube.com/watch?v=W1fkGyIcePA&t=1044s https://www.pythonpodcast.com/datacoral-serverless-technology-episode-214/ 15:00-19:00 https://www.youtube.com/watch?v=OfPE7yj1trw https://www.viget.com/articles/multi-tenancy-in-django
 * _service mesh_: https://servicemesh.io/ https://news.ycombinator.com/item?id=17415421 https://www.digitalocean.com/community/tutorials/an-introduction-to-service-meshes sidecar, eBPF https://www.thoughtworks.com/radar/techniques?blipid=202203060 Istio
@@ -485,11 +484,16 @@ SEQUENCE
 ## system (d2)
 
 🏔️ https://github.com/ankorstore/yokai
+💻 https://github.com/zachvalenta/capp-datalab
 🗄
 * `algos.md` graph, tree
+* `data-modeling.md` ERD
 *️ `protocols.md` ascii
 *️ `system.md`
 
+---
+
+* https://github.com/terrastruct/d2-vscode
 D2 📜 https://d2lang.com/ https://terrastruct-site-assets.s3.us-west-1.amazonaws.com/documents/d2_cheat_sheet.pdf
 * howto https://terrastruct.com/blog/post/10-tips-for-using-diagrams-to-ace-the-system-design-interview/ https://terrastruct.com/blog/post/draw-software-architecture-diagrams/ https://terrastruct.com/blog/post/diagram-layout-engines-crossing-minimization/
 * complex: https://d2lang.com/tour/composition https://d2lang.com/tour/classes

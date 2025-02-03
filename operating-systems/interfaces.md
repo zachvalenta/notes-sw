@@ -5,6 +5,7 @@
 ## 进步
 
 https://jvns.ca/blog/2025/01/11/getting-a-modern-terminal-setup/
+https://jvns.ca/blog/2025/02/05/some-terminal-frustrations/
 
 * _24_: shell (oh-my-posh, atuin, readline vi mode) terminal (try out ghostty)
 * _23_: terminal (research Zellij)
@@ -87,6 +88,7 @@ SEMANTICS 🧠 https://chatgpt.com/c/67409094-34c0-8004-ad28-45ac4b94f67a
 * _display server_: ❓ e.g. Quartz Compositor (aka WindowServer) https://en.wikipedia.org/wiki/Quartz_Compositor https://unix.stackexchange.com/a/1016
 * _window system_: server that displays graphics https://en.wikipedia.org/wiki/Windowing_system
 * protocols: x11 https://unix.stackexchange.com/q/517 https://zserge.com/posts/fenster/ Wayland, pipewire https://www.youtube.com/watch?v=jFxwPJpUwl0 https://github.com/sharkdp/pastel#get-a-list-of-all-x11--css-color-names https://en.wikipedia.org/wiki/Wayland_(display_server_protocol) https://www.youtube.com/watch?v=lpowigSQthg https://en.wikipedia.org/wiki/X_Window_System https://codeberg.org/dnkl/foot/
+> huge mess https://registerspill.thorstenball.com/p/joy-and-curiosity-25
 * _window manager_: control windows displayed by window system https://en.wikipedia.org/wiki/Window_manager https://news.ycombinator.com/item?id=34591661 https://news.ycombinator.com/item?id=36880235 https://www.youtube.com/watch?v=xWIDvnNFl5I
 * _tiling window manager_: keyboard-driven arrangement of and switching btw windows
 > https://www.youtube.com/watch?v=bdumjiHabhQ on i3 convinced me that this was potentially worthwhile just to not have to scroll for VS Code (and break dependency on iTerm auto hotkey)
@@ -132,6 +134,7 @@ OPTIONS
 🗄️ `keyboards.md` programmable
 
 🌞 RAYCAST https://www.raycast.com/
+* 🎗️ actually calling Raycast on your Nuphy air75 is unintuitive bc there's no ALT key on the right side of the board
 > how hotkeys used to work for me: `ALT SPACE` for iTerm, `CMD TAB` for everything else (i.e. lots of scrolling)
 > https://www.youtube.com/watch?v=DBifQv9AYhc https://www.youtube.com/watch?v=Bslp82vTQaM
 * disable own global hotkey (`ALT SPACE`): settings > general
@@ -520,7 +523,7 @@ PRO AND CONS
 * no searchable docs https://github.com/ghostty-org/ghostty/discussions/3195
 > workaround https://website-git-fork-shortcuts-main-ghostty.vercel.app/docs
 * ✅ good for vi readline (which helps with atuin)
-* ❌ cmus is unusable
+* ❌ cmus theme screwed up?
 > would a theme help with this? would a theme conflict with prompt/eza?
 > check out repo issues/discussions for these two
 
@@ -532,6 +535,22 @@ SPLITS
 * ❌ no divider btw splits still pretty dark; way to config? https://github.com/ghostty-org/ghostty/discussions/3301
 * ❌ no goto split by number https://github.com/ghostty-org/ghostty/discussions/5527
 * Vim goto https://github.com/shoukoo/dotfiles/blob/f093247c18af0cb47adad21a4a60425b8aea6e5d/ghostty#L15
+* ❌ doesn't support arrangements
+> workaround with zellij
+```txt
+trying to move to ghostty. one thing i like about iterm is that you can create an arrangement i.e. "when i open iterm, open these 4 panes in these 4 directories, open dbcli here, open cmus here" and so on. does ghostty have this ability?
+```
+```sh
+ghostty \
+  --window-size 100x30 \
+  --working-directory /path/to/project1 \
+  --split-right \
+  --command "dbcli" \
+  --split-down \
+  --command "cmus"
+
+This is the Ghostty helper CLI that accompanies the graphical Ghostty app. To launch the terminal directly, please launch the graphical app (i.e. Ghostty.app on macOS). This CLI can be used to perform various actions such as inspecting the version, listing fonts, etc. We don't have proper help output yet, sorry! Please refer to the source code or Discord community for help for now. We'll fix this in time.
+```
 
 FONTS
 * icons: handles Makefile (which doesn't happen in iTerm)
@@ -729,6 +748,7 @@ a $NUM / attach -t $NAME  # attach to session https://thoughtbot.com/upcase/vide
 
 CONFIG
 * shell: doesn't use login, work around using `.zshenv` https://github.com/zellij-org/zellij/issues/1434#issuecomment-2185020449
+> https://github.com/zellij-org/zellij/issues/1434#issuecomment-2630316322
 * copy/paste: via OSC 52 signal; works with Alacritty but not iTerm https://zellij.dev/documentation/faq#copy--paste-isnt-working-how-can-i-fix-this
 
 ---

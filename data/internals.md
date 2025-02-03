@@ -43,6 +43,7 @@ CHECKSUMS
 > decides which parts of the query to execute in which order and which indexes to use 📙 Kleppmann 37
 * cost-based 📙 Kleppmann 427 https://blog.jooq.org/10-cool-sql-optimisations-that-do-not-depend-on-the-cost-model/ https://pghintplan.osdn.jp/pg_hint_plan.html
 * ❓ virtual machine https://news.ycombinator.com/item?id=32750676
+* parse https://simonwillison.net/2025/Feb/7/apsw-sqlite-query-explainer/
 * _query plan_: output from query optimizer = imperative steps to impl declarative SQL https://www.youtube.com/watch?v=IwahVdNboc8 https://dataschool.com/sql-optimization/what-is-a-query-plan/ 🗄️ `analytics.md` Polars > IO
 * _execution plan_: query plan chosen by optimizer 📙 Beaulieu [46]
 > There is a trade-off between the amount of time spent figuring out the best query plan and the quality of the choice https://en.wikipedia.org/wiki/Query_optimization
@@ -57,7 +58,7 @@ CHECKSUMS
 ---
 
 * ACID https://www.youtube.com/watch?v=GAe5oB742dw
-* page, heap https://news.ycombinator.com/item?id=41159180 https://blog.sylver.dev/build-your-own-sqlite-part-1-listing-tables
+* _page_: + heap https://news.ycombinator.com/item?id=41159180 https://simonwillison.net/2025/Feb/6/sqlite-page-explorer/
 * https://supabase.com/blog/postgres-bloat
 * physical storage https://drew.silcock.dev/blog/how-postgres-stores-data-on-disk/
 * locks https://news.ycombinator.com/item?id=35981238 https://leontrolski.github.io/pglockpy.html
@@ -252,6 +253,7 @@ https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/
 
 📙 Dibernardo, Kleppmann
 
+* https://blog.sylver.dev/build-your-own-sqlite-part-1-listing-tables 
 * CMU Pavlo https://www.youtube.com/watch?v=APqWIjtzNGE
 * https://github.com/avinassh/py-caskdb
 * https://www.youtube.com/watch?v=5Pc18ge9ohI

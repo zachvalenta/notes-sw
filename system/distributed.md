@@ -270,7 +270,7 @@ SEMANTICS
 * _eviction_: rm item based on usage e.g. LRU
 * _expiration_: rm item based on TTL
 * _thrashing_: when computation continuously interrupted by context switch of cache items from one program to another resulting in no computation being done
-* _cache stampede_: user req for item not in cache, code begins to generate, during generation other reqs for same item, code begins n generations, server falls over
+* _cache stampede_: user req for item not in cache, code begins to generate, during generation other reqs for same item, code begins n generations, server falls over https://github.com/viccon/sturdyc
 * avoid by putting flag in cache to say "hey, I'm working on creating this item"
 
 ---

@@ -411,6 +411,7 @@ NUMBERS
 
 ZA
 * benefits: readable, tooling, mindshare 📙 Jeffrey distributed [4]
+* line-oriented datasets (ndjson, JSON Lines)? https://github.com/asg017/sqlite-lines
 
 ---
 
@@ -464,6 +465,7 @@ select json_col -> 'top_level_key' ->> 'nested_key' from table
 ALTERNATIVES
 * SQLite CLI
 * DuckDB https://www.pgrs.net/2024/03/21/duckdb-as-the-new-jq/ https://news.ycombinator.com/item?id=35009612 https://duckdb.org/2023/03/03/json.html 
+* in Python! https://github.com/jmespath/jmespath.py
 * _jaq_: rewrite https://github.com/01mf02/jaq
 * _jello_: 🎯 Python syntax https://github.com/kellyjonbrazil/jello https://github.com/kellyjonbrazil/jellex
 * _jmespath_: https://github.com/jmespath/jp https://github.com/birchb1024/frangipanni/blob/cf997721e2c5793e062d1c16908d7ddf2a325173/frangipanni.go

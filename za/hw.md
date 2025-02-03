@@ -4,6 +4,8 @@
 
 ## 进步
 
+PDP1 for Eric Raymond book https://news.ycombinator.com/item?id=43002906
+
 * _23_: mac mini
 * _23_: macbook air
 * _14_: macbook pro
@@ -346,9 +348,10 @@ FACTORS 🗄️ machines
 
 ## models
 
-* _BenQ RD320UA_: 🎯 $650 https://www.youtube.com/watch?v=784pFXYBqsg https://www.youtube.com/watch?v=rp1fEKGkG2M
+* _BenQ RD320UA_: $650 https://www.youtube.com/watch?v=784pFXYBqsg https://www.youtube.com/watch?v=rp1fEKGkG2M
 * _BenQ PD2706U_: https://www.amazon.com/dp/B0BS4R8YDJ/?tag=thewire06-20&linkCode=xm2&ascsubtag=F0401J8TNQFDX7TRVABATYDS716PY&th=1
-* _Dell S2318HN_: ✅ $175, 23", 1080p
+* _BenQ PD2705U_: ✅ $400 same as PD2706U but no built-in KVM
+* _Dell S2318HN_: ✅ $175 in 2017, 23", 1080p
 * _Dell U2723QE_: $650 https://www.nytimes.com/wirecutter/reviews/best-monitors/
 > The Dell UltraSharp U2723QE has a higher 4K resolution than our top pick, so text and images will look much sharper. It also has a new technology that doubles its contrast compared with that of standard IPS monitors, so its 2000:1 contrast ratio looks great when displaying movies, TV shows, and pictures. This monitor also looked great when used with Mac machines, which is something we can’t say for most lower-resolution 1440p monitors. So if you’re looking for a high-resolution 27-inch display, this is the best one we’ve tested.
 * _Dell U3223QE_: $600, 32", 4k, KVM switch https://www.rtings.com/monitor/reviews/best/by-usage/programming-and-coding https://www.nytimes.com/wirecutter/reviews/best-27-inch-monitor/
@@ -537,6 +540,7 @@ __WhatsApp__ 🗓 summer 2018
 
 ## screencast
 
+* `cmd shift 5` + select audio input
 * howto https://www.youtube.com/watch?v=AzVn5H0ZNVM https://www.youtube.com/watch?v=K5GeaoJCsoI
 * livestream https://til.simonwillison.net/youtube/livestreaming
 * OBS https://obsproject.com/ https://news.ycombinator.com/item?id=22748247 https://www.youtube.com/watch?v=QCpuTSFVohQ

@@ -510,6 +510,7 @@ JWT
 
 🗄 `shell.md` userland
 
+https://github.com/anweber/httpyac
 https://github.com/monasticacademy/httptap
 https://news.ycombinator.com/item?id=41650905
 https://github.com/dnaeon/go-vcr

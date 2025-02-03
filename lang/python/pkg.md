@@ -615,6 +615,7 @@ DESIGN
 
 https://github.com/EnhancedJax/Bagels
 https://calmcode.io/course/uv/pip
+windows https://www.bitecode.dev/p/whats-up-python-a-new-windows-installer
 
 VERSION MGMT
 * cross-platform https://astral.sh/blog/uv-unified-python-packaging
@@ -697,10 +698,14 @@ $ which python  # /Users/zvalenta/.pyenv/shims/python
 $ uv add --script qing 'send2trash'
 ```
 
+fix for scripts? https://www.youtube.com/watch?v=bNw34Mo0FOQ
+
 ## scripts
 
 ---
 
+https://www.youtube.com/watch?v=bNw34Mo0FOQ [2:20]
+https://github.com/astral-sh/uv/issues/7242#issuecomment-2631783057
 https://github.com/astral-sh/uv/issues/7242#issuecomment-2621635669
 https://github.com/astral-sh/uv/issues/10997
 * inject https://github.com/astral-sh/uv/issues/7312
@@ -875,7 +880,7 @@ DESIGN
 MANAGE VERSIONS
 ```sh
 commands # list
-which python # list version in use
+which python # list version in use: /Users/zvalenta/.pyenv/versions/3.12.5/bin/python
 versions # list installed versions; installed to ~/.pyenv/versions
 install -l # list versions available for install https://stackoverflow.com/a/58138512 upgrade pyenv to grab latest https://stackoverflow.com/a/43996315
 local 3.9 # set local version (creates `.python-version` in $CWD)

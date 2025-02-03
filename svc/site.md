@@ -52,7 +52,7 @@ MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 * addendum https://blog.plover.com/math/PM.html https://blog.plover.com/calendar/poor-richards-almanack.html
 * factors: smart, wise, taste
 * companies I want to work for https://www.wave.com/en/blog/world/
-* https://simonwillison.net/2024/Dec/22/link-blog/
+* https://simonwillison.net/2024/Dec/22/link-blog/ https://simonwillison.net/2025/Feb/4/build-a-link-blog/
 
 HOW THINGS WORK
 * movies https://www.theringer.com/2024/8/21/24225522/the-arms-race-behind-where-movies-shoot https://www.theringer.com/2024/9/23/24252627/biggest-takeaways-netflix-data-dump-2024-streaming https://www.theringer.com/2024/9/25/24253629/how-to-make-your-own-tv-show-and-get-netflix-to-buy-it-mark-duplass-penelope-netflix https://www.theringer.com/2024/9/30/24258856/how-should-movie-and-tv-stars-be-paid
@@ -273,6 +273,7 @@ UNIQUE
 
 ## ToC
 
+* quarto https://github.com/emilyriederer/website https://www.emilyriederer.com/post/py-rgo-2025/ reports https://www.youtube.com/watch?v=Q3phTByW138
 * https://www.goatcounter.com/help/start https://litchipi.github.io/infosec/2023/01/24/git-code-audit-viewed-as-rust-programmer.html    https://gendignoux.com/readlist/
 > needs to be on the side, at least on non-mobile web https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/
 * https://www.murilopereira.com/how-to-open-a-file-in-emacs
@@ -442,6 +443,8 @@ things I've already tried
 https://www.getzola.org/documentation/deployment/sourcehut/
 
 # 🦾 SSG
+
+BYO https://fluxsec.red/how-I-developed-a-markdown-blog-with-go-and-HTMX
 
 ## alternatives
 

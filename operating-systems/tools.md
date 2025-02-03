@@ -234,7 +234,7 @@ THEME
 * false alarm by me https://github.com/alexpasmantier/television/issues/117
 
 ZA
-* actual search itself kinda bad
+* ❌ actual search itself kinda bad e.g. can't find altair
 * piping stdout to command https://github.com/alexpasmantier/television/issues/16#issuecomment-2558615942 https://github.com/zachvalenta/dotfiles-mini23/commit/7175670d734ca1362ecfd8204682d2dddb162847
 
 ---
@@ -394,6 +394,7 @@ FEATURES
 
 OPTIONS
 * _exa_: 💀 kicked off Homebrew https://github.com/ogham/exa https://the.exa.website/
+* _g_: 🎯 https://github.com/Equationzhao/g
 * _logols_: 💀 https://github.com/Yash-Handa/logo-ls
 * _lsd_: https://github.com/lsd-rs/lsd
 * _pls_: 🎯 https://pls.cli.rs/ ability to group to solve repo cruft problem? https://pls.cli.rs/guides/paths/
@@ -593,7 +594,7 @@ PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c
 
 ## progress bars (tqdm)
 
-❓ how does sqlite-utils do its countdown?
+❓ how does sqlite-utils do its countdown? https://github.com/zachvalenta/capp-datalab
 
 LINUX
 * _enlighten_: https://github.com/Rockhopper-Technologies/enlighten
@@ -835,6 +836,7 @@ $QUERY $PATH
 
 🗄 `vim.md` argdo
 
+https://github.com/SoptikHa2/desed
 * _scooter_: https://github.com/thomasschafer/scooter
 * _sed_: stream editor = filter/transform text
 * _sd_: Rust rewrite https://github.com/chmln/sd
@@ -889,6 +891,12 @@ echo "manufacturer" > aaon.csv
 $ cat example.txt | tr 'a-z' 'A-Z'  # uppercase
 $ cat example.txt | tr ' ' '\n'  # replace spaces with newlines
 $ cat example.txt | tr '\n' ','  # concat n lines into single comma-delineated line
+
+# lowercase/snakecase CSV headers
+{ 
+  head -n1 foo.csv | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9,]+/_/g' ;
+  tail -n +2 foo.csv;
+} > tmp.csv
 ```
 
 FILTER
@@ -992,6 +1000,7 @@ copy terminal output https://calmcode.io/course/cool-cli/yank
 ---
 
 * https://github.com/nivekuil/rip https://hacker-tools.github.io/command-line/ https://github.com/umlx5h/gtrash https://news.ycombinator.com/item?id=41902864
+* _gomi_: https://github.com/babarot/gomi
 * _recoverpy_: https://github.com/PabloLec/RecoverPy
 * _rm_: sends to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives
 * _send2trash_: https://github.com/arsenetar/send2trash/issues https://github.com/arsenetar/send2trash/issues/56 

@@ -83,8 +83,10 @@ TAXONOMY
 
 ## latency
 
-🗄️ `tcp-ip.md` UDP
 📙 Enberg latency https://www.manning.com/books/latency
+🗄️
+* `tcp-ip.md` UDP
+* `infra.md` Granian
 
 SEMANTICS
 * _latency_: time it takes for data to travel from one point to another; measured in ms
@@ -411,6 +413,8 @@ HOW TO START
 
 ---
 
+* https://youtube.com/watch?v=ag2ykPO805M
+* https://www.lucavall.in/blog/opentelemetry-a-guide-to-observability-with-go
 * https://www.jvt.me/posts/2024/11/17/cobra-otel-lessons/
 * https://rdrn.me/observability/
 * https://opentelemetry.io/ 
@@ -713,7 +717,7 @@ za
 EBPF https://www.brendangregg.com/
 * XDP/eBPF https://mas-bandwidth.com/xdp-for-game-programmers/
 * https://blog.smidt.dev/posts/0003/
-* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions https://flamegraph.com/ https://github.com/laixintao/flameshow
+* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions https://flamegraph.com/ https://github.com/laixintao/flameshow https://terminaltrove.com/flamelens/
 * https://www.youtube.com/watch?v=bGAVrtb_tFs
 * https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
 * https://github.com/ZingerLittleBee/netop
@@ -805,6 +809,32 @@ FS LOCATIONS https://missing.csail.mit.edu/2019/machine-introspection/ 🗄️ `
 > Finally, there is the "system log", which is increasingly where all of your log messages go. On most, though not all, Linux systems, that log is managed by `systemd`, the "system daemon", which controls all the services that run in the background (and much much more at this point). That log is accessible through the somewhat inconvenient `journalctl` tool if you are root, or part of the admin or wheel groups.
 
 ---
+
+```txt
+loguru (what you're using) - Great defaults, structured out of the box
+structlog - Most flexible, industrial strength
+python-json-logger - Simple JSON logging
+standard logging + custom formatter (shown above)
+
+The broader domain here is observability, which includes:
+Metrics
+Traces
+Logs (what we're discussing)
+Event correlation
+System state
+
+Narrower focus areas:
+Log routing
+Log aggregation
+Log parsing
+Log retention
+
+Key considerations for structured logging:
+Performance impact of serialization
+Storage costs of structured vs unstructured
+Query capabilities needed
+Integration with existing tools
+```
 
 https://www.openmymind.net/2012/4/11/Lets-Talk-About-Logging/
 * https://calmcode.io/course/vector/introduction

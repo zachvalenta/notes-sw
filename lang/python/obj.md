@@ -416,35 +416,38 @@ class Person():
 
 # ䷤ INHERITANCE
 
-🗄️ typing
+* _super_: return proxy obj that can access any parent methods
+```python
+class Parent:
+    def hi(self):
+        return "parent says hi"
+    def bye(self):
+        return "parent says bye"
+
+class Child(Parent):
+    def hi(self):
+        parent_result = super().hi()
+        return f"{parent_result} and child says hi too"
+
+p = Parent()
+p.hi()  # 'parent says hi'
+p.bye() # 'parent says bye'
+c = Child()
+c.hi()  # 'parent says hi and child says hi too'
+c.bye() # 'parent says bye'
+```
+* _MRO (method resolution order)_: `__mro`/`mro()` inherited from `type`
+```python
+class Burger:
+    def __init__(self):
+        self.ingredients = ['bun', 'patty']
+class BurgerFactory(Burger):
+    def __init__(self):
+        super().__init__()
+BurgerFactory.__mro__  # (<class '__main__.BurgerFactory'>, <class '__main__.Burger'>, <class 'object'>)
+```
 
 ---
-
-> when I type pdr. (prompting autocomplete), i see get and get_brand (expected) and don't see _cache and _fuzzy_search (also expected). what's weird is that I see mro() as well. where might that be coming from?
-```txt
-Ah, mro() is coming from Python's built-in class machinery. It stands for "Method Resolution Order" and is a method that all Python classes inherit from object (the root base class of all classes in Python 3).
-Here's where it fits in the taxonomy of Python's class-related special methods:
-
-Class Introspection Methods
-
-__mro__ (tuple attribute)
-mro() (method that returns the MRO)
-Other common ones: __class__, __bases__, __subclasses__()
-
-
-
-You're seeing it because:
-
-Every class implicitly inherits from object in Python 3
-PDR is a class (not just a module/namespace)
-mro() isn't "private" (no leading underscore), so it shows up in autocomplete
-
-If you wanted to hide it from autocomplete, you could:
-
-Make PDR a module instead of a class (just move the methods to module level)
-Use a namespace object like types.SimpleNamespace
-Use a dataclass with __slots__ defined
-```
 
 ```python
 issubclass(bool, int)
@@ -982,6 +985,20 @@ foo.append(1)  # same obj
 ```
 
 ## packing
+
+* prefix operator?
+```python
+safe_load = {
+   'ignore_errors': True,
+   'infer_schema_length': None,
+   'quote_char': None,
+   'truncate_ragged_lines': True
+}
+# LOAD
+entity = pl.read_csv('eclipse/entity_pn.csv', **safe_load)
+mars = pl.read_csv('eclipse/mars.csv', **safe_load)
+catalog = pl.read_csv('eclipse/catalog.csv', **safe_load)
+```
 
 * https://github.com/zachvalenta/capp-brand-enablement/
 ```python

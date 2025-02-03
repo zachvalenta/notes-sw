@@ -57,7 +57,7 @@ LETTERING
 🗄️ `interfaces.md` terminals > features
 
 PROGRAMS
-* _kanata_: https://github.com/jtroo/kanata
+* _kanata_: https://github.com/jtroo/kanata https://news.ycombinator.com/item?id=42991019
 * _Launcher_: ✅ https://launcher.keychron.com/ 🗄️ `dot/shell/keychron-v8.json`
 * _Oryx_ built off of QMK https://blog.zsa.io/whack-a-key/ https://www.youtube.com/watch?v=FcFYv_dHIiQ
 * can access QMK directly https://blog.zsa.io/oryx-custom-qmk-features/
@@ -273,6 +273,9 @@ HOWTO
 
 ## ergo
 
+https://www.youtube.com/watch?v=3Ep7WOCv38M
+https://splitkb.com/products/halcyon-kyria https://www.youtube.com/watch?v=03fXixHEOEI
+
 MAYBE
 * _Dygma defy_: 🎯 $370; featureful, bad taste https://dygma.com/pages/defy https://www.youtube.com/watch?v=R9YTQn1ik9I
 * _Glove80_: $400 low-profile, expensive, ugly https://www.moergo.com/collections/glove80-keyboards https://www.youtube.com/watch?v=QLb3ewK8R2Y
@@ -336,6 +339,7 @@ MY SETUP
 * layout: TKL
 * connection: wired
 * no: lights, rotary knob
+> turn off keychron light with fn + lightbulb key
 
 FEATURES
 * connection: usb-c is faster https://www.keychron.com/blogs/news/solid-wireless-connection-type-c-connection
@@ -441,6 +445,7 @@ TEST
 * _typelit_: web + literature https://www.typelit.io/
 * _typioca_: local https://github.com/bloznelis/typioca
 * _typeinc_: 🎯 local + save results https://github.com/AnirudhG07/typeinc errors https://github.com/AnirudhG07/Typeinc/issues/3 https://github.com/AnirudhG07/Typeinc/issues/4
+* _tukai_: 🎯 https://github.com/hlsxx/tukai
 
 IMPORTANCE https://steve-yegge.blogspot.com/2008/09/programmings-dirtiest-little-secret.html
 > And as for this non-college bullshit I got two words for that: learn to fuckin' type.

@@ -3,52 +3,32 @@
 ## 参考
 
 📚
-* Beck tidy first? https://www.youtube.com/watch?v=QN-azRUAToc
-* Fowler refactoring https://www.amazon.com/dp/0134757599/ https://registerspill.thorstenball.com/p/skin-shedding-code https://www.youtube.com/watch?v=ZsPDz_BGbtE https://www.youtube.com/watch?v=CjCJ76oZXTE thoughtworks is lame, of course they think passkeys are a good ideas https://www.thoughtworks.com/radar/tools/uv
-> Also, as a general rule, you can at any given time get away with changing more than you think. Introducing change is like pulling off a bandage: the pain is a memory almost as soon as you feel it. http://paulgraham.com/popular.html
-* Kernighan/Pike practice of programming
-* Martin clean code https://qntm.org/clean https://www.youtube.com/watch?v=wf68VDObVX0 https://www.youtube.com/watch?v=RkxVB1eNdCc
-* McConnell code complete
-* Ousterhout https://www.amazon.com/Philosophy-Software-Design-2nd/dp/173210221X against uncle bob https://www.youtube.com/watch?v=k0kTux_YNHw shallow vs. deep https://lobste.rs/s/qpzubc/don_t_refactor_like_uncle_bob_please https://benhoyt.com/writings/python-api-design/ https://minds.md/zakirullin/cognitive https://news.ycombinator.com/item?id=42489645 https://news.ycombinator.com/item?id=42512063 🗄️ `psychology.md`
+* Beck tidy first?
+* Conery ch. 11/12
+* Dibernardo 500 lines http://aosabook.org/en/index.html
+* Fowler refactoring 🎗️ PDF
+* GoF design patterns
+* Mak https://www.manning.com/books/software-design-in-python
+* Martin clean code
+* Nystrom http://gameprogrammingpatterns.com/contents.html
+* Ousterhout philosophy of sofware design
 
 ## 进步
 
 * https://neetcode.io/courses/lessons/8-design-patterns
 * https://www.youtube.com/watch?v=tAuRQs_d9F8
 
+* _25_: factory
+* _24_: builder for EDI at Capp
 * _23_: 📙 Evans domain-driven
-
-DESIGN PATTERNS
-🧠 https://chatgpt.com/c/672144f0-fbfc-8004-98c0-2209def70bc0
-🔍 https://github.com/DovAmir/awesome-design-patterns
-📚
-* Conery ch. 11/12
-* Mak https://www.manning.com/books/software-design-in-python
-
-* Gang of Four: composition over inheritance https://en.wikipedia.org/wiki/Design_Patterns
-> They warn that the implementation of a subclass can become so bound up with the implementation of its parent class that any change in the parent's implementation will force the subclass to change. Furthermore, they claim that a way to avoid this is to inherit only from abstract classes—but then, they point out that there is minimal code reuse...using inheritance is recommended mainly when adding to the functionality of existing components, reusing most of the old code and adding relatively small amounts of new code. https://buttondown.com/hillelwayne/archive/when-to-prefer-inheritance-to-composition/
 
 * fanout https://www.better-simple.com/django/2023/12/06/fanout-pattern-explained/
 * the big ball of mud https://news.ycombinator.com/item?id=35481309
 * _strangler fig_: you run the old code and new code live, in production, side-by-side, checking that the new code behaves exactly the same as the old code. Once you are confident it does, you retire the old code https://www.kosli.com/blog/how-to-strangle-old-code-using-python-decorators/ https://news.ycombinator.com/item?id=41423421
 
-http://gameprogrammingpatterns.com/contents.html
-
 > Some practices are the best when applied to a rewrite, but the worst when you’re still exploring. https://thorstenball.com/blog/2022/05/17/professional-programming-the-first-10-years/
 
 https://developers.soundcloud.com/blog/end-of-the-strangler
-
-data mapper
-* https://www.sqlalchemy.org/
-* https://github.com/tommyboytech/t3/pull/11906
-* https://en.wikipedia.org/wiki/Data_mapper_pattern#Python
-* https://www.youtube.com/watch?v=oaiwS5KFHEs
-* https://www.openmymind.net/2011/11/18/I-Just-Dont-Like-Object-Mappers/
-* https://www.js-data.io/docs/data-mapper-pattern
-* https://www.codeproject.com/articles/821803/data-mapper-pattern
-* https://codingwithscott.com/how-to-implement-the-data-mapper-design-pattern-in-c/
-* https://designpatternsphp.readthedocs.io/en/latest/Structural/DataMapper/README.html
-* https://martinfowler.com/eaaCatalog/dataMapper.html
 
 * _strangler fig_: https://developers.soundcloud.com/blog/end-of-the-strangler
 * _builder_ https://github.com/kayak/pypika
@@ -85,48 +65,92 @@ PROTOTYPE
 * Creates new objects by copying an existing object (cloning)
 * Example: Creating new documents by duplicating a template document
 
-## factory
+## ✅ factory
 
-subclasses decide class
+💻 https://github.com/zachvalenta/capp-edi
 
-Factory Method: Provides an interface for creating objects but allows subclasses to alter the type of objects that will be created.
-Example: Creating different shapes from a shape factory.
+TYPES
+* _factory_: don't have to know product impl 📙 Evans domain-driven [139] GoF [107]
+```python
+DocBuilder().add_products('new item')
+class ProductFactory:
+    def create_segments(self, scenario_type, product_index=0):
+        scenarios = {
+            'new item': self._new_item,
+            'pricing': self._pricing,
+            'lead time': self._lead_time
+        }
+        return scenarios.get(scenario_type)
+    def _new_item(self, index):
+        return [
+            f"LIN*{index}*VP*{product['id']}~",
+            f"G53*003~",
+        ] 
+    def _pricing(self, index):
+        return [
+            f"LIN*{index}*VP*{product['id']}~",
+            f"G53*001~",
+        ]
+```
+```python
+@dataclass
+class Burger:
+    bun: str | None = None
+    protein: str | None = None
+    cheese: str | None = None
+    toppings: list[str] | None = None
+    sauce: str | None = None
+class BurgerFactory:
+    @staticmethod
+    def custom(**kwargs):
+        return Burger(**kwargs)
+    @staticmethod
+    def kahuna():
+        return Burger(
+            bun = 'Hawaiian',
+            protein = 'beef',
+            cheese = 'cheddar',
+            toppings = ['onions', 'pineapple'],
+            sauce = 'teriyaki',
+        )
+```
 
-Problem it solves: Encapsulates the creation logic of objects, deferring it to subclasses or dedicated factory classes.
-Use cases:
-Creating platform-specific objects (e.g., cross-platform UI components).
-Managing object creation when you don’t want the caller to know exact class details.
-Working with dependency injection frameworks that leverage factories.
-Factory Method: Creates a single type of product.
-Abstract Factory: Creates families of related products.
+SEMANTICS
+* _factory_: creator 📙 GoF [108]
+* _product_: thing being created
 
-* _factory_: 📙 Evans domain-driven [139]
+---
+
+TYPES
 * _constructor_: 📙 Evans domain-driven [141]
 * _abstract factory_: dedicated class to construct `CustomerFactory().default()` [Conery 243]
 
+## ✅ builder
+
+💻 https://github.com/zachvalenta/capp-edi
+
 ```python
-def add_bct(self, scenario_type):
-    bct_codes = {
-        'new item': '02',  # add
-        'pricing': '04',   # change
-        'lead time': '05'  # replace
-    }
-    code = bct_codes.get(scenario_type)
-    if not code:
-        raise ValueError(f"Unknown scenario type: {scenario_type}")
-    bct = f"BCT*SC*CAPCATALOG*001******STANDINBCT09*{code}~"
-    self.segments.extend([bct])
+class DocBuilder:
+    def __init__(self):
+        self.segments = []
+        self.control_number = 'VG9M'
+
+def add_isa_gs_st(self):
+    self.segments.extend([f"ST*832*{self.control_number}~"])
     return self
+
+def add_ctt_to_iea(self):
+    self.segments.extend(["GE*1*1~", "IEA*1*000000001~"])
+    return self
+
+DocBuilder().add_isa_gs_st().add_ctt_to_iea()
 ```
 
-## builder
-
-step-by-step complex object construction
-
-Builder: Separates the construction of a complex object from its representation so that the same construction process can create different representations.
-Example: Constructing a "meal" object (burger + drink) in steps.
-
 ## singleton
+
+---
+
+> dependency injection generally better?
 
 * single instance
 * class that only allows single instance of itself
@@ -143,6 +167,10 @@ Logging systems where multiple instances are redundant.
 Caution: Can introduce global state and tight coupling, so use it sparingly.
 
 # 🦠 STRUCTURAL
+
+FACADE (simplified interface)
+* Provides a simplified interface to a larger body of code or subsystem.
+* Example: A home theater facade that controls various subsystems (TV, speakers, streaming service).
 
 BRIDGE
 * Bridge (separate abstraction from implementation)
@@ -171,13 +199,11 @@ Adapter (interface compatibility)
 Adapter: Converts the interface of a class into another interface that clients expect.
 Example: Adapter to make a legacy API compatible with new code.
 
-## facade
+## 📍 decorator
 
-Facade (simplified interface)
-Facade: Provides a simplified interface to a larger body of code or subsystem.
-Example: A home theater facade that controls various subsystems (TV, speakers, streaming service).
+---
 
-## decorator
+> pull in your timing function
 
 Decorator (dynamic additional responsibilities)
 Decorator: Dynamically adds behavior to an object without altering its structure.
@@ -216,7 +242,7 @@ Data synchronization between models and views in the MVC architecture.
 
 Iterator (sequential access)
 
-## strategy
+## 📍 strategy
 
 🗄️ `business.md` pricing
 💻 https://github.com/zachvalenta/capp-brand-enablement
@@ -247,6 +273,43 @@ CQRS: Command/query separation
 Unit of Work: Transaction management
 
 A key insight is that many patterns solve similar problems in different contexts. For example, both Strategy and Command encapsulate behavior, but Command adds undo/logging capabilities. Similarly, both Decorator and Chain of Responsibility compose behavior, but Chain focuses on request handling while Decorator is more general.
+
+## composition
+
+WHY PREFERRED OVER INHERITANCE
+* parent changes can require child update
+```python
+class Burger:
+    def __init__(self, size='regular'):  # add size
+        self.size = size
+class BurgerFactory(Burger):
+    def __init__(self):
+        super().__init__()  # now child init needs to add as well
+```
+* you have to know about parent's implementation
+
+---
+
+* _composition_:
+* Gang of Four: composition over inheritance https://en.wikipedia.org/wiki/Design_Patterns
+> They warn that the implementation of a subclass can become so bound up with the implementation of its parent class that any change in the parent's implementation will force the subclass to change. Furthermore, they claim that a way to avoid this is to inherit only from abstract classes—but then, they point out that there is minimal code reuse...using inheritance is recommended mainly when adding to the functionality of existing components, reusing most of the old code and adding relatively small amounts of new code. https://buttondown.com/hillelwayne/archive/when-to-prefer-inheritance-to-composition/
+* _delegation_: composition by another name https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/#delegation-in-oop
+* https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/
+
+## data mapper
+
+📙 Fowler enterprise patterns
+
+* https://www.sqlalchemy.org/
+* https://github.com/tommyboytech/t3/pull/11906
+* https://en.wikipedia.org/wiki/Data_mapper_pattern#Python
+* https://www.youtube.com/watch?v=oaiwS5KFHEs
+* https://www.openmymind.net/2011/11/18/I-Just-Dont-Like-Object-Mappers/
+* https://www.js-data.io/docs/data-mapper-pattern
+* https://www.codeproject.com/articles/821803/data-mapper-pattern
+* https://codingwithscott.com/how-to-implement-the-data-mapper-design-pattern-in-c/
+* https://designpatternsphp.readthedocs.io/en/latest/Structural/DataMapper/README.html
+* https://martinfowler.com/eaaCatalog/dataMapper.html
 
 ## dependency injection (DI)
 
@@ -283,7 +346,7 @@ https://www.openmymind.net/Dependency-Injection-In-Go/
 * ✅ Evans domain-driven design https://github.com/nickgerace/gfold/pull/149/files
 * Percival https://www.amazon.com/gp/product/1492052205 https://www.youtube.com/watch?v=niMybnzmzqc [1:15]
 
-├── Repository: data access abstraction 🗄️ `sql.md` constraints > schema awareness > catalog
+├── Repository: data access abstraction 🗄️ `sql.md` schema / approaches
 > 📍 you have same def for strategy pattern
 ├── Factory
 ├── Aggregate
@@ -308,9 +371,6 @@ https://www.openmymind.net/Dependency-Injection-In-Go/
 
 ---
 
-> Minimizes the need for patterns like Decorator and Strategy by leveraging pure functions and higher-order functions.
-
-method chaining https://calmcode.io/course/method-chains/introduction
 https://danluu.com/butler-lampson-1999/
 https://us.pycon.org/2024/schedule/presentation/86/index.html
 https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell
@@ -335,74 +395,26 @@ FUNCTIONAL 📙 Conery https://github.com/hemanth/functional-programming-jargon
 
 https://github.com/dry-python/returns Land of Lisp epilogue https://docs.python.org/3/howto/functional.html https://kite.com/blog/python/functional-programming https://stackoverflow.com/q/1017621/6813490 https://treyhunner.com/2018/09/stop-writing-lambda-expressions/ https://blog.cleancoder.com/uncle-bob/2014/11/24/FPvsOO.html https://julien.danjou.info/python-and-functional-programming/ https://sumit-ghosh.com/articles/demystifying-decorators-python/ https://jrsinclair.com/articles/2019/what-i-wish-someone-had-explained-about-functional-programming/ https://codewords.recurse.com/issues/one/an-introduction-to-functional-programming http://www.lihaoyi.com/post/WhatsFunctionalProgrammingAllAbout.html https://blog.cleancoder.com/uncle-bob/2017/07/11/PragmaticFunctionalProgramming.html
 
-## object-oriented
+## method chaining
 
-📙 Bugayenko elegant obj https://www.elegantobjects.org/
-
-https://hynek.me/talks/subclassing/
-SOLID https://realpython.com/solid-principles-python/
-
-OBJECTS
-* _object_: vs. procedural 📙 Evans domain-driven [51]
-* _object model_: how objs work in a language 📙 Ramalho [15]
-* aka "data model" in Python
-* BYO http://aosabook.org/en/500L/a-simple-object-model.html
-* _class_: lang ft. that allows defining new types 📙 Ramalho https://www.fluentpython.com/lingo/#class
-* _metaobject_: objs that form core of object model 📙 Ramalho [16]
-* _attribute_: obj property i.e. field (data) or method (action) https://docs.python.org/dev/tutorial/classes.html
-* _attribute reference_: access obj attr https://docs.python.org/dev/tutorial/classes.html#class-objects
-
-INHERITANCE
-* _inheritance_: subclass is an instance of parent class
-> I use Django a lot and generally it's great. But I hate that you can't follow your code paths from start to finish on the surface. You have to know about how it works underneath. Meaning you can't just be a python + web server expert. You have to also be a Django expert. So I get non-Django experts reviewing code and they have no clue why things work or break. Just an opinion. Not saying this is objectively wrong. https://news.ycombinator.com/item?id=17728821
-
-ZA
-* _constant_: variable w/ hard-coded value
-* _enumeration_: group of discrete constants https://realpython.com/python-enum/
-* _member_: constant in enum
+💻 https://github.com/zachvalenta/capp-edi 
 
 ---
 
-* _hierarchical_: 1 parent - 1 child
-* _multi-level_: 1 grandparent - 1 parent - 1 child
-* _multiple_: n parents - 1 child
-* aka interfaces in Java, mixins in Python
-* _polymorphism_: https://confuzeus.com/hub/django-web-framework/model-polymorphism/ https://news.ycombinator.com/item?id=27658706 re: duck typing https://www.fluentpython.com/lingo/#duck_typing
-* _diamond problem_: https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem Python solves w/ MRO https://stackoverflow.com/a/44535084/6813490
-* _Liskov_: every instance of a subclass (in this case, my extension of Thread) needs to remain a valid instance of the superclass
-* _abstract class_: not instantiated; TwoDimensionalShape(Circle, Square, Triangle)
-* _Law of Demeter_: don't reach through one object to get to another [Conery 278]
-
-OPINIONS
-* Golang https://blog.gypsydave5.com/posts/2024/4/12/go-is-an-object-oriented-programming-language/
-* Smalltalk https://news.ycombinator.com/item?id=34137751 https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
-* http://www.smashcompany.com/technology/object-oriented-programming-is-an-expensive-disaster-which-must-end
-* creates confusion
-> In 2003, Jane Street began a rewrite of its core trading systems in Java. The rewrite was eventually abandoned, in part because the resulting code was too difficult to read and reason about...we built up a nest of classes that left people scratching their heads when they wanted to understand just what piece of code was actually being invoked when a given method was called. https://queue.acm.org/detail.cfm?id=2038036
-> The price is that the resulting code is bloated with protocols and full of duplication. This is not too high a price for big companies, because their software is probably going to be bloated and full of duplication anyway. http://www.paulgraham.com/noop.html
-
----
-
-* quadratic complexity
-* _composition_:
-* CUPID https://dannorth.net/2022/02/10/cupid-for-joyful-coding/
-* _delegation_: composition by another name https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/#delegation-in-oop
-* https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/
-
-* _information hiding_: obj as black box against which you can ask for stuff but you don't know how it's going on inside [Connolly database systems 25.3.1 814]
-* _override_: replace method inherited from parent
-* _history_: 1970s Smalltalk https://news.ycombinator.com/item?id=29890205 1990s Java https://twobithistory.org/2019/01/31/simula.html https://medium.com/javascript-scene/the-forgotten-history-of-oop-88d71b9b2d9f https://www.hillelwayne.com/post/alan-kay/ https://www.youtube.com/watch?v=QyJZzq0v7Z4
-
-__static methods__
-* _static_: belongs to class, not an individual instance
-* something that won't change across instances 📍 example
-* code organization https://stackoverflow.com/a/14085311/6813490
-* bad for testing? https://stackoverflow.com/a/2671938/6813490
-
-opinions
-* tell, don't ask [Conery 276]
-* unlearn OOP https://dpc.pw/the-faster-you-unlearn-oop-the-better-for-you-and-your-software
-* Hickey https://www.youtube.com/watch?v=oytL881p-nQ
+> Minimizes the need for patterns like Decorator and Strategy by leveraging pure functions and higher-order functions.
+https://calmcode.io/course/method-chains/introduction
+```python
+@cli.command()
+def new_item():
+    # doc = DocBuilder().add_isa_gs_st().add_bct('new item').add_products('new item').add_ctt_to_iea()
+    # doc.write(SCENARIO_DIR / 'new-item.edi')
+    doc = DocBuilder()
+    doc.add_isa_gs_st()
+    doc.add_bct('new item')
+    doc.add_products('new item')
+    doc.add_ctt_to_iea()
+    doc.write(SCENARIO_DIR / 'new-item.edi')
+```
 
 method chaining https://www.youtube.com/watch?v=BY34Fe-2xgk
 * used in SQL query builders [2:45]
@@ -420,6 +432,102 @@ class Player:
 
     def stats(self):
         print(f"pts {self.points} fatigue {self.fatigue}")
+```
+
+## object-oriented
+
+📙 Bugayenko elegant obj https://www.elegantobjects.org/
+
+OBJECTS
+* _object_: vs. procedural 📙 Evans domain-driven [51]
+* _object model_: how objs work in a language; aka data model in Python 📙 Ramalho [15] BYO http://aosabook.org/en/500L/a-simple-object-model.html
+* _metaobject_: objs that form core of object model 📙 Ramalho [16]
+* _attribute_: obj property i.e. field (data) or method (action) https://docs.python.org/dev/tutorial/classes.html
+* _attribute reference_: access obj attr https://docs.python.org/dev/tutorial/classes.html#class-objects
+
+CLASSES
+* _class_: lang ft. that allows defining new types 📙 Ramalho https://www.fluentpython.com/lingo/#class
+* _abstract class_: specifies what methods need impl in child classes not instantiated; TwoDimensionalShape(Circle, Square, Triangle)
+* _concrete class_: implements abstract class
+```python
+from abc import ABC, abstractmethod
+class Shape(ABC):
+    @abstractmethod
+    def area(self): 
+        pass
+class Circle(Shape):
+    def __init__(self, radius):
+        self.radius = radius
+    def area(self):
+        return 3.14 * self.radius ** 2
+```
+
+INHERITANCE
+* _inheritance_: subclass is an instance of parent class
+> I use Django a lot and generally it's great. But I hate that you can't follow your code paths from start to finish on the surface. You have to know about how it works underneath. Meaning you can't just be a python + web server expert. You have to also be a Django expert. So I get non-Django experts reviewing code and they have no clue why things work or break. Just an opinion. Not saying this is objectively wrong. https://news.ycombinator.com/item?id=17728821
+
+ZA
+* _constant_: variable w/ hard-coded value
+* _enumeration_: group of discrete constants https://realpython.com/python-enum/
+* _member_: constant in enum
+
+---
+
+https://hynek.me/talks/subclassing/
+SOLID https://realpython.com/solid-principles-python/
+
+* _hierarchical_: 1 parent - 1 child
+* _multi-level_: 1 grandparent - 1 parent - 1 child
+* _multiple_: n parents - 1 child
+* aka interfaces in Java, mixins in Python
+* _polymorphism_: https://confuzeus.com/hub/django-web-framework/model-polymorphism/ https://news.ycombinator.com/item?id=27658706 re: duck typing https://www.fluentpython.com/lingo/#duck_typing
+* _diamond problem_: https://en.wikipedia.org/wiki/Multiple_inheritance#The_diamond_problem Python solves w/ MRO https://stackoverflow.com/a/44535084/6813490
+* _Liskov_: every instance of a subclass (in this case, my extension of Thread) needs to remain a valid instance of the superclass
+* _Law of Demeter_: don't reach through one object to get to another [Conery 278]
+
+OPINIONS
+* Golang https://blog.gypsydave5.com/posts/2024/4/12/go-is-an-object-oriented-programming-language/
+* Smalltalk https://news.ycombinator.com/item?id=34137751 https://blog.cleancoder.com/uncle-bob/2019/08/22/WhyClojure.html
+* http://www.smashcompany.com/technology/object-oriented-programming-is-an-expensive-disaster-which-must-end
+* creates confusion
+> In 2003, Jane Street began a rewrite of its core trading systems in Java. The rewrite was eventually abandoned, in part because the resulting code was too difficult to read and reason about...we built up a nest of classes that left people scratching their heads when they wanted to understand just what piece of code was actually being invoked when a given method was called. https://queue.acm.org/detail.cfm?id=2038036
+> The price is that the resulting code is bloated with protocols and full of duplication. This is not too high a price for big companies, because their software is probably going to be bloated and full of duplication anyway. http://www.paulgraham.com/noop.html
+
+---
+
+* quadratic complexity
+* CUPID https://dannorth.net/2022/02/10/cupid-for-joyful-coding/
+
+* _information hiding_: obj as black box against which you can ask for stuff but you don't know how it's going on inside [Connolly database systems 25.3.1 814]
+* _override_: replace method inherited from parent
+* _history_: 1970s Smalltalk https://news.ycombinator.com/item?id=29890205 1990s Java https://twobithistory.org/2019/01/31/simula.html https://medium.com/javascript-scene/the-forgotten-history-of-oop-88d71b9b2d9f https://www.hillelwayne.com/post/alan-kay/ https://www.youtube.com/watch?v=QyJZzq0v7Z4
+
+__static methods__
+* _static_: belongs to class, not an individual instance
+* something that won't change across instances 📍 example
+* code organization https://stackoverflow.com/a/14085311/6813490
+* bad for testing? https://stackoverflow.com/a/2671938/6813490
+
+opinions
+* tell, don't ask [Conery 276]
+* unlearn OOP https://dpc.pw/the-faster-you-unlearn-oop-the-better-for-you-and-your-software
+* Hickey https://www.youtube.com/watch?v=oytL881p-nQ
+
+## plugins
+
+https://pluggy.readthedocs.io/en/stable/
+https://docs.datasette.io/en/stable/plugins.html
+
+```txt
+Hollywood Principle: "Don't call us, we'll call you." The main application defines hook specifications, and plugins register themselves without the core application needing to know them in advance.
+
+1. Observer: While not a strict observer pattern, Pluggy enables callbacks where plugins can react to hook calls, similar to event listeners
+2. Strategy: Plugins act as replaceable strategies that modify or extend behavior at runtime.
+3. Dependency Injection: The hook system allows late binding of behavior via plugins, which is a form of dependency injection (DI) but at an architectural rather than class level
+4. Microkernel: aka Hexagonal/Ports & Adapters; applications using Pluggy can be structured as a minimal core (microkernel) with plugins extending functionality.
+
+pytest uses Pluggy for its extensive plugin system.
+tox and other tools use Pluggy for defining hooks that external tools can implement.
 ```
 
 ## reactive

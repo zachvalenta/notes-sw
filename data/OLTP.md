@@ -635,6 +635,7 @@ wire protocol
 
 ---
 
+https://www.manning.com/books/just-use-postgres https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb
 🏔️ https://github.com/Olshansk/postgres_for_everything
 📚
 * Magda just use postgres https://www.manning.com/books/just-use-postgres
@@ -651,7 +652,7 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * duckdb extension https://motherduck.com/blog/pg_duckdb-postgresql-extension-for-duckdb-motherduck/ https://github.com/duckdb/pg_duckdb
 * copy btw tables https://ongres.com/blog/fastest_way_copy_data_between_postgres_tables/
 * embed https://github.com/electric-sql/pglite
-* perf, memory https://news.ycombinator.com/item?id=40642803
+* perf, memory https://news.ycombinator.com/item?id=40642803 https://github.com/nexsol-technologies/pgassistant
 * generate `create table` from existing table https://github.com/lacanoid/pgddl
 * Elasticsearch https://github.com/paradedb/paradedb https://github.com/pgroonga/pgroonga
 * serverless https://neon.tech/ https://news.ycombinator.com/item?id=31536827
@@ -810,6 +811,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{user}:{pw}@db:5432/{name
 
 CMD
 * Postgres specific cmd: `\h`
+* connection URL: `postgresql://user:pass@host:5432/db`
 
 ---
 
@@ -846,6 +848,7 @@ https://www.postgresql.org/about/news/announce-pig-the-postgres-extension-wizard
 
 * _driver_: lib for (db) connection https://stackoverflow.com/a/8588766 
 * _psycopg_: Python driver for Posgres
+* define driver https://news.ycombinator.com/item?id=42984457
 * impl https://www.varrazzo.com/blog/2020/03/06/thinking-psycopg3/
 * _psycopg2_: uninstallable w/ Poetry even w/ Brew install of Postgres https://realpython.com/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/
 * _psycopg2-binary_: installable w/ Poetry, problem with pipenv https://github.com/pypa/pipenv/issues/4073
@@ -906,10 +909,15 @@ USAGE
 
 ---
 
+TURSO / LIMBO https://github.com/tursodatabase/libsql https://github.com/tursodatabase/limbo/
+* from guy who did TigerBeetle? Deterministic Simulation Testing https://changelog.com/podcast/626
+* https://news.ycombinator.com/item?id=42378843
+* https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/
+* https://avi.im/blag/2024/faster-sqlite/
+
 * functions https://blog.julik.nl/2025/01/supercharge-sqlite-with-ruby-functions
 * https://blog.julik.nl/2025/01/maximum-speed-sqlite-inserts
 > Beyond that, we’re starting to see more creative uses of SQLite rather than “just” a local ACID-compliant database. With the advent of tools like Litestream enabling streaming backups and LiteFS to provide distributed access, we can devise more interesting topologies. Extensions like CR-SQLite allow the use of CRDTs to avoid needing conflict resolution when merging changesets, as used in Corrosion. https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
-* replication, Rust rewrite https://github.com/tursodatabase/libsql https://news.ycombinator.com/item?id=42378843& https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/ limbo https://avi.im/blag/2024/faster-sqlite https://github.com/tursodatabase/limbo/ https://avi.im/blag/2024/faster-sqlite/
 * WASM https://news.ycombinator.com/item?id=41851051
 * durable object https://simonwillison.net/2024/Oct/13/zero-latency-sqlite-storage-in-every-durable-object/
 

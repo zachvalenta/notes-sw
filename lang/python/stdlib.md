@@ -411,6 +411,7 @@ OPTIONS
 * _sh_: 🎯 run bash from Python https://github.com/amoffat/sh https://martinheinz.dev/blog/96 https://calmcode.io/shorts/sh.py
 * _suby_: https://github.com/pomponchik/suby
 * _Sultan_: https://github.com/aeroxis/sultan https://stackoverflow.com/a/56842257/6813490
+* figure out surrounding shell https://github.com/sarugaku/shellingham
 
 # 🛰️ SERDE
 
@@ -587,6 +588,7 @@ aaS
 * _Zenrows_: https://www.zenrows.com/solutions/scraper-api
 
 LIBS
+* 🎯🎯🎯 https://datasette.io/plugins/datasette-scraper
 * _crawlee_: https://github.com/apify/crawlee
 * _crawly_: Elixir https://github.com/elixir-crawly/crawly
 * _gazpacho_: 🎯 https://github.com/maxhumber/gazpacho https://calmcode.io/course/gazpacho/introduction
@@ -606,7 +608,7 @@ https://github.com/MechanicalSoup/MechanicalSoup
 * follow links
 * submit forms
 
-BeautifulSoup 📜 https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+BeautifulSoup 📜 https://www.crummy.com/software/BeautifulSoup/bs4/doc/ selectors https://github.com/facelessuser/soupsieve
 * parse HTML
 * can also do scraping
 * way to simulate an API for a site that doesn't have one
@@ -725,7 +727,7 @@ WSGI
 ASGI
 * _ASGI_: async alternative to WSGI
 * frameworks: Django (Channels) Quart (Flask on async) https://talkpython.fm/blog/posts/talk-python-rewritten-in-quart-async-flask/ Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
-* servers: uvicorn, Daphne
+* servers: uvicorn, Daphne, Hypercorn
 * FastAPI https://github.com/pomponchik/cbfa
 * sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
 
@@ -903,7 +905,7 @@ repo.git.ls_remote("--heads", "origin", "master")
 
 📙 Beazley ch. 3
 🔗 https://github.com/cosmologicon/pywat
-🛠️ https://github.com/python-humanize/humanize
+🛠️ readable https://github.com/python-humanize/humanize
 
 ---
 

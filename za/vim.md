@@ -16,6 +16,12 @@
 
 ## 进步
 
+what is going on with lazyvim and `s`?
+> In normal mode, pressing the letter s in Vim deletes the character under the cursor and enters insert mode.
+```sh
+nvim -u NONE
+```
+
 * _25_: Neovim - get basic LazyVim working
 * _24_: try Zed
 * _23_: Neovim - stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme https://github.com/zachvalenta/dotfiles-air22/blob/main/vim/user/markdown_fmt.lua, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
@@ -224,6 +230,7 @@ edit
 
 🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
 
+* font for sidebar: `window.zoomLevel: <num>` https://stackoverflow.com/a/36041997
 * shift right: `>`
 * comment out: `CMD /`
 * walled garden https://news.ycombinator.com/item?id=41907350
@@ -290,7 +297,6 @@ MARKDOWN
 * not OSS https://news.ycombinator.com/item?id=34078225
 * type of highlighting https://stackoverflow.com/questions/39775406/how-to-turn-off-matching-highlighting-in-vs-code/45640244#45640244 
 * outline view: sort by postition, follow cursor
-* explorer font/zoom: `window.zoomLevel: <num>` https://stackoverflow.com/a/36041997
 
 downsides
 * update perils https://github.com/microsoft/vscode/issues/142451
@@ -396,6 +402,7 @@ DESIGN
 * ❌ makes itself default editor (broot)
 * ❌ workspaces https://github.com/zed-industries/zed/discussions/17278 https://github.com/zed-industries/zed/discussions/7194 https://github.com/zed-industries/zed/issues/9459 but you can open multiple repos from CLI `zed domains sw`
 * document outline available now but doesn't nest enough + shows code snippets as headers in Markdown https://github.com/zed-industries/zed/discussions/13421 https://zed.dev/releases/stable/0.141.2
+* edit prediction (based on Qwen) https://zed.dev/blog/edit-prediction
 
 ---
 
@@ -462,10 +469,16 @@ Neovim just too fragile? https://www.youtube.com/watch?v=G1_Y5hLTfgw
 
 ## files / opts / keys
 
+```sh
+├── ~/.config/nvim
+│   └── init.lua
+│   └── lua/
+│   └──── config
+│   └──── plugins
+```
+
 ---
 
-* files: `init.lua`, `init.vim` 📙 Neil modern [6] https://neovim.io/doc/user/starting.html#init.vim
-* debug: `:checkhealth` http://vimcasts.org/episodes/neovim-checkhealth/
 * fs
 ```sh
 #~/.config/nvim https://neovim.io/doc/user/starting.html#standard-path
@@ -474,6 +487,8 @@ Neovim just too fragile? https://www.youtube.com/watch?v=G1_Y5hLTfgw
 │   └── keymap.lua
 │   └── option.lua
 ```
+* files: `init.lua`, `init.vim` 📙 Neil modern [6] https://neovim.io/doc/user/starting.html#init.vim
+* debug: `:checkhealth` http://vimcasts.org/episodes/neovim-checkhealth/
 * Vimscript -> Lua  https://www.youtube.com/watch?v=hY5-Q6NxQgY 7:15 https://www.youtube.com/watch?v=prnrwpOEsmo
 ```lua
 --- CMDS
@@ -498,28 +513,13 @@ vim.api.nvim_set_keymap() -- :noremap
 
 ## pre-built
 
-* _LazyVim_: ✅ https://www.lazyvim.org/ fs `~/.config/nvim` https://github.com/zachvalenta/dot-lazyvim
-* ❓ goto symbol using aerial and telescope https://github.com/stevearc/aerial.nvim?tab=readme-ov-file#telescope
-* ❌ relative line numbers too dark
-* ❌ treats single line as n lines
-```txt
-Q: in Vim, a single line of text is treated as such i.e. pressing the down arrow (or the j key) takes you to the next line. in a browser or word processor, the down arrow takes you to the *visually represented* next line, regardless if it is in fact a new line of text. im playing around with Neovim and it's acting like a word processor, not a browser. how do i get it to act like proper vim?
-A: What you're experiencing is Neovim's behavior when line wrapping is enabled. When lines are wrapped, Neovim treats the visual representation of a wrapped line as separate chunks when navigating with the arrow keys (<Down>, <Up>) or j/k.
-```
-```lua
-vim.opt.wrap = false
-vim.api.nvim_create_autocmd("BufWinEnter", {
-    pattern = "*",
-    callback = function()
-        vim.opt.wrap = false
-    end,
-})
-```
 * _Lunar_: 17.5k stars; more open issues, heavy setup (req: npm, cargo, rg) https://www.lunarvim.org/
 * _NVChad_: 🎯 23.5 stars https://nvchad.com/
 * PYthon setup https://www.youtube.com/watch?v=4BnVeOUeZxc
 * still have to do the hard part yourself?
 > Once the binaries are installed, you will have to configure them to properly work with LSP, conform.nvim, nvim-lint, nvim-dap etc. It depends on what you installed. NvChad does not provide any language configuration aside from lua. https://nvchad.com/docs/config/lsp/
+
+### 🧑‍🚀 Astro
 
 * _Astro_: ❌ https://github.com/AstroNvim/AstroNvim https://zackproser.com/blog/astronvim-overview
 ```sh
@@ -535,6 +535,44 @@ qing ~/.local/state/nvim
 qing ~/.cache/nvim
 ```
 
+### 🦥 LazyVim
+
+PLUGINS
+* _which-key_: guide to keybindings
+* `LEADER cr`: rename symbol under cursor
+
+---
+
+```txt
+What Handles This in LazyVim?
+* which-key.nvim → Provides the menu that appears when you press <leader> c.
+* LazyVim LSP Config (lazyvim.plugins.lsp.keymaps.lua) → Handles LspRename and other language features.
+* Neovim's Built-in :map, :nmap, :WhichKey → Helps you inspect what’s available.
+```
+
+> :map <leader>c -> inspect mappings
+> LazyVim default keybindings @ `~/.config/nvim/lua/lazyvim/plugins/editor.lua`?
+> LazyVim LSP keybindings @ `~/.config/nvim/lua/lazyvim/plugins/lsp/keymaps.lua`?
+> LazyVim plugins `~/.config/nvim/lua/lazyvim/plugins/editor.lua`
+
+* _LazyVim_: ✅ https://www.lazyvim.org/ fs `~/.config/nvim` https://github.com/zachvalenta/dot-lazyvim https://www.youtube.com/watch?v=evCmP4hH7ZU
+* ❓ goto symbol using aerial and telescope https://github.com/stevearc/aerial.nvim?tab=readme-ov-file#telescope
+* ❌ Markdown LSP is a mess
+* ❌ relative line numbers too dark
+* ❌ treats single line as n lines
+```txt
+Q: in Vim, a single line of text is treated as such i.e. pressing the down arrow (or the j key) takes you to the next line. in a browser or word processor, the down arrow takes you to the *visually represented* next line, regardless if it is in fact a new line of text. im playing around with Neovim and it's acting like a word processor, not a browser. how do i get it to act like proper vim?
+A: What you're experiencing is Neovim's behavior when line wrapping is enabled. When lines are wrapped, Neovim treats the visual representation of a wrapped line as separate chunks when navigating with the arrow keys (<Down>, <Up>) or j/k.
+```
+```lua
+vim.opt.wrap = false
+vim.api.nvim_create_autocmd("BufWinEnter", {
+    pattern = "*",
+    callback = function()
+        vim.opt.wrap = false
+    end,
+})
+```
 ## options
 
 ---

@@ -310,7 +310,11 @@ request flow
 
 ## fly.io
 
+> you have account tied to personal Github https://github.com/settings/connections/applications/Iv1.6b93b0cce72780ec
+
 * _Fly.io_: 🎯 https://www.youtube.com/watch?v=0eP98xkLj9w https://django-simple-deploy.readthedocs.io/en/latest/
+
+---
 
 ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
 * _Coolify_: https://coolify.io/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
@@ -339,6 +343,8 @@ https://cba.mit.edu/
 * _Platform.sh_: https://platform.sh/ https://django-simple-deploy.readthedocs.io/en/latest/
 
 ## railyway
+
+> you have account tied to personal Github
 
 https://railway.com/
 
@@ -371,7 +377,7 @@ CONSIDERATIONS
 
 ## Dokku
 
-* _Dokku_: 🎯 https://github.com/dokku/dokku https://dokku.com/
+* _Dokku_: 🎯 https://github.com/dokku/dokku https://dokku.com/ https://github.com/ankane/blazer https://blazer.dokkuapp.com/
 
 ## Kamal
 

@@ -336,11 +336,13 @@ deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/32
 
 * if you opt out of autoupdate, Brew won't find the most recent version of packages
 ```sh
-export HOMEBREW_NO_AUTO_UPDATE=1
-
 # A new release of gh is available: 2.57.0 → 2.64.0. To upgrade, run: brew upgrade gh.
 $ brew upgrade gh
 Warning: gh 2.57.0 already installed
+
+# fix: unset this variable and then restart the shell
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 ```
 * hard to find older pkg versions in Homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
 > brew cleanup works against this
@@ -552,6 +554,7 @@ TOOLS
 
 ---
 
+* add dir to path https://jvns.ca/blog/2025/02/13/how-to-add-a-directory-to-your-path/
 * https://wizardzines.com/comics/path-tips/ https://simonw.substack.com/p/video-scraping-using-google-gemini
 * https://blog.izissise.net/posts/env-path/
 * `$PATH`: list of directories that the shell should search when looking for programs corresponding to commands entered by the user [LPI 2.7]

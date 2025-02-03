@@ -16,7 +16,13 @@
 
 ## 进步
 
-* Polars seed data in dotfiles and read by python startup
+CAPP
+- [x] ✅ Datasette
+> add AI
+- [x] ❌ Preset: CSV upload goofiness, ok to connect Steersman read-replica?
+- [x] ❌ Hex: powerful but too much for business users
+- [ ] Metabase: work through free trial
+
 * canonical datasets
 * where to store your data (email? google drive? repo/csvbase? ⭐️ hugging face? metadata mgmt?)
 
@@ -31,65 +37,137 @@
 * `math.md` stat / distributions
 * `python/feedback.md` notebooks
 
+MAYBE
+* _Hex_: free to start, great UI but kinda overwhelming https://hex.tech/ https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift
+* _Lightdash_: $800/month https://github.com/lightdash/lightdash
+* _Redash_: no pricing https://github.com/getredash/redash
+* _Tableau_: https://news.ycombinator.com/item?id=30323131 https://news.ycombinator.com/item?id=39519145
+
+NOTEBOOKS
+* _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872
+* _PyGWalker_: 🎯 https://github.com/Kanaries/pygwalker https://github.com/Kanaries/graphic-walker https://graphic-walker.kanaries.net/
+* _Quary_: VS Code extension https://github.com/quarylabs/quary
+* _Taipy_: for pipelines? https://github.com/Avaiga/taipy https://www.youtube.com/watch?v=phhnakHSNEE
+
+MORE SPECIFIC USE CASES
+* _dash_: build charts for sites https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
+* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
+* callback = update chart, control = hit callback https://dash.plotly.com/tutorial#controls-and-callbacks
+* Dash Design Kit (DDK) = no need for HTML/CSS
+* _perspective_: streaming https://github.com/finos/perspective https://perspective.finos.org/
+* _SQL Explorer_: Django https://github.com/explorerhq/django-sql-explorer
+> Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
+
+MEH
+* _Blazer_: too close to Datasette https://github.com/ankane/blazer
+* _Data Formulator_: probably going nowhere https://github.com/microsoft/data-formulator https://news.ycombinator.com/item?id=41907719
+* _Dataherald_: 💀 AI query https://github.com/Dataherald/dataherald
+* _Datalens_: run locally, from Yandex https://datalens.tech/ https://news.ycombinator.com/item?id=37657772
+* _Looker_: Google https://www.cobry.co.uk/looker-vs-looker-studio
+* _Poli_: 💀 https://github.com/shzlw/poli
+* _shiny_: R https://rstudio.github.io/shinydashboard https://training.talkpython.fm/courses/reactive-web-dashboards-with-shiny-for-data-science https://www.maximum-progress.com/p/economics-is-a-field-of-software
+* _streamlit_: interesting paradigm https://streamlit.io/ Hugging Face integration https://huggingface.co/docs/hub/spaces
+
+SPACE
+* _business intelligence (BI)_: SQL (devs) + explorer (non-devs) + charting
+* SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
 > Analysis, even SQL-based analysis, isn't like design, where a handful of people create stuff and everyone else is a consumer, with clear lines between them. It's much, much fuzzier. Though analysts were always our first adopters, lots of people - PMs, engineers, marketing managers, executives, support agents, operations leads, and all job titles in between - periodically wrote queries. These people occupied the middle part of the distribution between analysts and non-analysts that we thought would be vacant. Users weren't bimodal like we expected, but continuous. https://benn.substack.com/p/work-like-an-analyst
+
+## briefer
+
+* _Briefer_: https://github.com/briefercloud/briefer
+
+* pricing: free self-host | $130/month https://docs.briefer.cloud/deployment/vm
+* great docs, SQL/notebook centric
+* design https://pythonbytes.fm/episodes/show/405/oh-really
+* smart team, SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
+
+## chartbrew
+
+https://github.com/chartbrew/chartbrew
+
+## 📼 Datasette
+
+📜 https://datasette.io/
+
+EXTENSIONS
+* mgmt https://datasette.io/plugins/datasette-packages
+```sh
+poetry run datasette install datasette-dashboards
+poetry run datasette uninstall datasette-dashboards
+```
+* _dashboards_: ✅ https://datasette.io/plugins/datasette-dashboards https://github.com/zachvalenta/datasette-for-BI
+* homepage i.e. doesn't go to dashboards by default https://datasette-dashboards-demo.vercel.app/
+* alternatives https://datasette.io/plugins/datasette-nteract-data-explorer
+
+ZA
+* customizing CSS https://docs.datasette.io/en/stable/custom_templates.html
+* maybe has autocomplete? https://github.com/simonw/datasette/issues/1614
 
 ---
 
-CANDIDATES FOR CAPP https://chatgpt.com/c/674796f6-286c-8004-b0d5-6ae4d0decccc
-* https://github.com/finos/perspective https://perspective.finos.org/
-* https://github.com/datasette/datasette-queries
-* Metabase
+datasette install datasette-dashboards
 
-* Claude data analysis tool
-* AI / plain English https://news.ycombinator.com/item?id=41907719
+BASICS
+* https://calmcode.io/course/datasette/introduction
+* https://datasette.io/for/exploratory-analysis
+* SQLite only https://github.com/simonw/datasette/issues/670
 
-* _business intelligence (BI)_: explorer (for non-devs) + graphs
-* SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
-* reports with Quarto https://www.youtube.com/watch?v=Q3phTByW138
+EXTENSIONS
+* UI: homepage https://datasette.io/plugins/datasette-homepage-table https://github.com/cldellow/datasette-ui-extras https://datasette.io/plugins/datasette-hovercards https://datasette.io/plugins/datasette-sitemap https://datasette.io/plugins/datasette-query-links https://datasette.io/plugins/datasette-css-properties
+* saved queries https://github.com/datasette/datasette-queries
+* hosting https://datasette.io/plugins/datasette-publish-vercel https://datasette.io/plugins/datasette-publish-fly https://datasette.io/plugins/datasette-scale-to-zero https://datasette.io/plugins/datasette-gunicorn https://datasette.io/plugins/datasette-codespaces
+* auth https://datasette.io/plugins/datasette-redirect-forbidden https://datasette.io/plugins/datasette-auth0 https://datasette.io/plugins/datasette-matomo https://datasette.io/plugins/datasette-ephemeral-tables https://datasette.io/plugins/datasette-permissions-sql https://datasette.io/plugins/datasette-mask-columns https://github.com/kviklet/kviklet
+* charts https://datasette.io/plugins/datasette-plot https://datasette.io/plugins/datasette-seaborn https://datasette.io/plugins/datasette-statistics
+* markdown https://datasette.io/plugins/datasette-render-markdown
+* AI https://datasette.io/plugins/datasette-column-inspect https://datasette.io/plugins/datasette-jupyterlite https://datasette.io/plugins/datasette-export-notebook https://datasette.io/plugins/datasette-chatgpt-plugin https://datasette.io/plugins/datasette-explain https://datasette.io/plugins/datasette-query-assistant https://datasette.io/plugins/datasette-ml https://datasette.io/plugins/datasette-llm-embed https://datasette.io/plugins/datasette-enrichments-gpt https://datasette.io/plugins/datasette-openai
+* search https://datasette.io/plugins/datasette-search-all https://datasette.io/plugins/datasette-configure-fts https://datasette.io/plugins/datasette-ripgrep https://datasette.io/plugins/datasette-jq https://datasette.io/plugins/datasette-faiss https://datasette.io/plugins/datasette-jellyfish
+* web https://datasette.io/plugins/datasette-cors
+* comments https://datasette.io/plugins/datasette-comments
+* views https://datasette.io/plugins/datasette-create-view https://datasette.io/plugins/datasette-saved-queries
+* IO https://datasette.io/plugins/datasette-export https://datasette.io/plugins/datasette-import https://datasette.io/plugins/datasette-export-database https://datasette.io/plugins/datasette-upload-dbs https://datasette.io/plugins/datasette-chronicle
+* telemetry https://datasette.io/plugins/datasette-tail https://datasette.io/plugins/datasette-schema-versions https://datasette.io/plugins/datasette-pyinstrument https://datasette.io/plugins/datasette-query-history https://datasette.io/plugins/datasette-total-page-time https://datasette.io/plugins/datasette-psutil https://datasette.io/plugins/datasette-sentry https://datasette.io/plugins/datasette-visible-internal-db
+* audio! https://datasette.io/plugins/datasette-mp3-audio
 
-TOOLS / DASHBOARDS
-* RAG https://github.com/vanna-ai/vanna
-* _Blazer_: https://github.com/ankane/blazer
-* _Briefer_: https://github.com/briefercloud/briefer https://pythonbytes.fm/episodes/show/405/oh-really
-* _Dataherald_: query using natural language via LLM https://github.com/Dataherald/dataherald
-* _Datalens_: 🎯 run locally https://datalens.tech/ https://news.ycombinator.com/item?id=37657772
-* _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872
-* _Hex_: https://hex.tech/ https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift
-* _Lightdash_: Kubernetes https://github.com/lightdash/lightdash
-* _Looker_: Looker Studio is the free dashboard component
-> Everything builds on top of Looker. Looker Studio is a way to access and build reports on that trusted, underlying data model. https://www.cobry.co.uk/looker-vs-looker-studio
-* _Kviklet_: queries + perms https://github.com/kviklet/kviklet
+* https://github.com/simonw/datasette-upload-csvs
+* https://github.com/simonw/dclient
+* https://github.com/datasette/datasette-create-view
+* https://github.com/simonw/sqlite-utils-ask
+* https://github.com/datasette/datasette-query-assistant
+
+## Metabase
+
 * _Metabase_: 🎯 popular https://news.ycombinator.com/item?id=30323131 https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift https://news.ycombinator.com/item?id=37661872
-* _Poli_: local, Java https://github.com/shzlw/poli
-* _PyGWalker_: https://github.com/Kanaries/pygwalker
-* _Quary_: VS Code extension https://github.com/quarylabs/quary
-* _Redash_: cloud deploy https://github.com/getredash/redash
-* _Retool_: 🎯 https://retool.com/blog/how-to-build-a-sql-gui
-* _Tableau_: via Pandas https://github.com/Kanaries/pygwalker Markdown https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=39519145
-* _SQL Explorer_: 🎯 https://github.com/explorerhq/django-sql-explorer
-> Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
-* _Superset_: 🎯 popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset https://news.ycombinator.com/item?id=37661872
-* _Taipy_: https://github.com/Avaiga/taipy
+https://www.youtube.com/watch?v=j_4vI2bm6-8
 
-## dash
+## 🪶 Superset
 
-📜 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
+📜 https://superset.apache.org/
 
-* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
-* _callback_: update chart https://dash.plotly.com/tutorial#controls-and-callbacks
-* _control_: hit callback
-* _Dash Design Kit (DDK)_: no need for HTML/CSS
+```sh
+# SETUP TO RUN CONTAINERS
+brew install docker
+brew install docker-compose
+brew install colima
+colima start
+# SUPERSET
+git clone --depth=1  https://github.com/apache/superset.git
+docker-compose up --build
+# build blew up bc needed lots of mem
+# what you'd do if you had a machine with more free memory
+colima stop
+colima start --memory 4 --cpu 4
+```
 
-## shiny
+* _Preset_: hosted Superset https://preset.io/
+* pricing: free for 5 users, $20/user/month
+* catch-22 around using CSVs where they needed to be uploaded to a database but you couldn't create database without creds
+* bad customer support
 
-* https://training.talkpython.fm/courses/reactive-web-dashboards-with-shiny-for-data-science
-* https://www.maximum-progress.com/p/economics-is-a-field-of-software
+---
 
-## streamlit
-
-https://streamlit.io/
-
-Hugging Face integration https://huggingface.co/docs/hub/spaces
+* https://news.ycombinator.com/item?id=37657772
+* https://news.ycombinator.com/item?id=37661872
 
 # 💿 DATA
 
@@ -278,7 +356,69 @@ S3OW,motorola,325
 
 # 🛠️ TOOLING
 
+🔗 https://github.com/mgramin/awesome-db-tools
 🗄️ `protocols.md` file fmt
+
+## EDA
+
+💻 https://github.com/zachvalenta/wd
+> just learn how to use visidata better
+
+IN THE RIGHT DIRECTION
+```sh
+datasette inspect db.sqlite
+```
+* https://docs.datasette.io/en/stable/facets.html
+* https://github.com/lux-org/lux
+*️ https://github.com/vanna-ai/vanna
+* https://www.visidata.org/docs/api/
+
+FIND NULL COLS
+> rn polars/pandas seems like the most straightforward option, maybe write CLI for this and add to fkfind
+* _visidata_: histogram
+* _xsv_: frequency
+```sh
+xsv select 'Manufacturer Name' results.csv | xsv frequency
+
+field,value,count
+Manufacturer Name,NMS - Not Manufacturer Specific,723
+Manufacturer Name,Banner Engineering Corp.,445
+Manufacturer Name,TBD - To Be Determined,384
+Manufacturer Name,(NULL),190
+```
+FIND DUPES
+```sql
+select entity.pn, count(*) from entity
+group by pn having count(*) > 1;
+```
+
+---
+
+is AI just bad at this? https://chiraaggohel.com/posts/llms-eda/
+
+> there's got to be a less manually way to do this -> I have a bunch of CSVs. Is there an automated way to: figure out where all the foreign keys are and document the schema with a plaintext ERD?
+
+FKFIND
+* https://code.visualstudio.com/docs/datascience/data-wrangler
+* https://github.com/zachvalenta/capp-datalab#entity
+* pypi pkg, Rust CLI, sqlite extension <https://github.com/pyo3/pyo3>
+```txt
+SQLite allows custom functions, virtual tables, and collation sequences using dynamically loaded extensions (.so files). You can:
+* Write an SQLite extension in Rust using pyo3 to call Python.
+* Use rusqlite to write native Rust extensions.
+* Use pysqlite3 for Python-based function injection.
+
+Approach:
+* Write a Rust-based shared library using pyo3.
+* Use sqlite3_create_function() to expose Python-backed SQL functions.
+* Compile the Rust extension (.so file) and load it in SQLite using .load.
+```
+```sql
+-- SEE ALL POTENTIAL JOIN KEYS BETWEEN TABLES
+select column_name, data_type 
+from information_schema.columns 
+where table_name in ('mars', 'products', 'catalog');
+```
 
 EDA JOINS + SQL FROM SHELL
 * ❓ _sqlite_: + litecli
@@ -303,6 +443,8 @@ dsq "SELECT a.col1, b.col2 FROM a AS a JOIN b AS b ON a.id = b.id;" a.csv b.csv
 https://github.com/zachvalenta/capp-crudite
 https://github.com/zachvalenta/capp-looker
 https://github.com/zachvalenta/capp-the-crud
+
+https://datasette.io/plugins/sqlite-fastrand
 
 CONVERSION / GENERATION
 * tabular to JSON https://github.com/jazzband/tablib
@@ -399,41 +541,30 @@ SELECT * FROM pragma_foreign_key_list('reading');
 
 🗄️ `python/feedback.md` notebook
 
----
-
 OPTIONS
 * NoSQL: Table Plus https://news.ycombinator.com/item?id=22908224 DbGate https://github.com/dbgate/dbgate
 * SQLite: DB4S https://github.com/sqlitebrowser/sqlitebrowser https://github.com/coleifer/sqlite-web https://sqlitestudio.pl/
 * Postgres: pgAdmin, PGweb https://github.com/centerofci/mathesar
 * _Beekeeper_: $7/month https://www.beekeeperstudio.io/
-* _Datagrip_: 🎯 $10/month, ERD https://www.jetbrains.com/datagrip/
-* _Datasette_: 🎯 SQLite only https://github.com/simonw/datasette/issues/670 https://github.com/simonw/datasette-upload-csvs https://github.com/simonw/dclient https://github.com/datasette/datasette-create-view https://github.com/simonw/sqlite-utils-ask https://github.com/datasette/datasette-query-assistant https://calmcode.io/course/datasette/introduction
+* _Datagrip_: 🎯 $45/month with AI, ERD https://www.jetbrains.com/datagrip/
 * _DBeaver_: OSS, ERD https://dbeaver.io/ https://stackoverflow.com/a/48397209
-* _Outerbase_: 🎯 browser https://github.com/outerbase/studio https://news.ycombinator.com/item?id=42320032
+* _Mathesar_: 🎯 web app to make using Postgres friendly https://github.com/mathesar-foundation/mathesar
+* _Outerbase_: browser https://github.com/outerbase/studio https://news.ycombinator.com/item?id=42320032
 * _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
-
-FEATURES
-* notebooks https://github.com/electroly/sqlnotebook
-* autocomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
-* follow FKs https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
-* data catalog https://harlequin.sh
-* ERD 🗄 `info.md` viz / entities / ERD
-* _query editor_: save, autocomplete
-* _results viewer_: result set
+* _WhoDB_: 🎯 AI https://whodb.clidey.com/docs/
 
 ## 🍞 miller
 
 🗄️ `os/tools.md` string processing
 📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
 
-FILTERING
+PIPELINES
 ```sh
-filter '$header != ""' $CSV  # filter out nulls
-```
-
-ZA
-```sh
-mlr --csv put '$col = int($col)'  # cast type from int to float
+cat $CSV | mlr --csv put '$col = int($col)' > $CSV  # cast type from int to float
+filter 'is_null($col)' $CSV                         # filter nulls https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
+filter '$header != ""' $CSV                         # filter out nulls
+mlr --csv filter '$col != ""' $CSV                  # filter out empty strings
+mlr --csv filter '$price_list != ""' final.csv
 ```
 
 CONFIG https://miller.readthedocs.io/en/latest/customization/
@@ -478,19 +609,26 @@ filter '$earnings > 0.0' example.csv
 
 📜 https://www.dbcli.com/
 
-ZA
+LITECLI
+* config: `~/.config/litecli/config` https://litecli.com/config/
 ```sh
 litecli $DB  # open
+.schema      # all schemas
 ```
 
-CONFIG
-* fs: `~/.config/litecli/config` https://litecli.com/config/
-
 PGCLI
-* install https://github.com/dbcli/pgcli/issues/1413#issuecomment-2028781741
 ```sh
+# install https://github.com/dbcli/pgcli/issues/1413#issuecomment-2028781741
 $ pipx install pgcli
 $ pipx inject pgcli psycopg_binary
+# connect
+pgcli postgresql://$USER:$PW@$HOST:$PORT/$DB
+# dump table to CSV
+\COPY (SELECT * FROM $TBL LIMIT 100) TO '$TBL.csv' WITH CSV HEADER;
+# as snippet
+[alias_dsv]
+$TBL = "\COPY (SELECT * FROM {0} LIMIT 100) TO '{0}.csv' WITH CSV HEADER"
+\d $TBL product_template
 ```
 
 ---
@@ -542,6 +680,7 @@ ALTERNATIVES
 * _pysheets_: 🎯 uses pyodide https://pysheets.app/about https://realpython.com/podcasts/rpp/226/
 * _sc-im_: 🎯 clone TUI https://github.com/andmarti1424/sc-im
 * _visicalc_: predecessor to Lotus123, Excel http://www.paulgraham.com/mac.html
+* _SocialCalc_: pre-visicalc? https://aosabook.org/en/v1/socialcalc.html https://aosabook.org/en/posa/from-socialcalc-to-ethercalc.html
 * _UltOrg_: spreadsheet on top of dbms https://news.ycombinator.com/item?id=30868696 🔍 `Ultorg beta`
 
 📊 EXCEL
@@ -593,26 +732,40 @@ rows $DB $TBL --csv > $CSV                   # export
 schema $DB                                   # validate schema
 ```
 
-## TUI (harlequin)
+## TUI
+
+BYO / REQUIREMENTS
+* query editor: vi mode readline
+* automcomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
+* ERD 🗄 `info.md` viz / entities / ERD
+* schema documentation https://www.querybook.org/
+* analytics guide
+* notebooks https://github.com/electroly/sqlnotebook
+* AI https://whodb.clidey.com/docs/ https://whodb.clidey.com/docs/usage-houdini/what-is-houdini
+* numeric pane navigation
+* _query editor_: save, autocomplete
+* _results viewer_: result set
+
+FEATURES
+* follow FKs https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
+* data catalog https://harlequin.sh
 
 TUI
+* _dblab_: no readline https://github.com/danvergara/dblab
 * _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
-* _harlequin_: ✅ query editor https://harlequin.sh
-* _GoBang_: perpetual alpha https://github.com/TaKO8Ki/gobang
+* _lazysql_: keybindings look goofy https://github.com/jorgerojas26/lazysql
+* _GoBang_: 💀 https://github.com/TaKO8Ki/gobang
 * _rainfrog_: Postgres https://github.com/achristmascarl/rainfrog https://www.youtube.com/watch?v=qURrmEzsKH8
 
----
-
-* compare queries across dbms https://github.com/rickbergfalk/sqlpad
-* AI https://whodb.clidey.com/
-* for Postgres https://github.com/mathesar-foundation/mathesar
-
 HARLEQUIN 📜 https://harlequin.sh
-> need to first fix the visidata command in Makefile to generate SQLite db from CSV
-> or try this https://github.com/danvergara/dblab
-* have to import CSV files after opening harlequin? import via data catalog? via `conn_str = ["local.db"]`? https://github.com/tconbeer/harlequin/discussions/314
-* profiles: sqlite, duckdb, postgres
-* Django https://adamj.eu/tech/2024/05/07/django-harlequin/
+* good UI (example of non-cartoonish Textual)
+* ❌ query editor: no vi readline
+* ❌ docs not searchable
+* bad default keybindings (c.f. 'data catalog') https://harlequin.sh/docs/getting-started/usage
+* need config to get Vim keybindings (dunno if you can nav btw panes like lazygit) https://harlequin.sh/docs/keymaps/index https://harlequin.sh/docs/keymaps/config https://github.com/tconbeer/harlequin/discussions/422
+* can't open CSV from CLI https://github.com/tconbeer/harlequin/discussions/314
+* config profiles for diff dbms
+* use in Django https://adamj.eu/tech/2024/05/07/django-harlequin/
 
 ## ❎ xsv
 
@@ -631,6 +784,7 @@ select "header" $CSV  # select all from header
 # EDA
 xsv slice -i 0 $CSV | xsv flatten  # get line of data and display as two columns
 xsv sample 50 $CSV                 # get sampled subset
+stats $CSV | xsv table             # stats (sum, min, max)
 ```
 
 ---
@@ -639,7 +793,6 @@ xsv sample 50 $CSV                 # get sampled subset
 count songs.csv # count records
 split -s <records_per_file> <output-dir> <csv> # split into n files
 search -i -s "header" "query" $CSV # search within header (case insensitive)
-stats <table> | xsv table # stats (sum, min, max)
 ```
 
 # 🟦 VISIDATA
@@ -683,7 +836,6 @@ CONFIG https://github.com/zachvalenta/dotfiles/blob/7f843714b3c3d6eb531dfb292e91
 
 ---
 
-https://datasette.io/for/exploratory-analysis
 https://cosimameyer.com/post/2024-09-05-pythonistr-a-match-made-in-data-heaven/
 https://github.com/cosimameyer/overviewpy
 
@@ -709,6 +861,11 @@ https://www.youtube.com/playlist?list=PLxu7QdBkC7drrAGfYzatPGVHIpv4Et46W
 
 📜 https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
 
+SELECTION
+> be nice to pop into the column sheet and select from there
+* hide
+* rm in the column sheet https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#manipulating-columns-from-the-columns-sheet
+
 FILTER https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
 * `|` + query
 > use `^` for exact matches; you got burned by searching `valid` when column values had both `valid` and `invalid` i.e. you needed to search `^valid`
@@ -719,6 +876,7 @@ CREATE/UPDATE
 * create blank: `za` https://jsvine.github.io/intro-to-visidata/intermediate/creating-new-columns
 * rename: `^`
 * type: `~` text `%` float `#` int `$` currency `@` date https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types
+> need to set type for sort to work correctly
 * aggregation: `z+` https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
 
 NAV
@@ -772,6 +930,8 @@ ZA
 * edit w/ regex: `g*` https://www.youtube.com/watch?v=l2Bpmm0yAGw 4:24 https://www.visidata.org/docs/edit/
 
 ## sheets
+
+* columns sheet: `C`
 
 ---
 

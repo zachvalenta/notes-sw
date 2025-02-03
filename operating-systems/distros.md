@@ -246,7 +246,7 @@ arch  # arm64 w/out Rosetta
 BATTERY
 * used to be known as 'energy saver'
 * turn display off after 30 mins
-* prevent computer from sleeping automatically
+* prevent computer from sleeping automatically https://github.com/stigoleg/keep-alive
 
 DOCK
 * rm extas

@@ -272,6 +272,7 @@ ZA
 
 ---
 
+https://simonwillison.net/2025/Feb/7/sqlite-s3vfs/
 alternative https://pinata.cloud/
 https://github.com/s3tools/s3cmd https://tech.marksblogg.com/website-cdn-with-pelican-and-s3cmd.html
 https://blog.plerion.com/things-you-wish-you-didnt-need-to-know-about-s3/

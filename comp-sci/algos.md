@@ -1003,9 +1003,20 @@ for _ in range(5):
 * Christian ch. 3
 * Conery ch. 8
 
-* natural: e.g. `2.txt` before `10.txt` https://github.com/triyanox/lla
-
 ---
+
+semantic https://simonwillison.net/2025/Feb/11/llm-sort/
+
+TYPES
+* natural: e.g. `2.txt` before `10.txt` https://github.com/triyanox/lla
+```python
+# lexicographic
+sorted(['40', '15', '100'])  # ['100', '15', '40']
+# numeric
+sorted(['40', '15', '100'], key=int)  # ['15', '40', '100']
+# natural
+["a1", "a10", "a2"]  # ["a1", "a2", "a10"]
+```
 
 QUICKSORT https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsort
 * strat: D&C via partition 📙 Bhargava 4.65 https://stackoverflow.com/q/164163

@@ -211,6 +211,14 @@ CONFIG
 
 ## compose
 
+```sh
+# then
+docker-compose
+# now
+docker compose
+```
+---
+
 🔍 https://github.com/docker/awesome-compose
 📜
 * https://docs.docker.com/compose/
@@ -422,6 +430,8 @@ VMWARE
 * no Podman support
 
 ---
+
+* alternative https://news.ycombinator.com/item?id=42908061
 
 > Developers on macOS who need a container runtime but don’t want Docker Desktop.
 

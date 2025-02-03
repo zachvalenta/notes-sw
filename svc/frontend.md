@@ -26,7 +26,7 @@ TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-develop
 * _CRUD-and-forms_: Django https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/ 
 * _vanilla_: https://github.com/bradtraversy/vanillawebprojects https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies
 * _HTML-only_: htmx
-* _jQuery-esque_: https://arp242.net/jquery.html Alpine https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/#building-interactive-interfaces-in-your-django-pages-with-alpinejs https://news.ycombinator.com/item?id=36697366 https://news.ycombinator.com/item?id=39580843 https://drewdevault.com/2013/08/19/You-dont-need-jQuery.html
+* _jQuery-esque_: https://arp242.net/jquery.html Alpine https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/#building-interactive-interfaces-in-your-django-pages-with-alpinejs https://news.ycombinator.com/item?id=36697366 https://news.ycombinator.com/item?id=39580843 https://drewdevault.com/2013/08/19/You-dont-need-jQuery.html alpine with htmx https://www.youtube.com/watch?v=vLB7r8neQvE
 * _React-esque_: Vue, Angular, Remix https://remix.run/
 * _React-lite_: Mithril https://mithril.js.org https://news.ycombinator.com/item?id=24368689 Svelte https://svelte.dev/ https://news.ycombinator.com/item?id=24363261
 * _full-stack_: Next, Redwood, sock-puppet, Remix https://macwright.com/2020/10/28/if-not-spas.html https://www.youtube.com/watch?v=hHWgGfZpk00
@@ -74,7 +74,7 @@ taxonomy
 📜
 > https://pragprog.com/titles/mvhtmx/server-driven-web-apps-with-htmx/
 * https://htmx.org/
-* https://hypermedia.systems/book/contents/
+* https://hypermedia.systems/book/contents/ https://www.amazon.com/REST-Practice-Hypermedia-Systems-Architecture/dp/0596805829
 🗄
 * `lang/python/flask/htmx-demo`
 * `application.md`
@@ -83,6 +83,7 @@ taxonomy
 
 ---
 
+ https://fluxsec.red/how-I-developed-a-markdown-blog-with-go-and-HTMX
 * PETAL, Alpine, LiveView, Hotwire, htmx https://news.ycombinator.com/item?id=30325030 https://www.thoughtworks.com/radar/techniques?blipid=202203006 https://news.ycombinator.com/item?id=42711387
 great core team https://news.ycombinator.com/item?id=42616476
 if you try to do fancy stuff it will fight you https://news.ycombinator.com/item?id=42615472
@@ -476,6 +477,7 @@ FRAMEWORKS
 * _halfmoon_: https://github.com/redimp/otterwiki
 * _Magick_: sidenotes https://css.winterveil.net/
 * _mpv_: 🎯 https://calmcode.io/shorts/mvp.css
+* _pico_: 🎯 https://picocss.com
 * _Pure_: 🎯 https://purecss.io/
 * _Tailwind_: https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/ for TUIs https://github.com/koaning/tuilwindcss https://calmcode.io/labs/tuilwind-css https://news.ycombinator.com/item?id=42799136
 * _water_: ✅ https://github.com/kognise/water.css https://github.com/kognise/water.css/issues/160 

@@ -361,6 +361,7 @@ https://www.roguelynn.com/words/explain-like-im-5-kerberos/ https://web.mit.edu/
 
 ### LDAP
 
+* https://github.com/Macmod/godap
 * _LDAP_: protocol to store/query directory of users/groups/perms; used for both authorization and authentication; services that use LDAP incl Active Directory and OpenLDAP https://news.ycombinator.com/item?id=23868081 https://news.ycombinator.com/item?id=32053961
 ```yaml
 # https://www.youtube.com/watch?v=G6OhnMDU1J4

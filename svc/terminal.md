@@ -232,6 +232,7 @@ ur_in = input()
 * `os/tools.md` browsr
 
 TUI
+* Rust renaissance https://www.youtube.com/watch?v=OxfxkWoHhxM
 * https://news.ycombinator.com/item?id=40273177
 * _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
 * ncurses
@@ -284,6 +285,7 @@ python json_tree.py
 
 PROJECTS THAT USE
 * https://github.com/thetacom/hexabyte
+* Harlequin (UI almost as slick as lazydocker)
 
 ---
 
@@ -394,7 +396,10 @@ gum style --foreground 212 --border-foreground 212 --border double \
 
 ## 💰 rich
 
-📜 https://github.com/Textualize/rich https://github.com/zachvalenta/dotfiles-mini23/blob/main/python/python_startup.py
+📜 https://github.com/Textualize/rich
+💻
+* https://github.com/zachvalenta/dotfiles-mini23/blob/main/python/python_startup.py
+* https://github.com/zachvalenta/learn-econ-with-python
 
 * html https://github.com/willmcgugan/willmcgugan/blob/master/willmcgugan.py
 * to try: repr for obj https://rich.readthedocs.io/en/latest/pretty.html#rich-repr-protocol
@@ -424,3 +429,10 @@ OUTPUT
 * colors https://github.com/timofurrer/colorful https://github.com/erikrose/blessings
 * syntax highlighting https://github.com/pygments/pygments
 * tables https://github.com/astanin/python-tabulate https://realpython.com/python-rich-package/
+```txt
+dim - Dimmed text
+reverse - Reverse colors
+blink - Blinking text
+strike - Strikethrough
+italic - Italicized text
+```

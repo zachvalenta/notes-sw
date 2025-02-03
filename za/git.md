@@ -361,6 +361,7 @@ https://docs.github.com/en/github/searching-for-information-on-github/searching-
 ---
 
 CLEANUP
+* https://beej.us/guide/bggit/html/split/
 * https://smusamashah.github.io/explain-git-in-simple-words
 * http://www-cs-students.stanford.edu/~blynn/gitmagic/
 * https://thoughtbot.com/upcase/mastering-git
@@ -439,7 +440,7 @@ HISTORY https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 > used by Facebook, Unity https://news.ycombinator.com/item?id=20745393
 > Mercurial design https://news.ycombinator.com/item?id=18029498
 * Git for everything https://news.ycombinator.com/item?id=30522175
-* _fourth generation_: https://github.com/martinvonz/jj https://tonyfinn.com/blog/jj/ https://v5.chriskrycho.com/essays/jj-init/ https://news.ycombinator.com/item?id=42310386
+* _fourth generation_: https://github.com/martinvonz/jj https://news.ycombinator.com/item?id=42934427 https://tonyfinn.com/blog/jj/ https://v5.chriskrycho.com/essays/jj-init/ https://news.ycombinator.com/item?id=42310386
 > Jujutsu is a version control system. They aim to be independent at some point but for now it is a heady frontend on top of git (a big advantage – all of your existing git repos and tools are trivially compatible with it). https://drewdevault.com/2024/12/10/2024-12-10-Daily-driving-jujutsu.html
 
 LINKABLE LIBRARIES 🗄 `python.md` Git
@@ -937,7 +938,9 @@ USE https://dev.to/srebalaji/useful-tricks-you-might-not-know-about-git-stash-11
 
 ## undo
 
+* unstage: `git reset`
 * undo local commit: `git reset HEAD~` https://stackoverflow.com/a/927386
+* undo updates to already staged file: `git restore $FPATH`
 
 ---
 

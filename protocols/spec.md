@@ -399,6 +399,7 @@ Conflicts with:
 
 ---
 
+* internals https://github.com/desgeeko/pdfsyntax/blob/main/docs/browse.md https://news.ycombinator.com/item?id=43000303
 * https://realpython.com/pdf-python/
 * https://github.com/Halolegend94/pdf4py
 * Sioyek https://news.ycombinator.com/item?id=34069804
@@ -747,7 +748,7 @@ import string
 ```
 * _SKU_: internal ID; variable length, fmt repr product characteristics/location
 * _UPC_: external ID i.e. unique across retailers
-* GS1 oversees UPCs + GLN (global location number) SSCC (shipping containers) GTIN (UPC superset) https://www.gs1.org/
+* GS1 oversees UPCs + GLN (global location) NSN (national stock) EAN (European article) SSCC (shipping containers) GTIN (UPC superset) https://www.gs1.org/
 ```sh
 # syntax: manufacturer + product + check digit (proof of correct reading of previous digits)
 049000000156  # coke classic 12 oz can

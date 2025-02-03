@@ -15,6 +15,7 @@ assert_debug_snapshot!(my_func());
 # I don’t need to explicitly save or load snapshot files. The framework handles it automatically!
 ```
 
+* https://www.inkandswitch.com/ambsheets/
 * start here https://github.com/okken/cards
 * test heatmap https://threedots.tech/post/go-test-parallelism/
 * literate testing, literate programming https://simonw.substack.com/p/video-scraping-using-google-gemini
@@ -232,7 +233,7 @@ AUTOMATION
 * _Helium_: https://news.ycombinator.com/item?id=42386971
 * _Puppeteer_: https://github.com/puppeteer/puppeteer https://switowski.com/blog/web-automation/
 * _Selenium_: https://github.com/SeleniumHQ/selenium
-* _Playwright_: https://github.com/microsoft/playwright-python https://talkpython.fm/episodes/show/368/end-to-end-web-testing-with-playwright https://www.sakisv.net/2024/08/tracking-supermarket-prices-playwright/ https://til.simonwillison.net/playwright/testing-tables https://calmcode.io/course/playwright/introduction
+* _Playwright_: https://github.com/microsoft/playwright-python https://talkpython.fm/episodes/show/368/end-to-end-web-testing-with-playwright https://www.sakisv.net/2024/08/tracking-supermarket-prices-playwright/ https://til.simonwillison.net/playwright/testing-tables https://calmcode.io/course/playwright/introduction https://blog.frankel.ch/first-steps-playwright/
 
 ## db
 

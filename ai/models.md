@@ -11,7 +11,8 @@
 
 ## 进步
 
-https://openai.com/index/introducing-deep-research/
+https://openai.com/index/introducing-deep-research/ https://x.com/mckaywrigley/status/1886215847481623030 https://x.com/felipe_millon/status/1886205433469178191 https://thezvi.substack.com/p/were-in-deep-research https://x.com/sayashk/status/1887275315824660584 https://www.fromthenew.world/p/openai-deep-research-explains-itself https://x.com/patrickc/status/1888312657146757315 https://stratechery.com/2025/deep-research-and-knowledge-value/
+> OpenAI made a big splash launching ‘Deep Research’, an agent-ish tool within the $200 Pro plan that uses a version of the computationally-intensive (and expensive) o3 ‘reasoning’ model to write research reports, coming back in a few hours when it’s done. As for most generative AI demos, very cool if you have that use case, but you have to be careful - I spotted some large mistakes even in one of the examples on the marketing page (in a field I know a lot about). I always used to compare machine learning to ‘infinite interns’ and now you can ask an AI intern to write a long report about something - but you’ll need to check every line of it, and it probably won’t say anything surprising (since surprising is a divergence from the data). - Ben Evans 25.02.11
 
 * _24_: ChatGPT (regex and Polars, then incorporate research) Claude (switch after GPT outage)
 * _23_: few random queries
@@ -141,6 +142,8 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 ## 🦙 llama
 
+* DeepSeek https://www.youtube.com/watch?v=dS9Vbye-xSY
+* https://simonwillison.net/2025/Feb/7/pip-install-llm-smollm2/
 * _Meta llama_: https://x.com/rowancheung/status/1865107700087980170 https://en.wikipedia.org/wiki/Llama_(language_model) uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/
 * ccmake https://news.ycombinator.com/item?id=42274489
 * _ollama_: ⭐️ https://ollama.com/
@@ -473,7 +476,7 @@ TYPES https://elevenlabs.io/
 * didn't work https://huggingface.co/spaces/openai/whisper
 * dubbing
 * voice clone https://www.tetragrammaton.com/content/richard-feynman
-* _TTS_: https://notebooklm.google/ https://news.ycombinator.com/item?id=41964980 PDF to audio https://www.fwdaudio.com/ https://x.com/barbell_fi multistage https://simonw.substack.com/p/verdad-tracking-misinformation-in https://www.fwdaudio.com/
+* _TTS_: https://notebooklm.google/ https://news.ycombinator.com/item?id=41964980 PDF to audio https://www.fwdaudio.com/ https://x.com/barbell_fi multistage https://simonw.substack.com/p/verdad-tracking-misinformation-in https://www.fwdaudio.com/ https://news.ycombinator.com/item?id=43022398
 > Everyone is talking about the new hashtag#AI Notebook LM tool from Google that lets you create podcasts from articles and other sources. I decided to try it for myself, using one of my prior pieces, The Upside and Downside of AI, as the basis for the podcast. The result, which you can listen to in the article, is simply amazing. It doesn't just read the article - it has a discussion between two "people" about it that is very engaging. https://arnoldkling.substack.com/p/llm-links-b9d
 > Meta recently introduced NotebookLlama, an "open" version of Google’s podcast-generating feature found in NotebookLM. Leveraging Meta's Llama models, NotebookLlama is capable of creating conversational, podcast-style digests of uploaded text files, such as PDFs of news articles or blog posts. This technology aims to replicate the interactive storytelling aspect of Google's viral tool, adding its own elements of dramatization and interruptions to make the content sound more dynamic. https://www.superpowerdaily.com/p/google-preps-jarvis-ai-agent-that-works-in-chrome
 * _STT_: https://news.ycombinator.com/item?id=41941845

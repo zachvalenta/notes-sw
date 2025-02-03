@@ -114,6 +114,18 @@ TIME MACHINE
 
 ## mini23 ➡️ exfatmain
 
+* digits
+
+SW
+* svc: rm McConnell code complete and ur-repo (already in projects dir)
+
+MUSIC
+* sun araw
+* cymande
+* tatum in a sentimental mood
+* cesaria evora
+* emmylou harris
+
 ## air-capp ➡️ mini23
 
 * Alex Danilov
@@ -395,6 +407,8 @@ else
 fi
 ```
 
+* _continue_: `C` play next song after current finishes
+
 ---
 
 * playlists 🗄️ `/Users/zach/Documents/zv/materials/music/za/music-library/lib.txt`
@@ -415,7 +429,6 @@ y  # add song
 D  # rm song
 :pl-export /path/to/file.txt  # export
 ```
-* _continue_: play next song after current finishes; `f` (browser view)
 
 ---
 

@@ -13,6 +13,9 @@
 
 ## 进步
 
+entity resolution at Capp = New Product Mgmt process (Ben runs, part of product workflow)
+AI in pipelines https://news.ycombinator.com/item?id=42990036
+
 * _24_: try harlequin, lots of rf
 * _22_: basic xsv/miller/Pandas
 * _21_: put together basic data eng notes
@@ -317,7 +320,7 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 📙 Cayla https://www.manning.com/books/data-preparation-handbook
 🗄
 * `data/sql.md` migrations
-* `data/sql.md` schema awareness
+*️ `sql.md` schema / approaches
 * `infra.md` task queue, workflow engine
 
 ---
@@ -335,29 +338,6 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 * howto https://docs.meltano.com/getting-started/meltano-at-a-glance
 * allows analysts to do the transformations they need vs. having to figure it out up front https://www.youtube.com/watch?v=qqlbYDfqeI4 7:00
 
-TOOLS
-* _Amphi_: https://github.com/amphi-ai/amphi-etl
-* _Airbyte_: pull from data source https://www.youtube.com/watch?v=l48zwwRSGeA https://www.youtube.com/watch?v=bXql-XSwD_s
-* _bonobo_: 💀 https://github.com/python-bonobo/bonobo https://www.pythonpodcast.com/bonobo-with-romain-dorgueil-episode-143/
-* _amphi_: https://github.com/amphi-ai/amphi-etl https://news.ycombinator.com/item?id=40723356
-* _bruin_: ⭐️ https://github.com/bruin-data/bruin
-* _DLT_: https://github.com/dlt-hub/dlt https://www.youtube.com/watch?v=eMbhyOECpcE
-* _DBT_: ⭐️ tool for transforms https://www.youtube.com/watch?v=l48zwwRSGeA 6:15 https://www.youtube.com/watch?v=O-tyUOQccSs
-* Piperider https://github.com/InfuseAI/piperider https://www.youtube.com/watch?v=03MyOkIo8Hg
-* workflow https://www.youtube.com/watch?v=qqlbYDfqeI4 11:00-11:15
-* for unstructured https://news.ycombinator.com/item?id=42043948
-* plain text vs. crappy GUI tools for analysts https://www.youtube.com/watch?v=M8oi7nSaWps 5:45 https://www.youtube.com/watch?v=qqlbYDfqeI4 9:40
-* https://www.youtube.com/watch?v=UVI30Vxzd6c https://www.youtube.com/watch?v=4eCouvVOJUw https://www.youtube.com/watch?v=iMxh6s_wL4Q
-* why: schema introspection, testing https://highgrowthengineering.substack.com/p/why-is-dbt-so-important- https://news.ycombinator.com/item?id=33846087
-> modern data stack of Fivetran + dbt + Snowflake https://luttig.substack.com/p/dont-forget-microsoft
-* create views via ETL in Snowflake (at UM)
-* data ingestion from Snowflake using Snowpipe https://docs.snowflake.com/en/user-guide/data-load-snowpipe-intro.html
-* util https://github.com/dbt-labs/dbt-utils
-* metrics https://news.ycombinator.com/item?id=30938109
-* _petl_: transforms https://petl.readthedocs.io/en/stable/
-* if petl can only handle thousands of records, why not just use Pandas? https://www.youtube.com/watch?v=llRLh8cM7QI 9:30 25:00
-* _Prefect_: https://www.youtube.com/watch?v=W-rMz_2GwqQ https://www.youtube.com/playlist?list=PL3MmuxUbc_hKqamJqQ7Ew8HxptJYnXqQM https://www.youtube.com/watch?v=ISLV9JyqF1w
-
 ## clean
 
 🗄️
@@ -368,6 +348,8 @@ TOOLS
 * _Cleanlab_: https://github.com/cleanlab/cleanlab https://www.youtube.com/watch?v=QHaT_AiUljw
 
 ---
+
+* _OpenRefine_: https://openrefine.org/ https://www.youtube.com/watch?v=yjLIRNpc2RQ
 
 * https://blog.codepen.io/2023/02/01/399-data-munging/
 * unstructured https://news.ycombinator.com/item?id=41236273
@@ -382,6 +364,34 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 * _escape_: convert validation violations
 * _sanitize_: validate + filter/escape
 * _parameterize_: sanitization for SQL https://security.stackexchange.com/a/143925
+
+## 🐠 DBT
+
+* _DBT_: ⭐️ tool for transforms https://www.youtube.com/watch?v=l48zwwRSGeA 6:15 https://www.youtube.com/watch?v=O-tyUOQccSs
+* Piperider https://github.com/InfuseAI/piperider https://www.youtube.com/watch?v=03MyOkIo8Hg
+* workflow https://www.youtube.com/watch?v=qqlbYDfqeI4 11:00-11:15
+* for unstructured https://news.ycombinator.com/item?id=42043948
+* plain text vs. crappy GUI tools for analysts https://www.youtube.com/watch?v=M8oi7nSaWps 5:45 https://www.youtube.com/watch?v=qqlbYDfqeI4 9:40
+* https://www.youtube.com/watch?v=UVI30Vxzd6c https://www.youtube.com/watch?v=4eCouvVOJUw https://www.youtube.com/watch?v=iMxh6s_wL4Q
+* why: schema introspection, testing https://highgrowthengineering.substack.com/p/why-is-dbt-so-important- https://news.ycombinator.com/item?id=33846087
+> modern data stack of Fivetran + dbt + Snowflake https://luttig.substack.com/p/dont-forget-microsoft
+* create views via ETL in Snowflake (at UM)
+* data ingestion from Snowflake using Snowpipe https://docs.snowflake.com/en/user-guide/data-load-snowpipe-intro.html
+* util https://github.com/dbt-labs/dbt-utils
+* metrics https://news.ycombinator.com/item?id=30938109
+
+ALTERNATIVES
+* _Amphi_: https://github.com/amphi-ai/amphi-etl
+* _Airbyte_: pull from data source https://www.youtube.com/watch?v=l48zwwRSGeA https://www.youtube.com/watch?v=bXql-XSwD_s
+* _bonobo_: 💀 https://github.com/python-bonobo/bonobo https://www.pythonpodcast.com/bonobo-with-romain-dorgueil-episode-143/
+* _amphi_: https://github.com/amphi-ai/amphi-etl https://news.ycombinator.com/item?id=40723356
+* _Bytebase_: https://github.com/bytebase/bytebase
+* _bruin_: ⭐️ https://github.com/bruin-data/bruin
+* _DLT_: https://github.com/dlt-hub/dlt https://www.youtube.com/watch?v=eMbhyOECpcE
+* _petl_: transforms https://petl.readthedocs.io/en/stable/
+* if petl can only handle thousands of records, why not just use Pandas? https://www.youtube.com/watch?v=llRLh8cM7QI 9:30 25:00
+* _Prefect_: https://www.youtube.com/watch?v=W-rMz_2GwqQ https://www.youtube.com/playlist?list=PL3MmuxUbc_hKqamJqQ7Ew8HxptJYnXqQM https://www.youtube.com/watch?v=ISLV9JyqF1w
+* _Tobiko_: https://tobikodata.com/ https://tobikodata.com/tobiko-acquires-quary.html
 
 ## test
 
