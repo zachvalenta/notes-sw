@@ -433,7 +433,8 @@ filter '$header != ""' $CSV  # filter out nulls
 
 ZA
 ```sh
-mlr --csv put '$col = int($col)'  # cast type from int to float
+cat $CSV | mlr --csv put '$col = int($col)' > $CSV  # cast type from int to float
+cat eclipse/ar_purch.csv | mlr --csv put '$sf_vend_id = int($sf_vend_id)' > foo.csv
 ```
 
 CONFIG https://miller.readthedocs.io/en/latest/customization/

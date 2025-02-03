@@ -322,8 +322,49 @@ IT103    |   2009-2   | 120      | Web Design   |
 
 ## ERD
 
+
+* d2 https://d2lang.com/tour/sql-tables 🗄️ `architecture.md`
+```txt
+catalog: {
+  shape: sql_table
+  product_id: int {constraint: foreign_key}
+  sku: string {constraint: foreign_key}
+  manufacturer: string {constraint: foreign_key}
+  list price: float
+}
+
+entity: {
+  shape: sql_table
+  product_id: int {constraint: foreign_key}
+  entity_id: int
+  part_number: int
+}
+
+prod_class: {
+  shape: sql_table
+  product_id: int {constraint: foreign_key}
+  manufacturer: string
+}
+
+products: {
+  shape: sql_table
+  product_id: int
+  csn: string
+  sku: string
+  description: string
+}
+
+catalog.manufacturer -> prod_class.manufacturer
+catalog.product_id -> products.product_id
+catalog.sku -> products.sku
+entity.product_id -> products.product_id
+prod_class.product_id -> products.product_id
+```
+
+---
+
 🗄 `analytics.md` tooling / GUI 🧠 https://chatgpt.com/c/673ce0d8-543c-8004-93c3-90df2d298ecf
-> can use d2 https://d2lang.com/tour/sql-tables https://github.com/zekenie/d2-erd-from-postgres https://terrastruct.com/blog/post/generate-diagrams-programmatically/
+> can use d2 https://github.com/zekenie/d2-erd-from-postgres https://terrastruct.com/blog/post/generate-diagrams-programmatically/
 * symbols 📙 Karwin [7]
 * SQLite https://github.com/Dicklesworthstone/sqlalchemy_data_model_visualizer https://gitlab.com/Screwtapello/sqlite-schema-diagram
 * Django https://github.com/pikhovkin/django-schema-viewer
