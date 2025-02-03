@@ -810,6 +810,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = f"postgresql://{user}:{pw}@db:5432/{name
 
 CMD
 * Postgres specific cmd: `\h`
+* connection URL: `postgresql://user:pass@host:5432/db`
 
 ---
 

@@ -16,6 +16,12 @@
 
 ## 进步
 
+what is going on with lazyvim and `s`?
+> In normal mode, pressing the letter s in Vim deletes the character under the cursor and enters insert mode.
+```sh
+nvim -u NONE
+```
+
 * _25_: Neovim - get basic LazyVim working
 * _24_: try Zed
 * _23_: Neovim - stuck on global search and LSP 📙 Neil practical (6-7, 9) 📙 Neil modern (2-3, 6-7) + visual block mode, buffers/windows/sessions/workspaces, config, vim-plug, Telescope (basics, workspaces, select_tab_drop), augroups for Markdown syntax highlighting for color scheme https://github.com/zachvalenta/dotfiles-air22/blob/main/vim/user/markdown_fmt.lua, plugins (highlight cursorword and scope, autoclose pairs, treesitter, aerial, barbar)
