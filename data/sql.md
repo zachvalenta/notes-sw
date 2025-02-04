@@ -542,9 +542,8 @@ BASICS
 * for-loop combining records from diff tables based on condition
 ```sql
 select deal.deal_id, house.addr
-from deal
-    join house on deal.house = house.house_id
-    join renter on deal.renter = renter.renter_id
+from deal join house on deal.house = house.house_id
+join renter on deal.renter = renter.renter_id
 ```
 * _driving table_: starting point of join 📙 Beaulieu [95]
 * _through table_: tables included in the join
