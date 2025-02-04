@@ -211,7 +211,8 @@ foreign key (band) references bands (band_id)
 TOOLS
 * pgroll, squitch https://news.ycombinator.com/item?id=42388973
 
-DATA
+### data
+
 * _data migration_: DML i.e. change data itself
 * prod data in lower env is bad? https://www.thoughtworks.com/radar/techniques/production-data-in-test-environments
 * backsies https://news.ycombinator.com/item?id=30788768
@@ -219,7 +220,8 @@ DATA
 * _fixture_: data migration using serialization
 * _factory_: data migration using ORM obj https://github.com/FactoryBoy/factory_boy/
 
-SCHEMA
+### schema
+
 * _schema migration_: DDL i.e. change schema (alongside related change in src) https://en.wikipedia.org/wiki/Schema_migration
 * https://news.ycombinator.com/item?id=40186752
 * no needs to manually alter tables https://realpython.com/django-migrations-a-primer/#ensuring-model-definitions-and-the-database-schema-in-sync
@@ -287,7 +289,9 @@ class Foo(models.Model):
 
 * _sink_: https://www.tarynpivots.com/post/migrating-40tb-sql-server-database/ https://github.blog/2020-02-14-automating-mysql-schema-migrations-with-github-actions-and-more/ pivot https://news.ycombinator.com/item?id=39353502
 
-Flyway https://flywaydb.org/documentation/ https://github.com/zachvalenta/flyway-tutorial
+### Flyway
+
+https://flywaydb.org/documentation/ https://github.com/zachvalenta/flyway-tutorial
 * how it works
 > It's semi automatic because it does not find out what has actually changed in your model. You need to write actual SQL scripts that have versions. It will create a separate table to keep track what version you have in your data base and that execute the script automatically up to the point where the latest version is reached.
 * _alternatives_: Liquibase https://return.co.de/blog/articles/java-development-fast/ https://github.com/amacneil/dbmate
@@ -332,7 +336,18 @@ where foo_date > '1962-07-03' -- compare
 family_name, other_given_names  -- https://www.youtube.com/watch?v=458KmAKq0bQ 7:30 https://www.w3.org/International/questions/qa-personal-names
 ```
 
-NULL 📙 Beaulieu [32,82]
+### null
+
+📙 Beaulieu [32,82]
+
+* ways to check
+```sql
+where products.mpn is not null
+where products.mpn != ''
+```
+
+---
+
 * https://jirevwe.github.io/sql-nulls-are-weird.html
 * _null_: absence of a value e.g. `termination_date` for newly hired employee
 * wat: an expression can be null but never equal null 📙 Beaulieu [82]
@@ -341,7 +356,10 @@ null != null  -- true 📙 Beaulieu [82]
 select (0 is not null) and ('' is not null)  -- true
 ```
 
-MATH
+### math
+
+---
+
 * integer division yields integer (`select 51/2` = `25`) 🗄 FUQ - percent
 * cast to float for precision division https://hakibenita.com/sql-dos-and-donts#be-careful-when-dividing-integers
 * for decimals, multiply something by 1.0 (`select 1.0*51 / 2` = `25.5`)
