@@ -189,6 +189,7 @@ System: "This looks like an ISBN. Add format validation?"
 foreign key (band) references bands (band_id)
 ```
 * aka referential integrity aka prevent garbage in garbage out https://www.postgresql.org/docs/8.3/tutorial-fk.html
+* find potential fk relationships https://github.com/zachvalenta/capp-datalab#entity https://github.com/zachvalenta/capp-datalab
 * _parent_: table to which FK refers 📙 Beaulieu [40] https://sqlite.org/foreignkeys.html#fk_basics
 * _child_: table w/ FK 📙 Beaulieu [40] 5.82
 * can be self-referencing? 📙 Beaulieu 5.93
