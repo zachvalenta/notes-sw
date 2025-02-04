@@ -643,7 +643,17 @@ SELF, CROSS, NATURAL, EQUI
 ```
 * _cross_: generates cartesian product due to lack of `on` clause 📙 Beaulieu [89] Takahashi [42] 🗄 `math.md` set theory
 ```sql
-select * from house join deal
+-- The comma in the FROM clause is a shorthand for a CROSS JOIN. In your query, after the explicit JOIN between entity_pn and the subquery alias prod, the comma brings in another derived table (the subquery aliased as total) without any join condition. This means that the result of the join between entity_pn and prod is combined with the single-row result from the total subquery via a cross join.
+select count(*) * 100.0 / total.total_count as 'match %'
+from entity_pn
+join (select manufacturer_part_number from products where manufacturer_part_number != '') as prod
+on entity_part_number = prod.manufacturer_part_number,
+(select count(*) as total_count from entity_pn where entity_part_number != '') as total;
++--------------------+
+| match %            |
++--------------------+
+| 11.912705110704556 |
++--------------------+
 ```
 * _natural_: don't specify `on` clause 📙 Beaulieu [198]
 * server figures out (which it will only do if there's matching attr name across tables) 📙 Beaulieu 10.198
