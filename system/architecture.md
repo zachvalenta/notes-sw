@@ -485,11 +485,16 @@ SEQUENCE
 ## system (d2)
 
 🏔️ https://github.com/ankorstore/yokai
+💻 https://github.com/zachvalenta/capp-datalab
 🗄
 * `algos.md` graph, tree
+* `data-modeling.md` ERD
 *️ `protocols.md` ascii
 *️ `system.md`
 
+---
+
+* https://github.com/terrastruct/d2-vscode
 D2 📜 https://d2lang.com/ https://terrastruct-site-assets.s3.us-west-1.amazonaws.com/documents/d2_cheat_sheet.pdf
 * howto https://terrastruct.com/blog/post/10-tips-for-using-diagrams-to-ace-the-system-design-interview/ https://terrastruct.com/blog/post/draw-software-architecture-diagrams/ https://terrastruct.com/blog/post/diagram-layout-engines-crossing-minimization/
 * complex: https://d2lang.com/tour/composition https://d2lang.com/tour/classes

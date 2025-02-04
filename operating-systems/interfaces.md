@@ -520,7 +520,7 @@ PRO AND CONS
 * no searchable docs https://github.com/ghostty-org/ghostty/discussions/3195
 > workaround https://website-git-fork-shortcuts-main-ghostty.vercel.app/docs
 * ✅ good for vi readline (which helps with atuin)
-* ❌ cmus is unusable
+* ❌ cmus theme screwed up?
 > would a theme help with this? would a theme conflict with prompt/eza?
 > check out repo issues/discussions for these two
 

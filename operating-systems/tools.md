@@ -889,6 +889,17 @@ echo "manufacturer" > aaon.csv
 $ cat example.txt | tr 'a-z' 'A-Z'  # uppercase
 $ cat example.txt | tr ' ' '\n'  # replace spaces with newlines
 $ cat example.txt | tr '\n' ','  # concat n lines into single comma-delineated line
+
+# lowercase/snakecase CSV headers
+{ 
+  head -n1 foo.csv | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9,]+/_/g' ;
+  tail -n +2 foo.csv;
+} > tmp.csv
+
+{ 
+  head -n1 foo.csv | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9,]+/_/g' ;
+  tail -n +2 eclipse/catalog.csv;
+} > tmp.csv
 ```
 
 FILTER
