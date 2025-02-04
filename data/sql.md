@@ -546,8 +546,8 @@ select deal.deal_id, house.addr
 from deal join house on deal.house = house.house_id
 join renter on deal.renter = renter.renter_id
 ```
-* _driving table_: starting point of join 📙 Beaulieu [95]
-* _through table_: tables included in the join
+* _driving table (DT)_: starting point of join 📙 Beaulieu [95]
+* _through table (TT)_: tables included in the join
 
 CONDITIONS
 ```sql
@@ -570,57 +570,17 @@ todo
 * https://news.ycombinator.com/item?id=27760154
 * https://alexpetralia.com/posts/2017/7/19/more-dangerous-subtleties-of-joins-in-sql
 
+### IO/LR
 
-INNER/OUTER, LEFT/RIGHT
-* _inner_: result set doesn't include rows for which the join fails 📙 Beaulieu [90]
-* dbms default 📙 Beaulieu [90]
-* most common type 📙 Evans 10
-```sql
--- 📍 ADD TO LITECLI.CONF
-select r.name, h.addr
-from house as h
-    join renter as r
-    on r.district = h.district
-```
-* _outer_: result set does include rows for which join fails 📙 Beaulieu [90]
-```sql
-```
-* _left_: left table determines count of result set 📙 Beaulieu 10.187
-* right table provides match if found 📙 Evans 11-12
+* _inner_: RS !incl records for which join fails (dbms default) 📙 Beaulieu [90] Evans [10]
+* _outer_: RS incl records for which join fails 📙 Beaulieu [90]
+* _left_: outer + DT determines RS count + TT provides matches 📙 Beaulieu [187] Evans [11-12]
+* _right_: outer + TT determines RS count + DT provides matches 📙 Beaulieu [187]
+* _full_: outer + all rows from DT/TT in RS 📙 Beaulieu [187]
 ```sql
 select r.name, d.deal_id
 from renter as r
-    join deal as d
-    on r.renter_id = d.renter
-+--------------+---------+
-| name         | deal_id |
-+--------------+---------+
-| helen boss   | 1       |
-| tom white    | 2       |
-| sofia brown  | 3       |
-| michael lane | 4       |
-+--------------+---------+
-
-select r.name, d.deal_id
-from renter as r
-    left join deal as d
-    on r.renter_id = d.renter
-+---------------+---------+
-| name          | deal_id |
-+---------------+---------+
-| helen boss    | 1       |
-| michael lane  | 4       |
-| susan sanders | <null>  |
-| tom white     | 2       |
-| sofia brown   | 3       |
-+---------------+---------+
-```
-* _right_: right table determines count of result set 📙 Beaulieu 10.187
-```sql
-select d.deal_id, r.renter
-from renter as r
-    right join deal as d
-    on r.renter_id = d.renter
+left join deal as d on r.renter_id = d.renter
 +---------------+---------+
 | name          | deal_id |
 +---------------+---------+
@@ -632,7 +592,8 @@ from renter as r
 +---------------+---------+
 ```
 
-SELF, CROSS, NATURAL, EQUI
+### self/cross/natural
+
 * _multi_: use same table n times 📙 Beaulieu [96]
 * need to use multiple aliases 📙 Beaulieu [97]
 ```sql
@@ -1001,8 +962,8 @@ YPES
 * impl as heap or b-tree https://calpaterson.com/activerecord.html
 * _derived_: return from subquery and held in memory 📙 Beaulieu [53]
 * _temporary_: table in mem 📙 Beaulieu [53] aka non-persistent 📙 Beaulieu [8]
-* _result set (rs)_: temp table returned from query 📙 Beaulieu [8] Evans [4]
-* intermediate rs created at each stage in join 📙 Beaulieu [90-digital-copy]
+* _result set (RS)_: temp table returned from query 📙 Beaulieu [8] Evans [4]
+* intermediate RS created at each stage in join 📙 Beaulieu [90-digital-copy]
 * _virtual_: created using `create view` cmd 📙 Beaulieu [53]
 * _intemediate_: table instaniated for a job and then deleted https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
 * _scalar table_: table w/ single column and single row https://pgexercises.com/questions/basic/agg2.html
