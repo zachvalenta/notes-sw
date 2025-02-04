@@ -532,6 +532,22 @@ SPLITS
 * ❌ no divider btw splits still pretty dark; way to config? https://github.com/ghostty-org/ghostty/discussions/3301
 * ❌ no goto split by number https://github.com/ghostty-org/ghostty/discussions/5527
 * Vim goto https://github.com/shoukoo/dotfiles/blob/f093247c18af0cb47adad21a4a60425b8aea6e5d/ghostty#L15
+* ❌ doesn't support arrangements
+> workaround with zellij
+```txt
+trying to move to ghostty. one thing i like about iterm is that you can create an arrangement i.e. "when i open iterm, open these 4 panes in these 4 directories, open dbcli here, open cmus here" and so on. does ghostty have this ability?
+```
+```sh
+ghostty \
+  --window-size 100x30 \
+  --working-directory /path/to/project1 \
+  --split-right \
+  --command "dbcli" \
+  --split-down \
+  --command "cmus"
+
+This is the Ghostty helper CLI that accompanies the graphical Ghostty app. To launch the terminal directly, please launch the graphical app (i.e. Ghostty.app on macOS). This CLI can be used to perform various actions such as inspecting the version, listing fonts, etc. We don't have proper help output yet, sorry! Please refer to the source code or Discord community for help for now. We'll fix this in time.
+```
 
 FONTS
 * icons: handles Makefile (which doesn't happen in iTerm)
