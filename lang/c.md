@@ -58,7 +58,7 @@ Python 3.12.1 (main, Dec 23 2023, 20:20:28) [Clang 14.0.3 (clang-1403.0.22.14.1)
 * portable
 > Libraries written in C are callable from any programming language. https://sqlite.org/whyc.html
 > The Linux kernel is written in C. The software that connects your printer to your computer could be in C. The Web servers that serve up your Web pages are often written in C. It’s also a good language for writing other languages - Python, PHP, and Perl are written in C, as are many others. C is a language you use for building systems; it has the same role in computing that Latin did among Renaissance academics. - Ford what is code?
-* example code: Redis, SQlite https://news.ycombinator.com/item?id=30753428
+* example code: Redis, SQlite https://news.ycombinator.com/item?id=30753428 small kernels https://www.fiwix.org/
 * https://drewdevault.com/2017/03/15/How-I-learned-to-stop-worrying-and-love-C.html
 * https://drewdevault.com/2017/01/30/Lessons-to-learn-from-C.html
 

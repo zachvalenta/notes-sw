@@ -45,6 +45,7 @@ COMMANDS
 -- DB/TABLE
 CREATE DATABASE <db>;  -- `sqlite3 local.db`
 CREATE TABLE test_table ();
+ALTER TABLE old_name RENAME TO new_name;
 DROP TABLE <table>;
 DROP DATABASE <db>;
 
@@ -409,6 +410,12 @@ CLAUSES
 * _from_: what tables and how they're linked 📙 Beaulieu [53]
 * _where_: filter 📙 Beaulieu [58]
 
+RELATIONAL OPERATIONS 📙 Takahashi [43] 🗄 `language.md` semantics `math.md` set theory > operations
+* _projection_: filter on attr i.e. `SELECT` https://stackoverflow.com/a/1031101 📙 Takahashi [43] Beaulieu [44-5]
+* _selection_: filter on value i.e. `WHERE` 📙 Beaulieu [52-54]
+* _division_: extract records that exist in both numerator/denomenator table but only the columns that exist only in numerator 📙 Takahashi [45]
+* + join
+
 CRUD
 ```sql
 -- 1 attr, 1 val
@@ -556,20 +563,19 @@ lag() sum() ntile() row_number()
 
 ## joins
 
-📙 Beaulieu ch. 5, 10
+📙 Beaulieu ch. 5/10
 
 BASICS
-* _join_: include attr from n tables in result set 📙 Beaulieu [88]
-* for-loop combining records from diff tables based on condition
+* _join_: RS incl attr from n tables based on predicate 📙 Beaulieu [88]
+* _driving table (DT)_: starting point of join 📙 Beaulieu [95]
+* _through table (TT)_: tables included in the join
+* _join narrowing_: additional joins winnow RS count
 ```sql
 select deal.deal_id, house.addr
 from deal join house on deal.house = house.house_id
 join renter on deal.renter = renter.renter_id
 ```
-* _driving table (DT)_: starting point of join 📙 Beaulieu [95]
-* _through table (TT)_: tables included in the join
-
-CONDITIONS
+* predicates: no pred = cartesian RS 📙 Beaulieu [35]
 ```sql
 -- WHERE: old syntax 📙 Beaulieu [91]
 select * from employee, lob where employee.lob_id = lob.id
@@ -578,17 +584,14 @@ select * from employee, lob on employee.lob_id = lob.id
 -- USING_: use w/ equi join if tables have attr w/ same name 📙 Beaulieu [90] https://www.neilwithdata.com/join-using
 select * from employee, lob using (lob_id)
 ```
-* no condition = cartesian result set 📙 Beaulieu [35]
 
 ---
 
-todo
 * https://antonz.org/sql-join/
 * https://news.ycombinator.com/item?id=36575784
-* https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/
 * https://github.com/enochtangg/quick-SQL-cheatsheet#joins
-* https://news.ycombinator.com/item?id=27760154
-* https://alexpetralia.com/posts/2017/7/19/more-dangerous-subtleties-of-joins-in-sql
+* visual https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/ https://news.ycombinator.com/item?id=27760154
+* wat https://alexpetralia.com/posts/2017/7/19/more-dangerous-subtleties-of-joins-in-sql
 
 ### IO/LR
 
@@ -668,18 +671,6 @@ join house as h
     and r.bedrooms <= h.bedrooms
 where h.house_id not in (select house from deal)
 ```
-
-## operations
-
-🗄
-* `language.md` semantics
-* `math.md` set theory > operations
-
-RELATIONAL 📙 Takahashi [43]
-* _projection_: filter on attr i.e. `SELECT` https://stackoverflow.com/a/1031101 📙 Takahashi [43] Beaulieu [44-5]
-* _selection_: filter on value i.e. `WHERE` 📙 Beaulieu [52-54]
-* _division_: extract records that exist in both numerator/denomenator table but only the columns that exist only in numerator 📙 Takahashi [45]
-* + join
 
 ## predicates
 
@@ -1004,6 +995,11 @@ with  -- https://github.com/enochtangg/quick-SQL-cheatsheet#find https://hakiben
 ### views
 
 📙 Beaulieu chapter 14
+
+```sql
+CREATE VIEW view_name AS SELECT column1, column2
+FROM table_name WHERE condition;
+```
 
 * late-binding https://eradman.com/posts/late-binding-views.html
 * _view_: pre-computed partial query (e.g. `where is_active = 0`) recomputed as more full query w/ additional user filtering 📙 Kleppmann [101]

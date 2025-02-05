@@ -908,7 +908,7 @@ USAGE
 ---
 
 TURSO / LIMBO https://github.com/tursodatabase/libsql https://github.com/tursodatabase/limbo/
-* from guy who did TigerBeetle? https://changelog.com/podcast/626
+* from guy who did TigerBeetle? Deterministic Simulation Testing https://changelog.com/podcast/626
 * https://news.ycombinator.com/item?id=42378843
 * https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/
 * https://avi.im/blag/2024/faster-sqlite/

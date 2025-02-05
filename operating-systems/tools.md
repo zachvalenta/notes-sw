@@ -835,6 +835,7 @@ $QUERY $PATH
 
 🗄 `vim.md` argdo
 
+https://github.com/SoptikHa2/desed
 * _scooter_: https://github.com/thomasschafer/scooter
 * _sed_: stream editor = filter/transform text
 * _sd_: Rust rewrite https://github.com/chmln/sd
@@ -894,11 +895,6 @@ $ cat example.txt | tr '\n' ','  # concat n lines into single comma-delineated l
 { 
   head -n1 foo.csv | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9,]+/_/g' ;
   tail -n +2 foo.csv;
-} > tmp.csv
-
-{ 
-  head -n1 foo.csv | tr '[:upper:]' '[:lower:]' | sed -E 's/[^a-z0-9,]+/_/g' ;
-  tail -n +2 eclipse/catalog.csv;
 } > tmp.csv
 ```
 
@@ -1003,6 +999,7 @@ copy terminal output https://calmcode.io/course/cool-cli/yank
 ---
 
 * https://github.com/nivekuil/rip https://hacker-tools.github.io/command-line/ https://github.com/umlx5h/gtrash https://news.ycombinator.com/item?id=41902864
+* _gomi_: https://github.com/babarot/gomi
 * _recoverpy_: https://github.com/PabloLec/RecoverPy
 * _rm_: sends to `~/.Trash`; `i` prompt before each `R` answer yes to all prompts `rf` all recursively; alternatives
 * _send2trash_: https://github.com/arsenetar/send2trash/issues https://github.com/arsenetar/send2trash/issues/56 

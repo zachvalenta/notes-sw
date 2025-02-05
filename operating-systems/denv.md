@@ -336,11 +336,13 @@ deps --tree --installed  # dependency graph https://apple.stackexchange.com/a/32
 
 * if you opt out of autoupdate, Brew won't find the most recent version of packages
 ```sh
-export HOMEBREW_NO_AUTO_UPDATE=1
-
 # A new release of gh is available: 2.57.0 → 2.64.0. To upgrade, run: brew upgrade gh.
 $ brew upgrade gh
 Warning: gh 2.57.0 already installed
+
+# fix: unset this variable and then restart the shell
+export HOMEBREW_NO_AUTO_UPDATE=1
+
 ```
 * hard to find older pkg versions in Homebrew core https://github.com/Homebrew/homebrew-core https://www.fernandomc.com/posts/brew-install-legacy-hugo-site-generator/ https://flaviocopes.com/homebrew-install-older-version/
 > brew cleanup works against this

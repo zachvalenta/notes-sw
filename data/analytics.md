@@ -437,7 +437,8 @@ cat $CSV | mlr --csv put '$col = int($col)' > $CSV  # cast type from int to floa
 filter 'is_null($col)' $CSV                         # filter nulls https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
 mlr --csv filter '$col != ""' $CSV                  # filter out empty strings
 
-cat eclipse/customers.csv | mlr --csv put '$bill_to_id = int($bill_to_id)' > foo.csv
+cat eclipse/ar_purch.csv | mlr --csv put '$sf_vend_id = int($sf_vend_id)' > foo.csv
+
 mlr filter '!is_null($id)' foo.csv > bar.csv
 mlr --csv filter '$id != ""' foo.csv > baz.csv
 ```

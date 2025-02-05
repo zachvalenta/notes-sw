@@ -10,6 +10,7 @@
 
 ## 进步
 
+* monitoring https://news.ycombinator.com/item?id=42915435
 * https://roadmap.sh/api-design https://pycon-archive.python.org/2024/schedule/presentation/25/index.html 🗄️ `src.md` https://conroy.org/writing-api-clients-in-go
 * https://roadmap.sh/backend
 *️ https://us.pycon.org/2024/schedule/presentation/5/index.html https://www.manning.com/books/secure-apis https://nostarch.com/hacking-apis

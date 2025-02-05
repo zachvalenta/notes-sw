@@ -11,7 +11,7 @@
 
 ## 进步
 
-https://openai.com/index/introducing-deep-research/ https://x.com/mckaywrigley/status/1886215847481623030 https://x.com/felipe_millon/status/1886205433469178191
+https://openai.com/index/introducing-deep-research/ https://x.com/mckaywrigley/status/1886215847481623030 https://x.com/felipe_millon/status/1886205433469178191 https://thezvi.substack.com/p/were-in-deep-research
 
 * _24_: ChatGPT (regex and Polars, then incorporate research) Claude (switch after GPT outage)
 * _23_: few random queries

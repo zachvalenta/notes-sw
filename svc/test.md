@@ -15,6 +15,7 @@ assert_debug_snapshot!(my_func());
 # I don’t need to explicitly save or load snapshot files. The framework handles it automatically!
 ```
 
+* https://www.inkandswitch.com/ambsheets/
 * start here https://github.com/okken/cards
 * test heatmap https://threedots.tech/post/go-test-parallelism/
 * literate testing, literate programming https://simonw.substack.com/p/video-scraping-using-google-gemini
