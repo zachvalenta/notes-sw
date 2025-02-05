@@ -189,7 +189,6 @@ System: "This looks like an ISBN. Add format validation?"
 foreign key (band) references bands (band_id)
 ```
 * aka referential integrity aka prevent garbage in garbage out https://www.postgresql.org/docs/8.3/tutorial-fk.html
-* find potential fk relationships https://github.com/zachvalenta/capp-datalab#entity https://github.com/zachvalenta/capp-datalab
 * _parent_: table to which FK refers 📙 Beaulieu [40] https://sqlite.org/foreignkeys.html#fk_basics
 * _child_: table w/ FK 📙 Beaulieu [40] 5.82
 * can be self-referencing? 📙 Beaulieu 5.93
@@ -197,6 +196,27 @@ foreign key (band) references bands (band_id)
 * bad when it comes to sharing and migrations? https://github.com/github/gh-ost/issues/331#issuecomment-266027731
 * https://www.semicolonandsons.com/episode/foreign-keys-and-uniqueness-constraints
 * _dangling identifier_: bad FK bc pointing to no longer extant ID
+
+FKFIND
+* https://github.com/zachvalenta/capp-datalab#entity
+* pypi pkg, Rust CLI, sqlite extension <https://github.com/pyo3/pyo3>
+```txt
+SQLite allows custom functions, virtual tables, and collation sequences using dynamically loaded extensions (.so files). You can:
+* Write an SQLite extension in Rust using pyo3 to call Python.
+* Use rusqlite to write native Rust extensions.
+* Use pysqlite3 for Python-based function injection.
+
+Approach:
+* Write a Rust-based shared library using pyo3.
+* Use sqlite3_create_function() to expose Python-backed SQL functions.
+* Compile the Rust extension (.so file) and load it in SQLite using .load.
+```
+```sql
+-- SEE ALL POTENTIAL JOIN KEYS BETWEEN TABLES
+select column_name, data_type 
+from information_schema.columns 
+where table_name in ('mars', 'products', 'catalog');
+```
 
 ## migrations
 
