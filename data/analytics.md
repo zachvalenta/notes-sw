@@ -280,6 +280,45 @@ S3OW,motorola,325
 
 🗄️ `protocols.md` file fmt
 
+## EDA
+
+FIND NULL COLS
+> rn polars/pandas seems like the most straightforward option, maybe write CLI for this and add to fkfind
+* _visidata_: histogram
+* _xsv_: frequency
+```sh
+xsv select 'Manufacturer Name' results.csv | xsv frequency
+
+field,value,count
+Manufacturer Name,NMS - Not Manufacturer Specific,723
+Manufacturer Name,Banner Engineering Corp.,445
+Manufacturer Name,TBD - To Be Determined,384
+Manufacturer Name,(NULL),190
+```
+
+---
+
+FKFIND
+* https://github.com/zachvalenta/capp-datalab#entity
+* pypi pkg, Rust CLI, sqlite extension <https://github.com/pyo3/pyo3>
+```txt
+SQLite allows custom functions, virtual tables, and collation sequences using dynamically loaded extensions (.so files). You can:
+* Write an SQLite extension in Rust using pyo3 to call Python.
+* Use rusqlite to write native Rust extensions.
+* Use pysqlite3 for Python-based function injection.
+
+Approach:
+* Write a Rust-based shared library using pyo3.
+* Use sqlite3_create_function() to expose Python-backed SQL functions.
+* Compile the Rust extension (.so file) and load it in SQLite using .load.
+```
+```sql
+-- SEE ALL POTENTIAL JOIN KEYS BETWEEN TABLES
+select column_name, data_type 
+from information_schema.columns 
+where table_name in ('mars', 'products', 'catalog');
+```
+
 EDA JOINS + SQL FROM SHELL
 * ❓ _sqlite_: + litecli
 * ❌ _polars_: truncated output
@@ -426,21 +465,12 @@ FEATURES
 🗄️ `os/tools.md` string processing
 📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
 
-FILTERING
-```sh
-filter '$header != ""' $CSV  # filter out nulls
-```
-
 PIPELINES
 ```sh
 cat $CSV | mlr --csv put '$col = int($col)' > $CSV  # cast type from int to float
 filter 'is_null($col)' $CSV                         # filter nulls https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
+filter '$header != ""' $CSV  # filter out nulls
 mlr --csv filter '$col != ""' $CSV                  # filter out empty strings
-
-cat eclipse/ar_purch.csv | mlr --csv put '$sf_vend_id = int($sf_vend_id)' > foo.csv
-
-mlr filter '!is_null($id)' foo.csv > bar.csv
-mlr --csv filter '$id != ""' foo.csv > baz.csv
 ```
 
 CONFIG https://miller.readthedocs.io/en/latest/customization/
