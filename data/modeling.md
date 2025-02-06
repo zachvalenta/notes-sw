@@ -7,7 +7,7 @@
 *️ `OLAP.md` factors
 * `data/internals.md`
 * `science.md` metascience / categories
-* `sql.md` schema awareness
+* `sql.md` schema / approaches
 📚
 * Alexopoulos semantic https://www.amazon.com/gp/product/1492054275
 * Kent data/reality https://www.amazon.com/Data-Reality-Perspective-Perceiving-Information/dp/1935504215
@@ -204,7 +204,7 @@ dbms
 # 🕸️ RELATIONAL
 
 📙 Hao https://www.manning.com/books/grokking-relational-database-design
-🗄️ `sql.md` DDL > schema aware
+🗄️ `sql.md` schema / approaches
 
 COMPONENTS 📙 Beaulieu [1.6]
 * _entity_: thing you're trying to describe e.g. customer, order, et al. 📙 Beaulieu [8]

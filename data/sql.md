@@ -4,7 +4,6 @@
 
 🔍 https://dba.stackexchange.com
 📚
-> https://sql.programmable.net/dashboard
 * Beaulieu learning sql
 * Conery curious moon
 * Evans star https://sql-playground.wizardzines.com/
@@ -14,374 +13,26 @@
 
 ## 进步
 
-REWRITE SJK FOR BOTH MODELING AND USING SQL
-* canonical datasets for OLTP https://news.ycombinator.com/item?id=42231325 Sakila https://sq.io/docs/tutorial
-* * NYC taxi dataset https://mattpo.pe/posts/sql-llvm/
-
-https://roadmap.sh/sql
-https://gvwilson.github.io/sql-tutorial/
-* Bealieau: port notes to digital copy, domains
-
-* grouping 📙 Evans 8, Beaulieu ch. 8
-* testing SQL https://news.ycombinator.com/item?id=34602318 
-
 INTERVIEWING
+* https://sql.programmable.net/dashboard
 * https://github.com/alexeygrigorev/data-science-interviews/blob/master/technical.md
 * https://leetcode.com/problemset/database/
 * https://www.hackerrank.com/domains/sql
 * https://www.youtube.com/channel/UCW8Ews7tdKKkBT6GdtQaXvQ/videos
 
+ZA
+* https://roadmap.sh/sql
+* https://gvwilson.github.io/sql-tutorial/
+* Bealieau: port notes to digital copy, domains
+* testing SQL https://news.ycombinator.com/item?id=34602318
+
+* _25_: Capp schema
 * _23_: port Beaulieu to paper copy, rf, read rest of Beaulieu
 * _21_: semantics (migrations, tables), `query-sandbox`
 * _20_: start `sjk`, Flask-SQLAlchemy (pagination, 1-m w/ backrefs, Marshmallow for nested serializers)
 * _19_: 📙 Beaulieu chapters 1-5 and 10; Flask-SQLAlchemy (FK, through table, raw SQL) SQLite (FK support) SQLAlchemy (core, parameterized queries)
 * _18_: Flyway for Dark Canary, modeling course
 * _17_: subqueries for Case
-
-# 🚧 DDL
-
-COMMANDS
-```sql
--- DB/TABLE
-CREATE DATABASE <db>;  -- `sqlite3 local.db`
-CREATE TABLE test_table ();
-ALTER TABLE old_name RENAME TO new_name;
-DROP TABLE <table>;
-DROP DATABASE <db>;
-
--- ATTR
-ALTER TABLE <table> ADD <col> <type>;  -- add
-ALTER TABLE <table> ALTER COLUMN <col> TYPE <type> -- update type https://news.ycombinator.com/item?id=40286403
-UPDATE <table> set <col>=concat('prependThis_', <col>)  -- update name
-ALTER TABLE <table> DROP COLUMN <col>; -- rm
-DESCRIBE mytable; -- list constraints/indexes
-SHOW CREATE TABLE <tab>; -- MySQL version https://serverfault.com/q/231952 https://stackoverflow.com/a/201678
-PRAGMA index_list('<tab>') -- SQLite version https://stackoverflow.com/a/49311235
-```
-
-## constraints
-
-📙 Beaulieu chapter 13
-
-* _constraint_: rule for attr type/value 📙 Beaulieu [30]
-
-TYPES
-* _not null_: https://www.semicolonandsons.com/episode/data-integrity-null-constraint-check-constraint
-* interpolation https://hakibenita.com/sql-for-data-analysis#interpolation
-* _unique_: prevents dupes values in column https://stackoverflow.com/a/21049722/6813490 https://www.semicolonandsons.com/episode/foreign-keys-and-uniqueness-constraints
-* _default_: value that will be inserted in the absence of an explicit value in an insert / update statement https://stackoverflow.com/a/11862246/6813490
-```sql
-CREATE TABLE test_table (
-    foo default 'this is the default value', -- https://www.youtube.com/watch?v=lnfrcHdE_HI 3:15
-```
-* _check_: value for attr must satisfy boolean expression https://www.semicolonandsons.com/episode/data-integrity-null-constraint-check-constraint 📙 Beaulieu [30]
-```sql
--- https://www.postgresql.org/docs/12/ddl-constraints.html#DDL-CONSTRAINTS-CHECK-CONSTRAINTS
-CREATE TABLE products (
-    product_no integer,
-    name text,
-    price numeric CHECK (price > 0)
-);
-```
-
-### schema awareness
-
-💡 core insight: let the data tell you what it is, rather than forcing it into predetermined boxes
-🗄️
-* `modeling.md`
-* `OLAP.md` pipelines
-* `stat.md` outlier detection
-
-* _schema on-read_: enforce contraints on write
-* _schema on-write_: don't enforce contraints on write i.e. cobble things together on read
-```python
-class Catalog:
-    """
-    >>> cat = Catalog()
-    >>> cat.add_product({'sku': 1234, 'name': 'foo'})
-    >>> cat.add_product({'sku': 5678, 'name': 'bar'}, mode='strict')
-    >>> cat.get_product(sku=1234)
-    """
-    def __init__(self):
-        self.products = []
-
-    def __repr__(self):
-        return f'{self.products}'
-
-    def _validate_product(self, product, mode):
-        required = {'sku', 'name'}
-        if mode == 'strict':
-            required |= {'price'}
-        missing = required - set(product)
-        if missing:
-            raise ValueError(f"missing required fields: {' '.join(missing)}")
-
-    def add_product(self, product, mode='flex'):
-        self._validate_product(product, mode)
-        self.products.append(product)
-
-    def get_product(self, sku):
-        defaults = {'price': None}
-        for product in self.products:
-            if product['sku'] == sku:
-                return {**defaults, **product}
-        return None
-```
-* _schema-first_: define upfront
-* _schema-aware_: learns schema
-```sh
-# infers: book title (text), author name (text), year (integer)
-add-book "Snow Crash" "Neal Stephenson" 1992
-
-# "there's a publisher field now. Should I update the schema? Y/N"
-# On Y: Adds publisher column, leaves it NULL for previous entries
-add-book "Neuromancer" "William Gibson" 1984 "Ace Books"
-
-# "I notice you're adding categories. Should these be: single text field with comma-separated values | separate table with a many-to-many relationship?"
-add-book "Dune" "Frank Herbert" 1965 "Chilton Books" "sci-fi, politics"
-```
-* _constraint inference_: pattern detection
-* start permissive, get strict only when patterns emerge i.e. opposite of traditional db design where you define everything upfront
-```sh
-# distribution: if every book year is between 1900-2024
-system: "should i enforce year >= 1900?"
-
-# normalization: if you enter "ace books" multiple times
-System: "I notice 'Ace Books' appears often. Make it a foreign key?"
-
-# typing: if ISBN field always matches \d{13}|\d{10}
-System: "This looks like an ISBN. Add format validation?"
-```
-
-### primary key (PK)
-
-🗄 indexing `connolly.pdf`
-
-* _candidate key_: key(s) that could serve as PK https://stackoverflow.com/a/12813385 📙 Winand [5]
-* _primary key_: attr w/ unique constraint that serves as ID of record 📙 Beaulieu [6]
-* _composite key_: n keys unique together used as PK
-* use in pre-sorted tables (sorted by key vs. time of insertion) for faster lookups https://sqlfordevs.com/sorted-table-faster-range-scan range scan unique scan skip scan https://sqlfordevs.com/sorted-table-faster-range-scan
-* slower than surrogate https://news.ycombinator.com/item?id=2786238
-* https://github.com/aswinkarthik/csvdiff
-* https://sirupsen.com/napkin/problem-5
-* _compound key_: composite key + all keys also FK https://en.wikipedia.org/wiki/Composite_key
-* e.g. join table https://www.youtube.com/watch?v=vsGDtnBCwgg
-* sometimes used interchangeably w/ 'composite' https://dba.stackexchange.com/a/3137/201798 https://www.youtube.com/watch?v=lnfrcHdE_HI 1:40
-```sql
--- TODO
-```
-* _natural key_: attr that goes together with other attr in table (vs. surrogate key) https://news.ycombinator.com/item?id=40580549
-* _surrogate key_: unrelated to table attr https://stackoverflow.com/a/36773462
-* typically auto-incremented but doesn't necessarily have to be 📙 Beaulieu [34]
-```sql
--- TODO
-```
-* _sequence_: https://stackoverflow.com/a/1649128 📙 Beaulieu [34] Karwin ch. 4
-* don't expose via API, use uuid https://0of1.com/blog/posts/django-staples/
-* auto-increment https://retool.com/blog/how-to-work-with-auto-increment-in-sql-query/ aka identity column https://www.sqltutorial.org/sql-identity/
-```sql
--- TODO
-```
-
-### foreign key (FK)
-
-🗄️ `analytics.md` EDA
-
-* _foreign key_: constraint enforcing reference to another table's PK 📙 Beaulieu [33,39]
-```sql
-foreign key (band) references bands (band_id)
-```
-* aka referential integrity aka prevent garbage in garbage out https://www.postgresql.org/docs/8.3/tutorial-fk.html
-* _parent_: table to which FK refers 📙 Beaulieu [40] https://sqlite.org/foreignkeys.html#fk_basics
-* _child_: table w/ FK 📙 Beaulieu [40] 5.82
-* can be self-referencing? 📙 Beaulieu 5.93
-* find FK referencing table ` SELECT * FROM information_schema.TABLE_CONSTRAINTS WHERE CONSTRAINT_SCHEMA='tableName' AND CONSTRAINT_TYPE='FOREIGN KEY'`
-* bad when it comes to sharing and migrations? https://github.com/github/gh-ost/issues/331#issuecomment-266027731
-* https://www.semicolonandsons.com/episode/foreign-keys-and-uniqueness-constraints
-* _dangling identifier_: bad FK bc pointing to no longer extant ID
-
-## migrations
-
-💻 `lang/python/django/migrations-sandbox`
-🗄
-*️ `api.md` schema
-* `architecture.md` factors > compatibility
-* `infra.md` deployment
-* `task-mgmt.md` Task Warrior > database https://github.com/zachvalenta/dotfiles-mini23/blob/main/cli/taskwarrior.sql
-* `data/eng.md` pipelines
-* `django.md` migrations
-
-TOOLS
-* pgroll, squitch https://news.ycombinator.com/item?id=42388973
-
-### data
-
-* _data migration_: DML i.e. change data itself
-* prod data in lower env is bad? https://www.thoughtworks.com/radar/techniques/production-data-in-test-environments
-* backsies https://news.ycombinator.com/item?id=30788768
-* dry run https://adamj.eu/tech/2022/10/13/dry-run-mode-for-data-imports-in-django/
-* _fixture_: data migration using serialization
-* _factory_: data migration using ORM obj https://github.com/FactoryBoy/factory_boy/
-
-### schema
-
-* _schema migration_: DDL i.e. change schema (alongside related change in src) https://en.wikipedia.org/wiki/Schema_migration
-* https://news.ycombinator.com/item?id=40186752
-* no needs to manually alter tables https://realpython.com/django-migrations-a-primer/#ensuring-model-definitions-and-the-database-schema-in-sync
-* can be generated from model changes https://realpython.com/django-migrations-a-primer/#avoiding-repetition
-* version controllable https://realpython.com/django-migrations-a-primer/#tracking-database-schema-change-in-version-control
-* aids deployment (easy rollback to previous) 🗄 `system.md` deployment
-* don't run on app start https://pythonspeed.com/articles/schema-migrations-server-startup/
-* BYO https://news.ycombinator.com/item?id=24577239
-* moving to a difference schema entirely
-```txt
-There was zero downtime over the course of development. So, at no point in time could we stop support for the old model, migrate, and then start with the new model. Here’s how that worked:
-
-* Update everything that reads the data model to support both the old and new models.
-* Update everything that updates the data model to support both.
-* Update everything that creates to use the new model.
-* Run a task to migrate existing data to the new model.
-* Once everything above is stable on prod (we waited a sprint), drop support of the old data model.
-* Rename the fields in the old data model so that anything that still depends on them will break.
-* (TODO) Actually delete the old data model.
-
-This makes development much more involved than the traditional “flip a switch” approach. Namely, we have two parallel codebases live for a period of time. But, there are some advantages:
-
-* No downtime.
-* Other developers don’t have to ask “Do I develop X feature against the new model or old?”. They develop it against whatever code is currently checked in.
-* You can safely roll back at any time.
-* You can migrate data incrementally.
-```
-
----
-
-https://news.ycombinator.com/item?id=41935730
-https://github.com/xataio/pgroll
-https://xata.io/blog/migrations-and-exclusive-locks
-https://github.com/pressly/goose
-https://github.com/amacneil/dbmate#alternatives
-* SQLite https://news.ycombinator.com/item?id=31249823
-* https://github.com/fabianlindfors/reshape
-* linear migrations https://github.com/adamchainz/django-linear-migrations?utm_campaign=Django%2BNewsletter&utm_medium=email&utm_source=Django_Newsletter_89
-
-failover, failback https://www.highgo.ca/2023/04/10/setting-up-postgresql-failover-and-failback-the-right-way/
-
-schema migrations - scenarios
-* https://www.caktusgroup.com/blog/2021/05/25/django-migrations-and-deployment
-* _rollback_: https://about.gitlab.com/blog/2020/09/16/year-of-kubernetes/
-> We learned in the process of moving from VMs to Kubernetes that it was extremely beneficial for us to have an easy way to move traffic between the old and new infrastructure, and to keep legacy infrastructure available for rollback in the first few days after the migration.
-> And if what you care about is downtime, your first thought shouldn’t be "how do I reduce deployment downtime from 1 second to 1ms", it should be "how can I ensure database schema changes don’t prevent rollback if I screw something up." - https://pythonspeed.com/articles/dont-need-kubernetes/
-> Applying a schema migration to a production database is always a risk...the migration process needs a high level of discipline, thorough testing and a sound backup strategy. https://en.wikipedia.org/wiki/Template:Database https://en.wikipedia.org/wiki/Schema_migration
-* _rm attr_: instead of dropping can just hide from interface https://www.reddit.com/r/django/comments/47k7kl/how_do_i_make_a_migration_without_dropping_columns/
-* _add attr_: nullable or add default for old records; if nullable, need to update API if you don't want to return those null values; defaults not recommended [Kleppmann 4.130]
-> in Django, if you add default at model level, the old records are still null, yes? so you'd still have to update API to handle those, as you would if you'd made the attr nullable
-> in Django, how do people handle the one-off default for existing data? before you have prod data, foo values seem fine, but curious to hear a discussion on this topic
-```diff
-class Foo(models.Model):
-    bar = models.CharField(max_length=255)
-+   baz = models.CharField(max_length=255, null=True)
-```
-```sh
-+----+---------+----------+
-| id | bar     | baz      |
-+----+--------------------+
-| 1  | bar val | <null>   |
-| 2  | bar val | baz val  |
-+----+--------------------+
-```
-
-* _sink_: https://www.tarynpivots.com/post/migrating-40tb-sql-server-database/ https://github.blog/2020-02-14-automating-mysql-schema-migrations-with-github-actions-and-more/ pivot https://news.ycombinator.com/item?id=39353502
-
-### Flyway
-
-https://flywaydb.org/documentation/ https://github.com/zachvalenta/flyway-tutorial
-* how it works
-> It's semi automatic because it does not find out what has actually changed in your model. You need to write actual SQL scripts that have versions. It will create a separate table to keep track what version you have in your data base and that execute the script automatically up to the point where the latest version is reached.
-* _alternatives_: Liquibase https://return.co.de/blog/articles/java-development-fast/ https://github.com/amacneil/dbmate
-* _CLI_: db you're connected to, what migrations need to be run; selects subset of `flyway_schema_history`; can change name of `flyway_schema_history` in `flyway.conf > flway.table`
-* _config_: `flyway.conf` unless overriden from CLI
-* _directory structure_: `flyway` (CLI; bash script gathers input and then runs Flyway, itself a Java app) `lib` (actual Flyway application) `sql` (ur scripts here)
-* _migration script location_: `classpath:db/migration` (in src) `libexec/sql` (in local Flyway install)
-* _naming conventions_: whole numbers or timestamps, pad your numbers, don't alter in `flyway.conf`
-* _types_: versioned (default) repeatable https://flywaydb.org/getstarted/repeatable undo https://flywaydb.org/getstarted/undo just make a new migration file (vs. using `flyway repair`) ['How to Correct a Mistake in a Migration']
-* _versions_: looks at `version` table; version numbers https://flywaydb.org/documentation/migrations#naming
-* _with Java_: if you drop tables and rerun app, run `mvn clean install` before rerun (think something cached between runs (in `target`?) indicating that scripts have already been run --> this is weird bc Flyway should look to version table in the database for that)
-
-## typing
-
-📜 https://www.postgresql.org/docs/current/datatype.html
-🗄 `db.md` SQLite/design
-📙 Beaulieu chapter 7
-
-storing PDFs https://news.ycombinator.com/item?id=42059639
-> able to store Markdown?
-
-TYPES
-* money https://www.youtube.com/watch?v=lxVzLAHnPOE https://news.ycombinator.com/item?id=41776878
-* _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
-* _varchar_: variable 📙 Beaulieu [21]
-* _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485
-* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf` https://news.ycombinator.com/item?id=42364372
-* _integer_: 
-> The type integer is the common choice, as it offers the best balance between range, storage size, and performance. The smallint type is generally only used if disk space is at a premium. The bigint type is designed to be used when the range of the integer type is insufficient. https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-INT
-* _boolean_: 
-* _numeric_: int (normal stuff) bigint (item number, GUID) float (precision) [Beaulieu 2.21] 🗄 `math.md` encoding
-* avoid non-floating point types unless stricty necessary https://www.sqlstyle.guide/#choosing-data-types
-* avoid vendor-specific data types https://www.sqlstyle.guide/#choosing-data-types
-* type conversion https://news.ycombinator.com/item?id=28259104
-```sql
--- casting
-select cast (avg(price) as integer) as "average sale price" from house;
--- timestamp https://pgexercises.com/questions/basic/date.html non-overlapping times https://sqlfordevs.com/non-overlapping-time-ranges more on times https://simonwillison.net/2024/Nov/27/storing-times-for-human-events
-YYYY-MM-DD HH:MM:SS  -- fmt
-where foo_date > '1962-07-03' -- compare
--- user names
-family_name, other_given_names  -- https://www.youtube.com/watch?v=458KmAKq0bQ 7:30 https://www.w3.org/International/questions/qa-personal-names
-```
-
-### null
-
-📙 Beaulieu [32,82]
-
-* ways to check
-```sql
-where products.mpn is not null
-where products.mpn != ''
-```
-
----
-
-* https://jirevwe.github.io/sql-nulls-are-weird.html
-* _null_: absence of a value e.g. `termination_date` for newly hired employee
-* wat: an expression can be null but never equal null 📙 Beaulieu [82]
-```sql
-null != null  -- true 📙 Beaulieu [82]
-select (0 is not null) and ('' is not null)  -- true
-```
-
-### math
-
----
-
-* integer division yields integer (`select 51/2` = `25`) 🗄 FUQ - percent
-* cast to float for precision division https://hakibenita.com/sql-dos-and-donts#be-careful-when-dividing-integers
-* for decimals, multiply something by 1.0 (`select 1.0*51 / 2` = `25.5`)
-* boolean: `0` falsy `1` truthy https://selectstarsql.com/beazley.html
-```sh
-select 0 or 1  # 1
-```
-* avoid doing math w/ floating point https://dba.stackexchange.com/questions/76391/sum-of-double-precision-gives-weird-results
-```sql
-select track, sum(share), count(*) from splits group by track having sum(share) > 100.0;
-foo_isrc,200.0,4
-bar_isrc,100.0,10
-baz_isrc,100.0,4
-qux_isrc,200.0,2
-
-select track, sum(share), count(*) from splits group by track having cast(sum(share) as int) > 100.0;
-foo_isrc,200.0,4
-qux_isrc,200.0,2
-```
 
 # 🚜 DML
 
@@ -435,21 +86,14 @@ DELETE FROM <tab> WHERE id=3;  -- https://notso.boringsql.com/posts/deletes-are-
 
 💡 better to have this in application code https://www.youtube.com/watch?v=atwwf0qWpYg [20:30]
 
-FUNCTION
 * _function_: built-in function provided by dbms
 * has return value https://stackoverflow.com/a/771959
 * e.g. SQLite `substr()`
-
-### proc
-
 * _procedure_: user-defined function
 * no return value https://stackoverflow.com/a/771959
 * aka stored procedure
 * impl via procedural language availble in dbms
 * too many and you've got business logic split btw application and db https://news.ycombinator.com/item?id=24845300
-
-### trigger
-
 * _trigger_: hook e.g. on record update write previous state to archive/audit table https://www.youtube.com/watch?v=LFIAqFt9z2s
 * alternative to audit table is abadoning update-in-place entirely https://www.hytradboi.com/2022/baking-in-time-at-the-bottom-of-the-database
 * avoid data updates by tracking things from which current info can be derived i.e. DOB instead of age
@@ -461,12 +105,7 @@ CREATE TRIGGER actor_trigger AFTER INSERT ON actor
  END
 ;
 ```
-
-### aggregate
-
-📙 Beaulieu ch. 8
-
-* _aggregate_: function that returns single val from result set https://www.postgresql.org/docs/12/tutorial-agg.html 🗄 scalar
+* _aggregate_: function that returns single val from result set https://www.postgresql.org/docs/12/tutorial-agg.html 🗄 scalar 📙 Beaulieu ch. 8
 * operates on whole table or on group 📙 Beaulieu 8.149
 * can't use in WHERE clause
 * can't layer https://stackoverflow.com/a/2436957
@@ -491,8 +130,10 @@ select count(*) over (), track, sum(share), count(*) from splits group by track 
 
 ## grouping
 
-📙 Beaulieu ch. 8
 🗄 `math.md` stat
+📚
+* Beaulieu ch. 8
+* Evans 8
 
 GROUP BY
 * _group by_: rs w/ 1 record for each group 📙 Evans [8] https://labs.quansight.org/blog/dataframe-group-by
@@ -548,15 +189,12 @@ lag() sum() ntile() row_number()
 
 BASICS
 * _join_: RS incl attr from n tables based on predicate 📙 Beaulieu [88]
-* _driving table (DT)_: starting point of join 📙 Beaulieu [95]
-* _through table (TT)_: tables included in the join
-* _join narrowing_: additional joins winnow RS count
 ```sql
 select deal.deal_id, house.addr
 from deal join house on deal.house = house.house_id
 join renter on deal.renter = renter.renter_id
 ```
-* predicates: no pred = cartesian RS 📙 Beaulieu [35]
+* predicate syntax history (if no predicate you'd get a cartesian RS) 📙 Beaulieu [35]
 ```sql
 -- WHERE: old syntax 📙 Beaulieu [91]
 select * from employee, lob where employee.lob_id = lob.id
@@ -565,6 +203,9 @@ select * from employee, lob on employee.lob_id = lob.id
 -- USING_: use w/ equi join if tables have attr w/ same name 📙 Beaulieu [90] https://www.neilwithdata.com/join-using
 select * from employee, lob using (lob_id)
 ```
+* _driving table (DT)_: starting point of join 📙 Beaulieu [95]
+* _through table (TT)_: tables included in the join
+* _join narrowing_: additional joins winnow RS count
 
 ---
 
@@ -598,15 +239,8 @@ left join deal as d on r.renter_id = d.renter
 
 ### self/cross/natural
 
-* _multi_: use same table n times 📙 Beaulieu [96]
-* need to use multiple aliases 📙 Beaulieu [97]
-```sql
--- pass
-```
+* _multi_: use same table n times, need to use multiple aliases 📙 Beaulieu [96-7]
 * _self_: two instances of same table 📙 Beaulieu [98]
-```sql
--- pass
-```
 * _cross_: generates cartesian product due to lack of `on` clause 📙 Beaulieu [89] Takahashi [42] 🗄 `math.md` set theory
 ```sql
 -- The comma in the FROM clause is a shorthand for a CROSS JOIN. In your query, after the explicit JOIN between entity_pn and the subquery alias prod, the comma brings in another derived table (the subquery aliased as total) without any join condition. This means that the result of the join between entity_pn and prod is combined with the single-row result from the total subquery via a cross join.
@@ -621,16 +255,8 @@ on entity_part_number = prod.manufacturer_part_number,
 | 11.912705110704556 |
 +--------------------+
 ```
-* _natural_: don't specify `on` clause 📙 Beaulieu [198]
-* server figures out (which it will only do if there's matching attr name across tables) 📙 Beaulieu 10.198
-* don't use!
-```sql
--- pass
-```
+* _natural_: don't specify `on` clause i.e. server figures out (only if matching attr name across tables) i.e. don't use 📙 Beaulieu [198]
 * _equi_: equality 📙 Beaulieu [94-digital-copy]
-```sql
--- pass
-```
 * _non-equi_: membership https://learnsql.com/blog/sql-non-equi-joins-examples/ 📙 Beaulieu [94-digital-copy]
 ```sql
 -- TRICK FOR BOTH OF THESE IS USING A NON-EQUI JOIN TO UNMATCH PERMUTATIONS 🗄 `MATH.MD` SET THEORY
@@ -814,6 +440,357 @@ FROM cd.facilities;
 ```sql
 containing_query = (subquery)  -- 1 (scalar)
 containing_query in (subquery)  -- n
+```
+
+# 🗺️ SCHEMA (DDL)
+
+CANONICAL DATASETS
+* https://news.ycombinator.com/item?id=42231325
+* Sakila https://sq.io/docs/tutorial
+* NYC taxi dataset https://mattpo.pe/posts/sql-llvm/
+
+COMMANDS
+```sql
+-- DB/TABLE
+CREATE DATABASE <db>;  -- `sqlite3 local.db`
+CREATE TABLE test_table ();
+ALTER TABLE old_name RENAME TO new_name;
+DROP TABLE <table>;
+DROP DATABASE <db>;
+
+-- ATTR
+ALTER TABLE <table> ADD <col> <type>;  -- add
+ALTER TABLE <table> ALTER COLUMN <col> TYPE <type> -- update type https://news.ycombinator.com/item?id=40286403
+UPDATE <table> set <col>=concat('prependThis_', <col>)  -- update name
+ALTER TABLE <table> DROP COLUMN <col>; -- rm
+DESCRIBE mytable; -- list constraints/indexes
+SHOW CREATE TABLE <tab>; -- MySQL version https://serverfault.com/q/231952 https://stackoverflow.com/a/201678
+PRAGMA index_list('<tab>') -- SQLite version https://stackoverflow.com/a/49311235
+```
+
+## approaches
+
+� core insight: let the data tell you what it is, rather than forcing it into predetermined boxes
+🗄️
+* `modeling.md`
+* `OLAP.md` pipelines
+* `stat.md` outlier detection
+
+* _schema on-read_: enforce contraints on write
+* _schema on-write_: don't enforce contraints on write i.e. cobble things together on read
+```python
+class Catalog:
+    """
+    >>> cat = Catalog()
+    >>> cat.add_product({'sku': 1234, 'name': 'foo'})
+    >>> cat.add_product({'sku': 5678, 'name': 'bar'}, mode='strict')
+    >>> cat.get_product(sku=1234)
+    """
+    def __init__(self):
+        self.products = []
+
+    def __repr__(self):
+        return f'{self.products}'
+
+    def _validate_product(self, product, mode):
+        required = {'sku', 'name'}
+        if mode == 'strict':
+            required |= {'price'}
+        missing = required - set(product)
+        if missing:
+            raise ValueError(f"missing required fields: {' '.join(missing)}")
+
+    def add_product(self, product, mode='flex'):
+        self._validate_product(product, mode)
+        self.products.append(product)
+
+    def get_product(self, sku):
+        defaults = {'price': None}
+        for product in self.products:
+            if product['sku'] == sku:
+                return {**defaults, **product}
+        return None
+```
+* _schema-first_: define upfront
+* _schema-aware_: learns schema
+```sh
+# infers: book title (text), author name (text), year (integer)
+add-book "Snow Crash" "Neal Stephenson" 1992
+
+# "there's a publisher field now. Should I update the schema? Y/N"
+# On Y: Adds publisher column, leaves it NULL for previous entries
+add-book "Neuromancer" "William Gibson" 1984 "Ace Books"
+
+# "I notice you're adding categories. Should these be: single text field with comma-separated values | separate table with a many-to-many relationship?"
+add-book "Dune" "Frank Herbert" 1965 "Chilton Books" "sci-fi, politics"
+```
+* _constraint inference_: pattern detection
+* start permissive, get strict only when patterns emerge i.e. opposite of traditional db design where you define everything upfront
+```sh
+# distribution: if every book year is between 1900-2024
+system: "should i enforce year >= 1900?"
+
+# normalization: if you enter "ace books" multiple times
+System: "I notice 'Ace Books' appears often. Make it a foreign key?"
+
+# typing: if ISBN field always matches \d{13}|\d{10}
+System: "This looks like an ISBN. Add format validation?"
+```
+
+## constraints
+
+📙 Beaulieu chapter 13
+
+* _constraint_: rule for attr type/value 📙 Beaulieu [30]
+
+TYPES
+* _not null_: https://www.semicolonandsons.com/episode/data-integrity-null-constraint-check-constraint
+* interpolation https://hakibenita.com/sql-for-data-analysis#interpolation
+* _unique_: prevents dupes values in column https://stackoverflow.com/a/21049722/6813490 https://www.semicolonandsons.com/episode/foreign-keys-and-uniqueness-constraints
+* _default_: value that will be inserted in the absence of an explicit value in an insert / update statement https://stackoverflow.com/a/11862246/6813490
+```sql
+CREATE TABLE test_table (
+    foo default 'this is the default value', -- https://www.youtube.com/watch?v=lnfrcHdE_HI 3:15
+```
+* _check_: value for attr must satisfy boolean expression https://www.semicolonandsons.com/episode/data-integrity-null-constraint-check-constraint 📙 Beaulieu [30]
+```sql
+-- https://www.postgresql.org/docs/12/ddl-constraints.html#DDL-CONSTRAINTS-CHECK-CONSTRAINTS
+CREATE TABLE products (
+    product_no integer,
+    name text,
+    price numeric CHECK (price > 0)
+);
+```
+
+## keys
+
+ATTR TYPES
+* _keys_: attr owned by table (PK) or reference other tables (FK)
+* _instrinic_: attr owned by and define characteristics of table; aka descriptive
+```sql
+CREATE TABLE customer (
+    id TEXT PRIMARY KEY, -- PK
+    bill_to_id TEXT,     -- FK
+    name TEXT,           -- intrinsic
+);
+```
+
+### primary (PK)
+
+🗄 indexing `connolly.pdf`
+
+* _candidate key_: key(s) that could serve as PK https://stackoverflow.com/a/12813385 📙 Winand [5]
+* _primary key_: attr w/ unique constraint that serves as ID of record 📙 Beaulieu [6]
+* _composite key_: n keys unique together used as PK
+* use in pre-sorted tables (sorted by key vs. time of insertion) for faster lookups https://sqlfordevs.com/sorted-table-faster-range-scan range scan unique scan skip scan https://sqlfordevs.com/sorted-table-faster-range-scan
+* slower than surrogate https://news.ycombinator.com/item?id=2786238
+* https://github.com/aswinkarthik/csvdiff
+* https://sirupsen.com/napkin/problem-5
+* _compound key_: composite key + all keys also FK https://en.wikipedia.org/wiki/Composite_key
+* e.g. join table https://www.youtube.com/watch?v=vsGDtnBCwgg
+* sometimes used interchangeably w/ 'composite' https://dba.stackexchange.com/a/3137/201798 https://www.youtube.com/watch?v=lnfrcHdE_HI 1:40
+```sql
+-- TODO
+```
+* _natural key_: attr that goes together with other attr in table (vs. surrogate key) https://news.ycombinator.com/item?id=40580549
+* _surrogate key_: unrelated to table attr https://stackoverflow.com/a/36773462
+* typically auto-incremented but doesn't necessarily have to be 📙 Beaulieu [34]
+```sql
+-- TODO
+```
+* _sequence_: https://stackoverflow.com/a/1649128 📙 Beaulieu [34] Karwin ch. 4
+* don't expose via API, use uuid https://0of1.com/blog/posts/django-staples/
+* auto-increment https://retool.com/blog/how-to-work-with-auto-increment-in-sql-query/ aka identity column https://www.sqltutorial.org/sql-identity/
+```sql
+-- TODO
+```
+
+### foreign (FK)
+
+🗄️ `analytics.md` EDA
+
+* _foreign key_: constraint enforcing reference to another table's PK 📙 Beaulieu [33,39]
+```sql
+foreign key (band) references bands (band_id)
+```
+* aka referential integrity aka prevent garbage in garbage out https://www.postgresql.org/docs/8.3/tutorial-fk.html
+* _parent_: table to which FK refers 📙 Beaulieu [40] https://sqlite.org/foreignkeys.html#fk_basics
+* _child_: table w/ FK 📙 Beaulieu [40] 5.82
+* can be self-referencing? 📙 Beaulieu 5.93
+* find FK referencing table ` SELECT * FROM information_schema.TABLE_CONSTRAINTS WHERE CONSTRAINT_SCHEMA='tableName' AND CONSTRAINT_TYPE='FOREIGN KEY'`
+* bad when it comes to sharing and migrations? https://github.com/github/gh-ost/issues/331#issuecomment-266027731
+* https://www.semicolonandsons.com/episode/foreign-keys-and-uniqueness-constraints
+* _dangling identifier_: bad FK bc pointing to no longer extant ID
+
+## migrations
+
+💻 `lang/python/django/migrations-sandbox`
+🗄
+*️ `api.md` schema
+* `architecture.md` factors > compatibility
+* `infra.md` deployment
+* `task-mgmt.md` Task Warrior > database https://github.com/zachvalenta/dotfiles-mini23/blob/main/cli/taskwarrior.sql
+* `data/eng.md` pipelines
+* `django.md` migrations
+
+TOOLS
+* pgroll, squitch https://news.ycombinator.com/item?id=42388973
+
+DATA
+* _data migration_: DML i.e. change data itself
+* prod data in lower env is bad? https://www.thoughtworks.com/radar/techniques/production-data-in-test-environments
+* backsies https://news.ycombinator.com/item?id=30788768
+* dry run https://adamj.eu/tech/2022/10/13/dry-run-mode-for-data-imports-in-django/
+* _fixture_: data migration using serialization
+* _factory_: data migration using ORM obj https://github.com/FactoryBoy/factory_boy/
+
+FLYWAY
+https://flywaydb.org/documentation/ https://github.com/zachvalenta/flyway-tutorial
+* how it works
+> It's semi automatic because it does not find out what has actually changed in your model. You need to write actual SQL scripts that have versions. It will create a separate table to keep track what version you have in your data base and that execute the script automatically up to the point where the latest version is reached.
+* _alternatives_: Liquibase https://return.co.de/blog/articles/java-development-fast/ https://github.com/amacneil/dbmate
+* _CLI_: db you're connected to, what migrations need to be run; selects subset of `flyway_schema_history`; can change name of `flyway_schema_history` in `flyway.conf > flway.table`
+* _config_: `flyway.conf` unless overriden from CLI
+* _directory structure_: `flyway` (CLI; bash script gathers input and then runs Flyway, itself a Java app) `lib` (actual Flyway application) `sql` (ur scripts here)
+* _migration script location_: `classpath:db/migration` (in src) `libexec/sql` (in local Flyway install)
+* _naming conventions_: whole numbers or timestamps, pad your numbers, don't alter in `flyway.conf`
+* _types_: versioned (default) repeatable https://flywaydb.org/getstarted/repeatable undo https://flywaydb.org/getstarted/undo just make a new migration file (vs. using `flyway repair`) ['How to Correct a Mistake in a Migration']
+* _versions_: looks at `version` table; version numbers https://flywaydb.org/documentation/migrations#naming
+* _with Java_: if you drop tables and rerun app, run `mvn clean install` before rerun (think something cached between runs (in `target`?) indicating that scripts have already been run --> this is weird bc Flyway should look to version table in the database for that)
+
+SCHEMA
+* _schema migration_: DDL i.e. change schema (alongside related change in src) https://en.wikipedia.org/wiki/Schema_migration
+* https://news.ycombinator.com/item?id=40186752
+* no needs to manually alter tables https://realpython.com/django-migrations-a-primer/#ensuring-model-definitions-and-the-database-schema-in-sync
+* can be generated from model changes https://realpython.com/django-migrations-a-primer/#avoiding-repetition
+* version controllable https://realpython.com/django-migrations-a-primer/#tracking-database-schema-change-in-version-control
+* aids deployment (easy rollback to previous) 🗄 `system.md` deployment
+* don't run on app start https://pythonspeed.com/articles/schema-migrations-server-startup/
+* BYO https://news.ycombinator.com/item?id=24577239
+* moving to a difference schema entirely
+```txt
+There was zero downtime over the course of development. So, at no point in time could we stop support for the old model, migrate, and then start with the new model. Here’s how that worked:
+
+* Update everything that reads the data model to support both the old and new models.
+* Update everything that updates the data model to support both.
+* Update everything that creates to use the new model.
+* Run a task to migrate existing data to the new model.
+* Once everything above is stable on prod (we waited a sprint), drop support of the old data model.
+* Rename the fields in the old data model so that anything that still depends on them will break.
+* (TODO) Actually delete the old data model.
+
+This makes development much more involved than the traditional “flip a switch” approach. Namely, we have two parallel codebases live for a period of time. But, there are some advantages:
+
+* No downtime.
+* Other developers don’t have to ask “Do I develop X feature against the new model or old?”. They develop it against whatever code is currently checked in.
+* You can safely roll back at any time.
+* You can migrate data incrementally.
+```
+
+---
+
+https://news.ycombinator.com/item?id=41935730
+https://github.com/xataio/pgroll
+https://xata.io/blog/migrations-and-exclusive-locks
+https://github.com/pressly/goose
+https://github.com/amacneil/dbmate#alternatives
+* SQLite https://news.ycombinator.com/item?id=31249823
+* https://github.com/fabianlindfors/reshape
+* linear migrations https://github.com/adamchainz/django-linear-migrations?utm_campaign=Django%2BNewsletter&utm_medium=email&utm_source=Django_Newsletter_89
+
+failover, failback https://www.highgo.ca/2023/04/10/setting-up-postgresql-failover-and-failback-the-right-way/
+
+schema migrations - scenarios
+* https://www.caktusgroup.com/blog/2021/05/25/django-migrations-and-deployment
+* _rollback_: https://about.gitlab.com/blog/2020/09/16/year-of-kubernetes/
+> We learned in the process of moving from VMs to Kubernetes that it was extremely beneficial for us to have an easy way to move traffic between the old and new infrastructure, and to keep legacy infrastructure available for rollback in the first few days after the migration.
+> And if what you care about is downtime, your first thought shouldn’t be "how do I reduce deployment downtime from 1 second to 1ms", it should be "how can I ensure database schema changes don’t prevent rollback if I screw something up." - https://pythonspeed.com/articles/dont-need-kubernetes/
+> Applying a schema migration to a production database is always a risk...the migration process needs a high level of discipline, thorough testing and a sound backup strategy. https://en.wikipedia.org/wiki/Template:Database https://en.wikipedia.org/wiki/Schema_migration
+* _rm attr_: instead of dropping can just hide from interface https://www.reddit.com/r/django/comments/47k7kl/how_do_i_make_a_migration_without_dropping_columns/
+* _add attr_: nullable or add default for old records; if nullable, need to update API if you don't want to return those null values; defaults not recommended [Kleppmann 4.130]
+> in Django, if you add default at model level, the old records are still null, yes? so you'd still have to update API to handle those, as you would if you'd made the attr nullable
+> in Django, how do people handle the one-off default for existing data? before you have prod data, foo values seem fine, but curious to hear a discussion on this topic
+```diff
+class Foo(models.Model):
+    bar = models.CharField(max_length=255)
++   baz = models.CharField(max_length=255, null=True)
+```
+```sh
++----+---------+----------+
+| id | bar     | baz      |
++----+--------------------+
+| 1  | bar val | <null>   |
+| 2  | bar val | baz val  |
++----+--------------------+
+```
+
+* _sink_: https://www.tarynpivots.com/post/migrating-40tb-sql-server-database/ https://github.blog/2020-02-14-automating-mysql-schema-migrations-with-github-actions-and-more/ pivot https://news.ycombinator.com/item?id=39353502
+
+## typing
+
+📜 https://www.postgresql.org/docs/current/datatype.html
+🗄 `db.md` SQLite/design
+📙 Beaulieu chapter 7
+
+storing PDFs https://news.ycombinator.com/item?id=42059639
+> able to store Markdown?
+
+TYPES
+* money https://www.youtube.com/watch?v=lxVzLAHnPOE https://news.ycombinator.com/item?id=41776878
+* _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
+* _varchar_: variable 📙 Beaulieu [21]
+* _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485
+* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf` https://news.ycombinator.com/item?id=42364372
+* _integer_: 
+> The type integer is the common choice, as it offers the best balance between range, storage size, and performance. The smallint type is generally only used if disk space is at a premium. The bigint type is designed to be used when the range of the integer type is insufficient. https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-INT
+* _boolean_: 
+* _numeric_: int (normal stuff) bigint (item number, GUID) float (precision) [Beaulieu 2.21] 🗄 `math.md` encoding
+* avoid non-floating point types unless stricty necessary https://www.sqlstyle.guide/#choosing-data-types
+* avoid vendor-specific data types https://www.sqlstyle.guide/#choosing-data-types
+* type conversion https://news.ycombinator.com/item?id=28259104
+```sql
+-- casting
+select cast (avg(price) as integer) as "average sale price" from house;
+-- timestamp https://pgexercises.com/questions/basic/date.html non-overlapping times https://sqlfordevs.com/non-overlapping-time-ranges more on times https://simonwillison.net/2024/Nov/27/storing-times-for-human-events
+YYYY-MM-DD HH:MM:SS  -- fmt
+where foo_date > '1962-07-03' -- compare
+-- user names
+family_name, other_given_names  -- https://www.youtube.com/watch?v=458KmAKq0bQ 7:30 https://www.w3.org/International/questions/qa-personal-names
+```
+
+NULL 📙 Beaulieu [32,82]
+* check
+```sql
+where products.mpn is not null
+where products.mpn != ''
+```
+* https://jirevwe.github.io/sql-nulls-are-weird.html
+* _null_: absence of a value e.g. `termination_date` for newly hired employee
+* wat: an expression can be null but never equal null 📙 Beaulieu [82]
+```sql
+null != null  -- true 📙 Beaulieu [82]
+select (0 is not null) and ('' is not null)  -- true
+```
+
+MATH
+* integer division yields integer (`select 51/2` = `25`) 🗄 FUQ - percent
+* cast to float for precision division https://hakibenita.com/sql-dos-and-donts#be-careful-when-dividing-integers
+* for decimals, multiply something by 1.0 (`select 1.0*51 / 2` = `25.5`)
+* boolean: `0` falsy `1` truthy https://selectstarsql.com/beazley.html
+```sh
+select 0 or 1  # 1
+```
+* avoid doing math w/ floating point https://dba.stackexchange.com/questions/76391/sum-of-double-precision-gives-weird-results
+```sql
+select track, sum(share), count(*) from splits group by track having sum(share) > 100.0;
+foo_isrc,200.0,4
+bar_isrc,100.0,10
+baz_isrc,100.0,4
+qux_isrc,200.0,2
+
+select track, sum(share), count(*) from splits group by track having cast(sum(share) as int) > 100.0;
+foo_isrc,200.0,4
+qux_isrc,200.0,2
 ```
 
 # 🟨️ ZA

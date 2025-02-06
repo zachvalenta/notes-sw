@@ -317,7 +317,7 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 📙 Cayla https://www.manning.com/books/data-preparation-handbook
 🗄
 * `data/sql.md` migrations
-* `data/sql.md` schema awareness
+*️ `sql.md` schema / approaches
 * `infra.md` task queue, workflow engine
 
 ---

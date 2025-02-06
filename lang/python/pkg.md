@@ -697,6 +697,8 @@ $ which python  # /Users/zvalenta/.pyenv/shims/python
 $ uv add --script qing 'send2trash'
 ```
 
+fix for scripts? https://www.youtube.com/watch?v=bNw34Mo0FOQ
+
 ## scripts
 
 ---

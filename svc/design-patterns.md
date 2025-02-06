@@ -283,7 +283,7 @@ https://www.openmymind.net/Dependency-Injection-In-Go/
 * ✅ Evans domain-driven design https://github.com/nickgerace/gfold/pull/149/files
 * Percival https://www.amazon.com/gp/product/1492052205 https://www.youtube.com/watch?v=niMybnzmzqc [1:15]
 
-├── Repository: data access abstraction 🗄️ `sql.md` constraints > schema awareness > catalog
+├── Repository: data access abstraction 🗄️ `sql.md` schema / approaches
 > 📍 you have same def for strategy pattern
 ├── Factory
 ├── Aggregate
