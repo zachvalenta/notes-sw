@@ -136,36 +136,40 @@ select count(*) over (), track, sum(share), count(*) from splits group by track 
 * Evans 8
 
 GROUP BY
-* _group by_: create bucket for each unique combo and put first record into bucket (hence dedupe side effect) 📙 Evans [8]
+* _group by_: form group for each unique combo
+* group formation happens first, then either regular column (first row in group) | agg column (agg func applied to all rows in group)
+* regular column has dedupe side effect 📙 Evans [8]
 ```sql
-+----+----------+-----------+--------+
-| id | customer | product   | amount |
-+----+----------+-----------+--------+
-| 1  | alice    | widget    | 100    |
-| 2  | bob      | widget    | 200    |
-| 3  | alice    | widget    | 100    |
-| 4  | bob      | widget    | 200    |
-| 5  | alice    | gadget    | 150    |
-| 6  | carl     | gadget    | 175    |
-| 7  | carl     | widget    | 225    |
-| 8  | alice    | doohickey | 125    |
-| 9  | bob      | doohickey | 225    |
-| 10 | carl     | doohickey | 175    |
-+----+----------+-----------+--------+
+select * from orders
++----+----------+---------+--------+
+| id | customer | product | amount |
++----+----------+---------+--------+
+| 1  | alice    | widget  | 100    |
+| 2  | alice    | widget  | 150    |
+| 3  | bob      | gadget  | 200    |
+| 4  | bob      | gadget  | 175    |
+| 5  | carl     | widget  | 225    |
++----+----------+---------+--------+
 
 select * from orders group by customer, product
-+----+----------+-----------+--------+
-| id | customer | product   | amount |
-+----+----------+-----------+--------+
-| 8  | alice    | doohickey | 125    |
-| 5  | alice    | gadget    | 150    |
-| 1  | alice    | widget    | 100    |
-| 9  | bob      | doohickey | 225    |
-| 2  | bob      | widget    | 200    |
-| 10 | carl     | doohickey | 175    |
-| 6  | carl     | gadget    | 175    |
-| 7  | carl     | widget    | 225    |
-+----+----------+-----------+--------+
++----+----------+---------+--------+
+| id | customer | product | amount |
++----+----------+---------+--------+
+| 1  | alice    | widget  | 100    |
+| 3  | bob      | gadget  | 200    |
+| 5  | carl     | widget  | 225    |
++----+----------+---------+--------+
+
+select customer, product, id, -- regular columns
+count(*) as cnt, sum(amount) total -- agg columns
+from orders group by customer, product;
++----------+---------+----+-----+-------+
+| customer | product | id | cnt | total |
++----------+---------+----+-----+-------+
+| alice    | widget  | 1  | 2   | 250   |
+| bob      | gadget  | 3  | 2   | 375   |
+| carl     | widget  | 5  | 1   | 225   |
++----------+---------+----+-----+-------+
 ```
 
 ---
