@@ -98,6 +98,19 @@ df.with_columns(
     .alias('sku')
 )
 ```
+* more type casting / coercion / interpolation
+```python
+# Polars cast() is equivalent to pandas astype()
+# Int64 matches the target schema's type
+# Safer than pl.col('id').str.to_int() which can fail on non-numeric strings
+
+# String parsing
+str.to_int(), str.to_float()
+# Numeric casting
+cast(pl.Int32), cast(pl.Float64)
+#Type coercion
+coalesce(), fill_null()
+```
 
 READ
 * strategy pattern for `.read_csv|parquet|excel` (excel requires `fastexcel`)
@@ -152,6 +165,12 @@ df.select([col for col in df.columns if col not in null_col_to_skip])
 
 # drop bad columns
 pl.read_csv('catalog.csv').drop(['', 'Unnamed: 0']).write_csv('catalog.csv')
+
+# alias on read
+pl.scan_csv('products.csv').select([
+    pl.col('capp_stock_number').alias('csn'),
+    pl.col('manufacturer_part_number').alias('mpn'),
+]).collect()
 ```
 
 ## EDA
@@ -163,8 +182,8 @@ df.schema.keys()
 col_series = df["column_name"]
 col_list = df["column_name"].to_list()
 
-first_values = df["column_name"].head(5)
-unique_values = df["column_name"].unique()
+first_values = df['column_name'].head(5)
+unique_values = df['column_name'].unique()
 
 # col has empty values
 series.is_null().any()
@@ -208,16 +227,32 @@ df.filter(pl.col('description').str.contains(fr'(?i){brand}')) # newer version o
 
 ---
 
+
+* multi
+```python
+res = (prod
+.join(pc, on='id')  # add mfg
+.join(entity, left_on='id', right_on='product_id') # add epn
+.join(mars, left_on='pn', right_on='mfr_pn')  # match epn
+)
+```
+```sql
+from product join prod_class on product.id = prod_class.id
+join entity on product.id = entity.product_id
+join mars on entity.pn = mars.mfr_pn
+```
+
+
 ```python
 # basic
-foo.join(bar, left_on="id", right_on="mpn")
+foo.join(bar, left_on='id', right_on='mpn')
 
 # predicate
-foo.join(bar, left_on="id", right_on="mpn").filter(pl.col("foo_price") != pl.col("bar_price"))
-foo.join(bar, left_on="id", right_on="mpn").filter(pl.col("manufacturer").is_in(["apple", "motorola"]))
+foo.join(bar, left_on='id', right_on='mpn').filter(pl.col('foo_price') != pl.col('bar_price'))
+foo.join(bar, left_on='id', right_on='mpn').filter(pl.col('manufacturer').is_in(['apple', 'motorola']))
 
 # relative complement
-bar.join(foo, left_on="mpn", right_on="id", how="anti")
+bar.join(foo, left_on='mpn', right_on='id', how='anti')
 ```
 
 ---
