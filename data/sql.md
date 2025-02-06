@@ -136,7 +136,43 @@ select count(*) over (), track, sum(share), count(*) from splits group by track 
 * Evans 8
 
 GROUP BY
-* _group by_: rs w/ 1 record for each group 📙 Evans [8] https://labs.quansight.org/blog/dataframe-group-by
+* _group by_: create bucket for each unique combo and put first record into bucket (hence dedupe side effect) 📙 Evans [8]
+```sql
++----+----------+-----------+--------+
+| id | customer | product   | amount |
++----+----------+-----------+--------+
+| 1  | alice    | widget    | 100    |
+| 2  | bob      | widget    | 200    |
+| 3  | alice    | widget    | 100    |
+| 4  | bob      | widget    | 200    |
+| 5  | alice    | gadget    | 150    |
+| 6  | carl     | gadget    | 175    |
+| 7  | carl     | widget    | 225    |
+| 8  | alice    | doohickey | 125    |
+| 9  | bob      | doohickey | 225    |
+| 10 | carl     | doohickey | 175    |
++----+----------+-----------+--------+
+
+select * from orders group by customer, product
++----+----------+-----------+--------+
+| id | customer | product   | amount |
++----+----------+-----------+--------+
+| 8  | alice    | doohickey | 125    |
+| 5  | alice    | gadget    | 150    |
+| 1  | alice    | widget    | 100    |
+| 9  | bob      | doohickey | 225    |
+| 2  | bob      | widget    | 200    |
+| 10 | carl     | doohickey | 175    |
+| 6  | carl     | gadget    | 175    |
+| 7  | carl     | widget    | 225    |
++----+----------+-----------+--------+
+```
+
+---
+
+diff polars vs. pandas https://labs.quansight.org/blog/dataframe-group-by
+
+GROUP BY
 * group data by column value 📙 Beaulieu [60]
 * aka binning https://hakibenita.com/sql-for-data-analysis#binning
 * aka pivot table https://hakibenita.com/sql-for-data-analysis#pivot-tables https://realpython.com/how-to-pandas-pivot-table/
@@ -344,18 +380,51 @@ select
 
 ## select
 
-DISTINCT
+DISTINCT 🗄️ `math.md` set theory / combos
 * _ALL_: default (which is why you never see it) 📙 Beaulieu [52]
 * _DISTINCT_: dedupe
+* operates on records, not columns https://discuss.codecademy.com/t/can-we-apply-distinct-to-a-select-query-with-multiple-columns/349723
 * slow for large result set bc have to sort 📙 Beaulieu [52]
-* works on records, not columns https://discuss.codecademy.com/t/can-we-apply-distinct-to-a-select-query-with-multiple-columns/349723
+* SQLite lacks `distinct on` syntax so `group by`
 ```sql
---
--- DEDUPE W/ N COLUMNS
---
+--- all records in RS bc each is a distinct combination btw id/product (id=1/product=widget != id=2/product=widget)
+select distinct id, product from orders
++----+----------+-----------+--------+
+| id | customer | product   | amount |
++----+----------+-----------+--------+
+| 1  | alice    | widget    | 100    |
+| 2  | bob      | widget    | 200    |
+| 3  | alice    | widget    | 100    |
+| 4  | bob      | widget    | 200    |
+| 5  | alice    | gadget    | 150    |
+| 6  | carl     | gadget    | 175    |
+| 7  | carl     | widget    | 225    |
+| 8  | alice    | doohickey | 125    |
+| 9  | bob      | doohickey | 225    |
+| 10 | carl     | doohickey | 175    |
++----+----------+-----------+--------+
 
--- can't just use distinct bc works on records, not columns
--- i.e. result set valid bc each record different e.g. 5 rose st + house_id 1 != 5 rose st + house_id 3
+select * from orders group by customer, product
++----+----------+-----------+--------+
+| id | customer | product   | amount |
++----+----------+-----------+--------+
+| 8  | alice    | doohickey | 125    |
+| 5  | alice    | gadget    | 150    |
+| 1  | alice    | widget    | 100    |
+| 9  | bob      | doohickey | 225    |
+| 2  | bob      | widget    | 200    |
+| 10 | carl     | doohickey | 175    |
+| 6  | carl     | gadget    | 175    |
+| 7  | carl     | widget    | 225    |
++----+----------+-----------+--------+
+```
+
+---
+
+DISTINCT
+```sql
+-- relationship to group by https://stackoverflow.com/a/54430/6813490 📙 Molinaro
+
 select distinct house_id, addr from house
 +----------+-----------------+
 | house_id | addr            |
@@ -363,9 +432,9 @@ select distinct house_id, addr from house
 | 1        | 5 rose street   |
 | 2        | 12 main street  |
 | 3        | 5 rose street   |
+| 4        | 3 nice street   |
 +----------+-----------------+
 
--- the other approach here is using group by https://stackoverflow.com/a/12632129 📙 Molinaro
 select house_id, addr from house group by addr
 +----------+-----------------+
 | house_id | addr            |
@@ -374,7 +443,6 @@ select house_id, addr from house group by addr
 | 3        | 5 rose street   |
 | 4        | 3 nice street   |
 +----------+-----------------+
-
 
 SELECT saleprice, saledate
 FROM   sales

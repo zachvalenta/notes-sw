@@ -295,8 +295,15 @@ Manufacturer Name,Banner Engineering Corp.,445
 Manufacturer Name,TBD - To Be Determined,384
 Manufacturer Name,(NULL),190
 ```
+FIND DUPES
+```sql
+select entity.pn, count(*) from entity
+group by pn having count(*) > 1;
+```
 
 ---
+
+> there's got to be a less manually way to do this -> I have a bunch of CSVs. Is there an automated way to: figure out where all the foreign keys are and document the schema with a plaintext ERD?
 
 FKFIND
 * https://github.com/zachvalenta/capp-datalab#entity
@@ -518,6 +525,7 @@ filter '$earnings > 0.0' example.csv
 ZA
 ```sh
 litecli $DB  # open
+.schema      # all schemas
 ```
 
 CONFIG
