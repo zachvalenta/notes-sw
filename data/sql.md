@@ -189,6 +189,9 @@ lag() sum() ntile() row_number()
 
 BASICS
 * _join_: RS incl attr from n tables based on predicate 📙 Beaulieu [88]
+* _driving table (DT)_: starting point of join 📙 Beaulieu [95]
+* _through table (TT)_: tables included in the join
+* _join narrowing_: additional joins winnow RS count
 ```sql
 select deal.deal_id, house.addr
 from deal join house on deal.house = house.house_id
@@ -203,9 +206,6 @@ select * from employee, lob on employee.lob_id = lob.id
 -- USING_: use w/ equi join if tables have attr w/ same name 📙 Beaulieu [90] https://www.neilwithdata.com/join-using
 select * from employee, lob using (lob_id)
 ```
-* _driving table (DT)_: starting point of join 📙 Beaulieu [95]
-* _through table (TT)_: tables included in the join
-* _join narrowing_: additional joins winnow RS count
 
 ---
 
@@ -293,17 +293,34 @@ WHERE / HAVING
 * _having_: condition on group 📙 Beaulieu [149]
 * occurs after `group by` https://stackoverflow.com/a/9253267
 ```sql
--- comparison operator 📙 Beaulieu 4.63
-where num >= 5
+where num >= 5 -- comparison operator 📙 Beaulieu 4.63
+where num is not null -- identity operator
+where "name" in ('alice', 'bob'); -- membership; how subqueries work 📙 Beaulieu 4.71
+where num between 3000 and 5000; -- range; is inclusive 📙 Beaulieu [75]
+```
 
--- identity operator
-where num is not null
+GLOBBING
+* not portable across DBMS 📙 Karwin [15]
+* regex in SQLite
+```sql
+select id from prod_class where id glob '*[^0-9]*' limit 5
+```
+* wildcards: `_` single char `%` n char 📙 Beaulieu [80]
+```sql
+-- '%query%' = contained anywhere
+-- https://github.com/enochtangg/quick-SQL-cheatsheet#1-finding-data-queries
+select artists, genres from artist where genres like '%rock%'
 
--- membership; how subqueries work 📙 Beaulieu 4.71
-where "name" in ('alice', 'bob');
+LIKE 'foo%'; -- starts w/ 'foo'; '%' is n char [Beaulieu 4.74-5]
+LIKE '%foo'; -- ends w/ 'foo'
+LIKE '_foo'; -- has a single char before 'foo'
+LIKE '%foo%'; -- contains anywhere https://pgexercises.com/questions/basic/where3.html
 
--- range; is inclusive 📙 Beaulieu [75]
-where num between 3000 and 5000;
+ILIKE 'Foo'; -- case sensitive
+ILIKE 'foo'; -- case insensitive https://docs.djangoproject.com/en/3.1/ref/models/querysets/#iexact
+
+where RIGHT(<col>, 3); -- 📍 slice right: select subset of string ending with index n [Beaulieu 3.59]
+where LEFT(<col>, 1) = 'T'; -- attr starts w/ 'T' -- left: select subset of string starting with index n [Beaulieu 4.73]
 ```
 
 FUQ
@@ -323,26 +340,6 @@ select
     (select count(height) from executions where height = '') * 100
     /
     (select count(height) from executions)
-```
-
-GLOBBING
-* not portable across DBMS 📙 Karwin [15]
-* wildcards: `_` single char `%` n char 📙 Beaulieu [80]
-```sql
--- '%query%' = contained anywhere
--- https://github.com/enochtangg/quick-SQL-cheatsheet#1-finding-data-queries
-select artists, genres from artist where genres like '%rock%'
-
-LIKE 'foo%'; -- starts w/ 'foo'; '%' is n char [Beaulieu 4.74-5]
-LIKE '%foo'; -- ends w/ 'foo'
-LIKE '_foo'; -- has a single char before 'foo'
-LIKE '%foo%'; -- contains anywhere https://pgexercises.com/questions/basic/where3.html
-
-ILIKE 'Foo'; -- case sensitive
-ILIKE 'foo'; -- case insensitive https://docs.djangoproject.com/en/3.1/ref/models/querysets/#iexact
-
-where RIGHT(<col>, 3); -- 📍 slice right: select subset of string ending with index n [Beaulieu 3.59]
-where LEFT(<col>, 1) = 'T'; -- attr starts w/ 'T' -- left: select subset of string starting with index n [Beaulieu 4.73]
 ```
 
 ## select
