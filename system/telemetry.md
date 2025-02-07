@@ -806,6 +806,32 @@ FS LOCATIONS https://missing.csail.mit.edu/2019/machine-introspection/ 🗄️ `
 
 ---
 
+```txt
+loguru (what you're using) - Great defaults, structured out of the box
+structlog - Most flexible, industrial strength
+python-json-logger - Simple JSON logging
+standard logging + custom formatter (shown above)
+
+The broader domain here is observability, which includes:
+Metrics
+Traces
+Logs (what we're discussing)
+Event correlation
+System state
+
+Narrower focus areas:
+Log routing
+Log aggregation
+Log parsing
+Log retention
+
+Key considerations for structured logging:
+Performance impact of serialization
+Storage costs of structured vs unstructured
+Query capabilities needed
+Integration with existing tools
+```
+
 https://www.openmymind.net/2012/4/11/Lets-Talk-About-Logging/
 * https://calmcode.io/course/vector/introduction
 * you'll need to rotate if you don't want to store everything 

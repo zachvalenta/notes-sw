@@ -380,6 +380,7 @@ BASICS
 import pandas as pd
 df = pd.DataFrame(pd.read_csv($FILE))
 df.to_csv('out.csv', index=False)  # drop index
+get_sample(df, frac=0.1, random_state=42)  # get reproducible 10% sample
 
 # CHECK COL PRESENT
 col_name in df.columns

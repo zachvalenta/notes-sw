@@ -310,7 +310,20 @@ https://www.openmymind.net/Dependency-Injection-In-Go/
 
 > Minimizes the need for patterns like Decorator and Strategy by leveraging pure functions and higher-order functions.
 
-method chaining https://calmcode.io/course/method-chains/introduction
+METHOD CHAINING 💻 https://github.com/zachvalenta/capp-edi https://calmcode.io/course/method-chains/introduction
+```python
+@cli.command()
+def new_item():
+    # doc = DocBuilder().add_isa_gs_st().add_bct('new item').add_products('new item').add_ctt_to_iea()
+    # doc.write(SCENARIO_DIR / 'new-item.edi')
+    doc = DocBuilder()
+    doc.add_isa_gs_st()
+    doc.add_bct('new item')
+    doc.add_products('new item')
+    doc.add_ctt_to_iea()
+    doc.write(SCENARIO_DIR / 'new-item.edi')
+```
+
 https://danluu.com/butler-lampson-1999/
 https://us.pycon.org/2024/schedule/presentation/86/index.html
 https://www.destroyallsoftware.com/screencasts/catalog/functional-core-imperative-shell
