@@ -115,6 +115,7 @@ TIME MACHINE
 ## mini23 ➡️ exfatmain
 
 * digits
+* sun araw
 
 ## air-capp ➡️ mini23
 

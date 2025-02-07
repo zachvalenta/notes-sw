@@ -306,6 +306,7 @@ group by pn having count(*) > 1;
 > there's got to be a less manually way to do this -> I have a bunch of CSVs. Is there an automated way to: figure out where all the foreign keys are and document the schema with a plaintext ERD?
 
 FKFIND
+> VSC ipy extension
 * https://github.com/zachvalenta/capp-datalab#entity
 * pypi pkg, Rust CLI, sqlite extension <https://github.com/pyo3/pyo3>
 ```txt
@@ -476,8 +477,9 @@ PIPELINES
 ```sh
 cat $CSV | mlr --csv put '$col = int($col)' > $CSV  # cast type from int to float
 filter 'is_null($col)' $CSV                         # filter nulls https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
-filter '$header != ""' $CSV  # filter out nulls
+filter '$header != ""' $CSV                         # filter out nulls
 mlr --csv filter '$col != ""' $CSV                  # filter out empty strings
+mlr --csv filter '$price_list != ""' final.csv
 ```
 
 CONFIG https://miller.readthedocs.io/en/latest/customization/

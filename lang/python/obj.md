@@ -983,6 +983,20 @@ foo.append(1)  # same obj
 
 ## packing
 
+* prefix operator?
+```python
+safe_load = {
+   'ignore_errors': True,
+   'infer_schema_length': None,
+   'quote_char': None,
+   'truncate_ragged_lines': True
+}
+# LOAD
+entity = pl.read_csv('eclipse/entity_pn.csv', **safe_load)
+mars = pl.read_csv('eclipse/mars.csv', **safe_load)
+catalog = pl.read_csv('eclipse/catalog.csv', **safe_load)
+```
+
 * https://github.com/zachvalenta/capp-brand-enablement/
 ```python
 def smart_join(dt, tt, did, tid):

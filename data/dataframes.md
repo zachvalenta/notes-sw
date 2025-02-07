@@ -176,6 +176,14 @@ pl.scan_csv('products.csv').select([
 ## EDA
 
 ```python
+df.drop_nulls(subset=['col1', 'col2'])  # drop nulls from col
+```
+
+---
+
+
+```python
+df.unique(subset=['csn', 'matched_product_id'])  # dedupe
 df.columns
 df.schema
 df.schema.keys()
@@ -242,6 +250,19 @@ join entity on product.id = entity.product_id
 join mars on entity.pn = mars.mfr_pn
 ```
 
+```txt
+Polars drops the right-side join key unless explicitly retained.
+Since matched_product_id was only used for joining, it was removed.
+Now, product_id is correctly preserved because we selected it explicitly in catalog.select([...]).
+
+Polars follows these rules when handling columns with the same name in joins:
+
+If on='id' is used, Polars keeps a single id column from the left table.
+If left_on='id', right_on='id' is used, Polars renames the right-side column by appending _right.
+If multiple tables have id but are joined differently, only the first id from the leftmost table survives unless explicitly selected.
+```
+
+how=left for left join
 
 ```python
 # basic
