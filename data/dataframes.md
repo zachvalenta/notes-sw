@@ -171,6 +171,16 @@ pl.scan_csv('products.csv').select([
     pl.col('capp_stock_number').alias('csn'),
     pl.col('manufacturer_part_number').alias('mpn'),
 ]).collect()
+
+# read TSV
+df = pl.read_csv(
+    'products.tsv',
+    separator='\t',
+    encoding='latin-1',
+    infer_schema_length=None,
+    quote_char=None,
+    truncate_ragged_lines=True
+)
 ```
 
 ## EDA
@@ -366,9 +376,13 @@ SEMANTICS
 
 BASICS
 ```python
-# LOAD
+# IO
 import pandas as pd
 df = pd.DataFrame(pd.read_csv($FILE))
+df.to_csv('out.csv', index=False)  # drop index
+
+# CHECK COL PRESENT
+col_name in df.columns
 
 # SELECT
 df.col   # get col https://pandas.pydata.org/docs/user_guide/10min.html#getting

@@ -766,6 +766,7 @@ CREATE/UPDATE
 * create blank: `za` https://jsvine.github.io/intro-to-visidata/intermediate/creating-new-columns
 * rename: `^`
 * type: `~` text `%` float `#` int `$` currency `@` date https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types
+> need to set type for sort to work correctly
 * aggregation: `z+` https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
 
 NAV
