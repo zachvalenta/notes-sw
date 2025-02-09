@@ -230,6 +230,7 @@ edit
 
 🔗 UI https://code.visualstudio.com/docs/getstarted/userinterface
 
+* font for sidebar: `window.zoomLevel: <num>` https://stackoverflow.com/a/36041997
 * shift right: `>`
 * comment out: `CMD /`
 * walled garden https://news.ycombinator.com/item?id=41907350
@@ -296,7 +297,6 @@ MARKDOWN
 * not OSS https://news.ycombinator.com/item?id=34078225
 * type of highlighting https://stackoverflow.com/questions/39775406/how-to-turn-off-matching-highlighting-in-vs-code/45640244#45640244 
 * outline view: sort by postition, follow cursor
-* explorer font/zoom: `window.zoomLevel: <num>` https://stackoverflow.com/a/36041997
 
 downsides
 * update perils https://github.com/microsoft/vscode/issues/142451
@@ -504,8 +504,9 @@ vim.api.nvim_set_keymap() -- :noremap
 
 ## pre-built
 
-* _LazyVim_: ✅ https://www.lazyvim.org/ fs `~/.config/nvim` https://github.com/zachvalenta/dot-lazyvim
+* _LazyVim_: ✅ https://www.lazyvim.org/ fs `~/.config/nvim` https://github.com/zachvalenta/dot-lazyvim https://www.youtube.com/watch?v=evCmP4hH7ZU
 * ❓ goto symbol using aerial and telescope https://github.com/stevearc/aerial.nvim?tab=readme-ov-file#telescope
+* ❌ Markdown LSP is a mess
 * ❌ relative line numbers too dark
 * ❌ treats single line as n lines
 ```txt

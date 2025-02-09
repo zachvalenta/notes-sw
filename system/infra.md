@@ -144,6 +144,7 @@ CLOUD
 
 ---
 
+https://simonwillison.net/2025/Feb/2/feature-flags/
 https://news.ycombinator.com/item?id=41941493
 
 🗄 `infra.md` analytics
@@ -708,7 +709,7 @@ ALTERNATIVES
 * _Granian_: https://github.com/emmett-framework/granian https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server https://mkennedy.codes/posts/we-must-replace-uwsgi-with-something-else-but-with-what/
 * _hypercorn_: https://mkennedy.codes/posts/we-must-replace-uwsgi-with-something-else-but-with-what/
 * _uvicorn_: https://mkennedy.codes/posts/we-must-replace-uwsgi-with-something-else-but-with-what/
-* _redbean_: small https://justine.lol/redbean/index.html https://news.ycombinator.com/item?id=27431910
+* _redbean_: small https://justine.lol/redbean/index.html https://news.ycombinator.com/item?id=27431910 https://simonwillison.net/2025/Feb/6/sqlite-page-explorer/
 
 💀 UWSGI
 * in maintenance mode https://pythonbytes.fm/episodes/show/401/we-must-replace-uwsgi-with-something-else

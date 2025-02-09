@@ -615,6 +615,7 @@ DESIGN
 
 https://github.com/EnhancedJax/Bagels
 https://calmcode.io/course/uv/pip
+windows https://www.bitecode.dev/p/whats-up-python-a-new-windows-installer
 
 VERSION MGMT
 * cross-platform https://astral.sh/blog/uv-unified-python-packaging
@@ -703,6 +704,8 @@ fix for scripts? https://www.youtube.com/watch?v=bNw34Mo0FOQ
 
 ---
 
+https://www.youtube.com/watch?v=bNw34Mo0FOQ [2:20]
+https://github.com/astral-sh/uv/issues/7242#issuecomment-2631783057
 https://github.com/astral-sh/uv/issues/7242#issuecomment-2621635669
 https://github.com/astral-sh/uv/issues/10997
 * inject https://github.com/astral-sh/uv/issues/7312

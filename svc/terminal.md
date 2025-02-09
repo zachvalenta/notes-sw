@@ -232,6 +232,7 @@ ur_in = input()
 * `os/tools.md` browsr
 
 TUI
+* Rust renaissance https://www.youtube.com/watch?v=OxfxkWoHhxM
 * https://news.ycombinator.com/item?id=40273177
 * _curses_: UNIX https://docs.python.org/3/howto/curses.html https://github.com/cmus/cmus 
 * ncurses

@@ -432,7 +432,7 @@ JIT
 ## FFI
 
 * _FFI_: how to call C https://scottlocklin.wordpress.com/2021/04/01/obvious-and-possible-software-innovations-nobody-does/ https://www.youtube.com/watch?v=-1_FDp84PDE JNI https://news.ycombinator.com/item?id=31353740 https://github.com/replit/ruspty
-* _CFFI_: call C from Python https://pypi.org/project/cffi/ https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek
+* _CFFI_: call C from Python https://pypi.org/project/cffi/ https://talkpython.fm/episodes/show/481/python-opinions-and-zeitgeist-with-hynek parser for C https://github.com/eliben/pycparser
 * https://github.com/electronstudio/raylib-python-cffi
 * call Python from C http://eradman.com/posts/extending-c-python.html
 

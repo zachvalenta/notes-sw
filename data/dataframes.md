@@ -56,6 +56,8 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 
 ---
 
+dealing with nulls https://realpython.com/polars-missing-data/
+
 BIG PICTURE
 * query engine with dataframe frontend https://pola.rs/posts/polars_birds_eye_view/ https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/
 * compared to Pandas: query optimization, group by https://labs.quansight.org/blog/dataframe-group-by https://pola.rs/posts/benchmarks/

@@ -635,6 +635,7 @@ wire protocol
 
 ---
 
+https://www.manning.com/books/just-use-postgres
 🏔️ https://github.com/Olshansk/postgres_for_everything
 📚
 * Magda just use postgres https://www.manning.com/books/just-use-postgres
@@ -847,6 +848,7 @@ https://www.postgresql.org/about/news/announce-pig-the-postgres-extension-wizard
 
 * _driver_: lib for (db) connection https://stackoverflow.com/a/8588766 
 * _psycopg_: Python driver for Posgres
+* define driver https://news.ycombinator.com/item?id=42984457
 * impl https://www.varrazzo.com/blog/2020/03/06/thinking-psycopg3/
 * _psycopg2_: uninstallable w/ Poetry even w/ Brew install of Postgres https://realpython.com/flask-by-example-part-2-postgres-sqlalchemy-and-alembic/
 * _psycopg2-binary_: installable w/ Poetry, problem with pipenv https://github.com/pypa/pipenv/issues/4073

@@ -174,6 +174,7 @@ https://threedots.tech/post/go-test-parallelism/
 * Requires async/await syntax
 * Lower overhead than threads
 ```
+BYO https://lucasoshiro.github.io/software-en/2025-01-25-python_async_iterators/
 https://www.youtube.com/watch?v=ftmdDlwMwwQ 
 * _asyncio_: stdlib async lib; came in w/ 3.4 https://www.roguelynn.com/archives/
 * _Twisted/Tornado_: Python 2 era event loops, used in Scrapy http://masnun.rocks/2016/11/17/exploring-asyncio-uvloop-sanic-motor/ Tornado is also an app framework https://www.pythonpodcast.com/twisted-with-moshe-zadka-episode-170/ https://glyph.twistedmatrix.com/2019/06/kernel-python.html http://aosabook.org/en/twisted.html
@@ -377,7 +378,7 @@ storage problems
 
 single-threaded + multicast https://signalsandthreads.com/multicast-and-the-markets/
 
-* _copy on write_: processes share memory until they need to write, at which point make copy of memory section and write to it (thereby avoiding a page fault) 🗄 `evans-linux.pdf` [3] https://brandur.org/ruby-memory https://github.com/kentonv/lanparty
+* _copy on write_: processes share memory until they need to write, at which point make copy of memory section and write to it (thereby avoiding a page fault) 🗄 `evans-linux.pdf` [3] https://brandur.org/ruby-memory https://github.com/kentonv/lanparty https://simonwillison.net/2025/Jan/31/save-memory-with-bytesio/
 * _mutex_: OS version of a lock https://jvns.ca/blog/2016/01/23/sendfile-a-new-to-me-system-call/ https://lwn.net/Articles/827180/ https://mortoray.com/2019/02/20/how-does-a-mutex-work-what-does-it-cost/
 * _serial_: execution inside single thread https://pre-commit.com/#hooks-require_serial
 * _history_: end of Moore's Law (clock speed increases slowing) = more cores per machine = more parallelization [Kleppmann 6]

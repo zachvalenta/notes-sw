@@ -71,6 +71,29 @@ TOOLS / DASHBOARDS
 * _Superset_: 🎯 popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset https://news.ycombinator.com/item?id=37661872
 * _Taipy_: https://github.com/Avaiga/taipy
 
+## Capp
+
+* dump join tables from Postgres read replica
+```sh
+pg_dump --data-only --column-inserts --dbname=odoo-read-replica --table=foo > foo.sql
+pg_dump --data-only --column-inserts --dbname=odoo-read-replica --table=bar > bar.sql
+pg_dump --data-only --column-inserts --dbname=odoo-read-replica --table=baz > baz.sql
+```
+* ingest into SQLite
+> we could skip the middleman and just dump Postgres to CSV presumably but I'm more familiar with getting data into/out of SQLite re: sqlite-utils
+```sh
+sqlite3 agg.sqlite < foo.sql
+sqlite3 agg.sqlite < bar.sql
+sqlite3 agg.sqlite < baz.sql
+```
+* run joins and export to CSV
+```sh
+sqlite-utils agg.sqlite "super big join here" --csv > bi.csv
+```
+* upload CSV to Google Drive, publish through sheets
+* 
+
+
 ## dash
 
 📜 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher

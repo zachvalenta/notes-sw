@@ -259,7 +259,18 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 * speed
 > If copy and pasting back and forth between ChatGPT.com is crawling, then Cursor's interface is sprinting. Being able to discuss the code, architecture, a single file, or to tell Cursor to use a file as inspiration when making other changes is my favorite feature of Cursor.
 
-## interchange
+## interchange (MCP)
+
+MODEL CONTEXT PROTOCOL (MCP)
+* protocol to allow clients (in this case, models) to use tools (e.g. here are the queries you can run against a database) https://www.youtube.com/watch?v=oX6IKXfcx78
+* impl https://pypi.org/project/mcp/
+* usage https://github.com/jasonjmcghee/claude-debugs-for-you
+* _MCP (model context protocol)_: spec for comms btw hosted model and data to enable RAG https://news.ycombinator.com/item?id=42237424 https://glama.ai/blog/2024-11-25-model-context-protocol-quickstart
+> Today, we're open-sourcing the Model Context Protocol (MCP), a new standard for connecting AI assistants to the systems where data lives, including content repositories, business tools, and development environments. Its aim is to help frontier models produce better, more relevant responses. https://www.anthropic.com/news/model-context-protocol
+> But none of the examples seem to indicate what the protocol is, whether it's a RAG sort of thing, do I need to prompt, etc.
+> From what I understand, "servers" are data sources that an LLM can query at will to answer questions, using this new protocol. They're connectors to external information that the LLM can process on the fly.
+> The gist of it is: you have an llm application such as Claude desktop. You want to have it interact (read or write) with some system you have. MCP solves this.
+> An attempt to create a standard protocol to plug tools to LLM app via the good ol' tools/function calling mechanism. It's not introducing new capabilities, just solving the NxM problem, hopefully leading to more tools being written.
 
 ```python
 import openai
@@ -298,16 +309,6 @@ https://news.ycombinator.com/item?id=42753302
 > Projects such as LocalAI offer a REST API that imitates the OpenAI API but can be used to run other models, including models that can be installed on your own machine. These can be added using the same configuration mechanism. https://llm.datasette.io/en/stable/other-models.html#openai-compatible-models
 * Claude JSON export https://simonwillison.net/2024/Oct/21/claude-artifacts/ https://simonwillison.net/2024/Dec/31/llms-in-2024/#prompt-driven-app-generation-is-a-commodity-already
 * _Amazon bedrock_: API for all models https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html
-
-MODEL CONTEXT PROTOCOL
-* impl https://pypi.org/project/mcp/
-* usage https://github.com/jasonjmcghee/claude-debugs-for-you
-* _MCP (model context protocol)_: spec for comms btw hosted model and data to enable RAG https://news.ycombinator.com/item?id=42237424 https://glama.ai/blog/2024-11-25-model-context-protocol-quickstart
-> Today, we're open-sourcing the Model Context Protocol (MCP), a new standard for connecting AI assistants to the systems where data lives, including content repositories, business tools, and development environments. Its aim is to help frontier models produce better, more relevant responses. https://www.anthropic.com/news/model-context-protocol
-> But none of the examples seem to indicate what the protocol is, whether it's a RAG sort of thing, do I need to prompt, etc.
-> From what I understand, "servers" are data sources that an LLM can query at will to answer questions, using this new protocol. They're connectors to external information that the LLM can process on the fly.
-> The gist of it is: you have an llm application such as Claude desktop. You want to have it interact (read or write) with some system you have. MCP solves this.
-> An attempt to create a standard protocol to plug tools to LLM app via the good ol' tools/function calling mechanism. It's not introducing new capabilities, just solving the NxM problem, hopefully leading to more tools being written.
 
 ---
 
