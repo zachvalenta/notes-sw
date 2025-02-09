@@ -53,6 +53,7 @@ TOOLS / DASHBOARDS
 * _Briefer_: https://github.com/briefercloud/briefer https://pythonbytes.fm/episodes/show/405/oh-really
 * _Dataherald_: query using natural language via LLM https://github.com/Dataherald/dataherald
 * _Datalens_: 🎯 run locally https://datalens.tech/ https://news.ycombinator.com/item?id=37657772
+* _Datasette_: ✅ https://github.com/zachvalenta/datasette-for-BI https://github.com/zachvalenta/vega-for-BI
 * _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872
 * _Hex_: https://hex.tech/ https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift
 * _Lightdash_: Kubernetes https://github.com/lightdash/lightdash
@@ -69,29 +70,26 @@ TOOLS / DASHBOARDS
 * _SQL Explorer_: 🎯 https://github.com/explorerhq/django-sql-explorer
 > Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
 * _Superset_: 🎯 popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset https://news.ycombinator.com/item?id=37661872
-* _Taipy_: https://github.com/Avaiga/taipy
+* _Taipy_: 🎯 https://github.com/Avaiga/taipy https://www.youtube.com/watch?v=phhnakHSNEE
 
 ## Capp
 
-* dump join tables from Postgres read replica
+STATIC SITE WITH VEGA
+* dump tables from Postgres read replica
 ```sh
 pg_dump --data-only --column-inserts --dbname=odoo-read-replica --table=foo > foo.sql
 pg_dump --data-only --column-inserts --dbname=odoo-read-replica --table=bar > bar.sql
-pg_dump --data-only --column-inserts --dbname=odoo-read-replica --table=baz > baz.sql
 ```
 * ingest into SQLite
-> we could skip the middleman and just dump Postgres to CSV presumably but I'm more familiar with getting data into/out of SQLite re: sqlite-utils
 ```sh
 sqlite3 agg.sqlite < foo.sql
 sqlite3 agg.sqlite < bar.sql
-sqlite3 agg.sqlite < baz.sql
 ```
 * run joins and export to CSV
 ```sh
 sqlite-utils agg.sqlite "super big join here" --csv > bi.csv
 ```
 * upload CSV to Google Drive, publish through sheets
-* 
 
 
 ## dash

@@ -116,6 +116,7 @@ TIME MACHINE
 
 * digits
 * sun araw
+* cymande
 
 ## air-capp ➡️ mini23
 

@@ -538,6 +538,7 @@ __WhatsApp__ 🗓 summer 2018
 
 ## screencast
 
+* `cmd shift 5` + select audio input
 * howto https://www.youtube.com/watch?v=AzVn5H0ZNVM https://www.youtube.com/watch?v=K5GeaoJCsoI
 * livestream https://til.simonwillison.net/youtube/livestreaming
 * OBS https://obsproject.com/ https://news.ycombinator.com/item?id=22748247 https://www.youtube.com/watch?v=QCpuTSFVohQ
