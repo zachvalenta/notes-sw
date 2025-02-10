@@ -593,7 +593,7 @@ PORT SCAN / NETWORK MONITOR https://chatgpt.com/c/67252f81-b728-8004-974b-7a9a5c
 
 ## progress bars (tqdm)
 
-❓ how does sqlite-utils do its countdown?
+❓ how does sqlite-utils do its countdown? https://github.com/zachvalenta/capp-datalab
 
 LINUX
 * _enlighten_: https://github.com/Rockhopper-Technologies/enlighten

@@ -53,7 +53,6 @@ TOOLS / DASHBOARDS
 * _Briefer_: https://github.com/briefercloud/briefer https://pythonbytes.fm/episodes/show/405/oh-really
 * _Dataherald_: query using natural language via LLM https://github.com/Dataherald/dataherald
 * _Datalens_: 🎯 run locally https://datalens.tech/ https://news.ycombinator.com/item?id=37657772
-* _Datasette_: ✅ https://github.com/zachvalenta/datasette-for-BI https://github.com/zachvalenta/vega-for-BI
 * _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872
 * _Hex_: https://hex.tech/ https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift
 * _Lightdash_: Kubernetes https://github.com/lightdash/lightdash
@@ -70,6 +69,7 @@ TOOLS / DASHBOARDS
 * _SQL Explorer_: 🎯 https://github.com/explorerhq/django-sql-explorer
 > Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
 * _Superset_: 🎯 popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset https://news.ycombinator.com/item?id=37661872
+* hosted https://preset.io/
 * _Taipy_: 🎯 https://github.com/Avaiga/taipy https://www.youtube.com/watch?v=phhnakHSNEE
 
 ## Capp
@@ -301,6 +301,46 @@ S3OW,motorola,325
 
 🗄️ `protocols.md` file fmt
 
+## 📼 Datasette
+
+📜 https://datasette.io/
+
+* for BI https://github.com/zachvalenta/datasette-for-BI https://github.com/zachvalenta/vega-for-BI
+
+EXTENSIONS
+* mgmt
+```sh
+poetry run datasette install datasette-dashboards
+poetry run datasette uninstall datasette-dashboards
+```
+* _dashboards_: ✅ https://datasette.io/plugins/datasette-dashboards
+* homepage i.e. doesn't go to dashboards by default https://datasette-dashboards-demo.vercel.app/
+
+---
+
+datasette install datasette-dashboards
+
+BASICS
+* https://calmcode.io/course/datasette/introduction
+* https://datasette.io/for/exploratory-analysis
+* SQLite only https://github.com/simonw/datasette/issues/670
+
+EXTENSIONS
+* UI https://github.com/cldellow/datasette-ui-extras
+* hosting https://datasette.io/plugins/datasette-publish-vercel https://datasette.io/plugins/datasette-publish-fly
+* charts https://datasette.io/plugins/datasette-plot
+* markdown https://datasette.io/plugins/datasette-render-markdown
+* AI https://datasette.io/plugins/datasette-chatgpt-plugin https://datasette.io/plugins/datasette-explain https://datasette.io/plugins/datasette-query-assistant
+* search https://datasette.io/plugins/datasette-search-all https://datasette.io/plugins/datasette-configure-fts https://datasette.io/plugins/datasette-ripgrep
+* web https://datasette.io/plugins/datasette-cors
+* comments https://datasette.io/plugins/datasette-comments
+
+* https://github.com/simonw/datasette-upload-csvs
+* https://github.com/simonw/dclient
+* https://github.com/datasette/datasette-create-view
+* https://github.com/simonw/sqlite-utils-ask
+* https://github.com/datasette/datasette-query-assistant
+
 ## EDA
 
 FIND NULL COLS
@@ -475,7 +515,6 @@ OPTIONS
 * Postgres: pgAdmin, PGweb https://github.com/centerofci/mathesar
 * _Beekeeper_: $7/month https://www.beekeeperstudio.io/
 * _Datagrip_: 🎯 $10/month, ERD https://www.jetbrains.com/datagrip/
-* _Datasette_: 🎯 SQLite only https://github.com/simonw/datasette/issues/670 https://github.com/simonw/datasette-upload-csvs https://github.com/simonw/dclient https://github.com/datasette/datasette-create-view https://github.com/simonw/sqlite-utils-ask https://github.com/datasette/datasette-query-assistant https://calmcode.io/course/datasette/introduction
 * _DBeaver_: OSS, ERD https://dbeaver.io/ https://stackoverflow.com/a/48397209
 * _Outerbase_: 🎯 browser https://github.com/outerbase/studio https://news.ycombinator.com/item?id=42320032
 * _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
@@ -545,20 +584,22 @@ filter '$earnings > 0.0' example.csv
 
 📜 https://www.dbcli.com/
 
-ZA
+LITECLI
+* config: `~/.config/litecli/config` https://litecli.com/config/
 ```sh
 litecli $DB  # open
 .schema      # all schemas
 ```
 
-CONFIG
-* fs: `~/.config/litecli/config` https://litecli.com/config/
-
 PGCLI
-* install https://github.com/dbcli/pgcli/issues/1413#issuecomment-2028781741
 ```sh
+# install https://github.com/dbcli/pgcli/issues/1413#issuecomment-2028781741
 $ pipx install pgcli
 $ pipx inject pgcli psycopg_binary
+# connect
+pgcli postgresql://$USER:$PW@$HOST:$PORT/$DB
+# dump table to CSV
+\COPY (SELECT * FROM $TBL LIMIT 100) TO '$TBL.csv' WITH CSV HEADER;
 ```
 
 ---
@@ -751,7 +792,6 @@ CONFIG https://github.com/zachvalenta/dotfiles/blob/7f843714b3c3d6eb531dfb292e91
 
 ---
 
-https://datasette.io/for/exploratory-analysis
 https://cosimameyer.com/post/2024-09-05-pythonistr-a-match-made-in-data-heaven/
 https://github.com/cosimameyer/overviewpy
 
