@@ -587,6 +587,7 @@ aaS
 * _Zenrows_: https://www.zenrows.com/solutions/scraper-api
 
 LIBS
+* 🎯🎯🎯 https://datasette.io/plugins/datasette-scraper
 * _crawlee_: https://github.com/apify/crawlee
 * _crawly_: Elixir https://github.com/elixir-crawly/crawly
 * _gazpacho_: 🎯 https://github.com/maxhumber/gazpacho https://calmcode.io/course/gazpacho/introduction

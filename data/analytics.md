@@ -308,13 +308,14 @@ S3OW,motorola,325
 * for BI https://github.com/zachvalenta/datasette-for-BI https://github.com/zachvalenta/vega-for-BI
 
 EXTENSIONS
-* mgmt
+* mgmt https://datasette.io/plugins/datasette-packages
 ```sh
 poetry run datasette install datasette-dashboards
 poetry run datasette uninstall datasette-dashboards
 ```
 * _dashboards_: ✅ https://datasette.io/plugins/datasette-dashboards
 * homepage i.e. doesn't go to dashboards by default https://datasette-dashboards-demo.vercel.app/
+* alternatives https://datasette.io/plugins/datasette-nteract-data-explorer
 
 ---
 
@@ -326,14 +327,19 @@ BASICS
 * SQLite only https://github.com/simonw/datasette/issues/670
 
 EXTENSIONS
-* UI https://github.com/cldellow/datasette-ui-extras
-* hosting https://datasette.io/plugins/datasette-publish-vercel https://datasette.io/plugins/datasette-publish-fly
-* charts https://datasette.io/plugins/datasette-plot
+* UI: homepage https://datasette.io/plugins/datasette-homepage-table https://github.com/cldellow/datasette-ui-extras https://datasette.io/plugins/datasette-hovercards https://datasette.io/plugins/datasette-sitemap https://datasette.io/plugins/datasette-query-links https://datasette.io/plugins/datasette-css-properties
+* hosting https://datasette.io/plugins/datasette-publish-vercel https://datasette.io/plugins/datasette-publish-fly https://datasette.io/plugins/datasette-scale-to-zero https://datasette.io/plugins/datasette-gunicorn https://datasette.io/plugins/datasette-codespaces
+* auth https://datasette.io/plugins/datasette-redirect-forbidden https://datasette.io/plugins/datasette-auth0 https://datasette.io/plugins/datasette-matomo https://datasette.io/plugins/datasette-ephemeral-tables https://datasette.io/plugins/datasette-permissions-sql https://datasette.io/plugins/datasette-mask-columns
+* charts https://datasette.io/plugins/datasette-plot https://datasette.io/plugins/datasette-seaborn https://datasette.io/plugins/datasette-statistics
 * markdown https://datasette.io/plugins/datasette-render-markdown
-* AI https://datasette.io/plugins/datasette-chatgpt-plugin https://datasette.io/plugins/datasette-explain https://datasette.io/plugins/datasette-query-assistant
-* search https://datasette.io/plugins/datasette-search-all https://datasette.io/plugins/datasette-configure-fts https://datasette.io/plugins/datasette-ripgrep
+* AI https://datasette.io/plugins/datasette-column-inspect https://datasette.io/plugins/datasette-jupyterlite https://datasette.io/plugins/datasette-export-notebook https://datasette.io/plugins/datasette-chatgpt-plugin https://datasette.io/plugins/datasette-explain https://datasette.io/plugins/datasette-query-assistant https://datasette.io/plugins/datasette-ml https://datasette.io/plugins/datasette-llm-embed https://datasette.io/plugins/datasette-enrichments-gpt https://datasette.io/plugins/datasette-openai
+* search https://datasette.io/plugins/datasette-search-all https://datasette.io/plugins/datasette-configure-fts https://datasette.io/plugins/datasette-ripgrep https://datasette.io/plugins/datasette-jq https://datasette.io/plugins/datasette-faiss https://datasette.io/plugins/datasette-jellyfish
 * web https://datasette.io/plugins/datasette-cors
 * comments https://datasette.io/plugins/datasette-comments
+* views https://datasette.io/plugins/datasette-create-view https://datasette.io/plugins/datasette-saved-queries
+* IO https://datasette.io/plugins/datasette-export https://datasette.io/plugins/datasette-import https://datasette.io/plugins/datasette-export-database https://datasette.io/plugins/datasette-upload-dbs https://datasette.io/plugins/datasette-chronicle
+* telemetry https://datasette.io/plugins/datasette-tail https://datasette.io/plugins/datasette-schema-versions https://datasette.io/plugins/datasette-pyinstrument https://datasette.io/plugins/datasette-query-history https://datasette.io/plugins/datasette-total-page-time https://datasette.io/plugins/datasette-psutil https://datasette.io/plugins/datasette-sentry https://datasette.io/plugins/datasette-visible-internal-db
+* audio! https://datasette.io/plugins/datasette-mp3-audio
 
 * https://github.com/simonw/datasette-upload-csvs
 * https://github.com/simonw/dclient
@@ -411,6 +417,8 @@ dsq "SELECT a.col1, b.col2 FROM a AS a JOIN b AS b ON a.id = b.id;" a.csv b.csv
 https://github.com/zachvalenta/capp-crudite
 https://github.com/zachvalenta/capp-looker
 https://github.com/zachvalenta/capp-the-crud
+
+https://datasette.io/plugins/sqlite-fastrand
 
 CONVERSION / GENERATION
 * tabular to JSON https://github.com/jazzband/tablib
