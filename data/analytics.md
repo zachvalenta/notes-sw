@@ -68,8 +68,6 @@ TOOLS / DASHBOARDS
 * _Tableau_: via Pandas https://github.com/Kanaries/pygwalker Markdown https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=39519145
 * _SQL Explorer_: 🎯 https://github.com/explorerhq/django-sql-explorer
 > Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
-* _Superset_: 🎯 popular https://news.ycombinator.com/item?id=37657772 https://github.com/apache/superset https://news.ycombinator.com/item?id=37661872
-* hosted https://preset.io/
 * _Taipy_: 🎯 https://github.com/Avaiga/taipy https://www.youtube.com/watch?v=phhnakHSNEE
 
 ## Capp
@@ -92,6 +90,52 @@ sqlite-utils agg.sqlite "super big join here" --csv > bi.csv
 * upload CSV to Google Drive, publish through sheets
 
 
+## 📼 Datasette
+
+📜 https://datasette.io/
+
+* for BI https://github.com/zachvalenta/datasette-for-BI https://github.com/zachvalenta/vega-for-BI
+
+EXTENSIONS
+* mgmt https://datasette.io/plugins/datasette-packages
+```sh
+poetry run datasette install datasette-dashboards
+poetry run datasette uninstall datasette-dashboards
+```
+* _dashboards_: ✅ https://datasette.io/plugins/datasette-dashboards
+* homepage i.e. doesn't go to dashboards by default https://datasette-dashboards-demo.vercel.app/
+* alternatives https://datasette.io/plugins/datasette-nteract-data-explorer
+
+---
+
+datasette install datasette-dashboards
+
+BASICS
+* https://calmcode.io/course/datasette/introduction
+* https://datasette.io/for/exploratory-analysis
+* SQLite only https://github.com/simonw/datasette/issues/670
+
+EXTENSIONS
+* UI: homepage https://datasette.io/plugins/datasette-homepage-table https://github.com/cldellow/datasette-ui-extras https://datasette.io/plugins/datasette-hovercards https://datasette.io/plugins/datasette-sitemap https://datasette.io/plugins/datasette-query-links https://datasette.io/plugins/datasette-css-properties
+* hosting https://datasette.io/plugins/datasette-publish-vercel https://datasette.io/plugins/datasette-publish-fly https://datasette.io/plugins/datasette-scale-to-zero https://datasette.io/plugins/datasette-gunicorn https://datasette.io/plugins/datasette-codespaces
+* auth https://datasette.io/plugins/datasette-redirect-forbidden https://datasette.io/plugins/datasette-auth0 https://datasette.io/plugins/datasette-matomo https://datasette.io/plugins/datasette-ephemeral-tables https://datasette.io/plugins/datasette-permissions-sql https://datasette.io/plugins/datasette-mask-columns
+* charts https://datasette.io/plugins/datasette-plot https://datasette.io/plugins/datasette-seaborn https://datasette.io/plugins/datasette-statistics
+* markdown https://datasette.io/plugins/datasette-render-markdown
+* AI https://datasette.io/plugins/datasette-column-inspect https://datasette.io/plugins/datasette-jupyterlite https://datasette.io/plugins/datasette-export-notebook https://datasette.io/plugins/datasette-chatgpt-plugin https://datasette.io/plugins/datasette-explain https://datasette.io/plugins/datasette-query-assistant https://datasette.io/plugins/datasette-ml https://datasette.io/plugins/datasette-llm-embed https://datasette.io/plugins/datasette-enrichments-gpt https://datasette.io/plugins/datasette-openai
+* search https://datasette.io/plugins/datasette-search-all https://datasette.io/plugins/datasette-configure-fts https://datasette.io/plugins/datasette-ripgrep https://datasette.io/plugins/datasette-jq https://datasette.io/plugins/datasette-faiss https://datasette.io/plugins/datasette-jellyfish
+* web https://datasette.io/plugins/datasette-cors
+* comments https://datasette.io/plugins/datasette-comments
+* views https://datasette.io/plugins/datasette-create-view https://datasette.io/plugins/datasette-saved-queries
+* IO https://datasette.io/plugins/datasette-export https://datasette.io/plugins/datasette-import https://datasette.io/plugins/datasette-export-database https://datasette.io/plugins/datasette-upload-dbs https://datasette.io/plugins/datasette-chronicle
+* telemetry https://datasette.io/plugins/datasette-tail https://datasette.io/plugins/datasette-schema-versions https://datasette.io/plugins/datasette-pyinstrument https://datasette.io/plugins/datasette-query-history https://datasette.io/plugins/datasette-total-page-time https://datasette.io/plugins/datasette-psutil https://datasette.io/plugins/datasette-sentry https://datasette.io/plugins/datasette-visible-internal-db
+* audio! https://datasette.io/plugins/datasette-mp3-audio
+
+* https://github.com/simonw/datasette-upload-csvs
+* https://github.com/simonw/dclient
+* https://github.com/datasette/datasette-create-view
+* https://github.com/simonw/sqlite-utils-ask
+* https://github.com/datasette/datasette-query-assistant
+
 ## dash
 
 📜 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
@@ -111,6 +155,31 @@ sqlite-utils agg.sqlite "super big join here" --csv > bi.csv
 https://streamlit.io/
 
 Hugging Face integration https://huggingface.co/docs/hub/spaces
+
+## superset
+
+📜 https://superset.apache.org/
+
+```sh
+# SETUP TO RUN CONTAINERS
+brew install docker
+brew install docker-compose
+brew install colima
+colima start
+# SUPERSET
+git clone --depth=1  https://github.com/apache/superset.git
+docker-compose up --build
+# build blew up bc needed lots of mem
+# what you'd do if you had a machine with more free memory
+colima stop
+colima start --memory 4 --cpu 4
+```
+
+---
+
+* https://news.ycombinator.com/item?id=37657772
+* https://news.ycombinator.com/item?id=37661872
+* hosted https://preset.io/
 
 # 💿 DATA
 
@@ -300,52 +369,6 @@ S3OW,motorola,325
 # 🛠️ TOOLING
 
 🗄️ `protocols.md` file fmt
-
-## 📼 Datasette
-
-📜 https://datasette.io/
-
-* for BI https://github.com/zachvalenta/datasette-for-BI https://github.com/zachvalenta/vega-for-BI
-
-EXTENSIONS
-* mgmt https://datasette.io/plugins/datasette-packages
-```sh
-poetry run datasette install datasette-dashboards
-poetry run datasette uninstall datasette-dashboards
-```
-* _dashboards_: ✅ https://datasette.io/plugins/datasette-dashboards
-* homepage i.e. doesn't go to dashboards by default https://datasette-dashboards-demo.vercel.app/
-* alternatives https://datasette.io/plugins/datasette-nteract-data-explorer
-
----
-
-datasette install datasette-dashboards
-
-BASICS
-* https://calmcode.io/course/datasette/introduction
-* https://datasette.io/for/exploratory-analysis
-* SQLite only https://github.com/simonw/datasette/issues/670
-
-EXTENSIONS
-* UI: homepage https://datasette.io/plugins/datasette-homepage-table https://github.com/cldellow/datasette-ui-extras https://datasette.io/plugins/datasette-hovercards https://datasette.io/plugins/datasette-sitemap https://datasette.io/plugins/datasette-query-links https://datasette.io/plugins/datasette-css-properties
-* hosting https://datasette.io/plugins/datasette-publish-vercel https://datasette.io/plugins/datasette-publish-fly https://datasette.io/plugins/datasette-scale-to-zero https://datasette.io/plugins/datasette-gunicorn https://datasette.io/plugins/datasette-codespaces
-* auth https://datasette.io/plugins/datasette-redirect-forbidden https://datasette.io/plugins/datasette-auth0 https://datasette.io/plugins/datasette-matomo https://datasette.io/plugins/datasette-ephemeral-tables https://datasette.io/plugins/datasette-permissions-sql https://datasette.io/plugins/datasette-mask-columns
-* charts https://datasette.io/plugins/datasette-plot https://datasette.io/plugins/datasette-seaborn https://datasette.io/plugins/datasette-statistics
-* markdown https://datasette.io/plugins/datasette-render-markdown
-* AI https://datasette.io/plugins/datasette-column-inspect https://datasette.io/plugins/datasette-jupyterlite https://datasette.io/plugins/datasette-export-notebook https://datasette.io/plugins/datasette-chatgpt-plugin https://datasette.io/plugins/datasette-explain https://datasette.io/plugins/datasette-query-assistant https://datasette.io/plugins/datasette-ml https://datasette.io/plugins/datasette-llm-embed https://datasette.io/plugins/datasette-enrichments-gpt https://datasette.io/plugins/datasette-openai
-* search https://datasette.io/plugins/datasette-search-all https://datasette.io/plugins/datasette-configure-fts https://datasette.io/plugins/datasette-ripgrep https://datasette.io/plugins/datasette-jq https://datasette.io/plugins/datasette-faiss https://datasette.io/plugins/datasette-jellyfish
-* web https://datasette.io/plugins/datasette-cors
-* comments https://datasette.io/plugins/datasette-comments
-* views https://datasette.io/plugins/datasette-create-view https://datasette.io/plugins/datasette-saved-queries
-* IO https://datasette.io/plugins/datasette-export https://datasette.io/plugins/datasette-import https://datasette.io/plugins/datasette-export-database https://datasette.io/plugins/datasette-upload-dbs https://datasette.io/plugins/datasette-chronicle
-* telemetry https://datasette.io/plugins/datasette-tail https://datasette.io/plugins/datasette-schema-versions https://datasette.io/plugins/datasette-pyinstrument https://datasette.io/plugins/datasette-query-history https://datasette.io/plugins/datasette-total-page-time https://datasette.io/plugins/datasette-psutil https://datasette.io/plugins/datasette-sentry https://datasette.io/plugins/datasette-visible-internal-db
-* audio! https://datasette.io/plugins/datasette-mp3-audio
-
-* https://github.com/simonw/datasette-upload-csvs
-* https://github.com/simonw/dclient
-* https://github.com/datasette/datasette-create-view
-* https://github.com/simonw/sqlite-utils-ask
-* https://github.com/datasette/datasette-query-assistant
 
 ## EDA
 
@@ -608,6 +631,10 @@ $ pipx inject pgcli psycopg_binary
 pgcli postgresql://$USER:$PW@$HOST:$PORT/$DB
 # dump table to CSV
 \COPY (SELECT * FROM $TBL LIMIT 100) TO '$TBL.csv' WITH CSV HEADER;
+# as snippet
+[alias_dsv]
+$TBL = "\COPY (SELECT * FROM {0} LIMIT 100) TO '{0}.csv' WITH CSV HEADER"
+\d $TBL product_template
 ```
 
 ---
