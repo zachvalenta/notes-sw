@@ -411,6 +411,7 @@ NUMBERS
 
 ZA
 * benefits: readable, tooling, mindshare 📙 Jeffrey distributed [4]
+* line-oriented datasets (ndjson, JSON Lines)? https://github.com/asg017/sqlite-lines
 
 ---
 

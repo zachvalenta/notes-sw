@@ -435,6 +435,23 @@ class Player:
         print(f"pts {self.points} fatigue {self.fatigue}")
 ```
 
+## plugins
+
+https://pluggy.readthedocs.io/en/stable/
+https://docs.datasette.io/en/stable/plugins.html
+
+```txt
+Hollywood Principle: "Don't call us, we'll call you." The main application defines hook specifications, and plugins register themselves without the core application needing to know them in advance.
+
+1. Observer: While not a strict observer pattern, Pluggy enables callbacks where plugins can react to hook calls, similar to event listeners
+2. Strategy: Plugins act as replaceable strategies that modify or extend behavior at runtime.
+3. Dependency Injection: The hook system allows late binding of behavior via plugins, which is a form of dependency injection (DI) but at an architectural rather than class level
+4. Microkernel: aka Hexagonal/Ports & Adapters; applications using Pluggy can be structured as a minimal core (microkernel) with plugins extending functionality.
+
+pytest uses Pluggy for its extensive plugin system.
+tox and other tools use Pluggy for defining hooks that external tools can implement.
+```
+
 ## reactive
 
 RxPY: Full reactive streams, good for complex event flows, but heavy dependency

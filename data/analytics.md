@@ -94,17 +94,19 @@ sqlite-utils agg.sqlite "super big join here" --csv > bi.csv
 
 📜 https://datasette.io/
 
-* for BI https://github.com/zachvalenta/datasette-for-BI https://github.com/zachvalenta/vega-for-BI
-
 EXTENSIONS
 * mgmt https://datasette.io/plugins/datasette-packages
 ```sh
 poetry run datasette install datasette-dashboards
 poetry run datasette uninstall datasette-dashboards
 ```
-* _dashboards_: ✅ https://datasette.io/plugins/datasette-dashboards
+* _dashboards_: ✅ https://datasette.io/plugins/datasette-dashboards https://github.com/zachvalenta/datasette-for-BI
 * homepage i.e. doesn't go to dashboards by default https://datasette-dashboards-demo.vercel.app/
 * alternatives https://datasette.io/plugins/datasette-nteract-data-explorer
+* _Vega_: https://github.com/zachvalenta/vega-for-BI
+
+ZA
+* customizing CSS https://docs.datasette.io/en/stable/custom_templates.html
 
 ---
 
