@@ -117,6 +117,8 @@ TIME MACHINE
 * digits
 * sun araw
 * cymande
+* tatum in a sentimental mood
+* cesaria evora
 
 ## air-capp ➡️ mini23
 

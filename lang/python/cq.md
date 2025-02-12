@@ -470,6 +470,14 @@ logger.add(sys.stdout)
 logger.add("validation.log")
 ```
 * config stdout https://github.com/zachvalenta/capp-edi
+```python
+logger.remove()
+logger.add(
+    sys.stderr,
+    colorize=True,
+    format="<green>{level: <2}</green> | <cyan>{function: <12}</cyan>:<yellow>{line: <2}</yellow> | {message}"
+)
+```
 
 ALTERNATIVES
 * _eliot_: https://github.com/itamarst/eliot 

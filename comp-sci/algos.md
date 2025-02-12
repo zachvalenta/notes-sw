@@ -1005,6 +1005,8 @@ for _ in range(5):
 
 ---
 
+semantic https://simonwillison.net/2025/Feb/11/llm-sort/
+
 TYPES
 * natural: e.g. `2.txt` before `10.txt` https://github.com/triyanox/lla
 ```python

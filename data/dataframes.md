@@ -20,7 +20,7 @@ https://dplyr.tidyverse.org/ https://calmcode.io/course/dplyr-verbs/introduction
 * VanderPlas https://jakevdp.github.io/PythonDataScienceHandbook/
 
 ZA
-* tables https://posit-dev.github.io/great-tables
+* tables rendered to HTML https://posit-dev.github.io/great-tables
 * Dataframe Interchange Protocol, Dataframe API Standard https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/ https://pythonspeed.com/articles/polars-pandas-interopability/
 
 ## 🦢 Ibis
@@ -57,6 +57,7 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 ---
 
 dealing with nulls https://realpython.com/polars-missing-data/
+https://www.emilyriederer.com/post/py-rgo-2025/
 
 BIG PICTURE
 * query engine with dataframe frontend https://pola.rs/posts/polars_birds_eye_view/ https://blog.jetbrains.com/pycharm/2024/07/polars-vs-pandas/
@@ -246,6 +247,10 @@ df.filter(pl.col('description').str.contains(fr'(?i){brand}')) # newer version o
 ## joins
 
 ---
+
+```txt
+Pandas by default uses left joins and handles the key matching differently - it maintains the left table's row count and only brings in matched columns from the right.
+```
 
 
 * multi

@@ -137,6 +137,7 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 
 🗄️ `stat.md` Gelman
 
+* grammar of graphics https://github.com/Kanaries/graphic-walker
 * vs. Prolog https://chatgpt.com/c/67336949-e2fc-8004-92cc-19f5e9e9f230
 * language for stats https://walker-data.com/census-r/index.html https://gwern.net/resorter
 * run inside Python

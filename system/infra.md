@@ -523,7 +523,7 @@ https://www.warpstream.com/ https://changelog.com/podcast/606#transcript + spons
 RUN
 * Docker https://www.youtube.com/watch?v=qi7uR3ItaOY 4:00
 * GUIs https://news.ycombinator.com/item?id=24099037 https://akhq.io/ https://github.com/sauljabin/kaskade
-* alternative https://github.com/liftbridge-io/liftbridge
+* alternative https://github.com/liftbridge-io/liftbridge https://buf.build/blog/bufstream-jepsen-report
 * no more Zookeeper (impl yet?) https://news.ycombinator.com/item?id=23207377 https://www.confluent.io/blog/kafka-without-zookeeper-a-sneak-peek/
 * _Confluent_: managed Kafka https://news.ycombinator.com/item?id=26644713
 ```sh

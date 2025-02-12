@@ -10,6 +10,8 @@
 ## 进步
 
 * can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
+* https://positron.posit.co/
+* https://quarto.org/
 
 ```txt
 Exactly! Your problem has several layers:

@@ -274,6 +274,7 @@ HOWTO
 ## ergo
 
 https://www.youtube.com/watch?v=3Ep7WOCv38M
+https://splitkb.com/products/halcyon-kyria https://www.youtube.com/watch?v=03fXixHEOEI
 
 MAYBE
 * _Dygma defy_: 🎯 $370; featureful, bad taste https://dygma.com/pages/defy https://www.youtube.com/watch?v=R9YTQn1ik9I

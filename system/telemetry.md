@@ -713,7 +713,7 @@ za
 EBPF https://www.brendangregg.com/
 * XDP/eBPF https://mas-bandwidth.com/xdp-for-game-programmers/
 * https://blog.smidt.dev/posts/0003/
-* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions https://flamegraph.com/ https://github.com/laixintao/flameshow
+* _flamegraph_: visualization for CPU usage https://heap.io/blog/engineering/basic-performance-analysis-saved-us-millions https://flamegraph.com/ https://github.com/laixintao/flameshow https://terminaltrove.com/flamelens/
 * https://www.youtube.com/watch?v=bGAVrtb_tFs
 * https://coroot.com/blog/engineering/instrumenting-python-gil-with-ebpf/
 * https://github.com/ZingerLittleBee/netop

@@ -423,6 +423,7 @@ my_s = slice(1,3)
 ## sort
 
 📜 https://docs.python.org/3/howto/sorting.html https://realpython.com/python-sort
+https://github.com/grantjenks/python-sortedcontainers
 
 ```python
 # out-of-place

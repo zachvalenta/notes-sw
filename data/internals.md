@@ -58,7 +58,7 @@ CHECKSUMS
 ---
 
 * ACID https://www.youtube.com/watch?v=GAe5oB742dw
-* _page_: + heap https://news.ycombinator.com/item?id=41159180 https://blog.sylver.dev/build-your-own-sqlite-part-1-listing-tables https://simonwillison.net/2025/Feb/6/sqlite-page-explorer/
+* _page_: + heap https://news.ycombinator.com/item?id=41159180 https://simonwillison.net/2025/Feb/6/sqlite-page-explorer/
 * https://supabase.com/blog/postgres-bloat
 * physical storage https://drew.silcock.dev/blog/how-postgres-stores-data-on-disk/
 * locks https://news.ycombinator.com/item?id=35981238 https://leontrolski.github.io/pglockpy.html
@@ -253,6 +253,7 @@ https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/
 
 📙 Dibernardo, Kleppmann
 
+* https://blog.sylver.dev/build-your-own-sqlite-part-1-listing-tables 
 * CMU Pavlo https://www.youtube.com/watch?v=APqWIjtzNGE
 * https://github.com/avinassh/py-caskdb
 * https://www.youtube.com/watch?v=5Pc18ge9ohI

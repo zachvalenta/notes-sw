@@ -234,7 +234,7 @@ THEME
 * false alarm by me https://github.com/alexpasmantier/television/issues/117
 
 ZA
-* actual search itself kinda bad
+* ❌ actual search itself kinda bad e.g. can't find altair
 * piping stdout to command https://github.com/alexpasmantier/television/issues/16#issuecomment-2558615942 https://github.com/zachvalenta/dotfiles-mini23/commit/7175670d734ca1362ecfd8204682d2dddb162847
 
 ---
@@ -394,6 +394,7 @@ FEATURES
 
 OPTIONS
 * _exa_: 💀 kicked off Homebrew https://github.com/ogham/exa https://the.exa.website/
+* _g_: 🎯 https://github.com/Equationzhao/g
 * _logols_: 💀 https://github.com/Yash-Handa/logo-ls
 * _lsd_: https://github.com/lsd-rs/lsd
 * _pls_: 🎯 https://pls.cli.rs/ ability to group to solve repo cruft problem? https://pls.cli.rs/guides/paths/

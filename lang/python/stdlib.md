@@ -411,6 +411,7 @@ OPTIONS
 * _sh_: 🎯 run bash from Python https://github.com/amoffat/sh https://martinheinz.dev/blog/96 https://calmcode.io/shorts/sh.py
 * _suby_: https://github.com/pomponchik/suby
 * _Sultan_: https://github.com/aeroxis/sultan https://stackoverflow.com/a/56842257/6813490
+* figure out surrounding shell https://github.com/sarugaku/shellingham
 
 # 🛰️ SERDE
 
@@ -607,7 +608,7 @@ https://github.com/MechanicalSoup/MechanicalSoup
 * follow links
 * submit forms
 
-BeautifulSoup 📜 https://www.crummy.com/software/BeautifulSoup/bs4/doc/
+BeautifulSoup 📜 https://www.crummy.com/software/BeautifulSoup/bs4/doc/ selectors https://github.com/facelessuser/soupsieve
 * parse HTML
 * can also do scraping
 * way to simulate an API for a site that doesn't have one
@@ -904,7 +905,7 @@ repo.git.ls_remote("--heads", "origin", "master")
 
 📙 Beazley ch. 3
 🔗 https://github.com/cosmologicon/pywat
-🛠️ https://github.com/python-humanize/humanize
+🛠️ readable https://github.com/python-humanize/humanize
 
 ---
 

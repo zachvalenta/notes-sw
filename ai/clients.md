@@ -53,7 +53,7 @@ NATIVE 🗄️ `vim.md` Zed
 * _Tabby_: https://www.tabbyml.com/ https://news.ycombinator.com/item?id=42675725
 * _Void_: ❌ Cursor alternative, unfinished https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
 
-EXTENSIONS
+EXTENSIONS https://fly.io/blog/vscode-ssh-wtf/
 > I'd much, much prefer Aide to continue as a CLI tool or as a VSCode plugin. Every fork of VSCode ends up with IDE maintenance bugs that never get addressed and slowly the effort implodes as the bug surface becomes too wide. https://news.ycombinator.com/item?id=42063346
 * _Avante_: ❌ Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835 https://www.youtube.com/watch?v=r-3o35-5hlg https://www.youtube.com/watch?v=4kzSV2xctjc https://www.youtube.com/watch?v=iyftGvVs86E
 * _Cline_: 🎯 VSC extension https://github.com/cline/cline

@@ -16,7 +16,13 @@
 
 ## 进步
 
-* Polars seed data in dotfiles and read by python startup
+CAPP
+- [x] ✅ Datasette
+> add AI
+- [x] ❌ Preset: CSV upload goofiness, ok to connect Steersman read-replica?
+- [x] ❌ Hex: powerful but too much for business users
+- [ ] Metabase: work through free trial
+
 * canonical datasets
 * where to store your data (email? google drive? repo/csvbase? ⭐️ hugging face? metadata mgmt?)
 
@@ -31,64 +37,50 @@
 * `math.md` stat / distributions
 * `python/feedback.md` notebooks
 
+MAYBE
+* _Hex_: free to start, great UI but kinda overwhelming https://hex.tech/ https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift
+* _Lightdash_: $800/month https://github.com/lightdash/lightdash
+* _Redash_: no pricing https://github.com/getredash/redash
+* _Tableau_: https://news.ycombinator.com/item?id=30323131 https://news.ycombinator.com/item?id=39519145
+
+NOTEBOOKS
+* _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872
+* _PyGWalker_: 🎯 https://github.com/Kanaries/pygwalker https://github.com/Kanaries/graphic-walker https://graphic-walker.kanaries.net/
+* _Quary_: VS Code extension https://github.com/quarylabs/quary
+* _Taipy_: for pipelines? https://github.com/Avaiga/taipy https://www.youtube.com/watch?v=phhnakHSNEE
+
+MORE SPECIFIC USE CASES
+* _dash_: build charts for sites https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
+* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
+* callback = update chart, control = hit callback https://dash.plotly.com/tutorial#controls-and-callbacks
+* Dash Design Kit (DDK) = no need for HTML/CSS
+* _perspective_: streaming https://github.com/finos/perspective https://perspective.finos.org/
+* _SQL Explorer_: Django https://github.com/explorerhq/django-sql-explorer
+> Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
+
+MEH
+* _Blazer_: too close to Datasette https://github.com/ankane/blazer
+* _Data Formulator_: probably going nowhere https://github.com/microsoft/data-formulator https://news.ycombinator.com/item?id=41907719
+* _Dataherald_: 💀 AI query https://github.com/Dataherald/dataherald
+* _Datalens_: run locally, from Yandex https://datalens.tech/ https://news.ycombinator.com/item?id=37657772
+* _Looker_: Google https://www.cobry.co.uk/looker-vs-looker-studio
+* _Poli_: 💀 https://github.com/shzlw/poli
+* _shiny_: R https://rstudio.github.io/shinydashboard https://training.talkpython.fm/courses/reactive-web-dashboards-with-shiny-for-data-science https://www.maximum-progress.com/p/economics-is-a-field-of-software
+* _streamlit_: interesting paradigm https://streamlit.io/ Hugging Face integration https://huggingface.co/docs/hub/spaces
+
+SPACE
+* _business intelligence (BI)_: SQL (devs) + explorer (non-devs) + charting
+* SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
 > Analysis, even SQL-based analysis, isn't like design, where a handful of people create stuff and everyone else is a consumer, with clear lines between them. It's much, much fuzzier. Though analysts were always our first adopters, lots of people - PMs, engineers, marketing managers, executives, support agents, operations leads, and all job titles in between - periodically wrote queries. These people occupied the middle part of the distribution between analysts and non-analysts that we thought would be vacant. Users weren't bimodal like we expected, but continuous. https://benn.substack.com/p/work-like-an-analyst
 
----
+## briefer
 
-CANDIDATES FOR CAPP https://chatgpt.com/c/674796f6-286c-8004-b0d5-6ae4d0decccc
-* https://github.com/finos/perspective https://perspective.finos.org/
-* https://github.com/datasette/datasette-queries
-* Metabase
+* _Briefer_: https://github.com/briefercloud/briefer
 
-* Claude data analysis tool
-* AI / plain English https://news.ycombinator.com/item?id=41907719
-
-* _business intelligence (BI)_: explorer (for non-devs) + graphs
-* SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
-* reports with Quarto https://www.youtube.com/watch?v=Q3phTByW138
-
-TOOLS / DASHBOARDS
-* RAG https://github.com/vanna-ai/vanna
-* _Blazer_: https://github.com/ankane/blazer
-* _Briefer_: https://github.com/briefercloud/briefer https://pythonbytes.fm/episodes/show/405/oh-really
-* _Dataherald_: query using natural language via LLM https://github.com/Dataherald/dataherald
-* _Datalens_: 🎯 run locally https://datalens.tech/ https://news.ycombinator.com/item?id=37657772
-* _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872
-* _Hex_: https://hex.tech/ https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift
-* _Lightdash_: Kubernetes https://github.com/lightdash/lightdash
-* _Looker_: Looker Studio is the free dashboard component
-> Everything builds on top of Looker. Looker Studio is a way to access and build reports on that trusted, underlying data model. https://www.cobry.co.uk/looker-vs-looker-studio
-* _Kviklet_: queries + perms https://github.com/kviklet/kviklet
-* _Metabase_: 🎯 popular https://news.ycombinator.com/item?id=30323131 https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift https://news.ycombinator.com/item?id=37661872
-* _Poli_: local, Java https://github.com/shzlw/poli
-* _PyGWalker_: https://github.com/Kanaries/pygwalker
-* _Quary_: VS Code extension https://github.com/quarylabs/quary
-* _Redash_: cloud deploy https://github.com/getredash/redash
-* _Retool_: 🎯 https://retool.com/blog/how-to-build-a-sql-gui
-* _Tableau_: via Pandas https://github.com/Kanaries/pygwalker Markdown https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=39519145
-* _SQL Explorer_: 🎯 https://github.com/explorerhq/django-sql-explorer
-> Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
-* _Taipy_: 🎯 https://github.com/Avaiga/taipy https://www.youtube.com/watch?v=phhnakHSNEE
-
-## Capp
-
-STATIC SITE WITH VEGA
-* dump tables from Postgres read replica
-```sh
-pg_dump --data-only --column-inserts --dbname=odoo-read-replica --table=foo > foo.sql
-pg_dump --data-only --column-inserts --dbname=odoo-read-replica --table=bar > bar.sql
-```
-* ingest into SQLite
-```sh
-sqlite3 agg.sqlite < foo.sql
-sqlite3 agg.sqlite < bar.sql
-```
-* run joins and export to CSV
-```sh
-sqlite-utils agg.sqlite "super big join here" --csv > bi.csv
-```
-* upload CSV to Google Drive, publish through sheets
-
+* pricing: free self-host | $130/month https://docs.briefer.cloud/deployment/vm
+* great docs, SQL/notebook centric
+* design https://pythonbytes.fm/episodes/show/405/oh-really
+* smart team, SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
 
 ## 📼 Datasette
 
@@ -103,7 +95,6 @@ poetry run datasette uninstall datasette-dashboards
 * _dashboards_: ✅ https://datasette.io/plugins/datasette-dashboards https://github.com/zachvalenta/datasette-for-BI
 * homepage i.e. doesn't go to dashboards by default https://datasette-dashboards-demo.vercel.app/
 * alternatives https://datasette.io/plugins/datasette-nteract-data-explorer
-* _Vega_: https://github.com/zachvalenta/vega-for-BI
 
 ZA
 * customizing CSS https://docs.datasette.io/en/stable/custom_templates.html
@@ -119,8 +110,9 @@ BASICS
 
 EXTENSIONS
 * UI: homepage https://datasette.io/plugins/datasette-homepage-table https://github.com/cldellow/datasette-ui-extras https://datasette.io/plugins/datasette-hovercards https://datasette.io/plugins/datasette-sitemap https://datasette.io/plugins/datasette-query-links https://datasette.io/plugins/datasette-css-properties
+* saved queries https://github.com/datasette/datasette-queries
 * hosting https://datasette.io/plugins/datasette-publish-vercel https://datasette.io/plugins/datasette-publish-fly https://datasette.io/plugins/datasette-scale-to-zero https://datasette.io/plugins/datasette-gunicorn https://datasette.io/plugins/datasette-codespaces
-* auth https://datasette.io/plugins/datasette-redirect-forbidden https://datasette.io/plugins/datasette-auth0 https://datasette.io/plugins/datasette-matomo https://datasette.io/plugins/datasette-ephemeral-tables https://datasette.io/plugins/datasette-permissions-sql https://datasette.io/plugins/datasette-mask-columns
+* auth https://datasette.io/plugins/datasette-redirect-forbidden https://datasette.io/plugins/datasette-auth0 https://datasette.io/plugins/datasette-matomo https://datasette.io/plugins/datasette-ephemeral-tables https://datasette.io/plugins/datasette-permissions-sql https://datasette.io/plugins/datasette-mask-columns https://github.com/kviklet/kviklet
 * charts https://datasette.io/plugins/datasette-plot https://datasette.io/plugins/datasette-seaborn https://datasette.io/plugins/datasette-statistics
 * markdown https://datasette.io/plugins/datasette-render-markdown
 * AI https://datasette.io/plugins/datasette-column-inspect https://datasette.io/plugins/datasette-jupyterlite https://datasette.io/plugins/datasette-export-notebook https://datasette.io/plugins/datasette-chatgpt-plugin https://datasette.io/plugins/datasette-explain https://datasette.io/plugins/datasette-query-assistant https://datasette.io/plugins/datasette-ml https://datasette.io/plugins/datasette-llm-embed https://datasette.io/plugins/datasette-enrichments-gpt https://datasette.io/plugins/datasette-openai
@@ -138,27 +130,12 @@ EXTENSIONS
 * https://github.com/simonw/sqlite-utils-ask
 * https://github.com/datasette/datasette-query-assistant
 
-## dash
+## Metabase
 
-📜 https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
+* _Metabase_: 🎯 popular https://news.ycombinator.com/item?id=30323131 https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift https://news.ycombinator.com/item?id=37661872
+https://www.youtube.com/watch?v=j_4vI2bm6-8
 
-* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
-* _callback_: update chart https://dash.plotly.com/tutorial#controls-and-callbacks
-* _control_: hit callback
-* _Dash Design Kit (DDK)_: no need for HTML/CSS
-
-## shiny
-
-* https://training.talkpython.fm/courses/reactive-web-dashboards-with-shiny-for-data-science
-* https://www.maximum-progress.com/p/economics-is-a-field-of-software
-
-## streamlit
-
-https://streamlit.io/
-
-Hugging Face integration https://huggingface.co/docs/hub/spaces
-
-## superset
+## 🪶 Superset
 
 📜 https://superset.apache.org/
 
@@ -177,11 +154,15 @@ colima stop
 colima start --memory 4 --cpu 4
 ```
 
+* _Preset_: hosted Superset https://preset.io/
+* pricing: free for 5 users, $20/user/month
+* catch-22 around using CSVs where they needed to be uploaded to a database but you couldn't create database without creds
+* bad customer support
+
 ---
 
 * https://news.ycombinator.com/item?id=37657772
 * https://news.ycombinator.com/item?id=37661872
-* hosted https://preset.io/
 
 # 💿 DATA
 
@@ -374,6 +355,8 @@ S3OW,motorola,325
 
 ## EDA
 
+⭐️ https://github.com/vanna-ai/vanna
+
 FIND NULL COLS
 > rn polars/pandas seems like the most straightforward option, maybe write CLI for this and add to fkfind
 * _visidata_: histogram
@@ -394,6 +377,8 @@ group by pn having count(*) > 1;
 ```
 
 ---
+
+is AI just bad at this? https://chiraaggohel.com/posts/llms-eda/
 
 > there's got to be a less manually way to do this -> I have a bunch of CSVs. Is there an automated way to: figure out where all the foreign keys are and document the schema with a plaintext ERD?
 
@@ -743,6 +728,7 @@ schema $DB                                   # validate schema
 
 TUI
 * _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
+* _lazysql_: https://github.com/jorgerojas26/lazysql
 * _harlequin_: ✅ query editor https://harlequin.sh
 * _GoBang_: perpetual alpha https://github.com/TaKO8Ki/gobang
 * _rainfrog_: Postgres https://github.com/achristmascarl/rainfrog https://www.youtube.com/watch?v=qURrmEzsKH8

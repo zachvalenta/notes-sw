@@ -211,6 +211,14 @@ CONFIG
 
 ## compose
 
+```sh
+# then
+docker-compose
+# now
+docker compose
+```
+---
+
 🔍 https://github.com/docker/awesome-compose
 📜
 * https://docs.docker.com/compose/
