@@ -355,7 +355,23 @@ S3OW,motorola,325
 
 ## EDA
 
-⭐️ https://github.com/vanna-ai/vanna
+💻 https://github.com/zachvalenta/wd
+
+```txt
+VS Code has the Data Wrangler extension. Is there a CLI/TUI version of this? What I'm looking for is a tool that you can point at a single CSV or at multiple CSVs or a SQLite database and get:
+
+* foreign keys
+* data quality problems e.g. this column has X percent values as string and Y percent as ints
+* dupe values in a column
+* columns in which all values are null | empty strings
+```
+
+IN THE RIGHT DIRECTION
+```sh
+datasette inspect db.sqlite
+```
+* https://docs.datasette.io/en/stable/facets.html
+*️ https://github.com/vanna-ai/vanna
 
 FIND NULL COLS
 > rn polars/pandas seems like the most straightforward option, maybe write CLI for this and add to fkfind
@@ -383,7 +399,7 @@ is AI just bad at this? https://chiraaggohel.com/posts/llms-eda/
 > there's got to be a less manually way to do this -> I have a bunch of CSVs. Is there an automated way to: figure out where all the foreign keys are and document the schema with a plaintext ERD?
 
 FKFIND
-> VSC ipy extension
+* https://code.visualstudio.com/docs/datascience/data-wrangler
 * https://github.com/zachvalenta/capp-datalab#entity
 * pypi pkg, Rust CLI, sqlite extension <https://github.com/pyo3/pyo3>
 ```txt
