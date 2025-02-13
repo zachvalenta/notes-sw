@@ -347,8 +347,17 @@ https://github.com/zasper-io/zasper
 
 HOWTO
 ```sh
+# POETRY
 poetry add jupyter
 poetry run jupyter notebook
+
+# PIP (GLOBAL TO USER)
+python -m pip install --user jupyter
+which jupyter  # /Users/zvalenta/.local/bin/jupyter
+jupyter notebook
+
+# VS Code extension
+vsc path/to/.ipynb
 ```
 
 FEATURES
