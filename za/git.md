@@ -938,6 +938,7 @@ USE https://dev.to/srebalaji/useful-tricks-you-might-not-know-about-git-stash-11
 
 ## undo
 
+* unstage: `git reset`
 * undo local commit: `git reset HEAD~` https://stackoverflow.com/a/927386
 * undo updates to already staged file: `git restore $FPATH`
 

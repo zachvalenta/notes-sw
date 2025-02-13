@@ -370,29 +370,55 @@ TOOLING
 
 ## Pandas
 
-> 📍 https://github.com/lux-org/lux
 📜 https://pandas.pydata.org/docs/
 📙 McKinney data analysis https://wesmckinney.com/book/
 🔍 howto https://github.com/jvns/pandas-cookbook https://github.com/kxzk/an-embarrassment-of-pandas https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
-📹 guide https://www.youtube.com/playlist?list=PL-osiE80TeTsWmV9i9c58mdDCSskIFdDS
 
 SEMANTICS
 * _series_: a column, all rows from a single column https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://pandas.pydata.org/docs/user_guide/10min.html#getting
 * `name`: series header
 * _index_: row number https://realpython.com/pandas-reset-index/
 
-BASICS
+BASIC IO
 ```python
-# IO
-import pandas as pd
 df = pd.DataFrame(pd.read_csv($FILE))
+get_sample(df, frac=0.1, random_state=42)  # reproducible 10% sample
 df.to_csv('out.csv', index=False)  # drop index
-get_sample(df, frac=0.1, random_state=42)  # get reproducible 10% sample
+```
 
-# CHECK COL PRESENT
-col_name in df.columns
+MUNGE
+```python
+df = (
+    pd.read_csv(
+        'path/to/file',
+        dtype={'foo': str}  # update types
+    )
+    .assign(csn=lambda df: 'CS' + df['id'])  # create new concatted col based off of existing col
+    .rename(columns={'manufacturer': 'mfg', 'manufacturer_part_number': 'mpn'}) # update col names
+    .dropna()  # drop nulls across cols
+)
 
-# SELECT
+# drop nulls within col
+pd.read_csv('path/to/file').dropna(subset=['foo'])
+
+# set column order
+df = df[['col1', 'col2', 'col3']]
+pd.read_csv('path/to/file', usecols=['col1', 'col2', 'col3'])
+```
+
+FILTER
+```python
+df[df['entity_id'].isin(descendants['id'])]
+df.query('entity_id in @descendants.id')
+```
+
+EDA
+```python
+col_name in df.columns  # col present
+```
+
+SELECT
+```python
 df.col   # get col https://pandas.pydata.org/docs/user_guide/10min.html#getting
 df[0:3]  # get row
 df.col.isin(myl) # bool for each row

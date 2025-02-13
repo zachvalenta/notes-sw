@@ -356,6 +356,7 @@ S3OW,motorola,325
 ## EDA
 
 💻 https://github.com/zachvalenta/wd
+> just learn how to use visidata better
 
 ```txt
 VS Code has the Data Wrangler extension. Is there a CLI/TUI version of this? What I'm looking for is a tool that you can point at a single CSV or at multiple CSVs or a SQLite database and get:
@@ -371,7 +372,9 @@ IN THE RIGHT DIRECTION
 datasette inspect db.sqlite
 ```
 * https://docs.datasette.io/en/stable/facets.html
+* https://github.com/lux-org/lux
 *️ https://github.com/vanna-ai/vanna
+* https://www.visidata.org/docs/api/
 
 FIND NULL COLS
 > rn polars/pandas seems like the most straightforward option, maybe write CLI for this and add to fkfind

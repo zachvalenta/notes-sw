@@ -10,6 +10,7 @@
 ## 进步
 
 * can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
+* Jupyter in the browser https://github.com/jvns/pandas-cookbook
 * https://positron.posit.co/
 * https://quarto.org/
 
