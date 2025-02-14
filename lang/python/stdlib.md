@@ -727,7 +727,7 @@ WSGI
 ASGI
 * _ASGI_: async alternative to WSGI
 * frameworks: Django (Channels) Quart (Flask on async) https://talkpython.fm/blog/posts/talk-python-rewritten-in-quart-async-flask/ Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
-* servers: uvicorn, Daphne
+* servers: uvicorn, Daphne, Hypercorn
 * FastAPI https://github.com/pomponchik/cbfa
 * sink: https://www.youtube.com/watch?v=7kwnjoAJ2HQ @ 10:55 Django moving this way https://docs.djangoproject.com/en/dev/releases/3.0/ async db https://github.com/encode/orm https://github.com/django/asgiref https://www.pythonpodcast.com/django-channels-and-the-asynchronous-web-with-andrew-godwin-episode-180/ https://github.com/florimondmanca/awesome-asgi  https://pythonbytes.fm/episodes/show/148/the-asgi-revolution-is-upon-us
 

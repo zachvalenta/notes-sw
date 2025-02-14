@@ -83,8 +83,10 @@ TAXONOMY
 
 ## latency
 
-🗄️ `tcp-ip.md` UDP
 📙 Enberg latency https://www.manning.com/books/latency
+🗄️
+* `tcp-ip.md` UDP
+* `infra.md` Granian
 
 SEMANTICS
 * _latency_: time it takes for data to travel from one point to another; measured in ms

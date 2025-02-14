@@ -713,6 +713,7 @@ ALTERNATIVES
 
 💀 UWSGI
 * in maintenance mode https://pythonbytes.fm/episodes/show/401/we-must-replace-uwsgi-with-something-else
+* impl in C
 * docs are a mess, scroll past 42 changelogs for the README, and commercial support in Italian https://github.com/unbit/uwsgi-docs#commercial-support
 * run options https://blog.ionelmc.ro/2022/03/14/how-to-run-uwsgi/
 * commands https://github.com/zachvalenta/flask-skeleton/commit/435517e5e1353eaa875d16e91ea96e47300b35dc
@@ -773,11 +774,86 @@ conf
 * location (Linux `/etc/nginx/nginx.conf` macOS `/usr/local/etc/nginx/nginx.conf`) 
 * language: Nginx's own thing despite looking like JSON https://carrot.is/coding/nginx_introduction
 
+## Granian
+
+🗄️ `telemetry.md` latency
+
+* supports both WSGI and native ASGI (most WSGI servers force sync)
+* 2x faster for WSGI than competition
+* built-in worker process lifecycle mgmt
+* smaller codebase
+
+---
+
+```txt
+Network bottlenecks in web apps typically show up as:
+
+External API calls
+* Third party services
+* Microservices in your architecture
+* Cloud services (S3, etc)
+
+Database network latency
+* Physical distance to DB server
+* Connection pool exhaustion
+* Network congestion between app and DB
+
+Client-side latency
+* Large response payloads
+* Slow client networks
+* Geographic distance to users
+```
+```python
+import time
+import httpx
+
+def measure_call():
+    start = time.perf_counter()
+    response = httpx.get('https://api.example.com')
+    end = time.perf_counter()
+    return end - start
+```
+```txt
+The key insight is that server performance (Granian/Gunicorn) only optimizes the time spent processing the request in your Python code. If your app spends 300ms waiting on external APIs and 5ms processing in Python, even a 2x faster server only saves 2.5ms.
+
+The web server's job is basically just:
+* Accept the HTTP connection
+* Parse the request
+* Hand it to your application code
+* Take your response and send it back
+
+That's typically milliseconds or less. But then your actual application code might:
+* Wait 100ms for a DB query
+* Wait 200ms for an API call
+* Spend 50ms processing data
+* Wait 150ms for another API call
+
+So the web server piece ends up being maybe 1-5% of your total response time. That's why shifting from Gunicorn to a faster server often doesn't move the needle much in real-world apps. Where raw server performance does matter more:
+* Extremely high-concurrency scenarios
+* CPU-intensive apps with minimal I/O
+* Serverless where cold start time matters
+```
+```txt
+Why would the server matter more here? Given that being ms faster at the server is still beholden to whatever the CPU is doing.
+```
+```txt
+Ah good catch - I was wrong there. You're right: if the app is CPU-bound, then the bottleneck is the actual computation time, not how fast the server hands off the request.
+
+Let me correct my earlier statement. Server raw performance matters most in:
+* High-concurrency with lots of small, fast requests
+* Serverless where cold start time matters
+* Apps doing request routing/proxying where the server's main job is just moving bytes around
+
+The CPU-bound case actually supports the original point - the server choice becomes even less relevant when you have long-running CPU work since it's dwarfed by computation time.
+```
+
 ## Gunicorn
 
 📜 https://docs.gunicorn.org/en/stable/
 
 > Gunicorn does one thing - it’s a WSGI HTTP server - and it does it well. Deploy it quickly and easily, and let the rest of your stack do what the rest of your stack does well, wherever that may be. https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
+
+* impl in Python
 
 config
 * some settings only available from file https://docs.gunicorn.org/en/latest/settings.html
