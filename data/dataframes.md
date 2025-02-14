@@ -109,6 +109,15 @@ FILTER
 df[df['entity_id'].isin(descendants['id'])]
 df.query('entity_id in @descendants.id')
 ```
+```txt
+Let's break down how query() with the @ prefix works:
+
+The query string 'entity_id in @descendants.id' is a pandas query expression
+@ tells pandas to look for the variable in the Python namespace, outside the DataFrame
+So @descendants.id refers to the id column/attribute of a descendants DataFrame/object that exists in your code
+
+Without @, pandas would look for descendants.id inside the DataFrame you're querying. With @, it looks in the outer scope.
+```
 
 ```python
 # ITERATION https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas https://stackoverflow.com/questions/50267185/iterate-over-pandas-series don't iterate https://realpython.com/pandas-iterate-over-rows/

@@ -361,12 +361,6 @@ where dsp.bar='bar' and files.baz='baz'
 
 -- STRING TRUTHY/FALSY
 select count(*) from executions where height != ''
-
--- PERCENTAGE OF ATTR W/ VAL https://stackoverflow.com/a/3919859
-select
-    (select count(height) from executions where height = '') * 100
-    /
-    (select count(height) from executions)
 ```
 
 ## select
@@ -417,17 +411,15 @@ FROM cd.facilities;
 📙 Beaulieu ch. 9
 
 * _subquery_: parenthesized query contained within larger query 📙 Beaulieu [53]
+* more readable but generally slower than joins https://stackoverflow.com/a/2577224 https://stackoverflow.com/a/2577188
 * _containing query_: query that wraps subquery 📙 Beaulieu [54]
 ```sql
+-- PERCENTAGE OF ATTR W/ VAL
 select
   (select count(*) from customers where bill_to_id != '') * 100.0 /
   (select count(*) from customers)
 ```
----
-
-* _scalar subquery_: return single val from subquery https://learnsql.com/blog/subquery-vs-join/
-* more readable but generally slower than joins https://stackoverflow.com/a/2577224
-* more thinkable than joins https://stackoverflow.com/a/2577188
+* _scalar subquery_: return single val https://learnsql.com/blog/subquery-vs-join/
 ```sql
 containing_query = (subquery)  -- 1 (scalar)
 containing_query in (subquery)  -- n

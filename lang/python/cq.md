@@ -355,6 +355,41 @@ SECURITY
 
 ---
 
+STANDARDS
+```python
+# JETBRAINS https://stackoverflow.com/a/40596167
+"""
+This line is for an overview
+
+:param arg1: desc of arg1
+:return: desc of return
+"""
+
+# GOOGLE
+"""This line is for an overview
+
+Args:
+    arg1 (type): desc of arg1
+
+Returns:
+    bool: desc of return
+"""
+
+# NUMPY
+"""This line is for an overview.
+
+Parameters
+----------
+arg1 : type
+    desc of arg1
+
+Returns
+-------
+type
+    desc of return
+"""
+```
+
 BASICS
 * tooling
 * _triple quoted string (TQS)_: https://docs.python.org/3/glossary.html
@@ -362,21 +397,6 @@ BASICS
 * how to read: module (`help("doctest")`) function (`help(my_func)` or `my_func.__doc__`)
 * parsed by doc libraries e.g. pdoc
 * use TQS in lieu of multi-line comment https://stackoverflow.com/a/7696966
-```python
-def foo(my_arg):
-    # basic
-    """
-    basic docstring
-    """
-
-    # PyCharm convention https://stackoverflow.com/a/40596167
-    """
-    This line is for an overview.
-
-    :param req: request from web framework
-    :return: what this function is returning
-    """
-```
 
 EXAMPLES
 https://github.com/copyleftdev/x12-edi-tools
