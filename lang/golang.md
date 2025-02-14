@@ -14,6 +14,7 @@
 
 ## 进步
 
+https://fluxsec.red/how-I-developed-a-markdown-blog-with-go-and-HTMX
 https://zackproser.com/blog/bubbletea-state-machine
 https://bitfieldconsulting.com/posts/bit
 https://bitfieldconsulting.com/posts/tdd-programming-confidence

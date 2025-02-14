@@ -4,6 +4,8 @@
 
 ## 进步
 
+PDP1 for Eric Raymond book https://news.ycombinator.com/item?id=43002906
+
 * _23_: mac mini
 * _23_: macbook air
 * _14_: macbook pro

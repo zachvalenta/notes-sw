@@ -83,6 +83,7 @@ taxonomy
 
 ---
 
+ https://fluxsec.red/how-I-developed-a-markdown-blog-with-go-and-HTMX
 * PETAL, Alpine, LiveView, Hotwire, htmx https://news.ycombinator.com/item?id=30325030 https://www.thoughtworks.com/radar/techniques?blipid=202203006 https://news.ycombinator.com/item?id=42711387
 great core team https://news.ycombinator.com/item?id=42616476
 if you try to do fancy stuff it will fight you https://news.ycombinator.com/item?id=42615472

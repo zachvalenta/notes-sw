@@ -220,7 +220,7 @@ Bytecode is for VMs:
 * Examples: JVM bytecode, Python bytecode, WebAssembly
 
 There's some middle ground:
-* _WASM_: Started as bytecode for browsers but now also used as compiler target
+* _WASM_: Started as bytecode for browsers but now also used as compiler target https://web.dev/blog/ruby-on-rails-on-webassembly
 * _JVM_: Uses intermediates between bytecode and machine code during JIT
 * _.NET_: Has both IL (bytecode) and internal compiler IR
 

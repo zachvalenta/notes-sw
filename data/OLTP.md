@@ -635,7 +635,7 @@ wire protocol
 
 ---
 
-https://www.manning.com/books/just-use-postgres
+https://www.manning.com/books/just-use-postgres https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb
 🏔️ https://github.com/Olshansk/postgres_for_everything
 📚
 * Magda just use postgres https://www.manning.com/books/just-use-postgres
@@ -652,7 +652,7 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * duckdb extension https://motherduck.com/blog/pg_duckdb-postgresql-extension-for-duckdb-motherduck/ https://github.com/duckdb/pg_duckdb
 * copy btw tables https://ongres.com/blog/fastest_way_copy_data_between_postgres_tables/
 * embed https://github.com/electric-sql/pglite
-* perf, memory https://news.ycombinator.com/item?id=40642803
+* perf, memory https://news.ycombinator.com/item?id=40642803 https://github.com/nexsol-technologies/pgassistant
 * generate `create table` from existing table https://github.com/lacanoid/pgddl
 * Elasticsearch https://github.com/paradedb/paradedb https://github.com/pgroonga/pgroonga
 * serverless https://neon.tech/ https://news.ycombinator.com/item?id=31536827

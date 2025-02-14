@@ -431,6 +431,8 @@ VMWARE
 
 ---
 
+* alternative https://news.ycombinator.com/item?id=42908061
+
 > Developers on macOS who need a container runtime but don’t want Docker Desktop.
 
 A macOS/Linux tool for running container runtimes (like Docker or Podman) in a lightweight VM, primarily on systems where native runtimes may be unavailable or constrained (e.g., macOS).

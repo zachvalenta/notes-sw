@@ -399,6 +399,7 @@ Conflicts with:
 
 ---
 
+* internals https://github.com/desgeeko/pdfsyntax/blob/main/docs/browse.md https://news.ycombinator.com/item?id=43000303
 * https://realpython.com/pdf-python/
 * https://github.com/Halolegend94/pdf4py
 * Sioyek https://news.ycombinator.com/item?id=34069804

@@ -13,6 +13,9 @@
 
 ## 进步
 
+entity resolution at Capp = New Product Mgmt process (Ben runs, part of product workflow)
+AI in pipelines https://news.ycombinator.com/item?id=42990036
+
 * _24_: try harlequin, lots of rf
 * _22_: basic xsv/miller/Pandas
 * _21_: put together basic data eng notes
@@ -345,6 +348,8 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 * _Cleanlab_: https://github.com/cleanlab/cleanlab https://www.youtube.com/watch?v=QHaT_AiUljw
 
 ---
+
+* _OpenRefine_: https://openrefine.org/ https://www.youtube.com/watch?v=yjLIRNpc2RQ
 
 * https://blog.codepen.io/2023/02/01/399-data-munging/
 * unstructured https://news.ycombinator.com/item?id=41236273

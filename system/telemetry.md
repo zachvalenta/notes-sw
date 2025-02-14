@@ -413,6 +413,7 @@ HOW TO START
 
 ---
 
+* https://www.lucavall.in/blog/opentelemetry-a-guide-to-observability-with-go
 * https://www.jvt.me/posts/2024/11/17/cobra-otel-lessons/
 * https://rdrn.me/observability/
 * https://opentelemetry.io/ 

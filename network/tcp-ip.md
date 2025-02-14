@@ -89,6 +89,7 @@ how they work
 * _MTU_: when packets get too big https://www.youtube.com/watch?v=Y6IMlPSl4fI https://jvns.ca/blog/2018/03/05/things-ive-learned-networking/
 
 tools - inspect
+https://news.ycombinator.com/item?id=42909530
 * _Charles_: https://www.charlesproxy.com/
 * _Fiddler_: app layer only
 * _Wireshark_: https://bsago.me/blog/waltzing-with-wireshark https://jvns.ca/blog/2018/06/19/what-i-use-wireshark-for https://jvns.ca/blog/2016/03/16/tcpdump-is-amazing/ https://news.ycombinator.com/item?id=30743141

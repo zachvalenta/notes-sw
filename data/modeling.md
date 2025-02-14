@@ -89,6 +89,7 @@ DBMS
 * BYO https://notes.eatonphil.com/documentdb.html
 * _CouchDB_: good at replication https://www.dataengineeringpodcast.com/couchdb-document-database-episode-124/ 7:15 
 * _Dante_: 🎯 embedded https://github.com/senko/dante
+* _DocumentDB_: https://github.com/microsoft/documentdb
 * _Lungo_: 🎯 embedded, Mongo compatible Golang impl https://github.com/256dpi/lungo
 * _JameSQL_: 🎯 embedded https://github.com/capjamesg/jamesql
 * _Mongo_: OSS alternative https://github.com/FerretDB/FerretDB https://pythonbytes.fm/episodes/show/318/gil-how-we-will-miss-you

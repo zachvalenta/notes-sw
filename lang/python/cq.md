@@ -95,6 +95,25 @@ coverage html && coverage htmlcov/index.html
 
 ## doctest
 
+```python
+def foo(a, b):
+    """
+    >>> foo(2, 3)
+    5
+    """
+    return a + b
+
+if __name__ == '__main__':
+    import doctest
+    print(f'\nDOCTEST SUMMARY: {doctest.testmod(verbose=True)}')
+```
+```txt
+test: func_name
+expect: 26.77
+actual: 26.77
+result: ✅ pass
+```
+
 ---
 
 https://hamatti.org/posts/document-intended-usage-through-tests-with-doctest/

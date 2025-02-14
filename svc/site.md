@@ -444,6 +444,8 @@ https://www.getzola.org/documentation/deployment/sourcehut/
 
 # 🦾 SSG
 
+BYO https://fluxsec.red/how-I-developed-a-markdown-blog-with-go-and-HTMX
+
 ## alternatives
 
 🗄️️ `algos.md` tree / treebuilders

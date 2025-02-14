@@ -5,6 +5,7 @@
 ## 进步
 
 https://jvns.ca/blog/2025/01/11/getting-a-modern-terminal-setup/
+https://jvns.ca/blog/2025/02/05/some-terminal-frustrations/
 
 * _24_: shell (oh-my-posh, atuin, readline vi mode) terminal (try out ghostty)
 * _23_: terminal (research Zellij)

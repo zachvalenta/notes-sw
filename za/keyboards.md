@@ -57,7 +57,7 @@ LETTERING
 🗄️ `interfaces.md` terminals > features
 
 PROGRAMS
-* _kanata_: https://github.com/jtroo/kanata
+* _kanata_: https://github.com/jtroo/kanata https://news.ycombinator.com/item?id=42991019
 * _Launcher_: ✅ https://launcher.keychron.com/ 🗄️ `dot/shell/keychron-v8.json`
 * _Oryx_ built off of QMK https://blog.zsa.io/whack-a-key/ https://www.youtube.com/watch?v=FcFYv_dHIiQ
 * can access QMK directly https://blog.zsa.io/oryx-custom-qmk-features/
