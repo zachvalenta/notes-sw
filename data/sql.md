@@ -5,7 +5,7 @@
 🔍 https://dba.stackexchange.com
 📚
 * Beaulieu learning sql
-* Conery curious moon
+* Conery curious moon https://www.sqlnoir.com/
 * Evans star https://sql-playground.wizardzines.com/
 * Faroult art of sql
 * Karwin sql antipatterns https://pragprog.com/cms/errata/bksqla-errata/
@@ -61,6 +61,83 @@ INSERT INTO danzi(customer, price) VALUES ('alice', 15), ('bob', 10);
 
 UPDATE <tab> SET <col>=0 WHERE id=3;
 DELETE FROM <tab> WHERE id=3;  -- https://notso.boringsql.com/posts/deletes-are-difficult/
+```
+
+## distinct
+
+🗄️ `math.md` set theory / combos
+
+* _ALL_: default (which is why you never see it) 📙 Beaulieu [52]
+* _DISTINCT_: dedupe
+* operates on records, not columns https://discuss.codecademy.com/t/can-we-apply-distinct-to-a-select-query-with-multiple-columns/349723
+* slow for large result set bc have to sort 📙 Beaulieu [52]
+* SQLite lacks `distinct on` syntax so `group by`
+```sql
+--- all records in RS bc each is a distinct combination btw id/product (id=1/product=widget != id=2/product=widget)
+select distinct id, product from orders
++----+----------+-----------+--------+
+| id | customer | product   | amount |
++----+----------+-----------+--------+
+| 1  | alice    | widget    | 100    |
+| 2  | bob      | widget    | 200    |
+| 3  | alice    | widget    | 100    |
+| 4  | bob      | widget    | 200    |
+| 5  | alice    | gadget    | 150    |
+| 6  | carl     | gadget    | 175    |
+| 7  | carl     | widget    | 225    |
+| 8  | alice    | doohickey | 125    |
+| 9  | bob      | doohickey | 225    |
+| 10 | carl     | doohickey | 175    |
++----+----------+-----------+--------+
+
+select * from orders group by customer, product
++----+----------+-----------+--------+
+| id | customer | product   | amount |
++----+----------+-----------+--------+
+| 8  | alice    | doohickey | 125    |
+| 5  | alice    | gadget    | 150    |
+| 1  | alice    | widget    | 100    |
+| 9  | bob      | doohickey | 225    |
+| 2  | bob      | widget    | 200    |
+| 10 | carl     | doohickey | 175    |
+| 6  | carl     | gadget    | 175    |
+| 7  | carl     | widget    | 225    |
++----+----------+-----------+--------+
+```
+
+---
+
+DISTINCT
+```sql
+-- relationship to group by https://stackoverflow.com/a/54430/6813490 📙 Molinaro
+
+select distinct house_id, addr from house
++----------+-----------------+
+| house_id | addr            |
++----------+-----------------+
+| 1        | 5 rose street   |
+| 2        | 12 main street  |
+| 3        | 5 rose street   |
+| 4        | 3 nice street   |
++----------+-----------------+
+
+select house_id, addr from house group by addr
++----------+-----------------+
+| house_id | addr            |
++----------+-----------------+
+| 2        | 12 main street  |
+| 3        | 5 rose street   |
+| 4        | 3 nice street   |
++----------+-----------------+
+
+SELECT saleprice, saledate
+FROM   sales
+GROUP  BY saleprice, saledate
+HAVING count(*) = 1 
+
+SELECT MIN(id) FROM sales
+GROUP BY saleprice, saledate
+HAVING COUNT(id) = 1
 ```
 
 ## execution order
@@ -223,105 +300,15 @@ lag() sum() ntile() row_number()
 * running total https://learnsql.com/blog/what-is-a-running-total-and-how-to-compute-it-in-sql/ https://learnsql.com/blog/sql-non-equi-joins-examples/
 * https://hakibenita.com/sql-for-data-analysis#running-and-cumulative-aggregation
 
-## joins
-
-📙 Beaulieu ch. 5/10
-
-BASICS
-* _join_: RS incl attr from n tables based on predicate 📙 Beaulieu [88]
-* _driving table (DT)_: starting point of join 📙 Beaulieu [95]
-* _through table (TT)_: tables included in the join
-* _join narrowing_: additional joins winnow RS count
-```sql
-select deal.deal_id, house.addr
-from deal join house on deal.house = house.house_id
-join renter on deal.renter = renter.renter_id
-```
-* predicate syntax history (if no predicate you'd get a cartesian RS) 📙 Beaulieu [35]
-```sql
--- WHERE: old syntax 📙 Beaulieu [91]
-select * from employee, lob where employee.lob_id = lob.id
--- ON: new syntax (SQL92), portable across dbms 📙 Beaulieu [92]
-select * from employee, lob on employee.lob_id = lob.id
--- USING_: use w/ equi join if tables have attr w/ same name 📙 Beaulieu [90] https://www.neilwithdata.com/join-using
-select * from employee, lob using (lob_id)
-```
-
----
-
-* https://antonz.org/sql-join/
-* https://news.ycombinator.com/item?id=36575784
-* https://github.com/enochtangg/quick-SQL-cheatsheet#joins
-* visual https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/ https://news.ycombinator.com/item?id=27760154
-* wat https://alexpetralia.com/posts/2017/7/19/more-dangerous-subtleties-of-joins-in-sql
-
-### IO/LR
-
-* _inner_: RS !incl records for which join fails (dbms default) 📙 Beaulieu [90] Evans [10]
-* _outer_: RS incl records for which join fails 📙 Beaulieu [90]
-* _left_: outer + DT determines RS count + TT provides matches 📙 Beaulieu [187] Evans [11-12]
-* _right_: outer + TT determines RS count + DT provides matches 📙 Beaulieu [187]
-* _full_: outer + all rows from DT/TT in RS 📙 Beaulieu [187]
-```sql
-select r.name, d.deal_id
-from renter as r
-left join deal as d on r.renter_id = d.renter
-+---------------+---------+
-| name          | deal_id |
-+---------------+---------+
-| helen boss    | 1       |
-| michael lane  | 4       |
-| susan sanders | <null>  |
-| tom white     | 2       |
-| sofia brown   | 3       |
-+---------------+---------+
-```
-
-### self/cross/natural
-
-* _multi_: use same table n times, need to use multiple aliases 📙 Beaulieu [96-7]
-* _self_: two instances of same table 📙 Beaulieu [98]
-* _cross_: generates cartesian product due to lack of `on` clause 📙 Beaulieu [89] Takahashi [42] 🗄 `math.md` set theory
-```sql
--- The comma in the FROM clause is a shorthand for a CROSS JOIN. In your query, after the explicit JOIN between entity_pn and the subquery alias prod, the comma brings in another derived table (the subquery aliased as total) without any join condition. This means that the result of the join between entity_pn and prod is combined with the single-row result from the total subquery via a cross join.
-select count(*) * 100.0 / total.total_count as 'match %'
-from entity_pn
-join (select manufacturer_part_number from products where manufacturer_part_number != '') as prod
-on entity_part_number = prod.manufacturer_part_number,
-(select count(*) as total_count from entity_pn where entity_part_number != '') as total;
-+--------------------+
-| match %            |
-+--------------------+
-| 11.912705110704556 |
-+--------------------+
-```
-* _natural_: don't specify `on` clause i.e. server figures out (only if matching attr name across tables) i.e. don't use 📙 Beaulieu [198]
-* _equi_: equality 📙 Beaulieu [94-digital-copy]
-* _non-equi_: membership https://learnsql.com/blog/sql-non-equi-joins-examples/ 📙 Beaulieu [94-digital-copy]
-```sql
--- TRICK FOR BOTH OF THESE IS USING A NON-EQUI JOIN TO UNMATCH PERMUTATIONS 🗄 `MATH.MD` SET THEORY
-SELECT r1.name, r1.district, r2.name, r2.district
-FROM renter as r1
-    JOIN renter r2 ON r1.district = r2.district
-    AND r1.renter_id < r2.renter_id
--- FIND DUPES
-select h1.house_id, h1.addr as "first occurence", h2.house_id, h2.addr as "second occurence"
-from house as h1
-    join house as h2 on h1.addr = h2.addr
-    and h1.house_id < h2.house_id
--- RECOMMENDATIONS
-select r.name, h.house_id, h.district, h.addr, h.bedrooms, h.price
-from renter as r
-join house as h
-    on r.district = h.district
-    and h.price between r.rent_min and r.rent_max
-    and r.bedrooms <= h.bedrooms
-where h.house_id not in (select house from deal)
-```
-
 ## predicates
 
 📙 Beaulieu ch. 4
+
+```sql
+select (select count(*) from customers where bill_to_id != '') * 100.0 / (select count(*) from customers)
+```
+
+---
 
 * _predicate_: filter https://www.postgresql.org/docs/13/functions-comparison.html https://use-the-index-luke.com/sql/explain-plan/oracle/filter-predicates
 * _condition_: clause in predicate 📙 [67]
@@ -384,79 +371,7 @@ select
 
 ## select
 
-DISTINCT 🗄️ `math.md` set theory / combos
-* _ALL_: default (which is why you never see it) 📙 Beaulieu [52]
-* _DISTINCT_: dedupe
-* operates on records, not columns https://discuss.codecademy.com/t/can-we-apply-distinct-to-a-select-query-with-multiple-columns/349723
-* slow for large result set bc have to sort 📙 Beaulieu [52]
-* SQLite lacks `distinct on` syntax so `group by`
-```sql
---- all records in RS bc each is a distinct combination btw id/product (id=1/product=widget != id=2/product=widget)
-select distinct id, product from orders
-+----+----------+-----------+--------+
-| id | customer | product   | amount |
-+----+----------+-----------+--------+
-| 1  | alice    | widget    | 100    |
-| 2  | bob      | widget    | 200    |
-| 3  | alice    | widget    | 100    |
-| 4  | bob      | widget    | 200    |
-| 5  | alice    | gadget    | 150    |
-| 6  | carl     | gadget    | 175    |
-| 7  | carl     | widget    | 225    |
-| 8  | alice    | doohickey | 125    |
-| 9  | bob      | doohickey | 225    |
-| 10 | carl     | doohickey | 175    |
-+----+----------+-----------+--------+
-
-select * from orders group by customer, product
-+----+----------+-----------+--------+
-| id | customer | product   | amount |
-+----+----------+-----------+--------+
-| 8  | alice    | doohickey | 125    |
-| 5  | alice    | gadget    | 150    |
-| 1  | alice    | widget    | 100    |
-| 9  | bob      | doohickey | 225    |
-| 2  | bob      | widget    | 200    |
-| 10 | carl     | doohickey | 175    |
-| 6  | carl     | gadget    | 175    |
-| 7  | carl     | widget    | 225    |
-+----+----------+-----------+--------+
-```
-
 ---
-
-DISTINCT
-```sql
--- relationship to group by https://stackoverflow.com/a/54430/6813490 📙 Molinaro
-
-select distinct house_id, addr from house
-+----------+-----------------+
-| house_id | addr            |
-+----------+-----------------+
-| 1        | 5 rose street   |
-| 2        | 12 main street  |
-| 3        | 5 rose street   |
-| 4        | 3 nice street   |
-+----------+-----------------+
-
-select house_id, addr from house group by addr
-+----------+-----------------+
-| house_id | addr            |
-+----------+-----------------+
-| 2        | 12 main street  |
-| 3        | 5 rose street   |
-| 4        | 3 nice street   |
-+----------+-----------------+
-
-SELECT saleprice, saledate
-FROM   sales
-GROUP  BY saleprice, saledate
-HAVING count(*) = 1 
-
-SELECT MIN(id) FROM sales
-GROUP BY saleprice, saledate
-HAVING COUNT(id) = 1
-```
 
 ALIASES
 * _alias_: shorthand for identifier
@@ -501,8 +416,15 @@ FROM cd.facilities;
 
 📙 Beaulieu ch. 9
 
-* _subquery_: query contained within another query 📙 Beaulieu [53]
+* _subquery_: parenthesized query contained within larger query 📙 Beaulieu [53]
 * _containing query_: query that wraps subquery 📙 Beaulieu [54]
+```sql
+select
+  (select count(*) from customers where bill_to_id != '') * 100.0 /
+  (select count(*) from customers)
+```
+---
+
 * _scalar subquery_: return single val from subquery https://learnsql.com/blog/subquery-vs-join/
 * more readable but generally slower than joins https://stackoverflow.com/a/2577224
 * more thinkable than joins https://stackoverflow.com/a/2577188
@@ -510,6 +432,162 @@ FROM cd.facilities;
 containing_query = (subquery)  -- 1 (scalar)
 containing_query in (subquery)  -- n
 ```
+
+# 🧩 JOINS
+
+📙 Beaulieu ch. 5/10
+
+BASICS
+* _join_: RS incl attr from n tables based on predicate 📙 Beaulieu [88]
+* _driving table (DT)_: starting point of join 📙 Beaulieu [95]
+* _through table (TT)_: tables included in the join
+* _join narrowing_: additional joins winnow RS count
+```sql
+select deal.deal_id, house.addr
+from deal join house on deal.house = house.house_id
+join renter on deal.renter = renter.renter_id
+```
+* predicate syntax history (if no predicate you'd get a cartesian RS) 📙 Beaulieu [35]
+```sql
+-- WHERE: old syntax 📙 Beaulieu [91]
+select * from employee, lob where employee.lob_id = lob.id
+-- ON: new syntax (SQL92), portable across dbms 📙 Beaulieu [92]
+select * from employee, lob on employee.lob_id = lob.id
+-- USING_: use w/ equi join if tables have attr w/ same name 📙 Beaulieu [90] https://www.neilwithdata.com/join-using
+select * from employee, lob using (lob_id)
+```
+
+---
+
+* https://antonz.org/sql-join/
+* https://news.ycombinator.com/item?id=36575784
+* https://github.com/enochtangg/quick-SQL-cheatsheet#joins
+* visual https://blog.codinghorror.com/a-visual-explanation-of-sql-joins/ https://news.ycombinator.com/item?id=27760154
+* wat https://alexpetralia.com/posts/2017/7/19/more-dangerous-subtleties-of-joins-in-sql
+
+## IO/LR
+
+* _inner_: RS !incl records for which join fails (dbms default) 📙 Beaulieu [90] Evans [10]
+* _outer_: RS incl records for which join fails 📙 Beaulieu [90]
+* _left_: outer + DT determines RS count + TT provides matches 📙 Beaulieu [187] Evans [11-12]
+* _right_: outer + TT determines RS count + DT provides matches 📙 Beaulieu [187]
+* _full_: outer + all rows from DT/TT in RS 📙 Beaulieu [187]
+```sql
+select r.name, d.deal_id
+from renter as r
+left join deal as d on r.renter_id = d.renter
++---------------+---------+
+| name          | deal_id |
++---------------+---------+
+| helen boss    | 1       |
+| michael lane  | 4       |
+| susan sanders | <null>  |
+| tom white     | 2       |
+| sofia brown   | 3       |
++---------------+---------+
+```
+
+## self/cross/natural
+
+* _multi_: use same table n times, need to use multiple aliases 📙 Beaulieu [96-7]
+* _self_: two instances of same table 📙 Beaulieu [98]
+* _cross_: generates cartesian product due to lack of `on` clause 📙 Beaulieu [89] Takahashi [42] 🗄 `math.md` set theory
+```sql
+-- The comma in the FROM clause is a shorthand for a CROSS JOIN. In your query, after the explicit JOIN between entity_pn and the subquery alias prod, the comma brings in another derived table (the subquery aliased as total) without any join condition. This means that the result of the join between entity_pn and prod is combined with the single-row result from the total subquery via a cross join.
+select count(*) * 100.0 / total.total_count as 'match %'
+from entity_pn
+join (select manufacturer_part_number from products where manufacturer_part_number != '') as prod
+on entity_part_number = prod.manufacturer_part_number,
+(select count(*) as total_count from entity_pn where entity_part_number != '') as total;
++--------------------+
+| match %            |
++--------------------+
+| 11.912705110704556 |
++--------------------+
+```
+* _natural_: don't specify `on` clause i.e. server figures out (only if matching attr name across tables) i.e. don't use 📙 Beaulieu [198]
+* _equi_: equality 📙 Beaulieu [94-digital-copy]
+* _non-equi_: membership https://learnsql.com/blog/sql-non-equi-joins-examples/ 📙 Beaulieu [94-digital-copy]
+```sql
+-- TRICK FOR BOTH OF THESE IS USING A NON-EQUI JOIN TO UNMATCH PERMUTATIONS 🗄 `MATH.MD` SET THEORY
+SELECT r1.name, r1.district, r2.name, r2.district
+FROM renter as r1
+    JOIN renter r2 ON r1.district = r2.district
+    AND r1.renter_id < r2.renter_id
+-- FIND DUPES
+select h1.house_id, h1.addr as "first occurence", h2.house_id, h2.addr as "second occurence"
+from house as h1
+    join house as h2 on h1.addr = h2.addr
+    and h1.house_id < h2.house_id
+-- RECOMMENDATIONS
+select r.name, h.house_id, h.district, h.addr, h.bedrooms, h.price
+from renter as r
+join house as h
+    on r.district = h.district
+    and h.price between r.rent_min and r.rent_max
+    and r.bedrooms <= h.bedrooms
+where h.house_id not in (select house from deal)
+```
+
+# 🔑 KEYS
+
+ATTR TYPES
+* _keys_: attr owned by table (PK) or reference other tables (FK)
+* _instrinic_: attr owned by and define characteristics of table; aka descriptive
+```sql
+CREATE TABLE customer (
+    id TEXT PRIMARY KEY, -- PK
+    bill_to_id TEXT,     -- FK
+    name TEXT,           -- intrinsic
+);
+```
+
+## primary (PK)
+
+🗄 indexing `connolly.pdf`
+
+* _candidate key_: key(s) that could serve as PK https://stackoverflow.com/a/12813385 📙 Winand [5]
+* _primary key_: attr w/ unique constraint that serves as ID of record 📙 Beaulieu [6]
+* _composite key_: n keys unique together used as PK
+* use in pre-sorted tables (sorted by key vs. time of insertion) for faster lookups https://sqlfordevs.com/sorted-table-faster-range-scan range scan unique scan skip scan https://sqlfordevs.com/sorted-table-faster-range-scan
+* slower than surrogate https://news.ycombinator.com/item?id=2786238
+* https://github.com/aswinkarthik/csvdiff
+* https://sirupsen.com/napkin/problem-5
+* _compound key_: composite key + all keys also FK https://en.wikipedia.org/wiki/Composite_key
+* e.g. join table https://www.youtube.com/watch?v=vsGDtnBCwgg
+* sometimes used interchangeably w/ 'composite' https://dba.stackexchange.com/a/3137/201798 https://www.youtube.com/watch?v=lnfrcHdE_HI 1:40
+```sql
+-- TODO
+```
+* _natural key_: attr that goes together with other attr in table (vs. surrogate key) https://news.ycombinator.com/item?id=40580549
+* _surrogate key_: unrelated to table attr https://stackoverflow.com/a/36773462
+* typically auto-incremented but doesn't necessarily have to be 📙 Beaulieu [34]
+```sql
+-- TODO
+```
+* _sequence_: https://stackoverflow.com/a/1649128 📙 Beaulieu [34] Karwin ch. 4
+* don't expose via API, use uuid https://0of1.com/blog/posts/django-staples/
+* auto-increment https://retool.com/blog/how-to-work-with-auto-increment-in-sql-query/ aka identity column https://www.sqltutorial.org/sql-identity/
+```sql
+-- TODO
+```
+
+## foreign (FK)
+
+🗄️ `analytics.md` EDA
+
+* _foreign key_: constraint enforcing reference to another table's PK 📙 Beaulieu [33,39]
+```sql
+foreign key (band) references bands (band_id)
+```
+* aka referential integrity aka prevent garbage in garbage out https://www.postgresql.org/docs/8.3/tutorial-fk.html
+* _parent_: table to which FK refers 📙 Beaulieu [40] https://sqlite.org/foreignkeys.html#fk_basics
+* _child_: table w/ FK 📙 Beaulieu [40] 5.82
+* can be self-referencing? 📙 Beaulieu 5.93
+* find FK referencing table ` SELECT * FROM information_schema.TABLE_CONSTRAINTS WHERE CONSTRAINT_SCHEMA='tableName' AND CONSTRAINT_TYPE='FOREIGN KEY'`
+* bad when it comes to sharing and migrations? https://github.com/github/gh-ost/issues/331#issuecomment-266027731
+* https://www.semicolonandsons.com/episode/foreign-keys-and-uniqueness-constraints
+* _dangling identifier_: bad FK bc pointing to no longer extant ID
 
 # 🗺️ SCHEMA (DDL)
 
@@ -630,66 +708,6 @@ CREATE TABLE products (
     price numeric CHECK (price > 0)
 );
 ```
-
-## keys
-
-ATTR TYPES
-* _keys_: attr owned by table (PK) or reference other tables (FK)
-* _instrinic_: attr owned by and define characteristics of table; aka descriptive
-```sql
-CREATE TABLE customer (
-    id TEXT PRIMARY KEY, -- PK
-    bill_to_id TEXT,     -- FK
-    name TEXT,           -- intrinsic
-);
-```
-
-### primary (PK)
-
-🗄 indexing `connolly.pdf`
-
-* _candidate key_: key(s) that could serve as PK https://stackoverflow.com/a/12813385 📙 Winand [5]
-* _primary key_: attr w/ unique constraint that serves as ID of record 📙 Beaulieu [6]
-* _composite key_: n keys unique together used as PK
-* use in pre-sorted tables (sorted by key vs. time of insertion) for faster lookups https://sqlfordevs.com/sorted-table-faster-range-scan range scan unique scan skip scan https://sqlfordevs.com/sorted-table-faster-range-scan
-* slower than surrogate https://news.ycombinator.com/item?id=2786238
-* https://github.com/aswinkarthik/csvdiff
-* https://sirupsen.com/napkin/problem-5
-* _compound key_: composite key + all keys also FK https://en.wikipedia.org/wiki/Composite_key
-* e.g. join table https://www.youtube.com/watch?v=vsGDtnBCwgg
-* sometimes used interchangeably w/ 'composite' https://dba.stackexchange.com/a/3137/201798 https://www.youtube.com/watch?v=lnfrcHdE_HI 1:40
-```sql
--- TODO
-```
-* _natural key_: attr that goes together with other attr in table (vs. surrogate key) https://news.ycombinator.com/item?id=40580549
-* _surrogate key_: unrelated to table attr https://stackoverflow.com/a/36773462
-* typically auto-incremented but doesn't necessarily have to be 📙 Beaulieu [34]
-```sql
--- TODO
-```
-* _sequence_: https://stackoverflow.com/a/1649128 📙 Beaulieu [34] Karwin ch. 4
-* don't expose via API, use uuid https://0of1.com/blog/posts/django-staples/
-* auto-increment https://retool.com/blog/how-to-work-with-auto-increment-in-sql-query/ aka identity column https://www.sqltutorial.org/sql-identity/
-```sql
--- TODO
-```
-
-### foreign (FK)
-
-🗄️ `analytics.md` EDA
-
-* _foreign key_: constraint enforcing reference to another table's PK 📙 Beaulieu [33,39]
-```sql
-foreign key (band) references bands (band_id)
-```
-* aka referential integrity aka prevent garbage in garbage out https://www.postgresql.org/docs/8.3/tutorial-fk.html
-* _parent_: table to which FK refers 📙 Beaulieu [40] https://sqlite.org/foreignkeys.html#fk_basics
-* _child_: table w/ FK 📙 Beaulieu [40] 5.82
-* can be self-referencing? 📙 Beaulieu 5.93
-* find FK referencing table ` SELECT * FROM information_schema.TABLE_CONSTRAINTS WHERE CONSTRAINT_SCHEMA='tableName' AND CONSTRAINT_TYPE='FOREIGN KEY'`
-* bad when it comes to sharing and migrations? https://github.com/github/gh-ost/issues/331#issuecomment-266027731
-* https://www.semicolonandsons.com/episode/foreign-keys-and-uniqueness-constraints
-* _dangling identifier_: bad FK bc pointing to no longer extant ID
 
 ## migrations
 
@@ -862,6 +880,52 @@ foo_isrc,200.0,4
 qux_isrc,200.0,2
 ```
 
+# 🪵 TABLES
+
+YPES
+* _table_: set of related rows
+* _permanent_: table in storage 📙 Beaulieu [53]
+* impl as heap or b-tree https://calpaterson.com/activerecord.html
+* _derived_: return from subquery and held in memory 📙 Beaulieu [53]
+* _temporary_: table in mem 📙 Beaulieu [53] aka non-persistent 📙 Beaulieu [8]
+* _result set (RS)_: temp table returned from query 📙 Beaulieu [8] Evans [4]
+* intermediate RS created at each stage in join 📙 Beaulieu [90-digital-copy]
+* _virtual_: created using `create view` cmd 📙 Beaulieu [53]
+* _intemediate_: table instaniated for a job and then deleted https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
+* _scalar table_: table w/ single column and single row https://pgexercises.com/questions/basic/agg2.html
+* _temporal_: https://news.ycombinator.com/item?id=29733854 https://news.ycombinator.com/item?id=29735695 https://stackoverflow.com/questions/50199752/comparing-csv-entries-against-entries-in-postgresql-table-using-python 
+
+## CTE
+
+* _CTE (common table expression)_: one-off view
+```sql
+with  -- https://github.com/enochtangg/quick-SQL-cheatsheet#find https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
+```
+* recursion http://www.jeffwidman.com/blog/ https://dba.stackexchange.com/q/14490 https://medium.com/swlh/recursion-in-sql-explained-graphically-679f6a0f143b https://aiven.io/blog/solving-the-knapsack-problem-in-postgresql https://pgexercises.com/questions/recursive/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
+* https://news.ycombinator.com/item?id=42230384
+* https://github.com/enochtangg/quick-SQL-cheatsheet#find
+* https://hakibenita.com/sql-for-data-analysis#common-table-expressions https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance 
+* https://news.ycombinator.com/item?id=34603691
+
+## views
+
+📙 Beaulieu chapter 14
+
+```sql
+CREATE VIEW view_name AS SELECT column1, column2
+FROM table_name WHERE condition;
+```
+
+* late-binding https://eradman.com/posts/late-binding-views.html
+* _view_: pre-computed partial query (e.g. `where is_active = 0`) recomputed as more full query w/ additional user filtering 📙 Kleppmann [101]
+* doesn't hold any data itself 📙 Beaulieu [55]
+* restrict users to subset of data https://stackoverflow.com/a/4378291/6813490
+* simplifies queries for users but lose info about relationships 📙 Beaulieu [56] https://dataschool.com/sql-optimization/views/
+* for some dbms (SQLite) you can't write using views https://sqlite.org/omitted.html
+* _materialized view_: actual data i.e. cached version of the table https://news.ycombinator.com/item?id=34186098
+* faster queries but needs to be manually maintained so not typically used in OLTP 📙 Kleppmann [102]
+* _data cube_: type of materialized view used in OLAP, precomputed for speed results 📙 Kleppmann [102] https://hakibenita.com/sql-for-data-analysis#cube
+* not often used limited query flexiblity 📙 Kleppmann [103]
 # 🟨️ ZA
 
 SEMANTICS
@@ -991,50 +1055,3 @@ LINTING
 * https://github.com/purcell/sqlint
 * https://github.com/darold/pgFormatter
 * https://sqlfum.pt/
-
-## tables
-
-YPES
-* _table_: set of related rows
-* _permanent_: table in storage 📙 Beaulieu [53]
-* impl as heap or b-tree https://calpaterson.com/activerecord.html
-* _derived_: return from subquery and held in memory 📙 Beaulieu [53]
-* _temporary_: table in mem 📙 Beaulieu [53] aka non-persistent 📙 Beaulieu [8]
-* _result set (RS)_: temp table returned from query 📙 Beaulieu [8] Evans [4]
-* intermediate RS created at each stage in join 📙 Beaulieu [90-digital-copy]
-* _virtual_: created using `create view` cmd 📙 Beaulieu [53]
-* _intemediate_: table instaniated for a job and then deleted https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
-* _scalar table_: table w/ single column and single row https://pgexercises.com/questions/basic/agg2.html
-* _temporal_: https://news.ycombinator.com/item?id=29733854 https://news.ycombinator.com/item?id=29735695 https://stackoverflow.com/questions/50199752/comparing-csv-entries-against-entries-in-postgresql-table-using-python 
-
-### CTE
-
-* _CTE (common table expression)_: one-off view
-```sql
-with  -- https://github.com/enochtangg/quick-SQL-cheatsheet#find https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
-```
-* recursion http://www.jeffwidman.com/blog/ https://dba.stackexchange.com/q/14490 https://medium.com/swlh/recursion-in-sql-explained-graphically-679f6a0f143b https://aiven.io/blog/solving-the-knapsack-problem-in-postgresql https://pgexercises.com/questions/recursive/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
-* https://news.ycombinator.com/item?id=42230384
-* https://github.com/enochtangg/quick-SQL-cheatsheet#find
-* https://hakibenita.com/sql-for-data-analysis#common-table-expressions https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance 
-* https://news.ycombinator.com/item?id=34603691
-
-### views
-
-📙 Beaulieu chapter 14
-
-```sql
-CREATE VIEW view_name AS SELECT column1, column2
-FROM table_name WHERE condition;
-```
-
-* late-binding https://eradman.com/posts/late-binding-views.html
-* _view_: pre-computed partial query (e.g. `where is_active = 0`) recomputed as more full query w/ additional user filtering 📙 Kleppmann [101]
-* doesn't hold any data itself 📙 Beaulieu [55]
-* restrict users to subset of data https://stackoverflow.com/a/4378291/6813490
-* simplifies queries for users but lose info about relationships 📙 Beaulieu [56] https://dataschool.com/sql-optimization/views/
-* for some dbms (SQLite) you can't write using views https://sqlite.org/omitted.html
-* _materialized view_: actual data i.e. cached version of the table https://news.ycombinator.com/item?id=34186098
-* faster queries but needs to be manually maintained so not typically used in OLTP 📙 Kleppmann [102]
-* _data cube_: type of materialized view used in OLAP, precomputed for speed results 📙 Kleppmann [102] https://hakibenita.com/sql-for-data-analysis#cube
-* not often used limited query flexiblity 📙 Kleppmann [103]

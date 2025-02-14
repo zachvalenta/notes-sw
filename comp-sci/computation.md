@@ -196,7 +196,7 @@ def validate_config(config):
     return all(constraints)
 ```
 
-* _SAT solver_:
+* _SAT solver_: https://timefold.ai/blog/how-i-built-an-ai-company-to-save-my-open-source-project
 > While a SAT solver is an algorithmic tool, it is not a single algorithm but rather an implementation of one or more solving techniques. The choice of technique (e.g., DPLL, CDCL, WalkSAT) depends on the solver's design.
 > Graph Algorithms: Many SAT problems can be modeled as graph problems (e.g., coloring, cliques).
 * _CNF (conjunctive normal form)_: standardized way of writing boolean formulas as a conjunction (AND) of disjunctions (OR)

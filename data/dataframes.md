@@ -2,7 +2,18 @@
 
 ## 参考
 
+📚
+* McKinney https://wesmckinney.com/book/
+* VanderPlas https://jakevdp.github.io/PythonDataScienceHandbook/
+
 ## 进步
+
+TOOLING
+* compare https://github.com/capitalone/datacompy https://www.thoughtworks.com/radar/languages-and-frameworks/datacompy
+* visualize https://github.com/man-group/dtale
+* diff https://www.youtube.com/watch?v=5Rc9xkeHth0
+* GPU acceleration https://www.youtube.com/watch?v=86nMARKN7ho https://www.youtube.com/watch?v=Aumh3evLSKc https://www.youtube.com/watch?v=PH7ExhXYkxQ
+* tables rendered to HTML https://posit-dev.github.io/great-tables
 
 # ⚙️ DESIGN
 
@@ -10,17 +21,13 @@
 
 ---
 
-design https://news.ycombinator.com/item?id=42193043 https://www.youtube.com/watch?v=cgWHPTx0wjw
+https://news.ycombinator.com/item?id=42193043
+https://www.youtube.com/watch?v=cgWHPTx0wjw
 https://calpaterson.com/bank-python.html
 https://tibble.tidyverse.org/
 https://dplyr.tidyverse.org/ https://calmcode.io/course/dplyr-verbs/introduction
 
-📚
-* McKinney https://wesmckinney.com/book/
-* VanderPlas https://jakevdp.github.io/PythonDataScienceHandbook/
-
 ZA
-* tables rendered to HTML https://posit-dev.github.io/great-tables
 * Dataframe Interchange Protocol, Dataframe API Standard https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/ https://pythonspeed.com/articles/polars-pandas-interopability/
 
 ## 🦢 Ibis
@@ -47,6 +54,132 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 > First up: we are completely rewriting how our Plotly.py library talks to dataframes in the 6.0 release. Instead of relying on the Pandas API, we are using Narwhals which provides an abstraction layer over several kinds of tabular data. This means faster, more efficient handling of tabular data and serious performance gains for data apps at scale. You'll notice with this change that Plotly.py no longer has to do in-memory copying when you hand it something like a Polars dataframe. https://plotly.com/blog/plotly-dash-major-release/
 * _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog https://realpython.com/podcasts/rpp/224/ https://github.com/benrutter/wimsey
 > Chances are, you’ve never heard of Narwhals. That’s because it’s a tool targeted at tool builders, rather than at end users. Specifically, it allows library maintainers to support multiple dataframe libraries as inputs, without having to make any of them required. https://pola.rs/posts/lightweight_plotting/
+
+# 🐼 PANDAS
+
+📜 https://pandas.pydata.org/docs/
+📙 McKinney data analysis https://wesmckinney.com/book/
+🔍
+* https://github.com/jvns/pandas-cookbook
+* https://github.com/kxzk/an-embarrassment-of-pandas
+* https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
+* https://web.archive.org/web/20230127194856/https://scribe.citizen4.eu/pandas-illustrated-the-definitive-visual-guide-to-pandas-c31fa921a43
+
+SEMANTICS
+* _series_: a column, all rows from a single column https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://pandas.pydata.org/docs/user_guide/10min.html#getting
+* `name`: series header
+* _index_: row number https://realpython.com/pandas-reset-index/
+
+DESIGN
+> Pandas was originally written to replace Excel in financial/econometric modeling, not as a replacement for SQL. https://news.ycombinator.com/item?id=35429555
+* impl: built on NumPy arrays i.e. core operations carried out in C https://en.wikipedia.org/wiki/Pandas_(software) https://realpython.com/fast-flexible-pandas/#but-i-heard-that-pandas-is-slow
+* style: method chaining https://github.com/pyjanitor-devs/pyjanitor
+
+---
+
+PERF
+* https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance
+* https://pythonspeed.com/memory
+* https://realpython.com/fast-flexible-pandas
+
+## DML
+
+```python
+col in df.columns  # existence
+```
+
+---
+
+SELECT
+```python
+df.col   # get col https://pandas.pydata.org/docs/user_guide/10min.html#getting
+df[0:3]  # get row
+df.col.isin(myl) # bool for each row
+df.index[df.col.isin(myl)] # row index for True bool
+df.drop(df.index[df.col.isin(myl)]) # drop row indexes for rows matching list el
+df.columns # all col
+df[["col1", "col2"]] # n col
+df.iloc[3] # get row by row index
+df.iloc[3, 17] # get row by row index + col index e.g. row 3 col 17
+df.iloc[[3, 42]] # get n row by row index e.g. rows 3 and 42
+```
+
+FILTER
+```python
+df[df['entity_id'].isin(descendants['id'])]
+df.query('entity_id in @descendants.id')
+```
+
+```python
+# ITERATION https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas https://stackoverflow.com/questions/50267185/iterate-over-pandas-series don't iterate https://realpython.com/pandas-iterate-over-rows/
+for series in df.iterrows():
+
+# PREDICATE
+df[df["company"] == "ABC corp"]  # equality
+df[df["earnings"] > 0]  # comparison
+df[(df["col1"] >= 1) & (df["col1"] <=1 )]  # uses indexing https://stackoverflow.com/a/13616382
+
+# GROUPING 📙 McKinney [291]
+for gk, grp in df.groupby("isrc"):
+
+# CSV PER GROUP https://stackoverflow.com/a/50818244
+df = pd.DataFrame(pd.read_csv("paintings.csv"))
+path = os.path.join(os.getcwd(), "output_dir")
+for i, (name, group) in enumerate(df.groupby("ARTIST")):
+    group.to_csv("{}/{}.csv".format(path, name.replace(" ", "").lower()))
+
+# VERIFY TOTALS PER GROUP
+invalid = list()
+for _, (foo, group) in enumerate(df.groupby("foo")):
+    if int(group["bar"].sum()) != 100:
+        invalid.append(foo)
+log.info("foo count - invalid: {}".format(len(invalid)))
+
+myl = [foo, bar]
+
+# SHAPE https://stackoverflow.com/a/35523946
+df.shape[0]  # count rows
+df.shape[1]  # count col
+
+# PERSIST FOO W/ VALID BAR
+verified = df.drop(df.index[df.foo.isin(invalid)])
+log.info("count - verified: {}".format(len(set(verified.foo))))
+verified.to_csv(os.path.join(os.getcwd(), out_file))
+```
+
+## IO
+
+BASIC
+```python
+df = pd.DataFrame(pd.read_csv(fpath))
+get_sample(df, frac=0.1, random_state=42)  # reproducible 10% sample
+df.to_csv(fpath, index=False)  # drop index
+```
+
+COLUMN SELECTION/CREATION
+```python
+# CHOOSE
+pd.read_csv(fpath, usecols=['col1', 'col2', 'col3'])
+# SET ORDER
+df = df[['col1', 'col2', 'col3']]
+# CREATE DERIVED, MV NAMES
+df = (
+    pd.read_csv()
+    .assign(csn=lambda df: 'CS' + df['id'])
+    .rename(columns={'manufacturer': 'mfg', 'manufacturer_part_number': 'mpn'})
+)
+```
+
+TYPING
+```python
+# CASTING
+pd.read_csv(fpath, dtype={'foo': str})
+# DROP NULLS W/IN COL
+pd.read_csv(fpath).dropna(subset=['foo'])
+pd.read_csv(fpath, na_filter=True, subset=['foo'])
+# DROP NULLS ACROSS COLS
+df = pd.read_csv(fpath).dropna()
+```
 
 # 🐻‍❄️ POLARS
 
@@ -358,123 +491,4 @@ joined = df1.join(df2.with_columns(pl.col("part_id").alias("df2_part_id")), left
 df1_tagged = df1.select([pl.all().prefix("table1_")])
 df2_tagged = df2.select([pl.all().prefix("table2_")])
 joined = df1_tagged.join(df2_tagged, left_on="table1_Part_ID", right_on="table2_Part_ID") # adjust join key names to match prefixed names
-```
-
-# 🟨 ZA
-
-TOOLING
-* compare https://github.com/capitalone/datacompy https://www.thoughtworks.com/radar/languages-and-frameworks/datacompy
-* visualize https://github.com/man-group/dtale
-* diff https://www.youtube.com/watch?v=5Rc9xkeHth0
-* GPU acceleration https://www.youtube.com/watch?v=86nMARKN7ho https://www.youtube.com/watch?v=Aumh3evLSKc https://www.youtube.com/watch?v=PH7ExhXYkxQ
-
-## Pandas
-
-📜 https://pandas.pydata.org/docs/
-📙 McKinney data analysis https://wesmckinney.com/book/
-🔍 howto https://github.com/jvns/pandas-cookbook https://github.com/kxzk/an-embarrassment-of-pandas https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf
-
-SEMANTICS
-* _series_: a column, all rows from a single column https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://pandas.pydata.org/docs/user_guide/10min.html#getting
-* `name`: series header
-* _index_: row number https://realpython.com/pandas-reset-index/
-
-BASIC IO
-```python
-df = pd.DataFrame(pd.read_csv($FILE))
-get_sample(df, frac=0.1, random_state=42)  # reproducible 10% sample
-df.to_csv('out.csv', index=False)  # drop index
-```
-
-MUNGE
-```python
-df = (
-    pd.read_csv(
-        'path/to/file',
-        dtype={'foo': str}  # update types
-    )
-    .assign(csn=lambda df: 'CS' + df['id'])  # create new concatted col based off of existing col
-    .rename(columns={'manufacturer': 'mfg', 'manufacturer_part_number': 'mpn'}) # update col names
-    .dropna()  # drop nulls across cols
-)
-
-# drop nulls within col
-pd.read_csv('path/to/file').dropna(subset=['foo'])
-
-# set column order
-df = df[['col1', 'col2', 'col3']]
-pd.read_csv('path/to/file', usecols=['col1', 'col2', 'col3'])
-```
-
-FILTER
-```python
-df[df['entity_id'].isin(descendants['id'])]
-df.query('entity_id in @descendants.id')
-```
-
-EDA
-```python
-col_name in df.columns  # col present
-```
-
-SELECT
-```python
-df.col   # get col https://pandas.pydata.org/docs/user_guide/10min.html#getting
-df[0:3]  # get row
-df.col.isin(myl) # bool for each row
-df.index[df.col.isin(myl)] # row index for True bool
-df.drop(df.index[df.col.isin(myl)]) # drop row indexes for rows matching list el
-df.columns # all col
-df[["col1", "col2"]] # n col
-df.iloc[3] # get row by row index
-df.iloc[3, 17] # get row by row index + col index e.g. row 3 col 17
-df.iloc[[3, 42]] # get n row by row index e.g. rows 3 and 42
-```
-
----
-
-DESIGN
-> Pandas was originally written to replace excel in financial/econometric modeling, not as a replacement for SQL. https://news.ycombinator.com/item?id=35429555
-* https://web.archive.org/web/20230127194856/https://scribe.citizen4.eu/pandas-illustrated-the-definitive-visual-guide-to-pandas-c31fa921a43
-* perf https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance https://pythonspeed.com/memory https://realpython.com/fast-flexible-pandas
-* style: method chaining https://github.com/pyjanitor-devs/pyjanitor
-* impl: built on NumPy arrays i.e. core operations carried out in C https://en.wikipedia.org/wiki/Pandas_(software) https://realpython.com/fast-flexible-pandas/#but-i-heard-that-pandas-is-slow
-
----
-
-```python
-# ITERATION https://stackoverflow.com/questions/16476924/how-to-iterate-over-rows-in-a-dataframe-in-pandas https://stackoverflow.com/questions/50267185/iterate-over-pandas-series don't iterate https://realpython.com/pandas-iterate-over-rows/
-for series in df.iterrows():
-
-# PREDICATE
-df[df["company"] == "ABC corp"]  # equality
-df[df["earnings"] > 0]  # comparison
-df[(df["col1"] >= 1) & (df["col1"] <=1 )]  # uses indexing https://stackoverflow.com/a/13616382
-
-# GROUPING 📙 McKinney [291]
-for gk, grp in df.groupby("isrc"):
-
-# CSV PER GROUP https://stackoverflow.com/a/50818244
-df = pd.DataFrame(pd.read_csv("paintings.csv"))
-path = os.path.join(os.getcwd(), "output_dir")
-for i, (name, group) in enumerate(df.groupby("ARTIST")):
-    group.to_csv("{}/{}.csv".format(path, name.replace(" ", "").lower()))
-
-# VERIFY TOTALS PER GROUP
-invalid = list()
-for _, (foo, group) in enumerate(df.groupby("foo")):
-    if int(group["bar"].sum()) != 100:
-        invalid.append(foo)
-log.info("foo count - invalid: {}".format(len(invalid)))
-
-myl = [foo, bar]
-
-# SHAPE https://stackoverflow.com/a/35523946
-df.shape[0]  # count rows
-df.shape[1]  # count col
-
-# PERSIST FOO W/ VALID BAR
-verified = df.drop(df.index[df.foo.isin(invalid)])
-log.info("count - verified: {}".format(len(set(verified.foo))))
-verified.to_csv(os.path.join(os.getcwd(), out_file))
 ```

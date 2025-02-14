@@ -402,6 +402,7 @@ DESIGN
 * ❌ makes itself default editor (broot)
 * ❌ workspaces https://github.com/zed-industries/zed/discussions/17278 https://github.com/zed-industries/zed/discussions/7194 https://github.com/zed-industries/zed/issues/9459 but you can open multiple repos from CLI `zed domains sw`
 * document outline available now but doesn't nest enough + shows code snippets as headers in Markdown https://github.com/zed-industries/zed/discussions/13421 https://zed.dev/releases/stable/0.141.2
+* edit prediction (based on Qwen) https://zed.dev/blog/edit-prediction
 
 ---
 
