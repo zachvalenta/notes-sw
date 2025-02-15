@@ -554,6 +554,7 @@ TOOLS
 
 ---
 
+* add dir to path https://jvns.ca/blog/2025/02/13/how-to-add-a-directory-to-your-path/
 * https://wizardzines.com/comics/path-tips/ https://simonw.substack.com/p/video-scraping-using-google-gemini
 * https://blog.izissise.net/posts/env-path/
 * `$PATH`: list of directories that the shell should search when looking for programs corresponding to commands entered by the user [LPI 2.7]

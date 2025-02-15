@@ -82,6 +82,10 @@ SPACE
 * design https://pythonbytes.fm/episodes/show/405/oh-really
 * smart team, SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
 
+## chartbrew
+
+https://github.com/chartbrew/chartbrew
+
 ## 📼 Datasette
 
 📜 https://datasette.io/
@@ -98,6 +102,7 @@ poetry run datasette uninstall datasette-dashboards
 
 ZA
 * customizing CSS https://docs.datasette.io/en/stable/custom_templates.html
+* maybe has autocomplete? https://github.com/simonw/datasette/issues/1614
 
 ---
 
@@ -351,6 +356,7 @@ S3OW,motorola,325
 
 # 🛠️ TOOLING
 
+🔗 https://github.com/mgramin/awesome-db-tools
 🗄️ `protocols.md` file fmt
 
 ## EDA
@@ -544,26 +550,17 @@ SELECT * FROM pragma_foreign_key_list('reading');
 
 🗄️ `python/feedback.md` notebook
 
----
-
 OPTIONS
 * NoSQL: Table Plus https://news.ycombinator.com/item?id=22908224 DbGate https://github.com/dbgate/dbgate
 * SQLite: DB4S https://github.com/sqlitebrowser/sqlitebrowser https://github.com/coleifer/sqlite-web https://sqlitestudio.pl/
 * Postgres: pgAdmin, PGweb https://github.com/centerofci/mathesar
 * _Beekeeper_: $7/month https://www.beekeeperstudio.io/
-* _Datagrip_: 🎯 $10/month, ERD https://www.jetbrains.com/datagrip/
+* _Datagrip_: 🎯 $45/month with AI, ERD https://www.jetbrains.com/datagrip/
 * _DBeaver_: OSS, ERD https://dbeaver.io/ https://stackoverflow.com/a/48397209
-* _Outerbase_: 🎯 browser https://github.com/outerbase/studio https://news.ycombinator.com/item?id=42320032
+* _Mathesar_: 🎯 web app to make using Postgres friendly https://github.com/mathesar-foundation/mathesar
+* _Outerbase_: browser https://github.com/outerbase/studio https://news.ycombinator.com/item?id=42320032
 * _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
-
-FEATURES
-* notebooks https://github.com/electroly/sqlnotebook
-* autocomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
-* follow FKs https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
-* data catalog https://harlequin.sh
-* ERD 🗄 `info.md` viz / entities / ERD
-* _query editor_: save, autocomplete
-* _results viewer_: result set
+* _WhoDB_: 🎯 AI https://whodb.clidey.com/docs/
 
 ## 🍞 miller
 
@@ -743,27 +740,40 @@ rows $DB $TBL --csv > $CSV                   # export
 schema $DB                                   # validate schema
 ```
 
-## TUI (harlequin)
+## TUI
+
+BYO / REQUIREMENTS
+* query editor: vi mode readline
+* automcomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
+* ERD 🗄 `info.md` viz / entities / ERD
+* schema documentation https://www.querybook.org/
+* analytics guide
+* notebooks https://github.com/electroly/sqlnotebook
+* AI https://whodb.clidey.com/docs/ https://whodb.clidey.com/docs/usage-houdini/what-is-houdini
+* numeric pane navigation
+* _query editor_: save, autocomplete
+* _results viewer_: result set
+
+FEATURES
+* follow FKs https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
+* data catalog https://harlequin.sh
 
 TUI
+* _dblab_: no readline https://github.com/danvergara/dblab
 * _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
-* _lazysql_: https://github.com/jorgerojas26/lazysql
-* _harlequin_: ✅ query editor https://harlequin.sh
-* _GoBang_: perpetual alpha https://github.com/TaKO8Ki/gobang
+* _lazysql_: keybindings look goofy https://github.com/jorgerojas26/lazysql
+* _GoBang_: 💀 https://github.com/TaKO8Ki/gobang
 * _rainfrog_: Postgres https://github.com/achristmascarl/rainfrog https://www.youtube.com/watch?v=qURrmEzsKH8
 
----
-
-* compare queries across dbms https://github.com/rickbergfalk/sqlpad
-* AI https://whodb.clidey.com/
-* for Postgres https://github.com/mathesar-foundation/mathesar
-
 HARLEQUIN 📜 https://harlequin.sh
-> need to first fix the visidata command in Makefile to generate SQLite db from CSV
-> or try this https://github.com/danvergara/dblab
-* have to import CSV files after opening harlequin? import via data catalog? via `conn_str = ["local.db"]`? https://github.com/tconbeer/harlequin/discussions/314
-* profiles: sqlite, duckdb, postgres
-* Django https://adamj.eu/tech/2024/05/07/django-harlequin/
+* good UI (example of non-cartoonish Textual)
+* ❌ query editor: no vi readline
+* ❌ docs not searchable
+* bad default keybindings (c.f. 'data catalog') https://harlequin.sh/docs/getting-started/usage
+* need config to get Vim keybindings (dunno if you can nav btw panes like lazygit) https://harlequin.sh/docs/keymaps/index https://harlequin.sh/docs/keymaps/config https://github.com/tconbeer/harlequin/discussions/422
+* can't open CSV from CLI https://github.com/tconbeer/harlequin/discussions/314
+* config profiles for diff dbms
+* use in Django https://adamj.eu/tech/2024/05/07/django-harlequin/
 
 ## ❎ xsv
 

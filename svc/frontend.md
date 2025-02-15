@@ -74,7 +74,7 @@ taxonomy
 📜
 > https://pragprog.com/titles/mvhtmx/server-driven-web-apps-with-htmx/
 * https://htmx.org/
-* https://hypermedia.systems/book/contents/
+* https://hypermedia.systems/book/contents/ https://www.amazon.com/REST-Practice-Hypermedia-Systems-Architecture/dp/0596805829
 🗄
 * `lang/python/flask/htmx-demo`
 * `application.md`
@@ -477,6 +477,7 @@ FRAMEWORKS
 * _halfmoon_: https://github.com/redimp/otterwiki
 * _Magick_: sidenotes https://css.winterveil.net/
 * _mpv_: 🎯 https://calmcode.io/shorts/mvp.css
+* _pico_: 🎯 https://picocss.com
 * _Pure_: 🎯 https://purecss.io/
 * _Tailwind_: https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/ for TUIs https://github.com/koaning/tuilwindcss https://calmcode.io/labs/tuilwind-css https://news.ycombinator.com/item?id=42799136
 * _water_: ✅ https://github.com/kognise/water.css https://github.com/kognise/water.css/issues/160 

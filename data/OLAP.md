@@ -365,7 +365,7 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 * _sanitize_: validate + filter/escape
 * _parameterize_: sanitization for SQL https://security.stackexchange.com/a/143925
 
-## DBT
+## 🐠 DBT
 
 * _DBT_: ⭐️ tool for transforms https://www.youtube.com/watch?v=l48zwwRSGeA 6:15 https://www.youtube.com/watch?v=O-tyUOQccSs
 * Piperider https://github.com/InfuseAI/piperider https://www.youtube.com/watch?v=03MyOkIo8Hg
@@ -385,6 +385,7 @@ ALTERNATIVES
 * _Airbyte_: pull from data source https://www.youtube.com/watch?v=l48zwwRSGeA https://www.youtube.com/watch?v=bXql-XSwD_s
 * _bonobo_: 💀 https://github.com/python-bonobo/bonobo https://www.pythonpodcast.com/bonobo-with-romain-dorgueil-episode-143/
 * _amphi_: https://github.com/amphi-ai/amphi-etl https://news.ycombinator.com/item?id=40723356
+* _Bytebase_: https://github.com/bytebase/bytebase
 * _bruin_: ⭐️ https://github.com/bruin-data/bruin
 * _DLT_: https://github.com/dlt-hub/dlt https://www.youtube.com/watch?v=eMbhyOECpcE
 * _petl_: transforms https://petl.readthedocs.io/en/stable/

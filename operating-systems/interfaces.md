@@ -134,6 +134,7 @@ OPTIONS
 🗄️ `keyboards.md` programmable
 
 🌞 RAYCAST https://www.raycast.com/
+* 🎗️ actually calling Raycast on your Nuphy air75 is unintuitive bc there's no ALT key on the right side of the board
 > how hotkeys used to work for me: `ALT SPACE` for iTerm, `CMD TAB` for everything else (i.e. lots of scrolling)
 > https://www.youtube.com/watch?v=DBifQv9AYhc https://www.youtube.com/watch?v=Bslp82vTQaM
 * disable own global hotkey (`ALT SPACE`): settings > general
