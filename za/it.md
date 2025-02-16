@@ -115,6 +115,11 @@ TIME MACHINE
 ## mini23 ➡️ exfatmain
 
 * digits
+
+SW
+* svc: rm McConnell code complete and ur-repo (already in projects dir)
+
+MUSIC
 * sun araw
 * cymande
 * tatum in a sentimental mood

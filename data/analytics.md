@@ -689,6 +689,7 @@ ALTERNATIVES
 * _pysheets_: 🎯 uses pyodide https://pysheets.app/about https://realpython.com/podcasts/rpp/226/
 * _sc-im_: 🎯 clone TUI https://github.com/andmarti1424/sc-im
 * _visicalc_: predecessor to Lotus123, Excel http://www.paulgraham.com/mac.html
+* _SocialCalc_: pre-visicalc? https://aosabook.org/en/v1/socialcalc.html https://aosabook.org/en/posa/from-socialcalc-to-ethercalc.html
 * _UltOrg_: spreadsheet on top of dbms https://news.ycombinator.com/item?id=30868696 🔍 `Ultorg beta`
 
 📊 EXCEL

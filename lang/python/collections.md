@@ -598,6 +598,11 @@ k, v = cidian.popitem()  # pop off kv of last el
 
 ## list
 
+```python
+qd.extend(listToAdd) # spread
+```
+---
+
 https://treyhunner.com/2021/11/how-to-flatten-a-list-in-python/
 https://www.youtube.com/watch?v=rdlQzhP71pQ
 https://realpython.com/python-list/
@@ -619,7 +624,6 @@ qd.count(item)  # number of occurences
 ###
 
 qd.insert(ind, el)      # add at index
-qd.extend(listToAdd)    # spread iterable
 qd1 + qd2
 qd2 = [42, *qd]
 qd.insert(0, el)        # unshift
@@ -732,9 +736,10 @@ encoding 🗄 `math.md` encoding https://docs.python.org/3/glossary.html#term-li
 
 ## tuple
 
+* immutable (kinda) https://martinheinz.dev/blog/103
+
 ---
 
-https://martinheinz.dev/blog/103
 https://docs.python.org/3/tutorial/datastructures.html#tuples-and-sequences https://realpython.com/python-tuple/
 
 ```python

@@ -12,7 +12,6 @@
 * `telemtry.md` perf
 📚
 * Buelta python architecture
-* Dibernardo 500 lines or less http://aosabook.org/en/index.html
 * Ford fundamentals of software architecture
 * Ford evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history

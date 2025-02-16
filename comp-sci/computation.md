@@ -306,7 +306,7 @@ za
 * _acceleration_: hw for specialized tasks e.g. TPU https://en.wikipedia.org/wiki/Hardware_acceleration https://danluu.com/learning-to-program/
 * _embedded system_: os for larger mechanical device, probably doesn’t have file system or long-term storage
 * _ESP8266_: system on a chip, MicroPython, PikaScript https://news.ycombinator.com/item?id=31433815
-* _FPGA_: things you can program with Verilog, VHDL
+* _FPGA_: things you can program with Verilog, VHDL https://www.youtube.com/watch?v=opRJLoA55bQ
 * _laptop_: non-unibody (easier to repair) unibody (Macbook; harder to switch battery, repair) https://www.netbooknews.com/tips/what-is-a-unibody-laptop/
 * _microcontroller_: special-purpose computer, often embedded in another device 📙 Shibuya chapter 6
 * _quantum_: used for physics simulations; qubit (like traditional bit 0/1 when observed, but when not observed represents probability of 0/1) https://news.ycombinator.com/item?id=22994468 📚 Gleick 13 https://quantum.country/ https://academy.meetiqm.com/curriculum/index.html
