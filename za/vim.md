@@ -469,10 +469,16 @@ Neovim just too fragile? https://www.youtube.com/watch?v=G1_Y5hLTfgw
 
 ## files / opts / keys
 
+```sh
+├── ~/.config/nvim
+│   └── init.lua
+│   └── lua/
+│   └──── config
+│   └──── plugins
+```
+
 ---
 
-* files: `init.lua`, `init.vim` 📙 Neil modern [6] https://neovim.io/doc/user/starting.html#init.vim
-* debug: `:checkhealth` http://vimcasts.org/episodes/neovim-checkhealth/
 * fs
 ```sh
 #~/.config/nvim https://neovim.io/doc/user/starting.html#standard-path
@@ -481,6 +487,8 @@ Neovim just too fragile? https://www.youtube.com/watch?v=G1_Y5hLTfgw
 │   └── keymap.lua
 │   └── option.lua
 ```
+* files: `init.lua`, `init.vim` 📙 Neil modern [6] https://neovim.io/doc/user/starting.html#init.vim
+* debug: `:checkhealth` http://vimcasts.org/episodes/neovim-checkhealth/
 * Vimscript -> Lua  https://www.youtube.com/watch?v=hY5-Q6NxQgY 7:15 https://www.youtube.com/watch?v=prnrwpOEsmo
 ```lua
 --- CMDS
@@ -505,6 +513,48 @@ vim.api.nvim_set_keymap() -- :noremap
 
 ## pre-built
 
+* _Lunar_: 17.5k stars; more open issues, heavy setup (req: npm, cargo, rg) https://www.lunarvim.org/
+* _NVChad_: 🎯 23.5 stars https://nvchad.com/
+* PYthon setup https://www.youtube.com/watch?v=4BnVeOUeZxc
+* still have to do the hard part yourself?
+> Once the binaries are installed, you will have to configure them to properly work with LSP, conform.nvim, nvim-lint, nvim-dap etc. It depends on what you installed. NvChad does not provide any language configuration aside from lua. https://nvchad.com/docs/config/lsp/
+
+### 🧑‍🚀 Astro
+
+* _Astro_: ❌ https://github.com/AstroNvim/AstroNvim https://zackproser.com/blog/astronvim-overview
+```sh
+# INSTALL
+git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
+# FAIL
+:LspInstall pyright
+spawn: npm failed with exit code - and signal -. npm is not executable # node listed as an optional requirement, seems bad bc deno/bun https://github.com/AstroNvim/AstroNvim?tab=readme-ov-file#-requirements
+# REMOVE
+qing ~/.config/nvim
+qing ~/.local/share/nvim
+qing ~/.local/state/nvim
+qing ~/.cache/nvim
+```
+
+### 🦥 LazyVim
+
+PLUGINS
+* _which-key_: guide to keybindings
+* `LEADER cr`: rename symbol under cursor
+
+---
+
+```txt
+What Handles This in LazyVim?
+* which-key.nvim → Provides the menu that appears when you press <leader> c.
+* LazyVim LSP Config (lazyvim.plugins.lsp.keymaps.lua) → Handles LspRename and other language features.
+* Neovim's Built-in :map, :nmap, :WhichKey → Helps you inspect what’s available.
+```
+
+> :map <leader>c -> inspect mappings
+> LazyVim default keybindings @ `~/.config/nvim/lua/lazyvim/plugins/editor.lua`?
+> LazyVim LSP keybindings @ `~/.config/nvim/lua/lazyvim/plugins/lsp/keymaps.lua`?
+> LazyVim plugins `~/.config/nvim/lua/lazyvim/plugins/editor.lua`
+
 * _LazyVim_: ✅ https://www.lazyvim.org/ fs `~/.config/nvim` https://github.com/zachvalenta/dot-lazyvim https://www.youtube.com/watch?v=evCmP4hH7ZU
 * ❓ goto symbol using aerial and telescope https://github.com/stevearc/aerial.nvim?tab=readme-ov-file#telescope
 * ❌ Markdown LSP is a mess
@@ -523,26 +573,6 @@ vim.api.nvim_create_autocmd("BufWinEnter", {
     end,
 })
 ```
-* _Lunar_: 17.5k stars; more open issues, heavy setup (req: npm, cargo, rg) https://www.lunarvim.org/
-* _NVChad_: 🎯 23.5 stars https://nvchad.com/
-* PYthon setup https://www.youtube.com/watch?v=4BnVeOUeZxc
-* still have to do the hard part yourself?
-> Once the binaries are installed, you will have to configure them to properly work with LSP, conform.nvim, nvim-lint, nvim-dap etc. It depends on what you installed. NvChad does not provide any language configuration aside from lua. https://nvchad.com/docs/config/lsp/
-
-* _Astro_: ❌ https://github.com/AstroNvim/AstroNvim https://zackproser.com/blog/astronvim-overview
-```sh
-# INSTALL
-git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim
-# FAIL
-:LspInstall pyright
-spawn: npm failed with exit code - and signal -. npm is not executable # node listed as an optional requirement, seems bad bc deno/bun https://github.com/AstroNvim/AstroNvim?tab=readme-ov-file#-requirements
-# REMOVE
-qing ~/.config/nvim
-qing ~/.local/share/nvim
-qing ~/.local/state/nvim
-qing ~/.cache/nvim
-```
-
 ## options
 
 ---
