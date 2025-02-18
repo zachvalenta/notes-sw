@@ -180,12 +180,28 @@ COLUMN SELECTION/CREATION
 pd.read_csv(fpath, usecols=['col1', 'col2', 'col3'])
 # SET ORDER
 df = df[['col1', 'col2', 'col3']]
-# CREATE DERIVED, MV NAMES
+# MV NAMES
+df = (
+    pd.read_csv()
+    .rename(columns={'manufacturer': 'mfg', 'manufacturer_part_number': 'mpn'})
+)
+```
+
+REASSIGN W/IN COLUMN
+> ❓️ cleaner to do this with iloc?
+```python
 df = (
     pd.read_csv()
     .assign(csn=lambda df: 'CS' + df['id'])
-    .rename(columns={'manufacturer': 'mfg', 'manufacturer_part_number': 'mpn'})
 )
+
+df = df.assign(id=lambda x: x['id'].mask(x['id'] == 42, 13))
+
+def reassign(df, condition=42):
+    mask = df['id'] == condition
+    transformed_values = df['id'].copy()
+    transformed_values[mask] = transformed_values[mask] * 2
+    return df.assign(id=transformed_values)
 ```
 
 TYPING
@@ -428,7 +444,6 @@ df.filter(pl.col('description').str.contains(fr'(?i){brand}')) # newer version o
 ```txt
 Pandas by default uses left joins and handles the key matching differently - it maintains the left table's row count and only brings in matched columns from the right.
 ```
-
 
 * multi
 ```python

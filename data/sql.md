@@ -485,6 +485,33 @@ left join deal as d on r.renter_id = d.renter
 * _multi_: use same table n times, need to use multiple aliases 📙 Beaulieu [96-7]
 * _self_: two instances of same table 📙 Beaulieu [98]
 * _cross_: generates cartesian product due to lack of `on` clause 📙 Beaulieu [89] Takahashi [42] 🗄 `math.md` set theory
+* canonical example
+```sql
+SELECT * FROM employees
+CROSS JOIN departments;
+
+-- SAMPLE DATA
+CREATE TABLE employees (
+    employee_id INT,
+    employee_name VARCHAR(50)
+);
+CREATE TABLE departments (
+    department_id INT,
+    department_name VARCHAR(50)
+);
+INSERT INTO employees VALUES (1, 'Alice'), (2, 'Bob');
+INSERT INTO departments VALUES (101, 'HR'), (102, 'Engineering'), (103, 'Finance');
+
+employee_id | employee_name | department_id | department_name
+------------|---------------|---------------|----------------
+1           | Alice         | 101           | HR
+1           | Alice         | 102           | Engineering
+1           | Alice         | 103           | Finance
+2           | Bob           | 101           | HR
+2           | Bob           | 102           | Engineering
+2           | Bob           | 103           | Finance
+```
+* hardcore example
 ```sql
 -- The comma in the FROM clause is a shorthand for a CROSS JOIN. In your query, after the explicit JOIN between entity_pn and the subquery alias prod, the comma brings in another derived table (the subquery aliased as total) without any join condition. This means that the result of the join between entity_pn and prod is combined with the single-row result from the total subquery via a cross join.
 select count(*) * 100.0 / total.total_count as 'match %'

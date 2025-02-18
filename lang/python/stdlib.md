@@ -748,6 +748,28 @@ RSGI
 ```python
 from datetime import datetime
 print(f"today's date is {datetime.now().strftime('%y%m%d')}")  ## YYMMDD
+
+def is_valid_date(date_str, cutoff_date="2015-01-01", fmt="%Y-%m-%d"):
+    """
+    check if a date string is before the cutoff date
+    
+    :param date_str: Date string to validate
+    :param cutoff_date: Cutoff date string
+    :param fmt: Date format string
+    :return: bool indicating if date is valid (before cutoff)
+    >>> is_valid_date("2014-12-31")
+    True
+    >>> is_valid_date("2015-01-02")
+    False
+    >>> is_valid_date("2014-12-31", "2014-06-01")
+    False
+    """
+    try:
+        date = datetime.strptime(date_str, fmt)
+        cutoff = datetime.strptime(cutoff_date, fmt)
+        return date < cutoff
+    except ValueError as e:
+        raise ValueError(f"Invalid date format: {e}")
 ```
 * _pdd_: ✅ diff https://github.com/jarun/pdd
 ```sh
