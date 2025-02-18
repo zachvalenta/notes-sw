@@ -16,6 +16,7 @@
 ## 进步
 
 * https://neetcode.io/courses/lessons/8-design-patterns
+* in Elixir https://youtube.com/watch?v=agkXUp0hCW8
 * https://www.youtube.com/watch?v=tAuRQs_d9F8
 
 * _25_: factory

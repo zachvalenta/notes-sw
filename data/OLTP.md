@@ -987,6 +987,13 @@ db files
 
 ## design
 
+REASONS NOT TO USE https://pid1.dev/posts/siren-call-of-sqlite-on-the-server/ https://news.ycombinator.com/item?id=43049659
+* need LiteFS for multiserver
+* bad at schema migrations
+
+ZA
+* Postgres alternative https://pglite.dev/
+
 ---
 
 concurrent writers, Litestream for backups/replication https://avi.im/blag/2024/sqlite-bad-rep/ https://sqlite.org/talks/howitworks-20240624.pdf https://news.ycombinator.com/item?id=42665708 https://news.ycombinator.com/item?id=42666847

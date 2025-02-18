@@ -187,6 +187,8 @@ Dreams of Code https://www.youtube.com/watch?v=A_3MP_V-kB4
 
 📙 Stimac https://www.manning.com/books/design-for-developers
 
+https://youtube.com/watch?v=Jf0cjocP8Wk
+
 ## font / text
 
 🗄️ typography

@@ -271,6 +271,7 @@ WALKTHROUGHS
 
 ## event-driven 
 
+* https://youtube.com/watch?v=VLUvfIm9wnQ
 * https://news.ycombinator.com/item?id=40723302
 * https://encore.dev/blog/event-driven-architecture
 * https://news.ycombinator.com/item?id=40619521

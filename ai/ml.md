@@ -20,6 +20,7 @@ APPLICATIONS
 
 FUNDAMENTALS
 > take my money https://news.ycombinator.com/item?id=37935616
+* https://youtube.com/watch?v=MznD2DzlQCc https://youtube.com/watch?v=Pv0cfsastFs
 * https://www.manning.com/books/how-gpt-works
 * Ananthaswamy why machines learn
 * Kneusel math for deep learning https://nostarch.com/math-deep-learning

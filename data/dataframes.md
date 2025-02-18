@@ -161,7 +161,15 @@ verified.to_csv(os.path.join(os.getcwd(), out_file))
 
 BASIC
 ```python
-df = pd.DataFrame(pd.read_csv(fpath))
+pd.DataFrame(pd.read_csv(fpath))
+pd.DataFrame(pd.read_csv(fpath), nrows=1000)  # sample on read
+
+psub = pd.read_csv(
+    'zvdata/psub_sales.csv',
+    usecols=['full_ord_id', 'product_id', 'psub_id', 'unit_price', 'unit_cost'],
+    dtype={'product_id': int}
+)
+
 get_sample(df, frac=0.1, random_state=42)  # reproducible 10% sample
 df.to_csv(fpath, index=False)  # drop index
 ```

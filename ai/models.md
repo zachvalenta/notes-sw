@@ -315,6 +315,7 @@ https://news.ycombinator.com/item?id=42507116
 * Kimothi https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation
 
 https://github.com/gusye1234/nano-graphrag
+with Databricks https://youtube.com/watch?v=p4qpIgj5Zjg
 https://github.com/Cinnamon/kotaemon
 
 HOWTO (LEARN BY BUILDING FOR DROR)
