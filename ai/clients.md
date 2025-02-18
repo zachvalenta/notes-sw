@@ -9,8 +9,9 @@
 
 ## 进步
 
-start using agents https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/
-https://blog.val.town/blog/fast-follow/
+* conventions https://ghuntley.com/stdlib/
+* start using agents https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/
+* https://blog.val.town/blog/fast-follow/
 
 * _24_: lots of work to research/taxonomize tooling, start with llm and aider
 

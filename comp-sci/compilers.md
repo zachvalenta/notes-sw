@@ -168,7 +168,7 @@ define    calculate        run area_of_circle
 ```txt
 - Abstract Syntax Tree (AST)
 - Control Flow Graphs
-- Static Single Assignment (SSA)
+- Static Single Assignment (SSA) https://bernsteinbear.com/blog/ssa/
 ```
 ```txt
 - Peephole Optimization

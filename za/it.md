@@ -125,6 +125,10 @@ MUSIC
 * tatum in a sentimental mood
 * cesaria evora
 * emmylou harris
+* quadron
+* miles porgy and bess
+* paul simon (theme)
+* hank williams dont let me love you
 
 ## air-capp ➡️ mini23
 
