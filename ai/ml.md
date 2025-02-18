@@ -19,7 +19,8 @@ APPLICATIONS
 * Ruiz de Villa casual inference https://www.manning.com/books/causal-inference-for-data-science
 
 FUNDAMENTALS
-> take my money https://news.ycombinator.com/item?id=37935616
+* ⭐️ https://anfalmushtaq.com/articles/deep-dive-into-llms-like-chatgpt-tldr
+* https://youtube.com/watch?v=MznD2DzlQCc https://youtube.com/watch?v=Pv0cfsastFs
 * https://www.manning.com/books/how-gpt-works
 * Ananthaswamy why machines learn
 * Kneusel math for deep learning https://nostarch.com/math-deep-learning
@@ -190,6 +191,7 @@ Here's the working taxonomy I have. Can you correct it?
 💡 calc relatedness of strings
 
 * _embedding_: categorized repr of text/image/audio https://simonwillison.net/2023/Oct/23/embeddings
+> Embeddings are a list of numbers which represent an object: in the case of text embeddings, they can represent words, sentences, and full paragraphs and documents, and they do so with a surprising amount of distinctiveness. https://news.ycombinator.com/item?id=43162995
 
 USAGE https://platform.openai.com/docs/guides/embeddings
 * search (where results are ranked by relevance to a query string)
@@ -244,6 +246,7 @@ USAGE https://platform.openai.com/docs/guides/embeddings
 * https://calmcode.io/labs/doubtlab
 * https://labelerrors.com/
 * https://softwaredoug.com/blog/2025/01/21/llm-judge-decision-tree
+* https://www.amplifypartners.com/blog-posts/annotation-for-ai-doesnt-scale
 
 TYPES
 * _supervised_: labeled data during training, unlabeled during predication [Trask 2.11]
@@ -653,6 +656,10 @@ https://talkpython.fm/episodes/show/364/symbolic-math-with-python-using-sympy
 ## cleanup
 
 ---
+
+META
+* https://x.com/a16z/status/1892612797948952863
+* https://simonwillison.net/2025/Feb/28/alison-gopnik/
 
 > It’s worth noting that AI tools are intimately familiar with Next.js and not so much with htmx, due to the lack of open-source training data. This is similar to the issue Rails faces. While not a dealbreaker, it did impact our development speed and the ease of finding solutions to problems. When we encountered issues, the wealth of resources available for React/Next.js made troubleshooting much faster. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
 * trained on hacked data, really good for coding https://simonwillison.net/2023/Dec/31/ai-in-2023/ https://til.simonwillison.net/clickhouse/github-public-history

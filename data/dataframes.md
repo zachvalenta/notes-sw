@@ -8,16 +8,15 @@
 
 ## 进步
 
-TOOLING
-* compare https://github.com/capitalone/datacompy https://www.thoughtworks.com/radar/languages-and-frameworks/datacompy
-* visualize https://github.com/man-group/dtale
-* diff https://www.youtube.com/watch?v=5Rc9xkeHth0
-* GPU acceleration https://www.youtube.com/watch?v=86nMARKN7ho https://www.youtube.com/watch?v=Aumh3evLSKc https://www.youtube.com/watch?v=PH7ExhXYkxQ
-* tables rendered to HTML https://posit-dev.github.io/great-tables
+Ibis, Narwhals, DuckDb https://labs.quansight.org/blog/duckdb-when-used-to-frames https://duckdb.org/docs/stable/sql/dialect/friendly_sql.html
 
 # ⚙️ DESIGN
 
-* _dataframe_: result set + operations https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://github.com/go-gota/gota/blob/master/dataframe/dataframe.go
+TOOLING
+* _datacompy_: compare, underwhelming docs https://github.com/capitalone/datacompy https://www.thoughtworks.com/radar/languages-and-frameworks/datacompy 🗄️ `plt.md` R > SAS
+
+ZA
+* BYO https://github.com/go-gota/gota/blob/master/dataframe/dataframe.go
 
 ---
 
@@ -26,6 +25,10 @@ https://www.youtube.com/watch?v=cgWHPTx0wjw
 https://calpaterson.com/bank-python.html
 https://tibble.tidyverse.org/
 https://dplyr.tidyverse.org/ https://calmcode.io/course/dplyr-verbs/introduction
+
+TOOLING
+* diff https://www.youtube.com/watch?v=5Rc9xkeHth0
+* GPU acceleration https://www.youtube.com/watch?v=86nMARKN7ho https://www.youtube.com/watch?v=Aumh3evLSKc https://www.youtube.com/watch?v=PH7ExhXYkxQ
 
 ZA
 * Dataframe Interchange Protocol, Dataframe API Standard https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/ https://pythonspeed.com/articles/polars-pandas-interopability/
@@ -55,6 +58,39 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 * _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog https://realpython.com/podcasts/rpp/224/ https://github.com/benrutter/wimsey
 > Chances are, you’ve never heard of Narwhals. That’s because it’s a tool targeted at tool builders, rather than at end users. Specifically, it allows library maintainers to support multiple dataframe libraries as inputs, without having to make any of them required. https://pola.rs/posts/lightweight_plotting/
 
+## 🖥️ TLV
+
+🗄️ `analytics.md` EDA
+💻 https://github.com/zachvalenta/df-tlv
+🧠
+* https://grok.com/chat/a3efd4af-1027-4065-ba82-d0ef04c58439
+
+* w/ Rich 💻️ https://github.com/zachvalenta/capp-dataload/blob/main/load.py#L28
+* https://github.com/dannywade/textual-pandas
+* _Data Wrangler_: https://code.visualstudio.com/docs/datascience/data-wrangler
+* _dtale_: render in browser https://github.com/man-group/dtale
+
+ways I know of visualizing a dataframe (not in a BI, "here's a pretty chart" sort of way, but just literally "let me view/scroll the data current in this dataframe"):
+
+* dtale https://github.com/man-group/dtale
+* VS Code Data Wrangler https://code.visualstudio.com/docs/datascience/data-wrangler
+* BYO https://github.com/zachvalenta/capp-dataload/blob/main/load.py#L28
+```python
+def schema_inspect(df):
+    """
+    pretty print schema in a more readable fmt than df.schema
+    """
+    console = Console()
+    table = Table(title='SCHEMA', show_header=True, header_style='bold magenta')
+    table.add_column('col', style='cyan', no_wrap=True)
+    table.add_column('dtype', style='green')
+    for col, dtype in df.schema.items():
+        table.add_row(col, str(dtype))
+    console.print(table)
+```
+
+All this seems suboptimal. VS Code, eh, whatever. Seems like a more clever way would be to just have a live view on the dataframe in another terminal pane using Visidata. Visidata is Python, Polars is Python, why can't this happen?
+
 # 🐼 PANDAS
 
 📜 https://pandas.pydata.org/docs/
@@ -66,7 +102,7 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 * https://web.archive.org/web/20230127194856/https://scribe.citizen4.eu/pandas-illustrated-the-definitive-visual-guide-to-pandas-c31fa921a43
 
 SEMANTICS
-* _series_: a column, all rows from a single column https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://pandas.pydata.org/docs/user_guide/10min.html#getting
+* _series_: rows from a single column https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://pandas.pydata.org/docs/user_guide/10min.html#getting
 * `name`: series header
 * _index_: row number https://realpython.com/pandas-reset-index/
 
@@ -161,7 +197,15 @@ verified.to_csv(os.path.join(os.getcwd(), out_file))
 
 BASIC
 ```python
-df = pd.DataFrame(pd.read_csv(fpath))
+pd.DataFrame(pd.read_csv(fpath))
+pd.DataFrame(pd.read_csv(fpath), nrows=1000)  # sample on read
+
+psub = pd.read_csv(
+    'zvdata/psub_sales.csv',
+    usecols=['full_ord_id', 'product_id', 'psub_id', 'unit_price', 'unit_cost'],
+    dtype={'product_id': int}
+)
+
 get_sample(df, frac=0.1, random_state=42)  # reproducible 10% sample
 df.to_csv(fpath, index=False)  # drop index
 ```
@@ -172,25 +216,51 @@ COLUMN SELECTION/CREATION
 pd.read_csv(fpath, usecols=['col1', 'col2', 'col3'])
 # SET ORDER
 df = df[['col1', 'col2', 'col3']]
-# CREATE DERIVED, MV NAMES
+# MV NAMES
+df = (
+    pd.read_csv()
+    .rename(columns={'manufacturer': 'mfg', 'manufacturer_part_number': 'mpn'})
+)
+df.rename(columns={
+    'old1': 'new1',
+    'old2': 'new2'
+}, inplace=True)
+```
+
+REASSIGN W/IN COLUMN
+> ❓️ cleaner to do this with iloc?
+```python
 df = (
     pd.read_csv()
     .assign(csn=lambda df: 'CS' + df['id'])
-    .rename(columns={'manufacturer': 'mfg', 'manufacturer_part_number': 'mpn'})
 )
+
+df = df.assign(id=lambda x: x['id'].mask(x['id'] == 42, 13))
+
+def reassign(df, condition=42):
+    mask = df['id'] == condition
+    transformed_values = df['id'].copy()
+    transformed_values[mask] = transformed_values[mask] * 2
+    return df.assign(id=transformed_values)
+```
+
+NULLS
+* considered null: `None`, `np.nan`, empty string (depending on type)
+* afaik there's no way to filter *in* nulls on file load
+```python
+# DROP W/IN COL
+pd.read_csv(fpath).dropna(subset=['foo'])
+pd.read_csv(fpath, na_filter=True, subset=['foo'])
+# DROP ACROSS COLS
+df = pd.read_csv(fpath).dropna()
 ```
 
 TYPING
 ```python
 # CASTING
 pd.read_csv(fpath, dtype={'foo': str})
-# DROP NULLS W/IN COL
-pd.read_csv(fpath).dropna(subset=['foo'])
-pd.read_csv(fpath, na_filter=True, subset=['foo'])
 # DROP DUPES W/IN COL
 drop_duplicates(subset=['foo'])
-# DROP NULLS ACROSS COLS
-df = pd.read_csv(fpath).dropna()
 ```
 
 ---
@@ -251,92 +321,66 @@ ZA
 * plotting https://pola.rs/posts/lightweight_plotting/ https://realpython.com/python-news-october-2024/
 > couldn't get this to work; try `pipx inject`
 
-## IO
+## read
 
-WRITE
-* operations are immutable i.e. capture updates with assignment (`df = df.operations()`)
+🗄️
+* `architecture.md`
+* `data/internals.md` query engine > query plan
+
+WORKING AROUND GOOFY DATA
 ```python
-# literal
-df.with_columns(pl.lit('ALCO').alias('buyline'))
+# TSV
+safe_load = {
+    'schema_overrides': {
+        'height': pl.Utf8,
+        'upc': pl.Utf8,
+    },
+    'ignore_errors': True,
+    'truncate_ragged_lines': True,
+    'quote_char': None,
+    'infer_schema_length': 10000,
+}
+pl.read_csv(fpath, separator='\t', encoding='latin-1', skip_rows=8, **safe_load)
 
-# interpolated and concatenated
-df.with_columns((f'{prefix}' + pl.col('mpn').cast(str)).alias('sku'))
-
-# interpolated - predicate
-df.with_columns(
-    pl.when(pl.col('sku').is_null())
-    .then(f'{prefix}' + pl.col('mpn').cast(str))
-    .otherwise(pl.col('sku'))
-    .alias('sku')
-)
-```
-* more type casting / coercion / interpolation
-```python
-# Polars cast() is equivalent to pandas astype()
-# Int64 matches the target schema's type
-# Safer than pl.col('id').str.to_int() which can fail on non-numeric strings
-
-# String parsing
-str.to_int(), str.to_float()
-# Numeric casting
-cast(pl.Int32), cast(pl.Float64)
-#Type coercion
-coalesce(), fill_null()
+# malformatted column headers
+no_whitespace_or_period_delimit = r"^[^\s.-]+$"
+violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
+assert len(violations) > 0
 ```
 
-READ
-* strategy pattern for `.read_csv|parquet|excel` (excel requires `fastexcel`)
+READ / SCAN / STREAM
 ```python
-# get value of cell (errs if more than one value)
-pdr_for_brand['sku-prefix'].item()
-
-# read_csv faster when you can skip entire columns and save on overhead of setting up query plan
+# READ faster when you can skip entire columns and save on overhead of setting up query plan
 df = pl.read_csv(file, columns=['col1', 'col2'])
-
-# scan_csv creates lazy df = build up ops before actually loading data = Polars can optimize query plan rather than executing ops sequentially 🗄️ `data/internals.md` query engine > query plan
+# SCAN creates lazy df = build up ops before actually loading data = can optimize query plan rather than executing ops sequentially
 df = pl.scan_csv(file)
    .filter(pl.col('col1') > 0)
    .select(['col1', 'col2'])
    .groupby('col1').agg(pl.col('col2').mean())
    .collect()
-
-# get schema without loading the whole table
-pl.scan_csv('data/catalog.csv', separator=',', infer_schema_length=100).collect_schema()
-
-# stream for lower memory consumption 🗄️ `architecture.md`
+# STREAM for lower memory consumption
 for chunk in pl.read_csv("data.csv", rechunk=True).iter_chunks(size=10000):
     process_chunk(chunk)
+```
 
-# PRNG for reproducible sample 🗄️ `algos.md`
-pl.scan_parquet("data.parquet").sample(n=1000, seed=42).collect()
+---
 
-# working around non-standard data
-pl.read_csv(
-    filepath,
-    separator='\t',
-    encoding='latin-1',
-    skip_rows=42,
-    ignore_errors=True,
-    infer_schema_length=None,
-    quote_char=None,
-    truncate_ragged_lines=True,
-)
+Pandas: Most filtering happens after load
+Polars: Can push many operations down to the scan/read level
+* NULL checks
+* Column selection
+* Type inference
+* Predicate pushdown
 
-# MALFORMATTED COLUMN HEADERS
-no_whitespace_or_period_delimit = r"^[^\s.-]+$"
-violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
-assert len(violations) > 0
-
+CONVERSION
+* strategy pattern for `.read_csv|parquet|excel` (excel requires `fastexcel`)
+```python
 # convert pandas
 pl.from_pandas(df)
-
-# skip null columns
-null_col_to_skip = ['Alternate Part Number', 'GTIN', 'Lead Time (Days)']
-df = pl.read_csv(path/to/data)
-df.select([col for col in df.columns if col not in null_col_to_skip])
-
-# drop bad columns
-pl.read_csv('catalog.csv').drop(['', 'Unnamed: 0']).write_csv('catalog.csv')
+```
+```python
+# get value of cell (errs if more than one value)
+pdr_for_brand['sku-prefix'].item()
 
 # alias on read
 pl.scan_csv('products.csv').select([
@@ -344,21 +388,19 @@ pl.scan_csv('products.csv').select([
     pl.col('manufacturer_part_number').alias('mpn'),
 ]).collect()
 
-# read TSV
-df = pl.read_csv(
-    'products.tsv',
-    separator='\t',
-    encoding='latin-1',
-    infer_schema_length=None,
-    quote_char=None,
-    truncate_ragged_lines=True
-)
 ```
 
 ## EDA
 
 ```python
-df.drop_nulls(subset=['col1', 'col2'])  # drop nulls from col
+# get schema w/out full table load
+pl.scan_csv('data/catalog.csv', separator=',', infer_schema_length=100).collect_schema()
+
+# PRNG for reproducible sample 🗄️ `algos.md`
+pl.scan_parquet("data.parquet").sample(n=1000, seed=42).collect()
+
+# get sampling from col
+first_values = df['column_name'].head(5)
 ```
 
 ---
@@ -372,7 +414,6 @@ df.schema.keys()
 col_series = df["column_name"]
 col_list = df["column_name"].to_list()
 
-first_values = df['column_name'].head(5)
 unique_values = df['column_name'].unique()
 
 # col has empty values
@@ -388,31 +429,6 @@ assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height
 assert df.filter(pl.col('b_line').str.to_lowercase().str.contains(query)).height == lines_set.height
 ```
 
-## predicates
-
-```python
-# EQUALITY
-bar.filter(pl.col('mfg') == 'samsung')
-bar.filter(pl.col('mfg').str.to_lowercase() == brand.lower())  # case insensitive
-# inequality
-ecl.filter(pl.col('buyline') != pl.col('priceline'))
-# COMPARISON
-bar.filter(pl.col('price') > 300)
-
-# CHAINED
-bar.filter((pl.col('mfg') == 'samsung') & (pl.col('price') > 400))
-ecl.filter(
-    (pl.col('mfg') == 'Trerice') &
-    (pl.col('buyline') != pl.col('priceline'))
-)
-
-
-# KEYWORD SEARCH
-bar.filter(pl.col('mfg').str.contains('foo').alias('regex'))
-# CASE INSENSITIVE
-df.filter(pl.col('description').str.contains(fr'(?i){brand}')) # newer version of Polars has `flags` kwarg
-```
-
 ## joins
 
 ---
@@ -420,7 +436,6 @@ df.filter(pl.col('description').str.contains(fr'(?i){brand}')) # newer version o
 ```txt
 Pandas by default uses left joins and handles the key matching differently - it maintains the left table's row count and only brings in matched columns from the right.
 ```
-
 
 * multi
 ```python
@@ -480,6 +495,27 @@ def smart_join(dt, tt, did, tid):
     joined = dt.join(tt.with_columns(pl.col(tid).alias('tid')), left_on=did, right_on=tid)
     joined.select(joined.columns[0], joined.columns[-1], *joined.columns[1:-1])
 ```
+```python
+import polars as pl
+cat = pl.read_csv('catalog.csv')
+res = pl.read_csv('results.csv', ignore_errors=True)
+def smart_join(dt, tt, did, tid):
+    """join Polars df with join keys as first columns output"""
+    joined = dt.join(tt, left_on=did, right_on=tid)
+    other_cols = [c for c in joined.columns if c != did]
+    return (joined.with_columns(pl.col(did).alias(tid)).select([did, tid, *other_cols]))
+def print_schema(schema, indent=2):
+    for name, dtype in schema.items():
+        print(" " * indent + f"├─ {name:<30} {dtype}")
+
+cat.join(res, left_on='SKU', right_on='sku')
+res.join(cat, left_on='sku', right_on='SKU')
+smart_join(cat, res, 'SKU', 'sku')
+
+cat.join(res, left_on='Manufacturer', right_on='Manufacturer Name')
+smart_join(cat, res, 'Manufacturer', 'Manufacturer Name')
+```
+
 
 ```python
 foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")
@@ -527,4 +563,148 @@ joined = df1.join(df2.with_columns(pl.col("part_id").alias("df2_part_id")), left
 df1_tagged = df1.select([pl.all().prefix("table1_")])
 df2_tagged = df2.select([pl.all().prefix("table2_")])
 joined = df1_tagged.join(df2_tagged, left_on="table1_Part_ID", right_on="table2_Part_ID") # adjust join key names to match prefixed names
+```
+
+## predicates
+
+CHAINING
+* `~`: not
+* `&`: and
+* `|`: or
+* `^`: xor
+```python
+ecl.filter(
+    (pl.col('mfg') == 'Trerice') &
+    (pl.col('buyline') != pl.col('priceline'))
+)
+
+df.filter(
+    # filter out nulls
+    (pl.col('price_line').is_not_null()) &
+    # filter out numeric
+    (~pl.col('price_line').str.contains(r'[0-9\.\-]')) &
+    # filter out values starting with zz
+    (~pl.col('price_line').str.contains(r'^ZZ'))
+)
+
+df.filter(
+    (pl.col("mpn_match_score") == 100) &
+    (pl.col("catalog_price").is_not_null() | pl.col("sale_price").is_not_null())
+)
+```
+
+NULLS
+```python
+# drop null col
+pl.read_csv('catalog.csv').drop(['', 'Unnamed: 0'])
+
+# drop nulls from col
+df.drop_nulls(subset=['col1', 'col2'])
+pl.read_csv('fpath').filter(
+    pl.col('id').is_not_null()
+)
+```
+
+REGEX
+```python
+# keyword
+bar.filter(pl.col('mfg').str.contains('foo').alias('regex'))
+
+# case insensitive
+df.filter(pl.col('description').str.contains(fr'(?i){brand}')) # newer version of Polars has `flags` kwarg
+
+# get alphabetic values
+df.filter(pl.col('price_line').str.contains(r'[^0-9\.\-]'))
+```
+
+COMPARE
+```python
+# EQUALITY
+bar.filter(pl.col('mfg') == 'samsung')
+bar.filter(pl.col('mfg').str.to_lowercase() == brand.lower())  # case insensitive
+
+# INEQUALITY
+ecl.filter(pl.col('buyline') != pl.col('priceline'))
+
+# COMPARISON
+bar.filter(pl.col('price') > 300)
+```
+
+## select
+
+WITH_COLUMNS
+* add|modify col
+* lazy eval = builds query plan but only executed when computation triggered 类似 `collect()`
+* 类似 SQL select on steroids i.e. chainable vs. SQL requiring CTEs|subqueries
+```python
+df.with_columns(
+    pl.when(pl.col("catalog_price") != "")
+    .then(pl.col("catalog_price"))
+    .otherwise(pl.col("sale_price"))
+    .alias("final_price")
+)
+```
+
+SORT
+```python
+df.sort(
+    ['col1', 'col2']
+    descending=[False, True],
+    nulls_last=True
+)
+```
+
+ON|POST LOAD
+```python
+# on load
+pl.read_csv(
+    'fpath',
+    columns=['id', 'bill_to_id', 'parent_id'],
+    schema_overrides={'bill_to_id': pl.Utf8, 'parent_id': pl.Utf8}
+).filter(pl.col('id').is_not_null())
+
+# post load
+Loader.load('fpath').with_columns(
+        pl.col('bill_to_id').cast(pl.Utf8),
+        pl.col('parent_id').cast(pl.Utf8)
+    ).select(
+        'id', 'bill_to_id', 'parent_id'
+    ).filter(
+        pl.col('id').is_not_null()
+    )
+```
+
+## write
+
+---
+
+* operations are immutable i.e. capture updates with assignment (`df = df.operations()`)
+```python
+# literal
+df.with_columns(pl.lit('ALCO').alias('buyline'))
+
+# interpolated and concatenated
+df.with_columns((f'{prefix}' + pl.col('mpn').cast(str)).alias('sku'))
+
+# interpolated - predicate
+df.with_columns(
+    pl.when(pl.col('sku').is_null())
+    .then(f'{prefix}' + pl.col('mpn').cast(str))
+    .otherwise(pl.col('sku'))
+    .alias('sku')
+)
+```
+
+* more type casting / coercion / interpolation
+```python
+# Polars cast() is equivalent to pandas astype()
+# Int64 matches the target schema's type
+# Safer than pl.col('id').str.to_int() which can fail on non-numeric strings
+
+# String parsing
+str.to_int(), str.to_float()
+# Numeric casting
+cast(pl.Int32), cast(pl.Float64)
+#Type coercion
+coalesce(), fill_null()
 ```

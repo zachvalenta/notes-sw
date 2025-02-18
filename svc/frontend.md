@@ -20,7 +20,7 @@
 
 TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
 * history: jQuery, Backbone, React, Next.js (built on top of React) https://blog.codepen.io/2024/11/11/chris-corner-our-eras-tour/
-* templating, JSX https://news.ycombinator.com/item?id=42464310
+* templating, JSX https://news.ycombinator.com/item?id=42464310 https://github.com/michal-laskowski/wax
 * components https://github.com/wrabit/django-cotton
 * Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer https://reflex.dev/ https://pybit.es/articles/fitness-tracker-app-with-python-reflex/
 * _CRUD-and-forms_: Django https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/ 
@@ -84,7 +84,7 @@ taxonomy
 ---
 
  https://fluxsec.red/how-I-developed-a-markdown-blog-with-go-and-HTMX
-* PETAL, Alpine, LiveView, Hotwire, htmx https://news.ycombinator.com/item?id=30325030 https://www.thoughtworks.com/radar/techniques?blipid=202203006 https://news.ycombinator.com/item?id=42711387
+* PETAL, Alpine, LiveView, Hotwire, htmx https://news.ycombinator.com/item?id=30325030 https://www.thoughtworks.com/radar/techniques?blipid=202203006 https://news.ycombinator.com/item?id=42711387 https://www.youtube.com/watch?v=vLB7r8neQvE
 great core team https://news.ycombinator.com/item?id=42616476
 if you try to do fancy stuff it will fight you https://news.ycombinator.com/item?id=42615472
 https://htmx.org/essays/future/
@@ -231,7 +231,7 @@ STDLIB
 * site tour https://github.com/shipshapecode/shepherd
 * datatable https://github.com/handsontable/handsontable https://appliku.com/post/django-rest-framework-and-datatable-example https://github.com/pivotal-energy-solutions/django-datatable-view https://news.ycombinator.com/item?id=30919257
 * HTTP: Fetch, XHR/AJAX https://eloquentjavascript.net/18_http.html
-* native: JS (Cordova/PhoneGap, Ionic, Capacitor) .NET (Xamarin) Golang (Lorca) Dart (Flutter https://news.ycombinator.com/item?id=41975047) Golang (https://github.com/wailsapp/wails https://github.com/cogentcore/core) Rust https://dioxuslabs.com/ https://www.bestinclassiosapp.com/ https://www.swiftjectivec.com/ React Native https://news.ycombinator.com/item?id=42690114
+* native: JS (Cordova/PhoneGap, Ionic, Capacitor) .NET (Xamarin) Golang (Lorca) Golang (https://github.com/wailsapp/wails https://github.com/cogentcore/core) Rust https://dioxuslabs.com/ https://www.bestinclassiosapp.com/ https://www.swiftjectivec.com/ React Native https://news.ycombinator.com/item?id=42690114
 * typing: Typescript beat Elm/Flow
 * Typescript, Civet https://news.ycombinator.com/item?id=41885940
 * vizualization: https://www.chartjs.org/ https://testdriven.io/blog/django-charts/#prepare-and-serve-the-data https://github.com/airbnb/visx https://github.com/recharts/recharts -> https://openbb.co/open#social-media-metrics 🗄 `math.md` graphs

@@ -122,6 +122,7 @@ lead-time = "testin/capp-lead-time-{date}.edi"
 
 * usage: EDI, Maven, Claude https://github.com/simonw/files-to-prompt
 * element types: prolog, root node/element, child node/elements, comments (same as HTML)
+* query https://github.com/gawel/pyquery
 * _XSLT_: CSS for XML https://github.com/azoner/pyx12
 * _XPath_: CSS selector for XML
 
@@ -300,6 +301,7 @@ Useful Packages:
 ## Markdown
 
 🔗 https://www.markdownguide.org/
+🛠️ jq for Markdown https://github.com/yshavit/mdq
 
 SPEC
 * footnotes https://github.blog/changelog/2021-09-30-footnotes-now-supported-in-markdown-fields/
@@ -309,7 +311,7 @@ Here is a simple footnote[^1].
 [^1]: My reference.
 ```
 
-FLAVORS
+FLAVORS https://news.ycombinator.com/item?id=43137616
 * _Djot_: https://djot.net/ https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 * _CommonMark_: https://meta.stackexchange.com/q/348746
 * _GFM_: https://github.com/github/markup/issues/498#issuecomment-158257453 
@@ -646,6 +648,7 @@ SEMANTICS
 
 ## binary
 
+🛠️ https://github.com/jarun/bcal
 📚
 * Petzold code 3, 9, 12-13
 * Evans ints floats

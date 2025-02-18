@@ -21,7 +21,7 @@
 START HERE
 * https://hpbn.co/brief-history-of-http/
 * https://hpbn.co/http1x/
-* https://hpbn.co/http2/
+* https://hpbn.co/http2/ https://byroot.github.io/ruby/performance/2025/02/24/http2-past-the-load-balancer.html
 * https://hpbn.co/primer-on-browser-networking/
 * https://hpbn.co/xmlhttprequest/
 * https://hpbn.co/server-sent-events-sse/

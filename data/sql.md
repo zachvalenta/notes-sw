@@ -331,6 +331,7 @@ GLOBBING
 * regex in SQLite
 ```sql
 select id from prod_class where id glob '*[^0-9]*' limit 5
+select * from customers where name like '%gobain%'
 ```
 * wildcards: `_` single char `%` n char 📙 Beaulieu [80]
 ```sql
@@ -365,6 +366,12 @@ select count(*) from executions where height != ''
 
 ## select
 
+```sql
+-- CONCATENATE https://pgexercises.com/questions/joins/threejoin.html
+select * from products p join cat c
+on 'CS' || p.eid = c.product_id  -- eid 1234 produc_id CS1234
+```
+
 ---
 
 ALIASES
@@ -390,10 +397,6 @@ ZA
 -- DESC: must be final clause
 -- ASC: default, which is why you never see it 📙 Beaulieu [63]
 select "First Name", count(*) from executions group by "First Name" order by count(*) desc
-
--- concatenate https://pgexercises.com/questions/joins/threejoin.html
-SELECT concat(mem.fname, ' ', mem.lname) as member  -- Postgres
-SELECT mem.fname || ' ' || mem.lname as member  -- other dbms
 
 -- case statements https://pgexercises.com/questions/basic/classify.html https://pgexercises.com/questions/joins/threejoin2.html
 SELECT NAME,
@@ -484,6 +487,33 @@ left join deal as d on r.renter_id = d.renter
 * _multi_: use same table n times, need to use multiple aliases 📙 Beaulieu [96-7]
 * _self_: two instances of same table 📙 Beaulieu [98]
 * _cross_: generates cartesian product due to lack of `on` clause 📙 Beaulieu [89] Takahashi [42] 🗄 `math.md` set theory
+* canonical example
+```sql
+SELECT * FROM employees
+CROSS JOIN departments;
+
+-- SAMPLE DATA
+CREATE TABLE employees (
+    employee_id INT,
+    employee_name VARCHAR(50)
+);
+CREATE TABLE departments (
+    department_id INT,
+    department_name VARCHAR(50)
+);
+INSERT INTO employees VALUES (1, 'Alice'), (2, 'Bob');
+INSERT INTO departments VALUES (101, 'HR'), (102, 'Engineering'), (103, 'Finance');
+
+employee_id | employee_name | department_id | department_name
+------------|---------------|---------------|----------------
+1           | Alice         | 101           | HR
+1           | Alice         | 102           | Engineering
+1           | Alice         | 103           | Finance
+2           | Bob           | 101           | HR
+2           | Bob           | 102           | Engineering
+2           | Bob           | 103           | Finance
+```
+* hardcore example
 ```sql
 -- The comma in the FROM clause is a shorthand for a CROSS JOIN. In your query, after the explicit JOIN between entity_pn and the subquery alias prod, the comma brings in another derived table (the subquery aliased as total) without any join condition. This means that the result of the join between entity_pn and prod is combined with the single-row result from the total subquery via a cross join.
 select count(*) * 100.0 / total.total_count as 'match %'
@@ -583,11 +613,6 @@ foreign key (band) references bands (band_id)
 
 # 🗺️ SCHEMA (DDL)
 
-CANONICAL DATASETS
-* https://news.ycombinator.com/item?id=42231325
-* Sakila https://sq.io/docs/tutorial
-* NYC taxi dataset https://mattpo.pe/posts/sql-llvm/
-
 COMMANDS
 ```sql
 -- DB/TABLE
@@ -616,7 +641,7 @@ PRAGMA index_list('<tab>') -- SQLite version https://stackoverflow.com/a/4931123
 * `stat.md` outlier detection
 
 * _schema on-read_: enforce contraints on write
-* _schema on-write_: don't enforce contraints on write i.e. cobble things together on read
+* _schema on-write_: don't enforce contraints until write https://www.hytradboi.com/2025/0e959091-26f0-43fa-87e0-b2c1e4536f6b-shapeshifter-using-llms-inside-a-database-for-schema-flexibility
 ```python
 class Catalog:
     """
@@ -820,6 +845,15 @@ TYPES
 * _varchar_: variable 📙 Beaulieu [21]
 * _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485
 * _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf` https://news.ycombinator.com/item?id=42364372
+```sql
+-- how to order by a date in sql when the date col in fmt MM/DD/YYYY (and I think the col type is string not an actual datetime fmt) using sqlite
+SELECT p.eid, psub.unit_price, psub.ext_price, ar.subtotal_amt, ar.ord_date
+FROM sales_psub psub
+JOIN sales_ar ar ON psub.full_ord_id = ar.full_ord_id
+JOIN products p ON psub.product_id = p.eid
+WHERE psub.product_id = 684148
+ORDER BY strftime('%Y-%m-%d', substr(ar.ord_date, 7, 4) || '-' || substr(ar.ord_date, 1, 2) || '-' || substr(ar.ord_date, 4, 2)) DESC
+```
 * _integer_: 
 > The type integer is the common choice, as it offers the best balance between range, storage size, and performance. The smallint type is generally only used if disk space is at a premium. The bigint type is designed to be used when the range of the integer type is insufficient. https://www.postgresql.org/docs/current/datatype-numeric.html#DATATYPE-INT
 * _boolean_: 
@@ -874,7 +908,7 @@ qux_isrc,200.0,2
 
 # 🪵 TABLES
 
-YPES
+TYPES
 * _table_: set of related rows
 * _permanent_: table in storage 📙 Beaulieu [53]
 * impl as heap or b-tree https://calpaterson.com/activerecord.html
@@ -887,12 +921,21 @@ YPES
 * _scalar table_: table w/ single column and single row https://pgexercises.com/questions/basic/agg2.html
 * _temporal_: https://news.ycombinator.com/item?id=29733854 https://news.ycombinator.com/item?id=29735695 https://stackoverflow.com/questions/50199752/comparing-csv-entries-against-entries-in-postgresql-table-using-python 
 
+GENERATED COLUMNS
+* _generated column_: col whose value generated based on other columns https://chatgpt.com/c/6734cd95-6754-8004-b89c-8d25d8da8048 https://news.ycombinator.com/item?id=31396578
+* _virtual generated columns_: expression for a virtual column is computed at read-time so they're not stored on disk like generated columns
+* same as a virtual table? https://llm.datasette.io/en/stable/logging.html
+* in Django https://realpython.com/podcasts/rpp/227/ https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/#tldr
+
 ## CTE
 
-* _CTE (common table expression)_: one-off view
-```sql
-with  -- https://github.com/enochtangg/quick-SQL-cheatsheet#find https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
-```
+* _CTE (common table expression)_: one-off view using `WITH` keyword https://chatgpt.com/c/67bf4043-3e88-8004-aa0c-13c54fb38cc2
+
+---
+
+* https://github.com/enochtangg/quick-SQL-cheatsheet#find
+* https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
+* Postgres filters as a replacement for https://stokerpostgresql.blogspot.com/2025/02/how-postgresqls-aggregate-filter-will.html
 * recursion http://www.jeffwidman.com/blog/ https://dba.stackexchange.com/q/14490 https://medium.com/swlh/recursion-in-sql-explained-graphically-679f6a0f143b https://aiven.io/blog/solving-the-knapsack-problem-in-postgresql https://pgexercises.com/questions/recursive/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
 * https://news.ycombinator.com/item?id=42230384
 * https://github.com/enochtangg/quick-SQL-cheatsheet#find
@@ -904,9 +947,35 @@ with  -- https://github.com/enochtangg/quick-SQL-cheatsheet#find https://hakiben
 📙 Beaulieu chapter 14
 
 ```sql
+-- CREATE
 CREATE VIEW view_name AS SELECT column1, column2
 FROM table_name WHERE condition;
+
+create view sales as
+select psub.full_ord_id, ar.full_ord_id, psub.unit_price, psub.ext_price, ar.subtotal_amt, ar.ord_date
+from sales_psub psub join sales_ar ar on psub.full_ord_id = ar.full_ord_id
+
+-- LIST 🗄️ `analytics.md` REPL > litecli
+select name, type from sqlite_master
+SELECT name FROM sqlite_master WHERE type='view';
+
++------------+-------+
+| name       | type  |
++------------+-------+
+| customer   | table |
+| contact    | table |
+| sales_ar   | table |
+| catalog    | table |
+| mars       | table |
+| sales_osub | table |
+| prod_class | table |
+| entity     | table |
+| orders     | table |
+| products   | table |
++------------+-------+
 ```
+
+---
 
 * late-binding https://eradman.com/posts/late-binding-views.html
 * _view_: pre-computed partial query (e.g. `where is_active = 0`) recomputed as more full query w/ additional user filtering 📙 Kleppmann [101]
@@ -918,6 +987,7 @@ FROM table_name WHERE condition;
 * faster queries but needs to be manually maintained so not typically used in OLTP 📙 Kleppmann [102]
 * _data cube_: type of materialized view used in OLAP, precomputed for speed results 📙 Kleppmann [102] https://hakibenita.com/sql-for-data-analysis#cube
 * not often used limited query flexiblity 📙 Kleppmann [103]
+
 # 🟨️ ZA
 
 SEMANTICS
@@ -926,10 +996,6 @@ SEMANTICS
 * _enumeration attack_: https://sqlfordevs.com/uuid-prevent-enumeration-attack
 * _fuzzy matching_: merging n datasets that don't have a common UUID e.g. merging contacts based on name https://pbpython.com/record-linking.html
 * _deterministic matching_: https://github.com/zinggAI/zingg
-* _generated column_: col whose value generated based on other columns https://chatgpt.com/c/6734cd95-6754-8004-b89c-8d25d8da8048 https://news.ycombinator.com/item?id=31396578
-* virtual = doesn't store computed value, stored = does store computed value
-> same as a virtual table https://llm.datasette.io/en/stable/logging.html
-* in Django https://realpython.com/podcasts/rpp/227/ https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/#tldr
 * _enrichment_: https://simonwillison.net/2024/Dec/5/datasette-enrichments-llm/
 
 DCL
@@ -1004,10 +1070,12 @@ CMU
 REPLACEMENTS
 * Ibis
 * https://medium.com/schkn/sql-is-dead-hail-to-flux-8e8498756049
-* _PRQL_: pipelined SQL alternative, all new syntax https://news.ycombinator.com/item?id=36866861 https://news.ycombinator.com/item?id=42231325
+* _Convex_: queries are code https://www.hytradboi.com/2025/f99f35fa-6b26-45a3-a4b2-37801fdefeff-database-ideas-in-convex https://www.convex.dev/
+* _PRQL_: pipelined SQL alternative, all new syntax https://news.ycombinator.com/item?id=36866861 https://news.ycombinator.com/item?id=42231325 https://www.hytradboi.com/2025/deafce13-67ac-40fd-ac4b-175d53318a78-prql-a-modern-pipelined-sql-replacement
 * _Malloy_: all new syntax, semantic focus https://news.ycombinator.com/item?id=30053860 https://news.ycombinator.com/item?id=42231325
 * _preql_: much more ambitious, all new syntax https://news.ycombinator.com/item?id=26447070 https://news.ycombinator.com/item?id=42231325
-* _Trilogy_: dimension tables, canonical dataset for OLTP https://news.ycombinator.com/item?id=42231325
+* _Trilogy_: dimension tables https://news.ycombinator.com/item?id=42231325
+* _Zillion_: semantic layer https://github.com/totalhack/zillion https://news.ycombinator.com/item?id=42231325 https://github.com/cube-js/cube
 
 * boring and durable https://josephg.com/blog/databases-have-failed-the-web
 * outdated and awkward https://news.ycombinator.com/item?id=33034351 https://news.ycombinator.com/item?id=39539252 https://news.ycombinator.com/item?id=41347188 https://buttondown.com/hillelwayne/archive/queryability-and-the-sublime-mediocrity-of-sql/
@@ -1026,6 +1094,8 @@ TABLES
 * avoid reserved words
 
 ---
+
+pipe syntax https://www.hytradboi.com/2025/f8582cd3-1e39-43a8-8749-46817b2910cf-pipe-syntax-in-sql-its-time
 
 📜 https://www.sqlstyle.guide/
 * ✅ constraints next to the attr they constrain https://www.sqlstyle.guide/#layout-and-order

@@ -370,6 +370,7 @@ $ find /usr/local/bin /usr/bin -type f -perm -u+x | grep -i go  # nada
 
 ## project structure
 
+https://www.alexedwards.net/blog/how-to-manage-tool-dependencies-in-go-1.24-plus
 > The standard way to do testing is to have a foo.go and foo_test.go file next to each other. https://www.arp242.net/jia-tan-go.html
 
 ```sh

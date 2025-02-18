@@ -227,6 +227,7 @@ HADOOP
 
 # ⭕️ FACTORS
 
+🗄️ `data/modeling.md` factors
 📚
 * Kleppmann [90-95]
 * Serra https://www.amazon.com/Deciphering-Data-Architectures-Warehouse-Lakehouse/dp/1098150767
@@ -279,12 +280,14 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 
 ## schemas
 
+💻
+* `data/modeling.md` factors
+* `sql.md` canonical
+
+* _fact table_: transactions w/ many FK to other dimensions 📙 Kleppmann [93,95]
+* _dimension_: non-transactional tables 📙 Kleppmann [94] https://tech.marksblogg.com/data-fluent-for-postgresql.html
 * _star schema_: fact table at center
-* _snowflake schema_: like star schema but more normalized
-* less popular bc harder to query 📙 Kleppmann 95
-* _fact table_: transactions 📙 Kleppmann 93
-* w/ many FK to other dimensions 📙 Kleppmann 95
-* _dimension_: non-transactional tables 📙 Kleppmann 94 https://tech.marksblogg.com/data-fluent-for-postgresql.html
+* _snowflake schema_: like star schema but more normalized, less popular bc harder to query 📙 Kleppmann [95]
 
 ## size
 
@@ -395,6 +398,7 @@ ALTERNATIVES
 
 ## test
 
+https://github.com/akmalsoliev/Validoopsie
 https://www.milesmcbain.com/posts/assertive-programming-for-pipelines/
 * _data contract_: https://github.com/benrutter/wimsey
 * https://pycon-archive.python.org/2024/schedule/presentation/46/index.html
@@ -491,6 +495,14 @@ https://karenjex.blogspot.com/2024/09/optimising-your-database-for-analytics.htm
 > Some high level context for those less familiar with the Lakehouse storage system space. For various reasons, several companies moved from data warehouses to data lakes starting around 7-10 years ago. Data lakes are better for ML / AI workloads, cheaper, more flexible, and separate compute from storage. With a data warehouse, you need to share compute with other users. With data lakes you can attach an arbitrary number of computational clusters to the data. Data lakes were limited in many regards. They were easily corrupted (no schema enforcement), required slow file listings when reading data, and didn't support ACID transactions. https://news.ycombinator.com/item?id=34345408
 * https://news.ycombinator.com/item?id=34342190
 * https://www.databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html
+
+## 🔵 Bemi
+
+built on Postgres https://bemidb.com/
+
+## 🐿️ Crunchy
+
+https://www.crunchydata.com/blog/incremental-archival-from-postgres-to-parquet-for-analytics
 
 ## 🌕 Clickhouse
 
@@ -668,13 +680,15 @@ Data Management Architectures
 
 ## metadata (Datahub)
 
+🗄️ `analytics.md` TUI
 📙 https://www.amazon.com/gp/product/1098138864
 
 SEMANTICS
-* _locality_: location
-* _provenance_: who created + when/how
+* _definition_: what is this data?
+* _flow_: data flow through system incl storage locations
+* _provenance/source/lineage_: how do we get this data?, who created + when/how
+* _usage_: what is this data used for?
 * _audit trail_: who reads/writes + when/how
-* _lineage_: data flow through system
 
 DATAHUB 📜 https://github.com/datahub-project/datahub https://datahubproject.io/
 > data lineage from source to processing to consumption. https://www.thoughtworks.com/radar/platforms/summary/datahub

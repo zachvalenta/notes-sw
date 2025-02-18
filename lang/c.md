@@ -127,6 +127,7 @@ Most package managers (apt, yum, brew) maintain this split with separate runtime
 
 🔗 https://github.com/hackclub/some-assembly-required
 📚
+* https://github.com/FFmpeg/asm-lessons/blob/main/lesson_01/index.md https://news.ycombinator.com/item?id=43140614
 * Dagois gameboy https://nostarch.com/game-boy-coding-adventure
 * Hyde https://nostarch.com/art-arm-assembly-volume-1
 * Nisan nand2tetris (chapter 4/6)
@@ -266,6 +267,9 @@ SPRING
 
 📜 https://ziglang.org/
 
+https://zig.guide/
+https://github.com/pedropark99/zig-book https://pedropark99.github.io/zig-book/
+
 https://www.openmymind.net/learning_zig/
 https://codeberg.org/ziglings/exercises/
 
@@ -310,7 +314,7 @@ CODEBASES TO LEARN FROM
 * tests with the source code https://github.com/b1rger/carl
 * https://github.com/lusingander/serie
 * not so hard to read after all https://github.com/raphlinus/font-rs/blob/master/src/accumulate.rs
-* Fish https://news.ycombinator.com/item?id=42535217
+* Fish https://news.ycombinator.com/item?id=42535217 https://fishshell.com/blog/rustport/
 
 PROJECT STRUCTURE
 * basic TUI https://github.com/lusingander/btox

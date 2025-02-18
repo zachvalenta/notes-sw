@@ -77,6 +77,7 @@ request spoofing
 
 ---
 
+https://news.ycombinator.com/item?id=43169103
 https://news.ycombinator.com/item?id=42171146
 
 🗄 `evans-networking-ack.pdf` page 4

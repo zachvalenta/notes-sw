@@ -187,6 +187,8 @@ Dreams of Code https://www.youtube.com/watch?v=A_3MP_V-kB4
 
 📙 Stimac https://www.manning.com/books/design-for-developers
 
+https://youtube.com/watch?v=Jf0cjocP8Wk
+
 ## font / text
 
 🗄️ typography
@@ -273,6 +275,7 @@ UNIQUE
 
 ## ToC
 
+* https://tomlinford.com/posts/robinhood-sharding-to-scale
 * quarto https://github.com/emilyriederer/website https://www.emilyriederer.com/post/py-rgo-2025/ reports https://www.youtube.com/watch?v=Q3phTByW138
 * https://www.goatcounter.com/help/start https://litchipi.github.io/infosec/2023/01/24/git-code-audit-viewed-as-rust-programmer.html    https://gendignoux.com/readlist/
 > needs to be on the side, at least on non-mobile web https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/
@@ -282,6 +285,8 @@ UNIQUE
 * https://vadimkravcenko.com/shorts/habits-of-great-software-engineers/
 
 ## images
+
+* text, image, text, image https://aresluna.org/the-hardest-working-font-in-manhattan/
 
 ---
 

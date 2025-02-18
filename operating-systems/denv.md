@@ -395,6 +395,7 @@ class Basilk < Formula
 
 ## managers
 
+* _pacseek_: for Arch Linux https://github.com/moson-mo/pacseek
 * _apk_: Alpine
 * _apt_: used by Debian, Ubuntu, Mint
 ```sh

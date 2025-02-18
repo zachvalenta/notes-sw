@@ -153,7 +153,7 @@ True or False
 False or True
 True or True
 ```
-* _xor_: true if only one of operands true
+* _xor_: true if only one of operands true https://news.ycombinator.com/item?id=43087944 https://www.chiark.greenend.org.uk/~sgtatham/quasiblog/xor/
 ```python
 # true
 True ^ False

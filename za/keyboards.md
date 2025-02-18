@@ -49,6 +49,7 @@ LETTERING
 * _Colemak_: https://colemak.com/ https://people.zsa.io/andreas-tacke/
 * _Dvorak_: 
 * _QWERTY_: Anglosphere + western Europe https://en.wikipedia.org/wiki/QWERTY
+* _QWERTY-Flip_: https://nick-gravgaard.com/qwerty-flip/
 * _QWERTZ_: https://en.wikipedia.org/wiki/QWERTZ
 * _Workman_: 
 

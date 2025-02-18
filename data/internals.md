@@ -87,7 +87,7 @@ TYPES
 * _command log_: log commands to change state but not incremental changes
 * _commit log_: append-only list of time-ordered records 📙 Jeffrey distributed [6] https://en.wikipedia.org/wiki/Commit_(data_management)
 * _append-only log_: immutability at the db level; conflict w/ GDPR https://www.bloorresearch.com/2018/02/append-databases-gdpr-conundrum/
-* _write-ahead log (WAL)_: log changes in state before update so you can recover if failure (power, OS, hw) https://softwareengineeringdaily.com/wp-content/uploads/2018/06/SED613-Database-Reliability-Engineering.pdf BYO https://github.com/khonsulabs/okaywal logical decoding messages https://www.infoq.com/articles/wonders-of-postgres-logical-decoding-messages/ https://pgdash.io/blog/taming-postgresql-wal-file-growth.html https://news.ycombinator.com/item?id=41851051 https://simonwillison.net/2022/Oct/23/datasette-gunicorn
+* _write-ahead log (WAL)_: log changes in state before update so you can recover if failure (power, OS, hw) https://softwareengineeringdaily.com/wp-content/uploads/2018/06/SED613-Database-Reliability-Engineering.pdf BYO https://github.com/khonsulabs/okaywal logical decoding messages https://www.infoq.com/articles/wonders-of-postgres-logical-decoding-messages/ https://pgdash.io/blog/taming-postgresql-wal-file-growth.html https://news.ycombinator.com/item?id=41851051 https://simonwillison.net/2022/Oct/23/datasette-gunicorn distributed https://www.hytradboi.com/2025/f2cc03cb-14fc-42f4-ad38-b4b15a15815f-serverless-primitives-for-the-shared-log-architecture
 * used in b-tree 📙 Kleppmann 84
 * individual entries known as frames https://news.ycombinator.com/item?id=26583558
 * turn off if you're just doing a transformation https://hakibenita.com/sql-tricks-application-dba#use-unlogged-tables-for-intermediate-data
@@ -109,6 +109,7 @@ TACTICS
 
 ---
 
+* monitoring https://github.com/dalibo/pg_activity
 https://www.openmymind.net/Speedig-Up-Queries-Re-Imagining-Your-Data/
 https://www.openmymind.net/Speedig-Up-Queries-Understanding-Query-Plans/
 * Polars https://chatgpt.com/c/6749f200-3d60-8004-a2ab-1dc8e2c636bb

@@ -62,7 +62,7 @@ https://www.pixelstech.net/article/1728356198-Why-is-Golang-s-Compilation-Speed-
 import dis
 dis.dis(fn)
 ```
-* _optimization_: most of diff btw compilers is here [Conery 216] https://signalsandthreads.com/compiler-optimization/
+* _optimization_: most of diff btw compilers is here [Conery 216] https://signalsandthreads.com/compiler-optimization/ https://www.hytradboi.com/2025/2db17db8-855a-4baf-84eb-0e7c29d7c9a1-debugging-compiler-optimized-code-how-it-works-and-doesnt
 
 ## lex
 
@@ -132,6 +132,8 @@ Loses irrelevant syntax (whitespace, comments)
 
 ---
 
+https://ssloy.github.io/tinycompiler/ast/
+
 > D2 has an API built on top of its AST for programmatically creating diagrams in Go. This package is d2/d2oracle.  https://d2lang.com/tour/api
 
 * _AST_: src as tree https://sadh.life/post/ast/ https://d2lang.com/tour/api
@@ -168,7 +170,7 @@ define    calculate        run area_of_circle
 ```txt
 - Abstract Syntax Tree (AST)
 - Control Flow Graphs
-- Static Single Assignment (SSA)
+- Static Single Assignment (SSA) https://bernsteinbear.com/blog/ssa/
 ```
 ```txt
 - Peephole Optimization
@@ -516,6 +518,8 @@ Jedi is more tuned for real-time code intelligence in editors rather than broad 
 
 ---
 
+https://philz.dev/blog/language-server-db/ https://www.hytradboi.com/2025/603a4562-ba4f-4150-b6d0-8c0e4c1ed5f7-rubbing-a-database-on-a-language-server
+
 * _pylance_: closed source, uses pyright https://github.com/microsoft/pylance-release/issues/4
 * _pylyzer_: pyright but better? https://github.com/mtshiba/pylyzer https://news.ycombinator.com/item?id=41305941
 ```txt
@@ -566,9 +570,9 @@ http://steve-yegge.blogspot.com/2007/06/rich-programmer-food.html
 * _decompile_: https://github.com/isledecomp/isle
 
 TYPES OF COMPILATION
-* _just-in-time (JIT)_: https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction https://pycon-archive.python.org/2024/schedule/presentation/124/index.html
+* _just-in-time (JIT)_: https://eli.thegreenplace.net/2013/11/05/how-to-jit-an-introduction https://pycon-archive.python.org/2024/schedule/presentation/124/index.html https://www.hytradboi.com/2025/0a4d08fd-149e-4174-a752-20e9c4d965c5-a-quick-ramp-up-on-ramping-up-quickly https://www.hytradboi.com/2025/0c355c52-8bbc-49c3-a407-faa4a45248b9-can-we-democratize-jit-compilers
 * https://pypy.org/posts/2025/01/musings-tracing.html
-* _ahead-of-time (AOT)_: https://news.ycombinator.com/item?id=22346540
+* _ahead-of-time (AOT)_: https://news.ycombinator.com/item?id=22346540 https://www.hytradboi.com/2025/0a4d08fd-149e-4174-a752-20e9c4d965c5-a-quick-ramp-up-on-ramping-up-quickly
 * _adaptive_: quickening https://realpython.com/python311-new-features/#faster-code-execution https://github.com/brandtbucher/specialist
 
 SEMANTICS

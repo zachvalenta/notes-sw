@@ -36,6 +36,7 @@ bandwindth and CPU https://talkpython.fm/blog/posts/we-have-moved-to-hetzner/
 
 https://www.roguelynn.com/words/tracing-fast-and-slow/
 https://www.roguelynn.com/words/metrics-driven-development/
+https://www.hytradboi.com/2025/52dd81d7-d720-4e53-8374-9e273c210348-lets-run-a-million-benchmarks
 
 SEMANTICS https://www.datadoghq.com/ebook/monitoring-modern-infrastructure/
 * _event_: change to system e.g. build, release, add/substract host/container, alert going off
@@ -370,9 +371,13 @@ ZA
 ## Grafana
 
 * _Grafana_: visualize metrics https://www.youtube.com/watch?v=9TJx7QTrTyo [14:00]
-> replace with Textual? TUIs out there?
 * https://www.reddit.com/r/devops/comments/sevtqs/whats_your_monitoring_stack/
 * profiling https://github.com/grafana/pyroscope
+
+ALTERNATIVES 🗄️ `os/tools.md` monitoring
+> replace with Textual? TUIs out there?
+* _chartbrew_: can chart SQL https://github.com/chartbrew/chartbrew
+
 
 ## 🪨 Graphite
 
@@ -413,6 +418,8 @@ HOW TO START
 
 ---
 
+* https://allthingsopen.org/articles/what-is-opentelemetry-add-django-application
+* https://youtube.com/watch?v=jC1icupHlMs
 * https://youtube.com/watch?v=ag2ykPO805M
 * https://www.lucavall.in/blog/opentelemetry-a-guide-to-observability-with-go
 * https://www.jvt.me/posts/2024/11/17/cobra-otel-lessons/
@@ -435,6 +442,11 @@ HOW TO START
 ---
 
 * https://sourcehut.org/blog/2020-07-03-how-we-monitor-our-services/ https://github.com/yolossn/Prometheus-Basics https://softwareengineeringdaily.com/2020/07/09/chronosphere-scalable-metrics-database-with-rob-skillington/ https://tech.marksblogg.com/clickhouse-prometheus-grafana.html https://monzo.com/blog/2018/07/27/how-we-monitor-monzo/ https://www.youtube.com/watch?v=9TJx7QTrTyo [13:00]
+
+## Side Eye
+
+https://www.hytradboi.com/2025/0244a435-8f3d-4c26-9526-4445853476f1-side-eye-ask-your-programs-anything
+https://side-eye.io/
 
 ## 🟧 Signoz
 
@@ -527,8 +539,10 @@ if __name__=='__main__':
 
 https://github.com/koaning/memo/
 https://calmcode.io/course/memo/introduction
+https://eli.thegreenplace.net/2025/benchmarking-utility-for-python/
 
 ---
+
 https://github.com/zachvalenta/capp-brand-enablement
 
 I have a decorator:
@@ -798,6 +812,7 @@ FORMAT https://github.com/charmbracelet/log
 
 TOOLING 🗄️ `golang.md` `python.md`
 * https://github.com/dloss/klp
+* https://github.com/aurc/loggo
 * _Axiom_: https://axiom.co/ https://github.com/axiomhq https://repobeats.axiom.co/ cheaper than CloudWatch? https://x.com/AxiomFM/status/1842206872813674807
 * _fblog_: JSON log viewer https://github.com/brocode/fblog
 * _hl_: https://github.com/pamburus/hl

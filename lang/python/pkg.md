@@ -233,6 +233,7 @@ https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-pub
 * _PEP 767_: read-only attributes https://peps.python.org/pep-0767/
 * _PEP 735_: didn't Poetry already have this? https://pythonbytes.fm/episodes/show/406/whats-on-django-tv-tonight
 * _PEP 751_: metadata https://lucumr.pocoo.org/2024/11/26/python-packaging-metadata/ https://discuss.python.org/t/pep-751-now-with-graphs/69721
+* _PEP 771_: extra dependencies https://www.bitecode.dev/p/whats-up-python-better-packaging
 * _PEP 777_: wheel backwards compatibility (to enable new functionality to be added to wheels) https://peps.python.org/pep-0777/
 
 ---
@@ -310,6 +311,16 @@ https://pythonspeed.com/articles/distributing-software/ https://pgjones.dev/blog
 * _egg_: `.egg` https://packaging.python.org/discussions/wheel-vs-egg/ https://pythonwheels.com/
 
 ## venv
+
+* use development version 🗄️ `analytics.md` litecli
+```sh
+source .venv/bin/activate
+which litecli  # /Users/zvalenta/Desktop/litecli/.venv/bin/litecli
+deactivate
+which litecli  # /Users/zvalenta/.local/bin/litecli
+```
+
+---
 
 * _venv_: use `bin` to make https://stackoverflow.com/questions/45293436/how-to-specify-python-version-used-to-create-virtual-2
 * _virtual environment_: Python installation + pkgs [tutorial 12.1, Grinberg 4]
@@ -613,6 +624,7 @@ DESIGN
 
 ---
 
+https://www.youtube.com/watch?v=mFyE9xgeKcA
 https://github.com/EnhancedJax/Bagels
 https://calmcode.io/course/uv/pip
 windows https://www.bitecode.dev/p/whats-up-python-a-new-windows-installer

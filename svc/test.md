@@ -111,6 +111,7 @@ void main() {
 
 TLA+
 * https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2
+* nondeterminism/randomness https://buttondown.com/hillelwayne/archive/five-kinds-of-nondeterminism/
 
 ## fuzz
 
@@ -285,7 +286,7 @@ TEST CODE
 TEST TYPES
 * _unit test_: test on a method; runs in memory; some people consider smallest unit as including db https://calpaterson.com/against-database-teardown.html
 * _integration test_: uses IO (fs, network), db, another app; two flavors (API-only, UI + API)
-* _smoke test_: integration that tests something basic
+* _smoke test_: integration that tests something basic https://semaphore.io/blog/smoke-testing-sanity-testing
 * _regression test_: prod data
 
 ## doubles

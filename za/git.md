@@ -125,7 +125,7 @@ gh repo create $NAME --private
 gh repo edit --description $DESC
 ```
 
-TOPICS
+TOPICS https://simonwillison.net/2020/Oct/9/git-scraping/
 ```sh
 # read
 gh search repos --owner=zachvalenta "topic:$TOPIC"
@@ -559,20 +559,16 @@ what I realized after 90 mins debugging gfold: it can only surface git repos tha
 
 ## branch
 
-🛠 curate https://github.com/matt-harvey/git_curate
-
 https://x.com/asbradbury/status/1804565477605458259
 
-RM
-* local - merged: `branch -d <br>`
-* local - unmerged: `branch -D <br>`
-* remote: `push origin --delete <br>`
-
-ZA
-* list all on remote: `branch -a`
-* pull dir/files from master into feature branch https://stackoverflow.com/a/2364223
 ```sh
-git co master -- my_dir/
+branch -a                     # list all on remote
+co master -- my_dir/          # pull from master into feature branch https://stackoverflow.com/a/2364223
+
+# REMOVE https://github.com/matt-harvey/git_curate
+branch -d $BRANCH             # local, merged
+branch -D $BRANCH             # local, unmerged
+push origin --delete $BRANCH  # remote
 ```
 
 ---
@@ -785,6 +781,20 @@ semantics
 * _rebase_: put n commits onto tip of branch https://stackoverflow.com/a/43551395 https://jvns.ca/blog/2023/11/06/rebasing-what-can-go-wrong-/
 * interactive https://www.youtube.com/watch?v=H7RFt0Pxxp8
 * can also use `squash` https://stackoverflow.com/q/2427238
+* squash everything after certain commmit: `git rebase -i $LAST_COMMIT_YOU_DONT_WANT_TO_SQUASH`
+```sh
+d004585 (HEAD -> main, origin/main) the third and final commit I want to squash
+831f811 another commit I want to squash
+7d3b486 start of commits I want to squash
+1dae68b another commit I want to keep
+502f903 commit I want to keep
+
+$ git rebase -i 1dae68b
+
+pick 7d3b486 start of commits I want to squash
+squash 831f811 another commit I want to squash
+squash d004585 the third and final commit I want to squash
+```
 * my notes workflow: `git rebase -i main`
 ```sh
 # https://stackoverflow.com/a/5340773
@@ -871,6 +881,11 @@ git remote add origin git@github.com:$OWNER/$NAME.git
 git push -u origin main
 ```
 
+* get rid of remote branch that you've deleted
+```sh
+git fetch --prune
+```
+
 ---
 
 https://stackoverflow.com/a/2432799
@@ -938,7 +953,10 @@ USE https://dev.to/srebalaji/useful-tricks-you-might-not-know-about-git-stash-11
 
 ## undo
 
-* unstage: `git reset`
+UNSTAGE
+* single file: `reset HEAD $FILE` https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things
+* all files: `reset` https://michaelsoolee.com/git-unstage-all/
+
 * undo local commit: `git reset HEAD~` https://stackoverflow.com/a/927386
 * undo updates to already staged file: `git restore $FPATH`
 
@@ -964,8 +982,6 @@ git reset --hard $SHA_FROM_COMMIT_YOU_JUST_NUKED
 * mv most recent commit to index: `reset --soft HEAD~1`
 
 STAGING AREA
-* unstage single file: `reset HEAD <file>` https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things
-* unstage all files: `reset` https://michaelsoolee.com/git-unstage-all/
 * `git add .` is a bug magnet https://www.semicolonandsons.com/episode/how-to-make-less-mistakes-when-programming 2:20
 
 THE PAST
@@ -1102,6 +1118,7 @@ FILE LOCATION
 
 ---
 
+https://blog.gitbutler.com/how-git-core-devs-configure-git/
 https://chatgpt.com/c/67141929-cb80-8004-86dc-201dc864fdad
 
 * set based on repo https://utf9k.net/blog/conditional-gitconfig/

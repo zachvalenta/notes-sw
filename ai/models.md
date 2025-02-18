@@ -11,6 +11,8 @@
 
 ## 进步
 
+interactions: code completion, chat, tool use https://blog.val.town/blog/fast-follow/
+Simon Prince book https://news.ycombinator.com/item?id=43121059
 https://openai.com/index/introducing-deep-research/ https://x.com/mckaywrigley/status/1886215847481623030 https://x.com/felipe_millon/status/1886205433469178191 https://thezvi.substack.com/p/were-in-deep-research https://x.com/sayashk/status/1887275315824660584 https://www.fromthenew.world/p/openai-deep-research-explains-itself https://x.com/patrickc/status/1888312657146757315 https://stratechery.com/2025/deep-research-and-knowledge-value/
 > OpenAI made a big splash launching ‘Deep Research’, an agent-ish tool within the $200 Pro plan that uses a version of the computationally-intensive (and expensive) o3 ‘reasoning’ model to write research reports, coming back in a few hours when it’s done. As for most generative AI demos, very cool if you have that use case, but you have to be careful - I spotted some large mistakes even in one of the examples on the marketing page (in a field I know a lot about). I always used to compare machine learning to ‘infinite interns’ and now you can ask an AI intern to write a long report about something - but you’ll need to check every line of it, and it probably won’t say anything surprising (since surprising is a divergence from the data). - Ben Evans 25.02.11
 
@@ -30,7 +32,7 @@ SLM
 ZA
 * _BERT_: https://simonwillison.net/2024/Dec/31/alexis-gallagher/ https://github.com/urchade/GLiNER
 * _DeepSeek_: https://thezvi.substack.com/p/deekseek-v3-the-six-million-dollar https://www.chinatalk.media/p/deepseeks-edge https://simonwillison.net/2024/Dec/31/llms-in-2024/#was-the-best-currently-available-llm-trained-in-china-for-less-than-6m-
-* _X grok_: seems tied to Twitter https://grok.x.ai/ 
+* _X grok_: seems tied to Twitter https://grok.x.ai/ good now? https://simonwillison.net/2025/Feb/18/andrej-karpathy-grok-3/
 
 ---
 
@@ -158,6 +160,8 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 start here https://parlance-labs.com/education/ https://applied-llms.org/ https://www.agentrecipes.com/prompt-chaining
 
+> The biggest problem: developers don’t want GPUs. They don’t even want AI/ML models. They want LLMs. System engineers may have smart, fussy opinions on how to get their models loaded with CUDA, and what the best GPU is. But software developers don’t care about any of that. When a software developer shipping an app comes looking for a way for their app to deliver prompts to an LLM, you can’t just give them a GPU. For those developers, who probably make up most of the market, it doesn’t seem plausible for an insurgent public cloud to compete with OpenAI and Anthropic. Their APIs are fast enough, and developers thinking about performance in terms of “tokens per second” aren’t counting milliseconds. https://fly.io/blog/wrong-about-gpu/
+
 ---
 
 📙
@@ -188,6 +192,7 @@ start here https://parlance-labs.com/education/ https://applied-llms.org/ https:
 
 ---
 
+* start using https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/
 * defining https://www.anthropic.com/research/building-effective-agents
 https://simonwillison.net/2025/Jan/11/agents/
 https://simonwillison.net/2024/Dec/31/llms-in-2024/#-agents-still-haven-t-really-happened-yet
@@ -305,7 +310,7 @@ https://news.ycombinator.com/item?id=42507116
 ## RAG
 
 💡 core model enhanced by access to specific docs
-🛠️ markitdown
+🛠️ markitdown https://github.com/Goldziher/kreuzberg
 🗄️
 * `doc.md` notes
 * `algos.md` search > bm25
@@ -314,8 +319,11 @@ https://news.ycombinator.com/item?id=42507116
 * Farooq build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch https://www.alldayta.com/#product-demo
 * Kimothi https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation
 
+https://www.youtube.com/watch?v=hB7sGE0W8CI
 https://github.com/gusye1234/nano-graphrag
+with Databricks https://youtube.com/watch?v=p4qpIgj5Zjg
 https://github.com/Cinnamon/kotaemon
+https://entgo.io/blog/2025/02/12/rag-with-ent-atlas-pgvector/
 
 HOWTO (LEARN BY BUILDING FOR DROR)
 ```txt
@@ -421,7 +429,7 @@ BYO
 * https://github.com/langgenius/dify
 * https://github.com/BerriAI/litellm
 
-* _langchain_: https://zackproser.com/blog/office-oracle-overview https://www.amazon.com/dp/1835083463
+* _langchain_: https://zackproser.com/blog/office-oracle-overview https://www.amazon.com/dp/1835083463 https://x.com/aidenybai/status/1895218891586224488
 > We mentioned some of the emerging criticisms about LangChain in the previous Radar. Since then, we’ve become even more wary of it. While the framework offers a powerful set of features for building applications with large language models (LLMs), we’ve found it to be hard to use and overcomplicated. LangChain gained early popularity and attention in the space, which turned it into a default for many developers. However, as LangChain is trying to evolve and keep up with the fast pace of change, it has become harder and harder to navigate those changes of concepts and patterns as a developer. We’ve also found the API design to be inconsistent and verbose. As such, it often obscures what is actually going on under the hood, making it hard for developers to understand and control how LLMs and the various patterns around them actually work. We’re moving LangChain to the Hold ring to reflect this. In many of our use cases, we’ve found that an implementation with minimum use of specialized frameworks is sufficient. Depending on your use case, you may also want to consider other frameworks such as Semantic Kernel, Haystack or LiteLLM.  https://www.thoughtworks.com/radar/languages-and-frameworks/langchain
 
 ## train
@@ -473,7 +481,7 @@ https://platform.openai.com/docs/overview https://cookbook.openai.com/
 GPT has a STT endpoint 📙 Clinton
 
 TYPES https://elevenlabs.io/
-* didn't work https://huggingface.co/spaces/openai/whisper
+* didn't work https://huggingface.co/spaces/openai/whisper https://goodsnooze.gumroad.com/l/macwhisper https://news.ycombinator.com/item?id=42095294
 * dubbing
 * voice clone https://www.tetragrammaton.com/content/richard-feynman
 * _TTS_: https://notebooklm.google/ https://news.ycombinator.com/item?id=41964980 PDF to audio https://www.fwdaudio.com/ https://x.com/barbell_fi multistage https://simonw.substack.com/p/verdad-tracking-misinformation-in https://www.fwdaudio.com/ https://news.ycombinator.com/item?id=43022398
@@ -508,7 +516,7 @@ EXAMPLES
 * _TTV_: https://simonwillison.net/2024/Dec/9/sora/
 * _TFI_: https://calmcode.io/shorts/pytesseract.py
 * image to video https://www.vidifyapp.com/
-* _OCR_: image to text e.g. PDF to plaintext https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194 https://getomni.ai/ocr-demo https://news.ycombinator.com/item?id=41971614 https://github.com/Nutlope/llama-ocr
+* _OCR_: image to text e.g. PDF to plaintext https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194 https://getomni.ai/ocr-demo https://news.ycombinator.com/item?id=41971614 https://github.com/Nutlope/llama-ocr https://simonwillison.net/2025/Feb/26/olmocr/
 
 ---
 
@@ -539,53 +547,29 @@ EXAMPLES
 
 ## prompts
 
-🔗 https://www.promptingguide.ai/techniques/fewshot https://www.thoughtworks.com/radar/techniques/dynamic-few-shot-prompting
-📙
-* https://www.manning.com/books/prompt-engineering-in-practice
-* https://www.manning.com/books/prompt-engineering-in-action
+📙 https://www.manning.com/books/prompt-engineering-in-practice https://www.manning.com/books/prompt-engineering-in-action https://www.promptingguide.ai/
 🗄️
-* `psychology.md` interviewing
-* `work.md` industry > Stack Overflow
+* `dotfiles/ai/aider/conventions`
+* `ur-repo` prompt workflow https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/
+*️ `work.md` industry > Stack Overflow
+* `clients.md` Cursor https://ghuntley.com/stdlib/
+
+ZA
+* ask it to try harder https://simonwillison.net/2025/Jan/3/asking-them-to-write-better-code/
+* BYO your own characters https://news.ycombinator.com/item?id=42107113
+* _zero/one/few shot_: how many examples you give https://www.promptingguide.ai/techniques/fewshot https://www.thoughtworks.com/radar/techniques/dynamic-few-shot-prompting
 
 SEMANTICS
 * _prompt_: question
 * _completion_: answer 📙 Clinton obsolete gen AI
-* _prompt engineering_: asking specific questions https://marginalrevolution.com/marginalrevolution/2023/05/how-to-use-gpt-4-plus-web-browsing.html https://www.youtube.com/watch?v=hB7sGE0W8CI
+* _system message_: hidden instruction that defines the behavior/goals/tone of the model; aka system prompt https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b
+> "You are a helpful assistant named Elia." https://github.com/charmbracelet/mods#custom-roles
+* _chain of density_: prompting LLM to continually refine https://www.youtube.com/watch?v=9Ev208-Gc4c
+```txt
+🫀 human: Summarize this passage -> "The Roman Empire, one of the most influential civilizations, spanned centuries and contributed to law, architecture, and governance. Their legal system influenced modern law, and their roads facilitated trade and military movement."
+🤖 AI: The Roman Empire significantly shaped law, architecture, and governance, with its legal system and roads having a lasting impact.
+🫀 human: Condense further while keeping all key points.
+🤖 AI: Rome’s legal system, architecture, and roads shaped civilization.
+```
 * _prompt injection_: getting model to do something its creators don't want https://simonwillison.net/2023/Dec/31/ai-in-2023/
-* _system message_: hidden instruction that defines the behavior/goals/tone of the model; aka system prompt https://chatgpt.com/c/67106e28-a6e0-8004-9ef0-dd2f3b1eb48b https://github.com/charmbracelet/mods#custom-roles
-> "You are a helpful assistant named Elia."
-
-STOCK
-* taxonomy
-```txt
-Can you give a taxonomy of $FOO in the form of a tree, like this?
-├── root
-│   └── nodes
-│   └──── leaves
-```
-* summary
-```txt
-Can you analyze a book for me: $BOOK
-First, summarize key points in a succinct and logical way i.e. I care most about the claims made by the author and how they are logically supported (or not).
-Next, summarize criticism of the book (positive or negative) in a similar manner.
-Finally, extract relevant quotes, both indicative of the books arguments and anything that marks its writing style as specific e.g. an airport business book probably has little to mark it stylistically interesting, whereas Proust does.
-```
-
-STRATEGY
-* use a framework e.g. "analyze this report by first summarizing key points, then evaluating the data, and finally suggesting improvements"
-> isn't this just a user-defined system prompt? is there a separate word for that?
-* discrete pieces
-* ask it to ask clarifying questions to help it make better decisions
-* ask to give options
-* ask it to do better
-
----
-
-https://simonwillison.net/2025/Jan/3/asking-them-to-write-better-code/
-
-> Please back your claims up with specifics.
-
-https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
-
-* _chain of density_: broad to specific https://www.youtube.com/watch?v=9Ev208-Gc4c
-* BYO your own characters https://news.ycombinator.com/item?id=42107113
+> Simon coined the term prompt injection after SQL Injection. He believes that we are not seeing digital assistants, because no one knows how to build them securely. 99% effective isn't good enough. Never mix untrusted text with access to tools. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote

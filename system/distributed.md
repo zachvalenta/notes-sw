@@ -6,6 +6,7 @@
 * `computation.md` state machines
 * `eng.md` replicate
 * `infra.md` queues
+* `math.md` complexity theory
 📚
 * https://books.google.com/books?id=jZgSAAAAQBAJ https://bsky.app/profile/nhuck.bsky.social/post/3lcb57fmhes23
 * Arpaci ch. 48-50
@@ -77,6 +78,7 @@ Raft https://raft.github.io/
 * BYO https://eli.thegreenplace.net/2020/implementing-raft-part-1-elections/ https://github.com/streed/simpleRaft https://github.com/bbbilibili/raft-1----python https://github.com/erewok/raft-py https://github.com/xwhan/Raft-python https://github.com/jackyzha0/miniraft
 * https://www.micahlerner.com/2020/05/08/understanding-raft-consensus.html https://www.micahlerner.com/2020/05/09/understanding-raft-consensus-part-2.html
 * https://www.confluent.io/blog/why-replace-zookeeper-with-kafka-raft-the-log-of-all-logs/
+* https://www.hytradboi.com/2025/2016d6c4-b08d-40b3-af2f-67926ca8521f-enough-with-all-the-raft
 
 ## VSR
 
@@ -102,6 +104,7 @@ Raft https://raft.github.io/
 
 > A mistake we made in the first few months of operation that has some cost today was not carefully delimiting the boundaries of database transactions. In Wave’s codebase, the SQLAlchemy database session is a request-global variable; it implicitly begins a new database transaction any time a DB object’s attribute is accessed, and any function in Wave’s codebase can call commit on the session, causing it to commit all pending updates. This makes it difficult to control the time at which database updates occur, which increases our rate of subtle data-integrity bugs, as well as making it harder to lean on the database to build things like idempotency keys or a transactionally-staged job drain. It also increases our risk of accidentally holding open long-running database transactions, which can make schema migrations operationally difficult. https://danluu.com/simple-architectures/
 
+https://www.hytradboi.com/2025/38d3ed59-9167-4853-9366-d43ea802ec26-reliable-serverless-needs-distributed-transactions
 https://hakibenita.com/django-nested-transaction
 * https://jepsen.io/analyses/mysql-8.0.34
 https://sqlfordevs.com/transaction-locking-prevent-race-condition
@@ -160,6 +163,8 @@ Petrov ch. 11
 * benefit: you can put lots of processing power behind your db so the walltime of inconsistent states should be very short; aka 'AP system' 📙 Conery 337-8
 
 ---
+
+more on time https://www.hytradboi.com/2025/9dc496a2-a5ca-4d41-a5e6-7b74bf409415-use-of-time-in-distributed-databases---dont-fall-behind-the-times
 
 ```txt
 What it means: Everyone sees the same data instantly.

@@ -9,9 +9,6 @@
 
 ## 进步
 
-start using agents https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/
-https://blog.val.town/blog/fast-follow/
-
 * _24_: lots of work to research/taxonomize tooling, start with llm and aider
 
 # 🚃 CATEGORIES
@@ -50,7 +47,6 @@ LOW ADOPTION | FEATURE POOR
 
 NATIVE 🗄️ `vim.md` Zed
 * _Aide_: ❌ VSC-fork https://aide.dev/ https://news.ycombinator.com/item?id=42063346
-* _Cursor_: 🎯 closed source, Chromium (VSC fork?) https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203 https://news.ycombinator.com/item?id=41988211 https://news.ycombinator.com/item?id=41987367
 * _Tabby_: https://www.tabbyml.com/ https://news.ycombinator.com/item?id=42675725
 * _Void_: ❌ Cursor alternative, unfinished https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
 
@@ -58,11 +54,10 @@ EXTENSIONS https://fly.io/blog/vscode-ssh-wtf/
 > I'd much, much prefer Aide to continue as a CLI tool or as a VSCode plugin. Every fork of VSCode ends up with IDE maintenance bugs that never get addressed and slowly the effort implodes as the bug surface becomes too wide. https://news.ycombinator.com/item?id=42063346
 * _Avante_: ❌ Neovim https://github.com/yetone/avante.nvim https://news.ycombinator.com/item?id=41353835 https://www.youtube.com/watch?v=r-3o35-5hlg https://www.youtube.com/watch?v=4kzSV2xctjc https://www.youtube.com/watch?v=iyftGvVs86E
 * _Cline_: 🎯 VSC extension https://github.com/cline/cline
-* _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://codeium.com/windsurf https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
-* _Cody_: https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
+* _Cody_: 🎯 https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
 * _Continue_: autocomplete https://ollama.com/blog/continue-code-assistant
-* _Copilot_: ❌ VSC-native, multi-model https://simonwillison.net/2024/Dec/18/free-tier-for-github-copilot/ https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
-* _Sage_: https://github.com/Storia-AI/sage
+* _Copilot_: 🎯 VSC-native, multi-model https://simonwillison.net/2024/Dec/18/free-tier-for-github-copilot/ https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
+* _Sage_: 💀 https://github.com/Storia-AI/sage
 
 # 🛸 IN USE
 
@@ -110,6 +105,13 @@ ZA
 
 ---
 
+* is it just the wrong design? at least for exploratory work where you don't already know how things fit together
+```txt
+Only add the files that need to be edited for your task. Don’t add a bunch of extra files. If you add too many files, the LLM can get overwhelmed and confused (and it costs more tokens). Aider will automatically pull in content from related files so that it can understand the rest of your code base.
+
+You’ll get the best results if you think about which files need to be edited. Add just those files to the chat. Aider will include relevant context from the rest of your repo.
+```
+
 * disable analytics
 * _codebuff_: alternative https://news.ycombinator.com/item?id=42078536
 
@@ -142,6 +144,16 @@ Tokens: 2.8k sent, 19 received. Cost: $0.0073 message, $0.02 session.
 def keyboard_interrupt(self):
     self.io.tool_warning("\n\n^C again to exit")
 ```
+
+## Cursor
+
+---
+
+* 🎯 closed source, Chromium (VSC fork?) https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203 https://news.ycombinator.com/item?id=41988211 https://news.ycombinator.com/item?id=41987367 https://www.youtube.com/watch?v=zIejF3IGtWk
+* system prompt https://docs.cursor.com/context/rules-for-ai https://ghuntley.com/stdlib/
+
+* _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://codeium.com/windsurf https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
+> relationship to Cursor? https://ghuntley.com/oh-fuck/
 
 ## 🎙️ chorus
 
@@ -186,6 +198,8 @@ logs -m $MODEL  # logs by model
 ```
 
 ---
+
+https://www.youtube.com/watch?v=VL2TmuDJXhE
 
 ```sh
 llm logs path
@@ -261,6 +275,9 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 > If copy and pasting back and forth between ChatGPT.com is crawling, then Cursor's interface is sprinting. Being able to discuss the code, architecture, a single file, or to tell Cursor to use a file as inspiration when making other changes is my favorite feature of Cursor.
 
 ## interchange (MCP)
+
+https://github.com/simonw/llm/releases/tag/0.23
+https://www.youtube.com/watch?v=oX6IKXfcx78
 
 MODEL CONTEXT PROTOCOL (MCP)
 * protocol to allow clients (in this case, models) to use tools (e.g. here are the queries you can run against a database) https://www.youtube.com/watch?v=oX6IKXfcx78

@@ -539,6 +539,7 @@ limit24 cabal build
 * _registry_: stores images
 
 * _layer_: tarball i.e. files https://jvns.ca/blog/2019/11/18/how-containers-work--overlayfs/
+* explore layers https://github.com/knqyf263/sou
 * _build cache_: creates intermediates images along the way (w/ own ids https://cameronlonsdale.com/2018/11/26/whats-in-a-docker-image/) Dockerfile executed top to bottom so put stuff that will change most frequently (e.g. source) at the bottom so that it doesn't invalidate the build cache (any invalidated layer will invalidate all subsequent layers) https://pythonspeed.com/articles/docker-caching-model/ aka 'layer cache' https://testdriven.io/blog/faster-ci-builds-with-docker-cache/
 * caching https://roadmap.sh/docker
 * _rebuilding_: can use existing layers or force a fresh build https://stackoverflow.com/a/35595021

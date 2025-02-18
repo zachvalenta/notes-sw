@@ -588,7 +588,7 @@ aaS
 * _Zenrows_: https://www.zenrows.com/solutions/scraper-api
 
 LIBS
-* 🎯🎯🎯 https://datasette.io/plugins/datasette-scraper
+* 🎯🎯🎯 https://datasette.io/plugins/datasette-scraper https://simonwillison.net/2020/Oct/9/git-scraping/
 * _crawlee_: https://github.com/apify/crawlee
 * _crawly_: Elixir https://github.com/elixir-crawly/crawly
 * _gazpacho_: 🎯 https://github.com/maxhumber/gazpacho https://calmcode.io/course/gazpacho/introduction
@@ -726,6 +726,7 @@ WSGI
 
 ASGI
 * _ASGI_: async alternative to WSGI
+* design + ASGI, Uvicorn, Starlette, Pydantic https://rafiqul.dev/blog/fastapi-deconstructed-anatomy-of-modern-asgi-framework
 * frameworks: Django (Channels) Quart (Flask on async) https://talkpython.fm/blog/posts/talk-python-rewritten-in-quart-async-flask/ Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
 * servers: uvicorn, Daphne, Hypercorn
 * FastAPI https://github.com/pomponchik/cbfa
@@ -748,6 +749,28 @@ RSGI
 ```python
 from datetime import datetime
 print(f"today's date is {datetime.now().strftime('%y%m%d')}")  ## YYMMDD
+
+def is_valid_date(date_str, cutoff_date="2015-01-01", fmt="%Y-%m-%d"):
+    """
+    check if a date string is before the cutoff date
+    
+    :param date_str: Date string to validate
+    :param cutoff_date: Cutoff date string
+    :param fmt: Date format string
+    :return: bool indicating if date is valid (before cutoff)
+    >>> is_valid_date("2014-12-31")
+    True
+    >>> is_valid_date("2015-01-02")
+    False
+    >>> is_valid_date("2014-12-31", "2014-06-01")
+    False
+    """
+    try:
+        date = datetime.strptime(date_str, fmt)
+        cutoff = datetime.strptime(cutoff_date, fmt)
+        return date < cutoff
+    except ValueError as e:
+        raise ValueError(f"Invalid date format: {e}")
 ```
 * _pdd_: ✅ diff https://github.com/jarun/pdd
 ```sh

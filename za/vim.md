@@ -146,6 +146,7 @@ HISTORY
 
 🗄️ `doc.md` notes > tooling > Org Mode
 
+* org mode https://www.evalapply.org/posts/why-and-how-i-use-org-mode/index.html
 * AI client https://github.com/karthink/gptel
 * https://entropicthoughts.com/why-you-should-buy-into-the-emacs-platform
 * https://www.youtube.com/@SystemCrafters/videos
@@ -442,7 +443,7 @@ ZA
 * perf: `nv --startuptime out.log` https://www.youtube.com/watch?v=28FmViFye2I
 * define variable: `let $SCOPE:$NAME = $MAPPING` e.g. `let g:foo = 'im globally available` https://vi.stackexchange.com/a/282 https://www.youtube.com/watch?v=prnrwpOEsmo 13:45
 * variables: `$VISUAL` (for Git), `$VIM_CONFIG`, `$VIM_DATA` 📙 Neil modern [6-7]
-* clipboard 📙 Neil modern [8] https://neovim.io/doc/user/provider.html#provider-clipboard
+* clipboard 📙 Neil modern [8] https://neovim.io/doc/user/provider.html#provider-clipboard https://github.com/asweigart/pyperclip
 * Python support 📙 Neil modern [8] https://neovim.io/doc/user/provider.html#provider-python https://github.com/LunarVim/Neovim-from-scratch
 * _modeline_: config for individual file 📙 Neil practical [xxv]
 * _autocommand_: hook 📙 Neil practical [306] modern [105]
@@ -537,11 +538,33 @@ qing ~/.cache/nvim
 
 ### 🦥 LazyVim
 
+💻 https://github.com/zachvalenta/dot-lazyvim
+
 PLUGINS
 * _which-key_: guide to keybindings
 * `LEADER cr`: rename symbol under cursor
+* _null-ls_: LSP
 
 ---
+
+attempt to config Markdown LSP to ignore certain errors https://github.com/search?q=repo%3ALazyVim%2FLazyVim%20markdownlint&type=code
+```lua
+-- lua/plugins/markdown.lua
+return {
+  -- Configure null-ls for markdownlint-cli2 to handle Markdown linting
+  "jose-elias-alvarez/null-ls.nvim",
+  opts = function(_, opts)
+    local null_ls = require("null-ls")
+    opts.sources = opts.sources or {} -- Ensure opts.sources exists
+    table.insert(opts.sources, null_ls.builtins.diagnostics.markdownlint.with({
+      extra_args = { "--disable", "MD033" }, -- Disable the MD033 (line-length) rule
+      -- Optionally, specify a config file if you prefer:
+      -- extra_args = { "--config", ".markdownlint-cli2.jsonc" },
+    }))
+    return opts
+  end,
+}
+```
 
 ```txt
 What Handles This in LazyVim?
@@ -555,7 +578,7 @@ What Handles This in LazyVim?
 > LazyVim LSP keybindings @ `~/.config/nvim/lua/lazyvim/plugins/lsp/keymaps.lua`?
 > LazyVim plugins `~/.config/nvim/lua/lazyvim/plugins/editor.lua`
 
-* _LazyVim_: ✅ https://www.lazyvim.org/ fs `~/.config/nvim` https://github.com/zachvalenta/dot-lazyvim https://www.youtube.com/watch?v=evCmP4hH7ZU
+* _LazyVim_: ✅ https://www.lazyvim.org/ fs `~/.config/nvim` https://www.youtube.com/watch?v=evCmP4hH7ZU
 * ❓ goto symbol using aerial and telescope https://github.com/stevearc/aerial.nvim?tab=readme-ov-file#telescope
 * ❌ Markdown LSP is a mess
 * ❌ relative line numbers too dark

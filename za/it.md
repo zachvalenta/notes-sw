@@ -125,6 +125,16 @@ MUSIC
 * tatum in a sentimental mood
 * cesaria evora
 * emmylou harris
+* quadron
+* miles porgy and bess
+* paul simon (theme)
+* hank williams dont let me love you
+* art tatum
+* ramones today your love
+* dead prez
+* clothes line saga
+* new order - all
+* 20th century classical
 
 ## air-capp ➡️ mini23
 

@@ -137,6 +137,7 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 
 🗄️ `stat.md` Gelman
 
+* preceded by SAS (data processing platform developed in the 1970s at North Carolina State and later commercialized)
 * grammar of graphics https://github.com/Kanaries/graphic-walker
 * vs. Prolog https://chatgpt.com/c/67336949-e2fc-8004-92cc-19f5e9e9f230
 * language for stats https://walker-data.com/census-r/index.html https://gwern.net/resorter
@@ -227,6 +228,7 @@ id(counter)  # 4304845312
 
 ---
 
+https://www.hytradboi.com/2025/05c72e39-c07e-41bc-ac40-85e8308f2917-programming-without-pointers
 https://victoriametrics.com/blog/go-weak-pointer/
 https://us.pycon.org/2024/schedule/presentation/80/index.html
 https://pythonbytes.fm/episodes/show/375/pointing-at-countries
@@ -380,7 +382,7 @@ CON https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/ http
 > When in doubt, don't model it. Just get the code written, make forward progress. Don't let yourself get bogged down with the details of modeling a helper class that you're creating for documentation purposes. http://steve-yegge.blogspot.com/2008/02/portrait-of-n00b.html
 > You probably know my skepticism towards Python typing...we are creating the new Java. We became the people we originally displaced. Just that when we are not careful we are on a path to the world's worst Java. We put typing on a language that does not support it, our interpreter is slow, it has a GIL. We need to be careful not to forget that our roots are somewhere else. We should not collectively throw away the benefits we had. https://lucumr.pocoo.org/2023/12/1/the-python-that-was/
 > I'm worried that a de-facto move away from dynamic stuff in the Python ecosystem, possibly motivated by those who use Python only because they have to, and just want to make it more like the C# or Java they are comfortable with, could leave us with the very worst of all worlds. https://news.ycombinator.com/item?id=34615749
-* a programming language is for sketching https://simonwillison.net/2024/Dec/15/preferring-throwaway-code-over-design-docs/
+* a programming language is for sketching https://simonwillison.net/2024/Dec/15/preferring-throwaway-code-over-design-docs/ https://daniel.haxx.se/blog/2025/02/18/changing-every-line-three-times/
 > A programming language is for thinking of programs, not for expressing programs you've already thought of. It should be a pencil, not a pen. 📙 Graham hackers painters [22]
 > Have you ever noticed that when you sit down to write something, half the ideas that end up in it are ones you thought of while writing? The same thing happens with software. Working to implement one idea gives you more ideas. 📙 Graham hackers painters [68]
 

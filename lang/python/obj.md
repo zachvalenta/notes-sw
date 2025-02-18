@@ -593,7 +593,7 @@ class Model(metaclass=ModelBase):            # metaclass handles model registrat
 The core magic happens through:
 * Lazy evaluation (QuerySets don't execute until needed)
 * Method chaining that builds SQL AST
-* Query compilation that transforms Python objects into SQL
+* Query compilation that transforms Python objects into SQL https://www.hytradboi.com/2025/742be405-2e0b-4bc6-a8e0-ff1e0760e912-database-query-compilation-our-journey
 
 Here's where it gets deep - Django's ORM is effectively a compiler that:
 * Source language: Python method calls and objects

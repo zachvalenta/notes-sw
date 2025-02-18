@@ -191,6 +191,8 @@ config
 
 # 🚢 PaaS
 
+https://www.contraption.co/a-mini-data-center/ https://hatchbox.io/
+
 DESIGN
 > Features: Automatic scaling, continuous deployment, and integration with development tools.
 * simplicity
@@ -348,9 +350,11 @@ https://cba.mit.edu/
 
 https://railway.com/
 
-## val town
+## Python Anywhere
 
+https://www.pythonanywhere.com/
 https://www.val.town/
+https://www.val.town/v/mikker/dailySlackRoundup
 
 # 🏡 SELF HOST
 
@@ -393,6 +397,10 @@ Features: Zero-downtime deployments, compatibility with bare-metal servers and c
 ## Piku
 
 * _Piku_: 🎯 6k https://github.com/piku/piku
+
+## Ubicloud
+
+https://www.ubicloud.com/blog/debugging-hetzner-uncovering-failures-with-powerstat-sensors-and-dmidecode
 
 # 🟨 ZA
 

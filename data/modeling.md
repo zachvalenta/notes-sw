@@ -35,6 +35,135 @@ SEMANTICS
 https://news.ycombinator.com/item?id=42245927
 abstraction and math https://neugierig.org/content/dfw/
 
+# ⭕️ FACTORS
+
+💻
+* `OLAP.md` schemas
+
+---
+
+* wide, sparse: Cassandra, Snowflake 
+* fact tables: wide, often sparse, store metrics (e.g., sales data).
+* dimension tables: narrow, dense, store descriptive attributes (e.g., product details).
+
+## access
+
+* _access pattern_: how you have to query based on schema https://calpaterson.com/non-relational-beartraps.html
+* what you're prioritizing e.g. read/write vs. aggregations 📻 Macey [6:10]
+* _upsert_: insert|update 📙 Bradshaw [46]
+* _resolve_: `get_or_create()` in Django
+
+## density
+
+* _dense_: few nulls
+* con: less flexible
+* _sparse_: many nulls
+* optional attributes e.g. `battery_life` for electronics but null for books
+* con: slower queries due to null checks
+
+EAV
+* approach to handling sparse data useful when dealing w/ situations where the number of attr associated with an entity can vary widely, and many attr don't apply to every entity
+* example: medical records (EMR) where each patient might have different tests or conditions e.g. blood pressure = 120/80 or allergy = penicillin
+* _entity_: obj e.g. product, user
+* _attribute_: characteristic e.g. color, email
+* _value_: val for attr e.g. red, `alice@gmail.com`
+```md
+| Entity_ID | Attribute | Value           |
+|-----------|-----------|-----------------|
+| 1         | Type      | Chair           |
+| 1         | Color     | Red             |
+| 1         | Price     | 45.99           |
+| 2         | Name      | Alice           |
+| 2         | Email     | alice@gmail.com |
+| 2         | Age       | 42              |
+```
+
+## width
+
+* _wide_: high number of col relative to records
+* akin to fact tables 🗄️ `OLAP.md`
+* pro: reduces joins
+* con: hard to maintain 📍 get example of mechanics
+* _narrow_: few col
+* e.g. lookup table for country codes
+* pro: good for normalization
+* con: bad for joins
+* _tall_: few col but many records
+* e.g. time series
+
+## taxonomy
+
+🧠 https://chatgpt.com/c/672d1eca-8194-8004-a7bb-ab67c03b2a58
+
+* design process https://www.amazon.com/gp/product/0136788041
+
+---
+
+ONTOLOGY
+> semantic web, ML https://owlready2.readthedocs.io/en/latest/intro.html
+* https://www.stephendiehl.com/posts/bfo/
+* https://www.amazon.com/gp/product/1484265513
+* https://www.amazon.com/gp/product/0262527812
+* OWL files
+
+relational to graph https://www.amazon.com/gp/product/1804618039 https://www.amazon.com/gp/product/1492044075
+knowledge graph https://www.amazon.com/gp/product/1098127102 https://www.manning.com/books/knowledge-graphs-applied
+semantic https://www.amazon.com/gp/product/1492054275
+
+❗️ https://en.wikipedia.org/wiki/Information_science https://en.wikipedia.org/wiki/Ontology_(information_science)
+🔗 https://en.wikipedia.org/wiki/Data_modeling
+
+https://en.wikipedia.org/wiki/Domain_model
+https://www.amazon.com/gp/product/1573875864
+
+```sh
+# start here https://en.wikipedia.org/wiki/Three-schema_approach
+├── Conceptual # https://en.wikipedia.org/wiki/Conceptual_schema
+│   └── Entity-Relationship (ER) # https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model https://en.wikipedia.org/wiki/Relational_Model/Tasmania https://en.wikipedia.org/wiki/Information_model
+│   └── Object-Oriented  # https://en.wikipedia.org/wiki/Object%E2%80%93role_modeling
+│   └── Semantic Data # https://www.amazon.com/gp/product/1492054275 https://en.wikipedia.org/wiki/Semantic_data_model semantic web https://en.wikipedia.org/wiki/Semantic_technology https://en.wikipedia.org/wiki/Relational_Model/Tasmania
+│       ├── Ontologies
+│       ├── Taxonomies
+│       ├── Conceptual Graphs # https://en.wikipedia.org/wiki/Conceptual_graph https://en.wikipedia.org/wiki/Concept_map
+├── Logical # https://en.wikipedia.org/wiki/Logical_schema
+│   └── Relational
+│   └── Object-Relational # https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping
+│   └── Hierarchical
+│   └── Network
+├── Physical  # https://en.wikipedia.org/wiki/Physical_schema
+│   └── Database Schema Design
+│   └── Indexing and Optimization
+│   └── Partitioning and Replication
+├── Dimensional
+│   └── Star Schema
+│   └── Snowflake Schema
+│   └── Fact and Dimension Tables
+├── Graph
+│   └── Node and Edge
+│   └── Property Graph
+│   └── RDF (Resource Description Framework)
+├── Temporal
+│   └── Historical
+│   └── Time-Series 
+├── NoSQL
+│   └── Key-Value Store
+│   └── Document Store
+│   └── Column-Family Store 
+│   └── Graph Store
+├── Object-Oriented Data
+│   └── Classes and Inheritance
+│   └── Encapsulation and Polymorphism
+```
+
+* https://www.amazon.com/gp/product/1573875864 https://www.hedden-information.com/
+```txt
+Hierarchical taxonomies – for browsing topics tagged to content
+Faceted taxonomies – for filtering or refining results by topical aspects
+Thesauri – for consistent indexing and accurate retrieval of large numbers of documents
+Metadata schema – for effective content management, organization, and retrieval
+Ontologies – for modeling semantic relationships between defined classes and their entities
+Book indexes – for indicating page numbers of topics and names in printed books
+```
 # 🗺️ NON
 
 📙 Kleppmann ch. 2
@@ -110,6 +239,11 @@ HIERARCHICAL
 
 ---
 
+start here https://www.richard-towers.com/2025/02/16/representing-graphs-in-postgres.html
+
+* _EdgeDB_: graph-relational = no impedance mismatch but still relational https://news.ycombinator.com/item?id=30290225 built on Postgres https://www.geldata.com/blog/edgedb-is-now-gel-and-postgres-is-the-future
+* Postgres https://supabase.com/blog/pgrouting-postgres-graph-database
+* _Age_: graph for Postgres https://age.apache.org/
 * _PGQ_: property graph queries https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 > SQL now supports defining read-only queries on graphs. This allows an application to declare a property graph structure over existing tables. It is left up to the DBMS to decide whether to create an auxiliary data structure (e.g., adjacency matrix) for the property graph or just keep track of the meta-data. You can then write graph traversal queries in SQL using the MATCH keyword. The syntax builds on existing languages (e.g., Neo4j's Cypher, Oracle’s PGQL, and TigerGraph’s GSQL), and shares aspects of the emerging GQL standard. As of January 2024, the only DBMS that I am aware of that supports SQL/PGQ features is Oracle. There is an experimental branch of DuckDB that also supports SQL/PGQ.
 > SQL/PGQ is a big deal. However, I do not foresee it being an immediate deathblow for graph DBMSs, as there are already several ways to translate graph-oriented queries to SQL. Some DBMSs, including SQL Server and Oracle, provide built-in SQL extensions that make storing and querying graph data easier. Amazon Neptune is a graph-oriented veneer on top of their Aurora MySQL offering. Apache AGE provides an OpenCypher interface on top of PostgreSQL. I expect other major OLAP systems (e.g., Snowflake, Redshift, BigQuery) will support SQL/PGQ in the near future.
@@ -125,7 +259,6 @@ DBMS
 * Mongo offers as well https://www.mongodb.com/databases/mongodb-graph-database
 * SQLite, Postgres https://news.ycombinator.com/item?id=35386948
 * _Age_: Postgres extension https://github.com/apache/age
-* _EdgeDB_: graph-relational = no impedance mismatch but still relational https://news.ycombinator.com/item?id=30290225
 * written in Python on top of Postgres https://talkpython.fm/episodes/show/355/edgedb-building-a-database-in-python
 * _Janus_: distributed, OSS https://github.com/JanusGraph/janusgraph
 * _SQLite_: https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need
@@ -277,6 +410,64 @@ CREATE TABLE band_musician(
 );
 ```
 
+## name spaces
+
+> on a file system, you can nest folders arbitrarily deep. in a database, all tables are in same directory (so to speak). so you get ugliness like: sales, sales_monthly, sales_report. surely i'm not the only one that finds this offensive?
+> The reason you don't get arbitrary nesting in databases is partly philosophical: tables are meant to be logical entities, not files, and relationships between them (via foreign keys, etc.) are supposed to define structure. File systems prioritize storage hierarchy; databases prioritize queryable relationships. But I get it - it still feels wrong when you're staring at a mess of table names.
+
+VIEW-BASED
+* = raw data in big dumb tables and views for namespaces
+* con: views non-materialized by default i.e. slower queries
+* con: materialized views need to be manually refreshed
+* con: views read-only by default
+* con: direct table queries better for indexing
+
+SCHEMAS
+* _schema_: namespace for objs like tables, views, functions
+* maybe someday in Turso? https://github.com/tursodatabase/limbo/issues/1078
+* only in Postgres, Snowflake
+```sql
+CREATE SCHEMA foo;
+CREATE TABLE foo.tbl (
+    col1 text,
+    col2 integer
+);
+```
+
+QUERYING ACROSS DATABASES
+* SQLite: FKs don't work
+```sql
+ATTACH DATABASE 'other.db' AS other_db;
+SELECT * FROM main.sales INNER JOIN other_db.customers ON sales.customer_id = customers.id;
+```
+* Postgres: foreign data wrappers
+```sql
+CREATE EXTENSION postgres_fdw;
+CREATE SERVER other_db FOREIGN DATA WRAPPER postgres_fdw OPTIONS (dbname 'otherdb');
+SELECT * FROM other_db.public.some_table;
+```
+
+ZA
+* 🎯 BYO table groupings in SQLite
+```sql
+CREATE TABLE table_groups (
+    table_name TEXT PRIMARY KEY,
+    group_name TEXT
+);
+
+INSERT INTO table_groups (table_name, group_name) VALUES
+    ('sales', 'Sales'),
+    ('sales_monthly', 'Sales'),
+    ('inventory', 'Operations');
+
+SELECT tm.name, tg.group_name FROM sqlite_master tm LEFT JOIN table_groups tg ON tm.name = tg.table_name WHERE tm.type = 'table';
+```
+* partition: good fit only for temporal/spacial vs. logical taxonomy?
+```sql
+CREATE TABLE sales_2024 PARTITION OF sales FOR VALUES FROM ('2024-01-01') TO ('2024-12-31');
+```
+* _table prefixing_: sales_orders, sales_reports, sales_accounts_receivable
+
 ## normalization
 
 * _normalization_: process of extracting entities from other entities https://en.wikipedia.org/wiki/Database_normalization#Normal_forms
@@ -321,49 +512,13 @@ IT103    |   2009-2   | 120      | Web Design   |
 
 # 🖼️ REPR
 
-## ERD
+## ERD (d2)
 
-
-* d2 https://d2lang.com/tour/sql-tables 🗄️ `architecture.md`
-```txt
-catalog: {
-  shape: sql_table
-  product_id: int {constraint: foreign_key}
-  sku: string {constraint: foreign_key}
-  manufacturer: string {constraint: foreign_key}
-  list price: float
-}
-
-entity: {
-  shape: sql_table
-  product_id: int {constraint: foreign_key}
-  entity_id: int
-  part_number: int
-}
-
-prod_class: {
-  shape: sql_table
-  product_id: int {constraint: foreign_key}
-  manufacturer: string
-}
-
-products: {
-  shape: sql_table
-  product_id: int
-  csn: string
-  sku: string
-  description: string
-}
-
-catalog.manufacturer -> prod_class.manufacturer
-catalog.product_id -> products.product_id
-catalog.sku -> products.sku
-entity.product_id -> products.product_id
-prod_class.product_id -> products.product_id
-```
+🗄️ `architecture.md` d2
 
 ---
 
+* Jonathan Edwards schema exploration https://www.hytradboi.com/2025/3b6de0f0-c61c-4e70-9bae-cca5a0e5bb7b-db-usability-as-if
 🗄 `analytics.md` tooling / GUI 🧠 https://chatgpt.com/c/673ce0d8-543c-8004-93c3-90df2d298ecf
 > can use d2 https://github.com/zekenie/d2-erd-from-postgres https://terrastruct.com/blog/post/generate-diagrams-programmatically/
 * symbols 📙 Karwin [7]
@@ -388,86 +543,3 @@ prod_class.product_id -> products.product_id
 * PlantUML
 * alternative syntax 📙 Evans domain-driven [42]
 * can be used for ERD in Mongo https://stackoverflow.com/q/11323841 https://stackoverflow.com/q/6010408
-
-# 🟨 ZA
-
-## access patterns
-
-* _access pattern_: how you have to query based on schema https://calpaterson.com/non-relational-beartraps.html
-* what you're prioritizing e.g. read/write vs. aggregations 📻 Macey [6:10]
-* _upsert_: insert|update 📙 Bradshaw [46]
-* _resolve_: `get_or_create()` in Django
-
-## taxonomy
-
-🧠 https://chatgpt.com/c/672d1eca-8194-8004-a7bb-ab67c03b2a58
-
-* design process https://www.amazon.com/gp/product/0136788041
-
----
-
-ONTOLOGY
-> semantic web, ML https://owlready2.readthedocs.io/en/latest/intro.html
-* https://www.stephendiehl.com/posts/bfo/
-* https://www.amazon.com/gp/product/1484265513
-* https://www.amazon.com/gp/product/0262527812
-* OWL files
-
-relational to graph https://www.amazon.com/gp/product/1804618039 https://www.amazon.com/gp/product/1492044075
-knowledge graph https://www.amazon.com/gp/product/1098127102 https://www.manning.com/books/knowledge-graphs-applied
-semantic https://www.amazon.com/gp/product/1492054275
-
-❗️ https://en.wikipedia.org/wiki/Information_science https://en.wikipedia.org/wiki/Ontology_(information_science)
-🔗 https://en.wikipedia.org/wiki/Data_modeling
-
-https://en.wikipedia.org/wiki/Domain_model
-https://www.amazon.com/gp/product/1573875864
-
-```sh
-# start here https://en.wikipedia.org/wiki/Three-schema_approach
-├── Conceptual # https://en.wikipedia.org/wiki/Conceptual_schema
-│   └── Entity-Relationship (ER) # https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model https://en.wikipedia.org/wiki/Relational_Model/Tasmania https://en.wikipedia.org/wiki/Information_model
-│   └── Object-Oriented  # https://en.wikipedia.org/wiki/Object%E2%80%93role_modeling
-│   └── Semantic Data # https://www.amazon.com/gp/product/1492054275 https://en.wikipedia.org/wiki/Semantic_data_model semantic web https://en.wikipedia.org/wiki/Semantic_technology https://en.wikipedia.org/wiki/Relational_Model/Tasmania
-│       ├── Ontologies
-│       ├── Taxonomies
-│       ├── Conceptual Graphs # https://en.wikipedia.org/wiki/Conceptual_graph https://en.wikipedia.org/wiki/Concept_map
-├── Logical # https://en.wikipedia.org/wiki/Logical_schema
-│   └── Relational
-│   └── Object-Relational # https://en.wikipedia.org/wiki/Object%E2%80%93relational_mapping
-│   └── Hierarchical
-│   └── Network
-├── Physical  # https://en.wikipedia.org/wiki/Physical_schema
-│   └── Database Schema Design
-│   └── Indexing and Optimization
-│   └── Partitioning and Replication
-├── Dimensional
-│   └── Star Schema
-│   └── Snowflake Schema
-│   └── Fact and Dimension Tables
-├── Graph
-│   └── Node and Edge
-│   └── Property Graph
-│   └── RDF (Resource Description Framework)
-├── Temporal
-│   └── Historical
-│   └── Time-Series 
-├── NoSQL
-│   └── Key-Value Store
-│   └── Document Store
-│   └── Column-Family Store 
-│   └── Graph Store
-├── Object-Oriented Data
-│   └── Classes and Inheritance
-│   └── Encapsulation and Polymorphism
-```
-
-* https://www.amazon.com/gp/product/1573875864 https://www.hedden-information.com/
-```txt
-Hierarchical taxonomies – for browsing topics tagged to content
-Faceted taxonomies – for filtering or refining results by topical aspects
-Thesauri – for consistent indexing and accurate retrieval of large numbers of documents
-Metadata schema – for effective content management, organization, and retrieval
-Ontologies – for modeling semantic relationships between defined classes and their entities
-Book indexes – for indicating page numbers of topics and names in printed books
-```

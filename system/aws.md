@@ -272,6 +272,7 @@ ZA
 
 ---
 
+conditional writes https://www.hytradboi.com/2025/46867aad-ddc3-4e7a-a530-941e1c363bba-why-s3s-conditional-writes-made-people-excited
 https://simonwillison.net/2025/Feb/7/sqlite-s3vfs/
 alternative https://pinata.cloud/
 https://github.com/s3tools/s3cmd https://tech.marksblogg.com/website-cdn-with-pelican-and-s3cmd.html

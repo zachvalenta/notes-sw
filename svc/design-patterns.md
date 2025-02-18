@@ -8,21 +8,23 @@
 * Dibernardo 500 lines http://aosabook.org/en/index.html
 * Fowler refactoring 🎗️ PDF
 * GoF design patterns
+* Jackson essence of software https://www.amazon.com/Essence-Software-Concepts-Matter-Design/dp/0691225389 https://www.hytradboi.com/2025/840b0b92-720e-4c0c-9760-19739d3832a5-back-to-modularity buddies with Jonathan Edwards https://alarmingdevelopment.org/ https://youtu.be/BdoWZPvfZSE
 * Mak https://www.manning.com/books/software-design-in-python
 * Martin clean code
 * Nystrom http://gameprogrammingpatterns.com/contents.html
-* Ousterhout philosophy of sofware design
+* Ousterhout philosophy of sofware design https://news.ycombinator.com/item?id=43166362 https://github.com/johnousterhout/aposd-vs-clean-code
 
 ## 进步
 
 * https://neetcode.io/courses/lessons/8-design-patterns
+* in Elixir https://youtube.com/watch?v=agkXUp0hCW8
 * https://www.youtube.com/watch?v=tAuRQs_d9F8
 
 * _25_: factory
 * _24_: builder for EDI at Capp
 * _23_: 📙 Evans domain-driven
 
-* fanout https://www.better-simple.com/django/2023/12/06/fanout-pattern-explained/
+* fanout https://www.better-simple.com/django/2023/12/06/fanout-pattern-explained/ https://news.ycombinator.com/item?id=43105028
 * the big ball of mud https://news.ycombinator.com/item?id=35481309
 * _strangler fig_: you run the old code and new code live, in production, side-by-side, checking that the new code behaves exactly the same as the old code. Once you are confident it does, you retire the old code https://www.kosli.com/blog/how-to-strangle-old-code-using-python-decorators/ https://news.ycombinator.com/item?id=41423421
 
@@ -658,6 +660,8 @@ https://drewdevault.com/2019/04/29/Shut-up-and-get-back-to-work-style.html
 > This is what I’ve started telling people: Use mostly functions, try to make most of them pure. I think that can get people (even new devs) 80% of the benefits (testability, composability, loose coupling, and the ability to reason about code) of more complicated, prescriptive architectures (Hexagonal, Onion, Ports & Adapters, Clean, etc) with a minimal amount of ramp up. https://news.ycombinator.com/item?id=24915497
 
 ## refactoring
+
+> Analysis of the curl codebase: “It means that every line in the product source code tree have by now been edited on average 3.5 times.” https://registerspill.thorstenball.com/p/joy-and-curiosity-28
 
 * _extract_: separate [Fowler https://refactoring.com/catalog/]
 * _inline_: combine

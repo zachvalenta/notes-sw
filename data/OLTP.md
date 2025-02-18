@@ -190,6 +190,7 @@ ALTERNATIVES
 * `system.md` distributed
 
 * short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00 https://simonwillison.net/about/#subscribe
+* backup Postgres to parquet https://www.crunchydata.com/blog/incremental-archival-from-postgres-to-parquet-for-analytics
 
 TYPES
 * _full_: reset to specific backup
@@ -197,6 +198,8 @@ TYPES
 * _point-in-time (PITR)_: restore to any moment
 
 ---
+
+* with stats, pg_upgrade https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=1fd1bd871012732e3c6c482667d2f2c56f1a9395#transferstatistics
 
 ```txt
 Database Recovery Methods:
@@ -283,13 +286,14 @@ The general problem this addresses is maintaining perfect history of state chang
 * avoid by scaling vertically as long as you can 📙 Conery imposter 343 https://news.ycombinator.com/item?id=28430852
 * howto https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/ 📙 Conery imposter 343
 * https://stackoverflow.com/questions/20771435/database-sharding-vs-partitioning https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6 https://news.ycombinator.com/item?id=28425379
-* _shard_: node in cluster 📙 Bradshaw [290]
+* _shard_: node in cluster 📙 Bradshaw [290] https://tomlinford.com/posts/robinhood-sharding-to-scale
 
 ## version control
 
 🧠 https://chatgpt.com/c/673a8de0-7cd8-8004-9325-7943f380d4d7
 
 * people don't really care about this https://news.ycombinator.com/item?id=22731928
+* Jonathan Edwards https://www.hytradboi.com/2025/3b6de0f0-c61c-4e70-9bae-cca5a0e5bb7b-db-usability-as-if
 * _DVC_ https://github.com/iterative/dvc https://www.youtube.com/watch?v=ITvSs23lTQE https://realpython.com/python-data-version-control/
 * _Dolt_ https://github.com/dolthub/dolt
 
@@ -635,6 +639,8 @@ wire protocol
 
 ---
 
+weird bits https://www.hytradboi.com/2025/b479d9ff-3dd9-4548-940d-24698e7cff71-learning-about-the-odd-bits-of-sql-by-reading-the-postgresql-docs
+
 https://www.manning.com/books/just-use-postgres https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb
 🏔️ https://github.com/Olshansk/postgres_for_everything
 📚
@@ -651,7 +657,6 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * monitor / metrics https://github.com/CrunchyData/pgmonitor-extension
 * duckdb extension https://motherduck.com/blog/pg_duckdb-postgresql-extension-for-duckdb-motherduck/ https://github.com/duckdb/pg_duckdb
 * copy btw tables https://ongres.com/blog/fastest_way_copy_data_between_postgres_tables/
-* embed https://github.com/electric-sql/pglite
 * perf, memory https://news.ycombinator.com/item?id=40642803 https://github.com/nexsol-technologies/pgassistant
 * generate `create table` from existing table https://github.com/lacanoid/pgddl
 * Elasticsearch https://github.com/paradedb/paradedb https://github.com/pgroonga/pgroonga
@@ -708,7 +713,7 @@ misc
 * _GraphQL_: https://github.com/graphile/postgraphile
 * _import_: pgloader https://www.twilio.com/blog/sqlite-postgresql-complicated https://github.com/dimitri/pgloader https://www.youtube.com/watch?v=DA1Trq51JZs https://www.youtube.com/watch?v=yDtgk_OLHUc http://www.postgresqltutorial.com/import-csv-file-into-posgresql-table/ https://stackoverflow.com/questions/2987433/how-to-import-csv-file-data-into-a-postgresql-table/2987451#2987451 https://mattsegal.dev/restore-django-local-database.html https://bigmachine.io/all/importing-a-csv-into-postgresql-like-a-pro/
 * _logs_: https://github.com/darold/pgbadger
-* _monitoring_: https://minervadb.xyz/postgresql-dba-daily-checklist/ https://pgstats.dev/ https://info.crunchydata.com/blog/postgresql-monitoring-for-application-developers-dba-stats https://klotzandrew.com/blog/quickly-debugging-postgres-problems https://github.com/lesovsky/pgcenter Vivid Cortex https://github.com/lob/pg_insights https://github.com/cybertec-postgresql/pgwatch2 https://github.com/cybertec-postgresql/pgwatch2 https://pganalyze.com/ https://github.com/dalibo/temboard
+* _monitoring_: https://minervadb.xyz/postgresql-dba-daily-checklist/ https://pgstats.dev/ https://info.crunchydata.com/blog/postgresql-monitoring-for-application-developers-dba-stats https://klotzandrew.com/blog/quickly-debugging-postgres-problems https://github.com/lesovsky/pgcenter Vivid Cortex https://github.com/lob/pg_insights https://github.com/cybertec-postgresql/pgwatch2 https://pganalyze.com/ https://github.com/dalibo/temboard
 * _queries_: https://news.ycombinator.com/item?id=22432254 explain http://www.helenanderson.co.nz/sql-query-tweaks/ `pg_stat_statements` https://pgdash.io/blog/postgres-features.html https://github.com/mgartner/pg_flame
 * _search_: https://czep.net/17/full-text-search.html https://www.imagescape.com/blog/2020/03/11/website-search-using-django-and-postgresql-trigrams 🗄 `algos.md` FTS
 * _scheduling_: https://github.com/cybertec-postgresql/pg_timetable
@@ -909,12 +914,6 @@ USAGE
 
 ---
 
-TURSO / LIMBO https://github.com/tursodatabase/libsql https://github.com/tursodatabase/limbo/
-* from guy who did TigerBeetle? Deterministic Simulation Testing https://changelog.com/podcast/626
-* https://news.ycombinator.com/item?id=42378843
-* https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/
-* https://avi.im/blag/2024/faster-sqlite/
-
 * functions https://blog.julik.nl/2025/01/supercharge-sqlite-with-ruby-functions
 * https://blog.julik.nl/2025/01/maximum-speed-sqlite-inserts
 > Beyond that, we’re starting to see more creative uses of SQLite rather than “just” a local ACID-compliant database. With the advent of tools like Litestream enabling streaming backups and LiteFS to provide distributed access, we can devise more interesting topologies. Extensions like CR-SQLite allow the use of CRDTs to avoid needing conflict resolution when merging changesets, as used in Corrosion. https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
@@ -929,7 +928,6 @@ ZA
 * _APSW_: alternative to Python's sqlite3 https://github.com/litements/s3sqlite
 * db file extension incl. `.db` and `.sqlite` https://www.visidata.org/ https://sqlite.org/fileformat.html
 * can do blob https://stackoverflow.com/q/29008721/6813490 https://www.youtube.com/watch?v=TLgVEBuQURA
-* GUI: https://sqlitebrowser.org/ https://github.com/pawelsalawa/sqlitestudio
 * backups https://github.com/benbjohnson/litestream https://news.ycombinator.com/item?id=34517474 https://github.com/maxpert/marmot https://litestream.io/alternatives/cron/ https://news.ycombinator.com/item?id=31152490 https://news.ycombinator.com/item?id=31318708
 
 HOWTO
@@ -943,6 +941,7 @@ HOWTO
 
 ## CLI
 
+🗄️ `analytics.md` REPL > litecli
 📜 https://sqlite.org/cli.html
 
 CONF
@@ -960,7 +959,7 @@ sqlite3 <name.db> # create empty
 
 # LIST
 l  # show file
-.da  #  # list db; .databases (litecli)
+.da  # list db
 .tables # list tables
 .schema <table> # describe schema
 
@@ -987,6 +986,22 @@ db files
 
 ## design
 
+META
+* all tables live in the `main` schema https://www.sqlite.org/lang_naming.html 🗄️ `modeling.md` namespaces
+
+REASONS NOT TO USE https://pid1.dev/posts/siren-call-of-sqlite-on-the-server/ https://news.ycombinator.com/item?id=43049659
+* need LiteFS for multiserver
+* bad at schema migrations
+
+ALTERNATIVES
+* Postgres for Java https://github.com/zonkyio/embedded-postgres-binaries
+* Postgres for Rust https://github.com/theseus-rs/postgresql-embedded https://github.com/faokunega/pg-embed
+* _pglite_: embedded Postgres for WASM https://pglite.dev/
+* _turso/limbo_: https://github.com/tursodatabase/libsql https://github.com/tursodatabase/limbo/
+* from guy who did TigerBeetle? + deterministic simulation testing (DST) https://changelog.com/podcast/626 🗄️ TLA https://www.hytradboi.com/2025/c222d11a-6f4d-4211-a243-f5b7fafc8d79-rocket-science-of-simulation-testing https://www.hytradboi.com/2025/0c713342-7476-480e-b1ab-2ae97246826d-language-agnostic-simulation-testing-on-a-budget
+* https://news.ycombinator.com/item?id=42378843
+* https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/ https://avi.im/blag/2024/faster-sqlite/
+
 ---
 
 concurrent writers, Litestream for backups/replication https://avi.im/blag/2024/sqlite-bad-rep/ https://sqlite.org/talks/howitworks-20240624.pdf https://news.ycombinator.com/item?id=42665708 https://news.ycombinator.com/item?id=42666847
@@ -999,7 +1014,7 @@ COMPONENTS
 * _SQLite_: library https://tech.marksblogg.com/sqlite3-tutorial-and-guide.html
 * Go port https://simonwillison.net/2022/Jan/30/a-cgo-free-port-of-sqlite/
 * plumbing https://jvns.ca/blog/2014/09/27/how-does-sqlite-work-part-1-pages/ https://jvns.ca/blog/2014/10/02/how-does-sqlite-work-part-2-btrees/
-* BYO https://github.com/alexpasmantier/resql hex dump https://blog.jabid.in/2024/11/24/sqlite.html
+* BYO https://github.com/alexpasmantier/resql https://news.ycombinator.com/item?id=43183891 hex dump https://blog.jabid.in/2024/11/24/sqlite.html
 * _sqlite3_: CLI
 * _sqlite3_: also the name of the Python lib/driver https://github.com/zachvalenta/sqlite3-demo https://github.com/zachvalenta/bookcase-sjk https://sebastianraschka.com/Articles/2014_sqlite_in_python_tutorial.html
 

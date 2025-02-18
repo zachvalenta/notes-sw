@@ -12,8 +12,6 @@
 * can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
 > Marimo has the ability to run in WASM mode, which means that *everything* can run from the frontend
 * Jupyter in the browser https://github.com/jvns/pandas-cookbook
-* https://positron.posit.co/
-* https://quarto.org/
 
 ```txt
 Exactly! Your problem has several layers:
@@ -85,7 +83,7 @@ OPTIONS
 * notebook: when you want to share
 
 * look into hosted
-* pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html 🗄️ `architecture.md` baked data, Datasette, WASM-based? https://simonwillison.net/2025/Feb/13/url-addressable-python/
+* pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html 🗄️ `architecture.md` baked data, Datasette, WASM-based? https://simonwillison.net/2025/Feb/13/url-addressable-python/ https://trilogydata.dev/
 * add to startup https://www.pythonmorsels.com/cli-tools/#pyclbr
 * https://ericmjl.github.io/blog/2024/11/8/disposable-environments-for-ad-hoc-analyses/
 * https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/
@@ -125,11 +123,13 @@ def simple_tracer(frame, event):  # 4:30
 * https://werat.dev/blog/what-a-good-debugger-can-do/
 * https://wizardzines.com/zines/debugging-guide/
 * https://peps.python.org/pep-0768/
+* internals https://www.hytradboi.com/2025/e4264872-f118-44cc-8d73-25f52f5efcdc-how-debuggers-work
 
 ## alternatives
 
 ---
 
+debugpy https://www.bitecode.dev/p/whats-up-python-better-packaging
 https://github.com/leapingio/leaping
 
 IPYTHON
@@ -307,6 +307,13 @@ ALTERNATIVES
 * Zed https://zed.dev/blog/repl
 
 ---
+
+* charting in Jupyter: https://github.com/plotly/plotly.py https://github.com/lux-org/lux
+
+OBSERVABLE
+* https://observablehq.com/
+* https://observablehq.com/@simonw/datasette-downloads-per-day-with-observable-plot
+* https://www.hytradboi.com/2025/5fc19c84-9ad9-49b5-9433-9f83b68a495b-hacking-observable-notebooks-from-within
 
 * https://blog.jetbrains.com/pycharm/2024/09/7-ways-to-use-jupyter-notebooks-inside-pycharm/
 

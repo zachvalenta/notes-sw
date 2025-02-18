@@ -95,6 +95,17 @@ coverage html && coverage htmlcov/index.html
 
 ## doctest
 
+RUNNING
+```sh
+python -m doctest -v my_mod.py
+```
+```python
+doctest.testmod(ur_mod)
+```
+
+---
+
+TRYING TO GET GOOD STDOUT
 ```python
 def foo(a, b):
     """
@@ -114,8 +125,6 @@ actual: 26.77
 result: ✅ pass
 ```
 
----
-
 https://hamatti.org/posts/document-intended-usage-through-tests-with-doctest/
 * https://rdrn.me/postmodern-python/
 * `ELLIPSIS` 📙 Ramalho [7]
@@ -123,15 +132,6 @@ https://hamatti.org/posts/document-intended-usage-through-tests-with-doctest/
 > [key feature] they look like transcripts of interactive Python console sessions, so you can easily try out the demonstrations yourself 📙 Ramalho [xviii]
 * as TDD-as-design tool bc favors small functions that require minimal setup
 * keep docstring aligned to src
-* run: `python -m doctest -v my_mod.py`
-```python
-def foo(a, b):
-    """
-    >>> foo(2, 3)
-    5
-    """
-    return a + b
-```
 
 ## mocks
 
@@ -369,70 +369,33 @@ SECURITY
 
 ## docstring
 
-* _autodocstring_: gen https://switowski.com/blog/plugins-for-python-in-vscode/
-* _interrogate_: 🎯 check https://github.com/econchick/interrogate 
-
----
+GETTING HELP
+```python
+ur_method??  # ipython magic
+help(ur_module)
+help(ur_func.__doc__)
+```
 
 STANDARDS
+* I use JetBrains but there's also Google and numpy https://stackoverflow.com/a/40596167
+* auto-generate tooling doesn't support JetBrains? https://github.com/NilsJPWerner/autoDocstring?tab=readme-ov-file#docstring-formats
 ```python
-# JETBRAINS https://stackoverflow.com/a/40596167
 """
 This line is for an overview
 
 :param arg1: desc of arg1
 :return: desc of return
 """
-
-# GOOGLE
-"""This line is for an overview
-
-Args:
-    arg1 (type): desc of arg1
-
-Returns:
-    bool: desc of return
-"""
-
-# NUMPY
-"""This line is for an overview.
-
-Parameters
-----------
-arg1 : type
-    desc of arg1
-
-Returns
--------
-type
-    desc of return
-"""
 ```
 
-BASICS
-* tooling
-* _triple quoted string (TQS)_: https://docs.python.org/3/glossary.html
-* _doctring_: TQS as first line of class/function https://www.fluentpython.com/lingo/#docstring
-* how to read: module (`help("doctest")`) function (`help(my_func)` or `my_func.__doc__`)
+SEMANTICS
+* _doctring_: triple quoted string as first line of class/function https://www.fluentpython.com/lingo/#docstring
+* 🎯 check for missing https://github.com/econchick/interrogate
+* _TQS_: ignored if not a docstring, preferred over multi-line comment https://stackoverflow.com/a/7696966 https://docs.python.org/3/glossary.html#term-triple-quoted-string
 * parsed by doc libraries e.g. pdoc
-* use TQS in lieu of multi-line comment https://stackoverflow.com/a/7696966
 
-EXAMPLES
-https://github.com/copyleftdev/x12-edi-tools
-```python
-"""
-Compute the Levenshtein distance between two strings.
-
-:param s1: First string
-:param s2: Second string
-:return: Levenshtein distance
-"""
-```
-
-https://rdrn.me/postmodern-python/
-
-LIB
-* https://mkdocstrings.github.io/ https://claude.ai/chat/daca50ed-8e10-4428-91bd-4c88614fa942
+GENERATE DOCUMENTATION FROM
+* _mkdocstrings_: https://mkdocstrings.github.io/
 * _pdoc_: thing that pdoc3 forked from https://github.com/mitmproxy/pdoc
 * _pdoc3_: https://pdoc3.github.io/pdoc/ some controversy https://github.com/pdoc3/pdoc/issues/64 https://github.com/pdoc3/pdoc/issues/87 even worse than first blush, apparently he is a fascist https://news.ycombinator.com/item?id=20800157
 * _pdocs_: https://github.com/timothycrosley/pdocs/issues/3

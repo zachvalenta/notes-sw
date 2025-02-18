@@ -171,7 +171,6 @@ Conery ch. 6
 * https://medium.com/age-of-awareness/a-brief-history-of-systems-science-chaos-and-complexity-d9198b1a198d
 * https://www.kanopy.com/product/lo-and-behold-reveries-connected-world-0
 * _entanglement_: everything is super complex now https://aeon.co/essays/is-technology-making-the-world-indecipherable everything has always been super complex https://www.edge.org/response-detail/26191
-* https://how.complexsystems.fail/
 
 * _time complexity_: growth rate re: number of executions https://www.interviewcake.com/article/python3/big-o-notation-time-and-space-complexity
 * in Python https://wiki.python.org/moin/TimeComplexity
@@ -373,6 +372,27 @@ x _bcd_ ed _f_
 * _substring_: char in order and continuous e.g. for `hello there` valid substrings are `hello` and `llo th` https://stackoverflow.com/a/49688118/6813490
 * _subsequence_: char in order but not necessarily continuous e.g. for `hello there` a valid subsequences is `hll th` (note missing `e`)
 > these moved in from different file, don't know which set of definitions valid
+
+BYO fuzzy finder https://github.com/amjith/fuzzyfinder
+```python
+import re
+def fuzzyfinder(input, collection, accessor=lambda x: x, sort_results=True, ignore_case=True):
+    suggestions = []
+    input = str(input) if not isinstance(input, str) else input
+    pat = ".*?".join(map(re.escape, input))
+    pat = "(?=({0}))".format(pat)  # lookahead regex to manage overlapping matches
+    regex = re.compile(pat, re.IGNORECASE if ignore_case else 0)
+    for item in collection:
+        r = list(regex.finditer(accessor(item)))
+        if r:
+            best = min(r, key=lambda x: len(x.group(1)))  # find shortest match
+            suggestions.append((len(best.group(1)), best.start(), accessor(item), item))
+
+    if sort_results:
+        return (z[-1] for z in sorted(suggestions))
+    else:
+        return (z[-1] for z in sorted(suggestions, key=lambda x: x[:2]))
+```
 
 ## difflib
 

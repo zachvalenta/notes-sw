@@ -236,6 +236,65 @@ Performance.query.get(1).concert  # id 1 name Glastonbury
 * _impedance mismatch_: difficulty of object-relational mapping [Kleppmann 1.33] multiple ways to aproach http://blogs.tedneward.com/post/the-vietnam-of-computer-science/
 > In the database community it has been conventional wisdom for nearly half a century now (basically since the invention of the relational model) that in designing your database schema you should be careful to avoid any kind of redundancy. That's what database normalization theory is all about. For some unfathomable reason, the same kind of thinking is never (or almost never) applied to software construction, even though it would be as beneficial (possibly even more so) as it is for databases. So, before we countinue our discussion, it's a good idea to talk a bit about redundancy, and to explain what's so harmful about it. https://www.cell-lang.net/relations.html
 
+## Capp refactor
+
+🧠 https://chatgpt.com/c/67bf4043-3e88-8004-aa0c-13c54fb38cc2
+
+There is a pattern I'm seeing in the codebase:
+* connect to DB
+* use ORM models to run query
+* result set into dataframe for further querying
+
+This approach seems byzantine. Suggestions?
+
+SUMMARY OF ANSWERS
+* push aggregation to DB
+* if it's mostly aggregation, you don't need SQLAlchemy's ORM and can use its Core expression language directly
+* skip ORM altogether `pd.read_sql()`
+
+```python
+from sqlalchemy import select, func, literal, create_engine
+from sqlalchemy.orm import Session
+import os
+import requests
+from db.models import (
+    CompetitorPrice as cp,
+    CompetitorInventory as ci,
+    CompetitorUrl as cu,
+    EclipseProduct as e,
+    URLKey as uk,
+    EclipsePrice as ep,
+    EclipseInventory as ei,
+    SkuEquivalency as se,
+    CatalogPrice,
+)
+def get_competitor_prices(eid):
+    engine = create_engine(os.environ["MYSQL_URI"])
+    with Session(engine) as session:
+        sku, discontinued, apn = session.execute(
+            select(e.sku, e.discontinued, e.apn).filter_by(eid=eid).limit(1)
+        ).first()
+        equivalent_skus = [
+            sku,
+            *session.execute(select(se.sku).filter_by(equivalent_sku=sku)).scalars(),
+        ]
+    ep_queries = [ep.eid == eid]
+    catalog_price_queries = [CatalogPrice.eid == eid]
+    df = (
+        pd.read_sql(
+            select(cp.competitor, cp.price, date_format(cp.date))
+            .where(
+                cp.sku.in_(equivalent_skus),
+                cp.competitor.not_in(IGNORE_COMPETITORS),
+            )
+            .union(
+                select(
+                    literal("ListPrice").label("competitor"),
+                    ep.list_price.label("price"),
+                    date_format(ep.date),
+                ).where(*ep_queries),
+```
+
 ## code gen
 
 🗄️ `src.md` API

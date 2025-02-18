@@ -82,6 +82,8 @@ USED BY
 
 ## 👾 Elixir
 
+* https://dashbit.co/blog/running-python-in-elixir-its-fine
+https://livebook.dev/
 https://elixir-lang.org/
 https://www.openmymind.net/Elixir-A-Little-Beyond-The-Basics/
 https://en.wikipedia.org/wiki/Elixir_(programming_language)

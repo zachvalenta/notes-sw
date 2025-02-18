@@ -254,6 +254,7 @@ TOOLS
 ```sh
 python -c "import random; print('\n'.join(str(random.randint(10, 99)) if random.random() > 0.2 else str(random.randint(100, 999)) for _ in range(20)))"
 ```
+> view in Github https://githubnext.com/projects/flat-data https://flatgithub.com/cisagov/dotgov-data/blob/main/?filename=current-full.csv&sha=7dc7d24fba91f571692112d92b6a8fbe7aecbba2 https://news.ycombinator.com/item?id=43125829
 * _moderncsv_: editor https://www.moderncsv.com/ 🗄️ `data/analytics.md` visidata
 * _csvdiff_: ✅ diff https://github.com/aswinkarthik/csvdiff
 * _csview_: ✅ cat https://github.com/wfxr/csview
@@ -378,10 +379,12 @@ USAGE
 OPERATIONS
 * fmt: `python3 -m json.tool music-lib.json > music-lib-fmt.json` https://orbifold.xyz/check-in-json.html
 * to SQL https://github.com/simonw/claude-to-sqlite
-* _csv-diff_: diff https://github.com/simonw/csv-diff
 * _dasel_: edit https://github.com/TomWright/dasel
 * _jo_: ✅ generate https://github.com/jpmens/jo
 > just use Python https://news.ycombinator.com/item?id=30224063
+```sh
+jo -p sku=123456 name="Honeywell RM7895C1012" price=42.05
+```
 * _graphtage_: ❌ diff https://github.com/trailofbits/graphtage broken https://github.com/trailofbits/graphtage/issues/91 🗄️ `shell.md` file / diff
 
 ### design

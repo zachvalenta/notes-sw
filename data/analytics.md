@@ -37,9 +37,23 @@ CAPP
 * `math.md` stat / distributions
 * `python/feedback.md` notebooks
 
+INTERESTING
+* _Briefer_: https://github.com/briefercloud/briefer
+* pricing: free self-host | $130/month https://docs.briefer.cloud/deployment/vm
+* great docs, SQL/notebook centric
+* design https://pythonbytes.fm/episodes/show/405/oh-really
+* smart team, SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
+* _dash_: build charts for sites https://www.youtube.com/watch?v=GW95sNvygDE 📜 https://dash.plotly.com/ 💻 https://github.com/zachvalenta/capp-dasher
+* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
+* callback = update chart
+* control = hit callback https://dash.plotly.com/tutorial#controls-and-callbacks
+* Dash Design Kit (DDK) = no need for HTML/CSS
+* _Metabase_: 🎯 popular https://news.ycombinator.com/item?id=30323131 https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift https://news.ycombinator.com/item?id=37661872 https://www.youtube.com/watch?v=j_4vI2bm6-8
+
 MAYBE
 * _Hex_: free to start, great UI but kinda overwhelming https://hex.tech/ https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift
 * _Lightdash_: $800/month https://github.com/lightdash/lightdash
+* _Preswald_: https://github.com/StructuredLabs/preswald https://github.com/StructuredLabs/preswald/issues/143
 * _Redash_: no pricing https://github.com/getredash/redash
 * _Tableau_: https://news.ycombinator.com/item?id=30323131 https://news.ycombinator.com/item?id=39519145
 
@@ -50,10 +64,6 @@ NOTEBOOKS
 * _Taipy_: for pipelines? https://github.com/Avaiga/taipy https://www.youtube.com/watch?v=phhnakHSNEE
 
 MORE SPECIFIC USE CASES
-* _dash_: build charts for sites https://dash.plotly.com/ https://www.youtube.com/watch?v=GW95sNvygDE 💻 https://github.com/zachvalenta/capp-dasher
-* tables https://genderpaygap.pythonanywhere.com/ https://dash-example-index.herokuapp.com/grid https://dash.plotly.com/datatable https://chatgpt.com/c/6749d1ba-9d0c-8004-a11f-bf5a0ba55f1c
-* callback = update chart, control = hit callback https://dash.plotly.com/tutorial#controls-and-callbacks
-* Dash Design Kit (DDK) = no need for HTML/CSS
 * _perspective_: streaming https://github.com/finos/perspective https://perspective.finos.org/
 * _SQL Explorer_: Django https://github.com/explorerhq/django-sql-explorer
 > Write SQL, share results, do some analysis, get insight. No surprises. https://news.ycombinator.com/item?id=40857589
@@ -72,19 +82,6 @@ SPACE
 * _business intelligence (BI)_: SQL (devs) + explorer (non-devs) + charting
 * SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
 > Analysis, even SQL-based analysis, isn't like design, where a handful of people create stuff and everyone else is a consumer, with clear lines between them. It's much, much fuzzier. Though analysts were always our first adopters, lots of people - PMs, engineers, marketing managers, executives, support agents, operations leads, and all job titles in between - periodically wrote queries. These people occupied the middle part of the distribution between analysts and non-analysts that we thought would be vacant. Users weren't bimodal like we expected, but continuous. https://benn.substack.com/p/work-like-an-analyst
-
-## briefer
-
-* _Briefer_: https://github.com/briefercloud/briefer
-
-* pricing: free self-host | $130/month https://docs.briefer.cloud/deployment/vm
-* great docs, SQL/notebook centric
-* design https://pythonbytes.fm/episodes/show/405/oh-really
-* smart team, SQL-by-mouse https://briefer.cloud/blog/posts/self-serve-bi-myth/
-
-## chartbrew
-
-https://github.com/chartbrew/chartbrew
 
 ## 📼 Datasette
 
@@ -131,14 +128,51 @@ EXTENSIONS
 
 * https://github.com/simonw/datasette-upload-csvs
 * https://github.com/simonw/dclient
-* https://github.com/datasette/datasette-create-view
 * https://github.com/simonw/sqlite-utils-ask
 * https://github.com/datasette/datasette-query-assistant
 
-## Metabase
+## 💄 Great Tables
 
-* _Metabase_: 🎯 popular https://news.ycombinator.com/item?id=30323131 https://retool.com/blog/top-sql-guis-for-your-data-warehouse-snowflake-bigquery-redshift https://news.ycombinator.com/item?id=37661872
-https://www.youtube.com/watch?v=j_4vI2bm6-8
+📜 https://posit-dev.github.io/great-tables
+
+RUNTIME
+* input: df
+* output: render by Jupyter kernel https://github.com/posit-dev/great-tables/issues/619
+> Typically we use Great Tables in an notebook environment or within a Quarto document. Tables won't print to the console, but using the show() method on a table object while in the console will open the HTML table in your default browser. https://github.com/posit-dev/great-tables
+
+VISUAL DESIGN https://www.youtube.com/watch?v=M5zwlb8OzS0 @ 10:30 Polars selectors https://claude.ai/chat/84ed4940-251f-468b-9282-4f5565127e9c
+* icons for quick parse
+* bar charts for magnitude
+* spans for grouping
+* color highlight individual rows
+* color highlight for heatmap
+* footnotes for context
+* background reading https://www.youtube.com/watch?v=M5zwlb8OzS0 [5:30]
+
+MORE TALKS
+* https://www.youtube.com/watch?v=JRW2jm8aNiI
+* https://www.youtube.com/watch?v=15ICWSJ0sGk
+
+## Holoviz
+
+https://holoviz.org/
+https://awesome-panel.github.io/holoviz-quarto/
+
+## 🔵 Quarto
+
+📜 https://quarto.org/ 
+
+* no Marimo support https://github.com/quarto-dev/quarto-cli/discussions/9362
+* built around Jupyter kernel
+> Typically we use Great Tables in an notebook environment or within a Quarto document. Tables won't print to the console, but using the show() method on a table object while in the console will open the HTML table in your default browser. https://github.com/posit-dev/great-tables
+
+---
+
+* Markdown flavor `.qmd`
+* https://www.peterbaumgartner.com/blog/reporting-with-quarto/
+* uses Pandoc
+* latex https://news.ycombinator.com/item?id=42102262
+* Racket https://docs.racket-lang.org/pollen/Backstory.html
 
 ## 🪶 Superset
 
@@ -177,11 +211,26 @@ colima start --memory 4 --cpu 4
 
 ## canonical
 
+💻 `OLAP.md` schemas
+
+OLAP
+* _Great Tables_: https://posit-dev.github.io/great-tables/reference/#built-in-datasets
+* _NYC taxi dataset_: https://mattpo.pe/posts/sql-llvm/
+* _TPC-DS_: star https://news.ycombinator.com/item?id=42231325 https://trilogydata.dev/demo/ https://duckdb.org/docs/extensions/tpcds.html https://www.tpc.org/tpcds/ 🧠 https://chatgpt.com/c/67b8ba50-2efc-8004-84d8-50f8618f82b8
+
+ML
+* _Iris_: https://www.youtube.com/results?search_query=iris+dataset https://docs.pola.rs/user-guide/misc/visualization/#altair
+```python
+from sklearn.datasets import load_iris
+path = "docs/assets/data/iris.csv"
+```
+
 OLTP
+* https://github-to-sqlite.dogsheep.net/github https://github.com/dbcli/litecli/pull/217#discussion_r1976694809
 * _Chinook_: https://github.com/lerocha/chinook-database
 * _Datacharmer_: needs port https://github.com/datacharmer/test_db
 * _Northwind_: https://github.com/pthom/northwind_psql
-* _Sakila_: https://github.com/jOOQ/sakila https://sq.io/docs/tutorial
+* _Sakila_: https://github.com/jOOQ/sakila https://sq.io/docs/tutorial https://posit-dev.github.io/great-tables/blog/design-philosophy/index.html#footnotes
 ```txt
 TABLES
 * film: contains details of movies (title, length, rating, description)
@@ -198,15 +247,6 @@ FEATURES
 * concurrency and transactions: multiple users (represented by customers/staff) frequently update and read the database, making it suitable for practicing transaction handling (e.g., BEGIN TRANSACTION, COMMIT, and ROLLBACK)
 * indexes and query performance: you can demonstrate how primary keys, foreign keys, and indexes optimize lookups and joins
 * entity-relationship design: it’s a well-normalized schema (3rd normal form) with many-to-one and many-to-many relationships, useful for teaching joins
-```
-
-ML
-* _Iris_: https://www.youtube.com/results?search_query=iris+dataset
-```python
-from sklearn.datasets import load_iris
-
-import polars as pl  # https://docs.pola.rs/user-guide/misc/visualization/#altair
-path = "docs/assets/data/iris.csv"
 ```
 
 ## sets
@@ -361,6 +401,7 @@ S3OW,motorola,325
 
 ## EDA
 
+🗄️ `dataframes.md` pretty print
 💻 https://github.com/zachvalenta/wd
 > just learn how to use visidata better
 
@@ -369,6 +410,7 @@ IN THE RIGHT DIRECTION
 datasette inspect db.sqlite
 ```
 * https://docs.datasette.io/en/stable/facets.html
+* https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html
 * https://github.com/lux-org/lux
 *️ https://github.com/vanna-ai/vanna
 * https://www.visidata.org/docs/api/
@@ -461,6 +503,8 @@ curl www.api.com | jq foo | sqlite-utils insert foo.db bar_table
 
 ## entry (dataclerk)
 
+🗄️ EDA > fkfind
+
 > Are there any CLI/TUI tools in which you can enter data directy to a database but with the caveat that the tool would figure out the schema for you? Let me give you an example. Imagine you have a database for books. There are tables for authors, book, genres, publishers, etc. When you open this tool, you don't have to remember all the fields you need to fill out or foreign key constraints. The tool would simply provide a form, you'd input the information you needed to. Anything that could be a dropdown (maybe genres?) would be, otherwise you'd simply type in the rest, with appropriate warnings if you were violating a foreign key constraints or type constraints (e.g. if you failed to put an integer for publication_year).
 ```txt
 Core mechanics of existing tools:
@@ -498,6 +542,11 @@ Have you considered building this? The core components would be:
 ---
 
 PEDAGOGY 🗄️ `architecture.md` serverless > baked data
+* https://selectstarsql.com/frontmatter.html#dataset
+* https://pgexercises.com/gettingstarted.html https://github.com/AlisdairO/pgexercises/issues/28
+* https://sql-playground.wizardzines.com/
+* https://www.crunchydata.com/developers/tutorials
+* https://sqlime.org/
 * tldr: better at SQL if data 1) local 2) interesting
 * small databases https://news.ycombinator.com/item?id=34558054
 * example databases: Spanish, Sakila https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql 📙 Beaulieau [41]
@@ -543,7 +592,7 @@ SELECT * FROM pragma_foreign_key_list('reading');
 
 OPTIONS
 * NoSQL: Table Plus https://news.ycombinator.com/item?id=22908224 DbGate https://github.com/dbgate/dbgate
-* SQLite: DB4S https://github.com/sqlitebrowser/sqlitebrowser https://github.com/coleifer/sqlite-web https://sqlitestudio.pl/
+* SQLite: charting https://github.com/sqlitebrowser/sqlitebrowser https://github.com/coleifer/sqlite-web https://sqlitestudio.pl/
 * Postgres: pgAdmin, PGweb https://github.com/centerofci/mathesar
 * _Beekeeper_: $7/month https://www.beekeeperstudio.io/
 * _Datagrip_: 🎯 $45/month with AI, ERD https://www.jetbrains.com/datagrip/
@@ -565,6 +614,8 @@ filter 'is_null($col)' $CSV                         # filter nulls https://mille
 filter '$header != ""' $CSV                         # filter out nulls
 mlr --csv filter '$col != ""' $CSV                  # filter out empty strings
 mlr --csv filter '$price_list != ""' final.csv
+mlr --csv filter '$price_list != ""' final.csv
+mlr --csv filter '$price_source != ""' then filter '$mpn_score == 100' $CSV  # chained
 ```
 
 CONFIG https://miller.readthedocs.io/en/latest/customization/
@@ -609,32 +660,12 @@ filter '$earnings > 0.0' example.csv
 
 📜 https://www.dbcli.com/
 
-LITECLI
-* config: `~/.config/litecli/config` https://litecli.com/config/
-```sh
-litecli $DB  # open
-.schema      # all schemas
-```
-
-PGCLI
-```sh
-# install https://github.com/dbcli/pgcli/issues/1413#issuecomment-2028781741
-$ pipx install pgcli
-$ pipx inject pgcli psycopg_binary
-# connect
-pgcli postgresql://$USER:$PW@$HOST:$PORT/$DB
-# dump table to CSV
-\COPY (SELECT * FROM $TBL LIMIT 100) TO '$TBL.csv' WITH CSV HEADER;
-# as snippet
-[alias_dsv]
-$TBL = "\COPY (SELECT * FROM {0} LIMIT 100) TO '{0}.csv' WITH CSV HEADER"
-\d $TBL product_template
-```
-
 ---
 
-usql as alternative https://news.ycombinator.com/item?id=42161987
-🛠️ CLI query https://github.com/neilotoole/sq https://github.com/PeepDB-dev/peepdb
+ALTERNATIVES
+* CLI query https://github.com/neilotoole/sq https://github.com/PeepDB-dev/peepdb
+* https://github.com/theseus-rs/rsql
+* usql as alternative https://news.ycombinator.com/item?id=42161987
 
 * exit: `exit`, `\q`
 * open with env var: `cli -h`
@@ -653,6 +684,53 @@ usql as alternative https://news.ycombinator.com/item?id=42161987
 * use: `\f <name>`
 * use w/ param: `\f <name> "arg"`
 * rm: `\fd <name>` https://litecli.com/favorites/
+
+### litecli
+
+🗄️
+* `OLTP.md` SQLite > CLI
+* `python/pkg.md` venv
+💻
+* https://github.com/dbcli/litecli/pull/216
+* https://github.com/dbcli/litecli/pull/217
+
+* dot commands
+```sh
+.schema       # all schemas
+.schema $TBL  # schema for table
+.tables       # list tables
+.databases    # list databases
+```
+* open db: `litecli $DB`
+* config: `~/.config/litecli/config` https://litecli.com/config/
+* query to CSV
+```sh
+litecli db.sqlite -e "select eid, mfg, mpn, apn, buyline, priceline, year_sales, last_sale, list_price, list_price_effective_date, date_created, date_updated, gross_profit from products where buyline like '%dongan%'" --csv > dongan-products.csv
+```
+
+---
+
+LLM
+* https://amjith.com/blog/2024/introducing-llm-to-litecli/
+* https://amjith.com/blog/2025/llm-in-litecli-1/
+* https://amjith.com/blog/2025/llm-in-litecli-2/
+* https://github.com/dbcli/litecli/issues?q=llm
+
+### pgcli
+
+```sh
+# install https://github.com/dbcli/pgcli/issues/1413#issuecomment-2028781741
+$ pipx install pgcli
+$ pipx inject pgcli psycopg_binary
+# connect
+pgcli postgresql://$USER:$PW@$HOST:$PORT/$DB
+# dump table to CSV
+\COPY (SELECT * FROM $TBL LIMIT 100) TO '$TBL.csv' WITH CSV HEADER;
+# as snippet
+[alias_dsv]
+$TBL = "\COPY (SELECT * FROM {0} LIMIT 100) TO '{0}.csv' WITH CSV HEADER"
+\d $TBL product_template
+```
 
 ## spreadsheet (Excel)
 
@@ -734,11 +812,13 @@ schema $DB                                   # validate schema
 
 ## TUI
 
+🗄️ `OLAP.md` metadata
+
 BYO / REQUIREMENTS
 * query editor: vi mode readline
 * automcomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
 * ERD 🗄 `info.md` viz / entities / ERD
-* schema documentation https://www.querybook.org/
+* schema documentation https://www.querybook.org/ https://github.com/quarylabs/quary
 * analytics guide
 * notebooks https://github.com/electroly/sqlnotebook
 * AI https://whodb.clidey.com/docs/ https://whodb.clidey.com/docs/usage-houdini/what-is-houdini
@@ -774,17 +854,23 @@ HARLEQUIN 📜 https://harlequin.sh
 
 ```sh
 # MUNGE
-fmt $TSV > $CSV
+$ fmt $TSV > $CSV
 
 # DML
-headers $CSV          # get headers with index
-headers -j $CSV       # get headers w/out index
-select "header" $CSV  # select all from header
+$ headers $CSV          # get headers with index
+$ headers -j $CSV       # get headers w/out index
+$ select "header" $CSV  # select all from header
 
 # EDA
-xsv slice -i 0 $CSV | xsv flatten  # get line of data and display as two columns
-xsv sample 50 $CSV                 # get sampled subset
-stats $CSV | xsv table             # stats (sum, min, max)
+$ xsv sample 50 $CSV                 # get sampled subset
+$ stats $CSV | xsv table             # stats (sum, min, max)
+$ xsv slice -i 0 $CSV | xsv flatten  # get line of data and display as two columns
+product_id                            684148
+ord_id                                S1468706
+bill_to_customer_id                   1204
+unit_cost                             74.06
+unit_price                            88.65
+ship_date                             2013-11-22
 ```
 
 ---
@@ -799,13 +885,17 @@ search -i -s "header" "query" $CSV # search within header (case insensitive)
 
 🗄️ `protocols.md` CSV
 🔍 https://stackoverflow.com/questions/tagged/visidata
-* help: `ctrl h` jumps to man page https://jsvine.github.io/intro-to-visidata/basics/getting-out-of-trouble/
-* available cmds: `z ctrl h`
 📜
 * repo https://github.com/saulpw/visidata
 * docs https://www.visidata.org
 * guide https://jsvine.github.io/intro-to-visidata/
 * ref https://jsvine.github.io/visidata-cheat-sheet/en/
+
+COMMANDS
+* command prompt: `SPACE` https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/
+* help: `ctrl h` jumps to man page https://jsvine.github.io/intro-to-visidata/basics/getting-out-of-trouble/
+* available cmds: `z ctrl h`
+* copy current cell: `syscopy-cell`
 
 STATE
 * create: sheet `A` attr `za` record `a` n records `ga` https://www.youtube.com/watch?v=yK3qgOIx4x0 [0:25,1:30]
@@ -829,7 +919,7 @@ CONFIG https://github.com/zachvalenta/dotfiles/blob/7f843714b3c3d6eb531dfb292e91
 * fs: `~/.visidatarc` https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata/
 * cache: `~/.visidata`
 * config: `shift o` global options sheet `z shift o` sheet-specific `~/.visidatrc` persistent https://jsvine.github.io/intro-to-visidata/advanced/configuring-visidata/
-* formats: Parquet, CSV https://www.visidata.org/docs/formats/
+* formats: Parquet, CSV https://www.visidata.org/docs/formats/ `.parquet` extension only https://github.com/saulpw/visidata/issues/2712
 * sources: Postgres, Clickhouse https://www.visidata.org/blog/2022/connect-visidata-to-sql-databases-with-vdsql/
 * turn off status messages https://github.com/saulpw/visidata/issues/2567 https://github.com/saulpw/visidata/issues/2621
 * turn off DOS newline / carriage return https://github.com/saulpw/visidata/issues/387
@@ -857,67 +947,80 @@ https://www.youtube.com/playlist?list=PLxu7QdBkC7drrAGfYzatPGVHIpv4Et46W
 * load subset of file https://jsvine.github.io/intro-to-visidata/intermediate/large-files/#from-the-command-line
 * select random subset https://jsvine.github.io/intro-to-visidata/intermediate/large-files/#select-a-random-sample-of-rows
 
+## DML
+
+JOINS
+* load multiple CSVs: `vd $CSV1 $CSV2`
+* mark col as key: `!`
+* select col from meta sheet
+* start join prompt: `&` https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/#join-the-two-frequency-tables
+
+EDA
+* histogram: `F`
+* group by: go to col > histogram > rm percent/histogram col https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/#count-the-number-of-collisions-per-state
+* histogram of keyed col: `gF`
+
+SEARCH
+* regex: `/`
+* regex exact: `^`
+> you got burned by searching `valid` when column values had both `valid` and `invalid` i.e. you needed to search `^valid`
+
+FILTER
+* `|`: regex + select https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/ https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
+
+SELECT
+* `"`: mv selected records to own sheet https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#using-frequency-tables-to-select-and-filter-for-multiple-values
+* `s`: select single
+* `u`: unselect single
+* `gs`: select all
+* `gu`: unselect all
+* `gt`: select everything that did *not* match filter https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/
+
 ## attr
 
 📜 https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/
 
-SELECTION
-> be nice to pop into the column sheet and select from there
-* hide
-* rm in the column sheet https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#manipulating-columns-from-the-columns-sheet
+NAV
+* goto: `c $COL_REGEX`
+* scroll: `hl`, `gh/gl`
+* mv: `H/L`
 
-FILTER https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
-* `|` + query
-> use `^` for exact matches; you got burned by searching `valid` when column values had both `valid` and `invalid` i.e. you needed to search `^valid`
-* `ENTER` to select
-* `"` to mv to own sheet
+HIDE/EXPAND https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-expand-shrink-and-remove-columns
+> can set to specific column width
+* hide/unhide: `-` / `gv`
+* expand: `_` single `g_` all
+* shrink by 1/2: `z-`
+* expand json: `()`
 
 CREATE/UPDATE
 * create blank: `za` https://jsvine.github.io/intro-to-visidata/intermediate/creating-new-columns
 * rename: `^`
-* type: `~` text `%` float `#` int `$` currency `@` date https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types
+* type: `~` text `%` float `#` int `$` currency `@` date https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types https://www.visidata.org/docs/graph/ https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#manipulating-columns-from-the-columns-sheet
 > need to set type for sort to work correctly
-* aggregation: `z+` https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
-
-NAV
-* goto: `c $COL_REGEX`
-* scroll: `hl`, `gh/gl`
-
-VIEW
-* hide/unhide: `-` / `gv`
-* expand width to fit text: `_` (single) `g_` (all)
-* shrink by 1/2: `z-`
-* expand json: `()`
-
-ZA
-* search records: `/`
-* mv: `H/L`
-* histogram: `F`
 
 ---
 
 * key: `!`; pins + certain cmd only apply to them https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-designate-key-columns
-* aggregates: sum `z +` https://www.youtube.com/watch?v=yhunJc8Nu4g 4:20
-* set type: `~` string `#` int `$` currency https://www.visidata.org/docs/graph/
+
+AGGREGATION
+* `z+` https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
+* sum `z +` https://www.youtube.com/watch?v=yhunJc8Nu4g 4:20
 * set value `g=` https://www.youtube.com/watch?v=yK3qgOIx4x0 3:20
 > so even if underlying attr type is non-numeric can change type in sheet
+* https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#adding-aggregators https://sqlfordevs.com/multiple-aggregates-in-one-query https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
 
 * sort col `[` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#how-to-sort-rows
-* filter col `| <filter>` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
 * _go to_: ❓ https://jsvine.github.io/intro-to-visidata/basics/navigating-visidata/#how-to-move-via-searching0
-* _set type_: https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#manipulating-columns-from-the-columns-sheet
 * _joins_: https://jsvine.github.io/intro-to-visidata/intermediate/joining-sheets/
-* _aggregation_: https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#adding-aggregators https://sqlfordevs.com/multiple-aggregates-in-one-query?ref=Newsletter
-* _aggregate on column_: https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
 
 * _select all records that match on current cell_: `| <val>` https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#by-matching-patterns
-* _filter on selected_: `"` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#using-frequency-tables-to-select-and-filter-for-multiple-values
 * https://jsvine.github.io/intro-to-visidata/basics/navigating-visidata/#how-to-move-via-searching https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#via-expressions
 
 ## records
 
 ---
 
+* command mode + set col to set all values for column? couldn't figure out how to do this
 * null = those yellow crossed out circles https://www.visidata.org/docs/rows/
 * mv: `SHIFT j/k`
 * sort: `[]`
@@ -931,18 +1034,24 @@ ZA
 
 ## sheets
 
-* columns sheet: `C`
+TYPES
+* columns: `C`
+
+SEMANTICS
+* _sheet_: god component https://jsvine.github.io/intro-to-visidata/basics/understanding-sheets/
+* _source sheet_: actual data
+* _derived sheet_: derived data off source sheet
+
+ZA
+* _rename_: `SPACE` + `rename-sheet` https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/#rename-the-filtered-sheet
 
 ---
 
 * pull values into new sheet https://www.youtube.com/watch?v=yhunJc8Nu4g 3:00
 * create sheet from selected records: `"` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
-* _sheet_: god component https://jsvine.github.io/intro-to-visidata/basics/understanding-sheets/
 * _meta sheet_: combo columns `C` sheets `S` summary `I`
 * frequency `F` combo frequency `gF` https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#multi-column-frequencies
 * pivot table https://jsvine.github.io/intro-to-visidata/intermediate/reshaping-data/#creating-pivot-tables
-* _source sheet_: actual data
-* _derived sheet_: derived data off source sheet
 * reload/reset `ctrl r`
 * toggle `ctrl 6`
 * save `ctrl s` https://www.youtube.com/watch?v=j0qn8OIiV-w 4:30
