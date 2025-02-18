@@ -331,6 +331,7 @@ GLOBBING
 * regex in SQLite
 ```sql
 select id from prod_class where id glob '*[^0-9]*' limit 5
+select * from customers where name like '%gobain%'
 ```
 * wildcards: `_` single char `%` n char 📙 Beaulieu [80]
 ```sql

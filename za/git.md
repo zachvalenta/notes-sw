@@ -785,6 +785,20 @@ semantics
 * _rebase_: put n commits onto tip of branch https://stackoverflow.com/a/43551395 https://jvns.ca/blog/2023/11/06/rebasing-what-can-go-wrong-/
 * interactive https://www.youtube.com/watch?v=H7RFt0Pxxp8
 * can also use `squash` https://stackoverflow.com/q/2427238
+* squash everything after certain commmit: `git rebase -i $LAST_COMMIT_YOU_DONT_WANT_TO_SQUASH`
+```sh
+d004585 (HEAD -> main, origin/main) the third and final commit I want to squash
+831f811 another commit I want to squash
+7d3b486 start of commits I want to squash
+1dae68b another commit I want to keep
+502f903 commit I want to keep
+
+$ git rebase -i 1dae68b
+
+pick 7d3b486 start of commits I want to squash
+squash 831f811 another commit I want to squash
+squash d004585 the third and final commit I want to squash
+```
 * my notes workflow: `git rebase -i main`
 ```sh
 # https://stackoverflow.com/a/5340773

@@ -488,6 +488,27 @@ def smart_join(dt, tt, did, tid):
     joined = dt.join(tt.with_columns(pl.col(tid).alias('tid')), left_on=did, right_on=tid)
     joined.select(joined.columns[0], joined.columns[-1], *joined.columns[1:-1])
 ```
+```python
+import polars as pl
+cat = pl.read_csv('catalog.csv')
+res = pl.read_csv('results.csv', ignore_errors=True)
+def smart_join(dt, tt, did, tid):
+    """join Polars df with join keys as first columns output"""
+    joined = dt.join(tt, left_on=did, right_on=tid)
+    other_cols = [c for c in joined.columns if c != did]
+    return (joined.with_columns(pl.col(did).alias(tid)).select([did, tid, *other_cols]))
+def print_schema(schema, indent=2):
+    for name, dtype in schema.items():
+        print(" " * indent + f"├─ {name:<30} {dtype}")
+
+cat.join(res, left_on='SKU', right_on='sku')
+res.join(cat, left_on='sku', right_on='SKU')
+smart_join(cat, res, 'SKU', 'sku')
+
+cat.join(res, left_on='Manufacturer', right_on='Manufacturer Name')
+smart_join(cat, res, 'Manufacturer', 'Manufacturer Name')
+```
+
 
 ```python
 foo.join(bar.with_columns(pl.col("upc").alias("bar_upc")), left_on="sku", right_on="upc")
