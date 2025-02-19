@@ -234,7 +234,7 @@ THEME
 * false alarm by me https://github.com/alexpasmantier/television/issues/117
 
 ZA
-* ❌ actual search itself kinda bad e.g. can't find altair
+* ❌ actual search itself kinda bad e.g. can't find altair or `_xor_``
 * piping stdout to command https://github.com/alexpasmantier/television/issues/16#issuecomment-2558615942 https://github.com/zachvalenta/dotfiles-mini23/commit/7175670d734ca1362ecfd8204682d2dddb162847
 
 ---

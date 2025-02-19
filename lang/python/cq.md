@@ -95,6 +95,17 @@ coverage html && coverage htmlcov/index.html
 
 ## doctest
 
+RUNNING
+```sh
+python -m doctest -v my_mod.py
+```
+```python
+doctest.testmod(ur_mod)
+```
+
+---
+
+TRYING TO GET GOOD STDOUT
 ```python
 def foo(a, b):
     """
@@ -114,8 +125,6 @@ actual: 26.77
 result: ✅ pass
 ```
 
----
-
 https://hamatti.org/posts/document-intended-usage-through-tests-with-doctest/
 * https://rdrn.me/postmodern-python/
 * `ELLIPSIS` 📙 Ramalho [7]
@@ -123,15 +132,6 @@ https://hamatti.org/posts/document-intended-usage-through-tests-with-doctest/
 > [key feature] they look like transcripts of interactive Python console sessions, so you can easily try out the demonstrations yourself 📙 Ramalho [xviii]
 * as TDD-as-design tool bc favors small functions that require minimal setup
 * keep docstring aligned to src
-* run: `python -m doctest -v my_mod.py`
-```python
-def foo(a, b):
-    """
-    >>> foo(2, 3)
-    5
-    """
-    return a + b
-```
 
 ## mocks
 

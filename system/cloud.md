@@ -394,6 +394,10 @@ Features: Zero-downtime deployments, compatibility with bare-metal servers and c
 
 * _Piku_: 🎯 6k https://github.com/piku/piku
 
+## Ubicloud
+
+https://www.ubicloud.com/blog/debugging-hetzner-uncovering-failures-with-powerstat-sensors-and-dmidecode
+
 # 🟨 ZA
 
 TAXONOMY 🧠 https://chatgpt.com/c/673a5946-7948-8004-9a56-e3b60009dccd https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
