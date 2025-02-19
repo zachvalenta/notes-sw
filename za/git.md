@@ -559,20 +559,16 @@ what I realized after 90 mins debugging gfold: it can only surface git repos tha
 
 ## branch
 
-🛠 curate https://github.com/matt-harvey/git_curate
-
 https://x.com/asbradbury/status/1804565477605458259
 
-RM
-* local - merged: `branch -d <br>`
-* local - unmerged: `branch -D <br>`
-* remote: `push origin --delete <br>`
-
-ZA
-* list all on remote: `branch -a`
-* pull dir/files from master into feature branch https://stackoverflow.com/a/2364223
 ```sh
-git co master -- my_dir/
+branch -a                     # list all on remote
+co master -- my_dir/          # pull from master into feature branch https://stackoverflow.com/a/2364223
+
+# REMOVE https://github.com/matt-harvey/git_curate
+branch -d $BRANCH             # local, merged
+branch -D $BRANCH             # local, unmerged
+push origin --delete $BRANCH  # remote
 ```
 
 ---
