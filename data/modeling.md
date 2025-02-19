@@ -321,11 +321,13 @@ IT103    |   2009-2   | 120      | Web Design   |
 
 # 🖼️ REPR
 
-## ERD
+## ERD (d2)
 
+💻 https://github.com/zachvalenta/capp-datalab
 
-* d2 https://d2lang.com/tour/sql-tables 🗄️ `architecture.md`
-```txt
+```d2
+# https://d2lang.com/tour/sql-tables
+
 catalog: {
   shape: sql_table
   product_id: int {constraint: foreign_key}

@@ -485,12 +485,14 @@ SEQUENCE
 ## system (d2)
 
 🏔️ https://github.com/ankorstore/yokai
-💻 https://github.com/zachvalenta/capp-datalab
 🗄
 * `algos.md` graph, tree
 * `data-modeling.md` ERD
 *️ `protocols.md` ascii
 *️ `system.md`
+
+* _TALA_: confused by docs, says you can use for free locally (w/ watermark) but erred out https://github.com/terrastruct/TALA/issues/95 https://github.com/terrastruct/tala https://terrastruct.com/tala/ https://terrastruct.com/blog/post/diagram-layout-engines-crossing-minimization/
+* _Terrastruct_: IDE https://www.terrastruct.com/ https://www.youtube.com/@terrastruct/videos https://d2lang.com/tour/studio
 
 ---
 
@@ -517,8 +519,6 @@ d2 --watch viz.d2 viz.svg
 * design: as code, CLI, simple syntax
 * write in Python https://github.com/MrBlenny/py-d2
 * _bidirectional edit_: changing text changes viz, changing viz changes text https://d2lang.com/tour/api https://www.youtube.com/watch?v=EhxVVkxv2Ns
-* _TALA_: https://terrastruct.com/tala/ https://terrastruct.com/blog/post/diagram-layout-engines-crossing-minimization/
-* _Terrastruct_: IDE https://www.terrastruct.com/ https://www.youtube.com/@terrastruct/videos https://d2lang.com/tour/studio
 
 ALTERNATIVES
 * _Backstage_: dynamic manifest of services, unsure about C4 support https://github.com/spotify/backstage https://www.youtube.com/watch?v=C6KfoOBP98U
