@@ -369,6 +369,7 @@ IN THE RIGHT DIRECTION
 datasette inspect db.sqlite
 ```
 * https://docs.datasette.io/en/stable/facets.html
+* https://cran.r-project.org/web/packages/data.table/vignettes/datatable-reshape.html
 * https://github.com/lux-org/lux
 *️ https://github.com/vanna-ai/vanna
 * https://www.visidata.org/docs/api/
@@ -734,11 +735,13 @@ schema $DB                                   # validate schema
 
 ## TUI
 
+🗄️ `OLAP.md` metadata
+
 BYO / REQUIREMENTS
 * query editor: vi mode readline
 * automcomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
 * ERD 🗄 `info.md` viz / entities / ERD
-* schema documentation https://www.querybook.org/
+* schema documentation https://www.querybook.org/ https://github.com/quarylabs/quary
 * analytics guide
 * notebooks https://github.com/electroly/sqlnotebook
 * AI https://whodb.clidey.com/docs/ https://whodb.clidey.com/docs/usage-houdini/what-is-houdini

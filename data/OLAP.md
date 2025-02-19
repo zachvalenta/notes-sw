@@ -395,6 +395,7 @@ ALTERNATIVES
 
 ## test
 
+https://github.com/akmalsoliev/Validoopsie
 https://www.milesmcbain.com/posts/assertive-programming-for-pipelines/
 * _data contract_: https://github.com/benrutter/wimsey
 * https://pycon-archive.python.org/2024/schedule/presentation/46/index.html
@@ -668,13 +669,15 @@ Data Management Architectures
 
 ## metadata (Datahub)
 
+🗄️ `analytics.md` TUI
 📙 https://www.amazon.com/gp/product/1098138864
 
 SEMANTICS
-* _locality_: location
-* _provenance_: who created + when/how
+* _definition_: what is this data?
+* _flow_: data flow through system incl storage locations
+* _provenance/source/lineage_: how do we get this data?, who created + when/how
+* _usage_: what is this data used for?
 * _audit trail_: who reads/writes + when/how
-* _lineage_: data flow through system
 
 DATAHUB 📜 https://github.com/datahub-project/datahub https://datahubproject.io/
 > data lineage from source to processing to consumption. https://www.thoughtworks.com/radar/platforms/summary/datahub

@@ -122,6 +122,7 @@ lead-time = "testin/capp-lead-time-{date}.edi"
 
 * usage: EDI, Maven, Claude https://github.com/simonw/files-to-prompt
 * element types: prolog, root node/element, child node/elements, comments (same as HTML)
+* query https://github.com/gawel/pyquery
 * _XSLT_: CSS for XML https://github.com/azoner/pyx12
 * _XPath_: CSS selector for XML
 
@@ -646,6 +647,7 @@ SEMANTICS
 
 ## binary
 
+🛠️ https://github.com/jarun/bcal
 📚
 * Petzold code 3, 9, 12-13
 * Evans ints floats

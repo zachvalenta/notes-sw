@@ -30,7 +30,7 @@ SLM
 ZA
 * _BERT_: https://simonwillison.net/2024/Dec/31/alexis-gallagher/ https://github.com/urchade/GLiNER
 * _DeepSeek_: https://thezvi.substack.com/p/deekseek-v3-the-six-million-dollar https://www.chinatalk.media/p/deepseeks-edge https://simonwillison.net/2024/Dec/31/llms-in-2024/#was-the-best-currently-available-llm-trained-in-china-for-less-than-6m-
-* _X grok_: seems tied to Twitter https://grok.x.ai/ 
+* _X grok_: seems tied to Twitter https://grok.x.ai/ good now? https://simonwillison.net/2025/Feb/18/andrej-karpathy-grok-3/
 
 ---
 
