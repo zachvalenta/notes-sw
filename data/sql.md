@@ -934,6 +934,10 @@ with  -- https://github.com/enochtangg/quick-SQL-cheatsheet#find https://hakiben
 ```sql
 CREATE VIEW view_name AS SELECT column1, column2
 FROM table_name WHERE condition;
+
+create view sales
+as select full_ord_id, ord_id, st_cust_id, bill_to_customer_id, cust_rel_number, ordering_contact_id, subtotal_amt, paid_amt, total_amt
+from sales_ar
 ```
 
 * late-binding https://eradman.com/posts/late-binding-views.html

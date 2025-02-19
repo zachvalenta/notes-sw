@@ -608,6 +608,7 @@ filter '$earnings > 0.0' example.csv
 
 ## 💿 REPL (dbcli)
 
+📍 LLM on the way...https://github.com/dbcli/litecli/issues?q=llm
 📜 https://www.dbcli.com/
 
 LITECLI
@@ -615,6 +616,25 @@ LITECLI
 ```sh
 litecli $DB  # open
 .schema      # all schemas
+```
+```sql
+-- 📍 add dot command for this
+select name, type from sqlite_master
+
++------------+-------+
+| name       | type  |
++------------+-------+
+| customer   | table |
+| contact    | table |
+| sales_ar   | table |
+| catalog    | table |
+| mars       | table |
+| sales_osub | table |
+| prod_class | table |
+| entity     | table |
+| orders     | table |
+| products   | table |
++------------+-------+
 ```
 
 PGCLI
