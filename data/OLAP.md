@@ -493,6 +493,10 @@ https://karenjex.blogspot.com/2024/09/optimising-your-database-for-analytics.htm
 * https://news.ycombinator.com/item?id=34342190
 * https://www.databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html
 
+## 🐿️ Crunchy
+
+https://www.crunchydata.com/blog/incremental-archival-from-postgres-to-parquet-for-analytics
+
 ## 🌕 Clickhouse
 
 🗄️ `eng.md` query engines

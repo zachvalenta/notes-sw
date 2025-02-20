@@ -190,6 +190,7 @@ ALTERNATIVES
 * `system.md` distributed
 
 * short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00 https://simonwillison.net/about/#subscribe
+* backup Postgres to parquet https://www.crunchydata.com/blog/incremental-archival-from-postgres-to-parquet-for-analytics
 
 TYPES
 * _full_: reset to specific backup
@@ -708,7 +709,7 @@ misc
 * _GraphQL_: https://github.com/graphile/postgraphile
 * _import_: pgloader https://www.twilio.com/blog/sqlite-postgresql-complicated https://github.com/dimitri/pgloader https://www.youtube.com/watch?v=DA1Trq51JZs https://www.youtube.com/watch?v=yDtgk_OLHUc http://www.postgresqltutorial.com/import-csv-file-into-posgresql-table/ https://stackoverflow.com/questions/2987433/how-to-import-csv-file-data-into-a-postgresql-table/2987451#2987451 https://mattsegal.dev/restore-django-local-database.html https://bigmachine.io/all/importing-a-csv-into-postgresql-like-a-pro/
 * _logs_: https://github.com/darold/pgbadger
-* _monitoring_: https://minervadb.xyz/postgresql-dba-daily-checklist/ https://pgstats.dev/ https://info.crunchydata.com/blog/postgresql-monitoring-for-application-developers-dba-stats https://klotzandrew.com/blog/quickly-debugging-postgres-problems https://github.com/lesovsky/pgcenter Vivid Cortex https://github.com/lob/pg_insights https://github.com/cybertec-postgresql/pgwatch2 https://github.com/cybertec-postgresql/pgwatch2 https://pganalyze.com/ https://github.com/dalibo/temboard
+* _monitoring_: https://minervadb.xyz/postgresql-dba-daily-checklist/ https://pgstats.dev/ https://info.crunchydata.com/blog/postgresql-monitoring-for-application-developers-dba-stats https://klotzandrew.com/blog/quickly-debugging-postgres-problems https://github.com/lesovsky/pgcenter Vivid Cortex https://github.com/lob/pg_insights https://github.com/cybertec-postgresql/pgwatch2 https://pganalyze.com/ https://github.com/dalibo/temboard
 * _queries_: https://news.ycombinator.com/item?id=22432254 explain http://www.helenanderson.co.nz/sql-query-tweaks/ `pg_stat_statements` https://pgdash.io/blog/postgres-features.html https://github.com/mgartner/pg_flame
 * _search_: https://czep.net/17/full-text-search.html https://www.imagescape.com/blog/2020/03/11/website-search-using-django-and-postgresql-trigrams 🗄 `algos.md` FTS
 * _scheduling_: https://github.com/cybertec-postgresql/pg_timetable

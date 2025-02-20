@@ -902,7 +902,7 @@ qux_isrc,200.0,2
 
 # 🪵 TABLES
 
-YPES
+TYPES
 * _table_: set of related rows
 * _permanent_: table in storage 📙 Beaulieu [53]
 * impl as heap or b-tree https://calpaterson.com/activerecord.html
@@ -914,6 +914,12 @@ YPES
 * _intemediate_: table instaniated for a job and then deleted https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
 * _scalar table_: table w/ single column and single row https://pgexercises.com/questions/basic/agg2.html
 * _temporal_: https://news.ycombinator.com/item?id=29733854 https://news.ycombinator.com/item?id=29735695 https://stackoverflow.com/questions/50199752/comparing-csv-entries-against-entries-in-postgresql-table-using-python 
+
+GENERATED COLUMNS
+* _generated column_: col whose value generated based on other columns https://chatgpt.com/c/6734cd95-6754-8004-b89c-8d25d8da8048 https://news.ycombinator.com/item?id=31396578
+* _virtual generated columns_: expression for a virtual column is computed at read-time so they're not stored on disk like generated columns
+* same as a virtual table? https://llm.datasette.io/en/stable/logging.html
+* in Django https://realpython.com/podcasts/rpp/227/ https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/#tldr
 
 ## CTE
 
@@ -950,6 +956,7 @@ from sales_ar
 * faster queries but needs to be manually maintained so not typically used in OLTP 📙 Kleppmann [102]
 * _data cube_: type of materialized view used in OLAP, precomputed for speed results 📙 Kleppmann [102] https://hakibenita.com/sql-for-data-analysis#cube
 * not often used limited query flexiblity 📙 Kleppmann [103]
+
 # 🟨️ ZA
 
 SEMANTICS
@@ -958,10 +965,6 @@ SEMANTICS
 * _enumeration attack_: https://sqlfordevs.com/uuid-prevent-enumeration-attack
 * _fuzzy matching_: merging n datasets that don't have a common UUID e.g. merging contacts based on name https://pbpython.com/record-linking.html
 * _deterministic matching_: https://github.com/zinggAI/zingg
-* _generated column_: col whose value generated based on other columns https://chatgpt.com/c/6734cd95-6754-8004-b89c-8d25d8da8048 https://news.ycombinator.com/item?id=31396578
-* virtual = doesn't store computed value, stored = does store computed value
-> same as a virtual table https://llm.datasette.io/en/stable/logging.html
-* in Django https://realpython.com/podcasts/rpp/227/ https://www.paulox.net/2023/11/07/database-generated-columns-part-1-django-and-sqlite/#tldr
 * _enrichment_: https://simonwillison.net/2024/Dec/5/datasette-enrichments-llm/
 
 DCL

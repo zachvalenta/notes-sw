@@ -111,6 +111,7 @@ void main() {
 
 TLA+
 * https://buttondown.email/hillelwayne/archive/a-very-brief-intro-to-formal-methods-aka-my-job/ https://www.hillelwayne.com/post/why-dont-people-use-formal-methods/ https://www.learntla.com/introduction/ https://lamport.azurewebsites.net/tla/tla.html https://medium.com/@bellmar/introduction-to-tla-model-checking-in-the-command-line-c6871700a6a2
+* nondeterminism/randomness https://buttondown.com/hillelwayne/archive/five-kinds-of-nondeterminism/
 
 ## fuzz
 

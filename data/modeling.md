@@ -110,6 +110,9 @@ HIERARCHICAL
 
 ---
 
+start here https://www.richard-towers.com/2025/02/16/representing-graphs-in-postgres.html
+
+* _Age_: graph for Postgres https://age.apache.org/
 * _PGQ_: property graph queries https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 > SQL now supports defining read-only queries on graphs. This allows an application to declare a property graph structure over existing tables. It is left up to the DBMS to decide whether to create an auxiliary data structure (e.g., adjacency matrix) for the property graph or just keep track of the meta-data. You can then write graph traversal queries in SQL using the MATCH keyword. The syntax builds on existing languages (e.g., Neo4j's Cypher, Oracle’s PGQL, and TigerGraph’s GSQL), and shares aspects of the emerging GQL standard. As of January 2024, the only DBMS that I am aware of that supports SQL/PGQ features is Oracle. There is an experimental branch of DuckDB that also supports SQL/PGQ.
 > SQL/PGQ is a big deal. However, I do not foresee it being an immediate deathblow for graph DBMSs, as there are already several ways to translate graph-oriented queries to SQL. Some DBMSs, including SQL Server and Oracle, provide built-in SQL extensions that make storing and querying graph data easier. Amazon Neptune is a graph-oriented veneer on top of their Aurora MySQL offering. Apache AGE provides an OpenCypher interface on top of PostgreSQL. I expect other major OLAP systems (e.g., Snowflake, Redshift, BigQuery) will support SQL/PGQ in the near future.
