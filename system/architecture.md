@@ -470,6 +470,53 @@ DESIGN
 * Escard science illustration https://www.amazon.com/Science-Illustration-Exploration-Knowledge-Century/dp/3836573326
 * Taschen history of information graphics https://www.amazon.com/dp/3836567679
 
+## 🔵 d2
+
+📜 https://d2lang.com/ https://github.com/terrastruct/d2
+💻 ERD https://github.com/zachvalenta/capp-datalab
+
+```sh
+# INSTALL
+brew tap terrastruct/d2
+brew install d2
+brew install terrastruct/tap/tala
+
+# RUN
+echo 'x -> y -> z' > viz.d2
+d2 --watch viz.d2 viz.svg
+
+# font https://d2lang.com/tour/fonts
+D2_LAYOUT=tala d2 -t 103 --font-regular /Users/zach/Library/Fonts/JetBrainsMonoNLNerdFontMono-Regular.ttf --watch erd.d2 erd.svg
+# this looked great but made the FKs more ambiguous
+```
+* VS Code extension https://github.com/terrastruct/d2-vscode https://d2lang.com/tour/vscode/
+* icons https://icons.terrastruct.com/ https://d2lang.com/tour/icons 
+
+COMPANY 🔗 https://www.terrastruct.com/ https://discord.com/channels/976899413542830181/976899416311095428/
+* _Studio_: IDE https://d2lang.com/tour/studio
+* _TALA_: layout engine https://github.com/terrastruct/tala https://terrastruct.com/tala/
+* design https://terrastruct.com/blog/post/diagram-layout-engines-crossing-minimization/
+* API key: Terrastruct console > CLI -> `$HOME/.config/tstruct/auth.json` https://github.com/terrastruct/tala#as-config-file
+* needs d2 `0.6.9` to get free-w-watermark https://github.com/terrastruct/TALA/issues/95
+```sh
+D2_LAYOUT=tala d2 --watch -t 103 erd.d2 erd.svg  # https://github.com/terrastruct/tala#use-tala
+```
+
+---
+
+D2 📜 https://terrastruct-site-assets.s3.us-west-1.amazonaws.com/documents/d2_cheat_sheet.pdf
+* howto https://terrastruct.com/blog/post/10-tips-for-using-diagrams-to-ace-the-system-design-interview/ https://terrastruct.com/blog/post/draw-software-architecture-diagrams/ https://terrastruct.com/blog/post/diagram-layout-engines-crossing-minimization/
+* complex: https://d2lang.com/tour/composition https://d2lang.com/tour/classes
+* functionality: before/after https://d2lang.com/blog/animation code https://d2lang.com/tour/text#code tooltips https://d2lang.com/tour/interactive
+* layout: https://d2lang.com/tour/layouts https://d2lang.com/tour/positions https://d2lang.com/tour/dimensions
+* viz: themes https://github.com/terrastruct/d2/pull/2065/files https://d2lang.com/tour/themes style https://d2lang.com/tour/style sketch https://d2lang.com/blog/hand-drawn-diagrams dark mode https://d2lang.com/blog/dark-mode
+* export: SVG, PPT / Google Slides https://d2lang.com/tour/composition-formats
+* Vim language plugin https://d2lang.com/tour/vim/
+* config https://d2lang.com/tour/man
+* design: as code, CLI, simple syntax
+* write in Python https://github.com/MrBlenny/py-d2
+* _bidirectional edit_: changing text changes viz, changing viz changes text https://d2lang.com/tour/api https://www.youtube.com/watch?v=EhxVVkxv2Ns
+
 ## entities
 
 ---
@@ -482,7 +529,7 @@ SEQUENCE
 * storyboards https://signalsandthreads.com/from-the-lab-to-the-trading-floor/
 * https://jessems.com/posts/2023-07-22-the-unreasonable-effectiveness-of-sequence-diagrams-in-mermaidjs
 
-## system (d2)
+## system
 
 🏔️ https://github.com/ankorstore/yokai
 🗄
@@ -490,35 +537,6 @@ SEQUENCE
 * `data-modeling.md` ERD
 *️ `protocols.md` ascii
 *️ `system.md`
-
-* _TALA_: confused by docs, says you can use for free locally (w/ watermark) but erred out https://github.com/terrastruct/TALA/issues/95 https://github.com/terrastruct/tala https://terrastruct.com/tala/ https://terrastruct.com/blog/post/diagram-layout-engines-crossing-minimization/
-* _Terrastruct_: IDE https://www.terrastruct.com/ https://www.youtube.com/@terrastruct/videos https://d2lang.com/tour/studio
-
----
-
-* https://github.com/terrastruct/d2-vscode
-D2 📜 https://d2lang.com/ https://terrastruct-site-assets.s3.us-west-1.amazonaws.com/documents/d2_cheat_sheet.pdf
-* howto https://terrastruct.com/blog/post/10-tips-for-using-diagrams-to-ace-the-system-design-interview/ https://terrastruct.com/blog/post/draw-software-architecture-diagrams/ https://terrastruct.com/blog/post/diagram-layout-engines-crossing-minimization/
-* complex: https://d2lang.com/tour/composition https://d2lang.com/tour/classes
-* functionality: before/after https://d2lang.com/blog/animation code https://d2lang.com/tour/text#code tooltips https://d2lang.com/tour/interactive
-* layout: https://d2lang.com/tour/layouts https://d2lang.com/tour/positions https://d2lang.com/tour/dimensions
-* viz: icons https://icons.terrastruct.com/ https://d2lang.com/tour/icons themes https://github.com/terrastruct/d2/pull/2065/files https://d2lang.com/tour/themes style https://d2lang.com/tour/style sketch https://d2lang.com/blog/hand-drawn-diagrams dark mode https://d2lang.com/blog/dark-mode custom fonts https://d2lang.com/tour/fonts
-* export: SVG, PPT / Google Slides https://d2lang.com/tour/composition-formats
-* Vim language plugin https://d2lang.com/tour/vim/
-* 📍 VS Code extension for language / preview https://github.com/terrastruct/d2-vscode https://d2lang.com/tour/vscode/
-* config https://d2lang.com/tour/man
-* commands
-```sh
-# INSTALL
-brew tap terrastruct/d2
-brew install d2
-# RUN
-echo 'x -> y -> z' > viz.d2
-d2 --watch viz.d2 viz.svg
-```
-* design: as code, CLI, simple syntax
-* write in Python https://github.com/MrBlenny/py-d2
-* _bidirectional edit_: changing text changes viz, changing viz changes text https://d2lang.com/tour/api https://www.youtube.com/watch?v=EhxVVkxv2Ns
 
 ALTERNATIVES
 * _Backstage_: dynamic manifest of services, unsure about C4 support https://github.com/spotify/backstage https://www.youtube.com/watch?v=C6KfoOBP98U
