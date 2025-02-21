@@ -366,6 +366,12 @@ select count(*) from executions where height != ''
 
 ## select
 
+```sql
+-- CONCATENATE https://pgexercises.com/questions/joins/threejoin.html
+select * from products p join cat c
+on 'CS' || p.eid = c.product_id  -- eid 1234 produc_id CS1234
+```
+
 ---
 
 ALIASES
@@ -391,10 +397,6 @@ ZA
 -- DESC: must be final clause
 -- ASC: default, which is why you never see it 📙 Beaulieu [63]
 select "First Name", count(*) from executions group by "First Name" order by count(*) desc
-
--- concatenate https://pgexercises.com/questions/joins/threejoin.html
-SELECT concat(mem.fname, ' ', mem.lname) as member  -- Postgres
-SELECT mem.fname || ' ' || mem.lname as member  -- other dbms
 
 -- case statements https://pgexercises.com/questions/basic/classify.html https://pgexercises.com/questions/joins/threejoin2.html
 SELECT NAME,

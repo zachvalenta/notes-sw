@@ -505,7 +505,7 @@ D2_LAYOUT=tala d2 --watch -t 103 erd.d2 erd.svg  # https://github.com/terrastruc
 ---
 
 D2 📜 https://terrastruct-site-assets.s3.us-west-1.amazonaws.com/documents/d2_cheat_sheet.pdf
-* howto https://terrastruct.com/blog/post/10-tips-for-using-diagrams-to-ace-the-system-design-interview/ https://terrastruct.com/blog/post/draw-software-architecture-diagrams/ https://terrastruct.com/blog/post/diagram-layout-engines-crossing-minimization/
+* howto https://terrastruct.com/blog/post/10-tips-for-using-diagrams-to-ace-the-system-design-interview/ https://terrastruct.com/blog/post/draw-software-architecture-diagrams/
 * complex: https://d2lang.com/tour/composition https://d2lang.com/tour/classes
 * functionality: before/after https://d2lang.com/blog/animation code https://d2lang.com/tour/text#code tooltips https://d2lang.com/tour/interactive
 * layout: https://d2lang.com/tour/layouts https://d2lang.com/tour/positions https://d2lang.com/tour/dimensions

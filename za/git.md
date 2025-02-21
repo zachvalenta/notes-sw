@@ -948,7 +948,10 @@ USE https://dev.to/srebalaji/useful-tricks-you-might-not-know-about-git-stash-11
 
 ## undo
 
-* unstage: `git reset`
+UNSTAGE
+* single file: `reset HEAD $FILE` https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things
+* all files: `reset` https://michaelsoolee.com/git-unstage-all/
+
 * undo local commit: `git reset HEAD~` https://stackoverflow.com/a/927386
 * undo updates to already staged file: `git restore $FPATH`
 
@@ -974,8 +977,6 @@ git reset --hard $SHA_FROM_COMMIT_YOU_JUST_NUKED
 * mv most recent commit to index: `reset --soft HEAD~1`
 
 STAGING AREA
-* unstage single file: `reset HEAD <file>` https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things
-* unstage all files: `reset` https://michaelsoolee.com/git-unstage-all/
 * `git add .` is a bug magnet https://www.semicolonandsons.com/episode/how-to-make-less-mistakes-when-programming 2:20
 
 THE PAST

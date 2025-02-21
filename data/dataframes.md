@@ -13,11 +13,10 @@ TOOLING
 * visualize https://github.com/man-group/dtale
 * diff https://www.youtube.com/watch?v=5Rc9xkeHth0
 * GPU acceleration https://www.youtube.com/watch?v=86nMARKN7ho https://www.youtube.com/watch?v=Aumh3evLSKc https://www.youtube.com/watch?v=PH7ExhXYkxQ
-* tables rendered to HTML https://posit-dev.github.io/great-tables
 
 # ⚙️ DESIGN
 
-* _dataframe_: result set + operations https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://github.com/go-gota/gota/blob/master/dataframe/dataframe.go
+* BYO https://github.com/go-gota/gota/blob/master/dataframe/dataframe.go
 
 ---
 
@@ -29,6 +28,12 @@ https://dplyr.tidyverse.org/ https://calmcode.io/course/dplyr-verbs/introduction
 
 ZA
 * Dataframe Interchange Protocol, Dataframe API Standard https://ponder.io/how-the-python-dataframe-interchange-protocol-makes-life-better/ https://ponder.io/why-are-there-so-many-python-dataframes/ https://pythonspeed.com/articles/polars-pandas-interopability/
+
+## Great Tables
+
+📜 https://posit-dev.github.io/great-tables
+
+* doesn't just work™️ https://github.com/posit-dev/great-tables/issues/619
 
 ## 🦢 Ibis
 
@@ -66,7 +71,7 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 * https://web.archive.org/web/20230127194856/https://scribe.citizen4.eu/pandas-illustrated-the-definitive-visual-guide-to-pandas-c31fa921a43
 
 SEMANTICS
-* _series_: a column, all rows from a single column https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://pandas.pydata.org/docs/user_guide/10min.html#getting
+* _series_: rows from a single column https://www.youtube.com/watch?v=zmdjNSmRXF4 [10:00] https://pandas.pydata.org/docs/user_guide/10min.html#getting
 * `name`: series header
 * _index_: row number https://realpython.com/pandas-reset-index/
 
@@ -204,17 +209,23 @@ def reassign(df, condition=42):
     return df.assign(id=transformed_values)
 ```
 
+NULLS
+* considered null: `None`, `np.nan`, empty string (depending on type)
+* afaik there's no way to filter *in* nulls on file load
+```python
+# DROP W/IN COL
+pd.read_csv(fpath).dropna(subset=['foo'])
+pd.read_csv(fpath, na_filter=True, subset=['foo'])
+# DROP ACROSS COLS
+df = pd.read_csv(fpath).dropna()
+```
+
 TYPING
 ```python
 # CASTING
 pd.read_csv(fpath, dtype={'foo': str})
-# DROP NULLS W/IN COL
-pd.read_csv(fpath).dropna(subset=['foo'])
-pd.read_csv(fpath, na_filter=True, subset=['foo'])
 # DROP DUPES W/IN COL
 drop_duplicates(subset=['foo'])
-# DROP NULLS ACROSS COLS
-df = pd.read_csv(fpath).dropna()
 ```
 
 ---
@@ -275,92 +286,85 @@ ZA
 * plotting https://pola.rs/posts/lightweight_plotting/ https://realpython.com/python-news-october-2024/
 > couldn't get this to work; try `pipx inject`
 
-## IO
+## read
 
-WRITE
-* operations are immutable i.e. capture updates with assignment (`df = df.operations()`)
+🗄️
+* `architecture.md`
+* `data/internals.md` query engine > query plan
+
+WORKING AROUND GOOFY DATA
 ```python
-# literal
-df.with_columns(pl.lit('ALCO').alias('buyline'))
+# TSV
+safe_load = {
+    'schema_overrides': {
+        'height': pl.Utf8,
+        'upc': pl.Utf8,
+    },
+    'ignore_errors': True,
+    'truncate_ragged_lines': True,
+    'quote_char': None,
+    'infer_schema_length': 10000,
+}
+pl.read_csv(fpath, separator='\t', encoding='latin-1', skip_rows=8, **safe_load)
 
-# interpolated and concatenated
-df.with_columns((f'{prefix}' + pl.col('mpn').cast(str)).alias('sku'))
+# drop columns
+pl.read_csv('catalog.csv').drop(['', 'Unnamed: 0'])
+# drop nulls from col
+df.drop_nulls(subset=['col1', 'col2'])
 
-# interpolated - predicate
-df.with_columns(
-    pl.when(pl.col('sku').is_null())
-    .then(f'{prefix}' + pl.col('mpn').cast(str))
-    .otherwise(pl.col('sku'))
-    .alias('sku')
-)
-```
-* more type casting / coercion / interpolation
-```python
-# Polars cast() is equivalent to pandas astype()
-# Int64 matches the target schema's type
-# Safer than pl.col('id').str.to_int() which can fail on non-numeric strings
-
-# String parsing
-str.to_int(), str.to_float()
-# Numeric casting
-cast(pl.Int32), cast(pl.Float64)
-#Type coercion
-coalesce(), fill_null()
-```
-
-READ
-* strategy pattern for `.read_csv|parquet|excel` (excel requires `fastexcel`)
-```python
-# get value of cell (errs if more than one value)
-pdr_for_brand['sku-prefix'].item()
-
-# read_csv faster when you can skip entire columns and save on overhead of setting up query plan
-df = pl.read_csv(file, columns=['col1', 'col2'])
-
-# scan_csv creates lazy df = build up ops before actually loading data = Polars can optimize query plan rather than executing ops sequentially 🗄️ `data/internals.md` query engine > query plan
-df = pl.scan_csv(file)
-   .filter(pl.col('col1') > 0)
-   .select(['col1', 'col2'])
-   .groupby('col1').agg(pl.col('col2').mean())
-   .collect()
-
-# get schema without loading the whole table
-pl.scan_csv('data/catalog.csv', separator=',', infer_schema_length=100).collect_schema()
-
-# stream for lower memory consumption 🗄️ `architecture.md`
-for chunk in pl.read_csv("data.csv", rechunk=True).iter_chunks(size=10000):
-    process_chunk(chunk)
-
-# PRNG for reproducible sample 🗄️ `algos.md`
-pl.scan_parquet("data.parquet").sample(n=1000, seed=42).collect()
-
-# working around non-standard data
+# TSV
 pl.read_csv(
     filepath,
     separator='\t',
     encoding='latin-1',
     skip_rows=42,
     ignore_errors=True,
-    infer_schema_length=None,
+    infer_schema_length=10000,
     quote_char=None,
     truncate_ragged_lines=True,
 )
 
-# MALFORMATTED COLUMN HEADERS
+# malformatted column headers
 no_whitespace_or_period_delimit = r"^[^\s.-]+$"
 violations = [col for col in df.columns if bool(re.match(no_whitespace_or_period_delimit, col)) is False]
 assert len(violations) > 0
+```
 
+READ / SCAN / STREAM
+```python
+# READ faster when you can skip entire columns and save on overhead of setting up query plan
+df = pl.read_csv(file, columns=['col1', 'col2'])
+# SCAN creates lazy df = build up ops before actually loading data = can optimize query plan rather than executing ops sequentially
+df = pl.scan_csv(file)
+   .filter(pl.col('col1') > 0)
+   .select(['col1', 'col2'])
+   .groupby('col1').agg(pl.col('col2').mean())
+   .collect()
+# STREAM for lower memory consumption
+for chunk in pl.read_csv("data.csv", rechunk=True).iter_chunks(size=10000):
+    process_chunk(chunk)
+```
+
+---
+
+Pandas: Most filtering happens after load
+Polars: Can push many operations down to the scan/read level
+* NULL checks
+* Column selection
+* Type inference
+* Predicate pushdown
+
+CONVERSION
+* strategy pattern for `.read_csv|parquet|excel` (excel requires `fastexcel`)
+```python
 # convert pandas
 pl.from_pandas(df)
+```
+```python
+# get value of cell (errs if more than one value)
+pdr_for_brand['sku-prefix'].item()
 
-# skip null columns
-null_col_to_skip = ['Alternate Part Number', 'GTIN', 'Lead Time (Days)']
-df = pl.read_csv(path/to/data)
-df.select([col for col in df.columns if col not in null_col_to_skip])
 
-# drop bad columns
-pl.read_csv('catalog.csv').drop(['', 'Unnamed: 0']).write_csv('catalog.csv')
 
 # alias on read
 pl.scan_csv('products.csv').select([
@@ -368,21 +372,15 @@ pl.scan_csv('products.csv').select([
     pl.col('manufacturer_part_number').alias('mpn'),
 ]).collect()
 
-# read TSV
-df = pl.read_csv(
-    'products.tsv',
-    separator='\t',
-    encoding='latin-1',
-    infer_schema_length=None,
-    quote_char=None,
-    truncate_ragged_lines=True
-)
 ```
 
 ## EDA
 
 ```python
-df.drop_nulls(subset=['col1', 'col2'])  # drop nulls from col
+# get schema w/out full table load
+pl.scan_csv('data/catalog.csv', separator=',', infer_schema_length=100).collect_schema()
+# PRNG for reproducible sample 🗄️ `algos.md`
+pl.scan_parquet("data.parquet").sample(n=1000, seed=42).collect()
 ```
 
 ---
@@ -429,7 +427,6 @@ ecl.filter(
     (pl.col('mfg') == 'Trerice') &
     (pl.col('buyline') != pl.col('priceline'))
 )
-
 
 # KEYWORD SEARCH
 bar.filter(pl.col('mfg').str.contains('foo').alias('regex'))
@@ -571,4 +568,39 @@ joined = df1.join(df2.with_columns(pl.col("part_id").alias("df2_part_id")), left
 df1_tagged = df1.select([pl.all().prefix("table1_")])
 df2_tagged = df2.select([pl.all().prefix("table2_")])
 joined = df1_tagged.join(df2_tagged, left_on="table1_Part_ID", right_on="table2_Part_ID") # adjust join key names to match prefixed names
+```
+
+## write
+
+---
+
+* operations are immutable i.e. capture updates with assignment (`df = df.operations()`)
+```python
+# literal
+df.with_columns(pl.lit('ALCO').alias('buyline'))
+
+# interpolated and concatenated
+df.with_columns((f'{prefix}' + pl.col('mpn').cast(str)).alias('sku'))
+
+# interpolated - predicate
+df.with_columns(
+    pl.when(pl.col('sku').is_null())
+    .then(f'{prefix}' + pl.col('mpn').cast(str))
+    .otherwise(pl.col('sku'))
+    .alias('sku')
+)
+```
+
+* more type casting / coercion / interpolation
+```python
+# Polars cast() is equivalent to pandas astype()
+# Int64 matches the target schema's type
+# Safer than pl.col('id').str.to_int() which can fail on non-numeric strings
+
+# String parsing
+str.to_int(), str.to_float()
+# Numeric casting
+cast(pl.Int32), cast(pl.Float64)
+#Type coercion
+coalesce(), fill_null()
 ```

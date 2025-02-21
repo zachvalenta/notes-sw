@@ -181,7 +181,7 @@ OLTP
 * _Chinook_: https://github.com/lerocha/chinook-database
 * _Datacharmer_: needs port https://github.com/datacharmer/test_db
 * _Northwind_: https://github.com/pthom/northwind_psql
-* _Sakila_: https://github.com/jOOQ/sakila https://sq.io/docs/tutorial
+* _Sakila_: https://github.com/jOOQ/sakila https://sq.io/docs/tutorial https://posit-dev.github.io/great-tables/blog/design-philosophy/index.html#footnotes
 ```txt
 TABLES
 * film: contains details of movies (title, length, rating, description)
