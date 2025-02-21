@@ -169,6 +169,10 @@ colima start --memory 4 --cpu 4
 * https://news.ycombinator.com/item?id=37657772
 * https://news.ycombinator.com/item?id=37661872
 
+## DB Browser
+
+https://github.com/sqlitebrowser/sqlitebrowser/wiki/Plot-Dock
+
 # 💿 DATA
 
 🗄️
@@ -176,6 +180,20 @@ colima start --memory 4 --cpu 4
 * Capp machine
 
 ## canonical
+
+💻 `OLAP.md` schemas
+
+OLAP
+* _Great Tables_: https://posit-dev.github.io/great-tables/reference/#built-in-datasets
+* _NYC taxi dataset_: https://mattpo.pe/posts/sql-llvm/
+* _TPC-DS_: star https://news.ycombinator.com/item?id=42231325 https://trilogydata.dev/demo/ https://duckdb.org/docs/extensions/tpcds.html https://www.tpc.org/tpcds/ 🧠 https://chatgpt.com/c/67b8ba50-2efc-8004-84d8-50f8618f82b8
+
+ML
+* _Iris_: https://www.youtube.com/results?search_query=iris+dataset https://docs.pola.rs/user-guide/misc/visualization/#altair
+```python
+from sklearn.datasets import load_iris
+path = "docs/assets/data/iris.csv"
+```
 
 OLTP
 * _Chinook_: https://github.com/lerocha/chinook-database
@@ -198,15 +216,6 @@ FEATURES
 * concurrency and transactions: multiple users (represented by customers/staff) frequently update and read the database, making it suitable for practicing transaction handling (e.g., BEGIN TRANSACTION, COMMIT, and ROLLBACK)
 * indexes and query performance: you can demonstrate how primary keys, foreign keys, and indexes optimize lookups and joins
 * entity-relationship design: it’s a well-normalized schema (3rd normal form) with many-to-one and many-to-many relationships, useful for teaching joins
-```
-
-ML
-* _Iris_: https://www.youtube.com/results?search_query=iris+dataset
-```python
-from sklearn.datasets import load_iris
-
-import polars as pl  # https://docs.pola.rs/user-guide/misc/visualization/#altair
-path = "docs/assets/data/iris.csv"
 ```
 
 ## sets

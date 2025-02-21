@@ -254,6 +254,7 @@ TOOLS
 ```sh
 python -c "import random; print('\n'.join(str(random.randint(10, 99)) if random.random() > 0.2 else str(random.randint(100, 999)) for _ in range(20)))"
 ```
+> view in Github https://githubnext.com/projects/flat-data https://flatgithub.com/cisagov/dotgov-data/blob/main/?filename=current-full.csv&sha=7dc7d24fba91f571692112d92b6a8fbe7aecbba2 https://news.ycombinator.com/item?id=43125829
 * _moderncsv_: editor https://www.moderncsv.com/ 🗄️ `data/analytics.md` visidata
 * _csvdiff_: ✅ diff https://github.com/aswinkarthik/csvdiff
 * _csview_: ✅ cat https://github.com/wfxr/csview

@@ -507,7 +507,7 @@ operations
 
 ---
 
-* _CUDA_: GPUs aaS https://www.youtube.com/watch?v=hh0hK6UDQw0
+* _CUDA_: GPUs aaS https://www.youtube.com/watch?v=hh0hK6UDQw0 https://www.pyspur.dev/blog/introduction_cuda_programming
 * not always faster https://news.ycombinator.com/item?id=42389383
 * _GPU_: https://news.ycombinator.com/item?id=23986925 https://lwn.net/Articles/827596/ https://codeconfessions.substack.com/p/gpu-computing https://codeconfessions.substack.com/p/gpu-computing https://news.ycombinator.com/item?id=42042016
 > GPUs are much less complex than CPUs; that means they can execute instructions much more quickly, but those instructions have to be much simpler. At the same time, you can run a lot of them at the same time to achieve outsized results. Graphics is, unsurprisingly, the most obvious example: every "shader" - the primary processing component of a GPU - calculates what will be displayed on a single portion of the screen; the size of the portion is a function of how many shaders you have available. If you have 1,024 shaders, each shader draws 1/1,024 of the screen. Ergo, if you have 2,048 shaders, you can draw the screen twice as fast. Graphics performance is "embarrassingly parallel", which is to say it scales with the number of processors you apply to the problem. https://stratechery.com/2023/china-chips-and-moores-law/

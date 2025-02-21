@@ -132,6 +132,8 @@ Loses irrelevant syntax (whitespace, comments)
 
 ---
 
+https://ssloy.github.io/tinycompiler/ast/
+
 > D2 has an API built on top of its AST for programmatically creating diagrams in Go. This package is d2/d2oracle.  https://d2lang.com/tour/api
 
 * _AST_: src as tree https://sadh.life/post/ast/ https://d2lang.com/tour/api

@@ -381,6 +381,8 @@ pl.scan_csv('products.csv').select([
 pl.scan_csv('data/catalog.csv', separator=',', infer_schema_length=100).collect_schema()
 # PRNG for reproducible sample 🗄️ `algos.md`
 pl.scan_parquet("data.parquet").sample(n=1000, seed=42).collect()
+# get sampling from col
+first_values = df['column_name'].head(5)
 ```
 
 ---
@@ -394,7 +396,6 @@ df.schema.keys()
 col_series = df["column_name"]
 col_list = df["column_name"].to_list()
 
-first_values = df['column_name'].head(5)
 unique_values = df['column_name'].unique()
 
 # col has empty values

@@ -11,6 +11,7 @@
 
 ## 进步
 
+Simon Prince book https://news.ycombinator.com/item?id=43121059
 https://openai.com/index/introducing-deep-research/ https://x.com/mckaywrigley/status/1886215847481623030 https://x.com/felipe_millon/status/1886205433469178191 https://thezvi.substack.com/p/were-in-deep-research https://x.com/sayashk/status/1887275315824660584 https://www.fromthenew.world/p/openai-deep-research-explains-itself https://x.com/patrickc/status/1888312657146757315 https://stratechery.com/2025/deep-research-and-knowledge-value/
 > OpenAI made a big splash launching ‘Deep Research’, an agent-ish tool within the $200 Pro plan that uses a version of the computationally-intensive (and expensive) o3 ‘reasoning’ model to write research reports, coming back in a few hours when it’s done. As for most generative AI demos, very cool if you have that use case, but you have to be careful - I spotted some large mistakes even in one of the examples on the marketing page (in a field I know a lot about). I always used to compare machine learning to ‘infinite interns’ and now you can ask an AI intern to write a long report about something - but you’ll need to check every line of it, and it probably won’t say anything surprising (since surprising is a divergence from the data). - Ben Evans 25.02.11
 

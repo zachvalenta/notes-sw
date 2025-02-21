@@ -279,12 +279,12 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 
 ## schemas
 
+💻 `sql.md` canonical
+
+* _fact table_: transactions w/ many FK to other dimensions 📙 Kleppmann [93,95]
+* _dimension_: non-transactional tables 📙 Kleppmann [94] https://tech.marksblogg.com/data-fluent-for-postgresql.html
 * _star schema_: fact table at center
-* _snowflake schema_: like star schema but more normalized
-* less popular bc harder to query 📙 Kleppmann 95
-* _fact table_: transactions 📙 Kleppmann 93
-* w/ many FK to other dimensions 📙 Kleppmann 95
-* _dimension_: non-transactional tables 📙 Kleppmann 94 https://tech.marksblogg.com/data-fluent-for-postgresql.html
+* _snowflake schema_: like star schema but more normalized, less popular bc harder to query 📙 Kleppmann [95]
 
 ## size
 

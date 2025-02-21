@@ -85,7 +85,7 @@ OPTIONS
 * notebook: when you want to share
 
 * look into hosted
-* pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html 🗄️ `architecture.md` baked data, Datasette, WASM-based? https://simonwillison.net/2025/Feb/13/url-addressable-python/
+* pyodide https://news.ycombinator.com/item?id=31261777 https://adtax.paulromer.net/ https://duckdb.org/2024/10/02/pyodide.html 🗄️ `architecture.md` baked data, Datasette, WASM-based? https://simonwillison.net/2025/Feb/13/url-addressable-python/ https://trilogydata.dev/
 * add to startup https://www.pythonmorsels.com/cli-tools/#pyclbr
 * https://ericmjl.github.io/blog/2024/11/8/disposable-environments-for-ad-hoc-analyses/
 * https://lukeplant.me.uk/blog/posts/repl-python-programming-and-debugging-with-ipython/
