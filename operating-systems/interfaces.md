@@ -532,9 +532,13 @@ CONFIG
 * filepath goofiness https://github.com/ghostty-org/ghostty/issues/3456
 
 SPLITS
-* ❌ no divider btw splits still pretty dark; way to config? https://github.com/ghostty-org/ghostty/discussions/3301
-* ❌ no goto split by number https://github.com/ghostty-org/ghostty/discussions/5527
-* Vim goto https://github.com/shoukoo/dotfiles/blob/f093247c18af0cb47adad21a4a60425b8aea6e5d/ghostty#L15
+* ✅ divider color fixed https://github.com/ghostty-org/ghostty/discussions/3301
+* ✅ goto: vim but no by-number https://github.com/ghostty-org/ghostty/discussions/5527 https://github.com/shoukoo/dotfiles/blob/f093247c18af0cb47adad21a4a60425b8aea6e5d/ghostty#L15
+* 📍 max/min
+```toml
+keybind = ctrl+alt+m=maximize_split
+keybind = ctrl+alt+n=equalize_splits
+```
 * ❌ doesn't support arrangements
 > workaround with zellij
 ```txt
