@@ -189,7 +189,13 @@ gh alias list
 📜 https://docs.github.com/en/get-started/writing-on-github
 🔗 https://calmcode.io/course/readme-files/dearme-readme
 
-* use GIF https://github.com/Melkeydev/go-blueprint
+* use GIF https://github.com/Melkeydev/go-blueprint -> screws up the headers, no?
+```md
+## Way to Keep Headers?
+![](./public/advanced.gif)
+
+![Alt text](path/to/your.gif)
+```
 * add a welcome video! https://github.com/grafana/pyroscope
 * use SVG https://github.com/zachvalenta/capp-prod-cat-alt https://github.com/pommee/Pocker
 * use HTML https://github.com/catppuccin/delta/blame/main/README.md
