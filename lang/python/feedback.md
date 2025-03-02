@@ -129,7 +129,7 @@ def simple_tracer(frame, event):  # 4:30
 
 ---
 
-debugpy https://www.bitecode.dev/p/whats-up-python-better-packaging
+debugpy https://www.bitecode.dev/p/whats-up-python-better-packaging https://github.com/microsoft/vscode-python-debugger/wiki/No%E2%80%90Config-Debugging
 https://github.com/leapingio/leaping
 
 IPYTHON

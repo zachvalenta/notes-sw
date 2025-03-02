@@ -154,12 +154,14 @@ def keyboard_interrupt(self):
 CURSOR https://www.cursor.com/ https://github.com/getcursor/cursor
 * jerks? https://news.ycombinator.com/item?id=37888477
 * closed source VS Code fork (Chromium?)
+* compared to Copilot https://www.youtube.com/watch?v=V2tv6GZuV0A
 
 ---
 
 * system prompt https://docs.cursor.com/context/rules-for-ai https://ghuntley.com/stdlib/
 * code completion https://www.arguingwithalgorithms.com/posts/cursor-review.html
 
+* _Windsurf_: https://grok.com/chat/1266ee50-f829-434c-ab99-33bce866492b
 * _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://codeium.com/windsurf https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
 
 ## 🎙️ chorus

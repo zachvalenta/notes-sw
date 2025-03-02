@@ -65,6 +65,7 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 🧠
 * https://grok.com/chat/a3efd4af-1027-4065-ba82-d0ef04c58439
 
+* VSC Code inline values for notebooks
 * w/ Rich 💻️ https://github.com/zachvalenta/capp-dataload/blob/main/load.py#L28
 * https://github.com/dannywade/textual-pandas
 * _Data Wrangler_: https://code.visualstudio.com/docs/datascience/data-wrangler
