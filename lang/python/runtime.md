@@ -184,7 +184,7 @@ PEPS https://peps.python.org/
 * finance https://www.openbb.co/
 * architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * GPU simulation https://news.ycombinator.com/item?id=40680737
-* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/
+* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/ https://github.com/pythonarcade/arcade
 * mesh analysis https://github.com/pyvista/pyvista
 * browser https://www.youtube.com/watch?v=Vh77_2-Z0vc
 
@@ -404,6 +404,19 @@ __get Python to find your pkg (here be dragons)__
 * `context.py` file inside test suite https://docs.python-guide.org/writing/structure/#test-suite
 * um, avoid it? https://alex.dzyoba.com/blog/python-import/ https://chrisyeh96.github.io/2017/08/08/definitive-guide-python-imports.html#case-4-importing-from-parent-directory 
 
+## pytest choking on Python stupidity
+
+💻 https://github.com/zachvalenta/capp-datalab
+
+Why Pytest is Doing This
+Pytest isn’t completely brain-dead—it’s just stuck in a Python module system trap. Here’s the breakdown:
+
+When you run python -m pytest src -v, pytest adds src/ to the Python path so it can import everything under it as a package (e.g., src.discontinuation.rules, src.pricing.rules).
+During test collection, it scans for files matching test patterns (like test_*.py) and tries to import them as modules.
+Python’s module system, not pytest itself, decides what a module’s name is based on its filename. So src/discontinuation/test_rules.py becomes the module discontinuation.test_rules, and src/pricing/test_rules.py becomes pricing.test_rules—in theory.
+Here’s the dumb part: If pytest imports discontinuation.test_rules first (because of filesystem order or whatever), Python caches it as test_rules in sys.modules (the last part of the dotted name). Then, when it tries to import pricing.test_rules, Python sees test_rules is already taken, checks the __file__ attribute, and realizes it’s a different file. Instead of saying, “Oh, different namespace, no big deal,” it barfs with the mismatch error.
+It’s not pytest being deliberately obtuse—it’s inheriting Python’s flat module namespace rules and not having a built-in way to say, “Hey, I know these are in different subpackages, chill out.” The assumption is that module names (filenames) should be unique across the test suite, which sucks when you want clean, consistent naming like test_rules.py per submodule.
+
 ## packages
 
 > Python packages should also have short, all-lowercase names, although the use of underscores is discouraged. https://peps.python.org/pep-0008/#package-and-module-names https://stackoverflow.com/a/3101894
@@ -475,6 +488,7 @@ __namespaces__
 
 should be like books: TOC, glossary, index
 
+* https://gafni.dev/blog/cracking-the-python-monorepo/
 > I also hate `__init__.py` littering the file system
 * `src/$NAME`: https://github.com/Zaloog/kanban-tui
 * https://github.com/mikeckennedy/listmonk

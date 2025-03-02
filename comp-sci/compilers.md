@@ -102,6 +102,7 @@ Creates AST
 ---
 
 * _parser_: generates AST from src https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html https://astral.sh/blog/ruff-v0.4.0 https://drewdevault.com/2021/04/22/Our-self-hosted-parser-design.html
+* parser generator https://lezer.codemirror.net/
 * https://ohmjs.org/ https://dubroy.com/blog/ https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 * date/time parser https://github.com/olebedev/when
 * JSON parser https://news.ycombinator.com/item?id=38150833 https://blog.sylver.dev/building-a-json-validator-with-sylver-part13-writing-a-json-parser-in-49-lines-of-code 
@@ -225,6 +226,14 @@ There's some middle ground:
 * _WASM_: Started as bytecode for browsers but now also used as compiler target https://web.dev/blog/ruby-on-rails-on-webassembly
 * _JVM_: Uses intermediates between bytecode and machine code during JIT
 * _.NET_: Has both IL (bytecode) and internal compiler IR
+
+WASM 📙 https://wasmgroundup.com/
+* compilation target for browsers that supports non-JS languages https://words.steveklabnik.com/is-webassembly-the-return-of-java-applets-flash
+* https://sqlite.org/wasm/doc/tip/about.md
+* https://rsms.me/wasm-intro
+* https://neugierig.org/software/blog/2024/04/rust-wasm-to-js.html
+* https://antonz.org/go-1-24/
+* https://news.ycombinator.com/item?id=41851051
 
 ```python
 from llvmlite import ir, binding
@@ -518,6 +527,7 @@ Jedi is more tuned for real-time code intelligence in editors rather than broad 
 
 ---
 
+treesitter https://github.com/codegen-sh/codegen
 https://philz.dev/blog/language-server-db/ https://www.hytradboi.com/2025/603a4562-ba4f-4150-b6d0-8c0e4c1ed5f7-rubbing-a-database-on-a-language-server
 
 * _pylance_: closed source, uses pyright https://github.com/microsoft/pylance-release/issues/4

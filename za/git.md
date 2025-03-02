@@ -6,6 +6,7 @@
 
 ## 进步
 
+* ⭐️ managing many Git repos https://github.com/alajmo/mani
 * need way to toggle git diff away from delta for copying plaintext 🗄️ `bin/gco`
 > or can delta itself provide a toggle?
 * backup to Codeberg https://github.com/AkashRajpurohit/git-sync
@@ -189,7 +190,13 @@ gh alias list
 📜 https://docs.github.com/en/get-started/writing-on-github
 🔗 https://calmcode.io/course/readme-files/dearme-readme
 
-* use GIF https://github.com/Melkeydev/go-blueprint
+* use GIF https://github.com/Melkeydev/go-blueprint -> screws up the headers, no?
+```md
+## Way to Keep Headers?
+![](./public/advanced.gif)
+
+![Alt text](path/to/your.gif)
+```
 * add a welcome video! https://github.com/grafana/pyroscope
 * use SVG https://github.com/zachvalenta/capp-prod-cat-alt https://github.com/pommee/Pocker
 * use HTML https://github.com/catppuccin/delta/blame/main/README.md
@@ -199,10 +206,15 @@ gh alias list
 * note highlighting: note, tip, important, warning, caution
 ```markdown
 > [!NOTE]
-> Note content.
-
+> general
+> [!TIP]
+> shortcuts
 > [!IMPORTANT]
-> (12/19/24) Hello! MarkItDown team members will be resting and recharging with family and friends over the holiday period. Activity/responses on the project may be delayed during the period of Dec 21-Jan 06. We will be excited to engage with you in the new year!
+> announcements
+> [!CAUTION]
+> questions
+> [!WARNING]
+> mutations
 ```
 
 ---
@@ -440,7 +452,7 @@ HISTORY https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 > used by Facebook, Unity https://news.ycombinator.com/item?id=20745393
 > Mercurial design https://news.ycombinator.com/item?id=18029498
 * Git for everything https://news.ycombinator.com/item?id=30522175
-* _fourth generation_: https://github.com/martinvonz/jj https://news.ycombinator.com/item?id=42934427 https://tonyfinn.com/blog/jj/ https://v5.chriskrycho.com/essays/jj-init/ https://news.ycombinator.com/item?id=42310386
+* _fourth generation_: https://github.com/martinvonz/jj https://news.ycombinator.com/item?id=42934427 https://tonyfinn.com/blog/jj/ https://v5.chriskrycho.com/essays/jj-init/ https://news.ycombinator.com/item?id=42310386 Gerrit https://techspot.zzzeek.org/2016/04/21/gerrit-is-awesome/
 > Jujutsu is a version control system. They aim to be independent at some point but for now it is a heady frontend on top of git (a big advantage – all of your existing git repos and tools are trivially compatible with it). https://drewdevault.com/2024/12/10/2024-12-10-Daily-driving-jujutsu.html
 
 LINKABLE LIBRARIES 🗄 `python.md` Git

@@ -35,6 +35,10 @@ Where would Arrow fit into the serde picture of data vs. IPC vs. wire
 
 # 🏛️ COLUMNAR
 
+🗄️
+* `modeling.md` factors > width
+* `modeling.md` non > column store
+
 ```sh
 Row-oriented:
 record1: name,age,city
@@ -117,27 +121,17 @@ if __name__ == "__main__":
 
 ---
 
+> Neither Parquet nor ORC files existed prior to 2012. These file formats were instrumental in making analytics fast on Hadoop. Prior to these formats, workloads were largely row-oriented. If you needed to transform TBs of data and could do so in a parallel fashion then Hadoop did a good job of that. MapReduce was a framework often used for this purpose. What columnar storage offered was a way to analyse TBs of data in seconds. This proved to be a more valuable proposition to more businesses. Data Scientists may only need a small amount of data to produce insights but they'll need to look over a data lake with potentially PBs of data to pick out what they need first. Columnar analytics is key for them to build the data fluency needed to know what to cherry-pick. https://tech.marksblogg.com/is-hadoop-dead.html
+
 already old! https://db.cs.cmu.edu/projects/future-file-formats/
 📙 Kleppmann chapter 3
 🗄 `computation.md` encoding/CSV, Parquet
 
-used for time series databases
-
-* _column store_: not row-oriented (like OLTP)
-* can do in Sqlite? https://news.ycombinator.com/item?id=39207570&utm_term=comment
-* 不明觉厉 https://news.ycombinator.com/item?id=36571110
-* e.g. instead of looking for all `price` values by iterating over every sale record, just grab `price` column 📙 Kleppmann 96
-* ❓ stores data differently on disk https://nchammas.com/writing/database-access-patterns
-* in order to reconstruct a row, everything in row must be stored as nth in column 📙 Kleppmann 100
-> Neither Parquet nor ORC files existed prior to 2012. These file formats were instrumental in making analytics fast on Hadoop. Prior to these formats, workloads were largely row-oriented. If you needed to transform TBs of data and could do so in a parallel fashion then Hadoop did a good job of that. MapReduce was a framework often used for this purpose. What columnar storage offered was a way to analyse TBs of data in seconds. This proved to be a more valuable proposition to more businesses. Data Scientists may only need a small amount of data to produce insights but they'll need to look over a data lake with potentially PBs of data to pick out what they need first. Columnar analytics is key for them to build the data fluency needed to know what to cherry-pick. https://tech.marksblogg.com/is-hadoop-dead.html
-* _wide column store_: ❓
-* CMU, Pavlo https://www.youtube.com/watch?v=fr5lIchF6pw
-* vectorized execution https://talkpython.fm/episodes/transcript/491/duckdb-and-python-ducks-and-snakes-living-together
-
-DBMS https://en.wikipedia.org/wiki/List_of_column-oriented_DBMSes
-* Cassandra https://stackoverflow.com/q/13010225 https://www.youtube.com/watch?v=J-cSy5MeMOA 📙 Kleppmann 99 https://news.ycombinator.com/item?id=28292369 https://simonwillison.net/2021/Aug/24/how-discord-stores-billions-of-messages/
-* _Bigtable_: wide table = document store in SQL https://en.wikipedia.org/wiki/Wide-column_store
-* _HBase_: Hadoop db
+Structure: Data for each column is stored contiguously on disk or in memory. For example, in Parquet, all values of a "name" column are grouped together, separate from the "email" column.
+Purpose: This design excels at analytical workloads where you need to process or aggregate specific columns across many rows (e.g., summing a "sales" column). It minimizes I/O by only reading the relevant columns.
+Key Trait: Fixed schema (or at least a well-defined schema per dataset). Every row in a Parquet file has the same set of columns, even if some values are null.
+Examples: Apache Arrow (in-memory columnar format), Parquet (on-disk columnar storage).
+Focus: Data storage and processing efficiency for analytics, not real-time querying or dynamic updates.
 
 ## 🏹 Arrow
 
@@ -160,6 +154,9 @@ DBMS https://en.wikipedia.org/wiki/List_of_column-oriented_DBMSes
 ## 📐 Parquet
 
 🗄️ `computation.md` info theory > compression
+
+TOOLS
+* preview https://terminaltrove.com/pqviewer
 
 ---
 
@@ -257,6 +254,8 @@ python -c "import random; print('\n'.join(str(random.randint(10, 99)) if random.
 > view in Github https://githubnext.com/projects/flat-data https://flatgithub.com/cisagov/dotgov-data/blob/main/?filename=current-full.csv&sha=7dc7d24fba91f571692112d92b6a8fbe7aecbba2 https://news.ycombinator.com/item?id=43125829
 * _moderncsv_: editor https://www.moderncsv.com/ 🗄️ `data/analytics.md` visidata
 * _csvdiff_: ✅ diff https://github.com/aswinkarthik/csvdiff
+> this was even worse https://github.com/simonw/csv-diff
+> so far Pandas is the best option https://github.com/zachvalenta/capp-pu-baso
 * _csview_: ✅ cat https://github.com/wfxr/csview
 * _csvlens_: ✅ less/pager https://github.com/YS-L/csvlens https://news.ycombinator.com/item?id=38889820
 * _tabiew_: cat https://github.com/shshemi/tabiew
@@ -302,6 +301,7 @@ in2csv $EXCEL > $CSV
 
 * _Capn Proto_: https://capnproto.org/
 * sustainable? https://github.com/capnproto/capnproto/issues/2067
+* used in https://github.com/commaai/opendbc
 
 ## protobuf
 
@@ -360,6 +360,7 @@ FEATURES
 > MessagePack structured communication enables extensions in any language. https://neovim.io/
 * binary = optimized for compactness
 * no schema validation
+* vs. CBOR https://news.ycombinator.com/item?id=43229259
 
 USAGE
 * high-throughput message queues

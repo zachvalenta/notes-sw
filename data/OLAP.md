@@ -16,6 +16,10 @@
 entity resolution at Capp = New Product Mgmt process (Ben runs, part of product workflow)
 AI in pipelines https://news.ycombinator.com/item?id=42990036
 
+https://tower.dev/blog/building-an-open-multi-engine-data-lakehouse-with-s3-and-python
+> If you haven't heard of lakehouses before, think of a data warehouse where tables are stored across many files in public cloud storage services (e.g., Amazon's S3), with the crucial metadata about these tables (for example, which files contain the table's data) stored near the data in the same cloud bucket.
+> use Spark and Snowflake simultaneously but for different workloads (the typical split is Spark for ML workloads and Snowflake for everyone who prefers SQL).
+
 * _24_: try harlequin, lots of rf
 * _22_: basic xsv/miller/Pandas
 * _21_: put together basic data eng notes
@@ -52,7 +56,6 @@ https://news.ycombinator.com/item?id=42078067
 * https://news.ycombinator.com/item?id=37222191
 * https://news.ycombinator.com/item?id=35478240
 * https://www.ssp.sh/brain/data-engineering/
-* Cassandra https://news.ycombinator.com/item?id=41683293
 
 ROLES
 * _data scientist_: analytics
@@ -134,6 +137,7 @@ https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 
 ---
 
+* C++ devs https://news.ycombinator.com/item?id=43342712
 > DuckDB is a single file SQL database. https://csvbase.com/blog/6
 > DuckDB is a new analytical data management system that is designed to run complex SQL queries within other processes. DuckDB has bindings for R and Python, among others. DuckDB can query Arrow datasets directly and stream query results back to Arrow. This integration allows users to query Arrow data using DuckDB's SQL Interface and API, while taking advantage of DuckDB's parallel vectorized execution engine, without requiring any extra data copying. Additionally, this integration takes full advantage of Arrow's predicate and filter pushdown while scanning datasets. https://duckdb.org/2021/12/03/duck-arrow.html
 * interop btw other databases https://duckdb.org/2024/01/26/multi-database-support-in-duckdb.html
@@ -281,7 +285,7 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 ## schemas
 
 💻
-* `data/modeling.md` factors
+* `data/modeling.md` factors, name spaces
 * `sql.md` canonical
 
 * _fact table_: transactions w/ many FK to other dimensions 📙 Kleppmann [93,95]
@@ -352,6 +356,7 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 
 ---
 
+https://www.crunchydata.com/blog/validating-data-types-from-semi-structured-data-loads-in-postgres-with-pg_input_is_valid
 * _OpenRefine_: https://openrefine.org/ https://www.youtube.com/watch?v=yjLIRNpc2RQ
 
 * https://blog.codepen.io/2023/02/01/399-data-munging/
@@ -395,6 +400,60 @@ ALTERNATIVES
 * if petl can only handle thousands of records, why not just use Pandas? https://www.youtube.com/watch?v=llRLh8cM7QI 9:30 25:00
 * _Prefect_: https://www.youtube.com/watch?v=W-rMz_2GwqQ https://www.youtube.com/playlist?list=PL3MmuxUbc_hKqamJqQ7Ew8HxptJYnXqQM https://www.youtube.com/watch?v=ISLV9JyqF1w
 * _Tobiko_: https://tobikodata.com/ https://tobikodata.com/tobiko-acquires-quary.html
+
+## 🍞 miller
+
+🗄️ `os/tools.md` string processing
+📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
+
+PIPELINES
+```sh
+cat $CSV | mlr --csv put '$col = int($col)' > $CSV  # cast type from int to float
+filter 'is_null($col)' $CSV                         # filter nulls https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
+filter '$header != ""' $CSV                         # filter out nulls
+mlr --csv filter '$col != ""' $CSV                  # filter out empty strings
+mlr --csv filter '$price_list != ""' final.csv
+mlr --csv filter '$price_list != ""' final.csv
+mlr --csv filter '$price_source != ""' then filter '$mpn_score == 100' $CSV  # chained
+```
+
+CONFIG https://miller.readthedocs.io/en/latest/customization/
+* `$HOME/.mlrrc`
+```sh
+--list-color-names # view colors https://miller.readthedocs.io/en/latest/output-colorization/
+c2p  # --c2p
+allow-ragged-csv-input  # if data line fields > header line, insert empty val instead of err (CSV header/data length mismatch)
+
+# IO
+--icsv    # input csv
+--tsv     # input tsv
+--opprint # output pprint
+--c2p     # combine --icsv and --opprint https://miller.readthedocs.io/en/latest/keystroke-savers/#short-format-specifiers-including-c2p
+--csv     # IO csv
+```
+
+---
+
+```sh
+# BASICS
+cat $FILE # select *
+head -n 5 $FILE # limit
+sort -f $COL $FILE  # sort on col
+cut -o -f "col1","col2" $FILE # select col = -o -f col
+cut -x -f "col1","col2" $FILE # ignore col = -x -f co l
+put '$COL1 = "foo"' then put '$COL2 = "bar"' $FILE_CURRENT > $FILE_UPDATED  # add col
+head -n 20 then cut -o -f "id","artist" then sort -f "artist" $FILE # chaining
+
+# PREDICATES, GROUPING
+uniq -g <header> <csv> | wc -l # uniq for header
+most-frequent -f col -n 1000 example.csv # most frequent value by header
+most-frequent -f col -n 1000 example.csv | mlr --opprint sort -f col # most frequent value by header + group by header
+--c2p cut -o -f "21.08","21.09" then put '${total} = ${21.08} + ${21.09}' <csv> # put = computed fields; ${field} for fields w/ spaces
+filter '$header == "value"' $CSV # select * where header = val
+filter '$header1 == "value-foo"' && '$header2 == "value-bar"' example.csv
+filter 'is_null($header)' example.csv # https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
+filter '$earnings > 0.0' example.csv
+```
 
 ## test
 
@@ -541,6 +600,35 @@ Spend a week exploring some larger analytics datasets, or converting some of the
 
 # ⛵️ LAKE
 
+* = structured + unstructed for analytics 类似 file system e.g. Redshift
+* https://www.youtube.com/watch?v=PpGivTOyawY
+* https://www.youtube.com/watch?v=V0GvZ_KAI70 https://news.ycombinator.com/item?id=32336977
+* slower to access, has metadata (when was it produced, who owns it), batch writes, most reads will be humans doing analysis or exploration
+* less expensive bc optimizing for large volume i.e. can use slower object storage 📻 Macey 31:30
+* https://softwareengineeringdaily.com/2022/08/25/lakehouse-data-stack-with-raj-bains-2/
+* _HCatalog_: https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
+* _Deltalake_: lakehouse https://news.ycombinator.com/item?id=34345408
+* _Redshift_: warehouse https://aws.amazon.com/redshift/
+
+## Hudi
+
+* _Hudi_: lakehouse https://news.ycombinator.com/item?id=34345408
+
+## 🧊 Iceberg
+
+🔍 email
+
+---
+
+https://duckdb.org/2025/03/14/preview-amazon-s3-tables.html https://news.ycombinator.com/item?id=43401421
+https://www.robinlinacre.com/recommend_duckdb/
+https://grok.com/chat/ae668999-e495-430c-8f69-26182fc12746
+https://tower.dev/blog/building-an-open-multi-engine-data-lakehouse-with-s3-and-python
+
+* _table format_:
+* table format = structure of files (Parquet) that make up lake https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
+> Table formats have slowly been stealing the spotlight across the big data space as projects like Apache Hudi, Delta Lake and Apache Iceberg mature and disrupt the tried-and-tested legacy data lake technologies in use at most companies worldwide.
+
 ```txt
 Let me break this down taxonomically:
 
@@ -625,24 +713,6 @@ Modern warehouses (Snowflake, BigQuery) add lake-like features:
 Core tradeoff: Warehouses optimize for immediate analytical value but with higher cost and rigidity. Lakes optimize for flexibility and cost but require more engineering investment.
 ```
 
-* = structured + unstructed for analytics 类似 file system e.g. Redshift
-* https://www.youtube.com/watch?v=PpGivTOyawY
-* https://www.youtube.com/watch?v=V0GvZ_KAI70 https://news.ycombinator.com/item?id=32336977
-* table format = structure of files (Parquet) that make up lake https://trino.io/blog/2022/08/24/data-pipelines-production-ready-great-expectations.html
-* slower to access, has metadata (when was it produced, who owns it), batch writes, most reads will be humans doing analysis or exploration
-* less expensive bc optimizing for large volume i.e. can use slower object storage 📻 Macey 31:30
-* https://softwareengineeringdaily.com/2022/08/25/lakehouse-data-stack-with-raj-bains-2/
-* _HCatalog_: https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
-* _Deltalake_: lakehouse https://news.ycombinator.com/item?id=34345408
-* _Redshift_: warehouse https://aws.amazon.com/redshift/
-
-## Hudi
-
-* _Hudi_: lakehouse https://news.ycombinator.com/item?id=34345408
-
-## Iceberg
-
-🔍 email
 
 built on top of Parquet
 https://news.ycombinator.com/item?id=34345408
@@ -655,14 +725,12 @@ https://www.youtube.com/watch?v=6tjSVXpHrE8
 https://www.youtube.com/watch?v=nWwQMlrjhy0
 https://www.youtube.com/watch?v=ifXpOn0NJWk
 https://medium.com/expedia-group-tech/a-short-introduction-to-apache-iceberg-d34f628b6799
-* _table format_:
 * _Iceberg_: SQL for table formats https://iceberg.apache.org/ https://www.thoughtworks.com/radar/platforms?blipid=202203012 https://news.ycombinator.com/item?id=34342190
 * AWS S3 tables https://meltware.com/2024/12/04/s3-tables.html
 * https://medium.com/expedia-group-tech/a-short-introduction-to-apache-iceberg-d34f628b6799
-> Table formats have slowly been stealing the spotlight across the big data space as projects like Apache Hudi, Delta Lake and Apache Iceberg mature and disrupt the tried-and-tested legacy data lake technologies in use at most companies worldwide.
 > The project [Iceberg] was originally developed at Netflix to solve long-standing issues with their usage of huge, petabyte-scale tables. It was open-sourced in 2018 as an Apache Incubator project and graduated from the incubator on the 19th of May 2020.
 
-# MESH
+## mesh
 
 https://www.manning.com/books/data-mesh-in-action
 

@@ -13,7 +13,7 @@
 📚
 * Buelta python architecture
 * Ford fundamentals of software architecture
-* Ford evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237
+* Ford evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237 https://www.amazon.com/gp/product/1492086894/ref=ox_sc_saved_image_10
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
 * Tan acing the interview https://www.manning.com/books/acing-the-system-design-interview
 * ⭐️ Xu system design interview https://www.manning.com/books/acing-the-system-design-interview
@@ -135,6 +135,7 @@ FACTORS
 * data immutable (events, analytics)
 * memory usage https://news.ycombinator.com/item?id=42244111
 * CPU usage https://metoro.io/blog/go-production-performance-gotcha-gomaxprocs
+* locality: local-only, local-first, cloud https://tonsky.me/blog/crdt-filesync/
 
 https://gwern.net/choosing-software
 * maintenance
@@ -176,7 +177,8 @@ COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtim
 * avoid fault in one part of a system taking down the system
 * _coupling_: one change necessitates another
 * _horizontal scaling_: aka shared-nothing architecture [Kleppmann 17] https://buttondown.com/hillelwayne/archive/are-efficiency-and-horizontal-scalability-at-odds/
-* _multi-tenant_: multiple customer users https://www.saaspegasus.com/
+* _multitenant_: multiple customer users https://www.saaspegasus.com/
+> Sharding a multitenant application: a SaaS/B2B style app, where data is never joined between customers https://www.crunchydata.com/blog/citus-the-misunderstood-postgres-extension
 * Edge, Sentry, Parse https://www.youtube.com/watch?v=W1fkGyIcePA&t=1044s https://www.pythonpodcast.com/datacoral-serverless-technology-episode-214/ 15:00-19:00 https://www.youtube.com/watch?v=OfPE7yj1trw https://www.viget.com/articles/multi-tenancy-in-django
 * _service mesh_: https://servicemesh.io/ https://news.ycombinator.com/item?id=17415421 https://www.digitalocean.com/community/tutorials/an-introduction-to-service-meshes sidecar, eBPF https://www.thoughtworks.com/radar/techniques?blipid=202203060 Istio
 * data mesh https://news.ycombinator.com/item?id=30721198 https://www.thoughtworks.com/radar/techniques?blipid=201911051 https://www.manning.com/books/data-mesh-in-action
@@ -236,7 +238,6 @@ KISS
 * https://wizardzines.com/about/
 * https://blog.cerebralab.com/Imaginary_Problems_Are_the_Root_of_Bad_Software https://blog.cerebralab.com/Stop_future_proofing_software
 * https://blog.cerebralab.com/Bimodal_programming_%E2%80%93_why_design_patterns_fail
-* Hickey simple made easy https://news.ycombinator.com/item?id=38433358 https://www.youtube.com/watch?v=LKtk3HCgTa8 data is not easy https://grishaev.me/en/ddd-lie https://news.ycombinator.com/item?id=41290189
 * https://www.benkuhn.net/progessays/
 * one dev's edge cases are another's entire project 📙 Kleppmann 491
 * listen to Knuth -> fast code matters less than you think https://www.youtube.com/watch?v=PhUb7y9WZGs
@@ -423,6 +424,7 @@ end
 * `analytics.md` tooling > BI
 * `sql.md` pedagogy
 
+https://sno.ws/opentimes/
 * _baked data_: data embedded as static asset https://simonwillison.net/2020/Dec/13/datasette-io/ https://news.ycombinator.com/item?id=28015980 https://postlight.com/insights/big-data-small-effort
 * bc full stack SQL doesn't work https://news.ycombinator.com/item?id=26822884 https://simonwillison.net/2021/Jul/28/baked-data/
 * aka flat data https://news.ycombinator.com/item?id=27197950

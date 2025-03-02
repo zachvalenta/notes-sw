@@ -9,7 +9,7 @@
 * Fowler refactoring 🎗️ PDF
 * GoF design patterns
 * Jackson essence of software https://www.amazon.com/Essence-Software-Concepts-Matter-Design/dp/0691225389 https://www.hytradboi.com/2025/840b0b92-720e-4c0c-9760-19739d3832a5-back-to-modularity buddies with Jonathan Edwards https://alarmingdevelopment.org/ https://youtu.be/BdoWZPvfZSE
-* Mak https://www.manning.com/books/software-design-in-python
+* ⭐️ Mak https://www.manning.com/books/software-design-in-python
 * Martin clean code
 * Nystrom http://gameprogrammingpatterns.com/contents.html
 * Ousterhout philosophy of sofware design https://news.ycombinator.com/item?id=43166362 https://github.com/johnousterhout/aposd-vs-clean-code
@@ -33,7 +33,6 @@
 https://developers.soundcloud.com/blog/end-of-the-strangler
 
 * _strangler fig_: https://developers.soundcloud.com/blog/end-of-the-strangler
-* _builder_ https://github.com/kayak/pypika
 * _proxy_ https://rednafi.github.io/digressions/python/2020/06/16/python-proxy-pattern.html
 
 as red flag https://news.ycombinator.com/item?id=30675182
@@ -56,6 +55,8 @@ as red flag https://news.ycombinator.com/item?id=30675182
 * in python https://python-patterns.guide/ https://hynek.me/articles/python-subclassing-redux/
 
 # 🏭 CREATIONAL
+
+https://realpython.com/python-multiple-constructors/#defining-multiple-class-constructors
 
 ABSTRACT FACTORY
 * families of related objects
@@ -130,6 +131,7 @@ TYPES
 ## ✅ builder
 
 💻 https://github.com/zachvalenta/capp-edi
+🗄️ `data/orm.md` query builders
 
 ```python
 class DocBuilder:
@@ -220,12 +222,93 @@ Implementing middleware in HTTP frameworks (like Express or Flask).
 # 🔍 BEHAVIORAL
 
 Chain of Responsibility (request handling pipeline)
-Command (requests as objects)
 Mediator (loose coupling via coordinator)
 Memento (capture/restore state)
 State (behavior tied to state)
 Template Method (skeleton algorithm)
 Visitor (operations on elements)
+
+## command
+
+Command (requests as objects)
+
+```python
+from decimal import Decimal
+from dataclasses import dataclass
+from typing import Callable, List  # Only for clarity
+
+class BankAccount:
+    def __init__(self, account_id: str, balance: Decimal = Decimal('0')):
+        self.account_id = account_id
+        self.balance = balance
+        
+    def deposit(self, amount: Decimal) -> None:
+        self.balance += amount
+        
+    def withdraw(self, amount: Decimal) -> None:
+        if self.balance >= amount:
+            self.balance -= amount
+        else:
+            raise ValueError("Insufficient funds")
+            
+    def __str__(self) -> str:
+        return f"Account {self.account_id} - Balance: ${self.balance}"
+
+@dataclass
+class Command:
+    execute_fn: Callable[[], None]
+    undo_fn: Callable[[], None]
+
+class TransactionManager:
+    """
+    Invoker class that handles transaction execution and history
+    
+    >>> account = BankAccount("123", Decimal('100'))
+    >>> manager = TransactionManager()
+    >>> deposit = Command(
+    ...     lambda: account.deposit(Decimal('50')),
+    ...     lambda: account.withdraw(Decimal('50'))
+    ... )
+    >>> manager.execute_transaction(deposit)
+    >>> print(account)
+    Account 123 - Balance: $150
+    >>> manager.undo_last_transaction()
+    >>> print(account)
+    Account 123 - Balance: $100
+    """
+    def __init__(self):
+        self.history: List[Command] = []
+        
+    def execute_transaction(self, command: Command) -> None:
+        try:
+            command.execute_fn()
+            self.history.append(command)
+        except ValueError as e:
+            print(f"Transaction failed: {e}")
+            
+    def undo_last_transaction(self) -> None:
+        if self.history:
+            command = self.history.pop()
+            command.undo_fn()
+
+# Usage
+if __name__ == "__main__":
+    account = BankAccount("12345", Decimal('1000'))
+    manager = TransactionManager()
+    
+    # Create and execute deposit command
+    deposit = Command(
+        execute_fn=lambda: account.deposit(Decimal('500')),
+        undo_fn=lambda: account.withdraw(Decimal('500'))
+    )
+    
+    manager.execute_transaction(deposit)
+    print(account)  # Balance: $1500
+    
+    # Undo it
+    manager.undo_last_transaction()
+    print(account)  # Balance: $1000
+```
 
 ## observer
 
@@ -298,6 +381,18 @@ class BurgerFactory(Burger):
 * _delegation_: composition by another name https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/#delegation-in-oop
 * https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/
 
+## data driven
+
+---
+
+HICKEY
+* https://www.youtube.com/watch?v=oytL881p-nQ
+* simple made easy https://news.ycombinator.com/item?id=38433358 https://www.youtube.com/watch?v=LKtk3HCgTa8
+* data is not easy https://grishaev.me/en/ddd-lie https://news.ycombinator.com/item?id=41290189
+* https://news.ycombinator.com/item?id=43300528
+> What the author demonstrates here is a powerful principle that dates back to LISP's origins but remains revolutionary today: the collapse of artificial boundaries between program, data, and interface creates a more direct connection to the problem domain. This example elegantly shows how a few dozen lines of Clojure can replace an entire accounting application. The transactions live directly in the code, the categorization rules are simple pattern matchers, and the "interface" is just printed output of the transformed data. No SQL, no UI framework, no MVC architecture - yet it solves the actual problem perfectly.
+> Over time I’ve come to see LISP less as the natural collapse of artificial boundaries but the artificial collapse of natural ones. Where and how data is stored is a real concern, but where and how the program is stored isn’t. Security boundaries around data and executable code are of paramount importance. Data storage concerns don’t benefit from being mixed with programming language concerns but from computer and storage architecture concerns (eg column stores).
+
 ## data mapper
 
 📙 Fowler enterprise patterns
@@ -368,6 +463,7 @@ https://www.openmymind.net/Dependency-Injection-In-Go/
 * `lisp.md` Haskell
 📚
 * ⭐️ Normand grokking simplicity https://www.manning.com/books/grokking-simplicity
+* https://pragprog.com/titles/d-qtmart/the-art-of-functional-programming/
 * Martin functional design https://www.amazon.com/gp/product/0138176396
 * Plachta grokking functional https://www.manning.com/books/grokking-functional-programming
 
@@ -513,7 +609,6 @@ __static methods__
 opinions
 * tell, don't ask [Conery 276]
 * unlearn OOP https://dpc.pw/the-faster-you-unlearn-oop-the-better-for-you-and-your-software
-* Hickey https://www.youtube.com/watch?v=oytL881p-nQ
 
 ## plugins
 
@@ -694,6 +789,7 @@ def obj_args(obj):
 ## style
 
 📙 Lopes exercises in programming style
+https://seeinglogic.com/posts/visual-readability-patterns/
 
 https://www.youtube.com/watch?v=JlPMOszyjjo&t=1566s https://news.ycombinator.com/item?id=16617039
 > seems like she's conflated style (straight ahead, code golf) with design (objects)

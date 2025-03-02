@@ -464,6 +464,7 @@ isinstance(type, object)  # True
 
 ---
 
+* interfaces, protocols, ABCs, mixins, typing https://claude.ai/chat/06709fb2-7841-4198-ac57-b770df956589 https://realpython.com/python-protocol/
 * _mixin_: multiple inheritance of abstract class https://stackoverflow.com/a/15605119 https://www.fluentpython.com/lingo/#mixin_class
 * _interface_: https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python https://realpython.com/python-interface/ https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html https://www.youtube.com/watch?v=DqFspy9pI9k
 * _sink_: https://www.ianlewis.org/en/mixins-and-python https://stackoverflow.com/a/52469499/6813490 https://www.residentmar.io/2019/07/07/python-mixins.html https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful mixins tutorial https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556 https://stackoverflow.com/a/547714/6813490
@@ -1129,6 +1130,7 @@ GENERATE ANNOTATIONS
 * _pyannotate_: Dropbox i.e. Python 2 https://github.com/dropbox/pyannotate
 * _MonkeyType_: Instagram i.e. Python 3 https://github.com/Instagram/MonkeyType https://www.pythonpodcast.com/monkeytype-with-carl-meyer-and-matt-page-episode-146/
 
+https://blog.jonathanchun.com/2025/02/16/to-type-or-not-to-type/
 https://realpython.com/python313-new-features/#improvements-to-static-typing
 https://lukeplant.me.uk/blog/posts/python-type-hints-pyastgrep-case-study/
 https://lukeplant.me.uk/blog/posts/the-different-uses-of-python-type-hints/

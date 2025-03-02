@@ -160,6 +160,7 @@ PLUGINS
 * randomize execution order https://github.com/pytest-dev/pytest-randomly 
 * port ward output to pytest https://github.com/darrenburns/ward/blob/master/ward/_terminal.py https://docs.pytest.org/en/7.1.x/how-to/writing_plugins.html#writing-your-own-plugin https://github.com/nicoddemus/pytest-rich/tree/main
 * failure https://mathspp.com/blog/til/pytest-selection-arguments-for-failing-tests
+* Markdown output https://testandcode.com/episodes/markdown-reports-pytest-md-pytest-md-report
 * _pluggy_: framework for write plugins https://ward.readthedocs.io/en/latest/guide/plugins.html https://pluggy.readthedocs.io/en/latest/
 
 STDOUT
@@ -256,6 +257,7 @@ filterwarnings =
 
 FIXTURES
 * https://betterstack.com/community/guides/testing/pytest-fixtures-guide/
+* https://github.com/dbfixtures/pytest-postgresql
 * session https://nedbatchelder.com/text/test3/test3.html#39 
 * parameterize: aka table-driven https://arslan.io/2022/12/04/functional-table-driven-tests-in-go/ https://nedbatchelder.com/text/test3/test3.html#41 cannot use module scoped data https://github.com/pytest-dev/pytest/issues/349
 * set module scope for data https://stackoverflow.com/a/47885205 https://docs.pytest.org/en/latest/how-to/fixtures.html#scope-sharing-fixtures-across-classes-modules-packages-or-session
@@ -385,6 +387,8 @@ This line is for an overview
 
 :param arg1: desc of arg1
 :return: desc of return
+
+>>> doctest_here()
 """
 ```
 

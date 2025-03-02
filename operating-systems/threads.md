@@ -97,7 +97,7 @@ https://news.ycombinator.com/item?id=22514004
 * http://aosabook.org/en/posa/working-with-big-data-in-bioinformatics.html
 * https://news.ycombinator.com/item?id=23243237
 * `py-concurrency.pdf` https://www.youtube.com/watch?v=iG6fr81xHKA 'Flask for web dev' chapter 2
-* enable isolation amid multi-tentancy (i.e. multiple users) https://blog.sentry.io/2018/11/14/how-to-build-saas-application
+* enable isolation amid multitentancy (i.e. multiple users) https://blog.sentry.io/2018/11/14/how-to-build-saas-application
 * https://stackoverflow.com/questions/1408171/thread-local-storage-in-python
 * https://stackoverflow.com/questions/104983/what-is-thread-local-storage-in-python-and-why-do-i-need-it
 * https://www.youtube.com/watch?v=OxzVApXKWYM
@@ -174,6 +174,7 @@ https://threedots.tech/post/go-test-parallelism/
 * Requires async/await syntax
 * Lower overhead than threads
 ```
+* leaky bucket https://github.com/mjpieters/aiolimiter
 BYO https://lucasoshiro.github.io/software-en/2025-01-25-python_async_iterators/
 https://www.youtube.com/watch?v=ftmdDlwMwwQ 
 * _asyncio_: stdlib async lib; came in w/ 3.4 https://www.roguelynn.com/archives/

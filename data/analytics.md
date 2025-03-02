@@ -6,10 +6,11 @@
 > A number of companies (large crossover funds, startups, etc.) in The Diff network are looking for data scientists that love wrangling and analyzing alt. data to help inform investment decisions. (Remote) https://www.thediff.co/archive/longreads-open-thread-96/
 🗄
 * `protocols.md` file fmt
+* `stat.md`
 * `telemetry.md` analytics
 📚
 * Asboth grounded analyst https://www.manning.com/books/the-well-grounded-data-analyst
-* Khalil https://www.manning.com/books/effective-data-analysis
+* ⭐️ Khalil https://www.manning.com/books/effective-data-analysis
 * Massaron https://www.manning.com/books/advanced-analytics-for-business https://www.youtube.com/watch?v=scY7PTxNSr4
 * ⭐️ Tuckfield https://nostarch.com/dive-data-science
 * Wickham https://r4ds.hadley.nz/
@@ -58,7 +59,7 @@ MAYBE
 * _Tableau_: https://news.ycombinator.com/item?id=30323131 https://news.ycombinator.com/item?id=39519145
 
 NOTEBOOKS
-* _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872
+* _Evidence_: borked VS Code outliner https://github.com/evidence-dev/evidence https://news.ycombinator.com/item?id=37663111 https://news.ycombinator.com/item?id=37661872 https://hackernews-insight.vercel.app/
 * _PyGWalker_: 🎯 https://github.com/Kanaries/pygwalker https://github.com/Kanaries/graphic-walker https://graphic-walker.kanaries.net/
 * _Quary_: VS Code extension https://github.com/quarylabs/quary
 * _Taipy_: for pipelines? https://github.com/Avaiga/taipy https://www.youtube.com/watch?v=phhnakHSNEE
@@ -134,6 +135,8 @@ EXTENSIONS
 ## 💄 Great Tables
 
 📜 https://posit-dev.github.io/great-tables
+📻 https://talkpython.fm/episodes/show/493/quarto-open-source-technical-publishing
+💡 Visidata/Polars should embrace spans
 
 RUNTIME
 * input: df
@@ -161,6 +164,7 @@ https://awesome-panel.github.io/holoviz-quarto/
 ## 🔵 Quarto
 
 📜 https://quarto.org/ 
+📻 https://talkpython.fm/episodes/show/493/quarto-open-source-technical-publishing
 
 * no Marimo support https://github.com/quarto-dev/quarto-cli/discussions/9362
 * built around Jupyter kernel
@@ -230,7 +234,7 @@ OLTP
 * _Chinook_: https://github.com/lerocha/chinook-database
 * _Datacharmer_: needs port https://github.com/datacharmer/test_db
 * _Northwind_: https://github.com/pthom/northwind_psql
-* _Sakila_: https://github.com/jOOQ/sakila https://sq.io/docs/tutorial https://posit-dev.github.io/great-tables/blog/design-philosophy/index.html#footnotes
+* _Sakila_: https://github.com/jOOQ/sakila https://sq.io/docs/tutorial https://posit-dev.github.io/great-tables/blog/design-philosophy/index.html#footnotes 📙 Beaulieau (third edition only)
 ```txt
 TABLES
 * film: contains details of movies (title, length, rating, description)
@@ -249,6 +253,27 @@ FEATURES
 * entity-relationship design: it’s a well-normalized schema (3rd normal form) with many-to-one and many-to-many relationships, useful for teaching joins
 ```
 
+## generate
+
+https://github.com/zachvalenta/capp-crudite
+https://github.com/zachvalenta/capp-looker
+https://github.com/zachvalenta/capp-the-crud
+
+https://datasette.io/plugins/sqlite-fastrand
+
+CONVERSION / GENERATION
+* tabular to JSON https://github.com/jazzband/tablib
+* JSON to tabular https://duckduckgo.com/?q=json+to+pandas&ia=web
+* https://hakibenita.com/sql-for-data-analysis#generating-data
+* import from 3rd party: Dogsheep https://datasette.substack.com/p/dogsheep-personal-analytics-with
+* Visidata
+* Posgres https://news.ycombinator.com/item?id=24189582
+* https://github.com/simonw/sqlite-utils
+```sh
+# https://simonwillison.net/2020/Nov/14/personal-data-warehouses/ 20:25
+curl www.api.com | jq foo | sqlite-utils insert foo.db bar_table
+```
+
 ## sets
 
 ---
@@ -262,7 +287,7 @@ FEATURES
 🔍 https://ourworldindata.org/ https://www.wikidata.org/ https://datasetsearch.research.google.com/ https://www.kaggle.com/datasets https://datausa.io/ https://www.splitgraph.com/ https://calmcode.io/datasets
 
 ART
-* music: https://musicbrainz.org/ https://www.kaggle.com/datasets/nolanbconaway/24169-pitchfork-reviews/data https://pudding.cool/2024/03/greatest-music/
+* music: https://musicbrainz.org/ https://www.kaggle.com/datasets/nolanbconaway/24169-pitchfork-reviews/data https://pudding.cool/2024/03/greatest-music/ https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks
 * viz https://news.ycombinator.com/item?id=28445761
 * movies https://www.theringer.com/2024/9/23/24252627/biggest-takeaways-netflix-data-dump-2024-streaming IMDb Parents Guide https://www.theringer.com/movies/2024/10/24/24276810/sex-in-movies-decline-international-market-gen-z-intimacy-coordinators-anora https://news.ycombinator.com/item?id=42050260
 * literature: ratings http://fastml.com/goodbooks-10k-a-new-dataset-for-book-recommendations/ https://github.com/zygmuntz/goodbooks-10k https://bookbrainz.org/ text http://www.jessamyn.com/barth/index.html https://en.wikisource.org/ https://news.ycombinator.com/item?id=1394077 Hemingway, Faulkner https://news.ycombinator.com/item?id=42429606
@@ -273,6 +298,8 @@ ECON
 * India https://www.dataforindia.com/
 
 GOV
+* shootings https://catalog.data.gov/dataset/nypd-shooting-incident-data-historic
+* TFR https://www.cia.gov/the-world-factbook/field/total-fertility-rate/country-comparison/
 * politics/voting https://www.slowboring.com/p/breaking-down-the-election-results https://www.govtrack.us/congress/bills/119/hr30 https://github.com/unitedstates/congress
 * https://en.wikipedia.org/wiki/Congressional_Research_Service https://www.noahpinion.blog/p/why-cant-the-us-build-ships
 * census https://www.ipums.org/ https://www.edwest.co.uk/p/how-many-people-live-in-britain
@@ -293,20 +320,80 @@ SPORTS
 
 ---
 
-* general https://github.com/awesomedata/awesome-public-datasets https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks https://corgis-edu.github.io/corgis/csv/ https://www.data-is-plural.com/archive/ https://redis.com/blog/datasets-for-test-databases/
+* general https://github.com/awesomedata/awesome-public-datasets https://corgis-edu.github.io/corgis/csv/ https://www.data-is-plural.com/archive/ https://redis.com/blog/datasets-for-test-databases/
 * JSON https://github.com/jdorfman/awesome-json-datasets
 * csv https://github.com/secretGeek/awesomecsv#data
 * 📍 more in 🗄 `ml.md`? put these there? Paul Swanson videos?
 > put in ML
 * PG Exercises https://pgexercises.com/gettingstarted.html https://github.com/AlisdairO/pgexercises/issues/28
 * executions https://selectstarsql.com/frontmatter.html#dataset
-* housing https://www.zillow.com/research/data/
 * music https://www.kaggle.com/yamaerenay/spotify-dataset-19212020-160k-tracks
-* shootings https://catalog.data.gov/dataset/nypd-shooting-incident-data-historic
-* verbos https://github.com/ghidinelli/fred-jehle-spanish-verbs
 * HN https://github.com/dogsheep/hacker-news-to-sqlite https://news.ycombinator.com/submitted?id=luu
 * movies https://simonwillison.net/2019/Feb/25/sqlite-utils/ https://github.com/jdorfman/awesome-json-datasets
 * music https://corgis-edu.github.io/corgis/csv/music/ 
+* Chinese biographical https://github.com/cbdb-project Spanish verbs https://github.com/ghidinelli/fred-jehle-spanish-verbs
+
+## pedagogy
+
+🗄️
+* `blog/data-analyst.md`
+* `OLTP.md` sqlite-utils
+
+HISTORY
+* things I tried in the past: baked data in Python startup https://github.com/zachvalenta/capp-denv-dotfiles/commit/66efbee657d28cdf6d046c7624b788fbffa9ac0e 💻 https://github.com/zachvalenta/query-sandbox
+* what I'm doing now: 💻 https://github.com/zachvalenta/query-sandbox-sakila
+
+SIZE CONTRAINTS https://github.com/zachvalenta/query-sandbox/blob/main/hf%20instructions.png
+* Polars read from Hugging Face https://docs.pola.rs/user-guide/io/hugging-face/ https://pola.rs/posts/polars-hugging-face/
+* storage limits: Github, csvbase
+
+---
+
+🗄️ `architecture.md` serverless > baked data
+
+* https://selectstarsql.com/frontmatter.html#dataset
+* https://pgexercises.com/gettingstarted.html https://github.com/AlisdairO/pgexercises/issues/28
+* https://sql-playground.wizardzines.com/
+* https://www.crunchydata.com/developers/tutorials
+* https://sqlime.org/
+* tldr: better at SQL if data 1) local 2) interesting
+* small databases https://news.ycombinator.com/item?id=34558054
+* example databases: Spanish, Sakila https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql 📙 Beaulieau [41]
+* connect to actual server: https://data.stackexchange.com/help https://sqlpd.com/ https://news.ycombinator.com/item?id=30631477
+* playgrounds: PG exercises https://github.com/zachvalenta/pg-exercises https://jvns.ca/blog/2023/04/17/a-list-of-programming-playgrounds/
+
+* https://github.com/Mozzo1000/booklogr
+* https://tomcritchlow.com/2023/01/27/small-databases/
+* https://realpython.com/contact-book-python-textual/
+* Airtable?
+* schema introspection https://highgrowthengineering.substack.com/p/why-is-dbt-so-important-
+* https://github.com/centerofci/mathesar 🗄 dataclerk
+* repos that need: golf, bookcase
+
+TAXONOMY
+* _personal data warehouse_: generated personal data https://simonwillison.net/2020/Nov/14/personal-data-warehouses/
+* these always seem like a waste of time https://krausefx.com//blog/how-i-put-my-whole-life-into-a-single-database
+* _personal database_: hand curated https://tomcritchlow.com/2022/01/26/electric-tables/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
+
+STATUS QUO
+* user: web app
+* admin: script/proc, visidata, GUI https://realpython.com/python-contact-book/#step-5-creating-new-contacts
+* back office: ask admin, use Basedash https://softwareengineeringdaily.com/2020/10/12/basedash-low-code-database-editor-with-max-musing/ https://www.basedash.com/
+
+IMPL
+* check out the help section of pgcli, pgcli can now autocomplete joins?
+* https://github.com/k1LoW/tbls
+* parser https://news.ycombinator.com/item?id=32560039
+* visidata for now and add constraints later?
+* https://github.com/szktkfm/mdtt
+* https://stackoverflow.com/questions/2732356/list-of-all-tables-with-a-relationship-to-a-given-table-or-view
+* https://stackoverflow.com/questions/8094156/know-relationships-between-all-the-tables-of-database-in-sql-server
+* https://stackoverflow.com/questions/5499003/sqlite-list-all-foreign-keys-in-a-database
+```python
+# https://stackoverflow.com/a/59171912
+SELECT * FROM pragma_foreign_key_list('reading');
+# next step is running this from sqlite3
+```
 
 ## regression
 
@@ -415,6 +502,8 @@ datasette inspect db.sqlite
 *️ https://github.com/vanna-ai/vanna
 * https://www.visidata.org/docs/api/
 
+find most frequent value in column https://amjith.com/blog/2023/sqlite_most_frequent_value/
+
 FIND NULL COLS
 > rn polars/pandas seems like the most straightforward option, maybe write CLI for this and add to fkfind
 * _visidata_: histogram
@@ -480,27 +569,6 @@ SELECT a.col1, b.col2 FROM a AS a
 dsq "SELECT a.col1, b.col2 FROM a AS a JOIN b AS b ON a.id = b.id;" a.csv b.csv
 ```
 
-## generate
-
-https://github.com/zachvalenta/capp-crudite
-https://github.com/zachvalenta/capp-looker
-https://github.com/zachvalenta/capp-the-crud
-
-https://datasette.io/plugins/sqlite-fastrand
-
-CONVERSION / GENERATION
-* tabular to JSON https://github.com/jazzband/tablib
-* JSON to tabular https://duckduckgo.com/?q=json+to+pandas&ia=web
-* https://hakibenita.com/sql-for-data-analysis#generating-data
-* import from 3rd party: Dogsheep https://datasette.substack.com/p/dogsheep-personal-analytics-with
-* Visidata
-* Posgres https://news.ycombinator.com/item?id=24189582
-* https://github.com/simonw/sqlite-utils
-```sh
-# https://simonwillison.net/2020/Nov/14/personal-data-warehouses/ 20:25
-curl www.api.com | jq foo | sqlite-utils insert foo.db bar_table
-```
-
 ## entry (dataclerk)
 
 🗄️ EDA > fkfind
@@ -541,51 +609,6 @@ Have you considered building this? The core components would be:
 
 ---
 
-PEDAGOGY 🗄️ `architecture.md` serverless > baked data
-* https://selectstarsql.com/frontmatter.html#dataset
-* https://pgexercises.com/gettingstarted.html https://github.com/AlisdairO/pgexercises/issues/28
-* https://sql-playground.wizardzines.com/
-* https://www.crunchydata.com/developers/tutorials
-* https://sqlime.org/
-* tldr: better at SQL if data 1) local 2) interesting
-* small databases https://news.ycombinator.com/item?id=34558054
-* example databases: Spanish, Sakila https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql 📙 Beaulieau [41]
-* connect to actual server: https://data.stackexchange.com/help https://sqlpd.com/ https://news.ycombinator.com/item?id=30631477
-* playgrounds: PG exercises https://github.com/zachvalenta/pg-exercises https://jvns.ca/blog/2023/04/17/a-list-of-programming-playgrounds/
-
-* https://github.com/Mozzo1000/booklogr
-* https://tomcritchlow.com/2023/01/27/small-databases/
-* https://realpython.com/contact-book-python-textual/
-* Airtable?
-* schema introspection https://highgrowthengineering.substack.com/p/why-is-dbt-so-important-
-* https://github.com/centerofci/mathesar 🗄 dataclerk
-* repos that need: golf, bookcase
-
-TAXONOMY
-* _personal data warehouse_: generated personal data https://simonwillison.net/2020/Nov/14/personal-data-warehouses/
-* these always seem like a waste of time https://krausefx.com//blog/how-i-put-my-whole-life-into-a-single-database
-* _personal database_: hand curated https://tomcritchlow.com/2022/01/26/electric-tables/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
-
-STATUS QUO
-* user: web app
-* admin: script/proc, visidata, GUI https://realpython.com/python-contact-book/#step-5-creating-new-contacts
-* back office: ask admin, use Basedash https://softwareengineeringdaily.com/2020/10/12/basedash-low-code-database-editor-with-max-musing/ https://www.basedash.com/
-
-IMPL
-* check out the help section of pgcli, pgcli can now autocomplete joins?
-* https://github.com/k1LoW/tbls
-* parser https://news.ycombinator.com/item?id=32560039
-* visidata for now and add constraints later?
-* https://github.com/szktkfm/mdtt
-* https://stackoverflow.com/questions/2732356/list-of-all-tables-with-a-relationship-to-a-given-table-or-view
-* https://stackoverflow.com/questions/8094156/know-relationships-between-all-the-tables-of-database-in-sql-server
-* https://stackoverflow.com/questions/5499003/sqlite-list-all-foreign-keys-in-a-database
-```python
-# https://stackoverflow.com/a/59171912
-SELECT * FROM pragma_foreign_key_list('reading');
-# next step is running this from sqlite3
-```
-
 ## GUI (dbeaver)
 
 🗄️ `python/feedback.md` notebook
@@ -601,136 +624,6 @@ OPTIONS
 * _Outerbase_: browser https://github.com/outerbase/studio https://news.ycombinator.com/item?id=42320032
 * _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
 * _WhoDB_: 🎯 AI https://whodb.clidey.com/docs/
-
-## 🍞 miller
-
-🗄️ `os/tools.md` string processing
-📜 https://miller.readthedocs.io/en/latest/glossary https://miller.readthedocs.io/en/latest/reference-verbs/
-
-PIPELINES
-```sh
-cat $CSV | mlr --csv put '$col = int($col)' > $CSV  # cast type from int to float
-filter 'is_null($col)' $CSV                         # filter nulls https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
-filter '$header != ""' $CSV                         # filter out nulls
-mlr --csv filter '$col != ""' $CSV                  # filter out empty strings
-mlr --csv filter '$price_list != ""' final.csv
-mlr --csv filter '$price_list != ""' final.csv
-mlr --csv filter '$price_source != ""' then filter '$mpn_score == 100' $CSV  # chained
-```
-
-CONFIG https://miller.readthedocs.io/en/latest/customization/
-* `$HOME/.mlrrc`
-```sh
---list-color-names # view colors https://miller.readthedocs.io/en/latest/output-colorization/
-c2p  # --c2p
-allow-ragged-csv-input  # if data line fields > header line, insert empty val instead of err (CSV header/data length mismatch)
-
-# IO
---icsv    # input csv
---tsv     # input tsv
---opprint # output pprint
---c2p     # combine --icsv and --opprint https://miller.readthedocs.io/en/latest/keystroke-savers/#short-format-specifiers-including-c2p
---csv     # IO csv
-```
-
----
-
-```sh
-# BASICS
-cat $FILE # select *
-head -n 5 $FILE # limit
-sort -f $COL $FILE  # sort on col
-cut -o -f "col1","col2" $FILE # select col = -o -f col
-cut -x -f "col1","col2" $FILE # ignore col = -x -f co l
-put '$COL1 = "foo"' then put '$COL2 = "bar"' $FILE_CURRENT > $FILE_UPDATED  # add col
-head -n 20 then cut -o -f "id","artist" then sort -f "artist" $FILE # chaining
-
-# PREDICATES, GROUPING
-uniq -g <header> <csv> | wc -l # uniq for header
-most-frequent -f col -n 1000 example.csv # most frequent value by header
-most-frequent -f col -n 1000 example.csv | mlr --opprint sort -f col # most frequent value by header + group by header
---c2p cut -o -f "21.08","21.09" then put '${total} = ${21.08} + ${21.09}' <csv> # put = computed fields; ${field} for fields w/ spaces
-filter '$header == "value"' $CSV # select * where header = val
-filter '$header1 == "value-foo"' && '$header2 == "value-bar"' example.csv
-filter 'is_null($header)' example.csv # https://miller.readthedocs.io/en/latest/reference-dsl-builtin-functions/
-filter '$earnings > 0.0' example.csv
-```
-
-## 💿 REPL (dbcli)
-
-📜 https://www.dbcli.com/
-
----
-
-ALTERNATIVES
-* CLI query https://github.com/neilotoole/sq https://github.com/PeepDB-dev/peepdb
-* https://github.com/theseus-rs/rsql
-* usql as alternative https://news.ycombinator.com/item?id=42161987
-
-* exit: `exit`, `\q`
-* open with env var: `cli -h`
-* list tables: `\dt`
-* help: `\?`
-* autocomplete: `ctrl e`
-* clear screen: `ctrl l`
-* _metacommand_: preceded w/ backslash https://www.pgcli.com/commands
-* set pager to bat: `pager = less -SRXF` https://www.pgcli.com/docs
-* _named query_: snippet, saved query https://www.pgcli.com/named_queries.md https://simonwillison.net/2024/Dec/3/datasette-queries/
-* syntax: `f` (litecli) `n` (pgcli)
-* list: `\f` https://github.com/dbcli/pgcli/issues/1236
-* save: `\fs <name> <query>` https://github.com/dbcli/pgcli/issues/938
-* save w/ param: `\fs <name> <query where foo = $1>` https://github.com/dbcli/pgcli/issues/938
-> broken in sandbox: could be pager, Python version, config (try default config installed in $HOME) https://github.com/dbcli/pgcli/search?q=codec&type=issues
-* use: `\f <name>`
-* use w/ param: `\f <name> "arg"`
-* rm: `\fd <name>` https://litecli.com/favorites/
-
-### litecli
-
-🗄️
-* `OLTP.md` SQLite > CLI
-* `python/pkg.md` venv
-💻
-* https://github.com/dbcli/litecli/pull/216
-* https://github.com/dbcli/litecli/pull/217
-
-* dot commands
-```sh
-.schema       # all schemas
-.schema $TBL  # schema for table
-.tables       # list tables
-.databases    # list databases
-```
-* open db: `litecli $DB`
-* config: `~/.config/litecli/config` https://litecli.com/config/
-* query to CSV
-```sh
-litecli db.sqlite -e "select eid, mfg, mpn, apn, buyline, priceline, year_sales, last_sale, list_price, list_price_effective_date, date_created, date_updated, gross_profit from products where buyline like '%dongan%'" --csv > dongan-products.csv
-```
-
----
-
-LLM
-* https://amjith.com/blog/2024/introducing-llm-to-litecli/
-* https://amjith.com/blog/2025/llm-in-litecli-1/
-* https://amjith.com/blog/2025/llm-in-litecli-2/
-* https://github.com/dbcli/litecli/issues?q=llm
-
-### pgcli
-
-```sh
-# install https://github.com/dbcli/pgcli/issues/1413#issuecomment-2028781741
-$ pipx install pgcli
-$ pipx inject pgcli psycopg_binary
-# connect
-pgcli postgresql://$USER:$PW@$HOST:$PORT/$DB
-# dump table to CSV
-\COPY (SELECT * FROM $TBL LIMIT 100) TO '$TBL.csv' WITH CSV HEADER;
-# as snippet
-[alias_dsv]
-$TBL = "\COPY (SELECT * FROM {0} LIMIT 100) TO '{0}.csv' WITH CSV HEADER"
-\d $TBL product_template
-```
 
 ## spreadsheet (Excel)
 
@@ -753,6 +646,8 @@ ALTERNATIVES
 * webapp https://equals.app/ https://rows.com/
 * in Python https://pyspread.gitlab.io/ https://news.ycombinator.com/item?id=40284219
 * _Google Sheets_: https://github.com/nithinmurali/pygsheets
+* can get link to a cell
+* add comment: `cmd alt m`
 * _IronCalc_: https://news.ycombinator.com/item?id=42095292 https://github.com/ironcalc/ironcalc
 * _rowzero_: https://rowzero.io/ https://grantslatton.com/
 * _pysheets_: 🎯 uses pyodide https://pysheets.app/about https://realpython.com/podcasts/rpp/226/
@@ -782,71 +677,6 @@ ALTERNATIVES
 * use from Golang https://github.com/qax-os/excelize
 * Visual Basic https://retool.com/visual-basic/ https://retool.com/blog/the-history-and-legacy-of-visual-basic
 
-## ⚛️ sqlite-utils
-
-🛠️ https://github.com/simonw/sqlite-utils
-
-IMPORT CSV TO TABLE
-```sh
-sqlite-utils insert db.sqlite $TABLE $CSV --csv
-
-# just tried to import this CSV
-.import entity-pn.csv entity_pn
-
-# got this error
-entity-pn.csv:177587 expected 0 columns but found 3 - ignored
-
-# Strange, since when do i need to spec out the exact number of columns, seems like something that should just work. Is there a way you can config sqlite to do type inference on a sample subset of data and just figure it out. Imagine if you had to manually configure the column names and types every time you loaded a pandas dataframe. Barbaric!
-```
-
-other use cases
-```sh
-$DB "SELECT * FROM $TBL LIMIT 5" --json      # RS as JSON
-query $DB "SELECT COUNT(*) FROM $TBL"        # RS to stdout
-transform $DB $TBL --rename $COL foo         # rename column
-insert $DB $TBL $CSV --csv; serve $DB        # serve table as API
-insert $DB $TBL $CSV --csv --pk=id --upsert  # upsert
-rows $DB $TBL --csv > $CSV                   # export
-schema $DB                                   # validate schema
-```
-
-## TUI
-
-🗄️ `OLAP.md` metadata
-
-BYO / REQUIREMENTS
-* query editor: vi mode readline
-* automcomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
-* ERD 🗄 `info.md` viz / entities / ERD
-* schema documentation https://www.querybook.org/ https://github.com/quarylabs/quary
-* analytics guide
-* notebooks https://github.com/electroly/sqlnotebook
-* AI https://whodb.clidey.com/docs/ https://whodb.clidey.com/docs/usage-houdini/what-is-houdini
-* numeric pane navigation
-* _query editor_: save, autocomplete
-* _results viewer_: result set
-
-FEATURES
-* follow FKs https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
-* data catalog https://harlequin.sh
-
-TUI
-* _dblab_: no readline https://github.com/danvergara/dblab
-* _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
-* _lazysql_: keybindings look goofy https://github.com/jorgerojas26/lazysql
-* _GoBang_: 💀 https://github.com/TaKO8Ki/gobang
-* _rainfrog_: Postgres https://github.com/achristmascarl/rainfrog https://www.youtube.com/watch?v=qURrmEzsKH8
-
-HARLEQUIN 📜 https://harlequin.sh
-* good UI (example of non-cartoonish Textual)
-* ❌ query editor: no vi readline
-* ❌ docs not searchable
-* bad default keybindings (c.f. 'data catalog') https://harlequin.sh/docs/getting-started/usage
-* need config to get Vim keybindings (dunno if you can nav btw panes like lazygit) https://harlequin.sh/docs/keymaps/index https://harlequin.sh/docs/keymaps/config https://github.com/tconbeer/harlequin/discussions/422
-* can't open CSV from CLI https://github.com/tconbeer/harlequin/discussions/314
-* config profiles for diff dbms
-* use in Django https://adamj.eu/tech/2024/05/07/django-harlequin/
-
 ## ❎ xsv
 
 🗄️ `os/tools.md` string processing
@@ -857,9 +687,10 @@ HARLEQUIN 📜 https://harlequin.sh
 $ fmt $TSV > $CSV
 
 # DML
-$ headers $CSV          # get headers with index
-$ headers -j $CSV       # get headers w/out index
-$ select "header" $CSV  # select all from header
+headers                  # get headers with index
+headers -j               # get headers w/out index
+select "HEADER"          # select all from header
+search $QUERY -s $HEADER # search w/in header
 
 # EDA
 $ xsv sample 50 $CSV                 # get sampled subset
@@ -878,7 +709,6 @@ ship_date                             2013-11-22
 ```sh
 count songs.csv # count records
 split -s <records_per_file> <output-dir> <csv> # split into n files
-search -i -s "header" "query" $CSV # search within header (case insensitive)
 ```
 
 # 🟦 VISIDATA
@@ -947,34 +777,42 @@ https://www.youtube.com/playlist?list=PLxu7QdBkC7drrAGfYzatPGVHIpv4Et46W
 * load subset of file https://jsvine.github.io/intro-to-visidata/intermediate/large-files/#from-the-command-line
 * select random subset https://jsvine.github.io/intro-to-visidata/intermediate/large-files/#select-a-random-sample-of-rows
 
-## DML
+## alternatives
 
-JOINS
-* load multiple CSVs: `vd $CSV1 $CSV2`
-* mark col as key: `!`
-* select col from meta sheet
-* start join prompt: `&` https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/#join-the-two-frequency-tables
+🗄️ `OLAP.md` metadata
 
-EDA
-* histogram: `F`
-* group by: go to col > histogram > rm percent/histogram col https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/#count-the-number-of-collisions-per-state
-* histogram of keyed col: `gF`
+BYO / REQUIREMENTS
+* query editor: vi mode readline
+* automcomplete https://www.jvt.me/posts/2024/06/07/sql-workflow/
+* ERD 🗄 `info.md` viz / entities / ERD
+* schema documentation https://www.querybook.org/ https://github.com/quarylabs/quary
+* analytics guide
+* notebooks https://github.com/electroly/sqlnotebook
+* AI https://whodb.clidey.com/docs/ https://whodb.clidey.com/docs/usage-houdini/what-is-houdini
+* numeric pane navigation
+* _query editor_: save, autocomplete
+* _results viewer_: result set
 
-SEARCH
-* regex: `/`
-* regex exact: `^`
-> you got burned by searching `valid` when column values had both `valid` and `invalid` i.e. you needed to search `^valid`
+FEATURES
+* follow FKs https://github.com/Wisser/Jailer https://github.com/centerofci/mathesar
+* data catalog https://harlequin.sh
 
-FILTER
-* `|`: regex + select https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/ https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
+TUI
+* _dblab_: no readline https://github.com/danvergara/dblab
+* _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
+* _lazysql_: keybindings look goofy https://github.com/jorgerojas26/lazysql
+* _GoBang_: 💀 https://github.com/TaKO8Ki/gobang
+* _rainfrog_: Postgres https://github.com/achristmascarl/rainfrog https://www.youtube.com/watch?v=qURrmEzsKH8
 
-SELECT
-* `"`: mv selected records to own sheet https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#using-frequency-tables-to-select-and-filter-for-multiple-values
-* `s`: select single
-* `u`: unselect single
-* `gs`: select all
-* `gu`: unselect all
-* `gt`: select everything that did *not* match filter https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/
+HARLEQUIN 📜 https://harlequin.sh
+* good UI (example of non-cartoonish Textual)
+* ❌ query editor: no vi readline
+* ❌ docs not searchable
+* bad default keybindings (c.f. 'data catalog') https://harlequin.sh/docs/getting-started/usage
+* need config to get Vim keybindings (dunno if you can nav btw panes like lazygit) https://harlequin.sh/docs/keymaps/index https://harlequin.sh/docs/keymaps/config https://github.com/tconbeer/harlequin/discussions/422
+* can't open CSV from CLI https://github.com/tconbeer/harlequin/discussions/314
+* config profiles for diff dbms
+* use in Django https://adamj.eu/tech/2024/05/07/django-harlequin/
 
 ## attr
 
@@ -1016,9 +854,70 @@ AGGREGATION
 * _select all records that match on current cell_: `| <val>` https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#by-matching-patterns
 * https://jsvine.github.io/intro-to-visidata/basics/navigating-visidata/#how-to-move-via-searching https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#via-expressions
 
+## DML
+
+JOINS https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/#join-the-two-frequency-tables
+* load multiple CSVs: `vd $CSV1 $CSV2`
+* mark col as key: `!`
+* select sheets from meta sheet
+* start join prompt: `&`
+
+EDA
+* histogram: `F`
+* group by: go to col > histogram > rm percent/histogram col https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/#count-the-number-of-collisions-per-state
+* histogram of keyed col: `gF`
+
+SEARCH
+* regex: `/`
+* regex exact: `^`
+> you got burned by searching `valid` when column values had both `valid` and `invalid` i.e. you needed to search `^valid`
+
+FILTER
+* `|`: regex + select https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/ https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
+
+SELECT
+* `"`: mv selected records to own sheet https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#using-frequency-tables-to-select-and-filter-for-multiple-values
+* `s`: select single
+* `u`: unselect single
+* `gs`: select all
+* `gu`: unselect all
+* `gt`: select everything that did *not* match filter https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/
+
 ## records
 
+COPY/PASTE
+* view all shortcuts + system clipboard uses `options.clipboard_copy_cmd` https://github.com/saulpw/visidata/discussions/983
+| CMD              | keybind    | clipboard | desc                                                            |
+|------------------|------------|-----------|-----------------------------------------------------------------|
+| copy-row         | y          | internal  | current row                                                     |
+| copy-cell        | zy         | internal  | current cell                                                    |
+| paste-cell       | zp         | internal  | paste cell                                                      |
+| copy-selected    | gy         | internal  | selected rows                                                   |
+| copy-cells       | gzy        | internal  | current column for selected rows                                |
+| syscopy-row      | Shift+Y    | system    | current row (`options.clipboard_copy_cmd`)                      |
+| syscopy-cell     | zShift+Y   | system    | current cell (`options.clipboard_copy_cmd`)                     |
+| syscopy-selected | gShift+Y   | system    | selected rows (`options.clipboard_copy_cmd`)                    |
+| syscopy-cells    | gzShift+Y  | system    | current column for selected rows (`options.clipboard_copy_cmd`) |
+
+COMMANDS
+* rm: `d` single `gd` all selected
+
 ---
+
+COPY/PASTE RECORD TO SYSTEM CLIPBOARD https://github.com/saulpw/visidata/blob/7e5ce4f0dc34634e2b3aea2d51b72146686d1ece/visidata/guides/ClipboardGuide.md?plain=1#L3 https://github.com/saulpw/visidata/pull/2530 https://github.com/saulpw/visidata/issues/255 https://github.com/saulpw/visidata/discussions/1505
+> goal: copy all selected records (or just values) to system clipboard with 'y' key, otherwise just copy current cell value
+```python
+# these are not a thing, LLM hallucination
+options.tsv_preferred = False
+options.clipboard_export_format = 'csv'
+TableSheet.bindkey('Y', 'syscopy-expr "rows | tocsv | clipboard_copy_cmd"')
+
+# doesn't work
+options.copy_format = 'csv'
+
+# error: no command for shift Y
+TableSheet.bindkey('Y', "syscopy-row fmt=csv")
+```
 
 * command mode + set col to set all values for column? couldn't figure out how to do this
 * null = those yellow crossed out circles https://www.visidata.org/docs/rows/
@@ -1026,7 +925,6 @@ AGGREGATION
 * sort: `[]`
 * page: `ctrl b/f`
 * select: `s/u` (single) `gs/gu` (all)
-* rm: `d` (doesn't work for selected)
 * goto: `zr <num>`
 > can use Vim https://www.youtube.com/watch?v=yhunJc8Nu4g
 * edit: `e` https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#editing-row-cells

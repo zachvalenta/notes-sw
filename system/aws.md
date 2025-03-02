@@ -228,7 +228,7 @@ DATA ENG 🗄️ compute / data eng
 ZA
 * _DMS_: db migrations
 * _DSQL_: https://brooker.co.za/blog/2024/12/04/inside-dsql.html https://simonwillison.net/2024/Dec/3/amazon-aurora-dsql/
-* _DynamoDB_: NoSQL https://www.freecodecamp.org/news/ultimate-dynamodb-2020-cheatsheet/ https://github.com/guregu/dynamo
+* _DynamoDB_: NoSQL https://www.freecodecamp.org/news/ultimate-dynamodb-2020-cheatsheet/ https://github.com/guregu/dynamo https://github.com/lusingander/ddv
 * _Elasticache_: 类似 Redis
 
 ---
@@ -371,6 +371,7 @@ ZA
 
 * https://softwareengineeringdaily.com/2021/06/09/gcp-with-liz-fong-jones/
 
+* good at AI, distributed and security? https://news.ycombinator.com/item?id=43398949
 * _App Engine_: PaaS https://testdriven.io/blog/django-gae
 * _RTDN_: notifcations from GP app https://developer.android.com/google/play/billing/rtdn-reference
 * howto https://developer.android.com/google/play/billing/getting-ready#enable-rtdn

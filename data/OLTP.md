@@ -263,7 +263,6 @@ The general problem this addresses is maintaining perfect history of state chang
 * _ZFS_: https://eradman.com/posts/zfs-quickstart.html
 * backup https://github.com/benbjohnson/litestream https://github.com/maxpert/marmot https://news.ycombinator.com/item?id=30883015 SQLite for edge computing https://news.ycombinator.com/item?id=33081159
 * using Redis https://andrewbrookins.com/python/scaling-django-with-postgres-read-replicas/
-* Cassandra https://stackoverflow.com/questions/17348558/does-an-update-become-an-implied-insert
 * always use write db vs. read replica to avoid creating 2 records
 * http://eradman.com/posts/pubsub-pgoutput.html
 * https://news.ycombinator.com/item?id=31341392
@@ -286,7 +285,7 @@ The general problem this addresses is maintaining perfect history of state chang
 * avoid by scaling vertically as long as you can 📙 Conery imposter 343 https://news.ycombinator.com/item?id=28430852
 * howto https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/ 📙 Conery imposter 343
 * https://stackoverflow.com/questions/20771435/database-sharding-vs-partitioning https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6 https://news.ycombinator.com/item?id=28425379
-* _shard_: node in cluster 📙 Bradshaw [290] https://tomlinford.com/posts/robinhood-sharding-to-scale
+* _shard_: node in cluster 📙 Bradshaw [290] https://tomlinford.com/posts/robinhood-sharding-to-scale https://pgdog.dev/blog/you-can-make-postgres-scale
 
 ## version control
 
@@ -639,9 +638,14 @@ wire protocol
 
 ---
 
+* cancel queries https://pert5432.com/post/postgres-query-cancellation
+* binary mgmt? https://github.com/theory/pgenv
+
+hosted Neon, pg_cron https://www.youtube.com/watch?v=3JW732GrMdg
+
 weird bits https://www.hytradboi.com/2025/b479d9ff-3dd9-4548-940d-24698e7cff71-learning-about-the-odd-bits-of-sql-by-reading-the-postgresql-docs
 
-https://www.manning.com/books/just-use-postgres https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb
+https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb
 🏔️ https://github.com/Olshansk/postgres_for_everything
 📚
 * Magda just use postgres https://www.manning.com/books/just-use-postgres
@@ -653,7 +657,10 @@ https://www.manning.com/books/just-use-postgres https://gist.github.com/cpursley
 * wiki https://wiki.postgresql.org/wiki/Main_Page
 
 HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https://news.ycombinator.com/item?id=39273954
+* AI https://github.com/xataio/agent
+* BYO with Zig https://github.com/xataio/pgzx
 * admin https://eradman.com/posts/pg-admin-queries.html
+* analytics https://news.ycombinator.com/item?id=43270712
 * monitor / metrics https://github.com/CrunchyData/pgmonitor-extension
 * duckdb extension https://motherduck.com/blog/pg_duckdb-postgresql-extension-for-duckdb-motherduck/ https://github.com/duckdb/pg_duckdb
 * copy btw tables https://ongres.com/blog/fastest_way_copy_data_between_postgres_tables/
@@ -670,6 +677,7 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * delete data from table: `DELETE FROM <tab>` https://www.postgresql.org/docs/11/dml-delete.html
 * drop all tables: `DROP SCHEMA <schema> CASCADE`
 * get date from timestamp: `SELECT date(startime) FROM bookings` https://stackoverflow.com/a/6133147
+* random/seed data https://www.postgresonline.com/journal/index.php?/archives/419-PG-17-new-random-functions.html#newrandom
 
 SEMANTICS
 * _cluster_: server instance managing n databases https://www.postgresql.org/docs/12/tutorial-concepts.html https://www.crunchydata.com/blog/postgres-databases-and-schemas
@@ -707,7 +715,8 @@ misc
 * _benchmarking_: https://github.com/ankane/pghero https://blog.codeship.com/tuning-postgresql-with-pgbench/ https://softwareengineeringdaily.com/2022/09/22/automatic-database-tuning/
 > Benchmarking is a dark art of deceiving yourself with highly precise numbers. And benchmarketing datastores is even more fraught. Every single flipping database benchmark I've ever seen has been covered in a layer of asterisks and qualifications, and the comments on HN are full of "if you'd just set this flag when compiling it, you'd get 3% more speed out of reads, and the fact that the people running this didn't do this is proof that they were paid off and that they actively sell shady NFT scams of deranged yacht rock Harambe memes. https://wafris.org/blog/rearchitecting-for-sqlite
 * _diagram_: https://pgmodeler.io/ https://github.com/akarki15/dbdot
-* _extensions_: https://news.ycombinator.com/item?id=23821112 https://github.com/zombodb/pgx https://tech.marksblogg.com/postgresql-extension-rust.html distributed https://github.com/citusdata/citus ydb https://news.ycombinator.com/item?id=31081272 https://tech.marksblogg.com/postgresql-extension-rust.html https://github.com/tcdi/pgx
+* _extensions_: https://news.ycombinator.com/item?id=23821112 https://github.com/zombodb/pgx https://tech.marksblogg.com/postgresql-extension-rust.html distributed/multitentant https://github.com/citusdata/citus https://www.crunchydata.com/blog/citus-the-misunderstood-postgres-extension ydb https://news.ycombinator.com/item?id=31081272 https://tech.marksblogg.com/postgresql-extension-rust.html https://github.com/tcdi/pgx
+> For these types of applications, Citus distributes the data for each tenant into a shard. Citus handles the splitting of data by creating placement groups that know they are grouped together, and placing the data within shards on specific nodes. A physical node may contain multiple shards. Let me restate that to understand Citus at a high-level https://www.crunchydata.com/blog/citus-the-misunderstood-postgres-extension
 * build in Rust https://github.com/pgcentralfoundation/pgrx
 * _GUI_: pgadmin https://retool.com/blog/best-postgresql-guis-in-2020/
 * _GraphQL_: https://github.com/graphile/postgraphile
@@ -737,7 +746,7 @@ $ pgcli  # role (alice) db (alice)
 
 ---
 
-install https://superuser.com/a/1501253
+install https://superuser.com/a/1501253 https://neil.computer/notes/how-to-install-postgresql-in-a-custom-directory/
 ```sh
 # as root
 $ apt-get install postgresql postgresql-client postgresql-contrib
@@ -849,6 +858,22 @@ CLI util (psql, postgres, pg_dump, createdb/dropdb) https://gist.github.com/apol
 BYO https://matt.blwt.io/post/building-a-postgresql-extension-line-by-line/
 https://www.postgresql.org/about/news/announce-pig-the-postgres-extension-wizard-2988/
 
+## pgcli
+
+```sh
+# install https://github.com/dbcli/pgcli/issues/1413#issuecomment-2028781741
+$ pipx install pgcli
+$ pipx inject pgcli psycopg_binary
+# connect
+pgcli postgresql://$USER:$PW@$HOST:$PORT/$DB
+# dump table to CSV
+\COPY (SELECT * FROM $TBL LIMIT 100) TO '$TBL.csv' WITH CSV HEADER;
+# as snippet
+[alias_dsv]
+$TBL = "\COPY (SELECT * FROM {0} LIMIT 100) TO '{0}.csv' WITH CSV HEADER"
+\d $TBL product_template
+```
+
 ## psycopg
 
 * _driver_: lib for (db) connection https://stackoverflow.com/a/8588766 
@@ -917,11 +942,10 @@ USAGE
 * functions https://blog.julik.nl/2025/01/supercharge-sqlite-with-ruby-functions
 * https://blog.julik.nl/2025/01/maximum-speed-sqlite-inserts
 > Beyond that, we’re starting to see more creative uses of SQLite rather than “just” a local ACID-compliant database. With the advent of tools like Litestream enabling streaming backups and LiteFS to provide distributed access, we can devise more interesting topologies. Extensions like CR-SQLite allow the use of CRDTs to avoid needing conflict resolution when merging changesets, as used in Corrosion. https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
-* WASM https://news.ycombinator.com/item?id=41851051
 * durable object https://simonwillison.net/2024/Oct/13/zero-latency-sqlite-storage-in-every-durable-object/
 
 ZA
-* vector https://github.com/asg017/sqlite-vec
+* vector https://github.com/asg017/sqlite-vec https://blog.vectorchord.ai/vector-search-at-10000-qps-in-postgresql-with-vectorchord
 * https://news.ycombinator.com/item?id=40637303
 * single-tenant i.e each user gets own db https://news.ycombinator.com/item?id=38171322
 * transactions for perf https://news.ycombinator.com/item?id=36583317
@@ -947,6 +971,13 @@ HOWTO
 CONF
 * config location: `~/.sqliterc`
 * cmd history: `~/.sqlite_history`
+
+ZA
+* create db from SQL script 💻 https://github.com/zachvalenta/query-sandbox-sakila
+```sh
+sqlite3 sakila.sqlite < schema.sql
+sqlite3 sakila.sqlite < data.sql
+```
 
 ---
 
@@ -1042,7 +1073,7 @@ LIMITATIONS
 EXTENSIONS
 * fewer functions than other dbms
 * bundled https://github.com/nalgeon/sqlean https://github.com/zachvalenta/golf
-* _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ https://llm.datasette.io/en/stable/logging.html https://www.philipotoole.com/building-a-highly-available-search-engine-using-sqlite/ 🗄 `algos.md` FTS
+* _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ https://llm.datasette.io/en/stable/logging.html https://www.philipotoole.com/building-a-highly-available-search-engine-using-sqlite/ 🗄 `algos.md` FTS https://amjith.com/blog/2023/fts_search/
 
 TYPES
 * types: text, blob, null, int (whole num) real (decimal)
@@ -1071,7 +1102,101 @@ constraints
 > rn Flask-SQLA will happily violate FK or just leave null 
 * `pragma`: cmd to set env var
 
+## 🟠 litecli
+
+🗄️
+* `OLTP.md` SQLite > CLI
+* `python/pkg.md` venv
+💻
+* https://github.com/dbcli/litecli/pull/216
+* https://github.com/dbcli/litecli/pull/217
+
+* dot commands
+```sh
+.schema       # all schemas
+.schema $TBL  # schema for table
+.tables       # list tables
+.databases    # list databases
+.views        # list views -> even though they screwed me on credit last time, probably worth updating this to show both the name and the actual content of the view
+```
+* open db: `litecli $DB`
+* config: `~/.config/litecli/config` https://litecli.com/config/
+* query to CSV
+```sh
+litecli db.sqlite -e "select eid, mfg, mpn, apn, buyline, priceline, year_sales, last_sale, list_price, list_price_effective_date, date_created, date_updated, gross_profit from products where buyline like '%dongan%'" --csv > dongan-products.csv
+
+litecli db.sqlite -e "select wh.hash, q.* from quote q join with_hashes wh on q.manufacturer_input = wh.manufacturer_input where q.manufacturer_part_number_input = wh.manufacturer_part_number_input" --csv > with-hashes.csv
+```
+
+---
+
+* favorites/snippets https://github.com/zachvalenta/query-sandbox
+* sqlite-utils plugin https://amjith.com/blog/2023/sqlite_utils_litecli/
+* interview https://talkpython.fm/episodes/show/421/python-at-netflix
+
+LLM
+* https://amjith.com/blog/2024/introducing-llm-to-litecli/
+* https://amjith.com/blog/2025/llm-in-litecli-1/
+* https://amjith.com/blog/2025/llm-in-litecli-2/
+* https://github.com/dbcli/litecli/issues?q=llm
+
+## ⚛️ sqlite-utils
+
+🛠️ https://github.com/simonw/sqlite-utils
+
+LOAD CSV TO SQLITE
+```sh
+sqlite-utils insert db.sqlite $SQLITE_TABLE_NAME $PATH_TO_CSV --csv
+
+# idky but remember this being broken for a while
+vd orders.csv -b -o foo.sqlite
+
+# ❓ couldn't do from litecli/sqlite3 directly?
+.import entity-pn.csv entity_pn  # just tried to import this CSV
+entity-pn.csv:177587 expected 0 columns but found 3 - ignored  # got this error -> Strange, since when do i need to spec out the exact number of columns, seems like something that should just work. Is there a way you can config sqlite to do type inference on a sample subset of data and just figure it out. Imagine if you had to manually configure the column names and types every time you loaded a pandas dataframe. Barbaric!
+```
+
+OTHER USE CASES
+```sh
+$DB "SELECT * FROM $TBL LIMIT 5" --json      # RS as JSON
+query $DB "SELECT COUNT(*) FROM $TBL"        # RS to stdout
+transform $DB $TBL --rename $COL foo         # rename column
+insert $DB $TBL $CSV --csv; serve $DB        # serve table as API
+insert $DB $TBL $CSV --csv --pk=id --upsert  # upsert
+rows $DB $TBL --csv > $CSV                   # export
+schema $DB                                   # validate schema
+```
+
 # 🟨 ZA
+
+## 💿 dbcli
+
+📜 https://www.dbcli.com/
+
+---
+
+ALTERNATIVES
+* CLI query https://github.com/neilotoole/sq https://github.com/PeepDB-dev/peepdb
+* https://github.com/theseus-rs/rsql
+* usql as alternative https://news.ycombinator.com/item?id=42161987
+
+* exit: `exit`, `\q`
+* open with env var: `cli -h`
+* list tables: `\dt`
+* help: `\?`
+* autocomplete: `ctrl e`
+* clear screen: `ctrl l`
+* _metacommand_: preceded w/ backslash https://www.pgcli.com/commands
+* set pager to bat: `pager = less -SRXF` https://www.pgcli.com/docs
+* _named query_: snippet, saved query https://www.pgcli.com/named_queries.md https://simonwillison.net/2024/Dec/3/datasette-queries/
+* syntax: `f` (litecli) `n` (pgcli)
+* list: `\f` https://github.com/dbcli/pgcli/issues/1236
+* save: `\fs <name> <query>` https://github.com/dbcli/pgcli/issues/938
+* save w/ param: `\fs <name> <query where foo = $1>` https://github.com/dbcli/pgcli/issues/938
+> broken in sandbox: could be pager, Python version, config (try default config installed in $HOME) https://github.com/dbcli/pgcli/search?q=codec&type=issues
+* use: `\f <name>`
+* use w/ param: `\f <name> "arg"`
+* rm: `\fd <name>` https://litecli.com/favorites/
 
 ## MySQL
 

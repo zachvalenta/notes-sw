@@ -10,7 +10,7 @@
 * ✅ Bhargava grokking algorithms
 * ✅ Christian algorithms to live by
 * Dasgupta algorithms
-* ⭐️ Kneusel randomness https://nostarch.com/art-randomness
+* ⭐️ Kneusel randomness https://nostarch.com/art-randomness https://nostarch.com/computer-science-from-scratch
 * La Rocca advanced https://www.manning.com/books/advanced-algorithms-and-data-structures
 * Khamis optimization https://www.manning.com/books/optimization-algorithms
 * MacCormick computed
@@ -619,7 +619,7 @@ for short_row in tqdm(short_data, desc="Processing short CSV"):
 > Best for ranking documents by relevance to a query.
 
 * full text https://emschwartz.me/understanding-the-bm25-full-text-search-algorithm/
-* used by Lucene/Solr/Elasticsearch and SQLite
+* used by Lucene/Solr/Elasticsearch, SQLite, Postgres https://news.ycombinator.com/item?id=43237911
 * impl: https://github.com/jankovicsandras/bm25opt https://news.ycombinator.com/item?id=42790902
 * alternative: Okapi BM25F
 > Spent the last week looking into search - embeddings, BM25, how LLMs fit into the picture, and so on - and then, surprise, this popped up on HackerNews: FastGraphRAG. I haven’t even looked at the project itself yet, because this comment tripped me up: "Hypothetical answer generation from a query using an LLM, and then using that hypothetical answer to query for embeddings works really well." They use an LLM to generate hypothetical answers to a query and then use those answers to find relevant documents by comparing them in vector space. Don't know how else to put it, so pardonnez mon langage, but that's fucking nuts. https://registerspill.thorstenball.com/p/joy-and-curiosity-16

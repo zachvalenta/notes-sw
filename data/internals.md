@@ -53,10 +53,19 @@ CHECKSUMS
 
 ## storage
 
-🗄 `design.md` transactions
-
 ---
 
+🗄 `distributed.md` transactions
+* _transaction_: https://news.ycombinator.com/item?id=36583317
+* _transaction wraparound_: 🗄️ vacuuming
+```txt
+PostgreSQL assigns a unique transaction ID (XID) to each transaction
+XIDs are 32-bit integers with ~4 billion possible values
+When XIDs approach max value, they "wrap around" back to low numbers
+Without intervention, this causes data loss as new transactions might reuse XIDs of active data
+```
+
+* commits https://news.ycombinator.com/item?id=43380622
 * ACID https://www.youtube.com/watch?v=GAe5oB742dw
 * _page_: + heap https://news.ycombinator.com/item?id=41159180 https://simonwillison.net/2025/Feb/6/sqlite-page-explorer/
 * https://supabase.com/blog/postgres-bloat
@@ -126,13 +135,14 @@ https://www.openmymind.net/Speedig-Up-Queries-Understanding-Query-Plans/
 * should `explain analyze` be here?
 
 EXPLAIN
+* https://www.pgmustard.com/blog/postgres-query-plan-visualization-tools
 * plan hints https://news.ycombinator.com/item?id=35963572
 > In some circumstances, you have knowledge of your data that the optimizer does not have, or cannot have. You might be able to improve the performance of a query by providing additional information to the optimizer https://hakibenita.com/sql-dos-and-donts#add-faux-predicates
 * `explain`: view preflight execution plan  https://thoughtbot.com/blog/reading-an-explain-analyze-query-plan https://dataschool.com/sql-optimization/optimization-using-explain/ "returns the steps a database will take to execute a query" https://render.com/blog/postgresql-slow-query-to-fast-via-stats
 * how to interpret https://render.com/blog/postgresql-slow-query-to-fast-via-stats
 * adds overhead caused by the Volcano model https://www.ongres.com/blog/explain_analyze_may_be_lying_to_you/
 * `analyze`: update table stats after bulk index https://sqlfordevs.com/table-maintenance-bulk-modification
-* `explain analyze`: view postflight analysis 📙 Evans 25 https://jaywhy13.hashnode.dev/that-time-postgresql-said-no-thanks-i-dont-need-your-index
+* `explain analyze`: view postflight analysis 📙 Evans 25 https://jaywhy13.hashnode.dev/that-time-postgresql-said-no-thanks-i-dont-need-your-index https://www.pgmustard.com/blog/postgres-query-plan-visualization-tools
 * `seq scan`:  query plan doesn't use an index 📙 Evans 25
 * aka full table scan https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
 * making sense of Postgres output https://www.pgmustard.com/docs/explain https://explain.depesz.com/
@@ -187,6 +197,8 @@ START HERE
 
 ## basics
 
+---
+
 * _index_: binning vs. full table scan 📙 Evans 24
 ```sql
 CREATE INDEX idx_fk_country_id ON city(country_id) -- https://github.com/jOOQ/sakila/blob/main/sqlite-sakila-db/sqlite-sakila-schema.sql
@@ -195,8 +207,25 @@ CREATE INDEX idx_fk_country_id ON city(country_id) -- https://github.com/jOOQ/sa
 * subset of data (vs. concordance)
 * why: faster reads but slower writes 📙 Kleppmann [71] Karwin [6]
 > If you need to access data quickly, you index it...that's 90% of what you need to know https://www.bennadel.com/blog/3467-the-not-so-dark-art-of-designing-database-indexes-reflections-from-an-average-software-engineer.htm
-* _vacuum_: 📍 https://news.ycombinator.com/item?id=29858083
 * _reindex_: 📍 https://news.ycombinator.com/item?id=29858083
+* _vacuum_: https://news.ycombinator.com/item?id=29858083 https://pgdog.dev/blog/you-can-make-postgres-scale
+```txt
+* storage reclamation: removes dead tuples (deleted/obsolete rows)
+* transaction id wraparound prevention: prevents database age-related failures
+* table statistics updates: improves query planning
+```
+```python
+import psycopg2
+
+conn = psycopg2.connect(creds)
+conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
+cursor = conn.cursor()
+vacuum_type = "VACUUM FULL" if full else "VACUUM"
+table_spec = table_name if table_name else ""
+cursor.execute(f"{vacuum_type} {table_spec}")
+cursor.close()
+conn.close()
+```
 
 ## data structures
 

@@ -581,6 +581,7 @@ res = requests.delete(url, auth=(user, pw))
 ## scraping
 
 🗄 `html-css.md`
+📙 https://nostarch.com/social-media-observatory
 
 aaS
 > have to use headless browser for SPAs? https://github.com/zackproser/pageripper-v2 https://zackproser.com/blog/api-cicd-pulumi-github
@@ -597,6 +598,8 @@ LIBS
 
 ---
 
+* https://news.ycombinator.com/item?id=43285725
+* rotate user agents https://github.com/theonlyanil/stealthkit
 * https://news.ycombinator.com/item?id=42817439 https://lightpanda.io/
 * scrape infinite scrolling: sniff out API, use browser automation
 in golang 17k sites in 10 mins https://medium.com/@tonywangcn/27-6-of-the-top-10-million-sites-are-dead-6bc7805efa85
@@ -726,6 +729,7 @@ WSGI
 
 ASGI
 * _ASGI_: async alternative to WSGI
+> ASGI is a small but incredibly clever approach to simplifying how HTTP, the foundation of web communication, works. It converts all the different parts of an HTTP transaction into a basic, well-defined Python API: a single function, which takes three parameters, which provides access to the full HTTP specification. Uvicorn is the ASGI server used by FastHTML---that is, it is responsible for listening for HTTP messages, and converting them into the Python ASGI API. Then Starlette is responsible for taking this powerful single-function ASGI foundation and making it more convenient for programmers, by adding a small number of functions and classes that remove the boilerplate you would otherwise need to support ASGI. As a FastHTML user you very rarely need to know anything about the ASGI/Uvicorn/Starlette trio, other than that it is there in the background doing a lot of work for you! https://fastht.ml/about/foundation#sec1
 * design + ASGI, Uvicorn, Starlette, Pydantic https://rafiqul.dev/blog/fastapi-deconstructed-anatomy-of-modern-asgi-framework
 * frameworks: Django (Channels) Quart (Flask on async) https://talkpython.fm/blog/posts/talk-python-rewritten-in-quart-async-flask/ Twisted (don't think actually ASGI but does async) new (Sanic, Starlette, FastAPI built on Starlette)
 * servers: uvicorn, Daphne, Hypercorn
@@ -789,15 +793,15 @@ https://drewdevault.com/2014/06/28/Python-datetime-sucks.html
 📙 Beazley ch. 3
 https://pypi.org/project/pytz/ https://blog.ganssle.io/articles/2018/03/pytz-fastest-footgun.html https://github.com/crsmithdev/arrow https://github.com/timofurrer/maya https://github.com/sdispater/pendulum https://github.com/dateutil/dateutil parser https://github.com/wanasit/chrono
 
-* mock with freezegun https://martinheinz.dev/blog/96
+* mock with freezegun https://martinheinz.dev/blog/96 for time https://github.com/adamchainz/time-machine
 * str fmt: `dt.now().strftime("%y.%m.%d-%H:%M:%S")` https://stackoverflow.com/a/51262245
 * get last day of month https://stackoverflow.com/a/43663/6813490
-* distance btw 2 dates
+* distance/diff btw 2 dates
 ```python
 from datetime import datetime as dt
 abs((dt.strptime("2021-09-09", "%Y-%m-%d") - dt.strptime("2023-01-06", "%Y-%m-%d")).days)
+>>> 484
 abs((dt.strptime("2023-01-01", "%Y-%m-%d") - dt.today()).days)
->>>
 ```
 * string to datetime https://stackoverflow.com/a/27914405
 ```python

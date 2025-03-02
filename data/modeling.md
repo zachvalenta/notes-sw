@@ -7,7 +7,7 @@
 *️ `OLAP.md` factors
 * `data/internals.md`
 * `science.md` metascience / categories
-* `sql.md` schema / approaches
+* `sql.md` keys, schema
 📚
 * Alexopoulos semantic https://www.amazon.com/gp/product/1492054275
 * Kent data/reality https://www.amazon.com/Data-Reality-Perspective-Perceiving-Information/dp/1935504215
@@ -39,10 +39,10 @@ abstraction and math https://neugierig.org/content/dfw/
 
 💻
 * `OLAP.md` schemas
+* `serde.md` columnar
 
 ---
 
-* wide, sparse: Cassandra, Snowflake 
 * fact tables: wide, often sparse, store metrics (e.g., sales data).
 * dimension tables: narrow, dense, store descriptive attributes (e.g., product details).
 
@@ -61,7 +61,10 @@ abstraction and math https://neugierig.org/content/dfw/
 * optional attributes e.g. `battery_life` for electronics but null for books
 * con: slower queries due to null checks
 
-EAV
+### EAV
+
+🗄️ column store
+
 * approach to handling sparse data useful when dealing w/ situations where the number of attr associated with an entity can vary widely, and many attr don't apply to every entity
 * example: medical records (EMR) where each patient might have different tests or conditions e.g. blood pressure = 120/80 or allergy = penicillin
 * _entity_: obj e.g. product, user
@@ -80,10 +83,13 @@ EAV
 
 ## width
 
+WIDE
 * _wide_: high number of col relative to records
 * akin to fact tables 🗄️ `OLAP.md`
 * pro: reduces joins
 * con: hard to maintain 📍 get example of mechanics
+
+NARROW
 * _narrow_: few col
 * e.g. lookup table for country codes
 * pro: good for normalization
@@ -164,6 +170,7 @@ Metadata schema – for effective content management, organization, and retrieva
 Ontologies – for modeling semantic relationships between defined classes and their entities
 Book indexes – for indicating page numbers of topics and names in printed books
 ```
+
 # 🗺️ NON
 
 📙 Kleppmann ch. 2
@@ -181,6 +188,39 @@ Book indexes – for indicating page numbers of topics and names in printed book
 * _polyglot persistence_: using multiple types of data stores 📙 Kleppmann 2.29 because choosing just one is no fun :) https://old.reddit.com/r/learnpython/comments/glbuog/whats_is_your_decision_process_between_csv_json/
 * _block_: https://news.ycombinator.com/item?id=27200177
 * immutable https://github.com/codenotary/immudb
+
+## column store
+
+🗄️
+* EAV
+* `serde.md` columnar
+
+---
+
+akin to EAV, implement in SQLite https://chatgpt.com/c/67d9846c-0f08-8004-aa74-31e6e5e825b2
+
+A "wide column store," as I previously defined, is a NoSQL database architecture, not a file format. It’s designed for scalability and flexibility in handling dynamic, sparse, or massive datasets:
+
+Structure: Data is organized by rows, where each row has a key (e.g., user_id) and an associated set of columns. Unlike columnar file formats, the columns per row can differ—some rows might have 5 columns, others 50,000. Columns are often grouped into "column families" for performance.
+Purpose: Built for big data systems needing high write throughput, scalability, and flexibility. It’s less about analytics and more about operational workloads (e.g., real-time user data lookups).
+Key Trait: Dynamic schema. Each row can have a unique set of columns, and the system doesn’t enforce a fixed structure across all rows. This sparsity and variability distinguish it from columnar file formats.
+Examples: Apache Cassandra, Google BigTable, HBase.
+Focus: Distributed database storage and retrieval, optimized for scale and adaptability.
+
+* _column store_: not row-oriented (like OLTP)
+* can do in Sqlite? https://news.ycombinator.com/item?id=39207570&utm_term=comment
+* 不明觉厉 https://news.ycombinator.com/item?id=36571110
+* e.g. instead of looking for all `price` values by iterating over every sale record, just grab `price` column 📙 Kleppmann 96
+* ❓ stores data differently on disk https://nchammas.com/writing/database-access-patterns
+* in order to reconstruct a row, everything in row must be stored as nth in column 📙 Kleppmann 100
+* _wide column store_: ❓
+* CMU, Pavlo https://www.youtube.com/watch?v=fr5lIchF6pw
+* vectorized execution https://talkpython.fm/episodes/transcript/491/duckdb-and-python-ducks-and-snakes-living-together
+
+DBMS https://en.wikipedia.org/wiki/List_of_column-oriented_DBMSes
+* Cassandra https://stackoverflow.com/q/13010225 https://www.youtube.com/watch?v=J-cSy5MeMOA 📙 Kleppmann 99 https://news.ycombinator.com/item?id=28292369 https://simonwillison.net/2021/Aug/24/how-discord-stores-billions-of-messages/ https://news.ycombinator.com/item?id=41683293
+* _Bigtable_: wide table = document store in SQL https://en.wikipedia.org/wiki/Wide-column_store
+* _HBase_: Hadoop db
 
 ## document
 
@@ -223,7 +263,7 @@ DBMS
 * _JameSQL_: 🎯 embedded https://github.com/capjamesg/jamesql
 * _Mongo_: OSS alternative https://github.com/FerretDB/FerretDB https://pythonbytes.fm/episodes/show/318/gil-how-we-will-miss-you
 * _Polo_: embedded https://github.com/vincentdchan/PoloDB
-* _Postgres_: JSON
+* _Postgres_: JSON https://www.enterprisedb.com/blog/representing-graphs-postgresql-sqlpgq
 * _TinyDB_: 🎯 embedded https://github.com/msiemens/tinydb
 * not atomic but potential workaround https://tinydb.readthedocs.io/en/latest/extensions.html#tinyrecord
 
@@ -307,6 +347,7 @@ za
 * `infra.md` analytics
 
 todo
+* https://github.com/TDAmeritrade/stumpy
 * Postgres https://tembo.io/blog/pg-timeseries
 * https://www.youtube.com/watch?v=nT6UsVgJ0xw
 * https://www.youtube.com/watch?v=Z6pghPlZ1vQ
@@ -342,8 +383,8 @@ dbms
 
 COMPONENTS 📙 Beaulieu [1.6]
 * _entity_: thing you're trying to describe e.g. customer, order, et al. 📙 Beaulieu [8]
-* _attribute_: column 📙 Hao grokking
-* _row_: aka record
+* _column_: aka attribute 📙 Hao grokking
+* _row_: aka record, tuple (more academic)
 * _value_: aka cell, field
 
 RELATIONS
@@ -423,7 +464,10 @@ VIEW-BASED
 * con: direct table queries better for indexing
 
 SCHEMAS
-* _schema_: namespace for objs like tables, views, functions
+* _schema_: namespace for objs like tables, views, functions https://www.postgresql.org/docs/current/ddl-schemas.html
+* akin to spans in Great Tables https://posit-dev.github.io/great-tables/get-started/basic-column-labels.html
+* simulate in Pandas using multindex columns (but not in Polars)
+> doesn't seem like a way to simulate in SQL
 * maybe someday in Turso? https://github.com/tursodatabase/limbo/issues/1078
 * only in Postgres, Snowflake
 ```sql

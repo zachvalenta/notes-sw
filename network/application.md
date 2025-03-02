@@ -236,7 +236,7 @@ https://kevq.uk/how-to-host-email-with-your-own-domain/
  https://tutanota.com/blog/posts/gmail-end-to-end-encryption-is-dead/
 * _options_: Fastmail, Posteo, Protonmail https://cmpwn.com/@sir/100419028736559194 https://lukesmith.xyz/blog/a-script-that-automatically-sets-up-your-personal-mail-server.html https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-mail https://superhuman.com/
 * _auth_: https://blog.jonlu.ca/posts/spf-dkim
-* _servers_: Postfix, Sendmail https://github.com/kahun/awesome-sysadmin#mail-servers https://prefet.ch/blog/2020/email-server/ https://aosabook.org/en/v1/sendmail.html
+* _servers_: Postfix, Sendmail https://github.com/kahun/awesome-sysadmin#mail-servers https://prefet.ch/blog/2020/email-server/ https://aosabook.org/en/v1/sendmail.html Mox https://news.ycombinator.com/item?id=43261729
 * _self-hosting_: https://www.garron.blog/posts/host-your-email-server.html https://github.com/foxcpp/maddy
 * search: notmuch https://www.reddit.com/r/commandline/comments/ddkyap/can_some_give_me_the_dummies_guide_to_properly/ http://richardmavis.info/so-long-macbook-hello-again-linux
 > I wish Gmail had better search re: links. I think other people solve this by using things like Pinboard https://pinboard.in/
@@ -391,6 +391,8 @@ scp user@host:/src/file.txt /local/
 
 ---
 
+* p2p https://github.com/kern/filepizza https://news.ycombinator.com/item?id=43342361
+
 TOOLING
 * _aim_: client https://github.com/mihaigalos/aim
 * _aria_: ❌ client, bad presentation https://github.com/aria2/aria2
@@ -468,8 +470,6 @@ client config https://news.ycombinator.com/item?id=23027833
 
 ---
 
-* tailscale https://news.ycombinator.com/item?id=33986430
-> I’m a huge Tailscale fan and was quite happy to see that they’re doing well. The fascinating bit for me in that article, though, was this: “AI firms have big networking problems because they must transfer immense amounts of data between many machines across multiple cloud providers. They also face plenty of access control, compliance, cryptography, identity, and privacy concerns, given the amount of personal data they process for clients and the reputational risk should something go awry. These characteristics make AI companies ‘an ideal use case’ for Tailscale.” That makes sense, of course, but I have to admit that even though I was aware that AI involves a lot of data, my mind didn’t make the leap to “they probably run into a lot of networking problems.” https://registerspill.thorstenball.com/p/joy-and-curiosity-23
 * https://github.com/charmbracelet/wish https://www.youtube.com/watch?v=0YoHqRfKE1k
 https://stackoverflow.com/a/33243564/6813490
 process https://help.ubuntu.com/community/SSH/OpenSSH/Keys

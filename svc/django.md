@@ -13,7 +13,7 @@
 * ⭐️ Palmieri zero to prod in rust https://www.amazon.com/Zero-Production-Rust-introduction-development/dp/B0BHLDMFDQ https://www.zero2prod.com/index.html
 * Trudeau https://www.manning.com/books/django-in-action 🗄️ checklist
 * Vincent beginners (3.0) https://learndjango.com/courses/django-for-beginners https://github.com/wsvincent/djangoforbeginners
-> (no longer available as PDF) but you have access to his course https://wsvincent.com/year-in-review-2024/
+> (no longer available as PDF) but you have access to his course (login through Github, I *think*) https://wsvincent.com/year-in-review-2024/
 
 ## 进步
 
@@ -259,8 +259,7 @@ gui:
 
 ## views
 
-🔗 https://spookylukey.github.io/django-views-the-right-way/
-
+* https://github.com/carltongibson/neapolitan
 * https://spookylukey.github.io/django-views-the-right-way/
 
 * get query string https://www.django-rest-framework.org/api-guide/filtering/#filtering-against-query-parameters
@@ -286,7 +285,6 @@ DRF http://www.cdrf.co/ https://www.django-rest-framework.org/api-guide/views/
 vanilla https://wsvincent.com/class-function-based-views/
 * _function-based_: route on control flow
 * https://406.ch/writing/composition-over-inheritance-the-case-for-function-based-views/
-* https://github.com/carltongibson/neapolitan
 * _class-based_: route on method sig https://docs.djangoproject.com/en/2.2/topics/class-based-views/
 * _generic class-based_: 类似 DRF views http://ccbv.co.uk/
 ```python
@@ -330,6 +328,8 @@ class IndexView(generic.ListView):
 # 🔑 AUTH
 
 🗄 `security.md` users
+
+https://github.com/sunscrapers/djoser
 
 history https://wsvincent.com/django-user-model-talk/ https://www.youtube.com/watch?v=458KmAKq0bQ 
 > Django's leaky battery is its recommendation that you create a custom user model. Auth is so central and so standard that, into the high-nines (99.99%?), the vast majority of projects should never need to customise the central auth model. This is a battery that Django should very much provide. There's a complexity tax from exposing the auth model. There's a performance tax as the auth model becomes a generic dumping ground for User related data that has nothing to do with authentication. There's a learning tax as users hit the custom user model, and the (frankly, misplaced) warnings about it's importance. https://github.com/carltongibson/django-unique-user-email
@@ -487,16 +487,16 @@ ps aux | head --lines=1 && ps aux | grep 'manage.py runserver' | kill
 
 PROJECT
 * _project_: dir w/ `settings.py` https://stackoverflow.com/q/50090341
+* `django-admin`: CLI for project https://docs.djangoproject.com/en/3.0/ref/django-admin/
 ```sh
 poetry run django-admin startproject conf .
 ```
-* `django-admin`: CLI for project https://docs.djangoproject.com/en/3.0/ref/django-admin/
 
 APPS
 * _app_: unit of functionality https://forum.djangoproject.com/t/why-do-we-need-apps/827
+* `manage.py`: CLI for app https://docs.djangoproject.com/en/3.0/ref/django-admin/
 * name as normal package 🗄️ `python/runtime.py` packages
 * don't overdo it https://news.ycombinator.com/item?id=26492798 https://news.ycombinator.com/item?id=26492043 https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
-* `manage.py`: CLI for app https://docs.djangoproject.com/en/3.0/ref/django-admin/
 
 ---
 
@@ -668,14 +668,15 @@ how to
 
 ## DDL
 
+---
+
 * https://blog.bmispelon.rocks/articles/2024/2024-05-09-django-getting-a-full-model-instance-from-a-subquery.html
 * create uuid for record for API https://0of1.com/blog/posts/django-staples/
 * phone numbers https://0of1.com/blog/posts/django-staples
 * make everything read-only https://github.com/adamchainz/django-read-only
-* multi-table inheritance https://monadical.com/posts/django-packages.html
+* multi-table inheritance is a bad idea https://monadical.com/posts/django-packages.html https://news.ycombinator.com/item?id=43398148
 * _custom fields_: https://docs.djangoproject.com/en/dev/howto/custom-model-fields/
 * _index_: `db_index=True` https://www.djangorocks.com/snippets/indexing-your-django-models.html without downtime https://realpython.com/create-django-index-without-downtime/ https://adamj.eu/tech/2020/07/27/how-to-modernize-your-django-index-definitions
-* _meta_: anything that's not a field
 * _PK_: uuid https://docs.djangoproject.com/en/dev/ref/models/fields/#uuidfield https://books.agiliq.com/projects/django-orm-cookbook/en/latest/uuid.html https://books.agiliq.com/projects/django-orm-cookbook/en/latest/slugfield.html
 
 * related_name and 1-M https://books.agiliq.com/projects/django-orm-cookbook/en/latest/one_to_many.html https://docs.djangoproject.com/en/dev/ref/models/fields/#django.db.models.ForeignKey.related_name 🗄 
@@ -742,6 +743,41 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)  # current time on instance creation
     updated_at = models.DateTimeField(auto_now=True)  # current time on instance save
 ```
+
+### managed
+
+📜 https://docs.djangoproject.com/en/5.1/howto/legacy-databases/
+
+`managed = False` tells Django not to manage the table through migrations. This makes sense when:
+
+* You're connecting to a legacy database you don't control
+* You want to use Django's ORM to query the data without altering the schema
+* You're in a read-only scenario or have external processes managing schema changes
+
+### meta
+
+---
+
+* _meta_: anything that's not a field
+
+The Meta class in Django models defines metadata for the model. In this case, db_table = 'products' explicitly sets the database table name that Django will use for the Product model.
+This is useful for:
+
+Database migrations: Without this, Django would auto-generate a table name like app_product
+Legacy database integration: Lets you map Django models to existing tables
+Naming consistency: Ensures your database tables follow a consistent convention
+
+Meta can contain many other configuration options beyond table naming:
+
+ordering: Default sort order for queries
+verbose_name/verbose_name_plural: Human-readable names
+indexes: Database indexes
+constraints: Database constraints
+permissions: Custom permissions
+abstract: Whether the model is abstract
+
+This is part of Django's ORM (Object-Relational Mapper) functionality, which bridges Python objects and database tables.
+For your existing code, if you're mapping to a preexisting database schema, this is exactly what you need. If creating a new database, consider whether the name makes sense.
 
 ## DML
 

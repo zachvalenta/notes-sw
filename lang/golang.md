@@ -134,6 +134,7 @@ https://0x46.net/thoughts/2024/12/03/go-a-fractal-of-bad-design/
 
 ---
 
+https://lobste.rs/s/3q0ei5/10x_faster_typescript
 https://mattjhall.co.uk/posts/go-is-well-designed-actually.html
 
 > That sounds familiar to Go programmers, right? Go is almost brutally pragmatic. It’s not a beautiful language at all, at least on a surface level. Programming language theorists hate it! It may be fine in practice, they say, but it’ll never work in theory. Go is designed to be easy to parse, quick to compile, and simple to implement, just like Unix itself. It’s not aimed at programmers who want to express themselves in rich and byzantine hierarchies of type systems, or who need the compiler to catch all possible bugs. It’s just a plain, non-fancy language for getting useful programs written and running as quickly as possible. I appreciate that about it. https://bitfieldconsulting.com/posts/not-real-developer
@@ -536,7 +537,7 @@ VERSION MGMT
 * _math_: https://github.com/montanaflynn/stats
 * _profile_ https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go https://blog.golang.org/profiling-go-programs https://marcan.st/2017/12/debugging-an-evil-go-runtime-bug https://artem.krylysov.com/blog/2017/03/13/profiling-and-optimizing-go-web-applications/ https://github.com/DataDog/go-profiler-notes/blob/main/guide/README.md https://notes.eatonphil.com/implementing-a-jq-clone-in-go.html https://eli.thegreenplace.net/2023/common-pitfalls-in-go-benchmarking/ https://www.willem.dev/articles/benchmarks-performance-testing/
 * _refactoring_: http://blog.ralch.com/tutorial/golang-tools-refactoring/ http://www.gorefactor.org/
-* _REPL_: https://github.com/cosmos72/gomacro https://stackoverflow.com/questions/8513609/does-go-provide-repl https://golangweekly.com/link/146377/web
+* _REPL_: https://github.com/cosmos72/gomacro https://stackoverflow.com/questions/8513609/does-go-provide-repl https://golangweekly.com/link/146377/web https://github.com/x-motemen/gore
 * _search_ https://blevesearch.com/
 * _security_ https://github.com/securego/gosec
 * _serialization_: https://github.com/bytedance/sonic

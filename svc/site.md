@@ -188,11 +188,13 @@ Dreams of Code https://www.youtube.com/watch?v=A_3MP_V-kB4
 📙 Stimac https://www.manning.com/books/design-for-developers
 
 https://youtube.com/watch?v=Jf0cjocP8Wk
+scroll bar https://focusfurnace.com/scroll_buddy.html
 
 ## font / text
 
 🗄️ typography
 
+* https://neil.computer/
 * https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 * Claude output pretty good
 * FOIT/FOUT https://css-tricks.com/fighting-foit-and-fout-together/
@@ -239,6 +241,8 @@ LAYOUT 🔗  https://github.com/arp242/hello-css/
 
 🏔️ https://travisjeffery.com/
 🔗 https://github.com/zachvalenta/web-design
+
+make this into a page https://webdesigninspiration.io/
 
 MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
 * https://blog.yossarian.net/
@@ -290,6 +294,7 @@ UNIQUE
 
 ---
 
+* image, text https://neil.computer/notes/how-to-install-postgresql-in-a-custom-directory/ https://neil.computer/notes/chart-of-accounts-for-startups-and-saas-companies/
 * draw your own Ben Thompson style https://tej.as/blog/how-to-grow-professional-relationships-tjs-model
 * use them in articles to make things stick! https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
 * face on every page https://blog.plover.com/music/revolver.html https://drewdevault.com/

@@ -124,6 +124,7 @@ OPTIONS
 * _dwm_: https://dwm.suckless.org/
 * _Magnet_: https://switowski.com/blog/favorite-mac-tools/
 * _PaperWM_: https://jvns.ca/blog/2020/01/05/paperwm/
+* _Niri_: https://ersei.net/en/blog/niri
 * _Slate_: unmaintained https://github.com/jigish/slate
 * _Sway_: https://swaywm.org/
 * _X.org_: https://www.x.org/wiki/
@@ -286,6 +287,7 @@ IMPL
 MODES
 * set mode: `set -o <emacs/vi>`
 * _vi_: doesn't support text obj e.g. `cw` works but `ciw` doesn't https://vi.stackexchange.com/a/9876 https://catonmat.net/bash-vi-editing-mode-cheat-sheet
+> vi mode in litecli does support ciw
 * scroll history: `j/k`
 
 INPUTRC https://claude.ai/chat/27433018-36d2-4574-888e-131cc5b24fdc
@@ -446,6 +448,7 @@ ICON/FONT/COLOR INTERPLAY
 ---
 
 true color https://www.lazyvim.org/
+https://github.com/ChausseBenjamin/termpicker
 
 ipython config
 ```python
@@ -532,9 +535,13 @@ CONFIG
 * filepath goofiness https://github.com/ghostty-org/ghostty/issues/3456
 
 SPLITS
-* ❌ no divider btw splits still pretty dark; way to config? https://github.com/ghostty-org/ghostty/discussions/3301
-* ❌ no goto split by number https://github.com/ghostty-org/ghostty/discussions/5527
-* Vim goto https://github.com/shoukoo/dotfiles/blob/f093247c18af0cb47adad21a4a60425b8aea6e5d/ghostty#L15
+* ✅ divider color fixed https://github.com/ghostty-org/ghostty/discussions/3301
+* ✅ goto: vim but no by-number https://github.com/ghostty-org/ghostty/discussions/5527 https://github.com/shoukoo/dotfiles/blob/f093247c18af0cb47adad21a4a60425b8aea6e5d/ghostty#L15
+* 📍 max/min
+```toml
+keybind = ctrl+alt+m=maximize_split
+keybind = ctrl+alt+n=equalize_splits
+```
 * ❌ doesn't support arrangements
 > workaround with zellij
 ```txt
@@ -565,6 +572,7 @@ ghostty +list-fonts
 
 ---
 
+* ALT key https://amjith.com/blog/2024/ghostty/
 splits https://github.com/guerinoni/dotfiles/blob/74eefcfa2ba179de915a7533182ef78e8465a11a/ghostty#L1852
 
 FONTS
@@ -753,6 +761,7 @@ CONFIG
 
 ---
 
+Vim madness https://news.ycombinator.com/item?id=24243521
 setup on work machine https://github.com/zachvalenta/capp-denv-dotfiles/commit/11d6a2709a69c9b39d699bca4ab13748b1e6d9e0 https://github.com/zachvalenta/capp-denv-dotfiles/commit/e4d0dca30a13d14d36feea0ae30a91015248c71e
 
 @ show status bar when opening with user-defined layout

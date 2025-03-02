@@ -122,6 +122,10 @@ localhost | SUCCESS => {
 
 https://testdriven.io/blog/django-ecs-aws-copilot/
 
+## Sake
+
+https://github.com/alajmo/sake
+
 ## Terraform
 
 🛣️ https://roadmap.sh/terraform
@@ -143,6 +147,7 @@ ZA
 > An analysis of Redis' source code repository also shows that a sizable percentage of contributions to the DBMS comes from outside the company (e.g., Tencent, Alibaba). This "stolen valor" was the reason for the ire HashiCorp received when they changed Terraform's license in 2023. https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 
 * https://github.com/idoavrah/terraform-tui
+* https://github.com/magodo/pipeform
 * https://github.com/leg100/pug
 * certification https://www.hashicorp.com/certification
 * alternative https://opentofu.org/
@@ -366,7 +371,6 @@ CONSIDERATIONS
 
 ---
 
-* Tailscale for network? https://tailscale.com/?utm_source=substack&utm_medium=email
 * https://news.ycombinator.com/item?id=34860655
 * https://news.ycombinator.com/item?id=34867314
 * https://www.jotaen.net/anA6o/self-hosting-guide-docker-haproxy-lets-encrypt/
@@ -490,3 +494,12 @@ TAXONOMY https://www.youtube.com/watch?v=NhDYbskXRgc [48:00]
 * _level 2 (resellers)_: Heroku, Netlify, Render https://render.com/ https://softwareengineeringdaily.com/2019/06/17/render-high-level-cloud-with-anurag-goel/ Serverless https://serverless.com/
 * _alternatives_: Platform.sh https://news.ycombinator.com/item?id=22486031, Zeit/Vercel https://news.ycombinator.com/item?id=22933479 OpenShift (RHEL managed Kubernetes https://news.ycombinator.com/item?id=3003289) Cloud Run https://alexolivier.me/posts/deploy-container-stateless-cheap-google-cloud-run-serverless Dokku http://dokku.viewdocs.io/dokku/ Cap Rover https://news.ycombinator.com/item?id=23465087 https://fly.io/
 * _Digital Ocean_: https://github.com/seven1m/do-install-button
+
+## Tailscale
+
+🗄️
+* `aws.md` network > VPC
+* `tcp-ip.md` VPN
+
+* https://news.ycombinator.com/item?id=33986430
+> I’m a huge Tailscale fan and was quite happy to see that they’re doing well. The fascinating bit for me in that article, though, was this: “AI firms have big networking problems because they must transfer immense amounts of data between many machines across multiple cloud providers. They also face plenty of access control, compliance, cryptography, identity, and privacy concerns, given the amount of personal data they process for clients and the reputational risk should something go awry. These characteristics make AI companies ‘an ideal use case’ for Tailscale.” That makes sense, of course, but I have to admit that even though I was aware that AI involves a lot of data, my mind didn’t make the leap to “they probably run into a lot of networking problems.” https://registerspill.thorstenball.com/p/joy-and-curiosity-23

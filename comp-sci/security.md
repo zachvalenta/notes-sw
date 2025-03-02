@@ -16,9 +16,11 @@
 > buy from No Starch? https://nostarch.com/bug-bounty-bootcamp
 * McDonald https://www.manning.com/books/grokking-web-application-security https://www.amazon.com/gp/product/1633438260 wrote the same book in 2020? https://www.amazon.com/Web-Security-Developers-Malcolm-McDonald/dp/1593279949 https://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470
 * Seitz black hat https://news.ycombinator.com/item?id=42361793
+* ⭐️ Wardle mac malware https://nostarch.com/art-mac-malware-v2 https://nostarch.com/linux-basics-hackers-2nd-edition
 
 ## 进步
 
+* https://dadrian.io/ https://dadrian.io/blog/posts/sct-not-after/
 * Scapy https://www.youtube.com/watch?v=EnuF9ZR6MVc
 
 ATTRIBUTE BASED ACCESS CONTROL (ABAC)
@@ -49,7 +51,7 @@ ROLES https://www.netmeister.org/blog/infosec-skillsets.html
 * _reverse engineering_: disassemblers/decompilers, C++, Windows 🗄 `python-grey-hat.pdf` https://www.begin.re/ https://nostarch.com/GhidraBook https://news.ycombinator.com/item?id=29084716 https://reverseengineering.stackexchange.com/ https://malwareunicorn.org/workshops/re101.html
 
 CLEAN THESE UP BEFORE BUYING BOOKS
-* vulnerability scanner https://sansec.io/
+* vulnerability scanner https://sansec.io/ https://github.com/blacklanternsecurity/bbot
 * stuxnet https://www.youtube.com/watch?v=WyBlh8Tq6_Q
 * things to know https://www.netmeister.org/blog/infosec-competencies.html https://jacobian.org/2021/jul/8/appsec-pagnis https://latacora.github.io/careers/
 * BYO RCE https://github.com/Narasimha1997/py4jshell

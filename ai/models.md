@@ -15,6 +15,8 @@ interactions: code completion, chat, tool use https://blog.val.town/blog/fast-fo
 Simon Prince book https://news.ycombinator.com/item?id=43121059
 https://openai.com/index/introducing-deep-research/ https://x.com/mckaywrigley/status/1886215847481623030 https://x.com/felipe_millon/status/1886205433469178191 https://thezvi.substack.com/p/were-in-deep-research https://x.com/sayashk/status/1887275315824660584 https://www.fromthenew.world/p/openai-deep-research-explains-itself https://x.com/patrickc/status/1888312657146757315 https://stratechery.com/2025/deep-research-and-knowledge-value/
 > OpenAI made a big splash launching ‘Deep Research’, an agent-ish tool within the $200 Pro plan that uses a version of the computationally-intensive (and expensive) o3 ‘reasoning’ model to write research reports, coming back in a few hours when it’s done. As for most generative AI demos, very cool if you have that use case, but you have to be careful - I spotted some large mistakes even in one of the examples on the marketing page (in a field I know a lot about). I always used to compare machine learning to ‘infinite interns’ and now you can ask an AI intern to write a long report about something - but you’ll need to check every line of it, and it probably won’t say anything surprising (since surprising is a divergence from the data). - Ben Evans 25.02.11
+https://news.ycombinator.com/item?id=43236184 https://simonwillison.net/2025/Mar/4/deepsearch-deepresearch/
+vibe coding https://simonwillison.net/2025/Mar/6/vibe-coding/
 
 * _24_: ChatGPT (regex and Polars, then incorporate research) Claude (switch after GPT outage)
 * _23_: few random queries
@@ -126,6 +128,7 @@ CONTEXT
 ## hardware
 
 🗄️ `hw.md` Apple 
+💻 https://github.com/zachvalenta/apple-models-data-analysis https://news.ycombinator.com/item?id=43268210
 
 https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonwillison.net/2024/Dec/9/llama-33-70b/ https://news.ycombinator.com/item?id=42539155&
 
@@ -190,7 +193,11 @@ start here https://parlance-labs.com/education/ https://applied-llms.org/ https:
 
 🔍 https://mychaelangelo.github.io/ai_agents_marketmap/
 
+= can go out and use the internet https://x.com/rowancheung/status/1898093008601395380
+
 ---
+
+* people define as "can read|update my code"? https://www.youtube.com/watch?v=zIejF3IGtWk
 
 * start using https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/
 * defining https://www.anthropic.com/research/building-effective-agents
@@ -296,8 +303,11 @@ BYO + RAG https://claude.ai/chat/ec4dbe09-e48a-466f-9e35-a7e430af0265
 
 ---
 
+https://koratkar.github.io/cwt-semantic-search/
+
 > Semantic search understands the meaning and intent behind queries rather than just matching words. It uses techniques like word embeddings and neural networks to understand context and relationships. For example, a semantic search for "red car" might also return results about "scarlet vehicles" or even "burgundy SUVs" because it understands these are conceptually related. It's particularly good at handling natural language queries and understanding synonyms, but can be more computationally intensive.
 
+* https://amjith.com/blog/2023/vector_search/
 * https://koratkar.github.io/cwt-semantic-search/ https://x.com/whybyfire/status/1866239929732173846
 > So semantic search is often a component of RAG, but RAG goes beyond just search. Here's an analogy: semantic search is like having a really smart librarian who understands what you're looking for and can find relevant books. RAG is like having that librarian plus a subject matter expert who can read those books, synthesize the information, and explain it to you in your own terms. https://claude.ai/chat/18bc4333-ff09-45f8-8610-0c325ce11ecf
 
@@ -484,7 +494,7 @@ TYPES https://elevenlabs.io/
 * didn't work https://huggingface.co/spaces/openai/whisper https://goodsnooze.gumroad.com/l/macwhisper https://news.ycombinator.com/item?id=42095294
 * dubbing
 * voice clone https://www.tetragrammaton.com/content/richard-feynman
-* _TTS_: https://notebooklm.google/ https://news.ycombinator.com/item?id=41964980 PDF to audio https://www.fwdaudio.com/ https://x.com/barbell_fi multistage https://simonw.substack.com/p/verdad-tracking-misinformation-in https://www.fwdaudio.com/ https://news.ycombinator.com/item?id=43022398
+* _TTS_: https://www.openai.fm/ https://notebooklm.google/ https://news.ycombinator.com/item?id=41964980 PDF to audio https://www.fwdaudio.com/ https://x.com/barbell_fi multistage https://simonw.substack.com/p/verdad-tracking-misinformation-in https://www.fwdaudio.com/ https://news.ycombinator.com/item?id=43022398
 > Everyone is talking about the new hashtag#AI Notebook LM tool from Google that lets you create podcasts from articles and other sources. I decided to try it for myself, using one of my prior pieces, The Upside and Downside of AI, as the basis for the podcast. The result, which you can listen to in the article, is simply amazing. It doesn't just read the article - it has a discussion between two "people" about it that is very engaging. https://arnoldkling.substack.com/p/llm-links-b9d
 > Meta recently introduced NotebookLlama, an "open" version of Google’s podcast-generating feature found in NotebookLM. Leveraging Meta's Llama models, NotebookLlama is capable of creating conversational, podcast-style digests of uploaded text files, such as PDFs of news articles or blog posts. This technology aims to replicate the interactive storytelling aspect of Google's viral tool, adding its own elements of dramatization and interruptions to make the content sound more dynamic. https://www.superpowerdaily.com/p/google-preps-jarvis-ai-agent-that-works-in-chrome
 * _STT_: https://news.ycombinator.com/item?id=41941845
@@ -516,7 +526,7 @@ EXAMPLES
 * _TTV_: https://simonwillison.net/2024/Dec/9/sora/
 * _TFI_: https://calmcode.io/shorts/pytesseract.py
 * image to video https://www.vidifyapp.com/
-* _OCR_: image to text e.g. PDF to plaintext https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194 https://getomni.ai/ocr-demo https://news.ycombinator.com/item?id=41971614 https://github.com/Nutlope/llama-ocr https://simonwillison.net/2025/Feb/26/olmocr/
+* _OCR_: image to text e.g. PDF to plaintext https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194 https://getomni.ai/ocr-demo https://news.ycombinator.com/item?id=41971614 https://github.com/Nutlope/llama-ocr https://simonwillison.net/2025/Feb/26/olmocr/  https://mistral.ai/fr/news/mistral-ocr
 
 ---
 
@@ -550,9 +560,9 @@ EXAMPLES
 📙 https://www.manning.com/books/prompt-engineering-in-practice https://www.manning.com/books/prompt-engineering-in-action https://www.promptingguide.ai/
 🗄️
 * `dotfiles/ai/aider/conventions`
-* `ur-repo` prompt workflow https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/
 *️ `work.md` industry > Stack Overflow
 * `clients.md` Cursor https://ghuntley.com/stdlib/
+* `ur-repo` prompt workflow https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/ https://llmstxt.org/ https://svelte.dev/llms-small.txt https://simonwillison.net/2025/Mar/11/using-llms-for-code/ claude.md https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials
 
 ZA
 * ask it to try harder https://simonwillison.net/2025/Jan/3/asking-them-to-write-better-code/
@@ -573,3 +583,9 @@ SEMANTICS
 ```
 * _prompt injection_: getting model to do something its creators don't want https://simonwillison.net/2023/Dec/31/ai-in-2023/
 > Simon coined the term prompt injection after SQL Injection. He believes that we are not seeing digital assistants, because no one knows how to build them securely. 99% effective isn't good enough. Never mix untrusted text with access to tools. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
+
+---
+
+https://x.com/david_perell/status/1897387371244478668
+> Use AI as your secondary literature when you read — not just for quick answers, but as a thinking companion. As Tyler puts it, "I'll keep on asking the AI: 'What do you think of chapter two? What happened there? What are some puzzles?' It just gets me thinking... and I'm smarter about the thing in the final analysis."
+> Hallucinations aren't the crisis everyone makes them out to be. No matter the source, if you're going to use a piece of information, you should double-check it. This is true for both books and AI.

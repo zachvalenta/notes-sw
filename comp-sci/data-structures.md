@@ -9,6 +9,7 @@
 ## 进步
 
 RN
+* https://blog.startifact.com/posts/succinct/
 * taxonomy https://chatgpt.com/c/6706989f-02a4-8004-9933-bbe525f36b55 https://www.interviewcake.com/data-structures-reference https://roadmap.sh/datastructures-and-algorithms
 * https://neetcode.io/courses/dsa-for-beginners/1
 * https://www.youtube.com/playlist?list=PLQpVsaqBj4RIJdYW6Y-iAswxCZeocfoRW
@@ -36,7 +37,9 @@ RN
 
 ## graph
 
-📙 Bratanic https://www.manning.com/books/graph-algorithms-for-data-science
+📚
+* Bratanic https://www.manning.com/books/graph-algorithms-for-data-science
+* Kubica https://nostarch.com/graph-algorithms-fun-way
 
 ---
 
@@ -302,6 +305,7 @@ BUILDERS 🗄️ `html-css.md` SSG `protocols.md` JSON `km.md` notes / tooling `
 
 ---
 
+https://cedardb.com/blog/optimistic_btrees/
 https://benjamincongdon.me/blog/2021/08/17/B-Trees-More-Than-I-Thought-Id-Want-to-Know/
 https://planetscale.com/blog/btrees-and-database-indexes
 
@@ -552,6 +556,7 @@ https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pz
 * alternatives incl. BST, skip list https://stackoverflow.com/a/301822 📙 Skiena 12.1
 
 hash tables
+https://go.dev/blog/swisstable
 https://www.openmymind.net/Zigs-HashMap-Part-1/
 https://www.openmymind.net/Back-To-Basics-Hashtables/
 https://www.openmymind.net/Back-To-Basics-Hasthables-Part-2/

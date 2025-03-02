@@ -61,6 +61,9 @@ INSERT INTO danzi(customer, price) VALUES ('alice', 15), ('bob', 10);
 
 UPDATE <tab> SET <col>=0 WHERE id=3;
 DELETE FROM <tab> WHERE id=3;  -- https://notso.boringsql.com/posts/deletes-are-difficult/
+
+-- update based on value in another row https://amjith.com/blog/2023/sqlite_row_copy/
+UPDATE users SET token = (SELECT token FROM users u WHERE u.id = 1) WHERE id = 2;
 ```
 
 ## distinct
@@ -214,7 +217,8 @@ select count(*) over (), track, sum(share), count(*) from splits group by track 
 
 GROUP BY
 * _group by_: form group for each unique combo
-* group formation happens first, then either regular column (first row in group) | agg column (agg func applied to all rows in group)
+* _agg column_: agg func applied to all rows in group
+* _regular column_: first row in group
 * regular column has dedupe side effect 📙 Evans [8]
 ```sql
 select * from orders
@@ -228,6 +232,7 @@ select * from orders
 | 5  | carl     | widget  | 225    |
 +----+----------+---------+--------+
 
+-- REGULAR COLUMNS
 select * from orders group by customer, product
 +----+----------+---------+--------+
 | id | customer | product | amount |
@@ -237,6 +242,7 @@ select * from orders group by customer, product
 | 5  | carl     | widget  | 225    |
 +----+----------+---------+--------+
 
+-- AGG COLUMNS
 select customer, product, id, -- regular columns
 count(*) as cnt, sum(amount) total -- agg columns
 from orders group by customer, product;
@@ -247,6 +253,26 @@ from orders group by customer, product;
 | bob      | gadget  | 3  | 2   | 375   |
 | carl     | widget  | 5  | 1   | 225   |
 +----------+---------+----+-----+-------+
+
+-- ACCESSING ALL ROWS FROM REGULAR COLUMN
+select customer, count(*) as cnt, group_concat(product) as products
+from orders group by customer
++----------+-----+---------------+
+| customer | cnt | products      |
++----------+-----+---------------+
+| alice    | 2   | widget,widget |
+| bob      | 2   | gadget,gadget |
+| carl     | 1   | widget        |
++----------+-----+---------------+
+select customer, count(*) as cnt, group_concat(id || ':' || product) as products
+from orders group by customer;
++----------+-----+-------------------+
+| customer | cnt | products          |
++----------+-----+-------------------+
+| alice    | 2   | 1:widget,2:widget |
+| bob      | 2   | 3:gadget,4:gadget |
+| carl     | 1   | 5:widget          |
++----------+-----+-------------------+
 ```
 
 ---
@@ -304,17 +330,10 @@ lag() sum() ntile() row_number()
 
 📙 Beaulieu ch. 4
 
-```sql
-select (select count(*) from customers where bill_to_id != '') * 100.0 / (select count(*) from customers)
-```
-
----
-
+SEMANTICS
 * _predicate_: filter https://www.postgresql.org/docs/13/functions-comparison.html https://use-the-index-luke.com/sql/explain-plan/oracle/filter-predicates
 * _condition_: clause in predicate 📙 [67]
 * group w/ parentheses 📙 Beaulieu [59]
-
-WHERE / HAVING
 * _where_: condition on individual records
 * occurs before `group by` https://www.helenanderson.co.nz/sql-aggregate-functions/
 * _having_: condition on group 📙 Beaulieu [149]
@@ -322,18 +341,68 @@ WHERE / HAVING
 ```sql
 where num >= 5 -- comparison operator 📙 Beaulieu 4.63
 where num is not null -- identity operator
-where "name" in ('alice', 'bob'); -- membership; how subqueries work 📙 Beaulieu 4.71
 where num between 3000 and 5000; -- range; is inclusive 📙 Beaulieu [75]
 ```
 
-GLOBBING
+COMPOUND
+```sql
+select count(*) from products 
+where discontinued = 'y' and web > 0.001 and (list_price = 0.001 or list_price = 0.0)
+select -- easier just to do this way
+  (select count(*) from products where discontinued = 'Y' and web > 0.001 and list_price <= 0.001) * 100.0 /
+  (select count(*) from products) as 'web zombie'
+
+-- NOT 💻️ https://github.com/zachvalenta/capp-pu-copeland https://github.com/zachvalenta/capp-datalab/blob/main/src/workflows/cleanup/scope.py
+WITH brand_codes AS (
+    SELECT brand, priceline, buyline
+    FROM pdr
+    WHERE brand = 'Copeland'
+)
+SELECT pv.* FROM pv, brand_codes bc
+WHERE pv.description LIKE '%Copeland%'
+AND NOT (
+    pv.mfg LIKE '%' || bc.brand || '%'
+    OR pv.priceline = bc.priceline
+    OR pv.buyline = bc.buyline
+)
+```
+
+SEARCH / GLOBBING
 * not portable across DBMS 📙 Karwin [15]
+* wildcards: `_` single char `%` n char 📙 Beaulieu [80] https://amjith.com/blog/2023/postgres-and-underscore/
 * regex in SQLite
 ```sql
 select id from prod_class where id glob '*[^0-9]*' limit 5
 select * from customers where name like '%gobain%'
+
+-- dynamic with join
+WITH brand_codes AS (
+    SELECT brand, priceline, buyline
+    FROM pdr
+    WHERE brand = 'Copeland'
+)
+SELECT pv.* FROM pv
+JOIN
+    brand_codes bc ON (
+        pv.mfg LIKE '%' || bc.brand || '%' OR
+        pv.priceline = bc.priceline OR
+        pv.buyline = bc.buyline
+    )
 ```
-* wildcards: `_` single char `%` n char 📙 Beaulieu [80]
+
+ZA
+```sql
+-- membership
+where first_name in ('alice', 'bob'); -- how subqueries work 📙 Beaulieu 4.71
+-- math
+select (select count(*) from customers where bill_to_id != '') * 100.0 / (select count(*) from customers)
+-- string truthy/falsy
+select count(*) from executions where height != ''
+```
+
+---
+
+SEARCH / GLOBBING
 ```sql
 -- '%query%' = contained anywhere
 -- https://github.com/enochtangg/quick-SQL-cheatsheet#1-finding-data-queries
@@ -351,25 +420,18 @@ where RIGHT(<col>, 3); -- 📍 slice right: select subset of string ending with 
 where LEFT(<col>, 1) = 'T'; -- attr starts w/ 'T' -- left: select subset of string starting with index n [Beaulieu 4.73]
 ```
 
-FUQ
-```sql
--- MULTIPLE CONDITIONS
-select foo
-from dsp
-join files
-on dsp.id = files.id
-where dsp.bar='bar' and files.baz='baz'
-
--- STRING TRUTHY/FALSY
-select count(*) from executions where height != ''
-```
-
 ## select
 
 ```sql
+-- SELECT ALL
+select tbl1.*, tbl2.foo
+
 -- CONCATENATE https://pgexercises.com/questions/joins/threejoin.html
 select * from products p join cat c
 on 'CS' || p.eid = c.product_id  -- eid 1234 produc_id CS1234
+
+-- TRUNCATE OUTPUT
+select substr(description, 1, 10) from products where eid = 1000004
 ```
 
 ---
@@ -454,6 +516,8 @@ select * from employee, lob using (lob_id)
 
 ---
 
+* merge, right join https://blog.jooq.org/think-about-sql-merge-in-terms-of-a-right-join/
+* anti-left https://claude.ai/chat/cc161c00-15d7-40b6-9338-80850b170020 https://claude.ai/chat/485f24b8-a7c6-4cec-8e02-5b392038a30e https://grok.com/chat/562a547e-0b7a-4954-816c-0c587a52faaf https://claude.ai/chat/cd451018-b085-47dd-b971-74df3281ed7e
 * https://antonz.org/sql-join/
 * https://news.ycombinator.com/item?id=36575784
 * https://github.com/enochtangg/quick-SQL-cheatsheet#joins
@@ -465,6 +529,20 @@ select * from employee, lob using (lob_id)
 * _inner_: RS !incl records for which join fails (dbms default) 📙 Beaulieu [90] Evans [10]
 * _outer_: RS incl records for which join fails 📙 Beaulieu [90]
 * _left_: outer + DT determines RS count + TT provides matches 📙 Beaulieu [187] Evans [11-12]
+```sh
+litecli :memory:
+```
+```sql
+create temporary table foo (id);
+insert into foo (id) values (1), (2), (4);
+create temporary table bar (id);
+insert into bar (id) values (1), (2), (3), (4), (5);
+
+select bar.id from bar
+left join foo on bar.id = foo.id
+where foo.id is null
+-- output: 3, 5
+```
 * _right_: outer + TT determines RS count + DT provides matches 📙 Beaulieu [187]
 * _full_: outer + all rows from DT/TT in RS 📙 Beaulieu [187]
 ```sql
@@ -564,6 +642,11 @@ CREATE TABLE customer (
 );
 ```
 
+---
+
+* Capp identifiers vs. classifications vs. attributes https://grok.com/chat/977a1321-578e-4e0d-9895-db2df5005838
+* fixing dupe primary https://www.crunchydata.com/blog/postgres-troubleshooting-fixing-duplicate-primary-key-rows
+
 ## primary (PK)
 
 🗄 indexing `connolly.pdf`
@@ -612,6 +695,8 @@ foreign key (band) references bands (band_id)
 * _dangling identifier_: bad FK bc pointing to no longer extant ID
 
 # 🗺️ SCHEMA (DDL)
+
+🗄️ `data/modeling.md` name spaces
 
 COMMANDS
 ```sql
@@ -739,6 +824,8 @@ CREATE TABLE products (
 
 TOOLS
 * pgroll, squitch https://news.ycombinator.com/item?id=42388973
+* https://github.com/sqldef/sqldef
+* https://github.com/xataio/pgroll
 
 DATA
 * _data migration_: DML i.e. change data itself
@@ -929,18 +1016,32 @@ GENERATED COLUMNS
 
 ## CTE
 
-* _CTE (common table expression)_: one-off view using `WITH` keyword https://chatgpt.com/c/67bf4043-3e88-8004-aa0c-13c54fb38cc2
+* _CTE (common table expression)_: one-off view using `WITH` keyword
+```sql
+with web_zombies as (
+  select * from products 
+  where discontinued = 'Y' and web > 0.001 and list_price <= 0.001
+)
+select 
+  (select count(*) from web_zombies) * 100.0 / 
+  (select count(*) from products) as 'web zombie %'
+```
+
+WHY?
+* _readability_: break complex queries into logical, named components
+* _reusability_: reference the same subquery multiple times without duplication
 
 ---
 
-* https://github.com/enochtangg/quick-SQL-cheatsheet#find
 * https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
-* Postgres filters as a replacement for https://stokerpostgresql.blogspot.com/2025/02/how-postgresqls-aggregate-filter-will.html
-* recursion http://www.jeffwidman.com/blog/ https://dba.stackexchange.com/q/14490 https://medium.com/swlh/recursion-in-sql-explained-graphically-679f6a0f143b https://aiven.io/blog/solving-the-knapsack-problem-in-postgresql https://pgexercises.com/questions/recursive/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
-* https://news.ycombinator.com/item?id=42230384
+* https://hakibenita.com/sql-for-data-analysis#common-table-expressions
+* https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance
 * https://github.com/enochtangg/quick-SQL-cheatsheet#find
-* https://hakibenita.com/sql-for-data-analysis#common-table-expressions https://hakibenita.com/sql-for-data-analysis#sql-vs-pandas-performance 
+* https://chatgpt.com/c/67bf4043-3e88-8004-aa0c-13c54fb38cc2
 * https://news.ycombinator.com/item?id=34603691
+* https://news.ycombinator.com/item?id=42230384
+* Postgres filters as a replacement for https://stokerpostgresql.blogspot.com/2025/02/how-postgresqls-aggregate-filter-will.html
+* enable recursive queries (with `with recursive`) http://www.jeffwidman.com/blog/ https://dba.stackexchange.com/q/14490 https://medium.com/swlh/recursion-in-sql-explained-graphically-679f6a0f143b https://aiven.io/blog/solving-the-knapsack-problem-in-postgresql https://pgexercises.com/questions/recursive/ https://bofh.org.uk/2019/02/25/baking-with-emacs/
 
 ## views
 
@@ -948,8 +1049,9 @@ GENERATED COLUMNS
 
 ```sql
 -- CREATE
-CREATE VIEW view_name AS SELECT column1, column2
-FROM table_name WHERE condition;
+create view view_name as select column1, column2 from table_name where condition;
+-- RM
+drop view if exists view_name;
 
 create view sales as
 select psub.full_ord_id, ar.full_ord_id, psub.unit_price, psub.ext_price, ar.subtotal_amt, ar.ord_date
@@ -957,7 +1059,7 @@ from sales_psub psub join sales_ar ar on psub.full_ord_id = ar.full_ord_id
 
 -- LIST 🗄️ `analytics.md` REPL > litecli
 select name, type from sqlite_master
-SELECT name FROM sqlite_master WHERE type='view';
+select name from sqlite_master where type='view';
 
 +------------+-------+
 | name       | type  |
@@ -985,6 +1087,7 @@ SELECT name FROM sqlite_master WHERE type='view';
 * for some dbms (SQLite) you can't write using views https://sqlite.org/omitted.html
 * _materialized view_: actual data i.e. cached version of the table https://news.ycombinator.com/item?id=34186098
 * faster queries but needs to be manually maintained so not typically used in OLTP 📙 Kleppmann [102]
+* maintenance https://github.com/sraoss/pg_ivm
 * _data cube_: type of materialized view used in OLAP, precomputed for speed results 📙 Kleppmann [102] https://hakibenita.com/sql-for-data-analysis#cube
 * not often used limited query flexiblity 📙 Kleppmann [103]
 

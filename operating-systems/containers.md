@@ -12,6 +12,8 @@
 
 installed everything on work machine https://github.com/zachvalenta/capp-denv-logs/commit/219cdcd58f84cb04eff99fee1f5725a724e4b879
 
+can deploy with Docker Compose on ECS https://www.youtube.com/watch?v=E6KVIUJ50y0 https://www.youtube.com/watch?v=lSZDWY80rPw
+
 QUESTION
 ```txt
 I'm trying to figure out what to use for containers for my team.

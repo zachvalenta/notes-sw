@@ -83,6 +83,8 @@ taxonomy
 
 ---
 
+* _fastHTML_: https://github.com/AnswerDotAI/fasthtml https://simn.fr/posts/dicthing-django-admin-for-fasthtml https://www.youtube.com/watch?v=4En57Zw6gU4 https://github.com/koaning/mohtml HotWire, LiveView https://fastht.ml/docs/#other-languages-and-related-projects
+
  https://fluxsec.red/how-I-developed-a-markdown-blog-with-go-and-HTMX
 * PETAL, Alpine, LiveView, Hotwire, htmx https://news.ycombinator.com/item?id=30325030 https://www.thoughtworks.com/radar/techniques?blipid=202203006 https://news.ycombinator.com/item?id=42711387 https://www.youtube.com/watch?v=vLB7r8neQvE
 great core team https://news.ycombinator.com/item?id=42616476
@@ -93,7 +95,7 @@ https://calmcode.io/course/htmx/introduction
 https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
 https://github.com/maddalax/htmgo
 https://news.ycombinator.com/item?id=41781457 https://chrisdone.com/posts/htmx-critique/
-https://github.com/AnswerDotAI/fasthtml https://www.youtube.com/watch?v=4En57Zw6gU4
+* multiple API calls https://amjith.com/blog/2023/multiple_calls_htmx/
 
 > It’s worth noting that AI tools are intimately familiar with Next.js and not so much with htmx, due to the lack of open-source training data. This is similar to the issue Rails faces. While not a dealbreaker, it did impact our development speed and the ease of finding solutions to problems. When we encountered issues, the wealth of resources available for React/Next.js made troubleshooting much faster. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
 
@@ -233,7 +235,7 @@ STDLIB
 * HTTP: Fetch, XHR/AJAX https://eloquentjavascript.net/18_http.html
 * native: JS (Cordova/PhoneGap, Ionic, Capacitor) .NET (Xamarin) Golang (Lorca) Golang (https://github.com/wailsapp/wails https://github.com/cogentcore/core) Rust https://dioxuslabs.com/ https://www.bestinclassiosapp.com/ https://www.swiftjectivec.com/ React Native https://news.ycombinator.com/item?id=42690114
 * typing: Typescript beat Elm/Flow
-* Typescript, Civet https://news.ycombinator.com/item?id=41885940
+* Typescript, Civet https://news.ycombinator.com/item?id=41885940 https://2ality.com/2025/02/what-is-typescript.html
 * vizualization: https://www.chartjs.org/ https://testdriven.io/blog/django-charts/#prepare-and-serve-the-data https://github.com/airbnb/visx https://github.com/recharts/recharts -> https://openbb.co/open#social-media-metrics 🗄 `math.md` graphs
 * WYSIWYG: https://quilljs.com/ https://github.com/Milkdown/milkdown
 * tooling in other languages https://news.ycombinator.com/item?id=26872457
@@ -364,7 +366,6 @@ which npm    # /Users/zvalenta/.config/nvm/versions/node/v22.13.1/bin/npm
 * _polyfill_: replacement for Web API
 * _sourcemap_: map from minified code to source for purpose of debugging
 * _tree shaking_: remove dead code
-* _WASM_: compilation target for browsers that supports non-JS languages https://words.steveklabnik.com/is-webassembly-the-return-of-java-applets-flash https://sqlite.org/wasm/doc/tip/about.md https://rsms.me/wasm-intro https://neugierig.org/software/blog/2024/04/rust-wasm-to-js.html https://antonz.org/go-1-24/
 * _WebRTC_: browser-to-browser communication (for high-speed A/V) e.g. Facetime https://hpbn.co/webrtc/ https://pragprog.com/titles/ksrtc/programming-webrtc/
 * _Webpack_: creates bundle (all libs in single file); preceded by Browserify, succeeded by Snowpack
 * editors: Code Mirror, Monaco (what repl.it used before Code Mirror)

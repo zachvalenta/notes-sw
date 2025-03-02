@@ -39,9 +39,11 @@ POLITICS 🗄️ `denv.md` Nix
 > As a community, we want to be friendly too. People from around the world, of all backgrounds, genders, and experience levels are welcome and respected equally. See our community code of conduct for more. Black lives matter. Trans rights are human rights. No nazi bullsh*t. https://gleam.run/
 * https://danluu.com/ai-bias/
 * cant take the heat get out of the kitchen https://www.espn.com/nba/story/_/id/42511415/lakers-star-lebron-james-says-taking-social-media-break
+* soft roles https://mastodon.online/@BajoranEngineer/114111617954188295 https://talkingpostgres.com/episodes/why-python-developers-just-use-postgres-with-dawn-wages
 
 ---
 
+* lab days, being smart https://www.seangoedecke.com/what-is-important/
 * coaching https://zackproser.com/blog/why-ive-been-successful
 "have taken up farming" https://github.com/dylanaraps
 
@@ -419,6 +421,7 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 
 ---
 
+https://news.ycombinator.com/item?id=43354115
 Send Byrne/The Diff my updated skill set.
 
 COMPANIES

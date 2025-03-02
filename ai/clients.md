@@ -46,9 +46,8 @@ LOW ADOPTION | FEATURE POOR
 ## IDE
 
 NATIVE 🗄️ `vim.md` Zed
-* _Aide_: ❌ VSC-fork https://aide.dev/ https://news.ycombinator.com/item?id=42063346
-* _Tabby_: https://www.tabbyml.com/ https://news.ycombinator.com/item?id=42675725
-* _Void_: ❌ Cursor alternative, unfinished https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
+* _Tabby_: ❌ no traction, no mention of context awareness https://www.tabbyml.com/ https://news.ycombinator.com/item?id=42675725
+* _Void_: ❌ unfinished https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
 
 EXTENSIONS https://fly.io/blog/vscode-ssh-wtf/
 > I'd much, much prefer Aide to continue as a CLI tool or as a VSCode plugin. Every fork of VSCode ends up with IDE maintenance bugs that never get addressed and slowly the effort implodes as the bug surface becomes too wide. https://news.ycombinator.com/item?id=42063346
@@ -57,6 +56,7 @@ EXTENSIONS https://fly.io/blog/vscode-ssh-wtf/
 * _Cody_: 🎯 https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
 * _Continue_: autocomplete https://ollama.com/blog/continue-code-assistant
 * _Copilot_: 🎯 VSC-native, multi-model https://simonwillison.net/2024/Dec/18/free-tier-for-github-copilot/ https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
+* agent requires insiders build https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/ https://www.youtube.com/watch?v=zIejF3IGtWk
 * _Sage_: 💀 https://github.com/Storia-AI/sage
 
 # 🛸 IN USE
@@ -145,15 +145,34 @@ def keyboard_interrupt(self):
     self.io.tool_warning("\n\n^C again to exit")
 ```
 
-## Cursor
+## ⚪️ Cursor
+
+* has Vim emulation
+* people talk about Cursor and Windsurf synonymously https://ghuntley.com/oh-fuck/ https://www.youtube.com/watch?v=zIejF3IGtWk
+* Zed not quite there yet? https://zed.dev/docs/assistant/inline-assistant https://stevedylan.dev/posts/leaving-neovim-for-zed/#ai-stuff https://zed.dev/docs/assistant/assistant-panel
 
 ---
 
-* 🎯 closed source, Chromium (VSC fork?) https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203 https://news.ycombinator.com/item?id=41988211 https://news.ycombinator.com/item?id=41987367 https://www.youtube.com/watch?v=zIejF3IGtWk
-* system prompt https://docs.cursor.com/context/rules-for-ai https://ghuntley.com/stdlib/
+try Cline VS Code extension
 
+Jet Brains is 6 months behind the market https://www.jetbrains.com/junie/
+
+Data Wrangler for Jet Brains https://www.jetbrains.com/dataspell/
+
+does Data Grip have aider-like context window but for tables? https://www.jetbrains.com/datagrip/
+
+https://www.youtube.com/watch?v=YWwS911iLhg
+
+CURSOR https://www.cursor.com/ https://github.com/getcursor/cursor
+* jerks? https://news.ycombinator.com/item?id=37888477
+* closed source VS Code fork (Chromium?)
+* compared to Copilot https://www.youtube.com/watch?v=V2tv6GZuV0A
+
+* system prompt https://docs.cursor.com/context/rules-for-ai https://ghuntley.com/stdlib/
+* code completion https://www.arguingwithalgorithms.com/posts/cursor-review.html
+
+* _Windsurf_:
 * _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://codeium.com/windsurf https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
-> relationship to Cursor? https://ghuntley.com/oh-fuck/
 
 ## 🎙️ chorus
 
@@ -276,6 +295,8 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 
 ## interchange (MCP)
 
+https://github.com/crmne/ruby_llm
+https://registerspill.thorstenball.com/p/joy-and-curiosity-30 https://github.com/punkpeye/awesome-mcp-servers
 https://github.com/simonw/llm/releases/tag/0.23
 https://www.youtube.com/watch?v=oX6IKXfcx78
 

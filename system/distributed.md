@@ -90,9 +90,9 @@ Raft https://raft.github.io/
 # 🏦 TRANSACTIONS
 
 🗄
-* `system.md`
 * `design-patterns.md` unit of work
-📙
+* `data/internals.md` storage
+📚
 * Bradshaw ch. 8
 * Kleppmann ch. 7
 

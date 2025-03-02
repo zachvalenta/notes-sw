@@ -30,7 +30,7 @@ BUILD SYSTEMS
 * _Bazel_: Make for FANG https://eng.uber.com/go-monorepo-bazel/ https://github.com/bazelbuild/bazel https://testdriven.io/blog/bazel-builds/ https://www.youtube.com/watch?v=zaymCO1A1dM
 * _cmake_: 不明觉厉 https://stackoverflow.com/a/25790020 http://aosabook.org/en/cmake.html
 * _Meson_: https://mesonbuild.com/
-* _ninja_: https://github.com/ninja-build/ninja https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/ https://news.ycombinator.com/item?id=42268310
+* _ninja_: https://github.com/ninja-build/ninja https://jvns.ca/blog/2020/10/26/ninja--a-simple-way-to-do-builds/ https://news.ycombinator.com/item?id=42268310 https://github.com/chagui/ninjavis
 * _Nx_: monorepos https://github.com/nrwl/nx
 * _Pants_: https://github.com/pantsbuild/pants https://rdrn.me/postmodern-python/
 * _redo_: https://github.com/apenwarr/redo https://fzakaria.com/2020/06/08/my-love-letter-to-redo.html
@@ -113,6 +113,9 @@ filter:
 
 ---
 
+```make
+poetry run vd $(f) -b -o $(dir $(f))$(notdir $(basename $(f))).db  # https://github.com/zachvalenta/query-sandbox
+```
 * do Makefiles need to be executable?
 * _make_: ✅ https://github.com/casey/just?tab=readme-ov-file#what-are-the-idiosyncrasies-of-make-that-just-avoids https://news.ycombinator.com/item?id=19900955 https://stackoverflow.com/a/3798664
 * `all`, `clean`, `.PHONY`, `install` 📙 Conery [405]
@@ -545,6 +548,7 @@ foo.sh  # echo $LOGNAME
 ./foo.sh           # stdout: $LOGNAME
 envsubst < foo.sh  # stdout: zach
 ```
+* https://github.com/ankddev/envfetch
 
 ## path
 

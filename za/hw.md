@@ -139,6 +139,7 @@ studio,2000,12,30,32,500
 
 ## 🐧 Linux
 
+can run ubuntu on Windows https://tech.marksblogg.com/satellogic-open-data-feed.html
 https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=34180508
 
 * not ready https://cfenollosa.com/blog/fed-up-with-the-mac-i-spent-six-months-with-a-linux-laptop-the-grass-is-not-greener-on-the-other-side.html

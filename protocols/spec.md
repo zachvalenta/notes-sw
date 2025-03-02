@@ -387,6 +387,7 @@ READERS
 * _termpdf_: kitty https://github.com/dsanson/termpdf.py
 
 TO TEXT
+> why this is still hard https://arstechnica.com/ai/2025/03/why-extracting-data-from-pdfs-is-still-a-nightmare-for-data-experts/
 * _markitdown_: 🎯 AI = 25k stars in a month https://github.com/microsoft/markitdown
 * _parsr_: https://github.com/axa-group/Parsr
 * _poppler_: https://poppler.freedesktop.org/

@@ -371,6 +371,7 @@ ZA
 ## Grafana
 
 * _Grafana_: visualize metrics https://www.youtube.com/watch?v=9TJx7QTrTyo [14:00]
+* _Loki_: Prometheus for logs https://utcc.utoronto.ca/~cks/space/blog/sysadmin/GrafanaLokiStructuredMetadata
 * https://www.reddit.com/r/devops/comments/sevtqs/whats_your_monitoring_stack/
 * profiling https://github.com/grafana/pyroscope
 
@@ -483,7 +484,7 @@ PG http://paulgraham.com/popular.html
 
 ## benchmark
 
-> There are lies, damned lies and benchmarks. https://github.com/pydantic/jiter https://news.ycombinator.com/item?id=42501532
+> There are lies, damned lies and benchmarks. https://github.com/pydantic/jiter https://news.ycombinator.com/item?id=42501532 https://news.ycombinator.com/item?id=43317592 https://news.ycombinator.com/item?id=43318130 https://blog.nelhage.com/post/cpython-tail-call/
 🎗️ https://danluu.com/anon-benchmark/ https://danluu.com/why-benchmark/ https://jpcamara.com/2024/12/01/speeding-up-ruby.html https://benhoyt.com/writings/go-version-performance-2024/
 
 * _millisecond (ms)_: 10^−3 (one-thousandth of a second)
@@ -646,7 +647,7 @@ def read_chunked(path, chunk_size=100_000):
 * _pyflame_: https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 
 * _pyheat_: https://github.com/csurfer/pyheat
 * _pyinstrument_: 🎯 https://news.ycombinator.com/item?id=41910590 https://github.com/joerick/pyinstrument https://calmcode.io/course/pyinstrument/introduction
-* _pyroscope_: https://github.com/pyroscope-io/pyroscope https://github.com/grafana/pyroscope https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
+* _pyroscope_: 🎯 https://github.com/pyroscope-io/pyroscope https://news.ycombinator.com/item?id=43290917 https://github.com/grafana/pyroscope https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
 * _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
 * _pyspy_: 🎯 https://github.com/benfred/py-spy/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust https://tinkering.xyz/fmo-optimization-story/ https://www.youtube.com/watch?v=1EZ8oqjLun0 https://jvns.ca/blog/2018/12/23/2018--year-in-review/
 * _tracy_: https://github.com/wolfpld/tracy

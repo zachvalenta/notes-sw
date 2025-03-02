@@ -9,6 +9,7 @@
 
 ## 进步
 
+* https://www.answer.ai/posts/2024-12-13-nbsanity.html
 * can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
 > Marimo has the ability to run in WASM mode, which means that *everything* can run from the frontend
 * Jupyter in the browser https://github.com/jvns/pandas-cookbook
@@ -123,13 +124,14 @@ def simple_tracer(frame, event):  # 4:30
 * https://werat.dev/blog/what-a-good-debugger-can-do/
 * https://wizardzines.com/zines/debugging-guide/
 * https://peps.python.org/pep-0768/
+* https://www.youtube.com/watch?v=fvRwG17XsaA
 * internals https://www.hytradboi.com/2025/e4264872-f118-44cc-8d73-25f52f5efcdc-how-debuggers-work
 
 ## alternatives
 
 ---
 
-debugpy https://www.bitecode.dev/p/whats-up-python-better-packaging
+debugpy https://www.bitecode.dev/p/whats-up-python-better-packaging https://github.com/microsoft/vscode-python-debugger/wiki/No%E2%80%90Config-Debugging
 https://github.com/leapingio/leaping
 
 IPYTHON
@@ -548,7 +550,7 @@ FUNCTIONALITY
 ---
 
 * sink https://arpitbhayani.me/blogs/python-prompts https://github.com/bpython/bpython/blob/ae4a502a443e024bd82ed1a7b88adf8be2068a2c/doc/sphinx/source/django.rst https://github.com/bpython/bpython/search?q=PYTHONSTARTUP&unscoped_q=PYTHONSTARTUP https://stackoverflow.com/a/14244310 https://stackoverflow.com/a/34774703
-* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged https://switowski.com/blog/ipython-autoreload/
+* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged https://switowski.com/blog/ipython-autoreload/ https://github.com/reloadware/reloadium
 * reload src: point is to avoid continual exit/rerun https://news.ycombinator.com/item?id=23793054 https://mikelevins.github.io/posts/2020-12-18-repl-driven/
 * history: save https://stackoverflow.com/a/33880964 readline error manifests in garbled cmd history (have only seen when setting breakpoint in Flask) https://stackoverflow.com/a/3486617
 

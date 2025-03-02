@@ -292,6 +292,7 @@ for i in range(5,1):
 
 ## generators
 
+https://mathspp.com/blog/binary-search-as-a-bidirectional-generator
 https://news.ycombinator.com/item?id=2133348
 https://docs.python.org/3/tutorial/classes.html#iterators
 https://www.youtube.com/watch?v=tmeksb2fras
@@ -731,6 +732,7 @@ my_var = (
 * _StringIO_: access string as if it were a file (for modules that are used to working with files) https://stackoverflow.com/a/7996541
 encoding 🗄 `math.md` encoding https://docs.python.org/3/glossary.html#term-list
 * _impl_: `PyBytesObject` (Python 3) `PyStringOjbect` (Python 2) https://www.laurentluce.com/posts/python-string-objects-implementation/ https://docs.python.org/3/whatsnew/2.6.html?highlight=pystringobject#pep-3112-byte-literals https://github.com/python/cpython/blob/45876a90e2663f12b90c2090ec3e48bd97841aae/Objects/bytesobject.c
+* bytes obj https://realpython.com/python-bytes/
 * _unicode_: UTF8 seems like it was an unmitigated disaster https://news.ycombinator.com/item?id=21536468 https://pymongo.readthedocs.io/en/stable/tutorial.html file names stored as byte strings on OS, as Unicode in Python, PP 20:00 https://www.pythonpodcast.com/beets-with-adrian-sampson-episode-152/ @ 20:00 https://realpython.com/python-encodings-guide/ https://stackoverflow.com/a/2081655/6813490 https://www.b-list.org/weblog/2018/nov/26/case/ http://esr.ibiblio.org/?p=8161 http://python-notes.curiousefficiency.org/en/latest/python3/text_file_processing.html https://news.ycombinator.com/item?id=22931240 https://realpython.com/courses/python-unicode/
 * _text encoding_: https://docs.python.org/3/glossary.html#term-text-encoding
 

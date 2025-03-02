@@ -64,7 +64,7 @@ TYPES
 * `Type`: give wrong type to function, try to do something you can't (mutate string)
 * `Value`: func given correct type but still err ex. `int('5')` can convert string to int but not for all strings e.g. `int('five')`
 
-USER-DEFINED
+USER-DEFINED 💻 https://github.com/zachvalenta/capp-datalab
 * why: way to dedupe logging
 * simple impl
 ```python

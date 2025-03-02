@@ -169,7 +169,7 @@ SEMANTICS
 PROGRESSION
 * Python2 to Python3 https://www.pinecone.io/blog/pain-poetry-python/
 * `setup.py`: https://github.com/freestream/pyedi
-* _setuptools_: https://github.com/azoner/pyx12 not part of 3.12 https://chatgpt.com/c/6728df32-9ed8-8004-af28-b44b9bebb96c https://github.com/AnirudhG07/Typeinc/issues/3
+* _setuptools_: https://github.com/azoner/pyx12 not part of 3.12 https://chatgpt.com/c/6728df32-9ed8-8004-af28-b44b9bebb96c https://github.com/AnirudhG07/Typeinc/issues/3 ⭐️ still the most popular build backend, Hatchling is getting more popular https://pythonbytes.fm/episodes/show/419/is-your-back-end-popular
 * _egg_:
 * _wheel_: https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html
 * _sdist_: https://llm.datasette.io/en/stable/plugins/tutorial-model-plugin.html
@@ -624,6 +624,7 @@ DESIGN
 
 ---
 
+https://www.youtube.com/watch?v=zgSQr0d5EVg
 https://www.youtube.com/watch?v=mFyE9xgeKcA
 https://github.com/EnhancedJax/Bagels
 https://calmcode.io/course/uv/pip
@@ -640,6 +641,7 @@ uvx posting
 
 https://blog.jetbrains.com/pycharm/2024/12/the-state-of-python/#trend-8-uv-takes-python-packaging-by-storm
 build-standalone https://simonwillison.net/2024/Dec/3/python-build-standalone-astral/ https://gregoryszorc.com/blog/2024/12/03/transferring-python-build-standalone-stewardship-to-astral/
+> this is just a wheel but for Python itself?
 https://www.youtube.com/watch?v=8UuW8o4bHbw
 https://www.youtube.com/watch?v=_FdjW47Au30
 https://micro.webology.dev/2024/11/03/uv-does-everything.html https://pythonbytes.fm/episodes/show/409/weve-moved-to-hetzner-write-up
@@ -653,7 +655,7 @@ https://news.ycombinator.com/item?id=42676432
 
 * controversial? https://pythonbytes.fm/episodes/show/403/a-machine-learning-algorithm-walks-into-a-bar
 * https://simonwillison.net/2024/Sep/8/uv-under-discussion-on-mastodon/
-* Docker https://mkennedy.codes/posts/python-docker-images-using-uv-s-new-python-features/?featured_on=pythonbytes
+* Docker https://mkennedy.codes/posts/python-docker-images-using-uv-s-new-python-features/ https://www.youtube.com/watch?v=mFyE9xgeKcA
 * https://news.ycombinator.com/item?id=41309072
 * https://blog.glyph.im/2024/09/python-macos-framework-builds.html
 * https://news.ycombinator.com/item?id=41302475
@@ -716,6 +718,7 @@ fix for scripts? https://www.youtube.com/watch?v=bNw34Mo0FOQ
 
 ---
 
+https://simonwillison.net/2025/Mar/6/aider-using-uv-as-an-installer/
 https://www.youtube.com/watch?v=bNw34Mo0FOQ [2:20]
 https://github.com/astral-sh/uv/issues/7242#issuecomment-2631783057
 https://github.com/astral-sh/uv/issues/7242#issuecomment-2621635669

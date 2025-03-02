@@ -203,6 +203,7 @@ USAGE https://platform.openai.com/docs/guides/embeddings
 
 ---
 
+https://vickiboykis.com/what_are_embeddings/
 > The "magic" that facilitates these types of searches is transformers that convert data into a fixed-length, one-dimensional vector of floating point numbers called an embedding. The values in these embeddings are indecipherable to humans. Instead, their contents encode some relationship between the parameters and the transformer's training corpus. The size of these embedding vectors ranges from 100s of dimensions for simple transformers to 1000s for high-end models. https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 > To do image matching we use nearest neighbor search (or KNN). This works by encoding the catalog of images into embeddings - a tranlsation of the image produced by some pre-trained model, mapping "features" and meaning into a huge numerical representation. When a candidate image comes up from our users, we can convert this one too into embeddings. Then, we run a search for the nearest vector in our catalog and return the closest matches. This method shines because most of the work is done at indexing time, when converting the images. But it also means the system relies on the embedder's quality. https://olup-blog.pages.dev/stories/image-detection-cars
 * https://calmcode.io/course/embeddings/introduction
@@ -234,6 +235,7 @@ USAGE https://platform.openai.com/docs/guides/embeddings
 * https://github.com/samuel-vitorino/lm.rs
 * https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * https://www.youtube.com/watch?v=J_3jrS3FalY
+* https://vintagedata.org/blog/posts/model-is-the-product
 
 ## labels (output var)
 
@@ -251,7 +253,7 @@ USAGE https://platform.openai.com/docs/guides/embeddings
 TYPES
 * _supervised_: labeled data during training, unlabeled during predication [Trask 2.11]
 * _unsupervised_: unlabeled data during training and prediction [Trask 13]
-* _reinforcement_: no labels but algo can tell if it's getting hotter or colder http://aiplaybook.a16z.com/docs/guides/dl-learning#user-content-reinforcementlearning
+* _reinforcement_: no labels but algo can tell if it's getting hotter or colder http://aiplaybook.a16z.com/docs/guides/dl-learning#user-content-reinforcementlearning https://drubinstein.github.io/pokerl/
 * _parameters_: https://www.youtube.com/watch?v=BbZ2m8mfwYU https://01-ai.github.io/blog.html?post=en/2024-09-05-A-Small-but-Mighty-LLM-for-Code.md
 * _parametric_: modeler derives parameters [Trask 2.14, 2.18]
 * _nonparametric_: model derives parameters [Trask 2.14, 2.18]
@@ -732,7 +734,7 @@ https://stratechery.com/2023/ai-and-the-big-five/
 * https://explainextended.com/2023/12/31/happy-new-year-15/ https://news.ycombinator.com/item?id=40378499
 * https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math
 
-* legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html https://simonwillison.net/2024/Dec/5/amazon-bedrock-data-protection/ https://simonwillison.net/2024/Dec/5/pleias-llms/ https://marginalrevolution.com/marginalrevolution/2024/12/thomas-storrs-on-elastic-data-supply-from-my-email.html https://www.tosabout.com/ https://news.ycombinator.com/item?id=42725147
+* legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html https://simonwillison.net/2024/Dec/5/amazon-bedrock-data-protection/ https://simonwillison.net/2024/Dec/5/pleias-llms/ https://marginalrevolution.com/marginalrevolution/2024/12/thomas-storrs-on-elastic-data-supply-from-my-email.html https://www.tosabout.com/ https://news.ycombinator.com/item?id=42725147 https://sourcehut.org/blog/2025-03-07-whats-cooking-q1-25/
 * contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
 * price per token https://x.com/drorpoleg/status/1847686346078368006
 * tokens, read whole thing
@@ -764,6 +766,8 @@ https://twitter.com/skirano/status/1785469853689639379
 https://www.freecodecamp.org/learn/machine-learning-with-python/#tensorflow
 
 * context window https://twitter.com/deedydas/status/1778621375592485076 https://simonwillison.net/2025/Jan/26/paul-gauthier/
+> Many of the most significant AI advancements are likely happening behind closed doors. For example, I hear that Google allows employees to use Gemini with virtually unlimited context windows...What possibilities do large context windows open up? Researchers will be able to load entire regulatory frameworks, historical archives, or massive datasets like "tax records from Renaissance Florence" into a single query. https://x.com/david_perell/status/1897387371244478668
+
 > the idea that a bigger context window might be more than, well, just more of the same, but instead a game changer for LLMs is very interesting https://registerspill.thorstenball.com/p/joy-and-curiosity-19 https://thelongcontext.com/
 > Google hasn’t said how Gemini 1.5 was made, but clearly the company has overcome the key limitation of traditional transformers: memory requirements increase quadratically with context length. One promising approach is Ring Attention with Blockwise Transformers, which breaks long contexts into pieces to be computed individually even as the various devices computing those pieces simultaneously communicate to make sense of the context as a whole; in this case memory requirements scale linearly with context length, and can be extended by simply adding more devices to the ring topology. https://stratechery.com/2024/gemini-1-5-and-googles-nature/
 * https://news.ycombinator.com/item?id=39849393

@@ -12,6 +12,9 @@
 
 ---
 
+https://github.com/zachvalenta/miniframe
+> you have notes on BYO backend framework somewhere else
+https://pragprog.com/titles/d-mgflask/the-new-and-improved-flask-mega-tutorial/
 * https://testdriven.io/blog/how-are-requests-processed-in-flask/
 * https://testdriven.io/blog/what-is-werkzeug/
 * https://testdriven.io/guides/flask-deep-dive/

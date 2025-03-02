@@ -7,7 +7,7 @@
 * algos https://www.amazon.com/gp/product/1718503229
 * https://www.manning.com/books/modern-c-third-edition
 * Kernighan https://www.amazon.com/Programming-Language-2nd-Brian-Kernighan/dp/0131103628
-* Matthews dive https://diveintosystems.org/
+* ⭐️ Matthews dive https://diveintosystems.org/ https://nostarch.com/introduction-system-programming-linux
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming
 
 ## 进步
@@ -61,6 +61,7 @@ Python 3.12.1 (main, Dec 23 2023, 20:20:28) [Clang 14.0.3 (clang-1403.0.22.14.1)
 * example code: Redis, SQlite https://news.ycombinator.com/item?id=30753428 small kernels https://www.fiwix.org/
 * https://drewdevault.com/2017/03/15/How-I-learned-to-stop-worrying-and-love-C.html
 * https://drewdevault.com/2017/01/30/Lessons-to-learn-from-C.html
+* https://news.ycombinator.com/item?id=43346035
 
 ## stdlib
 
@@ -132,6 +133,7 @@ Most package managers (apt, yum, brew) maintain this split with separate runtime
 * Hyde https://nostarch.com/art-arm-assembly-volume-1
 * Nisan nand2tetris (chapter 4/6)
 * ⭐️ Plantz arm https://nostarch.com/introcomputerorgforarm
+* Hyde arm https://nostarch.com/art-arm-assembly-volume-1 https://nostarch.com/introcomputerorgforarm
 * Petzold code (chapter 24)
 
 * _assembly_: shorthand for whatever binary the CPU understands 📙 `evans-linux.pdf` 1
@@ -285,6 +287,7 @@ PROJECTS
 * TigerBeetle
 * https://github.com/neurocyte/flow
 
+* slow compiler https://zackoverflow.dev/writing/i-spent-181-minutes-waiting-for-the-zig-compiler-this-week
 * https://www.youtube.com/watch?v=ug-KuDlMTYw
 * compared to Rust https://www.youtube.com/watch?v=Vxq6Qc-uAmE
 * overview https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203010 https://kristoff.it/blog/maintain-it-with-zig/

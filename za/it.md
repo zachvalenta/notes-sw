@@ -115,9 +115,12 @@ TIME MACHINE
 ## mini23 ➡️ exfatmain
 
 * digits
+* clifton school bus scam
+* clean out old Google Drive stuff
 
 SW
 * svc: rm McConnell code complete and ur-repo (already in projects dir)
+* Beaulieu
 
 MUSIC
 * sun araw
@@ -128,13 +131,40 @@ MUSIC
 * quadron
 * miles porgy and bess
 * paul simon (theme)
-* hank williams dont let me love you
 * art tatum
-* ramones today your love
-* dead prez
-* clothes line saga
+* ramones
 * new order - all
 * 20th century classical
+* roy hargrove to rnb
+* breakwater
+* destroyer
+* bobby bland
+* incognito
+* SZA
+
+SINGLES
+* hank williams dont let me love you
+* dead prez
+* clothes line saga
+* Ponytail honey
+* Emmylou Harris heaven only knows
+* Augustus Pablo short man dub
+* Doors roadhouse blues
+* Hank Williams just waiting
+* Onyeabor when the going is good
+* Michael Hurley robbin banks
+* Kate Bush hello earth
+* Carla Thomas its up to you
+* Carlos Paredes danca
+* The Beat doors of my heart
+* Masada
+* Randy Newman last night i had a dream
+* MBV slow
+* Interpol uppercase
+* The Field
+* McCartney coming up
+* Traxman ever and always
+* John Lee Hooker boom boom
 
 ## air-capp ➡️ mini23
 

@@ -46,6 +46,7 @@ https://read.engineerscodex.com/p/how-facebook-scaled-memcached
 > I'll be blunt: I don't care for Redis. It is slow, it has fake transactions, and its query syntax is a freakshow. Our experiments at CMU found Dragonfly to have much more impressive performance numbers (even with a single CPU core). In my database course, I use the Redis query language as an example of what not to do. Nevertheless, I am sympathetic to Redis Ltd.'s plight of being overrun by Amazon. However, the company is overestimating the barrier of entry to build a simplistic system like Redis; it is much lower than building a full-featured DBMS (e.g., Postgres), so there are several alternatives to the OG Redis. They are not in position of strength where such posturing will be tolerated by the community. https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 
 * open source alternative Valkey https://www.youtube.com/watch?v=npnagMgbruc
+* another alternative https://news.ycombinator.com/item?id=43379262 https://dicedb.io/
 https://www.openmymind.net/Redis-Is-The-Most-Important-Tool-In-My-Toolbelt/
 https://www.openmymind.net/2011/5/8/Practical-NoSQL-Solving-a-Real-Problem-w-Mongo-Red/
 https://www.openmymind.net/Data-Modeling-In-Redis/
@@ -111,7 +112,8 @@ https://github.com/zillow/tycho
 
 ## env var (12 factor)
 
-https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
+* https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
+* security re: access keys https://www.youtube.com/watch?v=R69FnBT00ew
 
 ## denv
 
@@ -604,6 +606,8 @@ SEMANTICS
 
 ---
 
+BYO https://github.com/koaning/flowshow https://www.youtube.com/watch?v=cXkpR9HQeDA
+
 durable https://github.com/dbos-inc/dbos-transact-py
 https://us.pycon.org/2024/schedule/presentation/35/index.html
 https://github.com/cybertec-postgresql/pg_timetable
@@ -993,6 +997,7 @@ cmds
 * built using Dart
 * fork https://news.ycombinator.com/item?id=41975047
 
+* Kotlin https://nostarch.com/kotlin-scratch https://nostarch.com/kotlin-scratch
 * app stores are a pain https://news.ycombinator.com/item?id=33632468
 * automate app submission https://github.com/fastlane/fastlane
 * Android has bad dev experience https://news.ycombinator.com/item?id=41062292

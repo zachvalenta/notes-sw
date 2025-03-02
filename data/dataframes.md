@@ -65,9 +65,10 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 🧠
 * https://grok.com/chat/a3efd4af-1027-4065-ba82-d0ef04c58439
 
+* VSC Code inline values for notebooks
 * w/ Rich 💻️ https://github.com/zachvalenta/capp-dataload/blob/main/load.py#L28
 * https://github.com/dannywade/textual-pandas
-* _Data Wrangler_: https://code.visualstudio.com/docs/datascience/data-wrangler
+* _Data Wrangler_: https://code.visualstudio.com/docs/datascience/data-wrangler alternative https://github.com/mljar/variable-inspector
 * _dtale_: render in browser https://github.com/man-group/dtale
 
 ways I know of visualizing a dataframe (not in a BI, "here's a pretty chart" sort of way, but just literally "let me view/scroll the data current in this dataframe"):
@@ -349,6 +350,7 @@ assert len(violations) > 0
 ```
 
 READ / SCAN / STREAM
+> Unlike traditional DataFrames, LazyFrames don’t contain data but instead store a set of instructions known as a query plan. Query plans perform operations like predicate and projection pushdown, ensuring only necessary rows and columns are processed. LazyFrames also support the parallel execution of query plans, further enhancing performance...Lazy evaluation in LazyFrames optimizes query plans before data materialization...You create a LazyFrame using functions like scan_parquet() or scan_csv(). https://realpython.com/polars-lazyframe/
 ```python
 # READ faster when you can skip entire columns and save on overhead of setting up query plan
 df = pl.read_csv(file, columns=['col1', 'col2'])
@@ -567,7 +569,20 @@ joined = df1_tagged.join(df2_tagged, left_on="table1_Part_ID", right_on="table2_
 
 ## predicates
 
-CHAINING
+📍  membership, equality
+```python
+foo.join(bar, left_on='id', right_on='mpn').filter(pl.col('foo_price') != pl.col('bar_price'))
+foo.join(bar, left_on='id', right_on='mpn').filter(pl.col('manufacturer').is_in(['apple', 'motorola']))
+
+df = pl.DataFrame({
+    "id": [1, 2, 3, 4, 5],
+    "name": ["Alice", "Bob", "Charlie", "David", "Eve"]
+})
+result = df.filter(pl.col("name").is_in(["Bob", "Eve"]))
+df.filter(pl.col("name") == "Bob")
+```
+
+📍  CHAINING
 * `~`: not
 * `&`: and
 * `|`: or

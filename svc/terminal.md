@@ -20,7 +20,80 @@ GUI
 
 📜 https://click.palletsprojects.com/en/8.1.x
 
-### basic
+---
+
+* autocomplete https://amjith.com/blog/2025/autocompletion-click-commands/
+* restart https://amjith.com/blog/2025/restart-python-cli/
+* port Click app to TUI https://github.com/Textualize/trogon
+
+ALTERNATIVES
+* `sys.argv`
+* optparse
+* docopt
+* https://github.com/tiangolo/typer https://rahulpai.co.uk/smart-clis-with-typer.html
+* interactive https://github.com/Aperocky/replbuilder
+* Rust https://saadmk11.github.io/blog/posts/build-python-cli-tool-with-rust/
+* CLI from obj: https://github.com/google/python-fire https://github.com/chriskiehl/Gooey https://github.com/BstLabs/py-dynacli
+
+INTERPRETER / SHEBANG
+```sh
+# https://realpython.com/run-python-scripts/#using-the-script-filename
+#!/usr/bin/python --> explicit path
+#!/usr/bin/env python --> use whatever python on $PATH
+```
+
+ARGPARSE
+* rich for output https://github.com/hamdanal/rich-argparse
+* testing: https://github.com/dbader/photosorter/blob/master/test_sorter.py https://www.youtube.com/watch?v=ApTZib0L2X8 4:00
+* `description`: one-liner on purpose of CLI http://dustinrcollins.com/testing-python-command-line-apps
+* `action=store_true`: boolean https://stackoverflow.com/a/15008806/6813490 https://stackoverflow.com/a/36710639/6813490
+* `metavar=''`: avoid weird upppercasing https://docs.python.org/3/library/argparse.html#metavar
+* scaffold
+```python
+def parse():
+    parser = ArgumentParser()
+    parser.add_argument("-f", "--file", help="file")
+    parser.add_argument("-s", "--start", help="start trim")
+    parser.add_argument("-e", "--end", help="end trim")
+    if len(argv) == 1:
+        parser.print_help()
+        exit()
+    return parser.parse_args()
+
+args = parse()
+main(file=args.file, start=args.start, end=args.end)
+```
+
+MORE CLICK
+* args vs. options https://click.palletsprojects.com/en/8.1.x/parameters/
+* types: str, int https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types
+> I'm not using these semantically, using options in lieu of args bc options have better syntax on command invocation
+```python
+# ARGS: python path/to/script.py path/to/file
+@click.command()
+@click.argument("in-file", type=click.Path(exists=True))
+def main(in_file):
+    """input file"""  # https://click.palletsprojects.com/en/8.1.x/documentation/
+
+# OPTIONS: python path/to/script.py -in-file path/to/file
+@click.command()
+@click.option("-in-file", required=True, type=str, help="input file")
+def main(in_file):
+```
+* read from anywhere, write to local dir
+```python
+# run: python script.py -in_path path/to/file.txt -out_file new_file.txt
+@click.command()
+@click.option("-in_path", required=True, type=str, help="path to input file")
+@click.option("-out_file", required=True, type=str, help="output filename")
+def main(in_path, out_file):
+    path_input = os.path.normpath(in_path)
+    path_output = os.path.join(os.getcwd(), out_file)
+    with open(path_output, mode="w") as csv_out:
+        with open(path_input, mode="r") as csv_in:
+```
+
+## basic
 
 ```python
 @click.group()
@@ -36,7 +109,7 @@ if __name__ == "__main__":
 python $SCRIPT command-one
 ```
 
-### args
+## args
 
 ```sh
 make crud join=join.csv vend=aaon.csv
@@ -52,7 +125,7 @@ crud:
 def process_files(join_file, vendor_file):
 ```
 
-### default cmd
+## default cmd
 
 ```python
 # SANS DATACLASS
@@ -132,77 +205,6 @@ def goodbye(person):
     print(f"goodbye, {person}")
 ```
 
----
-
-* port Click app to TUI https://github.com/Textualize/trogon
-
-ALTERNATIVES
-* `sys.argv`
-* optparse
-* docopt
-* https://github.com/tiangolo/typer https://rahulpai.co.uk/smart-clis-with-typer.html
-* interactive https://github.com/Aperocky/replbuilder
-* Rust https://saadmk11.github.io/blog/posts/build-python-cli-tool-with-rust/
-* CLI from obj: https://github.com/google/python-fire https://github.com/chriskiehl/Gooey https://github.com/BstLabs/py-dynacli
-
-INTERPRETER / SHEBANG
-```sh
-# https://realpython.com/run-python-scripts/#using-the-script-filename
-#!/usr/bin/python --> explicit path
-#!/usr/bin/env python --> use whatever python on $PATH
-```
-
-ARGPARSE
-* rich for output https://github.com/hamdanal/rich-argparse
-* testing: https://github.com/dbader/photosorter/blob/master/test_sorter.py https://www.youtube.com/watch?v=ApTZib0L2X8 4:00
-* `description`: one-liner on purpose of CLI http://dustinrcollins.com/testing-python-command-line-apps
-* `action=store_true`: boolean https://stackoverflow.com/a/15008806/6813490 https://stackoverflow.com/a/36710639/6813490
-* `metavar=''`: avoid weird upppercasing https://docs.python.org/3/library/argparse.html#metavar
-* scaffold
-```python
-def parse():
-    parser = ArgumentParser()
-    parser.add_argument("-f", "--file", help="file")
-    parser.add_argument("-s", "--start", help="start trim")
-    parser.add_argument("-e", "--end", help="end trim")
-    if len(argv) == 1:
-        parser.print_help()
-        exit()
-    return parser.parse_args()
-
-args = parse()
-main(file=args.file, start=args.start, end=args.end)
-```
-
-MORE CLICK
-* args vs. options https://click.palletsprojects.com/en/8.1.x/parameters/
-* types: str, int https://click.palletsprojects.com/en/8.1.x/parameters/#parameter-types
-> I'm not using these semantically, using options in lieu of args bc options have better syntax on command invocation
-```python
-# ARGS: python path/to/script.py path/to/file
-@click.command()
-@click.argument("in-file", type=click.Path(exists=True))
-def main(in_file):
-    """input file"""  # https://click.palletsprojects.com/en/8.1.x/documentation/
-
-# OPTIONS: python path/to/script.py -in-file path/to/file
-@click.command()
-@click.option("-in-file", required=True, type=str, help="input file")
-def main(in_file):
-```
-* read from anywhere, write to local dir
-```python
-# run: python script.py -in_path path/to/file.txt -out_file new_file.txt
-@click.command()
-@click.option("-in_path", required=True, type=str, help="path to input file")
-@click.option("-out_file", required=True, type=str, help="output filename")
-def main(in_path, out_file):
-    path_input = os.path.normpath(in_path)
-    path_output = os.path.join(os.getcwd(), out_file)
-    with open(path_output, mode="w") as csv_out:
-        with open(path_input, mode="r") as csv_in:
-```
-
 # 🔣 INPUT
 
 🗄 `security.md` sanitization
@@ -212,6 +214,7 @@ ur_in = input()
 ```
 * Textual https://github.com/darrenburns/textual-autocomplete
 * _prompt-toolkit_: used by pgcli, http-prompt https://github.com/j-bennet/wharfee/blob/master/setup.py https://github.com/wasi-master/fastero
+* rich https://github.com/zachvalenta/capp-brand-enablement
 
 ## 🚅 bullet
 
@@ -272,6 +275,8 @@ ALTERNATIVES
 
 ## Textual
 
+📜 https://realpython.com/python-textual/
+
 HOWTO
 * debug https://www.pythonpapers.com/p/how-to-debug-your-textual-application
 * publish to web https://github.com/Textualize/textual-web
@@ -292,6 +297,7 @@ PROJECTS THAT USE
 * close to CSS, Tailwind https://calmcode.io/labs/tuilwind-css
 * https://realpython.com/contact-book-python-textual/
 * functionality: tables, color, layout
+* https://github.com/davep/hike
 * _Textual_: complaints https://news.ycombinator.com/item?id=35123383 animation https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#demonstrating-animation dropdown https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#dropdown-autocompletion-menu file manager https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#a-file-manager-powered-by-textual graphics https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#pixel-art layout https://textual.textualize.io/blog/2022/12/11/version-060/#placeholder tabs https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#tabs-with-animated-underline testing https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#developer-console https://textual.textualize.io/blog/2022/12/20/a-year-of-building-for-the-terminal/#snapshot-testing-for-terminal-apps example https://github.com/learnbyexample/TUI-apps/tree/main/CLI-Exercises https://www.blog.pythonlibrary.org/2024/02/06/creating-a-modal-dialog-for-your-tuis-in-textual/
 
 # 🟨 ZA
@@ -400,6 +406,10 @@ gum style --foreground 212 --border-foreground 212 --border double \
 💻
 * https://github.com/zachvalenta/dotfiles-mini23/blob/main/python/python_startup.py
 * https://github.com/zachvalenta/learn-econ-with-python
+> bar chart or plotext? https://github.com/zachvalenta/apple-models-data-analysis
+* https://github.com/zachvalenta/markov-monte
+* https://github.com/zachvalenta/jian-cha
+* https://github.com/zachvalenta/capp-edi
 
 * html https://github.com/willmcgugan/willmcgugan/blob/master/willmcgugan.py
 * to try: repr for obj https://rich.readthedocs.io/en/latest/pretty.html#rich-repr-protocol

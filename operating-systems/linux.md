@@ -9,7 +9,7 @@
 📚
 * Evans linux
 * Evans za
-* Kerrisk lpi
+* Kerrisk lpi https://nostarch.com/linux-memory-manager
 * Stutz cookbook
 
 ## 进步
@@ -41,6 +41,7 @@ FILES https://danluu.com/deconstruct-files/ https://danluu.com/file-consistency/
 * they buffer https://news.ycombinator.com/item?id=42275033
 
 ZA
+* alternative file systems https://news.ycombinator.com/item?id=43283498
 * notifications e.g. inotify, kqueue https://github.com/fsnotify/fsnotify
 * file name sorting, `chr()`, `LC_COLLATE` https://rhodesmill.org/brandon/slides/2021-06-colombia-remote/
 * trailing slash in path https://tookmund.com/2022/04/importance-of-the-trailing-slash
