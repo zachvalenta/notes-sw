@@ -57,6 +57,7 @@ EXTENSIONS https://fly.io/blog/vscode-ssh-wtf/
 * _Cody_: 🎯 https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
 * _Continue_: autocomplete https://ollama.com/blog/continue-code-assistant
 * _Copilot_: 🎯 VSC-native, multi-model https://simonwillison.net/2024/Dec/18/free-tier-for-github-copilot/ https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
+* agent requires insiders build https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/ https://www.youtube.com/watch?v=zIejF3IGtWk
 * _Sage_: 💀 https://github.com/Storia-AI/sage
 
 # 🛸 IN USE
@@ -147,13 +148,19 @@ def keyboard_interrupt(self):
 
 ## Cursor
 
+* people talk about Cursor and Windsurf synonymously https://ghuntley.com/oh-fuck/ https://www.youtube.com/watch?v=zIejF3IGtWk
+* Zed not quite there yet? https://zed.dev/docs/assistant/inline-assistant https://stevedylan.dev/posts/leaving-neovim-for-zed/#ai-stuff
+
+CURSOR https://www.cursor.com/ https://github.com/getcursor/cursor
+* jerks? https://news.ycombinator.com/item?id=37888477
+* closed source VS Code fork (Chromium?)
+
 ---
 
-* 🎯 closed source, Chromium (VSC fork?) https://www.cursor.com/ https://news.ycombinator.com/item?id=37888477 https://github.com/getcursor/cursor https://stevedylan.dev/posts/leaving-neovim-for-zed/#vim-mode https://news.ycombinator.com/item?id=41979203 https://news.ycombinator.com/item?id=41988211 https://news.ycombinator.com/item?id=41987367 https://www.youtube.com/watch?v=zIejF3IGtWk
 * system prompt https://docs.cursor.com/context/rules-for-ai https://ghuntley.com/stdlib/
+* code completion https://www.arguingwithalgorithms.com/posts/cursor-review.html
 
 * _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://codeium.com/windsurf https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
-> relationship to Cursor? https://ghuntley.com/oh-fuck/
 
 ## 🎙️ chorus
 

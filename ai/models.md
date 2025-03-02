@@ -192,6 +192,8 @@ start here https://parlance-labs.com/education/ https://applied-llms.org/ https:
 
 ---
 
+* people define as "can read|update my code"? https://www.youtube.com/watch?v=zIejF3IGtWk
+
 * start using https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/
 * defining https://www.anthropic.com/research/building-effective-agents
 https://simonwillison.net/2025/Jan/11/agents/
