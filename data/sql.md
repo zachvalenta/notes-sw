@@ -957,7 +957,7 @@ from sales_psub psub join sales_ar ar on psub.full_ord_id = ar.full_ord_id
 
 -- LIST 🗄️ `analytics.md` REPL > litecli
 select name, type from sqlite_master
-SELECT name FROM sqlite_master WHERE type='view';
+select name from sqlite_master where type='view';
 
 +------------+-------+
 | name       | type  |

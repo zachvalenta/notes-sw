@@ -360,6 +360,7 @@ FEATURES
 > MessagePack structured communication enables extensions in any language. https://neovim.io/
 * binary = optimized for compactness
 * no schema validation
+* vs. CBOR https://news.ycombinator.com/item?id=43229259
 
 USAGE
 * high-throughput message queues
