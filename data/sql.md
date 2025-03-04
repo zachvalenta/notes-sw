@@ -465,6 +465,20 @@ select * from employee, lob using (lob_id)
 * _inner_: RS !incl records for which join fails (dbms default) 📙 Beaulieu [90] Evans [10]
 * _outer_: RS incl records for which join fails 📙 Beaulieu [90]
 * _left_: outer + DT determines RS count + TT provides matches 📙 Beaulieu [187] Evans [11-12]
+```sh
+litecli :memory:
+```
+```sql
+create temporary table foo (id);
+insert into foo (id) values (1), (2), (4);
+create temporary table bar (id);
+insert into bar (id) values (1), (2), (3), (4), (5);
+
+select bar.id from bar
+left join foo on bar.id = foo.id
+where foo.id is null
+-- output: 3, 5
+```
 * _right_: outer + TT determines RS count + DT provides matches 📙 Beaulieu [187]
 * _full_: outer + all rows from DT/TT in RS 📙 Beaulieu [187]
 ```sql
