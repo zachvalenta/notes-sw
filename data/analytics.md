@@ -134,6 +134,7 @@ EXTENSIONS
 ## 💄 Great Tables
 
 📜 https://posit-dev.github.io/great-tables
+💡 Visidata/Polars should embrace spans
 
 RUNTIME
 * input: df
@@ -857,9 +858,10 @@ HARLEQUIN 📜 https://harlequin.sh
 $ fmt $TSV > $CSV
 
 # DML
-$ headers $CSV          # get headers with index
-$ headers -j $CSV       # get headers w/out index
-$ select "header" $CSV  # select all from header
+headers                  # get headers with index
+headers -j               # get headers w/out index
+select "HEADER"          # select all from header
+search $QUERY -s $HEADER # search w/in header
 
 # EDA
 $ xsv sample 50 $CSV                 # get sampled subset
@@ -878,7 +880,6 @@ ship_date                             2013-11-22
 ```sh
 count songs.csv # count records
 split -s <records_per_file> <output-dir> <csv> # split into n files
-search -i -s "header" "query" $CSV # search within header (case insensitive)
 ```
 
 # 🟦 VISIDATA
@@ -1018,7 +1019,35 @@ AGGREGATION
 
 ## records
 
+* view all shortcuts + system clipboard uses `options.clipboard_copy_cmd` https://github.com/saulpw/visidata/discussions/983
+
+| CMD              | keybind    | clipboard | desc                                                            |
+|------------------|------------|-----------|-----------------------------------------------------------------|
+| copy-row         | y          | internal  | current row                                                     |
+| copy-cell        | zy         | internal  | current cell                                                    |
+| copy-selected    | gy         | internal  | selected rows                                                   |
+| copy-cells       | gzy        | internal  | current column for selected rows                                |
+| syscopy-row      | Shift+Y    | system    | current row (`options.clipboard_copy_cmd`)                      |
+| syscopy-cell     | zShift+Y   | system    | current cell (`options.clipboard_copy_cmd`)                     |
+| syscopy-selected | gShift+Y   | system    | selected rows (`options.clipboard_copy_cmd`)                    |
+| syscopy-cells    | gzShift+Y  | system    | current column for selected rows (`options.clipboard_copy_cmd`) |
+
 ---
+
+COPY/PASTE RECORD TO SYSTEM CLIPBOARD https://github.com/saulpw/visidata/blob/7e5ce4f0dc34634e2b3aea2d51b72146686d1ece/visidata/guides/ClipboardGuide.md?plain=1#L3 https://github.com/saulpw/visidata/pull/2530 https://github.com/saulpw/visidata/issues/255 https://github.com/saulpw/visidata/discussions/1505
+> goal: copy all selected records (or just values) to system clipboard with 'y' key, otherwise just copy current cell value
+```python
+# these are not a thing, LLM hallucination
+options.tsv_preferred = False
+options.clipboard_export_format = 'csv'
+TableSheet.bindkey('Y', 'syscopy-expr "rows | tocsv | clipboard_copy_cmd"')
+
+# doesn't work
+options.copy_format = 'csv'
+
+# error: no command for shift Y
+TableSheet.bindkey('Y', "syscopy-row fmt=csv")
+```
 
 * command mode + set col to set all values for column? couldn't figure out how to do this
 * null = those yellow crossed out circles https://www.visidata.org/docs/rows/

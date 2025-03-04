@@ -128,14 +128,24 @@ MUSIC
 * quadron
 * miles porgy and bess
 * paul simon (theme)
-* hank williams dont let me love you
 * art tatum
 * ramones today your love
-* dead prez
-* clothes line saga
 * new order - all
 * 20th century classical
 * roy hargrove to rnb
+* breakwater
+
+SINGLES
+* hank williams dont let me love you
+* dead prez
+* clothes line saga
+* Ponytail honey
+* Emmylou Harris heaven only knows
+* Augustus Pablo short man dub
+* Doors roadhouse blues
+* Hank Williams just waiting
+* Onyeabor when the going is good
+* Michael Hurley robbin banks
 
 ## air-capp ➡️ mini23
 
