@@ -950,11 +950,11 @@ https://www.youtube.com/playlist?list=PLxu7QdBkC7drrAGfYzatPGVHIpv4Et46W
 
 ## DML
 
-JOINS
+JOINS https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/#join-the-two-frequency-tables
 * load multiple CSVs: `vd $CSV1 $CSV2`
 * mark col as key: `!`
-* select col from meta sheet
-* start join prompt: `&` https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/#join-the-two-frequency-tables
+* select sheets from meta sheet
+* start join prompt: `&`
 
 EDA
 * histogram: `F`

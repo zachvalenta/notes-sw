@@ -568,7 +568,20 @@ joined = df1_tagged.join(df2_tagged, left_on="table1_Part_ID", right_on="table2_
 
 ## predicates
 
-CHAINING
+📍  membership, equality
+```python
+foo.join(bar, left_on='id', right_on='mpn').filter(pl.col('foo_price') != pl.col('bar_price'))
+foo.join(bar, left_on='id', right_on='mpn').filter(pl.col('manufacturer').is_in(['apple', 'motorola']))
+
+df = pl.DataFrame({
+    "id": [1, 2, 3, 4, 5],
+    "name": ["Alice", "Bob", "Charlie", "David", "Eve"]
+})
+result = df.filter(pl.col("name").is_in(["Bob", "Eve"]))
+df.filter(pl.col("name") == "Bob")
+```
+
+📍  CHAINING
 * `~`: not
 * `&`: and
 * `|`: or
