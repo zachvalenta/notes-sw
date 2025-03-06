@@ -134,6 +134,8 @@ MUSIC
 * 20th century classical
 * roy hargrove to rnb
 * breakwater
+* destroyer
+* bobby bland
 
 SINGLES
 * hank williams dont let me love you
@@ -146,6 +148,8 @@ SINGLES
 * Hank Williams just waiting
 * Onyeabor when the going is good
 * Michael Hurley robbin banks
+* Kate Bush hello earth
+* Carla Thomas its up to you
 
 ## air-capp ➡️ mini23
 

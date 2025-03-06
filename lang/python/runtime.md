@@ -475,6 +475,7 @@ __namespaces__
 
 should be like books: TOC, glossary, index
 
+* https://gafni.dev/blog/cracking-the-python-monorepo/
 > I also hate `__init__.py` littering the file system
 * `src/$NAME`: https://github.com/Zaloog/kanban-tui
 * https://github.com/mikeckennedy/listmonk

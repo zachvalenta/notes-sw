@@ -716,6 +716,7 @@ fix for scripts? https://www.youtube.com/watch?v=bNw34Mo0FOQ
 
 ---
 
+https://simonwillison.net/2025/Mar/6/aider-using-uv-as-an-installer/
 https://www.youtube.com/watch?v=bNw34Mo0FOQ [2:20]
 https://github.com/astral-sh/uv/issues/7242#issuecomment-2631783057
 https://github.com/astral-sh/uv/issues/7242#issuecomment-2621635669

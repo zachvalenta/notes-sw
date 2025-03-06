@@ -259,8 +259,7 @@ gui:
 
 ## views
 
-🔗 https://spookylukey.github.io/django-views-the-right-way/
-
+* https://github.com/carltongibson/neapolitan
 * https://spookylukey.github.io/django-views-the-right-way/
 
 * get query string https://www.django-rest-framework.org/api-guide/filtering/#filtering-against-query-parameters
@@ -286,7 +285,6 @@ DRF http://www.cdrf.co/ https://www.django-rest-framework.org/api-guide/views/
 vanilla https://wsvincent.com/class-function-based-views/
 * _function-based_: route on control flow
 * https://406.ch/writing/composition-over-inheritance-the-case-for-function-based-views/
-* https://github.com/carltongibson/neapolitan
 * _class-based_: route on method sig https://docs.djangoproject.com/en/2.2/topics/class-based-views/
 * _generic class-based_: 类似 DRF views http://ccbv.co.uk/
 ```python

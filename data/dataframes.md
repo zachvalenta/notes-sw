@@ -350,6 +350,7 @@ assert len(violations) > 0
 ```
 
 READ / SCAN / STREAM
+> Unlike traditional DataFrames, LazyFrames don’t contain data but instead store a set of instructions known as a query plan. Query plans perform operations like predicate and projection pushdown, ensuring only necessary rows and columns are processed. LazyFrames also support the parallel execution of query plans, further enhancing performance...Lazy evaluation in LazyFrames optimizes query plans before data materialization...You create a LazyFrame using functions like scan_parquet() or scan_csv(). https://realpython.com/polars-lazyframe/
 ```python
 # READ faster when you can skip entire columns and save on overhead of setting up query plan
 df = pl.read_csv(file, columns=['col1', 'col2'])

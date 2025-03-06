@@ -754,6 +754,8 @@ ALTERNATIVES
 * webapp https://equals.app/ https://rows.com/
 * in Python https://pyspread.gitlab.io/ https://news.ycombinator.com/item?id=40284219
 * _Google Sheets_: https://github.com/nithinmurali/pygsheets
+* can get link to a cell
+* add comment: `cmd alt m`
 * _IronCalc_: https://news.ycombinator.com/item?id=42095292 https://github.com/ironcalc/ironcalc
 * _rowzero_: https://rowzero.io/ https://grantslatton.com/
 * _pysheets_: 🎯 uses pyodide https://pysheets.app/about https://realpython.com/podcasts/rpp/226/

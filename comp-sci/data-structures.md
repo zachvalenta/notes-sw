@@ -552,6 +552,7 @@ https://www.youtube.com/watch?v=qZNJTh2NEiU https://www.youtube.com/watch?v=V3pz
 * alternatives incl. BST, skip list https://stackoverflow.com/a/301822 📙 Skiena 12.1
 
 hash tables
+https://go.dev/blog/swisstable
 https://www.openmymind.net/Zigs-HashMap-Part-1/
 https://www.openmymind.net/Back-To-Basics-Hashtables/
 https://www.openmymind.net/Back-To-Basics-Hasthables-Part-2/

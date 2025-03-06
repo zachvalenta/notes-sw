@@ -126,6 +126,7 @@ https://www.openmymind.net/Speedig-Up-Queries-Understanding-Query-Plans/
 * should `explain analyze` be here?
 
 EXPLAIN
+* https://www.pgmustard.com/blog/postgres-query-plan-visualization-tools
 * plan hints https://news.ycombinator.com/item?id=35963572
 > In some circumstances, you have knowledge of your data that the optimizer does not have, or cannot have. You might be able to improve the performance of a query by providing additional information to the optimizer https://hakibenita.com/sql-dos-and-donts#add-faux-predicates
 * `explain`: view preflight execution plan  https://thoughtbot.com/blog/reading-an-explain-analyze-query-plan https://dataschool.com/sql-optimization/optimization-using-explain/ "returns the steps a database will take to execute a query" https://render.com/blog/postgresql-slow-query-to-fast-via-stats

@@ -536,7 +536,7 @@ VERSION MGMT
 * _math_: https://github.com/montanaflynn/stats
 * _profile_ https://dave.cheney.net/2013/06/30/how-to-write-benchmarks-in-go https://blog.golang.org/profiling-go-programs https://marcan.st/2017/12/debugging-an-evil-go-runtime-bug https://artem.krylysov.com/blog/2017/03/13/profiling-and-optimizing-go-web-applications/ https://github.com/DataDog/go-profiler-notes/blob/main/guide/README.md https://notes.eatonphil.com/implementing-a-jq-clone-in-go.html https://eli.thegreenplace.net/2023/common-pitfalls-in-go-benchmarking/ https://www.willem.dev/articles/benchmarks-performance-testing/
 * _refactoring_: http://blog.ralch.com/tutorial/golang-tools-refactoring/ http://www.gorefactor.org/
-* _REPL_: https://github.com/cosmos72/gomacro https://stackoverflow.com/questions/8513609/does-go-provide-repl https://golangweekly.com/link/146377/web
+* _REPL_: https://github.com/cosmos72/gomacro https://stackoverflow.com/questions/8513609/does-go-provide-repl https://golangweekly.com/link/146377/web https://github.com/x-motemen/gore
 * _search_ https://blevesearch.com/
 * _security_ https://github.com/securego/gosec
 * _serialization_: https://github.com/bytedance/sonic

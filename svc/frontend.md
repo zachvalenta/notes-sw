@@ -93,7 +93,7 @@ https://calmcode.io/course/htmx/introduction
 https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
 https://github.com/maddalax/htmgo
 https://news.ycombinator.com/item?id=41781457 https://chrisdone.com/posts/htmx-critique/
-https://github.com/AnswerDotAI/fasthtml https://www.youtube.com/watch?v=4En57Zw6gU4
+https://github.com/AnswerDotAI/fasthtml https://simn.fr/posts/dicthing-django-admin-for-fasthtml https://www.youtube.com/watch?v=4En57Zw6gU4
 
 > It’s worth noting that AI tools are intimately familiar with Next.js and not so much with htmx, due to the lack of open-source training data. This is similar to the issue Rails faces. While not a dealbreaker, it did impact our development speed and the ease of finding solutions to problems. When we encountered issues, the wealth of resources available for React/Next.js made troubleshooting much faster. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
 

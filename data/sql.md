@@ -753,6 +753,8 @@ CREATE TABLE products (
 
 TOOLS
 * pgroll, squitch https://news.ycombinator.com/item?id=42388973
+* https://github.com/sqldef/sqldef
+* https://github.com/xataio/pgroll
 
 DATA
 * _data migration_: DML i.e. change data itself

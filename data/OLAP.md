@@ -352,6 +352,7 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 
 ---
 
+https://www.crunchydata.com/blog/validating-data-types-from-semi-structured-data-loads-in-postgres-with-pg_input_is_valid
 * _OpenRefine_: https://openrefine.org/ https://www.youtube.com/watch?v=yjLIRNpc2RQ
 
 * https://blog.codepen.io/2023/02/01/399-data-munging/

@@ -545,6 +545,7 @@ foo.sh  # echo $LOGNAME
 ./foo.sh           # stdout: $LOGNAME
 envsubst < foo.sh  # stdout: zach
 ```
+* https://github.com/ankddev/envfetch
 
 ## path
 

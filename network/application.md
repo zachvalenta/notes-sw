@@ -236,7 +236,7 @@ https://kevq.uk/how-to-host-email-with-your-own-domain/
  https://tutanota.com/blog/posts/gmail-end-to-end-encryption-is-dead/
 * _options_: Fastmail, Posteo, Protonmail https://cmpwn.com/@sir/100419028736559194 https://lukesmith.xyz/blog/a-script-that-automatically-sets-up-your-personal-mail-server.html https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-mail https://superhuman.com/
 * _auth_: https://blog.jonlu.ca/posts/spf-dkim
-* _servers_: Postfix, Sendmail https://github.com/kahun/awesome-sysadmin#mail-servers https://prefet.ch/blog/2020/email-server/ https://aosabook.org/en/v1/sendmail.html
+* _servers_: Postfix, Sendmail https://github.com/kahun/awesome-sysadmin#mail-servers https://prefet.ch/blog/2020/email-server/ https://aosabook.org/en/v1/sendmail.html Mox https://news.ycombinator.com/item?id=43261729
 * _self-hosting_: https://www.garron.blog/posts/host-your-email-server.html https://github.com/foxcpp/maddy
 * search: notmuch https://www.reddit.com/r/commandline/comments/ddkyap/can_some_give_me_the_dummies_guide_to_properly/ http://richardmavis.info/so-long-macbook-hello-again-linux
 > I wish Gmail had better search re: links. I think other people solve this by using things like Pinboard https://pinboard.in/

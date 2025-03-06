@@ -56,6 +56,7 @@ tortoise/tortoise-orm,4683
 
 ---
 
+* https://blog.appsignal.com/2025/02/26/an-introduction-to-flask-sqlalchemy-in-python.html
 * https://talkpython.fm/episodes/show/344/sqlalchemy-2.0
 * https://blog.miguelgrinberg.com/post/what-s-new-in-sqlalchemy-2-0
 * use something else https://danluu.com/simple-architectures/e

@@ -639,6 +639,8 @@ wire protocol
 
 ---
 
+hosted Neon, pg_cron https://www.youtube.com/watch?v=3JW732GrMdg
+
 weird bits https://www.hytradboi.com/2025/b479d9ff-3dd9-4548-940d-24698e7cff71-learning-about-the-odd-bits-of-sql-by-reading-the-postgresql-docs
 
 https://www.manning.com/books/just-use-postgres https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb
@@ -670,6 +672,7 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * delete data from table: `DELETE FROM <tab>` https://www.postgresql.org/docs/11/dml-delete.html
 * drop all tables: `DROP SCHEMA <schema> CASCADE`
 * get date from timestamp: `SELECT date(startime) FROM bookings` https://stackoverflow.com/a/6133147
+* random/seed data https://www.postgresonline.com/journal/index.php?/archives/419-PG-17-new-random-functions.html#newrandom
 
 SEMANTICS
 * _cluster_: server instance managing n databases https://www.postgresql.org/docs/12/tutorial-concepts.html https://www.crunchydata.com/blog/postgres-databases-and-schemas
@@ -921,7 +924,7 @@ USAGE
 * durable object https://simonwillison.net/2024/Oct/13/zero-latency-sqlite-storage-in-every-durable-object/
 
 ZA
-* vector https://github.com/asg017/sqlite-vec
+* vector https://github.com/asg017/sqlite-vec https://blog.vectorchord.ai/vector-search-at-10000-qps-in-postgresql-with-vectorchord
 * https://news.ycombinator.com/item?id=40637303
 * single-tenant i.e each user gets own db https://news.ycombinator.com/item?id=38171322
 * transactions for perf https://news.ycombinator.com/item?id=36583317

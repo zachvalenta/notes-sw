@@ -223,7 +223,7 @@ DBMS
 * _JameSQL_: 🎯 embedded https://github.com/capjamesg/jamesql
 * _Mongo_: OSS alternative https://github.com/FerretDB/FerretDB https://pythonbytes.fm/episodes/show/318/gil-how-we-will-miss-you
 * _Polo_: embedded https://github.com/vincentdchan/PoloDB
-* _Postgres_: JSON
+* _Postgres_: JSON https://www.enterprisedb.com/blog/representing-graphs-postgresql-sqlpgq
 * _TinyDB_: 🎯 embedded https://github.com/msiemens/tinydb
 * not atomic but potential workaround https://tinydb.readthedocs.io/en/latest/extensions.html#tinyrecord
 

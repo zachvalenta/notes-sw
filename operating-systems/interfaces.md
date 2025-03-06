@@ -286,6 +286,7 @@ IMPL
 MODES
 * set mode: `set -o <emacs/vi>`
 * _vi_: doesn't support text obj e.g. `cw` works but `ciw` doesn't https://vi.stackexchange.com/a/9876 https://catonmat.net/bash-vi-editing-mode-cheat-sheet
+> vi mode in litecli does support ciw
 * scroll history: `j/k`
 
 INPUTRC https://claude.ai/chat/27433018-36d2-4574-888e-131cc5b24fdc

@@ -1129,6 +1129,7 @@ GENERATE ANNOTATIONS
 * _pyannotate_: Dropbox i.e. Python 2 https://github.com/dropbox/pyannotate
 * _MonkeyType_: Instagram i.e. Python 3 https://github.com/Instagram/MonkeyType https://www.pythonpodcast.com/monkeytype-with-carl-meyer-and-matt-page-episode-146/
 
+https://blog.jonathanchun.com/2025/02/16/to-type-or-not-to-type/
 https://realpython.com/python313-new-features/#improvements-to-static-typing
 https://lukeplant.me.uk/blog/posts/python-type-hints-pyastgrep-case-study/
 https://lukeplant.me.uk/blog/posts/the-different-uses-of-python-type-hints/
