@@ -758,6 +758,7 @@ CONFIG
 
 ---
 
+Vim madness https://news.ycombinator.com/item?id=24243521
 setup on work machine https://github.com/zachvalenta/capp-denv-dotfiles/commit/11d6a2709a69c9b39d699bca4ab13748b1e6d9e0 https://github.com/zachvalenta/capp-denv-dotfiles/commit/e4d0dca30a13d14d36feea0ae30a91015248c71e
 
 @ show status bar when opening with user-defined layout

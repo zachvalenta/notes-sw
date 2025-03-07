@@ -9,6 +9,7 @@
 ## 进步
 
 RN
+* https://blog.startifact.com/posts/succinct/
 * taxonomy https://chatgpt.com/c/6706989f-02a4-8004-9933-bbe525f36b55 https://www.interviewcake.com/data-structures-reference https://roadmap.sh/datastructures-and-algorithms
 * https://neetcode.io/courses/dsa-for-beginners/1
 * https://www.youtube.com/playlist?list=PLQpVsaqBj4RIJdYW6Y-iAswxCZeocfoRW
@@ -302,6 +303,7 @@ BUILDERS 🗄️ `html-css.md` SSG `protocols.md` JSON `km.md` notes / tooling `
 
 ---
 
+https://cedardb.com/blog/optimistic_btrees/
 https://benjamincongdon.me/blog/2021/08/17/B-Trees-More-Than-I-Thought-Id-Want-to-Know/
 https://planetscale.com/blog/btrees-and-database-indexes
 

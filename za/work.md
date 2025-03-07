@@ -42,6 +42,7 @@ POLITICS 🗄️ `denv.md` Nix
 
 ---
 
+* lab days, being smart https://www.seangoedecke.com/what-is-important/
 * coaching https://zackproser.com/blog/why-ive-been-successful
 "have taken up farming" https://github.com/dylanaraps
 

@@ -105,6 +105,7 @@ SIGNAL/NOISE 📙 Gleick ch. 7-8
 
 ---
 
+* https://blog.startifact.com/posts/succinct/
 * _lzma_: 
 * _lossy_: data removed in way mostly unnoticed by end user e.g. mp3
 * _lossless_: no data rm, original data can be reconstructed e.g. JS minification 📙 Shibuya 1.33
