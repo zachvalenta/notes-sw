@@ -423,7 +423,8 @@ VIEW-BASED
 * con: direct table queries better for indexing
 
 SCHEMAS
-* _schema_: namespace for objs like tables, views, functions
+* _schema_: namespace for objs like tables, views, functions https://www.postgresql.org/docs/current/ddl-schemas.html
+* akin to spans in Great Tables https://posit-dev.github.io/great-tables/get-started/basic-column-labels.html
 * maybe someday in Turso? https://github.com/tursodatabase/limbo/issues/1078
 * only in Postgres, Snowflake
 ```sql

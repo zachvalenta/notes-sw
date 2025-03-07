@@ -19,6 +19,7 @@
 
 ## 进步
 
+* https://dadrian.io/ https://dadrian.io/blog/posts/sct-not-after/
 * Scapy https://www.youtube.com/watch?v=EnuF9ZR6MVc
 
 ATTRIBUTE BASED ACCESS CONTROL (ABAC)

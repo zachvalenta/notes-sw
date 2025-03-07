@@ -597,6 +597,7 @@ LIBS
 
 ---
 
+* https://news.ycombinator.com/item?id=43285725
 * rotate user agents https://github.com/theonlyanil/stealthkit
 * https://news.ycombinator.com/item?id=42817439 https://lightpanda.io/
 * scrape infinite scrolling: sniff out API, use browser automation

@@ -521,7 +521,7 @@ EXAMPLES
 * _TTV_: https://simonwillison.net/2024/Dec/9/sora/
 * _TFI_: https://calmcode.io/shorts/pytesseract.py
 * image to video https://www.vidifyapp.com/
-* _OCR_: image to text e.g. PDF to plaintext https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194 https://getomni.ai/ocr-demo https://news.ycombinator.com/item?id=41971614 https://github.com/Nutlope/llama-ocr https://simonwillison.net/2025/Feb/26/olmocr/
+* _OCR_: image to text e.g. PDF to plaintext https://en.wikipedia.org/wiki/Optical_character_recognition https://news.ycombinator.com/item?id=41048194 https://getomni.ai/ocr-demo https://news.ycombinator.com/item?id=41971614 https://github.com/Nutlope/llama-ocr https://simonwillison.net/2025/Feb/26/olmocr/  https://mistral.ai/fr/news/mistral-ocr
 
 ---
 
