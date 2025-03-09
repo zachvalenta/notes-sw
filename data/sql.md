@@ -578,6 +578,10 @@ CREATE TABLE customer (
 );
 ```
 
+---
+
+* Capp identifiers vs. classifications vs. attributes https://grok.com/chat/977a1321-578e-4e0d-9895-db2df5005838
+
 ## primary (PK)
 
 🗄 indexing `connolly.pdf`
