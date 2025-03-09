@@ -184,7 +184,7 @@ PEPS https://peps.python.org/
 * finance https://www.openbb.co/
 * architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * GPU simulation https://news.ycombinator.com/item?id=40680737
-* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/
+* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/ https://github.com/pythonarcade/arcade
 * mesh analysis https://github.com/pyvista/pyvista
 * browser https://www.youtube.com/watch?v=Vh77_2-Z0vc
 

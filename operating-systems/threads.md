@@ -174,6 +174,7 @@ https://threedots.tech/post/go-test-parallelism/
 * Requires async/await syntax
 * Lower overhead than threads
 ```
+* leaky bucket https://github.com/mjpieters/aiolimiter
 BYO https://lucasoshiro.github.io/software-en/2025-01-25-python_async_iterators/
 https://www.youtube.com/watch?v=ftmdDlwMwwQ 
 * _asyncio_: stdlib async lib; came in w/ 3.4 https://www.roguelynn.com/archives/

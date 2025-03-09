@@ -764,6 +764,8 @@ https://twitter.com/skirano/status/1785469853689639379
 https://www.freecodecamp.org/learn/machine-learning-with-python/#tensorflow
 
 * context window https://twitter.com/deedydas/status/1778621375592485076 https://simonwillison.net/2025/Jan/26/paul-gauthier/
+> Many of the most significant AI advancements are likely happening behind closed doors. For example, I hear that Google allows employees to use Gemini with virtually unlimited context windows...What possibilities do large context windows open up? Researchers will be able to load entire regulatory frameworks, historical archives, or massive datasets like "tax records from Renaissance Florence" into a single query. https://x.com/david_perell/status/1897387371244478668
+
 > the idea that a bigger context window might be more than, well, just more of the same, but instead a game changer for LLMs is very interesting https://registerspill.thorstenball.com/p/joy-and-curiosity-19 https://thelongcontext.com/
 > Google hasn’t said how Gemini 1.5 was made, but clearly the company has overcome the key limitation of traditional transformers: memory requirements increase quadratically with context length. One promising approach is Ring Attention with Blockwise Transformers, which breaks long contexts into pieces to be computed individually even as the various devices computing those pieces simultaneously communicate to make sense of the context as a whole; in this case memory requirements scale linearly with context length, and can be extended by simply adding more devices to the ring topology. https://stratechery.com/2024/gemini-1-5-and-googles-nature/
 * https://news.ycombinator.com/item?id=39849393

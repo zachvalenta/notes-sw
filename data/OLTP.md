@@ -643,7 +643,7 @@ hosted Neon, pg_cron https://www.youtube.com/watch?v=3JW732GrMdg
 
 weird bits https://www.hytradboi.com/2025/b479d9ff-3dd9-4548-940d-24698e7cff71-learning-about-the-odd-bits-of-sql-by-reading-the-postgresql-docs
 
-https://www.manning.com/books/just-use-postgres https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb
+https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb
 🏔️ https://github.com/Olshansk/postgres_for_everything
 📚
 * Magda just use postgres https://www.manning.com/books/just-use-postgres

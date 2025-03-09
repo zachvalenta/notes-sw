@@ -135,6 +135,7 @@ FACTORS
 * data immutable (events, analytics)
 * memory usage https://news.ycombinator.com/item?id=42244111
 * CPU usage https://metoro.io/blog/go-production-performance-gotcha-gomaxprocs
+* locality: local-only, local-first, cloud https://tonsky.me/blog/crdt-filesync/
 
 https://gwern.net/choosing-software
 * maintenance

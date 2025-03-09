@@ -193,6 +193,8 @@ start here https://parlance-labs.com/education/ https://applied-llms.org/ https:
 
 🔍 https://mychaelangelo.github.io/ai_agents_marketmap/
 
+= can go out and use the internet https://x.com/rowancheung/status/1898093008601395380
+
 ---
 
 * people define as "can read|update my code"? https://www.youtube.com/watch?v=zIejF3IGtWk
@@ -578,3 +580,9 @@ SEMANTICS
 ```
 * _prompt injection_: getting model to do something its creators don't want https://simonwillison.net/2023/Dec/31/ai-in-2023/
 > Simon coined the term prompt injection after SQL Injection. He believes that we are not seeing digital assistants, because no one knows how to build them securely. 99% effective isn't good enough. Never mix untrusted text with access to tools. https://katherinemichel.github.io/portfolio/pycon-us-2024-recap.html#simon-willison-keynote
+
+---
+
+https://x.com/david_perell/status/1897387371244478668
+> Use AI as your secondary literature when you read — not just for quick answers, but as a thinking companion. As Tyler puts it, "I'll keep on asking the AI: 'What do you think of chapter two? What happened there? What are some puzzles?' It just gets me thinking... and I'm smarter about the thing in the final analysis."
+> Hallucinations aren't the crisis everyone makes them out to be. No matter the source, if you're going to use a piece of information, you should double-check it. This is true for both books and AI.

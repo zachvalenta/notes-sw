@@ -9,7 +9,7 @@
 * `telemetry.md` analytics
 📚
 * Asboth grounded analyst https://www.manning.com/books/the-well-grounded-data-analyst
-* Khalil https://www.manning.com/books/effective-data-analysis
+* ⭐️ Khalil https://www.manning.com/books/effective-data-analysis
 * Massaron https://www.manning.com/books/advanced-analytics-for-business https://www.youtube.com/watch?v=scY7PTxNSr4
 * ⭐️ Tuckfield https://nostarch.com/dive-data-science
 * Wickham https://r4ds.hadley.nz/
@@ -134,6 +134,7 @@ EXTENSIONS
 ## 💄 Great Tables
 
 📜 https://posit-dev.github.io/great-tables
+📻 https://talkpython.fm/episodes/show/493/quarto-open-source-technical-publishing
 💡 Visidata/Polars should embrace spans
 
 RUNTIME
@@ -162,6 +163,7 @@ https://awesome-panel.github.io/holoviz-quarto/
 ## 🔵 Quarto
 
 📜 https://quarto.org/ 
+📻 https://talkpython.fm/episodes/show/493/quarto-open-source-technical-publishing
 
 * no Marimo support https://github.com/quarto-dev/quarto-cli/discussions/9362
 * built around Jupyter kernel

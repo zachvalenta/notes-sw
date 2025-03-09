@@ -150,6 +150,10 @@ SINGLES
 * Michael Hurley robbin banks
 * Kate Bush hello earth
 * Carla Thomas its up to you
+* Carlos Paredes danca
+* The Beat doors of my heart
+* Masada
+* Randy Newman last night i had a dream
 
 ## air-capp ➡️ mini23
 

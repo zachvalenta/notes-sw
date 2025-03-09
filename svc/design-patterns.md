@@ -9,7 +9,7 @@
 * Fowler refactoring 🎗️ PDF
 * GoF design patterns
 * Jackson essence of software https://www.amazon.com/Essence-Software-Concepts-Matter-Design/dp/0691225389 https://www.hytradboi.com/2025/840b0b92-720e-4c0c-9760-19739d3832a5-back-to-modularity buddies with Jonathan Edwards https://alarmingdevelopment.org/ https://youtu.be/BdoWZPvfZSE
-* Mak https://www.manning.com/books/software-design-in-python
+* ⭐️ Mak https://www.manning.com/books/software-design-in-python
 * Martin clean code
 * Nystrom http://gameprogrammingpatterns.com/contents.html
 * Ousterhout philosophy of sofware design https://news.ycombinator.com/item?id=43166362 https://github.com/johnousterhout/aposd-vs-clean-code
@@ -220,12 +220,93 @@ Implementing middleware in HTTP frameworks (like Express or Flask).
 # 🔍 BEHAVIORAL
 
 Chain of Responsibility (request handling pipeline)
-Command (requests as objects)
 Mediator (loose coupling via coordinator)
 Memento (capture/restore state)
 State (behavior tied to state)
 Template Method (skeleton algorithm)
 Visitor (operations on elements)
+
+## command
+
+Command (requests as objects)
+
+```python
+from decimal import Decimal
+from dataclasses import dataclass
+from typing import Callable, List  # Only for clarity
+
+class BankAccount:
+    def __init__(self, account_id: str, balance: Decimal = Decimal('0')):
+        self.account_id = account_id
+        self.balance = balance
+        
+    def deposit(self, amount: Decimal) -> None:
+        self.balance += amount
+        
+    def withdraw(self, amount: Decimal) -> None:
+        if self.balance >= amount:
+            self.balance -= amount
+        else:
+            raise ValueError("Insufficient funds")
+            
+    def __str__(self) -> str:
+        return f"Account {self.account_id} - Balance: ${self.balance}"
+
+@dataclass
+class Command:
+    execute_fn: Callable[[], None]
+    undo_fn: Callable[[], None]
+
+class TransactionManager:
+    """
+    Invoker class that handles transaction execution and history
+    
+    >>> account = BankAccount("123", Decimal('100'))
+    >>> manager = TransactionManager()
+    >>> deposit = Command(
+    ...     lambda: account.deposit(Decimal('50')),
+    ...     lambda: account.withdraw(Decimal('50'))
+    ... )
+    >>> manager.execute_transaction(deposit)
+    >>> print(account)
+    Account 123 - Balance: $150
+    >>> manager.undo_last_transaction()
+    >>> print(account)
+    Account 123 - Balance: $100
+    """
+    def __init__(self):
+        self.history: List[Command] = []
+        
+    def execute_transaction(self, command: Command) -> None:
+        try:
+            command.execute_fn()
+            self.history.append(command)
+        except ValueError as e:
+            print(f"Transaction failed: {e}")
+            
+    def undo_last_transaction(self) -> None:
+        if self.history:
+            command = self.history.pop()
+            command.undo_fn()
+
+# Usage
+if __name__ == "__main__":
+    account = BankAccount("12345", Decimal('1000'))
+    manager = TransactionManager()
+    
+    # Create and execute deposit command
+    deposit = Command(
+        execute_fn=lambda: account.deposit(Decimal('500')),
+        undo_fn=lambda: account.withdraw(Decimal('500'))
+    )
+    
+    manager.execute_transaction(deposit)
+    print(account)  # Balance: $1500
+    
+    # Undo it
+    manager.undo_last_transaction()
+    print(account)  # Balance: $1000
+```
 
 ## observer
 
