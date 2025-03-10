@@ -483,7 +483,7 @@ PG http://paulgraham.com/popular.html
 
 ## benchmark
 
-> There are lies, damned lies and benchmarks. https://github.com/pydantic/jiter https://news.ycombinator.com/item?id=42501532
+> There are lies, damned lies and benchmarks. https://github.com/pydantic/jiter https://news.ycombinator.com/item?id=42501532 https://news.ycombinator.com/item?id=43317592 https://news.ycombinator.com/item?id=43318130
 🎗️ https://danluu.com/anon-benchmark/ https://danluu.com/why-benchmark/ https://jpcamara.com/2024/12/01/speeding-up-ruby.html https://benhoyt.com/writings/go-version-performance-2024/
 
 * _millisecond (ms)_: 10^−3 (one-thousandth of a second)

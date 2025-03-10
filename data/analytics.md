@@ -1023,18 +1023,22 @@ AGGREGATION
 
 ## records
 
+COPY/PASTE
 * view all shortcuts + system clipboard uses `options.clipboard_copy_cmd` https://github.com/saulpw/visidata/discussions/983
-
 | CMD              | keybind    | clipboard | desc                                                            |
 |------------------|------------|-----------|-----------------------------------------------------------------|
 | copy-row         | y          | internal  | current row                                                     |
 | copy-cell        | zy         | internal  | current cell                                                    |
+| paste-cell       | zp         | internal  | paste cell                                                      |
 | copy-selected    | gy         | internal  | selected rows                                                   |
 | copy-cells       | gzy        | internal  | current column for selected rows                                |
 | syscopy-row      | Shift+Y    | system    | current row (`options.clipboard_copy_cmd`)                      |
 | syscopy-cell     | zShift+Y   | system    | current cell (`options.clipboard_copy_cmd`)                     |
 | syscopy-selected | gShift+Y   | system    | selected rows (`options.clipboard_copy_cmd`)                    |
 | syscopy-cells    | gzShift+Y  | system    | current column for selected rows (`options.clipboard_copy_cmd`) |
+
+COMMANDS
+* rm: `d` single `gd` all selected
 
 ---
 
@@ -1059,7 +1063,6 @@ TableSheet.bindkey('Y', "syscopy-row fmt=csv")
 * sort: `[]`
 * page: `ctrl b/f`
 * select: `s/u` (single) `gs/gu` (all)
-* rm: `d` (doesn't work for selected)
 * goto: `zr <num>`
 > can use Vim https://www.youtube.com/watch?v=yhunJc8Nu4g
 * edit: `e` https://jsvine.github.io/intro-to-visidata/basics/understanding-rows/#editing-row-cells
