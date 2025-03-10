@@ -285,6 +285,7 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 
 ## interchange (MCP)
 
+https://registerspill.thorstenball.com/p/joy-and-curiosity-30 https://github.com/punkpeye/awesome-mcp-servers
 https://github.com/simonw/llm/releases/tag/0.23
 https://www.youtube.com/watch?v=oX6IKXfcx78
 

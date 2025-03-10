@@ -233,7 +233,7 @@ STDLIB
 * HTTP: Fetch, XHR/AJAX https://eloquentjavascript.net/18_http.html
 * native: JS (Cordova/PhoneGap, Ionic, Capacitor) .NET (Xamarin) Golang (Lorca) Golang (https://github.com/wailsapp/wails https://github.com/cogentcore/core) Rust https://dioxuslabs.com/ https://www.bestinclassiosapp.com/ https://www.swiftjectivec.com/ React Native https://news.ycombinator.com/item?id=42690114
 * typing: Typescript beat Elm/Flow
-* Typescript, Civet https://news.ycombinator.com/item?id=41885940
+* Typescript, Civet https://news.ycombinator.com/item?id=41885940 https://2ality.com/2025/02/what-is-typescript.html
 * vizualization: https://www.chartjs.org/ https://testdriven.io/blog/django-charts/#prepare-and-serve-the-data https://github.com/airbnb/visx https://github.com/recharts/recharts -> https://openbb.co/open#social-media-metrics 🗄 `math.md` graphs
 * WYSIWYG: https://quilljs.com/ https://github.com/Milkdown/milkdown
 * tooling in other languages https://news.ycombinator.com/item?id=26872457

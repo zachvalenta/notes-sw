@@ -214,7 +214,8 @@ select count(*) over (), track, sum(share), count(*) from splits group by track 
 
 GROUP BY
 * _group by_: form group for each unique combo
-* group formation happens first, then either regular column (first row in group) | agg column (agg func applied to all rows in group)
+* _agg column_: agg func applied to all rows in group
+* _regular column_: first row in group
 * regular column has dedupe side effect 📙 Evans [8]
 ```sql
 select * from orders
@@ -228,6 +229,7 @@ select * from orders
 | 5  | carl     | widget  | 225    |
 +----+----------+---------+--------+
 
+-- REGULAR COLUMNS
 select * from orders group by customer, product
 +----+----------+---------+--------+
 | id | customer | product | amount |
@@ -237,6 +239,7 @@ select * from orders group by customer, product
 | 5  | carl     | widget  | 225    |
 +----+----------+---------+--------+
 
+-- AGG COLUMNS
 select customer, product, id, -- regular columns
 count(*) as cnt, sum(amount) total -- agg columns
 from orders group by customer, product;
@@ -247,6 +250,26 @@ from orders group by customer, product;
 | bob      | gadget  | 3  | 2   | 375   |
 | carl     | widget  | 5  | 1   | 225   |
 +----------+---------+----+-----+-------+
+
+-- ACCESSING ALL ROWS FROM REGULAR COLUMN
+select customer, count(*) as cnt, group_concat(product) as products
+from orders group by customer
++----------+-----+---------------+
+| customer | cnt | products      |
++----------+-----+---------------+
+| alice    | 2   | widget,widget |
+| bob      | 2   | gadget,gadget |
+| carl     | 1   | widget        |
++----------+-----+---------------+
+select customer, count(*) as cnt, group_concat(id || ':' || product) as products
+from orders group by customer;
++----------+-----+-------------------+
+| customer | cnt | products          |
++----------+-----+-------------------+
+| alice    | 2   | 1:widget,2:widget |
+| bob      | 2   | 3:gadget,4:gadget |
+| carl     | 1   | 5:widget          |
++----------+-----+-------------------+
 ```
 
 ---
@@ -370,6 +393,9 @@ select count(*) from executions where height != ''
 -- CONCATENATE https://pgexercises.com/questions/joins/threejoin.html
 select * from products p join cat c
 on 'CS' || p.eid = c.product_id  -- eid 1234 produc_id CS1234
+
+-- TRUNCATE OUTPUT
+select substr(description, 1, 10) from products where eid = 1000004
 ```
 
 ---
@@ -630,6 +656,8 @@ foreign key (band) references bands (band_id)
 * _dangling identifier_: bad FK bc pointing to no longer extant ID
 
 # 🗺️ SCHEMA (DDL)
+
+🗄️ `data/modeling.md` name spaces
 
 COMMANDS
 ```sql
@@ -968,8 +996,9 @@ GENERATED COLUMNS
 
 ```sql
 -- CREATE
-CREATE VIEW view_name AS SELECT column1, column2
-FROM table_name WHERE condition;
+create view view_name as select column1, column2 from table_name where condition;
+-- RM
+drop view if exists view_name;
 
 create view sales as
 select psub.full_ord_id, ar.full_ord_id, psub.unit_price, psub.ext_price, ar.subtotal_amt, ar.ord_date

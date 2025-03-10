@@ -281,7 +281,7 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 ## schemas
 
 💻
-* `data/modeling.md` factors
+* `data/modeling.md` factors, name spaces
 * `sql.md` canonical
 
 * _fact table_: transactions w/ many FK to other dimensions 📙 Kleppmann [93,95]

@@ -425,6 +425,8 @@ VIEW-BASED
 SCHEMAS
 * _schema_: namespace for objs like tables, views, functions https://www.postgresql.org/docs/current/ddl-schemas.html
 * akin to spans in Great Tables https://posit-dev.github.io/great-tables/get-started/basic-column-labels.html
+* simulate in Pandas using multindex columns (but not in Polars)
+> doesn't seem like a way to simulate in SQL
 * maybe someday in Turso? https://github.com/tursodatabase/limbo/issues/1078
 * only in Postgres, Snowflake
 ```sql

@@ -154,6 +154,8 @@ SINGLES
 * The Beat doors of my heart
 * Masada
 * Randy Newman last night i had a dream
+* MBV slow
+* Interpol uppercase
 
 ## air-capp ➡️ mini23
 
