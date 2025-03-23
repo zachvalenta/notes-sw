@@ -321,6 +321,7 @@ pass
 
 ---
 
+* SSO https://blog.bytebytego.com/p/ep155-the-shopify-tech-stack
 * Python https://authlib.org/
 
 SEMANTICS

@@ -165,6 +165,8 @@ SINGLES
 * McCartney coming up
 * Traxman ever and always
 * John Lee Hooker boom boom
+* rm little simz doorways
+* Richard Smallwood i wont forget
 
 ## air-capp ➡️ mini23
 

@@ -319,6 +319,7 @@ https://github.com/valberg/django-sse
 
 ---
 
+* reactive db https://dicedb.io/
 https://hpbn.co/websocket/
 https://news.ycombinator.com/item?id=42600276
 
@@ -494,6 +495,7 @@ process https://help.ubuntu.com/community/SSH/OpenSSH/Keys
 
 ---
 
+* https://tusharf5.com/posts/ssl-certificates-for-the-rest-of-us/
 * https://www.youtube.com/watch?v=j9QmMEWmcfo
 https://questions.wizardzines.com/tls-certificates.html
 https://www.netmeister.org/whatsthatcert

@@ -286,7 +286,7 @@ TEST CODE
 TEST TYPES
 * _unit test_: test on a method; runs in memory; some people consider smallest unit as including db https://calpaterson.com/against-database-teardown.html
 * _integration test_: uses IO (fs, network), db, another app; two flavors (API-only, UI + API)
-* _smoke test_: integration that tests something basic https://semaphore.io/blog/smoke-testing-sanity-testing
+* _smoke test_: integration that tests something basic https://semaphore.io/blog/smoke-testing-sanity-testing https://simonwillison.net/2025/Mar/13/smoke-test-your-django-admin/
 * _regression test_: prod data
 
 ## doubles

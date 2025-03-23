@@ -545,6 +545,7 @@ PYTHONSTARTUP
 
 FUNCTIONALITY
 * view module help: `pretty(help(__name__))`
+> yet more powerful https://simonwillison.net/2025/Mar/3/pythons-help-function/
 * list user-defined modules https://github.com/zachvalenta/algo-sandbox/commit/3ab6b3d8b4bcbf1ad7548c14f62958e5f88c75e1 https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
 
 ---

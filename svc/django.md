@@ -30,6 +30,7 @@ task queue https://www.loopwerk.io/articles/2025/django-task-queues/
 ## DRF
 
 📙 Vincent api
+📹 https://www.youtube.com/playlist?list=PL-2EBeDYMIbTLulc9FSoAXhbmXpLq2l5t
 🗄 `python/stdlib.md` serde
 
 ---
@@ -336,7 +337,7 @@ history https://wsvincent.com/django-user-model-talk/ https://www.youtube.com/wa
 
 ## users
 
-* mgmt https://realpython.com/django-user-management/
+* mgmt https://realpython.com/django-user-management/ https://github.com/django-commons/django-typer
 * email https://github.com/carltongibson/django-unique-user-email
 * current user https://github.com/zsoldosp/django-currentuser
 * groups https://github.com/bennylope/django-organizations
@@ -649,8 +650,10 @@ how to
 
 > The admin's recommended use is limited to an organization's internal management tool. It's not intended for building your entire front end around. https://docs.djangoproject.com/en/5.1/ref/contrib/admin/
 
+* theme https://github.com/sjbitcode/django-admin-dracula https://github.com/adamghill/awesome-django-admin-themes
+* datetime https://www.loopwerk.io/articles/2025/django-admin-datetime/
+* https://simn.fr/posts/dicthing-django-admin-for-fasthtml
 * TUI https://github.com/valberg/django-admin-tui
-* theme https://github.com/sjbitcode/django-admin-dracula
 * management commands https://adamj.eu/tech/2024/08/14/django-management-command-sub-commands/
 * https://github.com/cuducos/django-public-admin
 * https://github.com/simonw/django-sql-dashboard
@@ -867,6 +870,7 @@ clean up
 * https://jefftriplett.com/2020/how-do-i-test-1000-objects-in-django https://github.com/model-bakers/model_bakery
 * https://kite.com/blog/python/django-database-migrations-overview/ https://realpython.com/django-migrations-a-primer https://realpython.com/digging-deeper-into-migrations/
 * https://www.mattlayman.com/understand-django/test-your-apps/
+* https://browniebroke.com/blog/2025-03-03-introducing-django-remake-migrations/
 
 schema (DDL) migrations
 * downtime https://pankrat.github.io/2015/django-migrations-without-downtimes/
@@ -922,13 +926,14 @@ https://learndjango.com/tutorials/essential-django-3rd-party-packages
 https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-django
 * https://github.com/adamspd/django-appointment
 * reports https://github.com/RamezIssac/django-slick-reporting
+* PDF https://github.com/ibrahimroshdy/django-pdf-actions
 * _3rd-party apps_: anything installed by adding to `settings.py/INSTALLED_APPS` https://djangopackages.org https://realpython.com/installable-django-app/
 * _editor_: https://406.ch/writing/django-prose-editor-prose-editing-component-for-the-django-admin/
 * _email_: https://learndjango.com/tutorials/django-email-contact-form https://softwarecrafts.co.uk/100-words/day-76
 * _favicon_: https://learndjango.com/tutorials/django-favicon-tutorial
 * _internationalization_: https://testdriven.io/blog/multiple-languages-in-django/
 * _maps_: https://www.paulox.net/2020/12/08/maps-with-django-part-1-geodjango-spatialite-and-leaflet/
-* _Markdown_: https://learndjango.com/tutorials/django-markdown-tutorial
+* _Markdown_: https://learndjango.com/tutorials/django-markdown-tutorial https://github.com/neutronX/django-markdownx
 * _sessions_: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Sessions https://www.youtube.com/watch?v=SMRaHSZiwWE https://eli.thegreenplace.net/2011/06/24/how-django-sessions-work-introduction/ for user anlytics https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/
 
 ## code quality
@@ -975,6 +980,7 @@ TUI admin https://github.com/valberg/django-admin-tui https://github.com/valberg
 
 ---
 
+* import/export https://www.caktusgroup.com/blog/2025/03/17/one-thing-look-out-while-testing-django-import-export/
 * deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge
 
 ## checklist / scaffold
@@ -1101,11 +1107,12 @@ ALTERNATIVES
 * https://www.loopwerk.io/articles/2024/django-vs-flask-vs-fastapi/
 * https://www.david-dahan.com/blog/comparing-fastapi-and-django
 
-htmx https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
+htmx https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack https://djangotv.com/videos/djangocon-us/2024/choosing-wisely-spa-vs-htmx-for-your-next-web-project-with-chris-may/
 https://github.com/CrocoFactory/sensei
 
 https://treypiepmeier.com/words/2024/08/django-is-for-everyone
 https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
+next 20 years https://djangotv.com/videos/unknown/9999/keeping-django-relevant-for-the-next-20-years-thibaud-colas-django-london/
 
 BYO
 * https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://blog.dimitarandreev.com/posts/writing-an-http-router-for-aws-lambda-functions-from-scratch-with-go/

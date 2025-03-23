@@ -40,6 +40,7 @@ POLITICS 🗄️ `denv.md` Nix
 * https://danluu.com/ai-bias/
 * cant take the heat get out of the kitchen https://www.espn.com/nba/story/_/id/42511415/lakers-star-lebron-james-says-taking-social-media-break
 * soft roles https://mastodon.online/@BajoranEngineer/114111617954188295 https://talkingpostgres.com/episodes/why-python-developers-just-use-postgres-with-dawn-wages
+* conferences https://www.scattered-thoughts.net/writing/other-kinds-of-talks/
 
 ---
 
@@ -421,6 +422,7 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 
 ---
 
+* https://blog.bytebytego.com/p/ep155-the-shopify-tech-stack
 https://news.ycombinator.com/item?id=43354115
 Send Byrne/The Diff my updated skill set.
 

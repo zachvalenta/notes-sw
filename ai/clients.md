@@ -145,6 +145,11 @@ def keyboard_interrupt(self):
     self.io.tool_warning("\n\n^C again to exit")
 ```
 
+## Claude Code
+
+https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview
+https://simonwillison.net/2025/Mar/9/steve-yegge/
+
 ## ⚪️ Cursor
 
 * has Vim emulation
@@ -153,6 +158,8 @@ def keyboard_interrupt(self):
 
 ---
 
+you've enabled Codeium extension auth on Github (for VS Code)
+https://news.ycombinator.com/item?id=43340662
 try Cline VS Code extension
 
 Jet Brains is 6 months behind the market https://www.jetbrains.com/junie/
@@ -295,6 +302,7 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 
 ## interchange (MCP)
 
+schemas https://simonwillison.net/2025/Feb/28/llm-schemas/
 https://github.com/crmne/ruby_llm
 https://registerspill.thorstenball.com/p/joy-and-curiosity-30 https://github.com/punkpeye/awesome-mcp-servers
 https://github.com/simonw/llm/releases/tag/0.23

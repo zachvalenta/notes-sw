@@ -322,7 +322,7 @@ SIDENOTE
 ## links
 
 * linkable header https://danilafe.com/blog/blog_microfeatures/
-* preview https://linkpreview.xyz/
+* preview https://linkpreview.xyz/ https://metacheck.appstate.co/
 * link checker https://github.com/lycheeverse/lychee https://bernard.app/
 * underline https://danilafe.com/blog/blog_microfeatures/
 * highlight on hover https://man7.org/linux/man-pages/dir_by_project.html#man-pages--man7
@@ -346,7 +346,7 @@ https://www.openmymind.net/2010/10/26/An-Introduction-To-Hosting/
 * _Netlify_: https://wsvincent.com/site-design/ https://adamwathan.me/uses/
 * _AWS amplify_: https://aws.amazon.com/amplify/
 * _Cloudflare pages_:
-* _Github pages_:
+* _Github pages_: https://simonwillison.net/2025/Mar/18/actions-pages/
 * _Netlify_: https://www.netlify.com/
 * _Render_:
 * _Surge_: https://surge.sh/

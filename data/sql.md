@@ -826,6 +826,7 @@ TOOLS
 * pgroll, squitch https://news.ycombinator.com/item?id=42388973
 * https://github.com/sqldef/sqldef
 * https://github.com/xataio/pgroll
+* https://github.com/sqldef/sqldef/tree/master
 
 DATA
 * _data migration_: DML i.e. change data itself

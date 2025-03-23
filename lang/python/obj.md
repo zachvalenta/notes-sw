@@ -506,7 +506,7 @@ c.crawl()
 
 ---
 
-* way to do interfaces
+* way to do interfaces https://getstream.io/blog/go-structs-interfaces/
 * https://chatgpt.com/c/671815e8-0f44-8004-abb5-be6b52fc8bd1
 * https://godatadriven.com/blog/protocols-in-python-why-you-need-them/
 * https://www.youtube.com/watch?v=xvb5hGLoK0A

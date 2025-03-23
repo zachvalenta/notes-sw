@@ -41,12 +41,13 @@ https://read.engineerscodex.com/p/how-facebook-scaled-memcached
 
 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
 
+* vs. memcached https://blog.bytebytego.com/p/ep155-the-shopify-tech-stack
 * client https://github.com/laixintao/iredis
 * license craziness https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 > I'll be blunt: I don't care for Redis. It is slow, it has fake transactions, and its query syntax is a freakshow. Our experiments at CMU found Dragonfly to have much more impressive performance numbers (even with a single CPU core). In my database course, I use the Redis query language as an example of what not to do. Nevertheless, I am sympathetic to Redis Ltd.'s plight of being overrun by Amazon. However, the company is overestimating the barrier of entry to build a simplistic system like Redis; it is much lower than building a full-featured DBMS (e.g., Postgres), so there are several alternatives to the OG Redis. They are not in position of strength where such posturing will be tolerated by the community. https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 
 * open source alternative Valkey https://www.youtube.com/watch?v=npnagMgbruc
-* another alternative https://news.ycombinator.com/item?id=43379262 https://dicedb.io/
+* another alternative https://news.ycombinator.com/item?id=43379262 reactive https://dicedb.io/
 https://www.openmymind.net/Redis-Is-The-Most-Important-Tool-In-My-Toolbelt/
 https://www.openmymind.net/2011/5/8/Practical-NoSQL-Solving-a-Real-Problem-w-Mongo-Red/
 https://www.openmymind.net/Data-Modeling-In-Redis/
@@ -540,6 +541,7 @@ SEMANTICS
 * _consumer_: read msg from topic
 * read doesn't destroy msg (unlike MQ)
 * can either stream or batch https://kafka.apache.org/intro.html
+* _transactions_: https://www.warpstream.com/blog/kafka-transactions-explained-twice
 
 USAGE
 * as distributed commit log https://news.ycombinator.com/item?id=26644713 📙 Jeffrey distributed [6]

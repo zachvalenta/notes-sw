@@ -252,6 +252,7 @@ The general problem this addresses is maintaining perfect history of state chang
 * `system.md` distributed
 * `sql.md` migrations
 
+* https://github.com/PeerDB-io/peerdb
 * postgres https://github.com/xataio/pgstream https://news.ycombinator.com/item?id=42383136
 * https://github.com/bruin-data/ingestr
 * _replication_: same data on diff nodes 📙 Kleppmann [199] https://news.ycombinator.com/item?id=37066284
@@ -286,6 +287,7 @@ The general problem this addresses is maintaining perfect history of state chang
 * howto https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/ 📙 Conery imposter 343
 * https://stackoverflow.com/questions/20771435/database-sharding-vs-partitioning https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6 https://news.ycombinator.com/item?id=28425379
 * _shard_: node in cluster 📙 Bradshaw [290] https://tomlinford.com/posts/robinhood-sharding-to-scale https://pgdog.dev/blog/you-can-make-postgres-scale
+* Postgres https://github.com/pgdogdev/pgdog
 
 ## version control
 
@@ -640,6 +642,8 @@ wire protocol
 
 * cancel queries https://pert5432.com/post/postgres-query-cancellation
 * binary mgmt? https://github.com/theory/pgenv
+* terabyte scale https://simonwillison.net/2025/Mar/14/merklemap-runs-a-16tb-postgresql/
+* AI https://simonwillison.net/2025/Mar/13/xata-agent/
 
 hosted Neon, pg_cron https://www.youtube.com/watch?v=3JW732GrMdg
 
@@ -649,7 +653,7 @@ https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb
 🏔️ https://github.com/Olshansk/postgres_for_everything
 📚
 * Magda just use postgres https://www.manning.com/books/just-use-postgres
-* Suzuki postgres internals https://www.interdb.jp/pg/
+* Suzuki postgres internals https://www.interdb.jp/pg/ https://djangotv.com/videos/djangocon-us/2024/a-guided-tour-through-postgres-internals-with-elizabeth-garrett-christensen/
 🔗 https://challahscript.com/what_i_wish_someone_told_me_about_postgres
 📜
 * general https://www.postgresql.org/docs/current/index.html

@@ -788,6 +788,7 @@ def obj_args(obj):
 
 ## style
 
+https://seeinglogic.com/posts/visual-readability-patterns/
 📙 Lopes exercises in programming style
 https://seeinglogic.com/posts/visual-readability-patterns/
 

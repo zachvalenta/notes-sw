@@ -96,6 +96,7 @@ https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
 https://github.com/maddalax/htmgo
 https://news.ycombinator.com/item?id=41781457 https://chrisdone.com/posts/htmx-critique/
 * multiple API calls https://amjith.com/blog/2023/multiple_calls_htmx/
+* https://simonwillison.net/2025/Mar/10/building-websites-with-llms/
 
 > It’s worth noting that AI tools are intimately familiar with Next.js and not so much with htmx, due to the lack of open-source training data. This is similar to the issue Rails faces. While not a dealbreaker, it did impact our development speed and the ease of finding solutions to problems. When we encountered issues, the wealth of resources available for React/Next.js made troubleshooting much faster. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
 
@@ -480,7 +481,7 @@ FRAMEWORKS
 * _mpv_: 🎯 https://calmcode.io/shorts/mvp.css
 * _pico_: 🎯 https://picocss.com
 * _Pure_: 🎯 https://purecss.io/
-* _Tailwind_: https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/ for TUIs https://github.com/koaning/tuilwindcss https://calmcode.io/labs/tuilwind-css https://news.ycombinator.com/item?id=42799136
+* _Tailwind_: https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/ for TUIs https://github.com/koaning/tuilwindcss https://calmcode.io/labs/tuilwind-css https://news.ycombinator.com/item?id=42799136 DaisyUI https://github.com/dobicinaitis/tailwind-cli-extra https://github.com/adamghill/awesome-django-admin-themes
 * _water_: ✅ https://github.com/kognise/water.css https://github.com/kognise/water.css/issues/160 
 
 LAYOUT

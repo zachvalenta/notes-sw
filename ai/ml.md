@@ -203,6 +203,7 @@ USAGE https://platform.openai.com/docs/guides/embeddings
 
 ---
 
+https://simonwillison.net/2025/Feb/24/text-embeddings-parquet/
 https://vickiboykis.com/what_are_embeddings/
 > The "magic" that facilitates these types of searches is transformers that convert data into a fixed-length, one-dimensional vector of floating point numbers called an embedding. The values in these embeddings are indecipherable to humans. Instead, their contents encode some relationship between the parameters and the transformer's training corpus. The size of these embedding vectors ranges from 100s of dimensions for simple transformers to 1000s for high-end models. https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 > To do image matching we use nearest neighbor search (or KNN). This works by encoding the catalog of images into embeddings - a tranlsation of the image produced by some pre-trained model, mapping "features" and meaning into a huge numerical representation. When a candidate image comes up from our users, we can convert this one too into embeddings. Then, we run a search for the nearest vector in our catalog and return the closest matches. This method shines because most of the work is done at indexing time, when converting the images. But it also means the system relies on the embedder's quality. https://olup-blog.pages.dev/stories/image-detection-cars

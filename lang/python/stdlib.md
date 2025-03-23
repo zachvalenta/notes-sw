@@ -598,6 +598,7 @@ LIBS
 
 ---
 
+* https://simonwillison.net/2025/Mar/8/cutting-edge-web-scraping/
 * https://news.ycombinator.com/item?id=43285725
 * rotate user agents https://github.com/theonlyanil/stealthkit
 * https://news.ycombinator.com/item?id=42817439 https://lightpanda.io/

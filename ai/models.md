@@ -16,7 +16,7 @@ Simon Prince book https://news.ycombinator.com/item?id=43121059
 https://openai.com/index/introducing-deep-research/ https://x.com/mckaywrigley/status/1886215847481623030 https://x.com/felipe_millon/status/1886205433469178191 https://thezvi.substack.com/p/were-in-deep-research https://x.com/sayashk/status/1887275315824660584 https://www.fromthenew.world/p/openai-deep-research-explains-itself https://x.com/patrickc/status/1888312657146757315 https://stratechery.com/2025/deep-research-and-knowledge-value/
 > OpenAI made a big splash launching ‘Deep Research’, an agent-ish tool within the $200 Pro plan that uses a version of the computationally-intensive (and expensive) o3 ‘reasoning’ model to write research reports, coming back in a few hours when it’s done. As for most generative AI demos, very cool if you have that use case, but you have to be careful - I spotted some large mistakes even in one of the examples on the marketing page (in a field I know a lot about). I always used to compare machine learning to ‘infinite interns’ and now you can ask an AI intern to write a long report about something - but you’ll need to check every line of it, and it probably won’t say anything surprising (since surprising is a divergence from the data). - Ben Evans 25.02.11
 https://news.ycombinator.com/item?id=43236184 https://simonwillison.net/2025/Mar/4/deepsearch-deepresearch/
-vibe coding https://simonwillison.net/2025/Mar/6/vibe-coding/
+vibe coding https://simonwillison.net/2025/Mar/6/vibe-coding/ https://simonwillison.net/2025/Mar/19/vibe-coding/
 
 * _24_: ChatGPT (regex and Polars, then incorporate research) Claude (switch after GPT outage)
 * _23_: few random queries
@@ -194,9 +194,11 @@ start here https://parlance-labs.com/education/ https://applied-llms.org/ https:
 🔍 https://mychaelangelo.github.io/ai_agents_marketmap/
 
 = can go out and use the internet https://x.com/rowancheung/status/1898093008601395380
+> An agent is something that acts in an environment; it does something. https://simonwillison.net/2025/Mar/19/worms-and-dogs-and-countries/
 
 ---
 
+* https://www.youtube.com/watch?v=eHEHE2fpnWQ
 * people define as "can read|update my code"? https://www.youtube.com/watch?v=zIejF3IGtWk
 
 * start using https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/
@@ -329,6 +331,7 @@ https://news.ycombinator.com/item?id=42507116
 * Farooq build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch https://www.alldayta.com/#product-demo
 * Kimothi https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation
 
+* https://github.com/oramasearch/orama
 https://www.youtube.com/watch?v=hB7sGE0W8CI
 https://github.com/gusye1234/nano-graphrag
 with Databricks https://youtube.com/watch?v=p4qpIgj5Zjg
@@ -562,7 +565,7 @@ EXAMPLES
 * `dotfiles/ai/aider/conventions`
 *️ `work.md` industry > Stack Overflow
 * `clients.md` Cursor https://ghuntley.com/stdlib/
-* `ur-repo` prompt workflow https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/ https://llmstxt.org/ https://svelte.dev/llms-small.txt https://simonwillison.net/2025/Mar/11/using-llms-for-code/ claude.md https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials
+* `ur-repo` prompt workflow https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/ https://llmstxt.org/ https://svelte.dev/llms-small.txt https://simonwillison.net/2025/Mar/11/using-llms-for-code/ https://simonwillison.net/2025/Mar/11/using-llms-for-code/ claude.md https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials
 
 ZA
 * ask it to try harder https://simonwillison.net/2025/Jan/3/asking-them-to-write-better-code/

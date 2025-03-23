@@ -328,6 +328,7 @@ PROJECT STRUCTURE
 STDLIB
 * cq/LSP https://github.com/rust-lang/rust-clippy https://github.com/Canop/bacon
 * render Markdown in terminal https://github.com/Canop/termimad
+* _CLI_: https://github.com/nishantjoshi00/shelgon
 * _db_: https://github.com/launchbadge/sqlx
 * _GUI_ https://raphlinus.github.io/rust/gui/2022/07/15/next-dozen-guis.html
 * _TUI_: https://github.com/ratatui-org/ratatui https://github.com/mrjackwills/oxker cursive https://github.com/gyscos/cursive https://github.com/Builditluc/wiki-tui https://github.com/fdehau/tui-rs https://github.com/lusingander/stu

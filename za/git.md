@@ -86,6 +86,7 @@ EVENTS
 
 ---
 
+* https://news.ycombinator.com/item?id=43419701
 * use on AWS https://github.com/CloudSnorkel/cdk-github-runners
 telemetry https://github.com/catchpoint/workflow-telemetry-action/issues/39 https://blog.smidt.dev/posts/0003/
 can manipulate tags, create releases in repo using CLI https://cli.github.com/manual/gh_release
@@ -199,6 +200,7 @@ gh alias list
 ```
 * add a welcome video! https://github.com/grafana/pyroscope
 * use SVG https://github.com/zachvalenta/capp-prod-cat-alt https://github.com/pommee/Pocker
+* use webp https://github.com/zachvalenta/capp-handbook/commit/0e4e94e78f7e4854b4ae4e1437d509dc86384c84
 * use HTML https://github.com/catppuccin/delta/blame/main/README.md
 * "try without installing!" https://zellij.dev/
 * directory tree https://github.com/koaning
@@ -893,8 +895,10 @@ git remote add origin git@github.com:$OWNER/$NAME.git
 git push -u origin main
 ```
 
-* get rid of remote branch that you've deleted
 ```sh
+# rm branch from remote
+push origin --delete $BRANCH
+# get rid of remote branch that you've deleted
 git fetch --prune
 ```
 
@@ -928,7 +932,6 @@ push
 * push to specific remote: `push <remote>`
 * push specific branch: `push <branch>`
 * push specific commit: `push <remote> <hash>:<branch>`
-* rm branch from remote: `push origin --delete <branch_name>`
 * _alias clone_: `clone <url> <alias>` https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 
 ---

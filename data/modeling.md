@@ -14,7 +14,8 @@
 
 ## 进步
 
-https://swizec.com/blog/why-software-only-moves-forward/
+* Use UUID primary keys, Give everything created_at and updated_at, on update restrict on delete restrict, use schemas, enum tables, Mechanically name join tables, Almost always soft delete, Represent statuses as a log https://news.ycombinator.com/item?id=43379764
+* https://swizec.com/blog/why-software-only-moves-forward/
 
 🔍 https://drawsql.app/templates
 * enum > FK
