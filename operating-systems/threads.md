@@ -133,7 +133,7 @@ SEMANTIC CONFUSION
 📍 define 'asynchronous', 'concurrent', 'parallel' https://pythonbytes.fm/episodes/show/161/sloppy-python-can-mean-fast-answers
 * https://realpython.com/python-concurrency/
 https://wyounas.github.io/concurrency/2024/12/12/how-concurrency-works-a-visual-guide/
-start here https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/ threads are evil https://www.sqlite.org/faq.html https://avi.im/blag/2024/s3-log/ https://assets.bitbashing.io/papers/concurrency-primer.pdf https://github.com/mrkline/concurrency-primer
+start here https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/ threads are evil https://www.sqlite.org/faq.html https://avi.im/blag/2024/s3-log/ https://assets.bitbashing.io/papers/concurrency-primer.pdf https://github.com/mrkline/concurrency-primer Golang https://www.youtube.com/watch?v=f9IrbW13C_c
 
 https://anishathalye.com/testing-distributed-systems-for-linearizability/ https://github.com/anishathalye/porcupine
 
@@ -148,7 +148,7 @@ what is a rendering engine? https://github.com/volfpeter/htmy
 https://jacko.io/async_intro.html
 https://threedots.tech/post/go-test-parallelism/
 
-* MVCC https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html
+* MVCC https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html postgres https://medium.com/@rohanjnr44/internals-of-mvcc-in-postgres-hidden-costs-of-updates-vs-inserts-381eadd35844
 * async IO https://registerspill.thorstenball.com/p/joy-and-curiosity-7
 * _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
 * clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep
@@ -258,6 +258,7 @@ BYO event loop https://www.youtube.com/watch?v=8I9Rc2Zaos4
 
 ---
 
+* https://github.com/becheran/roumon
 * _goroutine_: thread but... https://github.com/uber-go/goleak
 scheduled by Go runtime instead of OS
 * 2KB vs. 1MB for OS thread [ibid @ 1:10]

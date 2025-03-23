@@ -17,6 +17,7 @@ APPLICATIONS
 * Jha fight fraud https://www.manning.com/books/fight-fraud-with-machine-learning
 * Raschka build LLM from scratch https://www.manning.com/books/build-a-large-language-model-from-scratch
 * Ruiz de Villa casual inference https://www.manning.com/books/causal-inference-for-data-science
+* Xu https://www.amazon.com/gp/product/1736049127
 
 FUNDAMENTALS
 * ⭐️ https://anfalmushtaq.com/articles/deep-dive-into-llms-like-chatgpt-tldr
@@ -203,6 +204,7 @@ USAGE https://platform.openai.com/docs/guides/embeddings
 
 ---
 
+https://simonwillison.net/2025/Feb/24/text-embeddings-parquet/
 https://vickiboykis.com/what_are_embeddings/
 > The "magic" that facilitates these types of searches is transformers that convert data into a fixed-length, one-dimensional vector of floating point numbers called an embedding. The values in these embeddings are indecipherable to humans. Instead, their contents encode some relationship between the parameters and the transformer's training corpus. The size of these embedding vectors ranges from 100s of dimensions for simple transformers to 1000s for high-end models. https://www.cs.cmu.edu/~pavlo/blog/2024/01/2023-databases-retrospective.html
 > To do image matching we use nearest neighbor search (or KNN). This works by encoding the catalog of images into embeddings - a tranlsation of the image produced by some pre-trained model, mapping "features" and meaning into a huge numerical representation. When a candidate image comes up from our users, we can convert this one too into embeddings. Then, we run a search for the nearest vector in our catalog and return the closest matches. This method shines because most of the work is done at indexing time, when converting the images. But it also means the system relies on the embedder's quality. https://olup-blog.pages.dev/stories/image-detection-cars
@@ -264,6 +266,7 @@ TYPES
 
 ---
 
+* in Postgres https://www.cybertec-postgresql.com/en/semantic-search-in-postgresql-an-overview/
 * word2vec, byte-pair encoding, LSTM https://arpit.substack.com/p/how-zomato-improved-its-search-using https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm * _Word2Vec_: vector db https://www.youtube.com/watch?v=a8Oz6Mz8pk0
 https://realpython.com/chromadb-vector-database/
 
@@ -310,7 +313,7 @@ https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * _k-nearest neighbors_: taxonomize based on proximate elements i.e. those that have similar attributes
 * form of supervised learning https://stats.stackexchange.com/a/56504
 * used for recommendation system, regression, OCR 📙 Bhargava [186,195,196]
-* recommendation systems https://github.com/gorse-io/gorse
+* recommendation systems https://github.com/gorse-io/gorse https://eugeneyan.com/writing/recsys-llm/
 * https://philippmuens.com/k-nearest-neighbors-from-scratch/
 * https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
 * https://realpython.com/courses/knn-python/
@@ -595,6 +598,7 @@ dot([1,2,3], [4,5,6])
 ## pytorch
 
 BYO https://github.com/Om-Alve/smolGPT
+internals https://blog.ezyang.com/2019/05/pytorch-internals/
 
 ## scikit
 
@@ -734,7 +738,7 @@ https://stratechery.com/2023/ai-and-the-big-five/
 * https://explainextended.com/2023/12/31/happy-new-year-15/ https://news.ycombinator.com/item?id=40378499
 * https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math
 
-* legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html https://simonwillison.net/2024/Dec/5/amazon-bedrock-data-protection/ https://simonwillison.net/2024/Dec/5/pleias-llms/ https://marginalrevolution.com/marginalrevolution/2024/12/thomas-storrs-on-elastic-data-supply-from-my-email.html https://www.tosabout.com/ https://news.ycombinator.com/item?id=42725147 https://sourcehut.org/blog/2025-03-07-whats-cooking-q1-25/
+* legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html https://simonwillison.net/2024/Dec/5/amazon-bedrock-data-protection/ https://simonwillison.net/2024/Dec/5/pleias-llms/ https://marginalrevolution.com/marginalrevolution/2024/12/thomas-storrs-on-elastic-data-supply-from-my-email.html https://www.tosabout.com/ https://news.ycombinator.com/item?id=42725147 https://sourcehut.org/blog/2025-03-07-whats-cooking-q1-25/ https://theaiunderwriter.substack.com/p/an-image-of-an-archeologist-adventurer
 * contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
 * price per token https://x.com/drorpoleg/status/1847686346078368006
 * tokens, read whole thing

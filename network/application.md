@@ -47,6 +47,7 @@ START HERE
 * TTL https://news.ycombinator.com/item?id=26620730 https://calpaterson.com/ttl-hell.html
 * https://www.roguelynn.com/words/spotifys-love-hate-relationship-with-dns/
 * https://softwareengineeringdaily.com/2017/06/06/dns-with-phil-stanhope/
+* Docker https://news.ycombinator.com/item?id=43451861
 
 ## packets
 
@@ -152,6 +153,7 @@ GENERATORS
 
 ---
 
+https://github.com/pirxthepilot/wtfis
 * aaS https://news.ycombinator.com/item?id=34485815
 * https://github.com/trimstray/the-book-of-secret-knowledge?tab=readme-ov-file#domain-resolve
 * https://github.com/trimstray/the-book-of-secret-knowledge#black_small_square-network-dns
@@ -319,6 +321,7 @@ https://github.com/valberg/django-sse
 
 ---
 
+* reactive db https://dicedb.io/
 https://hpbn.co/websocket/
 https://news.ycombinator.com/item?id=42600276
 
@@ -342,7 +345,7 @@ Persistent Connections: They maintain a connection (long-lived or otherwise) to 
 Event-Driven Architecture: Servers send updates as events occur, which clients can handle asynchronously.
 ```
 
-* _server-sent events_: 
+* _server-sent events_: https://testdriven.io/blog/fastapi-svelte/
 > Server-Sent Events (SSE) is a web technology that enables a server to push real-time updates to a browser over an HTTP connection. Unlike WebSockets, SSE is unidirectional, meaning the communication flows from the server to the client only. This makes it ideal for applications where the client needs to receive updates from the server in real time, such as live news feeds, stock price updates, or notifications.
 ```txt
 Simplicity: Easy to implement with existing HTTP infrastructure.
@@ -494,6 +497,7 @@ process https://help.ubuntu.com/community/SSH/OpenSSH/Keys
 
 ---
 
+* https://tusharf5.com/posts/ssl-certificates-for-the-rest-of-us/
 * https://www.youtube.com/watch?v=j9QmMEWmcfo
 https://questions.wizardzines.com/tls-certificates.html
 https://www.netmeister.org/whatsthatcert
@@ -619,6 +623,32 @@ WWW
 * _clear web_: accessible to web crawlers; 4% of WWW
 * _deep web_: not accessible to web crawlers; 90% of WWW
 * _dark web_: accessible to TOR browser; 6% of WWW
+
+
+## IRC
+
+🗄️ `media.md` chat
+
+---
+
+https://en.wikipedia.org/wiki/IRC
+* _senpai_: https://git.sr.ht/~delthas/senpai/
+* _ergo_: https://news.ycombinator.com/item?id=42447071
+* https://github.com/squidowl/halloy
+* _libera.chat_: https://taskwarrior.org/docs/help/
+https://drewdevault.com/2021/03/29/The-worlds-dumbest-IRC-bot.html
+https://webchat.freenode.net/#sr.ht
+https://sr.ht/~delthas/senpai/
+* channels https://news.ycombinator.com/item?id=7161436
+* clients: irssi https://weechat.org/ Textual
+* _connect_: /connect irc.freenode.net
+* _login_: /nick <urNick>
+* [validate](https://superuser.com/a/322897)
+* _join channel_: /join #pocoo
+* _quit_: /quit
+* _ignore noise_: /ignore -channels #<channel> * JOINS PARTS QUITS NICKS
+* _grep_: /lastlog <query> <occurences>
+* _save log_: /lastlog -file <pathAndFileToBeCreated>
 
 ## NTP
 

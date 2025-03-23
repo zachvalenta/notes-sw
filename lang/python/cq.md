@@ -153,6 +153,7 @@ https://talkpython.fm/episodes/show/287/testing-without-dependencies-mocking-in-
 
 ## pytest
 
+📙 Okken https://www.amazon.com/gp/product/1680508601
 📜 https://docs.pytest.org/en/latest/contents.html#toc
 
 PLUGINS
@@ -161,6 +162,7 @@ PLUGINS
 * port ward output to pytest https://github.com/darrenburns/ward/blob/master/ward/_terminal.py https://docs.pytest.org/en/7.1.x/how-to/writing_plugins.html#writing-your-own-plugin https://github.com/nicoddemus/pytest-rich/tree/main
 * failure https://mathspp.com/blog/til/pytest-selection-arguments-for-failing-tests
 * Markdown output https://testandcode.com/episodes/markdown-reports-pytest-md-pytest-md-report
+* dump https://github.com/gaogaotiantian/coredumpy
 * _pluggy_: framework for write plugins https://ward.readthedocs.io/en/latest/guide/plugins.html https://pluggy.readthedocs.io/en/latest/
 
 STDOUT
@@ -364,7 +366,7 @@ self.assertEqual(x.exception.code, 1)
 
 SECURITY
 * _safety_: https://calmcode.io/shorts/safety.py
-* _bandit_: https://github.com/PyCQA/bandit
+* _bandit_: https://github.com/PyCQA/bandit https://github.com/fetter-io/fetter-rs
 * https://pyup.io/ (uses same vulnerability db as pipenv)
 * _pysa_ https://github.com/facebook/pyre-check https://news.ycombinator.com/item?id=24083432
 * https://github.com/DataDog/guarddog

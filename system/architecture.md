@@ -13,10 +13,10 @@
 📚
 * Buelta python architecture
 * Ford fundamentals of software architecture
-* Ford evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237 https://www.amazon.com/gp/product/1492086894/ref=ox_sc_saved_image_10
+* Ford/Sadalage evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237 https://www.amazon.com/gp/product/1492086894/ref=ox_sc_saved_image_10
+* Martin clean architecture
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
-* Tan acing the interview https://www.manning.com/books/acing-the-system-design-interview
-* ⭐️ Xu system design interview https://www.manning.com/books/acing-the-system-design-interview
+* ⭐️ Xu system design interview https://www.manning.com/books/acing-the-system-design-interview https://www.amazon.com/gp/product/1736049119
 
 ## 进步
 
@@ -161,13 +161,6 @@ COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtim
 * _service_: 1/n nodes providing API https://leanpub.com/systemdesignmanual/read_sample
 * _elastic_: scales automatically with load 📙 Kleppmann [17]
 
-* _SOLID_: https://www.youtube.com/watch?v=ywDxJbULcdM
-* layered architecture https://blog.europython.eu/kraken-technologies-how-we-organize-our-very-large-pythonmonolith/
-> As a general rule of thumb, each layer uses the directly underlying layer to access and interact with the data. As an example, the commands package will not directly use the bug or repository package. It will request the data from the cache layer and go from there. Of course, the commands package will ultimately use types defined in the lower level package like Bug, but retrieving and changing the data has to go through the cache layer to ensure that bugs are properly deduplicated in memory. https://github.com/git-bug/git-bug
-* modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
-> A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
-* beware theologians https://news.ycombinator.com/item?id=26492798
-* _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749 https://www.youtube.com/watch?v=I5c7fBgvkNY
 * _resiliency_: perform job through failure https://leanpub.com/systemdesignmanual/read_sample
 * Lisp, database inside codebase https://news.ycombinator.com/item?id=26160186 https://feifan.blog/posts/the-database-inside-your-codebase
 * _kill switch_: force upgrade mobile app https://simonwillison.net/2021/Jul/1/pagnis/
@@ -175,7 +168,6 @@ COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtim
 * _circuit breaker_: error handling https://github.com/Netflix/Hystrix/wiki/How-it-Works https://www.gremlin.com/chaos-monkey/ https://pypi.org/project/circuitbreaker/ https://sirupsen.com/napkin/problem-11-circuit-breakers
 * e.g. downstream call fails, return empty list instead of 404 and poll downstream, have limits on resources devoted to downstream
 * avoid fault in one part of a system taking down the system
-* _coupling_: one change necessitates another
 * _horizontal scaling_: aka shared-nothing architecture [Kleppmann 17] https://buttondown.com/hillelwayne/archive/are-efficiency-and-horizontal-scalability-at-odds/
 * _multitenant_: multiple customer users https://www.saaspegasus.com/
 > Sharding a multitenant application: a SaaS/B2B style app, where data is never joined between customers https://www.crunchydata.com/blog/citus-the-misunderstood-postgres-extension
@@ -196,59 +188,6 @@ COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtim
 * _n db_:
 * _things that can go wrong_: runaway process (consuming too much memory) [8] unresponsive downstream service [9] operator error [9]
 * _how to prevent things going wrong_: testing https://danluu.com/why-benchmark/ easy rollback, monitoring
-
-## maintainable
-
-* _maintainability_: other devs able to work on system
-> it is well know that the majority of the cost of software is not in its intial development, but its ongoing maintenance 📙 Kleppmann [18] https://www.jefftk.com/p/designing-low-upkeep-software
-* _evolvability_: ability to change different parts of system independently [Kleppmann 4.128]
-
----
-
-SINGLE SERVER https://alexanderpetros.com/web-services
-* Many web services experience traffic loads that can be handled by a single server
-* Many web services have requirements that can be met with HTML and little to no JavaScript
-* Many people believe, incorrectly, that (1) or (2) does not apply to their web service
-* A web service that adheres to (1) and (2) is orders of magnitude cheaper to maintain than one which does not, and often provides a better user experience
-
-SKETCHING
-> In the intersection of the hardware and software industry, we just continuously run into [patterns like this]. A lot of things are defined by finding some process that works, scaling it up 10x and then it breaking in ways that you did not realize things could break. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
-
-KISS
-* https://github.com/Olshansk/postgres_for_everything
-* hidden control flow, PHP vs. Zig https://news.ycombinator.com/item?id=42203084
-* _clarity_: above all bc we're bulding information systems 📻 DHH (STT) https://www.youtube.com/watch?v=9LfmrkyP81M
-> And it's not only high performance hardware and software that's complex. Some domains are just really complicated. The tax code is 73k pages long. It's just not possible to reason effectively about something that complicated, and there are plenty of things that are that complicated. https://danluu.com/tests-v-reason/
-> I used to tolerate and expect complexity. Working on Go the past 10 years has changed my perspective, though. I now value simplicity above almost all else and tolerate complexity only when it's well isolated, well documented, well tested, and necessary to make things simpler overall at other layers for most people. - Brad Fitzpatrick (Go team member 2010-2020) https://golangweekly.com/issues/533
-
----
-
-> "Bad engineering" in adhoc ways tends to mean new ideas are being explored. Sophisticated deployments, logistics, procedures, tends to mean you're optimizing or extending existing system. That's not to disparage the latter. making things work at scale is hard engineering. But when people praise the glory days, it may be a preference for working on new ideas in small projects. https://news.ycombinator.com/item?id=41278907
-
-* boring technology https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
-* aka transitional architecture https://www.thoughtworks.com/radar/techniques?blipid=202203071
-> But the cultural tides are strong. Building a company on Django in 2020 seems like the equivalent of driving a PT Cruiser and blasting Faith Hill’s “Breathe” on a CD while your friends are listening to The Weeknd in their Teslas. Swimming against this current isn’t easy, and not in a trendy contrarian way. https://macwright.com/2020/05/10/spa-fatigue.html
-* https://martinfowler.com/bliki/Yagni.html https://www.jefftk.com/p/designing-low-upkeep-software
-* https://thorstenball.com/blog/2020/09/15/the-context-in-which-we-build-software/
-* https://news.ycombinator.com/item?id=26071906
-* boring tech has well-understood failure modes https://news.ycombinator.com/item?id=23444594 https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
-* https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
-* https://josephg.com/blog/databases-have-failed-the-web/
-* https://twitter.com/b0rk/status/1229860328139296768
-* https://wizardzines.com/about/
-* https://blog.cerebralab.com/Imaginary_Problems_Are_the_Root_of_Bad_Software https://blog.cerebralab.com/Stop_future_proofing_software
-* https://blog.cerebralab.com/Bimodal_programming_%E2%80%93_why_design_patterns_fail
-* https://www.benkuhn.net/progessays/
-* one dev's edge cases are another's entire project 📙 Kleppmann 491
-* listen to Knuth -> fast code matters less than you think https://www.youtube.com/watch?v=PhUb7y9WZGs
-> We should forget about small efficiencies, say about 97% of the time; premature optimization is the root of all evil. - Donald Knuth
-> To be attractive to hackers, a language must be good for writing the kinds of programs they want to write. And that means, perhaps surprisingly, that it has to be good for writing throwaway programs. - http://paulgraham.com/popular.html
-* don't cargo cult 'best practices'
-> Sophisticated design principles can make your code faster, more flexible, more modular, and all of the other positive adjectives that people use to describe high-quality software. But they also make it more complex. `AbstractSyntaxRenderers` and `DoubleBackflipDatabaseTransmogrophiers` do make some programs clearer and easier to understand, especially large ones. But they can also be the equivalent of using a metrics-oriented, fully agile, stakeholder-prioritized development flow for working on a jigsaw puzzle with your dad. Sure you’re following best practices, but you probably didn’t need to, and now your dad thinks you’re a Scientologist. - https://robertheaton.com/2018/12/02/programming-project-5-snake/
-* wait for shared concerns to emerge -> repeat yourself until you find the right abstraction https://programmingisterrible.com/post/176657481103/repeat-yourself-do-more-than-one-thing-and
-> There seemed to be a tendency to extract tiny packages first instead of waiting for a shared concern to emerge from the code and only then extracting a package. https://commandercoriander.net/blog/2017/12/31/writing-go/
-> The problem with always using an abstraction is that you’re preemptively guessing which parts of the codebase need to change together. “Don’t Repeat Yourself” will lead to a rigid, tightly coupled mess of code. Repeating yourself is the best way to discover which abstractions, if any, you actually need.
-> Beware of arguments related to programming speed. All things being equal, faster is better. But all things are never equal. Do you need the kind of speed that lets you get a website up and running quickly? Or the kind that allows you to rotate a few thousand polygons in 3D in real time? Do you need to convert 10,000 PDFs into text per hour? Or 10 million PDFs into text once? These are different problems. - Ford what is code?
 
 ## scalable
 
@@ -317,10 +256,6 @@ WALKTHROUGHS
 > With computing, there have been a couple different cases of scaling breakthroughs. One of them was the discovery of the vacuum tube, where you actually have a device that can do fairly simple logical operations such that you can implement it in a machine. Then we ran into this problem of, the vacuum tubes are mechanical, they do break, and so the bigger your machine, the more likely it is that it breaks; the more complicated your algorithm is, the more likely it is that something breaks down. So you have one of those dynamics where you're scaling your inputs a lot faster than you're scaling your outputs and you're doing things less and less efficiently over time. Then transistors do not actually have moving parts, so they don't have that particular problem – but they run into their own scaling obstacle. It's really fun to read about the early days of this: one of the books that I cite in Boom has an excerpt from, not Scientific American but a magazine of that type in the 50s, where it's speculating that perhaps in the future computers could be the size of a small house, and that's how much we could shrink them. But people ran into this problem with transistors, where the more of them that you connect – and you need all of them to be connected and working for that particular cluster of them to do anything useful – the more of them you connect, the more likely it is that you have one little issue somewhere that makes the whole thing not work. Then it turned out that there was a way around that too, which is that you don't actually plug together individual discrete devices, you actually etch the entire set of connections chemically, and now with many other things – but yeah, you etch it, a one shot [process] where you create one solid thing. That turned out to be a much more scalable architecture. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
 
 ---
-
-INSTAGRAM https://minds.md/zakirullin/cognitive
-* you need an editor
-> Involve junior developers in architecture reviews. They will help you to identify the mentally demanding areas. https://read.engineerscodex.com/p/how-instagram-scaled-to-14-million
 
 * _bikeshedding_: aka yak shaving https://jsonapi.org/ http://bikeshed.org/ https://drewdevault.com/2020/08/17/Engineers-solve-problems.html
 > Some applications where you would consider ditching Django to shave off some latency are: a stock trading marketplace; an global online advertisement serving network; a low level infrastructure control API - https://mattsegal.dev/is-django-too-slow.html
@@ -409,6 +344,7 @@ File.open("samplelog.txt").each_line do |l|
   stats = add_message_to_stats(message, stats)
 end
 ```
+
 # ➖ SERVERLESS
 
 * types: FaaS (Lambda) cloud SQL (BigQuery) ITTT (Zapier) msg (Twilio)
@@ -462,6 +398,7 @@ DESIGN
 
 https://www.hytradboi.com/2025/a541f208-967a-4286-aa92-7d9dc0a46211-pghttp-backend-free-lowest-latency-web-apps
 https://github.com/pramsey/pgsql-http
+* https://news.ycombinator.com/item?id=43631822 https://github.com/ClockworkLabs/SpacetimeDB
 
 ## jamstack
 
@@ -480,6 +417,8 @@ https://github.com/pramsey/pgsql-http
 * Taschen history of information graphics https://www.amazon.com/dp/3836567679
 
 ## 🔵 d2
+
+https://docs.mermaidchart.com/blog/posts/mermaid-chart-vs-code-plugin-create-and-edit-mermaid-js-diagrams-in-visual-studio-code
 
 📜 https://d2lang.com/ https://github.com/terrastruct/d2
 💻 ERD https://github.com/zachvalenta/capp-datalab
@@ -579,42 +518,6 @@ https://github.com/jncraton/box-line-text
 
 # 🏮 AUDIT TRAIL
 
-## scaffold
-
-https://github.com/rberenguel/motllo
-https://mostlymaths.net/2024/11/test-driven-writing.html/
-
----
-
-🛠️ https://github.com/zachvalenta/ur-repo https://github.com/zachvalenta/create-python-app
-> turn this into a template repo? 🗄️ `git.md` Github > repos
-🗄️
-* `git.md` commmit
-* `linux.md` man pages
-
-```sh
-├── meta
-│   └── README.md  # symlink from root
-│   └── pyproject.toml
-│   └── settings  # https://stackoverflow.com/questions/50090341/is-there-a-naming-convention-for-django-project-configuration-directory https://stackoverflow.com/q/50090341
-```
-
-MESSY PROJECT ROOT = `$PROJ/meta` 🗄️ `python/pkg.md` project structure
-* `README`
-* `LICENSE`
-* `Makefile`
-* `.gitignore`
-* `SECURITY.md`
-* `CONTRIBUTING.md`
-
----
-
-* copier, cookiecutter https://github.com/zillow/battenberg
-* `kanban.md` https://github.com/frechdaggs/csvfloorsketcher
-* https://karmanivero.us/blog/turning-the-crank-design-as-a-mechanical-process/
-* https://karmanivero.us/toolkits/project-governance/design-as-code-a-frictionless-low-level-design-pipeline/
-* comments https://drewdevault.com/2023/03/09/2023-03-09-Comment-or-no-comment.html
-
 ## ADR
 
 ---
@@ -671,3 +574,39 @@ MESSY PROJECT ROOT = `$PROJ/meta` 🗄️ `python/pkg.md` project structure
 * https://github.com/tc39
 * https://github.com/GothenburgBitFactory/taskwarrior/tree/develop/doc/devel/rfcs
 > At a dinner for MIT alumni in 1993 or so, I heard Vint Cerf give a presentation that included some slides on how the Internet was governed. He said that when an issue arose, a committee of engineers would form. They would write up a proposed solution and put it out as a Request for Comment. The RFCs, once stabilized, would be implemented. Then the committee would go away. I was captivated by this. Instead of a perpetual government agency to manage a problem, you would have a temporary organization to solve the problem. How clever! https://arnoldkling.substack.com/p/my-social-journey-toward-the-right
+
+## scaffold
+
+https://github.com/rberenguel/motllo
+https://mostlymaths.net/2024/11/test-driven-writing.html/
+
+---
+
+🛠️ https://github.com/zachvalenta/ur-repo https://github.com/zachvalenta/create-python-app
+> turn this into a template repo? 🗄️ `git.md` Github > repos
+🗄️
+* `git.md` commmit
+* `linux.md` man pages
+
+```sh
+├── meta
+│   └── README.md  # symlink from root
+│   └── pyproject.toml
+│   └── settings  # https://stackoverflow.com/questions/50090341/is-there-a-naming-convention-for-django-project-configuration-directory https://stackoverflow.com/q/50090341
+```
+
+MESSY PROJECT ROOT = `$PROJ/meta` 🗄️ `python/pkg.md` project structure
+* `README`
+* `LICENSE`
+* `Makefile`
+* `.gitignore`
+* `SECURITY.md`
+* `CONTRIBUTING.md`
+
+---
+
+* copier, cookiecutter https://github.com/zillow/battenberg
+* `kanban.md` https://github.com/frechdaggs/csvfloorsketcher
+* https://karmanivero.us/blog/turning-the-crank-design-as-a-mechanical-process/
+* https://karmanivero.us/toolkits/project-governance/design-as-code-a-frictionless-low-level-design-pipeline/
+* comments https://drewdevault.com/2023/03/09/2023-03-09-Comment-or-no-comment.html

@@ -11,7 +11,6 @@
 * Evans http https://www.youtube.com/watch?v=91OKnEIFyGs
 * Gourley http
 * Haverbeke eloquent javascript https://eloquentjavascript.net/18_http.html
-* Hafner where wizards stay up late
 * Kozeriok tcp-ip guide (ch. 79-84)
 
 ## 进步
@@ -453,6 +452,7 @@ approaches
 * _stateful_: hash used to lookup info about user server-side https://drewdevault.com/2020/06/21/BARE-message-encoding.html the token store become SPoF https://www.jbspeakr.cc/purpose-jwt-stateless-authentication/
 
 JWT
+* identity tokens https://www.permit.io/blog/identity-tokens-best-practices
 * _JWT_: JSON obj holds claims; RFC 7519
 * _claim_: key in dict https://auth0.com/docs/tokens/json-web-tokens/json-web-token-claims https://softwareengineering.stackexchange.com/a/350094/322090
 * _JWS_: thing signing JWT https://stackoverflow.com/a/27642457

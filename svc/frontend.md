@@ -28,7 +28,7 @@ TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-develop
 * _HTML-only_: htmx
 * _jQuery-esque_: https://arp242.net/jquery.html Alpine https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/htmx-alpine/#building-interactive-interfaces-in-your-django-pages-with-alpinejs https://news.ycombinator.com/item?id=36697366 https://news.ycombinator.com/item?id=39580843 https://drewdevault.com/2013/08/19/You-dont-need-jQuery.html alpine with htmx https://www.youtube.com/watch?v=vLB7r8neQvE
 * _React-esque_: Vue, Angular, Remix https://remix.run/
-* _React-lite_: Mithril https://mithril.js.org https://news.ycombinator.com/item?id=24368689 Svelte https://svelte.dev/ https://news.ycombinator.com/item?id=24363261
+* _React-lite_: Mithril https://mithril.js.org https://news.ycombinator.com/item?id=24368689 Svelte https://svelte.dev/ https://news.ycombinator.com/item?id=24363261 https://testdriven.io/blog/fastapi-svelte/ Neujs https://news.ycombinator.com/item?id=43543241
 * _full-stack_: Next, Redwood, sock-puppet, Remix https://macwright.com/2020/10/28/if-not-spas.html https://www.youtube.com/watch?v=hHWgGfZpk00
 * _server side state_: do everything from the server w/ websockets https://macwright.com/2020/10/28/if-not-spas.html
 > They [McMaster Carr] are server rendering all of their HTML...the server is very good at rendering HTML. https://www.youtube.com/watch?v=-Ln-8QM8KhQ
@@ -83,6 +83,8 @@ taxonomy
 
 ---
 
+https://news.ycombinator.com/item?id=43619581
+https://www.valentinog.com/blog/htmx-snippets/
 * _fastHTML_: https://github.com/AnswerDotAI/fasthtml https://simn.fr/posts/dicthing-django-admin-for-fasthtml https://www.youtube.com/watch?v=4En57Zw6gU4 https://github.com/koaning/mohtml HotWire, LiveView https://fastht.ml/docs/#other-languages-and-related-projects
 
  https://fluxsec.red/how-I-developed-a-markdown-blog-with-go-and-HTMX
@@ -96,6 +98,7 @@ https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
 https://github.com/maddalax/htmgo
 https://news.ycombinator.com/item?id=41781457 https://chrisdone.com/posts/htmx-critique/
 * multiple API calls https://amjith.com/blog/2023/multiple_calls_htmx/
+* https://simonwillison.net/2025/Mar/10/building-websites-with-llms/
 
 > It’s worth noting that AI tools are intimately familiar with Next.js and not so much with htmx, due to the lack of open-source training data. This is similar to the issue Rails faces. While not a dealbreaker, it did impact our development speed and the ease of finding solutions to problems. When we encountered issues, the wealth of resources available for React/Next.js made troubleshooting much faster. https://htmx.org/essays/why-gumroad-didnt-choose-htmx/
 
@@ -146,6 +149,7 @@ replace your React https://htmx.org/essays/a-real-world-react-to-htmx-port/
 📙 https://www.amazon.com/Road-learn-React-pragmatic-React-js/dp/172004399X/
 https://roadmap.sh/react
 
+* too heavy https://news.ycombinator.com/item?id=43543241
 * _Next_: framework https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
 * just a bit, Parcel https://mkaz.blog/code/add-react-to-existing-page
 * solid.js https://typeofnan.dev/solid-js-feels-like-what-i-always-wanted-react-to-be/ https://github.com/solidjs/solid
@@ -366,7 +370,7 @@ which npm    # /Users/zvalenta/.config/nvm/versions/node/v22.13.1/bin/npm
 * _polyfill_: replacement for Web API
 * _sourcemap_: map from minified code to source for purpose of debugging
 * _tree shaking_: remove dead code
-* _WebRTC_: browser-to-browser communication (for high-speed A/V) e.g. Facetime https://hpbn.co/webrtc/ https://pragprog.com/titles/ksrtc/programming-webrtc/
+* _WebRTC_: browser-to-browser communication (for high-speed A/V) e.g. Facetime https://hpbn.co/webrtc/ https://pragprog.com/titles/ksrtc/programming-webrtc/ https://webrtcforthecurious.com/ https://news.ycombinator.com/item?id=43648713
 * _Webpack_: creates bundle (all libs in single file); preceded by Browserify, succeeded by Snowpack
 * editors: Code Mirror, Monaco (what repl.it used before Code Mirror)
 
@@ -479,8 +483,8 @@ FRAMEWORKS
 * _Magick_: sidenotes https://css.winterveil.net/
 * _mpv_: 🎯 https://calmcode.io/shorts/mvp.css
 * _pico_: 🎯 https://picocss.com
-* _Pure_: 🎯 https://purecss.io/
-* _Tailwind_: https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/ for TUIs https://github.com/koaning/tuilwindcss https://calmcode.io/labs/tuilwind-css https://news.ycombinator.com/item?id=42799136
+* _Pure_: 🎯 https://purecss.io/ https://github.com/globophobe/django-semantic-admin
+* _Tailwind_: https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/ for TUIs https://github.com/koaning/tuilwindcss https://calmcode.io/labs/tuilwind-css https://news.ycombinator.com/item?id=42799136 DaisyUI https://github.com/dobicinaitis/tailwind-cli-extra https://github.com/adamghill/awesome-django-admin-themes
 * _water_: ✅ https://github.com/kognise/water.css https://github.com/kognise/water.css/issues/160 
 
 LAYOUT

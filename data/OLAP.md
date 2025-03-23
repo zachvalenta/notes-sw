@@ -71,7 +71,9 @@ ROLES
 # 🦆 DUCKDB
 
 📜 https://duckdb.org/docs/
-📙 Needham https://www.manning.com/books/duckdb-in-action
+📚
+* Needham https://www.manning.com/books/duckdb-in-action
+* https://realpython.com/python-duckdb/ https://www.amazon.com/DuckDB-Running-Fast-Analytics-Reporting-ebook/dp/B0DPNMF2ZX
 
 SETUP
 * install: Homebrew
@@ -375,8 +377,13 @@ SANITIZATION https://codex.wordpress.org/Validating_Sanitizing_and_Escaping_User
 
 ## 🐠 DBT
 
-* _DBT_: ⭐️ tool for transforms https://www.youtube.com/watch?v=l48zwwRSGeA 6:15 https://www.youtube.com/watch?v=O-tyUOQccSs
-* Piperider https://github.com/InfuseAI/piperider https://www.youtube.com/watch?v=03MyOkIo8Hg
+📜 https://github.com/dbt-labs/dbt-core
+
+= tool for transforms https://www.youtube.com/watch?v=l48zwwRSGeA [6:15]
+
+---
+
+* Piperider https://github.com/InfuseAI/piperider https://www.youtube.com/watch?v=03MyOkIo8Hg https://www.youtube.com/watch?v=O-tyUOQccSs
 * workflow https://www.youtube.com/watch?v=qqlbYDfqeI4 11:00-11:15
 * for unstructured https://news.ycombinator.com/item?id=42043948
 * plain text vs. crappy GUI tools for analysts https://www.youtube.com/watch?v=M8oi7nSaWps 5:45 https://www.youtube.com/watch?v=qqlbYDfqeI4 9:40
@@ -520,6 +527,10 @@ ALTERNATIVES
 
 * used by Logfire, no indexes https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
 
+## Graft
+
+https://simonwillison.net/2025/Apr/8/stop-syncing-everything/
+
 ## ⦊ Presto
 
 ---
@@ -553,7 +564,6 @@ https://karenjex.blogspot.com/2024/09/optimising-your-database-for-analytics.htm
 
 > Some high level context for those less familiar with the Lakehouse storage system space. For various reasons, several companies moved from data warehouses to data lakes starting around 7-10 years ago. Data lakes are better for ML / AI workloads, cheaper, more flexible, and separate compute from storage. With a data warehouse, you need to share compute with other users. With data lakes you can attach an arbitrary number of computational clusters to the data. Data lakes were limited in many regards. They were easily corrupted (no schema enforcement), required slow file listings when reading data, and didn't support ACID transactions. https://news.ycombinator.com/item?id=34345408
 * https://news.ycombinator.com/item?id=34342190
-* https://www.databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html
 
 ## 🔵 Bemi
 
@@ -573,6 +583,7 @@ https://www.crunchydata.com/blog/incremental-archival-from-postgres-to-parquet-f
 
 ---
 
+https://rtabench.com/
 ```txt
 Leaving the embedded database sphere, but sticking with the analytics theme, we come to ClickHouse. If I had to only pick two databases to deal with, I’d be quite happy with just Postgres and ClickHouse - the former for OLTP, the latter for OLAP.
 
@@ -587,6 +598,14 @@ Spend a week exploring some larger analytics datasets, or converting some of the
 * https://news.ycombinator.com/item?id=42146782
 * https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html https://tech.marksblogg.com/billion-nyc-taxi-rides-clickhouse-cluster.html https://github.com/azat/chdig https://posthog.com/handbook/engineering/clickhouse https://clickhouse.com/docs/en/operations/utilities/clickhouse-local/ https://news.ycombinator.com/item?id=34071918 https://clickhouse.com/blog/extracting-converting-querying-local-files-with-sql-clickhouse-local https://news.ycombinator.com/item?id=24696149 https://softwareengineeringdaily.com/2021/05/17/clickhouse-data-warehousing-with-robert-hodges/ https://softwareengineeringdaily.com/2022/09/12/serverless-clickhouse-for-developers/ https://tech.marksblogg.com/billion-taxi-rides-doublecloud-clickhouse.html https://tech.marksblogg.com/install-clickhouse-faster.html https://tech.marksblogg.com/faster-clickhouse-imports-csv-parquet-mysql.html
 
+## 🧱 Databricks
+
+---
+
+* _Databricks_: Spark aaS from creators of Spark; lakehouse, autoscaling, model training, interactive notebooks
+* vs. Snowflake https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
+* https://www.databricks.com/blog/2020/01/30/what-is-a-data-lakehouse.html
+
 ## ❄️ Snowflake
 
 📙 Ferle https://www.manning.com/books/snowflake-data-engineering
@@ -595,12 +614,11 @@ Spend a week exploring some larger analytics datasets, or converting some of the
 * apparently a lot faster and easier to manage than a Hadoop installation https://news.ycombinator.com/item?id=24641481 
 * can build dashboards off queries
 * connect locally https://www.youtube.com/watch?v=8un_rsg7l84
-* _Databricks_: Spark aaS from creators of Spark; lakehouse, autoscaling, model training, interactive notebooks
-* vs. Snowflake https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 
 # ⛵️ LAKE
 
 * = structured + unstructed for analytics 类似 file system e.g. Redshift
+* what you might store in a lake: CloudWatch Logs https://www.crunchydata.com/blog/reducing-cloud-spend-migrating-logs-from-cloudwatch-to-iceberg-with-postgres
 * https://www.youtube.com/watch?v=PpGivTOyawY
 * https://www.youtube.com/watch?v=V0GvZ_KAI70 https://news.ycombinator.com/item?id=32336977
 * slower to access, has metadata (when was it produced, who owns it), batch writes, most reads will be humans doing analysis or exploration
@@ -620,6 +638,7 @@ Spend a week exploring some larger analytics datasets, or converting some of the
 
 ---
 
+https://github.com/lakekeeper/lakekeeper
 https://duckdb.org/2025/03/14/preview-amazon-s3-tables.html https://news.ycombinator.com/item?id=43401421
 https://www.robinlinacre.com/recommend_duckdb/
 https://grok.com/chat/ae668999-e495-430c-8f69-26182fc12746

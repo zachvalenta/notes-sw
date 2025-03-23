@@ -41,12 +41,13 @@ https://read.engineerscodex.com/p/how-facebook-scaled-memcached
 
 📙 https://www.openmymind.net/2012/1/23/The-Little-Redis-Book/
 
+* vs. memcached https://blog.bytebytego.com/p/ep155-the-shopify-tech-stack
 * client https://github.com/laixintao/iredis
 * license craziness https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 > I'll be blunt: I don't care for Redis. It is slow, it has fake transactions, and its query syntax is a freakshow. Our experiments at CMU found Dragonfly to have much more impressive performance numbers (even with a single CPU core). In my database course, I use the Redis query language as an example of what not to do. Nevertheless, I am sympathetic to Redis Ltd.'s plight of being overrun by Amazon. However, the company is overestimating the barrier of entry to build a simplistic system like Redis; it is much lower than building a full-featured DBMS (e.g., Postgres), so there are several alternatives to the OG Redis. They are not in position of strength where such posturing will be tolerated by the community. https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 
 * open source alternative Valkey https://www.youtube.com/watch?v=npnagMgbruc
-* another alternative https://news.ycombinator.com/item?id=43379262 https://dicedb.io/
+* another alternative https://news.ycombinator.com/item?id=43379262 reactive https://dicedb.io/
 https://www.openmymind.net/Redis-Is-The-Most-Important-Tool-In-My-Toolbelt/
 https://www.openmymind.net/2011/5/8/Practical-NoSQL-Solving-a-Real-Problem-w-Mongo-Red/
 https://www.openmymind.net/Data-Modeling-In-Redis/
@@ -114,6 +115,7 @@ https://github.com/zillow/tycho
 
 * https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
 * security re: access keys https://www.youtube.com/watch?v=R69FnBT00ew
+* 📙 Thomas pragmatic programmer [144]
 
 ## denv
 
@@ -500,6 +502,7 @@ while True:
     schedule.run_pending()
     time.sleep(1)
 ```
+
 ## event (Kafka)
 
 📚
@@ -507,6 +510,23 @@ while True:
 * https://www.manning.com/books/streaming-data-pipelines-with-kafka
 
 ---
+
+ALTERNATIVES
+* _AWS SQS_: https://cheesecakelabs.com/blog/asynchronous-task-queue-django-celery-aws-sqs
+* _Nats_: Nats (non-durable) Jetstream (durable) https://faststream.airt.ai/latest/nats/#advantages-and-disadvantages https://nats-io.github.io/nats.py/
+* lib + Kafka https://github.com/airtai/FastStream
+```sh
+# https://chatgpt.com/c/67f82c9e-e088-8004-b351-3d2ef30e212f https://claude.ai/chat/1caf57d7-7999-4ceb-ba45-846a91e0d4a5
+brew install nats-io/nats-tools/nats-server  # on macOS
+nats-server --js
+pip install nats-py
+
+brew install --cask stats      # optional: system monitor
+```
+* _Pulsar_: Kafka alternative https://www.youtube.com/watch?v=x4k1XEjNzYQ
+* _Rabbit_: comes w/ own db https://stackoverflow.com/q/38444425
+* vs. Kafka https://aws.amazon.com/msk/what-is-kafka/
+* _ZeroMQ_: http://aosabook.org/en/zeromq.html https://zguide.zeromq.org/docs/chapter1/
 
 TOOLING
 * _kaskade_: TUI https://github.com/sauljabin/kaskade
@@ -540,6 +560,7 @@ SEMANTICS
 * _consumer_: read msg from topic
 * read doesn't destroy msg (unlike MQ)
 * can either stream or batch https://kafka.apache.org/intro.html
+* _transactions_: https://www.warpstream.com/blog/kafka-transactions-explained-twice
 
 USAGE
 * as distributed commit log https://news.ycombinator.com/item?id=26644713 📙 Jeffrey distributed [6]
@@ -549,13 +570,6 @@ PROTOCOL https://kafka.apache.org/0100/protocol.html
 * rides on top of TCP so you need client per language https://strimzi.io/blog/2019/07/19/http-bridge-intro/
 * handshake https://pierrezemb.fr/posts/diving-into-kafka-protocol/
 * _message set_: msgs grouped https://kafka.apache.org/documentation/#maximizingefficiency
-
-ALTERNATIVES
-* _AWS SQS_: https://cheesecakelabs.com/blog/asynchronous-task-queue-django-celery-aws-sqs
-* _Pulsar_: Kafka alternative https://www.youtube.com/watch?v=x4k1XEjNzYQ
-* _Rabbit_: comes w/ own db https://stackoverflow.com/q/38444425
-* vs. Kafka https://aws.amazon.com/msk/what-is-kafka/
-* _ZeroMQ_: http://aosabook.org/en/zeromq.html
 
 za
 * BYO https://github.com/travisjeffery/jocko https://www.openmymind.net/Building-A-Queue-Part-1/
@@ -595,7 +609,9 @@ SEMANTICS
 
 ## task (Celery)
 
+🔍 https://taskqueues.com/ 
 🗄
+* `django.md` libs > tasks
 * `eng.md` pipelines
 * `tools.md` jobs
 
@@ -606,35 +622,27 @@ SEMANTICS
 
 ---
 
-BYO https://github.com/koaning/flowshow https://www.youtube.com/watch?v=cXkpR9HQeDA
-
-durable https://github.com/dbos-inc/dbos-transact-py
-https://us.pycon.org/2024/schedule/presentation/35/index.html
-https://github.com/cybertec-postgresql/pg_timetable
-🛠 https://taskqueues.com/ aka worker https://news.ycombinator.com/item?id=34940920
-https://github.com/hibiken/asynq
-
-ZA
-* Python https://github.com/agronholm/apscheduler
+CLEANUP
+* https://testdriven.io/courses/django-celery/
+* durable https://github.com/dbos-inc/dbos-transact-py
+* https://github.com/cybertec-postgresql/pg_timetable
 * chron jobs https://github.com/Nukesor/pueue
-* Postgres https://github.com/procrastinate-org/procrastinate https://brandur.org/river https://github.com/riverqueue/river https://news.ycombinator.com/item?id=41284703
 * BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
-* _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io https://github.com/RealOrangeOne/django-tasks https://github.com/realOrangeOne/django-tasks
 * _Hatchet_: https://github.com/hatchet-dev/hatchet
 * _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey https://www.youtube.com/watch?v=TV7jHHpvGvA
 
 CELERY 📹 https://www.youtube.com/@NickJanetakis/search?query=celery
-* chron job
+* https://adamj.eu/tech/2020/02/03/common-celery-issues-on-django-projects
 * https://steve.dignam.xyz/2023/05/20/many-problems-with-celery/
+* https://nickjanetakis.com/blog/4-use-cases-for-when-to-use-celery-in-a-flask-application
+* https://us.pycon.org/2024/schedule/presentation/35/index.html
 * Redis as db for Celery jobs https://ljvmiranda921.github.io/notebook/2019/11/08/flask-redis-celery-mcdo/
 * https://www.youtube.com/watch?v=v7LOVlPq7ds
 * _Flower_: monitor Celery https://github.com/mher/flower https://testdriven.io/blog/flower-nginx/
-*  https://www.agiliq.com/blog/2015/07/getting-started-with-celery-and-redis/
-*  https://djangostars.com/blog/the-python-celery-cookbook-small-tool-big-possibilities/
-*  https://testdriven.io/blog/asynchronous-tasks-with-falcon-and-celery/
-*  https://adamj.eu/tech/2020/02/03/common-celery-issues-on-django-projects
-*  https://stackshare.io/sentry/how-sentry-receives-20-billion-events-per-month-while-preparing-to-handle-twice-that
-*  https://nickjanetakis.com/blog/4-use-cases-for-when-to-use-celery-in-a-flask-application
+* https://www.agiliq.com/blog/2015/07/getting-started-with-celery-and-redis/
+* https://djangostars.com/blog/the-python-celery-cookbook-small-tool-big-possibilities/
+* https://testdriven.io/blog/asynchronous-tasks-with-falcon-and-celery/
+* https://stackshare.io/sentry/how-sentry-receives-20-billion-events-per-month-while-preparing-to-handle-twice-that
 
 REDIS QUEUE (RQ)
 * https://testdriven.io/blog/asynchronous-tasks-with-flask-and-redis-queue/
@@ -649,6 +657,7 @@ REDIS QUEUE (RQ)
 
 ---
 
+* calling LLMs https://github.com/astronomer/airflow-ai-sdk https://news.ycombinator.com/item?id=43544631
 * _AWS Step Functions_: 
 * _Airflow_: https://news.ycombinator.com/item?id=23349507 https://tech.marksblogg.com/install-and-configure-apache-airflow.html https://www.youtube.com/watch?v=7YCEydBUnjg
 * aaS https://www.astronomer.io/managed-airflow-service/
@@ -778,6 +787,10 @@ conf
 * security lint https://github.com/yandex/gixy 
 * location (Linux `/etc/nginx/nginx.conf` macOS `/usr/local/etc/nginx/nginx.conf`) 
 * language: Nginx's own thing despite looking like JSON https://carrot.is/coding/nginx_introduction
+
+## Ferron
+
+https://www.ferronweb.org/
 
 ## Granian
 

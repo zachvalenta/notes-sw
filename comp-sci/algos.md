@@ -16,7 +16,8 @@
 * MacCormick computed
 * MacCormick nine algorithms
 * Skiena manual https://www.algorist.com/ https://fabiensanglard.net/algorithms_and_datastructures/index.php
-* Wengrow ds/algos https://pragprog.com/titles/jwpython/a-common-sense-guide-to-data-structures-and-algorithms-in-python-volume-1/ https://pragprog.com/titles/jwpython2/a-common-sense-guide-to-data-structures-and-algorithms-in-python-volume-2/
+* Tuckfield https://nostarch.com/Dive-Into-Algorithms
+* ⭐️ Wengrow ds/algos https://pragprog.com/titles/jwpython/a-common-sense-guide-to-data-structures-and-algorithms-in-python-volume-1/ https://pragprog.com/titles/jwpython2/a-common-sense-guide-to-data-structures-and-algorithms-in-python-volume-2/
 
 ## 进步
 
@@ -914,7 +915,7 @@ Theres none stands under more calumnious tongues
 
 * decision tree 📙 MacCormick chapter 6 https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/information-gain/ https://mlu-explain.github.io/
 * gini impurity https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/gini-impurity/
-* _genetic_: select best candidates from random population https://danielmiessler.com/blog/genetic-algorithms-could-be-more-significant-than-machine-learning/  evolutionary https://www.drorpoleg.com/books-to-read-in-2023-part-2/ there's also something called 'genetic programming' whose relationship to genetic algorithms is unclear https://stackoverflow.com/a/3821746
+* _genetic_: select best candidates from random population https://danielmiessler.com/blog/genetic-algorithms-could-be-more-significant-than-machine-learning/  evolutionary https://www.drorpoleg.com/books-to-read-in-2023-part-2/ there's also something called 'genetic programming' whose relationship to genetic algorithms is unclear https://stackoverflow.com/a/3821746 https://aerique.blogspot.com/2011/01/baby-steps-into-genetic-programming.html Bayesian optimization https://news.ycombinator.com/item?id=43605731
 * _divide and conquer (D&C)_: winnow to atomic case using recursion
 * most (but not all) recursive algos use D&C e.g. quicksort https://stackoverflow.com/a/53796319
 * _partition_: split list into two smaller sub-lists 🗄 `linux.md` split
@@ -1055,6 +1056,7 @@ QUICKSORT https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsor
 
 # 🟨 ZA
 
+* _undo/redo_: https://news.ycombinator.com/item?id=43458738
 * _y combinator_: https://news.ycombinator.com/item?id=27673177
 * cellular automaton, Conway's game of life https://en.wikipedia.org/wiki/Cellular_automaton https://robertheaton.com/2018/07/20/project-2-game-of-life/
 * _byte offset_: distance from initial byte to target; used to lookup char in file [Kleppmann 72]
@@ -1065,6 +1067,7 @@ QUICKSORT https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsor
 
 * _audio warping_: https://stackoverflow.com/q/9953219/6813490
 * geography https://github.com/jftuga/geodist
+* shoelace problem 📙 Thomas pragmatic programmer [219]
 
 ## recursion
 

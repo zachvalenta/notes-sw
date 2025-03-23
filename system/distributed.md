@@ -19,7 +19,9 @@
 
 ## 进步
 
+* https://dansvetlov.me/postgres-anomalies/
 * start here https://www.achaq.dev/blog/distributed-systems-state-machines-special-relativity
+
 
 # 🤝 CONSENSUS
 
@@ -60,7 +62,7 @@ CONFLICT RESOLUTION
 foo.md
 foo-conflict-20240705-0981234.md
 ```
-* syncing with CRDT https://tonsky.me/blog/crdt-filesync/
+* syncing with CRDT https://tonsky.me/blog/crdt-filesync/ https://greenvitriol.com/posts/sync-engine-for-everyone
 > We can solve conflicts by opening both files, merging states, and saving back to the original file.
 * BYO https://github.com/tonsky/crdt-filesync https://automerge.org/ https://github.com/jackyzha0/bft-json-crdt
 * https://www.thoughtworks.com/radar/languages-and-frameworks/electric
@@ -148,7 +150,7 @@ Petrov ch. 11
 * _consistency_: ACID
 * eventually consistent https://cloudonaut.io/my-mental-model-of-aws/
 * _availability_: res for req
-* _partition tolerance_: works offline 📙 Conery 336
+* _partition tolerance_: works offline 📙 Conery 336 https://blog.bytebytego.com/p/dark-side-of-distributed-systems
 * C: refuse to incoming reads/writes
 * A, P: (db remains available but other cluster members becoming inconsistent)
 * choose consistency 📙 `evans-linux.pdf` 2

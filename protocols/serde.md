@@ -160,6 +160,18 @@ TOOLS
 
 ---
 
+size of original file matters
+```sh
+591k --  aa.csv
+106k -N  aa.parquet
+ 68k --  americold.csv
+ 28k -N  americold.parquet
+
+.rw-r--r--@ 961M ├──  grainger.csv
+.rw-r--r--@  82M ├──  grainger.parquet
+.rw-------@ 964M ├──  grainger.txt
+```
+
 DESIGN https://csvbase.com/blog/3
 * faster
 * smaller
@@ -274,6 +286,7 @@ SEMANTICS
 
 DESIGN
 * no firm spec https://peps.python.org/pep-0305/#abstract
+* non-local effects https://news.ycombinator.com/item?id=43484382
 * better for streaming bc each line of file is valid CSV (unlike JSON) https://jfhr.me/consider-using-csv/
 * gaining in popularity https://twobithistory.org/2017/09/21/the-rise-and-rise-of-json.html#fnref:2 
 * some parsers don't impl escaping rules correctly 📙 Kleppmann 4.145
@@ -312,6 +325,7 @@ in2csv $EXCEL > $CSV
 
 ---
 
+* binary/MUS formats https://github.com/mus-format/mus-go
 * beware https://news.ycombinator.com/item?id=42799245
 * convert/query https://github.com/dflemstr/rq
 * like BSON https://bsonspec.org/ https://github.com/bufbuild/buf

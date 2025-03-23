@@ -10,7 +10,6 @@ TO ADD
 > where to put Manning book notes? how to keep track of what your reading? -> it has a repo in `projects` -> you can also use Manning notebooks to see where you've been highlighting
 > figure out which Manning books you're going to use your credits on
 * finish going through notebook
-* https://github.com/zachvalenta/python-from-the-guts
 * https://realpython.com/courses/programming-sockets/
 * GoT death calculator
 * outliers
@@ -243,6 +242,7 @@ LAYOUT 🔗  https://github.com/arp242/hello-css/
 🔗 https://github.com/zachvalenta/web-design
 
 make this into a page https://webdesigninspiration.io/
+great 404s https://news.ycombinator.com/item?id=43589119 https://www.ft.com/404
 
 MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
 * https://blog.yossarian.net/
@@ -294,6 +294,7 @@ UNIQUE
 
 ---
 
+* https://pilledtexts.com/why-i-use-a-17-year-old-thinkpad/
 * image, text https://neil.computer/notes/how-to-install-postgresql-in-a-custom-directory/ https://neil.computer/notes/chart-of-accounts-for-startups-and-saas-companies/
 * draw your own Ben Thompson style https://tej.as/blog/how-to-grow-professional-relationships-tjs-model
 * use them in articles to make things stick! https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/
@@ -322,7 +323,7 @@ SIDENOTE
 ## links
 
 * linkable header https://danilafe.com/blog/blog_microfeatures/
-* preview https://linkpreview.xyz/
+* preview https://linkpreview.xyz/ https://metacheck.appstate.co/
 * link checker https://github.com/lycheeverse/lychee https://bernard.app/
 * underline https://danilafe.com/blog/blog_microfeatures/
 * highlight on hover https://man7.org/linux/man-pages/dir_by_project.html#man-pages--man7
@@ -346,7 +347,7 @@ https://www.openmymind.net/2010/10/26/An-Introduction-To-Hosting/
 * _Netlify_: https://wsvincent.com/site-design/ https://adamwathan.me/uses/
 * _AWS amplify_: https://aws.amazon.com/amplify/
 * _Cloudflare pages_:
-* _Github pages_:
+* _Github pages_: https://simonwillison.net/2025/Mar/18/actions-pages/
 * _Netlify_: https://www.netlify.com/
 * _Render_:
 * _Surge_: https://surge.sh/
@@ -356,7 +357,9 @@ https://www.openmymind.net/2010/10/26/An-Introduction-To-Hosting/
 
 https://www.getzola.org/documentation/deployment/aws-s3/
 
-## Github
+## Github Pages
+
+> try using Sourcehut instead
 
 RULES https://www.getzola.org/documentation/deployment/github-pages/ https://github.com/shalzz/zola-deploy-action https://chatgpt.com/c/675a107f-ecac-8004-97eb-1fecff5fb9c0
 * `index.html` in root of branches `master`|`main`|`gh-pages`
@@ -487,7 +490,7 @@ CMS
 * _CMS_: client-server, content creation via UI, requires some dev e.g. Wordpress https://kevq.uk/the-case-for-wordpress https://blot.im/how https://bearblog.dev/ https://tunalog.org/en-us/index.html
 * _headless CMS_: SPA gets content via API https://softwareengineeringdaily.com/2020/04/30/jamstack-content-management-with-scott-gallant-jordan-patterson-and-nolan-phillips/
 * Ghost: hosting, newsletters, Stripe, membership https://softwareengineeringdaily.com/2018/07/26/ghost-open-source-publishing-platform-with-john-onolan/
-* Netlify, Wagtail, Django, Perch
+* Netlify, Wagtail, Django, Perch https://wagtail.org/blog/how-the-wagtail-newsletter-package-came-to-be/
 
 ## features
 

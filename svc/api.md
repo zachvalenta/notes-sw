@@ -23,7 +23,7 @@
 * just give folks everything and let them drill down vs. trying to predetermine what they need https://simonwillison.net/2020/Nov/14/personal-data-warehouses/ 38:00
 * if API truly agnostic from frontend each page will end up making a bunch of calls instead of one call per page https://macwright.com/2020/05/10/spa-fatigue.html
 * _streaming_: server pushes to client https://2.python-requests.org/en/master/user/advanced/#streaming-requests
-* _idempotent_: same req n times = no additional side effects after first req e.g. after initial req creates record, further requests won't create dupe https://stripe.com/blog/idempotency
+* _idempotent_: same req n times = no additional side effects after first req e.g. after initial req creates record, further requests won't create dupe https://stripe.com/blog/idempotency https://blog.bytebytego.com/p/the-art-of-rest-api-design-idempotency
 * provide map of endpoints https://brandur.org/accessible-apis#programmatic-maps
 * limit the number of req to get actionable info on resource https://www.dataengineeringpodcast.com/linode-object-storage-service-episode-125/ 25:00 JSON over REST and even higher level than that https://josephg.com/blog/api-for-changes/ https://josephg.com/blog/databases-have-failed-the-web/ https://josephg.com/blog/composing-databases/
 
@@ -40,6 +40,7 @@ DONE
 
 ---
 
+https://blog.bytebytego.com/p/api-protocols-101-a-guide-to-choose
 > In some sense, deprecated methods and parameters are relatively easy because it's relatively clear to see what's happened. It's when it's subtle changes in behavior.  Like, do you apply an integer constraint before or after a function that wraps the integer validation?...you decide to change it because you're like this is marginally more correct? https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
 
 ## GraphQL
@@ -115,6 +116,7 @@ SOAP
 
 ---
 
+https://github.com/microsoft/typespec/
 https://news.ycombinator.com/item?id=41939027
 
 * _schema_: typing 📙 Kleppmann [4.122-128]
@@ -359,6 +361,7 @@ https://news.ycombinator.com/item?id=41243992&utm_term=comment
 * UUID (unwieldy) https://news.ycombinator.com/item?id=31715119
 * short uuid (better https://0of1.com/blog/posts/django-staples/)
 * _slug_: short repr for resource https://learndjango.com/tutorials/django-slug-tutorial
+> McMaster Carr does this well https://www.mcmaster.com/92949A050/
 
 * _slug_: human readable addendum to URL resource id https://learndjango.com/tutorials/django-slug-tutorial
 * typically hyphenated 🗄 `tfr.csv` https://github.com/un33k/python-slugify

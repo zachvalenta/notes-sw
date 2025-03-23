@@ -8,7 +8,6 @@
 * Conery curious moon https://www.sqlnoir.com/
 * Evans star https://sql-playground.wizardzines.com/
 * Faroult art of sql
-* Karwin sql antipatterns https://pragprog.com/cms/errata/bksqla-errata/
 * Molinaro sql cookbook
 
 ## 进步
@@ -365,6 +364,16 @@ AND NOT (
     OR pv.priceline = bc.priceline
     OR pv.buyline = bc.buyline
 )
+
+-- CORRECT VERSION
+select distinct rfq.`Unique Identifier`, pv.eid, rfq.`Manufacturer Part Number` AS 'RS mpn', pv.mpn as 'capp mpn', pv.cost, pv.list, pv.list_eff
+from rfq join pv on rfq.`Manufacturer Part Number` = pv.mpn
+and (pv.mfg like '%siemens%' or pv.mfg like '%balluff%' or pv.mfg like '%mcquay%')
+
+-- INCORRECT VERSION WHERE LACK OF PARENS CAUSES CARTESIAN PRODUCT
+select distinct rfq.`Unique Identifier`, pv.eid, rfq.`Manufacturer Part Number` AS 'RS mpn', pv.mpn as 'capp mpn', pv.cost, pv.list, pv.list_eff
+from rfq join pv on rfq.`Manufacturer Part Number` = pv.mpn
+and pv.mfg like '%siemens%' or pv.mfg like '%balluff%' or pv.mfg like '%mcquay%'
 ```
 
 SEARCH / GLOBBING
@@ -423,6 +432,9 @@ where LEFT(<col>, 1) = 'T'; -- attr starts w/ 'T' -- left: select subset of stri
 ## select
 
 ```sql
+-- DUMMY COLUMN / CONSTANT PROJECTION: just returns a placeholder for each matching row
+select 1 from foo
+
 -- SELECT ALL
 select tbl1.*, tbl2.foo
 
@@ -503,6 +515,12 @@ BASICS
 select deal.deal_id, house.addr
 from deal join house on deal.house = house.house_id
 join renter on deal.renter = renter.renter_id
+```
+
+ZA
+* fuzzy matching join
+```sql
+
 ```
 * predicate syntax history (if no predicate you'd get a cartesian RS) 📙 Beaulieu [35]
 ```sql
@@ -826,6 +844,7 @@ TOOLS
 * pgroll, squitch https://news.ycombinator.com/item?id=42388973
 * https://github.com/sqldef/sqldef
 * https://github.com/xataio/pgroll
+* https://github.com/sqldef/sqldef/tree/master
 
 DATA
 * _data migration_: DML i.e. change data itself
@@ -931,7 +950,7 @@ TYPES
 * _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
 * _varchar_: variable 📙 Beaulieu [21]
 * _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485
-* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf` https://news.ycombinator.com/item?id=42364372
+* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf` https://news.ycombinator.com/item?id=42364372 https://boringsql.com/posts/know-the-time-in-postgresql/
 ```sql
 -- how to order by a date in sql when the date col in fmt MM/DD/YYYY (and I think the col type is string not an actual datetime fmt) using sqlite
 SELECT p.eid, psub.unit_price, psub.ext_price, ar.subtotal_amt, ar.ord_date
@@ -1053,9 +1072,20 @@ create view view_name as select column1, column2 from table_name where condition
 -- RM
 drop view if exists view_name;
 
+-- EXAMPLES
 create view sales as
 select psub.full_ord_id, ar.full_ord_id, psub.unit_price, psub.ext_price, ar.subtotal_amt, ar.ord_date
 from sales_psub psub join sales_ar ar on psub.full_ord_id = ar.full_ord_id
+
+CREATE VIEW pv AS
+SELECT
+    eid, mpn, substr(description, 1, 25) as 'desc', -- identifiers
+    mfg, buyline, priceline,  -- grouping
+    cost, list_price as 'list', list_price_effective_date as 'list_eff', web, year_sales, last_sale, gross_profit as 'gp', -- pricing
+    discontinued as 'discon', status,  -- discon
+    creator, date_created as 'created', date_updated as 'updated'  -- creation
+FROM
+    products
 
 -- LIST 🗄️ `analytics.md` REPL > litecli
 select name, type from sqlite_master
@@ -1079,6 +1109,7 @@ select name from sqlite_master where type='view';
 
 ---
 
+* view columns `pragma table_info('your_view_name');`
 * late-binding https://eradman.com/posts/late-binding-views.html
 * _view_: pre-computed partial query (e.g. `where is_active = 0`) recomputed as more full query w/ additional user filtering 📙 Kleppmann [101]
 * doesn't hold any data itself 📙 Beaulieu [55]

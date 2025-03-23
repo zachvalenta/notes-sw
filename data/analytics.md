@@ -11,8 +11,9 @@
 📚
 * Asboth grounded analyst https://www.manning.com/books/the-well-grounded-data-analyst
 * ⭐️ Khalil https://www.manning.com/books/effective-data-analysis
-* Massaron https://www.manning.com/books/advanced-analytics-for-business https://www.youtube.com/watch?v=scY7PTxNSr4
+* Massaron ML for tabular https://www.manning.com/books/machine-learning-for-tabular-data https://www.youtube.com/watch?v=scY7PTxNSr4 https://www.manning.com/books/data-analysis-with-llms
 * ⭐️ Tuckfield https://nostarch.com/dive-data-science
+> don't need to buy this, just work through the table of contents
 * Wickham https://r4ds.hadley.nz/
 
 ## 进步
@@ -146,7 +147,44 @@ RUNTIME
 VISUAL DESIGN https://www.youtube.com/watch?v=M5zwlb8OzS0 @ 10:30 Polars selectors https://claude.ai/chat/84ed4940-251f-468b-9282-4f5565127e9c
 * icons for quick parse
 * bar charts for magnitude
-* spans for grouping
+* spans for grouping https://posit-dev.github.io/great-tables/get-started/basic-column-labels.html
+> not supported in SQL
+```txt
+SQL views don't have native support for visual column groupings or headers that span multiple columns. The column list is fundamentally flat in standard SQL.
+Possible Approaches
+
+* SQL Comments - What you're already doing; useful for documentation but not visible in query results
+* Result Processing Layer - Application code that processes the SQL results, Reporting tool like Tableau, Power BI, etc.
+* Custom SQL Functions - Some databases support formatting functions (limited)
+* Column Naming Convention - Prefix columns with group identifiers: id_eid, pricing_cost, etc.
+```
+```sql
+-- hacky workaround
+CREATE TABLE foo_column_groups (
+    column_name VARCHAR(50),
+    group_name VARCHAR(50)
+);
+
+INSERT INTO foo_column_groups (column_name, group_name) VALUES
+('eid', 'identifiers'),
+('mpn', 'identifiers'),
+('desc', 'identifiers'),
+('mfg', 'grouping'),
+('buyline', 'grouping'),
+('priceline', 'grouping'),
+('cost', 'pricing'),
+('list', 'pricing'),
+('list_eff', 'pricing'),
+('web', 'pricing'),
+('year_sales', 'pricing'),
+('last_sale', 'pricing'),
+('gp', 'pricing'),
+('discontinued', 'discon'),
+('status', 'discon'),
+('creator', 'creation'),
+('date_created', 'creation'),
+('date_updated', 'creation');
+```
 * color highlight individual rows
 * color highlight for heatmap
 * footnotes for context
@@ -274,7 +312,7 @@ CONVERSION / GENERATION
 curl www.api.com | jq foo | sqlite-utils insert foo.db bar_table
 ```
 
-## sets
+## datasets
 
 ---
 
@@ -309,6 +347,7 @@ GOV
 NATURAL WORLD
 * scientific https://news.ycombinator.com/item?id=27365755
 * weather https://github.com/blaylockbk/Herbie https://news.ycombinator.com/item?id=42467449
+* food
 
 SPORTS
 * diet, sleep https://calmcode.io/datasets
@@ -320,7 +359,7 @@ SPORTS
 
 ---
 
-* general https://github.com/awesomedata/awesome-public-datasets https://corgis-edu.github.io/corgis/csv/ https://www.data-is-plural.com/archive/ https://redis.com/blog/datasets-for-test-databases/
+* general https://github.com/awesomedata/awesome-public-datasets https://corgis-edu.github.io/corgis/csv/ https://www.data-is-plural.com/archive/ https://redis.com/blog/datasets-for-test-databases/ https://github.com/martin-majlis/Wikipedia-API
 * JSON https://github.com/jdorfman/awesome-json-datasets
 * csv https://github.com/secretGeek/awesomecsv#data
 * 📍 more in 🗄 `ml.md`? put these there? Paul Swanson videos?
@@ -622,6 +661,7 @@ OPTIONS
 * _DBeaver_: OSS, ERD https://dbeaver.io/ https://stackoverflow.com/a/48397209
 * _Mathesar_: 🎯 web app to make using Postgres friendly https://github.com/mathesar-foundation/mathesar
 * _Outerbase_: browser https://github.com/outerbase/studio https://news.ycombinator.com/item?id=42320032
+* _SQLTools_: ⭐️ https://github.com/mtxr/vscode-sqltools
 * _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
 * _WhoDB_: 🎯 AI https://whodb.clidey.com/docs/
 
@@ -635,7 +675,7 @@ DESIGN
 * good REPL for single table https://www.ultorg.com/
 * bad at n tables
 > Whether in finance, engineering, operations, or the life sciences, you are likely working with tables of data in spreadsheets, CSV files, or an external database. Spreadsheets are excellent tools for managing a single table of data. They are a poor fit for database tasks, however, where data must be combined and queried in many different ways. https://www.ultorg.com/
-* bad at UX, hence Airtable https://luttig.substack.com/p/dont-forget-microsoft Airtable is bad? https://news.ycombinator.com/item?id=26448985 Airtable let's you attach images, documents https://github.com/nocodb/nocodb https://news.ycombinator.com/item?id=41503251 https://news.ycombinator.com/item?id=34127804 https://gitlab.com/baserow/baserow more Airtable https://teable.io/ https://www.hytradboi.com/2022/why-airtable-is-easy-to-learn-and-hard-to-outgrow
+* bad at UX, hence Airtable https://luttig.substack.com/p/dont-forget-microsoft Airtable is bad? https://news.ycombinator.com/item?id=26448985 Airtable let's you attach images, documents https://github.com/nocodb/nocodb https://news.ycombinator.com/item?id=41503251 https://news.ycombinator.com/item?id=34127804 https://gitlab.com/baserow/baserow more Airtable https://teable.io/ https://www.hytradboi.com/2022/why-airtable-is-easy-to-learn-and-hard-to-outgrow alternative https://github.com/teableio/teable
 * bad at collaboration, hence Google Sheets https://luttig.substack.com/p/dont-forget-microsoft
 * criticism https://betonit.substack.com/p/spreadsheets-letters-from-a-quant https://www.natemeyvis.com/writing/on-bryan-caplans-spreadsheets/
 
@@ -802,7 +842,7 @@ TUI
 * _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
 * _lazysql_: keybindings look goofy https://github.com/jorgerojas26/lazysql
 * _GoBang_: 💀 https://github.com/TaKO8Ki/gobang
-* _rainfrog_: Postgres https://github.com/achristmascarl/rainfrog https://www.youtube.com/watch?v=qURrmEzsKH8
+* _rainfrog_: 🎯 Postgres https://github.com/achristmascarl/rainfrog https://www.youtube.com/watch?v=qURrmEzsKH8
 
 HARLEQUIN 📜 https://harlequin.sh
 * good UI (example of non-cartoonish Textual)
@@ -831,6 +871,8 @@ HIDE/EXPAND https://jsvine.github.io/intro-to-visidata/basics/understanding-colu
 * expand json: `()`
 
 CREATE/UPDATE
+* set value `g=` https://www.youtube.com/watch?v=yK3qgOIx4x0 3:20
+> need to `gs` first
 * create blank: `za` https://jsvine.github.io/intro-to-visidata/intermediate/creating-new-columns
 * rename: `^`
 * type: `~` text `%` float `#` int `$` currency `@` date https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types https://www.visidata.org/docs/graph/ https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#manipulating-columns-from-the-columns-sheet
@@ -843,8 +885,6 @@ CREATE/UPDATE
 AGGREGATION
 * `z+` https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
 * sum `z +` https://www.youtube.com/watch?v=yhunJc8Nu4g 4:20
-* set value `g=` https://www.youtube.com/watch?v=yK3qgOIx4x0 3:20
-> so even if underlying attr type is non-numeric can change type in sheet
 * https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#adding-aggregators https://sqlfordevs.com/multiple-aggregates-in-one-query https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
 
 * sort col `[` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#how-to-sort-rows
@@ -874,6 +914,7 @@ SEARCH
 
 FILTER
 * `|`: regex + select https://jsvine.github.io/intro-to-visidata/practical/distinctive-birds/ https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with
+* filter out nulls: histogram > gs > unselect null > go back to data sheet, all non-nulls will be selected
 
 SELECT
 * `"`: mv selected records to own sheet https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#filtering-selected-rows-with https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#using-frequency-tables-to-select-and-filter-for-multiple-values
@@ -904,6 +945,18 @@ COMMANDS
 
 ---
 
+previous attempt at shortcuts around copy/paste
+```python
+# COPY/PASTE CELL
+TableSheet.unbindkey('y')
+TableSheet.bindkey('y', 'syscopy-cell')
+TableSheet.unbindkey('p')
+TableSheet.bindkey('p', 'syspaste-cells')
+
+TableSheet.unbindkey('Y')
+TableSheet.bindkey('Y', 'syscopy-row')
+```
+
 COPY/PASTE RECORD TO SYSTEM CLIPBOARD https://github.com/saulpw/visidata/blob/7e5ce4f0dc34634e2b3aea2d51b72146686d1ece/visidata/guides/ClipboardGuide.md?plain=1#L3 https://github.com/saulpw/visidata/pull/2530 https://github.com/saulpw/visidata/issues/255 https://github.com/saulpw/visidata/discussions/1505
 > goal: copy all selected records (or just values) to system clipboard with 'y' key, otherwise just copy current cell value
 ```python
@@ -921,6 +974,7 @@ TableSheet.bindkey('Y', "syscopy-row fmt=csv")
 
 * command mode + set col to set all values for column? couldn't figure out how to do this
 * null = those yellow crossed out circles https://www.visidata.org/docs/rows/
+> these are now orange exclamation points?
 * mv: `SHIFT j/k`
 * sort: `[]`
 * page: `ctrl b/f`

@@ -198,6 +198,8 @@ verified.to_csv(os.path.join(os.getcwd(), out_file))
 
 BASIC
 ```python
+pd.read_parquet()  # requires pyarrow https://github.com/zachvalenta/capp-denv-logs/commit/d9867cba016fea23b439687dafadf7540c35aa8a
+
 pd.DataFrame(pd.read_csv(fpath))
 pd.DataFrame(pd.read_csv(fpath), nrows=1000)  # sample on read
 
@@ -342,6 +344,7 @@ safe_load = {
     'infer_schema_length': 10000,
 }
 pl.read_csv(fpath, separator='\t', encoding='latin-1', skip_rows=8, **safe_load)
+pl.read_csv('neuco-feed.tsv', separator='\t')
 
 # malformatted column headers
 no_whitespace_or_period_delimit = r"^[^\s.-]+$"
@@ -366,6 +369,8 @@ for chunk in pl.read_csv("data.csv", rechunk=True).iter_chunks(size=10000):
 ```
 
 ---
+
+type inference (for Pandas, at least) can override user-defined column data types? https://claude.ai/chat/884d6772-1fcb-44e1-ac03-243e1ca60cde
 
 Pandas: Most filtering happens after load
 Polars: Can push many operations down to the scan/read level
@@ -399,7 +404,7 @@ pl.scan_csv('products.csv').select([
 pl.scan_csv('data/catalog.csv', separator=',', infer_schema_length=100).collect_schema()
 
 # PRNG for reproducible sample 🗄️ `algos.md`
-pl.scan_parquet("data.parquet").sample(n=1000, seed=42).collect()
+pl.scan_csv('pricing.csv').collect().sample(n=10, seed=42)
 
 # get sampling from col
 first_values = df['column_name'].head(5)
@@ -407,6 +412,13 @@ first_values = df['column_name'].head(5)
 
 ---
 
+* dedupe by col
+```python
+import polars as pl
+duped = pl.read_csv('clean.csv')
+deduped = duped.unique(subset=["eid"], keep="first")
+deduped.write_csv('clean-deduped.csv')
+```
 
 ```python
 df.unique(subset=['csn', 'matched_product_id'])  # dedupe

@@ -9,10 +9,15 @@
 
 ## 进步
 
-* https://www.answer.ai/posts/2024-12-13-nbsanity.html
 * can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
 > Marimo has the ability to run in WASM mode, which means that *everything* can run from the frontend
+* https://www.answer.ai/posts/2024-12-13-nbsanity.html
 * Jupyter in the browser https://github.com/jvns/pandas-cookbook
+* rich live view, jupylab in the terminal, async, segments and triangles https://talkpython.fm/episodes/show/498/algorithms-for-high-performance-terminal-apps
+```sh
+# execute from shell
+jupyter nbconvert --to notebook --execute --stdout nb.ipynb > /dev/null
+```
 
 ```txt
 Exactly! Your problem has several layers:
@@ -323,7 +328,7 @@ ALTERNATIVES
 * org mode https://dualpower.supply/
 * https://github.com/Bycelium/PyFlow
 * in Vim https://www.maxwellrules.com/misc/nvim_jupyter.html
-* Elixir livebook https://livebook.dev/
+* Elixir livebook https://livebook.dev/ https://github.com/livebook-dev/pythonx
 * Typescript Srcbook https://news.ycombinator.com/item?id=41291700
 * https://zeppelin.apache.org/
 * https://github.com/ottomatica/docable-notebooks
@@ -409,6 +414,8 @@ SHARING
 
 ---
 
+* WASM https://calmcode.io/course/marimo/webassembly
+* design https://marimo.io/blog/python-not-json
 https://calmcode.io/shorts/drawdata.py
 lint https://calmcode.io/shorts/nbqa
 https://calmcode.io/course/marimo/introduction
@@ -545,6 +552,7 @@ PYTHONSTARTUP
 
 FUNCTIONALITY
 * view module help: `pretty(help(__name__))`
+> yet more powerful https://simonwillison.net/2025/Mar/3/pythons-help-function/
 * list user-defined modules https://github.com/zachvalenta/algo-sandbox/commit/3ab6b3d8b4bcbf1ad7548c14f62958e5f88c75e1 https://chatgpt.com/share/19cfacb1-05ac-4339-a6c8-a8aa4bac6a80
 
 ---

@@ -9,12 +9,12 @@
 * `science.md` metascience / categories
 * `sql.md` keys, schema
 📚
-* Alexopoulos semantic https://www.amazon.com/gp/product/1492054275
 * Kent data/reality https://www.amazon.com/Data-Reality-Perspective-Perceiving-Information/dp/1935504215
 
 ## 进步
 
-https://swizec.com/blog/why-software-only-moves-forward/
+* Use UUID primary keys, Give everything created_at and updated_at, on update restrict on delete restrict, use schemas, enum tables, Mechanically name join tables, Almost always soft delete, Represent statuses as a log https://news.ycombinator.com/item?id=43379764 https://mccue.dev/pages/3-11-25-life-altering-postgresql-patterns
+* https://swizec.com/blog/why-software-only-moves-forward/
 
 🔍 https://drawsql.app/templates
 * enum > FK
@@ -127,7 +127,7 @@ https://www.amazon.com/gp/product/1573875864
 ├── Conceptual # https://en.wikipedia.org/wiki/Conceptual_schema
 │   └── Entity-Relationship (ER) # https://en.wikipedia.org/wiki/Entity%E2%80%93relationship_model https://en.wikipedia.org/wiki/Relational_Model/Tasmania https://en.wikipedia.org/wiki/Information_model
 │   └── Object-Oriented  # https://en.wikipedia.org/wiki/Object%E2%80%93role_modeling
-│   └── Semantic Data # https://www.amazon.com/gp/product/1492054275 https://en.wikipedia.org/wiki/Semantic_data_model semantic web https://en.wikipedia.org/wiki/Semantic_technology https://en.wikipedia.org/wiki/Relational_Model/Tasmania
+│   └── Semantic Data # Alexopoulos semantic https://www.amazon.com/gp/product/1492054275 https://claude.ai/chat/1951b863-e794-4d77-971b-5e9a515f15ee https://en.wikipedia.org/wiki/Semantic_data_model semantic web https://en.wikipedia.org/wiki/Semantic_technology Codd https://en.wikipedia.org/wiki/Relational_Model/Tasmania
 │       ├── Ontologies
 │       ├── Taxonomies
 │       ├── Conceptual Graphs # https://en.wikipedia.org/wiki/Conceptual_graph https://en.wikipedia.org/wiki/Concept_map
@@ -182,6 +182,7 @@ Book indexes – for indicating page numbers of topics and names in printed book
 
 ---
 
+* 📙 Thomas pragmatic programmer [166]
 * Datomic (Hickey), datalog/prolog https://news.ycombinator.com/item?id=21742222 https://kevinlynagh.com/newsletter/2022_04_on_datalog_application_databases/ https://news.ycombinator.com/item?id=31154039 https://news.ycombinator.com/item?id=35094017 https://news.ycombinator.com/item?id=35727967 https://clojure.org/news/2023/08/04/next-rich https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need https://news.ycombinator.com/item?id=41642969
 * can be a problem is you need to change the PK https://calpaterson.com/non-relational-beartraps.html
 > Changing the primary key of a table is a surprisingly common activity. In truth, it's pretty easy to pick something that initially looks like it will be unique but which later turns out to not be unique...Unfortunately, in many non-relational database systems the primary key is "special". For example, Dynamo-style systems will use the primary key to decide which of the partitions the record will go on.
@@ -255,6 +256,7 @@ design
 * hands off processing to application, so it's both slower in dev time and execution time 📙 Bradshaw [8]
 
 DBMS
+* more embedded https://claude.ai/chat/16d7d074-a06e-4a93-9d29-87181f9c9e74
 * BYO https://notes.eatonphil.com/documentdb.html
 * _CouchDB_: good at replication https://www.dataengineeringpodcast.com/couchdb-document-database-episode-124/ 7:15 
 * _Dante_: 🎯 embedded https://github.com/senko/dante
@@ -277,6 +279,10 @@ HIERARCHICAL
 
 ## graph
 
+📚
+* https://www.manning.com/books/graph-databases-in-action
+* https://www.amazon.com/gp/product/1492044075
+
 ---
 
 start here https://www.richard-towers.com/2025/02/16/representing-graphs-in-postgres.html
@@ -295,11 +301,11 @@ start here https://www.richard-towers.com/2025/02/16/representing-graphs-in-post
 
 https://danluu.com/yegge-predictions/
 DBMS
-* embedded w/ Datalog https://news.ycombinator.com/item?id=33518320 https://github.com/cozodb/cozo
 * Mongo offers as well https://www.mongodb.com/databases/mongodb-graph-database
 * SQLite, Postgres https://news.ycombinator.com/item?id=35386948
 * _Age_: Postgres extension https://github.com/apache/age
 * written in Python on top of Postgres https://talkpython.fm/episodes/show/355/edgedb-building-a-database-in-python
+* _cozo_: 🎯 embedded w/ Datalog https://news.ycombinator.com/item?id=33518320 https://github.com/cozodb/cozo
 * _Janus_: distributed, OSS https://github.com/JanusGraph/janusgraph
 * _SQLite_: https://www.hytradboi.com/2022/simple-graph-sqlite-as-probably-the-only-graph-database-youll-ever-need
 * _Tao_: distributed https://news.ycombinator.com/item?id=29045443 https://www.micahlerner.com/2021/10/13/tao-facebooks-distributed-data-store-for-the-social-graph.html
@@ -309,7 +315,8 @@ DBMS
 QUERY LANGUAGES
 * _Cypher_: declarative
 * _GQL_: emerging standard https://stackoverflow.com/q/13824962 https://www.youtube.com/watch?v=h8cyPIEfxQY 11:30
-* _Gremlin_: wrapper over Neo4J Java API
+* _Gremlin_: wrapper over Neo4J Java API https://www.manning.com/books/graph-databases-in-action
+
 ## key
 
 ---
@@ -347,6 +354,7 @@ za
 * `infra.md` analytics
 
 todo
+* definition of time series data https://postgres.fm/episodes/time-series-considerations
 * https://github.com/TDAmeritrade/stumpy
 * Postgres https://tembo.io/blog/pg-timeseries
 * https://www.youtube.com/watch?v=nT6UsVgJ0xw
@@ -372,14 +380,17 @@ dbms
 * _Influx_: https://softwareengineeringdaily.com/2019/08/21/time-series-databases-with-rob-skillington/ https://softwareengineeringdaily.com/2021/08/19/influxdata-time-series-data-with-russ-savage/
 * _Husky_: event store https://www.datadoghq.com/blog/engineering/husky-deep-dive/
 * _Lin_: https://github.com/lindb/lindb
-* _Timescale_: built on Postgres https://blog.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/ https://softwareengineeringdaily.com/2021/06/28/timescale-time-series-databases-with-mike-freedman/
+* _Timescale_: built on Postgres https://blog.timescale.com/blog/how-postgresql-aggregation-works-and-how-it-inspired-our-hyperfunctions-design-2/ https://softwareengineeringdaily.com/2021/06/28/timescale-time-series-databases-with-mike-freedman/ https://sarvendev.com/posts/timescale-db-to-the-rescue/
 * _tstorage_: embedded https://github.com/nakabonne/tstorage BYO https://nakabonne.dev/posts/write-tsdb-from-scratch/ https://news.ycombinator.com/item?id=27730854
 * _Whisper_: embedded db for Graphite https://github.com/graphite-project/whisper
 
 # 🕸️ RELATIONAL
 
-📙 Hao https://www.manning.com/books/grokking-relational-database-design
 🗄️ `sql.md` schema / approaches
+📚
+* Hao grokking relational design https://www.manning.com/books/grokking-relational-database-design
+* Karwin sql antipatterns https://pragprog.com/cms/errata/bksqla-errata/
+* Sadalage refactoring databases https://www.youtube.com/watch?v=oMbrrYKYDvU
 
 COMPONENTS 📙 Beaulieu [1.6]
 * _entity_: thing you're trying to describe e.g. customer, order, et al. 📙 Beaulieu [8]
@@ -562,6 +573,7 @@ IT103    |   2009-2   | 120      | Web Design   |
 
 ---
 
+https://www.drawdb.app/
 * Jonathan Edwards schema exploration https://www.hytradboi.com/2025/3b6de0f0-c61c-4e70-9bae-cca5a0e5bb7b-db-usability-as-if
 🗄 `analytics.md` tooling / GUI 🧠 https://chatgpt.com/c/673ce0d8-543c-8004-93c3-90df2d298ecf
 > can use d2 https://github.com/zekenie/d2-erd-from-postgres https://terrastruct.com/blog/post/generate-diagrams-programmatically/

@@ -7,7 +7,6 @@
 📜 
 * https://docs.djangoproject.com/en/stable
 * https://github.com/HackSoftware/Django-Styleguide
-* https://github.com/wsvincent/lithium
 📚
 * Layman https://www.mattlayman.com/understand-django/
 * ⭐️ Palmieri zero to prod in rust https://www.amazon.com/Zero-Production-Rust-introduction-development/dp/B0BHLDMFDQ https://www.zero2prod.com/index.html
@@ -17,7 +16,18 @@
 
 ## 进步
 
-task queue https://www.loopwerk.io/articles/2025/django-task-queues/
+RECENT HAPPENINGS
+* https://simonwillison.net/2025/Apr/2/composite-primary-keys-in-django/
+* models imported into shell https://www.djangoproject.com/weblog/2025/apr/02/django-52-released/
+* fork https://plainframework.com/ https://news.ycombinator.com/item?id=43512589
+* DRF is a mess https://news.ycombinator.com/item?id=43510495
+* REST and task workers are second class citizens https://news.ycombinator.com/item?id=43512820
+* https://adamj.eu/tech/2025/04/07/django-whats-new-5.2/
+
+STARTER PACKS
+* https://github.com/wsvincent/lithium
+* https://businessclasskit.com/ https://businessclasskit.com/blog/design-system-options-for-rails
+* code generation? 📙 Thomas pragmatic programmer [102]
 
 * _25_: 📙 Vincent beginners https://learndjango.com/courses/django-for-beginners/chapter-2-hello-world-website/ @ initial setup https://github.com/zachvalenta?tab=repositories&q=vincent&type=&language=&sort=
 * _21_: DML
@@ -30,6 +40,7 @@ task queue https://www.loopwerk.io/articles/2025/django-task-queues/
 ## DRF
 
 📙 Vincent api
+📹 https://www.youtube.com/playlist?list=PL-2EBeDYMIbTLulc9FSoAXhbmXpLq2l5t
 🗄 `python/stdlib.md` serde
 
 ---
@@ -336,7 +347,7 @@ history https://wsvincent.com/django-user-model-talk/ https://www.youtube.com/wa
 
 ## users
 
-* mgmt https://realpython.com/django-user-management/
+* mgmt https://realpython.com/django-user-management/ https://github.com/django-commons/django-typer
 * email https://github.com/carltongibson/django-unique-user-email
 * current user https://github.com/zsoldosp/django-currentuser
 * groups https://github.com/bennylope/django-organizations
@@ -346,6 +357,9 @@ history https://wsvincent.com/django-user-model-talk/ https://www.youtube.com/wa
 
 ## permissions
 
+🗄️ `security.md` access control
+
+* https://timonweb.com/django/checking-current-user-permissions-in-django-templates/
 * https://learndjango.com/tutorials/django-best-practices-user-permissions
 * https://wsvincent.com/django-tips-user-permissions/
 * https://coderbook.com/@marcus/how-to-restrict-access-with-django-permissions
@@ -460,7 +474,7 @@ what is this for? ⬇️
 https://blog.pecar.me/django-tui
 * https://adamj.eu/tech/2021/12/08/pre-order-boost-your-django-dx/
 * https://blog.ovalerio.net/archives/2420
-* reload: watchman instead of django file watcher https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman/ https://github.com/adamchainz/django-browser-reload
+* reload: watchman instead of django file watcher https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman/ https://github.com/adamchainz/django-browser-reload templates cached by default https://www.youtube.com/watch?v=dMK22GnOaNY
 
 DEV SERVER ON REMOTE
 * start cmd: `python manage.py runserver 0.0.0.0:8000`
@@ -618,7 +632,7 @@ session.query(Book).join(Book, Author).filter(Author.age==27)
 Book.objects.filter(author__age=27)
 ```
 
-TRANSACTIONS 🗄 `db.md` consistency
+TRANSACTIONS 🗄 `db.md` consistency https://docs.djangoproject.com/en/5.1/topics/db/transactions/#:~:text=task%2C%20an%20email%20notification%2C%20or%20a%20cache%20invalidation.
 * enter atomic context:	`START TRANSACTION`
 * exit atomic context w/out exception: `COMMIT`
 * exit atomic context w/ exception: `ROLLBACK`
@@ -649,9 +663,12 @@ how to
 
 > The admin's recommended use is limited to an organization's internal management tool. It's not intended for building your entire front end around. https://docs.djangoproject.com/en/5.1/ref/contrib/admin/
 
+* theme https://github.com/sjbitcode/django-admin-dracula https://github.com/adamghill/awesome-django-admin-themes
+* datetime https://www.loopwerk.io/articles/2025/django-admin-datetime/
+* custom cmd https://docs.djangoproject.com/en/5.1/howto/custom-management-commands/#:~:text=tasks%20control%20panel.
+* https://simn.fr/posts/dicthing-django-admin-for-fasthtml
 * TUI https://github.com/valberg/django-admin-tui
-* theme https://github.com/sjbitcode/django-admin-dracula
-* management commands https://adamj.eu/tech/2024/08/14/django-management-command-sub-commands/
+* management commands https://adamj.eu/tech/2024/08/14/django-management-command-sub-commands/ https://github.com/django-commons/django-typer
 * https://github.com/cuducos/django-public-admin
 * https://github.com/simonw/django-sql-dashboard
 * https://roman.pt/posts/django-admin-and-service-layer/
@@ -670,6 +687,7 @@ how to
 
 ---
 
+* https://charlesoliveira.dev/blog/migrate-django-bigint-field/
 * https://blog.bmispelon.rocks/articles/2024/2024-05-09-django-getting-a-full-model-instance-from-a-subquery.html
 * create uuid for record for API https://0of1.com/blog/posts/django-staples/
 * phone numbers https://0of1.com/blog/posts/django-staples
@@ -781,6 +799,7 @@ For your existing code, if you're mapping to a preexisting database schema, this
 
 ## DML
 
+* https://testdriven.io/blog/django-query-optimization/
 * check column present: `Foo.objects.filter(col__isnull=False)`
 * https://johnnymetz.com/posts/slow-django-database-queries/
 clean up
@@ -867,6 +886,7 @@ clean up
 * https://jefftriplett.com/2020/how-do-i-test-1000-objects-in-django https://github.com/model-bakers/model_bakery
 * https://kite.com/blog/python/django-database-migrations-overview/ https://realpython.com/django-migrations-a-primer https://realpython.com/digging-deeper-into-migrations/
 * https://www.mattlayman.com/understand-django/test-your-apps/
+* https://browniebroke.com/blog/2025-03-03-introducing-django-remake-migrations/
 
 schema (DDL) migrations
 * downtime https://pankrat.github.io/2015/django-migrations-without-downtimes/
@@ -922,13 +942,14 @@ https://learndjango.com/tutorials/essential-django-3rd-party-packages
 https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-django
 * https://github.com/adamspd/django-appointment
 * reports https://github.com/RamezIssac/django-slick-reporting
+* PDF https://github.com/ibrahimroshdy/django-pdf-actions
 * _3rd-party apps_: anything installed by adding to `settings.py/INSTALLED_APPS` https://djangopackages.org https://realpython.com/installable-django-app/
 * _editor_: https://406.ch/writing/django-prose-editor-prose-editing-component-for-the-django-admin/
 * _email_: https://learndjango.com/tutorials/django-email-contact-form https://softwarecrafts.co.uk/100-words/day-76
 * _favicon_: https://learndjango.com/tutorials/django-favicon-tutorial
 * _internationalization_: https://testdriven.io/blog/multiple-languages-in-django/
 * _maps_: https://www.paulox.net/2020/12/08/maps-with-django-part-1-geodjango-spatialite-and-leaflet/
-* _Markdown_: https://learndjango.com/tutorials/django-markdown-tutorial
+* _Markdown_: https://learndjango.com/tutorials/django-markdown-tutorial https://github.com/neutronX/django-markdownx
 * _sessions_: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Sessions https://www.youtube.com/watch?v=SMRaHSZiwWE https://eli.thegreenplace.net/2011/06/24/how-django-sessions-work-introduction/ for user anlytics https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/
 
 ## code quality
@@ -963,7 +984,30 @@ https://www.bugsink.com/blog/better-error-tracking-in-django/
 ## real-time
 
 https://centrifugal.dev/docs/tutorial/intro
-* _channels_: https://www.aeracode.org/2018/06/04/django-async-roadmap/ https://testdriven.io/blog/django-async-views/ https://www.youtube.com/watch?v=j6IOuD5WD8c https://testdriven.io/courses/real-time-app-with-django-channels-and-angular/ https://testdriven.io/courses/real-time-app-with-django-channels-and-angular kinda live Phoenix LiveView? https://github.com/edelvalle/reactor https://runninginproduction.com/podcast/11-logflare-is-a-log-management-and-event-analytics-platform
+* _channels_: https://www.aeracode.org/2018/06/04/django-async-roadmap/ https://testdriven.io/blog/django-async-views/ https://www.youtube.com/watch?v=j6IOuD5WD8c https://testdriven.io/courses/real-time-app-with-django-channels-and-angular/ https://testdriven.io/courses/real-time-app-with-django-channels-and-angular kinda live Phoenix LiveView? https://github.com/edelvalle/reactor https://runninginproduction.com/podcast/11-logflare-is-a-log-management-and-event-analytics-platform admin https://github.com/Brktrlw/django-admin-collaborator
+
+## tasks
+
+🗄 `infra.md` queues > tasks
+📜 https://github.com/django/deps/blob/main/accepted/0014-background-workers.rst https://github.com/realOrangeOne/django-tasks
+
+OPTIONS
+* _APSchedule_: https://github.com/jcass77/django-apscheduler https://github.com/agronholm/apscheduler
+* _Django Q_: 💀 https://github.com/Koed00/django-q/issues/745
+* _Django Q2_: 🎯 uses Django's own db to store tasks https://github.com/django-q2/django-q2
+* _Django Tasks_: ❌ pet project https://github.com/realOrangeOne/django-tasks
+* _PgQueuer_: 🎯 Postgres https://github.com/janbjorge/PgQueuer https://news.ycombinator.com/item?id=41284703
+* _Procrastinate_: 🎯 Postgres https://github.com/procrastinate-org/procrastinate
+* _Simple Task_: 💀 https://github.com/ericls/django-simple-task
+
+---
+
+> Python, on which Django builds on, is single threaded by nature. Single threaded means that the language interpreter can only run your code in sequence. The practical implication is that any view in a Django application can get stuck if one or more operations take too much to complete. https://www.valentinog.com/blog/django-q/
+
+* https://dansvetlov.me/sidekiq-internals/
+* ❓ just use admin actions? https://docs.djangoproject.com/en/5.1/ref/contrib/admin/actions/#admin-actions
+* https://www.loopwerk.io/articles/2025/django-task-queues/
+* BYO https://github.com/koaning/flowshow https://www.youtube.com/watch?v=cXkpR9HQeDA
 
 ## TUI
 
@@ -975,9 +1019,12 @@ TUI admin https://github.com/valberg/django-admin-tui https://github.com/valberg
 
 ---
 
-* deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge
+* import/export https://www.caktusgroup.com/blog/2025/03/17/one-thing-look-out-while-testing-django-import-export/
 
 ## checklist / scaffold
+
+* Docker https://github.com/nickjj/docker-django-example https://news.ycombinator.com/item?id=34940920
+* deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge
 
 * UV
 * healthcheck
@@ -1060,7 +1107,7 @@ HTTP request |       | HTTP response
 
 ---
 
-MVC 🔗 https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+MVC 🔗 https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller 📙 Thomas pragmatic programmer [158,160]
 * _model_: manages data and core business logic
 * _view_: renders model data
 * _controller_: accepts user input and performs application-specific logic
@@ -1101,11 +1148,12 @@ ALTERNATIVES
 * https://www.loopwerk.io/articles/2024/django-vs-flask-vs-fastapi/
 * https://www.david-dahan.com/blog/comparing-fastapi-and-django
 
-htmx https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack
+htmx https://talkpython.fm/episodes/show/484/from-react-to-a-django-htmx-based-stack https://djangotv.com/videos/djangocon-us/2024/choosing-wisely-spa-vs-htmx-for-your-next-web-project-with-chris-may/
 https://github.com/CrocoFactory/sensei
 
 https://treypiepmeier.com/words/2024/08/django-is-for-everyone
 https://www.david-dahan.com/blog/10-reasons-i-stick-to-django
+next 20 years https://djangotv.com/videos/unknown/9999/keeping-django-relevant-for-the-next-20-years-thibaud-colas-django-london/
 
 BYO
 * https://www.destroyallsoftware.com/screencasts/catalog https://www.youtube.com/watch?v=7kwnjoAJ2HQ https://testdriven.io/courses/python-web-framework/ https://www.amazon.com/dp/1937785637 https://github.com/iklobato/LightAPI https://news.ycombinator.com/item?id=41914544 https://blog.dimitarandreev.com/posts/writing-an-http-router-for-aws-lambda-functions-from-scratch-with-go/
@@ -1119,7 +1167,7 @@ BYO
 * users: https://octopus.energy/ https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
 * versions: https://www.codestasis.com/ https://github.com/ambient-innovation/django-removals/
 > Django 5.0 was released in December 2023...Django's versioning policy is time-based rather than feature-based. Roughly every eight months, a new feature release occurs, along with monthly bug fixes and security patches as needed...meaning you can expect Django 5.1 in August 2024, Django 5.2 in April 2025, Django 6.0 in December 2025, and so on. Django has such a large and active community of contributors that the decision was made years ago to focus on regular rollouts rather than wait for specific features to be completed...Specific releases (those that end in .2, like Django 5.2 and 6.2) are designated as long-term support (LTS) releases and receive security and data loss fixes applied for a guaranteed period, typically three years. This policy is designed for larger companies struggling to keep up with Django's rapid release schedule. https://learndjango.com/courses/django-for-beginners/introduction/
-* _DSF_: admin https://wsvincent.com/how-django-works-behind-the-scenes/ 501 non-profit https://www.b-list.org/weblog/2018/nov/20/core/
+* _DSF_: admin https://wsvincent.com/how-django-works-behind-the-scenes/ 501 non-profit https://www.b-list.org/weblog/2018/nov/20/core/ https://github.com/django/dsf-bylaws
 * _DEP_: PEP for Django https://github.com/django/deps
 * _fellows_: paid devs https://www.b-list.org/weblog/2018/nov/20/core/
 * _technical board_: engineering; replaced core teams https://jacobian.org/2020/mar/12/django-governance/
@@ -1128,6 +1176,7 @@ BYO
 
 ---
 
+* components https://softwarecrafts.co.uk/100-words/day-270
 * _convention > conf_: Django will serve your templates provided they are in `templates/registration` and have the expected name, otherwise will serve its own default https://github.com/zachvalenta/hello-django1/commit/6503b460490fb85f085f3a277fbdd80360291fa0
 * forms https://kodare.net/2024/09/11/why-we-wrote-a-new-form-library-for-django.html
 * components https://github.com/wrabit/django-cotton

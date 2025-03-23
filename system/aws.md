@@ -245,6 +245,7 @@ data transfer https://www.lastweekinaws.com/blog/aws-data-transfer-charges-ingre
 
 ---
 
+* self hosted DBaaS for Postgres https://github.com/vitabaks/autobase
 * _RDS_:  https://www.lastweekinaws.com/blog/running-relational-databases-on-aws/
 * _Aurora_: serverless dbms https://news.ycombinator.com/item?id=42308716
 * can migrate from/to MySQL/Postgres
@@ -484,7 +485,7 @@ LIBS
 QUEUE
 * _Eventbridge_: route events btw AWS services https://cloudonaut.io/versus/messaging/eventbridge-vs-msk/
 * _SNS_: pub sub 🔗 `amqp.md`
-* _SQS_: queue; Postgres impl https://github.com/CoreDB-io/coredb/tree/main/extensions/pgmq https://github.com/poundifdef/SmoothMQ https://github.com/zillow/python-sqs-logging-handler
+* _SQS_: queue; Postgres impl https://github.com/CoreDB-io/coredb/tree/main/extensions/pgmq https://github.com/poundifdef/SmoothMQ https://github.com/zillow/python-sqs-logging-handler https://github.com/dhth/cueitup
 * API-based queue - you publish to an SQS queue and you consume from the queue https://stackoverflow.com/a/60543786
 * _SWF_: SQS + logic
 * _SES_: email https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/

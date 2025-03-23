@@ -13,6 +13,7 @@
 ## 进步
 
 🧠 https://claude.ai/chat/2f99faeb-79c6-4f49-8be8-b595a6ab1ff7
+summaries https://github.com/dx-tooling/platform-problem-monitoring-core https://news.ycombinator.com/item?id=43575664
 
 * _24_: big rf, ready to start implementing myself
 * _23_: Datadog with CRD
@@ -249,7 +250,7 @@ PROVIDERS
 * _Chartbeat_: publishing
 > The most influential is Chartbeat, which shows you every article on your site, indicates the number of people on each article at any given second, and colors the dots representing those people to tell you how they found the article. Green dots mean they found you through a search engine. Purple dots mean they came from a social network, usually Facebook, Twitter, or Reddit. It’s pure pleasure to watch the display for an article you worked hard on fill with dots. https://www.vox.com/2020/1/28/21077888/why-were-polarized-media-book-ezra-news
 * _Hotjar_: https://www.hotjar.com/
-* _GoatCounter_: Visidata uses https://www.goatcounter.com/ alternative https://github.com/ihucos/counter.dev https://news.ycombinator.com/item?id=26379569 https://simpleanalytics.com/ https://newcss.net/
+* _GoatCounter_: 🎯  Visidata uses https://www.goatcounter.com/ alternative https://github.com/ihucos/counter.dev https://news.ycombinator.com/item?id=26379569 https://simpleanalytics.com/ https://newcss.net/
 * _Google Analytics_: https://satchel.com/web-analytics/ alternatives https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
 * Ackee https://github.com/electerious/Ackee
 * BYO https://minimalanalytics.com/
@@ -260,6 +261,7 @@ PROVIDERS
 * _Heap_: https://satchel.com/web-analytics/
 * _Highlight_: https://news.ycombinator.com/item?id=34897645
 * _LogRocket_: https://news.ycombinator.com/item?id=34897645
+* _Minimalytics_: https://github.com/nafey/minimalytics
 * _Mixpanel_: https://satchel.com/web-analytics/ https://news.ycombinator.com/item?id=40432213
 * _Plausible_: https://plausible.io/calmcode.io https://plausible.io/privacy-focused-web-analytics https://www.erichgrunewald.com/posts/ravi-zacharias-solves-the-problem-of-evil/ https://plausible.io/blog/remove-google-analytics
 * _Posthog_: https://github.com/posthog/posthog https://www.pythonpodcast.com/posthog-product-analytics-episode-266/
@@ -390,6 +392,10 @@ https://github.com/benhoyt/graphyte
 https://www.youtube.com/results?search_query=graphite+metrics
 
 * _statsd_: https://github.com/jsocol/pystatsd https://www.youtube.com/watch?v=-6Hk9rcgM94 https://www.datadoghq.com/blog/statsd/ https://docs.datadoghq.com/developers/dogstatsd/ https://www.digitalocean.com/community/tutorials/an-introduction-to-tracking-statistics-with-graphite-statsd-and-collectd https://www.youtube.com/watch?v=R4kMwckrUlg Graphite visualization tool for statsd https://www.digitalocean.com/community/tutorials/how-to-configure-statsd-to-collect-arbitrary-stats-for-graphite-on-ubuntu-14-04
+
+## Honey Badger
+
+https://www.honeybadger.io/blog/golang-frameworks/
 
 ## 🔥 Logfire
 
@@ -626,6 +632,8 @@ def read_chunked(path, chunk_size=100_000):
 * `py3 -m trace --trace example.py`
 * https://www.petermcconnell.com/posts/perf_eng_with_py12/
 * https://www.youtube.com/watch?v=2hWfLiRGaNM
+* https://github.com/s7nfo/Cirron
+* https://bernsteinbear.com/blog/silly-perf/
 * where to put perf? https://roadmap.sh/best-practices/backend-performance
 > The notes on benchmark performance graphs often read "higher is better" and performance improvements are even called "optimisations". But the truth is, at least as a user, once performance reaches a satisfactory level - enough for your own data analysis to complete in a reasonable about of time - there is no further benefit from increased speed. Instead of being called "performance optimisation" it should probably be called "performance satisfaction" as once it is satisfactory you have finished. Usability is different. The whole point of computers is as an aid to productivity so user-friendliness is actually the bit you want to optimise. Unlike speed, being easier to use is always better and there is very little limit to that. So it's "usability improvements" that should be called "optimisations" but perhaps the relevant ships on all of these terms have sailed. https://csvbase.com/blog/6
 
@@ -646,7 +654,7 @@ def read_chunked(path, chunk_size=100_000):
 * _phlare_: Grafana https://martinheinz.dev/blog/89
 * _pyflame_: https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 
 * _pyheat_: https://github.com/csurfer/pyheat
-* _pyinstrument_: 🎯 https://news.ycombinator.com/item?id=41910590 https://github.com/joerick/pyinstrument https://calmcode.io/course/pyinstrument/introduction
+* _pyinstrument_: 🎯 https://news.ycombinator.com/item?id=41910590 https://github.com/joerick/pyinstrument https://calmcode.io/course/pyinstrument/introduction https://daniel.feldroy.com/posts/2025-03-using-pyinstrument-to-profile-fasthtml-apps
 * _pyroscope_: 🎯 https://github.com/pyroscope-io/pyroscope https://news.ycombinator.com/item?id=43290917 https://github.com/grafana/pyroscope https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
 * _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
 * _pyspy_: 🎯 https://github.com/benfred/py-spy/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust https://tinkering.xyz/fmo-optimization-story/ https://www.youtube.com/watch?v=1EZ8oqjLun0 https://jvns.ca/blog/2018/12/23/2018--year-in-review/
@@ -729,6 +737,9 @@ za
 
 ## bpf
 
+---
+
+https://cgmathprog.home.blog/2025/02/17/bpf-or-how-i-stopped-worrying-and-loved-the-kernel/
 EBPF https://www.brendangregg.com/
 * XDP/eBPF https://mas-bandwidth.com/xdp-for-game-programmers/
 * https://blog.smidt.dev/posts/0003/
@@ -826,6 +837,8 @@ FS LOCATIONS https://missing.csail.mit.edu/2019/machine-introspection/ 🗄️ `
 
 ---
 
+* buffered https://blog.bytebytego.com/p/how-amex-processes-millions-of-daily
+
 ```txt
 loguru (what you're using) - Great defaults, structured out of the box
 structlog - Most flexible, industrial strength
@@ -888,6 +901,7 @@ https://news.ycombinator.com/item?id=30394152
 
 ---
 
+* Kuma, Pager Duty / Gotify https://kiranet.org/posts/self-hosting-like-its-2025/ https://kiranet.org/posts/self-hosting-like-its-2025/
 * useful 404 https://calmcode.io/static/data
 * https://calmcode.io/course/better-uptime/overview
 UPTIME / HEALTHCHECK / HEARTBEAT

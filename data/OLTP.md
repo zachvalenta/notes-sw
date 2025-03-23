@@ -171,11 +171,13 @@ ALTERNATIVES
 * migrations don't need table lock
 * doesn't use functions https://www.youtube.com/watch?v=atwwf0qWpYg [20:00] 🗄️ `sql.md` DML > functions
 * great docs https://planetscale.com/blog/btrees-and-database-indexes
+* BYO VM https://planetscale.com/blog/faster-interpreters-in-go-catching-up-with-cpp
 
 ## 🐯 TigerBeetle
 
 📜 https://github.com/tigerbeetle/tigerbeetle https://docs.tigerbeetle.com/
 
+* Postgres impl https://github.com/pgr0ss/pgledger
 * uses VSR 📙 Enberg latency
 * https://docs.tigerbeetle.com/coding/system-architecture/
 * https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
@@ -252,6 +254,8 @@ The general problem this addresses is maintaining perfect history of state chang
 * `system.md` distributed
 * `sql.md` migrations
 
+* sync https://github.com/electric-sql/electric https://electric-sql.com/
+* https://github.com/PeerDB-io/peerdb
 * postgres https://github.com/xataio/pgstream https://news.ycombinator.com/item?id=42383136
 * https://github.com/bruin-data/ingestr
 * _replication_: same data on diff nodes 📙 Kleppmann [199] https://news.ycombinator.com/item?id=37066284
@@ -286,6 +290,7 @@ The general problem this addresses is maintaining perfect history of state chang
 * howto https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/ 📙 Conery imposter 343
 * https://stackoverflow.com/questions/20771435/database-sharding-vs-partitioning https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6 https://news.ycombinator.com/item?id=28425379
 * _shard_: node in cluster 📙 Bradshaw [290] https://tomlinford.com/posts/robinhood-sharding-to-scale https://pgdog.dev/blog/you-can-make-postgres-scale
+* Postgres https://github.com/pgdogdev/pgdog https://news.ycombinator.com/item?id=43484399
 
 ## version control
 
@@ -293,12 +298,14 @@ The general problem this addresses is maintaining perfect history of state chang
 
 * people don't really care about this https://news.ycombinator.com/item?id=22731928
 * Jonathan Edwards https://www.hytradboi.com/2025/3b6de0f0-c61c-4e70-9bae-cca5a0e5bb7b-db-usability-as-if
-* _DVC_ https://github.com/iterative/dvc https://www.youtube.com/watch?v=ITvSs23lTQE https://realpython.com/python-data-version-control/
-* _Dolt_ https://github.com/dolthub/dolt
+* _DVC_: https://github.com/iterative/dvc https://www.youtube.com/watch?v=ITvSs23lTQE https://realpython.com/python-data-version-control/
+* _Dolt_: 🎯 https://github.com/dolthub/dolt
 
 # 🟩 MONGO
 
-📙 Bradshaw guide
+📚
+* Bradshaw guide
+* https://www.manning.com/livevideo/talk-python-mongodb-for-developers
 📜
 * Mongo https://www.mongodb.com/docs/manual https://learn.mongodb.com/
 * PyMongo https://pymongo.readthedocs.io/en/stable/tutorial.html
@@ -638,8 +645,11 @@ wire protocol
 
 ---
 
+* ubiquity https://www.youtube.com/watch?v=3JW732GrMdg
 * cancel queries https://pert5432.com/post/postgres-query-cancellation
 * binary mgmt? https://github.com/theory/pgenv
+* terabyte scale https://simonwillison.net/2025/Mar/14/merklemap-runs-a-16tb-postgresql/
+* AI https://simonwillison.net/2025/Mar/13/xata-agent/
 
 hosted Neon, pg_cron https://www.youtube.com/watch?v=3JW732GrMdg
 
@@ -649,7 +659,7 @@ https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb
 🏔️ https://github.com/Olshansk/postgres_for_everything
 📚
 * Magda just use postgres https://www.manning.com/books/just-use-postgres
-* Suzuki postgres internals https://www.interdb.jp/pg/
+* Suzuki postgres internals https://www.interdb.jp/pg/ https://djangotv.com/videos/djangocon-us/2024/a-guided-tour-through-postgres-internals-with-elizabeth-garrett-christensen/
 🔗 https://challahscript.com/what_i_wish_someone_told_me_about_postgres
 📜
 * general https://www.postgresql.org/docs/current/index.html
@@ -678,6 +688,7 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * drop all tables: `DROP SCHEMA <schema> CASCADE`
 * get date from timestamp: `SELECT date(startime) FROM bookings` https://stackoverflow.com/a/6133147
 * random/seed data https://www.postgresonline.com/journal/index.php?/archives/419-PG-17-new-random-functions.html#newrandom
+* regex https://www.caktusgroup.com/blog/2025/03/19/how-use-regexp_matches-and-regexp_match-postgresql/
 
 SEMANTICS
 * _cluster_: server instance managing n databases https://www.postgresql.org/docs/12/tutorial-concepts.html https://www.crunchydata.com/blog/postgres-databases-and-schemas
@@ -724,11 +735,12 @@ misc
 * _logs_: https://github.com/darold/pgbadger
 * _monitoring_: https://minervadb.xyz/postgresql-dba-daily-checklist/ https://pgstats.dev/ https://info.crunchydata.com/blog/postgresql-monitoring-for-application-developers-dba-stats https://klotzandrew.com/blog/quickly-debugging-postgres-problems https://github.com/lesovsky/pgcenter Vivid Cortex https://github.com/lob/pg_insights https://github.com/cybertec-postgresql/pgwatch2 https://pganalyze.com/ https://github.com/dalibo/temboard
 * _queries_: https://news.ycombinator.com/item?id=22432254 explain http://www.helenanderson.co.nz/sql-query-tweaks/ `pg_stat_statements` https://pgdash.io/blog/postgres-features.html https://github.com/mgartner/pg_flame
-* _search_: https://czep.net/17/full-text-search.html https://www.imagescape.com/blog/2020/03/11/website-search-using-django-and-postgresql-trigrams 🗄 `algos.md` FTS
+* _search_: https://czep.net/17/full-text-search.html https://www.imagescape.com/blog/2020/03/11/website-search-using-django-and-postgresql-trigrams 🗄 `algos.md` FTS pg_search https://news.ycombinator.com/item?id=43627646
 * _scheduling_: https://github.com/cybertec-postgresql/pg_timetable
 
 ## auth
 
+* start in read-only mode https://kmoppel.github.io/2025-03-27-til-starting-in-read-only-the-easy-way/
 * _role_: Postgres equivalent of a user, necessary to connect 📙 Conery [4.5] https://www.postgresql.org/docs/8.1/user-manag.html
 * are complex https://news.ycombinator.com/item?id=40186752
 * _role creation_: PG will create role/db matching Linux user that installed PG; sometimes this doesn't happen w/ Homebrew 📙 Conery 4.4 0:15
@@ -855,8 +867,14 @@ CLI util (psql, postgres, pg_dump, createdb/dropdb) https://gist.github.com/apol
 
 ## extensions
 
+* registry https://pgt.dev/
 BYO https://matt.blwt.io/post/building-a-postgresql-extension-line-by-line/
 https://www.postgresql.org/about/news/announce-pig-the-postgres-extension-wizard-2988/
+
+## internals
+
+* bring your own storage format https://github.com/orioledb/orioledb https://www.orioledb.com/blog/better-table-access-methods https://misachi.github.io/
+* version 18 much smaller in Docker https://ardentperf.com/2025/04/07/waiting-for-postgres-18-docker-containers-34-smaller/
 
 ## pgcli
 
@@ -945,7 +963,7 @@ USAGE
 * durable object https://simonwillison.net/2024/Oct/13/zero-latency-sqlite-storage-in-every-durable-object/
 
 ZA
-* vector https://github.com/asg017/sqlite-vec https://blog.vectorchord.ai/vector-search-at-10000-qps-in-postgresql-with-vectorchord
+* vector https://github.com/asg017/sqlite-vec https://blog.vectorchord.ai/vector-search-at-10000-qps-in-postgresql-with-vectorchord embeddings https://www.cybertec-postgresql.com/en/pgai-importing-wikipedia-into-postgresql/
 * https://news.ycombinator.com/item?id=40637303
 * single-tenant i.e each user gets own db https://news.ycombinator.com/item?id=38171322
 * transactions for perf https://news.ycombinator.com/item?id=36583317
@@ -1017,12 +1035,15 @@ db files
 
 ## design
 
+🗄️ `OLAP.md` Graft
+
 META
 * all tables live in the `main` schema https://www.sqlite.org/lang_naming.html 🗄️ `modeling.md` namespaces
 
 REASONS NOT TO USE https://pid1.dev/posts/siren-call-of-sqlite-on-the-server/ https://news.ycombinator.com/item?id=43049659
 * need LiteFS for multiserver
 * bad at schema migrations
+* bad at multi-user https://news.ycombinator.com/item?id=43535943
 
 ALTERNATIVES
 * Postgres for Java https://github.com/zonkyio/embedded-postgres-binaries
@@ -1030,6 +1051,7 @@ ALTERNATIVES
 * _pglite_: embedded Postgres for WASM https://pglite.dev/
 * _turso/limbo_: https://github.com/tursodatabase/libsql https://github.com/tursodatabase/limbo/
 * from guy who did TigerBeetle? + deterministic simulation testing (DST) https://changelog.com/podcast/626 🗄️ TLA https://www.hytradboi.com/2025/c222d11a-6f4d-4211-a243-f5b7fafc8d79-rocket-science-of-simulation-testing https://www.hytradboi.com/2025/0c713342-7476-480e-b1ab-2ae97246826d-language-agnostic-simulation-testing-on-a-budget
+* sync https://news.ycombinator.com/item?id=43535943
 * https://news.ycombinator.com/item?id=42378843
 * https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/ https://avi.im/blag/2024/faster-sqlite/
 
@@ -1070,11 +1092,6 @@ LIMITATIONS
 * data types differ from other dbms, problem for porting?
 * no perms, security 📙 Takahashi 1.19 no users 📙 ibid 1.20
 
-EXTENSIONS
-* fewer functions than other dbms
-* bundled https://github.com/nalgeon/sqlean https://github.com/zachvalenta/golf
-* _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ https://llm.datasette.io/en/stable/logging.html https://www.philipotoole.com/building-a-highly-available-search-engine-using-sqlite/ 🗄 `algos.md` FTS https://amjith.com/blog/2023/fts_search/
-
 TYPES
 * types: text, blob, null, int (whole num) real (decimal)
 * _class_: type for cell https://stackoverflow.com/a/3388158
@@ -1102,6 +1119,23 @@ constraints
 > rn Flask-SQLA will happily violate FK or just leave null 
 * `pragma`: cmd to set env var
 
+## extensions
+
+---
+
+SQLEAN
+* pkg manager https://github.com/nalgeon/sqlpkg-cli
+
+* https://github.com/nalgeon/sqlean https://github.com/zachvalenta/golf https://sqlpkg.org/
+https://github.com/nalgeon/sqlean/blob/main/docs/shell.md
+https://github.com/nalgeon/sqlean/blob/main/docs/install.md#download-package-manager
+PG version https://pgt.dev/
+https://grok.com/chat/e78c92cc-0d1f-4445-81de-8c55947f34c5
+* using with litecli https://github.com/dbcli/litecli/pull/220
+
+* fewer functions than other dbms
+* _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ https://llm.datasette.io/en/stable/logging.html https://www.philipotoole.com/building-a-highly-available-search-engine-using-sqlite/ 🗄 `algos.md` FTS https://amjith.com/blog/2023/fts_search/
+
 ## 🟠 litecli
 
 🗄️
@@ -1123,9 +1157,13 @@ constraints
 * config: `~/.config/litecli/config` https://litecli.com/config/
 * query to CSV
 ```sh
+# if the query is dealing with quoting around goofy column names, you may need to `echo $QUERY > query.sql` and then `litecli db.sqlite --csv < query.sql > out.csv`
+
 litecli db.sqlite -e "select eid, mfg, mpn, apn, buyline, priceline, year_sales, last_sale, list_price, list_price_effective_date, date_created, date_updated, gross_profit from products where buyline like '%dongan%'" --csv > dongan-products.csv
 
 litecli db.sqlite -e "select wh.hash, q.* from quote q join with_hashes wh on q.manufacturer_input = wh.manufacturer_input where q.manufacturer_part_number_input = wh.manufacturer_part_number_input" --csv > with-hashes.csv
+
+litecli db.sqlite -e "select * from festo" --csv > with-hashes.csv
 ```
 
 ---

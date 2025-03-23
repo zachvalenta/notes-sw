@@ -64,14 +64,34 @@ RN
 ### semantics
 
 * _graph_: nodes + edges
-* _node_: obj in graph
-* aka vertex, point📙 Bhargava 6.99 
+* _node_: obj in graph; aka vertex, point📙 Bhargava 6.99 
+* _edge_: conection btw obj; aka line, branch (in a tree)
+* _adjacent_: nodes/vertices directly connected by an edge
+* aka neighbors? 📙 Bhargava [6.99]
+* _clique_: subset of vertices where all are adjacent
+```sh
+# 2-CLIQUE
+A---B
+# 3-CLIQUE
+    A
+   / \
+  /   \
+ B-----C
+# 4-CLIQUE
+    A
+   /|\
+  / | \
+ B--+--D
+  \ | /
+   \|/
+    C
+```
+
+---
+
 * _triplet_: https://github.com/getzep/graphiti
-* _edge_: conection btw obj
-* aka line, branch (in a tree)
 * _root_: starting or topmost node in graph/tree
 * _path_: series of edges from root to particular node
-* _neighbors_: directly adjacent nodes 📙 Bhargava 6.99
 * _undirected_: edges go both directions
 * aka cyclic 📙 Bhargava 6.106
 * _directed_: edge go one direction
@@ -186,7 +206,8 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 
 ---
 
-* queue https://www.youtube.com/watch?v=mDCi1lXd9hc
+* https://news.ycombinator.com/item?id=43640115
+* https://www.youtube.com/watch?v=mDCi1lXd9hc
 QUEUES
 * _enqueue_: add to queue https://en.wikipedia.org/wiki/Queue_(abstract_data_type)
 * _dequeue_: rm from queue
@@ -233,6 +254,7 @@ stack.pop()  # pop
 
 MORE TYPES
 * https://news.ycombinator.com/item?id=42201936
+* Dewey Decimal System https://buttondown.com/hillelwayne/archive/betteridges-law-of-software-engineering/
 * _BPS tree_: formed from binary space partitioning https://twobithistory.org/2019/11/06/doom-bsp.html
 * _minimum spanning tree (MST)_: edges to connect every node in weight graph while minimizing edge weight 📙 Christian chapter 8
 * _multitree_: https://github.com/climech/grit

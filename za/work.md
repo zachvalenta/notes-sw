@@ -10,7 +10,8 @@
 
 ## 进步
 
-* _24_: nothing in winter, job hunt in spring
+* _25_: Capp 📍 DDD -> ERP -> commodities trading
+* _24_: nothing in winter, job hunt in spring, Kunai fakeout, start at Capp
 * _23_: UM layoff
 * _22_: offers (JP, RackN, United Masters)
 * _21_: BNY (Alexandria, quit), most time on music and women
@@ -24,12 +25,18 @@
 # 🪐️ INDUSTRY
 
 🔍 https://newsletter.pragmaticengineer.com/p/state-of-eng-market-2024
+🗄️ `business.md` project
 📚
+* Beck extreme programming explained
+* Hafner where wizards stay up late
+* Kidder soul of a new machine https://en.wikipedia.org/wiki/The_Soul_of_a_New_Machine https://www.joelonsoftware.com/2007/01/21/the-big-picture/
 * Kernighan unix a history 🗄️ Raymond unix programming
+* Lammers programmers at work
 * Martin we programmers https://www.amazon.com/Turings-Cathedral-Origins-Digital-Universe/dp/1400075998
 * Moody rebel code
 * Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/ http://www.catb.org/~esr/jargon/html/index.html
-* Seibel coders at work
+* Seibel coders at work https://www.gatesnotes.com/home/home-page-topic/reader/microsoft-original-source-code
+* ✅ Thomas pragmatic programmer
 
 POLITICS 🗄️ `denv.md` Nix
 * codes of conduct
@@ -40,6 +47,7 @@ POLITICS 🗄️ `denv.md` Nix
 * https://danluu.com/ai-bias/
 * cant take the heat get out of the kitchen https://www.espn.com/nba/story/_/id/42511415/lakers-star-lebron-james-says-taking-social-media-break
 * soft roles https://mastodon.online/@BajoranEngineer/114111617954188295 https://talkingpostgres.com/episodes/why-python-developers-just-use-postgres-with-dawn-wages
+* conferences https://www.scattered-thoughts.net/writing/other-kinds-of-talks/
 
 ---
 
@@ -421,6 +429,7 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 
 ---
 
+* https://blog.bytebytego.com/p/ep155-the-shopify-tech-stack
 https://news.ycombinator.com/item?id=43354115
 Send Byrne/The Diff my updated skill set.
 

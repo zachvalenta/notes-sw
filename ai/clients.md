@@ -68,19 +68,13 @@ locality
 > export current chats first | incorporate old chats into notes and gradually rm over time
 > llm only add new chats? assume so.
 
-## open source contrib
-
-TO SUBMIT
-* xmp
-* jiancha
+## context
 
 ---
 
-* _aider_: dynamic local/global history/input files, readline
-* _basilk_: alphabetic sort projects, JSON output
-* _gfold_: specify multiple directories via config https://github.com/nickgerace/gfold/issues/261
-* _kanban-tui_: CLI, readline
-* _lazygit_: readline, option to not add dir to recently_visited https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
+https://whodb.com/docs/
+https://news.ycombinator.com/item?id=43573755
+https://help.openai.com/en/articles/10303002-how-does-memory-use-past-conversations
 
 ## 🟠 aichat
 
@@ -145,6 +139,11 @@ def keyboard_interrupt(self):
     self.io.tool_warning("\n\n^C again to exit")
 ```
 
+## Claude Code
+
+https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview
+https://simonwillison.net/2025/Mar/9/steve-yegge/
+
 ## ⚪️ Cursor
 
 * has Vim emulation
@@ -153,6 +152,10 @@ def keyboard_interrupt(self):
 
 ---
 
+https://getstream.io/blog/cursor-ai-large-projects/ file to prompt + https://news.ycombinator.com/item?id=43478199 https://simonwillison.net/2025/Mar/26/notes/
+
+you've enabled Codeium extension auth on Github (for VS Code)
+https://news.ycombinator.com/item?id=43340662
 try Cline VS Code extension
 
 Jet Brains is 6 months behind the market https://www.jetbrains.com/junie/
@@ -218,6 +221,11 @@ logs -m $MODEL  # logs by model
 
 ---
 
+https://simonwillison.net/2025/Apr/10/llm-fragments-go/
+https://mathpn.com/posts/llm-docsmith/
+https://simonwillison.net/2025/Apr/11/llm-fragments-rust/
+https://github.com/dtnewman/zev
+https://github.com/koaning/smartfunc https://simonwillison.net/2025/Apr/3/smartfunc/ https://www.youtube.com/watch?v=j9jh46R0ryY https://simonwillison.net/2025/Apr/7/long-context-llm/ https://github.com/simonw/llm-hacker-news/issues/1 https://simonwillison.net/2025/Apr/8/llm-hacker-news/
 https://www.youtube.com/watch?v=VL2TmuDJXhE
 
 ```sh
@@ -295,6 +303,12 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 
 ## interchange (MCP)
 
+* https://github.com/jlowin/fastmcp
+> Put simply, MCP is a way for LLMs to more easily integrate with external tools. MCP Servers: Providers like Sentry, Slack, JIRA, Gmail, etc. set up adapters around their APIs that follow the MCP Protocol. https://read.highgrowthengineer.com/p/mcps-simply-explained
+https://github.com/github/github-mcp-server
+Postgres https://news.ycombinator.com/item?id=43520953
+https://simonwillison.net/2025/Mar/25/playwright-mcp/
+schemas https://simonwillison.net/2025/Feb/28/llm-schemas/
 https://github.com/crmne/ruby_llm
 https://registerspill.thorstenball.com/p/joy-and-curiosity-30 https://github.com/punkpeye/awesome-mcp-servers
 https://github.com/simonw/llm/releases/tag/0.23

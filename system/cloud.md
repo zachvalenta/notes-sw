@@ -144,6 +144,7 @@ ZA
 
 ---
 
+Zoro https://spacelift.io/ https://terragrunt.gruntwork.io/
 > An analysis of Redis' source code repository also shows that a sizable percentage of contributions to the DBMS comes from outside the company (e.g., Tencent, Alibaba). This "stolen valor" was the reason for the ire HashiCorp received when they changed Terraform's license in 2023. https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 
 * https://github.com/idoavrah/terraform-tui
@@ -324,7 +325,7 @@ request flow
 ---
 
 ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
-* _Coolify_: https://coolify.io/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
+* _Coolify_: https://coolify.io/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/ https://github.com/trailbaseio/trailbase
 * _Firebase_: https://tinyprojects.dev/projects/tiny_website
 * _Knative_: https://knative.dev/docs/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
 * _Netlify_: https://www.netlify.com/
@@ -334,7 +335,7 @@ ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
 * _Railway_: https://railway.app/ https://docs.railway.app/guides/gin
 * _Sidekick_: 🎯 https://github.com/MightyMoud/sidekick https://news.ycombinator.com/item?id=41591018
 * _sst_: 🎯 https://sst.dev/
-* _Supabase_: https://supabase.com/
+* _Supabase_: https://supabase.com/ https://www.youtube.com/watch?v=wa9-d63velk
 * _Tau_: https://github.com/taubyte/tau
 * _Vercel_: https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
 
@@ -348,6 +349,10 @@ https://cba.mit.edu/
 ## platform.sh
 
 * _Platform.sh_: https://platform.sh/ https://django-simple-deploy.readthedocs.io/en/latest/
+
+## pico
+
+https://pico.sh/
 
 ## railyway
 
@@ -407,6 +412,10 @@ Features: Zero-downtime deployments, compatibility with bare-metal servers and c
 https://www.ubicloud.com/blog/debugging-hetzner-uncovering-failures-with-powerstat-sensors-and-dmidecode
 
 # 🟨 ZA
+
+## stack native
+
+📙 https://talkpython.fm/books/python-in-production#read-online
 
 TAXONOMY 🧠 https://chatgpt.com/c/673a5946-7948-8004-9a56-e3b60009dccd https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
 > hyperscale https://blog.jetbrains.com/pycharm/2024/12/the-state-of-python/#trend-6-most-python-web-apps-run-on-hyperscale-clouds
@@ -501,5 +510,6 @@ TAXONOMY https://www.youtube.com/watch?v=NhDYbskXRgc [48:00]
 * `aws.md` network > VPC
 * `tcp-ip.md` VPN
 
+https://blog.6nok.org/tailscale-is-pretty-useful/
 * https://news.ycombinator.com/item?id=33986430
 > I’m a huge Tailscale fan and was quite happy to see that they’re doing well. The fascinating bit for me in that article, though, was this: “AI firms have big networking problems because they must transfer immense amounts of data between many machines across multiple cloud providers. They also face plenty of access control, compliance, cryptography, identity, and privacy concerns, given the amount of personal data they process for clients and the reputational risk should something go awry. These characteristics make AI companies ‘an ideal use case’ for Tailscale.” That makes sense, of course, but I have to admit that even though I was aware that AI involves a lot of data, my mind didn’t make the leap to “they probably run into a lot of networking problems.” https://registerspill.thorstenball.com/p/joy-and-curiosity-23

@@ -15,6 +15,10 @@
 
 * _24_: own file
 
+* https://github.com/zserge/tinylangs
+* https://www.achaq.dev/blog/artemis https://www.achaq.dev/blog/compilers
+* state machines https://www.achaq.dev/blog/distributed-systems-state-machines-special-relativity
+
 ASSEMBLY
 Some compilers translate high-level code into assembly language as an intermediate step. This assembly code is then passed to an assembler, which converts it into machine code (binary instructions that the CPU can execute directly).
 Examples: GCC/Clang for C/C++: These compilers can generate assembly code using flags like -S. For instance, gcc -S example.c produces an example.s assembly file.
@@ -63,6 +67,7 @@ import dis
 dis.dis(fn)
 ```
 * _optimization_: most of diff btw compilers is here [Conery 216] https://signalsandthreads.com/compiler-optimization/ https://www.hytradboi.com/2025/2db17db8-855a-4baf-84eb-0e7c29d7c9a1-debugging-compiler-optimized-code-how-it-works-and-doesnt
+* incremental compiliation https://www.scattered-thoughts.net/writing/a-rough-survey-of-compilation-recompilation-and-compile-time-evaluation/
 
 ## lex
 
@@ -102,7 +107,7 @@ Creates AST
 ---
 
 * _parser_: generates AST from src https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html https://astral.sh/blog/ruff-v0.4.0 https://drewdevault.com/2021/04/22/Our-self-hosted-parser-design.html
-* parser generator https://lezer.codemirror.net/
+* parser generator https://lezer.codemirror.net/ e.g. yacc, bison 📙 Thomas pragmatic programmer [59,62]
 * https://ohmjs.org/ https://dubroy.com/blog/ https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 * date/time parser https://github.com/olebedev/when
 * JSON parser https://news.ycombinator.com/item?id=38150833 https://blog.sylver.dev/building-a-json-validator-with-sylver-part13-writing-a-json-parser-in-49-lines-of-code 
@@ -527,6 +532,7 @@ Jedi is more tuned for real-time code intelligence in editors rather than broad 
 
 ---
 
+for Postgres https://news.ycombinator.com/item?id=43513996 https://github.com/supabase-community/postgres-language-server
 treesitter https://github.com/codegen-sh/codegen
 https://philz.dev/blog/language-server-db/ https://www.hytradboi.com/2025/603a4562-ba4f-4150-b6d0-8c0e4c1ed5f7-rubbing-a-database-on-a-language-server
 

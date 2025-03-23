@@ -7,6 +7,7 @@
 ## 进步
 
 * ⭐️ managing many Git repos https://github.com/alajmo/mani
+* https://github.com/sinclairtarget/git-who
 * need way to toggle git diff away from delta for copying plaintext 🗄️ `bin/gco`
 > or can delta itself provide a toggle?
 * backup to Codeberg https://github.com/AkashRajpurohit/git-sync
@@ -86,6 +87,8 @@ EVENTS
 
 ---
 
+* shell https://yossarian.net/til/post/any-program-can-be-a-github-actions-shell/
+* https://news.ycombinator.com/item?id=43419701
 * use on AWS https://github.com/CloudSnorkel/cdk-github-runners
 telemetry https://github.com/catchpoint/workflow-telemetry-action/issues/39 https://blog.smidt.dev/posts/0003/
 can manipulate tags, create releases in repo using CLI https://cli.github.com/manual/gh_release
@@ -197,8 +200,10 @@ gh alias list
 
 ![Alt text](path/to/your.gif)
 ```
+* link to header: `[Link text](#header-name)`
 * add a welcome video! https://github.com/grafana/pyroscope
 * use SVG https://github.com/zachvalenta/capp-prod-cat-alt https://github.com/pommee/Pocker
+* use webp https://github.com/zachvalenta/capp-handbook/commit/0e4e94e78f7e4854b4ae4e1437d509dc86384c84
 * use HTML https://github.com/catppuccin/delta/blame/main/README.md
 * "try without installing!" https://zellij.dev/
 * directory tree https://github.com/koaning
@@ -444,7 +449,7 @@ remote: warning: File data/housing.csv is 66.34 MB; this is larger than GitHub's
 
 HISTORY https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 * _version control_: stores content and tracks changes to content https://medium.com/@willhayjr/the-architecture-and-history-of-git-a-distributed-version-control-system-62b17dd37742
-* _first generation_: SCCS
+* _first generation_: SCCS 📙 Thomas pragmatic programmer [60]
 * _second generation_: 2000 - centralized - CVS, SVN/Subversion, Perforce, Bitkeeper https://twobithistory.org/2018/07/07/cvs.html https://blog.gitbutler.com/why-github-actually-won/
 * _third generation_: 2005 - distributed - Git (dominance such Stack Overflow dev survery no longer asks about VCS and people even use as a client to other VCS https://git-scm.com/book/en/v2/Git-and-Other-Systems-Git-as-a-Client) https://blog.gitbutler.com/why-github-actually-won/ alternatives (FB uses Mercurial http://aosabook.org/en/mercurial.html SQLite uses Fossil https://fnc.bsdbox.org/index)
 > absorb Mercurial https://news.ycombinator.com/item?id=41653191
@@ -499,6 +504,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * _delta_: ✅ https://github.com/dandavison/delta
 * themes file https://dandavison.github.io/delta/custom-themes.html https://github.com/dandavison/delta/blob/main/themes.gitconfig
 > don't understand why catpuccin relies on their bat theme https://github.com/catppuccin/delta can you just use straight from repo? https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
+* ❓ diff colors https://gist.github.com/zachvalenta/a3666ef47d9489e515d78548e85f139e
 * _diffnav_: ✅ obviated w/ lazygit https://github.com/dlvhdr/diffnav
 * _diffview_: 🎯 neovim https://github.com/sindrets/diffview.nvim https://www.youtube.com/watch?v=aJikrPnTOtI
 * _drft_: https://codeberg.org/nightsail/drft
@@ -647,6 +653,8 @@ gum confirm "commit changes?" && git commit -m "$SUMMARY" -m "$DESCRIPTION"
 ```
 
 ---
+
+AI https://news.ycombinator.com/item?id=43454690
 
 commits as documentation https://mislav.net/2014/02/hidden-documentation/
 > https://github.com/SKalt/git-cc/
@@ -883,8 +891,7 @@ squash c211c5b third
 
 * force pull
 ```sh
-git fetch --all
-git reset --hard origin/main
+git fetch --all; git reset --hard origin/main
 ```
 
 * initial push
@@ -893,8 +900,10 @@ git remote add origin git@github.com:$OWNER/$NAME.git
 git push -u origin main
 ```
 
-* get rid of remote branch that you've deleted
 ```sh
+# rm branch from remote
+push origin --delete $BRANCH
+# get rid of remote branch that you've deleted
 git fetch --prune
 ```
 
@@ -928,7 +937,6 @@ push
 * push to specific remote: `push <remote>`
 * push specific branch: `push <branch>`
 * push specific commit: `push <remote> <hash>:<branch>`
-* rm branch from remote: `push origin --delete <branch_name>`
 * _alias clone_: `clone <url> <alias>` https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository
 
 ---
@@ -1165,6 +1173,7 @@ CONSIDERATIONS
 
 ---
 
+* 📙 Thomas pragmatic programmer [142]
 * GLFS for large files https://stackoverflow.com/a/38313259 people don't like GLFS https://news.ycombinator.com/item?id=34875020 diffing binary https://tech.marksblogg.com/git-track-changes-in-media-office-documents.html https://www.git-tower.com/blog/git-performance/
 * sparse checkout, LFS https://martinheinz.dev/blog/109 https://www.git-tower.com/blog/git-performance/
 * Deno https://docs.deno.com/runtime/fundamentals/workspaces/

@@ -292,6 +292,7 @@ for i in range(5,1):
 
 ## generators
 
+https://pybit.es/articles/generator-mechanics-expressions-and-efficiency/
 https://mathspp.com/blog/binary-search-as-a-bidirectional-generator
 https://news.ycombinator.com/item?id=2133348
 https://docs.python.org/3/tutorial/classes.html#iterators
@@ -493,7 +494,7 @@ SEQUENCES
 * _sequence_: https://www.fluentpython.com/lingo/#sequence https://docs.python.org/3/glossary.html#term-sequence
 * _flat sequence_: physically stores the values of its items, and not references to other objects e.g. str, bytes, array https://www.fluentpython.com/lingo/#flat_sequence
 * _binary sequence_: sequence + byte e.g. byte, bytearray, memoryview https://www.fluentpython.com/lingo/#binary_sequence https://docs.python.org/3/glossary.html#term-bytes-like-object
-* `bytearray`: used for HTTP response, passing files around
+* `bytearray`: used for HTTP response, passing files around https://realpython.com/python-bytearray/
 
 https://www.b-list.org/weblog/2023/dec/24/python-container-types/
 
@@ -765,9 +766,9 @@ stevie.instrument = "guitar"  # AttributeError
 # set attr on init, repr for free, comparison by attr instead of id() https://stackoverflow.com/a/37161391
 # ❓ given that SimpleNameSpace is writable, why do docs recommend using named tuple instead? if you need a more complete container, why not tell people to use a class (like the comments on Stack Overflow)? https://docs.python.org/3/library/types.html?highlight=simplenamespace#types.SimpleNamespace
 ###
-from types import SimpleNameSpace
-stevie = SimpleNamespace(name="stevie", instrument="piano")
+from types import SimpleNamespace
+stevie = SimpleNamespace(name='stevie', instrument='piano')
 stevie.instrument  # 'piano'
-stevie.instrument = "guitar"
+stevie.instrument = 'guitar"
 stevie.instrument  # 'guitar'
 ```

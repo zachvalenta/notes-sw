@@ -11,18 +11,23 @@
 
 ## 进步
 
+> Contrast this to everywhere I see people ravenously using new tools, like Cursor for coding, OpenAI Operator, or even fairly ‘basic’ uses like lawyers using NotebookLM to summarize case documents in a way they can listen to in the car. https://registerspill.thorstenball.com/p/joy-and-curiosity-33
+
+> I strongly feel that this is an insult to life itself. I am utterly disgusted. https://carly.substack.com/p/everything-is-ghibli
 interactions: code completion, chat, tool use https://blog.val.town/blog/fast-follow/
 Simon Prince book https://news.ycombinator.com/item?id=43121059
 https://openai.com/index/introducing-deep-research/ https://x.com/mckaywrigley/status/1886215847481623030 https://x.com/felipe_millon/status/1886205433469178191 https://thezvi.substack.com/p/were-in-deep-research https://x.com/sayashk/status/1887275315824660584 https://www.fromthenew.world/p/openai-deep-research-explains-itself https://x.com/patrickc/status/1888312657146757315 https://stratechery.com/2025/deep-research-and-knowledge-value/
 > OpenAI made a big splash launching ‘Deep Research’, an agent-ish tool within the $200 Pro plan that uses a version of the computationally-intensive (and expensive) o3 ‘reasoning’ model to write research reports, coming back in a few hours when it’s done. As for most generative AI demos, very cool if you have that use case, but you have to be careful - I spotted some large mistakes even in one of the examples on the marketing page (in a field I know a lot about). I always used to compare machine learning to ‘infinite interns’ and now you can ask an AI intern to write a long report about something - but you’ll need to check every line of it, and it probably won’t say anything surprising (since surprising is a divergence from the data). - Ben Evans 25.02.11
 https://news.ycombinator.com/item?id=43236184 https://simonwillison.net/2025/Mar/4/deepsearch-deepresearch/
-vibe coding https://simonwillison.net/2025/Mar/6/vibe-coding/
+vibe coding https://simonwillison.net/2025/Mar/6/vibe-coding/ https://simonwillison.net/2025/Mar/19/vibe-coding/
 
 * _24_: ChatGPT (regex and Polars, then incorporate research) Claude (switch after GPT outage)
 * _23_: few random queries
 
 # 🥗 MENU
 
+🧮 pricing https://simonwillison.net/2025/Apr/10/llm-pricing-calculator/
+* naming conventions https://www.dbreunig.com/2025/02/04/a-gentle-intro-to-running-a-local-llm.html
 🛠️ benchmark https://arena.lmsys.org/
 🔍 compare https://news.ycombinator.com/item?id=42348513 https://simonwillison.net/2024/Dec/16/webdev-arena/
 🔑 https://gist.github.com/zachvalenta/d3b7cd172dd2d3d8ff7340bd458c6fe2
@@ -188,15 +193,18 @@ start here https://parlance-labs.com/education/ https://applied-llms.org/ https:
 * 90% of the job is munging data, models are implemented by people w/ PhDs https://towardsdatascience.com/the-cold-start-problem-how-to-build-your-machine-learning-portfolio-6718b4ae83e9 https://spectrum.ieee.org/view-from-the-valley/artificial-intelligence/machine-learning/andrew-ng-xrays-the-ai-hype more on job market https://evjang.com/2022/04/25/rome.html
 * https://www.youtube.com/watch?v=JLTYNPoK7nw https://www.youtube.com/watch?v=pvaIi0l1GME https://softwareengineeringdaily.com/2019/06/13/stripe-machine-learning-infrastructure-with-rob-story-and-kelley-rivoire/
 * this seems dumb but maybe I don't understand yet https://calmcode.io/course/deon/introduction
+* evals https://simonwillison.net/2025/Mar/8/nicar-llms/ https://simonwillison.net/2025/Apr/1/pydantic-evals/
 
 ## agents
 
 🔍 https://mychaelangelo.github.io/ai_agents_marketmap/
 
 = can go out and use the internet https://x.com/rowancheung/status/1898093008601395380
+> An agent is something that acts in an environment; it does something. https://simonwillison.net/2025/Mar/19/worms-and-dogs-and-countries/
 
 ---
 
+* https://www.youtube.com/watch?v=eHEHE2fpnWQ
 * people define as "can read|update my code"? https://www.youtube.com/watch?v=zIejF3IGtWk
 
 * start using https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/
@@ -218,6 +226,8 @@ https://news.ycombinator.com/item?id=42299098
 https://x.com/SullyOmarr/status/1864697992261062690/photo/1
 
 ## Hugging Face
+
+* run inside Postgres https://github.com/serpent7776/pg_sentence_transformer
 
 > Transformers supports the majority of models available in Hugging Face’s Model Hub, and encompasses diverse tasks in natural language processing, computer vision, and audio processing...Because it’s built on top of PyTorch, TensorFlow, and JAX, [Hugging Face] `transformers` gives you the flexibility to use these frameworks to run and customize models at any stage. Using open-source models through Transformers has several advantages: Proprietary AI companies like OpenAI, Cohere, and Anthropic often charge you a token fee to use their models via an API. This means you pay for every token that goes in and out of the model, and your API costs can add up quickly. By deploying your own instance of a model with Transformers, you can significantly reduce your costs because you only pay for the infrastructure that hosts the model. https://realpython.com/huggingface-transformers/#exploring-hugging-face
 
@@ -299,6 +309,8 @@ https://www.youtube.com/watch?v=d5i5Lc9X4Og
 
 ## semantic search
 
+🗄️ `ml.md` vectors
+
 BYO + RAG https://claude.ai/chat/ec4dbe09-e48a-466f-9e35-a7e430af0265
 
 ---
@@ -329,6 +341,7 @@ https://news.ycombinator.com/item?id=42507116
 * Farooq build LLM apps https://www.manning.com/books/build-llm-applications-from-scratch https://www.alldayta.com/#product-demo
 * Kimothi https://www.manning.com/books/a-simple-guide-to-retrieval-augmented-generation
 
+* https://github.com/oramasearch/orama
 https://www.youtube.com/watch?v=hB7sGE0W8CI
 https://github.com/gusye1234/nano-graphrag
 with Databricks https://youtube.com/watch?v=p4qpIgj5Zjg
@@ -440,6 +453,7 @@ BYO
 * https://github.com/BerriAI/litellm
 
 * _langchain_: https://zackproser.com/blog/office-oracle-overview https://www.amazon.com/dp/1835083463 https://x.com/aidenybai/status/1895218891586224488
+* LangGraph https://realpython.com/langgraph-python/
 > We mentioned some of the emerging criticisms about LangChain in the previous Radar. Since then, we’ve become even more wary of it. While the framework offers a powerful set of features for building applications with large language models (LLMs), we’ve found it to be hard to use and overcomplicated. LangChain gained early popularity and attention in the space, which turned it into a default for many developers. However, as LangChain is trying to evolve and keep up with the fast pace of change, it has become harder and harder to navigate those changes of concepts and patterns as a developer. We’ve also found the API design to be inconsistent and verbose. As such, it often obscures what is actually going on under the hood, making it hard for developers to understand and control how LLMs and the various patterns around them actually work. We’re moving LangChain to the Hold ring to reflect this. In many of our use cases, we’ve found that an implementation with minimum use of specialized frameworks is sufficient. Depending on your use case, you may also want to consider other frameworks such as Semantic Kernel, Haystack or LiteLLM.  https://www.thoughtworks.com/radar/languages-and-frameworks/langchain
 
 ## train
@@ -497,7 +511,7 @@ TYPES https://elevenlabs.io/
 * _TTS_: https://www.openai.fm/ https://notebooklm.google/ https://news.ycombinator.com/item?id=41964980 PDF to audio https://www.fwdaudio.com/ https://x.com/barbell_fi multistage https://simonw.substack.com/p/verdad-tracking-misinformation-in https://www.fwdaudio.com/ https://news.ycombinator.com/item?id=43022398
 > Everyone is talking about the new hashtag#AI Notebook LM tool from Google that lets you create podcasts from articles and other sources. I decided to try it for myself, using one of my prior pieces, The Upside and Downside of AI, as the basis for the podcast. The result, which you can listen to in the article, is simply amazing. It doesn't just read the article - it has a discussion between two "people" about it that is very engaging. https://arnoldkling.substack.com/p/llm-links-b9d
 > Meta recently introduced NotebookLlama, an "open" version of Google’s podcast-generating feature found in NotebookLM. Leveraging Meta's Llama models, NotebookLlama is capable of creating conversational, podcast-style digests of uploaded text files, such as PDFs of news articles or blog posts. This technology aims to replicate the interactive storytelling aspect of Google's viral tool, adding its own elements of dramatization and interruptions to make the content sound more dynamic. https://www.superpowerdaily.com/p/google-preps-jarvis-ai-agent-that-works-in-chrome
-* _STT_: https://news.ycombinator.com/item?id=41941845
+* _STT_: https://news.ycombinator.com/item?id=41941845 https://www.scattered-thoughts.net/writing/hytradboi-2025-postmortem/
 
 ---
 
@@ -545,6 +559,7 @@ EXAMPLES
 
 ## projects
 
+* character relationships https://news.ycombinator.com/item?id=43633298
 * algos https://github.com/ritchie46/vanilla-machine-learning https://www.manning.com/books/optimization-algorithms
 * get familiar https://simonwillison.net/2024/Apr/17/ai-for-data-journalism/
 * https://www.freecodecamp.org/news/customer-segmentation-python-machine-learning/
@@ -562,7 +577,7 @@ EXAMPLES
 * `dotfiles/ai/aider/conventions`
 *️ `work.md` industry > Stack Overflow
 * `clients.md` Cursor https://ghuntley.com/stdlib/
-* `ur-repo` prompt workflow https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/ https://llmstxt.org/ https://svelte.dev/llms-small.txt https://simonwillison.net/2025/Mar/11/using-llms-for-code/ claude.md https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials
+* `ur-repo` prompt workflow https://harper.blog/2025/02/16/my-llm-codegen-workflow-atm/ https://llmstxt.org/ https://svelte.dev/llms-small.txt https://simonwillison.net/2025/Mar/11/using-llms-for-code/ https://simonwillison.net/2025/Mar/11/using-llms-for-code/ claude.md https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials
 
 ZA
 * ask it to try harder https://simonwillison.net/2025/Jan/3/asking-them-to-write-better-code/

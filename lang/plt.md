@@ -40,6 +40,7 @@ FACTORS
 * _Prolog_: https://chatgpt.com/c/672d18fc-66cc-8004-94ba-23928fa2110c https://www.swi-prolog.org/ https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/ https://news.ycombinator.com/item?id=42004756 https://blog.dnmfarrell.com/ http://minikanren.org/
 * _Ruby_:
 > Somewhere, someone (bless them) linked to mousehole, a why the lucky stiff project. When I started programming in Ruby, _why was already gone and I only learned about him through the Slate article, but echos of him are still ringing through the Ruby world. This project is a sweet reminder. Just look at that README. “MouseHole can either intrude completely upon your browsing experience or you can keep it off in the outskirts, for whenever you’ve got a second to duck into that little crack in the wall” https://registerspill.thorstenball.com/p/joy-and-curiosity-16
+* _TCL_: used in Eclipse https://www.magicsplat.com/ttpl/index.html
 
 ## history
 
@@ -116,6 +117,7 @@ ZA
 
 ---
 
+* pkg mgmt https://news.ycombinator.com/item?id=43614285
 https://github.com/esbudylin/modest
 https://news.ycombinator.com/item?id=42517102
 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua https://nvchad.com/docs/quickstart/learn-lua
@@ -136,6 +138,7 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 ## 🔤 R
 
 🗄️ `stat.md` Gelman
+📙 https://www.bigbookofr.com/ https://news.ycombinator.com/item?id=43646219
 
 * preceded by SAS (data processing platform developed in the 1970s at North Carolina State and later commercialized)
 * grammar of graphics https://github.com/Kanaries/graphic-walker
@@ -317,6 +320,8 @@ def out_of_place(qd):
 
 ---
 
+* _declarative_: 📙 Thomas pragmatic programmer [60]
+
 📜 https://docs.python.org/3/reference/index.html
 
 NAMES
@@ -405,6 +410,8 @@ CON https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/ http
 > aka implicit? https://go.dev/tour/basics/10
 * _reflection_: program's ability to examine type system of programming language + dynamically manipulate types/values at runtime https://drewdevault.com/2021/10/05/Reflection.html https://en.wikipedia.org/wiki/Reflective_programming
 > Clojure provides easy access to the Java frameworks, with optional type hints and type inference, to ensure that calls to Java can avoid reflection. https://clojure.org/
+* _subtype_:
+> If you remember the fad for Object Oriented Programming, “subtyping” might call to mind classes and inheritance hierarchies. However, subtyping is a far more basic and general notion than that. We say that type X is a subtype of type Y in a language if a value of type X can be used wherever type Y is expected. Notice that this has nothing to do with classes or inheritance. In a trivial sense, subtyping is present in every language because types are always subtypes of themselves under this definition. However, the important question in language design is to what extent does the compiler allow for non-trivial subtyping relationships. https://blog.polybdenum.com/2025/03/26/why-you-need-subtyping.html
 
 ---
 

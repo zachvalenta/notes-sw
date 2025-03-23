@@ -16,6 +16,8 @@
 📙 Kleppmann ch. 4
 🗄 `src` secrets
 
+* aka data languages 📙 Thomas pragmatic programmer [60]
+
 ---
 
 generate from CLI usage https://github.com/nickgerace/gfold
@@ -361,6 +363,7 @@ EDITOR
 * [diff](https://stackoverflow.com/a/40883538)
 * table fmt: Jira, Markdown/RST, Latex https://jsvine.github.io/intro-to-visidata/basics/saving-sheets/
 * Markdown for Google Docs https://www.theverge.com/2022/3/29/23002138/google-docs-markdown-support-formatting-update
+* Docbook as predecessor 📙 Thomas pragmatic programmer [254]
 
 conversion to HTML
 * https://github.com/susam/texme
@@ -718,13 +721,13 @@ TOOLING
 
 # 🟨 ZA
 
-CASES
-* snake: `hello_world`
-* kebab: `hello-world`
-* camel: `helloWorld`
-* Pascal: `HelloWorld`
-* Sponge Bob: `hElOo wOrLd`
-* Brad: `hello.world`
+CASES https://ls-lint.org/blog/announcements/v2.3.0.html#what-the-heck-is-ls-lint
+* _snake_: `hello_world`
+* _kebab_: `hello-world`
+* _camel_: `helloWorld`
+* _Pascal_: `HelloWorld`
+* _Sponge Bob_: `hElOo wOrLd`
+* _Brad_: `hello.world`
 
 ## identifiers
 
@@ -796,7 +799,13 @@ print(f"Full UPC: {full_upc_diet_coke}")
 
 ---
 
+McMaster Carr
+* https://www.mcmaster.com/92949A050/
+> If you're familiar with McMaster, you might recognize how their number is semi-smart: the first section (91257) is the general product while the second section (546) is a variant within that.
+> This is a "semi-smart" numbering system - not completely arbitrary but not fully semantic either. It balances: Categorization (first segment) Variation tracking (last segment) Human readability (letter break)
+
 UUID https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/ https://en.wikipedia.org/wiki/Universally_unique_identifier https://taskwarrior.org/docs/dom/
+* prefixed https://github.com/minhajuddin/prefixed_uuids
 * version 1: generated from timestamp, monotonic counter, and a MAC address
 > don't use
 * version 2: reserved for security IDs with no known details

@@ -23,26 +23,6 @@
 * https://dadrian.io/ https://dadrian.io/blog/posts/sct-not-after/
 * Scapy https://www.youtube.com/watch?v=EnuF9ZR6MVc
 
-ATTRIBUTE BASED ACCESS CONTROL (ABAC)
-* Django Guardian
-* Flask Principal
-* FastAPI has built-in security?
-* https://www.achaq.dev/blog/iamjs
-* https://casbin.org/
-```python
-import casbin
-# Initialize the enforcer
-enforcer = casbin.Enforcer("model.conf", "policy.csv")
-# Check permissions
-is_allowed = enforcer.enforce("alice", "data1", "read")
-# Add policy
-enforcer.add_policy("bob", "data2", "write")
-# Add role
-enforcer.add_grouping_policy("alice", "admin")
-```
-* https://github.com/kolotaev/vakt
-* https://docs.permit.io/
-
 ROLES https://www.netmeister.org/blog/infosec-skillsets.html
 * _security engineering_: meta/mgmt 🗄 `google-sre-security.pdf` https://danielmiessler.com/study/ https://news.ycombinator.com/item?id=24031632
 * _cryptography_: academics https://web.engr.oregonstate.edu/~rosulekm/crypto/
@@ -51,6 +31,7 @@ ROLES https://www.netmeister.org/blog/infosec-skillsets.html
 * _reverse engineering_: disassemblers/decompilers, C++, Windows 🗄 `python-grey-hat.pdf` https://www.begin.re/ https://nostarch.com/GhidraBook https://news.ycombinator.com/item?id=29084716 https://reverseengineering.stackexchange.com/ https://malwareunicorn.org/workshops/re101.html
 
 CLEAN THESE UP BEFORE BUYING BOOKS
+* network vulnerability scanner https://www.sitepoint.com/building-a-network-vulnerability-scanner-with-go/
 * vulnerability scanner https://sansec.io/ https://github.com/blacklanternsecurity/bbot
 * stuxnet https://www.youtube.com/watch?v=WyBlh8Tq6_Q
 * things to know https://www.netmeister.org/blog/infosec-competencies.html https://jacobian.org/2021/jul/8/appsec-pagnis https://latacora.github.io/careers/
@@ -315,12 +296,43 @@ pass
 
 🗄 `django.md` users
 
+* _shadow profile_: info on (potential) user that they themselves have not provided https://en.wikipedia.org/wiki/Shadow_profile https://news.ycombinator.com/item?id=43458286
+
+## access control
+
+🗄️ `django.md` perms
+
+* _role-based access control (RBAC)_: principle of least privilege
+* role-based e.g. dba has full access to all fields to db but app dev will not see any personally identifiable info e.g. in Postgres can set permissions at the column level https://softwareengineeringdaily.com/2020/07/28/access-control-management-with-fouad-matin-and-dan-gillespie/
+* ACL https://www.stedi.com/blog/how-stedi-uses-automated-reasoning-for-access-control-policy-verification
+
+ATTRIBUTE BASED ACCESS CONTROL (ABAC)
+* Django Guardian
+* Flask Principal
+* FastAPI has built-in security?
+* https://www.achaq.dev/blog/iamjs
+* https://casbin.org/
+```python
+import casbin
+# Initialize the enforcer
+enforcer = casbin.Enforcer("model.conf", "policy.csv")
+# Check permissions
+is_allowed = enforcer.enforce("alice", "data1", "read")
+# Add policy
+enforcer.add_policy("bob", "data2", "write")
+# Add role
+enforcer.add_grouping_policy("alice", "admin")
+```
+* https://github.com/kolotaev/vakt
+* https://docs.permit.io/
+
 ## auth
 
 🗄 `application.md` security
 
 ---
 
+* SSO https://blog.bytebytego.com/p/ep155-the-shopify-tech-stack
 * Python https://authlib.org/
 
 SEMANTICS
@@ -330,9 +342,6 @@ https://ntietz.com/blog/lets-say-instead-of-auth/
 * aka permissions; Zanzibar https://github.com/authzed/spicedb https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203085
 * _risk-based auth_: non-deterministic login
 > The problem is precisely this: The credentials you require to access a Google account are essentially indeterminate. Supposedly, for a simple Google account without 2FA enabled, knowledge of the account email and password should be sufficient to access an account; except sometimes, they aren't. Sometimes, Google might randomly decide your login attempt is suspicious, and demand you complete some additional verification step. https://www.devever.net/~hl/logindenial
-* _role-based access control (RBAC)_: principle of least privilege
-* role-based e.g. dba has full access to all fields to db but app dev will not see any personally identifiable info e.g. in Postgres can set permissions at the column level https://softwareengineeringdaily.com/2020/07/28/access-control-management-with-fouad-matin-and-dan-gillespie/
-* ACL https://www.stedi.com/blog/how-stedi-uses-automated-reasoning-for-access-control-policy-verification
 
 https://www.cerbos.dev/blog/how-to-implement-authorization-in-go https://github.com/cerbos/cerbos
 https://roadmap.sh/backend

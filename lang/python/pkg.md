@@ -228,6 +228,7 @@ https://realpython.com/pypi-publish-python-package/#prepare-your-package-for-pub
 * _PEP 517_: build backends
 * _PEP 518_: specifying build systems
 * _PEP 621_: specifying project metadata
+* _PEP 625_: https://github.com/django/django/pull/18891
 * _PEP 639_: https://bsky.app/profile/hynek.me/post/3lc5n7g6kr22f https://pythonbytes.fm/episodes/show/411/tls-client-hello-guitar-solo
 * _PEP 660_: editable installs
 * _PEP 767_: read-only attributes https://peps.python.org/pep-0767/
@@ -718,6 +719,8 @@ fix for scripts? https://www.youtube.com/watch?v=bNw34Mo0FOQ
 
 ---
 
+https://blog.dusktreader.dev/2025/03/29/self-contained-python-scripts-with-uv/
+https://thisdavej.com/share-python-scripts-like-a-pro-uv-and-pep-723-for-easy-deployment/
 https://simonwillison.net/2025/Mar/6/aider-using-uv-as-an-installer/
 https://www.youtube.com/watch?v=bNw34Mo0FOQ [2:20]
 https://github.com/astral-sh/uv/issues/7242#issuecomment-2631783057

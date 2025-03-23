@@ -460,13 +460,20 @@ isinstance(type, object)  # True
 * _abstract base class (ABC)_: https://www.fluentpython.com/lingo/ https://docs.python.org/3/glossary.html#term-abstract-base-class
 * _virtual subclass_: https://www.fluentpython.com/lingo/ https://www.fluentpython.com/lingo/#constructor
 
+## interfaces
+
+* https://realpython.com/python-interface/
+* https://tpaschalis.me/shallow-vs-deep-interfaces/
+* https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python
+* https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html
+* https://www.youtube.com/watch?v=DqFspy9pI9k
+* interfaces, protocols, ABCs, mixins, typing https://claude.ai/chat/06709fb2-7841-4198-ac57-b770df956589 https://realpython.com/python-protocol/
+
 ## mixin
 
 ---
 
-* interfaces, protocols, ABCs, mixins, typing https://claude.ai/chat/06709fb2-7841-4198-ac57-b770df956589 https://realpython.com/python-protocol/
 * _mixin_: multiple inheritance of abstract class https://stackoverflow.com/a/15605119 https://www.fluentpython.com/lingo/#mixin_class
-* _interface_: https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python https://realpython.com/python-interface/ https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html https://www.youtube.com/watch?v=DqFspy9pI9k
 * _sink_: https://www.ianlewis.org/en/mixins-and-python https://stackoverflow.com/a/52469499/6813490 https://www.residentmar.io/2019/07/07/python-mixins.html https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful mixins tutorial https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556 https://stackoverflow.com/a/547714/6813490
 
 * _sink_: https://www.youtube.com/watch?v=YXiaWtc0cgE https://realpython.com/inheritance-composition-python/ https://realpython.com/oop-in-python-vs-java/
@@ -506,7 +513,7 @@ c.crawl()
 
 ---
 
-* way to do interfaces
+* way to do interfaces https://getstream.io/blog/go-structs-interfaces/
 * https://chatgpt.com/c/671815e8-0f44-8004-abb5-be6b52fc8bd1
 * https://godatadriven.com/blog/protocols-in-python-why-you-need-them/
 * https://www.youtube.com/watch?v=xvb5hGLoK0A
@@ -717,6 +724,7 @@ USE CASES
 * JIT https://eli.thegreenplace.net/2025/decorator-jits-python-as-a-dsl/
 
 ZA
+* https://www.patreon.com/posts/how-to-use-async-124658443
 * https://www.fluentpython.com/lingo/#decorator
 * https://docs.python.org/3/glossary.html#term-decorator
 * https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples
@@ -853,7 +861,7 @@ b = a
 a is b  # True
 b is a  # True
 
-# `==` -> equality (same val); SimpleNameSpace does this as well https://treyhunner.com/2019/03/python-deep-comparisons-and-code-readability/
+# `==` -> equality (same val); SimpleNameSpace does this as well https://treyhunner.com/2019/03/python-deep-comparisons-and-code-readability/ https://www.pythonmorsels.com/iterable-equality/
 x = [1,2,3]
 y = [1,2,3]
 id(x)  # 4567741704
@@ -1116,12 +1124,15 @@ https://llm.datasette.io/en/stable/related-tools.html
 
 # 🎹 TYPING
 
+📙 Viafore robust python
 🗄 `compilers.md` typing
 
 > The foundations of Python’s static type system were defined in PEP 484 and introduced in Python 3.5. In November 2023, PEP 729 established the Typing Council and formalized the type system through a typing specification. https://realpython.com/python313-new-features/
 
 ---
 
+https://peps.python.org/pep-0781/
+* https://github.com/dry-python/returns
 * _exhaustiveness check_: check that functions handle newly-added attributes on their args https://news.ycombinator.com/item?id=25428583
 * _type narrowing_: issue warning if src tries to operate on type that args cannot be passed on blocks's previous code https://hakibenita.com/python-mypy-exhaustive-checking
 

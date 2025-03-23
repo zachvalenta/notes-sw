@@ -114,6 +114,7 @@ TIME MACHINE
 
 ## mini23 ➡️ exfatmain
 
+* houston pics
 * digits
 * clifton school bus scam
 * clean out old Google Drive stuff
@@ -123,6 +124,7 @@ SW
 * Beaulieu
 
 MUSIC
+* willie nelson live at the teatro
 * sun araw
 * cymande
 * tatum in a sentimental mood
@@ -141,6 +143,7 @@ MUSIC
 * bobby bland
 * incognito
 * SZA
+* half japanese
 
 SINGLES
 * hank williams dont let me love you
@@ -165,6 +168,11 @@ SINGLES
 * McCartney coming up
 * Traxman ever and always
 * John Lee Hooker boom boom
+* rm little simz doorways
+* Richard Smallwood i wont forget
+* Keith Whitley honky tonk heart
+* Labi Siffre come on michael, laughing
+* Aaron Copland
 
 ## air-capp ➡️ mini23
 

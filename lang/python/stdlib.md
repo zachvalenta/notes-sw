@@ -598,6 +598,10 @@ LIBS
 
 ---
 
+* curl browser impersonation https://news.ycombinator.com/item?id=43571099
+* https://simonwillison.net/2025/Apr/7/crawlers
+* unofficial APIs https://integuru.ai/ https://news.ycombinator.com/item?id=41983409
+* https://simonwillison.net/2025/Mar/8/cutting-edge-web-scraping/
 * https://news.ycombinator.com/item?id=43285725
 * rotate user agents https://github.com/theonlyanil/stealthkit
 * https://news.ycombinator.com/item?id=42817439 https://lightpanda.io/
@@ -743,6 +747,7 @@ RSGI
 
 ---
 
+* MS Word https://github.com/python-openxml/python-docx
 * rise of 3rd-party packages, dead batteries http://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html https://www.python.org/dev/peps/pep-0594/ provisional API https://docs.python.org/3/glossary.html#term-provisional-API PEP 594 https://conroy.org/breaking-python-packages
 
 ## datetime

@@ -53,11 +53,14 @@ CHECKSUMS
 
 ## storage
 
+🗄 `distributed.md` transactions
+
 ---
 
-🗄 `distributed.md` transactions
+* _buffer manager_:
+> First of all, what does Postgres buffer manager do? Just briefly, Postgres organizes on-disk data files in 8KB fix-sized pages. It also maintains a fixed-size array of page buffers in memory, to cache recent reads and writes of these disk pages and improve performance through caching and lazy disk flush. https://medium.com/@dichenldc/30-years-of-postgresql-buffer-manager-locking-design-evolution-e6e861d7072f
 * _transaction_: https://news.ycombinator.com/item?id=36583317
-* _transaction wraparound_: 🗄️ vacuuming
+* _transaction wraparound_: https://github.com/orioledb/orioledb 🗄️ vacuuming
 ```txt
 PostgreSQL assigns a unique transaction ID (XID) to each transaction
 XIDs are 32-bit integers with ~4 billion possible values
@@ -118,6 +121,8 @@ TACTICS
 
 ---
 
+* https://kmoppel.github.io/2025-04-10-postgres-scaling-roadmap/
+* https://talkingpostgres.com/episodes/my-journey-into-postgres-monitoring-with-lukas-fittl-rob-treat
 * monitoring https://github.com/dalibo/pg_activity
 https://www.openmymind.net/Speedig-Up-Queries-Re-Imagining-Your-Data/
 https://www.openmymind.net/Speedig-Up-Queries-Understanding-Query-Plans/
@@ -142,7 +147,7 @@ EXPLAIN
 * how to interpret https://render.com/blog/postgresql-slow-query-to-fast-via-stats
 * adds overhead caused by the Volcano model https://www.ongres.com/blog/explain_analyze_may_be_lying_to_you/
 * `analyze`: update table stats after bulk index https://sqlfordevs.com/table-maintenance-bulk-modification
-* `explain analyze`: view postflight analysis 📙 Evans 25 https://jaywhy13.hashnode.dev/that-time-postgresql-said-no-thanks-i-dont-need-your-index https://www.pgmustard.com/blog/postgres-query-plan-visualization-tools
+* `explain analyze`: view postflight analysis 📙 Evans 25 https://jaywhy13.hashnode.dev/that-time-postgresql-said-no-thanks-i-dont-need-your-index https://www.pgmustard.com/blog/postgres-query-plan-visualization-tools https://dev.to/franckpachot/a-case-where-sql-joins-struggle-but-mongodb-documents-shine-11kj
 * `seq scan`:  query plan doesn't use an index 📙 Evans 25
 * aka full table scan https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
 * making sense of Postgres output https://www.pgmustard.com/docs/explain https://explain.depesz.com/
@@ -208,7 +213,7 @@ CREATE INDEX idx_fk_country_id ON city(country_id) -- https://github.com/jOOQ/sa
 * why: faster reads but slower writes 📙 Kleppmann [71] Karwin [6]
 > If you need to access data quickly, you index it...that's 90% of what you need to know https://www.bennadel.com/blog/3467-the-not-so-dark-art-of-designing-database-indexes-reflections-from-an-average-software-engineer.htm
 * _reindex_: 📍 https://news.ycombinator.com/item?id=29858083
-* _vacuum_: https://news.ycombinator.com/item?id=29858083 https://pgdog.dev/blog/you-can-make-postgres-scale
+* _vacuum_: https://news.ycombinator.com/item?id=29858083 https://pgdog.dev/blog/you-can-make-postgres-scale autovacuum https://www.youtube.com/watch?v=RfTD-Twpvac
 ```txt
 * storage reclamation: removes dead tuples (deleted/obsolete rows)
 * transaction id wraparound prevention: prevents database age-related failures
@@ -234,6 +239,7 @@ conn.close()
 ---
 
 * _b-tree_: most popular 📙 Kleppmann 83 Winand vii Petrox ch. 2,4,6
+* Postgres vs. SQL Server https://pganalyze.com/blog/postgresql-vs-sql-server-btree-index-deduplication
 * sorted keys, pointers to range of keys on disk 📙 Kleppmann 80
 * bad for filtering? https://sirupsen.com/napkin/problem-13-filtering-with-inverted-indexes
 * diff than hash index bc in memory and updates in place (vs. append-only) 📙 Kleppmann 80

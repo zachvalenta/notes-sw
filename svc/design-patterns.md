@@ -3,16 +3,15 @@
 ## 参考
 
 📚
-* Beck tidy first?
+* Beck tidy first? https://www.oreilly.com/library/view/the-good-news/9781098170158/
 * Conery ch. 11/12
 * Dibernardo 500 lines http://aosabook.org/en/index.html
-* Fowler refactoring 🎗️ PDF
 * GoF design patterns
 * Jackson essence of software https://www.amazon.com/Essence-Software-Concepts-Matter-Design/dp/0691225389 https://www.hytradboi.com/2025/840b0b92-720e-4c0c-9760-19739d3832a5-back-to-modularity buddies with Jonathan Edwards https://alarmingdevelopment.org/ https://youtu.be/BdoWZPvfZSE
 * ⭐️ Mak https://www.manning.com/books/software-design-in-python
 * Martin clean code
 * Nystrom http://gameprogrammingpatterns.com/contents.html
-* Ousterhout philosophy of sofware design https://news.ycombinator.com/item?id=43166362 https://github.com/johnousterhout/aposd-vs-clean-code
+* Ousterhout philosophy of sofware design
 
 ## 进步
 
@@ -49,10 +48,93 @@ as red flag https://news.ycombinator.com/item?id=30675182
 * _observer_: obj that listens to events from another obj
 * _strategy_: pass algo at runtime i.e. `charge(normal_price)` or `charge(half_off)`
 * _template method_: https://startcodingnow.com/template-method-design-pattern
+> Defines algorithm skeleton in base class. Lets subclasses override specific steps without changing algorithm structure
 * _visitor_: https://martinheinz.dev/blog/90
 
 * _sink_: https://github.com/kamranahmedse/design-patterns-for-humans https://www.youtube.com/playlist?list=PLVmRRBrc2pRAEgzxUIJc_7LLABdg_58hJ https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
 * in python https://python-patterns.guide/ https://hynek.me/articles/python-subclassing-redux/
+
+# ⭕️ FACTORS
+
+---
+
+* use greppable names https://registerspill.thorstenball.com/p/use-data-that-looks-like-data
+* write code that's easy to throw away
+> Write code to be changed and/or deleted. This comes from someone who's worked in startups for the past 5 years. We often overestimate how long code =is supposed to live. We as programmers often exaggerate with our DRY and stuff, we do not want to repeat ourselves, we want to find another abstraction...we want to find some general that can help us abstract stuff away. My piece of advice is that, step back and consider for a moment that this code is not going to stay in, so maybe only try and find the abstraction layer once you really sure that this is how it's going to be. - Thorsten Ball https://developeronfire.com/podcast/episode-373-thorsten-ball-interpreters-compilers-and-writing https://news.ycombinator.com/item?id=41968409
+
+https://drewdevault.com/2019/04/29/Shut-up-and-get-back-to-work-style.html
+
+* hoisting
+
+> This is what I’ve started telling people: Use mostly functions, try to make most of them pure. I think that can get people (even new devs) 80% of the benefits (testability, composability, loose coupling, and the ability to reason about code) of more complicated, prescriptive architectures (Hexagonal, Onion, Ports & Adapters, Clean, etc) with a minimal amount of ramp up. https://news.ycombinator.com/item?id=24915497
+
+## clarity
+
+🗄️
+* blog / opinions.md
+* `biology.md` memory
+
+* Clarity trumps all other concerns. We're building informatio systems. 📻 DHH (STT) https://www.youtube.com/watch?v=9LfmrkyP81M
+> I used to tolerate and expect complexity. Working on Go the past 10 years has changed my perspective, though. I now value simplicity above almost all else and tolerate complexity only when it's well isolated, well documented, well tested, and necessary to make things simpler overall at other layers for most people. - Brad Fitzpatrick (Go team member 2010-2020) https://golangweekly.com/issues/533
+* Clarity matters even more when things are comlicated.
+> And it's not only high performance hardware and software that's complex. Some domains are just really complicated. The tax code is 73k pages long. It's just not possible to reason effectively about something that complicated, and there are plenty of things that are that complicated. https://danluu.com/tests-v-reason/
+
+---
+
+KISS
+* https://github.com/Olshansk/postgres_for_everything
+* hidden control flow, PHP vs. Zig https://news.ycombinator.com/item?id=42203084
+
+尝试
+* complicated by not complex
+* simple but not easy
+* a straight line but many steps
+
+## maintainable
+
+* _maintainability_: other devs able to work on system
+> it is well know that the majority of the cost of software is not in its intial development, but its ongoing maintenance 📙 Kleppmann [18] https://www.jefftk.com/p/designing-low-upkeep-software
+* _evolvability_: ability to change different parts of system independently [Kleppmann 4.128]
+
+---
+
+SINGLE SERVER https://alexanderpetros.com/web-services
+* Many web services experience traffic loads that can be handled by a single server
+* Many web services have requirements that can be met with HTML and little to no JavaScript
+* Many people believe, incorrectly, that (1) or (2) does not apply to their web service
+* A web service that adheres to (1) and (2) is orders of magnitude cheaper to maintain than one which does not, and often provides a better user experience
+
+SKETCHING
+> In the intersection of the hardware and software industry, we just continuously run into [patterns like this]. A lot of things are defined by finding some process that works, scaling it up 10x and then it breaking in ways that you did not realize things could break. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
+
+---
+
+> "Bad engineering" in adhoc ways tends to mean new ideas are being explored. Sophisticated deployments, logistics, procedures, tends to mean you're optimizing or extending existing system. That's not to disparage the latter. making things work at scale is hard engineering. But when people praise the glory days, it may be a preference for working on new ideas in small projects. https://news.ycombinator.com/item?id=41278907
+
+* boring technology https://simonwillison.net/2024/Jul/13/give-people-something-to-link-to/
+* aka transitional architecture https://www.thoughtworks.com/radar/techniques?blipid=202203071
+> But the cultural tides are strong. Building a company on Django in 2020 seems like the equivalent of driving a PT Cruiser and blasting Faith Hill’s “Breathe” on a CD while your friends are listening to The Weeknd in their Teslas. Swimming against this current isn’t easy, and not in a trendy contrarian way. https://macwright.com/2020/05/10/spa-fatigue.html
+* https://martinfowler.com/bliki/Yagni.html https://www.jefftk.com/p/designing-low-upkeep-software
+* https://thorstenball.com/blog/2020/09/15/the-context-in-which-we-build-software/
+* https://news.ycombinator.com/item?id=26071906
+* boring tech has well-understood failure modes https://news.ycombinator.com/item?id=23444594 https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
+* https://sourcehut.org/blog/2020-06-10-how-graphql-will-shape-the-alpha/
+* https://josephg.com/blog/databases-have-failed-the-web/
+* https://twitter.com/b0rk/status/1229860328139296768
+* https://wizardzines.com/about/
+* https://blog.cerebralab.com/Imaginary_Problems_Are_the_Root_of_Bad_Software https://blog.cerebralab.com/Stop_future_proofing_software
+* https://blog.cerebralab.com/Bimodal_programming_%E2%80%93_why_design_patterns_fail
+* https://www.benkuhn.net/progessays/
+* one dev's edge cases are another's entire project 📙 Kleppmann 491
+* listen to Knuth -> fast code matters less than you think https://www.youtube.com/watch?v=PhUb7y9WZGs
+> We should forget about small efficiencies, say about 97% of the time; premature optimization is the root of all evil. - Donald Knuth
+> To be attractive to hackers, a language must be good for writing the kinds of programs they want to write. And that means, perhaps surprisingly, that it has to be good for writing throwaway programs. - http://paulgraham.com/popular.html
+* don't cargo cult 'best practices'
+> Sophisticated design principles can make your code faster, more flexible, more modular, and all of the other positive adjectives that people use to describe high-quality software. But they also make it more complex. `AbstractSyntaxRenderers` and `DoubleBackflipDatabaseTransmogrophiers` do make some programs clearer and easier to understand, especially large ones. But they can also be the equivalent of using a metrics-oriented, fully agile, stakeholder-prioritized development flow for working on a jigsaw puzzle with your dad. Sure you’re following best practices, but you probably didn’t need to, and now your dad thinks you’re a Scientologist. - https://robertheaton.com/2018/12/02/programming-project-5-snake/
+* wait for shared concerns to emerge -> repeat yourself until you find the right abstraction https://programmingisterrible.com/post/176657481103/repeat-yourself-do-more-than-one-thing-and
+> There seemed to be a tendency to extract tiny packages first instead of waiting for a shared concern to emerge from the code and only then extracting a package. https://commandercoriander.net/blog/2017/12/31/writing-go/
+> The problem with always using an abstraction is that you’re preemptively guessing which parts of the codebase need to change together. “Don’t Repeat Yourself” will lead to a rigid, tightly coupled mess of code. Repeating yourself is the best way to discover which abstractions, if any, you actually need.
+> Beware of arguments related to programming speed. All things being equal, faster is better. But all things are never equal. Do you need the kind of speed that lets you get a website up and running quickly? Or the kind that allows you to rotate a few thousand polygons in 3D in real time? Do you need to convert 10,000 PDFs into text per hour? Or 10 million PDFs into text once? These are different problems. - Ford what is code?
 
 # 🏭 CREATIONAL
 
@@ -314,6 +396,7 @@ if __name__ == "__main__":
 
 Observer (one-to-many dependencies)
 * _observer_: pub sub https://layerci.com/blog/postgres-is-the-answer http://blog.joncairns.com/2013/04/fat-model-skinny-controller-is-a-load-of-rubbish/
+Defines one-to-many dependency between objects. When one object changes state, dependents get notified automatically.
 
 > Reactive Programming: Handles event-driven programming, which may replace Observer patterns in modern reactive frameworks.
 
@@ -323,6 +406,13 @@ Event listeners (like user interface updates in real-time).
 Publish-subscribe models (e.g., React components or webhooks).
 Data synchronization between models and views in the MVC architecture.
 
+HOOKS
+* _hook_: response to event e.g. db trigger
+* aka event handler, callback 📙 Chacon [402] https://stackoverflow.com/a/11087727
+* _webhook_: res/ack (vs. req/res); 3rd streams > 1st polls https://sendgrid.com/blog/whats-webhook
+* route known as "receiver" https://adamj.eu/tech/2021/05/09/how-to-build-a-webhook-receiver-in-django/
+* further considerations https://brandur.org/webhooks https://www.svix.com/blog/webhooks-are-harder-than-they-seem/
+
 ## iterator
 
 Iterator (sequential access)
@@ -331,6 +421,27 @@ Iterator (sequential access)
 
 🗄️ `business.md` pricing
 💻 https://github.com/zachvalenta/capp-brand-enablement
+
+       Strategy Pattern
+      ┌────────────────────┐
+      │ PaymentStrategy    │
+      ├────────────────────┤
+      │ processPayment()   │
+      │                    │
+      │                    │
+      └────────────────────┘
+                ▲
+                │
+    ┌──────────┼──────────┐
+    │          │          │
+StripePayment  │  PayPalPayment
+               │
+               │
+               │
+               ▼
+      Payment Provider APIs
+
+Encapsulates interchangeable algorithms in separate classes. Client selects appropriate strategy at runtime.
 
 ```txt
 This is metaprogramming using Python's attribute lookup system. The repository pattern would abstract data access behind a consistent interface. This code dynamically selects IO methods based on the format parameter, which is closer to the Strategy pattern, but implemented through Python's reflection capabilities.
@@ -349,11 +460,236 @@ Different sorting algorithms based on data size (e.g., quicksort vs. mergesort).
 Multiple authentication strategies (e.g., OAuth, API key, password-based).
 Managing discounts or pricing rules dynamically in an e-commerce system.
 
-# 🗼 MODERN
+# 🕋 DOMAIN DRIVEN (DDD)
+
+🔗 https://en.wikipedia.org/wiki/Domain-driven_design
+🗄️
+* `architecture.md` clarity
+* `architecture.md` layered
+📚
+* ✅ Evans domain-driven design https://github.com/nickgerace/gfold/pull/149/files
+* Percival https://www.amazon.com/gp/product/1492052205 https://www.youtube.com/watch?v=niMybnzmzqc [1:15]
+
+ZA
+* CRD DDD 🗄 notebook 22.12.13
+* beware ideas coming from the Java world https://www.infoq.com/presentations/8-lines-code-refactoring/
+> Ubiquitous language, domain, bounded context, aggregate, event storming are all about problem space. They are meant to help us learn the insights about the domain and extract the boundaries. DDD enables developers, domain experts and business people to communicate effectively using a single, unified language. Rather than focusing on these problem space aspects of DDD, we tend to emphasise particular folder structures, services, repositories, and other solution space techniques. https://minds.md/zakirullin/cognitive
+
+SEMANTICS
+* _separation of concerns_: HTML for content/semantics, CSS for style
+* _code path_: branch through codebase
+* _cohesion_: put like with like 📙 Conery [270] Evans [109] https://entropicthoughts.com/event-sourcing-and-microservices-unix-style
+* _coupling_: "there should be low coupling btw modules and high cohesion within them" 📙 Evans [109] https://www.youtube.com/watch?v=MM9VQp-k0JQ
+* one change necessitates another
+* _encapsulation_: modularity via objects/method https://www.youtube.com/watch?v=QyJZzq0v7Z4 24:00
+```python
+foo = 'foo val'
+def get_foo():
+    return foo
+```
+* _information hiding_: e.g. factories https://en.wikipedia.org/wiki/Information_hiding 📙 Evans domain-driven [139]
+* _modules_: impl for cohesion 📙 Conery [270] Evans [109]
+* _single responsibility_: from SOLID https://en.wikipedia.org/wiki/Single-responsibility_principle 📙 Raymond unix Buelta architecture [5]
+* _separation of concerns_: cohesion re: to app layers (UI, logic, db, auth, logs) and business functions (content mgmt, reporting, membership) 📙 Conery [271]
+* _fat model, skinny controller_: modularity around data access; != "all logic in model" http://blog.joncairns.com/2013/04/fat-model-skinny-controller-is-a-load-of-rubbish/
+* _Hungarian notation_: redundacy in identifier naming i.e. `CREATE TABLE tbl_book` instead of `CREATE TABLE book` https://www.sqlstyle.guide/#avoid
+* _interface_: interface smuggling https://utcc.utoronto.ca/~cks/space/blog/programming/GoInterfaceSmuggling 🗄 `python` 'web'
+* _introspection_: get info about an obj at runtime aka having a REPL https://realpython.com/primer-on-python-decorators/#simple-decorators aka 'reflection' https://changelog.com/gotime/133 also used as synonym for logging https://hacker-tools.github.io/machine-introspection/
+* _modularity_: public interface, private impl https://www.youtube.com/watch?v=QyJZzq0v7Z4 @ 24:00
+* _readability_: factors (familiarity, consistency) fetishization of one-liners (cf. Peter Norvig 'mine is shorter' from Crista Lopes talk on 'Exercises in Programming Style' @ 20:15)
+> One of the core tenets behind the design of Python is creating readable code. The motivation behind this design is simple: The number one thing that Python programmers do is read code. [Hitchhiker's Guide 3.3]
+> "A computer language is not just a way of getting a computer to perform operations...it is a novel formal medium for expressing ideas about methodology. Thus, programs must be written for people to read, and only incidentally for machines to execute." - Ford what is code? qt. SICP
+
+https://buttondown.com/hillelwayne/archive/stroustrups-rule/
+https://borretti.me/article/language-pragmatics
+
+HOWTO
+* development speed vs. execution speed https://bitfieldconsulting.com/golang/rust-vs-go
+> One especially good groove to span is the one between tools and things made with them. For example, programming languages and applications are usually written by different people, and this is responsible for a lot of the worst flaws in programming languages. I think every language should be designed simultaneously with a large application written in it, the way C was with Unix. http://paulgraham.com/marginal.html
+> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem. http://paulgraham.com/popular.html
+* expressive
+> Large organizations have different aims from hackers. They want languages that are (believed to be) suitable for use by large teams of mediocre programmers-- languages with features that, like the speed limiters in U-Haul trucks, prevent fools from doing too much damage. Hackers don't like a language that talks down to them. Hackers just want power. http://www.paulgraham.com/javacover.html
+* _feature creep_: adding more features vs. making existing features better https://twitter.com/random_walker/status/1182635589604171776
+* increases headcount, not total users https://news.ycombinator.com/item?id=34567237
+> Second, C has a tendency to be conservative, changing and growing very slowly. This is a feature, and one that is often undervalued by developers. (In fact, I’d personally like to see a future revision that makes the C language specification smaller and simpler, rather than accumulate more features.) - https://nullprogram.com/blog/2018/11/21/
+
+https://entropicthoughts.com/practices-of-reliable-software-design
+extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.html
+* application boundaries https://morizbuesing.com/blog/greppability-code-metric/
+* Richard Gabriel https://www.jwz.org/doc/worse-is-better.html https://bitfieldconsulting.com/posts/not-real-developer
+> Simplicity beats even strict correctness, in this view: it’s better to be simple (and handle the easy 90% of cases in a nice way) than to be totally correct (and handle the awkward edge cases, at the expense of making the code much more complex).
+
+## bounded context
 
 ---
 
-Event-Driven Architecture: Loose coupling at system level
+💻️ https://github.com/zachvalenta/DDD
+
+Same term ("Order"), different meanings in each context.
+* Order Management Context: An "Order" contains items, prices, shipping info
+* Inventory Context: An "Order" is just a reservation of stock
+* Customer Support Context: An "Order" includes communication history
+
+Why not just have an order and they each context uses whatever info they need?
+
+The problem with having a single "Order" that all contexts use:
+* Complexity explosion - The Order model would need to satisfy all teams' requirements, creating a bloated entity with many unrelated attributes
+* Coupling - A change for one team affects all teams
+* Cognitive load - Developers would need to understand the entire model, not just their relevant portion
+* Conflicting requirements - What if Inventory needs to track Order status differently than Customer Support?
+
+A Real Example
+Consider how "Order completion" differs by context:
+
+Order Management: Complete when payment processed
+Inventory: Complete when items shipped
+Customer Support: Complete when return period ends
+
+These aren't just different views - they're fundamentally different business concepts with the same name.
+
+## data mapper
+
+* https://www.sqlalchemy.org/
+* https://github.com/tommyboytech/t3/pull/11906
+* https://en.wikipedia.org/wiki/Data_mapper_pattern#Python
+* https://www.youtube.com/watch?v=oaiwS5KFHEs
+* https://www.openmymind.net/2011/11/18/I-Just-Dont-Like-Object-Mappers/
+* https://www.js-data.io/docs/data-mapper-pattern
+* https://www.codeproject.com/articles/821803/data-mapper-pattern
+* https://codingwithscott.com/how-to-implement-the-data-mapper-design-pattern-in-c/
+* https://designpatternsphp.readthedocs.io/en/latest/Structural/DataMapper/README.html
+* https://martinfowler.com/eaaCatalog/dataMapper.html
+
+## basics
+
+---
+
+REPOSITORY
+* CRUD module 📙 Evan [151]
+repository pattern would abstract data access behind a consistent interface
+├── Repository: data access abstraction 🗄️ `sql.md` schema / approaches
+├── Factory
+├── Aggregate
+└── Entity
+
+## value objects
+
+https://claude.ai/chat/53ccf574-253a-4b55-ac3f-69cb877cd63e
+
+## SOLID
+
+---
+
+https://blog.bytebytego.com/p/mastering-oop-fundamentals-with-solid
+* _SOLID_: https://www.youtube.com/watch?v=ywDxJbULcdM
+* layered architecture https://blog.europython.eu/kraken-technologies-how-we-organize-our-very-large-pythonmonolith/
+* beware theologians https://news.ycombinator.com/item?id=26492798
+* _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749 https://www.youtube.com/watch?v=I5c7fBgvkNY
+
+## rule encapsulation
+
+* modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/ https://github.com/gauge-sh/tach/issues/665
+> A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
+* https://claude.ai/chat/61e85fd7-a33f-43e7-989f-7295de72845b
+* https://claude.ai/chat/525e681b-a645-4eb9-a56f-1b51cf5fbccf
+* existing rules `ECLIPSE_DISCONTINUED` https://github.com/cappusa/product-workflow/commit/711be5d67fc9f2ee9b30670971ea4dbe9a72f6a2
+
+## in Django
+
+---
+
+* 💻 https://github.com/zachvalenta/django-DDD https://grok.com/chat/95d5f5bc-e490-4a0f-b8e8-a8b6eafcf884
+> I think the move is to 1) clean up the `development` dir in `kern` 2) put the concerns about Django to an LLM and get opinions based on the current approach in `kern`
+* Evans https://github.com/zachvalenta/bookcase-sjk/blob/master/notes/non-fiction/dev/svc/2003%20evans%20-%20domain%20driven%20design.md
+> sketch things you need to understand more from these LLMS
+* https://claude.ai/chat/61e85fd7-a33f-43e7-989f-7295de72845b -> https://claude.ai/chat/53ccf574-253a-4b55-ac3f-69cb877cd63e
+* https://chatgpt.com/c/67e15081-a4f8-8004-86ab-9db58ca5b111 https://claude.ai/chat/812e936c-e2d0-4bfd-a403-8dfacf7a57a0
+* https://claude.ai/chat/92bdb3e8-c87f-484c-8821-fbb7b2d4800f
+* https://grok.com/chat/8513a2e6-8c8a-42f3-883b-05668fe08054 https://grok.com/chat/33a41760-ce83-4dc0-af25-1c7219736aed
+* https://www.cosmicpython.com/book/appendix_django.html#_steps_along_the_way
+* Percival, Django as Active Record https://news.ycombinator.com/item?id=43501989 Architecture Patterns for Python https://neil.computer/notes/teaching-how-to-code-is-broken/
+* https://forum.djangoproject.com/t/where-to-put-business-logic-in-django/282 https://www.cosmicpython.com/book/appendix_django.html#_steps_along_the_way
+* hating Django https://lucumr.pocoo.org/2025/2/20/ugly-code/
+* in python https://www.pythonpodcast.com/episodepage/domain-driven-design-episode-219
+
+* existing impl? https://claude.ai/chat/92bdb3e8-c87f-484c-8821-fbb7b2d4800f https://claude.ai/chat/812e936c-e2d0-4bfd-a403-8dfacf7a57a0
+> what's that Python project that prevents circular dependencies, among other things?
+> Let's say you have a custom piece of logic that touches models A, B, C, and D. Where do you put it? The idea is to let your domain live separately from your data model & API layer. https://github.com/HackSoftware/Django-Styleguide
+* https://www.youtube.com/watch?v=72V-5hrilv0
+* https://news.ycombinator.com/item?id=33999191
+
+## Evans
+
+---
+
+incorporate Thomas notes
+
+SEMANTICS
+* _domain_: business logic https://www.youtube.com/watch?v=dlCcnJdh4c4 [1:15]
+* _domain model_: data model [xvii]
+* just data modeling? [84]
+* holds business logic [71]
+* the domain is the thing = the db is what matters = data eng! [70]
+* the hard part of software [xxi]
+* extends through all parts of project, to all team members [4]
+* dependent on writing culture [16]
+* could be non-OO e.g. Prolog [119]
+* _ubiquitous language_: attention to semantics [xviii,25] https://tools.ietf.org/html/rfc2119
+* have to 1) have documents that use the langauge 2) involve them in project activities [39]
+* the hard part is sticking to it [26]
+> It takes fastidiousness to write code that doesn't just do the right thing but also says the right thing. [40]
+* a form of linguistic determinism [27]
+> Translation muddles model concepts. [24]
+* entire thing premised on having a dictionary [31]
+* diagrams aren't helpful without semantics [35]
+* _layered architecture_: UI, transport, service, repo/domain, db [68,70] 🗄 notebook 22.12.13
+* or, transport, logic, messaging [107]
+* separation of concerns [69]
+* infrastructure = not db, but sending msgs? [73]
+* _entity obj_: e.g. person, account
+* e.g. transactions [92]
+* has identity, diff states [81,91]
+* _value obj_: e.g. enum
+* e.g. values of transactions [92]
+* attr [81]
+* _aggregate_: entity + other associated obj [126] e.g. car is aggregate and wheel, tires, engine are associated obj [127]
+* _service_: verb vs. noun [104]
+* _factory_: creates other obj [138]
+* _specification_: business logic [223,282]
+
+STYLE
+* anondyne: "talk to domain experts" [14] encapsulate [19]
+* bizarre use of bolding [61]
+* bizarre use of capitalization [62]
+* diagrams gone wrong [65]
+* poor writer [73,82]
+* unclear writer [91] e.g. the main topic of section he defines 10 paragraphs in [126,138]
+* semantics that are not in the index [147,151]
+* dated e.g. 4GL https://en.wikipedia.org/wiki/Fourth-generation_programming_language [77,78]
+
+ZA
+> Hard to tell whether this book Norman-esque / curse of knowledge or reputational alá Finegan's Wake. The biggest impact I've seen it have is ubiquitous language.
+* _CQRS_: diff svc for read/write https://martinfowler.com/bliki/CQRS.html https://ownyourbits.com/2018/05/02/understanding-disk-usage-in-linux/
+* _pub sub_: 📙 Thomas pragmatic programmer [158]
+* _event sourcing_: pub sub but more https://chriskiehl.com/article/event-sourcing-is-hard 📙 Thomas pragmatic programmer [160]
+* aka event-driven? Components communicate through events. Publishers emit events without knowledge of subscribers.
+* same probelm as Norman, ideas have won?
+* background: agile [xxii] object-oriented [xxvi,51,87] Java oriented (back cover blurb) [74,111]
+* event storming https://www.lucidchart.com/blog/ddd-event-storming https://www.youtube.com/results?search_query=event+storming
+* ch. 7-9: examples
+* https://www.packtpub.com/product/domain-driven-design-with-golang/9781804613450
+* https://everydaysuperpowers.dev/articles/what-is-event-sourcing-and-why-you-should-care/
+> Event sourcing is an architectural pattern for software development that has two components: To change the state of the application, you save the data associated with that change in an append-only log. The current state of an item is derived by querying the log for related events and building the state from those events.
+> However, these two components are the core of event sourcing. I’ve seen people include eventual consistency, CQRS, and event streaming in their definitions of event sourcing, but these are optional additions to the pattern.
+* _domain-driven design_: ❓ seems to boil down to "do things sensibly" (cf. 'bounded context') Evans 'Domain-Driven Design' Folwer 'Patterns of Entreprise Architecture' https://www.pythonpodcast.com/domain-driven-design-episode-219/
+> Let’s for a moment talk about what all microservices have in common. Eric Evans, the father of Domain Driven Design, defines them as the following: "[services] that can consume and produce messages."
+
+## Percival
+
+# �🗼 MODERN
+
+---
+
 CQRS: Command/query separation
 Unit of Work: Transaction management
 
@@ -381,33 +717,6 @@ class BurgerFactory(Burger):
 * _delegation_: composition by another name https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/#delegation-in-oop
 * https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/
 
-## data driven
-
----
-
-HICKEY
-* https://www.youtube.com/watch?v=oytL881p-nQ
-* simple made easy https://news.ycombinator.com/item?id=38433358 https://www.youtube.com/watch?v=LKtk3HCgTa8
-* data is not easy https://grishaev.me/en/ddd-lie https://news.ycombinator.com/item?id=41290189
-* https://news.ycombinator.com/item?id=43300528
-> What the author demonstrates here is a powerful principle that dates back to LISP's origins but remains revolutionary today: the collapse of artificial boundaries between program, data, and interface creates a more direct connection to the problem domain. This example elegantly shows how a few dozen lines of Clojure can replace an entire accounting application. The transactions live directly in the code, the categorization rules are simple pattern matchers, and the "interface" is just printed output of the transformed data. No SQL, no UI framework, no MVC architecture - yet it solves the actual problem perfectly.
-> Over time I’ve come to see LISP less as the natural collapse of artificial boundaries but the artificial collapse of natural ones. Where and how data is stored is a real concern, but where and how the program is stored isn’t. Security boundaries around data and executable code are of paramount importance. Data storage concerns don’t benefit from being mixed with programming language concerns but from computer and storage architecture concerns (eg column stores).
-
-## data mapper
-
-📙 Fowler enterprise patterns
-
-* https://www.sqlalchemy.org/
-* https://github.com/tommyboytech/t3/pull/11906
-* https://en.wikipedia.org/wiki/Data_mapper_pattern#Python
-* https://www.youtube.com/watch?v=oaiwS5KFHEs
-* https://www.openmymind.net/2011/11/18/I-Just-Dont-Like-Object-Mappers/
-* https://www.js-data.io/docs/data-mapper-pattern
-* https://www.codeproject.com/articles/821803/data-mapper-pattern
-* https://codingwithscott.com/how-to-implement-the-data-mapper-design-pattern-in-c/
-* https://designpatternsphp.readthedocs.io/en/latest/Structural/DataMapper/README.html
-* https://martinfowler.com/eaaCatalog/dataMapper.html
-
 ## dependency injection (DI)
 
 🗄️ `python/logic.md` metaprogramming
@@ -416,6 +725,7 @@ HICKEY
 
 Dependency Injection: Inversion of control
 > Can sometimes replace patterns like Singleton and Factory by handling object lifecycles and dependencies.
+> As a general rule of thumb, each layer uses the directly underlying layer to access and interact with the data. As an example, the commands package will not directly use the bug or repository package. It will request the data from the cache layer and go from there. Of course, the commands package will ultimately use types defined in the lower level package like Bug, but retrieving and changing the data has to go through the cache layer to ensure that bugs are properly deduplicated in memory. https://github.com/git-bug/git-bug
 
 https://www.openmymind.net/Dependency-Injection-In-Go/
 * https://github.com/hynek/svcs/ https://svcs.hynek.me/en/stable/ https://www.youtube.com/watch?v=d1elMD9WgpA
@@ -423,7 +733,7 @@ https://www.openmymind.net/Dependency-Injection-In-Go/
 * https://github.com/uber-go/fx
 * https://www.youtube.com/watch?v=uWTvMCra-_Y
 * https://www.youtube.com/watch?v=0yc2UANSDiw
-* _dependency injection_: passing args [Conery 282]
+* _dependency injection_: passing args [Conery 282] https://en.wikipedia.org/wiki/Dependency_inversion_principle https://en.wikipedia.org/wiki/SOLID
 * why?: loose coupling http://kc.my-junk.info/di-ioc-dip https://www.youtube.com/watch?v=sD94szvFqGw
 * https://blog.thea.codes/my-python-testing-style-guide/
 * https://testdriven.io/blog/python-dependency-injection
@@ -434,27 +744,6 @@ https://www.openmymind.net/Dependency-Injection-In-Go/
 * https://github.com/google/gin-config https://calmcode.io/course/gin/intro-to-gin
 * in Python https://io.made.com/dependency-injection-with-type-signatures-in-python/ + https://moltenframework.com/v0.7.3/index.html + https://github.com/ekiro/haps + https://github.com/Dobiasd/enterprython/blob/master/why_you_want_formal_dependency_injection_in_python_too.md https://pythonbytes.fm/episodes/show/112/don-t-use-the-greater-than-sign-in-programming
 * _dependency inversion_: is this a separate thing https://minds.md/zakirullin/cognitive
-* _inversion of control(IoC)_: you're not in charge of app control flow, only hooking into it https://www.baeldung.com/running-setup-logic-on-startup-in-spring example of IoC https://seddonym.me/2019/08/03/ioc-techniques/ https://softwareengineering.stackexchange.com/questions/205681/why-is-inversion-of-control-named-that-way https://stackoverflow.com/questions/3058/what-is-inversion-of-control https://engineering.snagajob.com/dont-like-dependency-injection-898de93dc8d3 https://stackoverflow.com/a/2465052/6813490 https://stackoverflow.com/a/51117857/6813490 https://stackoverflow.com/a/140655/6813490 https://www.objc.io/issues/11-android/dependency-injection-in-java/ https://www.youtube.com/playlist?list=PLVmRRBrc2pRAEgzxUIJc_7LLABdg_58hJ ❓ pull in class deps all in one place [Conery 287]
-> What is the glue that holds Django together? As a beginner entering, there really is no obvious central object to inspect, extend, or modify. https://www.reddit.com/r/Python/comments/olech/is_django_considered_pythonic_now/
-
-## domain driven
-
-📚
-* ✅ Evans domain-driven design https://github.com/nickgerace/gfold/pull/149/files
-* Percival https://www.amazon.com/gp/product/1492052205 https://www.youtube.com/watch?v=niMybnzmzqc [1:15]
-
-├── Repository: data access abstraction 🗄️ `sql.md` schema / approaches
-> 📍 you have same def for strategy pattern
-├── Factory
-├── Aggregate
-└── Entity
-
-* _separation of concerns_: HTML for content/semantics, CSS for style
-> Let's say you have a custom piece of logic that touches models A, B, C, and D. Where do you put it? The idea is to let your domain live separately from your data model & API layer. https://github.com/HackSoftware/Django-Styleguide
-* CRD DDD 🗄 notebook 22.12.13
-* more domain-driven https://www.youtube.com/watch?v=72V-5hrilv0
-* beware ideas coming from the Java world https://www.infoq.com/presentations/8-lines-code-refactoring/
-> Ubiquitous language, domain, bounded context, aggregate, event storming are all about problem space. They are meant to help us learn the insights about the domain and extract the boundaries. DDD enables developers, domain experts and business people to communicate effectively using a single, unified language. Rather than focusing on these problem space aspects of DDD, we tend to emphasise particular folder structures, services, repositories, and other solution space techniques. https://minds.md/zakirullin/cognitive
 
 ## functional
 
@@ -492,6 +781,20 @@ FUNCTIONAL 📙 Conery https://github.com/hemanth/functional-programming-jargon
 * wraps control flow https://bytes.yingw787.com/posts/2019/12/06/monads/ https://samgrayson.me/2019-08-06-monads-as-a-programming-pattern/ https://lukeplant.me.uk/blog/posts/understanding-monads-via-python-list-comprehensions/ https://rbtcollins.wordpress.com/2018/08/26/monads-and-python/
 
 https://github.com/dry-python/returns Land of Lisp epilogue https://docs.python.org/3/howto/functional.html https://kite.com/blog/python/functional-programming https://stackoverflow.com/q/1017621/6813490 https://treyhunner.com/2018/09/stop-writing-lambda-expressions/ https://blog.cleancoder.com/uncle-bob/2014/11/24/FPvsOO.html https://julien.danjou.info/python-and-functional-programming/ https://sumit-ghosh.com/articles/demystifying-decorators-python/ https://jrsinclair.com/articles/2019/what-i-wish-someone-had-explained-about-functional-programming/ https://codewords.recurse.com/issues/one/an-introduction-to-functional-programming http://www.lihaoyi.com/post/WhatsFunctionalProgrammingAllAbout.html https://blog.cleancoder.com/uncle-bob/2017/07/11/PragmaticFunctionalProgramming.html
+
+## IoC
+
+---
+
+* _inversion of control(IoC)_: you're not in charge of app control flow, only hooking into it https://www.baeldung.com/running-setup-logic-on-startup-in-spring example of IoC https://seddonym.me/2019/08/03/ioc-techniques/ https://softwareengineering.stackexchange.com/questions/205681/why-is-inversion-of-control-named-that-way https://stackoverflow.com/questions/3058/what-is-inversion-of-control https://engineering.snagajob.com/dont-like-dependency-injection-898de93dc8d3 https://stackoverflow.com/a/2465052/6813490 https://stackoverflow.com/a/51117857/6813490 https://stackoverflow.com/a/140655/6813490 https://www.objc.io/issues/11-android/dependency-injection-in-java/ https://www.youtube.com/playlist?list=PLVmRRBrc2pRAEgzxUIJc_7LLABdg_58hJ ❓ pull in class deps all in one place [Conery 287]
+> What is the glue that holds Django together? As a beginner entering, there really is no obvious central object to inspect, extend, or modify. https://www.reddit.com/r/Python/comments/olech/is_django_considered_pythonic_now/
+
+Common IoC Implementations
+* Dependency Injection (most common)
+* Template Method pattern
+* Strategy pattern
+* Observer pattern
+* Event-driven programming
 
 ## method chaining
 
@@ -627,101 +930,15 @@ pytest uses Pluggy for its extensive plugin system.
 tox and other tools use Pluggy for defining hooks that external tools can implement.
 ```
 
-## reactive
-
-RxPY: Full reactive streams, good for complex event flows, but heavy dependency
-Asyncio: Built-in, lightweight, but more manual stream management
-Callbacks: Simple but can lead to callback hell
-Observers: Clean pattern but requires more boilerplate
-
-```python
-import asyncio
-from typing import AsyncIterator
-
-async def data_stream() -> AsyncIterator[int]:
-    """Generate a stream of data.
-    
-    >>> async def print_stream():
-    ...     async for item in data_stream():
-    ...         print(item)
-    ...         if item >= 3: break
-    >>> asyncio.run(print_stream())
-    1
-    2
-    3
-    """
-    count = 1
-    while True:
-        yield count
-        count += 1
-        await asyncio.sleep(0.1)
-
-async def process_stream():
-    async for item in data_stream():
-        # React to each item
-        result = item * 2
-        print(f"Processed: {result}")
-        if item >= 5:
-            break
-
-if __name__ == "__main__":
-    asyncio.run(process_stream())
-```
-
 # 🟨 ZA
 
-## cleanup
-
-SEMANTICS
-* _code path_: branch through codebase
-* _cohesion_: put like with like 📙 Conery [270] Evans [109] https://entropicthoughts.com/event-sourcing-and-microservices-unix-style
-* _coupling_: "there should be low coupling btw modules and high cohesion within them" 📙 Evans [109]
-* _encapsulation_: modularity via objects/method https://www.youtube.com/watch?v=QyJZzq0v7Z4 24:00
-```python
-foo = 'foo val'
-def get_foo():
-    return foo
-```
-* _information hiding_: e.g. factories https://en.wikipedia.org/wiki/Information_hiding 📙 Evans domain-driven [139]
-* _modules_: impl for cohesion 📙 Conery [270] Evans [109]
-* _single responsibility_: from SOLID https://en.wikipedia.org/wiki/Single-responsibility_principle 📙 Raymond unix Buelta architecture [5]
-* _separation of concerns_: cohesion re: to app layers (UI, logic, db, auth, logs) and business functions (content mgmt, reporting, membership) 📙 Conery [271]
-
-HOOKS
-* _hook_: response to event e.g. db trigger
-* aka event handler, callback 📙 Chacon [402] https://stackoverflow.com/a/11087727
-* _webhook_: res/ack (vs. req/res); 3rd streams > 1st polls https://sendgrid.com/blog/whats-webhook
-* route known as "receiver" https://adamj.eu/tech/2021/05/09/how-to-build-a-webhook-receiver-in-django/
-* further considerations https://brandur.org/webhooks https://www.svix.com/blog/webhooks-are-harder-than-they-seem/
-
-https://news.ycombinator.com/item?id=33999191
-* _fat model, skinny controller_: modularity around data access; != "all logic in model" http://blog.joncairns.com/2013/04/fat-model-skinny-controller-is-a-load-of-rubbish/
-* _Hungarian notation_: redundacy in identifier naming i.e. `CREATE TABLE tbl_book` instead of `CREATE TABLE book` https://www.sqlstyle.guide/#avoid
-* _interface_: interface smuggling https://utcc.utoronto.ca/~cks/space/blog/programming/GoInterfaceSmuggling 🗄 `python` 'web'
-* _introspection_: get info about an obj at runtime aka having a REPL https://realpython.com/primer-on-python-decorators/#simple-decorators aka 'reflection' https://changelog.com/gotime/133 also used as synonym for logging https://hacker-tools.github.io/machine-introspection/
-* _modularity_: public interface, private impl https://www.youtube.com/watch?v=QyJZzq0v7Z4 @ 24:00
-* _readability_: factors (familiarity, consistency) fetishization of one-liners (cf. Peter Norvig 'mine is shorter' from Crista Lopes talk on 'Exercises in Programming Style' @ 20:15)
-> One of the core tenets behind the design of Python is creating readable code. The motivation behind this design is simple: The number one thing that Python programmers do is read code. [Hitchhiker's Guide 3.3]
-> "A computer language is not just a way of getting a computer to perform operations...it is a novel formal medium for expressing ideas about methodology. Thus, programs must be written for people to read, and only incidentally for machines to execute." - Ford what is code? qt. SICP
-
-https://buttondown.com/hillelwayne/archive/stroustrups-rule/
-https://borretti.me/article/language-pragmatics
-
-HOWTO
-* development speed vs. execution speed https://bitfieldconsulting.com/golang/rust-vs-go
-> One especially good groove to span is the one between tools and things made with them. For example, programming languages and applications are usually written by different people, and this is responsible for a lot of the worst flaws in programming languages. I think every language should be designed simultaneously with a large application written in it, the way C was with Unix. http://paulgraham.com/marginal.html
-> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem. http://paulgraham.com/popular.html
-* expressive
-> Large organizations have different aims from hackers. They want languages that are (believed to be) suitable for use by large teams of mediocre programmers-- languages with features that, like the speed limiters in U-Haul trucks, prevent fools from doing too much damage. Hackers don't like a language that talks down to them. Hackers just want power. http://www.paulgraham.com/javacover.html
-* _feature creep_: adding more features vs. making existing features better https://twitter.com/random_walker/status/1182635589604171776
-* increases headcount, not total users https://news.ycombinator.com/item?id=34567237
-> Second, C has a tendency to be conservative, changing and growing very slowly. This is a feature, and one that is often undervalued by developers. (In fact, I’d personally like to see a future revision that makes the C language specification smaller and simpler, rather than accumulate more features.) - https://nullprogram.com/blog/2018/11/21/
-
-https://entropicthoughts.com/practices-of-reliable-software-design
-extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.html
-* application boundaries https://morizbuesing.com/blog/greppability-code-metric/
-* Richard Gabriel https://www.jwz.org/doc/worse-is-better.html https://bitfieldconsulting.com/posts/not-real-developer
-> Simplicity beats even strict correctness, in this view: it’s better to be simple (and handle the easy 90% of cases in a nice way) than to be totally correct (and handle the awkward edge cases, at the expense of making the code much more complex).
+HICKEY / LISP / DATA-DRIVEN
+* https://www.youtube.com/watch?v=oytL881p-nQ
+* simple made easy https://news.ycombinator.com/item?id=38433358 https://www.youtube.com/watch?v=LKtk3HCgTa8
+* data is not easy https://grishaev.me/en/ddd-lie https://news.ycombinator.com/item?id=41290189
+* https://news.ycombinator.com/item?id=43300528
+> What the author demonstrates here is a powerful principle that dates back to LISP's origins but remains revolutionary today: the collapse of artificial boundaries between program, data, and interface creates a more direct connection to the problem domain. This example elegantly shows how a few dozen lines of Clojure can replace an entire accounting application. The transactions live directly in the code, the categorization rules are simple pattern matchers, and the "interface" is just printed output of the transformed data. No SQL, no UI framework, no MVC architecture - yet it solves the actual problem perfectly.
+> Over time I’ve come to see LISP less as the natural collapse of artificial boundaries but the artificial collapse of natural ones. Where and how data is stored is a real concern, but where and how the program is stored isn’t. Security boundaries around data and executable code are of paramount importance. Data storage concerns don’t benefit from being mixed with programming language concerns but from computer and storage architecture concerns (eg column stores).
 
 ## DSLs
 
@@ -740,21 +957,12 @@ ABSTRACTION
 * against abstraction https://thorstenball.com/blog/2015/10/22/write-stupid-code/
 * _law of leaky abstractions_: natch; if they wouldn't exist in the first place https://www.joelonsoftware.com/2002/11/11/the-law-of-leaky-abstractions/
 
-## paradigms
+## refactoring
 
-* use greppable names https://registerspill.thorstenball.com/p/use-data-that-looks-like-data
-* write code that's easy to throw away
-> Write code to be changed and/or deleted. This comes from someone who's worked in startups for the past 5 years. We often overestimate how long code =is supposed to live. We as programmers often exaggerate with our DRY and stuff, we do not want to repeat ourselves, we want to find another abstraction...we want to find some general that can help us abstract stuff away. My piece of advice is that, step back and consider for a moment that this code is not going to stay in, so maybe only try and find the abstraction layer once you really sure that this is how it's going to be. - Thorsten Ball https://developeronfire.com/podcast/episode-373-thorsten-ball-interpreters-compilers-and-writing https://news.ycombinator.com/item?id=41968409
+📙 Fowler refactoring
+> you can probably rm the PDF you have of this
 
 ---
-
-https://drewdevault.com/2019/04/29/Shut-up-and-get-back-to-work-style.html
-
-* hoisting
-
-> This is what I’ve started telling people: Use mostly functions, try to make most of them pure. I think that can get people (even new devs) 80% of the benefits (testability, composability, loose coupling, and the ability to reason about code) of more complicated, prescriptive architectures (Hexagonal, Onion, Ports & Adapters, Clean, etc) with a minimal amount of ramp up. https://news.ycombinator.com/item?id=24915497
-
-## refactoring
 
 > Analysis of the curl codebase: “It means that every line in the product source code tree have by now been edited on average 3.5 times.” https://registerspill.thorstenball.com/p/joy-and-curiosity-28
 
@@ -789,6 +997,10 @@ def obj_args(obj):
 ## style
 
 📙 Lopes exercises in programming style
+
+---
+
+comments, vibe coding https://news.ycombinator.com/item?id=43576425
 https://seeinglogic.com/posts/visual-readability-patterns/
 
 https://www.youtube.com/watch?v=JlPMOszyjjo&t=1566s https://news.ycombinator.com/item?id=16617039

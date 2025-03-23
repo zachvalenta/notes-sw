@@ -30,7 +30,7 @@ CLEAN UP
 * _ffmpeg_: video encoding, file format conversion https://www.youtube.com/watch?v=MPV7JXTWPWI https://ffmpeg.guide/ https://img.ly/blog/ultimate-guide-to-ffmpeg/ https://drewdevault.com/2022/10/12/In-praise-of-ffmpeg.html https://news.ycombinator.com/item?id=42695547
 * used by: Neovim
 * _imgcat_: render img in terminal https://news.ycombinator.com/item?id=23319272
-* weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/ https://git.sr.ht/~timharek/yr
+* weather: https://github.com/chubin/wttr.in https://github.com/fcambus/ansiweather https://pirateweather.net/ https://git.sr.ht/~timharek/yr https://github.com/jbreckmckye/daylight
 * Wikipedia https://github.com/yashsinghcodes/wik
 
 * _24_: forced switch to eza, try difftastic, monitoring (tqdm, dust, procs, havn), uniq, get television working as reasonable substitute for text search in VS Code
@@ -43,7 +43,7 @@ CLEAN UP
 
 FILE NAME EDITING
 * file manager (nnn, ranger, et al.)
-* vimv https://news.ycombinator.com/item?id=13890944 https://github.com/thameera/vimv
+* vimv https://news.ycombinator.com/item?id=13890944 https://github.com/thameera/vimv rust alternative https://terminaltrove.com/regname/
 * https://github.com/yaa110/nomino
 * visidata https://www.visidata.org/blog/2020/ten/
 * `fne` (bulk, dry run, default for youtube-dl)
@@ -257,6 +257,7 @@ FEATURES
 * _file manager_: explorer + operations https://github.com/mgunyho/tere
 
 MAYBE
+* _fm_: https://github.com/mistakenelf/fm
 * _mini_: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
 * _nnn_: https://github.com/jarun/nnn
 * _tere_: https://github.com/mgunyho/tere
@@ -320,6 +321,10 @@ DESIGN
 * ❌ super slow to load
 * ❌ bad keybindings: parent directory cmd goes to root instead of parent, no jless/VSC-esqe fold all option no Vim https://github.com/juftin/browsr/issues/15
 * ❌ no search
+
+### fex
+
+https://github.com/18alantom/fex
 
 ### 🦆 yazi
 

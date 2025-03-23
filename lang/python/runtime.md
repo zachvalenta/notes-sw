@@ -125,6 +125,7 @@ CAN BE SLOWER THAN PYTHON https://pythonspeed.com/articles/faster-text-processin
 
 ---
 
+* https://djangochat.com/episodes/django-and-rust-tooling-lily-foote
 * https://us.pycon.org/2024/schedule/presentation/113/index.html
 * https://pycon-archive.python.org/2024/schedule/presentation/113/index.html
 * https://pythonspeed.com/articles/python-extension-performance/
@@ -184,7 +185,9 @@ PEPS https://peps.python.org/
 * finance https://www.openbb.co/
 * architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * GPU simulation https://news.ycombinator.com/item?id=40680737
-* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/ https://github.com/pythonarcade/arcade
+* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/ https://github.com/pythonarcade/arcade https://www.pygame.org https://nostarch.com/object-oriented-python
+* robotics https://sandorfelber.github.io/
+* physics engine https://github.com/rudransh61/Physix-go
 * mesh analysis https://github.com/pyvista/pyvista
 * browser https://www.youtube.com/watch?v=Vh77_2-Z0vc
 
@@ -487,6 +490,8 @@ __namespaces__
 ---
 
 should be like books: TOC, glossary, index
+
+https://pybit.es/articles/developing-and-testing-python-packages-with-uv/
 
 * https://gafni.dev/blog/cracking-the-python-monorepo/
 > I also hate `__init__.py` littering the file system

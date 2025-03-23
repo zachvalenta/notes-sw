@@ -224,6 +224,7 @@ var myInt // 0
 
 ---
 
+executables, portability, Windows https://www.dolthub.com/blog/2025-04-04-go-windows-developer/
 https://chatgpt.com/c/67327c2b-0a34-8004-9b0a-3c4d6c45dc92
 📜 https://golang.org/ref/mod https://github.com/golang/go/wiki/Modules#table-of-contents
 🔍 https://pkg.go.dev/
@@ -394,7 +395,7 @@ ZA
 
 ---
 
-* project structure for CLI and testing https://github.com/quii/learn-go-with-tests https://eli.thegreenplace.net/2022/file-driven-testing-in-go/ https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MTM2Nw==
+* project structure for CLI and testing https://github.com/quii/learn-go-with-tests https://eli.thegreenplace.net/2022/file-driven-testing-in-go/ https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MTM2Nw== https://github.com/urfave/cli
 * https://lets-go.alexedwards.net/
 * https://gist.github.com/candlerb/3cb11576b2d73800b58f3b548dc2ba4a
 
@@ -543,6 +544,7 @@ VERSION MGMT
 * _serialization_: https://github.com/bytedance/sonic
 * _testing_: https://github.com/stretchr/testify https://eli.thegreenplace.net/2020/faking-stdin-and-stdout-in-go/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://quii.gitbook.io/learn-go-with-tests/ mock db https://github.com/cockroachdb/copyist/ mocks https://github.com/stretchr/testify https://github.com/vektra/mockery https://github.com/jarcoal/httpmock https://www.youtube.com/watch?v=U-eO9_lNi7w https://github.com/gotestyourself/gotestsum visualize https://github.com/roblaszczak/vgt
 * time https://github.com/mergestat/timediff
+* _task queue_: https://github.com/hibiken/asynq https://brandur.org/river https://github.com/riverqueue/river
 * _TOML_: https://github.com/pelletier/go-toml
 * _YAML_: https://github.com/goccy/go-yaml
 
@@ -584,7 +586,7 @@ func main() {
 * routing: https://benhoyt.com/writings/go-routing/
 * servers: https://eli.thegreenplace.net/2021/rest-servers-in-go-part-1-standard-library/
 * https://github.com/go-goyave/goyave
-* https://www.honeybadger.io/blog/go-web-services/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://www.usegolang.com/sample/?__s=aqtioiz6aumf2qzwpp96 https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg https://www.usegolang.com/ https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg  https://github.com/go-resty/resty https://github.com/gojek/heimdall https://benhoyt.com/writings/go-routing/ https://github.com/projectdiscovery/httpx
+* https://www.honeybadger.io/blog/go-web-services/ https://www.honeybadger.io/blog/golang-frameworks/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://www.usegolang.com/sample/?__s=aqtioiz6aumf2qzwpp96 https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg https://www.usegolang.com/ https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg  https://github.com/go-resty/resty https://github.com/gojek/heimdall https://benhoyt.com/writings/go-routing/ https://github.com/projectdiscovery/httpx
 
 # 🟨 ZA
 
