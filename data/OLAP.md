@@ -71,7 +71,9 @@ ROLES
 # 🦆 DUCKDB
 
 📜 https://duckdb.org/docs/
-📙 Needham https://www.manning.com/books/duckdb-in-action
+📚
+* Needham https://www.manning.com/books/duckdb-in-action
+* https://www.amazon.com/DuckDB-Running-Fast-Analytics-Reporting-ebook/dp/B0DPNMF2ZX
 
 SETUP
 * install: Homebrew

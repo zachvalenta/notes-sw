@@ -1054,9 +1054,20 @@ create view view_name as select column1, column2 from table_name where condition
 -- RM
 drop view if exists view_name;
 
+-- EXAMPLES
 create view sales as
 select psub.full_ord_id, ar.full_ord_id, psub.unit_price, psub.ext_price, ar.subtotal_amt, ar.ord_date
 from sales_psub psub join sales_ar ar on psub.full_ord_id = ar.full_ord_id
+
+CREATE VIEW pv AS
+SELECT
+    eid, mpn, substr(description, 1, 25) as 'desc', -- identifiers
+    mfg, buyline, priceline,  -- grouping
+    cost, list_price as 'list', list_price_effective_date as 'list_eff', web, year_sales, last_sale, gross_profit as 'gp', -- pricing
+    discontinued as 'discon', status,  -- discon
+    creator, date_created as 'created', date_updated as 'updated'  -- creation
+FROM
+    products
 
 -- LIST 🗄️ `analytics.md` REPL > litecli
 select name, type from sqlite_master

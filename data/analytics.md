@@ -146,7 +146,44 @@ RUNTIME
 VISUAL DESIGN https://www.youtube.com/watch?v=M5zwlb8OzS0 @ 10:30 Polars selectors https://claude.ai/chat/84ed4940-251f-468b-9282-4f5565127e9c
 * icons for quick parse
 * bar charts for magnitude
-* spans for grouping
+* spans for grouping https://posit-dev.github.io/great-tables/get-started/basic-column-labels.html
+> not supported in SQL
+```txt
+SQL views don't have native support for visual column groupings or headers that span multiple columns. The column list is fundamentally flat in standard SQL.
+Possible Approaches
+
+* SQL Comments - What you're already doing; useful for documentation but not visible in query results
+* Result Processing Layer - Application code that processes the SQL results, Reporting tool like Tableau, Power BI, etc.
+* Custom SQL Functions - Some databases support formatting functions (limited)
+* Column Naming Convention - Prefix columns with group identifiers: id_eid, pricing_cost, etc.
+```
+```sql
+-- hacky workaround
+CREATE TABLE foo_column_groups (
+    column_name VARCHAR(50),
+    group_name VARCHAR(50)
+);
+
+INSERT INTO foo_column_groups (column_name, group_name) VALUES
+('eid', 'identifiers'),
+('mpn', 'identifiers'),
+('desc', 'identifiers'),
+('mfg', 'grouping'),
+('buyline', 'grouping'),
+('priceline', 'grouping'),
+('cost', 'pricing'),
+('list', 'pricing'),
+('list_eff', 'pricing'),
+('web', 'pricing'),
+('year_sales', 'pricing'),
+('last_sale', 'pricing'),
+('gp', 'pricing'),
+('discontinued', 'discon'),
+('status', 'discon'),
+('creator', 'creation'),
+('date_created', 'creation'),
+('date_updated', 'creation');
+```
 * color highlight individual rows
 * color highlight for heatmap
 * footnotes for context
