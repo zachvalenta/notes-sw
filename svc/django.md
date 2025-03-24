@@ -17,8 +17,6 @@
 
 ## 进步
 
-task queue https://www.loopwerk.io/articles/2025/django-task-queues/
-
 * _25_: 📙 Vincent beginners https://learndjango.com/courses/django-for-beginners/chapter-2-hello-world-website/ @ initial setup https://github.com/zachvalenta?tab=repositories&q=vincent&type=&language=&sort=
 * _21_: DML
 * _20_: CRUD (ORM, serialization, repl) env (conf, Docker) CQ (testing) DRF (views, nested serializers, testing, read_only) middleware (403 req based on IP addr)
@@ -461,7 +459,7 @@ what is this for? ⬇️
 https://blog.pecar.me/django-tui
 * https://adamj.eu/tech/2021/12/08/pre-order-boost-your-django-dx/
 * https://blog.ovalerio.net/archives/2420
-* reload: watchman instead of django file watcher https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman/ https://github.com/adamchainz/django-browser-reload
+* reload: watchman instead of django file watcher https://adamj.eu/tech/2021/01/20/efficient-reloading-in-djangos-runserver-with-watchman/ https://github.com/adamchainz/django-browser-reload templates cached by default https://www.youtube.com/watch?v=dMK22GnOaNY
 
 DEV SERVER ON REMOTE
 * start cmd: `python manage.py runserver 0.0.0.0:8000`
@@ -619,7 +617,7 @@ session.query(Book).join(Book, Author).filter(Author.age==27)
 Book.objects.filter(author__age=27)
 ```
 
-TRANSACTIONS 🗄 `db.md` consistency
+TRANSACTIONS 🗄 `db.md` consistency https://docs.djangoproject.com/en/5.1/topics/db/transactions/#:~:text=task%2C%20an%20email%20notification%2C%20or%20a%20cache%20invalidation.
 * enter atomic context:	`START TRANSACTION`
 * exit atomic context w/out exception: `COMMIT`
 * exit atomic context w/ exception: `ROLLBACK`
@@ -652,6 +650,7 @@ how to
 
 * theme https://github.com/sjbitcode/django-admin-dracula https://github.com/adamghill/awesome-django-admin-themes
 * datetime https://www.loopwerk.io/articles/2025/django-admin-datetime/
+* custom cmd https://docs.djangoproject.com/en/5.1/howto/custom-management-commands/#:~:text=tasks%20control%20panel.
 * https://simn.fr/posts/dicthing-django-admin-for-fasthtml
 * TUI https://github.com/valberg/django-admin-tui
 * management commands https://adamj.eu/tech/2024/08/14/django-management-command-sub-commands/
@@ -970,6 +969,28 @@ https://www.bugsink.com/blog/better-error-tracking-in-django/
 https://centrifugal.dev/docs/tutorial/intro
 * _channels_: https://www.aeracode.org/2018/06/04/django-async-roadmap/ https://testdriven.io/blog/django-async-views/ https://www.youtube.com/watch?v=j6IOuD5WD8c https://testdriven.io/courses/real-time-app-with-django-channels-and-angular/ https://testdriven.io/courses/real-time-app-with-django-channels-and-angular kinda live Phoenix LiveView? https://github.com/edelvalle/reactor https://runninginproduction.com/podcast/11-logflare-is-a-log-management-and-event-analytics-platform
 
+## tasks
+
+🗄 `infra.md` queues > tasks
+📜 https://github.com/django/deps/blob/main/accepted/0014-background-workers.rst https://github.com/realOrangeOne/django-tasks
+
+OPTIONS
+* _APSchedule_: https://github.com/jcass77/django-apscheduler https://github.com/agronholm/apscheduler
+* _Django Q_: 💀 https://github.com/Koed00/django-q/issues/745
+* _Django Q2_: 🎯 uses Django's own db to store tasks https://github.com/django-q2/django-q2
+* _Django Tasks_: ❌ pet project https://github.com/realOrangeOne/django-tasks
+* _PgQueuer_: 🎯 Postgres https://github.com/janbjorge/PgQueuer https://news.ycombinator.com/item?id=41284703
+* _Procrastinate_: 🎯 Postgres https://github.com/procrastinate-org/procrastinate
+* _Simple Task_: 💀 https://github.com/ericls/django-simple-task
+
+---
+
+> Python, on which Django builds on, is single threaded by nature. Single threaded means that the language interpreter can only run your code in sequence. The practical implication is that any view in a Django application can get stuck if one or more operations take too much to complete. https://www.valentinog.com/blog/django-q/
+
+* ❓ just use admin actions? https://docs.djangoproject.com/en/5.1/ref/contrib/admin/actions/#admin-actions
+* https://www.loopwerk.io/articles/2025/django-task-queues/
+* BYO https://github.com/koaning/flowshow https://www.youtube.com/watch?v=cXkpR9HQeDA
+
 ## TUI
 
 REPL https://github.com/selectnull/django-pyrepl/
@@ -981,9 +1002,11 @@ TUI admin https://github.com/valberg/django-admin-tui https://github.com/valberg
 ---
 
 * import/export https://www.caktusgroup.com/blog/2025/03/17/one-thing-look-out-while-testing-django-import-export/
-* deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge
 
 ## checklist / scaffold
+
+* Docker https://github.com/nickjj/docker-django-example https://news.ycombinator.com/item?id=34940920
+* deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge
 
 * UV
 * healthcheck

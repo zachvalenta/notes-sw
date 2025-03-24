@@ -543,6 +543,7 @@ VERSION MGMT
 * _serialization_: https://github.com/bytedance/sonic
 * _testing_: https://github.com/stretchr/testify https://eli.thegreenplace.net/2020/faking-stdin-and-stdout-in-go/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://quii.gitbook.io/learn-go-with-tests/ mock db https://github.com/cockroachdb/copyist/ mocks https://github.com/stretchr/testify https://github.com/vektra/mockery https://github.com/jarcoal/httpmock https://www.youtube.com/watch?v=U-eO9_lNi7w https://github.com/gotestyourself/gotestsum visualize https://github.com/roblaszczak/vgt
 * time https://github.com/mergestat/timediff
+* _task queue_: https://github.com/hibiken/asynq https://brandur.org/river https://github.com/riverqueue/river
 * _TOML_: https://github.com/pelletier/go-toml
 * _YAML_: https://github.com/goccy/go-yaml
 

@@ -597,7 +597,9 @@ SEMANTICS
 
 ## task (Celery)
 
+🔍 https://taskqueues.com/ 
 🗄
+* `django.md` libs > tasks
 * `eng.md` pipelines
 * `tools.md` jobs
 
@@ -608,35 +610,26 @@ SEMANTICS
 
 ---
 
-BYO https://github.com/koaning/flowshow https://www.youtube.com/watch?v=cXkpR9HQeDA
-
-durable https://github.com/dbos-inc/dbos-transact-py
-https://us.pycon.org/2024/schedule/presentation/35/index.html
-https://github.com/cybertec-postgresql/pg_timetable
-🛠 https://taskqueues.com/ aka worker https://news.ycombinator.com/item?id=34940920
-https://github.com/hibiken/asynq
-
-ZA
-* Python https://github.com/agronholm/apscheduler
+CLEANUP
+* durable https://github.com/dbos-inc/dbos-transact-py
+* https://github.com/cybertec-postgresql/pg_timetable
 * chron jobs https://github.com/Nukesor/pueue
-* Postgres https://github.com/procrastinate-org/procrastinate https://brandur.org/river https://github.com/riverqueue/river https://news.ycombinator.com/item?id=41284703
 * BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
-* _Django Q_: uses Django's own db to store tasks https://www.valentinog.com/blog/django-q https://django-simple-task.readthedocs.io https://github.com/RealOrangeOne/django-tasks https://github.com/realOrangeOne/django-tasks
 * _Hatchet_: https://github.com/hatchet-dev/hatchet
 * _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey https://www.youtube.com/watch?v=TV7jHHpvGvA
 
 CELERY 📹 https://www.youtube.com/@NickJanetakis/search?query=celery
-* chron job
+* https://adamj.eu/tech/2020/02/03/common-celery-issues-on-django-projects
 * https://steve.dignam.xyz/2023/05/20/many-problems-with-celery/
+* https://nickjanetakis.com/blog/4-use-cases-for-when-to-use-celery-in-a-flask-application
+* https://us.pycon.org/2024/schedule/presentation/35/index.html
 * Redis as db for Celery jobs https://ljvmiranda921.github.io/notebook/2019/11/08/flask-redis-celery-mcdo/
 * https://www.youtube.com/watch?v=v7LOVlPq7ds
 * _Flower_: monitor Celery https://github.com/mher/flower https://testdriven.io/blog/flower-nginx/
-*  https://www.agiliq.com/blog/2015/07/getting-started-with-celery-and-redis/
-*  https://djangostars.com/blog/the-python-celery-cookbook-small-tool-big-possibilities/
-*  https://testdriven.io/blog/asynchronous-tasks-with-falcon-and-celery/
-*  https://adamj.eu/tech/2020/02/03/common-celery-issues-on-django-projects
-*  https://stackshare.io/sentry/how-sentry-receives-20-billion-events-per-month-while-preparing-to-handle-twice-that
-*  https://nickjanetakis.com/blog/4-use-cases-for-when-to-use-celery-in-a-flask-application
+* https://www.agiliq.com/blog/2015/07/getting-started-with-celery-and-redis/
+* https://djangostars.com/blog/the-python-celery-cookbook-small-tool-big-possibilities/
+* https://testdriven.io/blog/asynchronous-tasks-with-falcon-and-celery/
+* https://stackshare.io/sentry/how-sentry-receives-20-billion-events-per-month-while-preparing-to-handle-twice-that
 
 REDIS QUEUE (RQ)
 * https://testdriven.io/blog/asynchronous-tasks-with-flask-and-redis-queue/
