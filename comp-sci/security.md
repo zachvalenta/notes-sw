@@ -315,6 +315,8 @@ pass
 
 🗄 `django.md` users
 
+* _shadow profile_: info on (potential) user that they themselves have not provided https://en.wikipedia.org/wiki/Shadow_profile https://news.ycombinator.com/item?id=43458286
+
 ## auth
 
 🗄 `application.md` security
