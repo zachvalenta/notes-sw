@@ -598,6 +598,7 @@ LIBS
 
 ---
 
+* unofficial APIs https://integuru.ai/ https://news.ycombinator.com/item?id=41983409
 * https://simonwillison.net/2025/Mar/8/cutting-edge-web-scraping/
 * https://news.ycombinator.com/item?id=43285725
 * rotate user agents https://github.com/theonlyanil/stealthkit

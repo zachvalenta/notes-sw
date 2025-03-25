@@ -3,7 +3,7 @@
 ## 参考
 
 📚
-* Beck tidy first?
+* Beck tidy first? https://www.oreilly.com/library/view/the-good-news/9781098170158/
 * Conery ch. 11/12
 * Dibernardo 500 lines http://aosabook.org/en/index.html
 * Fowler refactoring 🎗️ PDF
@@ -394,8 +394,6 @@ HICKEY
 > Over time I’ve come to see LISP less as the natural collapse of artificial boundaries but the artificial collapse of natural ones. Where and how data is stored is a real concern, but where and how the program is stored isn’t. Security boundaries around data and executable code are of paramount importance. Data storage concerns don’t benefit from being mixed with programming language concerns but from computer and storage architecture concerns (eg column stores).
 
 ## data mapper
-
-📙 Fowler enterprise patterns
 
 * https://www.sqlalchemy.org/
 * https://github.com/tommyboytech/t3/pull/11906

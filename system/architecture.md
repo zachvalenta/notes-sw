@@ -14,9 +14,9 @@
 * Buelta python architecture
 * Ford fundamentals of software architecture
 * Ford evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237 https://www.amazon.com/gp/product/1492086894/ref=ox_sc_saved_image_10
+* Martin clean architecture
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
-* Tan acing the interview https://www.manning.com/books/acing-the-system-design-interview
-* ⭐️ Xu system design interview https://www.manning.com/books/acing-the-system-design-interview
+* ⭐️ Xu system design interview https://www.manning.com/books/acing-the-system-design-interview https://www.manning.com/books/acing-the-system-design-interview
 
 ## 进步
 

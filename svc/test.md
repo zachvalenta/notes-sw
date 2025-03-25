@@ -2,6 +2,8 @@
 
 ## 参考
 
+📙 Okken pytest
+
 ## 进步
 
 * https://avi.im/blag/2024/snapshot-testing/

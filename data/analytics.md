@@ -958,6 +958,7 @@ TableSheet.bindkey('Y', "syscopy-row fmt=csv")
 
 * command mode + set col to set all values for column? couldn't figure out how to do this
 * null = those yellow crossed out circles https://www.visidata.org/docs/rows/
+> these are now orange exclamation points?
 * mv: `SHIFT j/k`
 * sort: `[]`
 * page: `ctrl b/f`

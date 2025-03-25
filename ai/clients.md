@@ -302,6 +302,7 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 
 ## interchange (MCP)
 
+https://simonwillison.net/2025/Mar/25/playwright-mcp/
 schemas https://simonwillison.net/2025/Feb/28/llm-schemas/
 https://github.com/crmne/ruby_llm
 https://registerspill.thorstenball.com/p/joy-and-curiosity-30 https://github.com/punkpeye/awesome-mcp-servers

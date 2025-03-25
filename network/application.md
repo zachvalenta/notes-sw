@@ -47,6 +47,7 @@ START HERE
 * TTL https://news.ycombinator.com/item?id=26620730 https://calpaterson.com/ttl-hell.html
 * https://www.roguelynn.com/words/spotifys-love-hate-relationship-with-dns/
 * https://softwareengineeringdaily.com/2017/06/06/dns-with-phil-stanhope/
+* Docker https://news.ycombinator.com/item?id=43451861
 
 ## packets
 

@@ -342,6 +342,7 @@ safe_load = {
     'infer_schema_length': 10000,
 }
 pl.read_csv(fpath, separator='\t', encoding='latin-1', skip_rows=8, **safe_load)
+pl.read_csv('neuco-feed.tsv', separator='\t')
 
 # malformatted column headers
 no_whitespace_or_period_delimit = r"^[^\s.-]+$"

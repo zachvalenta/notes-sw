@@ -650,6 +650,8 @@ gum confirm "commit changes?" && git commit -m "$SUMMARY" -m "$DESCRIPTION"
 
 ---
 
+AI https://news.ycombinator.com/item?id=43454690
+
 commits as documentation https://mislav.net/2014/02/hidden-documentation/
 > https://github.com/SKalt/git-cc/
 > https://github.com/muandane/goji

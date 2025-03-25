@@ -1116,6 +1116,7 @@ https://llm.datasette.io/en/stable/related-tools.html
 
 # 🎹 TYPING
 
+📙 Viafore robust python
 🗄 `compilers.md` typing
 
 > The foundations of Python’s static type system were defined in PEP 484 and introduced in Python 3.5. In November 2023, PEP 729 established the Typing Council and formalized the type system through a typing specification. https://realpython.com/python313-new-features/
