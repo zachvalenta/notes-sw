@@ -408,6 +408,13 @@ first_values = df['column_name'].head(5)
 
 ---
 
+* dedupe by col
+```python
+import polars as pl
+duped = pl.read_csv('clean.csv')
+deduped = duped.unique(subset=["eid"], keep="first")
+deduped.write_csv('clean-deduped.csv')
+```
 
 ```python
 df.unique(subset=['csn', 'matched_product_id'])  # dedupe

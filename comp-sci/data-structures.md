@@ -233,6 +233,7 @@ stack.pop()  # pop
 
 MORE TYPES
 * https://news.ycombinator.com/item?id=42201936
+* Dewey Decimal System https://buttondown.com/hillelwayne/archive/betteridges-law-of-software-engineering/
 * _BPS tree_: formed from binary space partitioning https://twobithistory.org/2019/11/06/doom-bsp.html
 * _minimum spanning tree (MST)_: edges to connect every node in weight graph while minimizing edge weight 📙 Christian chapter 8
 * _multitree_: https://github.com/climech/grit

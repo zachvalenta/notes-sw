@@ -659,6 +659,7 @@ OPTIONS
 * _DBeaver_: OSS, ERD https://dbeaver.io/ https://stackoverflow.com/a/48397209
 * _Mathesar_: 🎯 web app to make using Postgres friendly https://github.com/mathesar-foundation/mathesar
 * _Outerbase_: browser https://github.com/outerbase/studio https://news.ycombinator.com/item?id=42320032
+* _SQLTools_: ⭐️ https://github.com/mtxr/vscode-sqltools
 * _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
 * _WhoDB_: 🎯 AI https://whodb.clidey.com/docs/
 
@@ -940,6 +941,18 @@ COMMANDS
 * rm: `d` single `gd` all selected
 
 ---
+
+previous attempt at shortcuts around copy/paste
+```python
+# COPY/PASTE CELL
+TableSheet.unbindkey('y')
+TableSheet.bindkey('y', 'syscopy-cell')
+TableSheet.unbindkey('p')
+TableSheet.bindkey('p', 'syspaste-cells')
+
+TableSheet.unbindkey('Y')
+TableSheet.bindkey('Y', 'syscopy-row')
+```
 
 COPY/PASTE RECORD TO SYSTEM CLIPBOARD https://github.com/saulpw/visidata/blob/7e5ce4f0dc34634e2b3aea2d51b72146686d1ece/visidata/guides/ClipboardGuide.md?plain=1#L3 https://github.com/saulpw/visidata/pull/2530 https://github.com/saulpw/visidata/issues/255 https://github.com/saulpw/visidata/discussions/1505
 > goal: copy all selected records (or just values) to system clipboard with 'y' key, otherwise just copy current cell value

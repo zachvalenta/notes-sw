@@ -410,7 +410,7 @@ CONTAINERIZATION
 HYPERVISORS
 * _host_: os running hypervisor
 * _hypervisor_: emulates host for vm
-* _vm (guest)_: run atop hypervisor https://www.mattlayman.com/blog/2019/web-development-environments/ https://hacker-tools.github.io/virtual-machines/
+* _vm (guest)_: run atop hypervisor https://www.mattlayman.com/blog/2019/web-development-environments/ https://hacker-tools.github.io/virtual-machines/ BYO https://planetscale.com/blog/faster-interpreters-in-go-catching-up-with-cpp
 * types: type 1 (used in data center, boots before os; ESXi, Hyper-V, Xen, KVM) type 2 (personal machines; VirtualBox, Parallels)
 > KVM still a going concern https://world.hey.com/dhh/we-have-left-the-cloud-251760fb
 

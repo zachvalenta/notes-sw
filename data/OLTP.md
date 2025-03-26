@@ -171,6 +171,7 @@ ALTERNATIVES
 * migrations don't need table lock
 * doesn't use functions https://www.youtube.com/watch?v=atwwf0qWpYg [20:00] 🗄️ `sql.md` DML > functions
 * great docs https://planetscale.com/blog/btrees-and-database-indexes
+* BYO VM https://planetscale.com/blog/faster-interpreters-in-go-catching-up-with-cpp
 
 ## 🐯 TigerBeetle
 
@@ -287,7 +288,7 @@ The general problem this addresses is maintaining perfect history of state chang
 * howto https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/ 📙 Conery imposter 343
 * https://stackoverflow.com/questions/20771435/database-sharding-vs-partitioning https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6 https://news.ycombinator.com/item?id=28425379
 * _shard_: node in cluster 📙 Bradshaw [290] https://tomlinford.com/posts/robinhood-sharding-to-scale https://pgdog.dev/blog/you-can-make-postgres-scale
-* Postgres https://github.com/pgdogdev/pgdog
+* Postgres https://github.com/pgdogdev/pgdog https://news.ycombinator.com/item?id=43484399
 
 ## version control
 
@@ -640,6 +641,7 @@ wire protocol
 
 ---
 
+* ubiquity https://www.youtube.com/watch?v=3JW732GrMdg
 * cancel queries https://pert5432.com/post/postgres-query-cancellation
 * binary mgmt? https://github.com/theory/pgenv
 * terabyte scale https://simonwillison.net/2025/Mar/14/merklemap-runs-a-16tb-postgresql/

@@ -460,13 +460,20 @@ isinstance(type, object)  # True
 * _abstract base class (ABC)_: https://www.fluentpython.com/lingo/ https://docs.python.org/3/glossary.html#term-abstract-base-class
 * _virtual subclass_: https://www.fluentpython.com/lingo/ https://www.fluentpython.com/lingo/#constructor
 
+## interfaces
+
+* https://realpython.com/python-interface/
+* https://tpaschalis.me/shallow-vs-deep-interfaces/
+* https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python
+* https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html
+* https://www.youtube.com/watch?v=DqFspy9pI9k
+* interfaces, protocols, ABCs, mixins, typing https://claude.ai/chat/06709fb2-7841-4198-ac57-b770df956589 https://realpython.com/python-protocol/
+
 ## mixin
 
 ---
 
-* interfaces, protocols, ABCs, mixins, typing https://claude.ai/chat/06709fb2-7841-4198-ac57-b770df956589 https://realpython.com/python-protocol/
 * _mixin_: multiple inheritance of abstract class https://stackoverflow.com/a/15605119 https://www.fluentpython.com/lingo/#mixin_class
-* _interface_: https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python https://realpython.com/python-interface/ https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html https://www.youtube.com/watch?v=DqFspy9pI9k
 * _sink_: https://www.ianlewis.org/en/mixins-and-python https://stackoverflow.com/a/52469499/6813490 https://www.residentmar.io/2019/07/07/python-mixins.html https://stackoverflow.com/questions/533631/what-is-a-mixin-and-why-are-they-useful mixins tutorial https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556 https://stackoverflow.com/a/547714/6813490
 
 * _sink_: https://www.youtube.com/watch?v=YXiaWtc0cgE https://realpython.com/inheritance-composition-python/ https://realpython.com/oop-in-python-vs-java/

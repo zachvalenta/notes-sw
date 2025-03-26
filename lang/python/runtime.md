@@ -187,6 +187,7 @@ PEPS https://peps.python.org/
 * GPU simulation https://news.ycombinator.com/item?id=40680737
 * game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/ https://github.com/pythonarcade/arcade
 * robotics https://sandorfelber.github.io/
+* physics engine https://github.com/rudransh61/Physix-go
 * mesh analysis https://github.com/pyvista/pyvista
 * browser https://www.youtube.com/watch?v=Vh77_2-Z0vc
 
