@@ -603,6 +603,7 @@ Spend a week exploring some larger analytics datasets, or converting some of the
 # ⛵️ LAKE
 
 * = structured + unstructed for analytics 类似 file system e.g. Redshift
+* what you might store in a lake: CloudWatch Logs https://www.crunchydata.com/blog/reducing-cloud-spend-migrating-logs-from-cloudwatch-to-iceberg-with-postgres
 * https://www.youtube.com/watch?v=PpGivTOyawY
 * https://www.youtube.com/watch?v=V0GvZ_KAI70 https://news.ycombinator.com/item?id=32336977
 * slower to access, has metadata (when was it produced, who owns it), batch writes, most reads will be humans doing analysis or exploration

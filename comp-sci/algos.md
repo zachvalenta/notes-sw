@@ -1055,6 +1055,7 @@ QUICKSORT https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsor
 
 # 🟨 ZA
 
+* _undo/redo_: https://news.ycombinator.com/item?id=43458738
 * _y combinator_: https://news.ycombinator.com/item?id=27673177
 * cellular automaton, Conway's game of life https://en.wikipedia.org/wiki/Cellular_automaton https://robertheaton.com/2018/07/20/project-2-game-of-life/
 * _byte offset_: distance from initial byte to target; used to lookup char in file [Kleppmann 72]

@@ -735,6 +735,7 @@ misc
 
 ## auth
 
+* start in read-only mode https://kmoppel.github.io/2025-03-27-til-starting-in-read-only-the-easy-way/
 * _role_: Postgres equivalent of a user, necessary to connect 📙 Conery [4.5] https://www.postgresql.org/docs/8.1/user-manag.html
 * are complex https://news.ycombinator.com/item?id=40186752
 * _role creation_: PG will create role/db matching Linux user that installed PG; sometimes this doesn't happen w/ Homebrew 📙 Conery 4.4 0:15
@@ -863,6 +864,10 @@ CLI util (psql, postgres, pg_dump, createdb/dropdb) https://gist.github.com/apol
 
 BYO https://matt.blwt.io/post/building-a-postgresql-extension-line-by-line/
 https://www.postgresql.org/about/news/announce-pig-the-postgres-extension-wizard-2988/
+
+## internals
+
+* bring your own storage format https://github.com/orioledb/orioledb https://www.orioledb.com/blog/better-table-access-methods
 
 ## pgcli
 

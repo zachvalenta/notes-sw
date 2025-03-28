@@ -11,6 +11,8 @@
 
 ## 进步
 
+https://littleosbook.github.io/
+
 circuits, branch prediction, speculative execution https://danluu.com/branch-prediction/ https://pythonspeed.com/articles/speeding-up-numba/
 ++ like verilog? sequential logic https://github.com/cjdrake/seqlogic
 
@@ -301,6 +303,7 @@ FIRMWARE
 * _BIOS (basic IO)_: firmware that gives option of where to boot from; can boot from vinyl https://news.ycombinator.com/item?id=25177045
 * _UEFI_: newer version of BIOS that's apparently more of a pain https://www.youtube.com/watch?v=mxA9Gyyu6Rg 5:45 https://news.ycombinator.com/item?id=42264345
 * _boot_: BIOS -> bootloader (GRUB) -> OS
+> Booting an operating system consists of transferring control along a chain of small programs, each one more “powerful” than the previous one, where the operating system is the last “program” https://littleosbook.github.io/#introduction
 * _CMOS_: chip that holds BIOS
 
 za

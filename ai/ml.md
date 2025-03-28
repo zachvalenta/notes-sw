@@ -265,6 +265,7 @@ TYPES
 
 ---
 
+* in Postgres https://www.cybertec-postgresql.com/en/semantic-search-in-postgresql-an-overview/
 * word2vec, byte-pair encoding, LSTM https://arpit.substack.com/p/how-zomato-improved-its-search-using https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm * _Word2Vec_: vector db https://www.youtube.com/watch?v=a8Oz6Mz8pk0
 https://realpython.com/chromadb-vector-database/
 
@@ -311,7 +312,7 @@ https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * _k-nearest neighbors_: taxonomize based on proximate elements i.e. those that have similar attributes
 * form of supervised learning https://stats.stackexchange.com/a/56504
 * used for recommendation system, regression, OCR 📙 Bhargava [186,195,196]
-* recommendation systems https://github.com/gorse-io/gorse
+* recommendation systems https://github.com/gorse-io/gorse https://eugeneyan.com/writing/recsys-llm/
 * https://philippmuens.com/k-nearest-neighbors-from-scratch/
 * https://www.freecodecamp.org/learn/machine-learning-with-python/machine-learning-with-python-projects/book-recommendation-engine-using-knn
 * https://realpython.com/courses/knn-python/
@@ -596,6 +597,7 @@ dot([1,2,3], [4,5,6])
 ## pytorch
 
 BYO https://github.com/Om-Alve/smolGPT
+internals https://blog.ezyang.com/2019/05/pytorch-internals/
 
 ## scikit
 

@@ -17,6 +17,11 @@
 
 ## 进步
 
+RECENT HAPPENINGS
+* fork https://plainframework.com/ https://news.ycombinator.com/item?id=43512589
+* DRF is a mess https://news.ycombinator.com/item?id=43510495
+* REST and task workers are second class citizens https://news.ycombinator.com/item?id=43512820
+
 * _25_: 📙 Vincent beginners https://learndjango.com/courses/django-for-beginners/chapter-2-hello-world-website/ @ initial setup https://github.com/zachvalenta?tab=repositories&q=vincent&type=&language=&sort=
 * _21_: DML
 * _20_: CRUD (ORM, serialization, repl) env (conf, Docker) CQ (testing) DRF (views, nested serializers, testing, read_only) middleware (403 req based on IP addr)

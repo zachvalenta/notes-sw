@@ -53,11 +53,12 @@ CHECKSUMS
 
 ## storage
 
+🗄 `distributed.md` transactions
+
 ---
 
-🗄 `distributed.md` transactions
 * _transaction_: https://news.ycombinator.com/item?id=36583317
-* _transaction wraparound_: 🗄️ vacuuming
+* _transaction wraparound_: https://github.com/orioledb/orioledb 🗄️ vacuuming
 ```txt
 PostgreSQL assigns a unique transaction ID (XID) to each transaction
 XIDs are 32-bit integers with ~4 billion possible values
@@ -208,7 +209,7 @@ CREATE INDEX idx_fk_country_id ON city(country_id) -- https://github.com/jOOQ/sa
 * why: faster reads but slower writes 📙 Kleppmann [71] Karwin [6]
 > If you need to access data quickly, you index it...that's 90% of what you need to know https://www.bennadel.com/blog/3467-the-not-so-dark-art-of-designing-database-indexes-reflections-from-an-average-software-engineer.htm
 * _reindex_: 📍 https://news.ycombinator.com/item?id=29858083
-* _vacuum_: https://news.ycombinator.com/item?id=29858083 https://pgdog.dev/blog/you-can-make-postgres-scale
+* _vacuum_: https://news.ycombinator.com/item?id=29858083 https://pgdog.dev/blog/you-can-make-postgres-scale autovacuum https://www.youtube.com/watch?v=RfTD-Twpvac
 ```txt
 * storage reclamation: removes dead tuples (deleted/obsolete rows)
 * transaction id wraparound prevention: prevents database age-related failures

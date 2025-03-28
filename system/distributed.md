@@ -19,7 +19,9 @@
 
 ## 进步
 
+* https://dansvetlov.me/postgres-anomalies/
 * start here https://www.achaq.dev/blog/distributed-systems-state-machines-special-relativity
+
 
 # 🤝 CONSENSUS
 

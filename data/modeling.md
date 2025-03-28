@@ -14,7 +14,7 @@
 
 ## 进步
 
-* Use UUID primary keys, Give everything created_at and updated_at, on update restrict on delete restrict, use schemas, enum tables, Mechanically name join tables, Almost always soft delete, Represent statuses as a log https://news.ycombinator.com/item?id=43379764
+* Use UUID primary keys, Give everything created_at and updated_at, on update restrict on delete restrict, use schemas, enum tables, Mechanically name join tables, Almost always soft delete, Represent statuses as a log https://news.ycombinator.com/item?id=43379764 https://mccue.dev/pages/3-11-25-life-altering-postgresql-patterns
 * https://swizec.com/blog/why-software-only-moves-forward/
 
 🔍 https://drawsql.app/templates

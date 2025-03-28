@@ -405,6 +405,8 @@ CON https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/ http
 > aka implicit? https://go.dev/tour/basics/10
 * _reflection_: program's ability to examine type system of programming language + dynamically manipulate types/values at runtime https://drewdevault.com/2021/10/05/Reflection.html https://en.wikipedia.org/wiki/Reflective_programming
 > Clojure provides easy access to the Java frameworks, with optional type hints and type inference, to ensure that calls to Java can avoid reflection. https://clojure.org/
+* _subtype_:
+> If you remember the fad for Object Oriented Programming, “subtyping” might call to mind classes and inheritance hierarchies. However, subtyping is a far more basic and general notion than that. We say that type X is a subtype of type Y in a language if a value of type X can be used wherever type Y is expected. Notice that this has nothing to do with classes or inheritance. In a trivial sense, subtyping is present in every language because types are always subtypes of themselves under this definition. However, the important question in language design is to what extent does the compiler allow for non-trivial subtyping relationships. https://blog.polybdenum.com/2025/03/26/why-you-need-subtyping.html
 
 ---
 

@@ -301,6 +301,8 @@ https://www.youtube.com/watch?v=d5i5Lc9X4Og
 
 ## semantic search
 
+🗄️ `ml.md` vectors
+
 BYO + RAG https://claude.ai/chat/ec4dbe09-e48a-466f-9e35-a7e430af0265
 
 ---
