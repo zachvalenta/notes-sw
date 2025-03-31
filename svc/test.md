@@ -228,6 +228,7 @@ class HelloWorldUser(HttpUser):
 * view user flow, Chrome recorder panel https://developer.chrome.com/docs/devtools/recorder/ https://www.thoughtworks.com/radar/tools?blipid=202203004
 * capture disappearing element https://stackoverflow.com/a/38783090/6813490
 * cross browser https://www.browserling.com/
+* https://github.com/autoscrape-labs/pydoll
 
 AUTOMATION
 * https://github.com/jonhoo/fantoccini

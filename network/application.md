@@ -623,6 +623,32 @@ WWW
 * _deep web_: not accessible to web crawlers; 90% of WWW
 * _dark web_: accessible to TOR browser; 6% of WWW
 
+
+## IRC
+
+🗄️ `media.md` chat
+
+---
+
+https://en.wikipedia.org/wiki/IRC
+* _senpai_: https://git.sr.ht/~delthas/senpai/
+* _ergo_: https://news.ycombinator.com/item?id=42447071
+* https://github.com/squidowl/halloy
+* _libera.chat_: https://taskwarrior.org/docs/help/
+https://drewdevault.com/2021/03/29/The-worlds-dumbest-IRC-bot.html
+https://webchat.freenode.net/#sr.ht
+https://sr.ht/~delthas/senpai/
+* channels https://news.ycombinator.com/item?id=7161436
+* clients: irssi https://weechat.org/ Textual
+* _connect_: /connect irc.freenode.net
+* _login_: /nick <urNick>
+* [validate](https://superuser.com/a/322897)
+* _join channel_: /join #pocoo
+* _quit_: /quit
+* _ignore noise_: /ignore -channels #<channel> * JOINS PARTS QUITS NICKS
+* _grep_: /lastlog <query> <occurences>
+* _save log_: /lastlog -file <pathAndFileToBeCreated>
+
 ## NTP
 
 🗄️ `python/stdlib/datetime.md`

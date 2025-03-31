@@ -11,6 +11,8 @@
 
 ## 进步
 
+> Contrast this to everywhere I see people ravenously using new tools, like Cursor for coding, OpenAI Operator, or even fairly ‘basic’ uses like lawyers using NotebookLM to summarize case documents in a way they can listen to in the car. https://registerspill.thorstenball.com/p/joy-and-curiosity-33
+
 interactions: code completion, chat, tool use https://blog.val.town/blog/fast-follow/
 Simon Prince book https://news.ycombinator.com/item?id=43121059
 https://openai.com/index/introducing-deep-research/ https://x.com/mckaywrigley/status/1886215847481623030 https://x.com/felipe_millon/status/1886205433469178191 https://thezvi.substack.com/p/were-in-deep-research https://x.com/sayashk/status/1887275315824660584 https://www.fromthenew.world/p/openai-deep-research-explains-itself https://x.com/patrickc/status/1888312657146757315 https://stratechery.com/2025/deep-research-and-knowledge-value/
@@ -445,6 +447,7 @@ BYO
 * https://github.com/BerriAI/litellm
 
 * _langchain_: https://zackproser.com/blog/office-oracle-overview https://www.amazon.com/dp/1835083463 https://x.com/aidenybai/status/1895218891586224488
+* LangGraph https://realpython.com/langgraph-python/
 > We mentioned some of the emerging criticisms about LangChain in the previous Radar. Since then, we’ve become even more wary of it. While the framework offers a powerful set of features for building applications with large language models (LLMs), we’ve found it to be hard to use and overcomplicated. LangChain gained early popularity and attention in the space, which turned it into a default for many developers. However, as LangChain is trying to evolve and keep up with the fast pace of change, it has become harder and harder to navigate those changes of concepts and patterns as a developer. We’ve also found the API design to be inconsistent and verbose. As such, it often obscures what is actually going on under the hood, making it hard for developers to understand and control how LLMs and the various patterns around them actually work. We’re moving LangChain to the Hold ring to reflect this. In many of our use cases, we’ve found that an implementation with minimum use of specialized frameworks is sufficient. Depending on your use case, you may also want to consider other frameworks such as Semantic Kernel, Haystack or LiteLLM.  https://www.thoughtworks.com/radar/languages-and-frameworks/langchain
 
 ## train

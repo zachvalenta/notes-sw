@@ -7,6 +7,7 @@
 ## 进步
 
 * ⭐️ managing many Git repos https://github.com/alajmo/mani
+* https://github.com/sinclairtarget/git-who
 * need way to toggle git diff away from delta for copying plaintext 🗄️ `bin/gco`
 > or can delta itself provide a toggle?
 * backup to Codeberg https://github.com/AkashRajpurohit/git-sync
@@ -887,8 +888,7 @@ squash c211c5b third
 
 * force pull
 ```sh
-git fetch --all
-git reset --hard origin/main
+git fetch --all; git reset --hard origin/main
 ```
 
 * initial push

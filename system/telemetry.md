@@ -249,7 +249,7 @@ PROVIDERS
 * _Chartbeat_: publishing
 > The most influential is Chartbeat, which shows you every article on your site, indicates the number of people on each article at any given second, and colors the dots representing those people to tell you how they found the article. Green dots mean they found you through a search engine. Purple dots mean they came from a social network, usually Facebook, Twitter, or Reddit. It’s pure pleasure to watch the display for an article you worked hard on fill with dots. https://www.vox.com/2020/1/28/21077888/why-were-polarized-media-book-ezra-news
 * _Hotjar_: https://www.hotjar.com/
-* _GoatCounter_: Visidata uses https://www.goatcounter.com/ alternative https://github.com/ihucos/counter.dev https://news.ycombinator.com/item?id=26379569 https://simpleanalytics.com/ https://newcss.net/
+* _GoatCounter_: 🎯  Visidata uses https://www.goatcounter.com/ alternative https://github.com/ihucos/counter.dev https://news.ycombinator.com/item?id=26379569 https://simpleanalytics.com/ https://newcss.net/
 * _Google Analytics_: https://satchel.com/web-analytics/ alternatives https://tedium.co/2023/03/04/self-hosted-saas-app-alternatives/
 * Ackee https://github.com/electerious/Ackee
 * BYO https://minimalanalytics.com/
@@ -260,6 +260,7 @@ PROVIDERS
 * _Heap_: https://satchel.com/web-analytics/
 * _Highlight_: https://news.ycombinator.com/item?id=34897645
 * _LogRocket_: https://news.ycombinator.com/item?id=34897645
+* _Minimalytics_: https://github.com/nafey/minimalytics
 * _Mixpanel_: https://satchel.com/web-analytics/ https://news.ycombinator.com/item?id=40432213
 * _Plausible_: https://plausible.io/calmcode.io https://plausible.io/privacy-focused-web-analytics https://www.erichgrunewald.com/posts/ravi-zacharias-solves-the-problem-of-evil/ https://plausible.io/blog/remove-google-analytics
 * _Posthog_: https://github.com/posthog/posthog https://www.pythonpodcast.com/posthog-product-analytics-episode-266/
@@ -646,7 +647,7 @@ def read_chunked(path, chunk_size=100_000):
 * _phlare_: Grafana https://martinheinz.dev/blog/89
 * _pyflame_: https://medium.com/zendesk-engineering/hunting-for-memory-leaks-in-python-applications-6824d0518774 
 * _pyheat_: https://github.com/csurfer/pyheat
-* _pyinstrument_: 🎯 https://news.ycombinator.com/item?id=41910590 https://github.com/joerick/pyinstrument https://calmcode.io/course/pyinstrument/introduction
+* _pyinstrument_: 🎯 https://news.ycombinator.com/item?id=41910590 https://github.com/joerick/pyinstrument https://calmcode.io/course/pyinstrument/introduction https://daniel.feldroy.com/posts/2025-03-using-pyinstrument-to-profile-fasthtml-apps
 * _pyroscope_: 🎯 https://github.com/pyroscope-io/pyroscope https://news.ycombinator.com/item?id=43290917 https://github.com/grafana/pyroscope https://grafana.com/blog/2023/04/19/how-to-troubleshoot-memory-leaks-in-go-with-grafana-pyroscope/
 * _pystack_: https://talkpython.fm/episodes/show/419/debugging-python-in-production-with-pystack https://martinheinz.dev/blog/101
 * _pyspy_: 🎯 https://github.com/benfred/py-spy/ https://www.gauge.sh/blog/parsing-python-asts-20x-faster-with-rust https://tinkering.xyz/fmo-optimization-story/ https://www.youtube.com/watch?v=1EZ8oqjLun0 https://jvns.ca/blog/2018/12/23/2018--year-in-review/
@@ -729,6 +730,9 @@ za
 
 ## bpf
 
+---
+
+https://cgmathprog.home.blog/2025/02/17/bpf-or-how-i-stopped-worrying-and-loved-the-kernel/
 EBPF https://www.brendangregg.com/
 * XDP/eBPF https://mas-bandwidth.com/xdp-for-game-programmers/
 * https://blog.smidt.dev/posts/0003/

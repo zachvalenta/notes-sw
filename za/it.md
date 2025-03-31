@@ -169,6 +169,7 @@ SINGLES
 * Richard Smallwood i wont forget
 * Keith Whitley honky tonk heart
 * Labi Siffre come on michael, laughing
+* Aaron Copland
 
 ## air-capp ➡️ mini23
 

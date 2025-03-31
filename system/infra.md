@@ -509,6 +509,8 @@ while True:
 
 ---
 
+https://github.com/airtai/FastStream
+
 TOOLING
 * _kaskade_: TUI https://github.com/sauljabin/kaskade
 * _kplay_: message inspection https://github.com/dhth/kplay
@@ -773,6 +775,10 @@ conf
 * security lint https://github.com/yandex/gixy 
 * location (Linux `/etc/nginx/nginx.conf` macOS `/usr/local/etc/nginx/nginx.conf`) 
 * language: Nginx's own thing despite looking like JSON https://carrot.is/coding/nginx_introduction
+
+## Ferron
+
+https://www.ferronweb.org/
 
 ## Granian
 

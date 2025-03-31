@@ -503,7 +503,7 @@ operations
 * _x86_: https://github.com/cirosantilli/x86-bare-metal-examples#china
 📍 port in notes from 'memory'
 * https://drewdevault.com/2021/03/19/A-new-systems-language.html
-* ARM, RISC V https://riscv.org/ https://www.youtube.com/watch?v=Lo63uDIiCH0 https://danluu.com/butler-lampson-1999/
+* ARM, RISC V https://riscv.org/ https://www.youtube.com/watch?v=Lo63uDIiCH0 https://danluu.com/butler-lampson-1999/ https://www.wired.com/story/angelina-jolie-was-right-about-risc-architecture
 * https://www.jeffgeerling.com/blog/2020/raspberry-pi-cluster-episode-4-minecraft-pi-hole-grafana-and-more
 * https://www.jeffgeerling.com/blog/2020/what-does-apple-silicon-mean-raspberry-pi-and-arm64
 

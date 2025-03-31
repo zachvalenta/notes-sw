@@ -115,6 +115,7 @@ SOAP
 
 ---
 
+https://github.com/microsoft/typespec/
 https://news.ycombinator.com/item?id=41939027
 
 * _schema_: typing 📙 Kleppmann [4.122-128]

@@ -257,6 +257,7 @@ FEATURES
 * _file manager_: explorer + operations https://github.com/mgunyho/tere
 
 MAYBE
+* _fm_: https://github.com/mistakenelf/fm
 * _mini_: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-files.md
 * _nnn_: https://github.com/jarun/nnn
 * _tere_: https://github.com/mgunyho/tere

@@ -423,6 +423,9 @@ where LEFT(<col>, 1) = 'T'; -- attr starts w/ 'T' -- left: select subset of stri
 ## select
 
 ```sql
+-- DUMMY COLUMN / CONSTANT PROJECTION: just returns a placeholder for each matching row
+select 1 from foo
+
 -- SELECT ALL
 select tbl1.*, tbl2.foo
 

@@ -1163,6 +1163,7 @@ BYO
 
 ---
 
+* components https://softwarecrafts.co.uk/100-words/day-270
 * _convention > conf_: Django will serve your templates provided they are in `templates/registration` and have the expected name, otherwise will serve its own default https://github.com/zachvalenta/hello-django1/commit/6503b460490fb85f085f3a277fbdd80360291fa0
 * forms https://kodare.net/2024/09/11/why-we-wrote-a-new-form-library-for-django.html
 * components https://github.com/wrabit/django-cotton

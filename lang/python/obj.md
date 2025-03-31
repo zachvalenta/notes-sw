@@ -724,6 +724,7 @@ USE CASES
 * JIT https://eli.thegreenplace.net/2025/decorator-jits-python-as-a-dsl/
 
 ZA
+* https://www.patreon.com/posts/how-to-use-async-124658443
 * https://www.fluentpython.com/lingo/#decorator
 * https://docs.python.org/3/glossary.html#term-decorator
 * https://realpython.com/primer-on-python-decorators/#a-few-real-world-examples
