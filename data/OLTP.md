@@ -1034,6 +1034,7 @@ META
 REASONS NOT TO USE https://pid1.dev/posts/siren-call-of-sqlite-on-the-server/ https://news.ycombinator.com/item?id=43049659
 * need LiteFS for multiserver
 * bad at schema migrations
+* bad at multi-user https://news.ycombinator.com/item?id=43535943
 
 ALTERNATIVES
 * Postgres for Java https://github.com/zonkyio/embedded-postgres-binaries
@@ -1041,6 +1042,7 @@ ALTERNATIVES
 * _pglite_: embedded Postgres for WASM https://pglite.dev/
 * _turso/limbo_: https://github.com/tursodatabase/libsql https://github.com/tursodatabase/limbo/
 * from guy who did TigerBeetle? + deterministic simulation testing (DST) https://changelog.com/podcast/626 🗄️ TLA https://www.hytradboi.com/2025/c222d11a-6f4d-4211-a243-f5b7fafc8d79-rocket-science-of-simulation-testing https://www.hytradboi.com/2025/0c713342-7476-480e-b1ab-2ae97246826d-language-agnostic-simulation-testing-on-a-budget
+* sync https://news.ycombinator.com/item?id=43535943
 * https://news.ycombinator.com/item?id=42378843
 * https://simonwillison.net/2024/Dec/15/in-search-of-a-faster-sqlite/ https://avi.im/blag/2024/faster-sqlite/
 

@@ -1131,6 +1131,7 @@ https://llm.datasette.io/en/stable/related-tools.html
 
 ---
 
+* https://github.com/dry-python/returns
 * _exhaustiveness check_: check that functions handle newly-added attributes on their args https://news.ycombinator.com/item?id=25428583
 * _type narrowing_: issue warning if src tries to operate on type that args cannot be passed on blocks's previous code https://hakibenita.com/python-mypy-exhaustive-checking
 

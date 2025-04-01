@@ -147,6 +147,7 @@ replace your React https://htmx.org/essays/a-real-world-react-to-htmx-port/
 📙 https://www.amazon.com/Road-learn-React-pragmatic-React-js/dp/172004399X/
 https://roadmap.sh/react
 
+* too heavy https://news.ycombinator.com/item?id=43543241
 * _Next_: framework https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
 * just a bit, Parcel https://mkaz.blog/code/add-react-to-existing-page
 * solid.js https://typeofnan.dev/solid-js-feels-like-what-i-always-wanted-react-to-be/ https://github.com/solidjs/solid

@@ -13,6 +13,7 @@
 
 > Contrast this to everywhere I see people ravenously using new tools, like Cursor for coding, OpenAI Operator, or even fairly ‘basic’ uses like lawyers using NotebookLM to summarize case documents in a way they can listen to in the car. https://registerspill.thorstenball.com/p/joy-and-curiosity-33
 
+> I strongly feel that this is an insult to life itself. I am utterly disgusted. https://carly.substack.com/p/everything-is-ghibli
 interactions: code completion, chat, tool use https://blog.val.town/blog/fast-follow/
 Simon Prince book https://news.ycombinator.com/item?id=43121059
 https://openai.com/index/introducing-deep-research/ https://x.com/mckaywrigley/status/1886215847481623030 https://x.com/felipe_millon/status/1886205433469178191 https://thezvi.substack.com/p/were-in-deep-research https://x.com/sayashk/status/1887275315824660584 https://www.fromthenew.world/p/openai-deep-research-explains-itself https://x.com/patrickc/status/1888312657146757315 https://stratechery.com/2025/deep-research-and-knowledge-value/
