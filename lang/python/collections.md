@@ -292,6 +292,7 @@ for i in range(5,1):
 
 ## generators
 
+https://pybit.es/articles/generator-mechanics-expressions-and-efficiency/
 https://mathspp.com/blog/binary-search-as-a-bidirectional-generator
 https://news.ycombinator.com/item?id=2133348
 https://docs.python.org/3/tutorial/classes.html#iterators

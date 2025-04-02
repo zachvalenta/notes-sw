@@ -323,7 +323,7 @@ ALTERNATIVES
 * org mode https://dualpower.supply/
 * https://github.com/Bycelium/PyFlow
 * in Vim https://www.maxwellrules.com/misc/nvim_jupyter.html
-* Elixir livebook https://livebook.dev/
+* Elixir livebook https://livebook.dev/ https://github.com/livebook-dev/pythonx
 * Typescript Srcbook https://news.ycombinator.com/item?id=41291700
 * https://zeppelin.apache.org/
 * https://github.com/ottomatica/docable-notebooks

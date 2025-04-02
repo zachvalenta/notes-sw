@@ -718,13 +718,13 @@ TOOLING
 
 # 🟨 ZA
 
-CASES
-* snake: `hello_world`
-* kebab: `hello-world`
-* camel: `helloWorld`
-* Pascal: `HelloWorld`
-* Sponge Bob: `hElOo wOrLd`
-* Brad: `hello.world`
+CASES https://ls-lint.org/blog/announcements/v2.3.0.html#what-the-heck-is-ls-lint
+* _snake_: `hello_world`
+* _kebab_: `hello-world`
+* _camel_: `helloWorld`
+* _Pascal_: `HelloWorld`
+* _Sponge Bob_: `hElOo wOrLd`
+* _Brad_: `hello.world`
 
 ## identifiers
 
@@ -797,6 +797,7 @@ print(f"Full UPC: {full_upc_diet_coke}")
 ---
 
 UUID https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/ https://en.wikipedia.org/wiki/Universally_unique_identifier https://taskwarrior.org/docs/dom/
+* prefixed https://github.com/minhajuddin/prefixed_uuids
 * version 1: generated from timestamp, monotonic counter, and a MAC address
 > don't use
 * version 2: reserved for security IDs with no known details

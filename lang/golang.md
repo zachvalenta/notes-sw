@@ -394,7 +394,7 @@ ZA
 
 ---
 
-* project structure for CLI and testing https://github.com/quii/learn-go-with-tests https://eli.thegreenplace.net/2022/file-driven-testing-in-go/ https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MTM2Nw==
+* project structure for CLI and testing https://github.com/quii/learn-go-with-tests https://eli.thegreenplace.net/2022/file-driven-testing-in-go/ https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MTM2Nw== https://github.com/urfave/cli
 * https://lets-go.alexedwards.net/
 * https://gist.github.com/candlerb/3cb11576b2d73800b58f3b548dc2ba4a
 

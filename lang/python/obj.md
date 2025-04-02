@@ -861,7 +861,7 @@ b = a
 a is b  # True
 b is a  # True
 
-# `==` -> equality (same val); SimpleNameSpace does this as well https://treyhunner.com/2019/03/python-deep-comparisons-and-code-readability/
+# `==` -> equality (same val); SimpleNameSpace does this as well https://treyhunner.com/2019/03/python-deep-comparisons-and-code-readability/ https://www.pythonmorsels.com/iterable-equality/
 x = [1,2,3]
 y = [1,2,3]
 id(x)  # 4567741704
@@ -1131,6 +1131,7 @@ https://llm.datasette.io/en/stable/related-tools.html
 
 ---
 
+https://peps.python.org/pep-0781/
 * https://github.com/dry-python/returns
 * _exhaustiveness check_: check that functions handle newly-added attributes on their args https://news.ycombinator.com/item?id=25428583
 * _type narrowing_: issue warning if src tries to operate on type that args cannot be passed on blocks's previous code https://hakibenita.com/python-mypy-exhaustive-checking

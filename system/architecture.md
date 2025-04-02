@@ -481,6 +481,8 @@ https://github.com/pramsey/pgsql-http
 
 ## 🔵 d2
 
+https://docs.mermaidchart.com/blog/posts/mermaid-chart-vs-code-plugin-create-and-edit-mermaid-js-diagrams-in-visual-studio-code
+
 📜 https://d2lang.com/ https://github.com/terrastruct/d2
 💻 ERD https://github.com/zachvalenta/capp-datalab
 

@@ -57,6 +57,8 @@ CHECKSUMS
 
 ---
 
+* _buffer manager_:
+> First of all, what does Postgres buffer manager do? Just briefly, Postgres organizes on-disk data files in 8KB fix-sized pages. It also maintains a fixed-size array of page buffers in memory, to cache recent reads and writes of these disk pages and improve performance through caching and lazy disk flush. https://medium.com/@dichenldc/30-years-of-postgresql-buffer-manager-locking-design-evolution-e6e861d7072f
 * _transaction_: https://news.ycombinator.com/item?id=36583317
 * _transaction wraparound_: https://github.com/orioledb/orioledb 🗄️ vacuuming
 ```txt

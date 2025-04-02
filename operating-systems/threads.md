@@ -133,7 +133,7 @@ SEMANTIC CONFUSION
 📍 define 'asynchronous', 'concurrent', 'parallel' https://pythonbytes.fm/episodes/show/161/sloppy-python-can-mean-fast-answers
 * https://realpython.com/python-concurrency/
 https://wyounas.github.io/concurrency/2024/12/12/how-concurrency-works-a-visual-guide/
-start here https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/ threads are evil https://www.sqlite.org/faq.html https://avi.im/blag/2024/s3-log/ https://assets.bitbashing.io/papers/concurrency-primer.pdf https://github.com/mrkline/concurrency-primer
+start here https://lucumr.pocoo.org/2024/11/18/threads-beat-async-await/ threads are evil https://www.sqlite.org/faq.html https://avi.im/blag/2024/s3-log/ https://assets.bitbashing.io/papers/concurrency-primer.pdf https://github.com/mrkline/concurrency-primer Golang https://www.youtube.com/watch?v=f9IrbW13C_c
 
 https://anishathalye.com/testing-distributed-systems-for-linearizability/ https://github.com/anishathalye/porcupine
 

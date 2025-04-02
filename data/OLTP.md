@@ -177,6 +177,7 @@ ALTERNATIVES
 
 📜 https://github.com/tigerbeetle/tigerbeetle https://docs.tigerbeetle.com/
 
+* Postgres impl https://github.com/pgr0ss/pgledger
 * uses VSR 📙 Enberg latency
 * https://docs.tigerbeetle.com/coding/system-architecture/
 * https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
@@ -296,8 +297,8 @@ The general problem this addresses is maintaining perfect history of state chang
 
 * people don't really care about this https://news.ycombinator.com/item?id=22731928
 * Jonathan Edwards https://www.hytradboi.com/2025/3b6de0f0-c61c-4e70-9bae-cca5a0e5bb7b-db-usability-as-if
-* _DVC_ https://github.com/iterative/dvc https://www.youtube.com/watch?v=ITvSs23lTQE https://realpython.com/python-data-version-control/
-* _Dolt_ https://github.com/dolthub/dolt
+* _DVC_: https://github.com/iterative/dvc https://www.youtube.com/watch?v=ITvSs23lTQE https://realpython.com/python-data-version-control/
+* _Dolt_: 🎯 https://github.com/dolthub/dolt
 
 # 🟩 MONGO
 

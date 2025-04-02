@@ -324,7 +324,7 @@ request flow
 ---
 
 ALTERNATIVES https://testdriven.io/blog/heroku-alternatives/
-* _Coolify_: https://coolify.io/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
+* _Coolify_: https://coolify.io/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/ https://github.com/trailbaseio/trailbase
 * _Firebase_: https://tinyprojects.dev/projects/tiny_website
 * _Knative_: https://knative.dev/docs/ https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
 * _Netlify_: https://www.netlify.com/

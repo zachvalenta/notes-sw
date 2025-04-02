@@ -18,6 +18,7 @@
 ## 进步
 
 RECENT HAPPENINGS
+* https://simonwillison.net/2025/Apr/2/composite-primary-keys-in-django/
 * fork https://plainframework.com/ https://news.ycombinator.com/item?id=43512589
 * DRF is a mess https://news.ycombinator.com/item?id=43510495
 * REST and task workers are second class citizens https://news.ycombinator.com/item?id=43512820
@@ -350,6 +351,7 @@ history https://wsvincent.com/django-user-model-talk/ https://www.youtube.com/wa
 
 ## permissions
 
+* https://timonweb.com/django/checking-current-user-permissions-in-django-templates/
 * https://learndjango.com/tutorials/django-best-practices-user-permissions
 * https://wsvincent.com/django-tips-user-permissions/
 * https://coderbook.com/@marcus/how-to-restrict-access-with-django-permissions

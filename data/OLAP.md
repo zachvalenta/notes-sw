@@ -73,7 +73,7 @@ ROLES
 📜 https://duckdb.org/docs/
 📚
 * Needham https://www.manning.com/books/duckdb-in-action
-* https://www.amazon.com/DuckDB-Running-Fast-Analytics-Reporting-ebook/dp/B0DPNMF2ZX
+* https://realpython.com/python-duckdb/ https://www.amazon.com/DuckDB-Running-Fast-Analytics-Reporting-ebook/dp/B0DPNMF2ZX
 
 SETUP
 * install: Homebrew
@@ -623,6 +623,7 @@ Spend a week exploring some larger analytics datasets, or converting some of the
 
 ---
 
+https://github.com/lakekeeper/lakekeeper
 https://duckdb.org/2025/03/14/preview-amazon-s3-tables.html https://news.ycombinator.com/item?id=43401421
 https://www.robinlinacre.com/recommend_duckdb/
 https://grok.com/chat/ae668999-e495-430c-8f69-26182fc12746

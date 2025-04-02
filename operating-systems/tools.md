@@ -322,6 +322,10 @@ DESIGN
 * ❌ bad keybindings: parent directory cmd goes to root instead of parent, no jless/VSC-esqe fold all option no Vim https://github.com/juftin/browsr/issues/15
 * ❌ no search
 
+### fex
+
+https://github.com/18alantom/fex
+
 ### 🦆 yazi
 
 📜 https://yazi-rs.github.io/

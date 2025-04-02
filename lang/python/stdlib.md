@@ -745,6 +745,7 @@ RSGI
 
 ---
 
+* MS Word https://github.com/python-openxml/python-docx
 * rise of 3rd-party packages, dead batteries http://pyfound.blogspot.com/2019/05/amber-brown-batteries-included-but.html https://www.python.org/dev/peps/pep-0594/ provisional API https://docs.python.org/3/glossary.html#term-provisional-API PEP 594 https://conroy.org/breaking-python-packages
 
 ## datetime

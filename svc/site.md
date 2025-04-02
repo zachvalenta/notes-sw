@@ -294,6 +294,7 @@ UNIQUE
 
 ---
 
+* https://pilledtexts.com/why-i-use-a-17-year-old-thinkpad/
 * image, text https://neil.computer/notes/how-to-install-postgresql-in-a-custom-directory/ https://neil.computer/notes/chart-of-accounts-for-startups-and-saas-companies/
 * draw your own Ben Thompson style https://tej.as/blog/how-to-grow-professional-relationships-tjs-model
 * use them in articles to make things stick! https://eli.thegreenplace.net/2024/ml-in-go-with-a-python-sidecar/

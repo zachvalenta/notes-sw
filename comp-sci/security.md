@@ -51,6 +51,7 @@ ROLES https://www.netmeister.org/blog/infosec-skillsets.html
 * _reverse engineering_: disassemblers/decompilers, C++, Windows 🗄 `python-grey-hat.pdf` https://www.begin.re/ https://nostarch.com/GhidraBook https://news.ycombinator.com/item?id=29084716 https://reverseengineering.stackexchange.com/ https://malwareunicorn.org/workshops/re101.html
 
 CLEAN THESE UP BEFORE BUYING BOOKS
+* network vulnerability scanner https://www.sitepoint.com/building-a-network-vulnerability-scanner-with-go/
 * vulnerability scanner https://sansec.io/ https://github.com/blacklanternsecurity/bbot
 * stuxnet https://www.youtube.com/watch?v=WyBlh8Tq6_Q
 * things to know https://www.netmeister.org/blog/infosec-competencies.html https://jacobian.org/2021/jul/8/appsec-pagnis https://latacora.github.io/careers/

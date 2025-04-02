@@ -627,6 +627,7 @@ def read_chunked(path, chunk_size=100_000):
 * `py3 -m trace --trace example.py`
 * https://www.petermcconnell.com/posts/perf_eng_with_py12/
 * https://www.youtube.com/watch?v=2hWfLiRGaNM
+* https://github.com/s7nfo/Cirron
 * where to put perf? https://roadmap.sh/best-practices/backend-performance
 > The notes on benchmark performance graphs often read "higher is better" and performance improvements are even called "optimisations". But the truth is, at least as a user, once performance reaches a satisfactory level - enough for your own data analysis to complete in a reasonable about of time - there is no further benefit from increased speed. Instead of being called "performance optimisation" it should probably be called "performance satisfaction" as once it is satisfactory you have finished. Usability is different. The whole point of computers is as an aid to productivity so user-friendliness is actually the bit you want to optimise. Unlike speed, being easier to use is always better and there is very little limit to that. So it's "usability improvements" that should be called "optimisations" but perhaps the relevant ships on all of these terms have sailed. https://csvbase.com/blog/6
 
@@ -829,6 +830,8 @@ FS LOCATIONS https://missing.csail.mit.edu/2019/machine-introspection/ 🗄️ `
 > Finally, there is the "system log", which is increasingly where all of your log messages go. On most, though not all, Linux systems, that log is managed by `systemd`, the "system daemon", which controls all the services that run in the background (and much much more at this point). That log is accessible through the somewhat inconvenient `journalctl` tool if you are root, or part of the admin or wheel groups.
 
 ---
+
+* buffered https://blog.bytebytego.com/p/how-amex-processes-millions-of-daily
 
 ```txt
 loguru (what you're using) - Great defaults, structured out of the box
