@@ -311,7 +311,7 @@ CONVERSION / GENERATION
 curl www.api.com | jq foo | sqlite-utils insert foo.db bar_table
 ```
 
-## sets
+## datasets
 
 ---
 
@@ -346,6 +346,7 @@ GOV
 NATURAL WORLD
 * scientific https://news.ycombinator.com/item?id=27365755
 * weather https://github.com/blaylockbk/Herbie https://news.ycombinator.com/item?id=42467449
+* food
 
 SPORTS
 * diet, sleep https://calmcode.io/datasets

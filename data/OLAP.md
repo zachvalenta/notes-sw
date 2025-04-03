@@ -575,6 +575,7 @@ https://www.crunchydata.com/blog/incremental-archival-from-postgres-to-parquet-f
 
 ---
 
+https://rtabench.com/
 ```txt
 Leaving the embedded database sphere, but sticking with the analytics theme, we come to ClickHouse. If I had to only pick two databases to deal with, I’d be quite happy with just Postgres and ClickHouse - the former for OLTP, the latter for OLAP.
 

@@ -502,6 +502,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * _delta_: ✅ https://github.com/dandavison/delta
 * themes file https://dandavison.github.io/delta/custom-themes.html https://github.com/dandavison/delta/blob/main/themes.gitconfig
 > don't understand why catpuccin relies on their bat theme https://github.com/catppuccin/delta can you just use straight from repo? https://raw.githubusercontent.com/catppuccin/delta/refs/heads/main/catppuccin.gitconfig
+* ❓ diff colors https://gist.github.com/zachvalenta/a3666ef47d9489e515d78548e85f139e
 * _diffnav_: ✅ obviated w/ lazygit https://github.com/dlvhdr/diffnav
 * _diffview_: 🎯 neovim https://github.com/sindrets/diffview.nvim https://www.youtube.com/watch?v=aJikrPnTOtI
 * _drft_: https://codeberg.org/nightsail/drft

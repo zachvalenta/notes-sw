@@ -148,7 +148,7 @@ what is a rendering engine? https://github.com/volfpeter/htmy
 https://jacko.io/async_intro.html
 https://threedots.tech/post/go-test-parallelism/
 
-* MVCC https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html
+* MVCC https://www.cs.cmu.edu/~pavlo/blog/2023/04/the-part-of-postgresql-we-hate-the-most.html postgres https://medium.com/@rohanjnr44/internals-of-mvcc-in-postgres-hidden-costs-of-updates-vs-inserts-381eadd35844
 * async IO https://registerspill.thorstenball.com/p/joy-and-curiosity-7
 * _bricked_: cannot receive further commands https://news.ycombinator.com/item?id=36940626
 * clock synchronization https://signalsandthreads.com/clock-synchronization/ https://www.exhypothesi.com/clocks-and-causality/ https://xeiaso.net/blog/nosleep

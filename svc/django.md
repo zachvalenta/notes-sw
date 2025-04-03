@@ -790,6 +790,7 @@ For your existing code, if you're mapping to a preexisting database schema, this
 
 ## DML
 
+* https://testdriven.io/blog/django-query-optimization/
 * check column present: `Foo.objects.filter(col__isnull=False)`
 * https://johnnymetz.com/posts/slow-django-database-queries/
 clean up

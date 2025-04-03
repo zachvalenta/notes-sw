@@ -10,7 +10,8 @@
 
 ## 进步
 
-* _24_: nothing in winter, job hunt in spring
+* _25_: Capp 📍 DDD -> ERP -> commodities trading
+* _24_: nothing in winter, job hunt in spring, Kunai fakeout, start at Capp
 * _23_: UM layoff
 * _22_: offers (JP, RackN, United Masters)
 * _21_: BNY (Alexandria, quit), most time on music and women

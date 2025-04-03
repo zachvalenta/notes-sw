@@ -85,6 +85,11 @@ KISS
 * https://github.com/Olshansk/postgres_for_everything
 * hidden control flow, PHP vs. Zig https://news.ycombinator.com/item?id=42203084
 
+尝试
+* complicated by not complex
+* simple but not easy
+* a straight line but many steps
+
 ## maintainable
 
 * _maintainability_: other devs able to work on system
@@ -436,7 +441,7 @@ Different sorting algorithms based on data size (e.g., quicksort vs. mergesort).
 Multiple authentication strategies (e.g., OAuth, API key, password-based).
 Managing discounts or pricing rules dynamically in an e-commerce system.
 
-# 🕋 DOMAIN DRIVEN
+# 🕋 DOMAIN DRIVEN (DDD)
 
 🔗 https://en.wikipedia.org/wiki/Domain-driven_design
 🗄️
@@ -445,12 +450,6 @@ Managing discounts or pricing rules dynamically in an e-commerce system.
 📚
 * ✅ Evans domain-driven design https://github.com/nickgerace/gfold/pull/149/files
 * Percival https://www.amazon.com/gp/product/1492052205 https://www.youtube.com/watch?v=niMybnzmzqc [1:15]
-
-DJANGO
-> what's that Python project that prevents circular dependencies, among other things?
-> Let's say you have a custom piece of logic that touches models A, B, C, and D. Where do you put it? The idea is to let your domain live separately from your data model & API layer. https://github.com/HackSoftware/Django-Styleguide
-* https://www.youtube.com/watch?v=72V-5hrilv0
-* https://news.ycombinator.com/item?id=33999191
 
 ZA
 * CRD DDD 🗄 notebook 22.12.13
@@ -502,6 +501,10 @@ extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.
 
 ## bounded context
 
+---
+
+💻️ https://github.com/zachvalenta/DDD
+
 Same term ("Order"), different meanings in each context.
 * Order Management Context: An "Order" contains items, prices, shipping info
 * Inventory Context: An "Order" is just a reservation of stock
@@ -547,10 +550,15 @@ These aren't just different views - they're fundamentally different business con
 ├── Aggregate
 └── Entity
 
+## value objects
+
+https://claude.ai/chat/53ccf574-253a-4b55-ac3f-69cb877cd63e
+
 ## SOLID
 
 ---
 
+https://blog.bytebytego.com/p/mastering-oop-fundamentals-with-solid
 * _SOLID_: https://www.youtube.com/watch?v=ywDxJbULcdM
 * layered architecture https://blog.europython.eu/kraken-technologies-how-we-organize-our-very-large-pythonmonolith/
 > As a general rule of thumb, each layer uses the directly underlying layer to access and interact with the data. As an example, the commands package will not directly use the bug or repository package. It will request the data from the cache layer and go from there. Of course, the commands package will ultimately use types defined in the lower level package like Bug, but retrieving and changing the data has to go through the cache layer to ensure that bugs are properly deduplicated in memory. https://github.com/git-bug/git-bug
@@ -558,6 +566,35 @@ These aren't just different views - they're fundamentally different business con
 > A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
 * beware theologians https://news.ycombinator.com/item?id=26492798
 * _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749 https://www.youtube.com/watch?v=I5c7fBgvkNY
+
+## rule encapsulation
+
+* https://claude.ai/chat/61e85fd7-a33f-43e7-989f-7295de72845b
+* https://claude.ai/chat/525e681b-a645-4eb9-a56f-1b51cf5fbccf
+* existing rules `ECLIPSE_DISCONTINUED` https://github.com/cappusa/product-workflow/commit/711be5d67fc9f2ee9b30670971ea4dbe9a72f6a2
+
+## in Django
+
+---
+
+> I think the move is to 1) clean up the `development` dir in `kern` 2) put the concerns about Django to an LLM and get opinions based on the current approach in `kern`
+* Evans https://github.com/zachvalenta/bookcase-sjk/blob/master/notes/non-fiction/dev/svc/2003%20evans%20-%20domain%20driven%20design.md
+> sketch things you need to understand more from these LLMS
+* https://claude.ai/chat/61e85fd7-a33f-43e7-989f-7295de72845b -> https://claude.ai/chat/53ccf574-253a-4b55-ac3f-69cb877cd63e
+* https://chatgpt.com/c/67e15081-a4f8-8004-86ab-9db58ca5b111 https://claude.ai/chat/812e936c-e2d0-4bfd-a403-8dfacf7a57a0
+* https://claude.ai/chat/92bdb3e8-c87f-484c-8821-fbb7b2d4800f
+* https://grok.com/chat/8513a2e6-8c8a-42f3-883b-05668fe08054 https://grok.com/chat/33a41760-ce83-4dc0-af25-1c7219736aed
+* https://www.cosmicpython.com/book/appendix_django.html#_steps_along_the_way
+* Percival, Django as Active Record https://news.ycombinator.com/item?id=43501989 Architecture Patterns for Python https://neil.computer/notes/teaching-how-to-code-is-broken/
+* https://forum.djangoproject.com/t/where-to-put-business-logic-in-django/282 https://www.cosmicpython.com/book/appendix_django.html#_steps_along_the_way
+* hating Django https://lucumr.pocoo.org/2025/2/20/ugly-code/
+* in python https://www.pythonpodcast.com/episodepage/domain-driven-design-episode-219
+
+* existing impl? https://claude.ai/chat/92bdb3e8-c87f-484c-8821-fbb7b2d4800f https://claude.ai/chat/812e936c-e2d0-4bfd-a403-8dfacf7a57a0
+> what's that Python project that prevents circular dependencies, among other things?
+> Let's say you have a custom piece of logic that touches models A, B, C, and D. Where do you put it? The idea is to let your domain live separately from your data model & API layer. https://github.com/HackSoftware/Django-Styleguide
+* https://www.youtube.com/watch?v=72V-5hrilv0
+* https://news.ycombinator.com/item?id=33999191
 
 ## Evans
 

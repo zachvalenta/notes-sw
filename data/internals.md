@@ -237,6 +237,7 @@ conn.close()
 ---
 
 * _b-tree_: most popular 📙 Kleppmann 83 Winand vii Petrox ch. 2,4,6
+* Postgres vs. SQL Server https://pganalyze.com/blog/postgresql-vs-sql-server-btree-index-deduplication
 * sorted keys, pointers to range of keys on disk 📙 Kleppmann 80
 * bad for filtering? https://sirupsen.com/napkin/problem-13-filtering-with-inverted-indexes
 * diff than hash index bc in memory and updates in place (vs. append-only) 📙 Kleppmann 80

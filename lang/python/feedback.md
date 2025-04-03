@@ -13,6 +13,11 @@
 > Marimo has the ability to run in WASM mode, which means that *everything* can run from the frontend
 * https://www.answer.ai/posts/2024-12-13-nbsanity.html
 * Jupyter in the browser https://github.com/jvns/pandas-cookbook
+* rich live view, jupylab in the terminal, async, segments and triangles https://talkpython.fm/episodes/show/498/algorithms-for-high-performance-terminal-apps
+```sh
+# execute from shell
+jupyter nbconvert --to notebook --execute --stdout nb.ipynb > /dev/null
+```
 
 ```txt
 Exactly! Your problem has several layers:
@@ -409,6 +414,7 @@ SHARING
 
 ---
 
+* WASM https://calmcode.io/course/marimo/webassembly
 * design https://marimo.io/blog/python-not-json
 https://calmcode.io/shorts/drawdata.py
 lint https://calmcode.io/shorts/nbqa

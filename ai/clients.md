@@ -158,6 +158,8 @@ https://simonwillison.net/2025/Mar/9/steve-yegge/
 
 ---
 
+https://getstream.io/blog/cursor-ai-large-projects/ file to prompt + https://news.ycombinator.com/item?id=43478199 https://simonwillison.net/2025/Mar/26/notes/
+
 you've enabled Codeium extension auth on Github (for VS Code)
 https://news.ycombinator.com/item?id=43340662
 try Cline VS Code extension
@@ -225,6 +227,7 @@ logs -m $MODEL  # logs by model
 
 ---
 
+https://github.com/koaning/smartfunc https://simonwillison.net/2025/Apr/3/smartfunc/
 https://www.youtube.com/watch?v=VL2TmuDJXhE
 
 ```sh

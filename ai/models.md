@@ -224,6 +224,8 @@ https://x.com/SullyOmarr/status/1864697992261062690/photo/1
 
 ## Hugging Face
 
+* run inside Postgres https://github.com/serpent7776/pg_sentence_transformer
+
 > Transformers supports the majority of models available in Hugging Face’s Model Hub, and encompasses diverse tasks in natural language processing, computer vision, and audio processing...Because it’s built on top of PyTorch, TensorFlow, and JAX, [Hugging Face] `transformers` gives you the flexibility to use these frameworks to run and customize models at any stage. Using open-source models through Transformers has several advantages: Proprietary AI companies like OpenAI, Cohere, and Anthropic often charge you a token fee to use their models via an API. This means you pay for every token that goes in and out of the model, and your API costs can add up quickly. By deploying your own instance of a model with Transformers, you can significantly reduce your costs because you only pay for the infrastructure that hosts the model. https://realpython.com/huggingface-transformers/#exploring-hugging-face
 
 ZERO-SHOT CLASSIFICATION

@@ -863,6 +863,7 @@ CLI util (psql, postgres, pg_dump, createdb/dropdb) https://gist.github.com/apol
 
 ## extensions
 
+* registry https://pgt.dev/
 BYO https://matt.blwt.io/post/building-a-postgresql-extension-line-by-line/
 https://www.postgresql.org/about/news/announce-pig-the-postgres-extension-wizard-2988/
 

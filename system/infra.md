@@ -613,6 +613,7 @@ SEMANTICS
 ---
 
 CLEANUP
+* https://testdriven.io/courses/django-celery/
 * durable https://github.com/dbos-inc/dbos-transact-py
 * https://github.com/cybertec-postgresql/pg_timetable
 * chron jobs https://github.com/Nukesor/pueue

@@ -737,7 +737,7 @@ https://stratechery.com/2023/ai-and-the-big-five/
 * https://explainextended.com/2023/12/31/happy-new-year-15/ https://news.ycombinator.com/item?id=40378499
 * https://blog.miguelgrinberg.com/post/how-llms-work-explained-without-math
 
-* legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html https://simonwillison.net/2024/Dec/5/amazon-bedrock-data-protection/ https://simonwillison.net/2024/Dec/5/pleias-llms/ https://marginalrevolution.com/marginalrevolution/2024/12/thomas-storrs-on-elastic-data-supply-from-my-email.html https://www.tosabout.com/ https://news.ycombinator.com/item?id=42725147 https://sourcehut.org/blog/2025-03-07-whats-cooking-q1-25/
+* legal https://pycon-archive.python.org/2024/schedule/presentation/7/index.html https://simonwillison.net/2024/Dec/5/amazon-bedrock-data-protection/ https://simonwillison.net/2024/Dec/5/pleias-llms/ https://marginalrevolution.com/marginalrevolution/2024/12/thomas-storrs-on-elastic-data-supply-from-my-email.html https://www.tosabout.com/ https://news.ycombinator.com/item?id=42725147 https://sourcehut.org/blog/2025-03-07-whats-cooking-q1-25/ https://theaiunderwriter.substack.com/p/an-image-of-an-archeologist-adventurer
 * contextual search 🗄️ `info.md` search https://jnnnthnn.com/how-to-build-your-own-perplexity-for-any-dataset https://www.perplexity.ai/
 * price per token https://x.com/drorpoleg/status/1847686346078368006
 * tokens, read whole thing
