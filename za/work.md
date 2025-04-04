@@ -30,7 +30,7 @@
 * Martin we programmers https://www.amazon.com/Turings-Cathedral-Origins-Digital-Universe/dp/1400075998
 * Moody rebel code
 * Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/ http://www.catb.org/~esr/jargon/html/index.html
-* Seibel coders at work
+* Seibel coders at work https://www.gatesnotes.com/home/home-page-topic/reader/microsoft-original-source-code
 
 POLITICS 🗄️ `denv.md` Nix
 * codes of conduct

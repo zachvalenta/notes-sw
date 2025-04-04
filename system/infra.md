@@ -647,6 +647,7 @@ REDIS QUEUE (RQ)
 
 ---
 
+* calling LLMs https://github.com/astronomer/airflow-ai-sdk https://news.ycombinator.com/item?id=43544631
 * _AWS Step Functions_: 
 * _Airflow_: https://news.ycombinator.com/item?id=23349507 https://tech.marksblogg.com/install-and-configure-apache-airflow.html https://www.youtube.com/watch?v=7YCEydBUnjg
 * aaS https://www.astronomer.io/managed-airflow-service/

@@ -199,6 +199,7 @@ gh alias list
 
 ![Alt text](path/to/your.gif)
 ```
+* link to header: `[Link text](#header-name)`
 * add a welcome video! https://github.com/grafana/pyroscope
 * use SVG https://github.com/zachvalenta/capp-prod-cat-alt https://github.com/pommee/Pocker
 * use webp https://github.com/zachvalenta/capp-handbook/commit/0e4e94e78f7e4854b4ae4e1437d509dc86384c84

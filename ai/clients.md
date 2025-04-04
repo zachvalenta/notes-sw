@@ -306,6 +306,7 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 ## interchange (MCP)
 
 > Put simply, MCP is a way for LLMs to more easily integrate with external tools. MCP Servers: Providers like Sentry, Slack, JIRA, Gmail, etc. set up adapters around their APIs that follow the MCP Protocol. https://read.highgrowthengineer.com/p/mcps-simply-explained
+Postgres https://news.ycombinator.com/item?id=43520953
 https://simonwillison.net/2025/Mar/25/playwright-mcp/
 schemas https://simonwillison.net/2025/Feb/28/llm-schemas/
 https://github.com/crmne/ruby_llm

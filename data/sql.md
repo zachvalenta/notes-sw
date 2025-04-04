@@ -1094,6 +1094,7 @@ select name from sqlite_master where type='view';
 
 ---
 
+* view columns `pragma table_info('your_view_name');`
 * late-binding https://eradman.com/posts/late-binding-views.html
 * _view_: pre-computed partial query (e.g. `where is_active = 0`) recomputed as more full query w/ additional user filtering 📙 Kleppmann [101]
 * doesn't hold any data itself 📙 Beaulieu [55]

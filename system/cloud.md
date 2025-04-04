@@ -349,6 +349,10 @@ https://cba.mit.edu/
 
 * _Platform.sh_: https://platform.sh/ https://django-simple-deploy.readthedocs.io/en/latest/
 
+## pico
+
+https://pico.sh/
+
 ## railyway
 
 > you have account tied to personal Github

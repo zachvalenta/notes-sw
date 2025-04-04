@@ -995,6 +995,7 @@ OPTIONS
 
 > Python, on which Django builds on, is single threaded by nature. Single threaded means that the language interpreter can only run your code in sequence. The practical implication is that any view in a Django application can get stuck if one or more operations take too much to complete. https://www.valentinog.com/blog/django-q/
 
+* https://dansvetlov.me/sidekiq-internals/
 * ❓ just use admin actions? https://docs.djangoproject.com/en/5.1/ref/contrib/admin/actions/#admin-actions
 * https://www.loopwerk.io/articles/2025/django-task-queues/
 * BYO https://github.com/koaning/flowshow https://www.youtube.com/watch?v=cXkpR9HQeDA

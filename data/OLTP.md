@@ -1138,9 +1138,13 @@ constraints
 * config: `~/.config/litecli/config` https://litecli.com/config/
 * query to CSV
 ```sh
+# if the query is dealing with quoting around goofy column names, you may need to `echo $QUERY > query.sql` and then `litecli db.sqlite --csv < query.sql > out.csv`
+
 litecli db.sqlite -e "select eid, mfg, mpn, apn, buyline, priceline, year_sales, last_sale, list_price, list_price_effective_date, date_created, date_updated, gross_profit from products where buyline like '%dongan%'" --csv > dongan-products.csv
 
 litecli db.sqlite -e "select wh.hash, q.* from quote q join with_hashes wh on q.manufacturer_input = wh.manufacturer_input where q.manufacturer_part_number_input = wh.manufacturer_part_number_input" --csv > with-hashes.csv
+
+litecli db.sqlite -e "select * from festo" --csv > with-hashes.csv
 ```
 
 ---
