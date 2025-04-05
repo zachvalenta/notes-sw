@@ -11,7 +11,7 @@
 * ⭐️ Mak https://www.manning.com/books/software-design-in-python
 * Martin clean code
 * Nystrom http://gameprogrammingpatterns.com/contents.html
-* Ousterhout philosophy of sofware design https://news.ycombinator.com/item?id=43166362 https://github.com/johnousterhout/aposd-vs-clean-code https://tpaschalis.me/shallow-vs-deep-interfaces/ https://minds.md/zakirullin/cognitive
+* Ousterhout philosophy of sofware design
 
 ## 进步
 
@@ -562,13 +562,13 @@ https://blog.bytebytego.com/p/mastering-oop-fundamentals-with-solid
 * _SOLID_: https://www.youtube.com/watch?v=ywDxJbULcdM
 * layered architecture https://blog.europython.eu/kraken-technologies-how-we-organize-our-very-large-pythonmonolith/
 > As a general rule of thumb, each layer uses the directly underlying layer to access and interact with the data. As an example, the commands package will not directly use the bug or repository package. It will request the data from the cache layer and go from there. Of course, the commands package will ultimately use types defined in the lower level package like Bug, but retrieving and changing the data has to go through the cache layer to ensure that bugs are properly deduplicated in memory. https://github.com/git-bug/git-bug
-* modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/
-> A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
 * beware theologians https://news.ycombinator.com/item?id=26492798
 * _patterns_: MVC, hexagonal https://blog.carlmjohnson.net/post/2020/go-cli-how-to-and-advice/ https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749 https://www.youtube.com/watch?v=I5c7fBgvkNY
 
 ## rule encapsulation
 
+* modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/ https://github.com/gauge-sh/tach/issues/665
+> A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
 * https://claude.ai/chat/61e85fd7-a33f-43e7-989f-7295de72845b
 * https://claude.ai/chat/525e681b-a645-4eb9-a56f-1b51cf5fbccf
 * existing rules `ECLIPSE_DISCONTINUED` https://github.com/cappusa/product-workflow/commit/711be5d67fc9f2ee9b30670971ea4dbe9a72f6a2

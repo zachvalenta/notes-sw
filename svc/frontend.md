@@ -83,6 +83,7 @@ taxonomy
 
 ---
 
+https://www.valentinog.com/blog/htmx-snippets/
 * _fastHTML_: https://github.com/AnswerDotAI/fasthtml https://simn.fr/posts/dicthing-django-admin-for-fasthtml https://www.youtube.com/watch?v=4En57Zw6gU4 https://github.com/koaning/mohtml HotWire, LiveView https://fastht.ml/docs/#other-languages-and-related-projects
 
  https://fluxsec.red/how-I-developed-a-markdown-blog-with-go-and-HTMX

@@ -895,6 +895,7 @@ https://news.ycombinator.com/item?id=30394152
 
 ---
 
+* Kuma, Pager Duty / Gotify https://kiranet.org/posts/self-hosting-like-its-2025/ https://kiranet.org/posts/self-hosting-like-its-2025/
 * useful 404 https://calmcode.io/static/data
 * https://calmcode.io/course/better-uptime/overview
 UPTIME / HEALTHCHECK / HEARTBEAT

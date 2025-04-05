@@ -19,6 +19,7 @@
 
 RECENT HAPPENINGS
 * https://simonwillison.net/2025/Apr/2/composite-primary-keys-in-django/
+* models imported into shell https://www.djangoproject.com/weblog/2025/apr/02/django-52-released/
 * fork https://plainframework.com/ https://news.ycombinator.com/item?id=43512589
 * DRF is a mess https://news.ycombinator.com/item?id=43510495
 * REST and task workers are second class citizens https://news.ycombinator.com/item?id=43512820

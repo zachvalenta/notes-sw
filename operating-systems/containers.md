@@ -687,6 +687,8 @@ CMD flask run --host 0.0.0.0
 
 ---
 
+Python https://github.com/sixfeetup/scaf
+
 SEMANTICS
 * _Kubernetes_: declaratively run multiple containers and load balance btw
 * _container_: app runtime/deps https://www.mattlayman.com/blog/2019/web-development-environments

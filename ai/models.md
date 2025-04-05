@@ -191,6 +191,7 @@ start here https://parlance-labs.com/education/ https://applied-llms.org/ https:
 * 90% of the job is munging data, models are implemented by people w/ PhDs https://towardsdatascience.com/the-cold-start-problem-how-to-build-your-machine-learning-portfolio-6718b4ae83e9 https://spectrum.ieee.org/view-from-the-valley/artificial-intelligence/machine-learning/andrew-ng-xrays-the-ai-hype more on job market https://evjang.com/2022/04/25/rome.html
 * https://www.youtube.com/watch?v=JLTYNPoK7nw https://www.youtube.com/watch?v=pvaIi0l1GME https://softwareengineeringdaily.com/2019/06/13/stripe-machine-learning-infrastructure-with-rob-story-and-kelley-rivoire/
 * this seems dumb but maybe I don't understand yet https://calmcode.io/course/deon/introduction
+* evals https://simonwillison.net/2025/Mar/8/nicar-llms/ https://simonwillison.net/2025/Apr/1/pydantic-evals/
 
 ## agents
 
@@ -508,7 +509,7 @@ TYPES https://elevenlabs.io/
 * _TTS_: https://www.openai.fm/ https://notebooklm.google/ https://news.ycombinator.com/item?id=41964980 PDF to audio https://www.fwdaudio.com/ https://x.com/barbell_fi multistage https://simonw.substack.com/p/verdad-tracking-misinformation-in https://www.fwdaudio.com/ https://news.ycombinator.com/item?id=43022398
 > Everyone is talking about the new hashtag#AI Notebook LM tool from Google that lets you create podcasts from articles and other sources. I decided to try it for myself, using one of my prior pieces, The Upside and Downside of AI, as the basis for the podcast. The result, which you can listen to in the article, is simply amazing. It doesn't just read the article - it has a discussion between two "people" about it that is very engaging. https://arnoldkling.substack.com/p/llm-links-b9d
 > Meta recently introduced NotebookLlama, an "open" version of Google’s podcast-generating feature found in NotebookLM. Leveraging Meta's Llama models, NotebookLlama is capable of creating conversational, podcast-style digests of uploaded text files, such as PDFs of news articles or blog posts. This technology aims to replicate the interactive storytelling aspect of Google's viral tool, adding its own elements of dramatization and interruptions to make the content sound more dynamic. https://www.superpowerdaily.com/p/google-preps-jarvis-ai-agent-that-works-in-chrome
-* _STT_: https://news.ycombinator.com/item?id=41941845
+* _STT_: https://news.ycombinator.com/item?id=41941845 https://www.scattered-thoughts.net/writing/hytradboi-2025-postmortem/
 
 ---
 

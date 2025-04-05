@@ -121,6 +121,7 @@ TACTICS
 
 ---
 
+* https://talkingpostgres.com/episodes/my-journey-into-postgres-monitoring-with-lukas-fittl-rob-treat
 * monitoring https://github.com/dalibo/pg_activity
 https://www.openmymind.net/Speedig-Up-Queries-Re-Imagining-Your-Data/
 https://www.openmymind.net/Speedig-Up-Queries-Understanding-Query-Plans/

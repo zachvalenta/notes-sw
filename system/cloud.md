@@ -412,6 +412,10 @@ https://www.ubicloud.com/blog/debugging-hetzner-uncovering-failures-with-powerst
 
 # 🟨 ZA
 
+## stack native
+
+📙 https://talkpython.fm/books/python-in-production#read-online
+
 TAXONOMY 🧠 https://chatgpt.com/c/673a5946-7948-8004-9a56-e3b60009dccd https://mkennedy.codes/posts/opposite-of-cloud-native-is-stack-native/
 > hyperscale https://blog.jetbrains.com/pycharm/2024/12/the-state-of-python/#trend-6-most-python-web-apps-run-on-hyperscale-clouds
 * _cloud-native_: dependent on cloud services

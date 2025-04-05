@@ -63,6 +63,7 @@ import dis
 dis.dis(fn)
 ```
 * _optimization_: most of diff btw compilers is here [Conery 216] https://signalsandthreads.com/compiler-optimization/ https://www.hytradboi.com/2025/2db17db8-855a-4baf-84eb-0e7c29d7c9a1-debugging-compiler-optimized-code-how-it-works-and-doesnt
+* incremental compiliation https://www.scattered-thoughts.net/writing/a-rough-survey-of-compilation-recompilation-and-compile-time-evaluation/
 
 ## lex
 

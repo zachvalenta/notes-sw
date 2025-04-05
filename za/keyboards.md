@@ -94,7 +94,7 @@ ZSA KEYS https://configure.zsa.io/voyager/layouts/ https://configure.zsa.io/moon
 > current RSI threats: thumbs on CMD
 > I think for generalist usage they can be adapted to pretty easily, but as a developer, the lack of dedicated keys for [, ] and ' is an insurmountable obstacle for me. Those keys are in my opinion perfectly placed on regular keyboards and no amount of layering, tap dancing or anything else will ever come close. https://news.ycombinator.com/item?id=37391934
 * QMK|VIA https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.youtube.com/watch?v=nCUJK9zDXpI https://www.youtube.com/watch?v=CLiZ5rAEx3A https://www.keychron.com/blogs/news/why-qmk-via-is-one-of-the-most-essential-features-for-a-custom-keyboard https://www.youtube.com/watch?v=EWiOIVnrmMs
-* home row mods https://www.youtube.com/watch?v=sLWQ4Gx88h4 https://www.youtube.com/watch?v=CLiZ5rAEx3A https://github.com/dreamsofcode-io/home-row-mods https://www.youtube.com/watch?v=pK41Mr4Kdd0 [6:30]
+* home row mods https://www.youtube.com/watch?v=sLWQ4Gx88h4 https://www.youtube.com/watch?v=CLiZ5rAEx3A https://github.com/dreamsofcode-io/home-row-mods https://www.youtube.com/watch?v=pK41Mr4Kdd0 [6:30] https://blog.zsa.io/chordal-hold/
 
 ## HRM
 
