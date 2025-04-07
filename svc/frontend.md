@@ -482,7 +482,7 @@ FRAMEWORKS
 * _Magick_: sidenotes https://css.winterveil.net/
 * _mpv_: 🎯 https://calmcode.io/shorts/mvp.css
 * _pico_: 🎯 https://picocss.com
-* _Pure_: 🎯 https://purecss.io/
+* _Pure_: 🎯 https://purecss.io/ https://github.com/globophobe/django-semantic-admin
 * _Tailwind_: https://jvns.ca/blog/2018/11/01/tailwind--write-css-without-the-css/ for TUIs https://github.com/koaning/tuilwindcss https://calmcode.io/labs/tuilwind-css https://news.ycombinator.com/item?id=42799136 DaisyUI https://github.com/dobicinaitis/tailwind-cli-extra https://github.com/adamghill/awesome-django-admin-themes
 * _water_: ✅ https://github.com/kognise/water.css https://github.com/kognise/water.css/issues/160 
 

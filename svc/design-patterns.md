@@ -577,6 +577,7 @@ https://blog.bytebytego.com/p/mastering-oop-fundamentals-with-solid
 
 ---
 
+* 💻 https://github.com/zachvalenta/django-DDD https://grok.com/chat/95d5f5bc-e490-4a0f-b8e8-a8b6eafcf884
 > I think the move is to 1) clean up the `development` dir in `kern` 2) put the concerns about Django to an LLM and get opinions based on the current approach in `kern`
 * Evans https://github.com/zachvalenta/bookcase-sjk/blob/master/notes/non-fiction/dev/svc/2003%20evans%20-%20domain%20driven%20design.md
 > sketch things you need to understand more from these LLMS
