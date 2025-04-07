@@ -365,6 +365,16 @@ AND NOT (
     OR pv.priceline = bc.priceline
     OR pv.buyline = bc.buyline
 )
+
+-- CORRECT VERSION
+select distinct rfq.`Unique Identifier`, pv.eid, rfq.`Manufacturer Part Number` AS 'RS mpn', pv.mpn as 'capp mpn', pv.cost, pv.list, pv.list_eff
+from rfq join pv on rfq.`Manufacturer Part Number` = pv.mpn
+and (pv.mfg like '%siemens%' or pv.mfg like '%balluff%' or pv.mfg like '%mcquay%')
+
+-- INCORRECT VERSION WHERE LACK OF PARENS CAUSES CARTESIAN PRODUCT
+select distinct rfq.`Unique Identifier`, pv.eid, rfq.`Manufacturer Part Number` AS 'RS mpn', pv.mpn as 'capp mpn', pv.cost, pv.list, pv.list_eff
+from rfq join pv on rfq.`Manufacturer Part Number` = pv.mpn
+and pv.mfg like '%siemens%' or pv.mfg like '%balluff%' or pv.mfg like '%mcquay%'
 ```
 
 SEARCH / GLOBBING
@@ -506,6 +516,12 @@ BASICS
 select deal.deal_id, house.addr
 from deal join house on deal.house = house.house_id
 join renter on deal.renter = renter.renter_id
+```
+
+ZA
+* fuzzy matching join
+```sql
+
 ```
 * predicate syntax history (if no predicate you'd get a cartesian RS) 📙 Beaulieu [35]
 ```sql

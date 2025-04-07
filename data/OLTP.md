@@ -1085,11 +1085,6 @@ LIMITATIONS
 * data types differ from other dbms, problem for porting?
 * no perms, security 📙 Takahashi 1.19 no users 📙 ibid 1.20
 
-EXTENSIONS
-* fewer functions than other dbms
-* bundled https://github.com/nalgeon/sqlean https://github.com/zachvalenta/golf
-* _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ https://llm.datasette.io/en/stable/logging.html https://www.philipotoole.com/building-a-highly-available-search-engine-using-sqlite/ 🗄 `algos.md` FTS https://amjith.com/blog/2023/fts_search/
-
 TYPES
 * types: text, blob, null, int (whole num) real (decimal)
 * _class_: type for cell https://stackoverflow.com/a/3388158
@@ -1116,6 +1111,23 @@ constraints
 * FK w/ SQLAlchemy: w/ Flask https://fastapi.tiangolo.com/tutorial/sql-databases/ https://www.youtube.com/watch?v=lnfrcHdE_HI https://stackoverflow.com/questions/38792722/flask-foreign-key-constraint https://stackoverflow.com/questions/2614984/sqlite-sqlalchemy-how-to-enforce-foreign-keys have access to engine http://flask-sqlalchemy.palletsprojects.com/en/2.x/quickstart/#road-to-enlightenment
 > rn Flask-SQLA will happily violate FK or just leave null 
 * `pragma`: cmd to set env var
+
+## extensions
+
+---
+
+SQLEAN
+* pkg manager https://github.com/nalgeon/sqlpkg-cli
+
+* https://github.com/nalgeon/sqlean https://github.com/zachvalenta/golf https://sqlpkg.org/
+https://github.com/nalgeon/sqlean/blob/main/docs/shell.md
+https://github.com/nalgeon/sqlean/blob/main/docs/install.md#download-package-manager
+PG version https://pgt.dev/
+https://grok.com/chat/e78c92cc-0d1f-4445-81de-8c55947f34c5
+* using with litecli https://github.com/dbcli/litecli/pull/220
+
+* fewer functions than other dbms
+* _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ https://llm.datasette.io/en/stable/logging.html https://www.philipotoole.com/building-a-highly-available-search-engine-using-sqlite/ 🗄 `algos.md` FTS https://amjith.com/blog/2023/fts_search/
 
 ## 🟠 litecli
 
