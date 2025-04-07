@@ -914,7 +914,7 @@ Theres none stands under more calumnious tongues
 
 * decision tree 📙 MacCormick chapter 6 https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/information-gain/ https://mlu-explain.github.io/
 * gini impurity https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/ https://victorzhou.com/blog/gini-impurity/
-* _genetic_: select best candidates from random population https://danielmiessler.com/blog/genetic-algorithms-could-be-more-significant-than-machine-learning/  evolutionary https://www.drorpoleg.com/books-to-read-in-2023-part-2/ there's also something called 'genetic programming' whose relationship to genetic algorithms is unclear https://stackoverflow.com/a/3821746
+* _genetic_: select best candidates from random population https://danielmiessler.com/blog/genetic-algorithms-could-be-more-significant-than-machine-learning/  evolutionary https://www.drorpoleg.com/books-to-read-in-2023-part-2/ there's also something called 'genetic programming' whose relationship to genetic algorithms is unclear https://stackoverflow.com/a/3821746 https://aerique.blogspot.com/2011/01/baby-steps-into-genetic-programming.html Bayesian optimization https://news.ycombinator.com/item?id=43605731
 * _divide and conquer (D&C)_: winnow to atomic case using recursion
 * most (but not all) recursive algos use D&C e.g. quicksort https://stackoverflow.com/a/53796319
 * _partition_: split list into two smaller sub-lists 🗄 `linux.md` split

@@ -766,9 +766,9 @@ stevie.instrument = "guitar"  # AttributeError
 # set attr on init, repr for free, comparison by attr instead of id() https://stackoverflow.com/a/37161391
 # ❓ given that SimpleNameSpace is writable, why do docs recommend using named tuple instead? if you need a more complete container, why not tell people to use a class (like the comments on Stack Overflow)? https://docs.python.org/3/library/types.html?highlight=simplenamespace#types.SimpleNamespace
 ###
-from types import SimpleNameSpace
-stevie = SimpleNamespace(name="stevie", instrument="piano")
+from types import SimpleNamespace
+stevie = SimpleNamespace(name='stevie', instrument='piano')
 stevie.instrument  # 'piano'
-stevie.instrument = "guitar"
+stevie.instrument = 'guitar"
 stevie.instrument  # 'guitar'
 ```

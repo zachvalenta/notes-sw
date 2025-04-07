@@ -64,14 +64,34 @@ RN
 ### semantics
 
 * _graph_: nodes + edges
-* _node_: obj in graph
-* aka vertex, point📙 Bhargava 6.99 
+* _node_: obj in graph; aka vertex, point📙 Bhargava 6.99 
+* _edge_: conection btw obj; aka line, branch (in a tree)
+* _adjacent_: nodes/vertices directly connected by an edge
+* aka neighbors? 📙 Bhargava [6.99]
+* _clique_: subset of vertices where all are adjacent
+```sh
+# 2-CLIQUE
+A---B
+# 3-CLIQUE
+    A
+   / \
+  /   \
+ B-----C
+# 4-CLIQUE
+    A
+   /|\
+  / | \
+ B--+--D
+  \ | /
+   \|/
+    C
+```
+
+---
+
 * _triplet_: https://github.com/getzep/graphiti
-* _edge_: conection btw obj
-* aka line, branch (in a tree)
 * _root_: starting or topmost node in graph/tree
 * _path_: series of edges from root to particular node
-* _neighbors_: directly adjacent nodes 📙 Bhargava 6.99
 * _undirected_: edges go both directions
 * aka cyclic 📙 Bhargava 6.106
 * _directed_: edge go one direction

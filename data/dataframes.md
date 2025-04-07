@@ -198,6 +198,8 @@ verified.to_csv(os.path.join(os.getcwd(), out_file))
 
 BASIC
 ```python
+pd.read_parquet()  # requires pyarrow https://github.com/zachvalenta/capp-denv-logs/commit/d9867cba016fea23b439687dafadf7540c35aa8a
+
 pd.DataFrame(pd.read_csv(fpath))
 pd.DataFrame(pd.read_csv(fpath), nrows=1000)  # sample on read
 
