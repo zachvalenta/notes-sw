@@ -87,6 +87,7 @@ EVENTS
 
 ---
 
+* shell https://yossarian.net/til/post/any-program-can-be-a-github-actions-shell/
 * https://news.ycombinator.com/item?id=43419701
 * use on AWS https://github.com/CloudSnorkel/cdk-github-runners
 telemetry https://github.com/catchpoint/workflow-telemetry-action/issues/39 https://blog.smidt.dev/posts/0003/

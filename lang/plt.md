@@ -117,6 +117,7 @@ ZA
 
 ---
 
+* pkg mgmt https://news.ycombinator.com/item?id=43614285
 https://github.com/esbudylin/modest
 https://news.ycombinator.com/item?id=42517102
 https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua https://nvchad.com/docs/quickstart/learn-lua

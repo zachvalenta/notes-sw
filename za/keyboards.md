@@ -298,6 +298,12 @@ TOO SMALL|STRANGE
 
 ## 🪐 ZSA
 
+* bad thumb cluster = only have 2 usable keys per thumb
+* put hyper / CMD / ALT on inner keys, as Karabiner hyperkey conflicts with Vim CAPS-to-ESC mapping and HRM conflict w/ Vim period
+> would this be too far to travel? you need to replace 5 keys: SPACE, CMD * 2, CTRL, ALT
+
+---
+
 💡 voyager (portable) moonlander (key count + zip kit)
 > buy used in case thumb cluster doesn't work? https://www.milesmcbain.com/posts/zsa-moonlander-review/ https://www.reddit.com/r/ergodox/comments/o8a7py/a_review_of_the_moonlander_after_60_days_and_a/ ++ Corne/Gergo keyboards
 
