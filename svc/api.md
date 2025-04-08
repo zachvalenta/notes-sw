@@ -361,6 +361,7 @@ https://news.ycombinator.com/item?id=41243992&utm_term=comment
 * UUID (unwieldy) https://news.ycombinator.com/item?id=31715119
 * short uuid (better https://0of1.com/blog/posts/django-staples/)
 * _slug_: short repr for resource https://learndjango.com/tutorials/django-slug-tutorial
+> McMaster Carr does this well https://www.mcmaster.com/92949A050/
 
 * _slug_: human readable addendum to URL resource id https://learndjango.com/tutorials/django-slug-tutorial
 * typically hyphenated 🗄 `tfr.csv` https://github.com/un33k/python-slugify

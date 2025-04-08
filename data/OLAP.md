@@ -522,6 +522,10 @@ ALTERNATIVES
 
 * used by Logfire, no indexes https://talkpython.fm/episodes/transcript/487/building-rust-extensions-for-python
 
+## Graft
+
+https://simonwillison.net/2025/Apr/8/stop-syncing-everything/
+
 ## ⦊ Presto
 
 ---

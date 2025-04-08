@@ -1030,6 +1030,8 @@ db files
 
 ## design
 
+🗄️ `OLAP.md` Graft
+
 META
 * all tables live in the `main` schema https://www.sqlite.org/lang_naming.html 🗄️ `modeling.md` namespaces
 
