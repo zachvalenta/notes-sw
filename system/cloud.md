@@ -144,6 +144,7 @@ ZA
 
 ---
 
+Zoro https://spacelift.io/ https://terragrunt.gruntwork.io/
 > An analysis of Redis' source code repository also shows that a sizable percentage of contributions to the DBMS comes from outside the company (e.g., Tencent, Alibaba). This "stolen valor" was the reason for the ire HashiCorp received when they changed Terraform's license in 2023. https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 
 * https://github.com/idoavrah/terraform-tui

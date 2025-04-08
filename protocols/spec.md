@@ -796,6 +796,11 @@ print(f"Full UPC: {full_upc_diet_coke}")
 
 ---
 
+McMaster Carr
+* https://www.mcmaster.com/92949A050/
+> If you're familiar with McMaster, you might recognize how their number is semi-smart: the first section (91257) is the general product while the second section (546) is a variant within that.
+> This is a "semi-smart" numbering system - not completely arbitrary but not fully semantic either. It balances: Categorization (first segment) Variation tracking (last segment) Human readability (letter break)
+
 UUID https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/ https://en.wikipedia.org/wiki/Universally_unique_identifier https://taskwarrior.org/docs/dom/
 * prefixed https://github.com/minhajuddin/prefixed_uuids
 * version 1: generated from timestamp, monotonic counter, and a MAC address
