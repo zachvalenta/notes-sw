@@ -160,6 +160,18 @@ TOOLS
 
 ---
 
+size of original file matters
+```sh
+591k --  aa.csv
+106k -N  aa.parquet
+ 68k --  americold.csv
+ 28k -N  americold.parquet
+
+.rw-r--r--@ 961M ├──  grainger.csv
+.rw-r--r--@  82M ├──  grainger.parquet
+.rw-------@ 964M ├──  grainger.txt
+```
+
 DESIGN https://csvbase.com/blog/3
 * faster
 * smaller
