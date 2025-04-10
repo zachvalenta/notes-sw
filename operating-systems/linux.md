@@ -430,6 +430,7 @@ SYSTEM CALLS (SYSCALL)
 ---
 
 * Visidata handles this well
+* https://news.ycombinator.com/item?id=43631672
 * run by Michael Kerrisk https://man7.org/tlpi/faq/index.html#many_errata https://www.kernel.org/doc/man-pages/
 * why do they look so much worse in the terminal? https://man7.org/linux/man-pages/man1/bash.1.html 🗄 `shell.md` bat
 * colorize https://danyspin97.org/blog/colorize-your-cli/

@@ -254,6 +254,7 @@ The general problem this addresses is maintaining perfect history of state chang
 * `system.md` distributed
 * `sql.md` migrations
 
+* sync https://github.com/electric-sql/electric https://electric-sql.com/
 * https://github.com/PeerDB-io/peerdb
 * postgres https://github.com/xataio/pgstream https://news.ycombinator.com/item?id=42383136
 * https://github.com/bruin-data/ingestr
@@ -869,7 +870,8 @@ https://www.postgresql.org/about/news/announce-pig-the-postgres-extension-wizard
 
 ## internals
 
-* bring your own storage format https://github.com/orioledb/orioledb https://www.orioledb.com/blog/better-table-access-methods
+* bring your own storage format https://github.com/orioledb/orioledb https://www.orioledb.com/blog/better-table-access-methods https://misachi.github.io/
+* version 18 much smaller in Docker https://ardentperf.com/2025/04/07/waiting-for-postgres-18-docker-containers-34-smaller/
 
 ## pgcli
 
@@ -958,7 +960,7 @@ USAGE
 * durable object https://simonwillison.net/2024/Oct/13/zero-latency-sqlite-storage-in-every-durable-object/
 
 ZA
-* vector https://github.com/asg017/sqlite-vec https://blog.vectorchord.ai/vector-search-at-10000-qps-in-postgresql-with-vectorchord
+* vector https://github.com/asg017/sqlite-vec https://blog.vectorchord.ai/vector-search-at-10000-qps-in-postgresql-with-vectorchord embeddings https://www.cybertec-postgresql.com/en/pgai-importing-wikipedia-into-postgresql/
 * https://news.ycombinator.com/item?id=40637303
 * single-tenant i.e each user gets own db https://news.ycombinator.com/item?id=38171322
 * transactions for perf https://news.ycombinator.com/item?id=36583317

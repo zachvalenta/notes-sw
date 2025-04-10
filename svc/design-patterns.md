@@ -460,7 +460,8 @@ SEMANTICS
 * _separation of concerns_: HTML for content/semantics, CSS for style
 * _code path_: branch through codebase
 * _cohesion_: put like with like 📙 Conery [270] Evans [109] https://entropicthoughts.com/event-sourcing-and-microservices-unix-style
-* _coupling_: "there should be low coupling btw modules and high cohesion within them" 📙 Evans [109]
+* _coupling_: "there should be low coupling btw modules and high cohesion within them" 📙 Evans [109] https://www.youtube.com/watch?v=MM9VQp-k0JQ
+* one change necessitates another
 * _encapsulation_: modularity via objects/method https://www.youtube.com/watch?v=QyJZzq0v7Z4 24:00
 ```python
 foo = 'foo val'

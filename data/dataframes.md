@@ -370,6 +370,8 @@ for chunk in pl.read_csv("data.csv", rechunk=True).iter_chunks(size=10000):
 
 ---
 
+type inference (for Pandas, at least) can override user-defined column data types? https://claude.ai/chat/884d6772-1fcb-44e1-ac03-243e1ca60cde
+
 Pandas: Most filtering happens after load
 Polars: Can push many operations down to the scan/read level
 * NULL checks

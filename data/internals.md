@@ -121,6 +121,7 @@ TACTICS
 
 ---
 
+* https://kmoppel.github.io/2025-04-10-postgres-scaling-roadmap/
 * https://talkingpostgres.com/episodes/my-journey-into-postgres-monitoring-with-lukas-fittl-rob-treat
 * monitoring https://github.com/dalibo/pg_activity
 https://www.openmymind.net/Speedig-Up-Queries-Re-Imagining-Your-Data/
@@ -146,7 +147,7 @@ EXPLAIN
 * how to interpret https://render.com/blog/postgresql-slow-query-to-fast-via-stats
 * adds overhead caused by the Volcano model https://www.ongres.com/blog/explain_analyze_may_be_lying_to_you/
 * `analyze`: update table stats after bulk index https://sqlfordevs.com/table-maintenance-bulk-modification
-* `explain analyze`: view postflight analysis 📙 Evans 25 https://jaywhy13.hashnode.dev/that-time-postgresql-said-no-thanks-i-dont-need-your-index https://www.pgmustard.com/blog/postgres-query-plan-visualization-tools
+* `explain analyze`: view postflight analysis 📙 Evans 25 https://jaywhy13.hashnode.dev/that-time-postgresql-said-no-thanks-i-dont-need-your-index https://www.pgmustard.com/blog/postgres-query-plan-visualization-tools https://dev.to/franckpachot/a-case-where-sql-joins-struggle-but-mongodb-documents-shine-11kj
 * `seq scan`:  query plan doesn't use an index 📙 Evans 25
 * aka full table scan https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
 * making sense of Postgres output https://www.pgmustard.com/docs/explain https://explain.depesz.com/

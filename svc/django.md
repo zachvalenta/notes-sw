@@ -7,7 +7,6 @@
 📜 
 * https://docs.djangoproject.com/en/stable
 * https://github.com/HackSoftware/Django-Styleguide
-* https://github.com/wsvincent/lithium
 📚
 * Layman https://www.mattlayman.com/understand-django/
 * ⭐️ Palmieri zero to prod in rust https://www.amazon.com/Zero-Production-Rust-introduction-development/dp/B0BHLDMFDQ https://www.zero2prod.com/index.html
@@ -23,6 +22,10 @@ RECENT HAPPENINGS
 * fork https://plainframework.com/ https://news.ycombinator.com/item?id=43512589
 * DRF is a mess https://news.ycombinator.com/item?id=43510495
 * REST and task workers are second class citizens https://news.ycombinator.com/item?id=43512820
+
+STARTER PACKS
+* https://github.com/wsvincent/lithium
+* https://businessclasskit.com/ https://businessclasskit.com/blog/design-system-options-for-rails
 
 * _25_: 📙 Vincent beginners https://learndjango.com/courses/django-for-beginners/chapter-2-hello-world-website/ @ initial setup https://github.com/zachvalenta?tab=repositories&q=vincent&type=&language=&sort=
 * _21_: DML

@@ -168,7 +168,6 @@ COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtim
 * _circuit breaker_: error handling https://github.com/Netflix/Hystrix/wiki/How-it-Works https://www.gremlin.com/chaos-monkey/ https://pypi.org/project/circuitbreaker/ https://sirupsen.com/napkin/problem-11-circuit-breakers
 * e.g. downstream call fails, return empty list instead of 404 and poll downstream, have limits on resources devoted to downstream
 * avoid fault in one part of a system taking down the system
-* _coupling_: one change necessitates another
 * _horizontal scaling_: aka shared-nothing architecture [Kleppmann 17] https://buttondown.com/hillelwayne/archive/are-efficiency-and-horizontal-scalability-at-odds/
 * _multitenant_: multiple customer users https://www.saaspegasus.com/
 > Sharding a multitenant application: a SaaS/B2B style app, where data is never joined between customers https://www.crunchydata.com/blog/citus-the-misunderstood-postgres-extension
@@ -398,6 +397,7 @@ DESIGN
 
 https://www.hytradboi.com/2025/a541f208-967a-4286-aa92-7d9dc0a46211-pghttp-backend-free-lowest-latency-web-apps
 https://github.com/pramsey/pgsql-http
+* https://news.ycombinator.com/item?id=43631822 https://github.com/ClockworkLabs/SpacetimeDB
 
 ## jamstack
 

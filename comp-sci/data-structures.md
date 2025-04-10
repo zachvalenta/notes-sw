@@ -206,7 +206,8 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 
 ---
 
-* queue https://www.youtube.com/watch?v=mDCi1lXd9hc
+* https://news.ycombinator.com/item?id=43640115
+* https://www.youtube.com/watch?v=mDCi1lXd9hc
 QUEUES
 * _enqueue_: add to queue https://en.wikipedia.org/wiki/Queue_(abstract_data_type)
 * _dequeue_: rm from queue

@@ -951,7 +951,7 @@ TYPES
 * _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
 * _varchar_: variable 📙 Beaulieu [21]
 * _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485
-* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf` https://news.ycombinator.com/item?id=42364372
+* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf` https://news.ycombinator.com/item?id=42364372 https://boringsql.com/posts/know-the-time-in-postgresql/
 ```sql
 -- how to order by a date in sql when the date col in fmt MM/DD/YYYY (and I think the col type is string not an actual datetime fmt) using sqlite
 SELECT p.eid, psub.unit_price, psub.ext_price, ar.subtotal_amt, ar.ord_date

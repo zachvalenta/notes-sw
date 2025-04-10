@@ -224,6 +224,7 @@ var myInt // 0
 
 ---
 
+executables, portability, Windows https://www.dolthub.com/blog/2025-04-04-go-windows-developer/
 https://chatgpt.com/c/67327c2b-0a34-8004-9b0a-3c4d6c45dc92
 📜 https://golang.org/ref/mod https://github.com/golang/go/wiki/Modules#table-of-contents
 🔍 https://pkg.go.dev/
@@ -585,7 +586,7 @@ func main() {
 * routing: https://benhoyt.com/writings/go-routing/
 * servers: https://eli.thegreenplace.net/2021/rest-servers-in-go-part-1-standard-library/
 * https://github.com/go-goyave/goyave
-* https://www.honeybadger.io/blog/go-web-services/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://www.usegolang.com/sample/?__s=aqtioiz6aumf2qzwpp96 https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg https://www.usegolang.com/ https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg  https://github.com/go-resty/resty https://github.com/gojek/heimdall https://benhoyt.com/writings/go-routing/ https://github.com/projectdiscovery/httpx
+* https://www.honeybadger.io/blog/go-web-services/ https://www.honeybadger.io/blog/golang-frameworks/ https://www.youtube.com/channel/UC2GHqYE3fVJMncbrRd8AqcA/videos https://www.usegolang.com/sample/?__s=aqtioiz6aumf2qzwpp96 https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg https://www.usegolang.com/ https://www.youtube.com/playlist/?__s=aqtioiz6aumf2qzwpp96&list=PLVEltXlEeWglOJ42pCxf22YVyxkzan3Xg  https://github.com/go-resty/resty https://github.com/gojek/heimdall https://benhoyt.com/writings/go-routing/ https://github.com/projectdiscovery/httpx
 
 # 🟨 ZA
 
