@@ -501,6 +501,7 @@ while True:
     schedule.run_pending()
     time.sleep(1)
 ```
+
 ## event (Kafka)
 
 📚
@@ -509,7 +510,22 @@ while True:
 
 ---
 
-https://github.com/airtai/FastStream
+ALTERNATIVES
+* _AWS SQS_: https://cheesecakelabs.com/blog/asynchronous-task-queue-django-celery-aws-sqs
+* _Nats_: Nats (non-durable) Jetstream (durable) https://faststream.airt.ai/latest/nats/#advantages-and-disadvantages https://nats-io.github.io/nats.py/
+* lib + Kafka https://github.com/airtai/FastStream
+```sh
+# https://chatgpt.com/c/67f82c9e-e088-8004-b351-3d2ef30e212f https://claude.ai/chat/1caf57d7-7999-4ceb-ba45-846a91e0d4a5
+brew install nats-io/nats-tools/nats-server  # on macOS
+nats-server --js
+pip install nats-py
+
+brew install --cask stats      # optional: system monitor
+```
+* _Pulsar_: Kafka alternative https://www.youtube.com/watch?v=x4k1XEjNzYQ
+* _Rabbit_: comes w/ own db https://stackoverflow.com/q/38444425
+* vs. Kafka https://aws.amazon.com/msk/what-is-kafka/
+* _ZeroMQ_: http://aosabook.org/en/zeromq.html https://zguide.zeromq.org/docs/chapter1/
 
 TOOLING
 * _kaskade_: TUI https://github.com/sauljabin/kaskade
@@ -553,13 +569,6 @@ PROTOCOL https://kafka.apache.org/0100/protocol.html
 * rides on top of TCP so you need client per language https://strimzi.io/blog/2019/07/19/http-bridge-intro/
 * handshake https://pierrezemb.fr/posts/diving-into-kafka-protocol/
 * _message set_: msgs grouped https://kafka.apache.org/documentation/#maximizingefficiency
-
-ALTERNATIVES
-* _AWS SQS_: https://cheesecakelabs.com/blog/asynchronous-task-queue-django-celery-aws-sqs
-* _Pulsar_: Kafka alternative https://www.youtube.com/watch?v=x4k1XEjNzYQ
-* _Rabbit_: comes w/ own db https://stackoverflow.com/q/38444425
-* vs. Kafka https://aws.amazon.com/msk/what-is-kafka/
-* _ZeroMQ_: http://aosabook.org/en/zeromq.html
 
 za
 * BYO https://github.com/travisjeffery/jocko https://www.openmymind.net/Building-A-Queue-Part-1/
