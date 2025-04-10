@@ -602,6 +602,8 @@ https://blog.bytebytego.com/p/mastering-oop-fundamentals-with-solid
 
 ---
 
+incorporate Thomas notes
+
 SEMANTICS
 * _domain_: business logic https://www.youtube.com/watch?v=dlCcnJdh4c4 [1:15]
 * _domain model_: data model [xvii]
@@ -649,7 +651,8 @@ STYLE
 ZA
 > Hard to tell whether this book Norman-esque / curse of knowledge or reputational alá Finegan's Wake. The biggest impact I've seen it have is ubiquitous language.
 * _CQRS_: diff svc for read/write https://martinfowler.com/bliki/CQRS.html https://ownyourbits.com/2018/05/02/understanding-disk-usage-in-linux/
-* _event sourcing_: pub sub but more https://chriskiehl.com/article/event-sourcing-is-hard
+* _pub sub_: 📙 Thomas pragmatic programmer [158]
+* _event sourcing_: pub sub but more https://chriskiehl.com/article/event-sourcing-is-hard 📙 Thomas pragmatic programmer [160]
 * aka event-driven? Components communicate through events. Publishers emit events without knowledge of subscribers.
 * same probelm as Norman, ideas have won?
 * background: agile [xxii] object-oriented [xxvi,51,87] Java oriented (back cover blurb) [74,111]

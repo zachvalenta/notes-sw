@@ -115,6 +115,7 @@ https://github.com/zillow/tycho
 
 * https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
 * security re: access keys https://www.youtube.com/watch?v=R69FnBT00ew
+* 📙 Thomas pragmatic programmer [144]
 
 ## denv
 

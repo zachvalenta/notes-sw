@@ -1066,6 +1066,7 @@ QUICKSORT https://en.wikipedia.org/wiki/Quicksort https://github.com/orlp/pdqsor
 
 * _audio warping_: https://stackoverflow.com/q/9953219/6813490
 * geography https://github.com/jftuga/geodist
+* shoelace problem 📙 Thomas pragmatic programmer [219]
 
 ## recursion
 

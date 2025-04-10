@@ -11,7 +11,6 @@
 * Evans http https://www.youtube.com/watch?v=91OKnEIFyGs
 * Gourley http
 * Haverbeke eloquent javascript https://eloquentjavascript.net/18_http.html
-* Hafner where wizards stay up late
 * Kozeriok tcp-ip guide (ch. 79-84)
 
 ## 进步

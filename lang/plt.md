@@ -319,6 +319,8 @@ def out_of_place(qd):
 
 ---
 
+* _declarative_: 📙 Thomas pragmatic programmer [60]
+
 📜 https://docs.python.org/3/reference/index.html
 
 NAMES

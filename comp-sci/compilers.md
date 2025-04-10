@@ -103,7 +103,7 @@ Creates AST
 ---
 
 * _parser_: generates AST from src https://drewdevault.com/2018/12/28/Anatomy-of-a-shell.html https://astral.sh/blog/ruff-v0.4.0 https://drewdevault.com/2021/04/22/Our-self-hosted-parser-design.html
-* parser generator https://lezer.codemirror.net/
+* parser generator https://lezer.codemirror.net/ e.g. yacc, bison 📙 Thomas pragmatic programmer [59,62]
 * https://ohmjs.org/ https://dubroy.com/blog/ https://registerspill.thorstenball.com/p/joy-and-curiosity-16
 * date/time parser https://github.com/olebedev/when
 * JSON parser https://news.ycombinator.com/item?id=38150833 https://blog.sylver.dev/building-a-json-validator-with-sylver-part13-writing-a-json-parser-in-49-lines-of-code 

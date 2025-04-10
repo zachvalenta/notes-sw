@@ -26,6 +26,7 @@ RECENT HAPPENINGS
 STARTER PACKS
 * https://github.com/wsvincent/lithium
 * https://businessclasskit.com/ https://businessclasskit.com/blog/design-system-options-for-rails
+* code generation? 📙 Thomas pragmatic programmer [102]
 
 * _25_: 📙 Vincent beginners https://learndjango.com/courses/django-for-beginners/chapter-2-hello-world-website/ @ initial setup https://github.com/zachvalenta?tab=repositories&q=vincent&type=&language=&sort=
 * _21_: DML
@@ -1102,7 +1103,7 @@ HTTP request |       | HTTP response
 
 ---
 
-MVC 🔗 https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
+MVC 🔗 https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller 📙 Thomas pragmatic programmer [158,160]
 * _model_: manages data and core business logic
 * _view_: renders model data
 * _controller_: accepts user input and performs application-specific logic

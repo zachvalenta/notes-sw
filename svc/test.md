@@ -286,8 +286,7 @@ TEST CODE
 * _case_: smallest unit of test code
 * generate https://www.unit-test.dev/ https://github.com/randoop/randoop https://www.reddit.com/r/Python/comments/63e7sm/automated_test_case_generation/ https://github.com/usagitoneko97/klara https://github.com/tjkendev/python-testcase-generator https://eli.thegreenplace.net/2014/04/02/dynamically-generating-python-test-cases https://github.com/se2p/pynguin
 * _suite_: collection of cases
-* _runner_: run tests, reports results; BYO https://www.destroyallsoftware.com/screencasts/catalog
-* aka harness https://stackoverflow.com/a/11628329/6813490
+* _runner_: run tests, reports results; BYO https://www.destroyallsoftware.com/screencasts/catalog aka harness https://stackoverflow.com/a/11628329/6813490 📙 Thomas pragmatic programmer [194]
 
 TEST TYPES
 * _unit test_: test on a method; runs in memory; some people consider smallest unit as including db https://calpaterson.com/against-database-teardown.html

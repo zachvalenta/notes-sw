@@ -16,6 +16,8 @@
 📙 Kleppmann ch. 4
 🗄 `src` secrets
 
+* aka data languages 📙 Thomas pragmatic programmer [60]
+
 ---
 
 generate from CLI usage https://github.com/nickgerace/gfold
@@ -361,6 +363,7 @@ EDITOR
 * [diff](https://stackoverflow.com/a/40883538)
 * table fmt: Jira, Markdown/RST, Latex https://jsvine.github.io/intro-to-visidata/basics/saving-sheets/
 * Markdown for Google Docs https://www.theverge.com/2022/3/29/23002138/google-docs-markdown-support-formatting-update
+* Docbook as predecessor 📙 Thomas pragmatic programmer [254]
 
 conversion to HTML
 * https://github.com/susam/texme

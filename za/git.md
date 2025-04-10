@@ -449,7 +449,7 @@ remote: warning: File data/housing.csv is 66.34 MB; this is larger than GitHub's
 
 HISTORY https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control
 * _version control_: stores content and tracks changes to content https://medium.com/@willhayjr/the-architecture-and-history-of-git-a-distributed-version-control-system-62b17dd37742
-* _first generation_: SCCS
+* _first generation_: SCCS 📙 Thomas pragmatic programmer [60]
 * _second generation_: 2000 - centralized - CVS, SVN/Subversion, Perforce, Bitkeeper https://twobithistory.org/2018/07/07/cvs.html https://blog.gitbutler.com/why-github-actually-won/
 * _third generation_: 2005 - distributed - Git (dominance such Stack Overflow dev survery no longer asks about VCS and people even use as a client to other VCS https://git-scm.com/book/en/v2/Git-and-Other-Systems-Git-as-a-Client) https://blog.gitbutler.com/why-github-actually-won/ alternatives (FB uses Mercurial http://aosabook.org/en/mercurial.html SQLite uses Fossil https://fnc.bsdbox.org/index)
 > absorb Mercurial https://news.ycombinator.com/item?id=41653191
@@ -1173,6 +1173,7 @@ CONSIDERATIONS
 
 ---
 
+* 📙 Thomas pragmatic programmer [142]
 * GLFS for large files https://stackoverflow.com/a/38313259 people don't like GLFS https://news.ycombinator.com/item?id=34875020 diffing binary https://tech.marksblogg.com/git-track-changes-in-media-office-documents.html https://www.git-tower.com/blog/git-performance/
 * sparse checkout, LFS https://martinheinz.dev/blog/109 https://www.git-tower.com/blog/git-performance/
 * Deno https://docs.deno.com/runtime/fundamentals/workspaces/

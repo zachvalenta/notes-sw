@@ -25,12 +25,18 @@
 # 🪐️ INDUSTRY
 
 🔍 https://newsletter.pragmaticengineer.com/p/state-of-eng-market-2024
+🗄️ `business.md` project
 📚
+* Beck extreme programming explained
+* Hafner where wizards stay up late
+* Kidder soul of a new machine https://en.wikipedia.org/wiki/The_Soul_of_a_New_Machine https://www.joelonsoftware.com/2007/01/21/the-big-picture/
 * Kernighan unix a history 🗄️ Raymond unix programming
+* Lammers programmers at work
 * Martin we programmers https://www.amazon.com/Turings-Cathedral-Origins-Digital-Universe/dp/1400075998
 * Moody rebel code
 * Raymond cathedral/bazaar https://www.murilopereira.com/cathedrals-bazaars-and-fusion-reactors/ http://www.catb.org/~esr/jargon/html/index.html
 * Seibel coders at work https://www.gatesnotes.com/home/home-page-topic/reader/microsoft-original-source-code
+* ✅ Thomas pragmatic programmer
 
 POLITICS 🗄️ `denv.md` Nix
 * codes of conduct
