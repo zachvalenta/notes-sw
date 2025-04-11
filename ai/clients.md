@@ -68,19 +68,11 @@ locality
 > export current chats first | incorporate old chats into notes and gradually rm over time
 > llm only add new chats? assume so.
 
-## open source contrib
-
-TO SUBMIT
-* xmp
-* jiancha
+## context
 
 ---
 
-* _aider_: dynamic local/global history/input files, readline
-* _basilk_: alphabetic sort projects, JSON output
-* _gfold_: specify multiple directories via config https://github.com/nickgerace/gfold/issues/261
-* _kanban-tui_: CLI, readline
-* _lazygit_: readline, option to not add dir to recently_visited https://github.com/search?q=repo%3Ajesseduffield%2Flazygit%20recentrepos&type=code
+https://help.openai.com/en/articles/10303002-how-does-memory-use-past-conversations
 
 ## 🟠 aichat
 
