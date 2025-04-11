@@ -598,6 +598,7 @@ LIBS
 
 ---
 
+* curl browser impersonation https://news.ycombinator.com/item?id=43571099
 * https://simonwillison.net/2025/Apr/7/crawlers
 * unofficial APIs https://integuru.ai/ https://news.ycombinator.com/item?id=41983409
 * https://simonwillison.net/2025/Mar/8/cutting-edge-web-scraping/

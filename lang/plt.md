@@ -138,6 +138,7 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 ## 🔤 R
 
 🗄️ `stat.md` Gelman
+📙 https://www.bigbookofr.com/ https://news.ycombinator.com/item?id=43646219
 
 * preceded by SAS (data processing platform developed in the 1970s at North Carolina State and later commercialized)
 * grammar of graphics https://github.com/Kanaries/graphic-walker

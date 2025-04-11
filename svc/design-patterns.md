@@ -977,6 +977,7 @@ def obj_args(obj):
 
 ---
 
+comments, vibe coding https://news.ycombinator.com/item?id=43576425
 https://seeinglogic.com/posts/visual-readability-patterns/
 
 https://www.youtube.com/watch?v=JlPMOszyjjo&t=1566s https://news.ycombinator.com/item?id=16617039

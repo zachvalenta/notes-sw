@@ -243,6 +243,7 @@ LAYOUT 🔗  https://github.com/arp242/hello-css/
 🔗 https://github.com/zachvalenta/web-design
 
 make this into a page https://webdesigninspiration.io/
+great 404s https://news.ycombinator.com/item?id=43589119 https://www.ft.com/404
 
 MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
 * https://blog.yossarian.net/

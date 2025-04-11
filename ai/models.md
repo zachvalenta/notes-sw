@@ -557,6 +557,7 @@ EXAMPLES
 
 ## projects
 
+* character relationships https://news.ycombinator.com/item?id=43633298
 * algos https://github.com/ritchie46/vanilla-machine-learning https://www.manning.com/books/optimization-algorithms
 * get familiar https://simonwillison.net/2024/Apr/17/ai-for-data-journalism/
 * https://www.freecodecamp.org/news/customer-segmentation-python-machine-learning/

@@ -72,6 +72,7 @@ locality
 
 ---
 
+https://news.ycombinator.com/item?id=43573755
 https://help.openai.com/en/articles/10303002-how-does-memory-use-past-conversations
 
 ## 🟠 aichat
@@ -219,6 +220,7 @@ logs -m $MODEL  # logs by model
 
 ---
 
+https://github.com/dtnewman/zev
 https://github.com/koaning/smartfunc https://simonwillison.net/2025/Apr/3/smartfunc/ https://www.youtube.com/watch?v=j9jh46R0ryY https://simonwillison.net/2025/Apr/7/long-context-llm/ https://github.com/simonw/llm-hacker-news/issues/1 https://simonwillison.net/2025/Apr/8/llm-hacker-news/
 https://www.youtube.com/watch?v=VL2TmuDJXhE
 
