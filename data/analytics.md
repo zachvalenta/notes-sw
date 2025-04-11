@@ -870,6 +870,8 @@ HIDE/EXPAND https://jsvine.github.io/intro-to-visidata/basics/understanding-colu
 * expand json: `()`
 
 CREATE/UPDATE
+* set value `g=` https://www.youtube.com/watch?v=yK3qgOIx4x0 3:20
+> need to `gs` first
 * create blank: `za` https://jsvine.github.io/intro-to-visidata/intermediate/creating-new-columns
 * rename: `^`
 * type: `~` text `%` float `#` int `$` currency `@` date https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types https://www.visidata.org/docs/graph/ https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#how-to-set-column-types https://jsvine.github.io/intro-to-visidata/basics/understanding-columns/#manipulating-columns-from-the-columns-sheet
@@ -882,8 +884,6 @@ CREATE/UPDATE
 AGGREGATION
 * `z+` https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
 * sum `z +` https://www.youtube.com/watch?v=yhunJc8Nu4g 4:20
-* set value `g=` https://www.youtube.com/watch?v=yK3qgOIx4x0 3:20
-> so even if underlying attr type is non-numeric can change type in sheet
 * https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#adding-aggregators https://sqlfordevs.com/multiple-aggregates-in-one-query https://jsvine.github.io/intro-to-visidata/basics/summarizing-data/#one-off-calculations
 
 * sort col `[` https://jsvine.github.io/intro-to-visidata/basics/sorting-and-filtering/#how-to-sort-rows

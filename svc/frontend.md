@@ -370,7 +370,7 @@ which npm    # /Users/zvalenta/.config/nvm/versions/node/v22.13.1/bin/npm
 * _polyfill_: replacement for Web API
 * _sourcemap_: map from minified code to source for purpose of debugging
 * _tree shaking_: remove dead code
-* _WebRTC_: browser-to-browser communication (for high-speed A/V) e.g. Facetime https://hpbn.co/webrtc/ https://pragprog.com/titles/ksrtc/programming-webrtc/
+* _WebRTC_: browser-to-browser communication (for high-speed A/V) e.g. Facetime https://hpbn.co/webrtc/ https://pragprog.com/titles/ksrtc/programming-webrtc/ https://webrtcforthecurious.com/ https://news.ycombinator.com/item?id=43648713
 * _Webpack_: creates bundle (all libs in single file); preceded by Browserify, succeeded by Snowpack
 * editors: Code Mirror, Monaco (what repl.it used before Code Mirror)
 

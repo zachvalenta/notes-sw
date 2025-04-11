@@ -257,6 +257,7 @@ design
 * hands off processing to application, so it's both slower in dev time and execution time 📙 Bradshaw [8]
 
 DBMS
+* more embedded https://claude.ai/chat/16d7d074-a06e-4a93-9d29-87181f9c9e74
 * BYO https://notes.eatonphil.com/documentdb.html
 * _CouchDB_: good at replication https://www.dataengineeringpodcast.com/couchdb-document-database-episode-124/ 7:15 
 * _Dante_: 🎯 embedded https://github.com/senko/dante

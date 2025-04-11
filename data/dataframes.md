@@ -404,7 +404,7 @@ pl.scan_csv('products.csv').select([
 pl.scan_csv('data/catalog.csv', separator=',', infer_schema_length=100).collect_schema()
 
 # PRNG for reproducible sample 🗄️ `algos.md`
-pl.scan_parquet("data.parquet").sample(n=1000, seed=42).collect()
+pl.scan_csv('pricing.csv').collect().sample(n=10, seed=42)
 
 # get sampling from col
 first_values = df['column_name'].head(5)
