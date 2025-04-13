@@ -16,6 +16,15 @@
 
 ## 进步
 
+STARTER PACKS 🗄️ scaffold
+* DSD https://mattsegal.dev/simple-django-deployment.html
+* https://mattsegal.dev/django-prod-architectures.html
+* https://github.com/wsvincent/lithium
+* https://businessclasskit.com/ https://businessclasskit.com/blog/design-system-options-for-rails
+* code generation? 📙 Thomas pragmatic programmer [102]
+* Docker https://github.com/nickjj/docker-django-example https://news.ycombinator.com/item?id=34940920
+* deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge Google Cloud Run https://news.ycombinator.com/item?id=24705668
+
 RECENT HAPPENINGS
 * https://simonwillison.net/2025/Apr/2/composite-primary-keys-in-django/
 * models imported into shell https://www.djangoproject.com/weblog/2025/apr/02/django-52-released/
@@ -23,11 +32,6 @@ RECENT HAPPENINGS
 * DRF is a mess https://news.ycombinator.com/item?id=43510495
 * REST and task workers are second class citizens https://news.ycombinator.com/item?id=43512820
 * https://adamj.eu/tech/2025/04/07/django-whats-new-5.2/
-
-STARTER PACKS
-* https://github.com/wsvincent/lithium
-* https://businessclasskit.com/ https://businessclasskit.com/blog/design-system-options-for-rails
-* code generation? 📙 Thomas pragmatic programmer [102]
 
 * _25_: 📙 Vincent beginners https://learndjango.com/courses/django-for-beginners/chapter-2-hello-world-website/ @ initial setup https://github.com/zachvalenta?tab=repositories&q=vincent&type=&language=&sort=
 * _21_: DML
@@ -1020,51 +1024,6 @@ TUI admin https://github.com/valberg/django-admin-tui https://github.com/valberg
 ---
 
 * import/export https://www.caktusgroup.com/blog/2025/03/17/one-thing-look-out-while-testing-django-import-export/
-
-## checklist / scaffold
-
-* Docker https://github.com/nickjj/docker-django-example https://news.ycombinator.com/item?id=34940920
-* deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge
-
-* UV
-* healthcheck
-* REPL
-* make/task
-* web server
-
-* CICD
-* admin
-
-* auth
-* dotenvx
-* feature flag
-
-* CDN
-* load balancing
-* cache
-
-* Celery
-* htmx
-
----
-
-https://github.com/zachvalenta?tab=repositories&q=docker&type=&language=&sort=
-* env: config, Docker, ❌ auth
-* CQ: testing, hooks
-* data: seed, repl, ❌ migrations, serialization, ORM
-* UI: styling, pagination, search
-🏡 intermediate - ✅ migrations, auth, env (✅ config, ✅ Docker)
-🥕 basic - CRUD (✅ ORM, ✅ serialization, seed) UI (styling, search, pagination) CQ (✅ testing, hooks)
-
-WORLD'S DUMBEST COMPLETE SAAS
-> use as your repo to experiment
-* Vincent books 🗄 `django.md`
-* https://saasitive.com/
-> scaffold (deployment, monitoring), accounts (individual, teams), auth (registration, login/logout, pw update, account removal), subscriptions
-* https://news.ycombinator.com/item?id=34530052
-* https://news.ycombinator.com/item?id=34483294
-* https://pocketbase.io/ https://github.com/trailbaseio/trailbase https://news.ycombinator.com/item?id=42336207
-* BYO Saas https://www.datasette.cloud/blog/2023/welcome/ https://simonwillison.net/2020/Jan/14/stanford-planning-datasette-cloud/ https://simonwillison.net/tags/datasette-cloud/?page=2
 
 ## design
 
