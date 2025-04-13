@@ -144,6 +144,8 @@ MUSIC
 * incognito
 * SZA
 * half japanese
+* grateful dead live at keystone
+* nina simone
 
 SINGLES
 * hank williams dont let me love you
@@ -266,7 +268,7 @@ CURRENT WORKFLOW
 * _syncthing_: https://tonsky.me/blog/syncthing/
 * _BackupPC_: https://backuppc.github.io/backuppc/
 * _Dropbox_: https://superuser.com/q/351169/728972
-* _Restic_: local https://github.com/restic/restic 
+* _Restic_: local https://github.com/restic/restic https://www.ntietz.com/blog/automating-my-laptop-backups/
 * _Borg_: https://www.borgbackup.org/ https://news.ycombinator.com/item?id=13694079 https://drewdevault.com/2020/04/22/How-to-store-data-forever.html
 * _Backblaze_: Terraform provider https://news.ycombinator.com/item?id=26426489
 * _rsync_: https://goteleport.com/blog/scp-familiar-simple-insecure-slow/ https://missing.csail.mit.edu/2019/remote-machines/ impl https://news.ycombinator.com/item?id=31958536 `rsync -rv --exclude=.git <dir> <path/to>` https://stackoverflow.com/a/3672584/6813490 https://michael.stapelberg.ch/posts/2022-07-02-rsync-how-does-it-work/
@@ -283,12 +285,16 @@ fswatch --recursive --one-per-batch . | xargs -L1 -II rsync --rsync-path 'sudo -
 
 ---
 
+* get a NAS https://registerspill.thorstenball.com/p/joy-and-curiosity-37
+how people manage Microsoft machines https://www.pdq.com/
+
 SKETCH
 * ethernet
 * DNS
 * storage
 * compute
 
+* Zimaboard https://www.youtube.com/watch?v=pOV5tVGZ_yk
 * https://www.youtube.com/watch?v=y1GCIwLm3is
 * https://github.com/khuedoan/homelab
 * containers, Plex https://www.youtube.com/watch?v=yFuTAKq_j3Q
@@ -351,7 +357,7 @@ HOME MEDIA SERVERS
 * _Black Candy_: https://github.com/blackcandy-org/blackcandy
 * _Emby_: https://www.youtube.com/watch?v=lgY97D5nCek
 * _gonic_: https://news.ycombinator.com/item?id=42513171
-* _Jellyfin_: https://www.youtube.com/watch?v=lgY97D5nCek client https://github.com/streamyfin/streamyfin
+* _Jellyfin_: https://www.youtube.com/watch?v=lgY97D5nCek client https://github.com/streamyfin/streamyfin https://news.ycombinator.com/item?id=43711706
 * _Komga_: PDFs https://komga.org/
 * _Plex_: https://plexamp.com/
 * mobile client https://github.com/jmshrv/finamp https://www.fintunes.app/
@@ -404,6 +410,10 @@ fd 194[0-9] | wc -l
 fd 194[0-9]
 fd -t d 194[0-9]
 ```
+
+### asak
+
+recording https://github.com/chaosprint/asak
 
 ### 🇯🇲 pydub
 
@@ -467,7 +477,7 @@ cat ~/.config/cmus/playlists/default > lib.txt
 
 https://github.com/hajimehoshi/oto
 * install: homebrew
-* alternatives: https://github.com/clangen/musikcube https://github.com/tramhao/termusic https://github.com/issadarkthing/gomu BYO https://www.reddit.com/r/rust/comments/ipjijo/how_to_make_a_tui_music_player/
+* alternatives: https://github.com/clangen/musikcube https://github.com/tramhao/termusic https://github.com/issadarkthing/gomu BYO https://www.reddit.com/r/rust/comments/ipjijo/how_to_make_a_tui_music_player/ https://github.com/PrajwalVandana/maestro-cli
 * file nav: opens to most recent dir, can cd to music dir and then if you need to return scroll command history
 * playlists https://unix.stackexchange.com/q/593727 /Users/zach/Documents/zv/materials/music/za/music-library/playlists
 ```sh

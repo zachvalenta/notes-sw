@@ -23,6 +23,9 @@
 * https://dadrian.io/ https://dadrian.io/blog/posts/sct-not-after/
 * Scapy https://www.youtube.com/watch?v=EnuF9ZR6MVc
 
+replay attack https://blog.videah.net/attacking-my-landlords-boiler/
+> I eventually decided it was a lot easier to attempt something called a Replay Attack. This involves cloning the signals sent between the boiler and the thermostat, and then pretending we are the thermostat by re-broadcasting the signals. This way we don't need to understand the protocol, just replay it.
+
 ROLES https://www.netmeister.org/blog/infosec-skillsets.html
 * _security engineering_: meta/mgmt 🗄 `google-sre-security.pdf` https://danielmiessler.com/study/ https://news.ycombinator.com/item?id=24031632
 * _cryptography_: academics https://web.engr.oregonstate.edu/~rosulekm/crypto/
@@ -170,6 +173,7 @@ __in action__
 * _opaque_: not human readable
 
 ELLIPTIC CURVE CRYPTOGRAPHY 📙 https://www.manning.com/books/elliptic-curve-cryptography-for-developers
+* https://onlynv.dev/blog/what-the-hell-is-an-elliptic-curve
 * https://paulmillr.com/posts/noble-secp256k1-fast-ecc/
 * https://cryptobook.nakov.com/
 * https://blog.cloudflare.com/a-relatively-easy-to-understand-primer-on-elliptic-curve-cryptography/
@@ -180,7 +184,7 @@ ELLIPTIC CURVE CRYPTOGRAPHY 📙 https://www.manning.com/books/elliptic-curve-cr
 * https://github.com/Ciphey/Ciphey
 * random number generator https://www.youtube.com/watch?v=nDv3yXdD0rk
 * https://eli.thegreenplace.net/2019/the-chinese-remainder-theorem/
-* RSA https://eli.thegreenplace.net/2019/rsa-theory-and-implementation/
+* RSA https://eli.thegreenplace.net/2019/rsa-theory-and-implementation/ https://www.ntietz.com/blog/rsa-deceptively-simple/
 * https://eli.thegreenplace.net/2019/diffie-hellman-key-exchange/
 * https://news.ycombinator.com/item?id=24310842
 * https://www.manning.com/books/real-world-cryptography
@@ -332,6 +336,7 @@ enforcer.add_grouping_policy("alice", "admin")
 
 ---
 
+* https://www.ntietz.com/blog/lets-say-instead-of-auth/
 * SSO https://blog.bytebytego.com/p/ep155-the-shopify-tech-stack
 * Python https://authlib.org/
 

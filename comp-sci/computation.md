@@ -36,6 +36,7 @@ https://github.com/lusingander/enigma
 * Conery ch. 1-4
 * ✅ Gleick information
 * ✅ Hillis pattern in the stone
+* Justice how computers really work https://nostarch.com/how-computers-really-work Steinhart https://www.amazon.com/dp/1593279701
 * MacCormick computed https://canvas.harvard.edu/courses/34992/assignments/syllabus
 * MacCormick nine algorithms
 * Nisan elements https://github.com/zachvalenta/nand2tetris https://news.ycombinator.com/item?id=42793597
@@ -137,6 +138,8 @@ Both are significantly better than gzip/bzip2 for typical data workloads. They f
 ```
 
 ### entropy
+
+https://news.ycombinator.com/item?id=43684560
 
 > Entropy is a measure of disorderliness, and the declaration that entropy is always on the rise — known as the second law of thermodynamics — is among nature’s most inescapable commandments. https://www.quantamagazine.org/what-is-entropy-a-measure-of-just-how-little-we-really-know-20241213/
 
@@ -255,7 +258,7 @@ USAGE
 
 ZA
 * _stack machine_: used in VM design along w/ register machine https://tech.davis-hansson.com/p/congress-is-a-vm/
-* _halting problem_: a program which could analyse an arbitrary other program and tell if it would halt / stop running cannot exist https://blog.robertelder.org/computer-science-for-engineers/ https://tigyog.app/d/C:tWWwvJDWlo/r/busy-beavers
+* _halting problem_: a program which could analyse an arbitrary other program and tell if it would halt / stop running cannot exist https://blog.robertelder.org/computer-science-for-engineers/ https://tigyog.app/d/C:tWWwvJDWlo/r/busy-beavers https://buttondown.com/hillelwayne/archive/the-halting-problem-is-a-terrible-example-of-np/
 * _incompleteness theorem_: https://tigyog.app/d/C:tWWwvJDWlo/r/busy-beavers
 * _Von Neumann architecture_: model for hardware that allowed for data input via memory vs. rewiring hardware itself https://blog.robertelder.org/computer-science-for-engineers/
 
@@ -360,7 +363,7 @@ timeline
 * _1945_: Colussus - first programmable (configured w/ plugs) https://www.youtube.com/watch?v=LN0ucKNX0hc 6:10
 * _1946_: ENIAC https://www.youtube.com/watch?v=LN0ucKNX0hc 6:45
 * _1950_: IBM mainframes
-* _1960_: minicomputers https://en.wikipedia.org/wiki/The_Soul_of_a_New_Machine
+* _1960_: minicomputers https://en.wikipedia.org/wiki/The_Soul_of_a_New_Machine https://en.wikipedia.org/wiki/Honeywell_316
 * _1975_: Altair 8080 https://twobithistory.org/2018/07/22/dawn-of-the-microcomputer.html
 * _1984_: Mac https://en.wikipedia.org/wiki/Macintosh#1984:_Debut
 
@@ -379,6 +382,7 @@ RAM
 * _RAM (random access memory)_: holds program/data until needed by CPU 📙 Manga [19] Kerrisk [2.1]
 * aka memory, working memory https://www.interviewcake.com/article/python/data-structures-coding-interview
 > RAM is just bigger-but-slower CPU cache. https://news.ycombinator.com/item?id=25056588 https://www.youtube.com/watch?v=WDIkqP4JbkE
+* CPU cache https://lukasatkinson.de/2024/python-cpu-caching/
 * _address_: location in RAM holding single byte
 * untyped (unlike ALU register) https://www.interviewcake.com/article/python3/data-structures-coding-interview#ram
 * _memory controller_: thing that reads/writes from memory addresses
@@ -405,7 +409,7 @@ bits
 > Yet, Python integers are interesting because they are not just 32-bit or 64-bit integers that CPUs work with natively. Python integers are arbitrary-precision integers, also known as bignums. This means that they can be as large as we want, and their sizes are only limited by the amount of available memory. https://tenthousandmeters.com/blog/python-behind-the-scenes-8-how-python-integers-work/
 * _bit field_: access individual bits in order to save space i.e. instead of normal disregard for storage size of, say, an int, you go and fiddle with how int stored so it doesn't take up as much space as bits normally take in your language (32, 64, whatever) https://www.youtube.com/watch?v=aMAM5vL7wTs
 * _bit mask_: pattern of bits that updates another pattern of bits https://www.youtube.com/watch?v=Ew2QnDeTCCE
-* _endianness_: order of byte storage https://www.youtube.com/watch?v=OoHich9BPxg https://www.youtube.com/watch?v=NcaiHcBvDR4
+* _endianness_: order of byte storage https://www.youtube.com/watch?v=OoHich9BPxg https://www.youtube.com/watch?v=NcaiHcBvDR4 https://www.ntietz.com/blog/endianness/
 * _big endian_: most significant byte at smallest memory address and vice versa https://perldoc.perl.org/perlglossary#big-endian
 * _little endian_: least significant byte at smallest memory address https://corecursive.com/066-sqlite-with-richard-hipp/
 * _endian_: put most significant bit first or last

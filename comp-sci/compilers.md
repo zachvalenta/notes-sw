@@ -15,6 +15,7 @@
 
 * _24_: own file
 
+https://ntietz.com/blog/python-is-an-interpreted-language-with-a-compiler/
 * https://github.com/zserge/tinylangs
 * https://www.achaq.dev/blog/artemis https://www.achaq.dev/blog/compilers
 * state machines https://www.achaq.dev/blog/distributed-systems-state-machines-special-relativity
@@ -532,7 +533,7 @@ Jedi is more tuned for real-time code intelligence in editors rather than broad 
 
 ---
 
-for Postgres https://news.ycombinator.com/item?id=43513996 https://github.com/supabase-community/postgres-language-server
+for Postgres https://news.ycombinator.com/item?id=43513996 https://github.com/supabase-community/postgres-language-server https://supabase.com/blog/postgres-language-server
 treesitter https://github.com/codegen-sh/codegen
 https://philz.dev/blog/language-server-db/ https://www.hytradboi.com/2025/603a4562-ba4f-4150-b6d0-8c0e4c1ed5f7-rubbing-a-database-on-a-language-server
 

@@ -94,7 +94,7 @@ telemetry https://github.com/catchpoint/workflow-telemetry-action/issues/39 http
 can manipulate tags, create releases in repo using CLI https://cli.github.com/manual/gh_release
 
 TOOLING
-* _act_: run locally https://github.com/nektos/act
+* _act_: run locally https://github.com/nektos/act https://github.com/bahdotsh/wrkflw
 * _gama_: https://github.com/termkit/gama
 
 * linking https://blog.github.com/2011-10-12-introducing-issue-mentions/
@@ -510,6 +510,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * _drft_: https://codeberg.org/nightsail/drft
 * _dunk_: similar to delta https://github.com/darrenburns/dunk
 * _git split diffs_: 🎯 node version https://github.com/banga/git-split-diffs https://news.ycombinator.com/item?id=27007844
+* _riff_: 🎯 https://github.com/walles/riff
 
 ## 🐼 porcelain (lazygit)
 

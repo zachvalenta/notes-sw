@@ -680,6 +680,7 @@ list("this test string")        # split by char
 
 ---
 
+* t strings https://news.ycombinator.com/item?id=43748512 https://davepeck.org/2025/04/11/pythons-new-t-strings/
 * padding: `ljust`, `zfill`
 * check if a string consists entirely of zeros and ones https://nedbatchelder.com/blog/202412/testing_some_tidbits.html https://pythonbytes.fm/episodes/show/415/just-put-the-fries-in-the-bag-bro https://pythontest.com/pytest/testing-tidbits-pytest/
 * template https://peps.python.org/pep-0750/ https://realpython.com/podcasts/rpp/227/

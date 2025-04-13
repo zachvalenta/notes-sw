@@ -15,6 +15,7 @@
 ## 进步
 
 OOP https://www.mostlypython.com/oop-in-python/
+https://blog.edward-li.com/tech/advanced-python-features/
 
 * _24_: split from `python.md`, typing (exhaustiveness check, type narrowing)
 * _23_: hashable
@@ -136,6 +137,7 @@ PARAMETERS https://docs.python.org/3/library/dataclasses.html#module-contents
 ADVANTAGES COMPARED TO PLAIN CLASSES https://www.youtube.com/watch?v=vBH6GRJ1REM @ 5:30
 * convert w/ `asdict`, `astuple`
 * work around immutable https://www.youtube.com/watch?v=vBH6GRJ1REM [5:30]
+* avoid `__init__` https://blog.glyph.im/2025/04/stop-writing-init-methods.html
 
 * https://realpython.com/python-data-classes/
 * https://jacobpadilla.com/articles/python-dataclass-internals
@@ -171,7 +173,7 @@ https://mathspp.com/blog/case-insensitive-string-class
 https://www.pythonmorsels.com/every-dunder-method/
 
 * _call_: make class instance callable e.g. `foo = Foo(); foo()` https://realpython.com/python-class-constructor/ https://realpython.com/python-multiple-constructors/ re: metaclasses https://eli.thegreenplace.net/2012/04/16/python-object-creation-sequence
-* _dict_: stores obj writable attributes https://docs.python.org/3/library/stdtypes.html#object.__dict__
+* _dict_: stores obj writable attributes https://docs.python.org/3/library/stdtypes.html#object.__dict__ https://realpython.com/python-dict-attribute/
 * called by `vars()` https://docs.python.org/3/library/functions.html#vars
 
 ### comparison
@@ -467,6 +469,7 @@ isinstance(type, object)  # True
 * https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python
 * https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html
 * https://www.youtube.com/watch?v=DqFspy9pI9k
+* https://lukasatkinson.de/2023/intent-not-implementation/
 * interfaces, protocols, ABCs, mixins, typing https://claude.ai/chat/06709fb2-7841-4198-ac57-b770df956589 https://realpython.com/python-protocol/
 
 ## mixin
@@ -901,6 +904,7 @@ sys.getrefcount('abc')  # 44
 * can turn off for performance improvements https://talkpython.fm/episodes/show/265/why-is-python-slow 42:00
 * how to fit a lot of data in memory https://pythonspeed.com/articles/data-doesnt-fit-in-memory/
 * _sink_: https://docs.python.org/3/faq/design.html#how-does-python-manage-memory https://docs.python.org/3/faq/design.html#why-doesn-t-cpython-use-a-more-traditional-garbage-collection-scheme https://docs.python.org/3/faq/design.html#why-isn-t-all-memory-freed-when-cpython-exits https://docs.python.org/3/faq/design.html#why-isn-t-all-memory-freed-when-cpython-exits https://pythonspeed.com/articles/function-calls-prevent-garbage-collection/ https://dev.to/karishmashukla/how-python-uses-garbage-collection-for-efficient-memory-management-270h
+* https://mcyoung.xyz/2025/04/21/go-arenas/
 
 * _when?_
 ```python

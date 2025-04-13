@@ -71,7 +71,6 @@ MGMT https://jacobian.org/posts/
 * technical debt: https://news.ycombinator.com/item?id=25009258
 * _hacking_: creative reuse https://macwright.com/2021/07/24/hacking-is-the-opposite-of-marketing.html
 * _comp sci_: catchall for hardware (electrical engineering) boolean logic (math) computation (math, linguistics); kinda like web development; 类似 home building
-* 40 year growth timeline for IC vs. management https://softwareengineeringdaily.com/2020/03/09/dbt-data-build-tool-with-tristan-handy/ aka staff engineer https://softwareengineeringdaily.com/2020/10/29/staff-engineering-with-will-larson/ https://twitter.com/ProducerCities/status/1622743532543873024
 * on not networking https://news.ycombinator.com/item?id=24931148
 * compensation: high due to immigration restrictions, bust-era crash in CS enrollment https://danluu.com/bimodal-compensation/ https://news.ycombinator.com/item?id=22887777 https://news.ycombinator.com/item?id=23768682
 > The problem I keep seeing in startups is that a lot of startup tech founders and employees don't see a startup as an embryonic business that will grow over the long term into a money-making venture requiring calculated risks and priorities, but rather as a personal playground to do all the fun things they were not allowed to do at their old BigCorp. Use cool framework or language X? Use Kubernetes? Microservices? Lambdas? No-SQL? Two fingers to BigCorp, I'm CTO/tech employee #1 at a new startup and I get to do whatever I want. If and when it goes down in flames, I now have these skills on my resume I can leverage into a better opportunity. https://news.ycombinator.com/item?id=31798063
@@ -93,6 +92,7 @@ DEV TYPES https://josephg.com/blog/3-tribes
 * generalists https://news.ycombinator.com/item?id=18813455 https://angel.co/blog/what-skeptics-get-wrong-about-full-stack-engineers-and-why-we-need-them https://news.ycombinator.com/item?id=24634939 `operations.md`
 * enterprise https://www.technologyreview.com/2021/01/30/1017086/cdc-44-million-vaccine-data-vams-problems/
 > Unlike engineers, engineering managers have no natural source of power. In previous lives many of them ran the machines themselves, but there came a time when they've traded their role as craftsmen for the management track...they can no longer fix the machines. Their power has to come from elsewhere. https://www.spakhm.com/p/parallel-tracks
+> If you say something too negative in an interview, they might take notice. If you go with a couple of white lies to smooth over a bad job or project, nobody will think twice. Most of the time nobody is paying attention, so don't give them a reason to. https://news.ycombinator.com/item?id=43747226
 > I try to seriously think about whether it’s something I want to do, or something I want to have done. https://news.ycombinator.com/item?id=24871093
 
 FIRMS
@@ -228,15 +228,14 @@ https://drewdevault.com/2021/06/14/Provided-as-is-without-warranty.html
 ## open source
 
 📚
-* Eghbal working in public https://www.amazon.com/gp/product/0578675862 https://drewdevault.com/2024/07/16/2024-07-16-So-you-want-to-compete-with-FOSS.html https://drewdevault.com/2023/12/26/2023-12-26-Prusa-is-floundering.html
+* Eghbal working in public https://drewdevault.com/2024/07/16/2024-07-16-So-you-want-to-compete-with-FOSS.html https://drewdevault.com/2023/12/26/2023-12-26-Prusa-is-floundering.html
 * https://pragprog.com/titles/vbfoss/business-success-with-open-source/
+
+---
 
 * more broken builds than enterprise https://danluu.com/broken-builds/
 * how to screw up a project and how to fork a project https://github.com/ActiveState/appdirs/issues/79 https://github.com/tox-dev/platformdirs
 * can always maintain your own patches in main repo doesn't want PRs https://drewdevault.com/2024/12/10/2024-12-10-Daily-driving-jujutsu.html
-
----
-
 * floss vs. foss vs. oss https://opensource.stackexchange.com/questions/262/what-is-the-difference-between-foss-and-floss https://www.gnu.org/philosophy/floss-and-foss.en.html
 * distrust of Microsoft https://news.ycombinator.com/item?id=41907350
 > what happened to exa i.e. just bc it wasn't receiving updates why did it get booted from Homebrew? -> also, eza install from Homebrew takes forever
@@ -284,6 +283,8 @@ MISC
 ## answers
 
 ----
+
+https://auren.substack.com/p/ultimate-employee-the-one-that-is
 
 IMPEDIMENTS https://pythonbytes.fm/episodes/show/383/why-aren-t-devs-shipping-faster
 * dev env (local, remote)
@@ -429,6 +430,7 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 
 ---
 
+* https://news.ycombinator.com/item?id=43566625
 * https://blog.bytebytego.com/p/ep155-the-shopify-tech-stack
 https://news.ycombinator.com/item?id=43354115
 Send Byrne/The Diff my updated skill set.
@@ -486,6 +488,7 @@ One thing I think I do well is technical communication. This shows up in:
 
 ---
 
+OSS for litecli
 bend LinkedIn to your will
 
 https://blog.daviddodda.com/how-i-automated-my-job-application-process-part-1

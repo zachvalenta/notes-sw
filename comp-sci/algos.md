@@ -10,13 +10,12 @@
 * ✅ Bhargava grokking algorithms
 * ✅ Christian algorithms to live by
 * Dasgupta algorithms
-* ⭐️ Kneusel randomness https://nostarch.com/art-randomness https://nostarch.com/computer-science-from-scratch
 * La Rocca advanced https://www.manning.com/books/advanced-algorithms-and-data-structures
 * Khamis optimization https://www.manning.com/books/optimization-algorithms
 * MacCormick computed
 * MacCormick nine algorithms
 * Skiena manual https://www.algorist.com/ https://fabiensanglard.net/algorithms_and_datastructures/index.php
-* Tuckfield https://nostarch.com/Dive-Into-Algorithms
+* ⭐️ Tuckfield https://nostarch.com/Dive-Into-Algorithms
 * ⭐️ Wengrow ds/algos https://pragprog.com/titles/jwpython/a-common-sense-guide-to-data-structures-and-algorithms-in-python-volume-1/ https://pragprog.com/titles/jwpython2/a-common-sense-guide-to-data-structures-and-algorithms-in-python-volume-2/
 
 ## 进步
@@ -800,7 +799,7 @@ https://avi.im/blag/2024/galloping-search/
 * _Bellman-Ford_: Dijkstra for negative-weighted [7.130]
 * _Dijkstra_: 🗄 `/algos` https://medium.com/basecs/finding-the-shortest-path-with-a-little-help-from-dijkstra-613149fbdc8e https://en.wikipedia.org/wiki/Dynamic_programming#Dijkstra's_algorithm_for_the_shortest_path_problem
 * _optimal stopping_: related to dynamic programming, Bellman 📙 Christian chapter 1 https://en.wikipedia.org/wiki/Optimal_stopping
-* _traveling salesperson(TSP)_: Bhargava 8.157 https://medium.com/basecs/the-trials-and-tribulations-of-the-traveling-salesman-56048d6709d seems like genetic algorithms are popular for this https://www.youtube.com/watch?v=9zfeTw-uFCw https://towardsdatascience.com/evolution-of-a-salesman-a-complete-genetic-algorithm-tutorial-for-python-6fe5d2b3ca35 https://www.quantamagazine.org/computer-scientists-break-traveling-salesperson-record-20201008/ https://news.ycombinator.com/item?id=24761105 https://joseprupi.github.io/misc/2023/08/19/playing_with_genetic_algorithms_in_python.html 📙 Christian chapter 8
+* _traveling salesperson(TSP)_: Bhargava 8.157 https://medium.com/basecs/the-trials-and-tribulations-of-the-traveling-salesman-56048d6709d seems like genetic algorithms are popular for this https://www.youtube.com/watch?v=9zfeTw-uFCw https://towardsdatascience.com/evolution-of-a-salesman-a-complete-genetic-algorithm-tutorial-for-python-6fe5d2b3ca35 https://www.quantamagazine.org/computer-scientists-break-traveling-salesperson-record-20201008/ https://news.ycombinator.com/item?id=24761105 https://joseprupi.github.io/misc/2023/08/19/playing_with_genetic_algorithms_in_python.html 📙 Christian chapter 8 https://www.math.uwaterloo.ca/tsp/korea/index.html
 
 ## binary
 

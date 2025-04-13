@@ -11,6 +11,7 @@
 
 ## 进步
 
+* Lua for games, Elixir for Phoenix, Haskell for blog
 * https://en.wikipedia.org/wiki/TempleOS
 * BYO assembly https://zserge.com/posts/langs-asm/
 * macros, AST https://news.ycombinator.com/item?id=42084603
@@ -27,7 +28,7 @@ FACTORS
 * people like it: Ruby, Python, Rust, JS
 * build import things with it: + Golang, Java, C++
 
-* _Algol_: inspired Bash https://news.ycombinator.com/item?id=42020368 https://www.youtube.com/watch?v=olH-9b3VJfs https://shellhaters.org/talk
+* _Algol_: inspired Bash https://news.ycombinator.com/item?id=42020368 https://www.youtube.com/watch?v=olH-9b3VJfs https://shellhaters.org/talk semicolons https://www.ntietz.com/blog/researching-why-we-use-semicolons-as-statement-terminators/
 * _APL_: https://mathspp.com/blog/what-learning-apl-taught-me-about-python https://zserge.com/posts/langs-apl/
 * _Basic_: https://zserge.com/posts/langs-basic/
 * _C#_: .NET big in game dev https://news.ycombinator.com/item?id=41936001
@@ -109,7 +110,7 @@ USAGE
 * Neovim
 * Hammerspoon
 * extending C projects https://github.com/jmattaa/laser
-* video games https://www.love2d.org/ https://www.youtube.com/watch?v=YntG_mSE0d3
+* video games https://www.love2d.org/ https://www.youtube.com/watch?v=YntG_mSE0d3 https://blog.luden.io/what-do-i-think-about-lua-after-shipping-a-project-with-60-000-lines-of-code-bf72a1328733 https://news.ycombinator.com/item?id=43723088 https://defold.com/
 
 ZA
 * install: asdf for version mgmt, scared Homebrew will screw up Neovim install
@@ -138,7 +139,7 @@ https://www.lua.org/start.html 🔍 https://github.com/LewisJEllis/awesome-lua h
 ## 🔤 R
 
 🗄️ `stat.md` Gelman
-📙 https://www.bigbookofr.com/ https://news.ycombinator.com/item?id=43646219
+📙 https://www.bigbookofr.com/ https://news.ycombinator.com/item?id=43646219 https://nostarch.com/bookofr
 
 * preceded by SAS (data processing platform developed in the 1970s at North Carolina State and later commercialized)
 * grammar of graphics https://github.com/Kanaries/graphic-walker
@@ -390,6 +391,14 @@ CON https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/ http
 * a programming language is for sketching https://simonwillison.net/2024/Dec/15/preferring-throwaway-code-over-design-docs/ https://daniel.haxx.se/blog/2025/02/18/changing-every-line-three-times/
 > A programming language is for thinking of programs, not for expressing programs you've already thought of. It should be a pencil, not a pen. 📙 Graham hackers painters [22]
 > Have you ever noticed that when you sit down to write something, half the ideas that end up in it are ones you thought of while writing? The same thing happens with software. Working to implement one idea gives you more ideas. 📙 Graham hackers painters [68]
+
+* development speed vs. execution speed https://bitfieldconsulting.com/golang/rust-vs-go
+> One especially good groove to span is the one between tools and things made with them. For example, programming languages and applications are usually written by different people, and this is responsible for a lot of the worst flaws in programming languages. I think every language should be designed simultaneously with a large application written in it, the way C was with Unix. http://paulgraham.com/marginal.html
+> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem. http://paulgraham.com/popular.html
+* expressive
+> Large organizations have different aims from hackers. They want languages that are (believed to be) suitable for use by large teams of mediocre programmers-- languages with features that, like the speed limiters in U-Haul trucks, prevent fools from doing too much damage. Hackers don't like a language that talks down to them. Hackers just want power. http://www.paulgraham.com/javacover.html
+
+> Second, C has a tendency to be conservative, changing and growing very slowly. This is a feature, and one that is often undervalued by developers. (In fact, I’d personally like to see a future revision that makes the C language specification smaller and simpler, rather than accumulate more features.) - https://nullprogram.com/blog/2018/11/21/
 
 ## generics
 

@@ -22,7 +22,7 @@
 * modules https://chatgpt.com/c/67336227-2d40-8004-8789-e8fc768f60a5 📙 Jeffrey [3]
 * courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
 * design: https://saagarjha.com/blog/2020/05/10/why-we-at-famous-company-switched-to-hyped-technology/ https://eev.ee/blog/2016/12/01/lets-stop-copying-c/ https://nullprogram.com/tags/c/
-* sysroot, undefined behavior (UB) https://news.ycombinator.com/item?id=30488979
+* sysroot, undefined behavior (UB) https://news.ycombinator.com/item?id=30488979 https://mcyoung.xyz/2025/04/21/go-arenas/
 * _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron https://news.ycombinator.com/item?id=42146338 https://begriffs.com/posts/2022-07-17-debugging-gdb-ddd.html TUI https://github.com/wcampbell0x2a/heretek
 * Postgres codebase is supposed to be a good guide https://news.ycombinator.com/item?id=20556336
 * `#define`: constants https://www.youtube.com/watch?v=hsmGp3cp_50 0:50
@@ -132,7 +132,7 @@ Most package managers (apt, yum, brew) maintain this split with separate runtime
 * Dagois gameboy https://nostarch.com/game-boy-coding-adventure
 * Hyde https://nostarch.com/art-arm-assembly-volume-1
 * Nisan nand2tetris (chapter 4/6)
-* ⭐️ Plantz arm https://nostarch.com/introcomputerorgforarm
+* ⭐️ Plantz arm https://nostarch.com/introcomputerorgforarm https://www.amazon.com/dp/1718500092
 * Hyde arm https://nostarch.com/art-arm-assembly-volume-1 https://nostarch.com/introcomputerorgforarm
 * Petzold code (chapter 24)
 
@@ -275,7 +275,7 @@ https://github.com/pedropark99/zig-book https://pedropark99.github.io/zig-book/
 https://www.openmymind.net/learning_zig/
 https://codeberg.org/ziglings/exercises/
 
-comptime https://www.scottredig.com/blog/bonkers_comptime/
+comptime https://www.scottredig.com/blog/bonkers_comptime/ https://news.ycombinator.com/item?id=43744591
 
 USE FOR BUILDS
 * https://jakstys.lt/2022/how-uber-uses-zig/

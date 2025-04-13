@@ -28,6 +28,7 @@
 
 ## executables
 
+https://www.bitecode.dev/p/the-next-big-thing-in-python
 📜 https://peps.python.org/pep-0711/ https://news.ycombinator.com/item?id=35687895 https://github.com/mitsuhiko/rye/discussions/6
 
 ALTERNATIVES
@@ -111,7 +112,7 @@ anytree = {git = "https://github.com/zachvalenta/anytree.git"}
 
 ## registries
 
-PyPI
+PyPI https://pypacktrends.com/
 * `pypirc`
 ```ini
 [distutils]
@@ -176,6 +177,7 @@ PROGRESSION
 
 ---
 
+https://www.bitecode.dev/p/the-next-big-thing-in-python
 * write an article on this and ask Brian Okken https://testandcode.com/52
 
 > distutils, setuptools, pip, pipenv, tox, flit, conda, poetry, virtualenv, requirements.txt, setup.py, setup.cfg, pyproject.toml...I honestly can't even list all of the things you have to deal with. It's a disaster. https://drewdevault.com/2021/11/16/Python-stop-screwing-distros-over.html
@@ -625,6 +627,7 @@ DESIGN
 
 ---
 
+https://www.youtube.com/watch?v=gSKTfG1GXYQ
 https://www.youtube.com/watch?v=zgSQr0d5EVg
 https://www.youtube.com/watch?v=mFyE9xgeKcA
 https://github.com/EnhancedJax/Bagels

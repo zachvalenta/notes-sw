@@ -31,7 +31,7 @@
 # 👽 LISPS
 
 * _Common Lisp_: less Lisp-y, really fast compiler https://news.ycombinator.com/item?id=42671105 https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
-* _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
+* _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj https://news.ycombinator.com/item?id=43673551
 * _Janet_: https://github.com/janet-lang/janet https://github.com/cfoust/cy https://news.ycombinator.com/item?id=42253241
 * _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
 
@@ -61,6 +61,7 @@ USED BY
 USED BY
 * https://docs.racket-lang.org/pollen/
 * https://github.com/DarrenN/cuttlefish
+* https://amanvir.com/blog/writing-my-own-dithering-algorithm-in-racket
 
 ---
 
@@ -82,14 +83,27 @@ USED BY
 
 ## 👾 Elixir
 
+📜 https://elixir-lang.org/
+📚
+> use for frontend reads https://grok.com/chat/5761b0d7-100a-48e2-a1b9-6cf32a691d37
+> web https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/ https://pragprog.com/titles/liveview/programming-phoenix-liveview/ https://pragprog.com/titles/wmecto/programming-ecto/ https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/
+* https://pragprog.com/titles/alnpee/network-programming-in-elixir-and-erlang/
+* https://pragprog.com/titles/passweather/build-a-weather-station-with-elixir-and-nerves/
+* https://pragprog.com/titles/sgdpelixir/concurrent-data-processing-in-elixir/
+* https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
+
+---
+
+PHOENIX 📜 https://www.phoenixframework.org/
+* _LiveView_: https://github.com/phoenixframework/phoenix_live_view
+
 * https://dashbit.co/blog/running-python-in-elixir-its-fine
 https://livebook.dev/
-https://elixir-lang.org/
 https://www.openmymind.net/Elixir-A-Little-Beyond-The-Basics/
 https://en.wikipedia.org/wiki/Elixir_(programming_language)
 * people love Phoenix (Rails-like) https://www.youtube.com/watch?v=RNMwz5n1M80
 * _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html https://github.com/sile/erldash https://news.ycombinator.com/item?id=42312301 Erlang https://en.wikipedia.org/wiki/Erlang_(programming_language) https://news.ycombinator.com/item?id=43655221
-* https://gleam.run/
+* Erlang https://gleam.run/
 * https://www.lambdafunctions.com/articles/elixir-and-rust
 * https://www.openmymind.net/Pattern-Matching-In-Elixir/
 * BEAM https://www.openmymind.net/The-Beauty-Of-Elixir-And-Beam/
@@ -106,6 +120,9 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 
 ---
 
+* https://buttondown.com/entropicthoughts/archive/the-greatest-procedural-language-in-the-world-and/
+* re: Python https://tcpc.me/2021/12/21/lazy-power-series-integration.html https://unnamed.website/posts/haskelling-my-python/ https://news.ycombinator.com/item?id=43728056
+* https://bitbashing.io/haskell-concurrency.html https://news.ycombinator.com/item?id=43679906
 * https://gwern.net/resilient-software
 * https://news.ycombinator.com/item?id=40702146
 * https://news.ycombinator.com/item?id=42754098

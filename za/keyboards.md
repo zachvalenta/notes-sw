@@ -10,6 +10,7 @@
 
 * _24_: models (Apple refurbished, nuphy air 75, keychron k8, keychron v8) program (v8 cmd keys to center)
 
+* keyboard holder https://www.amazon.com/dp/B08STGQZC6/
 https://getreuer.info/posts/keyboards/tour/index.html
 https://blog.zsa.io/zsa-keyboard-first-month/
 
@@ -252,7 +253,7 @@ COMPONENTS https://www.youtube.com/watch?v=7UXsD7nSfDY @ 4:45
 
 MODELS
 * https://www.youtube.com/watch?v=h_ex-oMVOrI
-* _Boardsource corne_: 🎯 https://www.youtube.com/watch?v=wTMcH7u-vu0 https://www.youtube.com/watch?v=j41G25VORmI https://www.boardsource.xyz/products/Corne https://www.youtube.com/watch?v=riqmW3UHqPY
+* _Boardsource corne_: 🎯 https://www.youtube.com/watch?v=wTMcH7u-vu0 https://www.youtube.com/watch?v=j41G25VORmI https://www.boardsource.xyz/products/Corne https://www.youtube.com/watch?v=riqmW3UHqPY https://www.ntietz.com/blog/evolving-ergo-setup/
 * find someone to do soldering https://www.youtube.com/watch?v=vzDTdLaAzXc
 * case https://www.youtube.com/watch?v=gMTfkPxcoEk
 * layout https://www.youtube.com/watch?v=uy7_lswgb6A
@@ -278,11 +279,12 @@ https://www.youtube.com/watch?v=3Ep7WOCv38M
 https://splitkb.com/products/halcyon-kyria https://www.youtube.com/watch?v=03fXixHEOEI
 
 MAYBE
+* _Cyboard_: https://www.youtube.com/watch?v=WYmeQklD7uI
 * _Dygma defy_: 🎯 $370; featureful, bad taste https://dygma.com/pages/defy https://www.youtube.com/watch?v=R9YTQn1ik9I
 * _Glove80_: $400 low-profile, expensive, ugly https://www.moergo.com/collections/glove80-keyboards https://www.youtube.com/watch?v=QLb3ewK8R2Y
 
 NO TILDE/BACKTICK
-* _Keychron q8_: $210  https://www.keychron.com/products/keychron-q8-alice-layout-qmk-custom-mechanical-keyboard?variant=40077527122009
+* _Keychron q8_: $210 https://www.keychron.com/products/keychron-q8-alice-layout-qmk-custom-mechanical-keyboard?variant=40077527122009
 * _Keychron v8_: ❌ $90 Gateron jupiter brown https://www.keychron.com/products/keychron-v8-max-alice-layout-qmk-custom-mechanical-keyboard
 * _Keychron k11_: $115; low profile https://www.keychron.com/products/keychron-k11-pro-alice-layout-qmk-via-wireless-custom-mechanical-keyboard programmable but only through Keychron (vs. QMK/VIA) https://www.youtube.com/watch?v=zqRBxioJIRI [5:00]
 
@@ -298,6 +300,9 @@ TOO SMALL|STRANGE
 
 ## 🪐 ZSA
 
+CURRENT PLAN + QMK https://grok.com/chat/e64df3db-dd2b-47bb-a79f-4855f8dd190a
+> main concern rn is Moonlander thumb cluster being unusable re: space key -> get Chanel to print at work
+> 90% of my current usage is: space, cmd, ESC
 * bad thumb cluster = only have 2 usable keys per thumb
 * put hyper / CMD / ALT on inner keys, as Karabiner hyperkey conflicts with Vim CAPS-to-ESC mapping and HRM conflict w/ Vim period
 > would this be too far to travel? you need to replace 5 keys: SPACE, CMD * 2, CTRL, ALT
@@ -439,7 +444,7 @@ ZA
 * WPM calculation https://www.speedtypingonline.com/typing-equations https://github.com/AnirudhG07/typeinc?ref=terminaltrove#3-grading-and-typeinc-score-
 > seems like I'm ~85wpm as of 24.11 on Keychron k8
 * features: export, individual keys
-* Oryx training https://www.youtube.com/watch?v=e6krxDENYOM
+* Oryx training https://www.youtube.com/watch?v=e6krxDENYOM https://mailchi.mp/zsa/the-ergo-79
 * _keycastr_: keystroke visualizer https://github.com/keycastr/keycastr https://switowski.com/blog/favorite-mac-tools/
 
 TEST
@@ -453,8 +458,3 @@ TEST
 * _typioca_: local https://github.com/bloznelis/typioca
 * _typeinc_: 🎯 local + save results https://github.com/AnirudhG07/typeinc errors https://github.com/AnirudhG07/Typeinc/issues/3 https://github.com/AnirudhG07/Typeinc/issues/4
 * _tukai_: 🎯 https://github.com/hlsxx/tukai
-
-IMPORTANCE https://steve-yegge.blogspot.com/2008/09/programmings-dirtiest-little-secret.html
-> And as for this non-college bullshit I got two words for that: learn to fuckin' type.
-> Practice like this: Fast, Slow, Medium. Fast, Slow, Medium. Over and over...You want your fingers to know what it feels like to be correct. Doesn't matter if it takes you 30 seconds per note. Just get it right.
-> For starters, non-typists are almost invisible. They don't leave a footprint in our online community...design involves communicating with other people, and design involves a persistent record of the decision tree.

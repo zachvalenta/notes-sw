@@ -147,7 +147,7 @@ https://www.thinkpenguin.com/ https://news.ycombinator.com/item?id=34180508
 * lack of support for Ableton, might not have audio interface drivers https://news.ycombinator.com/item?id=20745072
 * _Chromebook_: Linux beta https://uglyduck.ca/chromebook-web-development/
 * _Dell_: https://cfenollosa.com/blog/fed-up-with-the-mac-i-spent-six-months-with-a-linux-laptop-the-grass-is-not-greener-on-the-other-side.html break all the time https://news.ycombinator.com/item?id=32632720
-* _Framework_: https://frame.work/ broken https://news.ycombinator.com/item?id=33322143 https://news.ycombinator.com/item?id=28606962 https://news.ycombinator.com/item?id=27926425 better now? https://frame.work/products/laptop13-diy-intel-ultra-1 https://omakub.org/ bad https://news.ycombinator.com/item?id=42163518
+* _Framework_: https://frame.work/ broken https://news.ycombinator.com/item?id=33322143 https://news.ycombinator.com/item?id=28606962 https://news.ycombinator.com/item?id=27926425 better now? https://frame.work/products/laptop13-diy-intel-ultra-1 https://omakub.org/ bad https://news.ycombinator.com/item?id=42163518 https://www.youtube.com/watch?v=tBS2PY2t9Mw
 * _System76_: more expensive than Apple https://system76.com/ https://news.ycombinator.com/item?id=34599094 https://news.ycombinator.com/item?id=34599094 https://zackproser.com/blog/why-I-buy-system-76-computers
 * _Thinkpad_: https://news.ycombinator.com/item?id=30241960 x200 https://drewdevault.com/2021/05/14/Pinebook-Pro-review.html beware machines after 2012, X60 can only deal w/ 32-bit os, X200/X220/X230 are popular https://www.youtube.com/watch?v=mxA9Gyyu6Rg 9:45 12:40 13:15
 * Linux laptops https://news.ycombinator.com/item?id=35355494
@@ -272,6 +272,8 @@ A side effect, of course, is that your room will become a lot more photogenic. I
 * 60 Hz is typical
 
 ## pixels
+
+https://www.nayuki.io/page/pixel-is-a-unit-of-length-and-area
 
 💡 bigger screen = need higher resolution for higher PPI
 ```txt

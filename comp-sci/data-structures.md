@@ -206,6 +206,7 @@ https://tenthousandmeters.com/blog/python-behind-the-scenes-10-how-python-dictio
 
 ---
 
+* ring buffer https://www.ntietz.com/blog/whats-in-a-ring-buffer/
 * https://news.ycombinator.com/item?id=43640115
 * https://www.youtube.com/watch?v=mDCi1lXd9hc
 QUEUES

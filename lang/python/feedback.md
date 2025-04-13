@@ -12,6 +12,7 @@
 * can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
 > Marimo has the ability to run in WASM mode, which means that *everything* can run from the frontend
 * https://www.answer.ai/posts/2024-12-13-nbsanity.html
+* as dashboard https://news.ycombinator.com/item?id=43766200
 * Jupyter in the browser https://github.com/jvns/pandas-cookbook
 * rich live view, jupylab in the terminal, async, segments and triangles https://talkpython.fm/episodes/show/498/algorithms-for-high-performance-terminal-apps
 ```sh
@@ -124,7 +125,7 @@ INTERNALS / DESIGN https://www.youtube.com/watch?v=QU158nGABxI https://www.youtu
 def simple_tracer(frame, event):  # 4:30
 ```
 * trickier with multithreading [10:00]
-* BYO w/ bdb [11:45]
+* BYO w/ bdb [11:45] https://www.geoffreylitt.com/2024/12/22/making-programming-more-fun-with-an-ai-generated-debugger
 * BYO https://www.timdbg.com/posts/writing-a-debugger-from-scratch-part-5/
 * https://werat.dev/blog/what-a-good-debugger-can-do/
 * https://wizardzines.com/zines/debugging-guide/
@@ -374,6 +375,9 @@ jupyter notebook
 
 # VS Code extension
 vsc path/to/.ipynb
+
+# exec from shell
+jupyter nbconvert --to notebook --execute --stdout nb.ipynb > /dev/null
 ```
 
 FEATURES
@@ -389,6 +393,7 @@ INSTALL
 * poetry worked as well http://jupyterlab.io/install.html
 
 ZA
+* diff https://github.com/jupyter/nbdime
 * `.ipynb_checkpoints`: most recent state of `<file>.ipynb` https://stackoverflow.com/a/46422176/6813490 ignore in version control https://stackoverflow.com/a/39997938/6813490
 * libraries https://github.com/twosigma/beakerx
 * VS Code extension https://realpython.com/podcasts/rpp/197/
@@ -558,7 +563,7 @@ FUNCTIONALITY
 ---
 
 * sink https://arpitbhayani.me/blogs/python-prompts https://github.com/bpython/bpython/blob/ae4a502a443e024bd82ed1a7b88adf8be2068a2c/doc/sphinx/source/django.rst https://github.com/bpython/bpython/search?q=PYTHONSTARTUP&unscoped_q=PYTHONSTARTUP https://stackoverflow.com/a/14244310 https://stackoverflow.com/a/34774703
-* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged https://switowski.com/blog/ipython-autoreload/ https://github.com/reloadware/reloadium
+* reload: `from importlib import reload; reload (mod)` https://realpython.com/run-python-scripts/#using-importlib-and-imp normal reimport doesn't work https://realpython.com/run-python-scripts/#taking-advantage-of-import lib https://github.com/hoh/reloadr https://github.com/breuleux/jurigged https://switowski.com/blog/ipython-autoreload/ https://github.com/reloadware/reloadium https://www.gauge.sh/blog/how-to-build-hot-module-replacement-in-python
 * reload src: point is to avoid continual exit/rerun https://news.ycombinator.com/item?id=23793054 https://mikelevins.github.io/posts/2020-12-18-repl-driven/
 * history: save https://stackoverflow.com/a/33880964 readline error manifests in garbled cmd history (have only seen when setting breakpoint in Flask) https://stackoverflow.com/a/3486617
 

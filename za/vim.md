@@ -138,9 +138,7 @@ HISTORY
 * 2006: Vim 7.0
 * 2013: Vim 8.0 📙 PV [5.27]
 * 2015: Neovim
-* 2020s: Zed, Helix https://helix-editor.com/ Helix matcher https://github.com/alexpasmantier/television https://news.ycombinator.com/item?id=33147270 https://www.youtube.com/watch?v=tGYvUXYN-c0 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
-> select + action and space mode makes me think helix is worth learning https://www.youtube.com/watch?v=xHebvTGOdH8 https://www.youtube.com/watch?v=5WLlLxU2EZE
-> https://anvil-editor.net/ http://acme.cat-v.org/ https://news.ycombinator.com/item?id=41923018
+* 2020s: Zed, Helix, Kakoune
 
 ## Emacs
 
@@ -159,6 +157,15 @@ HISTORY
 * https://www.murilopereira.com/emacs-from-catching-up-to-getting-ahead/
 * https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla/
 * https://www.thediff.co/archive/building-for-power-users/
+
+## Helix
+
+---
+
+* https://helix-editor.com/ Helix matcher https://github.com/alexpasmantier/television https://news.ycombinator.com/item?id=33147270 https://www.youtube.com/watch?v=tGYvUXYN-c0 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
+* usage in the wild https://github.com/efugier/smartcat
+> select + action and space mode makes me think helix is worth learning https://www.youtube.com/watch?v=xHebvTGOdH8 https://www.youtube.com/watch?v=5WLlLxU2EZE
+> https://anvil-editor.net/ http://acme.cat-v.org/ https://news.ycombinator.com/item?id=41923018
 
 ## Jetbrains
 
@@ -239,13 +246,13 @@ edit
 * open at file and LOC: `code -g data/eng.md:419`
 
 THINGS I'M NOTICING ABOUT VSC
+* ❌ symbol search doesn't work after git pull of new files | movement of headers
+> sometimes not at all, even after you've just opened file and navigated to header
+> this is getting worse in my notes; maybe some perf/data integrity thing with more headers
 * ❌ won't recognize newly created Python modules for import i.e. you need to restart in order to avoid import hell sanity check
 * ❌ weird overlay when using checkboxes
 * ❌ strange way of getting on `$PATH` -> command pallete > search 'shell command'
 * ❌ constantly wipes out the outliner and requires Vim action to prompt redraw
-* ❌ symbol search doesn't work after git pull of new files | movement of headers
-> sometimes not at all, even after you've just opened file and navigated to header
-> this is getting worse in my notes; maybe some perf/data integrity thing with more headers
 * ❌ Vim plugin fails on big CSV files
 * ❌ no tab groups https://github.com/microsoft/vscode/issues/100335
 * ❌ can't update font
@@ -1135,6 +1142,7 @@ error=spawn: npm failed with exit code - and signal -. npm is not executable
 * _DAP_: debugger https://www.youtube.com/watch?v=RziPWdTzSV8 https://github.com/puremourning/vimspector
 * _trouble_: diagnostics https://github.com/folke/trouble.nvim
 * _vim-test_: run test under cursor https://www.youtube.com/watch?v=7VP7TdItuEs https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 1:40 alternative https://github.com/nvim-neotest/neotest
+* pytest https://github.com/richardhapb/pytest.nvim
 * _neotest_: https://github.com/nvim-neotest/neotest
 * _vim-projectionist_: decouple way you organize buffers from fs 📙 Neil modern [30,113-124] https://github.com/tpope/vim-projectionist https://subvisual.com/blog/posts/133-super-powered-vim-part-i-projections/ using in Neovim https://stackoverflow.com/questions/76493146/configure-vim-projectionist-in-neovim-with-lua
 * switch btw src and test https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 1:15

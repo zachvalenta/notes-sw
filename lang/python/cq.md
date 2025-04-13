@@ -293,6 +293,7 @@ def test_foo():
 
 ---
 
+https://lukasatkinson.de/2025/just-dont-tox/
 nox vs. tox https://www.youtube.com/watch?v=ImBvrDvK-1U
 * test against multiple Python versions
 * https://hynek.me/articles/turbo-charge-tox/
