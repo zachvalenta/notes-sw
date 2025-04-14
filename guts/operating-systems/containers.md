@@ -458,7 +458,7 @@ _* container engine_: manage containers, shares host OS kernel
 
 ---
 
-quadlet https://news.ycombinator.com/item?id=43456934
+quadlet https://news.ycombinator.com/item?id=43456934 https://news.ycombinator.com/item?id=43683641
 
 A daemonless container runtime for managing OCI (Open Container Initiative) containers and pods. Podman aims to replace Docker with better security, especially for rootless containers.
 

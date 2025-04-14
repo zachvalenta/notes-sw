@@ -138,6 +138,8 @@ Both are significantly better than gzip/bzip2 for typical data workloads. They f
 
 ### entropy
 
+https://news.ycombinator.com/item?id=43684560
+
 > Entropy is a measure of disorderliness, and the declaration that entropy is always on the rise — known as the second law of thermodynamics — is among nature’s most inescapable commandments. https://www.quantamagazine.org/what-is-entropy-a-measure-of-just-how-little-we-really-know-20241213/
 
 * https://github.com/Racum/uuinfo

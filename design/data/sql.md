@@ -594,6 +594,18 @@ left join deal as d on r.renter_id = d.renter
 ## self/cross/natural
 
 * _multi_: use same table n times, need to use multiple aliases 📙 Beaulieu [96-7]
+```sql
+SELECT *
+FROM rfq
+    JOIN pv AS pv1 ON rfq.`MANUFACTURER PART NUMBER` = pv1.mpn
+    JOIN pv AS pv2 ON rfq.`Manufacturer` = pv2.mfg
+
+select count(*)
+from rfq
+    join pv on rfq.`MANUFACTURER PART NUMBER` = pv.mpn
+    join pv on rfq.`Manufacturer` = pv.mfg
+--- ambiguous column name: pv.mpn
+```
 * _self_: two instances of same table 📙 Beaulieu [98]
 * _cross_: generates cartesian product due to lack of `on` clause 📙 Beaulieu [89] Takahashi [42] 🗄 `math.md` set theory
 * canonical example

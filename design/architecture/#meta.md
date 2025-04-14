@@ -1,14 +1,15 @@
 # ⛩️
 
 ## 参考
-💻 https://github.com/zachvalenta/ur-repo
-🗄 `science.md` complexity
+
+🗄️ `science.md` complexity
 📚
 * Buelta python architecture
+* Dibernardo 500 lines http://aosabook.org/en/index.html
 * Ford fundamentals of software architecture
 * Ford/Sadalage evolutionary architectures https://www.youtube.com/watch?v=atwwf0qWpYg https://www.amazon.com/Software-Architecture-Metrics-Studies-Improve/dp/1098112237 https://www.amazon.com/gp/product/1492086894/ref=ox_sc_saved_image_10
+* ✅ Jackson essence of software https://www.amazon.com/Essence-Software-Concepts-Matter-Design/dp/0691225389 https://www.hytradboi.com/2025/840b0b92-720e-4c0c-9760-19739d3832a5-back-to-modularity buddies with Jonathan Edwards https://alarmingdevelopment.org/ https://youtu.be/BdoWZPvfZSE https://www.geoffreylitt.com/
 * Martin clean architecture
-* Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
 
 ## 进步
 
@@ -378,43 +379,6 @@ HICKEY / LISP / DATA-DRIVEN
 > What the author demonstrates here is a powerful principle that dates back to LISP's origins but remains revolutionary today: the collapse of artificial boundaries between program, data, and interface creates a more direct connection to the problem domain. This example elegantly shows how a few dozen lines of Clojure can replace an entire accounting application. The transactions live directly in the code, the categorization rules are simple pattern matchers, and the "interface" is just printed output of the transformed data. No SQL, no UI framework, no MVC architecture - yet it solves the actual problem perfectly.
 > Over time I’ve come to see LISP less as the natural collapse of artificial boundaries but the artificial collapse of natural ones. Where and how data is stored is a real concern, but where and how the program is stored isn’t. Security boundaries around data and executable code are of paramount importance. Data storage concerns don’t benefit from being mixed with programming language concerns but from computer and storage architecture concerns (eg column stores).
 
-## refactoring
-
-📙 Fowler refactoring
-> you can probably rm the PDF you have of this
-
----
-
-> Analysis of the curl codebase: “It means that every line in the product source code tree have by now been edited on average 3.5 times.” https://registerspill.thorstenball.com/p/joy-and-curiosity-28
-
-* _extract_: separate [Fowler https://refactoring.com/catalog/]
-* _inline_: combine
-> Inlining is the concept of replacing a function call in a program with the contents of the function itself, thus avoiding the call. https://golangweekly.com/issues/470
-* DRY, single responsibility https://news.ycombinator.com/item?id=35151088
-* _transform_: combine multiple functions into single [Fowler 14]
-```python
-# original
-def do_this(thing):
-def do_that(thing):
-
-# transform
-def do_this_and_that(thing):
-    this(thing)
-    that(thing)
-```
-* obj param [Fowler refactoring 40]
-```python
-# n params
-def multi_args(foo_arg, bar_arg):
-    do_foo(foo_arg)
-    do_bar(foo_arg)
-
-# obj param
-def obj_args(obj):
-    do_foo(obj.foo)
-    do_bar(obj.bar)
-```
-
 ## scaffold
 
 💻 https://github.com/zachvalenta/ur-repo
@@ -491,35 +455,3 @@ WORLD'S DUMBEST COMPLETE SAAS
 * https://news.ycombinator.com/item?id=34483294
 * https://pocketbase.io/ https://github.com/trailbaseio/trailbase https://news.ycombinator.com/item?id=42336207
 * BYO Saas https://www.datasette.cloud/blog/2023/welcome/ https://simonwillison.net/2020/Jan/14/stanford-planning-datasette-cloud/ https://simonwillison.net/tags/datasette-cloud/?page=2
-
-## style
-
-📙 Lopes exercises in programming style
-
----
-
-comments, vibe coding https://news.ycombinator.com/item?id=43576425
-https://seeinglogic.com/posts/visual-readability-patterns/
-
-https://www.youtube.com/watch?v=JlPMOszyjjo&t=1566s https://news.ycombinator.com/item?id=16617039
-> seems like she's conflated style (straight ahead, code golf) with design (objects)
-
-* __straight ahead (3)__: no abstractions, lots of nesting, no return statements
-* __code golf (6)__: fewest # of lines, leverage stdlib
-* __cookbook (4)__: break everything into functions
-* (10): Java encapsulation hell
-* (30): map reduce
-
- [changing your mind](https://news.ycombinator.com/item?id=19288954) hedge fund managers do it https://www.theobservereffect.org/marc.html
-
-* _imperative_: detailed; how; e.g. machine code, assembly
-* _declarative_: less detailed; what not how; e.g. SQL, HTML [Kleppmann 2.44] just say what you want i.e. SQL leaves it to DBMS to implement; better for parallelism bc doesn't specify order [Kleppmann 2.43] Prolog in Python https://fedoramagazine.org/exploring-the-world-of-declarative-programming/
-
-📝 diff btw imperative and delcarative is [diff of abstraction](http://itsadeliverything.com/declarative-vs-imperative-gherkin-scenarios-for-cucumber) but that diff ends up being a diff of type
-
-cf. [Designing Data Intensive Applications - chapter 2 - 'delcarative queries on the web']
-
-* _procedural_: group code into functions; C, Basic
-* __object-oriented__: procedural on steroids; Java, C++
-* __scripting__: functions not attached to objects
-* __logic__: formal mathematical logic; Prolog https://news.ycombinator.com/item?id=30091291

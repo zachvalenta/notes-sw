@@ -3,16 +3,9 @@
 ## 参考
 
 📚
-> 📍 where should these live?
-* Beck tidy first? https://www.oreilly.com/library/view/the-good-news/9781098170158/
 * Conery ch. 11/12
-* Dibernardo 500 lines http://aosabook.org/en/index.html
-* GoF design patterns
-* ✅ Jackson essence of software https://www.amazon.com/Essence-Software-Concepts-Matter-Design/dp/0691225389 https://www.hytradboi.com/2025/840b0b92-720e-4c0c-9760-19739d3832a5-back-to-modularity buddies with Jonathan Edwards https://alarmingdevelopment.org/ https://youtu.be/BdoWZPvfZSE https://www.geoffreylitt.com/
-* ⭐️ Mak https://www.manning.com/books/software-design-in-python
-* Martin clean code
+* Gamma design patterns
 * Nystrom http://gameprogrammingpatterns.com/contents.html
-* Ousterhout philosophy of sofware design
 
 ## 进步
 
@@ -74,7 +67,7 @@ PROTOTYPE
 💻 https://github.com/zachvalenta/capp-edi
 
 TYPES
-* _factory_: don't have to know product impl 📙 Evans domain-driven [139] GoF [107]
+* _factory_: don't have to know product impl 📙 Evans domain-driven [139] Gamma [107]
 ```python
 DocBuilder().add_products('new item')
 class ProductFactory:
@@ -120,7 +113,7 @@ class BurgerFactory:
 ```
 
 SEMANTICS
-* _factory_: creator 📙 GoF [108]
+* _factory_: creator 📙 Gamma [108]
 * _product_: thing being created
 
 ---
