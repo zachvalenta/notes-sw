@@ -152,6 +152,7 @@ https://simonwillison.net/2025/Mar/9/steve-yegge/
 
 ---
 
+https://news.ycombinator.com/item?id=43658923
 https://getstream.io/blog/cursor-ai-large-projects/ file to prompt + https://news.ycombinator.com/item?id=43478199 https://simonwillison.net/2025/Mar/26/notes/
 
 you've enabled Codeium extension auth on Github (for VS Code)
@@ -303,6 +304,7 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 
 ## interchange (MCP)
 
+* https://news.ycombinator.com/item?id=43676771
 * https://github.com/jlowin/fastmcp
 > Put simply, MCP is a way for LLMs to more easily integrate with external tools. MCP Servers: Providers like Sentry, Slack, JIRA, Gmail, etc. set up adapters around their APIs that follow the MCP Protocol. https://read.highgrowthengineer.com/p/mcps-simply-explained
 https://github.com/github/github-mcp-server

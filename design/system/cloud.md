@@ -363,8 +363,13 @@ https://railway.com/
 ## Python Anywhere
 
 https://www.pythonanywhere.com/
+
+## Val Town
+
 https://www.val.town/
 https://www.val.town/v/mikker/dailySlackRoundup
+https://www.geoffreylitt.com/2025/04/12/how-i-made-a-useful-ai-assistant-with-one-sqlite-table-and-a-handful-of-cron-jobs
+https://www.geoffreylitt.com/2023/12/17/seven-books-that-stuck-with-me-in-2023
 
 # 🏡 SELF HOST
 

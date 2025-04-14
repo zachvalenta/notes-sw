@@ -31,7 +31,7 @@
 # 👽 LISPS
 
 * _Common Lisp_: less Lisp-y, really fast compiler https://news.ycombinator.com/item?id=42671105 https://notes.eatonphil.com/starting-a-minimal-common-lisp-project.html https://ebzzry.io/en/script-lisp/ http://stevelosh.com/blog/2018/08/a-road-to-common-lisp/ http://paulgraham.com/popular.html https://news.ycombinator.com/item?id=32723784 https://borretti.me/article/simplicity-and-survival
-* _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj
+* _Fennel_: Lisp built on Lua https://fennel-lang.org/ https://www.mattroelle.com/fennel-the-practical-lisp https://github.com/pluffie/neoproj https://news.ycombinator.com/item?id=43673551
 * _Janet_: https://github.com/janet-lang/janet https://github.com/cfoust/cy https://news.ycombinator.com/item?id=42253241
 * _Scheme_: lotta different Scheme compilers and Scheme programs are not compatible across different compilers bc the language spec is so minimal (50 pages compared to 650 for Java) https://hardmath123.github.io/perchance-to-scheme.html 
 

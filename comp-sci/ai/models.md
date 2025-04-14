@@ -144,6 +144,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 ---
 
+* https://www.docker.com/blog/introducing-docker-model-runner/
 * https://simonwillison.net/2024/Dec/31/llms-in-2024/#apple-intelligence-is-bad-apple-s-mlx-library-is-excellent
 * https://github.com/getumbrel/llama-gpt
 * https://github.com/Mozilla-Ocho/llamafile
