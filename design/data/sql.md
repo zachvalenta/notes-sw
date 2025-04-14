@@ -207,124 +207,6 @@ select track, count(*) from splits group by track;
 select count(*) over (), track, sum(share), count(*) from splits group by track having cast(sum(share)as int) < 100;
 ```
 
-## grouping
-
-🗄 `math.md` stat
-📚
-* Beaulieu ch. 8
-* Evans 8
-
-GROUP BY
-* _group by_: form group for each unique combo
-* _agg column_: agg func applied to all rows in group
-* _regular column_: first row in group
-* regular column has dedupe side effect 📙 Evans [8]
-```sql
-select * from orders
-+----+----------+---------+--------+
-| id | customer | product | amount |
-+----+----------+---------+--------+
-| 1  | alice    | widget  | 100    |
-| 2  | alice    | widget  | 150    |
-| 3  | bob      | gadget  | 200    |
-| 4  | bob      | gadget  | 175    |
-| 5  | carl     | widget  | 225    |
-+----+----------+---------+--------+
-
--- REGULAR COLUMNS
-select * from orders group by customer, product
-+----+----------+---------+--------+
-| id | customer | product | amount |
-+----+----------+---------+--------+
-| 1  | alice    | widget  | 100    |
-| 3  | bob      | gadget  | 200    |
-| 5  | carl     | widget  | 225    |
-+----+----------+---------+--------+
-
--- AGG COLUMNS
-select customer, product, id, -- regular columns
-count(*) as cnt, sum(amount) total -- agg columns
-from orders group by customer, product;
-+----------+---------+----+-----+-------+
-| customer | product | id | cnt | total |
-+----------+---------+----+-----+-------+
-| alice    | widget  | 1  | 2   | 250   |
-| bob      | gadget  | 3  | 2   | 375   |
-| carl     | widget  | 5  | 1   | 225   |
-+----------+---------+----+-----+-------+
-
--- ACCESSING ALL ROWS FROM REGULAR COLUMN
-select customer, count(*) as cnt, group_concat(product) as products
-from orders group by customer
-+----------+-----+---------------+
-| customer | cnt | products      |
-+----------+-----+---------------+
-| alice    | 2   | widget,widget |
-| bob      | 2   | gadget,gadget |
-| carl     | 1   | widget        |
-+----------+-----+---------------+
-select customer, count(*) as cnt, group_concat(id || ':' || product) as products
-from orders group by customer;
-+----------+-----+-------------------+
-| customer | cnt | products          |
-+----------+-----+-------------------+
-| alice    | 2   | 1:widget,2:widget |
-| bob      | 2   | 3:gadget,4:gadget |
-| carl     | 1   | 5:widget          |
-+----------+-----+-------------------+
-```
-
----
-
-diff polars vs. pandas https://labs.quansight.org/blog/dataframe-group-by
-
-GROUP BY
-* group data by column value 📙 Beaulieu [60]
-* aka binning https://hakibenita.com/sql-for-data-analysis#binning
-* aka pivot table https://hakibenita.com/sql-for-data-analysis#pivot-tables https://realpython.com/how-to-pandas-pivot-table/
-```sql
--- only columns worth selecting are the grouped by column and aggregates
-select count(*) from executions group by "First Name" 
-select "First Name", count(*) from executions group by "First Name" 
-select "First Name", count(*) from executions group by "First Name" order by 2 desc
-
--- can't usefully access non-aggregated columns
--- e.g. this query will bring back an execution age for one of the prisoners in the group, but what good is that?
-select "Age at Execution" from executions group by "First Name" 
-```
-* 📍 practice https://www.helenanderson.co.nz/sql-aggregate-functions/
-* 📍 rollup https://hakibenita.com/sql-for-data-analysis#subtotals
-* 📍 rolling https://ponder.io/python-for-finance-pandas-resample-groupby-and-rolling/
-* https://stackoverflow.com/a/24767207
-```sql
-select col, count(*) from tab group by col
-```
-
-PARTITION BY
-* _partition_: group by but retain individual records w/ group https://stackoverflow.com/a/2404574
-* can do in DDL? https://www.postgresql.org/docs/10/ddl-partitioning.html#DDL-PARTITIONING-DECLARATIVE
-* group created for aggregation 📙 Molinaro
-* this tutorial is just ok https://www.youtube.com/watch?v=6trOvsL80Oo
-* https://www.youtube.com/watch?v=EPUayNC5ku4
-* used for bulk deletes in audit table https://sqlfordevs.com/partition-delete-old-rows
-
-WINDOW FUNCTIONS 📙 Evans 14-16
-* _window_: reference value in previous row 📙 Evans 14
-* introduced to SQL in 2005 https://www.youtube.com/watch?v=H6OTMoXjNiM 0:30
-```sql
--- syntax
-expression OVER (window)
--- functions https://twitter.com/b0rk/status/1179419244808851462/photo/1
-lag() sum() ntile() row_number()
-```
-* link to partition by https://twitter.com/b0rk/status/1179419244808851462/photo/1
-* https://www.postgresql.org/docs/9.1/tutorial-window.html
-* 📙 Winand 156
-* https://www.youtube.com/watch?v=XBE09l-UYTE
-* types https://www.helenanderson.co.nz/sql-window-functions-part-1/
-* running total https://learnsql.com/blog/what-is-a-running-total-and-how-to-compute-it-in-sql/ https://learnsql.com/blog/sql-non-equi-joins-examples/
-* https://hakibenita.com/sql-for-data-analysis#running-and-cumulative-aggregation
-
 ## predicates
 
 📙 Beaulieu ch. 4
@@ -501,6 +383,137 @@ select
 containing_query = (subquery)  -- 1 (scalar)
 containing_query in (subquery)  -- n
 ```
+
+# 🐧 GROUPING
+
+🗄 `math.md` stat
+📚
+* Beaulieu ch. 8
+* Evans 8
+
+## group by
+
+* _group by_: form group for each unique combo
+* _agg column_: agg func applied to all rows in group
+* _regular column_: first row in group
+* regular column has dedupe side effect 📙 Evans [8]
+```sql
+select * from orders
++----+----------+---------+--------+
+| id | customer | product | amount |
++----+----------+---------+--------+
+| 1  | alice    | widget  | 100    |
+| 2  | alice    | widget  | 150    |
+| 3  | bob      | gadget  | 200    |
+| 4  | bob      | gadget  | 175    |
+| 5  | carl     | widget  | 225    |
++----+----------+---------+--------+
+
+-- REGULAR COLUMNS
+select * from orders group by customer, product
++----+----------+---------+--------+
+| id | customer | product | amount |
++----+----------+---------+--------+
+| 1  | alice    | widget  | 100    |
+| 3  | bob      | gadget  | 200    |
+| 5  | carl     | widget  | 225    |
++----+----------+---------+--------+
+
+-- AGG COLUMNS
+select customer, product, id, -- regular columns
+count(*) as cnt, sum(amount) total -- agg columns
+from orders group by customer, product;
++----------+---------+----+-----+-------+
+| customer | product | id | cnt | total |
++----------+---------+----+-----+-------+
+| alice    | widget  | 1  | 2   | 250   |
+| bob      | gadget  | 3  | 2   | 375   |
+| carl     | widget  | 5  | 1   | 225   |
++----------+---------+----+-----+-------+
+
+-- ACCESSING ALL ROWS FROM REGULAR COLUMN
+select customer, count(*) as cnt, group_concat(product) as products
+from orders group by customer
++----------+-----+---------------+
+| customer | cnt | products      |
++----------+-----+---------------+
+| alice    | 2   | widget,widget |
+| bob      | 2   | gadget,gadget |
+| carl     | 1   | widget        |
++----------+-----+---------------+
+select customer, count(*) as cnt, group_concat(id || ':' || product) as products
+from orders group by customer;
++----------+-----+-------------------+
+| customer | cnt | products          |
++----------+-----+-------------------+
+| alice    | 2   | 1:widget,2:widget |
+| bob      | 2   | 3:gadget,4:gadget |
+| carl     | 1   | 5:widget          |
++----------+-----+-------------------+
+```
+
+---
+
+diff polars vs. pandas https://labs.quansight.org/blog/dataframe-group-by
+
+GROUP BY
+* group data by column value 📙 Beaulieu [60]
+* aka binning https://hakibenita.com/sql-for-data-analysis#binning
+* aka pivot table https://hakibenita.com/sql-for-data-analysis#pivot-tables https://realpython.com/how-to-pandas-pivot-table/
+```sql
+-- only columns worth selecting are the grouped by column and aggregates
+select count(*) from executions group by "First Name" 
+select "First Name", count(*) from executions group by "First Name" 
+select "First Name", count(*) from executions group by "First Name" order by 2 desc
+
+-- can't usefully access non-aggregated columns
+-- e.g. this query will bring back an execution age for one of the prisoners in the group, but what good is that?
+select "Age at Execution" from executions group by "First Name" 
+```
+* 📍 practice https://www.helenanderson.co.nz/sql-aggregate-functions/
+* 📍 rollup https://hakibenita.com/sql-for-data-analysis#subtotals
+* 📍 rolling https://ponder.io/python-for-finance-pandas-resample-groupby-and-rolling/
+* https://stackoverflow.com/a/24767207
+```sql
+select col, count(*) from tab group by col
+```
+
+## partition by
+
+---
+
+https://grok.com/chat/d8b45276-4216-4441-bc72-febc2bb8f54a
+
+* _partition_: group by but retain individual records w/ group https://stackoverflow.com/a/2404574
+* can do in DDL? https://www.postgresql.org/docs/10/ddl-partitioning.html#DDL-PARTITIONING-DECLARATIVE
+* group created for aggregation 📙 Molinaro
+* this tutorial is just ok https://www.youtube.com/watch?v=6trOvsL80Oo
+* https://www.youtube.com/watch?v=EPUayNC5ku4
+* used for bulk deletes in audit table https://sqlfordevs.com/partition-delete-old-rows
+
+## window functions
+
+---
+
+https://grok.com/chat/d8b45276-4216-4441-bc72-febc2bb8f54a
+
+📙 Evans 14-16
+
+* _window_: reference value in previous row 📙 Evans 14
+* introduced to SQL in 2005 https://www.youtube.com/watch?v=H6OTMoXjNiM 0:30
+```sql
+-- syntax
+expression OVER (window)
+-- functions https://twitter.com/b0rk/status/1179419244808851462/photo/1
+lag() sum() ntile() row_number()
+```
+* link to partition by https://twitter.com/b0rk/status/1179419244808851462/photo/1
+* https://www.postgresql.org/docs/9.1/tutorial-window.html
+* 📙 Winand 156
+* https://www.youtube.com/watch?v=XBE09l-UYTE
+* types https://www.helenanderson.co.nz/sql-window-functions-part-1/
+* running total https://learnsql.com/blog/what-is-a-running-total-and-how-to-compute-it-in-sql/ https://learnsql.com/blog/sql-non-equi-joins-examples/
+* https://hakibenita.com/sql-for-data-analysis#running-and-cumulative-aggregation
 
 # 🧩 JOINS
 

@@ -1057,6 +1057,7 @@ ALTERNATIVES
 
 ---
 
+internals https://news.ycombinator.com/item?id=43682006
 concurrent writers, Litestream for backups/replication https://avi.im/blag/2024/sqlite-bad-rep/ https://sqlite.org/talks/howitworks-20240624.pdf https://news.ycombinator.com/item?id=42665708 https://news.ycombinator.com/item?id=42666847
 
 📜 https://sqlite.org/quirks.html
