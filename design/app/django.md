@@ -17,13 +17,11 @@
 ## 进步
 
 STARTER PACKS 🗄️ scaffold
-* DSD https://mattsegal.dev/simple-django-deployment.html
 * https://mattsegal.dev/django-prod-architectures.html
 * https://github.com/wsvincent/lithium
 * https://businessclasskit.com/ https://businessclasskit.com/blog/design-system-options-for-rails
 * code generation? 📙 Thomas pragmatic programmer [102]
 * Docker https://github.com/nickjj/docker-django-example https://news.ycombinator.com/item?id=34940920
-* deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge Google Cloud Run https://news.ycombinator.com/item?id=24705668
 
 RECENT HAPPENINGS
 * https://simonwillison.net/2025/Apr/2/composite-primary-keys-in-django/
@@ -469,6 +467,12 @@ what is this for? ⬇️
 * https://news.ycombinator.com/item?id=40688336
 * https://docs.djangoproject.com/en/stable/ref/settings/
 
+## deployment
+
+* deployment: https://github.com/PaulleDemon/AWS-deployment https://github.com/Never-Over/bridge https://james.walters.click/what-django-deployment-is-really-about.html https://github.com/gauge-sh/bridge Google Cloud Run https://news.ycombinator.com/item?id=24705668
+* DSD https://mattsegal.dev/simple-django-deployment.html
+* use OS https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment
+
 ## denv
 
 🗄️ `src.md` denv
@@ -549,7 +553,6 @@ https://blog.doismellburning.co.uk/django-an-unofficial-opinionated-faq/
 
 * `settings.py`: just a Python module w/ buncha attributes; fmt installed apps same as imports https://wsvincent.com/django-rest-framework-tutorial/ uses pathlib as of 3.1 https://learndjango.com/tutorials/whats-new-django-31
 * https://adamj.eu/tech/2022/11/24/django-settings-patterns-to-avoid/
-* use OS https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Deployment
 * django-environ https://github.com/joke2k/django-environ
 * python-dotenv https://www.untangled.dev/2020/05/31/django-environment-variables/
 
@@ -769,6 +772,7 @@ class Post(models.Model):
 ### managed
 
 📜 https://docs.djangoproject.com/en/5.1/howto/legacy-databases/
+💻 https://github.com/zachvalenta/kern
 
 `managed = False` tells Django not to manage the table through migrations. This makes sense when:
 

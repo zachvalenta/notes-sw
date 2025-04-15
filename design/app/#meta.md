@@ -261,3 +261,51 @@ cf. [Designing Data Intensive Applications - chapter 2 - 'delcarative queries on
 * __object-oriented__: procedural on steroids; Java, C++
 * __scripting__: functions not attached to objects
 * __logic__: formal mathematical logic; Prolog https://news.ycombinator.com/item?id=30091291
+
+## things I believe
+
+Reabability is table stakes.
+
+Simplicity takes time:
+
+> A complex system that works is invariably found to have evolved from a simple system that worked. A complex system designed from scratch never works and cannot be patched up to make it work. You have to start over with a working simple system. https://news.ycombinator.com/item?id=42668065
+
+Doctest: If someone can't start a REPL and run what's in your doctest, the code in question is failing.
+
+Docstrings: If someone can't read a docstring and grok context, the code in question is failing.
+
+Commit messages are held to the same standard as docstrings. If a PR to the main branch doesn't provide context, it will be declined.
+
+Good integration tests are more important than unit test coverage.
+
+Use small, composeable functions to create deep modules. 📙 Ousterhout philosophy of sofware design
+
+[Centralize control flow.](https://matklad.github.io/2023/11/15/push-ifs-up-and-fors-down.html)
+
+Semantics: naming things is hard. We'll refactor until we get it right. Bad semantics metastasize confusion and will not be tolerated.
+
+> Get the nouns and verbs just right. Great names are the essence of great code, they capture what a thing is or does, and provide a crisp, intuitive mental model. They show that you understand the domain. Take time to find the perfect name, to find nouns and verbs that work together, so that the whole is greater than the sum of its parts. - [Tigerbeetle](https://github.com/tigerbeetle/tigerbeetle/blob/main/docs/TIGER_STYLE.md)
+
+WHY PYTHON?
+* It's the second-best language for many, many things.
+* It's good for sketching:
+> A programming language is for thinking of programs, not for expressing programs you've already thought of. It should be a pencil, not a pen. 📙 Paul Graham hackers and painters, page 22
+* It's got a great ecosystem:
+> The true measure of a language isn’t how it uses semicolons; it’s the standard library of each language. - [Paul Ford](https://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/)
+> I think a lot of the advances that happen in programming languages in the next fifty years will have to do with library functions. I think future programming languages will have libraries that are as carefully designed as the core language. Programming language design will not be about whether to make your language strongly or weakly typed, or object oriented, or functional, or whatever, but about how to design great libraries. The kind of language designers who like to think about how to design type systems may shudder at this. It's almost like writing applications! Too bad. Languages are for programmers, and libraries are what programmers need. - [Paul Graham](http://paulgraham.com/popular.html)
+
+PYTHON LIBRARIES
+* testing: pytest
+* HTTP: httpx
+* file paths: Pathlib
+* CLI: Click
+* output: rich
+* dataframes: Polars
+* numerical: jax
+* classical ML: scikit
+* stats/econ: scipy
+* NLP: spacy
+* algebra: sympy
+
+* Prefer to use single quotes.
+* Don't use typing unless it's crucial to the problem at hand i.e. we're fixing some code that is currently failing due to an issue that stronger typing would solve.

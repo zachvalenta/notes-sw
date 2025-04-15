@@ -93,6 +93,7 @@ ABSTRACTION
 
 ## rule encapsulation
 
+* https://grok.com/chat/8513a2e6-8c8a-42f3-883b-05668fe08054
 * modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/ https://github.com/gauge-sh/tach/issues/665 https://www.gauge.sh/
 > A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
 * https://claude.ai/chat/61e85fd7-a33f-43e7-989f-7295de72845b
@@ -156,7 +157,7 @@ repository pattern would abstract data access behind a consistent interface
 * https://claude.ai/chat/61e85fd7-a33f-43e7-989f-7295de72845b -> https://claude.ai/chat/53ccf574-253a-4b55-ac3f-69cb877cd63e
 * https://chatgpt.com/c/67e15081-a4f8-8004-86ab-9db58ca5b111 https://claude.ai/chat/812e936c-e2d0-4bfd-a403-8dfacf7a57a0
 * https://claude.ai/chat/92bdb3e8-c87f-484c-8821-fbb7b2d4800f
-* https://grok.com/chat/8513a2e6-8c8a-42f3-883b-05668fe08054 https://grok.com/chat/33a41760-ce83-4dc0-af25-1c7219736aed
+* https://grok.com/chat/33a41760-ce83-4dc0-af25-1c7219736aed
 * https://www.cosmicpython.com/book/appendix_django.html#_steps_along_the_way
 * Percival, Django as Active Record https://news.ycombinator.com/item?id=43501989 Architecture Patterns for Python https://neil.computer/notes/teaching-how-to-code-is-broken/
 * https://forum.djangoproject.com/t/where-to-put-business-logic-in-django/282 https://www.cosmicpython.com/book/appendix_django.html#_steps_along_the_way
