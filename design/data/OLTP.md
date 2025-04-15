@@ -639,7 +639,7 @@ show collections  # view collections
 
 > There are extensions for almost everything you could want - AGE enables graph data structures and the user of the Cypher query language, TimescaleDB enables time-series workloads, Hydra Columnar provides an alternate columnar storage engine https://matt.blwt.io/post/building-a-postgresql-extension-line-by-line/
 
-wire protocol
+wire protocol https://news.ycombinator.com/item?id=43693326
 > we’re seeing even more non-Postgres services rely on the Postgres wire protocol as a general-purpose Layer 7 protocol to provide client compatibility https://matt.blwt.io/post/7-databases-in-7-weeks-for-2025/
 > We embed DuckDB as the query engine for in-memory analytics that work for complex queries. With efficient columnar storage and vectorized execution, we’re aiming for faster results without heavy infra. BemiDB communicates over the Postgres wire protocol to make all querying Postgres-compatible.
 

@@ -153,6 +153,7 @@ https://simonw.substack.com/p/qwen25-coder-32b-is-an-llm-that-can https://simonw
 
 ## 🦙 llama
 
+* TUI https://github.com/paulrobello/parllama
 * DeepSeek https://www.youtube.com/watch?v=dS9Vbye-xSY
 * https://simonwillison.net/2025/Feb/7/pip-install-llm-smollm2/
 * _Meta llama_: https://x.com/rowancheung/status/1865107700087980170 https://en.wikipedia.org/wiki/Llama_(language_model) uncensored https://ollama.com/blog/llama-3-is-not-very-censored https://ollama.com/blog/run-llama2-uncensored-locally https://joshuacook.netlify.app/posts/2024-01-31_ollama-quickstart/

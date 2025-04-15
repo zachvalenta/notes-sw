@@ -171,7 +171,7 @@ https://mathspp.com/blog/case-insensitive-string-class
 https://www.pythonmorsels.com/every-dunder-method/
 
 * _call_: make class instance callable e.g. `foo = Foo(); foo()` https://realpython.com/python-class-constructor/ https://realpython.com/python-multiple-constructors/ re: metaclasses https://eli.thegreenplace.net/2012/04/16/python-object-creation-sequence
-* _dict_: stores obj writable attributes https://docs.python.org/3/library/stdtypes.html#object.__dict__
+* _dict_: stores obj writable attributes https://docs.python.org/3/library/stdtypes.html#object.__dict__ https://realpython.com/python-dict-attribute/
 * called by `vars()` https://docs.python.org/3/library/functions.html#vars
 
 ### comparison
@@ -467,6 +467,7 @@ isinstance(type, object)  # True
 * https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python
 * https://glyph.twistedmatrix.com/2021/03/interfaces-and-protocols.html
 * https://www.youtube.com/watch?v=DqFspy9pI9k
+* https://lukasatkinson.de/2023/intent-not-implementation/
 * interfaces, protocols, ABCs, mixins, typing https://claude.ai/chat/06709fb2-7841-4198-ac57-b770df956589 https://realpython.com/python-protocol/
 
 ## mixin

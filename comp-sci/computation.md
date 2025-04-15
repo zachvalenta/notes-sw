@@ -381,6 +381,7 @@ RAM
 * _RAM (random access memory)_: holds program/data until needed by CPU 📙 Manga [19] Kerrisk [2.1]
 * aka memory, working memory https://www.interviewcake.com/article/python/data-structures-coding-interview
 > RAM is just bigger-but-slower CPU cache. https://news.ycombinator.com/item?id=25056588 https://www.youtube.com/watch?v=WDIkqP4JbkE
+* CPU cache https://lukasatkinson.de/2024/python-cpu-caching/
 * _address_: location in RAM holding single byte
 * untyped (unlike ALU register) https://www.interviewcake.com/article/python3/data-structures-coding-interview#ram
 * _memory controller_: thing that reads/writes from memory addresses

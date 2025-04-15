@@ -698,8 +698,9 @@ f"{val:.{4}}"  # 13.5
 📚 Petzold code ch. 15
 
 TOOLING
-* _hexyl_: ✅ viewer https://github.com/sharkdp/hexyl 🗄️ uuinfo
 * _heh_: https://github.com/ndd7xv/he
+* _hexowl_: https://github.com/dece2183/hexowl
+* _hexyl_: ✅ viewer https://github.com/sharkdp/hexyl 🗄️ uuinfo
 
 ---
 
@@ -721,7 +722,7 @@ TOOLING
 
 # 🟨 ZA
 
-CASES https://ls-lint.org/blog/announcements/v2.3.0.html#what-the-heck-is-ls-lint
+CASES https://ls-lint.org/blog/announcements/v2.3.0.html#what-the-heck-is-ls-lint https://github.com/zobweyt/textcase
 * _snake_: `hello_world`
 * _kebab_: `hello-world`
 * _camel_: `helloWorld`

@@ -17,6 +17,8 @@
 * _24_: builder for EDI at Capp
 * _23_: 📙 Evans domain-driven
 
+> A key insight is that many patterns solve similar problems in different contexts. For example, both Strategy and Command encapsulate behavior, but Command adds undo/logging capabilities. Similarly, both Decorator and Chain of Responsibility compose behavior, but Chain focuses on request handling while Decorator is more general.
+
 * fanout https://www.better-simple.com/django/2023/12/06/fanout-pattern-explained/ https://news.ycombinator.com/item?id=43105028
 * the big ball of mud https://news.ycombinator.com/item?id=35481309
 * _strangler fig_: you run the old code and new code live, in production, side-by-side, checking that the new code behaves exactly the same as the old code. Once you are confident it does, you retire the old code https://www.kosli.com/blog/how-to-strangle-old-code-using-python-decorators/ https://news.ycombinator.com/item?id=41423421

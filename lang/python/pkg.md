@@ -111,7 +111,7 @@ anytree = {git = "https://github.com/zachvalenta/anytree.git"}
 
 ## registries
 
-PyPI
+PyPI https://pypacktrends.com/
 * `pypirc`
 ```ini
 [distutils]

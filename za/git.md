@@ -510,6 +510,7 @@ LINKABLE LIBRARIES 🗄 `python.md` Git
 * _drft_: https://codeberg.org/nightsail/drft
 * _dunk_: similar to delta https://github.com/darrenburns/dunk
 * _git split diffs_: 🎯 node version https://github.com/banga/git-split-diffs https://news.ycombinator.com/item?id=27007844
+* _riff_: 🎯 https://github.com/walles/riff
 
 ## 🐼 porcelain (lazygit)
 

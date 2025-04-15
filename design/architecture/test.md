@@ -176,6 +176,7 @@ ZA
 * _golden file_: reference for tests covering src that has large text output https://chatgpt.com/c/672a6850-7af0-8004-abe9-710f95ad83da https://lucapette.me/writing/writing-integration-tests-for-a-go-cli-application/
 
 IDEAS
+* https://lukasatkinson.de/2017/should-i-separate-unit-tests-from-integration-tests/
 * functional? https://terrastruct.com/blog/post/functional-testing-with-your-database-in-go/
 * _testing external resources_: use real thing, use Docker version https://github.com/schireson/pytest-mock-resources/ https://yanglinzhao.com/posts/test-elasticsearch-in-django
 * use actual deps instead of mocks https://testcontainers.com/ https://news.ycombinator.com/item?id=39531536 microcontainers https://github.com/maelstrom-software/maelstrom https://github.com/maelstrom-software/maelstrom

@@ -201,6 +201,7 @@ Common IoC Implementations
 
 ## plugins
 
+extensible https://pycon-archive.python.org/2024/schedule/presentation/78/index.html
 https://pluggy.readthedocs.io/en/stable/
 https://docs.datasette.io/en/stable/plugins.html
 

@@ -500,6 +500,7 @@ TODO
 ARCHITECTURE
 * `python -m platform` https://www.pythonmorsels.com/cli-tools/#platform
 * _cpufetch_: https://github.com/Dr-Noob/cpufetch
+* _macchina_: 🎯 https://github.com/Macchina-CLI/macchina
 * _neofetch_: https://github.com/dylanaraps/neofetch https://github.com/dylanaraps/pfetch https://neil.computer/notes/neofetch/
 
 DASHBOARDS

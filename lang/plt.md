@@ -11,6 +11,7 @@
 
 ## 进步
 
+* Lua for games, Elixir for Phoenix
 * https://en.wikipedia.org/wiki/TempleOS
 * BYO assembly https://zserge.com/posts/langs-asm/
 * macros, AST https://news.ycombinator.com/item?id=42084603
@@ -390,6 +391,17 @@ CON https://steveklabnik.com/writing/ten-years-of-ru---ewriting-my-website/ http
 * a programming language is for sketching https://simonwillison.net/2024/Dec/15/preferring-throwaway-code-over-design-docs/ https://daniel.haxx.se/blog/2025/02/18/changing-every-line-three-times/
 > A programming language is for thinking of programs, not for expressing programs you've already thought of. It should be a pencil, not a pen. 📙 Graham hackers painters [22]
 > Have you ever noticed that when you sit down to write something, half the ideas that end up in it are ones you thought of while writing? The same thing happens with software. Working to implement one idea gives you more ideas. 📙 Graham hackers painters [68]
+
+* development speed vs. execution speed https://bitfieldconsulting.com/golang/rust-vs-go
+> One especially good groove to span is the one between tools and things made with them. For example, programming languages and applications are usually written by different people, and this is responsible for a lot of the worst flaws in programming languages. I think every language should be designed simultaneously with a large application written in it, the way C was with Unix. http://paulgraham.com/marginal.html
+> Part of the problem here is social. Language designers like to write fast compilers. That's how they measure their skill. They think of the profiler as an add-on, at best. But in practice a good profiler may do more to improve the speed of actual programs written in the language than a compiler that generates fast code. Here, again, language designers are somewhat out of touch with their users. They do a really good job of solving slightly the wrong problem. http://paulgraham.com/popular.html
+* expressive
+> Large organizations have different aims from hackers. They want languages that are (believed to be) suitable for use by large teams of mediocre programmers-- languages with features that, like the speed limiters in U-Haul trucks, prevent fools from doing too much damage. Hackers don't like a language that talks down to them. Hackers just want power. http://www.paulgraham.com/javacover.html
+
+> Second, C has a tendency to be conservative, changing and growing very slowly. This is a feature, and one that is often undervalued by developers. (In fact, I’d personally like to see a future revision that makes the C language specification smaller and simpler, rather than accumulate more features.) - https://nullprogram.com/blog/2018/11/21/
+
+* Richard Gabriel worse is better https://www.jwz.org/doc/worse-is-better.html https://bitfieldconsulting.com/posts/not-real-developer
+> Simplicity beats even strict correctness, in this view: it’s better to be simple (and handle the easy 90% of cases in a nice way) than to be totally correct (and handle the awkward edge cases, at the expense of making the code much more complex).
 
 ## generics
 
