@@ -93,6 +93,10 @@ ABSTRACTION
 
 ## rule encapsulation
 
+* _invariant_: business rule
+
+---
+
 * https://grok.com/chat/8513a2e6-8c8a-42f3-883b-05668fe08054
 * modular https://github.com/gauge-sh/tach https://www.piglei.com/articles/en-6-ways-to-improve-the-arch-of-you-py-project/ https://github.com/gauge-sh/tach/issues/665 https://www.gauge.sh/
 > A Python tool to enforce a modular, decoupled package architecture. tach allows you to define boundaries and control dependencies between your Python packages. Each package can define its public interface. If a package tries to import from another package that is not listed as a dependency, tach will report an error. If a package tries to import from another package and does not use its public interface, with strict: true set, tach will report an error. Zero runtime impact. https://pythonbytes.fm/episodes/show/384/force-push-lightly
@@ -104,15 +108,42 @@ ABSTRACTION
 
 ## obj
 
-* _Value Objects_: Immutable objects defined by their attributes, not identity. Example: An "Address" with street and city fields, where two identical addresses are interchangeable. https://claude.ai/chat/53ccf574-253a-4b55-ac3f-69cb877cd63e
-* _Entities_: Objects with a unique identity that persists over time. Example: A "Customer" with an ID, whose name might change but identity remains.
-* _Aggregates_: Clusters of entities and value objects treated as a single unit, with one root entity (Aggregate Root) enforcing consistency. Example: An "Order" aggregate including "OrderItems," accessed only via the Order root.
+* _entity_: defined by ID
+* _value obj_: defined by state
+* used for the details i.e. date, time, money, address
+* _aggregate_: group of entities and value obj w/ single entity as root
+* acts as interface for applying invariants
+
+---
+
+https://claude.ai/chat/53ccf574-253a-4b55-ac3f-69cb877cd63e
 
 ## events
 
 Domain Events: Objects capturing significant occurrences in the domain. Example: "OrderPlaced" event triggering inventory updates.
 
 ## services
+
+* _domain_: invariants
+* _application_: domain + tasks
+* _infra_: email, logging, other boring stuff
+
+DOMAIN
+* business logic
+* Example: A TransferService that handles money transfers between two Account Entities, ensuring rules like balance checks are enforced.
+* Lives in the Domain Layer and is purely focused on the domain model.
+
+APPLICATION
+* Coordinate application-level tasks, such as handling user requests, interacting with the UI, or orchestrating calls to Domain Services and Repositories.
+* Example: An OrderApplicationService that processes an order by calling a Domain Service and saving the result via a Repository.
+* Lives in the Application Layer.
+
+INFRASTRUCTURE
+* Handle technical concerns, like sending emails, logging, or interacting with external systems.
+* Example: An EmailService that sends order confirmation emails.
+* Lives in the Infrastructure Layer.
+
+---
 
 Domain Services: Stateless operations that don’t fit neatly into entities or value objects. Example: A "TaxCalculator" service applying tax rules across orders.
 Lifecycle Patterns:
@@ -149,6 +180,9 @@ repository pattern would abstract data access behind a consistent interface
 
 ---
 
+* repo structure and services https://grok.com/chat/4b933c4f-67e4-43bb-b363-f64faaf33992
+* Django admin https://claude.ai/chat/6cb37b84-901f-4b18-bf0f-7ba7684ddf2f
+* is Django really DDD?  https://www.cosmicpython.com/book/appendix_django.html https://grok.com/chat/95d5f5bc-e490-4a0f-b8e8-a8b6eafcf884
 > circle back and ensure bounded context
 * 💻 https://github.com/zachvalenta/django-DDD https://grok.com/chat/95d5f5bc-e490-4a0f-b8e8-a8b6eafcf884
 > I think the move is to 1) clean up the `development` dir in `kern` 2) put the concerns about Django to an LLM and get opinions based on the current approach in `kern`

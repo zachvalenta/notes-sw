@@ -34,7 +34,6 @@ as red flag https://news.ycombinator.com/item?id=30675182
 
 * entity component https://akkartik.name/post/programming-2024
 * _design patterns_: ❓ inherently OOP? [Conery 236]
-* _adapter_: wrapper e.g. ORM class for Postgres, MySQL, et al. [Conery 249] https://bitfieldconsulting.com/golang/adapter
 * _bridge_: allows you to update abstraction w/breaking impl i.e. yet another layer of abstraction [Conery 250]
 * _decorator_: wrapper [Conery 254]
 * _facade_: wrapper [Conery 255]
@@ -192,7 +191,11 @@ Proxy (controlled access)
 Proxy: Provides a surrogate or placeholder to control access to another object.
 Example: Proxy server for security, logging, or caching.
 
-## adapter
+## adapter (interface)
+
+---
+
+* _adapter_: wrapper e.g. ORM class for Postgres, MySQL, et al. [Conery 249] https://bitfieldconsulting.com/golang/adapter
 
 Adapter (interface compatibility)
 
