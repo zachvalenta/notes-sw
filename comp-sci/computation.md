@@ -257,7 +257,7 @@ USAGE
 
 ZA
 * _stack machine_: used in VM design along w/ register machine https://tech.davis-hansson.com/p/congress-is-a-vm/
-* _halting problem_: a program which could analyse an arbitrary other program and tell if it would halt / stop running cannot exist https://blog.robertelder.org/computer-science-for-engineers/ https://tigyog.app/d/C:tWWwvJDWlo/r/busy-beavers
+* _halting problem_: a program which could analyse an arbitrary other program and tell if it would halt / stop running cannot exist https://blog.robertelder.org/computer-science-for-engineers/ https://tigyog.app/d/C:tWWwvJDWlo/r/busy-beavers https://buttondown.com/hillelwayne/archive/the-halting-problem-is-a-terrible-example-of-np/
 * _incompleteness theorem_: https://tigyog.app/d/C:tWWwvJDWlo/r/busy-beavers
 * _Von Neumann architecture_: model for hardware that allowed for data input via memory vs. rewiring hardware itself https://blog.robertelder.org/computer-science-for-engineers/
 

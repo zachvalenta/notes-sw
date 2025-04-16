@@ -4,7 +4,10 @@
 
 ## 进步
 
-https://yomguithereal.github.io/ https://edwardtufte.github.io/tufte-css/
+cool
+* https://yomguithereal.github.io/ https://edwardtufte.github.io/tufte-css/
+* WebGL https://alexharri.com/blog/webgl-gradients
+* animejs
 
 update linux fs to account for work machine
 

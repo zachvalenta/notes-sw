@@ -48,6 +48,7 @@ ENTRY POINTS
 
 ---
 
+BYO https://arstechnica.com/tech-policy/2022/08/man-who-built-isp-instead-of-paying-comcast-50k-expands-to-hundreds-of-homes/
 * Connection type (fiber/cable/DSL)
 
 ALTERNATIVE APPROACHES

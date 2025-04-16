@@ -13,6 +13,7 @@
 
 > Contrast this to everywhere I see people ravenously using new tools, like Cursor for coding, OpenAI Operator, or even fairly ‘basic’ uses like lawyers using NotebookLM to summarize case documents in a way they can listen to in the car. https://registerspill.thorstenball.com/p/joy-and-curiosity-33
 
+labs https://blog.omega-prime.co.uk/2025/04/11/ai-lab-business/
 > I strongly feel that this is an insult to life itself. I am utterly disgusted. https://carly.substack.com/p/everything-is-ghibli
 interactions: code completion, chat, tool use https://blog.val.town/blog/fast-follow/
 Simon Prince book https://news.ycombinator.com/item?id=43121059

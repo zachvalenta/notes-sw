@@ -294,6 +294,7 @@ The general problem this addresses is maintaining perfect history of state chang
 
 ## version control
 
+🗄️ `OLAP.md` Bauplain
 🧠 https://chatgpt.com/c/673a8de0-7cd8-8004-9325-7943f380d4d7
 
 * people don't really care about this https://news.ycombinator.com/item?id=22731928

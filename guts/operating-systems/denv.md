@@ -36,6 +36,7 @@ BUILD SYSTEMS
 * _redo_: https://github.com/apenwarr/redo https://fzakaria.com/2020/06/08/my-love-letter-to-redo.html
 
 TASK RUNNERS
+* in editor https://zed.dev/docs/tasks
 * _makedown_: Markdown https://github.com/tzador/makedown
 * _mise_: 🎯 https://github.com/jdx/mise https://github.com/shuru-project/shuru
 * _pypyr_: https://pypyr.io/

@@ -724,7 +724,7 @@ https://github.com/medialab/xan
 
 FURTHER
 * charting
-* Lexicometry
+* lexicometry / fingerprints / vectors https://news.ycombinator.com/item?id=43705632 https://antirez.com/news/150 https://github.com/antirez/hnstyle
 * flatmap
 * scraping
 * Excel conversion

@@ -75,6 +75,8 @@ ROLES
 * Needham https://www.manning.com/books/duckdb-in-action
 * https://realpython.com/python-duckdb/ https://www.amazon.com/DuckDB-Running-Fast-Analytics-Reporting-ebook/dp/B0DPNMF2ZX
 
+motherduck https://news.ycombinator.com/item?id=43705991
+
 SETUP
 * install: Homebrew
 * config fs: `$HOME/.duckdbrc`
@@ -564,6 +566,13 @@ https://karenjex.blogspot.com/2024/09/optimising-your-database-for-analytics.htm
 
 > Some high level context for those less familiar with the Lakehouse storage system space. For various reasons, several companies moved from data warehouses to data lakes starting around 7-10 years ago. Data lakes are better for ML / AI workloads, cheaper, more flexible, and separate compute from storage. With a data warehouse, you need to share compute with other users. With data lakes you can attach an arbitrary number of computational clusters to the data. Data lakes were limited in many regards. They were easily corrupted (no schema enforcement), required slow file listings when reading data, and didn't support ACID transactions. https://news.ycombinator.com/item?id=34345408
 * https://news.ycombinator.com/item?id=34342190
+
+## Bauplan
+
+🗄️ `OLTP.md` version control
+
+https://news.ycombinator.com/item?id=43705991
+https://www.bauplanlabs.com/
 
 ## 🔵 Bemi
 
