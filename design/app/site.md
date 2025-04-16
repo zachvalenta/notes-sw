@@ -4,6 +4,8 @@
 
 ## 进步
 
+https://yomguithereal.github.io/ https://edwardtufte.github.io/tufte-css/
+
 update linux fs to account for work machine
 
 TO ADD

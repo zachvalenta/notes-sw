@@ -9,6 +9,7 @@
 * `stat.md`
 * `telemetry.md` analytics
 📚
+> use xan for this
 * Asboth grounded analyst https://www.manning.com/books/the-well-grounded-data-analyst
 * ⭐️ Khalil https://www.manning.com/books/effective-data-analysis
 * Massaron ML for tabular https://www.manning.com/books/machine-learning-for-tabular-data https://www.youtube.com/watch?v=scY7PTxNSr4 https://www.manning.com/books/data-analysis-with-llms
@@ -716,6 +717,46 @@ ALTERNATIVES
 * use from Python https://github.com/xlwings/xlwings
 * use from Golang https://github.com/qax-os/excelize
 * Visual Basic https://retool.com/visual-basic/ https://retool.com/blog/the-history-and-legacy-of-visual-basic
+
+## 💊 xan
+
+https://github.com/medialab/xan
+
+FURTHER
+* charting
+* Lexicometry
+* flatmap
+* scraping
+* Excel conversion
+
+```sh
+# basics
+curl -LO https://github.com/medialab/corpora/raw/master/polarisation/medias.csv
+xan view medias.csv
+
+# search
+xan select foundation_year,name medias.csv | xan view
+xan search -s outreach internationale medias.csv | xan view
+
+# sort / filter
+xan sort -s foundation_year medias.csv | xan view -s name,foundation_year
+xan filter 'batch > 1' medias.csv | xan count
+
+# munge
+xan map 'fmt("{} ({})", name, foundation_year)' key medias.csv | xan select key | xan slice -l 10
+xan transform name 'split(name, ".") | first | upper' medias.csv | xan select name | xan slice -l 10
+
+# dedupe
+xan dedup -s mediacloud_ids medias.csv | xan count && xan count medias.csv
+
+# histogram
+xan frequency -s edito medias.csv | xan view
+xan frequency -s edito medias.csv | xan hist
+
+# stats
+xan stats -s indegree,edito medias.csv | xan transpose | xan view -I
+xan agg 'sum(indegree) as total_indegree, mean(indegree) as mean_indegree' medias.csv | xan view -I
+```
 
 ## ❎ xsv
 

@@ -242,6 +242,7 @@ TUI
 * https://news.ycombinator.com/item?id=37418424
 * TUI for bash https://github.com/charmbracelet/gum
 * design https://www.micahlerner.com/2021/07/14/unix-shell-programming-the-next-50-years.html 🗣 Dan Luu https://borretti.me/article/shells-are-two-things extensions https://github.com/dotenvx/dotenvx/pull/426
+> xan has the greated help output of a CLI ever
 
 ALTERNATIVES
 > Textual inherently slow? Both browsr and elia crawl on open. Find Golang-like alternative
