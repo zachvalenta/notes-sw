@@ -298,6 +298,9 @@ TOO SMALL|STRANGE
 
 ## 🪐 ZSA
 
+CURRENT PLAN + QMK https://grok.com/chat/e64df3db-dd2b-47bb-a79f-4855f8dd190a
+> main concern rn is Moonlander thumb cluster being unusable re: space key
+> 90% of my current usage is: space, cmd, ESC
 * bad thumb cluster = only have 2 usable keys per thumb
 * put hyper / CMD / ALT on inner keys, as Karabiner hyperkey conflicts with Vim CAPS-to-ESC mapping and HRM conflict w/ Vim period
 > would this be too far to travel? you need to replace 5 keys: SPACE, CMD * 2, CTRL, ALT
