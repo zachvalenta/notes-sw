@@ -16,7 +16,7 @@
 * MacCormick computed
 * MacCormick nine algorithms
 * Skiena manual https://www.algorist.com/ https://fabiensanglard.net/algorithms_and_datastructures/index.php
-* Tuckfield https://nostarch.com/Dive-Into-Algorithms
+* ⭐️ Tuckfield https://nostarch.com/Dive-Into-Algorithms
 * ⭐️ Wengrow ds/algos https://pragprog.com/titles/jwpython/a-common-sense-guide-to-data-structures-and-algorithms-in-python-volume-1/ https://pragprog.com/titles/jwpython2/a-common-sense-guide-to-data-structures-and-algorithms-in-python-volume-2/
 
 ## 进步

@@ -486,7 +486,7 @@ DIGRAPHS
 * digraph: two letters forming single phoneme e.g. "ea" in "bread"
 * __digraph__: Unicode char not on typical keyboard e.g. °∆ http://vimdoc.sourceforge.net/htmldoc/digraph.html#digraph-table
 * specified in RFC 1345 https://datatracker.ietf.org/doc/html/rfc1345
-* `^M` = DOS newline/carriage return; rm with `sed -i '' 's/\r//g'` (can also use vim, tr) 🗄️ `analytics.md` visidata
+* `^M` = DOS newline/carriage return; rm with `sed -i '' 's/\r//g'` (can also use vim, tr, dos2unix) 🗄️ `analytics.md` visidata
 
 https://en.wikipedia.org/wiki/Mojibake
 https://terminaltrove.com/lemmeknow/
