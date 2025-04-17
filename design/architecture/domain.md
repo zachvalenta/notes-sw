@@ -13,6 +13,13 @@
 * _23_: Evans
 * _22_: United Masters
 
+> DDD is about capturing the business domain—its rules, entities, and processes—in a way that makes sense to the business, not just the database.
+
+DDD sits within the spectrum of:
+* Simpler: CRUD applications, Active Record pattern
+* Similar: Hexagonal Architecture, Clean Architecture, Onion Architecture
+* More complex: Event Sourcing, CQRS
+
 > restore Evans in bookcase
 > then clean this up
 > then start from ## basics and distribute Evans where necessary
@@ -108,21 +115,46 @@ ABSTRACTION
 
 ## obj
 
+---
+
+* _entity_: the table, the *thing*
+> The entity has a lifecycle (e.g., created, updated, discontinued) tied to this identity.
+* _value obj_: the details
+
 * _entity_: defined by ID
 * _value obj_: defined by state
 * used for the details i.e. date, time, money, address
 * _aggregate_: group of entities and value obj w/ single entity as root
 * acts as interface for applying invariants
 
----
-
 https://claude.ai/chat/53ccf574-253a-4b55-ac3f-69cb877cd63e
+https://grok.com/chat/64f25eb3-92b5-4c0a-af17-374039ed8c27
 
 ## events
 
 Domain Events: Objects capturing significant occurrences in the domain. Example: "OrderPlaced" event triggering inventory updates.
 
 ## services
+
+Here's my current conception of it, my own modified version of DDD:
+
+* models: define actual tables (bc we live in reality and eventually all of this junk ends up in a table)
+* repository: CRUD for modules
+* domain: business rules in their purest form
+* services: apply domain to repository
+* tasks: actually do work i.e. use services to perform processes that normal people think of as "the business"
+
+> You're right that there's a hierarchy of abstraction here. Let me clarify the relationship: Domain modules and services aren't fundamentally different - they're both part of organizing your business logic, just at different granularities.  The practical structure often looks like: https://claude.ai/chat/14d39177-3900-438e-94f5-07a6994b5458
+> Domain entities/value objects: Model individual business objects (Customer, Order)
+> Domain modules: Group related domain objects (Customer module, Order module)
+> Services: Coordinate across domain objects/modules to implement use cases
+> DDD's key contribution is decoupling your business concepts from your data storage. A single domain concept (like "Customer") might cross multiple tables (customer_profiles, customer_preferences, customer_addresses), and that's exactly what DDD helps with.
+
+> Services in the application layer (often called "application services" in DDD) orchestrate use cases. They’re the verbs of your system—things like "calculate a price," "process a disconnection," or "validate a part."
+
+> In DDD, the domain layer defines the core business logic and entities, while the application layer (often containing services) orchestrates use cases and coordinates domain objects. A single service in the application layer might interact with multiple domain entities or aggregates
+
+but I thought the whole point of DDD was to allow a single domain to cross multiple tables. not in the words of DDD practicioners, but IRL come on that's what it is. which I respect, it's totally useful (it's why I'm trying to use it now!).
 
 * _domain_: invariants
 * _application_: domain + tasks
@@ -167,7 +199,7 @@ Factories: Encapsulate complex object creation. Example: A "PolicyFactory" creat
 Repositories: Manage collections of aggregates, abstracting persistence. Example: An "OrderRepository" retrieving or saving Orders from a database.
 
 REPOSITORY
-* CRUD module 📙 Evan [151]
+* CRUD module 📙 Evan [151] https://grok.com/chat/68e4076a-a644-4201-9bdb-1861d5e324a2 https://claude.ai/chat/d6a4943d-f1af-4a80-b3f9-42825bf0c41d
 repository pattern would abstract data access behind a consistent interface
 ├── Repository: data access abstraction 🗄️ `sql.md` schema / approaches
 ├── Factory
