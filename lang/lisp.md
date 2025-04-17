@@ -112,6 +112,7 @@ https://en.wikipedia.org/wiki/Elixir_(programming_language)
 
 ---
 
+* https://bitbashing.io/haskell-concurrency.html https://news.ycombinator.com/item?id=43679906
 * https://gwern.net/resilient-software
 * https://news.ycombinator.com/item?id=40702146
 * https://news.ycombinator.com/item?id=42754098

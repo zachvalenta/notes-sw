@@ -304,6 +304,7 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 
 ## interchange (MCP)
 
+https://github.com/pydantic/pydantic-ai/tree/main/mcp-run-python
 * https://news.ycombinator.com/item?id=43676771
 * https://github.com/jlowin/fastmcp
 > Put simply, MCP is a way for LLMs to more easily integrate with external tools. MCP Servers: Providers like Sentry, Slack, JIRA, Gmail, etc. set up adapters around their APIs that follow the MCP Protocol. https://read.highgrowthengineer.com/p/mcps-simply-explained

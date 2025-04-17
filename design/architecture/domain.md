@@ -9,7 +9,7 @@
 
 ## 进步
 
-* _25_: own note
+* _25_: mv to own note from `design-patterns.md`
 * _23_: Evans
 * _22_: United Masters
 
@@ -40,6 +40,31 @@ https://grok.com/chat/32d7a8a4-4449-4413-a9c2-64b40cd37ad8
 
 CQRS: Command/query separation
 Unit of Work: Transaction management
+
+## my own version of you
+
+> bot: Domain modules usually organize related entities and value objects by business concept, while services operate at different layers with different purposes
+> me: but I thought the whole point of DDD was to allow a single domain to cross multiple tables. seems like services are just a layer up, but not fundamentally different. in the same way you might (in non-DDD) have a function do something small, a class do something bigger, and module do something bigger yet.
+
+Here's my current conception of it, my own modified version of DDD:
+
+* models: define actual tables (bc we live in reality and eventually all of this junk ends up in a table)
+* repository: CRUD for modules
+* domain: business rules in their purest form
+* services: apply domain to repository
+* tasks: actually do work i.e. use services to perform processes that normal people think of as "the business"
+
+> You're right that there's a hierarchy of abstraction here. Let me clarify the relationship: Domain modules and services aren't fundamentally different - they're both part of organizing your business logic, just at different granularities.  The practical structure often looks like: https://claude.ai/chat/14d39177-3900-438e-94f5-07a6994b5458
+> Domain entities/value objects: Model individual business objects (Customer, Order)
+> Domain modules: Group related domain objects (Customer module, Order module)
+> Services: Coordinate across domain objects/modules to implement use cases
+> DDD's key contribution is decoupling your business concepts from your data storage. A single domain concept (like "Customer") might cross multiple tables (customer_profiles, customer_preferences, customer_addresses), and that's exactly what DDD helps with.
+
+> Services in the application layer (often called "application services" in DDD) orchestrate use cases. They’re the verbs of your system—things like "calculate a price," "process a disconnection," or "validate a part."
+
+> In DDD, the domain layer defines the core business logic and entities, while the application layer (often containing services) orchestrates use cases and coordinates domain objects. A single service in the application layer might interact with multiple domain entities or aggregates
+
+but I thought the whole point of DDD was to allow a single domain to cross multiple tables. not in the words of DDD practicioners, but IRL come on that's what it is. which I respect, it's totally useful (it's why I'm trying to use it now!).
 
 # 🗺️ STRATEGIC (domain)
 
@@ -133,28 +158,11 @@ https://grok.com/chat/64f25eb3-92b5-4c0a-af17-374039ed8c27
 ## events
 
 Domain Events: Objects capturing significant occurrences in the domain. Example: "OrderPlaced" event triggering inventory updates.
+* CQRS-lite: Separate read/write paths without full event sourcing
 
 ## services
 
-Here's my current conception of it, my own modified version of DDD:
-
-* models: define actual tables (bc we live in reality and eventually all of this junk ends up in a table)
-* repository: CRUD for modules
-* domain: business rules in their purest form
-* services: apply domain to repository
-* tasks: actually do work i.e. use services to perform processes that normal people think of as "the business"
-
-> You're right that there's a hierarchy of abstraction here. Let me clarify the relationship: Domain modules and services aren't fundamentally different - they're both part of organizing your business logic, just at different granularities.  The practical structure often looks like: https://claude.ai/chat/14d39177-3900-438e-94f5-07a6994b5458
-> Domain entities/value objects: Model individual business objects (Customer, Order)
-> Domain modules: Group related domain objects (Customer module, Order module)
-> Services: Coordinate across domain objects/modules to implement use cases
-> DDD's key contribution is decoupling your business concepts from your data storage. A single domain concept (like "Customer") might cross multiple tables (customer_profiles, customer_preferences, customer_addresses), and that's exactly what DDD helps with.
-
-> Services in the application layer (often called "application services" in DDD) orchestrate use cases. They’re the verbs of your system—things like "calculate a price," "process a disconnection," or "validate a part."
-
-> In DDD, the domain layer defines the core business logic and entities, while the application layer (often containing services) orchestrates use cases and coordinates domain objects. A single service in the application layer might interact with multiple domain entities or aggregates
-
-but I thought the whole point of DDD was to allow a single domain to cross multiple tables. not in the words of DDD practicioners, but IRL come on that's what it is. which I respect, it's totally useful (it's why I'm trying to use it now!).
+---
 
 * _domain_: invariants
 * _application_: domain + tasks
@@ -195,6 +203,9 @@ Lifecycle Patterns:
 
 ## repo
 
+---
+
+* _Hexagonal Architecture_: Uses ports/adapters instead of repositories
 Factories: Encapsulate complex object creation. Example: A "PolicyFactory" creating a configured insurance policy.
 Repositories: Manage collections of aggregates, abstracting persistence. Example: An "OrderRepository" retrieving or saving Orders from a database.
 

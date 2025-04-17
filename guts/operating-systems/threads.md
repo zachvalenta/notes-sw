@@ -130,6 +130,7 @@ SEMANTIC CONFUSION
 
 ---
 
+* https://bitbashing.io/haskell-concurrency.html https://news.ycombinator.com/item?id=43679906
 📍 define 'asynchronous', 'concurrent', 'parallel' https://pythonbytes.fm/episodes/show/161/sloppy-python-can-mean-fast-answers
 * https://realpython.com/python-concurrency/
 https://wyounas.github.io/concurrency/2024/12/12/how-concurrency-works-a-visual-guide/
