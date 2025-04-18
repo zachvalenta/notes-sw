@@ -11,17 +11,18 @@
 
 ## 进步
 
-> Contrast this to everywhere I see people ravenously using new tools, like Cursor for coding, OpenAI Operator, or even fairly ‘basic’ uses like lawyers using NotebookLM to summarize case documents in a way they can listen to in the car. https://registerspill.thorstenball.com/p/joy-and-curiosity-33
+* _25_: try new providers (Grok, Gemini)
+* _24_: ChatGPT (regex and Polars, then incorporate research) Claude (switch after GPT outage)
+* _23_: few random queries
 
+DEEP RESEARCH ETC.
+> Contrast this to everywhere I see people ravenously using new tools, like Cursor for coding, OpenAI Operator, or even fairly ‘basic’ uses like lawyers using NotebookLM to summarize case documents in a way they can listen to in the car. https://registerspill.thorstenball.com/p/joy-and-curiosity-33
 labs https://blog.omega-prime.co.uk/2025/04/11/ai-lab-business/
 > I strongly feel that this is an insult to life itself. I am utterly disgusted. https://carly.substack.com/p/everything-is-ghibli
 Simon Prince book https://news.ycombinator.com/item?id=43121059
 https://openai.com/index/introducing-deep-research/ https://x.com/mckaywrigley/status/1886215847481623030 https://x.com/felipe_millon/status/1886205433469178191 https://thezvi.substack.com/p/were-in-deep-research https://x.com/sayashk/status/1887275315824660584 https://www.fromthenew.world/p/openai-deep-research-explains-itself https://x.com/patrickc/status/1888312657146757315 https://stratechery.com/2025/deep-research-and-knowledge-value/
 > OpenAI made a big splash launching ‘Deep Research’, an agent-ish tool within the $200 Pro plan that uses a version of the computationally-intensive (and expensive) o3 ‘reasoning’ model to write research reports, coming back in a few hours when it’s done. As for most generative AI demos, very cool if you have that use case, but you have to be careful - I spotted some large mistakes even in one of the examples on the marketing page (in a field I know a lot about). I always used to compare machine learning to ‘infinite interns’ and now you can ask an AI intern to write a long report about something - but you’ll need to check every line of it, and it probably won’t say anything surprising (since surprising is a divergence from the data). - Ben Evans 25.02.11
 https://news.ycombinator.com/item?id=43236184 https://simonwillison.net/2025/Mar/4/deepsearch-deepresearch/
-
-* _24_: ChatGPT (regex and Polars, then incorporate research) Claude (switch after GPT outage)
-* _23_: few random queries
 
 # 🥗 MENU
 
@@ -125,11 +126,12 @@ CONTEXT
 
 ## 🌉 Gemini
 
+* no search/tags/org
+
 ---
 
 * https://thezvi.substack.com/p/the-second-gemini
 * voice https://news.ycombinator.com/item?id=42397210
-* no search/tags/org, looks low-effort
 * https://simonw.substack.com/p/video-scraping-using-google-gemini
 
 ## hardware
