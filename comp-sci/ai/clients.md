@@ -11,43 +11,7 @@
 
 * _24_: lots of work to research/taxonomize tooling, start with llm and aider
 
-# 🚃 CATEGORIES
-
-## CLI
-
-PROSPECTIVE
-* output first, gimme impl https://austinhenley.com/blog/mirrorlang.html
-* _ch_: bash https://github.com/dnmfarrell/ch https://blog.dnmfarrell.com/post/chatgpt-at-the-terminal/
-* _tenere_: no context, file output (all to one file?), create Homebrew install yet https://github.com/pythops/tenere https://github.com/pythops/tenere/issues/31
-
-LOW ADOPTION | FEATURE POOR
-> BYO examples
-* _chatgpt-cli_: 🎯 Markdown https://github.com/kardolus/chatgpt-cli
-* _ell_: 🎯 Bash https://github.com/simonmysun/ell
-* _Magic CLI_: https://github.com/guywaldman/magic-cli
-* _oterm_: for Ollama https://github.com/ggozad/oterm
-* _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
-* _zsh codex_: https://github.com/tom-doerr/zsh_codex
-
-## GUI
-
-* _Chatbox_: desktop app https://chatboxai.app/en
-* _chat-macOS_: spotlight, Homebrew https://github.com/huggingface/chat-macOS https://news.ycombinator.com/item?id=41927624
-* _DDG_: ❌ `!ai` = slightly faster REPL but loses all org functionality
-* _gpt4all_: 🎯 local https://github.com/nomic-ai/gpt4all
-* _janAI_: local https://jan.ai/ https://msty.app/as/janai-alternative
-* _khoj_: 🎯 https://github.com/khoj-ai/khoj
-* _lmstudio_: 🎯 local https://lmstudio.ai/ https://msty.app/as/lmstudio-alternative
-* _msty_: 🎯 aaS and local, parallel queries https://msty.app/
-* _OpenWebUI_: https://github.com/open-webui/open-webui
-* _SillyTavern_: 🎯 https://github.com/SillyTavern/SillyTavern
-* _TypingMind_: web app https://www.typingmind.com/ https://news.ycombinator.com/item?id=41988306
-
-## IDE
-
-NATIVE 🗄️ `vim.md` Zed
-* _Tabby_: ❌ no traction, no mention of context awareness https://www.tabbyml.com/ https://news.ycombinator.com/item?id=42675725
-* _Void_: ❌ unfinished https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
+## extensions
 
 EXTENSIONS https://fly.io/blog/vscode-ssh-wtf/
 > I'd much, much prefer Aide to continue as a CLI tool or as a VSCode plugin. Every fork of VSCode ends up with IDE maintenance bugs that never get addressed and slowly the effort implodes as the bug surface becomes too wide. https://news.ycombinator.com/item?id=42063346
@@ -55,9 +19,13 @@ EXTENSIONS https://fly.io/blog/vscode-ssh-wtf/
 * _Cline_: 🎯 VSC extension https://github.com/cline/cline
 * _Cody_: 🎯 https://sourcegraph.com/ https://marketplace.visualstudio.com/items?itemName=sourcegraph.cody-ai
 * _Continue_: autocomplete https://ollama.com/blog/continue-code-assistant
-* _Copilot_: 🎯 VSC-native, multi-model https://simonwillison.net/2024/Dec/18/free-tier-for-github-copilot/ https://www.bloomberg.com/news/articles/2024-10-29/microsoft-s-github-unit-cuts-ai-deals-with-google-anthropic
+* _Copilot_: 🎯 VSC-native, multi-model https://simonwillison.net/2024/Dec/18/free-tier-for-github-copilot/
 * agent requires insiders build https://github.blog/news-insights/product-news/github-copilot-the-agent-awakens/ https://www.youtube.com/watch?v=zIejF3IGtWk
 * _Sage_: 💀 https://github.com/Storia-AI/sage
+
+IDEs 🗄️ `vim.md` Zed
+* _Tabby_: ❌ no traction, no mention of context awareness https://www.tabbyml.com/ https://news.ycombinator.com/item?id=42675725
+* _Void_: ❌ unfinished https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
 
 # 🛸 IN USE
 
@@ -70,11 +38,36 @@ locality
 
 ## context
 
+🗄️ 
+* `models.md` prompts
+* Cursor
+* aider
+
 ---
+
+> continue pulling in from cursor
+
+* Gemini can read entire codebase? https://aistudio.google.com https://news.ycombinator.com/item?id=43478199 https://simonwillison.net/2025/Mar/26/notes/
+* you've enabled Codeium extension auth on Github (for VS Code)
+* try Cline VS Code extension
+* files-to-prompt https://simonwillison.net/2025/Mar/26/notes/
+* files https://getstream.io/blog/cursor-ai-large-projects/
+* Cursor rules https://news.ycombinator.com/item?id=43658923
+
+---
+
+https://ghuntley.com/stdlib/
+
+STUFF TO TRY
+* Gemini https://news.ycombinator.com/item?id=43661235
+* interactions: code completion, chat, tool use https://blog.val.town/blog/fast-follow/
+* vibe coding https://simonwillison.net/2025/Mar/6/vibe-coding/ https://simonwillison.net/2025/Mar/19/vibe-coding/
 
 https://whodb.com/docs/
 https://news.ycombinator.com/item?id=43573755
 https://help.openai.com/en/articles/10303002-how-does-memory-use-past-conversations
+
+Stevens https://www.geoffreylitt.com/2025/04/12/how-i-made-a-useful-ai-assistant-with-one-sqlite-table-and-a-handful-of-cron-jobs https://simonwillison.net/2025/Apr/13/stevens/ https://simonwillison.net/2025/Apr/13/stevens/
 
 ## 🟠 aichat
 
@@ -152,12 +145,7 @@ https://simonwillison.net/2025/Mar/9/steve-yegge/
 
 ---
 
-https://news.ycombinator.com/item?id=43658923
-https://getstream.io/blog/cursor-ai-large-projects/ file to prompt + https://news.ycombinator.com/item?id=43478199 https://simonwillison.net/2025/Mar/26/notes/
-
-you've enabled Codeium extension auth on Github (for VS Code)
 https://news.ycombinator.com/item?id=43340662
-try Cline VS Code extension
 
 Jet Brains is 6 months behind the market https://www.jetbrains.com/junie/
 
@@ -275,11 +263,38 @@ $ mods --settings
 
 * _mods_: Markdown output, system prompt https://github.com/charmbracelet/mods continue conversation https://github.com/charmbracelet/mods/issues/197
 
-## 😺 smartcat
+# 🚃 CATEGORIES
 
-📜 https://github.com/efugier/smartcat
+## CLI
 
-* conversations as Markdown
+PROSPECTIVE
+* output first, gimme impl https://austinhenley.com/blog/mirrorlang.html
+* _smartcat_: 🎯 conversations as Markdown https://github.com/efugier/smartcat
+* _ch_: bash https://github.com/dnmfarrell/ch https://blog.dnmfarrell.com/post/chatgpt-at-the-terminal/
+* _tenere_: no context, file output (all to one file?), create Homebrew install yet https://github.com/pythops/tenere https://github.com/pythops/tenere/issues/31
+
+LOW ADOPTION | FEATURE POOR
+> BYO examples
+* _chatgpt-cli_: 🎯 Markdown https://github.com/kardolus/chatgpt-cli
+* _ell_: 🎯 Bash https://github.com/simonmysun/ell
+* _Magic CLI_: https://github.com/guywaldman/magic-cli
+* _oterm_: for Ollama https://github.com/ggozad/oterm
+* _tgpt_: no API keys required https://github.com/aandrew-me/tgpt
+* _zsh codex_: https://github.com/tom-doerr/zsh_codex
+
+## GUI
+
+* _Chatbox_: desktop app https://chatboxai.app/en
+* _chat-macOS_: spotlight, Homebrew https://github.com/huggingface/chat-macOS https://news.ycombinator.com/item?id=41927624
+* _DDG_: ❌ `!ai` = slightly faster REPL but loses all org functionality
+* _gpt4all_: 🎯 local https://github.com/nomic-ai/gpt4all
+* _janAI_: local https://jan.ai/ https://msty.app/as/janai-alternative
+* _khoj_: 🎯 https://github.com/khoj-ai/khoj
+* _lmstudio_: 🎯 local https://lmstudio.ai/ https://msty.app/as/lmstudio-alternative
+* _msty_: 🎯 aaS and local, parallel queries https://msty.app/
+* _OpenWebUI_: https://github.com/open-webui/open-webui
+* _SillyTavern_: 🎯 https://github.com/SillyTavern/SillyTavern
+* _TypingMind_: web app https://www.typingmind.com/ https://news.ycombinator.com/item?id=41988306
 
 # 🟨️ ZA
 
@@ -304,6 +319,10 @@ CODE ASSIST https://zackproser.com/blog/cursor-review
 
 ## interchange (MCP)
 
+🗄️ `models.md` agent
+
+Browser MCP https://news.ycombinator.com/item?id=43613194
+https://simonwillison.net/2025/Apr/18/mcp-run-python/
 https://github.com/pydantic/pydantic-ai/tree/main/mcp-run-python
 * https://news.ycombinator.com/item?id=43676771
 * https://github.com/jlowin/fastmcp
