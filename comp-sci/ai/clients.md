@@ -70,12 +70,22 @@ https://help.openai.com/en/articles/10303002-how-does-memory-use-past-conversati
 
 Stevens https://www.geoffreylitt.com/2025/04/12/how-i-made-a-useful-ai-assistant-with-one-sqlite-table-and-a-handful-of-cron-jobs https://simonwillison.net/2025/Apr/13/stevens/ https://simonwillison.net/2025/Apr/13/stevens/
 
+## db
+
+🗄️ `sql.md` schema > approaches
+> Nothing is yet one is data-aware (only schema-aware), so the important thing is a good REPL + related db GUI/TUI features. You can just pipe in schema to tool
+
+* integrated: litecli
+* schema-aware: DataGrip, DataSpell
+* natural language queries: https://github.com/sqlchat/sqlchat https://whodb.clidey.com/docs/usage-houdini/what-is-houdini
+
 ## 🟠 aichat
 
 📜 https://github.com/sigoden/aichat
 
 * killer feature https://github.com/sigoden/aichat#local-server-capabilities
 * https://github.com/sigoden/aichat/issues/924
+does Data Grip have aider-like context window but for tables? https://www.jetbrains.com/datagrip/
 
 ## ⏳🐲 aider
 

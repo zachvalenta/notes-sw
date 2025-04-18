@@ -69,6 +69,7 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 * w/ Rich 💻️ https://github.com/zachvalenta/capp-dataload/blob/main/load.py#L28
 * https://github.com/dannywade/textual-pandas
 * _Data Wrangler_: https://code.visualstudio.com/docs/datascience/data-wrangler alternative https://github.com/mljar/variable-inspector
+* _Dataspell_: Data Wrangler Jet Brains version https://www.jetbrains.com/dataspell/
 * _dtale_: render in browser https://github.com/man-group/dtale
 
 ways I know of visualizing a dataframe (not in a BI, "here's a pretty chart" sort of way, but just literally "let me view/scroll the data current in this dataframe"):

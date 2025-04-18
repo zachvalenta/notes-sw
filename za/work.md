@@ -486,6 +486,7 @@ One thing I think I do well is technical communication. This shows up in:
 
 ---
 
+OSS for litecli
 bend LinkedIn to your will
 
 https://blog.daviddodda.com/how-i-automated-my-job-application-process-part-1

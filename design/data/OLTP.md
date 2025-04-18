@@ -1133,13 +1133,14 @@ https://github.com/nalgeon/sqlean/blob/main/docs/shell.md
 https://github.com/nalgeon/sqlean/blob/main/docs/install.md#download-package-manager
 PG version https://pgt.dev/
 https://grok.com/chat/e78c92cc-0d1f-4445-81de-8c55947f34c5
-* using with litecli https://github.com/dbcli/litecli/pull/220
+* sqlean using with litecli https://github.com/dbcli/litecli/pull/220
 
 * fewer functions than other dbms
 * _FTS4_: extension for search https://simonwillison.net/2019/Jan/7/exploring-search-relevance-algorithms-sqlite/ https://llm.datasette.io/en/stable/logging.html https://www.philipotoole.com/building-a-highly-available-search-engine-using-sqlite/ 🗄 `algos.md` FTS https://amjith.com/blog/2023/fts_search/
 
 ## 🟠 litecli
 
+📜 https://github.com/dbcli/litecli
 🗄️
 * `OLTP.md` SQLite > CLI
 * `python/pkg.md` venv
@@ -1167,6 +1168,8 @@ litecli db.sqlite -e "select wh.hash, q.* from quote q join with_hashes wh on q.
 
 litecli db.sqlite -e "select * from festo" --csv > with-hashes.csv
 ```
+* LLM features forces install of Willison's lib into global pip userspace https://github.com/dbcli/litecli/issues/222
+> In general, Python packaging is still unsettled to the point where IMO feels a bit odd to dictate the installation method (for a CLI) in a way that it wouldn't be in Rust given cargo's ubiquity.
 
 ---
 
@@ -1178,7 +1181,6 @@ LLM
 * https://amjith.com/blog/2024/introducing-llm-to-litecli/
 * https://amjith.com/blog/2025/llm-in-litecli-1/
 * https://amjith.com/blog/2025/llm-in-litecli-2/
-* https://github.com/dbcli/litecli/issues?q=llm
 
 ## ⚛️ sqlite-utils
 

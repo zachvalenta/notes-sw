@@ -765,6 +765,7 @@ PRAGMA index_list('<tab>') -- SQLite version https://stackoverflow.com/a/4931123
 � core insight: let the data tell you what it is, rather than forcing it into predetermined boxes
 🗄️
 * `modeling.md`
+* `ai/clients.md` in use > db
 * `OLAP.md` pipelines
 * `stat.md` outlier detection
 

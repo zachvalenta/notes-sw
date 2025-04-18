@@ -246,13 +246,13 @@ edit
 * open at file and LOC: `code -g data/eng.md:419`
 
 THINGS I'M NOTICING ABOUT VSC
+* ❌ symbol search doesn't work after git pull of new files | movement of headers
+> sometimes not at all, even after you've just opened file and navigated to header
+> this is getting worse in my notes; maybe some perf/data integrity thing with more headers
 * ❌ won't recognize newly created Python modules for import i.e. you need to restart in order to avoid import hell sanity check
 * ❌ weird overlay when using checkboxes
 * ❌ strange way of getting on `$PATH` -> command pallete > search 'shell command'
 * ❌ constantly wipes out the outliner and requires Vim action to prompt redraw
-* ❌ symbol search doesn't work after git pull of new files | movement of headers
-> sometimes not at all, even after you've just opened file and navigated to header
-> this is getting worse in my notes; maybe some perf/data integrity thing with more headers
 * ❌ Vim plugin fails on big CSV files
 * ❌ no tab groups https://github.com/microsoft/vscode/issues/100335
 * ❌ can't update font

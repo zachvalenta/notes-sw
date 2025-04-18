@@ -662,9 +662,9 @@ OPTIONS
 * _DBeaver_: OSS, ERD https://dbeaver.io/ https://stackoverflow.com/a/48397209
 * _Mathesar_: 🎯 web app to make using Postgres friendly https://github.com/mathesar-foundation/mathesar
 * _Outerbase_: browser https://github.com/outerbase/studio https://news.ycombinator.com/item?id=42320032
-* _SQLTools_: ⭐️ https://github.com/mtxr/vscode-sqltools
+* _SQLTools_: https://github.com/mtxr/vscode-sqltools
 * _Ultorg_: 🎯 $35/month, queryless joins, very interesting interface https://www.hytradboi.com/2022/ultorg-a-user-interface-for-relational-databases
-* _WhoDB_: 🎯 AI https://whodb.clidey.com/docs/
+* _WhoDB_: schema-aware AI https://whodb.clidey.com/docs/
 
 ## spreadsheet (Excel)
 
