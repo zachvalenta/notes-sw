@@ -672,6 +672,24 @@ OPTIONS
 * `finance/corporate.md` accounting > tooling
 * `python.md` REPL
 
+GOOGLE SHEETS
+* xlookup https://grok.com/chat/c6eb05b9-7a74-491f-ad21-9f24c109607e
+> vlookup and hlookup bad, xlookup good, xmatch ok
+```
+=XLOOKUP(d2, 'notebook_output'!)!D:D
+
+D part number
+AB list price
+
+=XLOOKUP(D2, notebook_output!D:D, notebook_output!AB:AB, "", 0)
+=XLOOKUP(D2:D, notebook_output!D:D, notebook_output!AB:AB, "", 0)
+=XLOOKUP(D2:D150, notebook_output!D:D, notebook_output!AB:AB, "", 0)
+=INDEX(notebook_output!AB:AB, MATCH(D2, notebook_output!D:D, 0)) / 0.85
+```
+* https://github.com/nithinmurali/pygsheets
+* can get link to a cell
+* add comment: `cmd alt m`
+
 DESIGN
 * good REPL for single table https://www.ultorg.com/
 * bad at n tables
@@ -686,9 +704,6 @@ ALTERNATIVES
 * OSS https://github.com/gristlabs/grist-core
 * webapp https://equals.app/ https://rows.com/
 * in Python https://pyspread.gitlab.io/ https://news.ycombinator.com/item?id=40284219
-* _Google Sheets_: https://github.com/nithinmurali/pygsheets
-* can get link to a cell
-* add comment: `cmd alt m`
 * _IronCalc_: https://news.ycombinator.com/item?id=42095292 https://github.com/ironcalc/ironcalc
 * _rowzero_: https://rowzero.io/ https://grantslatton.com/
 * _pysheets_: 🎯 uses pyodide https://pysheets.app/about https://realpython.com/podcasts/rpp/226/
