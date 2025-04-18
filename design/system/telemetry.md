@@ -136,7 +136,7 @@ https://networkengineering.stackexchange.com/questions/52232/whats-the-differenc
 
 * _latency_: how long it takes the data to get to the place it needs to be computed https://www.moderndescartes.com/essays/data_oriented_python/ https://github.com/nakabonne/ali geography https://calpaterson.com/latency.html https://danluu.com/term-latency/
 
-jitter https://gafferongames.com/post/fixing_the_internet_for_games/
+jitter https://gafferongames.com/post/fixing_the_internet_for_games/ https://www.youtube.com/watch?v=I_TtMk5z0O0
 > variablility in latency https://networkengineering.stackexchange.com/a/22826
 > out-of-sequence packets [Data Networking Made Easy 26]
 

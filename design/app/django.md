@@ -16,6 +16,8 @@
 
 ## 进步
 
+tracking history https://www.caktusgroup.com/blog/2025/04/07/tips-tracking-django-model-changes-django-pghistory/
+
 STARTER PACKS 🗄️ scaffold
 * https://mattsegal.dev/django-prod-architectures.html
 * https://github.com/wsvincent/lithium
@@ -1123,7 +1125,7 @@ BYO
 
 ## governance
 
-* contribute https://www.better-simple.com/django/2024/12/25/getting-started-contributing-django/
+* contribute https://www.better-simple.com/django/2024/12/25/getting-started-contributing-django/ https://www.djangoproject.com/weblog/2025/apr/17/run-your-tests-against-django-main/
 * consulting https://lincolnloop.com/ https://wsvincent.com/thoughts-on-pyconnz/  https://www.saaspegasus.com/
 * creators: Simon https://news.ycombinator.com/user?id=simonw Adrian https://www.soundslice.com/ Jacob https://jacobian.org/ Andrew Godwin (did south and migrations)
 * history https://jacobian.org/2024/mar/20/django-chat/ https://buttondown.com/carlton/archive/thoughts-on-djangos-core/

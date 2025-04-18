@@ -225,7 +225,7 @@ HADOOP
 * setup https://tech.marksblogg.com/hadoop-up-and-running.html
 * you probably don't need it https://www.benkuhn.net/hard/
 * relationship to other projects like Presto, Clickhouse https://tech.marksblogg.com/is-hadoop-dead.html
-* _HDFS_: distributed file system http://aosabook.org/en/hdfs.html
+* _HDFS_: distributed file system http://aosabook.org/en/hdfs.html https://news.ycombinator.com/item?id=43716058
 * pools all disks from cluster
 * files replicated across nodes (not all nodes; two additional copies)
 * _MapReduce_: map (split query into chunks, execute in parallel) reduce (merge results) 📙 Kleppmann 46

@@ -157,6 +157,12 @@ class BurgerFactory(Burger):
 * _delegation_: composition by another name https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/#delegation-in-oop
 * https://www.thedigitalcatonline.com/blog/2020/08/17/delegation-composition-and-inheritance-in-object-oriented-programming/
 
+## coupling / cohesion
+
+* https://www.youtube.com/watch?v=uWTvMCra-_Y
+* https://everydaysuperpowers.dev/articles/preventing-painful-coupling/
+* https://blog.bytebytego.com/p/coupling-and-cohesion-the-two-principles
+
 ## dependency injection (DI)
 
 🗄️ `python/logic.md` metaprogramming
@@ -169,7 +175,6 @@ Dependency Injection: Inversion of control
 
 https://www.openmymind.net/Dependency-Injection-In-Go/
 * https://github.com/hynek/svcs/ https://svcs.hynek.me/en/stable/ https://www.youtube.com/watch?v=d1elMD9WgpA
-* loose coupling https://www.youtube.com/watch?v=uWTvMCra-_Y
 * https://github.com/uber-go/fx
 * https://www.youtube.com/watch?v=uWTvMCra-_Y
 * https://www.youtube.com/watch?v=0yc2UANSDiw

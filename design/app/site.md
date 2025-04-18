@@ -7,7 +7,7 @@
 cool
 * https://yomguithereal.github.io/ https://edwardtufte.github.io/tufte-css/
 * WebGL https://alexharri.com/blog/webgl-gradients
-* animejs
+* animejs https://fuma-nama.vercel.app/blog/svg-art
 
 update linux fs to account for work machine
 
@@ -246,6 +246,7 @@ LAYOUT 🔗  https://github.com/arp242/hello-css/
 🏔️ https://travisjeffery.com/
 🔗 https://github.com/zachvalenta/web-design
 
+https://spectrum.ieee.org/lely-dairy-robots
 make this into a page https://webdesigninspiration.io/
 great 404s https://news.ycombinator.com/item?id=43589119 https://www.ft.com/404
 
@@ -276,6 +277,7 @@ UNIQUE
 * https://abundance.institute/
 * https://www.nicchan.me/
 * https://www.sacred.computer/
+* https://blog.glyphdrawing.club/why-is-there-a-small-house-in-ibm-s-code-page-437/
 
 ## dropdowns
 

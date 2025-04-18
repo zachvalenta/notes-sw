@@ -426,6 +426,7 @@ VMWARE
 
 📜 https://github.com/abiosoft/colima
 
+* _Lima_: https://www.youtube.com/watch?v=2SGyhd5OI-c
 * _VM manager_: create VM w/ own OS kernel and memory
 > So Colima manages VMs that then run containers inside them, while Podman directly manages containers (using a VM layer on macOS only because it has to).
 * supports multiple runtimes (Docker, containerd, Incus)

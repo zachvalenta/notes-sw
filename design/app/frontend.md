@@ -34,7 +34,7 @@ TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-develop
 > They [McMaster Carr] are server rendering all of their HTML...the server is very good at rendering HTML. https://www.youtube.com/watch?v=-Ln-8QM8KhQ
 * _progressive enhancement_: content first, then sprinkle in some JS if the user-agent allows for it
 * options: InstantPage (load pages before user even clicks) Turbolinks (fast nav w/out SPA) https://macwright.com/2020/10/28/if-not-spas.html 
-* _wysiwyg_: https://news.ycombinator.com/item?id=27516212 https://github.com/facebook/lexical CodeMirror https://github.com/viebel/klipse
+* _wysiwyg_: https://news.ycombinator.com/item?id=27516212 https://github.com/facebook/lexical CodeMirror https://github.com/viebel/klipse https://quilljs.com/ https://github.com/Milkdown/milkdown Django CMS https://www.loopwerk.io/articles/2025/you-probably-dont-need-a-cms/
 
 SPA tradeoffs
 * https://htmx.org/essays/you-cant/
@@ -241,7 +241,6 @@ STDLIB
 * typing: Typescript beat Elm/Flow
 * Typescript, Civet https://news.ycombinator.com/item?id=41885940 https://2ality.com/2025/02/what-is-typescript.html https://exploringjs.com/ts/
 * vizualization: https://www.chartjs.org/ https://testdriven.io/blog/django-charts/#prepare-and-serve-the-data https://github.com/airbnb/visx https://github.com/recharts/recharts -> https://openbb.co/open#social-media-metrics 🗄 `math.md` graphs
-* WYSIWYG: https://quilljs.com/ https://github.com/Milkdown/milkdown
 * tooling in other languages https://news.ycombinator.com/item?id=26872457
 * rich text editor https://news.ycombinator.com/item?id=30299800
 * heatmap https://cal-heatmap.com/

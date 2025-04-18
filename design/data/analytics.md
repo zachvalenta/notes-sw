@@ -686,6 +686,7 @@ AB list price
 =XLOOKUP(D2:D150, notebook_output!D:D, notebook_output!AB:AB, "", 0)
 =INDEX(notebook_output!AB:AB, MATCH(D2, notebook_output!D:D, 0)) / 0.85
 ```
+* DuckDB https://www.youtube.com/watch?v=L18RgWjeiyA
 * https://github.com/nithinmurali/pygsheets
 * can get link to a cell
 * add comment: `cmd alt m`

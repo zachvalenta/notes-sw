@@ -68,6 +68,9 @@ MODELS
 * _4o_: 24.05
 * _o1_: https://simonwillison.net/2024/Dec/7/prompts-js/ https://marginalrevolution.com/marginalrevolution/2024/12/dean-ball-speaks.html
 * _o1 pro_: 24.12 (preview in 24.09) https://thezvi.substack.com/p/o1-turns-pro https://x.com/mckaywrigley/status/1865089975802646857 https://news.ycombinator.com/item?id=42330732
+* _o3-mini_: deprecated https://simonwillison.net/2025/Apr/17/ted-sanders/
+* _o4-mini_: good at vision https://simonwillison.net/2025/Apr/16/james-betker/
+* _4.1_: https://openai.com/index/gpt-4-1/
 
 ZA
 * 1-800-CHATGPT https://help.openai.com/en/articles/10193193-1-800-chatgpt-calling-and-messaging-chatgpt-with-your-phone
@@ -194,7 +197,6 @@ start here https://parlance-labs.com/education/ https://applied-llms.org/ https:
 * 90% of the job is munging data, models are implemented by people w/ PhDs https://towardsdatascience.com/the-cold-start-problem-how-to-build-your-machine-learning-portfolio-6718b4ae83e9 https://spectrum.ieee.org/view-from-the-valley/artificial-intelligence/machine-learning/andrew-ng-xrays-the-ai-hype more on job market https://evjang.com/2022/04/25/rome.html
 * https://www.youtube.com/watch?v=JLTYNPoK7nw https://www.youtube.com/watch?v=pvaIi0l1GME https://softwareengineeringdaily.com/2019/06/13/stripe-machine-learning-infrastructure-with-rob-story-and-kelley-rivoire/
 * this seems dumb but maybe I don't understand yet https://calmcode.io/course/deon/introduction
-* evals https://simonwillison.net/2025/Mar/8/nicar-llms/ https://simonwillison.net/2025/Apr/1/pydantic-evals/
 
 ## agents
 
@@ -292,6 +294,13 @@ result = sentiment_analysis(input_text)
 transcriber = pipeline(task="automatic-speech-recognition", model="openai/whisper-small")
 result = transcriber("https://huggingface.co/datasets/Narsil/asr_dummy/resolve/main/mlk.flac")
 ```
+
+## evals
+
+* https://simonwillison.net/2025/Mar/8/nicar-llms/
+* https://simonwillison.net/2025/Apr/1/pydantic-evals/
+* https://platform.openai.com/docs/guides/evals
+*  https://simonwillison.net/2025/Apr/17/ted-sanders/
 
 ## keyword search
 

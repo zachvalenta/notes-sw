@@ -278,6 +278,7 @@ https://www.youtube.com/watch?v=3Ep7WOCv38M
 https://splitkb.com/products/halcyon-kyria https://www.youtube.com/watch?v=03fXixHEOEI
 
 MAYBE
+* _Cyboard_: https://www.youtube.com/watch?v=WYmeQklD7uI
 * _Dygma defy_: 🎯 $370; featureful, bad taste https://dygma.com/pages/defy https://www.youtube.com/watch?v=R9YTQn1ik9I
 * _Glove80_: $400 low-profile, expensive, ugly https://www.moergo.com/collections/glove80-keyboards https://www.youtube.com/watch?v=QLb3ewK8R2Y
 

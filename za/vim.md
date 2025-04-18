@@ -138,9 +138,7 @@ HISTORY
 * 2006: Vim 7.0
 * 2013: Vim 8.0 📙 PV [5.27]
 * 2015: Neovim
-* 2020s: Zed, Helix https://helix-editor.com/ Helix matcher https://github.com/alexpasmantier/television https://news.ycombinator.com/item?id=33147270 https://www.youtube.com/watch?v=tGYvUXYN-c0 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
-> select + action and space mode makes me think helix is worth learning https://www.youtube.com/watch?v=xHebvTGOdH8 https://www.youtube.com/watch?v=5WLlLxU2EZE
-> https://anvil-editor.net/ http://acme.cat-v.org/ https://news.ycombinator.com/item?id=41923018
+* 2020s: Zed, Helix, Kakoune
 
 ## Emacs
 
@@ -159,6 +157,15 @@ HISTORY
 * https://www.murilopereira.com/emacs-from-catching-up-to-getting-ahead/
 * https://www.murilopereira.com/the-values-of-emacs-the-neovim-revolution-and-the-vscode-gorilla/
 * https://www.thediff.co/archive/building-for-power-users/
+
+## Helix
+
+---
+
+* https://helix-editor.com/ Helix matcher https://github.com/alexpasmantier/television https://news.ycombinator.com/item?id=33147270 https://www.youtube.com/watch?v=tGYvUXYN-c0 Kakoune https://www.youtube.com/watch?v=5WLlLxU2EZE https://www.youtube.com/watch?v=5WLlLxU2EZE Amp https://amp.rs/
+* usage in the wild https://github.com/efugier/smartcat
+> select + action and space mode makes me think helix is worth learning https://www.youtube.com/watch?v=xHebvTGOdH8 https://www.youtube.com/watch?v=5WLlLxU2EZE
+> https://anvil-editor.net/ http://acme.cat-v.org/ https://news.ycombinator.com/item?id=41923018
 
 ## Jetbrains
 

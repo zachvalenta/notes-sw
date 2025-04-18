@@ -124,7 +124,7 @@ INTERNALS / DESIGN https://www.youtube.com/watch?v=QU158nGABxI https://www.youtu
 def simple_tracer(frame, event):  # 4:30
 ```
 * trickier with multithreading [10:00]
-* BYO w/ bdb [11:45]
+* BYO w/ bdb [11:45] https://www.geoffreylitt.com/2024/12/22/making-programming-more-fun-with-an-ai-generated-debugger
 * BYO https://www.timdbg.com/posts/writing-a-debugger-from-scratch-part-5/
 * https://werat.dev/blog/what-a-good-debugger-can-do/
 * https://wizardzines.com/zines/debugging-guide/

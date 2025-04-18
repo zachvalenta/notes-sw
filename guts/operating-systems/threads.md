@@ -68,7 +68,8 @@ https://www.youtube.com/watch?v=Wvh5C3NbQtA
 * https://pythonspeed.com/articles/gpu-vs-cpu/
 * https://tonybaloney.github.io/posts/sub-interpreter-web-workers.html
 * thead pools https://pythonspeed.com/articles/two-thread-pools/
-* https://pythonspeed.com/articles/optimizing-dithering/
+* grayscale, dithering https://pythonspeed.com/articles/optimizing-dithering/
+> Image dithering is a technique used to represent an image reliant upon a large color palette (RGB, for instance) using a much smaller color palette (in our case, black-and-white) such that the human eye perceives the new image as having more color depth than it actually does. https://amanvir.com/blog/writing-my-own-dithering-algorithm-in-racket
 * https://news.ycombinator.com/item?id=37505553
 * semaphore https://death.andgravity.com/limit-concurrency
 https://news.ycombinator.com/item?id=35073136

@@ -47,12 +47,13 @@ locality
 
 > continue pulling in from cursor
 
-* Gemini can read entire codebase? https://aistudio.google.com https://news.ycombinator.com/item?id=43478199 https://simonwillison.net/2025/Mar/26/notes/
+* Gemini can read entire codebase? https://aistudio.google.com https://news.ycombinator.com/item?id=43478199
 * you've enabled Codeium extension auth on Github (for VS Code)
 * try Cline VS Code extension
-* files-to-prompt https://simonwillison.net/2025/Mar/26/notes/
+* files-to-prompt https://simonwillison.net/2025/Mar/26/notes/ https://simonwillison.net/2025/Apr/14/llms-as-the-first-line-of-support/
 * files https://getstream.io/blog/cursor-ai-large-projects/
 * Cursor rules https://news.ycombinator.com/item?id=43658923
+* https://plandex.ai/ https://github.com/plandex-ai/plandex
 
 ---
 

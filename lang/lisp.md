@@ -61,6 +61,7 @@ USED BY
 USED BY
 * https://docs.racket-lang.org/pollen/
 * https://github.com/DarrenN/cuttlefish
+* https://amanvir.com/blog/writing-my-own-dithering-algorithm-in-racket
 
 ---
 
