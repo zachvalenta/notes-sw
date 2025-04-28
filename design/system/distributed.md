@@ -124,6 +124,7 @@ transactions & isolation levels 📙 Beaulieu 12
 
 📙 Kleppmann 7, section 2 🗄 `django.md` design https://lethain.com/distributed-systems-vocabulary/
 
+* https://www.youtube.com/watch?v=TsmhRZElPvM [7:20]
 * https://www.youtube.com/watch?v=yaQ5YMWkxq4
 * _atomic_: transaction succeeds/fails as an entire unit https://brandur.org/postgres-atomicity
 * NoSQL kinda does http://aosabook.org/en/nosql.html

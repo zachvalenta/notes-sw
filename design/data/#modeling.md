@@ -288,6 +288,7 @@ HIERARCHICAL
 
 start here https://www.richard-towers.com/2025/02/16/representing-graphs-in-postgres.html
 
+* _Memgraph_: https://memgraph.com/blog/nasa-memgraph-people-knowledge-graph
 * _EdgeDB_: graph-relational = no impedance mismatch but still relational https://news.ycombinator.com/item?id=30290225 built on Postgres https://www.geldata.com/blog/edgedb-is-now-gel-and-postgres-is-the-future
 * Postgres https://supabase.com/blog/pgrouting-postgres-graph-database
 * _Age_: graph for Postgres https://age.apache.org/

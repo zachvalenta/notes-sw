@@ -345,7 +345,7 @@ Persistent Connections: They maintain a connection (long-lived or otherwise) to 
 Event-Driven Architecture: Servers send updates as events occur, which clients can handle asynchronously.
 ```
 
-* _server-sent events_: https://testdriven.io/blog/fastapi-svelte/
+* _server-sent events_: https://testdriven.io/blog/fastapi-svelte/ https://news.ycombinator.com/item?id=43805358
 > Server-Sent Events (SSE) is a web technology that enables a server to push real-time updates to a browser over an HTTP connection. Unlike WebSockets, SSE is unidirectional, meaning the communication flows from the server to the client only. This makes it ideal for applications where the client needs to receive updates from the server in real time, such as live news feeds, stock price updates, or notifications.
 ```txt
 Simplicity: Easy to implement with existing HTTP infrastructure.

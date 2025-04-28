@@ -611,6 +611,13 @@ dsq "SELECT a.col1, b.col2 FROM a AS a JOIN b AS b ON a.id = b.id;" a.csv b.csv
 
 ## entry (dataclerk)
 
+storing PDFs https://news.ycombinator.com/item?id=42059639
+> able to store Markdown?
+
+the context of my request: have various personal databases (books I've read, round of golf with friends) where I'd like structured data for certain aspects but also want 1) the ability to take notes 2) for those notes to be version controlled
+
+notes in filesystem, db at repo root -> https://claude.ai/chat/2b039db9-8c39-473b-bc1e-51c67aec603a
+
 🗄️ EDA > fkfind
 
 https://github.com/mkaz/libro

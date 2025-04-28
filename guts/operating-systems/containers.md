@@ -750,7 +750,7 @@ ZA
 * GUI https://aptakube.com/
 * _caretta_: dependency map https://github.com/groundcover-com/caretta
 * _minikube_: run locally https://kubernetes.io/docs/tasks/tools/#minikube
-* alternatives https://github.com/windmilleng/tilt https://github.com/kubernetes-sigs/kind
+* alternatives https://github.com/windmilleng/tilt https://news.ycombinator.com/item?id=43806296 https://github.com/kubernetes-sigs/kind
 * _Karpenter_: autoscale nodes https://www.thoughtworks.com/radar/tools?blipid=202210013 https://karpenter.sh/
 * _kubectl_: CLI
 * switched btw namespaces and contexts/clusters https://github.com/ahmetb/kubectx

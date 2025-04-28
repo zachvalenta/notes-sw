@@ -981,9 +981,6 @@ class Foo(models.Model):
 🗄 `db.md` SQLite/design
 📙 Beaulieu chapter 7
 
-storing PDFs https://news.ycombinator.com/item?id=42059639
-> able to store Markdown?
-
 TYPES
 * money https://www.youtube.com/watch?v=lxVzLAHnPOE https://news.ycombinator.com/item?id=41776878
 * _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]

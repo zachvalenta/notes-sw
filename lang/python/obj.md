@@ -897,6 +897,7 @@ sys.getrefcount('abc')  # 44
 
 > port to `language.md`
 
+* the only silver bullet in software history https://www.youtube.com/watch?v=VKu3Dyyzzjg [32:45]
 * weakref https://martinheinz.dev/blog/112
 * _garbage_: memory occupied by obj no longer in use
 * _garbage collection_: scheduled memory management

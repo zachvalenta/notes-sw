@@ -838,6 +838,7 @@ FS LOCATIONS https://missing.csail.mit.edu/2019/machine-introspection/ 🗄️ `
 
 ---
 
+* Clickhouse https://github.com/mr-karan/logchef
 * buffered https://blog.bytebytego.com/p/how-amex-processes-millions-of-daily
 
 ```txt

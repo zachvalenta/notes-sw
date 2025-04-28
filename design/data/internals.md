@@ -25,6 +25,8 @@ CHECKSUMS
 
 # 🏎️ ENGINES
 
+https://www.dolthub.com/blog/2025-04-25-sql-engine-anatomy/
+
 ## query
 
 🗄️ `data/eng.md` query engines

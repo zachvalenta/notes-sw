@@ -219,23 +219,6 @@ BASICS
 * used for ML https://tech.marksblogg.com/is-hadoop-dead.html
 * _pyspark_: Python API to Spark https://www.youtube.com/watch?v=XrpSRCwISdk https://spark.apache.org/docs/latest/api/python/index.html
 
-HADOOP
-* _Hadoop_: parallelization for large data 🗄 `infra.md` EMR https://aosabook.org/en/v1/hdfs.html
-* kinda part of Spark, kinda not
-> At some point, the Spark community tried to distance itself from the Hadoop ecosystem. They didn't want to be seen as built on legacy software nor as some sort of "add-on" for Hadoop. Given the level of integration Spark has with the rest of the Hadoop ecosystem and given the 100s of libraries from other Hadoop projects being used by Spark I don't subscribe to the belief that Spark is its own thing. https://tech.marksblogg.com/is-hadoop-dead.html
-* no one uses anymore? https://news.ycombinator.com/item?id=30595026 https://tech.marksblogg.com/architecting-modern-data-platforms-book-review.html https://tech.marksblogg.com/is-hadoop-dead.html
-> Whereas Hadoop and big data targeted analytics applications, often in the data warehousing space, the low latency nature of Kafka makes it applicable for the kind of core applications that directly power a business 📙 Narkhede kafka 
-* setup https://tech.marksblogg.com/hadoop-up-and-running.html
-* you probably don't need it https://www.benkuhn.net/hard/
-* relationship to other projects like Presto, Clickhouse https://tech.marksblogg.com/is-hadoop-dead.html
-* _HDFS_: distributed file system http://aosabook.org/en/hdfs.html https://news.ycombinator.com/item?id=43716058
-* pools all disks from cluster
-* files replicated across nodes (not all nodes; two additional copies)
-* _MapReduce_: map (split query into chunks, execute in parallel) reduce (merge results) 📙 Kleppmann 46
-* map (match) reduce (group) https://www.practical-mongodb-aggregations.com/intro/history.html
-* also a query language 📙 Kleppmann 46
-* PRQL = alternative query language https://news.ycombinator.com/item?id=30060784
-
 # ⭕️ FACTORS
 
 🗄️ `data/modeling.md` factors
@@ -538,6 +521,8 @@ https://simonwillison.net/2025/Apr/8/stop-syncing-everything/
 
 ## ⦊ Presto
 
+just a way to query Iceberg https://www.youtube.com/watch?v=TsmhRZElPvM [11:45]
+
 ---
 
 > That’s now rapidly changing; on the back-end, most modern enterprise software (e.g. Salesforce, Jira, etc.) now have good APIs for exporting data. ETL + data lakes are on the rise: Presto, for example, facilitates cross-database joins that weren’t possible just a few years ago. https://retool.com/blog/erp-for-engineers
@@ -640,6 +625,28 @@ Spend a week exploring some larger analytics datasets, or converting some of the
 * _Deltalake_: lakehouse https://news.ycombinator.com/item?id=34345408
 * _Redshift_: warehouse https://aws.amazon.com/redshift/
 
+## Hadoop
+
+---
+
+first datalake https://www.youtube.com/watch?v=TsmhRZElPvM [1:15]
+
+* _Hadoop_: parallelization for large data 🗄 `infra.md` EMR https://aosabook.org/en/v1/hdfs.html
+* kinda part of Spark, kinda not
+> At some point, the Spark community tried to distance itself from the Hadoop ecosystem. They didn't want to be seen as built on legacy software nor as some sort of "add-on" for Hadoop. Given the level of integration Spark has with the rest of the Hadoop ecosystem and given the 100s of libraries from other Hadoop projects being used by Spark I don't subscribe to the belief that Spark is its own thing. https://tech.marksblogg.com/is-hadoop-dead.html
+* no one uses anymore? https://news.ycombinator.com/item?id=30595026 https://tech.marksblogg.com/architecting-modern-data-platforms-book-review.html https://tech.marksblogg.com/is-hadoop-dead.html
+> Whereas Hadoop and big data targeted analytics applications, often in the data warehousing space, the low latency nature of Kafka makes it applicable for the kind of core applications that directly power a business 📙 Narkhede kafka 
+* setup https://tech.marksblogg.com/hadoop-up-and-running.html
+* you probably don't need it https://www.benkuhn.net/hard/
+* relationship to other projects like Presto, Clickhouse https://tech.marksblogg.com/is-hadoop-dead.html
+* _HDFS_: distributed file system http://aosabook.org/en/hdfs.html https://news.ycombinator.com/item?id=43716058
+* pools all disks from cluster
+* files replicated across nodes (not all nodes; two additional copies)
+* _MapReduce_: map (split query into chunks, execute in parallel) reduce (merge results) 📙 Kleppmann 46
+* map (match) reduce (group) https://www.practical-mongodb-aggregations.com/intro/history.html
+* also a query language 📙 Kleppmann 46
+* PRQL = alternative query language https://news.ycombinator.com/item?id=30060784
+
 ## Hudi
 
 * _Hudi_: lakehouse https://news.ycombinator.com/item?id=34345408
@@ -647,6 +654,8 @@ Spend a week exploring some larger analytics datasets, or converting some of the
 ## 🧊 Iceberg
 
 🔍 email
+
+= table format + you can run it on SQLite https://www.youtube.com/watch?v=TsmhRZElPvM [11:30]
 
 ---
 

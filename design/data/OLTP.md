@@ -282,6 +282,7 @@ The general problem this addresses is maintaining perfect history of state chang
 * Kleppmann ch. 6 https://en.wikipedia.org/wiki/Partition_(database)
 🗄️ `dbms.md` Mongo
 
+* database-per-tenant https://news.ycombinator.com/item?id=43811400
 * _partition_: diff data on diff nodes 📙 Kleppmann 199
 * pruning https://eradman.com/posts/partition-pruning.html
 * why: horizontal scaling, put more frequently accessed data on better hardware or more geographically proximate 📙 Bradshaw [289]
