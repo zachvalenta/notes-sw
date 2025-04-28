@@ -14,6 +14,8 @@ installed everything on work machine https://github.com/zachvalenta/capp-denv-lo
 
 can deploy with Docker Compose on ECS https://www.youtube.com/watch?v=E6KVIUJ50y0 https://www.youtube.com/watch?v=lSZDWY80rPw
 
+Swarm is actually good? https://www.youtube.com/watch?v=VpZ59xtnmro
+
 QUESTION
 ```txt
 I'm trying to figure out what to use for containers for my team.

@@ -258,7 +258,7 @@ https://venthur.de/2025-01-12-build-backends.html
 
 * setuptools
 * poetry
-* hatchling
+* hatchling https://github.com/mkaz/libro
 * flit
 
 ## distutils

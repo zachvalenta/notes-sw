@@ -620,7 +620,23 @@ notes in filesystem, db at repo root -> https://claude.ai/chat/2b039db9-8c39-473
 
 🗄️ EDA > fkfind
 
-https://github.com/mkaz/libro
+half ass https://github.com/mkaz/libro
+```sh
+libro add
+
+Add new book read
+Enter book details:
+Title: ulysses
+Author: james joyce
+Publication year: 1922
+Number of pages:
+Genre (fiction/nonfiction): fiction
+Date read (YYYY-MM-DD): 2009
+Rating (1-5): 5
+Your review: (Enter two consecutive blank lines to finish)
+a great work
+```
+
 > maybe the solution is using metadata ala a static site generator?
 
 > Are there any CLI/TUI tools in which you can enter data directy to a database but with the caveat that the tool would figure out the schema for you? Let me give you an example. Imagine you have a database for books. There are tables for authors, book, genres, publishers, etc. When you open this tool, you don't have to remember all the fields you need to fill out or foreign key constraints. The tool would simply provide a form, you'd input the information you needed to. Anything that could be a dropdown (maybe genres?) would be, otherwise you'd simply type in the rest, with appropriate warnings if you were violating a foreign key constraints or type constraints (e.g. if you failed to put an integer for publication_year).
