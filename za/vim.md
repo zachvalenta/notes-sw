@@ -554,6 +554,7 @@ PLUGINS
 
 ---
 
+https://www.jonashietala.se/blog/tags/neovim/
 attempt to config Markdown LSP to ignore certain errors https://github.com/search?q=repo%3ALazyVim%2FLazyVim%20markdownlint&type=code
 ```lua
 -- lua/plugins/markdown.lua

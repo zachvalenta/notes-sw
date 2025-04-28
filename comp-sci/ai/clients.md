@@ -15,6 +15,7 @@ TOP OF MIND
 * use llm better https://simonwillison.net/2025/Apr/23/llm-fragment-symbex/
 * copilot https://simonwillison.net/2024/Dec/18/free-tier-for-github-copilot/ https://www.youtube.com/watch?v=dutyOc_cAEU https://www.youtube.com/watch?v=hyhZKRAQdLs
 * voice notes to self https://simonwillison.net/2025/Apr/23/diane/ https://whispermemos.com/
+* https://news.ycombinator.com/item?id=43739456 https://github.com/The-Pocket/Tutorial-Codebase-Knowledge
 
 # 🪚 IN USE
 

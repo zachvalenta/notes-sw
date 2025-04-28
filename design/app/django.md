@@ -18,6 +18,7 @@
 
 architecture https://github.com/radiac/django-style
 tracking history https://www.caktusgroup.com/blog/2025/04/07/tips-tracking-django-model-changes-django-pghistory/
+datasette https://simonwillison.net/2025/Apr/28/dashboard-alt-text/
 
 STARTER PACKS 🗄️ scaffold
 * https://mattsegal.dev/django-prod-architectures.html

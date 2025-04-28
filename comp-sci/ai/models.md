@@ -274,6 +274,8 @@ https://x.com/david_perell/status/1897387371244478668
 
 ## RAG
 
+pairwise https://gwern.net/resorter Bradley-Terry https://en.wikipedia.org/wiki/Bradley%E2%80%93Terry_model
+
 💡 core model enhanced by access to specific docs
 🛠️ markitdown https://github.com/Goldziher/kreuzberg
 🗄️

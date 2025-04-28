@@ -371,6 +371,21 @@ https://www.getzola.org/documentation/deployment/aws-s3/
 
 ## Github Pages
 
+context: my personal site repo is https://github.com/zachvalenta/zachvalenta.github.io I'm trying to move to a different static site generator. I'm using this repo to test it out: https://github.com/zachvalenta/zjayv.github.io
+> https://chatgpt.com/c/680eda63-ce0c-8004-8e45-5f65dc69ae6a
+```txt
+You already have a user site at
+→ https://zachvalenta.github.io
+(GitHub requires that repo to be named zachvalenta.github.io.)
+
+You’re trying to also publish zjayv.github.io as another "user site" — but GitHub Pages only allows one user site per account.
+
+zjayv.github.io will not automatically become a second root-level site (https://zjayv.github.io/).
+
+GitHub will treat it as a project site, meaning URL will be:
+→ https://zachvalenta.github.io/zjayv.github.io/
+```
+
 > try using Sourcehut instead
 
 RULES https://www.getzola.org/documentation/deployment/github-pages/ https://github.com/shalzz/zola-deploy-action https://chatgpt.com/c/675a107f-ecac-8004-97eb-1fecff5fb9c0
