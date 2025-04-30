@@ -11,6 +11,10 @@
 * https://datascience.stackexchange.com/
 📚
 
+START HERE
+* https://getkiln.ai/
+* fine-tuning https://news.ycombinator.com/item?id=43846964
+
 APPLICATIONS
 * Ferguson game of go
 * ⭐️ Flynn drug discovery https://www.manning.com/books/machine-learning-for-drug-discovery

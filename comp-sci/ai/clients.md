@@ -208,7 +208,7 @@ ALTERNATIVES
 * _Windsurf_: 🎯 https://blog.val.town/blog/fast-follow/
 * _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://codeium.com/windsurf https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
 * you've enabled Codeium extension auth on Github (for VS Code)
-* _Jetbrains junie_: https://www.jetbrains.com/junie/
+* _Jetbrains junie_: ❌ https://www.jetbrains.com/junie/ https://news.ycombinator.com/item?id=43850377
 * _Tabby_: ❌ no traction, no mention of context awareness https://www.tabbyml.com/ https://news.ycombinator.com/item?id=42675725
 * _Void_: ❌ unfinished https://voideditor.com/ https://news.ycombinator.com/item?id=41563958
 * _Zed_: not quite there yet? https://zed.dev/docs/assistant/inline-assistant https://stevedylan.dev/posts/leaving-neovim-for-zed/#ai-stuff https://zed.dev/docs/assistant/assistant-panel 🗄️ `vim.md` Zed
