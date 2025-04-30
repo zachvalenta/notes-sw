@@ -122,6 +122,7 @@ TIME MACHINE
 SW
 * svc: rm McConnell code complete and ur-repo (already in projects dir)
 * Beaulieu
+* AI, Django
 
 MUSIC
 * willie nelson live at the teatro
@@ -148,6 +149,7 @@ MUSIC
 * nina simone
 
 SINGLES
+* Van Morrison country fair
 * hank williams dont let me love you
 * dead prez
 * clothes line saga

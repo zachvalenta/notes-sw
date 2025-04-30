@@ -172,6 +172,7 @@ https://www.amazon.com/How-Bake-Pi-Exploration-Mathematics/dp/0465097677
 
 ---
 
+> Lists are stored in memory as linked lists, meaning that each element in a list holds its value and points to the following element until the end of the list is reached. This means accessing the length of a list is a linear operation: we need to traverse the whole list in order to figure out its size. https://hexdocs.pm/elixir/lists-and-tuples.html
 * https://www.youtube.com/watch?v=odW9FU8jPRQ
 * https://news.ycombinator.com/item?id=33473497
 * https://docs.python.org/3/glossary.html#term-list
@@ -297,7 +298,8 @@ https://buttondown.com/hillelwayne/archive/maybe-software-engineers-could-learn-
 
 ### tools
 
-WALKERS
+WALKERS / TRAVERSAL
+* https://news.ycombinator.com/item?id=43831628
 * BYO https://realpython.com/directory-tree-generator-python/
 * _frangipanni_: https://github.com/birchb1024/frangipanni https://news.ycombinator.com/item?id=26622548
 * no Homebrew https://github.com/birchb1024/frangipanni/issues/21

@@ -16,6 +16,7 @@
 
 ## 进步
 
+* https://talkpython.fm/episodes/show/502/django-ledger-accounting-with-python
 architecture https://github.com/radiac/django-style
 tracking history https://www.caktusgroup.com/blog/2025/04/07/tips-tracking-django-model-changes-django-pghistory/
 datasette https://simonwillison.net/2025/Apr/28/dashboard-alt-text/
@@ -1093,6 +1094,7 @@ MVT
 * controller in MVC
 
 RAILS
+* domain https://news.ycombinator.com/item?id=34936023
 * still the best https://rubyonrails.org/doctrine/
 * https://news.ycombinator.com/item?id=42856766
 > It's productive, it's fast enough, it scales just fine, and perhaps most importantly there's a "right" way to do just about everything your web application will ever need to do: background jobs, websockets, read-only database replicas. https://news.ycombinator.com/item?id=42014906

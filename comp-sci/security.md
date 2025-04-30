@@ -413,6 +413,13 @@ https://www.youtube.com/watch?v=xHFzhBjnMPI https://news.ycombinator.com/item?id
 
 ---
 
+TOTP https://terminaltrove.com/andcli/
+https://terminaltrove.com/andcli/
+https://terminaltrove.com/kure/
+https://terminaltrove.com/pwdsafety
+https://terminaltrove.com/passepartui/
+https://terminaltrove.com/apw/
+
 keychain https://weiyen.net/articles/useful-macos-cmd-line-utilities
 
 PAK/PAKE https://en.wikipedia.org/wiki/Password-authenticated_key_agreement https://github.com/schollz/croc https://en.wikipedia.org/wiki/Pake

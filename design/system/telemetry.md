@@ -507,6 +507,7 @@ cmd:
 * _hyperfine_: https://github.com/sharkdp/hyperfine inode caching https://news.ycombinator.com/item?id=42179600
 
 PYTHON
+* https://github.com/airspeed-velocity/asv
 * https://www.pythonmorsels.com/cli-tools/#timeit
 * _fastero_: 🎯 timeit alternative https://github.com/wasi-master/fastero
 * _time_: https://superfastpython.com/benchmark-execution-time * https://wsvincent.com/algorithms-binary-search/

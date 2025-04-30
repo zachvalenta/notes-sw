@@ -322,6 +322,7 @@ https://dbdb.io/ https://nchammas.com/writing/database-access-patterns
 
 ---
 
+* Linq https://github.com/EntilZha/PyFunctional
 * Bruin, Cue https://news.ycombinator.com/item?id=42442812
 * https://www.youtube.com/watch?v=kGT4PcTEPP8
 * https://sre.google/sre-book/table-of-contents/ chapter 26
@@ -458,6 +459,7 @@ https://www.milesmcbain.com/posts/assertive-programming-for-pipelines/
 * https://pycon-archive.python.org/2024/schedule/presentation/46/index.html
 * compare data across tables https://github.com/datafold/data-diff https://github.com/paulfitz/daff 
 * _Pandera_: type checking for dataframes https://endjin.com/blog/2023/03/a-look-into-pandera-and-great-expectations-for-data-validation https://www.peterbaumgartner.com/blog/testing-for-data-science/ https://www.union.ai/blog-post/pandera-joins-union-ai https://www.youtube.com/watch?v=Ax4pWz6kUDw
+* for Polars https://tech.quantco.com/blog/dataframely
 > From there, I create v2 of the schema, which adds Checks to the columns. Checks are information we gain after exploring the data - for example, whether a column should always be positive, whether the column name should be formatted a certain way, or whether a column should only contain certain values (e.g. a bool represented as a 0/1 int). https://www.peterbaumgartner.com/blog/testing-for-data-science/
 * _GX (Great Expectations)_: assert against schema https://github.com/great-expectations/great_expectations https://softwareengineeringdaily.com/2020/02/17/great-expectations-data-pipeline-testing-with-abe-gong/ https://www.youtube.com/watch?v=8K6bU_AlUb8
 > If we're expecting to repetedly read in new data, I would recommend exploring Great Expectations. The killer feature of Great Expectations is that it will generate a template of tests for the data based on a sample set of data we give it, like pandera's `infer_schema` on steroids. Again, this is only a starting point for adding in future tests (or expectations), but can be really helpful in generating basic things to test. https://www.peterbaumgartner.com/blog/testing-for-data-science/

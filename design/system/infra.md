@@ -46,6 +46,7 @@ https://read.engineerscodex.com/p/how-facebook-scaled-memcached
 * license craziness https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 > I'll be blunt: I don't care for Redis. It is slow, it has fake transactions, and its query syntax is a freakshow. Our experiments at CMU found Dragonfly to have much more impressive performance numbers (even with a single CPU core). In my database course, I use the Redis query language as an example of what not to do. Nevertheless, I am sympathetic to Redis Ltd.'s plight of being overrun by Amazon. However, the company is overestimating the barrier of entry to build a simplistic system like Redis; it is much lower than building a full-featured DBMS (e.g., Postgres), so there are several alternatives to the OG Redis. They are not in position of strength where such posturing will be tolerated by the community. https://www.cs.cmu.edu/~pavlo/blog/2025/01/2024-databases-retrospective.html
 
+* scaling https://www.youtube.com/watch?v=uptpnVdwFM4
 * open source alternative Valkey https://www.youtube.com/watch?v=npnagMgbruc
 * another alternative https://news.ycombinator.com/item?id=43379262 reactive https://dicedb.io/
 https://www.openmymind.net/Redis-Is-The-Most-Important-Tool-In-My-Toolbelt/
@@ -382,7 +383,7 @@ TYPES
 * Nginx, Envoy https://dropbox.tech/infrastructure/how-we-migrated-dropbox-from-nginx-to-envoy https://news.ycombinator.com/item?id=32572153
 * _algos_: least-busy (based on server pushing <foo> metric?) round-robin (subject to chance i.e. server n could unluckily keep getting the heavier requests) https://www.youtube.com/watch?v=-W9F__D3oY4 @ 18:00
 * _hw_: Kemp, Barracuda, F5; run $1-20k bc need to handle GBps of traffic https://news.ycombinator.com/item?id=21095159&utm_term=comment 
-* BYO: https://kasvith.github.io/posts/lets-create-a-simple-lb-go/ https://dev.to/bmf_san/implement-a-load-balancer-in-golang-8gj
+* BYO: https://kasvith.github.io/posts/lets-create-a-simple-lb-go/ https://dev.to/bmf_san/implement-a-load-balancer-in-golang-8gj https://hackernoon.com/this-150-line-go-script-is-actually-a-full-on-load-balancer
 
 # 🏁 QUEUES
 
@@ -623,6 +624,7 @@ SEMANTICS
 ---
 
 CLEANUP
+* https://judoscale.com/blog/choose-python-task-queue
 * https://testdriven.io/courses/django-celery/ https://testdriven.io/blog/django-admin-celery/
 * durable https://github.com/dbos-inc/dbos-transact-py
 * https://github.com/cybertec-postgresql/pg_timetable

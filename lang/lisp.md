@@ -86,15 +86,23 @@ USED BY
 📜 https://elixir-lang.org/
 📚
 > use for frontend reads https://grok.com/chat/5761b0d7-100a-48e2-a1b9-6cf32a691d37
-> web https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/ https://pragprog.com/titles/liveview/programming-phoenix-liveview/ https://pragprog.com/titles/wmecto/programming-ecto/ https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/
+> There are systems that aren't a good fit for Elixir. It requires a runtime which immediately eliminates some types of applications. If you want to throw CPU cores at a large data set, process isolation becomes a limitation. The Elixir way is distribution, but despite recent trends, I'd recommend scaling up before scaling out. Related, it doesn't have the best number crunching performance. https://www.openmymind.net/The-Beauty-Of-Elixir-And-Beam/
+* web https://pragprog.com/titles/lhelph/functional-web-development-with-elixir-otp-and-phoenix/ https://pragprog.com/titles/liveview/programming-phoenix-liveview/ https://pragprog.com/titles/wmecto/programming-ecto/ https://pragprog.com/titles/puphoe/building-table-views-with-phoenix-liveview/
 * https://pragprog.com/titles/alnpee/network-programming-in-elixir-and-erlang/
 * https://pragprog.com/titles/passweather/build-a-weather-station-with-elixir-and-nerves/
 * https://pragprog.com/titles/sgdpelixir/concurrent-data-processing-in-elixir/
 * https://pragprog.com/titles/jgotp/designing-elixir-systems-with-otp/
 
+* _Ecto_: https://news.ycombinator.com/item?id=34936023
+* _BEAM_: VM
+> Elixir doesn't have threads. It has processes. That can make talking about them a little confusing: am I talking about an Elixir process or an OS process? But as you learn Elixir, you should come to realize: process is a good name for them. Elixir processes only have access to their memory. They can't access another process' memory, nor is there global memory that can be shared between them. Coordination happens via message. If Process A wants access to some of Process B's data, it can ask for it, but it'll only get a copy of the data (in other words, Process B can't break Process A). Elixir processes are boundaries that can be used to make code more cohesive and less coupled. High cohesion and low coupling are still design activities, but you have runtime, library and language support to steer you towards cleaner designs. https://www.openmymind.net/The-Beauty-Of-Elixir-And-Beam/
+
 ---
 
 PHOENIX 📜 https://www.phoenixframework.org/
+* _Phoenix_: Rails
+* not that good? https://news.ycombinator.com/item?id=34936023 
+> There's a bad kind of magic in Phoenix. It makes heavy use of macros, which I'd say is the only really hard thing to master. https://www.openmymind.net/The-Beauty-Of-Elixir-And-Beam/
 * _LiveView_: https://github.com/phoenixframework/phoenix_live_view
 
 * https://dashbit.co/blog/running-python-in-elixir-its-fine
@@ -102,11 +110,10 @@ https://livebook.dev/
 https://www.openmymind.net/Elixir-A-Little-Beyond-The-Basics/
 https://en.wikipedia.org/wiki/Elixir_(programming_language)
 * people love Phoenix (Rails-like) https://www.youtube.com/watch?v=RNMwz5n1M80
-* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://news.ycombinator.com/item?id=34936023 https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html https://github.com/sile/erldash https://news.ycombinator.com/item?id=42312301 Erlang https://en.wikipedia.org/wiki/Erlang_(programming_language) https://news.ycombinator.com/item?id=43655221
+* _Elixir_: well-liked, good at concurrency/distributed, OTP (stdlib) BEAM (VM), functional https://stackoverflow.com/questions/32807981/what-exactly-is-erlang-otp https://robconery.com/video/how-elixirs-concurrency-changed-me-as-a-programmer/ https://news.ycombinator.com/item?id=28482580 https://news.ycombinator.com/item?id=34934620 main reason to use is Phoneix, and the main reason to use that is LiveView https://joyyo.app/elixir-for-humans-who-know-python https://news.ycombinator.com/item?id=37787805 https://aosabook.org/en/v1/riak.html https://github.com/sile/erldash https://news.ycombinator.com/item?id=42312301 Erlang https://en.wikipedia.org/wiki/Erlang_(programming_language) https://news.ycombinator.com/item?id=43655221
 * Erlang https://gleam.run/
 * https://www.lambdafunctions.com/articles/elixir-and-rust
 * https://www.openmymind.net/Pattern-Matching-In-Elixir/
-* BEAM https://www.openmymind.net/The-Beauty-Of-Elixir-And-Beam/
 
 ## 🐘 Haskell
 

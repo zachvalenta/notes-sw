@@ -12,6 +12,7 @@
 
 ---
 
+Rust alternative https://github.com/sparckles/robyn?tab=readme-ov-file
 https://github.com/zachvalenta/miniframe
 > you have notes on BYO backend framework somewhere else
 https://pragprog.com/titles/d-mgflask/the-new-and-improved-flask-mega-tutorial/

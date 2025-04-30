@@ -12,6 +12,7 @@
 
 ## 进步
 
+moving average https://www.jasonthorsness.com/25
 INTERVIEWING
 * https://sql.programmable.net/dashboard
 * https://github.com/alexeygrigorev/data-science-interviews/blob/master/technical.md

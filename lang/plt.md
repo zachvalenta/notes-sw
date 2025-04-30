@@ -11,7 +11,6 @@
 
 ## 进步
 
-* Lua for games, Elixir for Phoenix, Haskell for blog
 * https://en.wikipedia.org/wiki/TempleOS
 * BYO assembly https://zserge.com/posts/langs-asm/
 * macros, AST https://news.ycombinator.com/item?id=42084603

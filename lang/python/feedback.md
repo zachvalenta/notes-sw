@@ -9,6 +9,7 @@
 
 ## 进步
 
+* https://davidvujic.blogspot.com/2025/04/feedback-loops-in-python.html
 * can run Jupyter in the terminal!?! https://github.com/joouha/euporie https://zed.dev/docs/repl
 > Marimo has the ability to run in WASM mode, which means that *everything* can run from the frontend
 * https://www.answer.ai/posts/2024-12-13-nbsanity.html

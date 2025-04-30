@@ -327,7 +327,7 @@ for el in gen:
 
 * _idiom_: use factory function i.e. `list()` `dict()` instead of specific impl (`l[:]`, `l.copy()`) https://realpython.com/copying-python-objects/
 * _shallow copy_: copied collection refers to obj from original i.e. cannot modify independently if obj are mutable [Smalleshire 1 6.5 @ 3:00]
-* https://www.fluentpython.com/lingo/#shallow_copy
+* https://www.fluentpython.com/lingo/#shallow_copy https://realpython.com/python-copy/
 * see aliasing https://www.fluentpython.com/lingo/#deep_copy
 ```python
 l = [42, 'abc', [1,2,3]]
