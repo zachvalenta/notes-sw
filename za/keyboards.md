@@ -280,7 +280,7 @@ https://splitkb.com/products/halcyon-kyria https://www.youtube.com/watch?v=03fXi
 
 MAYBE
 * _Cyboard_: https://www.youtube.com/watch?v=WYmeQklD7uI
-* _Dygma defy_: 🎯 $370; featureful, bad taste https://dygma.com/pages/defy https://www.youtube.com/watch?v=R9YTQn1ik9I
+* _Dygma defy_: 🎯 $370; featureful, bad taste https://dygma.com/products/dygma-defy https://www.youtube.com/watch?v=R9YTQn1ik9I https://www.youtube.com/watch?v=cZqFaMlufDY https://www.youtube.com/watch?v=sMeixRiQhd4
 * _Glove80_: $400 low-profile, expensive, ugly https://www.moergo.com/collections/glove80-keyboards https://www.youtube.com/watch?v=QLb3ewK8R2Y
 
 NO TILDE/BACKTICK
@@ -381,6 +381,7 @@ ZA
 * https://pacificparadiseprints.shop/ https://www.youtube.com/@PacificParadisePrints
 
 * compatability: need to consider the switch type, keycap profile, stabilizer
+* BYO https://www.youtube.com/watch?v=b11IoYVZ44c
 * size
 > Keycap sizes are described in terms of a "u. width. For example, 1u is the size of each of the number and alphabet keys on a keyboard. A 2u key, like Backspace, is twice the size of those 1u keys...compact keyboards often have a 1.75u right Shift key in place of the standard 2.75u right Shift key as well as 1u modifiers in the bottom row. https://www.nytimes.com/wirecutter/blog/how-to-shop-for-a-mechanical-keyboard/
 * color https://blog.zsa.io/how-to-dye-keycaps/

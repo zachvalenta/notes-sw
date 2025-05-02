@@ -12,7 +12,6 @@
 * Dasgupta algorithms
 * La Rocca advanced https://www.manning.com/books/advanced-algorithms-and-data-structures
 * Khamis optimization https://www.manning.com/books/optimization-algorithms
-* MacCormick computed
 * MacCormick nine algorithms
 * Skiena manual https://www.algorist.com/ https://fabiensanglard.net/algorithms_and_datastructures/index.php
 * ⭐️ Tuckfield https://nostarch.com/Dive-Into-Algorithms
@@ -37,6 +36,8 @@ streams? SICP https://blog.moertel.com/posts/2013-05-26-python-lazy-merge.html
 fizz buzz
 fibonacci
 > look up the ten algorithms you have to know, rosetta code, project euler
+
+minimax https://claytonwramsey.com/blog/sixty-four-elo/
 
 RANKING https://bearblog.dev/discover/
 ```txt

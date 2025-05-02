@@ -15,6 +15,8 @@
 * _24_: ChatGPT (regex and Polars, then incorporate research) Claude (switch after GPT outage)
 * _23_: few random queries
 
+* web search https://simonwillison.net/2025/May/7/anthropic-api-search/
+
 DEEP RESEARCH ETC.
 * https://news.ycombinator.com/item?id=43752262
 > Contrast this to everywhere I see people ravenously using new tools, like Cursor for coding, OpenAI Operator, or even fairly ‘basic’ uses like lawyers using NotebookLM to summarize case documents in a way they can listen to in the car. https://registerspill.thorstenball.com/p/joy-and-curiosity-33
@@ -52,6 +54,7 @@ ARCHITECTURE
 >"And as for this non-college bullshit I got two words for that: learn to fuckin' type."
 
 VIBE CODING
+* https://simonwillison.net/2025/May/1/not-vibe-coding/
 * good for MVPs https://news.ycombinator.com/item?id=43576813
 * https://simonwillison.net/2025/Mar/6/vibe-coding/ https://simonwillison.net/2025/Mar/19/vibe-coding/ https://www.youtube.com/watch?v=YWwS911iLhg
 
@@ -157,6 +160,8 @@ https://x.com/SullyOmarr/status/1864697992261062690/photo/1
 * `models.md` agent
 
 ---
+
+https://www.youtube.com/watch?v=KmjhwRYBbok
 
 MODEL CONTEXT PROTOCOL (MCP)
 * protocol to allow clients (in this case, models) to use tools (e.g. here are the queries you can run against a database) https://www.youtube.com/watch?v=oX6IKXfcx78
@@ -704,6 +709,7 @@ https://news.ycombinator.com/item?id=42507116
 
 ---
 
+* https://x.com/thegautam/status/1920198569308664169
 * https://realpython.com/huggingface-transformers/#looking-under-the-hood-with-auto-classes
 * https://realpython.com/huggingface-transformers/#setting-up-a-google-colab-notebook
 * Fine-tuning (Full or Transfer Learning)
@@ -781,6 +787,7 @@ EXAMPLES
 
 ---
 
+* https://simonwillison.net/2025/May/5/llm-video-frames/
 * video https://x.com/bilawalsidhu/status/1857816146688217099
 * video scraping https://simonw.substack.com/p/video-scraping-using-google-gemini
 * image recognition https://www.youtube.com/watch?v=XPA213k8G_U

@@ -10,7 +10,7 @@
 
 ## 进步
 
-* _25_: Capp 📍 DDD -> ERP -> commodities trading
+* _25_: fired from Capp
 * _24_: nothing in winter, job hunt in spring, Kunai fakeout, start at Capp
 * _23_: UM layoff
 * _22_: offers (JP, RackN, United Masters)
@@ -430,6 +430,8 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 
 ---
 
+https://sive.rs/gethired
+* no jobs https://www.noahpinion.blog/p/at-least-five-interesting-things-b5d
 * https://news.ycombinator.com/item?id=43566625
 * https://blog.bytebytego.com/p/ep155-the-shopify-tech-stack
 https://news.ycombinator.com/item?id=43354115

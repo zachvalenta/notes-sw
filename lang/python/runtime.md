@@ -185,8 +185,8 @@ PEPS https://peps.python.org/
 * finance https://www.openbb.co/
 * architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * GPU simulation https://news.ycombinator.com/item?id=40680737
-* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/ https://github.com/pythonarcade/arcade https://www.pygame.org https://nostarch.com/object-oriented-python https://www.bitecode.dev/p/the-next-big-thing-in-python
-* robotics https://sandorfelber.github.io/ https://arnoldkling.substack.com/p/small-machine-warfare https://www.construction-physics.com/p/robot-dexterity-still-seems-hard?utm_source=post-email-title&publication_id=104058&post_id=162039537&utm_campaign=email-post-title&isFreemail=true&r=3o9&triedRedirect=true&utm_medium=email
+* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/ https://github.com/pythonarcade/arcade https://www.pygame.org https://nostarch.com/object-oriented-python https://www.bitecode.dev/p/the-next-big-thing-in-python https://news.ycombinator.com/item?id=43824640
+* robotics https://sandorfelber.github.io/ https://arnoldkling.substack.com/p/small-machine-warfare https://www.construction-physics.com/p/robot-dexterity-still-seems-hard https://claytonwramsey.com/blog/captree/ https://spectrum.ieee.org/amazon-stowing-robots
 * physics engine https://github.com/rudransh61/Physix-go
 * mesh analysis https://github.com/pyvista/pyvista
 * browser https://www.youtube.com/watch?v=Vh77_2-Z0vc

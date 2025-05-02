@@ -123,8 +123,12 @@ SW
 * svc: rm McConnell code complete and ur-repo (already in projects dir)
 * Beaulieu
 * AI, Django
+* Shibuya
 
 MUSIC
+* Cat Power
+* Neil Young deja vu
+* Charley Crockett
 * willie nelson live at the teatro
 * sun araw
 * cymande
@@ -149,6 +153,9 @@ MUSIC
 * nina simone
 
 SINGLES
+* Sounds of Blackness he took away my pain
+* Woody guthrie
+* Neil Young birds
 * Van Morrison country fair
 * hank williams dont let me love you
 * dead prez

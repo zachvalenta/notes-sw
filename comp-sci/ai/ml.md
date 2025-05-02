@@ -10,6 +10,7 @@
 * https://ai.stackexchange.com/
 * https://datascience.stackexchange.com/
 📚
+* ⭐️ Iozzia small language models https://www.manning.com/books/domain-specific-small-language-models
 
 START HERE
 * https://getkiln.ai/
@@ -322,7 +323,7 @@ https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 * https://news.ycombinator.com/item?id=26328958
 * https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
 * 📙 MacCormick chapter 6
-* _k means_: group points into K clusters; unsupervised https://stats.stackexchange.com/a/56504
+* _k-means_: group points into K clusters; unsupervised https://stats.stackexchange.com/a/56504 https://cfbnumbers.substack.com/p/i-have-clustered-the-2025-nfl-draft
 
 ## 📈 linear regression
 
@@ -527,6 +528,7 @@ TYPES
 
 https://llm.datasette.io/en/stable/related-tools.html
 https://realpython.com/huggingface-transformers/#looking-under-the-hood-with-auto-classes
+sampling https://simonwillison.net/2025/May/4/llm-sampling/
 
 ## CNNs
 

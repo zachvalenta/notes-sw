@@ -4,6 +4,7 @@
 
 ## 进步
 
+inputrc
 https://jvns.ca/blog/2025/01/11/getting-a-modern-terminal-setup/
 https://jvns.ca/blog/2025/02/05/some-terminal-frustrations/
 

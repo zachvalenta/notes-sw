@@ -225,11 +225,11 @@ id(counter)  # 4304845312
 
 🔗 https://en.wikipedia.org/wiki/Pointer_(computer_programming)
 
+---
+
 * a memory address https://nullprogram.com/blog/2019/06/30/
 * _thin pointer_: takes up space of one unsigned int https://users.rust-lang.org/t/thin-pointers-fat-pointers-alignment-oh-my/50261
 * _fat pointer_: takes up space of two unsigned ints, extra int stores length (e.g. Go slice) https://nullprogram.com/blog/2019/06/30/ https://stackoverflow.com/a/57754902
-
----
 
 https://www.hytradboi.com/2025/05c72e39-c07e-41bc-ac40-85e8308f2917-programming-without-pointers
 https://victoriametrics.com/blog/go-weak-pointer/

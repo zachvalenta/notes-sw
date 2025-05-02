@@ -16,6 +16,7 @@
 
 ---
 
+* https://blog.jetbrains.com/clion/2025/05/clion-is-now-free-for-non-commercial-use/
 * start here https://realpython.com/c-for-python-programmers/ https://avi.im/blag/2024/learning-c/ https://chatgpt.com/c/673363d3-885c-8004-b7fe-083b927e6999 https://avi.im/blag/2024/win-sqlite-contribution/
 > Make builds output files from input files. It was originally designed for C programs, which utilize both code and header files which are built into object files. These object files are then compiled to binary. This is a multi-step build that requires some orchestration. That’s what Make is all about. 📙 Conery [406]
 * BYO OS https://operating-system-in-1000-lines.vercel.app/en
@@ -23,7 +24,7 @@
 * courses http://www.buildyourownlisp.com https://gribblelab.org/teaching/CBootCamp/ https://www.enlightenment.org/docs/c/start
 * design: https://saagarjha.com/blog/2020/05/10/why-we-at-famous-company-switched-to-hyped-technology/ https://eev.ee/blog/2016/12/01/lets-stop-copying-c/ https://nullprogram.com/tags/c/
 * sysroot, undefined behavior (UB) https://news.ycombinator.com/item?id=30488979 https://mcyoung.xyz/2025/04/21/go-arenas/
-* _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron https://news.ycombinator.com/item?id=42146338 https://begriffs.com/posts/2022-07-17-debugging-gdb-ddd.html TUI https://github.com/wcampbell0x2a/heretek
+* _gdb_: debugger https://www.gnu.org/software/gdb/ https://github.com/cs01/gdbgui can be used on more than C https://golang.org/doc/gdb influential in debugger design https://www.npmjs.com/package/trepanjs https://rubygems.org/gems/trepanning https://github.com/snare/voltron https://news.ycombinator.com/item?id=42146338 https://begriffs.com/posts/2022-07-17-debugging-gdb-ddd.html TUI https://github.com/wcampbell0x2a/heretek https://github.com/al13n321/nnd
 * Postgres codebase is supposed to be a good guide https://news.ycombinator.com/item?id=20556336
 * `#define`: constants https://www.youtube.com/watch?v=hsmGp3cp_50 0:50
 
@@ -336,6 +337,7 @@ STDLIB
 * _tauri_: crossplatform (mobile, desktop, web) https://github.com/tauri-apps/tauri https://blog.gitbutler.com/open-source-pledge-2024/ https://github.com/mrjackwills/obliqoro
 
 COMMUNITY
+* C++ replacement https://news.ycombinator.com/item?id=43907820
 * good graphic design taste https://rustlab.it/
 
 ---

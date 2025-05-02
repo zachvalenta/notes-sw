@@ -904,6 +904,7 @@ https://news.ycombinator.com/item?id=30394152
 
 ---
 
+* https://onlineornot.com/ https://maxrozen.com/on-four-years-running-saas-competitive-market
 * Kuma, Pager Duty / Gotify https://kiranet.org/posts/self-hosting-like-its-2025/ https://kiranet.org/posts/self-hosting-like-its-2025/
 * useful 404 https://calmcode.io/static/data
 * https://calmcode.io/course/better-uptime/overview

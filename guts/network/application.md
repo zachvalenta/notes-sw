@@ -279,7 +279,7 @@ thing to do #2: email resiliency
 * don't forget all your Gmail emails forwarding to Microsoft
 
 backup
-* _manual_: Gmail export
+* _manual_: Gmail export https://news.ycombinator.com/item?id=43943236
 * _automated_: https://news.ycombinator.com/item?id=22846851
 * _reading old email_: periodic export from Gmail, `neomutt -f <file>.mbox` https://askubuntu.com/a/114083 can also just read old email and convert to docs like `hu-xiaodi.md`
 

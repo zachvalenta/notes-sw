@@ -387,6 +387,7 @@ SEQUENCE
 *️ `system.md`
 
 ALTERNATIVES
+* 🎯 BYO w/ Inkscape https://claytonwramsey.com/blog/drawings/
 * _Backstage_: dynamic manifest of services, unsure about C4 support https://github.com/spotify/backstage https://www.youtube.com/watch?v=C6KfoOBP98U
 > docs live alongside the code for each service, which nicely balances the needs of centralized discovery with the need for distributed ownership of assets...Service Catalog uses YAML files to track ownership and metadata for all the software in an organization's ecosystem https://www.thoughtworks.com/radar/platforms/backstage
 * _C4-PlantUML_: https://github.com/plantuml-stdlib/C4-PlantUML

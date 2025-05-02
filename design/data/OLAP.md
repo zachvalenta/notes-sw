@@ -13,6 +13,7 @@
 
 ## 进步
 
+* relational algebra, metrics layer, datafold https://www.dataengineeringpodcast.com
 entity resolution at Capp = New Product Mgmt process (Ben runs, part of product workflow)
 AI in pipelines https://news.ycombinator.com/item?id=42990036
 
@@ -582,6 +583,7 @@ https://www.crunchydata.com/blog/incremental-archival-from-postgres-to-parquet-f
 
 ---
 
+https://clickhouse.com/blog/postgres-to-clickhouse-data-modeling-tips-v2
 https://rtabench.com/
 ```txt
 Leaving the embedded database sphere, but sticking with the analytics theme, we come to ClickHouse. If I had to only pick two databases to deal with, I’d be quite happy with just Postgres and ClickHouse - the former for OLTP, the latter for OLAP.
@@ -661,6 +663,7 @@ first datalake https://www.youtube.com/watch?v=TsmhRZElPvM [1:15]
 
 ---
 
+can use as the underlying fmt for a warehouse [like Iceberg] https://www.youtube.com/watch?v=yqU0ClVuGn4
 https://github.com/lakekeeper/lakekeeper
 https://duckdb.org/2025/03/14/preview-amazon-s3-tables.html https://news.ycombinator.com/item?id=43401421
 https://www.robinlinacre.com/recommend_duckdb/

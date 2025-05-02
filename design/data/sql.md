@@ -174,7 +174,7 @@ HAVING COUNT(id) = 1
 * aka stored procedure
 * impl via procedural language availble in dbms
 * too many and you've got business logic split btw application and db https://news.ycombinator.com/item?id=24845300
-* _trigger_: hook e.g. on record update write previous state to archive/audit table https://www.youtube.com/watch?v=LFIAqFt9z2s
+* _trigger_: hook e.g. on record update write previous state to archive/audit table https://www.youtube.com/watch?v=LFIAqFt9z2s https://til.simonwillison.net/sqlite/sqlite-triggers
 * alternative to audit table is abadoning update-in-place entirely https://www.hytradboi.com/2022/baking-in-time-at-the-bottom-of-the-database
 * avoid data updates by tracking things from which current info can be derived i.e. DOB instead of age
 ```sql
@@ -768,7 +768,7 @@ ALTER TABLE <table> ADD <col> <type>;  -- add
 ALTER TABLE <table> ALTER COLUMN <col> TYPE <type> -- update type https://news.ycombinator.com/item?id=40286403
 UPDATE <table> set <col>=concat('prependThis_', <col>)  -- update name
 ALTER TABLE $tbl RENAME COLUMN $old_name TO $new_name
-ALTER TABLE <table> DROP COLUMN <col>; -- rm
+ALTER TABLE <table> DROP COLUMN <col>; -- rm  https://www.thenile.dev/blog/drop-column
 DESCRIBE mytable; -- list constraints/indexes
 SHOW CREATE TABLE <tab>; -- MySQL version https://serverfault.com/q/231952 https://stackoverflow.com/a/201678
 PRAGMA index_list('<tab>') -- SQLite version https://stackoverflow.com/a/49311235
@@ -987,7 +987,7 @@ TYPES
 * _char_: fixed e.g. state abbreviations 📙 Beaulieu [20]
 * _varchar_: variable 📙 Beaulieu [21]
 * _blob_: `text` in Postgres, `longtext` in MySQL https://news.ycombinator.com/item?id=40317485
-* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf` https://news.ycombinator.com/item?id=42364372 https://boringsql.com/posts/know-the-time-in-postgresql/
+* _datetime_: https://stackoverflow.com/q/1933720 as integer https://stackoverflow.com/a/17227196 🗄 `sjk/golf` https://news.ycombinator.com/item?id=42364372 https://boringsql.com/posts/know-the-time-in-postgresql/ https://simonwillison.net/2025/May/8/sqlite-create-table-default-timestamp/
 ```sql
 -- how to order by a date in sql when the date col in fmt MM/DD/YYYY (and I think the col type is string not an actual datetime fmt) using sqlite
 SELECT p.eid, psub.unit_price, psub.ext_price, ar.subtotal_amt, ar.ord_date

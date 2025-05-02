@@ -217,6 +217,8 @@ https://dublog.net/blog/so-many-python-package-managers/ https://lukeplant.me.uk
 
 https://github.com/python-poetry/poetry/issues/8662
 
+`pylock.toml` https://www.bitecode.dev/p/whats-up-python-python-in-hardware dependency groups https://pythonbytes.fm/episodes/show/430/or-you-go-to-jail
+
 ## PEPs
 
 https://python-peps-graph.glitch.me/

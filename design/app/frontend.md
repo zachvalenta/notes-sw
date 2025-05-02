@@ -21,7 +21,7 @@
 TAXONOMY https://www.saaspegasus.com/guides/modern-javascript-for-django-developers/
 * history: jQuery, Backbone, React, Next.js (built on top of React) https://blog.codepen.io/2024/11/11/chris-corner-our-eras-tour/
 * templating, JSX https://news.ycombinator.com/item?id=42464310 https://github.com/michal-laskowski/wax
-* components https://github.com/wrabit/django-cotton
+* components https://github.com/wrabit/django-cotton https://plainvanillaweb.com/index.html
 * Python https://github.com/widgetti/solara https://github.com/piercefreeman/mountaineer https://reflex.dev/ https://pybit.es/articles/fitness-tracker-app-with-python-reflex/
 * _CRUD-and-forms_: Django https://whatisjasongoldstein.com/writing/help-none-of-my-projects-want-to-be-spas/ 
 * _vanilla_: https://github.com/bradtraversy/vanillawebprojects https://jvns.ca/blog/2020/06/19/a-little-bit-of-plain-javascript-can-do-a-lot/ https://www.semicolonandsons.com/episode/The-Hidden-Costs-of-Software-Dependencies

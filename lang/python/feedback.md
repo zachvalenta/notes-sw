@@ -420,6 +420,7 @@ SHARING
 
 ---
 
+* https://talkpython.fm/episodes/show/501/marimo-reactive-notebooks-for-python
 * WASM https://calmcode.io/course/marimo/webassembly
 * design https://marimo.io/blog/python-not-json
 https://calmcode.io/shorts/drawdata.py
@@ -441,6 +442,8 @@ poetry run python marimo tutorial intro
 🗄 `vim.md` Zed
 
 ---
+
+`list_all_user_defined_modules` https://github.com/zachvalenta/algo-sandbox
 
 https://switowski.com/blog/ipython-debugging/
 
@@ -509,7 +512,7 @@ DESIGN
 
 ALTERNATIVES
 * built-in https://realpython.com/python313-repl/
-* _bpython_:
+* _bpython_: https://github.com/zachvalenta/algo-sandbox
 * _pypython_:
 
 ---

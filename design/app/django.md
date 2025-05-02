@@ -1094,6 +1094,7 @@ MVT
 * controller in MVC
 
 RAILS
+* https://news.ycombinator.com/item?id=43829857
 * domain https://news.ycombinator.com/item?id=34936023
 * still the best https://rubyonrails.org/doctrine/
 * https://news.ycombinator.com/item?id=42856766

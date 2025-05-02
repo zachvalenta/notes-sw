@@ -356,6 +356,8 @@ za
 * `infra.md` analytics
 
 todo
+* https://tsfresh.readthedocs.io/en/latest/
+* forecasting https://github.com/facebook/prophet
 * definition of time series data https://postgres.fm/episodes/time-series-considerations
 * https://github.com/TDAmeritrade/stumpy
 * Postgres https://tembo.io/blog/pg-timeseries

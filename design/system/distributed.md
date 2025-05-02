@@ -122,7 +122,10 @@ transactions & isolation levels 📙 Beaulieu 12
 
 ## ACID
 
-📙 Kleppmann 7, section 2 🗄 `django.md` design https://lethain.com/distributed-systems-vocabulary/
+📙 Kleppmann 7, section 2
+🗄
+* `OLTP.md` Postgres > internals > synchronous_commit
+* `django.md` design https://lethain.com/distributed-systems-vocabulary/
 
 * https://www.youtube.com/watch?v=TsmhRZElPvM [7:20]
 * https://www.youtube.com/watch?v=yaQ5YMWkxq4

@@ -192,6 +192,7 @@ ALTERNATIVES
 * `system.md` distributed
 
 * short answer: dump every hour to S3 https://blog.codepen.io/2014/05/27/013-backups/ 5:00 https://simonwillison.net/about/#subscribe
+* copy using rsync https://alexwlchan.net/2025/copying-sqlite-databases/
 * backup Postgres to parquet https://www.crunchydata.com/blog/incremental-archival-from-postgres-to-parquet-for-analytics
 
 TYPES
@@ -201,6 +202,7 @@ TYPES
 
 ---
 
+* https://postgres.fm/episodes/snapshots
 * with stats, pg_upgrade https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=1fd1bd871012732e3c6c482667d2f2c56f1a9395#transferstatistics
 
 ```txt
@@ -291,7 +293,7 @@ The general problem this addresses is maintaining perfect history of state chang
 * howto https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/ 📙 Conery imposter 343
 * https://stackoverflow.com/questions/20771435/database-sharding-vs-partitioning https://medium.com/@jeeyoungk/how-sharding-works-b4dec46b3f6 https://news.ycombinator.com/item?id=28425379
 * _shard_: node in cluster 📙 Bradshaw [290] https://tomlinford.com/posts/robinhood-sharding-to-scale https://pgdog.dev/blog/you-can-make-postgres-scale
-* Postgres https://github.com/pgdogdev/pgdog https://news.ycombinator.com/item?id=43484399
+* Postgres https://github.com/pgdogdev/pgdog https://news.ycombinator.com/item?id=43484399 https://postgres.fm/episodes/pgdog
 
 ## version control
 
@@ -869,6 +871,7 @@ CLI util (psql, postgres, pg_dump, createdb/dropdb) https://gist.github.com/apol
 
 ## extensions
 
+* trusted https://www.cybertec-postgresql.com/en/postgresql-trusted-extensions-for-beginners/
 * registry https://pgt.dev/
 BYO https://matt.blwt.io/post/building-a-postgresql-extension-line-by-line/
 https://www.postgresql.org/about/news/announce-pig-the-postgres-extension-wizard-2988/
@@ -877,6 +880,7 @@ https://www.postgresql.org/about/news/announce-pig-the-postgres-extension-wizard
 
 * bring your own storage format https://github.com/orioledb/orioledb https://www.orioledb.com/blog/better-table-access-methods https://misachi.github.io/
 * version 18 much smaller in Docker https://ardentperf.com/2025/04/07/waiting-for-postgres-18-docker-containers-34-smaller/
+* `synchronous_commit`: governs whether a transaction waits for data to be physically written to disk before returning a commit success status to the client. https://postgres.fm/episodes/synchronous_commit
 
 ## pgcli
 

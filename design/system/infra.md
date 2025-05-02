@@ -513,6 +513,7 @@ while True:
 ---
 
 ALTERNATIVES
+* Redis streams https://news.ycombinator.com/item?id=43790420
 * _AWS SQS_: https://cheesecakelabs.com/blog/asynchronous-task-queue-django-celery-aws-sqs
 * _Nats_: Nats (non-durable) Jetstream (durable) https://faststream.airt.ai/latest/nats/#advantages-and-disadvantages https://nats-io.github.io/nats.py/
 * lib + Kafka https://github.com/airtai/FastStream
@@ -624,12 +625,14 @@ SEMANTICS
 ---
 
 CLEANUP
+* https://www.dbos.dev/blog/why-workflows-should-be-postgres-rows
 * https://judoscale.com/blog/choose-python-task-queue
 * https://testdriven.io/courses/django-celery/ https://testdriven.io/blog/django-admin-celery/
 * durable https://github.com/dbos-inc/dbos-transact-py
 * https://github.com/cybertec-postgresql/pg_timetable
 * chron jobs https://github.com/Nukesor/pueue
 * BYO https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
+* https://github.com/bensheldon/good_job
 * _Hatchet_: https://github.com/hatchet-dev/hatchet
 * _Huey_: https://www.untangled.dev/2020/07/01/huey-minimal-task-queue-django https://runninginproduction.com/podcast/4-real-python-is-one-of-the-largest-python-learning-platforms-around#27:00 https://github.com/coleifer/huey https://www.youtube.com/watch?v=TV7jHHpvGvA
 

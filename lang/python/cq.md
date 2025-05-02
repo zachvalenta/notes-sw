@@ -6,6 +6,8 @@
 
 ## 进步
 
+perf https://blog.trailofbits.com/2025/05/01/making-pypis-test-suite-81-faster/
+
 * _24_: ward
 * _21_: doctest basics
 * _19_: pytest
@@ -72,6 +74,7 @@ def step_impl(context):  # function identifier identical; must take `context` as
 ## coverage
 
 📜 https://coverage.readthedocs.io/
+💻 https://github.com/zachvalenta/algo-sandbox
 
 * impl https://nedbatchelder.com/blog/202411/coveragepy_originally.html
 * alternative https://www.youtube.com/watch?v=X9aXWeLC_C0 https://github.com/plasma-umass/slipcover
