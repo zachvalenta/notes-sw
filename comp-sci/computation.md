@@ -8,6 +8,7 @@
 * Galvin
 * Hyde great code
 * Tanenbaum
+* ⭐️ MacCormick computed
 
 ## 进步
 
@@ -317,7 +318,7 @@ za
 * _laptop_: non-unibody (easier to repair) unibody (Macbook; harder to switch battery, repair) https://www.netbooknews.com/tips/what-is-a-unibody-laptop/
 * _microcontroller_: special-purpose computer, often embedded in another device 📙 Shibuya chapter 6
 * _quantum_: used for physics simulations; qubit (like traditional bit 0/1 when observed, but when not observed represents probability of 0/1) https://news.ycombinator.com/item?id=22994468 📚 Gleick 13 https://quantum.country/ https://academy.meetiqm.com/curriculum/index.html
-* _transparent_: not visible/controllable e.g. L1 cache transparent to compiler https://www.reddit.com/r/compsci/comments/95ns21/what_is_difference_between_register_and_l1_cache/ confusing terminologically https://en.wikipedia.org/wiki/Transparency_(human%E2%80%93computer_interaction)
+* _transparent_: not visible/controllable e.g. L1 cache transparent to compiler https://www.reddit.com/r/compsci/comments/95ns21/what_is_difference_between_register_and_l1_cache/
 * _UPS_: uninterruptible power supply (backup juice for proper shutdown)
 * robots https://news.ycombinator.com/item?id=42382357
 
@@ -491,7 +492,7 @@ operations
 
 ---
 
-* _ALU_: executes on opcode [Manga 1.23] https://en.wikipedia.org/wiki/Arithmetic_logic_unit#Implementation
+* _ALU_: executes on opcode 📙 Shibuya [23] https://en.wikipedia.org/wiki/Arithmetic_logic_unit#Implementation
 * _opcode_: operator and operand https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ https://tech.marksblogg.com/faster-python.html
 * _data path_: how much data moves around circuit e.g. computer data pathes generally 1 byte wide [Petzold 180]
 * _cache_: caches RAM for processor, needs a few more cycles to read than registers https://www.reddit.com/r/compsci/comments/95ns21/what_is_difference_between_register_and_l1_cache/e3u4tlt e.g. L1 cache https://www.ardanlabs.com/blog/2023/07/getting-friendly-with-cpu-caches.html https://news.ycombinator.com/item?id=40365248

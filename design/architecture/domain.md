@@ -310,6 +310,7 @@ ZA
 * _CQRS_: diff svc for read/write https://martinfowler.com/bliki/CQRS.html https://ownyourbits.com/2018/05/02/understanding-disk-usage-in-linux/
 * _pub sub_: 📙 Thomas pragmatic programmer [158]
 * _event sourcing_: pub sub but more https://chriskiehl.com/article/event-sourcing-is-hard 📙 Thomas pragmatic programmer [160] https://everydaysuperpowers.dev/articles/what-is-event-sourcing-and-why-you-should-care/ Elixir https://pragprog.com/titles/khpes/real-world-event-sourcing/
+> architectural pattern where state changes in your application are represented as a sequence of immutable events, rather than being persisted directly in the database as the current state https://django-news.com/issues/283 https://everydaysuperpowers.dev/articles/event-sourcing-reactivity-without-the-react-overhead/
 * aka event-driven? Components communicate through events. Publishers emit events without knowledge of subscribers.
 * same probelm as Norman, ideas have won?
 * background: agile [xxii] object-oriented [xxvi,51,87] Java oriented (back cover blurb) [74,111]

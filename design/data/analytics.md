@@ -927,6 +927,7 @@ TUI
 * _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
 * _lazysql_: keybindings look goofy https://github.com/jorgerojas26/lazysql
 * _GoBang_: 💀 https://github.com/TaKO8Ki/gobang
+* _pspg_: https://github.com/okbob/pspg
 * _rainfrog_: 🎯 Postgres https://github.com/achristmascarl/rainfrog https://www.youtube.com/watch?v=qURrmEzsKH8
 
 HARLEQUIN 📜 https://harlequin.sh

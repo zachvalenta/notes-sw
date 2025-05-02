@@ -123,8 +123,10 @@ SW
 * svc: rm McConnell code complete and ur-repo (already in projects dir)
 * Beaulieu
 * AI, Django
+* Shibuya
 
 MUSIC
+* Charley Crockett
 * willie nelson live at the teatro
 * sun araw
 * cymande
@@ -149,6 +151,7 @@ MUSIC
 * nina simone
 
 SINGLES
+* Neil Young birds
 * Van Morrison country fair
 * hank williams dont let me love you
 * dead prez

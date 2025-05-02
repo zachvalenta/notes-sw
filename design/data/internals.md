@@ -14,7 +14,7 @@ SQLite by Richard Hipp https://www.youtube.com/watch?v=ZSKLA81tBis
 query plan (Polars) read vs. scan
 
 * https://github.com/zillow/fcache
-* SQL engines https://chatgpt.com/share/6706c793-1428-8004-af11-613cff56c5af https://news.ycombinator.com/item?id=34189422
+* SQL engines https://chatgpt.com/share/6706c793-1428-8004-af11-613cff56c5af https://news.ycombinator.com/item?id=34189422 BYO in Python https://news.ycombinator.com/item?id=43807593
 * CMU https://www.youtube.com/playlist?list=PLSE8ODhjZXjbohkNBWQs_otTrBTrjyohi https://www.youtube.com/playlist?list=PLSE8ODhjZXjasmrEd2_Yi1deeE360zv5O
 * _correlation_: correlation btw storage on disk and order of rows https://hakibenita.com/sql-tricks-application-dba#always-load-sorted-data
 
@@ -40,7 +40,9 @@ https://www.dolthub.com/blog/2025-04-25-sql-engine-anatomy/
 * https://tokern.io/blog/open-source-sql-parsers/
 * transpile btw Presto, Hive Spark https://github.com/tobymao/sqlglot
 * _query optimizer_: generates query plans, picks execution plan 📙 Beaulieu [46] https://news.ycombinator.com/item?id=30855639
+* effect on perf https://postgres.fm/episodes/performance-cliffs
 * returns hints 📙 Beaulieu [46]
+* https://www.shayon.dev/post/2025/119/a-postgresql-planner-gotcha-with-ctes-delete-and-limit/
 * aka querry planner 📙 Bradshaw [167]
 > decides which parts of the query to execute in which order and which indexes to use 📙 Kleppmann 37
 * cost-based 📙 Kleppmann 427 https://blog.jooq.org/10-cool-sql-optimisations-that-do-not-depend-on-the-cost-model/ https://pghintplan.osdn.jp/pg_hint_plan.html
@@ -123,6 +125,7 @@ TACTICS
 
 ---
 
+* query planner https://postgres.fm/episodes/performance-cliffs
 * https://kmoppel.github.io/2025-04-10-postgres-scaling-roadmap/
 * https://talkingpostgres.com/episodes/my-journey-into-postgres-monitoring-with-lukas-fittl-rob-treat
 * monitoring https://github.com/dalibo/pg_activity

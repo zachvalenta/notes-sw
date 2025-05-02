@@ -768,7 +768,7 @@ ALTER TABLE <table> ADD <col> <type>;  -- add
 ALTER TABLE <table> ALTER COLUMN <col> TYPE <type> -- update type https://news.ycombinator.com/item?id=40286403
 UPDATE <table> set <col>=concat('prependThis_', <col>)  -- update name
 ALTER TABLE $tbl RENAME COLUMN $old_name TO $new_name
-ALTER TABLE <table> DROP COLUMN <col>; -- rm
+ALTER TABLE <table> DROP COLUMN <col>; -- rm  https://www.thenile.dev/blog/drop-column
 DESCRIBE mytable; -- list constraints/indexes
 SHOW CREATE TABLE <tab>; -- MySQL version https://serverfault.com/q/231952 https://stackoverflow.com/a/201678
 PRAGMA index_list('<tab>') -- SQLite version https://stackoverflow.com/a/49311235

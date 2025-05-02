@@ -151,6 +151,7 @@ Focus: Data storage and processing efficiency for analytics, not real-time query
 > While NumPy has been good enough to make pandas the popular library it is, it was never built as a backend for dataframe libraries, and it has some important limitations. https://datapythonista.me/blog/pandas-20-and-the-arrow-revolution-part-i
 * used by Polars https://talkpython.fm/episodes/transcript/462/pandas-and-beyond-with-wes-mckinney
 * can query using DuckDB bc Duck's  https://duckdb.org/2021/12/03/duck-arrow.html https://news.ycombinator.com/item?id=35426155
+* pyarrow https://www.blog.pythonlibrary.org/2024/05/06/how-to-read-and-write-parquet-files-with-python/ https://talkpython.fm/episodes/show/503/the-pyarrow-revolution
 
 ## 📐 Parquet
 
@@ -193,7 +194,6 @@ ZA
 * _Parquet_: column-oriented file format, like CSV https://www.youtube.com/watch?v=H_dLfHETO0g https://news.ycombinator.com/item?id=35418933 https://news.ycombinator.com/item?id=29010103
 * easier to use now vs. CSV https://news.ycombinator.com/item?id=30595026
 * use to build no-code API https://tech.marksblogg.com/roapi-rust-data-api.html
-* pyarrow https://www.blog.pythonlibrary.org/2024/05/06/how-to-read-and-write-parquet-files-with-python/
 
 # 🚣‍♀️ ROW-ORIENTED
 

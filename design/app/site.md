@@ -371,6 +371,8 @@ https://www.getzola.org/documentation/deployment/aws-s3/
 
 ## Github Pages
 
+https://claytonwramsey.com/
+
 context: my personal site repo is https://github.com/zachvalenta/zachvalenta.github.io I'm trying to move to a different static site generator. I'm using this repo to test it out: https://github.com/zachvalenta/zjayv.github.io
 > https://chatgpt.com/c/680eda63-ce0c-8004-8e45-5f65dc69ae6a
 ```txt

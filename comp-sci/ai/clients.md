@@ -196,6 +196,8 @@ EXTENSIONS https://fly.io/blog/vscode-ssh-wtf/
 
 ## IDE (Cursor)
 
+Zed is good enough? https://news.ycombinator.com/item?id=43915754
+
 CURSOR https://www.cursor.com/ https://github.com/getcursor/cursor
 * has Vim emulation
 * people talk about Cursor and Windsurf synonymously https://ghuntley.com/oh-fuck/ https://www.youtube.com/watch?v=zIejF3IGtWk
@@ -205,7 +207,7 @@ CURSOR https://www.cursor.com/ https://github.com/getcursor/cursor
 
 ALTERNATIVES
 * _Github copilot_: compared to Cursor https://www.youtube.com/watch?v=V2tv6GZuV0A
-* _Windsurf_: 🎯 https://blog.val.town/blog/fast-follow/
+* _Windsurf_: 🎯 https://blog.val.town/blog/fast-follow/ https://news.ycombinator.com/item?id=43900877
 * _Codeium_: 🎯 supports Neovim and VSC, more filetypes than Copilot https://codeium.com/windsurf https://zackproser.com/blog/codeium-analysis-4-2024 https://zackproser.com/blog/codeium-review https://zackproser.com/blog/chatgpt-4-and-codeium-are-my-favorite-stack https://zackproser.com/blog/codeium-vs-chatgpt
 * you've enabled Codeium extension auth on Github (for VS Code)
 * _Jetbrains junie_: ❌ https://www.jetbrains.com/junie/ https://news.ycombinator.com/item?id=43850377
