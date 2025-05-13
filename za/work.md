@@ -431,7 +431,7 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 ---
 
 https://sive.rs/gethired
-* no jobs https://www.noahpinion.blog/p/at-least-five-interesting-things-b5d
+* no jobs https://www.noahpinion.blog/p/at-least-five-interesting-things-b5d https://news.ycombinator.com/item?id=43963434 https://www.reveliolabs.com/news/macro/white-collar-workers-are-getting-the-blues/
 * https://news.ycombinator.com/item?id=43566625
 * https://blog.bytebytego.com/p/ep155-the-shopify-tech-stack
 https://news.ycombinator.com/item?id=43354115

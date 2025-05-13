@@ -330,7 +330,7 @@ PARSERS
 
 RENDER
 * _frogmouth_: https://github.com/Textualize/frogmouth
-* _glow_: https://github.com/charmbracelet/glow
+* _glow_: ✅ https://github.com/charmbracelet/glow
 * _mdcat_: ✅ https://github.com/swsnr/mdcat https://github.com/charmbracelet/mods/blob/main/examples.md
 * _rich_: https://rich.readthedocs.io/en/latest/markdown.html
 
