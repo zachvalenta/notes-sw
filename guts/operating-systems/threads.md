@@ -288,6 +288,8 @@ func hi() {
 ---
 
 start here https://pycon-archive.python.org/2024/schedule/presentation/72/index.html
+https://news.ycombinator.com/item?id=44004148
+* Ruby does the same https://blog.papey.fr/post/07-demystifying-ruby-01/
 
 FREE-THREADING
 * https://codspeed.io/blog/state-of-python-3-13-performance-free-threading

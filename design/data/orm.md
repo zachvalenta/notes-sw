@@ -261,6 +261,7 @@ Performance.query.get(1).concert  # id 1 name Glastonbury
 
 ---
 
+* t-strings https://news.ycombinator.com/item?id=44004827
 * https://news.ycombinator.com/item?id=42778151
 * reverse query builder https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202203030 https://github.com/kyleconroy/sqlc https://preslav.me/2023/03/07/reasons-against-sqlc/
 * https://github.com/danielenricocahall/pysqlscribe

@@ -117,6 +117,8 @@ ZA
 
 ---
 
+* https://news.ycombinator.com/item?id=44000759
+* can embed in Erlang https://news.ycombinator.com/item?id=43972485
 * pkg mgmt https://news.ycombinator.com/item?id=43614285
 https://github.com/esbudylin/modest
 https://news.ycombinator.com/item?id=42517102

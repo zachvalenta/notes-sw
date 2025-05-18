@@ -13,6 +13,8 @@
 
 # 🕸️ DISTRIBUTED / NewSQL
 
+> you can fit 100M records in single table https://news.ycombinator.com/item?id=43989497
+
 > I tell non-technical people that the site reliability engineer job is about creating automation to do what a system administrator would otherwise do. https://entropicthoughts.com/the-reinforcing-nature-of-toil
 
 CHECKLIST https://www.lastweekinaws.com/blog/aurora-vs-rds-an-engineers-guide-to-choosing-a-database/

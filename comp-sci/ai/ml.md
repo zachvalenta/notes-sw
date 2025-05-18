@@ -269,6 +269,7 @@ TYPES
 
 ---
 
+* vector db https://news.ycombinator.com/item?id=43896011
 * in Postgres https://www.cybertec-postgresql.com/en/semantic-search-in-postgresql-an-overview/
 * word2vec, byte-pair encoding, LSTM https://arpit.substack.com/p/how-zomato-improved-its-search-using https://www.freecodecamp.org/learn/machine-learning-with-python/how-neural-networks-work/recurrent-neural-networks-rnn-and-long-short-term-memory-lstm * _Word2Vec_: vector db https://www.youtube.com/watch?v=a8Oz6Mz8pk0
 https://realpython.com/chromadb-vector-database/

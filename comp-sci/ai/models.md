@@ -114,8 +114,10 @@ I just finished a small project where I used o3-mini and o3-mini-high to generat
 
 ## agents
 
-🗄️ `clients.md` MCP
 🔍 https://mychaelangelo.github.io/ai_agents_marketmap/
+🗄️
+* `clients.md` MCP
+* `clients.md` in use
 
 BYO
 * Thorsten Ball https://ampcode.com/how-to-build-an-agent

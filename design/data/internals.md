@@ -296,6 +296,7 @@ https://www.highgo.ca/2020/06/22/types-of-indexes-in-postgresql/
 
 📙 Dibernardo, Kleppmann
 
+* Volvano model https://news.ycombinator.com/item?id=43956547
 * https://blog.sylver.dev/build-your-own-sqlite-part-1-listing-tables 
 * CMU Pavlo https://www.youtube.com/watch?v=APqWIjtzNGE
 * https://github.com/avinassh/py-caskdb

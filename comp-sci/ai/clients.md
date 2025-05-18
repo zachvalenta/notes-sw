@@ -19,6 +19,8 @@ TOP OF MIND
 
 # 🪚 IN USE
 
+🗄️ `models.md` agents
+
 ALTERNATIVES
 * niche: COBOL to Java https://bloop.ai/
 * _plandex_: 🎯 multi-model https://plandex.ai/ https://github.com/plandex-ai/plandex
@@ -56,6 +58,7 @@ bun install -g @anthropic-ai/claude-code
 
 * impl: `sandbox-exec` https://simonwillison.net/2025/Apr/16/openai-codex/
 * https://news.ycombinator.com/item?id=43708025
+* https://simonwillison.net/2025/May/16/openai-codex/
 
 ## ♎️ llm
 

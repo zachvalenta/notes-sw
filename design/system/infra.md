@@ -724,7 +724,7 @@ URL FOR DEV SERVER
 ALTERNATIVES
 * just use SQLite https://news.ycombinator.com/item?id=41963996
 * _Apache_: on start, Apache runs as master process `root` and binds to port 80; pre-fork (master process spawns child proccesses under UID `apached` to wait for connections) https://stackoverflow.com/a/25894770/6813490
-* _CGI_: process per req (vs. connection) cannot keep db connection over multiple
+* _CGI_: process per req (vs. connection), cannot keep db connection over multiple https://news.ycombinator.com/item?id=44003445
 * _Granian_: https://github.com/emmett-framework/granian https://talkpython.fm/episodes/show/463/running-on-rust-granian-web-server https://mkennedy.codes/posts/we-must-replace-uwsgi-with-something-else-but-with-what/
 * _hypercorn_: https://mkennedy.codes/posts/we-must-replace-uwsgi-with-something-else-but-with-what/
 * _uvicorn_: https://mkennedy.codes/posts/we-must-replace-uwsgi-with-something-else-but-with-what/

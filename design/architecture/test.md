@@ -66,6 +66,7 @@ Then I should see a welcome message
 
 ---
 
+tooling https://ahelwer.ca/post/2025-05-15-tla-dev-status/
 > constraint solving here or somewhere else https://www.stephendiehl.com/posts/minizinc/
 https://danluu.com/butler-lampson-1999/
 https://buttondown.com/hillelwayne/archive/tla-from-first-principles/

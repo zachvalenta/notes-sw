@@ -9,6 +9,7 @@
 
 ## 进步
 
+* https://simonwillison.net/2025/May/17/django-simple-deploy/
 * Docker / Kamal/ IaaS https://www.youtube.com/watch?v=fuZoxuBiL9o https://www.youtube.com/watch?v=F-9KWQByeU0 https://www.youtube.com/watch?v=7lkJmElHkSw https://www.youtube.com/watch?v=DmbBgXK8M5M
 
 * _20_: Heroku (simple Django app)

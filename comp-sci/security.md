@@ -160,6 +160,7 @@ __in action__
 
 ---
 
+https://nostarch.com/mangacrypto
 🎗 Aumasson serious cryptography https://eli.thegreenplace.net/2019/summary-of-reading-october-december-2019/ https://nostarch.com/seriouscrypto https://www.amazon.com/Serious-Cryptography-2nd-Introduction-Encryption/dp/1718503849
 🔍 https://crypto.stackexchange.com/
 📚
