@@ -539,6 +539,7 @@ c.crawl()
 
 ---
 
+https://www.youtube.com/watch?v=kKJR-aYew2o
 🧠 https://chatgpt.com/c/6720e992-860c-8004-a2dd-2cc826753ecf https://claude.ai/chat/0783b7f1-cde6-4e22-b4d3-83199e90fc71
 https://www.openmymind.net/Basic-MetaProgramming-in-Zig/
 * https://dev.to/karishmashukla/a-practical-guide-to-metaprogramming-in-python-691

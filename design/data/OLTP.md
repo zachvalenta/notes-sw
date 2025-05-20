@@ -8,6 +8,9 @@
 
 ## 进步
 
+https://fly.io/blog/litestream-revamped/
+neon https://softwareengineeringdaily.com/2025/05/20/building-postgresql-for-the-future-with-heikki-linnakangas/
+
 * _22_: 📙 Bradshaw ch. 1/4/7/10/14/18
 * _20_: Postgres with Django (psycopg, Docker) 📙 Kleppmann section 1
 

@@ -133,7 +133,7 @@ ABSTRACTION
 
 ## rule encapsulation
 
-* _invariant_: business rule
+* _invariant_: business rule 📙 Beck tidy first [61]
 
 ---
 

@@ -724,6 +724,7 @@ fix for scripts? https://www.youtube.com/watch?v=bNw34Mo0FOQ
 
 ---
 
+https://joshcannon.me/2025/04/24/remote-single-file-scripts.html
 https://blog.dusktreader.dev/2025/03/29/self-contained-python-scripts-with-uv/
 https://thisdavej.com/share-python-scripts-like-a-pro-uv-and-pep-723-for-easy-deployment/
 https://simonwillison.net/2025/Mar/6/aider-using-uv-as-an-installer/

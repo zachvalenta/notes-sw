@@ -35,7 +35,7 @@ PROJECTS
 * BYO db https://cstack.github.io/db_tutorial/
 * cmus https://github.com/cmus
 * BYO virtual machine https://justinmeiners.github.io/lc3-vm/
-* BYO text editor https://viewsourcecode.org/snaptoken/kilo/01.setup.html https://github.com/codecrafters-io/build-your-own-x#build-your-own-text-editor
+* BYO text editor https://viewsourcecode.org/snaptoken/kilo/01.setup.html https://github.com/codecrafters-io/build-your-own-x#build-your-own-text-editor https://github.com/antirez/kilo
 
 # 📝 LANG
 

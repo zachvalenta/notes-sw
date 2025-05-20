@@ -362,6 +362,7 @@ ARITHMATIC
 
 ---
 
+* tokens -> expressions -> statements -> functions -> obj/modules -> systems 📙 Beck tidy first [57,59]
 * _expression_: value + operator https://realpython.com/python-walrus-operator/#hello-walrus
 * an eval to single value e.g. `y + 13` (number) `price > 0` (bool) 📙 Sweigart automate [14]
 * _statement_: 动 an action e.g. function call (`logger.debug(ex)`) assignment (`x = 42`) https://beautifulracket.com/appendix/why-racket-why-lisp.html
@@ -468,6 +469,7 @@ console.log(hey); // hi zjv
 ```
 
 ZA
+* _readabillity_: Python indentation for statement grouping via significant white space vs. semi-colons https://news.ycombinator.com/item?id=34936023 📙 Beck tidy first [27]
 * _embedded_: language runs in same process as another language i.e. you need to impl interpreter and stdlib for embedded lang within host lang runtime?
 * Jython being built in Java means it's easy to embed bc it will run anywhere that has a JVM https://softwareengineering.stackexchange.com/a/403915
 * Lua good at embedding bc small stdlib, used in game dev https://news.ycombinator.com/item?id=3534746 howto https://news.ycombinator.com/item?id=36107315

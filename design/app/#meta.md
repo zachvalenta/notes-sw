@@ -3,21 +3,25 @@
 ## 参考
 
 📚
-* Beck tidy first? https://www.oreilly.com/library/view/the-good-news/9781098170158/
+* ✅ Beck tidy first
 * Mak https://www.manning.com/books/software-design-in-python
 * Martin clean code
-* Ousterhout philosophy of sofware design
+* ✅ Ousterhout philosophy of sofware design
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
 
 # 🟨 ZA
+
+* _coupling_: one change necessitates another
+* _cohesion_: like w/ like 📙 Conery [270] Evans [109] https://entropicthoughts.com/event-sourcing-and-microservices-unix-style
+> there should be low coupling btw modules and high cohesion within them 📙 Evans [109]
+> Shovel all the manure into one pile. 📙 Beck tidy first [89]
+
+---
 
 * long boolean expressions https://www.pythonmorsels.com/refactoring-boolean-expressions/
 * application boundaries, greppable https://morizbuesing.com/blog/greppability-code-metric/
 * _separation of concerns_: HTML for content/semantics, CSS for style
 * _code path_: branch through codebase
-* _cohesion_: put like with like 📙 Conery [270] Evans [109] https://entropicthoughts.com/event-sourcing-and-microservices-unix-style
-* _coupling_: "there should be low coupling btw modules and high cohesion within them" 📙 Evans [109] https://www.youtube.com/watch?v=MM9VQp-k0JQ
-* one change necessitates another
 * _encapsulation_: modularity via objects/method https://www.youtube.com/watch?v=QyJZzq0v7Z4 24:00
 ```python
 foo = 'foo val'
@@ -39,6 +43,15 @@ def get_foo():
 
 https://buttondown.com/hillelwayne/archive/stroustrups-rule/
 https://borretti.me/article/language-pragmatics
+
+## comments
+
+* for: what's not obvious 📙 Beck tidy first [29]
+* not for: repeating what the code says 📙 Beck tidy first [31]
+
+---
+
+* https://news.ycombinator.com/item?id=43576425
 
 ## functional
 
@@ -204,7 +217,7 @@ class Player:
 
 > Analysis of the curl codebase: “It means that every line in the product source code tree have by now been edited on average 3.5 times.” https://registerspill.thorstenball.com/p/joy-and-curiosity-28
 
-* _extract_: separate [Fowler https://refactoring.com/catalog/]
+* _extract_: separate [Fowler https://refactoring.com/catalog/] 📙 Beck tidy first [75,83,85]
 * _inline_: combine
 > Inlining is the concept of replacing a function call in a program with the contents of the function itself, thus avoiding the call. https://golangweekly.com/issues/470
 * DRY, single responsibility https://news.ycombinator.com/item?id=35151088
@@ -238,7 +251,6 @@ def obj_args(obj):
 
 ---
 
-comments, vibe coding https://news.ycombinator.com/item?id=43576425
 https://seeinglogic.com/posts/visual-readability-patterns/
 
 https://www.youtube.com/watch?v=JlPMOszyjjo&t=1566s https://news.ycombinator.com/item?id=16617039

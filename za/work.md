@@ -430,6 +430,8 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 
 ---
 
+war: robots, satellites
+tsmc
 https://sive.rs/gethired
 * no jobs https://www.noahpinion.blog/p/at-least-five-interesting-things-b5d https://news.ycombinator.com/item?id=43963434 https://www.reveliolabs.com/news/macro/white-collar-workers-are-getting-the-blues/
 * https://news.ycombinator.com/item?id=43566625

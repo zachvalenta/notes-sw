@@ -611,6 +611,7 @@ dsq "SELECT a.col1, b.col2 FROM a AS a JOIN b AS b ON a.id = b.id;" a.csv b.csv
 
 ## entry (dataclerk)
 
+https://mathesar.org/
 storing PDFs https://news.ycombinator.com/item?id=42059639
 > able to store Markdown?
 
@@ -675,7 +676,10 @@ Have you considered building this? The core components would be:
 
 ---
 
-## GUI (dbeaver)
+## GUI (VS Code)
+
+https://techcommunity.microsoft.com/blog/adforpostgresql/announcing-a-new-ide-for-postgresql-in-vs-code-from-microsoft/4414648
+https://news.ycombinator.com/item?id=44074253
 
 🗄️ `python/feedback.md` notebook
 

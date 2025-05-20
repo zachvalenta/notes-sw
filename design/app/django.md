@@ -16,6 +16,7 @@
 
 ## 进步
 
+* https://django-commons.org/
 * https://talkpython.fm/episodes/show/502/django-ledger-accounting-with-python
 architecture https://github.com/radiac/django-style
 tracking history https://www.caktusgroup.com/blog/2025/04/07/tips-tracking-django-model-changes-django-pghistory/
@@ -51,6 +52,8 @@ RECENT HAPPENINGS
 🗄 `python/stdlib.md` serde
 
 ---
+
+https://www.djangoproject.com/weblog/2025/may/22/why-need-3rd-party-app-rest-api-with-django/
 
 SPEED
 * caching https://www.screamingatmyscreen.com/caching-and-django-rest-framework
@@ -895,7 +898,7 @@ clean up
 * https://django-migration-zero.readthedocs.io/en/latest/
 * https://docs.djangoproject.com/en/3.0/howto/initial-data/
 * https://github.com/Brobin/django-seed https://eli.thegreenplace.net/2014/02/15/programmatically-populating-a-django-database
-* https://eli.thegreenplace.net/2014/02/20/clearing-the-database-with-django-commands
+* https://eli.thegreenplace.net/2014/02/20/clearing-the-database-with-django-commands https://ontowhee.github.io/2025/05/14/dataclass-for-django-custom-command-arguments.html
 * https://www.mattlayman.com/blog/2020/django-testing-toolbox/ factory boy https://djangotricks.blogspot.com/2024/05/generating-fake-django-model-instances-with-factory-boy.html
 * https://jefftriplett.com/2020/how-do-i-test-1000-objects-in-django https://github.com/model-bakers/model_bakery
 * https://kite.com/blog/python/django-database-migrations-overview/ https://realpython.com/django-migrations-a-primer https://realpython.com/digging-deeper-into-migrations/
@@ -964,7 +967,7 @@ https://talkpython.fm/episodes/show/379/17-libraries-you-should-be-using-in-djan
 * _favicon_: https://learndjango.com/tutorials/django-favicon-tutorial
 * _internationalization_: https://testdriven.io/blog/multiple-languages-in-django/
 * _maps_: https://www.paulox.net/2020/12/08/maps-with-django-part-1-geodjango-spatialite-and-leaflet/
-* _Markdown_: https://learndjango.com/tutorials/django-markdown-tutorial https://github.com/neutronX/django-markdownx
+* _Markdown_: https://learndjango.com/tutorials/django-markdown-tutorial https://github.com/neutronX/django-markdownx https://github.com/smattymatty/django_spellbook
 * _sessions_: https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Sessions https://www.youtube.com/watch?v=SMRaHSZiwWE https://eli.thegreenplace.net/2011/06/24/how-django-sessions-work-introduction/ for user anlytics https://www.reddit.com/r/django/comments/16p2gp0/comment/k1ovnqp/
 
 ## code quality

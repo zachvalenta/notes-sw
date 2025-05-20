@@ -68,6 +68,8 @@ VIBE CODING
 
 ---
 
+* garbage in garbage out
+> OpenAI published a very long guide to ‘prompt engineering’ for GPT-4.1. I find this kind of stuff unintentionally hilarious: if your thesis is that these models are replacing software, why do I need to memorise incantations and learn what JSON means to get the best results? All of this should be abstracted away. - Ben Evans 25.05.20
 * https://simonwillison.net/2025/Apr/20/ethan-mollick/
 * https://news.ycombinator.com/item?id=43752492
 * teaching people how to ask better questions https://paulgraham.com/writes.html
@@ -126,6 +128,7 @@ BYO
 * custom GPT via GPT Builder 📙 Selvaraj automate [7.5]
 
 ATTEMPTS TO DEFINE https://www.anthropic.com/research/building-effective-agents
+* = models used in a loop https://simonwillison.net/2025/May/22/tools-in-a-loop/
 > Watching Windsurf take multiple actions on my behalf without my input is very inspirational. I’m dreaming of a world where Townie not only detects errors, but also automatically tries to fix them, possibly multiple times, possibly in parallel across different branches, without any human interaction. Here, of course, we’d be getting into territory mostly explored by the folks at Devin. For starters, we could feed back screenshots of the generated website back to the LLM. But soon you’d want to give the LLM access to a full web browser so it can itself poke around the app, like a human would, to see what features work and which ones don’t. Maybe then it’d even write some tests, also like a human would, to make sure things don’t break as it continues to iterate. I have a vague sense by the end of this year that you’ll be able to tell Townie to “make a fully realistic Hacker News Clone, with user accounts, nested comments, upvotes, downvotes” and it could iterate for potentially hours on your behalf. You could even go to bed and wake up with it done. https://blog.val.town/blog/fast-follow/
 = can go out and use the internet https://x.com/rowancheung/status/1898093008601395380
 > An agent is something that acts in an environment; it does something. https://simonwillison.net/2025/Mar/19/worms-and-dogs-and-countries/
@@ -733,6 +736,7 @@ https://changelog.com/practicalai/295
 
 ---
 
+writing https://www.sudowrite.com/
 usage aka modality e.g. GPT understanding images with GPT4 examples of multimodality i.e. text and images
 
 ZA
