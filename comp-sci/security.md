@@ -21,7 +21,7 @@
 ## 进步
 
 * https://dadrian.io/ https://dadrian.io/blog/posts/sct-not-after/
-* Scapy https://www.youtube.com/watch?v=EnuF9ZR6MVc
+* https://vin01.github.io/piptagole/cybcecrime/security/cybersecurity/2025/05/05/state-cyber-security.html
 
 replay attack https://blog.videah.net/attacking-my-landlords-boiler/
 > I eventually decided it was a lot easier to attempt something called a Replay Attack. This involves cloning the signals sent between the boiler and the thermostat, and then pretending we are the thermostat by re-broadcasting the signals. This way we don't need to understand the protocol, just replay it.

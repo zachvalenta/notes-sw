@@ -125,6 +125,7 @@ TACTICS
 
 ---
 
+* https://postgres.fm/episodes/top-ten-dangerous-issues
 * query planner https://postgres.fm/episodes/performance-cliffs
 * https://kmoppel.github.io/2025-04-10-postgres-scaling-roadmap/
 * https://talkingpostgres.com/episodes/my-journey-into-postgres-monitoring-with-lukas-fittl-rob-treat

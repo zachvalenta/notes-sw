@@ -126,6 +126,7 @@ SW
 * Shibuya
 
 MUSIC
+* Book of Love
 * Cat Power
 * Neil Young deja vu
 * Charley Crockett

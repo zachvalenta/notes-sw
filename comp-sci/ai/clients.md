@@ -11,6 +11,9 @@
 * _24_: lots of work to research/taxonomize tooling, start with llm and aider
 
 TOP OF MIND
+* https://github.com/block/goose
+* Zed for agentic https://news.ycombinator.com/item?id=43959710
+* Gemini https://news.ycombinator.com/item?id=44009848
 * try Codex https://www.youtube.com/watch?v=FUq9qRwrDrI https://help.openai.com/en/articles/11096431-openai-codex-cli-getting-started
 * use llm better https://simonwillison.net/2025/Apr/23/llm-fragment-symbex/
 * copilot https://simonwillison.net/2024/Dec/18/free-tier-for-github-copilot/ https://www.youtube.com/watch?v=dutyOc_cAEU https://www.youtube.com/watch?v=hyhZKRAQdLs

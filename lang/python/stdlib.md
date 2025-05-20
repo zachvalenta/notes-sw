@@ -598,6 +598,7 @@ LIBS
 
 ---
 
+* Scapy https://www.youtube.com/watch?v=EnuF9ZR6MVc
 * https://news.ycombinator.com/item?id=43955842 https://news.ycombinator.com/item?id=43958077
 * zip bomb https://idiallo.com/blog/zipbomb-protection weighs the soul https://github.com/TecharoHQ/anubis
 * curl browser impersonation https://news.ycombinator.com/item?id=43571099

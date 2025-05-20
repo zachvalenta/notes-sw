@@ -700,6 +700,7 @@ CREATE TABLE customer (
 
 ---
 
+* https://news.ycombinator.com/item?id=44026201
 * Capp identifiers vs. classifications vs. attributes https://grok.com/chat/977a1321-578e-4e0d-9895-db2df5005838
 * fixing dupe primary https://www.crunchydata.com/blog/postgres-troubleshooting-fixing-duplicate-primary-key-rows
 

@@ -150,7 +150,6 @@ COMPATIBILITY https://thorben-janssen.com/update-database-schema-without-downtim
 > Sharding a multitenant application: a SaaS/B2B style app, where data is never joined between customers https://www.crunchydata.com/blog/citus-the-misunderstood-postgres-extension
 * Edge, Sentry, Parse https://www.youtube.com/watch?v=W1fkGyIcePA&t=1044s https://www.pythonpodcast.com/datacoral-serverless-technology-episode-214/ 15:00-19:00 https://www.youtube.com/watch?v=OfPE7yj1trw https://www.viget.com/articles/multi-tenancy-in-django
 * _service mesh_: https://servicemesh.io/ https://news.ycombinator.com/item?id=17415421 https://www.digitalocean.com/community/tutorials/an-introduction-to-service-meshes sidecar, eBPF https://www.thoughtworks.com/radar/techniques?blipid=202203060 Istio
-* data mesh https://news.ycombinator.com/item?id=30721198 https://www.thoughtworks.com/radar/techniques?blipid=201911051 https://www.manning.com/books/data-mesh-in-action
 * _SSoT_: single source of truth
 * _SPoF_: single point of failure
 * _fault domain_: components sharing SPoF https://lethain.com/fault-domains/

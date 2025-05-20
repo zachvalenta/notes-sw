@@ -46,6 +46,8 @@ foundational
 
 > If you want to configure your network, the ip command lets you do that. Its arguments take on a slightly weird form, but ip help command will get you pretty far. ip addr shows you information about your network interfaces and how they’re configured (IP addresses and such), and ip route shows you how network traffic is routed to different network hosts. Network problems can often be resolved purely through the ip tool. There’s also iw for managing wireless network interfaces. ping is a handy tool for checking how deeply things are broken. Try pinging a hostname (google.com), an external IP address (1.1.1.1), and an internal IP address (192.168.1.1 or default gw). https://missing.csail.mit.edu/2019/machine-introspection/
 
+* IP addr per device hence ESPN still thinks I'm in England
+language https://news.ycombinator.com/item?id=44028153
 routing tables https://blog.sdn.clinic/2025/01/linux-routing-fundamentals/
 https://github.com/bschaatsbergen/cidr
 * https://tech.marksblogg.com/where-are-ip-addresses-ipinfo.html https://tech.marksblogg.com/fast-ip-to-hostname-clickhouse-postgresql.html
