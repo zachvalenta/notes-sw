@@ -44,7 +44,8 @@ var = foo if condition else bar
 
 ---
 
-dictionary dispatch https://martinheinz.dev/blog/90
+* don't nest 📙 Beck tidy first [3]
+* dictionary dispatch https://martinheinz.dev/blog/90
 
 ## exceptions
 

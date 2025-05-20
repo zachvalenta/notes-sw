@@ -668,6 +668,8 @@ first datalake https://www.youtube.com/watch?v=TsmhRZElPvM [1:15]
 
 ---
 
+DuckDB https://news.ycombinator.com/item?id=44028616 https://airport.query.farm/ https://github.com/spiceai/spiceai
+https://www.youtube.com/watch?v=gUvEwBUKizo
 can use as the underlying fmt for a warehouse [like Iceberg] https://www.youtube.com/watch?v=yqU0ClVuGn4
 https://github.com/lakekeeper/lakekeeper
 https://duckdb.org/2025/03/14/preview-amazon-s3-tables.html https://news.ycombinator.com/item?id=43401421

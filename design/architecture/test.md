@@ -240,7 +240,7 @@ AUTOMATION
 * _Cypress_: https://github.com/cypress-io/cypress
 * _Helium_: https://news.ycombinator.com/item?id=42386971
 * _Puppeteer_: https://github.com/puppeteer/puppeteer https://switowski.com/blog/web-automation/
-* _Selenium_: https://github.com/SeleniumHQ/selenium
+* _Selenium_: https://github.com/SeleniumHQ/selenium Robot Framework (Python) https://www.youtube.com/watch?v=lemECmV-epg
 * _Playwright_: https://github.com/microsoft/playwright-python https://talkpython.fm/episodes/show/368/end-to-end-web-testing-with-playwright https://www.sakisv.net/2024/08/tracking-supermarket-prices-playwright/ https://til.simonwillison.net/playwright/testing-tables https://calmcode.io/course/playwright/introduction https://blog.frankel.ch/first-steps-playwright/
 
 ## db

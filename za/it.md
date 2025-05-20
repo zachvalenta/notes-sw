@@ -154,6 +154,12 @@ MUSIC
 * nina simone
 
 SINGLES
+* Jay Z its alright
+* CJ Johnson you better run
+* Pointer Sisters fire
+* Delfonics ready or not
+* Troggs wild thing
+* Jody Reynolds endless sleep
 * Sounds of Blackness he took away my pain
 * Woody guthrie
 * Neil Young birds

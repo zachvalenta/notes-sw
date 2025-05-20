@@ -9,6 +9,8 @@
 
 ## 进步
 
+GPUs https://www.youtube.com/watch?v=WfXfj29KhLo
+
 # 🐍 CPYTHON
 
 ---
@@ -162,7 +164,6 @@ PEPS https://peps.python.org/
 * has no formal spec https://www.pythonpodcast.com/cpython-formal-specification-episode-288/
 * _Python_: language spec; very much tied to CPython e.g. metaclasses https://news.ycombinator.com/item?id=23698846
 * history: origins in ABC https://www.fluentpython.com/lingo/#ABC
-* readabillity: indentation for statement grouping via significant white space vs. semi-colons https://news.ycombinator.com/item?id=34936023
 * simplicity: `python -m this` https://peps.python.org/pep-0020/ `python -m antigravity` https://xkcd.com/353/
 * pain points: binaries, import system, version management, packaging, browser, native (mobile, desktop), speed (not built for multi-core https://twitter.com/mitsuhiko/status/1091802711908106240)
 * https://lukeplant.me.uk/blog/posts/pythons-disappointing-superpowers/
@@ -185,7 +186,7 @@ PEPS https://peps.python.org/
 * finance https://www.openbb.co/
 * architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * GPU simulation https://news.ycombinator.com/item?id=40680737
-* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/ https://github.com/pythonarcade/arcade https://www.pygame.org https://nostarch.com/object-oriented-python https://www.bitecode.dev/p/the-next-big-thing-in-python https://news.ycombinator.com/item?id=43824640
+* game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/ https://github.com/pythonarcade/arcade https://www.pygame.org https://nostarch.com/object-oriented-python https://www.bitecode.dev/p/the-next-big-thing-in-python https://news.ycombinator.com/item?id=43824640 https://news.ycombinator.com/item?id=44038959
 * robotics https://sandorfelber.github.io/ https://arnoldkling.substack.com/p/small-machine-warfare https://www.construction-physics.com/p/robot-dexterity-still-seems-hard https://claytonwramsey.com/blog/captree/ https://spectrum.ieee.org/amazon-stowing-robots
 * physics engine https://github.com/rudransh61/Physix-go
 * mesh analysis https://github.com/pyvista/pyvista

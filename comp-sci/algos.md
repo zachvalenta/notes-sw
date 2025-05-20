@@ -635,6 +635,8 @@ Application: Used in document retrieval systems to handle structured documents.
 
 ## PageRank
 
+BYO https://news.ycombinator.com/item?id=44039744
+
 > Best for ranking nodes (e.g., web pages) by global importance in a graph.
 
 that weights on number of incoming links (and their popularity)
