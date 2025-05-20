@@ -550,6 +550,11 @@ just a way to query Iceberg https://www.youtube.com/watch?v=TsmhRZElPvM [11:45]
 * keeps more data in memory 📻 Macey 24:30
 * more expensive bc optimizing for large volume and speed of access 📻 Macey 31:30
 
+DATA MESH
+* = domain teams maintain warehouse https://www.thoughtworks.com/radar/techniques/data-mesh
+* 📙 https://www.manning.com/books/data-mesh-in-action https://www.amazon.com/Data-Mesh-Delivering-Data-Driven-Value/dp/1492092398
+> It really feels like data mesh is a fairly half baked concept born out of short term consulting gigs and a desire to become a technical thought leader. https://news.ycombinator.com/item?id=30721198
+
 ---
 
 https://www.smalldatasf.com/2024
