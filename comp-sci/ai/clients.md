@@ -11,6 +11,7 @@
 * _24_: lots of work to research/taxonomize tooling, start with llm and aider
 
 TOP OF MIND
+* https://news.ycombinator.com/item?id=44107470
 * https://github.com/block/goose
 * Zed for agentic https://news.ycombinator.com/item?id=43959710
 * Gemini https://news.ycombinator.com/item?id=44009848
@@ -43,6 +44,11 @@ ALTERNATIVES
 def keyboard_interrupt(self):
     self.io.tool_warning("\n\n^C again to exit")
 ```
+
+## 🟩 Amp
+
+https://ampcode.com/manual
+https://ampcode.com/how-i-use-amp
 
 ## 🟫 Claude Code
 
@@ -84,6 +90,7 @@ logs -m $MODEL  # logs by model
 
 ---
 
+* tools https://simonwillison.net/2025/May/27/llm-tools/
 * files-to-prompt https://simonwillison.net/2025/Mar/26/notes/ https://simonwillison.net/2025/Apr/14/llms-as-the-first-line-of-support/
 https://simonwillison.net/2025/Apr/10/llm-fragments-go/
 https://mathpn.com/posts/llm-docsmith/

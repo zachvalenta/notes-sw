@@ -530,7 +530,7 @@ ALTERNATIVES
 * _forgit_: good UI, for `gai`, no Vim keybindings https://github.com/wfxr/forgit#-features
 * _gitu_: no Vim keybindings https://github.com/altsem/gitu
 * _gitui_: 🎯 https://github.com/extrawurst/gitui
-* _magit_: looks great, Emacs-only https://github.com/magit/magit https://emacsair.me/2017/09/01/magit-walk-through/ https://github.com/dandavison/delta/issues/194 https://github.com/dandavison/magit-delta
+* _magit_: 🎯 looks great, Emacs-only https://github.com/magit/magit https://emacsair.me/2017/09/01/magit-walk-through/ https://github.com/dandavison/delta/issues/194 https://github.com/dandavison/magit-delta available in VS Code https://github.com/kahole/edamagit
 * _Neogit_: 🎯 magit port https://github.com/NeogitOrg/neogit
 * _vimagit_: inspired by magit https://github.com/jreybert/vimagit
 * _vim-fugitive_: 🎯 https://github.com/tpope/vim-fugitive https://www.youtube.com/watch?v=kFVjoIish0E https://gumroad.com/vimtricks https://github.com/TimUntersberger/neogit http://vimcasts.org/episodes/archive/ https://www.semicolonandsons.com/episode/IDE-like-refactors-snippets-tests-hover-docs-commenting-and-git 3:15 http://vimcasts.org/episodes/archive/ https://www.youtube.com/watch?v=F7JZdAwGmpU https://www.youtube.com/watch?v=vpwJ7fqD1CE https://nimbleind.gumroad.com/l/hsOVI

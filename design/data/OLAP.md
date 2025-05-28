@@ -634,6 +634,11 @@ Spend a week exploring some larger analytics datasets, or converting some of the
 * _Deltalake_: lakehouse https://news.ycombinator.com/item?id=34345408
 * _Redshift_: warehouse https://aws.amazon.com/redshift/
 
+## DuckLake
+
+https://ducklake.select/
+https://news.ycombinator.com/item?id=44109548
+
 ## Hadoop
 
 ---

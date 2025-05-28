@@ -42,6 +42,14 @@ abstraction and math https://neugierig.org/content/dfw/
 * `OLAP.md` schemas
 * `serde.md` columnar
 
+TYPES 📙 Verdhan
+* quantitative: discrete, continuous
+* qualitative: binary, nominal, ordinal
+* _continuous variable_: on a sliding scale e.g. weight of animal https://entropicthoughts.com/dichotomisation-discards-data
+* _discrete variable_: distinct states e.g. coin is either heads or tails; aka categorical, dimensional https://en.wikipedia.org/wiki/Categorical_variable https://astralcodexten.substack.com/p/ontology-of-psychiatric-conditions
+* _nominal_: unordered category e.g. flavors of ice cream
+* _ordinal_: in a sequence e.g. negative/neutral/positive https://www.freecodecamp.org/news/types-of-data-in-statistics-nominal-ordinal-interval-and-ratio-data-types-explained-with-examples/
+
 ---
 
 * fact tables: wide, often sparse, store metrics (e.g., sales data).

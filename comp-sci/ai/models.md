@@ -44,6 +44,7 @@ https://news.ycombinator.com/item?id=43236184 https://simonwillison.net/2025/Mar
 * `media.md` print culture
 
 ARCHITECTURE
+* https://bsky.app/profile/emollick.bsky.social/post/3lp5afidgvc2a
 > https://news.ycombinator.com/item?id=42095434 there's a fair amount of pushback as well. i align with the first comment to this guy. decent amount of pushback seems like: "im a real man, my editor is emacs, i have strong opinions about c99 vs. rust, LLMs are for wimps who write $DYNAMICALLY_TYPED_LANGUAGE_HERE" + people that are bad at writing prompts. essentially, LLMs reward the type of person who could write a good question on Stack Overflow or otherwise teaches them how to do so (if they are willing to learn) https://stackoverflow.com/help/mcve - to Josh/Kurt 24.11.15
 * https://news.ycombinator.com/item?id=42336553
 * ADRs / Stack Overflow won https://harper.blog/2025/04/17/an-llm-codegen-heros-journey/ https://registerspill.thorstenball.com/p/joy-and-curiosity-36 https://mathstodon.xyz/@tao/110601051375142142

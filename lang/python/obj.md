@@ -1197,7 +1197,7 @@ https://lukeplant.me.uk/blog/posts/the-different-uses-of-python-type-hints/
 
 ---
 
-* _ty_: from Astral/uv https://simonwillison.net/2025/May/7/ty/ https://github.com/astral-sh/ty
+* _ty_: from Astral/uv https://simonwillison.net/2025/May/7/ty/ https://github.com/astral-sh/ty https://news.ycombinator.com/item?id=44107655
 * _pyre_: Facebook https://pyre-check.org/
 * _Beartype_: https://github.com/beartype/beartype
 

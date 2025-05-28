@@ -58,7 +58,7 @@ https://increment.com/programming-languages/language-history/
 * _1996_: OCaml
 * _2015_: Rust
 * _2016_: Zig
-* _2020s_: Gleam, Odin https://odin-lang.org/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/ https://www.youtube.com/@codetothemoon/videos https://www.fast.ai/posts/2023-05-03-mojo-launch.html Lobster https://github.com/aardappel/lobster https://www.youtube.com/watch?v=uuPeBKdnBOI BYO https://www.scattered-thoughts.net/
+* _2020s_: Gleam, Odin https://odin-lang.org/ https://zylinski.se/posts/a-programming-language-for-me/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/ https://www.youtube.com/@codetothemoon/videos https://www.fast.ai/posts/2023-05-03-mojo-launch.html Lobster https://github.com/aardappel/lobster https://www.youtube.com/watch?v=uuPeBKdnBOI BYO https://www.scattered-thoughts.net/
 
 ## community
 

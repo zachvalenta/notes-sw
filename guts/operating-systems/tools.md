@@ -43,7 +43,8 @@ CLEAN UP
 
 FILE NAME EDITING
 * file manager (nnn, ranger, et al.)
-* vimv https://news.ycombinator.com/item?id=13890944 https://github.com/thameera/vimv rust alternative https://terminaltrove.com/regname/
+* _vimv_ https://news.ycombinator.com/item?id=13890944 https://github.com/thameera/vimv rust alternative https://terminaltrove.com/regname/
+* _f2_: https://github.com/ayoisaiah/f2 https://simonwillison.net/2025/May/24/f2/
 * https://github.com/yaa110/nomino
 * visidata https://www.visidata.org/blog/2020/ten/
 * `fne` (bulk, dry run, default for youtube-dl)
@@ -334,6 +335,7 @@ https://github.com/18alantom/fex
 📹 https://www.youtube.com/watch?v=iKb3cHDD9hw
 
 FILE OPS
+* 🎗️ `a`: create file (dir end with `/`)
 * `SPACE`: select | unselect
 * `x` cut (mark for mv)
 * `p` paste
@@ -344,7 +346,6 @@ FILE OPS
 * `o` open
 > you can just enter a dir by quitting yazi in that dir!
 > would like to config so that it works for both dropping to shell and file edit https://yazi-rs.github.io/docs/tips/#dropping-to-shell https://github.com/yazi-rs/plugins/tree/main/smart-enter.yazi https://yazi-rs.github.io/docs/tips/#smart-enter
-* `a`: create file (dir end with `/`)
 * `r`: mv
 
 ZA

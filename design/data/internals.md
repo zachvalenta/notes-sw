@@ -77,7 +77,7 @@ Without intervention, this causes data loss as new transactions might reuse XIDs
 * _page_: + heap https://news.ycombinator.com/item?id=41159180 https://simonwillison.net/2025/Feb/6/sqlite-page-explorer/
 * https://supabase.com/blog/postgres-bloat
 * physical storage https://drew.silcock.dev/blog/how-postgres-stores-data-on-disk/
-* locks https://news.ycombinator.com/item?id=35981238 https://leontrolski.github.io/pglockpy.html
+* locks https://news.ycombinator.com/item?id=35981238 https://leontrolski.github.io/pglockpy.html https://postgres.fm/episodes/locks
 * _journal_: journaling i.e. keep track of transactions? https://fly.io/blog/sqlite-internals-rollback-journal/
 * _storage engine_: handle transactions, maintain index https://stackoverflow.com/a/39204302
 * row-oriented vs. column-oriented 📙 Kleppmann 586

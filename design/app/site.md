@@ -190,7 +190,9 @@ Dreams of Code https://www.youtube.com/watch?v=A_3MP_V-kB4
 
 # 🕸️ DESIGN
 
-📙 Stimac https://www.manning.com/books/design-for-developers
+📚
+* Stimac https://www.manning.com/books/design-for-developers
+* Zeldman  https://cybercultural.com/p/web-design-1997/
 
 https://youtube.com/watch?v=Jf0cjocP8Wk
 scroll bar https://focusfurnace.com/scroll_buddy.html

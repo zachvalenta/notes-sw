@@ -430,10 +430,13 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 
 ---
 
-war: robots, satellites
+factories https://odin-lang.org/
+war: robots, satellites https://www.semafor.com/article/05/28/2025/the-syrian-entrepreneur-gunning-to-be-ukraines-drone-king https://www.18theses.com/
+chips
+Jed
 tsmc
 https://sive.rs/gethired
-* no jobs https://www.noahpinion.blog/p/at-least-five-interesting-things-b5d https://news.ycombinator.com/item?id=43963434 https://www.reveliolabs.com/news/macro/white-collar-workers-are-getting-the-blues/
+* no jobs https://www.noahpinion.blog/p/at-least-five-interesting-things-b5d https://news.ycombinator.com/item?id=43963434 https://www.reveliolabs.com/news/macro/white-collar-workers-are-getting-the-blues/ https://www.seangoedecke.com/in-these-troubled-times/
 * https://news.ycombinator.com/item?id=43566625
 * https://blog.bytebytego.com/p/ep155-the-shopify-tech-stack
 https://news.ycombinator.com/item?id=43354115
@@ -446,12 +449,12 @@ COMPANIES
 
 NETWORK
 * https://www.phillylinux.org/talks.html
-* Jonathan Magen https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/ https://pod.link/1602572955/episode/12fe9e0c14dab3b5e9780ffc13412136 https://www.linkedin.com/in/jonathan-magen-9848711b/ https://yonkeltron.com/
+* Jonathan Magen https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/ https://pod.link/1602572955/episode/12fe9e0c14dab3b5e9780ffc13412136 https://www.linkedin.com/in/jonathan-magen-9848711b/
 * LinkedIn contacts
 * China: Dror, Eva
 * Zip Code: Josh, Kurt, Roberto, Jocelyn
-* BNY: Ryan, Tim, Rob, Jeff, Larry, Sal + Rebecca Jacobs, Stephen Moran, Geoff Grady
-* UM: Uzair, Erika, Margaux
+* BNY: Ryan, Tim
+* UM: Uzair
 
 STOCK ANSWERS
 > Thanks for the message. Sounds interesting. I'm not on the market right now but keep me in the rolodex.

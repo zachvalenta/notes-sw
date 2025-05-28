@@ -245,7 +245,11 @@ https://vickiboykis.com/what_are_embeddings/
 ## labels (output var)
 
 🗄️ scikit
-📙 https://www.manning.com/books/data-without-labels
+📙 Verdhan data w/out labels https://www.amazon.com/Data-Without-Labels-unsupervised-generative/dp/1617298727 https://www.manning.com/books/data-without-labels 
+
+* _clustering_: putting together like w/ like 📙 Verdhan [2.2]
+
+---
 
 * https://calmcode.io/course/bad-labels/introduction
 * https://calmcode.io/course/pigeon/introduction
@@ -511,6 +515,8 @@ TYPES
 * Tunstall nlp with transformers https://www.amazon.com/dp/1098136799
 
 ---
+
+* vs. diffusion https://simonwillison.net/2025/May/21/gemini-diffusion/
 
 > LLMs (which are really just very large transformer models)
 > GPT stands for Generative Pre-trained Transformer 📙 Clinton obsolete gen AI
