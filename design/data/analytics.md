@@ -612,6 +612,7 @@ dsq "SELECT a.col1, b.col2 FROM a AS a JOIN b AS b ON a.id = b.id;" a.csv b.csv
 ## entry (dataclerk)
 
 https://mathesar.org/
+https://news.ycombinator.com/item?id=44179399
 storing PDFs https://news.ycombinator.com/item?id=42059639
 > able to store Markdown?
 
@@ -927,7 +928,7 @@ FEATURES
 * data catalog https://harlequin.sh
 
 TUI
-* _dblab_: no readline https://github.com/danvergara/dblab
+* _dblab_: no autocomplete? https://github.com/danvergara/dblab
 * _dadbod_: harlequin for Neovim https://github.com/kristijanhusak/vim-dadbod-ui https://www.youtube.com/watch?v=NhTPVXP8n7w
 * _lazysql_: keybindings look goofy https://github.com/jorgerojas26/lazysql
 * _GoBang_: 💀 https://github.com/TaKO8Ki/gobang

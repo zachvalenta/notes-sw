@@ -220,6 +220,8 @@ SEMANTICS
 
 ## binaries
 
+🛠️ https://github.com/NQMVD/needs
+
 BINARIES
 * management: Artifactory, Nexus, Github Package Registry, Pulp https://pulpproject.org/ people also use these for language libraries and object stores as well https://devops.stackexchange.com/a/1900
 * containerized runtimes e.g. flatpak, Steam https://ludocode.com/blog/flatpak-is-not-the-future https://news.ycombinator.com/item?id=30408161
@@ -310,6 +312,7 @@ ALTERNATIVES https://github.com/cli/cli?tab=readme-ov-file#installation
 
 ---
 
+* https://github.com/Valkyrie00/bold-brew
 * rewrite in Rust https://news.ycombinator.com/item?id=43765011
 * Bundle, Brewfiles https://nickgerace.dev/posts/how-to-manage-rust-tools-and-applications/
 * un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew

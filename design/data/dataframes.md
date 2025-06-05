@@ -54,6 +54,7 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 
 ---
 
+* https://codecut.ai/unified-dataframe-functions-pandas-polars-pyspark/
 > First up: we are completely rewriting how our Plotly.py library talks to dataframes in the 6.0 release. Instead of relying on the Pandas API, we are using Narwhals which provides an abstraction layer over several kinds of tabular data. This means faster, more efficient handling of tabular data and serious performance gains for data apps at scale. You'll notice with this change that Plotly.py no longer has to do in-memory copying when you hand it something like a Polars dataframe. https://plotly.com/blog/plotly-dash-major-release/
 * _Narwhal_: API for dataframes https://pythonbytes.fm/episodes/show/402/how-to-monetize-your-blog https://realpython.com/podcasts/rpp/224/ https://github.com/benrutter/wimsey
 > Chances are, you’ve never heard of Narwhals. That’s because it’s a tool targeted at tool builders, rather than at end users. Specifically, it allows library maintainers to support multiple dataframe libraries as inputs, without having to make any of them required. https://pola.rs/posts/lightweight_plotting/
@@ -68,7 +69,8 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 * VSC Code inline values for notebooks
 * w/ Rich 💻️ https://github.com/zachvalenta/capp-dataload/blob/main/load.py#L28
 * https://github.com/dannywade/textual-pandas
-* _Data Wrangler_: https://code.visualstudio.com/docs/datascience/data-wrangler alternative https://github.com/mljar/variable-inspector
+* _Buckaroo_: https://github.com/paddymul/buckaroo
+* _Data Wrangler_: ✅ https://code.visualstudio.com/docs/datascience/data-wrangler alternative https://github.com/mljar/variable-inspector
 * _Dataspell_: Data Wrangler Jet Brains version https://www.jetbrains.com/dataspell/
 * _dtale_: render in browser https://github.com/man-group/dtale
 

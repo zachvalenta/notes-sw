@@ -109,6 +109,7 @@ SIGNAL/NOISE 📙 Gleick ch. 7-8
 
 ---
 
+* _zstandard_: https://peps.python.org/pep-0784/
 * https://blog.startifact.com/posts/succinct/
 * _lzma_: 
 * _lossy_: data removed in way mostly unnoticed by end user e.g. mp3

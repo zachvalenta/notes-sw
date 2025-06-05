@@ -381,6 +381,8 @@ USB https://en.wikipedia.org/wiki/USB
 
 ## cameras
 
+shoot a tutorial https://www.youtube.com/watch?v=v171JhAg54M
+
 can just use an iPhone for youtube https://www.youtube.com/watch?v=UjxD6zn33t0
 
 💡 Delco photo book https://jaapgrolleman.com/shanghai-before-the-foreigners/ https://loosejoints.biz/collections/current-titles/products/holy-island https://loosejoints.biz/collections/current-titles/products/robin-graubard-road-to-nowhere https://loosejoints.biz/collections/current-titles/products/office https://www.newyorker.com/culture/photo-booth/the-frightening-familiarity-of-late-nineties-office-photos https://news.ycombinator.com/item?id=41926849

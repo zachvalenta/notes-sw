@@ -381,16 +381,20 @@ add styles
 
 ## PDF
 
+to img so you can feed to LLM https://simonwillison.net/2025/May/18/llm-pdf-to-images/
+
 GENERATE
 * _invoice_: https://github.com/maaslalani/invoice https://github.com/charmbracelet/pop
 
 READERS
+* https://news.ycombinator.com/item?id=43880962
 * _baca_: ebook/epub TUI reader https://github.com/wustho/baca
 * _tdf_: https://github.com/itsjunetime/tdf
 * _termpdf_: kitty https://github.com/dsanson/termpdf.py
 
 TO TEXT
 > why this is still hard https://arstechnica.com/ai/2025/03/why-extracting-data-from-pdfs-is-still-a-nightmare-for-data-experts/
+* _pdf-craft_: 🎯 https://github.com/oomol-lab/pdf-craft
 * _markitdown_: 🎯 AI = 25k stars in a month https://github.com/microsoft/markitdown
 * _parsr_: https://github.com/axa-group/Parsr
 * _poppler_: https://poppler.freedesktop.org/
@@ -806,7 +810,7 @@ McMaster Carr
 > If you're familiar with McMaster, you might recognize how their number is semi-smart: the first section (91257) is the general product while the second section (546) is a variant within that.
 > This is a "semi-smart" numbering system - not completely arbitrary but not fully semantic either. It balances: Categorization (first segment) Variation tracking (last segment) Human readability (letter break)
 
-UUID https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/ https://en.wikipedia.org/wiki/Universally_unique_identifier https://taskwarrior.org/docs/dom/
+UUID https://www.rfc-editor.org/rfc/rfc9562.html https://www.ntietz.com/blog/til-uses-for-the-different-uuid-versions/ https://en.wikipedia.org/wiki/Universally_unique_identifier https://taskwarrior.org/docs/dom/ https://andyatkinson.com/generating-short-alphanumeric-public-id-postgres
 * prefixed https://github.com/minhajuddin/prefixed_uuids
 * version 1: generated from timestamp, monotonic counter, and a MAC address
 > don't use

@@ -317,6 +317,11 @@ request flow
 * _Gorouter_: routes w/in pool to app instances via round-robin
 * _route service_: handles rate limiting, caching; find app instance using `X-CF-Forwarded-Url` header
 
+## coolify
+
+https://coolify.io/
+https://www.youtube.com/watch?v=zJVyOETKvzQ
+
 ## fly.io
 
 > you have account tied to personal Github https://github.com/settings/connections/applications/Iv1.6b93b0cce72780ec
@@ -367,6 +372,7 @@ https://www.pythonanywhere.com/
 
 ## Val Town
 
+https://blog.val.town/glitch
 https://www.val.town/
 https://www.val.town/v/mikker/dailySlackRoundup
 https://www.geoffreylitt.com/2025/04/12/how-i-made-a-useful-ai-assistant-with-one-sqlite-table-and-a-handful-of-cron-jobs
@@ -400,6 +406,7 @@ CONSIDERATIONS
 
 ## Kamal
 
+* https://www.youtube.com/watch?v=U-Ca67BGJRs
 * _Kamal_: 🎯 https://kamal-deploy.org/ https://www.youtube.com/watch?v=7lkJmElHkSw
 > Rare opening to join our excellent ops team. Help us run Basecamp, HEY, and the heritage suite of apps on our own hardware with Kamal, MySQL, ElasticSearch, Prometheus, Grafana, KVM, Chef. https://x.com/dhh/status/1848544864436162705
 

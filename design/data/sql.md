@@ -1060,7 +1060,7 @@ TYPES
 * _temporary_: table in mem 📙 Beaulieu [53] aka non-persistent 📙 Beaulieu [8]
 * _result set (RS)_: temp table returned from query 📙 Beaulieu [8] Evans [4]
 * intermediate RS created at each stage in join 📙 Beaulieu [90-digital-copy]
-* _virtual_: created using `create view` cmd 📙 Beaulieu [53] https://news.ycombinator.com/item?id=43719830
+* _virtual_: created using `create view` cmd 📙 Beaulieu [53] https://news.ycombinator.com/item?id=43719830 https://paultraylor.net/blog/2025/sqlite-virutal-tables-django/
 * _intemediate_: table instaniated for a job and then deleted https://hakibenita.com/sql-tricks-application-dba#implement-complete-processes-using-with-and-returning
 * _scalar table_: table w/ single column and single row https://pgexercises.com/questions/basic/agg2.html
 * _temporal_: https://news.ycombinator.com/item?id=29733854 https://news.ycombinator.com/item?id=29735695 https://stackoverflow.com/questions/50199752/comparing-csv-entries-against-entries-in-postgresql-table-using-python 

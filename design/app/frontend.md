@@ -4,6 +4,8 @@
 
 ## 进步
 
+> Give yourself permission to avoid any form of frontend build system (so no npm / React / TypeScript / JSX / Babel / Vite / Tailwind etc) and code in HTML and JavaScript like it's 2009.  The joy came flooding back to me! It turns out browser APIs are really good now. You don't even need jQuery to paper over the gaps any more - use document.querySelectorAll() and fetch() directly and see how much value you can build with a few dozen lines of code. https://simonwillison.net/2025/May/31/no-build/
+
 * _24_: big rf, port site to Zola and rm old dirs for content/drafts
 * _22_: rf fs, try Pelican, redesign
 * _19_: water.css, Vue for BNY test runner
@@ -114,6 +116,7 @@ DESIGN
 * internals https://www.youtube.com/watch?v=javGxN-h9VQ
 * htmz https://news.ycombinator.com/item?id=40709769
 * https://drewdevault.com/2018/09/04/Conservative-web-development.html
+* https://news.ycombinator.com/item?id=43905771
 
 DJANGO
 > For my rewrite of the client, I’m going to skip the drama and just use htmx. Render Django templates server-side, include a single JS script, thrown in some HTML attributes, distinguish between full page requests vs. requests for a partial with updated data, and call it a day. No TypeScript, no Webpack, none of that nonsense. If I need special interactivity I can throw in some hyperscript. https://news.ycombinator.com/item?id=38517099

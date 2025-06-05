@@ -153,6 +153,7 @@ GENERATORS
 
 ---
 
+https://github.com/brandonyoungdev/tldx
 https://github.com/pirxthepilot/wtfis
 * aaS https://news.ycombinator.com/item?id=34485815
 * https://github.com/trimstray/the-book-of-secret-knowledge?tab=readme-ov-file#domain-resolve
@@ -424,6 +425,7 @@ TOOLS
 
 ---
 
+https://github.com/ziinaio/ziina
 https://keypub.sh/
 * basics
 ```sh
@@ -497,6 +499,7 @@ process https://help.ubuntu.com/community/SSH/OpenSSH/Keys
 
 ---
 
+https://terminaltrove.com/ssl-checker/
 * https://tusharf5.com/posts/ssl-certificates-for-the-rest-of-us/
 * https://www.youtube.com/watch?v=j9QmMEWmcfo
 https://questions.wizardzines.com/tls-certificates.html

@@ -778,6 +778,7 @@ bat --line-range 227:236 $NOTES_DIR/sw/za/algos.md
 * `vim.md` utils
 
 ZA
+* _igrep_: https://github.com/konradsz/igrep
 * _rga_: PDFs, Microsoft Office https://github.com/phiresky/ripgrep-all https://pdfgrep.org/
 * _srgn_: 🎯 alternative to LSP https://github.com/alexpovel/srgn https://www.youtube.com/watch?v=TRJo2-P9AEY
 * _symbex_: Python symbols https://github.com/simonw/symbex
@@ -844,6 +845,7 @@ $QUERY $PATH
 ---
 
 https://github.com/yassinebridi/serpl
+https://github.com/thomasschafer/scooter
 
 🗄 `vim.md` argdo
 

@@ -172,6 +172,7 @@ PEPS https://peps.python.org/
 
 💡 second-best for everything
 
+* most used language at meta https://simonwillison.net/2025/May/16/python-at-meta/
 * why not: typing, concurrency, perf
 > Python (which was the right initial choice because of our founding CTO’s technical background, but its concurrency support, performance, and extensive dynamism make us question whether it’s the right choice for a large-scale backend codebase). None of these was a major mistake, and for some (e.g. Python) the downsides are minimal enough that it’s cheaper for us to continue to pay the increased maintenance burden than to invest in migrating to something theoretically better, but if we were starting a similar codebase from scratch today we’d think hard about whether they were the right choice. https://danluu.com/simple-architectures/
 * popularity https://realpython.com/preview/python-news-november-2024/
@@ -186,6 +187,8 @@ PEPS https://peps.python.org/
 * finance https://www.openbb.co/
 * architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * GPU simulation https://news.ycombinator.com/item?id=40680737
+* embedded https://www.runpyxl.com/
+> bare metal: Andrea proposes a new 'none' target for the Go compiler to enable freestanding execution without direct OS support. This isn’t exactly new ground – it’s been proposed before – but Go contributor Filippo Valsorda thinks it’s worth serious consideration again due to the opportunities it would open up in micro VMs, firmware, and elsewhere. It's also been discussed internally at Google.https://golangweekly.com/issues/553 https://github.com/golang/go/issues/73608
 * game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/ https://github.com/pythonarcade/arcade https://www.pygame.org https://nostarch.com/object-oriented-python https://www.bitecode.dev/p/the-next-big-thing-in-python https://news.ycombinator.com/item?id=43824640 https://news.ycombinator.com/item?id=44038959
 * robotics https://sandorfelber.github.io/ https://arnoldkling.substack.com/p/small-machine-warfare https://www.construction-physics.com/p/robot-dexterity-still-seems-hard https://claytonwramsey.com/blog/captree/ https://spectrum.ieee.org/amazon-stowing-robots
 * physics engine https://github.com/rudransh61/Physix-go

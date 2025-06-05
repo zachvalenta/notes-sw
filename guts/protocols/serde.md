@@ -158,7 +158,7 @@ Focus: Data storage and processing efficiency for analytics, not real-time query
 🗄️ `computation.md` info theory > compression
 
 TOOLS
-* preview https://terminaltrove.com/pqviewer
+* preview https://terminaltrove.com/pqviewer https://github.com/sanspareilsmyn/parqv
 
 ---
 

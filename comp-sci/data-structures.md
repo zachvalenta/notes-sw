@@ -538,6 +538,7 @@ za
 
 ## bloom filter
 
+https://eli.thegreenplace.net/2025/bloom-filters/
 https://avi.im/blag/2024/sqlite-past-present-future/
 
 ```txt

@@ -424,14 +424,34 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 * https://github.com/Canop/broot/issues/86#issuecomment-573197384
 * https://dystroy.org/broot/install-br/
 
+## begging
+
+title: HN hiring post
+
+Hi there,
+
+Caught your post on HN and just wanted to drop a line. Bit more about me:
+
+* personal site https://www.zachvalenta.com
+* Github https://github.com/zachvalenta
+* LinkedIn https://www.linkedin.com/in/zachvalenta/
+* CV https://www.zachvalenta.com/cv.html
+
+Thanks for taking a look!
+
 ## leads
 
 🗄 `sjk/jobs`
 
 ---
 
+robotics https://news.ycombinator.com/item?id=44158353
+* guy hunts down the economist https://dynomight.net/blood/ https://www.semafor.com/article/05/29/2025/universities-nightmare-scenario-not-just-federal-funding-cuts
+https://finance.yahoo.com/news/george-mason-university-unveils-nuscale-105000508.html
+genetics https://dynomight.substack.com/p/dna
 factories https://odin-lang.org/
-war: robots, satellites https://www.semafor.com/article/05/28/2025/the-syrian-entrepreneur-gunning-to-be-ukraines-drone-king https://www.18theses.com/
+drones https://www.noahpinion.blog/p/how-chinese-drones-could-defeat-america
+war: robots, satellites https://www.semafor.com/article/05/28/2025/the-syrian-entrepreneur-gunning-to-be-ukraines-drone-king https://www.18theses.com/ https://x.com/chr1sa/status/1929204022587674845 https://x.com/dalperovitch/status/1928892373271974399
 chips
 Jed
 tsmc

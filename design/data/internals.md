@@ -93,6 +93,7 @@ Without intervention, this causes data loss as new transactions might reuse XIDs
 
 ## logging
 
+* https://postgres.fm/episodes/what-to-log
 * _log_: append-only data file; used to deal w/ concurrency 📙 Kleppmann 71
 * _segment_: chunk of log; immutable 📙 Kleppmann 73
 * _compaction_: rm dupe keys from log; done by plucking most recent update for key and writing to new, smaller segment file; done in background while continuing to use existing segments for read/write 📙 Kleppmann 73
@@ -341,6 +342,7 @@ order
 
 📜 https://github.com/apple/foundationdb/
 
+over Postgres https://fabianlindfors.se/blog/making-postgres-distributed/
 https://www.youtube.com/watch?v=OJb8A6h9jQQ
 https://www.youtube.com/watch?v=MqbVoSs0lXk
 Swift https://www.youtube.com/watch?v=ZQc9-seU-5k

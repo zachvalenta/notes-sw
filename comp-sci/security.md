@@ -20,6 +20,9 @@
 
 ## 进步
 
+basics for interviewing https://corgea.com/Learn/django-security-best-practices-a-comprehensive-guid-for-software-engineers
+
+https://news.ycombinator.com/item?id=43878065
 * https://dadrian.io/ https://dadrian.io/blog/posts/sct-not-after/
 * https://vin01.github.io/piptagole/cybcecrime/security/cybersecurity/2025/05/05/state-cyber-security.html
 

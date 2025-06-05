@@ -522,7 +522,7 @@ PROJECT
 poetry run django-admin startproject conf .
 ```
 
-APPS
+APPS https://www.revsys.com/tidbits/what-is-a-django-app
 * _app_: unit of functionality https://forum.djangoproject.com/t/why-do-we-need-apps/827
 * `manage.py`: CLI for app https://docs.djangoproject.com/en/3.0/ref/django-admin/
 * name as normal package 🗄️ `python/runtime.py` packages
@@ -816,6 +816,7 @@ For your existing code, if you're mapping to a preexisting database schema, this
 
 ## DML
 
+* bad integer type = empty result set https://www.mistys-internet.website/blog/blog/2025/05/13/the-database-row-that-did-and-didnt-exist/
 * https://testdriven.io/blog/django-query-optimization/
 * check column present: `Foo.objects.filter(col__isnull=False)`
 * https://johnnymetz.com/posts/slow-django-database-queries/
@@ -826,7 +827,7 @@ clean up
 * https://dev.to/amitness/django-orm-if-you-already-know-sql-k80
 * https://davit.tech/django-queryset-examples/#section-comparsion
 * prefetch https://www.laac.dev/blog/five-common-django-mistakes
-* https://chriswedgwood.com/blog/htmx-with-django-example-2-bulk-update/
+* https://chriswedgwood.com/blog/htmx-with-django-example-2-bulk-update/ https://djangotv.com/videos/djangocon-europe/2025/djangocon-europe-2025-django-htmx-patterns-to-success/
 
 lookups
 * https://docs.djangoproject.com/en/3.1/topics/db/queries/#lookups-that-span-relationships
@@ -1098,6 +1099,8 @@ MVT
 
 RAILS
 * https://news.ycombinator.com/item?id=43829857
+* https://news.ycombinator.com/item?id=43881035
+* https://news.ycombinator.com/item?id=43871617
 * domain https://news.ycombinator.com/item?id=34936023
 * still the best https://rubyonrails.org/doctrine/
 * https://news.ycombinator.com/item?id=42856766

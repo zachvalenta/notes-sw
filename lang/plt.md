@@ -58,7 +58,7 @@ https://increment.com/programming-languages/language-history/
 * _1996_: OCaml
 * _2015_: Rust
 * _2016_: Zig
-* _2020s_: Gleam, Odin https://odin-lang.org/ https://zylinski.se/posts/a-programming-language-for-me/ https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/ https://www.youtube.com/@codetothemoon/videos https://www.fast.ai/posts/2023-05-03-mojo-launch.html Lobster https://github.com/aardappel/lobster https://www.youtube.com/watch?v=uuPeBKdnBOI BYO https://www.scattered-thoughts.net/
+* _2020s_: Gleam, Odin https://odin-lang.org/ https://zylinski.se/posts/a-programming-language-for-me/ https://bitshifters.cc/2025/05/04/odin.html https://rm4n0s.github.io/posts/2-go-devs-should-learn-odin/ https://www.youtube.com/watch?v=0JeD48Ay8Ts Hazel https://hazel.org/ https://www.youtube.com/@codetothemoon/videos https://www.fast.ai/posts/2023-05-03-mojo-launch.html Lobster https://github.com/aardappel/lobster https://www.youtube.com/watch?v=uuPeBKdnBOI BYO https://www.scattered-thoughts.net/
 
 ## community
 
@@ -364,8 +364,10 @@ ARITHMATIC
 
 * tokens -> expressions -> statements -> functions -> obj/modules -> systems 📙 Beck tidy first [57,59]
 * _expression_: value + operator https://realpython.com/python-walrus-operator/#hello-walrus
+* returns a value
 * an eval to single value e.g. `y + 13` (number) `price > 0` (bool) 📙 Sweigart automate [14]
 * _statement_: 动 an action e.g. function call (`logger.debug(ex)`) assignment (`x = 42`) https://beautifulracket.com/appendix/why-racket-why-lisp.html
+* doesn't return a value https://mathspp.com/blog/til/the-appearing-builtin
 * compositions of n expressions 📙 Haverbeke [ch.2]
 * _block_: 名 group of statements
 

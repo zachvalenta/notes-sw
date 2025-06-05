@@ -360,6 +360,7 @@ n  # [42, 'abc', [1, 2, 3]]
 
 LODASH-ESQUE LIBRARIES
 * https://github.com/mahmoud/boltons https://martinheinz.dev/blog/96
+* https://github.com/jlevy/strif
 * https://github.com/dgilland/pydash
 * https://github.com/dgilland/fnc
 * https://github.com/seperman/deepdiff

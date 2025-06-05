@@ -207,6 +207,7 @@ TYPES
 
 ---
 
+* Postgres https://github.com/pgsty/pg_exporter
 * https://postgres.fm/episodes/snapshots
 * with stats, pg_upgrade https://git.postgresql.org/gitweb/?p=postgresql.git;a=commit;h=1fd1bd871012732e3c6c482667d2f2c56f1a9395#transferstatistics
 
@@ -261,7 +262,7 @@ The general problem this addresses is maintaining perfect history of state chang
 * `system.md` distributed
 * `sql.md` migrations
 
-* _pgdog_: split btw read-replica and write https://news.ycombinator.com/item?id=44099187
+* _pgdog_: split btw read-replica and write https://news.ycombinator.com/item?id=44099187 https://news.ycombinator.com/item?id=44099187
 * sync https://github.com/electric-sql/electric https://electric-sql.com/
 * https://github.com/PeerDB-io/peerdb
 * postgres https://github.com/xataio/pgstream https://news.ycombinator.com/item?id=42383136
@@ -661,7 +662,7 @@ wire protocol https://news.ycombinator.com/item?id=43693326
 * terabyte scale https://simonwillison.net/2025/Mar/14/merklemap-runs-a-16tb-postgresql/
 * AI https://simonwillison.net/2025/Mar/13/xata-agent/
 
-hosted Neon, pg_cron https://www.youtube.com/watch?v=3JW732GrMdg
+hosted Neon, pg_cron https://www.youtube.com/watch?v=3JW732GrMdg https://news.ycombinator.com/item?id=43899016
 
 weird bits https://www.hytradboi.com/2025/b479d9ff-3dd9-4548-940d-24698e7cff71-learning-about-the-odd-bits-of-sql-by-reading-the-postgresql-docs
 
@@ -688,12 +689,12 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * generate `create table` from existing table https://github.com/lacanoid/pgddl
 * Elasticsearch https://github.com/paradedb/paradedb https://github.com/pgroonga/pgroonga
 * serverless https://neon.tech/ https://news.ycombinator.com/item?id=31536827
-* embedded for testing https://github.com/electric-sql/pglite https://news.ycombinator.com/item?id=39960537
+* embedded for testing https://github.com/electric-sql/pglite https://news.ycombinator.com/item?id=39960537 https://news.ycombinator.com/item?id=44196945
 * sharding https://github.com/postgresml/pgcat
 * Snowflake, DuckDB, Clickhouse https://github.com/scottpersinger/pgwarehouse
 * result set to CSV https://stackoverflow.com/a/1517692
 * high availability https://github.com/zalando/patroni
-* upgrade: pg_upgrade https://about.gitlab.com/blog/2020/09/11/gitlab-pg-upgrade/ https://news.ycombinator.com/item?id=42867657
+* upgrade: pg_upgrade https://about.gitlab.com/blog/2020/09/11/gitlab-pg-upgrade/ https://news.ycombinator.com/item?id=42867657 https://why-upgrade.depesz.com/show
 * delete data from table: `DELETE FROM <tab>` https://www.postgresql.org/docs/11/dml-delete.html
 * drop all tables: `DROP SCHEMA <schema> CASCADE`
 * get date from timestamp: `SELECT date(startime) FROM bookings` https://stackoverflow.com/a/6133147
@@ -735,7 +736,7 @@ misc
 * _backup_: https://www.crunchydata.com/blog/introduction-to-postgres-backups https://github.com/2ndquadrant-it/barman/ https://github.com/ankane/pgsync https://github.com/postgrespro/pg_probackup https://pgbackrest.org/index.html https://github.com/aiven/pghoard https://github.com/orgrim/pg_back https://www.youtube.com/watch?v=kbCytSYPh0E https://github.com/EnterpriseDB/barman https://github.com/pgmoneta/pgmoneta
 * _benchmarking_: https://github.com/ankane/pghero https://blog.codeship.com/tuning-postgresql-with-pgbench/ https://softwareengineeringdaily.com/2022/09/22/automatic-database-tuning/
 > Benchmarking is a dark art of deceiving yourself with highly precise numbers. And benchmarketing datastores is even more fraught. Every single flipping database benchmark I've ever seen has been covered in a layer of asterisks and qualifications, and the comments on HN are full of "if you'd just set this flag when compiling it, you'd get 3% more speed out of reads, and the fact that the people running this didn't do this is proof that they were paid off and that they actively sell shady NFT scams of deranged yacht rock Harambe memes. https://wafris.org/blog/rearchitecting-for-sqlite
-* _diagram_: https://pgmodeler.io/ https://github.com/akarki15/dbdot
+* ERD: https://pgmodeler.io/ https://github.com/akarki15/dbdot
 * _extensions_: https://news.ycombinator.com/item?id=23821112 https://github.com/zombodb/pgx https://tech.marksblogg.com/postgresql-extension-rust.html distributed/multitentant https://github.com/citusdata/citus https://www.crunchydata.com/blog/citus-the-misunderstood-postgres-extension ydb https://news.ycombinator.com/item?id=31081272 https://tech.marksblogg.com/postgresql-extension-rust.html https://github.com/tcdi/pgx
 > For these types of applications, Citus distributes the data for each tenant into a shard. Citus handles the splitting of data by creating placement groups that know they are grouped together, and placing the data within shards on specific nodes. A physical node may contain multiple shards. Let me restate that to understand Citus at a high-level https://www.crunchydata.com/blog/citus-the-misunderstood-postgres-extension
 * build in Rust https://github.com/pgcentralfoundation/pgrx

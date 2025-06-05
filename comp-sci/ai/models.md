@@ -44,6 +44,7 @@ https://news.ycombinator.com/item?id=43236184 https://simonwillison.net/2025/Mar
 * `media.md` print culture
 
 ARCHITECTURE
+* you have to write more https://simonwillison.net/2025/May/20/after-months-of-coding-with-llms/
 * https://bsky.app/profile/emollick.bsky.social/post/3lp5afidgvc2a
 > https://news.ycombinator.com/item?id=42095434 there's a fair amount of pushback as well. i align with the first comment to this guy. decent amount of pushback seems like: "im a real man, my editor is emacs, i have strong opinions about c99 vs. rust, LLMs are for wimps who write $DYNAMICALLY_TYPED_LANGUAGE_HERE" + people that are bad at writing prompts. essentially, LLMs reward the type of person who could write a good question on Stack Overflow or otherwise teaches them how to do so (if they are willing to learn) https://stackoverflow.com/help/mcve - to Josh/Kurt 24.11.15
 * https://news.ycombinator.com/item?id=42336553
@@ -129,6 +130,7 @@ BYO
 * custom GPT via GPT Builder 📙 Selvaraj automate [7.5]
 
 ATTEMPTS TO DEFINE https://www.anthropic.com/research/building-effective-agents
+* = act in an environment https://simonwillison.net/2025/Jun/5/wrecking-its-environment-in-a-loop/
 * = models used in a loop https://simonwillison.net/2025/May/22/tools-in-a-loop/
 > Watching Windsurf take multiple actions on my behalf without my input is very inspirational. I’m dreaming of a world where Townie not only detects errors, but also automatically tries to fix them, possibly multiple times, possibly in parallel across different branches, without any human interaction. Here, of course, we’d be getting into territory mostly explored by the folks at Devin. For starters, we could feed back screenshots of the generated website back to the LLM. But soon you’d want to give the LLM access to a full web browser so it can itself poke around the app, like a human would, to see what features work and which ones don’t. Maybe then it’d even write some tests, also like a human would, to make sure things don’t break as it continues to iterate. I have a vague sense by the end of this year that you’ll be able to tell Townie to “make a fully realistic Hacker News Clone, with user accounts, nested comments, upvotes, downvotes” and it could iterate for potentially hours on your behalf. You could even go to bed and wake up with it done. https://blog.val.town/blog/fast-follow/
 = can go out and use the internet https://x.com/rowancheung/status/1898093008601395380
@@ -414,7 +416,7 @@ BYO
 
 # 🥗 MENU
 
-🧮 pricing https://simonwillison.net/2025/Apr/10/llm-pricing-calculator/
+💰 pricing https://www.llm-prices.com/ https://simonwillison.net/2025/Apr/10/llm-pricing-calculator/
 * naming conventions https://www.dbreunig.com/2025/02/04/a-gentle-intro-to-running-a-local-llm.html
 🛠️ benchmark https://arena.lmsys.org/
 🔍 compare https://news.ycombinator.com/item?id=42348513 https://simonwillison.net/2024/Dec/16/webdev-arena/
@@ -687,9 +689,11 @@ https://www.youtube.com/watch?v=d5i5Lc9X4Og
 🗄️ `ml.md` vectors
 
 BYO + RAG https://claude.ai/chat/ec4dbe09-e48a-466f-9e35-a7e430af0265
+https://www.inotherwords.app/linguabase/
 
 ---
 
+https://www.inotherwords.app/linguabase/
 https://koratkar.github.io/cwt-semantic-search/
 
 > Semantic search understands the meaning and intent behind queries rather than just matching words. It uses techniques like word embeddings and neural networks to understand context and relationships. For example, a semantic search for "red car" might also return results about "scarlet vehicles" or even "burgundy SUVs" because it understands these are conceptually related. It's particularly good at handling natural language queries and understanding synonyms, but can be more computationally intensive.

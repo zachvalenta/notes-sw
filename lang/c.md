@@ -143,6 +143,7 @@ Most package managers (apt, yum, brew) maintain this split with separate runtime
 
 ---
 
+* ARM https://news.ycombinator.com/item?id=44177446
 * https://blog.lohr.dev/smol-hello-world
 * https://zserge.com/posts/langs-asm/
 * https://shikaan.github.io/assembly/x86/guide/2024/09/08/x86-64-introduction-hello.html
@@ -282,6 +283,7 @@ USE FOR BUILDS
 * https://jakstys.lt/2022/how-uber-uses-zig/
 * https://mitchellh.com/writing/zig-comptime-tagged-union-subset
 * https://goreleaser.com/ https://goreleaser.com/customization/rust-builds/ https://goreleaser.com/customization/zig-builds/
+* https://ongres.com/blog/how-to-build-postgres-with-zig-a-drop-in-gcc-clang-alternative/
 
 PROJECTS
 * https://github.com/Arnau478/hevi

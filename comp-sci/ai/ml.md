@@ -349,6 +349,7 @@ https://chatgpt.com/c/6750c201-f928-8004-b614-fb258458167a
 
 ---
 
+* https://towardsdatascience.com/understanding-random-forest-using-python-scikit-learn/
 * https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
 * https://victorzhou.com/blog/intro-to-random-forests/
 * https://mlu-explain.github.io/
@@ -535,7 +536,7 @@ TYPES
 
 https://llm.datasette.io/en/stable/related-tools.html
 https://realpython.com/huggingface-transformers/#looking-under-the-hood-with-auto-classes
-sampling https://simonwillison.net/2025/May/4/llm-sampling/
+sampling https://simonwillison.net/2025/May/4/llm-sampling/ https://news.ycombinator.com/item?id=43887637
 
 ## CNNs
 
@@ -596,6 +597,7 @@ JAX can be thought of as "NumPy on steroids" with GPU/TPU acceleration, automati
 ## numpy
 
 https://realpython.com/numpy-example/
+https://dynomight.substack.com/p/numpy https://dynomight.net/dumpy/
 
 * _Numpy_: subset of scipy https://jakevdp.github.io/PythonDataScienceHandbook/ 📙 Trask 44
 ```python

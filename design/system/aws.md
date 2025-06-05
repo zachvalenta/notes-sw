@@ -245,6 +245,7 @@ data transfer https://www.lastweekinaws.com/blog/aws-data-transfer-charges-ingre
 
 ---
 
+* https://postgres.fm/episodes/how-to-move-off-rds
 * self hosted DBaaS for Postgres https://github.com/vitabaks/autobase https://github.com/pgsty/pigsty
 * _RDS_:  https://www.lastweekinaws.com/blog/running-relational-databases-on-aws/
 * _Aurora_: serverless dbms https://news.ycombinator.com/item?id=42308716
