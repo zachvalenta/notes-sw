@@ -612,6 +612,7 @@ dsq "SELECT a.col1, b.col2 FROM a AS a JOIN b AS b ON a.id = b.id;" a.csv b.csv
 ## entry (dataclerk)
 
 https://mathesar.org/
+https://news.ycombinator.com/item?id=44179399
 storing PDFs https://news.ycombinator.com/item?id=42059639
 > able to store Markdown?
 

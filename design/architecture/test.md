@@ -180,7 +180,7 @@ IDEAS
 * https://lukasatkinson.de/2017/should-i-separate-unit-tests-from-integration-tests/
 * functional? https://terrastruct.com/blog/post/functional-testing-with-your-database-in-go/
 * _testing external resources_: use real thing, use Docker version https://github.com/schireson/pytest-mock-resources/ https://yanglinzhao.com/posts/test-elasticsearch-in-django
-* use actual deps instead of mocks https://testcontainers.com/ https://news.ycombinator.com/item?id=39531536 microcontainers https://github.com/maelstrom-software/maelstrom https://github.com/maelstrom-software/maelstrom
+* use actual deps instead of mocks https://testcontainers.com/ https://news.ycombinator.com/item?id=39531536 https://news.ycombinator.com/item?id=44196945 microcontainers https://github.com/maelstrom-software/maelstrom https://github.com/maelstrom-software/maelstrom
 * spin up db in docker, run migrations, run integration tests; alternately, use CTEs https://news.ycombinator.com/item?id=34603691 https://news.ycombinator.com/item?id=34603244
 * don't teardown db btw test runs
 > Better yet, when your tests don't assume they're starting from a clean sheet, you can run your tests with a dump from production loaded into your database. This can help confirm that data access patterns you're using will work when the database, as a whole, is at production size. https://calpaterson.com/against-database-teardown.html

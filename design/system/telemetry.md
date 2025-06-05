@@ -230,8 +230,6 @@ https://claude.ai/chat/6bcfcae0-6294-47ef-a3bf-588a7f178c0e
 
 PROVIDERS
 * _Checkly_: https://bitfieldconsulting.com/blog/dips-and-wiggles https://www.checklyhq.com/
-* _HyperDX_: 🎯 https://github.com/hyperdxio/hyperdx
-> HyperDX is an open-source observability platform that unifies all three pillars of observability: logs, metrics and tracing. With it, you can correlate end-to-end and go from browser session replay to logs and traces in just a few clicks. The platform leverages ClickHouse as a central data store for all telemetry data, and it scales to aggregate log patterns and condense billions of events into distinctive clusters. Although you can choose from several observability platforms, we want to highlight HyperDX for its unified developer experience. https://www.thoughtworks.com/radar/platforms/hyperdx
 * _Fluent Bit_: 🎯 https://www.manning.com/books/logs-and-telemetry https://fluentbit.io/
 * _Logfire_: https://pydantic.dev/logfire https://pydantic.dev/articles/logfire-announcement
 * _Jam_: error reporting https://jam.dev/ https://news.ycombinator.com/item?id=40318542 🗄️ `test.md` friction logs
@@ -396,6 +394,12 @@ https://www.youtube.com/results?search_query=graphite+metrics
 ## Honey Badger
 
 https://www.honeybadger.io/blog/golang-frameworks/
+
+## HyperDX
+
+* _HyperDX_: 🎯 https://github.com/hyperdxio/hyperdx
+https://news.ycombinator.com/item?id=44194082
+> HyperDX is an open-source observability platform that unifies all three pillars of observability: logs, metrics and tracing. With it, you can correlate end-to-end and go from browser session replay to logs and traces in just a few clicks. The platform leverages ClickHouse as a central data store for all telemetry data, and it scales to aggregate log patterns and condense billions of events into distinctive clusters. Although you can choose from several observability platforms, we want to highlight HyperDX for its unified developer experience. https://www.thoughtworks.com/radar/platforms/hyperdx
 
 ## 🔥 Logfire
 
@@ -825,6 +829,7 @@ FORMAT https://github.com/charmbracelet/log
 * _JSONL_: https://github.com/textualize/toolong
 
 TOOLING 🗄️ `golang.md` `python.md`
+* https://github.com/dimonomid/nerdlog
 * https://github.com/dloss/klp
 * https://github.com/aurc/loggo
 * _Axiom_: https://axiom.co/ https://github.com/axiomhq https://repobeats.axiom.co/ cheaper than CloudWatch? https://x.com/AxiomFM/status/1842206872813674807

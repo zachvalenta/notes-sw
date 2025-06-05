@@ -661,7 +661,7 @@ wire protocol https://news.ycombinator.com/item?id=43693326
 * terabyte scale https://simonwillison.net/2025/Mar/14/merklemap-runs-a-16tb-postgresql/
 * AI https://simonwillison.net/2025/Mar/13/xata-agent/
 
-hosted Neon, pg_cron https://www.youtube.com/watch?v=3JW732GrMdg
+hosted Neon, pg_cron https://www.youtube.com/watch?v=3JW732GrMdg https://news.ycombinator.com/item?id=43899016
 
 weird bits https://www.hytradboi.com/2025/b479d9ff-3dd9-4548-940d-24698e7cff71-learning-about-the-odd-bits-of-sql-by-reading-the-postgresql-docs
 
@@ -688,7 +688,7 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * generate `create table` from existing table https://github.com/lacanoid/pgddl
 * Elasticsearch https://github.com/paradedb/paradedb https://github.com/pgroonga/pgroonga
 * serverless https://neon.tech/ https://news.ycombinator.com/item?id=31536827
-* embedded for testing https://github.com/electric-sql/pglite https://news.ycombinator.com/item?id=39960537
+* embedded for testing https://github.com/electric-sql/pglite https://news.ycombinator.com/item?id=39960537 https://news.ycombinator.com/item?id=44196945
 * sharding https://github.com/postgresml/pgcat
 * Snowflake, DuckDB, Clickhouse https://github.com/scottpersinger/pgwarehouse
 * result set to CSV https://stackoverflow.com/a/1517692

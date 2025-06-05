@@ -1225,6 +1225,7 @@ def get_config_value(key: str): Optional[str]:
 
 ---
 
+* with polars https://github.com/JakobGM/patito
 * _typecheck_: 🎯 auto error handling for typed args https://calmcode.io/shorts/typeguard.py
 can use as validation before handing over to sqlite3 https://github.com/Zaloog/kanban-tui/blob/main/src/kanban_tui/database.py
 

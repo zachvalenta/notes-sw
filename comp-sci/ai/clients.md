@@ -90,6 +90,7 @@ logs -m $MODEL  # logs by model
 
 ---
 
+* https://simonwillison.net/2025/Jun/3/run-your-own-ai/
 * tools https://simonwillison.net/2025/May/27/llm-tools/
 * files-to-prompt https://simonwillison.net/2025/Mar/26/notes/ https://simonwillison.net/2025/Apr/14/llms-as-the-first-line-of-support/
 https://simonwillison.net/2025/Apr/10/llm-fragments-go/

@@ -68,7 +68,8 @@ to Jack 24.12.10 https://www.youtube.com/watch?v=8MJE3wLuFXU
 * VSC Code inline values for notebooks
 * w/ Rich 💻️ https://github.com/zachvalenta/capp-dataload/blob/main/load.py#L28
 * https://github.com/dannywade/textual-pandas
-* _Data Wrangler_: https://code.visualstudio.com/docs/datascience/data-wrangler alternative https://github.com/mljar/variable-inspector
+* _Buckaroo_: https://github.com/paddymul/buckaroo
+* _Data Wrangler_: ✅ https://code.visualstudio.com/docs/datascience/data-wrangler alternative https://github.com/mljar/variable-inspector
 * _Dataspell_: Data Wrangler Jet Brains version https://www.jetbrains.com/dataspell/
 * _dtale_: render in browser https://github.com/man-group/dtale
 

@@ -155,6 +155,7 @@ MUSIC
 * nina simone
 
 SINGLES
+* rm Ab Soul go off
 * Jay Z its alright
 * Dylan locusts
 * CJ Johnson you better run
@@ -303,6 +304,7 @@ fswatch --recursive --one-per-batch . | xargs -L1 -II rsync --rsync-path 'sudo -
 
 ---
 
+* Kestra https://www.youtube.com/watch?v=OePlSQGtbJs
 * get a NAS https://registerspill.thorstenball.com/p/joy-and-curiosity-37
 how people manage Microsoft machines https://www.pdq.com/
 

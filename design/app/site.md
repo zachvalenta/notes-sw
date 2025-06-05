@@ -50,7 +50,7 @@ MORE SSG https://www.jonashietala.se/blog/2024/07/09/microfeatures_in_my_blog/
 ---
 
 > There's much to love about lanparty.house: the house, the engine room, the wiring, the cat doors, the cat bathroom. But what I enjoyed the most was the fact that this site belongs to a rare class of internet gems: a single page, full of information with nothing held back, neatly formatted, easy to digest. https://registerspill.thorstenball.com/p/joy-and-curiosity-16
-🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/ https://refactoringenglish.com/chapters/rules-for-software-tutorials/ https://www.openmymind.net/ https://lambdaclass.com/ https://gleam.run/
+🏔️ write like this guy https://ludic.mataroa.blog/blog/you-must-read-at-least-one-book-to-ride/ standing invitation https://avi.im/blag/about/ https://refactoringenglish.com/chapters/rules-for-software-tutorials/ https://www.openmymind.net/ https://lambdaclass.com/ https://gleam.run/ https://simonwillison.net/2025/May/5/prompting/
 🏔️ Julia Evans https://www.youtube.com/@wizardzines/videos
 > the zines has been her only job since 2019 https://github.com/zserge/zine https://zserge.com/posts/tab/
 

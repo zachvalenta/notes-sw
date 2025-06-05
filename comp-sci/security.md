@@ -20,6 +20,7 @@
 
 ## 进步
 
+https://news.ycombinator.com/item?id=43878065
 * https://dadrian.io/ https://dadrian.io/blog/posts/sct-not-after/
 * https://vin01.github.io/piptagole/cybcecrime/security/cybersecurity/2025/05/05/state-cyber-security.html
 

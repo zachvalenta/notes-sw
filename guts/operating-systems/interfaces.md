@@ -431,7 +431,7 @@ neofetch # WM Theme: Blue (Dark)
 ```
 > If possible, I would like to be able to somehow configure the colors used by just, like LSCOLOR does. Or at least replace blue(34) with bright blue(94). https://github.com/casey/just/issues/1294
 > https://github.com/muesli/termenv
-> https://github.com/charmbracelet/lipgloss
+> https://github.com/charmbracelet/lipgloss https://github.com/jbreckmckye/daylight
 ```sh
 echo $TERM  # xterm-256color
 echo $COLORTERM  # truecolor

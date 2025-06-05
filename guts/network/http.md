@@ -608,6 +608,10 @@ function htp(){
 
 https://github.com/mistweaverco/kulala.nvim
 
+## monitor
+
+https://github.com/ricoberger/httpmonitor
+
 ## posting
 
 https://github.com/darrenburns/posting 

@@ -385,12 +385,14 @@ GENERATE
 * _invoice_: https://github.com/maaslalani/invoice https://github.com/charmbracelet/pop
 
 READERS
+* https://news.ycombinator.com/item?id=43880962
 * _baca_: ebook/epub TUI reader https://github.com/wustho/baca
 * _tdf_: https://github.com/itsjunetime/tdf
 * _termpdf_: kitty https://github.com/dsanson/termpdf.py
 
 TO TEXT
 > why this is still hard https://arstechnica.com/ai/2025/03/why-extracting-data-from-pdfs-is-still-a-nightmare-for-data-experts/
+* _pdf-craft_: 🎯 https://github.com/oomol-lab/pdf-craft
 * _markitdown_: 🎯 AI = 25k stars in a month https://github.com/microsoft/markitdown
 * _parsr_: https://github.com/axa-group/Parsr
 * _poppler_: https://poppler.freedesktop.org/

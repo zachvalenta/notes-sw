@@ -28,6 +28,7 @@
 
 ## executables
 
+https://www.bitecode.dev/p/whats-up-python-faster-cpython-cancelled
 https://www.bitecode.dev/p/the-next-big-thing-in-python
 📜 https://peps.python.org/pep-0711/ https://news.ycombinator.com/item?id=35687895 https://github.com/mitsuhiko/rye/discussions/6
 

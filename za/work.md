@@ -430,8 +430,13 @@ BROOT 🗄️ logs from all machines, `.zshrc`
 
 ---
 
+robotics https://news.ycombinator.com/item?id=44158353
+* guy hunts down the economist https://dynomight.net/blood/ https://www.semafor.com/article/05/29/2025/universities-nightmare-scenario-not-just-federal-funding-cuts
+https://finance.yahoo.com/news/george-mason-university-unveils-nuscale-105000508.html
+genetics https://dynomight.substack.com/p/dna
 factories https://odin-lang.org/
-war: robots, satellites https://www.semafor.com/article/05/28/2025/the-syrian-entrepreneur-gunning-to-be-ukraines-drone-king https://www.18theses.com/
+drones https://www.noahpinion.blog/p/how-chinese-drones-could-defeat-america
+war: robots, satellites https://www.semafor.com/article/05/28/2025/the-syrian-entrepreneur-gunning-to-be-ukraines-drone-king https://www.18theses.com/ https://x.com/chr1sa/status/1929204022587674845 https://x.com/dalperovitch/status/1928892373271974399
 chips
 Jed
 tsmc

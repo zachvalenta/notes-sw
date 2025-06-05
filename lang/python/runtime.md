@@ -186,6 +186,8 @@ PEPS https://peps.python.org/
 * finance https://www.openbb.co/
 * architecture https://talkpython.fm/episodes/show/342/python-in-architecture-as-in-actual-buildings
 * GPU simulation https://news.ycombinator.com/item?id=40680737
+* embedded https://www.runpyxl.com/
+> bare metal: Andrea proposes a new 'none' target for the Go compiler to enable freestanding execution without direct OS support. This isn’t exactly new ground – it’s been proposed before – but Go contributor Filippo Valsorda thinks it’s worth serious consideration again due to the opportunities it would open up in micro VMs, firmware, and elsewhere. It's also been discussed internally at Google.https://golangweekly.com/issues/553 https://github.com/golang/go/issues/73608
 * game engine https://github.com/kitao/pyxel https://blog.garambrogne.net/pyxel-initiation-en.html https://github.com/Broderick-Westrope/tetrigo https://gamedev.city/ https://github.com/pythonarcade/arcade https://www.pygame.org https://nostarch.com/object-oriented-python https://www.bitecode.dev/p/the-next-big-thing-in-python https://news.ycombinator.com/item?id=43824640 https://news.ycombinator.com/item?id=44038959
 * robotics https://sandorfelber.github.io/ https://arnoldkling.substack.com/p/small-machine-warfare https://www.construction-physics.com/p/robot-dexterity-still-seems-hard https://claytonwramsey.com/blog/captree/ https://spectrum.ieee.org/amazon-stowing-robots
 * physics engine https://github.com/rudransh61/Physix-go

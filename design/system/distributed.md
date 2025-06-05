@@ -213,6 +213,8 @@ Eventual consistency = Everyone will see the same data, but it might take a whil
 
 ---
 
+https://news.ycombinator.com/item?id=44141887
+https://temporal.io/
 🗄️ `security.md` DOS
 💻 https://github.com/zachvalenta/DOS-lab
 🧠 DOS https://claude.ai/chat/dec00ad7-12fc-4879-bccf-86db78d879d2

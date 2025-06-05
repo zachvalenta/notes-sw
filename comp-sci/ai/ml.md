@@ -535,7 +535,7 @@ TYPES
 
 https://llm.datasette.io/en/stable/related-tools.html
 https://realpython.com/huggingface-transformers/#looking-under-the-hood-with-auto-classes
-sampling https://simonwillison.net/2025/May/4/llm-sampling/
+sampling https://simonwillison.net/2025/May/4/llm-sampling/ https://news.ycombinator.com/item?id=43887637
 
 ## CNNs
 
@@ -596,6 +596,7 @@ JAX can be thought of as "NumPy on steroids" with GPU/TPU acceleration, automati
 ## numpy
 
 https://realpython.com/numpy-example/
+https://dynomight.substack.com/p/numpy
 
 * _Numpy_: subset of scipy https://jakevdp.github.io/PythonDataScienceHandbook/ 📙 Trask 44
 ```python

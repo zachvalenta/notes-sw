@@ -522,7 +522,7 @@ PROJECT
 poetry run django-admin startproject conf .
 ```
 
-APPS
+APPS https://www.revsys.com/tidbits/what-is-a-django-app
 * _app_: unit of functionality https://forum.djangoproject.com/t/why-do-we-need-apps/827
 * `manage.py`: CLI for app https://docs.djangoproject.com/en/3.0/ref/django-admin/
 * name as normal package 🗄️ `python/runtime.py` packages
@@ -1098,6 +1098,8 @@ MVT
 
 RAILS
 * https://news.ycombinator.com/item?id=43829857
+* https://news.ycombinator.com/item?id=43881035
+* https://news.ycombinator.com/item?id=43871617
 * domain https://news.ycombinator.com/item?id=34936023
 * still the best https://rubyonrails.org/doctrine/
 * https://news.ycombinator.com/item?id=42856766

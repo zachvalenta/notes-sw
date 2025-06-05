@@ -414,7 +414,7 @@ BYO
 
 # 🥗 MENU
 
-🧮 pricing https://simonwillison.net/2025/Apr/10/llm-pricing-calculator/
+💰 pricing https://www.llm-prices.com/ https://simonwillison.net/2025/Apr/10/llm-pricing-calculator/
 * naming conventions https://www.dbreunig.com/2025/02/04/a-gentle-intro-to-running-a-local-llm.html
 🛠️ benchmark https://arena.lmsys.org/
 🔍 compare https://news.ycombinator.com/item?id=42348513 https://simonwillison.net/2024/Dec/16/webdev-arena/
@@ -687,9 +687,11 @@ https://www.youtube.com/watch?v=d5i5Lc9X4Og
 🗄️ `ml.md` vectors
 
 BYO + RAG https://claude.ai/chat/ec4dbe09-e48a-466f-9e35-a7e430af0265
+https://www.inotherwords.app/linguabase/
 
 ---
 
+https://www.inotherwords.app/linguabase/
 https://koratkar.github.io/cwt-semantic-search/
 
 > Semantic search understands the meaning and intent behind queries rather than just matching words. It uses techniques like word embeddings and neural networks to understand context and relationships. For example, a semantic search for "red car" might also return results about "scarlet vehicles" or even "burgundy SUVs" because it understands these are conceptually related. It's particularly good at handling natural language queries and understanding synonyms, but can be more computationally intensive.

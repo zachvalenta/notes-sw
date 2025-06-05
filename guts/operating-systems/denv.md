@@ -310,6 +310,7 @@ ALTERNATIVES https://github.com/cli/cli?tab=readme-ov-file#installation
 
 ---
 
+* https://github.com/Valkyrie00/bold-brew
 * rewrite in Rust https://news.ycombinator.com/item?id=43765011
 * Bundle, Brewfiles https://nickgerace.dev/posts/how-to-manage-rust-tools-and-applications/
 * un/install Homebrew: requires Xcode command line tools https://github.com/homebrew/install#uninstall-homebrew
