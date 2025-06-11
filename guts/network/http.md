@@ -557,6 +557,17 @@ curl -X <method> <URL>
 
 📜 https://httpie.org/doc
 
+```sh
+# json pretty by default
+http GET https://jsonplaceholder.typicode.com/todos/1
+# if MIME type is wrong
+http --pretty=format --response-mime=application/json GET https://api.close.com/buildwithus/
+```
+
+---
+
+http GET https://api.close.com/buildwithus/
+
 * no ability to yet config base URL https://github.com/httpie/httpie/pull/1377
 * _CLI_: http://docs.http-prompt.com/en/latest/
 * _post_: use `POST` or include payload

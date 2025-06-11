@@ -439,13 +439,53 @@ Caught your post on HN and just wanted to drop a line. Bit more about me:
 
 Thanks for taking a look!
 
+---
+
+PITCH
+* cold 
+```txt
+The company's business and dev culture looked like a good fit, so I just wanted to drop a line and pitch myself.
+Here are my [Github](https://github.com/zachvalenta), [Stack Overflow](https://stackoverflow.com/users/6813490/zach-valenta?tab=profile) and [personal site](https://www.zachvalenta.com).
+Thanks for hearing me out!
+```
+* communication
+```
+One thing I think I do well is technical communication. This shows up in:
+* blog posts https://www.zachvalenta.com/blog-dx.html
+* OSS https://github.com/microsoft/python-language-server/issues/2031 https://github.com/pipxproject/pipx/issues/390 https://github.com/python-poetry/poetry/issues/2010
+* documentation (design diagrams, Makefiles, READMEs)
+* Stack Overflow: https://stackoverflow.com/a/47824267/6813490 https://stackoverflow.com/a/63585954/6813490 https://stackoverflow.com/a/52358706/6813490
+```
+
 ## leads
 
 🗄 `sjk/jobs`
 
+Maddie: Vanguard
+Eva: Palantir
+ask Porsha about healthcare
+
+NETWORK
+* https://www.phillylinux.org/talks.html
+* LinkedIn contacts
+* China: Dror, Eva
+* Zip Code: Josh, Kurt, Roberto, Jocelyn
+* BNY: Ryan, Tim
+* UM: Uzair
+
 ---
 
-robotics https://news.ycombinator.com/item?id=44158353
+* https://www.genedx.com/careers/openings/?gh_jid=4542366005
+* https://jobs.thecignagroup.com/us/en/job/25005234/Software-Engineering-Advisors-Hybrid
+* https://jobs.thecignagroup.com/us/en/job/25005907/Software-Engineering-Senior-Advisors-Hybrid
+* https://jobs.thecignagroup.com/us/en/job/25006550/People-Analytics-Senior-Advisor-Hybrid
+* https://jobs.thecignagroup.com/us/en/job/25005234/Software-Engineering-Advisors-Hybrid
+* https://jobs.thecignagroup.com/us/en/job/25005907/Software-Engineering-Senior-Advisors-Hybrid
+* https://jobs.thecignagroup.com/us/en/job/25004524/Software-Engineering-Senior-Advisors
+
+embedded https://www.workatastartup.com/companies/flock-safety
+
+robotics / drones https://news.ycombinator.com/item?id=44158353 Jetson https://news.ycombinator.com/item?id=44162021 https://news.ycombinator.com/item?id=44161859
 * guy hunts down the economist https://dynomight.net/blood/ https://www.semafor.com/article/05/29/2025/universities-nightmare-scenario-not-just-federal-funding-cuts
 https://finance.yahoo.com/news/george-mason-university-unveils-nuscale-105000508.html
 genetics https://dynomight.substack.com/p/dna
@@ -463,18 +503,7 @@ https://news.ycombinator.com/item?id=43354115
 Send Byrne/The Diff my updated skill set.
 
 COMPANIES
-* Perpay
-* Composer
 > who else? Palantir https://news.ycombinator.com/item?id=41855006 https://www.thediff.co/archive/longreads-open-thread-97/A https://registerspill.thorstenball.com/p/joy-and-curiosity-11
-
-NETWORK
-* https://www.phillylinux.org/talks.html
-* Jonathan Magen https://yonkeltron.com/posts/why-cloud-native-buildpacks-should-excite-companies/ https://pod.link/1602572955/episode/12fe9e0c14dab3b5e9780ffc13412136 https://www.linkedin.com/in/jonathan-magen-9848711b/
-* LinkedIn contacts
-* China: Dror, Eva
-* Zip Code: Josh, Kurt, Roberto, Jocelyn
-* BNY: Ryan, Tim
-* UM: Uzair
 
 STOCK ANSWERS
 > Thanks for the message. Sounds interesting. I'm not on the market right now but keep me in the rolodex.
@@ -494,22 +523,6 @@ JOB BOARDS
 * PHL http://phillydev.slack.com
 * remote https://findwork.dev/ https://weworkremotely.com https://remotive.io/ https://hnhiring.com/search?locations=remote
 * startup: Angelist, Underdog
-
-PITCH
-* cold 
-```txt
-The company's business and dev culture looked like a good fit, so I just wanted to drop a line and pitch myself.
-Here are my [Github](https://github.com/zachvalenta), [Stack Overflow](https://stackoverflow.com/users/6813490/zach-valenta?tab=profile) and [personal site](https://www.zachvalenta.com).
-Thanks for hearing me out!
-```
-* communication
-```
-One thing I think I do well is technical communication. This shows up in:
-* blog posts https://www.zachvalenta.com/blog-dx.html
-* OSS https://github.com/microsoft/python-language-server/issues/2031 https://github.com/pipxproject/pipx/issues/390 https://github.com/python-poetry/poetry/issues/2010
-* documentation (design diagrams, Makefiles, READMEs)
-* Stack Overflow: https://stackoverflow.com/a/47824267/6813490 https://stackoverflow.com/a/63585954/6813490 https://stackoverflow.com/a/52358706/6813490
-```
 
 ## resume
 

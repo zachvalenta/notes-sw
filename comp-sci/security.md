@@ -250,6 +250,10 @@ asymmetric
 
 ## hashing
 
+* _digest size_: length of hash func output
+
+---
+
 🔗 https://github.com/HashPals/Name-That-Hash https://github.com/noraj/haiti
 
 https://omairmajid.com/posts/2021-07-16-why-is-hash-in-python/
