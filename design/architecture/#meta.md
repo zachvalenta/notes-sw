@@ -255,6 +255,18 @@ WALKTHROUGHS
 
 ## event-driven 
 
+just the observer pattern on steroids
+
+* bad for control flow?
+> In event-driven programming, an application responds to external occurences, such as the arrival of a network packet or the press of a mouse button. 📙 Ousterhout [150]
+
+= instead of service writing to DB, sends events to event store i.e. log of all states
+> The event sourcing paradigm is used to design a system with determinism. This changes the philosophy of normal system designs. How does this work? Instead of recording the order states in the database, the event sourcing design persists the events that lead to the state changes in the event store. The event store is an append-only log. The events must be sequenced with incremental numbers to guarantee their ordering. The order states can be rebuilt from the events and maintained in OrderView. If the OrderView is down, we can always rely on the event store which is the source of truth to recover the order states. https://blog.bytebytego.com/p/ep166-what-is-event-sourcing
+
+Domain Events: Objects capturing significant occurrences in the domain. Example: "OrderPlaced" event triggering inventory updates.
+* CQRS-lite: Separate read/write paths without full event sourcing
+* Django https://github.com/ambient-innovation/django-queuebie
+
 * https://youtube.com/watch?v=VLUvfIm9wnQ
 * https://news.ycombinator.com/item?id=40723302
 * https://encore.dev/blog/event-driven-architecture

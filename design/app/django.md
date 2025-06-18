@@ -678,13 +678,17 @@ how to
 
 > The admin's recommended use is limited to an organization's internal management tool. It's not intended for building your entire front end around. https://docs.djangoproject.com/en/5.1/ref/contrib/admin/
 
+MANAGEMENT COMMANDS
+* https://adamj.eu/tech/2024/08/14/django-management-command-sub-commands/
+* https://github.com/django-commons/django-typer
+* https://www.revsys.com/tidbits/better-django-management-commands-with-django-click-and-django-typer/
+
 * theme https://github.com/sjbitcode/django-admin-dracula https://github.com/adamghill/awesome-django-admin-themes https://www.djangoproject.com/weblog/2025/apr/18/admin-theme-roundup/
 * theme unfold https://github.com/unfoldadmin/django-unfold https://github.com/zachvalenta/django-DDD
 * datetime https://www.loopwerk.io/articles/2025/django-admin-datetime/
 * custom cmd https://docs.djangoproject.com/en/5.1/howto/custom-management-commands/#:~:text=tasks%20control%20panel.
 * https://simn.fr/posts/dicthing-django-admin-for-fasthtml
 * TUI https://github.com/valberg/django-admin-tui
-* management commands https://adamj.eu/tech/2024/08/14/django-management-command-sub-commands/ https://github.com/django-commons/django-typer
 * https://github.com/cuducos/django-public-admin
 * https://github.com/simonw/django-sql-dashboard
 * https://roman.pt/posts/django-admin-and-service-layer/

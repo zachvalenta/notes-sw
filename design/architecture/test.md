@@ -173,7 +173,7 @@ ZA
 
 ## TDD
 
-* DHH: clarity above all, TDD yokes the program architecture https://www.youtube.com/watch?v=9LfmrkyP81M 📻 STT https://lukeplant.me.uk/blog/posts/no-one-actually-wants-simplicity/
+* DHH: clarity above all, TDD yokes the program architecture https://www.youtube.com/watch?v=9LfmrkyP81M 📻 STT https://lukeplant.me.uk/blog/posts/no-one-actually-wants-simplicity/ 📙 Ousterhout [157]
 
 # 🕳️ INTEGRATION
 

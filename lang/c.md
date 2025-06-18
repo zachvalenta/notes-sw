@@ -123,6 +123,8 @@ Development files: What you need to build programs
 
 Most package managers (apt, yum, brew) maintain this split with separate runtime vs -dev/-devel packages.
 
+* makes comments harder? 📙 Ousterhout [139]
+
 # 🦑 RELATIVES
 
 ## 🧱 assembly

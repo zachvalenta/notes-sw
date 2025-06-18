@@ -798,7 +798,7 @@ https://avi.im/blag/2024/galloping-search/
 * semantic https://news.ycombinator.com/item?id=41088273 https://github.com/arunsupe/semantic-grep https://blog.elicit.com/semantic-search/
 * shazam https://github.com/cgzirim/seek-tune https://news.ycombinator.com/item?id=41127726
 * https://www.alexmolas.com/2024/02/05/a-search-engine-in-80-lines.html
-* _A*_: https://www.redblobgames.com/pathfinding/a-star/introduction.html 
+* _A*_: https://www.redblobgames.com/pathfinding/a-star/introduction.html https://news.ycombinator.com/item?id=44296523
 * _Bellman-Ford_: Dijkstra for negative-weighted [7.130]
 * _Dijkstra_: 🗄 `/algos` https://medium.com/basecs/finding-the-shortest-path-with-a-little-help-from-dijkstra-613149fbdc8e https://en.wikipedia.org/wiki/Dynamic_programming#Dijkstra's_algorithm_for_the_shortest_path_problem
 * _optimal stopping_: related to dynamic programming, Bellman 📙 Christian chapter 1 https://en.wikipedia.org/wiki/Optimal_stopping

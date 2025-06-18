@@ -112,6 +112,7 @@ $ find business -type d | wc -l  # 1
 ```
 
 ALTERNATIVES
+* https://github.com/tavianator/bfs
 * https://github.com/kashav/fsql
 * https://github.com/darrenldl/docfd
 * fselect https://github.com/jhspetersson/fselect

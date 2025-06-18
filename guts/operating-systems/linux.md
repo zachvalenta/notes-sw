@@ -48,6 +48,12 @@ ZA
 
 ---
 
+* deletion: only happens when freed by all readers 📙 Ousterhout [81]
+
+FACTORS 📙 Ousterhout [24]
+* storage on disk
+* access: perms, scheduling
+
 * https://www.youtube.com/watch?v=HbgzrKJvDRw
 * file metadata vs. xattrs https://the.exa.website/features/xattrs
 * https://news.ycombinator.com/item?id=29164727
@@ -411,6 +417,7 @@ echo "Command succeeded"
 * _things kernel does_: talks to cpu, mem, disk, network e.g. keyboard interrupt to figure out which key you type, knows you have HD and how to write to it, schedules procceses https://jvns.ca/blog/2013/10/02/day-3-what-does-the-linux-kernel-even-do/
 * _RTOS_: lower latency constraints for scheduler  https://stratechery.com/2023/apple-vision/
 * _driver_: kernel module for managing hardware device
+> An operating system typically must suuport hundreds or thousands of different device types, such as secondary storage devices...in order to prevent specialized device characteristics from leaking into the main operation system code, operating systems define an interface with general-purpose operations that any second storage device must implement, such as "read a block"...this approach pushes specialization into the device drivers, so that the core of the operating system can be written without any knowledge of specific device characteristics 📙 Ousterhout philosophy of software design [45]
 * BYO https://s-matyukevich.github.io/raspberry-pi-os/
 * kernel message logs https://zaiste.net/posts/shell-commands-rust/#rmesg
 * _sink_: https://softwareengineeringdaily.com/2019/03/14/linux-kernel-development-with-shuah-khan/

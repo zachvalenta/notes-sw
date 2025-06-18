@@ -8,13 +8,21 @@
 * Martin clean code
 * ✅ Ousterhout philosophy of sofware design
 * Raymond unix programming https://www.arp242.net/the-art-of-unix-programming 🗄️ Kernighan unix a history
+* Seemann code that fits in your head https://www.amazon.com/gp/product/0137464401
 
 # 🟨 ZA
 
+* _context obj_: vs. pass-through variable 📙 Ousterhout philosophy of software design [57]
+* _complexity_: "anything related to the structure of a software system that makes it hard to understand" symptoms incl. change amplification, cognitive load 📙 Ousterhout philosophy of software design [2,7]
+* _modularity_: public interface, private impl https://www.youtube.com/watch?v=QyJZzq0v7Z4 @ 24:00
+> programmers can work on a system without being exposed to all of its complexity at once 📙 Ousterhout philosophy of software design [2]
 * _coupling_: one change necessitates another
 * _cohesion_: like w/ like 📙 Conery [270] Evans [109] https://entropicthoughts.com/event-sourcing-and-microservices-unix-style
-> there should be low coupling btw modules and high cohesion within them 📙 Evans [109]
+* factors: sharing information, used together, conceptual overlap 📙 Ousterhout philosophy of software design [66]
+> There should be low coupling btw modules and high cohesion within them 📙 Evans [109]
 > Shovel all the manure into one pile. 📙 Beck tidy first [89]
+* _abstraction_: simplified view 📙 Ousterhout philosophy of software design [21]
+* _interface_: everything you need to know to use module 📙 Ousterhout philosophy of software design [21]
 
 ---
 
@@ -36,7 +44,6 @@ def get_foo():
 * _Hungarian notation_: redundacy in identifier naming i.e. `CREATE TABLE tbl_book` instead of `CREATE TABLE book` https://www.sqlstyle.guide/#avoid
 * _interface_: interface smuggling https://utcc.utoronto.ca/~cks/space/blog/programming/GoInterfaceSmuggling 🗄 `python` 'web'
 * _introspection_: get info about an obj at runtime aka having a REPL https://realpython.com/primer-on-python-decorators/#simple-decorators aka 'reflection' https://changelog.com/gotime/133 also used as synonym for logging https://hacker-tools.github.io/machine-introspection/
-* _modularity_: public interface, private impl https://www.youtube.com/watch?v=QyJZzq0v7Z4 @ 24:00
 * _readability_: factors (familiarity, consistency) fetishization of one-liners (cf. Peter Norvig 'mine is shorter' from Crista Lopes talk on 'Exercises in Programming Style' @ 20:15)
 > One of the core tenets behind the design of Python is creating readable code. The motivation behind this design is simple: The number one thing that Python programmers do is read code. [Hitchhiker's Guide 3.3]
 > "A computer language is not just a way of getting a computer to perform operations...it is a novel formal medium for expressing ideas about methodology. Thus, programs must be written for people to read, and only incidentally for machines to execute." - Ford what is code? qt. SICP
@@ -291,8 +298,6 @@ Docstrings: If someone can't read a docstring and grok context, the code in ques
 Commit messages are held to the same standard as docstrings. If a PR to the main branch doesn't provide context, it will be declined.
 
 Good integration tests are more important than unit test coverage.
-
-Use small, composeable functions to create deep modules. 📙 Ousterhout philosophy of sofware design
 
 [Centralize control flow.](https://matklad.github.io/2023/11/15/push-ifs-up-and-fors-down.html)
 

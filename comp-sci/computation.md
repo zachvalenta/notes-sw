@@ -326,14 +326,18 @@ za
 ## chips
 
 📚
+* Conery ch. 5
 * Hijink asml way https://www.amazon.com/Focus-Inside-struggle-complex-machine/dp/B0D7DRJL2W
 * Miller chip war
+* Shibuya microprocessors
 
 * _silica_: mineral extracted from sand
 * _silicon_: element formed by rm oxygen from silica; btw aluminum and phosphorus; by itself only a semiconductor
 * _wafer_: larger piece of processed silicon
 * _diode_: is a conductor that allows current flow in one direction
 * _semiconductor_: https://www.youtube.com/watch?v=qCSIGejNT4M https://twitter.com/szeloof/status/1280249239495479297 https://blog.robertelder.org/semiconductor-example-uses/
+
+design https://en.wikipedia.org/wiki/Tcl
 
 > With computing, there have been a couple different cases of scaling breakthroughs. One of them was the discovery of the vacuum tube, where you actually have a device that can do fairly simple logical operations such that you can implement it in a machine. Then we ran into this problem of, the vacuum tubes are mechanical, they do break, and so the bigger your machine, the more likely it is that it breaks; the more complicated your algorithm is, the more likely it is that something breaks down. So you have one of those dynamics where you're scaling your inputs a lot faster than you're scaling your outputs and you're doing things less and less efficiently over time. Then transistors do not actually have moving parts, so they don't have that particular problem – but they run into their own scaling obstacle. It's really fun to read about the early days of this: one of the books that I cite in Boom has an excerpt from, not Scientific American but a magazine of that type in the 50s, where it's speculating that perhaps in the future computers could be the size of a small house, and that's how much we could shrink them. But people ran into this problem with transistors, where the more of them that you connect – and you need all of them to be connected and working for that particular cluster of them to do anything useful – the more of them you connect, the more likely it is that you have one little issue somewhere that makes the whole thing not work. Then it turned out that there was a way around that too, which is that you don't actually plug together individual discrete devices, you actually etch the entire set of connections chemically, and now with many other things – but yeah, you etch it, a one shot [process] where you create one solid thing. That turned out to be a much more scalable architecture. https://www.complexsystemspodcast.com/episodes/boom-busts-and-long-term-progress-with-byrne-hobart-2/
 
@@ -348,18 +352,13 @@ MANUFACTURING https://doxa.substack.com/p/why-a-chinese-invasion-of-taiwan
 > Intel both designs and makes chips, whereas TSMC mostly makes other people's designs for them - hence it makes Apple's custom ARM-based CPUs for iPhones and now Macs. - Evans 2020.07.28
 > After all, nearly all mobile chips are centered on the ARM architecture...It is manufacturing capability, on the other hand, that is increasingly rare...In fact, today there are only four major foundries: Samsung, GlobalFoundries, Taiwan Semiconductor Manufacturing Company (TSMC), and Intel. Only four companies have the capacity to build the chips that are in every mobile device today, and in everything tomorrow. https://stratechery.com/2021/intel-problems/
 
-## form factors
-
-📚
-* Conery ch. 5
-
-materials https://www.youtube.com/watch?v=LN0ucKNX0hc
+MATERIALS https://www.youtube.com/watch?v=LN0ucKNX0hc
 * _relay_: 
 * _vacuum tubes_: shift from electro-mechanical to electronic (i.e. no moving parts)
 * _transistor_: switch controlled by electricity; like spigot on a tap https://www.youtube.com/watch?v=gI-qXk7XojA 3:00 invented at Bell Labs [Manga 1.32]
 * _electrode_: conductor that makes contact w/ nonmetallic part of circuit (like a transistor) https://en.wikipedia.org/wiki/Electrode
 
-timeline
+TIMELINE
 * _1830_: Babbage analytical engine https://www.youtube.com/watch?v=O5nskjZ_GoI 8:45 differential analyzer https://twobithistory.org/2020/04/06/differential-analyzer.html
 * _1890_: Hollerith machine (punch cards) for US census (https://en.wikipedia.org/wiki/Domesday_Book https://pase.ac.uk/) -> became IBM in 1924 https://www.youtube.com/watch?v=O5nskjZ_GoI 10:55 https://www.thediff.co/archive/longreads-open-thread-85/
 * _1945_: Colussus - first programmable (configured w/ plugs) https://www.youtube.com/watch?v=LN0ucKNX0hc 6:10

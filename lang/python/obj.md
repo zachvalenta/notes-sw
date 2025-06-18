@@ -814,7 +814,7 @@ def use_decorator():
 > other stuff on attributes scattered throughout note
 * managed instance, managed class https://www.fluentpython.com/lingo/#managed_instance
 * managed class https://www.fluentpython.com/lingo/#managed_attribute
-* getter/setter https://realpython.com/python-getter-setter/
+* getter/setter https://realpython.com/python-getter-setter/ antipattern 📙 Ousterhout [158]
 * storage attribute https://www.fluentpython.com/lingo/#storage_attribute
 * (non)overriding https://www.fluentpython.com/lingo/#overriding_descriptor
 * impl https://docs.python.org/dev/reference/datamodel.html#implementing-descriptors

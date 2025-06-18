@@ -40,7 +40,7 @@ FACTORS
 * _Prolog_: https://chatgpt.com/c/672d18fc-66cc-8004-94ba-23928fa2110c https://www.swi-prolog.org/ https://rogersm.net/posts/developing-a-go-bot-embedding-ichiban-prolog/ https://news.ycombinator.com/item?id=42004756 https://blog.dnmfarrell.com/ http://minikanren.org/
 * _Ruby_:
 > Somewhere, someone (bless them) linked to mousehole, a why the lucky stiff project. When I started programming in Ruby, _why was already gone and I only learned about him through the Slate article, but echos of him are still ringing through the Ruby world. This project is a sweet reminder. Just look at that README. “MouseHole can either intrude completely upon your browsing experience or you can keep it off in the outskirts, for whenever you’ve got a second to duck into that little crack in the wall” https://registerspill.thorstenball.com/p/joy-and-curiosity-16
-* _TCL_: used in Eclipse https://www.magicsplat.com/ttpl/index.html
+* _TCL_: used in Eclipse and chip design, created by Ousterhout https://www.magicsplat.com/ttpl/index.html https://en.wikipedia.org/wiki/Tcl
 
 ## history
 

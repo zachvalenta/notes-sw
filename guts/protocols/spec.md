@@ -323,7 +323,8 @@ PARSERS
 * _micromark_: https://github.com/micromark/micromark
 * _MDX_: jsx in markdown (for tables, charting) by transpiling Markdown to JS via JS runtime (e.g. React) and then running in the browser https://github.com/mdx-js/mdx/ https://signalsandthreads.com/writing-technically/ re: Next https://zackproser.com/blog/maintaining-this-site-no-longer-fucking-sucks
 * time suck https://www.joshwcomeau.com/blog/how-i-built-my-blog-v2/
-* _markdown-it-py_: used by rich https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript
+* _markdown-it-py_: ✅ used by rich https://github.com/executablebooks/markdown-it-py https://pythonbytes.fm/episodes/show/320/the-bug-is-in-the-javascript 🗄️ `ext`
+* _mistune_: 🎯 https://github.com/lepture/mistune
 * _commonmark_: https://github.com/readthedocs/commonmark.py https://github.com/Textualize/rich/pull/2439/files
 * _goldmark_: https://github.com/yuin/goldmark
 * HTML to Markdown https://github.com/JohannesKaufmann/html-to-markdown https://html-to-markdown.com/
@@ -368,7 +369,6 @@ EDITOR
 conversion to HTML
 * https://github.com/susam/texme
 * Markdown to HTML w/ Python CLI https://python-markdown.github.io/cli/ `python -m markdown 1997-graham-hackers-painters.md > pg.html` -> doesn't handle quotes, output is vanilla would need to figure way to add CSS
-* _mistune_: https://github.com/lepture/mistune
 * _markdown_: `python -m markdown rn.md > rn.html` https://python-markdown.github.io/cli/ used in MkDocs https://github.com/mkdocs/mkdocs/blob/master/requirements/project.txt
 * _markdown2_: https://github.com/trentm/python-markdown2 supports (maybe) ghfm https://github.com/mkdocs/mkdocs/issues/263#issuecomment-65362418
 ```sh

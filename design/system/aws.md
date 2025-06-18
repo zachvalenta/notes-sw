@@ -78,6 +78,7 @@ sudo service docker start
 sudo usermod -aG docker ec2-user
 ```
 * _ECS (Elastic Container Svc)_: run Docker containers on EC2, autoscales, can be used for jobs or service mesh https://www.youtube.com/watch?v=I9VAMGEjW-Q
+* tooling https://github.com/keidarcy/e1s
 * howto: Dockerfile, build image and put to ECR, define ECS task (how to start container, what ports to open, what to connect to)
 * _Fargate_: serverless ECS
 * _EKS_: managed Kubernetes https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html

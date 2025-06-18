@@ -566,6 +566,8 @@ LAZYGIT
 
 ## tracker (gfold / Atalanta)
 
+https://github.com/nosarthur/gita
+
 there's some bullshit project squatting on the domain https://pypi.org/project/atl/
 
 what I realized after 90 mins debugging gfold: it can only surface git repos that are subdirs of the paths you're specifying i.e you can't just give it paths to git repos. this is a problem bc it's not granular enough e.g. it will surface everything inside `capp` or `notes` https://github.com/nickgerace/gfold/issues/261
@@ -623,6 +625,7 @@ strategies
 🗄️ `doc.md` repo
 
 MESSAGE
+* no one reads 📙 Ousterhout [140]
 * msg components: subject/header, description
 * _COMMIT EDITMSG_: tmp file storing commit msg
 * fmt: subject 50 col, desc 72 col https://drewdevault.com/2019/02/25/Using-git-with-discipline.html automate https://github.com/commitizen/cz-cli

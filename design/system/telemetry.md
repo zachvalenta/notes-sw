@@ -591,6 +591,7 @@ I'd like to make some updates:
 
 ## start here
 
+https://adamj.eu/tech/2025/05/20/python-quick-cprofile-recipe-pstats/
 https://entropicthoughts.com/practices-of-reliable-software-design
 > tracemalloc is built-in to Python, and pretty granular in what it measures; the downside is that not all 3rd party compiled extensions integrate tracemalloc, so for example Polars’ memory allocations won’t show up there https://pythonspeed.com/articles/identifying-resource-leaks-with-pytest/
 * https://claude.ai/chat/dd676259-77ee-4cb7-b35d-193695eb80d6

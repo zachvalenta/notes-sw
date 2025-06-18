@@ -266,6 +266,7 @@ ZA
 ---
 
 replace atuin for scrolling commands https://www.youtube.com/watch?v=uOnL4fEnldA [10:45]
+script offering things https://www.youtube.com/watch?v=pzRze1JZjsc
 
 * search: `ctrl r`
 * scroll all items that match query: `ctrl r` (again)

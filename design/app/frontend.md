@@ -69,6 +69,10 @@ taxonomy
 * Astro https://docs.astro.build/en/concepts/why-astro/ https://morizbuesing.com/blog/astro-from-next/
 > It's hard to believe, but in 2022, the developer community continues to pump out interesting new frameworks for building web applications. Astro is a recent, open-source, multi-page application framework that renders HTML on the server and minimizes the amount of JavaScript sent over the wire. Astro seems particularly well-suited to content-oriented websites that pull from many different sources. We like the fact that although Astro encourages sending only HTML, it still supports — when appropriate — select active components written in the front-end JavaScript framework of your choice. It does this through its island architecture. Islands are regions of interactivity within a single page where the necessary JavaScript is downloaded only when needed. Astro is relatively new but seems to support a growing ecosystem of developers and code. It's one to watch as it develops. https://www.thoughtworks.com/radar/languages-and-frameworks?blipid=202210057
 
+## alpine
+
+https://www.loopwerk.io/articles/2025/alpine-ajax-django/
+
 ## htmx
 
 > But as browsers proliferated and the Web grew from a document-delivery platform into a software-delivery platform, JavaScript became, arguably, the most widely deployed language runtime in the world. 📰 Ford what is code?

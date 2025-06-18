@@ -125,9 +125,9 @@ https://github.com/zillow/tycho
 * `django.md` denv
 * `linux.md` denv
 
-CLOUD
+CLOUD / THIN CLIENT
 * why local https://nickgerace.dev/posts/theres-nothing-like-local-development/ https://news.ycombinator.com/item?id=42043130
-* why cloud: CPU/mem intensive e.g. 2TB mem for computational biology https://realpython.com/podcasts/rpp/197/
+* why cloud: CPU/mem intensive e.g. 2TB mem for computational biology https://realpython.com/podcasts/rpp/197/ https://www.youtube.com/watch?v=ZqfrtoqAGWs
 > I don't understand the need for "cloud development environments" though. Isn't the point of containerized apps is to avoid the need for synchronizing dev envs amongst teams?...It's to ensure a consistent environment for all developers, with the resources required. E.g. they mention GPUs, for developers working with GPU-intensive workloads. You can ship all developers gaming laptops with 64GB RAM and proper GPUs, and have them fight the environment to get the correct libraries as you have in prod (even with containers that's not trivial), or you can ship them Macbook Airs and similar, and have them run consistent (the same) dev environments remotely (you can self-host gitpod, it's not only a cloud service, it's more the API/environment to get consistent remote dev enviornments). https://news.ycombinator.com/item?id=42042522
 * 🎯 Omakub on a spot instance?
 * _Coder_: https://github.com/coder/coder
@@ -654,6 +654,7 @@ REDIS QUEUE (RQ)
 * https://pyvideo.org/pygotham-2018/tracking-the-international-space-station-in-django-with-redis-queue-and-rq-scheduler.html
 * https://testdriven.io/blog/sending-confirmation-emails-with-flask-rq-and-ses/#workflow
 * https://testdriven.io/blog/developing-an-asynchronous-task-queue-in-python/
+* https://buttondown.com/blog/django-rq-cron
 
 ## workflow engine (Airflow)
 

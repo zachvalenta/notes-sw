@@ -43,10 +43,13 @@ https://news.ycombinator.com/item?id=43236184 https://simonwillison.net/2025/Mar
 * `linguistics.md` determinism
 * `media.md` print culture
 
-ARCHITECTURE
-* you have to write more https://simonwillison.net/2025/May/20/after-months-of-coding-with-llms/
+WRITING
+* 📙 Ousterhout comments first [131]
+* https://simonwillison.net/2025/May/20/after-months-of-coding-with-llms/
 * https://bsky.app/profile/emollick.bsky.social/post/3lp5afidgvc2a
 > https://news.ycombinator.com/item?id=42095434 there's a fair amount of pushback as well. i align with the first comment to this guy. decent amount of pushback seems like: "im a real man, my editor is emacs, i have strong opinions about c99 vs. rust, LLMs are for wimps who write $DYNAMICALLY_TYPED_LANGUAGE_HERE" + people that are bad at writing prompts. essentially, LLMs reward the type of person who could write a good question on Stack Overflow or otherwise teaches them how to do so (if they are willing to learn) https://stackoverflow.com/help/mcve - to Josh/Kurt 24.11.15
+
+ARCHITECTURE
 * https://news.ycombinator.com/item?id=42336553
 * ADRs / Stack Overflow won https://harper.blog/2025/04/17/an-llm-codegen-heros-journey/ https://registerspill.thorstenball.com/p/joy-and-curiosity-36 https://mathstodon.xyz/@tao/110601051375142142
 > While we’ve always valued strong communicators on tech teams for documentation and collaboration, it’s doubly important now. Not only do you need to communicate with humans, you need to write clear, precise instructions for AI. Being able to craft effective prompts is becoming as vital as writing good code.
