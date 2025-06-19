@@ -339,7 +339,7 @@ ECON
 GOV
 * shootings https://catalog.data.gov/dataset/nypd-shooting-incident-data-historic
 * TFR https://www.cia.gov/the-world-factbook/field/total-fertility-rate/country-comparison/
-* politics/voting https://www.slowboring.com/p/breaking-down-the-election-results https://www.govtrack.us/congress/bills/119/hr30 https://github.com/unitedstates/congress
+* politics/voting https://www.slowboring.com/p/breaking-down-the-election-results https://www.govtrack.us/congress/bills/119/hr30 https://github.com/unitedstates/congress https://news.ycombinator.com/item?id=44202110
 * https://en.wikipedia.org/wiki/Congressional_Research_Service https://www.noahpinion.blog/p/why-cant-the-us-build-ships
 * census https://www.ipums.org/ https://www.edwest.co.uk/p/how-many-people-live-in-britain
 * population: https://simplemaps.com/data

@@ -689,7 +689,7 @@ HOW TO https://gist.github.com/cpursley/c8fb81fe8a7e5df038158bdfe0f06dbb https:/
 * generate `create table` from existing table https://github.com/lacanoid/pgddl
 * Elasticsearch https://github.com/paradedb/paradedb https://github.com/pgroonga/pgroonga
 * serverless https://neon.tech/ https://news.ycombinator.com/item?id=31536827
-* embedded for testing https://github.com/electric-sql/pglite https://news.ycombinator.com/item?id=39960537 https://news.ycombinator.com/item?id=44196945
+* embedded for testing https://github.com/wey-gu/py-pglite https://github.com/electric-sql/pglite https://news.ycombinator.com/item?id=39960537 https://news.ycombinator.com/item?id=44196945
 * sharding https://github.com/postgresml/pgcat
 * Snowflake, DuckDB, Clickhouse https://github.com/scottpersinger/pgwarehouse
 * result set to CSV https://stackoverflow.com/a/1517692

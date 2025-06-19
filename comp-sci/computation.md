@@ -59,7 +59,7 @@ TIME
 * 📚 Kleppmann chapter 8 https://www.youtube.com/watch?v=U612mx16j7U
 > Time is nature's way to keep everything from happening all at once - John Wheeler https://lwn.net/Articles/827180/
 
-## gates
+## logic gates
 
 🗄 `philosophy.md` logic
 📚
@@ -154,7 +154,7 @@ https://news.ycombinator.com/item?id=43684560
 * https://www.youtube.com/results?search_query=khan+academy+entropy
 * used to build decision trees https://www.freecodecamp.org/news/a-no-code-intro-to-the-9-most-important-machine-learning-algorithms-today/
 
-## logic
+## models
 
 📚
 * Villa https://www.manning.com/books/causal-inference-for-data-science
@@ -250,7 +250,7 @@ USAGE
 * SAT solvers can help solve scheduling problems, such as assigning tasks to machines or people while respecting constraints.
 * Optimize the selection of test cases to cover all code paths or requirements with the smallest possible suite.
 
-## machines
+### turing machine
 
 📚
 * MacCormick ch. 10
@@ -263,8 +263,6 @@ ZA
 * _halting problem_: a program which could analyse an arbitrary other program and tell if it would halt / stop running cannot exist https://blog.robertelder.org/computer-science-for-engineers/ https://tigyog.app/d/C:tWWwvJDWlo/r/busy-beavers https://buttondown.com/hillelwayne/archive/the-halting-problem-is-a-terrible-example-of-np/
 * _incompleteness theorem_: https://tigyog.app/d/C:tWWwvJDWlo/r/busy-beavers
 * _Von Neumann architecture_: model for hardware that allowed for data input via memory vs. rewiring hardware itself https://blog.robertelder.org/computer-science-for-engineers/
-
-### turing machine
 
 * https://snarky.ca/mvpy-minimum-viable-python/
 * https://news.ycombinator.com/item?id=41633551
@@ -292,6 +290,42 @@ else state == done:
 * Jira ticket stages would be another example https://news.ycombinator.com/item?id=24409556 https://github.com/alysivji/finite-state-machine https://github.com/statelyai/xstate
 * DFA https://en.wikipedia.org/wiki/Deterministic_finite_automaton
 * state machine replication https://signalsandthreads.com/state-machine-replication-and-why-you-should-care/
+
+# 🧠 PROCESSORS
+
+## ALU
+
+---
+
+* _ALU_: executes on opcode 📙 Shibuya [23] https://en.wikipedia.org/wiki/Arithmetic_logic_unit#Implementation
+* _opcode_: operator and operand https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ https://tech.marksblogg.com/faster-python.html
+* _data path_: how much data moves around circuit e.g. computer data pathes generally 1 byte wide [Petzold 180]
+* _cache_: caches RAM for processor, needs a few more cycles to read than registers https://www.reddit.com/r/compsci/comments/95ns21/what_is_difference_between_register_and_l1_cache/e3u4tlt e.g. L1 cache https://www.ardanlabs.com/blog/2023/07/getting-friendly-with-cpu-caches.html https://news.ycombinator.com/item?id=40365248
+* _register_: internal to processor i.e. not memory https://stackoverflow.com/a/9287273 size can vary on data type held e.g. 80 bits for floating point https://lock.cmpxchg8b.com/zenbleed.html
+
+## ISA
+
+📙 Bryant ch. 4 https://en.wikipedia.org/wiki/Instruction_set_architecture
+
+* _ISA_: interface for processor 📙 Evans Linux 1, PG hackers and painters 179
+* defines processor instructions, virtual memory, etc. https://en.wikipedia.org/wiki/Instruction_set_architecture
+* _ARM64_: ARM for desktops
+* _x86_: https://github.com/cirosantilli/x86-bare-metal-examples#china
+📍 port in notes from 'memory'
+* https://drewdevault.com/2021/03/19/A-new-systems-language.html
+* ARM, RISC V https://riscv.org/ https://www.youtube.com/watch?v=Lo63uDIiCH0 https://danluu.com/butler-lampson-1999/ https://www.wired.com/story/angelina-jolie-was-right-about-risc-architecture
+* https://www.jeffgeerling.com/blog/2020/raspberry-pi-cluster-episode-4-minecraft-pi-hole-grafana-and-more
+* https://www.jeffgeerling.com/blog/2020/what-does-apple-silicon-mean-raspberry-pi-and-arm64
+
+## GPU
+
+---
+
+* _CUDA_: GPUs aaS https://www.youtube.com/watch?v=hh0hK6UDQw0 https://www.pyspur.dev/blog/introduction_cuda_programming https://news.ycombinator.com/item?id=44216123
+* not always faster https://news.ycombinator.com/item?id=42389383
+* https://github.com/taichi-dev/taichi
+* _GPU_: https://news.ycombinator.com/item?id=23986925 https://lwn.net/Articles/827596/ https://codeconfessions.substack.com/p/gpu-computing https://codeconfessions.substack.com/p/gpu-computing https://news.ycombinator.com/item?id=42042016
+> GPUs are much less complex than CPUs; that means they can execute instructions much more quickly, but those instructions have to be much simpler. At the same time, you can run a lot of them at the same time to achieve outsized results. Graphics is, unsurprisingly, the most obvious example: every "shader" - the primary processing component of a GPU - calculates what will be displayed on a single portion of the screen; the size of the portion is a function of how many shaders you have available. If you have 1,024 shaders, each shader draws 1/1,024 of the screen. Ergo, if you have 2,048 shaders, you can draw the screen twice as fast. Graphics performance is "embarrassingly parallel", which is to say it scales with the number of processors you apply to the problem. https://stratechery.com/2023/china-chips-and-moores-law/
 
 # 💻 HARDWARE
 
@@ -487,37 +521,3 @@ operations
 * _idling_: entering a lower power stage when no instructions to execute; cost to enter/exit idle, so don't want to do for overly short periods
 
 * modern microprocessors https://news.ycombinator.com/item?id=27014027
-
-## ALU
-
----
-
-* _ALU_: executes on opcode 📙 Shibuya [23] https://en.wikipedia.org/wiki/Arithmetic_logic_unit#Implementation
-* _opcode_: operator and operand https://hacks.mozilla.org/2017/02/a-crash-course-in-assembly/ https://tech.marksblogg.com/faster-python.html
-* _data path_: how much data moves around circuit e.g. computer data pathes generally 1 byte wide [Petzold 180]
-* _cache_: caches RAM for processor, needs a few more cycles to read than registers https://www.reddit.com/r/compsci/comments/95ns21/what_is_difference_between_register_and_l1_cache/e3u4tlt e.g. L1 cache https://www.ardanlabs.com/blog/2023/07/getting-friendly-with-cpu-caches.html https://news.ycombinator.com/item?id=40365248
-* _register_: internal to processor i.e. not memory https://stackoverflow.com/a/9287273 size can vary on data type held e.g. 80 bits for floating point https://lock.cmpxchg8b.com/zenbleed.html
-
-## ISA
-
-📙 Bryant ch. 4 https://en.wikipedia.org/wiki/Instruction_set_architecture
-
-* _ISA_: interface for processor 📙 Evans Linux 1, PG hackers and painters 179
-* defines processor instructions, virtual memory, etc. https://en.wikipedia.org/wiki/Instruction_set_architecture
-* _ARM64_: ARM for desktops
-* _x86_: https://github.com/cirosantilli/x86-bare-metal-examples#china
-📍 port in notes from 'memory'
-* https://drewdevault.com/2021/03/19/A-new-systems-language.html
-* ARM, RISC V https://riscv.org/ https://www.youtube.com/watch?v=Lo63uDIiCH0 https://danluu.com/butler-lampson-1999/ https://www.wired.com/story/angelina-jolie-was-right-about-risc-architecture
-* https://www.jeffgeerling.com/blog/2020/raspberry-pi-cluster-episode-4-minecraft-pi-hole-grafana-and-more
-* https://www.jeffgeerling.com/blog/2020/what-does-apple-silicon-mean-raspberry-pi-and-arm64
-
-## GPU
-
----
-
-* _CUDA_: GPUs aaS https://www.youtube.com/watch?v=hh0hK6UDQw0 https://www.pyspur.dev/blog/introduction_cuda_programming
-* not always faster https://news.ycombinator.com/item?id=42389383
-* https://github.com/taichi-dev/taichi
-* _GPU_: https://news.ycombinator.com/item?id=23986925 https://lwn.net/Articles/827596/ https://codeconfessions.substack.com/p/gpu-computing https://codeconfessions.substack.com/p/gpu-computing https://news.ycombinator.com/item?id=42042016
-> GPUs are much less complex than CPUs; that means they can execute instructions much more quickly, but those instructions have to be much simpler. At the same time, you can run a lot of them at the same time to achieve outsized results. Graphics is, unsurprisingly, the most obvious example: every "shader" - the primary processing component of a GPU - calculates what will be displayed on a single portion of the screen; the size of the portion is a function of how many shaders you have available. If you have 1,024 shaders, each shader draws 1/1,024 of the screen. Ergo, if you have 2,048 shaders, you can draw the screen twice as fast. Graphics performance is "embarrassingly parallel", which is to say it scales with the number of processors you apply to the problem. https://stratechery.com/2023/china-chips-and-moores-law/

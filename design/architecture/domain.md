@@ -188,6 +188,8 @@ INFRASTRUCTURE
 
 ---
 
+https://www.njl.us/essays/services-implications/
+
 Domain Services: Stateless operations that don’t fit neatly into entities or value objects. Example: A "TaxCalculator" service applying tax rules across orders.
 Lifecycle Patterns:
 

@@ -271,6 +271,7 @@ MINIMAL 🔗 https://news.ycombinator.com/item?id=36745314
 * https://www.netmeister.org/blog/nsauth-diversity.html
 * https://www.shopify.com/ca/editions/winter2025
 * https://www.mattkeeter.com/blog/2024-03-25-packing/
+* https://ratfactor.com/cards/pl-small
 
 UNIQUE
 * https://shreyans.org/
